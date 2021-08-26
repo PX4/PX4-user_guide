@@ -155,7 +155,7 @@
     * [마인드레이서 BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md) 
       * [마인드레이서 210](complete_vehicles/mindracer210.md)
       * [나노마인드 110](complete_vehicles/nanomind110.md)
-    * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
+    * [BetaFPV Beta75X 2S 브러시리스 후프](complete_vehicles/betafpv_beta75x.md)
     * [홀리브로 코피스 2](complete_vehicles/holybro_kopis2.md)
     * [Bitcraze Crazyflie 2.0](complete_vehicles/crazyflie2.md)
     * [Bitcraze Crazyflie 2.1](complete_vehicles/crazyflie21.md)

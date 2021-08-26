@@ -14,7 +14,7 @@
 항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV)와 Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-드론의 두뇌에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치에는 각종 비행 모듈로 구성되어 있습니다.
+드론의 두뇌에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치는 여러가지 비행 모듈들로 구성됩니다.
 
 <a id="autopilot"></a>
 
@@ -24,33 +24,33 @@
 
 PX4의 주요 기능은 다음과 같습니다.
 
-- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체 및 잠수정 등 [매우 다양한 차량들](../airframes/airframe_reference.md)을 제어합니다. 
-- [기체 콘트롤러](#vehicle_controller), 센서 및 다양한 주변 장치라는 하드웨어 관점에서 매우 탁월한 선택입니다.
+- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체, 잠수정 등 [다양한 차량들](../airframes/airframe_reference.md)을 제어합니다. 
+- [차량 콘트롤러](#vehicle_controller), 센서 및 다양한 주변 장치 관점에서 매우 탁월한 하드웨어 선택입니다.
 - 유연하고 강력한 [비행 모드](#flight_modes)와 [안전 기능](#safety)을 지원합니다.
 
-PX4는 [QGroundControl](#qgc) 지상국 프로그램, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜을 사용하는 기타 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
+PX4는 [QGroundControl](#qgc) 지상국, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜 지원 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
 <a id="qgc"></a>
 
 ## QGroundControl
 
-드론코드에서 지원하는 지상국 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 다양한 매개변수 변경, 실시간 비행 정보 조회, 완전 자동 임무 비행 등의 작업을 할 수 있습니다.
+드론코드에서 지원하는 지상국은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)의 PX4 업로드, 기체 설정, 다양한 매개변수 변경, 실시간 비행 정보 조회, 완전 자동 임무 비행 등의 작업이 가능합니다.
 
-*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치합니다.
+*QGroundControl*은 윈도우, 안드로이드, 맥오에스 및 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다. 
 
 ![QGC 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
-## 비행 제어 장치(보드)
+## 비행 콘트롤러(보드)
 
-PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 차량의 물리적 조건, 운용 목적과 비용을 고려하여 적합한 보드를 선택하여야 합니다.
+PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 차량의 물리적 조건, 운용 목적과 비용을 고려하여 적절한 보드를 선택하여야 합니다.
 
-자세한 내용은 [비행 콘트롤러 선택](flight_controller_selection.md)편을 참고하십시오.
+자세한 내용은 [비행 콘트롤러 선택](flight_controller_selection.md)을 참고하십시오.
 
 ## 센서
 
-PX4는 센서로 기체의 상태를 결정(자율비행 기체 안정화에 필수적인 과정)합니다. 각속도 센서, 가속도 센서, 지자기 센서(나침반)와 기압 센서가 시스템 구동시의 *최소 요구 사항* 입니다. [자동 모드](../getting_started/flight_modes.md#categories)와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 측정 시스템이 필요합니다. 고정익과 수직이착륙기에는 대기속도 센서를 반드시 장착하여야 합니다.
+PX4는 센서로 기체의 상태를 결정(자율비행 기체 안정화에 필수적인 과정)합니다. 각속도 센서, 가속도 센서, 지자기 센서(나침반)와 기압 센서는 시스템 구동시의 *최소 요구 사항* 입니다. [자동 모드](../getting_started/flight_modes.md#categories)와 기타 모드를 사용하기 위해서는 GPS와 같은 위치 측정 시스템이 요구됩니다. 고정익과 수직이착륙기에는 대기속도 센서가 필수입니다.
 
 더 자세한 정보는 다음을 참고하십시오.
 
@@ -142,13 +142,13 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 시동이 걸린 기체는 안전 사고의 위험성이 항상 존재합니다. 안전 스위치는 예기치 않은 시동으로 인하여 발생할 수 있는 사고를 방치하는 것이 목적입니다.
 :::
 
-## 데이터 / 텔레메트리 라디오
+## 텔레메트리 무선 통신
 
-[데이터/텔레메트리 라디오](../telemetry/README.md)은 *QGroundControl*과 같은 지상 통제국과 PX4를 구동하는 기체를 MAVLink로 무선 연결합니다. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
+[텔레메트리 무선 통신](../telemetry/README.md)은 *QGroundControl*과 같은 지상 통제국과 PX4를 구동하는 차량을 MAVLink 프로토콜로 연결합니다. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
 
 ## 외부 보조 컴퓨터
 
-기체에 장착된 보조 컴퓨터는 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로, 보조 컴퓨터는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
+차량에 장착된 보조 컴퓨터는 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로, 보조 컴퓨터는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
 
 관련 주제는 다음과 같습니다.
 
