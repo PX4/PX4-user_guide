@@ -117,89 +117,88 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/motor_direction1.jpg" width="400" />
 
-   _Figure 7-1_: Motor direction
+   _그림 7-1_: 모터 방향
 
-1. Connect the 10 pin cables to FMU-PWM-in, the 6 pin cables to the PWR1 on the PM07 power module.
+1. 10핀 케이블을 FMU-PWM-in에 연결하고, 6핀 케이블을 PM07 전원 모듈의 PWR1에 연결합니다.
 
    ![Flight controller/Power module PWM and Power connections](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_cable.jpg)
 
-   _Figure 8_: Power module PWM and power wiring
+   _그림 8_: 전원 모듈 PWM 및 전원 배선
 
-1. If you want to mount the GPS on the top plate, you can now secure the GPS mount onto the top plate using 4 screws and nuts.
+1. GPS를 상판에 장착하려는 경우 이제 4개의 나사와 너트를 사용하여 GPS 장착을 상판에 고정할 수 있습니다.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gpsmount.jpg" width="400" title="Secure GPS mount onto top plate" />
 
-   _Figure 9_: Secure GPS mount onto top plate
+   _그림 9_: GPS 마운트를 상단 플레이트에 고정
 
-1. Feed the PM07 cables through the top plate. Connect the top and bottom plate by using 4 U-shaped nylon straps, screws, and nuts on each side, ensure that the motor ESC cables are inside the U-shape nylon straps like Figure 10, keep the nut loose.
+1. 상판을 통하여 PM07 케이블을 공급합니다. 양쪽에 4개의 U자형 나일론 스트랩, 나사 및 너트를 사용하여 상단 및 하단 플레이트를 연결하고, 모터 ESC 케이블이 그림 10과 같이 U자형 나일론 스트랩 내부에 있는 지 확인하고 너트를 느슨하게 유지합니다.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/top_plate.jpg" width="300" />
 
-   _Figure 10-1_: Feed power module cables through top plate
+   _그림 10-1_: 상단 플레이트를 통해 전원 모듈 케이블 공급
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/ushape.jpg" width="355" title="Connecting top and bottom plate" />
 
-   _Figure 10-2_: Connecting top and bottom plate
+   _그림 10-2_: 상판과 하판 연결
 
-1. Push the arm tubes a bit into the frame and make sure the amount of protrusion (red square from Figure 11) are consistent on all 4 arms. Ensure all the motors are pointed directly upward, then tighten all the nuts and screws.
+1. 암 튜브를 프레임에 약간 밀어 넣고, 돌출 정도(그림 11의 빨간색 사각형)가 4개의 암 모두에서 일정한 지 확인합니다. 모든 모터가 위를 향하고 있는 지 확인한 다음 모든 너트와 나사를 조입니다.
 
    ![Arms 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
 
-1. Put the hanger gaskets into the 4 hangers and mount them onto the bottom plate using 8 hex screws (Figure 11). The screw holes are noted by the white arrow in Figure 12. We recommend tilting the drone sideway to make the installation easier.
+1. 행거 개스킷을 행거 4개에 넣고 육각 나사 8개를 사용하여 하단 플레이트에 장착합니다(그림 11). 나사 구멍은 그림 12에서 흰색 화살표로 표시되어 있습니다. 설치가 더 쉽도록 드론을 옆으로 기울이는 것이 좋습니다.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png" width="400" title="Hanger gaskets" />
 
-   _Figure 11_: Hanger gaskets
+   _그림 11_: 행거 개스킷
 
    ![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
 
-   _Figure 12_: Screw holes
+   _그림 12_: 나사 구멍
 
-1. Insert the slide bars onto the hanger rings (Figure 13). Assemble the battery mount and platform board and mount them onto the slide bars as shown in Figure 14.
+1. 행거 링에 슬라이드 바를 삽입합니다(그림 13). 배터리 마운트와 플랫폼 보드를 조립하고, 그림 14와 같이 슬라이드 바에 장착합니다.
 
    ![Battery Mount 2: Slide bars](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
 
-   _Figure 13_: Slide bars
+   _그림 13_: 슬라이드 바
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/battery_mount1.jpg" width="400" title="Battery mount on slide bars" />
 
-   _Figure 14_: Battery mount on slide bars
+   _그림 14_: 슬라이드 바의 배터리 마운트
 
-1. Mount the landing gear onto the bottom plate. We recommend tilting the drone sideway to make this installation process easier.
+1. 랜딩 기어를 바닥판에 장착합니다. 이 설치 과정을 더 쉽게 하려면 드론을 옆으로 기울이는 것이 좋습니다.
 
    ![Landing Gear](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
-   _Figure 15_: Landing Gear
+   _그림 15_: 착륙 장치
 
 
-1. Use the tape and stick the GPS to the top of the GPS mast and mount the GPS mast. Make sure the arrow on the gps is pointing forward (Figure 16).
+1. 테이프를 사용하여 GPS를 GPS 마스트 상단에 붙이고 GPS 마스트를 장착합니다. GPS의 화살표가 앞을 가리키는 지 확인하십시오(그림 16).
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
 
-   _Figure 16_: GPS and mast
+   _그림 16_: GPS 및 마스트
 
 
-1. Mount the telemetry radio onto the top plate. Plug the telemetry cable into `TELEM1` port and GPS module to `GPS MODULE` port on the flight controller. Plug the cable from PM07 `FMU-PWM-in` to `I/O-PWM-out`on the FC and PM07 `PWR1` to `POWER1` on the FC, as shown in Figure 17.
+1. 상판에 원격 측정 라디오를 장착합니다. 원격 측정 케이블을 `TELEM1` 포트에 연결하고, GPS 모듈을 비행 콘트롤러의 `GPS MODULE` 포트에 연결합니다. 케이블을 PM07 `FMU-PWM-in`에서 FC의 `I/O-PWM-out`으로 연결하고 PM07 `PWR1`에서 그림 17과 같이 FC의 `POWER1`로 연결합니다.
 
    ![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/fc_connections.jpg)
 
-   _Figure 17_: Mount telemetry radio/plug in PWM and Power cables to Flight controller.
+   _그림 17_: 원격 측정 라디오를 장착하고 PWM 및 전원 케이블을 비행 콘트롤러에 연결합니다.
 
-Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for more information.
+자세한 내용은 [Pixhawk 4 빠른 시작](../assembly/quick_start_pixhawk4.md)을 참고하십시오.
 
-That's it. The fully assembled kit is shown below:
+조립이 완료되었습니다. 완전히 조립된 키트는 다음과 같습니다.
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 <a id="configure"></a>
 
-## 조립
+## PX4 설치 및 설정
 
-:::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 X500 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드 후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
