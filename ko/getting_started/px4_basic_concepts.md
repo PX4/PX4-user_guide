@@ -14,7 +14,7 @@
 항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV)와 Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-드론의 두뇌에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치에는 각종 비행 모듈로 구성되어 있습니다.
+드론의 두뇌에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치는 여러가지 비행 모듈들로 구성됩니다.
 
 <a id="autopilot"></a>
 
@@ -24,8 +24,8 @@
 
 PX4의 주요 기능은 다음과 같습니다.
 
-- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체 및 잠수정 등 [매우 다양한 차량들](../airframes/airframe_reference.md)을 제어합니다. 
-- [기체 콘트롤러](#vehicle_controller), 센서 및 다양한 주변 장치라는 하드웨어 관점에서 매우 탁월한 선택입니다.
+- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체, 잠수정 등 [다양한 차량들](../airframes/airframe_reference.md)을 제어합니다. 
+- [차량 콘트롤러](#vehicle_controller), 센서 및 다양한 주변 장치 관점에서 매우 탁월한 하드웨어 선택입니다.
 - 유연하고 강력한 [비행 모드](#flight_modes)와 [안전 기능](#safety)을 지원합니다.
 
 PX4는 [QGroundControl](#qgc) 지상국 프로그램, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜을 사용하는 기타 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
