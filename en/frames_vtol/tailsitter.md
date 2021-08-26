@@ -21,7 +21,7 @@ The tailsitter rotors are permanently fixed in position for forward flight.
   </div>
 <div class="grid_item">
   <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-quad-tailsitter">VTOL Quad Tailsitter</a></big></div>
-  Four rotor VTOL with optional elevons. Uses rotors to transition between modees (along with elevons if present).
+  Four rotor VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
   <div class="grid_text">
   <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
   <ul>
@@ -41,8 +41,8 @@ Quad tailsitters are easier to fly in hover mode, and more stable in windy condi
 VTOL setup and flying are covered in the [VTOL](../frames_vtol/README.md) parent topic.
 
 :::note
-The instrucitons are essentially the same for all VTOL.
-The main frame-specific differences are the  motor wiring (see [VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) and [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)), and some aspects of tuning the configuration.
+The instructions are essentially the same for all VTOL.
+The main frame-specific differences are the motor wiring (see [VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) and [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)), and some aspects of tuning the configuration.
 :::
 
 ## Build Logs
@@ -52,7 +52,6 @@ Step-by-step guides of how to set up PX4 on tailsitter frames are listed below:
 - [TBS Caipiroshka Tailsitter Build (Pixracer)](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
 :::tip
-
 We recommend that you also review build logs for other PX4 VTOL, and Copter vehicles (most of the setup is the same).
 :::
 
