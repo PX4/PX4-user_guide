@@ -1,13 +1,13 @@
 # Holybro X500 + Pixhawk4 조립
 
-키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
+키트 조립법과 *QGroundControl*의 PX4 설정법에 대하여 설명합니다.
 
 ## 주요 정보
 
 - **프레임:** Holybro X500
 - **비행 컨트롤러:** [Pixhawk 4](../flight_controller/pixhawk4.md)
 - **조립 시간 (예상):** 2시간 (프레임 조립에 75분, 오토파일럿 설치 및 설정에 45분)
-- **Assembly time (approx.):** 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
+- **조립 시간 (예상):** 3.75시간 (프레임 조립에 180분, 오토파일럿 설치 및 설정에 45분)
 
 ![전체 X500 키트](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
 
@@ -22,12 +22,12 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 * [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
 * [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
 * 전원 관리 - PM07
-* Wheelbase - 500 mm
-* 치수 - 410 *410* 300mm
+* 전원 및 무선 조종기 케이블
+* 휠베이스 - 500 mm
 * 433 MHz Telemetry Radio/915 MHz Telemetry Radio
 * 433 MHz Telemetry Radio/915 MHz Telemetry Radio
 
-Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
+드론을 수동 제어에는 배터리와 수신기([호환 무선 시스템](../getting_started/rc_transmitter_receiver.md))가 필요합니다.
 
 ## 하드웨어
 
@@ -62,58 +62,58 @@ Additionally you will need a battery and receiver ([compatible radio system](../
 
 ### 필요 공구
 
-The following tools are used in this assembly:
+조립시에 필요한 공구들입니다.
 
 - 수신기: FR SKY Taranis
 - 배터리: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
-- 2.5 mm Hex screwdriver
-- 3mm Phillips screwdriver
-- 5.5 mm socket wrench or small piler
-- Wire cutters
-- Precision tweezers
+- 2.5 mm 육각 스크류드라이버
+- 3mm 필립스 스크류드라이버
+- 5.5mm 소켓 렌치 또는 작은 파일러
+- 전선 커터
+- 정밀 트위저
 
 
-## 패키지
+## 조립
 
-Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
+예상 조립 시간은 3.75시간(프레임은 180분, 자동 조종 장치 설치/설정은 45분)입니다.
 
-1. Start by assembling the landing gear. Unscrew the landing gear screws and insert the vertical pole (figures 1 and 2).
+1. 랜딩기어 조립부터 시작합니다. 랜딩 기어 나사를 풀고 수직 기둥을 삽입합니다(그림 1 및 2).
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
 
-   _Figure 2_: Landing gear components
+   _그림 2_: 착륙 장치 구성 요소
 
    ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
 
-   _Figure 2_: Landing gear assembled
+   _그림 2_: 랜딩 기어 조립
 
-1. Then put the 4 arms through the 4 motor bases shown in figure 3. Make sure the rods protrude the base slightly and are consistent throughout all 4 arms, and be sure to have the motor wires facing outward.
+1. 그런 다음, 그림 3에 표시된 4개의 모터 베이스를 통해 4개의 암을 넣습니다. 로드가 베이스를 약간 돌출시키고 4개의 암 전체에서 일관성이 있는 지 확인하고 모터 와이어가 바깥쪽을 향하도록 합니다.
 
    ![Attach arms to motor bases](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
-   _Figure 3_: Attach arms to motor bases
+   _그림 3_: 모터 베이스에 암 부착
 
-1. Insert 4 nylon screws and nylon standoffs and attach the power module PM07 to the bottom plate using 4 nylon nuts as shown in Figures 4.
+1. 4개의 나일론 나사와 나일론 스탠드오프를 삽입하고, 그림 4와 같이 4개의 나일론 너트를 사용하여 전원 모듈 PM07을 하단 플레이트에 부착합니다.
 
    ![Attach power module](../../assets/airframes/multicopter/x500_holybro_pixhawk4/power_module.jpg)
 
-   _Figure 4_: Attach power module
+   _그림 4_: 전원 모듈 연결
 
-1. Feed the 4 motor ESCs through each of the arms and connect the 3-wires end to the motors shown in Figure 5.
+1. 각 암을 통해 4개의 모터 ESC를 공급하고, 그림 5에 표시된 모터에 3선 끝을 연결합니다.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg" width="250" title="Connect motors" />
 
-   _Figure 5_: Connect motors
+   _그림 5_: 모터 연결
 
-1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out". Make sure you connect the motor ESC PWM wires in the correct order. Refer to Figure 7 for airframe motor number and connect to the corrsponding number on the PM07 board.
+1. ESC 전원선을 전원 모듈 PM07에 연결하고, 검정-검정 및 빨강-빨간색, ESC PWM 신호선을 "FMU-PWM-Out"으로 연결합니다. 모터 ESC PWM 와이어를 올바른 순서로 연결하였는 지 확인하십시오. 기체 모터 번호는 그림 7을 참조하고 PM07 보드의 해당 번호에 연결합니다.
 
-   ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _Figure 7_: ESC power module and signal wiring
+   ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _그림 7_: ESC 전원 모듈 및 신호 배선
 
-   The color on top of the motor indicate the spin direction (figure 7-1), black tip is clockwise, and white tip is counter-clockwise. Make sure the follow the px4 quadrotor x airframe reference for motor direction (figure 7-2).
+   모터 상단의 색상은 회전 방향(그림 7-1)을 나타내며, 검은색 끝은 시계 방향, 흰색 끝은 반시계 방향입니다. 모터 방향은 px4 quadrotor x 기체 정의서를 따라야 합니다(그림 7-2).
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/quadx.png" width="240" />
 
-   _Figure 7_: Motor order/direction diagram
+   _그림 7_: 모터 순서/방향 다이어그램
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/motor_direction1.jpg" width="400" />
 
