@@ -9,11 +9,11 @@ VTOL vehicles offer the benefits of both multicopter and fixed-wing flight:
 - **Fast and efficient fixed wing flight:** Faster, further, and longer missions, carrying heavier payloads.
 - **Hovering:** Steady platform for photography, structure scans etc.
 
-This section contains build logs and instructions for assembling and configuring a number of VTOL vehicle frames.
+This section describes the VTOL types and configurations supported by PX4, and provides high-level directions for assembly, configuration, and flight.
 
 ## VTOL Types
 
-PX4 supports the three most important/main VTOL configurations.
+PX4 supports the three most important/main VTOL types.
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
@@ -61,10 +61,14 @@ PX4 supports the three most important/main VTOL configurations.
 In general, as mechanical complexity increases the vehicles are easier to fly, but the cost and weight increase.
 Each type has advantages and disadvantages, and there are successful commercial ventures based on all of them.
 
-The complete set of supported configurations can be seen in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
+Within each of the main "types" above, there are many possible variations—for example, the number of motors, motor geometry, flight surfaces, etc.
+PX4 provides *airframe configurations* for many of the more common vehicle setups.
+The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
-The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
-
+:::note
+- If the vehicle setup you need is not supported you may need to [Add an Airframe](../dev_airframes/adding_a_new_frame.md) (requires some [PX4 Development](../development/development.md) expertise).
+- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+:::
 
 ## Flying and Flight Modes
 
@@ -91,10 +95,12 @@ Assembly information is covered in several sections:
 - [Basic Assembly](../assembly/README.md) contains topics shows the setup of core components for a number of popular [flight controllers](../flight_controller/README.md).
   Flight controllers for which we do not have guides are usually set up in much the same way (and almost always include similar setup guides).
 - [Peripherals](../peripherals/README.md) contains information about other peripherals, including [Airspeed Sensors](../sensor/airspeed.md).
-- [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol) explains which flight controller outputs must be connected to different flight controls (rememember that motors and servos must also be powered!)
+- [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol) explains which flight controller outputs must be connected to different flight controls for each airframe configuration:
+  - Select the configuration for your vehicle if one exists, as this will have been pre-tuned well enough to fly (may only require fine tuning).
+  - Otherwise select a "Generic Airframe" that matches your vehicle.
 
-In addition, build logs showing how others have set up different types of vehicles provided as sub topics.
-For exmaple see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
+In addition, build logs showing how others have set up different types of vehicles are provided as sub topics.
+For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
 
 ## Configuration
 
