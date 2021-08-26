@@ -67,7 +67,7 @@
       * [Ranger QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
       * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
     * [Tailsitter VTOL](frames_vtol/tailsitter.md) 
-      * [TBS Caipiroshka Tailsitter Build (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
+      * [Build: TBS Caipiroshka Tailsitter Build (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [Tiltrotor VTOL](frames_vtol/tiltrotor.md) 
       * [Build: Convergence Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
   * [로버 탐사선](frames_rover/README.md) 
