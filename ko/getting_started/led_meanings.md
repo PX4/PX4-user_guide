@@ -58,11 +58,11 @@ RGB *UI LED*는 차량의 *비행 준비* 상태를 표시합니다. RGB LED는 
 
 LED가 의미하는 메시지에 관한 자세한 정보는 아래에서 설명합니다( "x"는 "모든 상태"를 의미).
 
-| 적색/황색 | 청색  | 녹색    | 설명                                                |
-| ----- | --- | ----- | ------------------------------------------------- |
-| 10Hz  | x   | x     | 오버로드 CPU 부하> 80 % 또는 RAM 사용량> 98 %                |
-| OFF   | x   | x     | CPU 과부하<= 80%, or RAM usage <= 98%                |
-| NA    | OFF | 4 Hz  | Actuator_armed -> 시동 & & 사고방지                     |
-| NA    | ON  | 4 Hz  | Actuator_armed -> 시동 & & 사고방지                     |
-| NA    | OFF | 1 Hz  | !actuator_armed -> 시동 && actuator_armed ->시동 준비 |
-| NA    | OFF | 10 Hz | !actuator_armed -> 시동 && actuator_armed ->시동 준비 |
+| 적색/황색 | 청색  | 녹색    | 설명                                                     |
+| ----- | --- | ----- | ------------------------------------------------------ |
+| 10Hz  | x   | x     | 오버로드 CPU 부하 &gt; 80 % 또는 RAM 사용량 &gt; 98 % |
+| OFF   | x   | x     | CPU 과부하<= 80%, or RAM usage <= 98%                     |
+| NA    | OFF | 4 Hz  | Actuator_armed -> 시동 && 사고방지                           |
+| NA    | ON  | 4 Hz  | Actuator_armed -> 시동 && 사고방지                           |
+| NA    | OFF | 1 Hz  | !actuator_armed -> 시동 && actuator_armed ->시동 준비      |
+| NA    | OFF | 10 Hz | !actuator_armed -> 시동 && actuator_armed ->시동 준비      |
