@@ -1,10 +1,10 @@
 # VTOL 기체
 
-PX4 uses the term VTOL to refer to vehicles that support both forward flight like a fixed-wing aircraft ("airplane") and vertical take off and landing like a helicopter or multicopter.
+PX4는 고정익의 전방 비행과 멀티콥터의 수직 이착륙을 기능을 모두 지원하는 차량을 지칭하는 VTOL이라는 용어를 사용합니다.
 
 ![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero.jpg)
 
-VTOL vehicles offer the benefits of both multicopter and fixed-wing flight:
+VTOL 차량은 멀티콥터와 고정익 비행의 이점을 모두 제공합니다.
 
 - **Vertical takeoff and landing:** Even inexperienced pilots can take off and land virtually anywhere.
 - **Fast and efficient fixed wing flight:** Faster, further, and longer missions, carrying heavier payloads.
