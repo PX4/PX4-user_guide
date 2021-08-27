@@ -4,15 +4,15 @@ PX4는 고정익의 전방 비행과 멀티콥터의 수직 이착륙을 기능�
 
 ![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero.jpg)
 
-VTOL 차량은 멀티콥터와 고정익 비행의 이점을 모두 제공합니다.
+VTOL은 멀티콥터와 고정익의 장점을 모두 가지고 있습니다.
 
-- **Vertical takeoff and landing:** Even inexperienced pilots can take off and land virtually anywhere.
-- **Fast and efficient fixed wing flight:** Faster, further, and longer missions, carrying heavier payloads.
-- **Hovering:** Steady platform for photography, structure scans etc.
+- **수직 이착륙:** 능숙한 조종사 아니어도 웬만한 장소에서 이착륙이 어렵지 않습니다.
+- **빠르고 효율적인 고정익 비행:** 더 빠르고, 더 멀리, 더 긴 임무를 수행하고 더 무거운 화물들을 운반합니다.
+- **호버링:** 사진, 구조 스캔 등을 위한 안정적인 플랫폼
 
-This section describes the VTOL types and configurations supported by PX4, and provides high-level directions for assembly, configuration, and flight.
+이 섹션에서는 PX4에서 지원하는 VTOL 유형과 구성을 설명하고 조립, 구성 및 비행에 대한 높은 수준의 지침을 제공합니다.
 
-## VTOL Types
+## VTOL 유형
 
 PX4 supports the three most important/main VTOL types.
 
