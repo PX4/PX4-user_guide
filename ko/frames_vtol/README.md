@@ -45,10 +45,10 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
   </div>
 </div>
 <div class="grid_item">
-  <div class="grid_item_heading"><a href="standardvtol.html" title="Standard VTOL"><big>표준 VTOL</big></a></div>
+  <div class="grid_item_heading"><a href="standardvtol.html" title="표준 VTOL"><big>표준 VTOL</big></a></div>
   <div class="grid_text">
   멀티콥터와 전진 비행을 위한 별도의 로터/비행 제어 장치. 이륙하고 배로 착지합니다.
-  <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
+  <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="수직 기술: Deltaquad" />
   <ul>
     <li>별도의 호버링/전진 비행 추진 시스템으로 인한 추가 중량</li>
     <li>전용 호버/포워드 플라이트 액츄에이터로 제어가 가장 용이 </li>
