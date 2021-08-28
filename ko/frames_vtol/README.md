@@ -25,22 +25,22 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
     <ul>
       <li>간단하고 견고함.</li>
-      <li>Minimal set of actuators</li>
-      <li>Can be hard to control, particularly in wind</li>
-      <li>Tradeoff between efficiency in hover and forward flight, as same actuators are used</li>
+      <li>최소한의 액추에이터 세트</li>
+      <li>바람이 불면 제어하기 어려울 수 있음</li>
+      <li>동일한 액츄에이터가 사용되므로 호버링과 전진 비행의 효율성 간의 균형</li>
     </ul>
     </div>
   </div>
 <div class="grid_item">
-  <div class="grid_item_heading"><a href="tiltrotor.html" title="Tiltrotor"><big>Tiltrotor</big></a></div>
-  Rotors swivel 90 degrees to transition from multicopter to forward flight orientation.
-  Takes off and lands on belly.
+  <div class="grid_item_heading"><a href="tiltrotor.html" title="Tiltrotor"><big>틸트로터</big></a></div>
+  로터는 멀티콥터에서 전방 비행 방향으로 전환하기 위하여 90도 회전합니다.
+  이륙하고 배로 착지합니다.
   <div class="grid_text">
   <img src="../../assets/airframes/vtol/eflite_convergence_pixfalcon/hero.jpg" title="Eflight Confvergence" />
   <ul>
-    <li>Additional actuators for motor tilts</li>
-    <li>Mechanically complex tilting mechanism</li>
-    <li>Easier to control in hover than tailsitters due to more control authority</li>
+    <li>모터 틸트용 추가 액추에이터</li>
+    <li>기계적으로 복잡한 틸팅 메커니즘</li>
+    <li>더 많은 제어 권한으로 인하여 테일 시터보다 호버에서 제어하기 쉽습니다.</li>
   </ul>
   </div>
 </div>
