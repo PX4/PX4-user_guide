@@ -10,21 +10,21 @@ VTOL은 멀티콥터와 고정익의 장점을 모두 가지고 있습니다.
 - **빠르고 효율적인 고정익 비행:** 더 빠르고, 더 멀리, 더 긴 임무를 수행하고 더 무거운 화물들을 운반합니다.
 - **호버링:** 사진, 구조 스캔 등을 위한 안정적인 플랫폼
 
-이 섹션에서는 PX4에서 지원하는 VTOL 유형과 구성을 설명하고 조립, 구성 및 비행에 대한 높은 수준의 지침을 제공합니다.
+PX4가 지원하는 VTOL 유형, 조립, 구성 및 비행 방법에 대하여 설명합니다.
 
 ## VTOL 유형
 
-PX4 supports the three most important/main VTOL types.
+PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
-    <div class="grid_item_heading"><a href="tailsitter.html" title="Tailsitter"><big>Tailsitter</big></a></div>
+    <div class="grid_item_heading"><a href="tailsitter.html" title="Tailsitter"><big>테일시터</big></a></div>
     <div class="grid_text">
-    Rotors permanently in fixed wing-position.
-    Takes off and lands on tail. Whole vehicle tilts forward to enter forward flight.
+    고정익 위치에 로터가 고정됩니다.
+    이륙하고 꼬리로 착륙합니다. 전체 차량이 앞으로 기울어져 전진 비행으로 전환합니다.
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
     <ul>
-      <li>Simple and robust</li>
+      <li>간단하고 견고함.</li>
       <li>Minimal set of actuators</li>
       <li>Can be hard to control, particularly in wind</li>
       <li>Tradeoff between efficiency in hover and forward flight, as same actuators are used</li>
