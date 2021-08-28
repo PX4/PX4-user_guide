@@ -1,4 +1,4 @@
-# Standard VTOL
+# 표준 VTOL
 
 A **Standard VTOL** is a [VTOL](../frames_vtol/README.md) that has _completely separate_ flight controls for multicopter and fixed wing flight.
 
