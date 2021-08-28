@@ -2,7 +2,7 @@
 
 PX4는 고정익의 전방 비행과 멀티콥터의 수직 이착륙을 기능을 모두 지원하는 차량을 지칭하는 VTOL이라는 용어를 사용합니다.
 
-![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero.jpg)
+![수직 기술: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero.jpg)
 
 VTOL은 멀티콥터와 고정익의 장점을 모두 가지고 있습니다.
 
@@ -18,11 +18,11 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
-    <div class="grid_item_heading"><a href="tailsitter.html" title="Tailsitter"><big>테일시터</big></a></div>
+    <div class="grid_item_heading"><a href="tailsitter.html" title="테일시터"><big>테일시터</big></a></div>
     <div class="grid_text">
     고정익 위치에 로터가 고정됩니다.
     이륙하고 꼬리로 착륙합니다. 전체 차량이 앞으로 기울어져 전진 비행으로 전환합니다.
-    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
+    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="윙트라온" />
     <ul>
       <li>간단하고 견고함.</li>
       <li>최소한의 액추에이터 세트</li>
@@ -32,11 +32,11 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
     </div>
   </div>
 <div class="grid_item">
-  <div class="grid_item_heading"><a href="tiltrotor.html" title="Tiltrotor"><big>틸트로터</big></a></div>
+  <div class="grid_item_heading"><a href="tiltrotor.html" title="틸트로터"><big>틸트로터</big></a></div>
   로터는 멀티콥터에서 전방 비행 방향으로 전환하기 위하여 90도 회전합니다.
   이륙하고 배로 착지합니다.
   <div class="grid_text">
-  <img src="../../assets/airframes/vtol/eflite_convergence_pixfalcon/hero.jpg" title="Eflight Confvergence" />
+  <img src="../../assets/airframes/vtol/eflite_convergence_pixfalcon/hero.jpg" title="E 플라이트 컨버전스" />
   <ul>
     <li>모터 틸트용 추가 액추에이터</li>
     <li>기계적으로 복잡한 틸팅 메커니즘</li>
@@ -89,59 +89,59 @@ PX4 제어 차량은 일반적으로 전원 시스템에 연결된 비행 컨트
 
 비행 컨트롤러 출력과 특정 컨트롤/모터 간의 매핑은 사용된 차량 프레임에 따라 다르며 [기체 정의서 &gt; VTOL](../airframes/airframe_reference.md#vtol)에 지정되어 있습니다.
 
-Assembly information is covered in several sections:
+조립 방법은 여러 섹션에서 설명합니다.
 
-- [Basic Assembly](../assembly/README.md) contains topics shows the setup of core components for a number of popular [flight controllers](../flight_controller/README.md). Flight controllers for which we do not have guides are usually set up in much the same way (and almost always include similar setup guides).
-- [Peripherals](../peripherals/README.md) contains information about other peripherals, including [Airspeed Sensors](../sensor/airspeed.md).
-- [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol) explains which flight controller outputs must be connected to different flight controls for each airframe configuration: 
-  - Select the configuration for your vehicle if one exists, as this will have been pre-tuned well enough to fly (may only require fine tuning).
-  - Otherwise select a "Generic Airframe" that matches your vehicle.
+- [기본 조립](../assembly/README.md)에는 여러 인기 있는 [비행 콘트롤러](../flight_controller/README.md)의 핵심 구성요소 설정을 보여주는 주제가 포함되어 있습니다. 가이드가 없는 비행 콘트롤러는 일반적으로 거의 동일한 방식으로 설정됩니다(거의 항상 유사한 설정 가이드가 포함됨).
+- [주변 장치](../peripherals/README.md)에는 [대기 속도 센서](../sensor/airspeed.md)를 비롯한 기타 주변 장치에 대한 정보가 포함되어 있습니다.
+- [기체 정의서 &gt; VTOL](../airframes/airframe_reference.md#vtol) 각 기체 구성에 대해 다른 비행 콘트롤러에 연결하여야 하는 비행 컨트롤러 출력을 설명합니다. 
+  - 정의된 차량에 대한 구성을 선택하십시오. 이는 비행하기에 충분히 사전 조정된 것이기 때문입니다(미세 조정만 필요할 수 있음).
+  - 그렇지 않으면 차량과 일치하는 "일반 기체"를 선택하십시오.
 
-In addition, build logs showing how others have set up different types of vehicles are provided as sub topics. For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
+또한 다른 사람들이 다른 유형의 차량을 설정한 방법을 보여주는 빌드 로그가 하위 주제로 제공됩니다. 예제로 [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)을 참고하십시오.
 
-## Configuration
+## 설정
 
-VTOL configuration is covered in a number of sections:
+VTOL 구성은 여러 섹션에서 다룹니다.
 
-- [Basic Configuration](../config/README.md) - Configuration that is common to all vehicle types (sensors, safety systems, batteries etc).
-- [VTOL Specific Configuration](../config_vtol/README.md)
-- [Peripheral Hardware](/peripherals/README.md) - Configuration for optional hardware and sensors.
-- [Advanced Configuration](../advanced_config/README.md): Additional configuration covering factory tuning and advanced and optional configuration.
+- [기본 구성](../config/README.md) - 모든 차량 유형(센서, 안전 시스템, 배터리 등)에 공통적인 구성입니다.
+- [VTOL 특정 구성](../config_vtol/README.md)
+- [주변 하드웨어](/peripherals/README.md) - 선택적 하드웨어 및 센서에 대한 구성입니다.
+- [고급 구성](../advanced_config/README.md): 공장 조정과 고급 및 선택적 구성을 포함하는 추가 구성입니다.
 
-## Videos
+## 비디오
 
-### Educational
+### 교육
 
 VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
-@[youtube](https://youtu.be/37BIBAzD6fE) <!-- 20190704 -->
+@[유투브](https://youtu.be/37BIBAzD6fE) <!-- 20190704 -->
 
-### Tailsitter
+### 테일시터
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/)
+[UAV Works VALAQ 순찰 테일 시터](https://www.valaqpatrol.com/tech-data/)
 
-@[youtube](https://youtu.be/pWt6uoqpPIw)
+@[유투브](https://youtu.be/pWt6uoqpPIw)
 
 [TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
-@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+@[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
-### Tiltrotor
+### 틸트로터
 
-[Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
+[컨버전스 틸트로터](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+@[유투브](https://youtu.be/E61P2f2WPNU)
 
 ### QuadPlane VTOL
 
 [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
 
-@[youtube](https://www.youtube.com/watch?v=4K8yaa6A0ks&vq=hd720)
+@[유투브](https://www.youtube.com/watch?v=4K8yaa6A0ks&vq=hd720)
 
 [Falcon Vertigo QuadPlane](../frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
 
-@[youtube](https://youtu.be/h7OHTigtU0s)
+@[유투브](https://youtu.be/h7OHTigtU0s)
 
 [Ranger QuadPlane](../frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
 
-@[youtube](https://www.youtube.com/watch?v=7tGXkW6d3sA&vq=hd720)
+@[유투브](https://www.youtube.com/watch?v=7tGXkW6d3sA&vq=hd720)
