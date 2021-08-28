@@ -40,32 +40,32 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
   <ul>
     <li>모터 틸트용 추가 액추에이터</li>
     <li>기계적으로 복잡한 틸팅 메커니즘</li>
-    <li>더 많은 제어 권한으로 인하여 테일 시터보다 호버에서 제어하기 쉽습니다.</li>
+    <li>더 많은 제어 권한으로 테일시터보다 호버링이 용이합니다.</li>
   </ul>
   </div>
 </div>
 <div class="grid_item">
-  <div class="grid_item_heading"><a href="standardvtol.html" title="Standard VTOL"><big>Standard VTOL</big></a></div>
+  <div class="grid_item_heading"><a href="standardvtol.html" title="Standard VTOL"><big>표준 VTOL</big></a></div>
   <div class="grid_text">
-  Separate rotors/flight controls for multicopter and forward flight. Takes off and lands on belly.
+  멀티콥터와 전진 비행을 위한 별도의 로터/비행 제어 장치. 이륙하고 배로 착지합니다.
   <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
   <ul>
-    <li>Additional weight from separate hover/forward flight propulsion systems</li>
-    <li>Easiest to control due to dedicated hover/forward flight actuators</li>
-    <li>Can hover</li>
-    <li>Fuel engines for forward flight propulsion can be used</li>
+    <li>별도의 호버링/전진 비행 추진 시스템으로 인한 추가 중량</li>
+    <li>전용 호버/포워드 플라이트 액츄에이터로 제어가 가장 용이 </li>
+    <li>호버링 가능</li>
+    <li>전방 비행 추진을 위한 연료 엔진 사용 가능</li>
   </ul>
   </div>
  </div>
 </div>
 
-In general, as mechanical complexity increases the vehicles are easier to fly, but the cost and weight increase. Each type has advantages and disadvantages, and there are successful commercial ventures based on all of them.
+일반적으로 기계적 복잡성이 증가함에 따라, 차량은 비행이 용이할 수 있지만 비용과 무게가 증가합니다. 각 유형에는 장단점이 있으며 이를 기반으로 성공적인 상업 벤처가 있습니다.
 
-Within each of the main "types" above, there are many possible variations—for example, the number of motors, motor geometry, flight surfaces, etc. PX4 provides *airframe configurations* for many of the more common vehicle setups. The supported set is listed in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
+위의 각 주요 "유형"에는 모터 수, 모터 기하학, 비행 표면 등과 같은 많은 가능한 변형이 있습니다. PX4는 보다 일반적인 차량 설정에 대한 *기체 구성*을 제공합니다. 지원되는 세트는 [Airframes Reference &gt; VTOL](../airframes/airframe_reference.md#vtol)에 설명되어 있습니다.
 
 :::note
 
-- If the vehicle setup you need is not supported you may need to [Add an Airframe](../dev_airframes/adding_a_new_frame.md) (requires some [PX4 Development](../development/development.md) expertise).
+- 필요한 차량 설정이 지원되지 않는 경우에는 [기체를 추가](../dev_airframes/adding_a_new_frame.md)하여야 합니다(일부 [PX4 개발](../development/development.md) 전문 지식 필요).
 - The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
 :::
 
