@@ -66,28 +66,28 @@ PX4는 세 가지 중요한 VTOL 유형을 지원합니다.
 :::note
 
 - 필요한 차량 설정이 지원되지 않는 경우에는 [기체를 추가](../dev_airframes/adding_a_new_frame.md)하여야 합니다(일부 [PX4 개발](../development/development.md) 전문 지식 필요).
-- The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+- VTOL 코드베이스는 다른 모든 기체와 동일한 코드베이스이며, 특히 전환 제어 로직을 추가합니다.
 :::
 
-## Flying and Flight Modes
+## 비행 및 비행 모드
 
-A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. Multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+VTOL 항공기는 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. 멀티콥터 모드는 주로 이착륙에 사용되고, 고정익 모드는 이동 및 임무 수행에 사용됩니다.
 
-The flight modes for VTOL vehicles are the same as for [multicopter](../getting_started/flight_modes.md#mc_flight_modes) when flying in MC mode and [fixed-wing](../getting_started/flight_modes.md#fw_flight_modes) when flying in FW mode.
+VTOL의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](../getting_started/flight_modes.md#mc_flight_modes)와 동일하고, 고정익 모드 비행시에는 [고정익](../getting_started/flight_modes.md#fw_flight_modes)과 동일합니다.
 
-The transition between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
+모드 전환은 RC 스위치를 사용하는 조종사에 의해 시작되거나 임무 또는 기타 자동 모드에서 필요할 때 PX4에 의해 자동으로 시작됩니다.
 
-## Assembly
+## 조립
 
 :::note
-For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/README.md)
+상업용 및 키트 VTOL 차량에 대한 정보는 [차량 완제품](../complete_vehicles/README.md)을 참고하십시오.
 :::
 
-PX4 controlled vehicles generally share the same core components: a flight controller connected to a power system, GPS, external compass (highly recommended), radio control system (optional) and/or telemetry radio system (optional), and airspeed sensor (highly recommended for VTOL vehicles).
+PX4 제어 차량은 일반적으로 전원 시스템에 연결된 비행 컨트롤러, GPS, 외부 나침반(권장), 무선 제어 시스템(선택 사항), 텔레메트리(선택 사항) 및 속도 센서(VTOL용으로 강력 권장)와 같은 핵심 구성 요소를 공유합니다.
 
-The flight controller outputs are connected to the vehicle motor ESCs and/or flight control servos and actuators, which are separately powered.
+비행 콘트롤러 출력은 별도로 전원이 공급되는 차량 모터 ESC 또는 비행 제어 서보 및 액추에이터에 연결됩니다.
 
-The mapping between flight controller outputs and specific controls/motors depends on the vehicle frame used, and is specified in the [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
+비행 컨트롤러 출력과 특정 컨트롤/모터 간의 매핑은 사용된 차량 프레임에 따라 다르며 [기체 정의서 &gt; VTOL](../airframes/airframe_reference.md#vtol)에 지정되어 있습니다.
 
 Assembly information is covered in several sections:
 
