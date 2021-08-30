@@ -1,6 +1,6 @@
 # E-flite Convergence 틸트로터 VTOL (Pixfalcon)
 
-[E-Flite 컨버전스](https://youtu.be/HNedXQ_jhYo) PX4의 자율 비행 기능을 지원하는 VTOL로 변환 할 수 있습니다. There is not much space but it's enough for a [Pixfalcon](../flight_controller/pixfalcon.md) flight controller with GPS and telemetry.
+[E-Flite 컨버전스](https://youtu.be/HNedXQ_jhYo) PX4의 자율 비행이 가능한 VTOL로 변환할 수 있습니다. There is not much space but it's enough for a [Pixfalcon](../flight_controller/pixfalcon.md) flight controller with GPS and telemetry.
 
 :::note
 The original [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#purchase) section.
