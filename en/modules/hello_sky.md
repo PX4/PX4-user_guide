@@ -154,7 +154,7 @@ This consists of a single *C* file and a *cmake* definition (which tells the too
    You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
    :::
 
-1. Create and open a new *Kconfig* definition file named **Kconfig**.
+1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention)
    Copy in the text below:
    ```menuconfig EXAMPLES_PX4_SIMPLE_APP
 	bool "PX4 Simple app"
@@ -174,7 +174,7 @@ Applications are added to the build/firmware in the appropriate board-level *px4
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.px4board)
 * *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)
 
-To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run boardconfig to enable it in the gui `make px4_fmu-v4_default boardconfig`:
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4_menuconfig setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
     examples  --->
