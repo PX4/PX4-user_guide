@@ -11,7 +11,7 @@ Tailsitters는 일반적으로 [다른 유형의 VTOL](../frames_vtol/README.md)
     <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-duo-tailsitter">VTOL 듀오 테일시터</a></big></div>
     <div class="grid_text">
     호버에서 고정익 비행으로 뒤집기 위해 엘레본을 사용하는 2개의 로터 VTOL.<br><br>
-    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
+    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL 듀오 테일시터" alt="윙트라온" /> 
     <ul>
       <li>보다 효율적인 전방 비행</li>
       <li>특히 바람이 부는 날에는 호버링이 더 어렵습니다.</li>
@@ -24,7 +24,7 @@ Tailsitters는 일반적으로 [다른 유형의 VTOL](../frames_vtol/README.md)
   <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-quad-tailsitter">VTOL 쿼드 테일시터</a></big></div>
   엘레본 옵션이 있는 4개의 로터 VTOL. 로터를 사용하여 모드 간 전환(있는 경우 엘레본과 함께).
   <div class="grid_text">
-  <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
+  <img title="Skypull SP-1 VTOL 쿼드 테일시터" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
   <ul>
     <li>호버 모드가 더 쉽고 안정적입니다.</li>
     <li>덜 컴팩트한 폼 팩터(운반하기 어려움)</li>
@@ -38,68 +38,68 @@ Duo Tailsitters는 일반적으로 순항 비행에서 더 효율적이며(4개�
 
 ## 설정/비행
 
-VTOL setup and flying are covered in the [VTOL](../frames_vtol/README.md) parent topic.
+VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 다룹니다.
 
 :::note
-The instructions are essentially the same for all VTOL. The main frame-specific differences are the motor wiring (see [VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) and [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)), and some aspects of tuning the configuration.
+지침은 기본적으로 모든 VTOL에 대해 동일합니다. 주요 프레임별 차이점은 모터 배선([VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) 및 [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) 참조)과 구성 조정의 일부 측면입니다.
 :::
 
-## Build Logs
+## 조립 방법
 
-Step-by-step guides of how to set up PX4 on tailsitter frames are listed below:
+테일시터 프레임에 PX4를 설정하는 방법에 대한 단계별 가이드는 다음과 같습니다.
 
-- [TBS Caipiroshka Tailsitter Build (Pixracer)](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
+- [TBS Caipiroshka 테일시터 조립 (Pixracer)](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
 :::tip
-We recommend that you also review build logs for other PX4 VTOL, and Copter vehicles (most of the setup is the same).
+다른 PX4 VTOL 및 Copter 차량에 대한 조립방법을 참고하는 것이 좋습니다(대부분의 설정이 동일함).
 :::
 
-## Videos
+## 비디오
 
-This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/README.md)).
+이 섹션에는 테일시터 VTOL과 관련된 동영상이 포함되어 있습니다(모든 VTOL 유형에 적용되는 동영상은 [VTOL](../frames_vtol/README.md)에서 찾을 수 있음).
 
 ### Duo
 ---
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
+[UAV Works VALAQ Patrol 테일시터](https://www.valaqpatrol.com/tech-data/) - 테일시터 이륙, 전환, 착륙.
 
-@[youtube](https://youtu.be/pWt6uoqpPIw)
-
----
-
-[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter takeoff (close up), hover, level flight, transitions.
-
-@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+@[유투브](https://youtu.be/pWt6uoqpPIw)
 
 ---
 
-*PX4 Tailsitter prototype*  - Tailsitter takeoff, transition, landing. 
+[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter 이륙(클로즈업), 호버링, 수평 비행, 전환.
+
+@[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+
+---
+
+*PX4 테일시터 프로토타입* - 테일시터 이륙, 전환, 착륙. 
 <!-- provided by slack user xdwgood. Not yet got detail -->
 @[youtube](c3myer2n80M)
 
-### Quad
+### 쿼드
 
-[Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video) @[youtube](https://youtu.be/6s-Izqb_GVs)
+[Skypull](https://www.skypull.technology/) Tethered 쿼드 테일시터 (홍보용 비디오) @[유투브](https://youtu.be/6s-Izqb_GVs)
 
-## Gallery
+## 갤러리
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="https://wingtra.com/mapping-drone-wingtraone/">WingtraOne</a></big></div>
+    <div class="grid_item_heading"><big><a href="https://wingtra.com/mapping-drone-wingtraone/">윙트라온</a></big></div>
     <div class="grid_text">
-    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
+    <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL 듀오 테일시터" alt="윙트라온" /> 
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="https://www.skypull.technology/">Skypull</a></big></div>
+    <div class="grid_item_heading"><big><a href="https://www.skypull.technology/">스카이풀</a></big></div>
     <div class="grid_text">
-      <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
+      <img title="Skypull SP-1 VTOL 쿼드 테일시터" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.html">TBS Caipiroshka</a></big></div>
+    <div class="grid_item_heading"><big><a href="../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.html">TBS 카이피리냐</a></big></div>
     <div class="grid_text">
-      <img title="TBS Caipiroshka" src="../../assets/airframes/vtol/caipiroshka/caipiroshka.jpg" />
+      <img title="TBS 카이피리냐" src="../../assets/airframes/vtol/caipiroshka/caipiroshka.jpg" />
     </div>
   </div>
   <div class="grid_item">
@@ -109,9 +109,9 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/tech-data/">UAV Works VALAQ Patrol Tailsitter</a></big></div>
+    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/tech-data/">UAV Works VALAQ 순찰 테일 시터</a></big></div>
     <div class="grid_text">
-      <img title="UAV Works VALAQ Patrol Tailsitter" src="../../assets/airframes/vtol/uav_works_valaq_patrol/hero.jpg" />
+      <img title="UAV Works VALAQ 순찰 테일 시터" src="../../assets/airframes/vtol/uav_works_valaq_patrol/hero.jpg" />
     </div>
   </div>
 </div>
