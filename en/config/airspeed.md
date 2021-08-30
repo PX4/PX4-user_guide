@@ -1,13 +1,20 @@
-# AirSpeed Calibration
+# Airspeed
 
-The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.
-Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
+Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started. 
+Currently the following types are supported, and need to be enabled via the corresponding parameter:
+- Sensirion SDP3X (**SENS_EN_SDP3X**)
+- TE MS4525 (**SENS_EN_MS4525**)
+- TE MS5525 (**SENS_EN_MS5525**)
+- Eagle Tree airspeed sensor (**SENS_EN_ETSASPD**)
 
 :::note
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed Wing and VTOL vehicles.
 :::
 
-## Performing the Calibration 
+## Airspeed Calibration
+
+The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.
+Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
 
 To calibrate the airspeed sensor:
 
@@ -20,7 +27,7 @@ To calibrate the airspeed sensor:
 1. Shield the sensor from the wind (i.e. cup it with your hand). 
    Take care not to block any of its holes.
 1. Click **OK** to start the calibration.
-1. Blow into the tip of the pitot tube to signal the end of calibration.
+1. Once asked for, blow into the tip of the pitot tube to signal the end of calibration.
 
    :::tip
    Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly.
@@ -29,10 +36,6 @@ To calibrate the airspeed sensor:
 
 1. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
 
-
-## Testing
-
-After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
 
 ## Further Information
 
