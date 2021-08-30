@@ -1,14 +1,14 @@
-# Tiltrotor VTOL
+# 틸트로터 VTOL
 
-A **Tiltrotor VTOL** is a [VTOL](../frames_vtol/README.md) vehicle that has rotors that can swivel 90 degrees, allowing them to act as either multicopter rotors or as fixed-wing propellers.
+**틸트로터 VTOL**은 90도 회전하는 로터가 있는 [VTOL](../frames_vtol/README.md) 차량으로 멀티콥터 로터 또는 고정익 프로펠러로 동작합니다.
 
 ![Horizon Hobby E-flite Convergence](../../assets/airframes/vtol/eflite_convergence_pixfalcon/hero.jpg)
 
 
-## Videos
+## 비디오
 
-This section contains videos that are specific to Tiltrotor VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/README.md)).
+이 섹션에는 틸트로터 VTOL과 관련된 동영상이 포함되어 있습니다(모든 VTOL 유형에 적용되는 동영상은 [VTOL](../frames_vtol/README.md)에서 찾을 수 있음).
 
-[Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
+[컨버전스 틸트로터](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+@[유투브](https://youtu.be/E61P2f2WPNU)
