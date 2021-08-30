@@ -1,15 +1,21 @@
 # Airspeed
 
-Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started. 
-Currently the following types are supported, and need to be enabled via the corresponding parameter:
-- Sensirion SDP3X (**SENS_EN_SDP3X**)
-- TE MS4525 (**SENS_EN_MS4525**)
-- TE MS5525 (**SENS_EN_MS5525**)
-- Eagle Tree airspeed sensor (**SENS_EN_ETSASPD**)
+The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.
 
 :::note
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed Wing and VTOL vehicles.
 :::
+
+## Enable Airspeed Sensors
+
+You must enable the airspeed drivers before calibration (unlike most other sensor drivers, the airspeed sensor drivers are not automatically started)! 
+
+The following types are supported, and need to be [enabled via the corresponding parameter](../advanced_config/parameters.md):
+- Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
+- TE MS4525 ([SENS_EN_MS4525](../advanced_config/parameter_reference.md#SENS_EN_MS4525))
+- TE MS5525 ([SENS_EN_MS5525](../advanced_config/parameter_reference.md#SENS_EN_MS5525))
+- Eagle Tree airspeed sensor ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
+
 
 ## Airspeed Calibration
 
@@ -19,8 +25,9 @@ Cup your hands over the pitot to block any wind (if calibrating the sensor indoo
 To calibrate the airspeed sensor:
 
 1. Start *QGroundControl* and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-1. Click the **Airspeed** sensor button.
+2. Enable the airspeed sensors if not already done (as in section above)
+3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+4. Click the **Airspeed** sensor button.
 
    ![Airspeed calibration](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
    
