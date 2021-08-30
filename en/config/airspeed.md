@@ -30,10 +30,6 @@ To calibrate the airspeed sensor:
 1. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
 
 
-## Testing
-
-After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
-
 ## Further Information
 
 * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
