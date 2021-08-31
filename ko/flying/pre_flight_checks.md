@@ -6,13 +6,13 @@ PX4는 비행전에 센서들의 품질과 추정기를 체크하여 시동과 �
 모든 비행전 오류는 *QGroundControl*의 `PREFLIGHT FAIL` 메시지로 보고됩니다. [로그](../getting_started/flight_reporting.md)의 `estimator_status.gps_check_fail_flags` 메시지는 정확하지 않은 GPS 데이터를 나타냅니다.
 :::
 
-아래 섹션에는 오류, 가능한 원인 및 해결 방법, 비행 사전 검사 실행 방법에 영향을주는 매개 변수가 나열되어 있습니다.
+아래 섹션에는 오류, 원인, 해결 방법 및 비행 사전 검사 관련된 매개 변수를 설명합니다.
 
 ## EKF 비행 사전 검사와 오류 메시지
 
-다음 오류 (관련 검사 및 매개 변수 포함)는 [ EKF ](../advanced_config/tuning_the_ecl_ekf.md)에 의해보고됩니다 (그리고 * QGroundControl *에 전파됨).
+다음 오류 (관련 검사 및 매개 변수 포함)는 [EKF](../advanced_config/tuning_the_ecl_ekf.md)에 의하여 보고되고, *QGroundControl*에 전송됩니다.
 
-#### PREFLIGHT FAIL: EKF HGT ERROR
+#### -- PREFLIGHT FAIL: EKF HGT ERROR
 
 - 이 오류는 IMU와 높이 측정 데이터가 일치하지 않을 때 발생합니다.
 - 가속 및 자이로 보정을 수행하고 기체를 재부팅하세요. 오류가 계속 발생하면 높이 센서 데이터에서 문제가 있는 지 확인하십시오.
