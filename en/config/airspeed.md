@@ -6,18 +6,16 @@ The airspeed calibration needs to read a stable baseline with 0 airspeed in orde
 [Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed Wing and VTOL vehicles.
 :::
 
-## Enable Airspeed Sensors
-
-You must enable the airspeed drivers before calibration (unlike most other sensor drivers, the airspeed sensor drivers are not automatically started)! 
-
-The following types are supported, and need to be [enabled via the corresponding parameter](../advanced_config/parameters.md):
+:::warning
+Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started.
+Before calibration they must be [enabled via the corresponding parameter](../advanced_config/parameters.md):
 - Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
 - TE MS4525 ([SENS_EN_MS4525](../advanced_config/parameter_reference.md#SENS_EN_MS4525))
 - TE MS5525 ([SENS_EN_MS5525](../advanced_config/parameter_reference.md#SENS_EN_MS5525))
 - Eagle Tree airspeed sensor ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
+:::
 
-
-## Airspeed Calibration
+## Performing the Calibration
 
 The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.
 Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
@@ -25,7 +23,7 @@ Cup your hands over the pitot to block any wind (if calibrating the sensor indoo
 To calibrate the airspeed sensor:
 
 1. Start *QGroundControl* and connect the vehicle.
-2. Enable the airspeed sensors if not already done (as in section above)
+2. Enable the airspeed sensors if not already done (as in *warning* above).
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
 4. Click the **Airspeed** sensor button.
 
