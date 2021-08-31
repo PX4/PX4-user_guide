@@ -95,9 +95,9 @@ PX4는 I2C 버스 타입의 다음 모델들을 지원합니다 : TeraRanger One
 
 1. **위젯 &gt; 분석** 메뉴를 오픈합니다.
     
-    ![QGC 분석 도구 메뉴](../../assets/qgc/menu_analyze_tool.png)
+    ![QGC 분석 도구 메뉴](../../assets/qgc/analyze/menu_analyze_tool.png)
 
-2. `DISTANCE_SENSOR.current_value` 메시지를 선택합니다. 그러면, 도구가 결과를 플로팅합니다. ![QGC DISTANCE_SENSOR 값 분석](../../assets/qgc/qgc_analyze_tool_distance_sensor.png)
+2. `DISTANCE_SENSOR.current_value` 메시지를 선택합니다. 그러면, 도구가 결과를 플로팅합니다. ![QGC DISTANCE_SENSOR 값 분석](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
 ### QGroundControl MAVLink 콘솔
 
