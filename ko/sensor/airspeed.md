@@ -8,13 +8,10 @@
 
 권장 디지털 속도 센서는 다음과 같습니다.
 
-* MEAS 사양 시리즈 (예: [MS4525DO](https://www.te.com/usa-en/product-CAT-BLPS0002.html))
-  
+* MEAS Spec series (e.g. [MS4525DO](https://www.te.com/usa-en/product-CAT-BLPS0002.html), [MS5525](https://www.te.com/usa-en/product-CAT-BLPS0003.html)) 
   * [mRo I2C 풍속 센서 JST-GH MS4525DO](https://store.mrobotics.io/mRo-I2C-Airspeed-Sensor-JST-GH-p/m10030a.htm) (mRo store)
   * [디지털 차동 풍속 센서 키트](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html) (Drotek).
-
 * [EagleTree Airspeed MicroSensor V3](http://www.eagletreesystems.com/index.php?route=product/product&product_id=63) (eagletreesystems)
-
 * [Sensirion SDP3X 차압 센서](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/)
 * [Holybro 디지털 풍속 센서](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
 
@@ -26,8 +23,21 @@
 
 ## 설정
 
-PX4 설정 방법은 [기본 설정 &gt; 대기 속도](../config/airspeed.md)를 참고하십시오.
+### Enable Airspeed Sensors
+
+Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started.
+
+Enable each type using its [corresponding parameter](../advanced_config/parameters.md):
+
+* Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
+* TE MS4525 ([SENS_EN_MS4525](../advanced_config/parameter_reference.md#SENS_EN_MS4525))
+* TE MS5525 ([SENS_EN_MS5525](../advanced_config/parameter_reference.md#SENS_EN_MS5525))
+* Eagle Tree airspeed sensor ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
+
+### Calibration
+
+Airspeed calibration information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
 
 ## 개발 정보
 
-* [ Airspeed 드라이버](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (소스 코드)
+* [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)
