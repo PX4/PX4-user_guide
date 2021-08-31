@@ -114,11 +114,12 @@ You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rang
 
 To view the rangefinder output:
 
-1. Open the menu **Widgets > Analyze**:
+1. Open the menu **Q > Select Tool > Analyze Tools**:
 
-   ![Menu for QGC Analyze Tool](../../assets/qgc/menu_analyze_tool.png)
-1. Select the message `DISTANCE_SENSOR.current_value`. The tool will then plot the result:
-   ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/qgc_analyze_tool_distance_sensor.png)
+   ![Menu for QGC Analyze Tool](https://user-images.githubusercontent.com/7131058/131495169-a7a8b3fa-7959-43d1-b291-7b8375082a29.png)
+1. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. The tool will then plot the result:
+   ![QGC Analyze DISTANCE_SENSOR value](https://user-images.githubusercontent.com/7131058/131495569-2a09396e-79ab-4941-bf95-63ca9cbe1034.png)
+
 
 
 ### QGroundControl MAVLink Console
