@@ -57,11 +57,11 @@ The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-po
 
 To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above).
 Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API.
-This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
+This will build and runs the `iris` model (can be changed by the `-m` parameter), and **by default also starts the microRTPS client**.
 
 :::note
-You will need to have installed *eProsima Fast DDS* and the `micrortps_agent` should be run in the different terminals for each vehicle.
-For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
+You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above and the `micrortps_agent` should be run in the different terminals for each vehicle.
+For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), for how to use the interaction with non-ROS2 DDS participant applications, or [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS2 nodes.
 :::
 
 To build an example setup, follow the steps below:
@@ -81,7 +81,7 @@ To build an example setup, follow the steps below:
    For example, to spawn 4 vehicles, run:
 
    ```bash
-   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
+   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
    ```
 
    :::note
@@ -92,14 +92,14 @@ To build an example setup, follow the steps below:
    For example, to connect 4 vehicles, run:
 
    ```bash
-   micrortps_agent -t UDP -r 2020 -s 2019 &
-   micrortps_agent -t UDP -r 2022 -s 2021 &
-   micrortps_agent -t UDP -r 2024 -s 2023 &
-   micrortps_agent -t UDP -r 2026 -s 2025 &
+   micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0 &
+   micrortps_agent -t UDP -r 2022 -s 2021 -n vhcl1 &
+   micrortps_agent -t UDP -r 2024 -s 2023 -n vhcl2 &
+   micrortps_agent -t UDP -r 2026 -s 2025 -n vhcl3 &
    ```
    :::note
    In order to communicate with a specific instance of PX4 using ROS2, you must use the `-n <namespace>` option.
-   For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0`.
+   For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0` (eg. `sensor_combined` data from `vhcl0` will be published on the topic `/vhcl0/fmu/sensor_combined/out`, while if one wants to send commands to the same vehicle, it has to publish to topic `/vhcl0/fmu/vehicle_command/in`).
    You can then subscribe and publish to just that vehicle's topics.
    :::
 
