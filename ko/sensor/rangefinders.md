@@ -83,9 +83,9 @@ PX4는 I2C 버스 타입의 다음 모델들을 지원합니다 : TeraRanger One
 
 거리계를 테스트하는 가장 간편한 방법은 범위를 변경하고 PX4에서 감지된 값과 비교하는 것입니다. 아래 섹션에서는 측정 범위를 측정하는 방법을 설명합니다.
 
-### QGroundControl 분석 툴
+### QGroundControl MAVLink Inspector
 
-*QGroundControl 분석 도구*와 *QGroundControl MAVLink Inspector*를 사용하여거리계의 `DISTANCE_SENSOR` 정보를 포함하여 기체에서 보낸 메시지를 조회할 수 있습니다. 도구 간의 주요 차이점은 *분석* 도구에서 그래프를 지원하는 점입니다.
+The *QGroundControl MAVLink Inspector* lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. 도구 간의 주요 차이점은 *분석* 도구에서 그래프를 지원하는 점입니다.
 
 :::note
 전송되는 메시지는 차량 설정에 따라 달라집니다. 연결된 기체에 거리계가 설치되어 있고, 센서 값을 게시하는 경우에만 `DISTANCE_SENSOR` 메시지가 표시됩니다.
