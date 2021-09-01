@@ -1,12 +1,17 @@
-# PX4 Board Porting Guide configuration
+# PX4 Board Configuration (Kconfig)
 
-The PX4 Autopilot firmware can be configured at build time to adapt them for specialized applications (fixedwing, multicopter, rover or more), to enable new and experimental features such as RTPS or UAVCANv1 or to save flash & ram usage by disabling some drivers and subsystems. This configuration is handled through Kconfig, which is the same [configuration system used by NuttX](https://docs.px4.io/master/en/hardware/porting_guide_nuttx.html#nuttx-menuconfig-setup) .
+The PX4 Autopilot firmware can be configured at build time to adapt it for specialized applications (fixedwing, multicopter, rover or more), to enable new and experimental features (such as RTPS or UAVCANv1) or to save flash & RAM usage by disabling some drivers and subsystems.
+This configuration is handled through *Kconfig*, which is the same [configuration system used by NuttX](../hardware/porting_guide_nuttx.md#nuttx-menuconfig-setup).
 
-The configuration options (often reffered as symbols by the kconfig language) are defined in `Kconfig` files under the src directory. 
+The configuration options (often referred as "symbols" by the *kconfig* language) are defined in `Kconfig` files under the **/src** directory. 
 
-## PX4 Kconfig symbol naming convention
+## PX4 Kconfig Symbol Naming Convention
 
-The symbol itself follows the naming convention of the path of module/driver for example the ADC driver at `src/drivers/adc/board_adc` symbol must be defined as `DRIVERS_ADC_BOARD_ADC`. Symbols for driver/module specific options should omit the path, use the name of the module and depend on the symbol  for example
+By convention, symbols for modules/drivers are named based on the module folder path.
+For example, the symbol for the ADC driver at `src/drivers/adc/board_adc` must be named `DRIVERS_ADC_BOARD_ADC`.
+
+Symbols for driver/module specific options should omit the path, use the name of the module, and depend on the symbol.
+For example:
 
 ```
 menuconfig DRIVERS_UAVCAN_V1
@@ -24,16 +29,18 @@ endif #DRIVERS_UAVCAN_V1
 
 ## PX4 Menuconfig Setup
 
-To modify the PX4 board configuration, you can use the [menuconfig](https://pypi.org/project/kconfiglib/#menuconfig-interfaces) using the PX4 shortcuts:
+To modify the PX4 board configuration, you can use the [menuconfig](https://pypi.org/project/kconfiglib/#menuconfig-interfaces) tool.
+This can be launched using the PX4 build shortcuts:
 ```
 make px4_fmu-v5_default boardconfig
 make px4_fmu-v5_default boardguiconfig
 ```
 
-The interfaces shown below
+The command line and GUI interfaces are shown below.
 
 ![menuconfig](../../assets/hardware/kconfig-menuconfig.png)
 
 ![guiconfig](../../assets/hardware/kconfig-guiconfig.png)
 
-Kconfiglib and menuconfig comes with the kconfiglib python package, which comes with [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) installation script. If kconfiglib is not installed please install using `pip3 install kconfiglib`
+*Kconfiglib* and *menuconfig* come with the *kconfiglib* python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) installation script.
+If *kconfiglib* is not installed, you can do so using the command: `pip3 install kconfiglib`
