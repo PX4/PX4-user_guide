@@ -1,12 +1,16 @@
 # Standard Configuration
 
-*QGroundControl*을 사용하여 PX4 Controller의 [펌웨어](../config/firmware.md) 설치와 [기체](../config/airframe.md) 설정 작업을 할 수 있습니다. 이 작업은 PX4의 필수 센서인 GPS, 나침반 및 자이로 등을 설정합니다.
+This section describes the standard software configuration and calibration that is required for all PX4 vehicles.
 
-:::tip
-이 섹션을 시작하기 전에 [QGroundControl을 다운로드](http://qgroundcontrol.com/downloads/)하여 **PC**에 설치하여야 합니다. 모바일 *QGroundControl *에서는 설정 기능은 제공하지 않으며, 비행 제어만 가능합니다.
+:::note
+Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+
+To access **Vehicle Setup** screens, open the QGC application menu ("Q" icon in the top-left corner) and then choose **Vehicle Setup** in the *Select Tool* popup:
+
+![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 :::
 
-이 절에서는 *필수* 설정에 관하여 설명합니다.
+The sub topics cover each of the steps in detail (first install the PX4 firmware and set your vehicle airframe):
 
 * [펌웨어](../config/firmware.md)
 * [기체](../config/airframe.md)
@@ -14,7 +18,7 @@
 * [나침반](../config/compass.md)
 * [자이로스코프](../config/gyroscope.md)
 * [가속도 센서](../config/accelerometer.md)
-* [대기 속도 센서](../config/airspeed.md) (고정익/VTOL)
+* [Airspeed](../config/airspeed.md) (primarily for fixed-wing/VTOL)
 * [수평 보정](../config/level_horizon_calibration.md)
 * [무선 조종기 설정](../config/radio.md)
 * [조이스틱 설정](../config/joystick.md)
@@ -23,21 +27,25 @@
 * [안전 설정](../config/safety.md)(선택 사항)
 * [모터/서보](../config/motors.md)
 
-:::note
-[지원되는 기체](../config/airframe.md)에서는 이 기본 구성만 필요합니다. 새로운 기체를 개발하는 경우에는 튜닝 작업이 필요합니다([고급 설정](../advanced_config/README.md) 참고) .
-:::
-
 ## 영상 가이드
 
-아래 비디오는 보정법을 자세하게 설명합니다.
+The video below shows the calibration process in detail (this uses an older version of *QGroundControl*, but most of the process is unchanged).
 
-@[유투브](https://youtu.be/91VGmdSlbo4)
+@[youtube](https://youtu.be/91VGmdSlbo4)
 
-## 지원
+## Advanced Configuration
 
-설정에 대한 도움이 필요한 경우 [QGroundControl 지원 포럼 ](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage)에서 도움을 요청할 수 있습니다
+If your [selected airframe configuration](../config/airframe.md) is a *specific vehicle model* (e.g. [Holybro s500](../frames_multicopter/holybro_s500_v2_pixhawk4.md#install-configure-px4)) then it may benefit from fine tuning, but this is not generally required.
 
-## 추가 정보
+If you're using a new airframe, a "generic" airframe, significantly modifying an airframe, or using less common sensors then see:
 
-* [QGroundControl > 설정](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
-* [고급 설정](../advanced_config/README.md) (세부적인 설정 방법: 기타 센서 및 주변기기 연동, 튜닝 방법).
+* [Advanced Configuration](../advanced_config/README.md): Vehicle-specific tuning, fine tuning, factory-level configuration.
+* [Flight Controller Peripherals](../peripherals/README.md) - Hardware and software setup related to specific hardware (in particular lesser-used sensors).
+
+## Support
+
+If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
+
+## Further Information
+
+* [QGroundControl > Setup](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
