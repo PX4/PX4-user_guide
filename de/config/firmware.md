@@ -16,21 +16,22 @@ This is the version that is installed by default.
 
 To install PX4:
 
-1. First select the **Gear** icon (*Vehicle Setup*) in the top toolbar and then **Firmware** in the sidebar.
+1. Start *QGroundControl* and connect the vehicle.
+2. Select **"Q" icon > Vehicle Setup > Firmware** (sidebar) to open *Firmware Setup*.
     
     ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
 
-2. Connect the flight controller directly to your computer via USB.
+3. Connect the flight controller directly to your computer via USB.
     
 :::note
 Connect directly to a powered USB port on your machine (do not connect through a USB hub).
 :::
 
-3. Select the **PX4 Flight Stack X.x.x Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
+4. Select the **PX4 Flight Stack X.x.x Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
     
     ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
 
-4. Click the **OK** button to start the update.
+5. Click the **OK** button to start the update.
     
     The firmware will then proceed through a number of upgrade steps (downloading new firmware, erasing old firmware etc.). Each step is printed to the screen and overall progress is displayed on a progress bar.
     
