@@ -69,7 +69,7 @@ Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) 
 
 :::note
 Check the guide to confirm the latest dependencies!
-You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen have been installed.
+You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen** have been installed.
 :::
 
 
