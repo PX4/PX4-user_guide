@@ -64,11 +64,6 @@ We recommend that you also review build logs for other PX4 VTOL, and Copter vehi
 This section contains videos that are specific to Tailsitter VTOL (videos that apply to all VTOL types can be found in [VTOL](../frames_vtol/README.md)).
 
 ### Duo
----
-
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
-
-@[youtube](https://youtu.be/pWt6uoqpPIw)
 
 ---
 
@@ -86,6 +81,13 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 [Skypull](https://www.skypull.technology/) Tethered quad tailsitter (promotional video)
 @[youtube](https://youtu.be/6s-Izqb_GVs)
+
+---
+
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
+
+@[youtube](https://youtu.be/pWt6uoqpPIw)
+
 
 ## Gallery
 
