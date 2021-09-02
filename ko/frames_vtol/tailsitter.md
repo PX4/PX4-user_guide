@@ -58,7 +58,8 @@ VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 �
 
 이 섹션에는 테일시터 VTOL과 관련된 동영상이 포함되어 있습니다(모든 VTOL 유형에 적용되는 동영상은 [VTOL](../frames_vtol/README.md)에서 찾을 수 있음).
 
-### Duo
+### 쿼드
+
 ---
 
 [UAV Works VALAQ Patrol 테일시터](https://www.valaqpatrol.com/tech-data/) - 테일시터 이륙, 전환, 착륙.
@@ -67,21 +68,22 @@ VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 �
 
 ---
 
-[TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md) - Tailsitter 이륙(클로즈업), 호버링, 수평 비행, 전환.
-
-@[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
-
----
-
-*PX4 테일시터 프로토타입* - 테일시터 이륙, 전환, 착륙. 
+*PX4 Tailsitter prototype*  - Tailsitter takeoff, transition, landing. 
 <!-- provided by slack user xdwgood. Not yet got detail -->
 @[youtube](c3myer2n80M)
 
-### 쿼드
+### Quad
 
-[Skypull](https://www.skypull.technology/) Tethered 쿼드 테일시터 (홍보용 비디오) @[유투브](https://youtu.be/6s-Izqb_GVs)
+[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
-## 갤러리
+---
+
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
+
+@[Skypull](https://www.skypull.technology/) Tethered 쿼드 테일시터 (홍보용 비디오) @[유투브](https://youtu.be/6s-Izqb_GVs)
+
+
+## ### Duo
 
 <div class="grid_wrapper three_column">
   <div class="grid_item">
