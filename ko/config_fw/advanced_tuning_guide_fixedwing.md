@@ -48,22 +48,28 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 
 #### 3 차 : 피치와 상승률 제한
 
-안정화 모드로 비행하고 최대 스로틀(`FW_THR_MAX`)을 적용하고 속도가 `FW_AIRSPD_TRIM`에 도달할 때까지 피치 각도를 천천히 높입니다.
+:::warning
+Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX), [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) or [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) to specify the desired climb or sink performance you would like to get from the vehicle! The parameters define the operating limitations and they should be set during the tuning phase, as described below.
+:::
+
+안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고 기체가 `FW_AIRSPD_MAX`에 도달할 때까지 피치 각도를 천천히 줄입니다.
 
 - [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - `FW_THR_MAX` 적용시 트림 속도로 상승에 필요한 피치 각도를 설정합니다.
 - [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - `FW_AIRSPD_TRIM`에서 상승률을 설정합니다.
 
-안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고 기체가 `FW_AIRSPD_MAX`에 도달할 때까지 피치 각도를 천천히 줄입니다.
+안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고, 기체가 `FW_AIRSPD_TRIM`을 유지하도록 피치 각도를 설정합니다.
 
 - [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - `FW_THR_MIN`에서 `FW_AIRSPD_MAX`에 도달에 필요한 피치 각도를 설정합니다.
 - [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX)-하강율을 설정합니다.
 
-안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고, 기체가 `FW_AIRSPD_TRIM`을 유지하도록 피치 각도를 설정합니다.
+모든 L1 매개변수는 [여기](../advanced_config/parameter_reference.md#fw-l1-control)에 기술되어 있습니다.
 
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - `FW_AIRSPD_TRIM`을 유지하면서 달성된 싱크 속도를 설정합니다.
 
+Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_fw.md) and [Position mode](../flight_modes/position_fw.md).
+
 ### L1 컨트롤러 조정(위치)
 
-모든 L1 매개변수는 [여기](../advanced_config/parameter_reference.md#fw-l1-control)에 기술되어 있습니다.
+All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
 
 - [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - L1 거리이며 추종하는 항공기 전방의 추적 지점을 정의합니다. 25 미터 값은 대부분의 항공기에서 작동합니다. 16-18의 값은 여전히 작동하며 더 선명한 응답을 제공합니다. 진동없이 반응이 날카로울 때까지 튜닝하는 동안 천천히 줄입니다.
