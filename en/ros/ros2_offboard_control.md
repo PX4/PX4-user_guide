@@ -153,12 +153,13 @@ void OffboardControl::publish_trajectory_setpoint() const {
 }
 ```
 
-The above functions exemplify how the fields on both `offboard_control_mode` and `trajectory_setpoint` messages can be set.
+The above functions show how the fields on both `offboard_control_mode` and `trajectory_setpoint` messages can be set.
 Notice that the above example is applicable for offboard position control, where on the `offboard_control_mode` message, the `position` field is set to `true`, while all the others get set to `false`.
 Also, in this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
 
 :::tip
-The position is already being published in the NED coordinate frame for simplicity, but in the case of the user wanting to subscribe to data coming from other nodes, and since the standard frame of reference in ROS/ROS 2 is ENU, the user can use the available helper functions in the [`frame_transforms` library](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp).
+The position is published in the NED coordinate frame for simplicity.
+If a user wants to subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), they can use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp) library.
 :::
 
 ```cpp
