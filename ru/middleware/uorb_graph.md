@@ -6,10 +6,11 @@ This page provides a uORB publication/subscription graph that shows the communic
 Search: <input id="search" type="text" /> Preset: <select id ="select-graph" name="select-graph"> <option value='graph_full_no_mavlink.json'>All Modules (w/o mavlink)</option> <option value='graph_full.json'>All Modules</option> <option value='graph_px4_sitl.json'>SITL Modules</option> <option value='graph_px4_fmu-v5.json'>FMUv5 Modules</option> <option value='graph_px4_fmu-v4.json'>FMUv4 Modules</option> <option value='graph_px4_fmu-v2.json'>FMUv2 Modules</option> </select>
 <br/>
 <svg id="svg-graph" width="1200" height="1400" style="text-align: center; margin-left: -230px; margin-right: -230px;"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="uorb_graph.js"></script>
+<script type="application/javascript" src="https://d3js.org/d3.v4.min.js" asysc></script>
+<script type="application/javascript" src="uorb_graph.js" asysc></script>
 
 ## Graph Properties
+
 The graph has the following properties:
 
 - Modules are shown in gray with rounded corners while topics are displayed as coloured rectangular boxes.
