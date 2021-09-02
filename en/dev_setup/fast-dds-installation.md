@@ -2,19 +2,21 @@
 
 <img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;"/> [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the Object Management Group's (OMG) Data Distribution Service (DDS) specification and the Real Time Publish Subscribe (RTPS) protocol.
 
-Fast DDS enables an RTPS/DDS interface that allows PX4 uORB topics to be shared with offboard components, including robotics and simulator tools, that participate in same DDS domain.
+Fast DDS enables an RTPS/DDS interface that allows PX4 uORB topics to be shared with offboard components that participate in same DDS domain, including robotics and simulator tools.
 In particular, Fast DDS is the default middleware implementation for Robot Operating System 2 (ROS 2), and is essential for integrating PX4 with ROS2.
 
-This topic explains how to install Fast DDS and *Fast-RTPS-Gen* for usage in the PX4 build system and with the microRTPS bridge.
+This topic explains how to install Fast DDS and *Fast-RTPS-Gen* to use in the PX4 build system and with the microRTPS bridge.
 
 :::note
-If you have ROS 2 Dashing (Ubuntu 18.04) or ROS 2 Foxy (Ubuntu 20.04) installed, you do not have to install Fast DDS, as it comes included with the default `base` or `desktop` installations through the `ros-<distro>-rmw-fastrtps` package. This means you just need to install *Fast-RTPS-Gen* and have your ROS 2 environment sourced (`source /opt/ros/<distro>/setup.bash`) so to be able to compile the `rtps` targets in the PX4-Autopilot repo.
+You do not have to install Fast DDS if you have ROS 2 Dashing (Ubuntu 18.04) or ROS 2 Foxy (Ubuntu 20.04) installed, as it comes included with the default `base` or `desktop` installations through the `ros-<distro>-rmw-fastrtps` package.
+This means you just need to install *Fast-RTPS-Gen* and have your ROS 2 environment sourced (`source /opt/ros/<distro>/setup.bash`) in order to be able to compile the `rtps` targets in the PX4-Autopilot repo.
 
-Note though that for ROS2 Galatic and above, one has to install the `rmw` implementation through `apt` using `apt install ros-galatic-rmw-fastrtps`, since the default middleware for Galatic and above is CycloneDDS and the FastDDS middleware doesn't come installed by default.
+For *ROS2 Galactic and above*, one has to install the `rmw` implementation through `apt` using `apt install ros-galatic-rmw-fastrtps`, since the default middleware for Galactic and above is CycloneDDS and the FastDDS middleware doesn't come installed by default.
 :::
 
 :::tip
-Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to interface the PX4 Autopilot with Fast RTPS/DDS participants. ROS 2 nodes are an example of these, though Fast DDS middleware and C++ implementations are installed by default on ROS 2 Foxy and bellow, as mentioned above.
+Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to interface the PX4 Autopilot with Fast RTPS/DDS participants.
+ROS 2 nodes are an example of these, though Fast DDS middleware and C++ implementations are installed by default on ROS 2 Foxy and below, as mentioned above.
 :::
 
 :::note
@@ -33,7 +35,8 @@ At time of writing you will need to install *from source* for:
 :::
 
 :::tip
-Further reminder that you only need to install Fast DDS in case you are not using ROS 2 and want to just leverage non-ROS2 DDS networks and applications. If you have ROS 2 installed (and `rmw-fasrtps` as the default middleware of it), you can skip to [Fast-RTPS-Gen build and install](#fast-rtps-gen).
+Remember (again) you only need to install Fast DDS if you are not using ROS 2 and just want to leverage non-ROS2 DDS networks and applications.
+If you have ROS 2 installed (and `rmw-fasrtps` as its default middleware), you can skip to [Fast-RTPS-Gen build and install](#fast-rtps-gen).
 :::
 
 ### Java
@@ -43,10 +46,12 @@ Java is required to build and use eProsima's RTPS/DDS from IDL code generation t
 
 ### Gradle
 
-You also need to [install Gradle](https://gradle.org/install/) to build *Fast-RTPS-Gen*. We recommend you install Gradle via [sdkman](https://sdkman.io).
+You also need to [install Gradle](https://gradle.org/install/) to build *Fast-RTPS-Gen*.
+We recommend you install Gradle via [sdkman](https://sdkman.io).
 
 :::warning
-Do not install Gradle version greater or equal to 7. Recommended version is 6.3.
+Do not install Gradle version 7 or higher.
+The recommended version is 6.3.
 :::
 
 ### Foonathan memory
@@ -124,7 +129,8 @@ Documentation on how to do this can be found here: [Installation from Binaries o
 #### Environmental Variables
 
 * `FASTRTPSGEN_DIR`: Root folder where *eProsima Fast-RTPS-Gen* is installed, usually set to `/usr/local`, which is the default installation directory.
-  If the user sets a different install directory in the `gradle install` step, it must set this variable to that same directory as well. Otherwise, the code generation step, and consequently, the build of the `rtps` targets in PX4 will fail.
+  If the user sets a different install directory in the `gradle install` step, it must set this variable to that same directory as well.
+  Otherwise, the code generation step, and consequently, the build of the `rtps` targets in PX4 will fail.
 
 
 ## Further Information
