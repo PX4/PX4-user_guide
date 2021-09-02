@@ -80,7 +80,8 @@ These ports are:
   The simulator listens to this port, and PX4 initiates a TCP connection to it.
 
 :::note
-The ports for the GCS, offboard APIs and simulator are specified by startup scripts. See [System Startup](../concept/system_startup.md) to learn more.
+The ports for the GCS, offboard APIs and simulator are specified by startup scripts.
+See [System Startup](../concept/system_startup.md) to learn more.
 :::
 
 
