@@ -61,9 +61,10 @@ By default, PX4 uses commonly established UDP ports for MAVLink communication wi
 * PX4's remote UDP Port **14550** is used for communication with ground control stations. 期望外接 APIs 监听此端口上的连接。 *QGroundControl* listens to this port by default.
 * PX4's remote UDP Port **14540** is used for communication with offboard APIs. 期望 GCS 将侦听此端口上的连接。 *QGroundControl*默认侦听此端口。
 :::
-* The simulator's local TCP Port **4560** is used for communication with PX4. PX4 侦听此端口，仿真器应通过向该端口广播数据来启动通信。
+* The simulator's local TCP Port, **4560**, is used for communication with PX4. PX4 侦听此端口，仿真器应通过向该端口广播数据来启动通信。
 
 如果使用正常的生成系统 SITL `make` 配置目标 （请参阅下一节），则 SITL 和模拟器都将在同一台计算机上启动，并自动配置上述端口。 您可以配置其他 MAVLink UDP 连接，并以其他方式修改生成配置和初始化文件中的模拟环境。
+:::
 
 
 <!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 --> 
