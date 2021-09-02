@@ -62,6 +62,15 @@ Fly in stabilized mode, reduce throttle to `FW_THR_MIN` and adjust the pitch ang
 
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - set to the sink rate achieved while maintaining `FW_AIRSPD_TRIM`.
 
+Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude.
+Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_mc.md) and [Position mode](../flight_modes/position_mc.md).
+
+:::warning
+Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX), [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) or [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) to specify the desired climb or sink performance you would like to get from the vehicle.
+The parameters above define the operating limitations and they should be set once during the tuning phase.
+:::
+
+
 ### L1 Controller Tuning (Position)
 
 All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
