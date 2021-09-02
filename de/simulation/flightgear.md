@@ -49,7 +49,7 @@ For some models (e.g. those with electric engines) the daily build with the newe
    ```
 1. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
    ```
-   sudo chmod a+w /usr/share/games/flightgear/Protocols
+   sudo chmod a+w /usr/share/games/flightgear/Protocol
    ```
    Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
 
