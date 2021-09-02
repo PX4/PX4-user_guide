@@ -6,10 +6,11 @@
 검색: <input id="search" type="text" /> 재설정 <select id ="select-graph" name="select-graph"> <option value='graph_full_no_mavlink.json'>모든 모듈(mavlink 없음)</option> <option value='graph_full.json'>모든 모듈</option> <option value='graph_px4_sitl.json'>SITL 모듈</option> <option value='graph_px4_fmu-v5.json'>FMUv5 모듈</option> <option value='graph_px4_fmu-v4.json'>FMUv4 모듈</option> <option value='graph_px4_fmu-v2.json'>FMUv2 모듈</option> </select>
 <br/>
 <svg id="svg-graph" width="1200" height="1400" style="text-align: center; margin-left: -230px; margin-right: -230px;"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="uorb_graph.js"></script>
+<script type="application/javascript" src="https://d3js.org/d3.v4.min.js" asysc></script>
+<script type="application/javascript" src="uorb_graph.js" asysc></script>
 
 ## 그래프 속성
+
 그래프는 다음과 같은 특성을 갖고 있습니다.
 
 - 모듈은 모서리가 둥근 회색으로 표시되는 반면 주제는 색상이 지정된 직사각형 상자로 표시됩니다.
