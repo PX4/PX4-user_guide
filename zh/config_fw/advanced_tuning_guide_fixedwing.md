@@ -44,22 +44,28 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 
 #### 3rd：俯仰和爬升速率限制
 
-以稳定模式飞行时，使用全油门（`FW_THR_MAX`）并缓慢增加俯仰角，直至空速达到`FW_AIRSPD_TRIM`。
+:::warning
+Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX), [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) or [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) to specify the desired climb or sink performance you would like to get from the vehicle! The parameters define the operating limitations and they should be set during the tuning phase, as described below.
+:::
+
+以稳定模式飞行，降低油门至`FW_THR_MIN`并缓慢减小俯仰角直到飞行器达到`FW_AIRSPD_MAX`。
 
 - [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - 设置为应用`FW_THR_MAX`时以平衡空速爬升所需要的俯仰角。
 - [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - 设置为以`FW_AIRSPD_TRIM`爬升时的爬升速率。
 
-以稳定模式飞行，降低油门至`FW_THR_MIN`并缓慢减小俯仰角直到飞行器达到`FW_AIRSPD_MAX`。
+以稳定模式飞行，减小油门到`FW_THR_MIN`并调整俯仰角使飞机保持`FW_AIRSPD_TRIM`。
 
 - [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - 设定为从`FW_THR_MIN`到达 `FW_AIRSPD_MAX`所需要俯仰角。
 - [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - 设置为下降期间达到的下沉速率。
 
-以稳定模式飞行，减小油门到`FW_THR_MIN`并调整俯仰角使飞机保持`FW_AIRSPD_TRIM`。
+L1所有的参数在[此](../advanced_config/parameter_reference.md#fw-l1-control)描述
 
 - [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - 设置为保持`FW_AIRSPD_TRIM`达到的下沉速率。
 
+Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_fw.md) and [Position mode](../flight_modes/position_fw.md).
+
 ### L1控制器调整（位置）
 
-L1所有的参数在[此](../advanced_config/parameter_reference.md#fw-l1-control)描述
+All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
 
 - [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - 这是 L1 的距离，它定义了需要跟踪的跟踪点。 25米适合大部分飞机。 16-18米仍然可以工作并提供更清晰的响应。 调整期间缓慢缩短，直到响应迅速没有振荡。
