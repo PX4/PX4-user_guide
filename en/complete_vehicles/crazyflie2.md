@@ -29,7 +29,7 @@ The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazy
 
 ## Where to Buy
 
-* [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
+* [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0) is out or production, purchase the [Crazyflie 2.1](https://docs.px4.io/master/en/complete_vehicles/crazyflie21.html) instead if you need a new drone
 * [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* and Crazyflie 2.0.
 * [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals.
 * [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground.
