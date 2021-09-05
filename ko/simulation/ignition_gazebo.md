@@ -46,6 +46,15 @@ make px4_sitl ignition
 
 위의 명령은 전체 UI로 단일 차량을 시작합니다. *QGroundControl*은 시뮬레이션 차량에 자동으로 연결할 수 있어야 합니다.
 
+In order to run the simulation without running the ignition gazebo gui, one can use the `HEADLESS=1` flag. For example, the following
+```
+HEADLESS=1 make px4_sitl ignition
+```
+
+In order to increase the verbose output, `VERBOSE_SIM=1` can be used.
+```
+VERBOSE_SIM=1 make px4_sitl ignition
+```
 
 ## 추가 정보
 
