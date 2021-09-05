@@ -1,14 +1,14 @@
 # Ignition Gazebo Simulation
 
 :::warning
-Ignition Gazebo supports a single frame (quadcopter) and world, and cannot be run in headless mode (July 2021).
+Ignition Gazebo supports a single frame (quadcopter) and world (July 2021).
 :::
 
 [Ignition Gazebo](https://ignitionrobotics.org/libs/gazebo) is an open source robotics simulator from the [Ignition Robotics Project](https://ignitionrobotics.org/home). It is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
 
 **Supported Vehicles:** Quadrotor
 
-@[youtube](https://youtu.be/38UJqrNQChg)
+@[youtube](https://youtu.be/eRzdGD2vgkU)
 
 :::note
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
@@ -46,6 +46,15 @@ The supported vehicles and `make` commands are listed below (click on the links 
 
 The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
+In order to run the simulation without running the ignition gazebo gui, one can use the `HEADLESS=1` flag. For example, the following
+```
+HEADLESS=1 make px4_sitl ignition
+```
+
+In order to increase the verbose output, `VERBOSE_SIM=1` can be used.
+```
+VERBOSE_SIM=1 make px4_sitl ignition
+```
 
 ## Further Information
 
