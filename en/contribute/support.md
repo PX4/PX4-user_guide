@@ -13,7 +13,7 @@ This section shows how you can get help from the core dev team and the wider com
 The core development team and community are active on the following forums and chat channels.
 
 * [PX4 Discuss](https://discuss.px4.io//) (*recommended*)
-* [Slack](http://slack.px4.io) (sign up)
+* [Slack](https://px4.slack.com)
 
 :::tip
 Post on [PX4 Discuss](https://discuss.px4.io//) first! 
