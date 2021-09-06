@@ -33,14 +33,18 @@ This will bring up the PX4 console below:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
+:::note
+You may need to start *QGroundControl* before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
+:::
+
 The drone can be flown by typing:
 ```sh
 pxh> commander takeoff
 ```
 
-![jMAVSim 界面](../../assets/toolchain/jmavsim_first_takeoff.png)
+![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
 
-无人机可以通过输入 `commander land` 着陆, 整个模拟可以通过 **CTRL+C**（或输入 `shutdown`）来停止。
+The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
 
 Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
 
@@ -51,15 +55,15 @@ Flying the simulation with the ground control station is closer to the real oper
 -- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
 [954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
-:::
+运行成功后将输出类似结束：
 
 ## 基于NuttX / Pixhawk 的飞控板
 
 ### 获取特定发行版本
 
-运行成功后将输出类似结束：
-
 下面的列表是常见飞控板的生成命令：
+
+For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
 ```sh
 /data/ftp/internal_000/px4 -s /home/root/px4.config
 ```
@@ -86,21 +90,20 @@ The first part of the build target `px4_fmu-v4` indicates the firmware for a par
 :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
-下列飞控板有一些更复杂的构建和部署说明。
+Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
 
-:::note
-The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
+"PX4" 可执行文件位于目录 **build/emlid_navio2_cross/** 中。 请确保您可以通过 ssh 连接到 RPi，请参阅 [介绍如何访问您的 RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start)。
 :::
 
 ### 将固件烧录到飞控板
 
-"PX4" 可执行文件位于目录 **build/emlid_navio2_cross/** 中。 请确保您可以通过 ssh 连接到 RPi，请参阅 [介绍如何访问您的 RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start)。
+Append `upload` to the make commands to upload the compiled binary to the autopilot hardware via USB. For example
 
 ```sh
 make px4_fmu-v4_default upload
 ```
 
-A successful run will end with this output:
+并上传：
 
 ```sh
 Erase  : [====================] 100.0%
@@ -113,7 +116,7 @@ Rebooting.
 
 ## 其他飞控板
 
-并上传：
+Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading *Building Firmware*).
 
 You can also list all configuration targets using the command:
 ```sh
@@ -186,7 +189,7 @@ px4 starting.
 pxh&gt;
 ```
 
-运行 DSP 调试监控器：
+Example of bash output with missing dependencies:
 ```bash
 arm-none-eabi-gdb --version
 arm-none-eabi-gdb: command not found
