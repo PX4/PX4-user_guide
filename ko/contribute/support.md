@@ -14,7 +14,7 @@
 핵심 개발 팀과 커뮤니티는 다음 포럼과 대화 채널에서 활동합니다.
 
 * [PX4 토론](http://discuss.px4.io/) (*권장*)
-* [Slack](https://px4.slack.com)
+* [Slack](https://px4.slack.com) ([join link](https://join.slack.com/t/px4/shared_invite/zt-si4xo5qs-R4baYFmMjlrT4rQK5yUnaA))
 
 :::tip
 먼저 [PX4 토론](http://discuss.px4.io/)에 게시하세요! 며칠 내에 답변을받지 못하면 Slack에서 질문에 대한 링크 (토론 중)를 사용하여 저희에게 알려주십시오.
