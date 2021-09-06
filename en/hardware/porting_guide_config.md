@@ -28,6 +28,14 @@ if DRIVERS_UAVCAN_V1
 endif #DRIVERS_UAVCAN_V1
 ```
 
+## PX4 Kconfig label inheritance
+
+Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`. However you can add also seperate configurations under a different label e.g. `rtps.px4board` do note that by default the configuration of `rtps.px4board` inherits all settings set in `default.px4board`. When changing the `rtps.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
+
+:::note
+When modifying a Kconfig key in `default.px4board` it will be modified in all derivative configurations of the same board the had the same config as well.
+:::
+
 ## PX4 Menuconfig Setup
 
 To modify the PX4 board configuration, you can use the [menuconfig](https://pypi.org/project/kconfiglib/#menuconfig-interfaces) tool.
