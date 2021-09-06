@@ -34,20 +34,16 @@ Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../simulation/
 make px4_sitl jmavsim
 ```
 
-
 This will bring up the PX4 console below:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
-Now you should start QGroundControl (otherwise the simulation will fail without a datalink).
-You can either build QGroundControl
-yourself or for testing purposes, you can install a release version with `brew install qgroundcontrol`. 
-Because this is not a [unverified application](https://support.apple.com/en-in/guide/mac-help/mh40616/mac),
-go to `/Application` and right click on qgroundcontrol and allow
-the QGroundControl to establish a commenction to the simulator
+:::note
+You may need to start *QGroundControl* before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. 
+This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html). 
+:::
 
-Now, the drone can be flown by typing (or from QGroundControl graphical window):
-
+The drone can be flown by typing:
 ```sh
 pxh> commander takeoff
 ```
