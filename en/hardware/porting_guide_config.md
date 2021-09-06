@@ -10,8 +10,9 @@ The configuration options (often referred as "symbols" by the *kconfig* language
 By convention, symbols for modules/drivers are named based on the module folder path.
 For example, the symbol for the ADC driver at `src/drivers/adc/board_adc` must be named `DRIVERS_ADC_BOARD_ADC`.
 
-Symbols for driver/module specific options should omit the path, use the name of the module, and depend on the symbol.
-For example:
+To add symbols for driver/module specific options, the naming convention is the module name followed by the option name for example `UAVCAN_V1_GNSS_PUBLISHER` which is an option `GNSS_PUBLISHER` for the `UAVCAN_V1` module. The options have to be guarded behind an `if` statement to ensure that the options are only visible when the module itself is enabled.
+
+Full example:
 
 ```
 menuconfig DRIVERS_UAVCAN_V1
