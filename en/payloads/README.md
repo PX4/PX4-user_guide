@@ -58,98 +58,93 @@ You can check which outputs are used in the [Airframe Reference](../airframes/ai
 
 ### MAVSDK (Example script)
 
-The following [MAVSDK](https://mavsdk.mavlink.io/develop/en/) sample code shows how to trigger payload release.
+The following [MAVSDK](https://mavsdk.mavlink.io/develop/en/) [example code](https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp) shows how to trigger payload release.
 
-The code uses the MAVSDK [MavlinkPassthrough](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_mavlink_passthrough.html) plugin to send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command, specifying the value of (up to) 3 actuators.
+The code uses the [MAVSDK set_actuator() method of the Action plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c) plugin to send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command.
 
-<!-- note, we still need to explain how to map those values to actual outputs on PX4 
+<!-- note, we still need to explain how to map those values to actual outputs on PX4
 There are also questions on this script in the original PR.
 -->
 
 ```cpp
 #include <mavsdk/mavsdk.h>
-#include <mavsdk/plugins/mavlink_passthrough/mavlink_passthrough.h>
-#include <mavsdk/plugins/info/info.h>
+#include <mavsdk/plugins/action/action.h>
 #include <chrono>
 #include <cstdint>
 #include <iostream>
 #include <future>
-#include <memory>
 
 using namespace mavsdk;
 
-void send_actuator(MavlinkPassthrough& mavlink_passthrough,
-        float value1, float value2, float value3);
-
-int main(int argc, char **argv)
+void usage(const std::string& bin_name)
 {
-    Mavsdk mavsdk;
-    std::string connection_url;
-    ConnectionResult connection_result;
-    float value1, value2, value3;
+    std::cerr << "Usage :" << bin_name << " <connection_url> <actuator_index> <actuator_value>\n"
+              << "Connection URL format should be :\n"
+              << " For TCP : tcp://[server_host][:server_port]\n"
+              << " For UDP : udp://[bind_host][:bind_port]\n"
+              << " For Serial : serial:///path/to/serial/dev[:baudrate]\n"
+              << "For example, to connect to the simulator use URL: udp://:14540\n";
+}
 
-    if (argc == 5) {
-        connection_url = argv[1];
-        connection_result = mavsdk.add_any_connection(connection_url);
-        value1 = std::stof(argv[2]);
-        value2 = std::stof(argv[3]);
-        value3 = std::stof(argv[4]);
-    } 
-
-    if (connection_result != ConnectionResult::Success) {
-        std::cout << "Connection failed: " << connection_result << std::endl;
+int main(int argc, char** argv)
+{
+    if (argc != 4) {
+        usage(argv[0]);
         return 1;
     }
 
-    bool discovered_system = false;
-    mavsdk.subscribe_on_new_system([&mavsdk, &discovered_system]() {
-        const auto system = mavsdk.systems().at(0);
+    const std::string connection_url = argv[1];
+    const int index = std::stod(argv[2]);
+    const float value = std::stof(argv[3]);
 
-        if (system->is_connected()) {
-            std::cout << "Discovered system" << std::endl;
-            discovered_system = true;
+    Mavsdk mavsdk;
+    const ConnectionResult connection_result = mavsdk.add_any_connection(connection_url);
+
+    if (connection_result != ConnectionResult::Success) {
+        std::cerr << "Connection failed: " << connection_result << '\n';
+        return 1;
+    }
+
+    std::cout << "Waiting to discover system...\n";
+    auto prom = std::promise<std::shared_ptr<System>>{};
+    auto fut = prom.get_future();
+
+    // We wait for new systems to be discovered, once we find one that has an
+    // autopilot, we decide to use it.
+    mavsdk.subscribe_on_new_system([&mavsdk, &prom]() {
+        auto system = mavsdk.systems().back();
+
+        if (system->has_autopilot()) {
+            std::cout << "Discovered autopilot\n";
+
+            // Unsubscribe again as we only want to find one system.
+            mavsdk.subscribe_on_new_system(nullptr);
+            prom.set_value(system);
         }
     });
 
-    std::this_thread::sleep_for(std::chrono::seconds(2));
-
-    if (!discovered_system) {
-        std::cout << "No device found, exiting." << std::endl;
+    // We usually receive heartbeats at 1Hz, therefore we should find a
+    // system after around 3 seconds max, surely.
+    if (fut.wait_for(std::chrono::seconds(3)) == std::future_status::timeout) {
+        std::cerr << "No autopilot found, exiting.\n";
         return 1;
     }
 
-    std::shared_ptr<System> system = mavsdk.systems().at(0);
-    for (auto& tsystem : mavsdk.systems()) {
-        auto info = Info{tsystem};
-        std::cout << info.get_identification().second.hardware_uid << std::endl;
-        if (info.get_identification().second.hardware_uid == "3762846593019032885") {
-            system = tsystem;
-        }
+    // Get discovered system now.
+    auto system = fut.get();
+
+    // Instantiate plugins.
+    auto action = Action{system};
+
+    std::cout << "Setting actuator...\n";
+    const Action::Result set_actuator_result = action.set_actuator(index, value);
+
+    if (set_actuator_result != Action::Result::Success) {
+        std::cerr << "Setting actuator failed:" << set_actuator_result << '\n';
+        return 1;
     }
 
-    auto mavlink_passthrough = MavlinkPassthrough{system};
-
-    send_actuator(mavlink_passthrough, value1, value2, value3);
-
     return 0;
-}
-
-void send_actuator(MavlinkPassthrough& mavlink_passthrough,
-        float value1, float value2, float value3)
-{
-    std::cout << "Sending message" << std::endl;
-    mavlink_message_t message;
-    mavlink_msg_command_long_pack(
-            mavlink_passthrough.get_our_sysid(),
-            mavlink_passthrough.get_our_compid(),
-            &message,
-            1, 1,
-            MAV_CMD_DO_SET_ACTUATOR,
-            0,
-            value1, value2, value3,
-            NAN, NAN, NAN, 0);
-    mavlink_passthrough.send_message(message);
-    std::cout << "Sent message" << std::endl;
 }
 ```
 
