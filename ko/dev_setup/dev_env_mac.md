@@ -68,28 +68,37 @@ Gazebo로 SITL 시뮬레이션을 설치하려면:
 brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
+jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java(예: Java 15)를 설치합니다. They can be removed once it is fixed (along with this note).
+:::
 
-## jMAVSim 시뮬레이션
-
-jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java(예: Java 15)를 설치합니다. You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use the AdoptOpenJDK tap:
+:::warning PX4 v1.11 이상용 jMAVSim에는 JDK 15 이상의 버전이 필요합니다.
 
 ```sh
 brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk15
 ```
 
+
+## jMAVSim 시뮬레이션
+
+이전 버전의 경우 macOS 사용자는 `스레드 "main" java.lang.UnsupportedClassVersionError의 예외:` 오류가 발생할 수 있습니다. 여기에서 수정 방법을 참고하십시오: [SITL이 있는 jMAVSim > 문제 해결](../simulation/jmavsim.md#troubleshooting)).
+
 ```sh
 brew install px4-sim-jmavsim
 ```
 
-:::warning PX4 v1.11 이상용 jMAVSim에는 JDK 15 이상의 버전이 필요합니다.
+```sh
+brew install px4-sim-jmavsim
+```
 
-이전 버전의 경우 macOS 사용자는 `스레드 "main" java.lang.UnsupportedClassVersionError의 예외:` 오류가 발생할 수 있습니다. 여기에서 수정 방법을 참고하십시오: [SITL이 있는 jMAVSim > 문제 해결](../simulation/jmavsim.md#troubleshooting)).
+명령줄 도구 모음 설정후, 다음을 수행합니다.
+
+For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
 :::
 
 ## 다음 단계
 
-명령줄 도구 모음 설정후, 다음을 수행합니다.
+Once you have finished setting up the command-line toolchain:
 - [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
 - [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) 설치 :::tip *일일 빌드*에는 릴리스 빌드에 숨겨진 개발 도구가 포함됩니다. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
 :::
