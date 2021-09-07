@@ -64,20 +64,23 @@ sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyy
 
 ## Gazebo Simulation
 
-To install SITL simulation with Gazebo:
-
-```sh
-brew install --cask xquartz
-brew install px4-sim-gazebo
-```
-Note that as of September 2021, this installation fails because an underlying library, the Thread Block Builder (TBB)'s 2021
-release is not compatible with px4. The [issue](https://github.com/PX4/PX4-Autopilot/issues/17644) is currently fixed
-by loaded in the older 2020 library before running the commands above:
+First run the following commands:
 
 ```sh
 brew unlink tbb
 brew install tbb@2020
 brew link tbb@2020
+```
+:::note
+September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644).
+They can be removed once it is fixed (along with this note).
+:::
+
+To install SITL simulation with Gazebo:
+
+```sh
+brew install --cask xquartz
+brew install px4-sim-gazebo
 ```
 
 
