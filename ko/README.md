@@ -2,7 +2,7 @@
 
 # PX4 자율 비행 프로그램 안내서 ({{ $themeConfig.px4_version }})
 
-[![배포](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
+[![배포](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![슬랙](../assets/site/slack.svg)](https://join.slack.com/t/px4/shared_invite/zt-si4xo5qs-R4baYFmMjlrT4rQK5yUnaA)
 
 PX4는 *전문가용 자율비행 프로그램* 입니다. 산업계와 학계에서 세계적인 수준의 개발자들이 참여하여 개발하였습니다. 여러 나라에서 활동중인 단체의 지원을 받을 수 있습니다. PX4는 레이싱 드론, 운송용 드론, 자동차와 선박 등의 다양한 운송체에 적용할 수 있습니다.
 

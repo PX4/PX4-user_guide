@@ -258,9 +258,9 @@ When compiling jMAVsim, you might encounter the following error:
 Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
 ```
 
-This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, etc.
+This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
 
 To fix it under macOS, we recommend installing OpenJDK through homebrew
 ```sh
-brew install --cask adoptopenjdk15
+brew install --cask adoptopenjdk16
 ```
