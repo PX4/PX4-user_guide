@@ -31,7 +31,7 @@ EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only proc
 The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
 :::tip
-EFK2 is the default estimator used by PX4.
+EKF2 is the default estimator used by PX4.
 It is better tested and supported than LPE, and should be used by preference.
 :::
 
