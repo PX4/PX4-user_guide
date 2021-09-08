@@ -407,10 +407,6 @@ pwm_input <command> [arguments...]
    start
 
    test          prints PWM capture info.
-
-   stop
-
-   status        print status info
 ```
 ## rc_update
 소스: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
