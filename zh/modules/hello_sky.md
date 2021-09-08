@@ -86,10 +86,9 @@
 :::
 
 :::tip
-`PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
-:::
+`PX4_INFO`相当于输出到PX4 shell的`printf`（包含在****px4_platform_common/log.h **中）。 这里有不同的日志级别：`PX4_INFO`、`PX4_WARN`、`PX4_ERR`、`PX4_DEBUG`。 警告和错误会额外添加到[ULog](../dev_log/ulog_file_format.md)并显示在[Flight Review](https://logs.px4.io/) 中。 :::</p></li> </ul>
 
-1. Create and open a new *cmake* definition file named **CMakeLists.txt**. 复制下面的文本：
+1. 创建并打开一个名为**CMakeLists.txt**的新*cmake*定义文件。 复制下面的文本：
    ```cmake
    ############################################################################
    #
@@ -132,9 +131,9 @@
     DEPENDS
     )
    ```
-   `px4_add_module()` 方法从模块描述生成静态库。
-   - PX4 SITL (模拟器): [Firmware/boards/px4/sitl/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/sitl/default.cmake)
-   - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
+   `px4_add_module()` 方法根据模块描述生成静态库。
+   - `MODULE`块是模块的唯一固件名称（按照惯例，模块名称的前缀是src之后的路径）。`</li>
+<li><p spaces-before="0">The <code>MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.</p>
 
 :::tip
 The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
