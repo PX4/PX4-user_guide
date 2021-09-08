@@ -136,7 +136,7 @@
 <li><p spaces-before="0"><code>MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。</p>
 
 :::tip
-The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
+`px4_add_module()` 的格式可从 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)中查看. <!-- NEED px4_version -->
 
 :::
 
