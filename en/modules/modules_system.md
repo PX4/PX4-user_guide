@@ -436,8 +436,6 @@ pwm_input <command> [arguments...]
  Commands:
    start
 
-   test          prints PWM capture info.
-
    stop
 
    status        print status info
