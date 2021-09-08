@@ -387,7 +387,7 @@ px4_simple_app &
 要使用计算出的输出，下一步是*发布*结果。 下面我们将展示如何发布姿态主题。
 
 :::note
-We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
+这里我们选取 `attitude` topic 是因为 *mavlink* app 会自动将该 topic 中的数据转发至地面控制站，这样可以方便我们查看这些结果。
 :::
 
 The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
