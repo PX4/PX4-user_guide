@@ -3,22 +3,22 @@
 本文主要说明如何创建并运行你的第一个板载应用程序。 它涵盖了 PX4 应用程序开发所需的所有基本概念和 API。
 
 :::note
-For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
+为简单起见，省略了更高级的功能，如启动/停止功能和命令行参数。 这些在[Application/Module Template](../modules/module_template.md) 中有介绍。
 :::
 
 ## 系统必备组件
 
-源代码 [Firmware/src/examples/px4_simple_app](https://github.com/PX4/Firmware/tree/master/src/examples/px4_simple_app) 文件夹下包含了本教程的完整版代码，如果你卡住了可以前去查看该文件夹下的内容。
+以下内容是您需要提前准备的：
 * [PX4 SITL 模拟器](../simulation/README.md) *或者* 一个 [兼容 PX4 的飞行控制器](https://docs.px4.io/en/flight_controller/#documented-boards) 。
 * 适用于期望平台的 [PX4 开发工具链](../setup/dev_env.md) 。
 * 从 Github [下载 PX4 源代码](../setup/building_px4.md#get_px4_code) 。
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
+源码[PX4-Autopilot/src/examples/px4_simple_app ](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app)目录包含本教程的完整版本，如果遇到困难可以查看。
 * 重命名 (或删除) **px4_simple_app** 目录。
 
 ## 最小的应用程序
 
-应用程序的编写至此完成。 为了保证改程序可以被运行，你首先需要确保编译器会将它作为 PX4 固件的一部分进行编译。
+在本节中，我们创建一个*很小的应用程序*，只是打印出来`Hello Sky!`。 这包括一个*C*文件和一个*cmake*定义（它告诉工具链如何构建应用程序）。</p>
 
 1. 新建如下文件夹： **Firmware/src/examples/px4_simple_app**。
 1. 在该目录中新建一个名为 **px4_simple_app.c** 的 C 文件：
@@ -82,7 +82,7 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
      ```
 
 :::tip
-The main function must be named `<module_name>_main` and exported from the module as shown.
+函数必须以`<module_name>_main`格式命名并从模块中导出，如上图所示。
 :::
 
 :::tip
