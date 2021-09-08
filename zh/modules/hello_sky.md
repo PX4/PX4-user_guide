@@ -305,9 +305,9 @@ int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
 
-`sensor_sub_fd`是一个主题句柄，它可以用于非常有效地执行阻塞等待新数据。 当前线程进入休眠状态，一旦有新数据可用就会被调度器自动唤醒，等待时不消耗任何 CPU 周期。 To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
+`sensor_sub_fd`是一个主题句柄，它可以用于非常有效地执行阻塞等待新数据。 当前线程进入休眠状态，一旦有新数据可用就会被调度器自动唤醒，等待时不消耗任何 CPU 周期。 为此，我们使用[poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX 系统调用。
 
-你的 app 会在控制台界面输出 5 组传感器数据然后退出：
+添加`poll()`到订阅看起来像（伪代码，在下面可查找完整的实现）：
 
 
 
@@ -340,7 +340,7 @@ while (true) {
 ```
 
 
-Compile the app again by entering:
+再次编译应用程序可以输入：
 
 
 
@@ -353,7 +353,7 @@ make
 
 ### 测试 uORB 消息订阅
 
-数据的交互非常简单： 初始化想要发布的 topic 的 `结构体` 然后告诉这个 topic ：
+最后一步是通过在 nsh shell 中键入以下内容来启动您的应用程序作为后台进程/任务：
 
 
 
@@ -377,14 +377,14 @@ px4_simple_app &
 
 
 :::tip
-The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
+[完整应用程序的模块模板](../modules/module_template.md)可用于编写可从命令行控制的后台进程。
 :::
 
 
 
 ## 发布数据
 
-To use the calculated outputs, the next step is to *publish* the results. Below we show how to publish the attitude topic.
+要使用计算出的输出，下一步是*发布*结果。 Below we show how to publish the attitude topic.
 
 :::note
 We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
