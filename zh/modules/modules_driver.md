@@ -197,6 +197,8 @@ GPS driver module that handles the communication with the device and publishes t
 ### 用法
 This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement to use DShot as ESC communication protocol instead of PWM.
 
+On startup, the module tries to occupy all available pins for DShot output. It skips all pins already in use (e.g. by a camera trigger module).
+
 It supports:
 - DShot150, DShot300, DShot600, DShot1200
 - 通过独立的串口遥控，并且发布esc_status消息
@@ -265,7 +267,7 @@ Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/m
 
 
 ### 示例
-模块支持一个辅助（secondary） GPS 设备，可使用 `-e` 参数进行指定。 辅助 GPS 的位置信息会在第二个 uORB 主题实例上发布，但目前为止系统的其它部分暂未使用该数据（但该数据会被记录下来，以方便进行对比）。
+Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires vehicle_attitude and vehicle_gps_position.
 
 <a id="fake_magnetometer_usage"></a>
 
@@ -293,12 +295,12 @@ There is a thread for each device polling for data. The GPS protocol classes are
 
 ### 用法
 
-This module does the RC input parsing and auto-selecting the method. Supported methods are:
+By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency.
 ```
 gps start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
-By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency.
+Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
 ```
 gps reset warm
 ```
@@ -334,15 +336,15 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## ina226
-Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
+Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
 
 
 ### 使用
 Driver for the INA226 power monitor.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
-
 Attempt to start driver on any bus (start on bus where first sensor found).
+
+For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
 
 If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
@@ -370,15 +372,15 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## fmu mode_pwm3cap1
-Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina228)
+This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 
 ### 描述
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
 Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
 The module is typically started with: tap_esc start -d /dev/ttyS2 -n
+
+For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
 
 If the INA228 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
@@ -406,11 +408,11 @@ ina228 <command> [arguments...]
    status        print status info
 ```
 ## pga460
-Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+通常使用如下命令：
 
 
 ### 示例
-通常使用如下命令：
+IridiumSBD driver.
 
 Creates a virtual serial port that another module can use for communication (e.g. mavlink).
 
@@ -505,10 +507,10 @@ Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/mast
 
 
 ### 示例
-This module is responsible for driving interfasing to the Neopixel Serial LED
+By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
 
 ### 使用
-By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
+It is typically started with:
 ```
 neopixel -n 8
 ```
@@ -582,9 +584,9 @@ Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/mast
 
 
 ### 描述
-This module is responsible for generate pwm pulse with PCA9685 chip.
-
 源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+
+It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 ### 使用
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
@@ -616,7 +618,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## rc_input
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
+源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 
 <a id="pcf8583_usage"></a>
 
@@ -639,7 +641,7 @@ pcf8583 <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
@@ -669,32 +671,14 @@ Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/d
 
 
 ### Description
-This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
+This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
+On startup, the module tries to occupy all available pins for PWM/Oneshot output. It skips all pins already in use (e.g. by a camera trigger module).
 
 ### Implementation
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
-
-### Examples
-It is typically started with:
-```
-pwm_out mode_pwm
-```
-To drive all available pins.
-
-Capture input (rising and falling edges) and print on the console: start pwm_out in one of the capture modes:
-```
-pwm_out mode_pwm3cap1
-```
-This will enable capturing on the 4th pin. Then do:
-```
-pwm_out test
-```
-
-Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load mixer files.
 
 <a id="pwm_out_usage"></a>
 
@@ -702,42 +686,7 @@ Use the `pwm` command for further configurations (PWM rate, levels, ...), and th
 ```
 pwm_out <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start pwm_out if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
+   start
 
    sensor_reset  Do a sensor reset (SPI bus)
      [<ms>]      Delay time in ms between reset and re-enabling
@@ -748,7 +697,7 @@ pwm_out <command> [arguments...]
    i2c           Configure I2C clock rate
      <bus_id> <rate> Specify the bus id (>=0) and rate in Hz
 
-   test          Test inputs and outputs
+   test          Test outputs
 
    stop
 
