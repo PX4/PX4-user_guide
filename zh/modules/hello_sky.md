@@ -146,7 +146,7 @@
 
 ## 编译应用程序/固件
 
-The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. Applications are added to the build/firmware in the appropriate board-level *cmake* file for your target:
+应用程序的编写至此完成。 为了运行它，您首先需要确保它是作为 PX4 的一部分构建的。 Applications are added to the build/firmware in the appropriate board-level *cmake* file for your target:
 
 * jMAVSim 仿真器：`make px4_sitl_default jmavsim`
 * Pixhawk v1/2：`make px4_fmu-v2_default`（或只用 `make px4_fmu-v2`）
