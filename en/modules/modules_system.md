@@ -557,6 +557,25 @@ sensors <command> [arguments...]
 
    status        print status info
 ```
+## tattu_can
+Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tattu_can)
+
+
+### Description
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
+
+
+<a id="tattu_can_usage"></a>
+### Usage
+```
+tattu_can <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## temperature_compensation
 Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
 
