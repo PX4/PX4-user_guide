@@ -556,6 +556,25 @@ sensors <command> [arguments...]
 
 
 ### 示例
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
+
+<a id="tattu_can_usage"></a>
+
+### 用法
+```
+tattu_can <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## temperature_compensation
+Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
+
+
+### 参数描述
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
 
 <a id="temperature_compensation_usage"></a>
@@ -581,7 +600,7 @@ temperature_compensation <command> [arguments...]
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
-### 参数描述
+### Description
 
 Command-line tool to control & test the (external) tunes.
 
@@ -589,7 +608,7 @@ Tunes are used to provide audible notification and warnings (e.g. when the syste
 
 Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
 
-### 用法
+### Examples
 
 Play system tune #2:
 ```
