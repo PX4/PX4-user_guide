@@ -10,7 +10,9 @@ The configuration options (often referred as "symbols" by the *kconfig* language
 By convention, symbols for modules/drivers are named based on the module folder path.
 For example, the symbol for the ADC driver at `src/drivers/adc/board_adc` must be named `DRIVERS_ADC_BOARD_ADC`.
 
-To add symbols for driver/module specific options, the naming convention is the module name followed by the option name for example `UAVCAN_V1_GNSS_PUBLISHER` which is an option `GNSS_PUBLISHER` for the `UAVCAN_V1` module. The options have to be guarded behind an `if` statement to ensure that the options are only visible when the module itself is enabled.
+To add symbols for driver/module specific options, the naming convention is the module name followed by the option name.
+Fo example `UAVCAN_V1_GNSS_PUBLISHER` which is an option `GNSS_PUBLISHER` for the `UAVCAN_V1` module.
+The options have to be guarded behind an `if` statement to ensure that the options are only visible when the module itself is enabled.
 
 Full example:
 
@@ -28,12 +30,15 @@ if DRIVERS_UAVCAN_V1
 endif #DRIVERS_UAVCAN_V1
 ```
 
-## PX4 Kconfig label inheritance
+## PX4 Kconfig Label Inheritance
 
-Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`. However you can add also seperate configurations under a different label e.g. `rtps.px4board` do note that by default the configuration of `rtps.px4board` inherits all settings set in `default.px4board`. When changing the `rtps.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
+Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`.
+However you can add also seperate configurations under a different label e.g. `rtps.px4board`.
+Note that by default the configuration of `rtps.px4board` inherits all settings set in `default.px4board`.
+When changing the `rtps.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
 
 :::note
-When modifying a Kconfig key in `default.px4board` it will be modified in all derivative configurations of the same board the had the same config as well.
+When modifying a Kconfig key in `default.px4board` it will be modified in all derivative configurations of the same board that had the same config as well.
 :::
 
 ## PX4 Menuconfig Setup
