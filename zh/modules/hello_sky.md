@@ -290,11 +290,11 @@ INFO  [px4_simple_app] Hello Sky!
 
 为了做一些实用的事情，应用程序需要订阅输入和发布输出（例如电机或伺服命令）。
 
-`sensor_sub_fd` 是一个 topic 句柄（handle），它可以高效地执行阻断以等待新数据。 待新数据抵达后调度程序会自动将当前进程从休眠中唤醒，线程在等待期间不会占用任何 CPU 周期。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
+:::tip PX4 硬件抽象的好处在这里发挥作用！ 无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 对于本教程，我们感兴趣的主题是[sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg)，它拥有了整个系统的同步传感器数据。
 
-使用下面的命令重新编译 app ：
+订阅主题很简单：
 
 
 
@@ -305,7 +305,7 @@ int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
 
-The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
+`sensor_sub_fd`是一个主题句柄，它可以用于非常有效地执行阻塞等待新数据。 当前线程进入休眠状态，一旦有新数据可用就会被调度器自动唤醒，等待时不消耗任何 CPU 周期。 To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
 
 你的 app 会在控制台界面输出 5 组传感器数据然后退出：
 
