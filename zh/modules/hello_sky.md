@@ -141,7 +141,7 @@
 :::
 
 :::note
-If you specify `DYNAMIC` as an option to `px4_add_module`, a *shared library* is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+如果您对`px4_add_module`指定`DYNAMIC`选项，则会在 POSIX 平台上创建一个动态库而不是静态库（这些可以在无需重新编译 PX4 的情况下加载，并作为二进制文件而不是源代码共享给其他人）。 您的应用程序不会成为内置命令，而是生成一个名为`examples__px4_simple_app.px4mod`的文件。 您可以通过在运行时使用以下`dyn`命令加载文件来运行您的命令：`dyn ./examples__px4_simple_app.px4mod`
 :::
 
 ## 编译应用程序/固件
