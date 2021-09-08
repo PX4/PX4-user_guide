@@ -1,10 +1,10 @@
 # CUAV v5 (단종)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.cuav.net/)에 문의하십시오.
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning
-이 비행 컨트롤러는 [단종](../flight_controller/autopilot_experimental.md)되었습니다.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
 *CUAV v5*<sup>&reg;</sup> (이전 "Pixhack v5")는 CUAV<sup>&reg;</sup>에서 설계/제작한 고급 자동조종장치입니다. 이 보드는 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계에 기반합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행하며, PX4 펌웨어와 호환됩니다. 주로 학술 및 상업 개발자를 대상으로합니다.
