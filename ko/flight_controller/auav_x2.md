@@ -1,10 +1,10 @@
 # AUAV-X2 자동조종장치 (단종됨)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
-:::warning
-이 비행 컨트롤러는 [단종](../flight_controller/autopilot_experimental.md)되었습니다.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 자동조종장치*는 [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** 오픈 하드웨어 디자인 기반입니다. PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
