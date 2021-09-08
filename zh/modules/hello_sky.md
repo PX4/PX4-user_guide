@@ -269,9 +269,9 @@ Hello Sky!
 
 ## 测试应用（SITL）
 
-If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
+如果您使用 SITL，*PX4 控制台*会自动启动（请参阅[构建代码>第一次构建（使用 jMAVSim 模拟器）](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)）。 与*nsh 控制台*（请参阅上一节）相同，您可以键入`help`以查看内置程序列表。
 
-为了做一些更有用的事情，应用程序需要订阅一些输入量并发布输出指令（比如电机或者舵机指令）。
+输入`px4_simple_app`来运行这个最小的应用程序。
 
 
 
@@ -281,14 +281,14 @@ INFO  [px4_simple_app] Hello Sky!
 ```
 
 
-The application can now be extended to actually perform useful tasks.
+现在可以扩展该应用程序以实际执行实用的任务
 
 
 
 
 ## 订阅传感器数据
 
-订阅一个 topic 非常简单直接：
+为了做一些实用的事情，应用程序需要订阅输入和发布输出（例如电机或伺服命令）。
 
 `sensor_sub_fd` 是一个 topic 句柄（handle），它可以高效地执行阻断以等待新数据。 待新数据抵达后调度程序会自动将当前进程从休眠中唤醒，线程在等待期间不会占用任何 CPU 周期。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
