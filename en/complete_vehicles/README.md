@@ -61,10 +61,9 @@ These may or may not be updatable to run "vanilla" PX4.
   * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
   * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
   * [Airlango Mystic](http://airlango.com/products/)
-  * [Airdog II](https://px4.io/portfolio/airdog-ii/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
 * Fixed Wing:
-  * [Sentera PXH](https://px4.io/portfolio/sentera-phx/)
+  * [Sentera PXH](https://sentera.shop/products/sentera-phx-complete-system)
 * VTOL
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
   * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
