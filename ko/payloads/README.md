@@ -51,10 +51,9 @@ RC 채널은 *보통* 비행컨트롤러의 `AUX1`, `AUX2`, `AUX3` 출력에 매
 
 이 코드는 MAVSDK [MavlinkPassthrough](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_mavlink_passthrough.html) 플러그인을 사용하여 [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink 명령을 전송하고 (최대) 3 개의 액추에이터 값을 지정합니다.
 
-
-<!-- note, we still need to explain how to map those values to actual outputs on PX4 
-There are also questions on this script in the original PR.
--->
+:::note MAVSDK
+sends the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command under the hood, and hence uses the same outputs as are configured for [Mission Triggering](#mission-triggering) and [RC Triggering](#rc-triggering) (see previous sections). You can check which outputs are used in the [Airframe Reference](../airframes/airframe_reference.md) for your vehicle, and change them if needed using a [custom mixer file](../concept/mixing.md).
+:::
 
 ```cpp
 #include <mavsdk/mavsdk.h>
@@ -74,7 +73,8 @@ void send_actuator(MavlinkPassthrough& mavlink_passthrough,
 int main(int argc, char **argv)
 {
     Mavsdk mavsdk;
-    std::string connection_url; << std::endl;
+    std::string connection_url;
+    << std::endl;
         return 1;
     }
 
@@ -90,6 +90,34 @@ int main(int argc, char **argv)
     auto mavlink_passthrough = MavlinkPassthrough{system};
 
     send_actuator(mavlink_passthrough, value1, value2, value3);
+            mavsdk.subscribe_on_new_system(nullptr);
+            prom.set_value(system);
+        }
+    });
+
+    // We usually receive heartbeats at 1Hz, therefore we should find a
+    // system after around 3 seconds max, surely.
+    if (fut.wait_for(std::chrono::seconds(3)) == std::future_status::timeout) {
+        std::cerr << "No autopilot found, exiting.\n";
+        return 1;
+    }
+
+    // Get discovered system now.
+    auto system = fut.get();
+
+    // Instantiate plugins.
+    auto action = Action{system};
+
+    std::cout << "Setting actuator...\n";
+    const Action::Result set_actuator_result = action.set_actuator(index, value);
+
+    if (set_actuator_result != Action::Result::Success) {
+        std::cerr << "Setting actuator failed:" << set_actuator_result << '\n';
+        return 1;
+    }
+
+    return 0;
+}
 ```
 
 ## 감시, 검색 및 구출
