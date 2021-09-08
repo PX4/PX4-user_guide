@@ -1,4 +1,4 @@
-# Aerotenna OcPoC-Zynq 미니 비행 컨트롤러
+# Aerotenna OcPoC-Zynq Mini Flight Controller (Discontinued)
 
 :::warning
 이 비행 컨트롤러는 [단종](../flight_controller/autopilot_experimental.md)되었습니다.
