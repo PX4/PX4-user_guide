@@ -217,7 +217,7 @@ Rebooting.
 
 ### 连接至控制台
 
-请注意，此时 `px4_simple_app` 已经是一个可用的命令了。 键入 `px4_simple_app` 并回车以运行该程序：
+现在通过串口或USB连接到[系统控制台](../debug/system_console.md)。 按**ENTER**将调出 shell 提示：
 
 
 
@@ -226,7 +226,7 @@ nsh>
 ```
 
 
-该应用程序现在已经被正确地注册到了 Px4 系统中，并且可以通过对其进行扩展来执行更有用的任务了。
+输入“help”并按回车键
 
 
 
@@ -253,7 +253,7 @@ Builtin Apps:
 ```
 
 
-Note that `px4_simple_app` is now part of the available commands. Start it by typing `px4_simple_app` and ENTER:
+请注意，px4_simple_app现在是可用命令的一部分。 通过键入`px4_simple_app`并输入回车启动它：
 
 
 
@@ -263,7 +263,7 @@ Hello Sky!
 ```
 
 
-输入 `px4_simple_app` 以运行该最小的应用程序。
+该应用程序现在已正确注册到系统中，并且可以扩展以实际执行实用的任务。
 
 
 
