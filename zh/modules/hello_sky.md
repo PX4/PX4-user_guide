@@ -154,7 +154,7 @@
 
 [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)</li> 
   
-  * 其他板的*cmake*文件可以在[PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards) 中找到</ul> 
+  * 其它板的*cmake*文件可以在[PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards) 中找到</ul> 
 
 要启用将应用程序编译到固件中，请在*cmake*文件中的某处为您的应用程序创建一个新行：
 
@@ -166,15 +166,15 @@ examples/px4_simple_app
 
 
 :::note
-The line will already be present for most files, because the examples are included in firmware by default.
+该行已经存在于大多数文件中，因为固件中默认包含这些示例。
 :::
 
-在你完成飞控板的重置之前应该会输出一些编译消息，并最终出现：
+使用特定板的命令构建示例：
 
-* Pixhawk v1/2：`make px4_fmu-v2_default upload`
-* Pixhawk v3：`make px4_fmu-v4_default upload`
-* Pixhawk v3：`make px4_fmu-v4_default`
-* Other boards: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
+* jMAVSim 模拟器： `make px4_sitl_default jmavsim`
+* Pixhawk v1/2：`make px4_fmu-v2_default`（或者仅使用`make px4_fmu-v2`）
+* Pixhawk v3： `make px4_fmu-v4_default`
+* 其它板: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
 
 
 
@@ -185,12 +185,12 @@ The line will already be present for most files, because the examples are includ
 
 ### 将固件上传至飞控板
 
-一旦飞控板被重置并完成了固件的上传，命令行界面将输出：
+启用上传器，然后重启飞控板：
 
-* Pixhawk v1/2：`make px4_fmu-v2_default upload`
-* Pixhawk v3：`make px4_fmu-v4_default upload`
+* Pixhawk v1/2: `make px4_fmu-v2_default upload`
+* Pixhawk v3: `make px4_fmu-v4_default upload`
 
-It should print before you reset the board a number of compile messages and at the end:
+在您重启飞控板之前，它应该打印一些编译消息，并在最后打印：
 
 
 
@@ -199,7 +199,7 @@ Loaded firmware for X,X, waiting for the bootloader...
 ```
 
 
-键入 "help" 并回车：
+一旦飞控板被重启并完成了固件的上传，命令行界面将输出：
 
 
 
