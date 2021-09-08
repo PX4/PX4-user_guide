@@ -1,14 +1,15 @@
 # 3DR Pixhawk 1 Flight Controller (Discontinued)
 
 :::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+:::
+
+:::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the manufacturer for support or compliance issues.
 :::
 
-:::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
-You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
-:::
 
 The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). 
 It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.

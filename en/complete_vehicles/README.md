@@ -23,7 +23,6 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
 This section lists fully assembed vehicles where you can update the software to run PX4.
 
 - Multicopter
-  - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
   - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
   - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
 - Underwater Vehicles
