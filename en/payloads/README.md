@@ -51,20 +51,21 @@ The parameters take normalised values in the range `[-1, 1]` (resulting in PWM o
 All params/actuators that are not being controlled should be set to `NaN`.
 
 :::note
-MAVLink uses the same outputs as are configured for [RC AUX passthrough](#rc-triggering) (see prevous section).
+MAVLink uses the same outputs as are configured for [RC AUX passthrough](#rc-triggering) (see previous section).
 You can check which outputs are used in the [Airframe Reference](../airframes/airframe_reference.md) for your vehicle, and change them if needed using a [custom mixer file](../concept/mixing.md).
 :::
 
 
 ### MAVSDK (Example script)
 
-The following [MAVSDK](https://mavsdk.mavlink.io/develop/en/) [example code](https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp) shows how to trigger payload release.
+The following [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) [example code](https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp) shows how to trigger payload release using the MAVSDK Action plugin's [`set_actuator()`](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c) method.
 
-The code uses the [MAVSDK set_actuator() method of the Action plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c) plugin to send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command.
+The `set_actuator()` index values of 1 to 3 *normally* map to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller.
 
-<!-- note, we still need to explain how to map those values to actual outputs on PX4
-There are also questions on this script in the original PR.
--->
+:::note
+MAVSDK sends the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command under the hood, and hence uses the same outputs as are configured for [Mission Triggering](#mission-triggering) and [RC Triggering](#rc-triggering) (see previous sections).
+You can check which outputs are used in the [Airframe Reference](../airframes/airframe_reference.md) for your vehicle, and change them if needed using a [custom mixer file](../concept/mixing.md).
+:::
 
 ```cpp
 #include <mavsdk/mavsdk.h>
