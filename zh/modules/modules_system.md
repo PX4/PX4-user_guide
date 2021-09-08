@@ -438,10 +438,6 @@ pwm_input <command> [arguments...]
    stop
 
    status        print status info
-
-   stop
-
-   status        print status info
 ```
 ## send_event
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
