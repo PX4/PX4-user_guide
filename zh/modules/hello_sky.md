@@ -133,7 +133,7 @@
    ```
    `px4_add_module()` 方法根据模块描述生成静态库。
    - `MODULE`块是模块的唯一固件名称（按照惯例，模块名称的前缀是src之后的路径）。`</li>
-<li><p spaces-before="0">The <code>MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.</p>
+<li><p spaces-before="0"><code>MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。</p>
 
 :::tip
 The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
