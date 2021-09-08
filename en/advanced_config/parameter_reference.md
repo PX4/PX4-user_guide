@@ -6730,9 +6730,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_THR_MIN">MPC_THR_MIN</strong> (FLOAT)</td>
- <td>Minimum thrust in auto thrust control <p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust.</p>   </td>
+ <td>Minimum collective thrust in auto thrust control <p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust. Note: Without airmode zero thrust leads to zero roll/pitch control authority. (see MC_AIRMODE)</p>   </td>
  <td>0.05 > 1.0 (0.01)</td>
  <td>0.12</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="MPC_THR_XY_MARG">MPC_THR_XY_MARG</strong> (FLOAT)</td>
+ <td>Horizontal thrust margin <p><strong>Comment:</strong> Margin that is kept for horizontal control when prioritizing vertical thrust. To avoid completely starving horizontal control with high vertical error.</p>   </td>
+ <td>0.0 > 0.5 (0.01)</td>
+ <td>0.3</td>
  <td>norm</td>
 </tr>
 <tr>
