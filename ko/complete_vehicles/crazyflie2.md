@@ -1,13 +1,16 @@
-# Crazyflie 2.0
+# Crazyflie 2.0 (Discontinued)
 
-:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.bitcraze.io/)에 문의하십시오.
+:::warning
+*Crazyflie 2.0* has been [discontinued/superseded](../flight_controller/autopilot_experimental.md). Try [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) instead!
 :::
 
 :::warning
-이 비행 컨트롤러에 대한 PX4 지원은 [테스트중](../flight_controller/autopilot_experimental.md)입니다.
+
+* PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+* PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
-Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제작하였습니다.. Crazyflie 2.0의 개요는 [여기](https://www.bitcraze.io/crazyflie-2/)를 참고하십시오.
+The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
 ![Crazyflie2 이미지](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
@@ -17,21 +20,21 @@ Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제작하였습니다.
 주요 하드웨어 문서는 여기를 참고하십시오. https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
-* 메인 시스템온칩 : STM32F405RG 
-  * CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
-  * RAM : 192KB SRAM
-* nRF51822 무선 및 전력 관리 MCU
-* MPU9250 가속 / 자이로 / 자력계
-* LPS25H 기압계
+* Main System-on-Chip: STM32F405RG 
+  * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
+  * RAM: 192 KB SRAM
+* nRF51822 radio and power management MCU
+* MPU9250 Accel / Gyro / Mag
+* LPS25H barometer
 
 ## 구매처
 
 * [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
-* [Crazyradio PA 2.4GHz USB 동글](https://store.bitcraze.io/collections/kits/products/crazyradio-pa) : *QGroundControl*과 Crazyflie 2.0 간의 무선 통신에 사용됩니다.
-* [브레이크 아웃 데크](https://store.bitcraze.io/collections/decks/products/breakout-deck) : 주변 장치 연결용 브레이크아웃 확장 보드입니다.
-* [흐름 데크](https://store.bitcraze.io/collections/decks/products/flow-deck) :지면의 움직임을 측정하는 광류 센서와 지면까지의 거리를 측정하는 거리 센서가 포함되어 있습니다. 정확한 고도와 위치 제어에 유용합니다.
-* [Z- 레인저 데크](https://store.bitcraze.io/collections/decks/products/z-ranger-deck)는지면까지의 거리를 측정하기 위해 Flow 데크와 동일한 거리 센서입니다. 정확한 고도와 위치 제어에 유용합니다.
-* [SD 카드 데크](https://store.bitcraze.io/collections/decks/products/sd-card-deck) : 마이크로 SD 카드는 고속의 온보드 로깅에 사용됩니다.
+* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* and Crazyflie 2.0.
+* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals.
+* [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground. This will be useful for precise altitude and position control.
+* [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) has the same distance sensor as the Flow deck to measure the distance to the ground. This will be useful for precise altitude control.
+* [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.
 * [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad).
 
 ## PX4 플래싱
@@ -78,47 +81,47 @@ PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 
 온보드 nRF 모듈을 사용하여 Bluetooth나 2.4GHz Nordic ESB 프로토콜로 보드에 연결할 수 있습니다.
 
-* [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/)를 권장합니다.
-* Crazyflie 2.0을 블루투스 통신 비행 스마트폰 앱이 지원됩니다.
+* A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
+* To fly the Crazyflie 2.0 right away, the Crazyflie phone app is supported via Bluetooth.
 
 공식 Bitcraze** Crazyflie 앱** 사용 :
 
-* 블루투스로 연결합니다.
-* 설정에서 모드를 1 또는 2로 변경합니다.
-* QGroundControl로 보정합니다.
+* Connect via Bluetooth.
+* Change mode in settings to 1 or 2.
+* Calibrate via QGroundControl.
 
 **MAVLink** 연결 :
 
-* 호환되는 GCS와 함께 Crazyradio PA를 제어합니다.
-* *crazyflie-lib-python* 소스 코드를 다운로드합니다. ```git clone https://github.com/bitcraze/crazyflie-lib-python.git```
+* Use a Crazyradio PA alongside a compatible GCS.
+* Download the *crazyflie-lib-python* source code: ```git clone https://github.com/bitcraze/crazyflie-lib-python.git```
 
 :::note
 [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py)를 사용하여 Crazyflie 2.0(PX4로 깜박임)과 QGroundControl간의 무선 MAVlink 통신 링크를 설정합니다. *Cfbridge*를 사용하여 QGroundControl에서 crazyradio PA와 통신할 수 있습니다. [C 기반 cfbridge](https://github.com/dennisss/cfbridge)는 현재 데이터 손실 문제가 있으므로 **cfbridge.py**를 사용하는 것이 좋습니다.
 :::
 
-* USB 라디오를 사용을 위한 udev 권한을 설정 여부를 확인하십시오. [여기](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions)에 나열된 단계를 따라 컴퓨터를 **재 부팅**하십시오.
-* USB를 통해 Crazyradio PA를 연결합니다.
-* 아래의 방법으로 [로컬 Python 가상 환경](https://virtualenv.pypa.io/en/latest/)을 빌드합니다. ```pip install tox --user```
-* crazyflie-lib-python 폴더로 이동하여 다음을 입력합니다. ```make venv```
-* 가상 환경을 활성화합니다. ```source venv-cflib/bin/activate```
-* 필요한 라이브러리들을 설치합니다. ```pip install -r requirements.txt --user```
+* Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
+* Connect a Crazyradio PA via USB.
+* Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method: ```pip install tox --user```
+* Navigate to the crazyflie-lib-python folder and type: ```make venv```
+* Activate the virtual environment: ```source venv-cflib/bin/activate```
+* Install required dependencies: ```pip install -r requirements.txt --user```
 
 Crazyflie 2.0을 crazyradio와 연결하기 위하여 아래의 단계에 따라 **cfbridge를 시작**합니다.
 
-* Crazyflie 2.0의 전원을 껐다 켜고 부팅될 때까지 기다립니다.
-* USB를 통해 Crazyflie 라디오 장치를 연결합니다.
-* crazyflie-lib-python 폴더로 이동합니다.
-* 가상 환경을 활성화합니다. ```source venv-cflib/bin/activate```
-* examples 폴더로 이동하십시오. ```cd examples```
-* cfbridge를 시작합니다. ```python cfbridge.py```
+* Power off and power on Crazyflie 2.0 and wait for it to boot up.
+* Connect a Crazyflie radio device via USB.
+* Navigate to the crazyflie-lib-python folder.
+* Activate the environment: ```source venv-cflib/bin/activate```
+* Navigate to the examples folder: ```cd examples```
+* Launch cfbridge: ```python cfbridge.py```
   
 :::note
-*Cfbridge*는 기본적으로 채널 80과 crazyflie 주소 0xE7E7E7E7E7을 사용하여 무선 통신을 시작합니다. 같은 방에서 [여러 개의 crazyflies과 crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming)를 사용하고 있고 각각에 대해 다른 채널과 주소를 사용하려면, 먼저 USB 케이블을 통해 crazyflie를 QGroundControl과 연결하고 QGroundControl의 syslink 매개 변수(채널, 주소)를 변경합니다. 그런 다음, 첫 번째와 두 번째 인수와 동일한 채널 및 주소를 각각 제공하여 cfbridge를 시작합니다. 예 : `python cfbridge.py 90 0x0202020202`
+*Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
 :::
 
-* QGroundControl을 실행합니다.
+* Open QGroundControl.
 
-* *cfbridge*를 사용 후 `CTRL + z`를 눌러 활성화 한 경우 virtualenv를 비활성화할 수 있습니다. 대부분의 경우에는 동일한 터미널에서 *cfbridge*를 다시 시작하면 crazyflie에 연결되지 않습니다.이 문제는 터미널을 닫고 새 터미널에서 *cfbridge*를 다시 시작하여 해결할 수 있습니다. 
+* After using *cfbridge*, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching *cfbridge* again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching *cfbridge* in a new terminal. 
 
 :::tip
 [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python)에서 드라이버를 변경하거나 새 터미널에서 *cfbridge*를 실행하여도 crazyflie를 찾지 못하는 경우 crazyflie-lib-python 폴더로 이동해 볼 수 있습니다. 아래 스크립트를 실행하여 cflib를 다시 빌드하십시오.
@@ -138,8 +141,8 @@ Joystick을 사용하려면 QGroundControl의 `COM_RC_IN_MODE`를 "Joystick/No R
 
 Crazyflie 2.0은 [안정화 모드](../flight_modes/manual_stabilized_mc.md), [고도 모드](../flight_modes/altitude_mc.md) 및 [위치 모드](../flight_modes/position_mc.md)에서 정확한 제어로 비행할 수 있습니다.
 
-* *고도* 모드로 비행하려면 [Z 레인저 데크](https://store.bitcraze.io/collections/decks/products/z-ranger-deck)가 필요합니다. *포지션* 모드에서도 비행하고 싶다면 통합 Z-레인저 센서가있는 [플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)를 구입하는 것이 좋습니다.
-* 온보드 기압계는 Crazyflie의 자체 프로펠러나 외부 바람에 매우 민감합니다. 따라서 우리는 기압계를 거품 조각으로 분리한 다음, 아래 그림과 같이 그 위에 거리 센서를 장착했습니다.
+* You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in *Altitude* mode. If you also want to fly in the *Position* mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the integrated Z-ranger sensor.
+* The onboard barometer is highly susceptible to any external wind disturbances including those created by Crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
 
 ![Crazyflie 기압계](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
 
@@ -179,41 +182,41 @@ Crazyflie 2.0 높이가 *고도 모드* 또는 *위치 모드*의 중간 스로�
 
 Taranis RC 송신기를 USB 조이스틱으로 설정할 수 있습니다.
 
-* Taranis에서 새 모델을 만듭니다.
+* Create a new model in Taranis.
   
-  ![Taranis - 새 모델](../../assets/flight_controller/crazyflie/taranis_model.jpg)
+  ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
-* *MODEL SETUP* 메뉴 페이지에서 내부와 외부 TX 모듈을 모두 끕니다.
+* In *MODEL SETUP* menu page, turn off both internal and external TX modules.
   
-  ![Taranis - 모델 설정](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
+  ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
-* *OUTPUTS* 메뉴 페이지(일부 Taranis 송신기에서는 "SERVOS"페이지라고도 함)에서 스로틀 (CH1) 및 에일러론 (CH3)을 반전시킵니다.
+* In *OUTPUTS* menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
   
-  ![Taranis - 출력](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
+  ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
 Taranis 스위치를 사용하여 시동/시동 해제 및 다른 비행 모드로 전환하려면 :
 
-* Taranis UI *MIXER* 메뉴 페이지에서 QGroundControl 조이스틱 설정의 버튼 0-7에 매핑되는 범위 채널 9-16의 채널에 스위치를 할당할 수 있습니다. 예를 들어, Taranis "SD"스위치는 Taranis UI에서 채널 9로 설정할 수 있습니다.
+* In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
   
-  ![Taranis 스위치 설정](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
+  ![Taranis switch setup](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
 
-* Taranis를 USB 케이블로 PC에 연결하고 QGroundControl을 실행합니다.
+* Connect Taranis to PC with a USB cable and Open QGroundControl.
 
-* QGroundControl 조이스틱 설정에서 버튼을 켜면, 노란색으로 변하는 것을 볼 수 있습니다. 예를 들어, Taranis의 채널 9는 QGroundControl 조이스틱 설정의 버튼 0에 매핑됩니다. 이 버튼에 모든 모드(예: *고도* 모드)를 설정할 수 있습니다. 이제 "SD"스위치를 내리면 비행 모드가 *고도 모드*로 변경됩니다.
+* In QGroundControl Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGroundControl Joystick setup. You can assign any mode to this button e.g. *Altitude* mode. Now when you lower the switch "SD", flight mode will change to *Altitude*.
   
-  ![조이스틱 설정](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
+  ![Joystick setup](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
 
 ### ROS
 
 MAVROS를 통해 Crazyflie 2.0에 연결하려면 :
 
-* 위의 지침에 따라 *cfbridge*를 시작합니다.
-* QGroundControl의 수신 UDP 포트 변경 : 
-  * QGroundControl에서 **애플리케이션 설정 &gt; 일반**으로 이동하여 *다음 장치에 자동 연결* 아래의 모든 확인란을 선택 취소합니다.
-  * **Comm Links**에 *UDP* 유형의 링크를 추가하고 *시작시 자동으로 연결* 옵션을 선택하고 *수신 포트*를 변경합니다. 14557에 Target Hosts : 127.0.0.1을 추가 한 다음 **OK**를 누릅니다.
-* [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation)가 설치 여부를 확인합니다.
-* 다음 명령으로 MAVROS를 시작합니다. ```roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"```
-* 연결이 되지 않으면 QGroundControl을 다시 시작하십시오.
+* Start up *cfbridge* using the above instructions.
+* Change the UDP port QGroundControl listens to: 
+  * In QGroundControl, navigate to **Application Settings > General** and uncheck all the boxes under *Autoconnect to the following devices*.
+  * Add in **Comm Links** a link of type *UDP*, check the *Automatically Connect on Start* option, change the *Listening Port* to 14557, add Target Hosts: 127.0.0.1 and then press **OK**.
+* Make sure you have [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
+* Start MAVROS with command: ```roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"```
+* Restart QGroundControl if it doesn't connect.
 
 ## 비행
 
