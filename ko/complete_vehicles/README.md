@@ -20,7 +20,6 @@
 이 섹션에는 PX4를 실행하도록 소프트웨어를 업데이트할 수 있는 완전히 조립된 차량을 설명합니다.
 
 * 멀티콥터 
-  * [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
   * [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
 * 수중 차량 
