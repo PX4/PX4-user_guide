@@ -199,6 +199,8 @@ Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/dri
 ### Description
 This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement to use DShot as ESC communication protocol instead of PWM.
 
+On startup, the module tries to occupy all available pins for DShot output. It skips all pins already in use (e.g. by a camera trigger module).
+
 It supports:
 - DShot150, DShot300, DShot600, DShot1200
 - telemetry via separate UART and publishing as esc_status message
@@ -218,42 +220,7 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 ```
 dshot <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start the module if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
+   start
 
    telemetry     Enable Telemetry on a UART
      <device>    UART device
@@ -740,32 +707,14 @@ Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/d
 
 
 ### Description
-This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
+This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
+On startup, the module tries to occupy all available pins for PWM/Oneshot output. It skips all pins already in use (e.g. by a camera trigger module).
 
 ### Implementation
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
-
-### Examples
-It is typically started with:
-```
-pwm_out mode_pwm
-```
-To drive all available pins.
-
-Capture input (rising and falling edges) and print on the console: start pwm_out in one of the capture modes:
-```
-pwm_out mode_pwm3cap1
-```
-This will enable capturing on the 4th pin. Then do:
-```
-pwm_out test
-```
-
-Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load mixer files.
 
 <a id="pwm_out_usage"></a>
 
@@ -773,42 +722,7 @@ Use the `pwm` command for further configurations (PWM rate, levels, ...), and th
 ```
 pwm_out <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start pwm_out if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
+   start
 
    sensor_reset  Do a sensor reset (SPI bus)
      [<ms>]      Delay time in ms between reset and re-enabling
@@ -819,7 +733,7 @@ pwm_out <command> [arguments...]
    i2c           Configure I2C clock rate
      <bus_id> <rate> Specify the bus id (>=0) and rate in Hz
 
-   test          Test inputs and outputs
+   test          Test outputs
 
    stop
 
