@@ -558,7 +558,7 @@ int px4_simple_app_main(int argc, char *argv[])
 
 ## 运行完整的示例
 
-And finally run your app:
+最后运行你的应用程序：
 
 
 
@@ -567,14 +567,14 @@ px4_simple_app
 ```
 
 
-If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)).
+如果您启动*QGroundControl*，您可以检查实时图中的传感器值（[Analyze> MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) ）。
 
 
 
 ## 总结
 
-This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/master/msg/) and that the headers are well documented and serve as reference.
+本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 请记住，[此处](https://github.com/PX4/PX4-Autopilot/tree/master/msg/)提供了 uORB 消息/主题的完整列表并且可通过标题查寻，以供参考。
 
-Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
+此处可找到更多信息和故障排除/常见陷阱：[uORB](../middleware/uorb.md)。
 
-The next page presents a template for writing a full application with start and stop functionality.
+下一页提供了一个模板，用于编写具有启动和停止功能的完整应用程序。
