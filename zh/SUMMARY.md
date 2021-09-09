@@ -240,7 +240,7 @@
       * [Lightware SFxx 激光雷达](sensor/sfxx_lidar.md)
       * [Ainstein US-D1 标准雷达高度计](sensor/ulanding_radar.md)
       * [LeddarOne 激光雷达](sensor/leddar_one.md)
-      * [Benewake TFmini Lidar](sensor/tfmini.md)
+      * [北醒 TFmini 激光雷达](sensor/tfmini.md)
       * [Lidar-Lite](sensor/lidar_lite.md)
       * [TeraRanger](sensor/teraranger.md)
       * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
