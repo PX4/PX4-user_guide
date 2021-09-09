@@ -243,7 +243,7 @@
       * [北醒 TFmini 激光雷达](sensor/tfmini.md)
       * [Lidar-Lite](sensor/lidar_lite.md)
       * [TeraRanger](sensor/teraranger.md)
-      * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
+      * [兰宝 PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
       * [Avionics Anonymous Laser Altimeter UAVCAN Interface](uavcan/avanon_laser_interface.md)
     * [Tachometers (Revolution Counters)](sensor/tachometers.md) 
       * [ThunderFly TFRPM01 转速传感器](sensor/thunderfly_tachometer.md)
