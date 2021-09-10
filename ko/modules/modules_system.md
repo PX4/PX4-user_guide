@@ -407,10 +407,6 @@ pwm_input <command> [arguments...]
    start
 
    test          prints PWM capture info.
-
-   stop
-
-   status        print status info
 ```
 ## rc_update
 소스: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
@@ -519,9 +515,9 @@ sensors <command> [arguments...]
 
 
 ### 설명
-온도 보상 모듈을 사용하면 시스템의 모든 자이로(들), 가속(들) 및 바로(들)이 온도 보상을 받을 수 있습니다. 모듈은 센서에서 오는 데이터를 모니터링하고, 온도 변화가 감지될 때마다 관련 sensor_correction 주제를 업데이트합니다. 모듈은 또한 다음 부팅 시 계수 계산 루틴을 수행하도록 구성할 수 있으며, 이를 통하여 차량이 온도 주기를 겪는 동안 열 보정 계수를 계산할 수 있습니다.
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
 
-<a id="temperature_compensation_usage"></a>
+<a id="tattu_can_usage"></a>
 
 ### 사용법
 ```
@@ -545,16 +541,42 @@ temperature_compensation <command> [arguments...]
 
 
 ### 설명
+The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
 
-(외부) 음향 톤을 제어하고 테스트하기 위한 명령줄 도구입니다.
+<a id="temperature_compensation_usage"></a>
 
-음향 톤은 가청 알림 및 경고를 제공합니다(예: 시스템이 작동할 때, 위치 잠금을 얻을 때 등). 이 도구를 사용하려면, tune_control uorb 주제를 처리할 수 있는 드라이버가 실행 중이어야 합니다.
+### 예
+```
+temperature_compensation <command> [arguments...]
+ Commands:
+   start         Start the module, which monitors the sensors and updates the
+                 sensor_correction topic
+
+   calibrate     Run temperature calibration process
+     [-g]        calibrate the gyro
+     [-a]        calibrate the accel
+     [-b]        calibrate the baro (if none of these is given, all will be
+                 calibrated)
+
+   stop
+
+   status        print status info
+```
+## work_queue
+Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
+
+
+### 사용법
 
 음향 톤 형식과 사전 정의된 시스템 조정에 대한 정보는 다음을 참고하십시오. https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
 
-### 예
+Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
 
-시스템 소리 2번을 재생합니다.
+소스: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
+
+### 설명
+
+작업 대기열 상태를 표시하는 명령줄 도구입니다.
 ```
 tune_control play -t 2
 ```
@@ -563,9 +585,13 @@ tune_control play -t 2
 
 ### 사용법
 ```
-tune_control <command> [arguments...]
+work_queue <command> [arguments...]
  Commands:
-   play          Play system tune or single note.
+   start
+
+   stop
+
+   status        print status info
      error       Play error tune
      [-t <val>]  Play predefined system tune
                  default: 1
@@ -581,16 +607,16 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## work_queue
-소스: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
+Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
-### 설명
+### Description
 
-작업 대기열 상태를 표시하는 명령줄 도구입니다.
+Command-line tool to show work queue status.
 
 <a id="work_queue_usage"></a>
 
-### 사용법
+### Usage
 ```
 work_queue <command> [arguments...]
  Commands:

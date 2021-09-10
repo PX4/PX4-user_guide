@@ -463,7 +463,7 @@ icm42605 <command> [arguments...]
 ## icm42688p
 소스: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm42688p)
 
-<a id="icm42688p_usage"></a>
+<a id="icm42670p_usage"></a>
 
 ### 사용법
 ```
@@ -489,7 +489,7 @@ icm42688p <command> [arguments...]
 ## l3gd20
 소스: [drivers/imu/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/l3gd20)
 
-<a id="l3gd20_usage"></a>
+<a id="icm42688p_usage"></a>
 
 ### 사용법
 ```
@@ -519,7 +519,7 @@ l3gd20 <command> [arguments...]
 ## lsm303d
 소스: [drivers/imu/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/lsm303d)
 
-<a id="lsm303d_usage"></a>
+<a id="l3gd20_usage"></a>
 
 ### 사용법
 ```
@@ -545,7 +545,7 @@ lsm303d <command> [arguments...]
 ## lsm9ds1
 소스: [drivers/imu/st/lsm9ds1](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/st/lsm9ds1)
 
-<a id="lsm9ds1_usage"></a>
+<a id="lsm303d_usage"></a>
 
 ### 사용법
 ```
@@ -571,7 +571,7 @@ lsm9ds1 <command> [arguments...]
 ## mpu6000
 소스: [drivers/imu/invensense/mpu6000](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu6000)
 
-<a id="mpu6000_usage"></a>
+<a id="lsm9ds1_usage"></a>
 
 ### 사용법
 ```
@@ -597,7 +597,7 @@ mpu6000 <command> [arguments...]
 ## mpu9520
 소스: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu6500)
 
-<a id="mpu9520_usage"></a>
+<a id="mpu6000_usage"></a>
 
 ### 사용법
 ```
@@ -623,9 +623,34 @@ mpu9520 <command> [arguments...]
 ## mpu9520_i2c
 소스: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
 
-<a id="mpu9520_i2c_usage"></a>
+<a id="mpu9520_usage"></a>
 
 ### 사용법
+```
+mpu9520_i2c <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 57
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
+## mpu9520_i2c
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
+
+<a id="mpu9520_i2c_usage"></a>
+
+### Usage
 ```
 mpu9520_i2c <command> [arguments...]
  Commands:

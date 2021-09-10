@@ -460,6 +460,32 @@ icm42605 <command> [arguments...]
 
    status        print status info
 ```
+## icm42670p
+Source: [drivers/imu/invensense/icm42670p](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm42670p)
+
+<a id="icm42670p_usage"></a>
+
+### 用法
+```
+icm42670p <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## icm42688p
 Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm42688p)
 
@@ -547,7 +573,7 @@ Source: [drivers/imu/st/lsm9ds1](https://github.com/PX4/PX4-Autopilot/tree/maste
 
 <a id="lsm9ds1_usage"></a>
 
-### 用法
+### Usage
 ```
 lsm9ds1 <command> [arguments...]
  Commands:

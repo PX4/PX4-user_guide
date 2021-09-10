@@ -406,8 +406,6 @@ pwm_input <command> [arguments...]
  Commands:
    start
 
-   test          prints PWM capture info.
-
    stop
 
    status        print status info
@@ -509,6 +507,25 @@ sensors <command> [arguments...]
  Commands:
    start
      [-h]        Start in HIL mode
+
+   stop
+
+   status        print status info
+```
+## tattu_can
+Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tattu_can)
+
+
+### Description
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
+
+<a id="tattu_can_usage"></a>
+
+### Usage
+```
+tattu_can <command> [arguments...]
+ Commands:
+   start
 
    stop
 
