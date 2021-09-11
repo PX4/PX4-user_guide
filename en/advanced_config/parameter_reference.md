@@ -9442,7 +9442,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_FAILS_THR">RC_FAILS_THR</strong> (INT32)</td>
- <td>Failsafe channel PWM threshold <p><strong>Comment:</strong> Set to a value slightly above the PWM value assumed by throttle in a failsafe event, but ensure it is below the PWM value assumed by throttle during normal operation. Use RC_MAP_FAILSAFE to specify which channel is used to check. Note: The default value of 0 is below the epxed range and hence disables the feature.</p>   </td>
+ <td>Failsafe channel PWM threshold <p><strong>Comment:</strong> Use RC_MAP_FAILSAFE to specify which channel is used to indicate RC loss via this theshold. By default this is the throttle channel. Set to a PWM value slightly above the PWM value for the channel (e.g. throttle) in a failsafe event, but below the minimum PWM value for the channel during normal operation. Note: The default value of 0 disables the feature (it is below the expected range).</p>   </td>
  <td>0 > 2200 </td>
  <td>0</td>
  <td>us</td>
@@ -9725,7 +9725,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_FAILSAFE">RC_MAP_FAILSAFE</strong> (INT32)</td>
- <td>Failsafe channel mapping <p><strong>Comment:</strong> Configures which channel is used by the receiver to indicate the signal was lost. Futaba receivers do report that way. If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific RC channel to use Use RC_FAILS_THR to set the threshold indicating lost signal. By default it's below the expected range and hence diabled.</p> <strong>Values:</strong><ul>
+ <td>Failsafe channel mapping <p><strong>Comment:</strong> Configures which RC channel is used by the receiver to indicate the signal was lost (on receivers that use output a fixed signal value to report lost signal). If set to 0, the channel mapped to throttle is used. Use RC_FAILS_THR to set the threshold indicating lost signal. By default it's below the expected range and hence disabled.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
