@@ -86,7 +86,8 @@
 :::
 
 :::tip
-`PX4_INFO`相当于输出到PX4 shell的`printf`（包含在****px4_platform_common/log.h **中）。 这里有不同的日志级别：`PX4_INFO`、`PX4_WARN`、`PX4_ERR`、`PX4_DEBUG`。 警告和错误会额外添加到[ULog](../dev_log/ulog_file_format.md)并显示在[Flight Review](https://logs.px4.io/) 中。 :::</p></li> </ul>
+`PX4_INFO`相当于输出到PX4 shell的`printf`（包含在**px4_platform_common/log.h**中）。 这里有不同的日志级别：`PX4_INFO`、`PX4_WARN`、`PX4_ERR`、`PX4_DEBUG`。 警告和错误会额外添加到[ULog](../dev_log/ulog_file_format.md)并显示在[Flight Review](https://logs.px4.io/) 中。
+:::
 
 1. 创建并打开一个名为**CMakeLists.txt**的新*cmake*定义文件。 复制下面的文本：
    ```cmake
@@ -132,8 +133,8 @@
     )
    ```
    `px4_add_module()` 方法根据模块描述生成静态库。
-   - `MODULE`块是模块的唯一固件名称（按照惯例，模块名称的前缀是src之后的路径）。`</li>
-<li><p spaces-before="0"><code>MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。</p>
+   - `MODULE`块是模块的唯一固件名称（按照惯例，模块名称的前缀是`src`之后的父路径）
+   - `MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。
 
 :::tip
 `px4_add_module()` 的格式可从 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)中查看. <!-- NEED px4_version -->
@@ -174,7 +175,7 @@ examples/px4_simple_app
 * jMAVSim 模拟器： `make px4_sitl_default jmavsim`
 * Pixhawk v1/2：`make px4_fmu-v2_default`（或者仅使用`make px4_fmu-v2`）
 * Pixhawk v3： `make px4_fmu-v4_default`
-* 其它板: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
+* 其它板: [构建代码](../dev_setup/building_px4.md#building-for-nuttx)
 
 
 
@@ -253,7 +254,7 @@ Builtin Apps:
 ```
 
 
-请注意，px4_simple_app现在是可用命令的一部分。 通过键入`px4_simple_app`并输入回车启动它：
+请注意，`px4_simple_app`现在是可用命令的一部分。 通过键入`px4_simple_app`并输入回车启动它：
 
 
 
@@ -307,7 +308,7 @@ int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 
 `sensor_sub_fd`是一个主题句柄，它可以用于非常有效地执行阻塞等待新数据。 当前线程进入休眠状态，一旦有新数据可用就会被调度器自动唤醒，等待时不消耗任何 CPU 周期。 为此，我们使用[poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX 系统调用。
 
-添加`poll()`到订阅看起来像（伪代码，在下面可查找完整的实现）：
+添加`poll()`到订阅看起来像（*伪代码，在下面可查找完整的实现*）：
 
 
 
