@@ -10423,6 +10423,32 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="RC_MAP_FLTM_BTN">RC_MAP_FLTM_BTN</strong> (INT32)</td>
+ <td>Button flight mode selection <p><strong>Comment:</strong> This bitmask allows to specify multiple channels for changing flight modes using momentary buttons. Each channel is assigned to a mode slot ((lowest channel = slot 1). The resulting modes for each slot X is defined by the COM_FLTMODEX parameters. The functionality can be used only if RC_MAP_FLTMODE is disabled. The maximum number of available slots and hence bits set in the mask is 6.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Mask Channel 1 as a mode button</li> 
+  <li><strong>1:</strong> Mask Channel 2 as a mode button</li> 
+  <li><strong>2:</strong> Mask Channel 3 as a mode button</li> 
+  <li><strong>3:</strong> Mask Channel 4 as a mode button</li> 
+  <li><strong>4:</strong> Mask Channel 5 as a mode button</li> 
+  <li><strong>5:</strong> Mask Channel 6 as a mode button</li> 
+  <li><strong>6:</strong> Mask Channel 7 as a mode button</li> 
+  <li><strong>7:</strong> Mask Channel 8 as a mode button</li> 
+  <li><strong>8:</strong> Mask Channel 9 as a mode button</li> 
+  <li><strong>9:</strong> Mask Channel 10 as a mode button</li> 
+  <li><strong>10:</strong> Mask Channel 11 as a mode button</li> 
+  <li><strong>11:</strong> Mask Channel 12 as a mode button</li> 
+  <li><strong>12:</strong> Mask Channel 13 as a mode button</li> 
+  <li><strong>13:</strong> Mask Channel 14 as a mode button</li> 
+  <li><strong>14:</strong> Mask Channel 15 as a mode button</li> 
+  <li><strong>15:</strong> Mask Channel 16 as a mode button</li> 
+  <li><strong>16:</strong> Mask Channel 17 as a mode button</li> 
+  <li><strong>17:</strong> Mask Channel 18 as a mode button</li> 
+</ul>
+ </td>
+ <td>0 > 258048 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RC_MAP_GEAR_SW">RC_MAP_GEAR_SW</strong> (INT32)</td>
  <td>Landing gear switch channel  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
