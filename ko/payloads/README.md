@@ -1,26 +1,26 @@
 # 탑재 중량과 카메라
 
-PX4는 다양한 페이로드와 카메라를 지원합니다.
+PX4는 다양한 탑재물과 카메라를 지원합니다.
 
 ## 드론 매핑
 
 매핑 드론은 카메라를 사용하여  이미지를 캡쳐합니다.
 
-[MAVLink 카메라 프로토콜](https://mavlink.io/en/services/camera.html)을 지원하는 MAVLink 카메라는 PX4와 QGroundControl에서 최적의 통합을 제공합니다. MAVSDK는 [독립형 카메라 작업](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html)과 [임무](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4) 모두에 이 프로토콜을 사용하기 위한 간단한 API를 제공합니다.
+[MAVLink 카메라 프로토콜](https://mavlink.io/en/services/camera.html)을 지원하는 MAVLink 카메라는 PX4와 QGroundControl에서 최적으로 통합됩니다. MAVSDK는 [독립형 카메라 작업](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html)과 [임무](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)에서 MAVLink 프로토콜을 위한 간단한 API를 제공합니다.
 
-카메라는 PWM 또는 GPI 출력을 사용하여 비행컨트롤러에 직접 연결할 수 있습니다. PX4는 비행컨트롤러에 연결된 카메라에 대해 다음과 같은 MAVLink 명령/임무 항목 세트를 지원합니다.
+카메라는 PWM이나 GPI 출력을 사용하여 비행콘트롤러에 직접 연결할 수 있습니다. PX4는 비행콘트롤러에 연결된 카메라에 다음과 같은 MAVLink 명령/임무 항목 세트를 지원합니다.
 * [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL) - 캡처 시간 간격을 설정합니다.
 * [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - 캡처 거리 간격을 설정합니다.
 * [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - 캡처 시작/중지 (위 메시지를 사용하여 정의한 거리 또는 시간 사용).
 
 다음 항목에서는 카메라를 *연결*하여 PX4 설정 방법을 설명합니다.
-* 비행 컨트롤러 PWM 또는 GPIO 출력에서 또는 MAVLink를 통해 [카메라 트리거링](../peripherals/camera.md).
-* 핫슈 입력을 통한 [카메라 타이밍 피드백](../peripherals/camera.md#camera_capture).
+* 비행 콘트롤러 PWM 또는 GPIO 출력에서 또는 MAVLink를 통해 [카메라 트리거](../peripherals/camera.md)
+* 핫슈 입력을 통한 [카메라 타이밍 피드백](../peripherals/camera.md#camera-capture)
 
 
-## 화물 드론 ( "액추에이터" 페이로드)
+## 화물 드론 ( "액추에이터" 탑재)
 
-화물 드론은 일반적으로 서보/액추에이터를 사용하여 화물 방출을 트리거하고 윈치를 제어합니다. PX4는 RC 및 MAVLink 명령을 통해 서보 및 GPIO 트리거링을 지원합니다.
+-- 화물 드론은 일반적으로 서보/액추에이터를 사용하여 화물 방출을 트리거하고 윈치를 제어합니다. PX4는 RC 및 MAVLink 명령을 통해 서보 및 GPIO 트리거링을 지원합니다.
 
 ### RC 트리거링
 
