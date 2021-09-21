@@ -18,13 +18,13 @@ PX4는 다양한 탑재물과 카메라를 지원합니다.
 * 핫슈 입력을 통한 [카메라 타이밍 피드백](../peripherals/camera.md#camera-capture)
 
 
-## 화물 드론 ( "액추에이터" 탑재)
+## 화물 드론("액추에이터" 탑재)
 
--- 화물 드론은 일반적으로 서보/액추에이터를 사용하여 화물 방출을 트리거하고 윈치를 제어합니다. PX4는 RC 및 MAVLink 명령을 통해 서보 및 GPIO 트리거링을 지원합니다.
+화물 드론은 일반적으로 서보와 액추에이터로 화물을  방출하거나 자세를 제어합니다. PX4에서는 RC와 MAVLink 명령어로 서보와 GPIO 트리거를 지원합니다.
 
-### RC 트리거링
+### RC 트리거
 
-최대 3 개의 RC 채널을 매핑하여 [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) ~ [RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3) 매개변수를 사용하여 비행컨트롤러에 연결된 서보/액추에이터를 제어할 수 있습니다.
+최대 3 개의 RC 채널을 매핑하여 [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) 에서 [RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3) 까지의 매개변수를 사용하여 비행콘트롤러에 연결된 서보와 액추에이터를 제어할 수 있습니다.
 
 RC 채널은 *보통* 비행컨트롤러의 `AUX1`, `AUX2`, `AUX3` 출력에 매핑됩니다 - _ 하지만 그럴 필요는 없습니다 _. 차량의 RC AUX 패스스루에 사용되는 출력은 [기체 정의서](../airframes/airframe_reference.html)에서 확인할 수 있습니다. 예를 들어, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x)에는 "**AUX1 :** RC AUX1 채널의 피드 스루", "**AUX2 :** RC AUX2 채널의 피드 스루", **AUX3 :** RC AUX3 채널의 피드 스루 "와 같은 일반 매핑이 있습니다.
 
