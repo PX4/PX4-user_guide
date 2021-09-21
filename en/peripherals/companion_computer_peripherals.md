@@ -24,7 +24,6 @@ Options are listed below:
 
 Device | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH
 --- | --- | --- | --- | ---
-[PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh) | Yes | Yes | Yes | Yes
 [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable | Capable | No | Yes
 [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873) | Yes | No | Yes | No
 
