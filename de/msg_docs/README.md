@@ -149,7 +149,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [vehicle_imu](vehicle_imu.md) — IMU readings in SI-unit form.
 - [vehicle_imu_status](vehicle_imu_status.md)
 - [vehicle_land_detected](vehicle_land_detected.md)
-- [vehicle_local_position](vehicle_local_position.md) — Fused local position in NED.
+- [vehicle_local_position](vehicle_local_position.md) — Fused local position in NED. The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 - [vehicle_local_position_setpoint](vehicle_local_position_setpoint.md) — Local position setpoint in NED frame setting something to NaN means the state should not be controlled
 - [vehicle_magnetometer](vehicle_magnetometer.md)
 - [vehicle_odometry](vehicle_odometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
