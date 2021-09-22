@@ -14025,6 +14025,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="INA238_CURRENT">INA238_CURRENT</strong> (FLOAT)</td>
+ <td>INA238 Power Monitor Max Current    </td>
+ <td>0.1 > 327.68 (0.1)</td>
+ <td>327.68</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA238_SHUNT">INA238_SHUNT</strong> (FLOAT)</td>
+ <td>INA238 Power Monitor Shunt    </td>
+ <td>0.000000001 > 0.1 (.000000001)</td>
+ <td>0.0003</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)</td>
  <td>PCF8583 rotorfreq (i2c) i2c address  <strong>Values:</strong><ul>
 <li><strong>80:</strong> Address 0x50 (80)</li> 
@@ -14281,6 +14295,14 @@ table {
 <tr>
  <td><strong id="SENS_EN_INA228">SENS_EN_INA228</strong> (INT32)</td>
  <td>Enable INA228 Power Monitor <p><strong>Comment:</strong> For systems a INA228 Power Monitor, this should be set to true</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_INA238">SENS_EN_INA238</strong> (INT32)</td>
+ <td>Enable INA238 Power Monitor <p><strong>Comment:</strong> For systems a INA238 Power Monitor, this should be set to true</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
