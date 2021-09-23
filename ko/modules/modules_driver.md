@@ -482,7 +482,11 @@ iridiumsbd <command> [arguments...]
 
 이 모듈은 네오픽셀 직렬 LED에 인터페이싱을 구동합니다.
 
-<a id="iridiumsbd_usage"></a>
+보통 다음 명령으로 시작합니다.
+
+If the INA238 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
+<a id="ina238_usage"></a>
 
 ### 설명
 ```
@@ -503,9 +507,15 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-보통 다음 명령으로 시작합니다.
+소스: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
 
-<a id="irlock_usage"></a>
+
+### 사용법
+소스: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
+
+소스: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
+
+<a id="iridiumsbd_usage"></a>
 
 ### 사용법
 ```
@@ -518,13 +528,9 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-사용 가능한 모든 LED를 구동합니다.
+이 모듈은 PCA9685 칩으로 PWM 펄스를 생성합니다.
 
-
-### 사용법
-소스: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
-
-<a id="linux_pwm_out_usage"></a>
+<a id="irlock_usage"></a>
 
 ### 설명
 ```
@@ -548,11 +554,30 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-소스: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
+이것은 Actuator_controls 토픽을 듣고 믹싱을 하고 PWM을 출력합니다.
+
+
+### 예
+Linux PWM output driver with board-specific backend implementation.
+
+<a id="linux_pwm_out_usage"></a>
+
+### 사용법
+```
+linux_pwm_out <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## paw3902
+보통 다음 명령으로 시작합니다.
 
 <a id="lsm303agr_usage"></a>
 
-### 예
+### 사용법
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -573,15 +598,15 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
-## paw3902
-소스: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
+## pca9685
+Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
 
 
 ### 사용법
-이 모듈은 PCA9685 칩으로 PWM 펄스를 생성합니다.
+소스: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
-### 사용법
-이것은 Actuator_controls 토픽을 듣고 믹싱을 하고 PWM을 출력합니다.
+### 설명
+소스: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 ```
 neopixel -n 8
 ```
@@ -589,33 +614,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### 사용법
-```
-paw3902 <command> [arguments...]
- Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-Y <val>]  custom yaw rotation (degrees)
-                 default: 0
-
-   stop
-
-   status        print status info
-```
-## pca9685
-보통 다음 명령으로 시작합니다.
-
-<a id="paw3902_usage"></a>
-
-### 설명
+### 구현
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -638,11 +637,37 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
+Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
+
+<a id="paw3902_usage"></a>
+
+### 예
+```
+paw3902 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-Y <val>]  custom yaw rotation (degrees)
+                 default: 0
+
+   stop
+
+   status        print status info
+```
+## pcf8583
 Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 
-### 구현
+### 사용법
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -664,19 +689,19 @@ pca9685 <command> [arguments...]
 
    status        print status info
 ```
-## pcf8583
-소스: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
+## pmw3901
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
-### 예
-소스: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
+### 사용법
+기본적으로 모듈은 uORB actuator_controls 주제에 대한 콜백을 사용하여 작업 대기열에서 실행됩니다.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+보통 다음 명령으로 시작합니다.
 
 ### 사용법
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
-### 사용법
+### 설명
 It is typically started with:
 ```
 pca9685_pwm_out start -a 64 -b 1
@@ -686,30 +711,7 @@ Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mi
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### 사용법
-```
-pcf8583 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 80
-
-   stop
-
-   status        print status info
-```
-## pmw3901
-기본적으로 모듈은 uORB actuator_controls 주제에 대한 콜백을 사용하여 작업 대기열에서 실행됩니다.
-
-<a id="pcf8583_usage"></a>
-
-### 설명
+### 구현
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -731,11 +733,34 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-보통 다음 명령으로 시작합니다.
+Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
+
+<a id="pcf8583_usage"></a>
+
+### 예
+```
+pcf8583 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 80
+
+   stop
+
+   status        print status info
+```
+## pwm_out_sim
+소스: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 <a id="pmw3901_usage"></a>
 
-### 구현
+### 사용법
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -756,11 +781,11 @@ pmw3901 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out_sim
-Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
+## px4flow
+시뮬레이션된 PWM 출력용 드라이버입니다.
 
 
-### 예
+### 설명
 This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
@@ -768,11 +793,11 @@ It listens on the actuator_controls topics, does the mixing and writes the PWM o
 On startup, the module tries to occupy all available pins for PWM/Oneshot output. It skips all pins already in use (e.g. by a camera trigger module).
 
 ### 사용법
-소스: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
+소스: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
 <a id="pwm_out_usage"></a>
 
-### 설명
+### 사용법
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -793,16 +818,16 @@ pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## px4flow
-시뮬레이션된 PWM 출력용 드라이버입니다.
+## rc_input
+Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
-### 사용법
-유일한 기능은 `actuator_control` uORB 메시지를 가져와서 로드된 믹서와 혼합하고, 결과를 `actuator_output` uORB 주제로 출력하는 것입니다.
+### 설명
+Driver for simulated PWM outputs.
 
-Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
+소스: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
 
-소스: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+It is used in SITL and HITL.
 
 <a id="pwm_out_sim_usage"></a>
 
@@ -818,12 +843,39 @@ pwm_out_sim <command> [arguments...]
 
    status        print status info
 ```
-## rc_input
-소스: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
+## rgbled
+Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
+### 사용법
+```
+pwm_out_sim <command> [arguments...]
+ Commands:
+   start         Start the module
+     [-m <val>]  Mode
+                 values: hil|sim, default: sim
+
+   stop
+
+   status        print status info
+```
+## roboclaw
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
+
+
 ### 설명
+This module does the RC input parsing and auto-selecting the method. Supported methods are:
+- PPM
+- SBUS
+- DSM
+- SUMD
+- ST24
+- TBS Crossfire (CRSF)
+
+<a id="rc_input_usage"></a>
+
+### 구현
 ```
 px4flow <command> [arguments...]
  Commands:
@@ -844,40 +896,13 @@ px4flow <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
-
-
-### 사용법
-This module does the RC input parsing and auto-selecting the method. Supported methods are:
-- PPM
-- SBUS
-- DSM
-- SUMD
-- ST24
-- TBS Crossfire (CRSF)
-
-<a id="rc_input_usage"></a>
-
-### 사용법
-```
-pwm_out_sim <command> [arguments...]
- Commands:
-   start         Start the module
-     [-m <val>]  Mode
-                 values: hil|sim, default: sim
-
-   stop
-
-   status        print status info
-```
-## roboclaw
-소스: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
+Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
-### 설명
+### 예
 ```
-px4flow <command> [arguments...]
+rgbled <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -887,9 +912,9 @@ px4flow <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 66
-     [-R <val>]  Rotation (default=downwards)
-                 default: 25
+                 default: 57
+     [-o <val>]  RGB PWM Assignment
+                 default: 123
 
    stop
 
@@ -899,7 +924,7 @@ px4flow <command> [arguments...]
 Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
 
 
-### 구현
+### Description
 
 This driver communicates over UART with the [Roboclaw motor driver](http://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf). It performs two tasks:
 
@@ -908,7 +933,7 @@ This driver communicates over UART with the [Roboclaw motor driver](http://downl
 
 In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. For Pixhawk 4, use the `UART & I2C B` port, which corresponds to `/dev/ttyS3`.
 
-### 예
+### Implementation
 
 The main loop of this module (Located in `RoboClaw.cpp::task_main()`) performs 2 tasks:
 

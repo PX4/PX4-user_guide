@@ -1,11 +1,12 @@
 # vehicle_local_position (UORB message)
 
-Fused local position in NED.
+Fused local position in NED. The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position.msg)
 
 ```c
 # Fused local position in NED.
+# The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 
 uint64 timestamp            # time since system start (microseconds)
 uint64 timestamp_sample                 # the timestamp of the raw data (microseconds)

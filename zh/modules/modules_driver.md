@@ -412,6 +412,42 @@ ina228 <command> [arguments...]
 
 
 ### 示例
+Driver for the INA238 power monitor.
+
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+
+For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
+
+If the INA238 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
+<a id="ina238_usage"></a>
+
+### 使用
+```
+ina238 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 69
+     [-k]        if initialization (probing) fails, keep retrying periodically
+     [-t <val>]  battery index for calibration values (1 or 2)
+                 default: 1
+
+   stop
+
+   status        print status info
+```
+## iridiumsbd
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+
+
+### 使用
 IridiumSBD driver.
 
 Creates a virtual serial port that another module can use for communication (e.g. mavlink).
@@ -435,11 +471,11 @@ iridiumsbd <command> [arguments...]
    status        print status info
 ```
 ## irlock
-Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
+By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
 
 <a id="irlock_usage"></a>
 
-### 使用
+### 描述
 ```
 irlock <command> [arguments...]
  Commands:
@@ -461,12 +497,12 @@ irlock <command> [arguments...]
 Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
-### 使用
+### 实现
 Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
 
-### 描述
+### 示例
 ```
 linux_pwm_out <command> [arguments...]
  Commands:
@@ -481,7 +517,7 @@ Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="lsm303agr_usage"></a>
 
-### 实现
+### 使用
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -506,11 +542,11 @@ lsm303agr <command> [arguments...]
 Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
 
 
-### 示例
-By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
+### 描述
+This module is responsible for driving interfasing to the Neopixel Serial LED
 
 ### 使用
-It is typically started with:
+源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
 ```
 neopixel -n 8
 ```
@@ -518,7 +554,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### 描述
+### 使用
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -526,12 +562,12 @@ newpixel <command> [arguments...]
 
    status        print status info
 ```
-## paw3902
+## pwm_out_sim
 Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
-### 使用
+### 描述
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -552,7 +588,7 @@ paw3902 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out_sim
+## pca9685
 Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
@@ -579,19 +615,19 @@ pca9685 <command> [arguments...]
 
    status        print status info
 ```
-## pca9685_pwm_out
+## rc_input
 Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
-### 描述
-源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+### 使用
+源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-### 使用
+### 描述
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
-### 使用
+### 实现
 It is typically started with:
 ```
 pca9685_pwm_out start -a 64 -b 1
@@ -601,7 +637,7 @@ Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mi
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### 描述
+### 示例
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -617,12 +653,12 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## rc_input
-源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
+## pcf8583
+Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
 
-### 实现
+### Usage
 ```
 pcf8583 <command> [arguments...]
  Commands:
@@ -645,7 +681,7 @@ Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="pmw3901_usage"></a>
 
-### 示例
+### Usage
 ```
 pmw3901 <command> [arguments...]
  Commands:
