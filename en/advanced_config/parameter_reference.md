@@ -2771,6 +2771,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -4713,6 +4715,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -4781,6 +4785,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -5057,6 +5063,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -5584,6 +5592,8 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li> 
 
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+
 <li><strong>1000:</strong> Ethernet</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -5700,6 +5710,8 @@ table {
 
 <li><strong>301:</strong> Wifi Port</li> 
 
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+
 <li><strong>1000:</strong> Ethernet</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -5815,6 +5827,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 
 <li><strong>1000:</strong> Ethernet</li> 
 </ul>
@@ -8665,6 +8679,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -8696,6 +8712,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -11128,6 +11146,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14227,6 +14247,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14623,6 +14645,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15288,6 +15312,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15326,6 +15352,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15357,6 +15385,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15388,6 +15418,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15445,6 +15477,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15633,6 +15667,67 @@ table {
 </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SER_PPB_BAUD">SER_PPB_BAUD</strong> (INT32)</td>
+ <td>Baudrate for the Pixhawk Payload Bus Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the Pixhawk Payload Bus Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>50:</strong> 50 8N1</li> 
+
+<li><strong>75:</strong> 75 8N1</li> 
+
+<li><strong>110:</strong> 110 8N1</li> 
+
+<li><strong>134:</strong> 134 8N1</li> 
+
+<li><strong>150:</strong> 150 8N1</li> 
+
+<li><strong>200:</strong> 200 8N1</li> 
+
+<li><strong>300:</strong> 300 8N1</li> 
+
+<li><strong>600:</strong> 600 8N1</li> 
+
+<li><strong>1200:</strong> 1200 8N1</li> 
+
+<li><strong>1800:</strong> 1800 8N1</li> 
+
+<li><strong>2400:</strong> 2400 8N1</li> 
+
+<li><strong>4800:</strong> 4800 8N1</li> 
+
+<li><strong>9600:</strong> 9600 8N1</li> 
+
+<li><strong>19200:</strong> 19200 8N1</li> 
+
+<li><strong>38400:</strong> 38400 8N1</li> 
+
+<li><strong>57600:</strong> 57600 8N1</li> 
+
+<li><strong>115200:</strong> 115200 8N1</li> 
+
+<li><strong>230400:</strong> 230400 8N1</li> 
+
+<li><strong>460800:</strong> 460800 8N1</li> 
+
+<li><strong>500000:</strong> 500000 8N1</li> 
+
+<li><strong>921600:</strong> 921600 8N1</li> 
+
+<li><strong>1000000:</strong> 1000000 8N1</li> 
+
+<li><strong>1500000:</strong> 1500000 8N1</li> 
+
+<li><strong>2000000:</strong> 2000000 8N1</li> 
+
+<li><strong>3000000:</strong> 3000000 8N1</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>57600</td>
  <td></td>
 </tr>
 <tr>
@@ -16516,6 +16611,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -16547,6 +16644,8 @@ table {
 <li><strong>300:</strong> Radio Controller</li> 
 
 <li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
