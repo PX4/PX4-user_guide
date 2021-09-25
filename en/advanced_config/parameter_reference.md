@@ -10201,29 +10201,8 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="RC_ACRO_TH">RC_ACRO_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting acro mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_ARMSWITCH_TH">RC_ARMSWITCH_TH</strong> (FLOAT)</td>
  <td>Threshold for the arm switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_ASSIST_TH">RC_ASSIST_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting assist mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.25</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_AUTO_TH">RC_AUTO_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting auto mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td>-1 > 1 </td>
  <td>0.75</td>
  <td></td>
@@ -10250,15 +10229,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RC_MAN_TH">RC_MAN_TH</strong> (FLOAT)</td>
- <td>Threshold for the manual switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_MAP_ACRO_SW">RC_MAP_ACRO_SW</strong> (INT32)</td>
- <td>Acro switch channel  <strong>Values:</strong><ul>
+ <td>Acro switch channel (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10606,7 +10578,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_MAN_SW">RC_MAP_MAN_SW</strong> (INT32)</td>
- <td>Manual switch channel mapping  <strong>Values:</strong><ul>
+ <td>Manual switch channel mapping (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10652,7 +10624,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_MODE_SW">RC_MAP_MODE_SW</strong> (INT32)</td>
- <td>Mode switch channel mapping <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
+ <td>Mode switch channel mapping (deprecated) <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10744,7 +10716,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_POSCTL_SW">RC_MAP_POSCTL_SW</strong> (INT32)</td>
- <td>Position Control switch channel  <strong>Values:</strong><ul>
+ <td>Position Control switch channel (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10882,7 +10854,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_STAB_SW">RC_MAP_STAB_SW</strong> (INT32)</td>
- <td>Stabilize switch channel mapping  <strong>Values:</strong><ul>
+ <td>Stabilize switch channel mapping  (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10980,24 +10952,10 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RC_POSCTL_TH">RC_POSCTL_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting posctl mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_RETURN_TH">RC_RETURN_TH</strong> (FLOAT)</td>
  <td>Threshold for selecting return to launch mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td>-1 > 1 </td>
  <td>0.75</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_STAB_TH">RC_STAB_TH</strong> (FLOAT)</td>
- <td>Threshold for the stabilize switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.5</td>
  <td></td>
 </tr>
 <tr>
@@ -16541,20 +16499,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SYS_RESTART_TYPE">SYS_RESTART_TYPE</strong> (INT32)</td>
- <td>Set restart type <p><strong>Comment:</strong> Set by px4io to indicate type of restart</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Data survives resets</li> 
-
-<li><strong>1:</strong> Data survives in-flight resets only</li> 
-
-<li><strong>2:</strong> Data does not survive reset</li> 
-</ul>
-  </td>
- <td>0 > 2 </td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="SYS_STCK_EN">SYS_STCK_EN</strong> (INT32)</td>
  <td>Enable stack checking    </td>
  <td></td>
@@ -16563,10 +16507,15 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_USE_IO">SYS_USE_IO</strong> (INT32)</td>
- <td>Set usage of IO board <p><strong>Comment:</strong> Can be used to use a standard startup script but with a FMU only set-up. Set to 0 to force the FMU only set-up.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Set usage of IO board <p><strong>Comment:</strong> Can be used to use a configure the use of the IO board.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> IO PWM disabled (RC only)</li> 
+
+<li><strong>1:</strong> IO enabled (RC & PWM)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1 </td>
- <td>Enabled (1)</td>
+ <td></td>
+ <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
