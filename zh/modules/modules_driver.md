@@ -789,6 +789,56 @@ px4flow <command> [arguments...]
 
    status        print status info
 ```
+## px4io
+Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/px4io)
+
+
+### Description
+Output driver communicating with the IO co-processor.
+
+<a id="px4io_usage"></a>
+
+### Usage
+```
+px4io <command> [arguments...]
+ Commands:
+   start
+
+   detect        Try to detect the presence of an IO
+
+   checkcrc      Check CRC for a firmware file against current code on IO
+     <filename>  Firmware file
+
+   update        Update IO firmware
+     [<filename>] Firmware file
+
+   safety_off    Turn off safety (force)
+
+   safety_on     Turn on safety (force)
+
+   debug         set IO debug level
+     <debug_level> 0=disabled, 9=max verbosity
+
+   monitor       continuously monitor status
+
+   bind          DSM bind
+     dsm2|dsmx|dsmx8 protocol
+
+   lockdown      enable (or disable) lockdown
+     [disable]   disable lockdown
+
+   sbus1_out     enable sbus1 out
+
+   sbus2_out     enable sbus2 out
+
+   test_fmu_fail test: turn off IO updates
+
+   test_fmu_ok   re-enable IO updates
+
+   stop
+
+   status        print status info
+```
 ## rc_input
 Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
