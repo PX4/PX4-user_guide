@@ -861,19 +861,13 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## roboclaw
-Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
+Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/px4io)
 
 
 ### 설명
-This module does the RC input parsing and auto-selecting the method. Supported methods are:
-- PPM
-- SBUS
-- DSM
-- SUMD
-- ST24
-- TBS Crossfire (CRSF)
+Output driver communicating with the IO co-processor.
 
-<a id="rc_input_usage"></a>
+<a id="px4io_usage"></a>
 
 ### 구현
 ```
@@ -895,12 +889,41 @@ px4flow <command> [arguments...]
 
    status        print status info
 ```
+## rc_input
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
+
+
+### 예
+This module does the RC input parsing and auto-selecting the method. Supported methods are:
+- PPM
+- SBUS
+- DSM
+- SUMD
+- ST24
+- TBS Crossfire (CRSF)
+
+<a id="rc_input_usage"></a>
+
+### Usage
+```
+rc_input <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   bind          Send a DSM bind command (module must be running)
+
+   stop
+
+   status        print status info
+```
 ## rgbled
 Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
-### 예
+### Usage
 ```
 rgbled <command> [arguments...]
  Commands:
