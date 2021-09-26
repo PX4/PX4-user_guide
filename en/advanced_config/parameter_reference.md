@@ -5029,6 +5029,20 @@ table {
  <td>0.0036</td>
  <td>normalized_thrust/s</td>
 </tr>
+<tr>
+ <td><strong id="HTE_VXY_THR">HTE_VXY_THR</strong> (FLOAT)</td>
+ <td>Horizontal velocity threshold for sensitivity reduction <p><strong>Comment:</strong> Above this speed, the measurement noise is linearly increased to reduce the sensitivity of the estimator from biased measurement. Set to a low value on vehicles with large lifting surfaces.</p>   </td>
+ <td>1.0 > 20.0 </td>
+ <td>10.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="HTE_VZ_THR">HTE_VZ_THR</strong> (FLOAT)</td>
+ <td>Vertical velocity threshold for sensitivity reduction <p><strong>Comment:</strong> Above this speed, the measurement noise is linearly increased to reduce the sensitivity of the estimator from biased measurement. Set to a low value on vehicles affected by air drag when climbing or descending.</p>   </td>
+ <td>1.0 > 10.0 </td>
+ <td>2.0</td>
+ <td>m/s</td>
+</tr>
 </tbody></table>
 
 ## Iridium SBD
