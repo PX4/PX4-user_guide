@@ -88,6 +88,7 @@ commander <command> [arguments...]
      [-f]        Force arming (do not run preflight checks)
 
    disarm
+     [-f]        Force disarming (disarm in air)
 
    takeoff
 
