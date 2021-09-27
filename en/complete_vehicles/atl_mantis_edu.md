@@ -95,7 +95,7 @@ curl -F "image=@$HOME/path/to/file.ext" -H "Expect:" http://192.168.42.1/cgi-bin
 
 For bigger (multi-part) upload, use:
 ```sh
-curl -F "image=@$HOME/path/to/big-file.ext" -H "Expect:" -H "File-Size: $(stat -c%s \"$HOME/path/to/big-file.ext\")" http://192.168.42.1/cgi-bin/upload
+curl -F "image=@$HOME/path/to/big-file.ext" -H "Expect:" -H "File-Size: $(stat -c%s $HOME/path/to/big-file.ext)" http://192.168.42.1/cgi-bin/upload
 ```
 
 ### RTSP connection
