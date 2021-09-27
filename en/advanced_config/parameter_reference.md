@@ -11430,6 +11430,20 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="SDLOG_ALGORITHM">SDLOG_ALGORITHM</strong> (INT32)</td>
+ <td>Logfile Encryption algorithm <p><strong>Comment:</strong> Selects the algorithm used for logfile encryption</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>2:</strong> XChaCha20</li> 
+
+<li><strong>3:</strong> AES</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SDLOG_BOOT_BAT">SDLOG_BOOT_BAT</strong> (INT32)</td>
  <td>Battery-only Logging <p><strong>Comment:</strong> When enabled, logging will not start from boot if battery power is not detected (e.g. powered via USB on a test bench). This prevents extraneous flight logs from being created during bench testing. Note that this only applies to log-from-boot modes. This has no effect on arm-based modes.</p>   </td>
  <td></td>
@@ -11442,6 +11456,20 @@ table {
 </td>
  <td>0 > 1000 </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SDLOG_EXCH_KEY">SDLOG_EXCH_KEY</strong> (INT32)</td>
+ <td>Logfile Encryption key exchange key <p><strong>Comment:</strong> If the logfile is encrypted using a symmetric key algorithm, the used encryption key is generated at logging start and stored on the sdcard RSA2048 encrypted using this key.</p>   </td>
+ <td>0 > 255 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SDLOG_KEY">SDLOG_KEY</strong> (INT32)</td>
+ <td>Logfile Encryption key index <p><strong>Comment:</strong> Selects the key in keystore, used for encrypting the log. When using a symmetric encryption algorithm, the key is generated at logging start and kept stored in this index. For symmetric algorithms, the key is volatile and valid only for the duration of logging. The key is stored in encrypted format on the sdcard alongside the logfile, using an RSA2048 key defined by the SDLOG_EXCHANGE_KEY</p>   </td>
+ <td>0 > 255 </td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
