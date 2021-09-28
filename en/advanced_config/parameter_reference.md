@@ -16387,20 +16387,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="LED_RGB1_MAXBRT">LED_RGB1_MAXBRT</strong> (INT32)</td>
- <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 31 (max)</p>   </td>
- <td>0 > 31 </td>
- <td>31</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LED_RGB_MAXBRT">LED_RGB_MAXBRT</strong> (INT32)</td>
- <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 15 (max)</p>   </td>
- <td>0 > 15 </td>
- <td>15</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="SYS_AUTOCONFIG">SYS_AUTOCONFIG</strong> (INT32)</td>
  <td>Automatically configure default values <p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Keep parameters</li> 
@@ -16539,6 +16525,13 @@ table {
  <td></td>
  <td>2</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="SYS_RGB_MAXBRT">SYS_RGB_MAXBRT</strong> (FLOAT)</td>
+ <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for maximum brightness</p>   </td>
+ <td></td>
+ <td>1.</td>
+ <td>%</td>
 </tr>
 <tr>
  <td><strong id="SYS_STCK_EN">SYS_STCK_EN</strong> (INT32)</td>
