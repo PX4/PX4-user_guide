@@ -196,8 +196,16 @@ No, this is not possible, unless you have a special cable.
 You can however, copy the `build/atl_mantis-edu_default/atl_mantis-edu_default.px4` file on SD card and rename it to `autopilot.px4`.
 If you then power up the Mantis, it will flash the file automatically.
 
-## How to get help/technical support
+## What is open-source?
+
+- The PX4 firmware is open-source.
+- The camera is proprietary but implementing the [MAVLink camera protocol](https://mavlink.io/en/services/camera.html) and [MAVLink camera definition](https://mavlink.io/en/services/camera_def.html).
+- The gimbal is proprietary but implementing the [MAVLink gimbal v2 protocol](https://mavlink.io/en/services/gimbal_v2.html).
+- The flow module is proprietary communicating via MAVLink.
+
+## How to get help/technical support?
 
 For hardware issues, please contact TODO: add vendor.
 
 Please get in contact with Daniel Agar or Julian Oes on [PX4 slack](https://slack.px4.io/).
+
