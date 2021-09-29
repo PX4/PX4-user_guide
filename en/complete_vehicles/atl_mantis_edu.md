@@ -79,15 +79,34 @@ The **update.lzo** file is not remove on the USB stick after the update.
 
 ## Developing PX4 Firmware
 
+### Build the PX4 Firmware
+
 To build PX4 for the Mantis, use the make command:
 ```
 make atl_mantis-edu
 ```
-The file is build to `build/atl_mantis-edu_default/atl_mantis-edu_default.px4`.
+
+### Upload/flash the PX4 Firmware
+
+There are two ways to update the firmware:
+
+#### Upload while connected to the Mantis' WiFi:
+
+The firmware will be uploaded to the SD-card over http using curl:
+```
+make atl_mantis-edu upload_wifi
+```
+
+:::note
+Make sure to have an SD card inserted for this.
+:::
+
+#### Upload using the SD card
+
+The built firmware can be found in `build/atl_mantis-edu_default/atl_mantis-edu_default.px4`.
 
 To update the vehicle with this firmware: rename the file to **autopilot.px4**, copy it to root of the SD card, and restart the vehicle (as described above).
 
-TODO: support easy upload via WiFi.
 
 ## Using MAVSDK with the Mantis
 
