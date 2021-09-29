@@ -28,6 +28,7 @@ Files include:
 - **firmware.bin**: Camera firmware
 - **gimbal.yuneec**: Gimbal firmware
 - **autopilot.px4**: Autopilot firmware
+- **update.lzo**: RC firmware
 
 ### Update Camera
 
@@ -60,6 +61,20 @@ If not, you should find a file **gimbal_update.log** with more details.
 :::note
 The file will be renamed to **autopilot.px4.updated** if the update was successful.
 If not, you should find a file **autopilot_update.log** with more details.
+:::
+
+### Update RC
+
+1. Place the **update.lzo** file on a USB stick (or SD card in a USB card reader). It needs to be FAT32 formatted.
+2. Plug the USB stick into the USB-A (not USB-C) port of the RC controller.
+3. Power on the RC controller by long pressing the power button.
+4. Wait for the blue LED to be on or blinking. This means the controller has finished booting.
+5. Hold the Home/RTL button (on the left) pressed while pressing the photo button (top right) quickly 4 times (within 2 seconds).
+6. Release the buttons when you hear a beep. It will beep while applying the update.
+7. Once the beeping stops with a positive tone (after about 90 seconds), the controller reboots automatically.
+
+:::note
+The **update.lzo** file is not remove on the USB stick after the update.
 :::
 
 ## Developing PX4 Firmware
