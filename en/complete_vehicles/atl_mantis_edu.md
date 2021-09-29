@@ -191,7 +191,7 @@ There, you should find the option to select the storage.
 
 ### Can I upload the PX4 firmware by connecting over USB?
 
-No, this is not possible.
+No, this is not possible, unless you have a special cable.
 
 You can however, copy the `build/atl_mantis-edu_default/atl_mantis-edu_default.px4` file on SD card and rename it to `autopilot.px4`.
 If you then power up the Mantis, it will flash the file automatically.
