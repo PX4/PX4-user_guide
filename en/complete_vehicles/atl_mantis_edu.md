@@ -22,7 +22,7 @@ The Mantis broadly features the following hardware components:
 
 ## Update Mantis EDU
 
-The files to update the Mantis can currently be found on [GoogleDrive](https://drive.google.com/drive/u/1/folders/1tDo9AktWtB47LRzaRaMxDkONTNQHsjCG).
+The files to update the Mantis can currently be found on [GoogleDrive](https://drive.google.com/drive/u/1/folders/1LXW66IBGc_SgGLmk0ltl3R8IQYYVUvtz).
 
 Files include:
 - **firmware.bin**: Camera firmware
