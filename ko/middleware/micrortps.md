@@ -205,10 +205,46 @@ cd micrortps_listener
 fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined.idl
 ```
 
-이렇게 하면, 기본 구독자와 게시자, 실행할 수 있는 기본 응용 프로그램이 만들어집니다. `sensor_combined` 주제의 데이터를 인쇄하려면, **sensor_combined_Subscriber.cxx**에서 `onNewDataMessage()` 메소드를 수정하십시오.
+This creates a basic subscriber and publisher, and a main-application that you can run.
+
+Linux에서 애플리케이션을 빌드하고 실행합니다.
+- `init()`: To change the subscription topic name (by default, the micrortps agent publishes the data on the named topic: `fmu/sensor_combined/out`),
+- `onNewDataMessage()`: To print the received sensor combined data.
 
 ```cpp
-void sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
+bool sensor_combinedSubscriber::init(Subscriber* sub)
+{
+    // Create RTPSParticipant
+
+    ParticipantAttributes PParam;
+    PParam.rtps.setName("Participant_subscriber"); //You can put the name you want
+    mp_participant = Domain::createParticipant(PParam);
+    if(mp_participant == nullptr)
+    {
+        return false;
+    }
+
+    //Register the type
+
+    Domain::registerType(mp_participant, static_cast<TopicDataType*>(&myType));
+
+    // Create Subscriber
+
+    SubscriberAttributes Rparam;
+    Rparam.topic.topicKind = NO_KEY;
+    Rparam.topic.topicDataType = myType.getName(); //Must be registered before the creation of the subscriber
+    Rparam.topic.topicName = "fmu/sensor_combined/out";
+    mp_subscriber = Domain::createSubscriber(mp_participant,Rparam, static_cast<SubscriberListener*>(&m_listener));
+    if(mp_subscriber == nullptr)
+    {
+        return false;
+    }
+    return true;
+}
+```
+
+```cpp
+void sensor_combinedSubscriber::SubListener::onNewDataMessage(Subscriber* sub)
 {
     // Take data
     sensor_combined_ st;
@@ -244,13 +280,6 @@ void sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
 }
 ```
 
-Linux에서 애플리케이션을 빌드하고 실행합니다.
-
-```sh
-make -f makefile_x64Linux2.6gcc
-bin/*/sensor_combined_PublisherSubscriber subscriber
-```
-
 이제 출력되는 센서 정보를 조회할 수 있습니다.
 
 ```sh
@@ -269,46 +298,52 @@ baro_alt_meter: 368.647
 baro_temp_celcius: 43.93
 ```
 
+Now you should see the sensor information being printed out:
+
+```sh
+mavlink stop-all
+```
+
 :::note
-*리스너 애플리케이션*이 아무 것도 출력하지 않으면, *클라이언트* 실행 여부를 확인하십시오.
+Make sure the *Client* is running, if the *Listener application* does not print anything.
 :::
 
 ## 실제 하드웨어로 브리지 설정
 
-이 섹션은 작업 중입니다.
+This section is work-in-progress.
 
 ## 문제 해결
 
 ### 클라이언트가 선택한 UART 포트가 사용 중이라고 보고함
 
-선택한 UART 포트가 사용중이면, MAVLink 애플리케이션이 이미 사용중일 수 있습니다. MAVLink와 RTPS 연결이 모두 필요한 경우에는 다른 포트를 사용하거나 PX4와 보조 컴퓨터에서 사용 가능한 프로토콜 스플리터를 사용하도록 연결하여야 합니다.
+If the selected UART port is busy, it's possible that the MAVLink application is already being used. If both MAVLink and RTPS connections are required you will have to either move the connection to use another port or using the available protocol splitter for PX4 and companion computers.
 
 :::tip
-개발 중 브리지 테스트를 허용하는 빠른/일시적인 수정은 *NuttShell*에서 MAVLink를 중지하는 것입니다.
+A quick/temporary fix to allow bridge testing during development is to stop MAVLink from *NuttShell*:
 ```sh
-mavlink stop-all
+export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 ```
 :::
 
 ### 에이전트가 빌드되지 않음/fastrtpsgen을 찾을 수 없습니다.
 
-The *Agent* code is generated using a *Fast DDS* tool called *fastrtpsgen*.
-
 기본 경로에 Fast DDS를 설치하지 않은 경우에는 *make*를 실행하기 전에 `FASTRTPSGEN_DIR` 환경 변수를 설정하여 설치 디렉토리를 지정하여야 합니다.
 
 Linux/Mac 환경에서는 다음과 같이 설정합니다.
+
+On Linux/Mac this is done as shown below:
 
 ```sh
 export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 ```
 
 :::note
-[기본 위치에 Fast DDS가 설치되어 있는 경우](../dev_setup/fast-dds-installation.md)에는 문제가 되지 않습니다.
+This should not be a problem if [Fast DDS is installed in the default location](../dev_setup/fast-dds-installation.md).
 :::
 
 ### 보조 컴퓨터의 UART 활성화
 
-라즈베리파이 또는 다른 보조 컴퓨터에서 UART로 전송하려면 직렬 포트를 활성화합니다.
+For UART transport on a Raspberry Pi or any other companion computer you will have to enable the serial port:
 
 1. `userid`(기본값은 라즈베리파이의 경우 pi)가 `dialout` 그룹의 구성원인지 확인합니다.
 
@@ -337,5 +372,5 @@ export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 
 ## 유용한 리소스
 
-* [Fast DDS 설치](../dev_setup/fast-dds-installation.md)
-* [클라이언트 및 에이전트 코드 수동 생성](micrortps_manual_code_generation.md)
+* [Fast DDS Installation](../dev_setup/fast-dds-installation.md)
+* [Manually Generate Client and Agent Code](micrortps_manual_code_generation.md)
