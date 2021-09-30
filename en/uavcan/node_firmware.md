@@ -24,16 +24,7 @@ Commonly the firmware image is built in **build/_name_of_your_uavcan_device_**, 
 
 ### ARK Flow
 
-Clone and navigate to the PX4 Autopilot repository.
-Then build the firmware ARK Flow firmware using the `make ark_can-flow_default` command as shown:
-
-```sh
-git clone https://github.com/PX4/PX4-Autopilot --recursive
-cd PX4-Autopilot
-make ark_can-flow_default
-```
-
-The firmware will be built to into: `build/ark_can-flow_default/XX-X.X.XXXXXXXX.uavcan.bin`.
+Please refer to the [Ark Flow documentation](./ark_flow.md) under **Building Ark Flow Firmware** to learn how to build and flash this firmware.
 
 ### Sapog Codebase (Pixhawk ESC 1.4 and Zubax Orel 20)
 
