@@ -52,7 +52,7 @@ The Pixracer is designed to use a separate avionics power supply. This is necess
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. 
 This frees it of the need of any desktop system.
 
-::note ToDo
+:::note ToDo:
 Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
 :::
 
