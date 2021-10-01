@@ -60,6 +60,12 @@ Setup and telemetry are already available, firmware upgrade is already supported
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
 
 
+### Configuring Wifi telemetry
+The pictures in the wiring diagram below suggest, that a Wifi module can optionally also be plugged into TELEM2. This is possible, but requires further configuration, for example by modifying the parameter [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) to specify that second mavlink instance should be running on the TELEM2 port.
+
+For more information on configuring mavlink instances, see the page on [Mavlink peripherals](../peripherals/mavlink_peripherals.md#mavlink-instances). And for additional information on configuring serial ports in general, see the instructions for [configuring serial ports](../peripherals/serial_configuration.md).
+
+
 ## Wiring Diagrams
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
