@@ -595,6 +595,51 @@ table {
 </tr>
 </tbody></table>
 
+## Autotune
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MC_AT_APPLY">MC_AT_APPLY</strong> (INT32)</td>
+ <td>Controls when to apply the new gains <p><strong>Comment:</strong> After the auto-tuning sequence is completed, a new set of gains is available and can be applied immediately or after landing. WARNING Applying the gains in air is dangerous as there is no guarantee that those new gains will be able to stabilize the drone properly.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Do not apply the new gains (logging only)</li> 
+
+<li><strong>1:</strong> Apply the new gains after disarm</li> 
+
+<li><strong>2:</strong> WARNING Apply the new gains in air</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_AT_RISE_TIME">MC_AT_RISE_TIME</strong> (FLOAT)</td>
+ <td>Desired angular rate closed-loop rise time    </td>
+ <td>0.01 > 0.5 </td>
+ <td>0.14</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="MC_AT_START">MC_AT_START</strong> (INT32)</td>
+ <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abord the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using MC_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_AT_SYSID_AMP">MC_AT_SYSID_AMP</strong> (FLOAT)</td>
+ <td>Amplitude of the injected signal    </td>
+ <td>0.1 > 6.0 </td>
+ <td>0.7</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Battery Calibration
 
 <table>
