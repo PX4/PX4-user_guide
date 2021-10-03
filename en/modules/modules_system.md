@@ -387,6 +387,24 @@ logger <command> [arguments...]
 
    status        print status info
 ```
+## mag_bias_estimator
+Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mag_bias_estimator)
+
+
+### Description
+Online magnetometer bias estimator.
+
+<a id="mag_bias_estimator_usage"></a>
+### Usage
+```
+mag_bias_estimator <command> [arguments...]
+ Commands:
+   start         Start the background task
+
+   stop
+
+   status        print status info
+```
 ## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
