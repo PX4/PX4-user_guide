@@ -13,11 +13,12 @@ make module_documentation
 生成的文件将被写入 `modules` 目录。
 
 ## 分类
-- [命令](modules_command.md)
-- [通信](modules_communication.md)
-- [控制器](modules_controller.md)
-- [驱动](modules_driver.md)
-- [估计器](modules_estimator.md)
-- [仿真](modules_simulation.md)
-- [系统](modules_system.md)
-- [模板](modules_template.md)
+- [命令](modules_autotune.md)
+- [通信](modules_command.md)
+- [控制器](modules_communication.md)
+- [驱动](modules_controller.md)
+- [估计器](modules_driver.md)
+- [仿真](modules_estimator.md)
+- [系统](modules_simulation.md)
+- [模板](modules_system.md)
+- [Template](modules_template.md)
