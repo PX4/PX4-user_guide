@@ -6111,6 +6111,31 @@ table {
 </tr>
 </tbody></table>
 
+## Magnetometer Bias Estimator
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MBE_ENABLE">MBE_ENABLE</strong> (INT32)</td>
+ <td>Enable online mag bias calibration <p><strong>Comment:</strong> This enables continuous calibration of the magnetometers before takeoff using gyro data.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MBE_LEARN_GAIN">MBE_LEARN_GAIN</strong> (FLOAT)</td>
+ <td>Mag bias estimator learning gain <p><strong>Comment:</strong> Increase to make the estimator more responsive Decrease to make the estimator more robust to noise</p>   </td>
+ <td>0.1 > 100 (0.1)</td>
+ <td>18.</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Mission
 
 <table>
