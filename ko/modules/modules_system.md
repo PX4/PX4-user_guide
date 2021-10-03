@@ -370,35 +370,28 @@ logger <command> [arguments...]
 소스: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
-  설명 네트워크 구성 관리자는 네트워크 설정을 비휘발성 메모리에 저장합니다.  부팅시 `업데이트` 옵션이 실행됩니다. 네트워크 구성이 존재하지 않는 경우. 기본 설정은 비휘발성에 저장되고 시스템이 재부팅됩니다. 후속 부팅 시 `업데이트` 옵션은 SD 카드의 루트에 `net.cfg`가 있는 지 확인합니다.  `net.cfg`의 네트워크 설정을 비휘발성 메모리에 저장하고 파일을 삭제하고 시스템을 재부팅합니다.
-
-  `저장` 옵션은 SD 카드에 `net.cfg`됩니다. 이것을 사용하여 설정을 편집합니다. `show` 옵션은 네트워크 설정을 콘솔에 표시합니다.
-
-  예 $ netman save # 매개변수를 SD 카드에 저장합니다. $ netman show # 현재 설정을 표시합니다. $ netman update -i eth0 # 업데이트 수행
-
-<a id="netman_usage"></a>
-
 ### 사용법
+Online magnetometer bias estimator.
+
+<a id="mag_bias_estimator_usage"></a>
+
+### 설명
 ```
 netman <command> [arguments...]
  Commands:
    show          Display the current persistent network settings to the console.
-
-   update        Check SD card for net.cfg and update network persistent network
-                 settings.
-
-   save          Save the current network parameters to the SD card.
-     [-i <val>]  Set the interface name
-                 default: eth0
 ```
 ## pwm_input
-소스: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_input)
+Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
-### 설명
-타이머 캡처 ISR을 통하여 AUX5(또는 MAIN5)의 PWM 입력을 측정하고, uORB 'pwm_input' 메시지를 통하여 게시합니다.
+  예 $ netman save # 매개변수를 SD 카드에 저장합니다. $ netman show # 현재 설정을 표시합니다. $ netman update -i eth0 # 업데이트 수행 The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
 
-<a id="pwm_input_usage"></a>
+  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
+
+  ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
+
+<a id="netman_usage"></a>
 
 ### 사용법
 ```
@@ -407,6 +400,13 @@ pwm_input <command> [arguments...]
    start
 
    test          prints PWM capture info.
+
+   update        Check SD card for net.cfg and update network persistent network
+                 settings.
+
+   save          Save the current network parameters to the SD card.
+     [-i <val>]  Set the interface name
+                 default: eth0
 ```
 ## rc_update
 소스: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
@@ -415,12 +415,9 @@ pwm_input <command> [arguments...]
 ### 설명
 rc_update 모듈은 RC 채널 매핑을 처리합니다. 원시 입력 채널(`input_rc`)을 읽은 다음 보정을 적용하고 RC 채널을 구성된 채널에 매핑합니다. 모드를 전환한 다음 `rc_channels` 및 `manual_control_setpoint`로 게시합니다.
 
+<a id="pwm_input_usage"></a>
+
 ### 구현
-제어 대기 시간을 줄이기 위하여 모듈은 input_rc 게시에 예약됩니다.
-
-<a id="rc_update_usage"></a>
-
-### 사용법
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -431,21 +428,16 @@ rc_update <command> [arguments...]
    status        print status info
 ```
 ## replay
-소스: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
+제어 대기 시간을 줄이기 위하여 모듈은 input_rc 게시에 예약됩니다.
 
+
+### 사용법
+소스: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 ### 설명
 이 모듈은 ULog 파일을 재생하는 데 사용됩니다.
 
-구성에 사용되는 두 가지 환경 변수가 있습니다. `재생`, ULog 파일 이름으로 설정해야 합니다. 재생될 로그 파일입니다. 두 번째는 `replay_mode`를 통해 지정된 모드입니다.
-- `replay_mode=ekf2`: 특정 EKF2 재생 모드. ekf2 모듈과 함께만 사용할 수 있지만, 가능한 한 빨리 재생할 수 있습니다.
-- 일반 그렇지 않으면 이것은 모든 모듈을 재생하는 데 사용할 수 있지만 재생은 로그가 기록된 것과 동일한 속도로 수행됩니다.
-
-모듈은 일반적으로 uORB 게시자 규칙과 함께 사용되어 재생되어야 하는 메시지를 지정합니다. 재생 모듈은 로그에 있는 모든 메시지를 게시합니다. 또한 로그의 매개변수를 적용합니다.
-
-재생 절차는 [시스템 전체 재생](https://dev.px4.io/master/en/debug/system_wide_replay.html) 페이지에 설명되어 있습니다.
-
-<a id="replay_usage"></a>
+<a id="rc_update_usage"></a>
 
 ### 사용법
 ```
@@ -462,15 +454,21 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-소스: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
+Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
 ### 설명
-하우스키핑 작업을 수행하기 위하여 LP 작업 대기열에서 주기적으로 실행되는 백그라운드 프로세스입니다. 현재 RC Loss에 대한 톤 알람만 담당합니다.
+This module is used to replay ULog files.
 
-작업은 CLI 또는 uORB 주제(MAVLink의 차량 명령 등)를 통하여 시작할 수 있습니다.
+There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
+- `replay_mode=ekf2`: 특정 EKF2 재생 모드. ekf2 모듈과 함께만 사용할 수 있지만, 가능한 한 빨리 재생할 수 있습니다.
+- 일반 그렇지 않으면 이것은 모든 모듈을 재생하는 데 사용할 수 있지만 재생은 로그가 기록된 것과 동일한 속도로 수행됩니다.
 
-<a id="send_event_usage"></a>
+The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
+
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+
+<a id="replay_usage"></a>
 
 ### 사용법
 ```
@@ -483,23 +481,17 @@ send_event <command> [arguments...]
    status        print status info
 ```
 ## sensors
-소스: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
+작업은 CLI 또는 uORB 주제(MAVLink의 차량 명령 등)를 통하여 시작할 수 있습니다.
 
 
 ### 설명
-센서 모듈은 전체 시스템의 중심입니다. 드라이버에서 낮은 수준의 출력을 가져와서, 사용 가능한 형식으로 바꾸고 나머지 시스템에 게시합니다.
+Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
 
-제공 기능은 다음과 같습니다:
-- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
-- 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
-- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
+The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
+
+<a id="send_event_usage"></a>
 
 ### 구현
-자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
-
-<a id="sensors_usage"></a>
-
-### 사용법
 ```
 sensors <command> [arguments...]
  Commands:
@@ -511,13 +503,21 @@ sensors <command> [arguments...]
    status        print status info
 ```
 ## temperature_compensation
-소스: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
+제공 기능은 다음과 같습니다:
 
+
+### 사용법
+The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
+
+소스: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
+- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
+- 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
+- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
 
 ### 설명
-Driver for reading data from the Tattu 12S 16000mAh smart battery.
+It runs in its own thread and polls on the currently selected gyro topic.
 
-<a id="tattu_can_usage"></a>
+<a id="sensors_usage"></a>
 
 ### 사용법
 ```
@@ -541,11 +541,30 @@ temperature_compensation <command> [arguments...]
 
 
 ### 설명
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
+
+<a id="tattu_can_usage"></a>
+
+### 예
+```
+tattu_can <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## work_queue
+Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
+
+
+### 사용법
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
 
 <a id="temperature_compensation_usage"></a>
 
-### 예
+### 설명
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -562,36 +581,32 @@ temperature_compensation <command> [arguments...]
 
    status        print status info
 ```
-## work_queue
+## tune_control
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
 ### 사용법
 
-음향 톤 형식과 사전 정의된 시스템 조정에 대한 정보는 다음을 참고하십시오. https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+소스: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
 
-소스: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
+Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
 
-### 설명
+### Examples
 
-작업 대기열 상태를 표시하는 명령줄 도구입니다.
+Play system tune #2:
 ```
 tune_control play -t 2
 ```
 
 <a id="tune_control_usage"></a>
 
-### 사용법
+### Usage
 ```
-work_queue <command> [arguments...]
+tune_control <command> [arguments...]
  Commands:
-   start
-
-   stop
-
-   status        print status info
+   play          Play system tune or single note.
      error       Play error tune
      [-t <val>]  Play predefined system tune
                  default: 1
