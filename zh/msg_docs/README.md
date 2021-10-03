@@ -8,11 +8,13 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 
 - [actuator_armed](actuator_armed.md)
 - [actuator_controls](actuator_controls.md)
+- [actuator_controls_status](actuator_controls_status.md)
 - [actuator_outputs](actuator_outputs.md)
 - [adc_report](adc_report.md)
 - [airspeed](airspeed.md)
 - [airspeed_validated](airspeed_validated.md)
 - [airspeed_wind](airspeed_wind.md)
+- [autotune_attitude_control_status](autotune_attitude_control_status.md)
 - [battery_status](battery_status.md)
 - [camera_capture](camera_capture.md)
 - [camera_status](camera_status.md)
