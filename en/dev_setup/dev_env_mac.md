@@ -29,6 +29,11 @@ To build other targets you will need to use a [different OS](../dev_setup/dev_en
 
 The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
 
+Note that with PX4 make, the exact versions of tools like CMake are cached in the build. If you do a `brew update` it will automatically 
+delete older versions and your build can fail searching for executables in `/usr/local/Cellar` the fix is to run `make clean` which
+will update all the links into Homebrew with the correct versions. Alternatively if you want to pin the Cmake or other version, you can do a 
+`brew install cmake@3.21.2` for example to ensure that the link is always there.
+
 ## Enable more open files (Handle "LD: too many open files" error)
 
 Create the `~/.zshenv` file or append it (by running `open ~/.zshenv` on the terminal) and add this line:
