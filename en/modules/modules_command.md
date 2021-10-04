@@ -609,6 +609,19 @@ sd_bench [arguments...]
      [-s]        Call fsync after each block (default=at end of each run)
      [-u]        Test performance with unaligned data)
 ```
+## sd_stress
+Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_stress)
+
+Test operations on an SD Card
+<a id="sd_stress_usage"></a>
+### Usage
+```
+sd_stress [arguments...]
+     [-r <val>]  Number of runs
+                 default: 5
+     [-b <val>]  Number of bytes
+                 default: 100
+```
 ## system_time
 Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
