@@ -14007,7 +14007,7 @@ table {
  <td>IMU gyro FFT maximum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>192.</td>
+ <td>150.</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -14015,7 +14015,7 @@ table {
  <td>IMU gyro FFT minimum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>32.</td>
+ <td>30.</td>
  <td>Hz</td>
 </tr>
 <tr>
