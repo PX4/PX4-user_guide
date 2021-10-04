@@ -88,6 +88,11 @@ mavlink <command> [arguments...]
 
    stop-all      Stop all instances
 
+   stop          Stop a running instance
+     [-u <val>]  Select Mavlink instance via local Network Port
+     [-d <val>]  Select Mavlink instance via Serial Device
+                 values: <file:dev>
+
    status        Print status for all instances
      [streams]   Print all enabled streams
 

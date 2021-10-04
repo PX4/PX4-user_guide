@@ -37,15 +37,15 @@ RC 채널은 *보통* 비행 콘트롤러의 `AUX1`, `AUX2`, `AUX3` 출력에 �
 
 ### 임무 트리거
 
--- [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink 명령을 사용하여 미션에서 또는 명령으로 한 번에 최대 3 개의 액추에이터 값을 설정할 수 있습니다.
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink 명령어을 사용하여 임무 수행이나 명령어로 한 번에 최대 3 개의 액추에이터 값을 설정할 수 있습니다.
 
-명령 매개 변수 `param1`, `param2` 및 `param3`은 [RC 트리거링](#rc-triggering)에 사용 된 것과 _동일한 출력_에 매핑됩니다. 일반적으로 비행컨트롤러의 `AUX1`, `AUX2`, `AUX3` 출력입니다 (위의 RC 섹션에서는 확인 방법을 설명합니다). 다른 명령의 매개변수 (`param4` ~ `param7`)들은 PX4에서 사용되지 않거나 무시됩니다.
+명령 매개변수 `param1`, `param2` 및 `param3`은 _일반적으로_ `AUX1`에 매핑되며, 비행 콘트롤러의 `AUX2`, `AUX3` 출력, 명령 매개변수 `param4` ~ `param7`은 PX4에서 사용되지 않거나 무시됩니다. 매개변수는 `[-1, 1]` 범위의 정규화 수치를 사용합니다. 결과적으로 PWM 출력 범위는 `[PWM_AUX_MINx, PWM_AUX_MAXx]` 입니다. 여기서 X는 출력 번호입니다. 제어되지 않는 모든 매개변수나 액추에이터는 `NaN`으로 설정하여야 합니다.
 
-매개 변수는 `[-1, 1]` 범위의 정규화된 값을 사용합니다 (결과적으로 PWM 출력은 `[PWM_AUX_MINx, PWM_AUX_MAXx]` 범위에서 X는 출력 번호 임). 제어되지 않는 모든 매개 변수/액추에이터는 `NaN`으로 설정하여야 합니다.
+:::note MAVLink는 [RC AUX 패스스루](#rc-triggering)에 대해 설정된 것과 동일한 출력을 사용합니다(이전 섹션 참조). 차량의 [기체 정의서](../airframes/airframe_reference.md)에서 어떤 출력이 사용되는 지 확인하고, 필요한 경우 [맞춤 믹서 파일](../concept/mixing.md)을 사용하여 변경할 수 있습니다.
 :::
 
 
-### MAVSDK (예제 스크립트)
+### -- MAVSDK (예제 스크립트)
 
 다음 [MAVSDK](https://mavsdk.mavlink.io/develop/en/) 샘플 코드는 페이로드 릴리스를 트리거하는 방법을 설명합니다.
 
