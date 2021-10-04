@@ -71,6 +71,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [log_message](log_message.md) — A logging message, output with PX4_{WARN,ERR,INFO}
 - [logger_status](logger_status.md)
 - [mag_worker_data](mag_worker_data.md)
+- [magnetometer_bias_estimate](magnetometer_bias_estimate.md)
 - [manual_control_setpoint](manual_control_setpoint.md)
 - [manual_control_switches](manual_control_switches.md)
 - [mavlink_log](mavlink_log.md)
