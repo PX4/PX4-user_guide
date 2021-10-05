@@ -6,7 +6,7 @@ Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or 
 :::
 
 The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes.
-In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
+In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built WiFi, new sensors, convenient full servo headers, CAN and supports 2M flash.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
@@ -52,12 +52,23 @@ The Pixracer is designed to use a separate avionics power supply. This is necess
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. 
 This frees it of the need of any desktop system.
 
-::note ToDo
-Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
-:::
-
 * [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
+
+:::note
+Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
+Setup and telemetry are supported.
+:::
+
+
+## External Telemetry
+
+The flight controller also supports telemetry via external Wi-Fi or radio telemetry modules connected to the `TELEM1` or `TELEM2` ports.
+This is shown in the wiring diagram below.
+
+:::note
+The `TELEM2` port must be configured as a second MAVLink instance using the [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) parameter.
+For more information see [Mavlink Peripherals > Mavlink Instances](../peripherals/mavlink_peripherals.md#mavlink-instances) (and [Serial Port Configuration](../peripherals/serial_configuration.md)).
 
 
 ## Wiring Diagrams
