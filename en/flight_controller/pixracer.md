@@ -60,20 +60,19 @@ Firmware upgrade is not yet enabled over WiFi (it is supported by the default bo
 Setup and telemetry are supported.
 :::
 
+## Assembly
 
-## External Telemetry
-
-The flight controller also supports telemetry via external Wi-Fi or radio telemetry modules connected to the `TELEM1` or `TELEM2` ports.
-This is shown in the wiring diagram below.
-
-:::note
-The `TELEM2` port must be configured as a second MAVLink instance using the [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) parameter.
-For more information see [Mavlink Peripherals > Mavlink Instances](../peripherals/mavlink_peripherals.md#mavlink-instances) (and [Serial Port Configuration](../peripherals/serial_configuration.md)).
+See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 
 
 ## Wiring Diagrams
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
+
+:::note
+If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port.
+For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
+:::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
@@ -221,6 +220,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make px4_fmu-v4_default
 ```
+
 
 ## Credits
 
