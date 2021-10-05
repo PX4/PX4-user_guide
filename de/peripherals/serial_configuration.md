@@ -45,9 +45,9 @@ Configuration parameter names follow the pattern `*_CONFIG` or `*_CFG` (*QGround
 
 The [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) section provides a practical example of how to configure a port in *QGroundControl* (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
 
-## Deconficting Ports
+## Deconflicting Ports
 
-Port conflicts are handled by system startup, which ensures that at most one service is run on a specific port.
+Port conflicts are handled by system startup, which ensures that at most one service is run on a specific port. For example, it is not possible to start a MAVLink instance on a specific serial device, and then launch a driver that uses the same serial device.
 
 :::warning
 At time of writing there is no user feedback about conflicting ports.

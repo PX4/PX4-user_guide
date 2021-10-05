@@ -45,9 +45,9 @@ Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합�
 
 [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) 섹션은 *QGroundControl*에서 포트 설정 방법실제 예를 제공합니다(`TELEM 2` 포트의 보조 GPS 사용을 위한 `GPS_2_CONFIG`를 사용 방법을 보여줍니다. ).
 
-## 포트 충돌 해제
+## Deconflicting Ports
 
-포트 충돌은 시스템 시작에 의해 처리되므로 특정 포트에서 최대 하나의 서비스만 실행됩니다.
+Port conflicts are handled by system startup, which ensures that at most one service is run on a specific port. For example, it is not possible to start a MAVLink instance on a specific serial device, and then launch a driver that uses the same serial device.
 
 :::warning
 이 글을 쓰는 시점에는 충돌하는 포트에 관련된 사용자 피드백은 없습니다.

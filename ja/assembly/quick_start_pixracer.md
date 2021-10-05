@@ -11,7 +11,7 @@ This quick start guide shows how to power the [Pixracer](../flight_controller/pi
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
-## Wiring Guides
+## Wiring Guides/Assembly
 
 ![Grau pixracer double](../../assets/flight_controller/pixracer/grau_pixracer_double.jpg)
 
@@ -44,3 +44,13 @@ The instructions below show how to connect the different types of receivers:
 ### Power Module (ACSP4)
 
 ![Grau ACSP4 2 roh](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
+
+### External Telemetry
+
+Pixracer has inbuilt WiFi, but also supports telemetry via external Wi-Fi or radio telemetry modules connected to the `TELEM1` or `TELEM2` ports. This is shown in the wiring diagram below.
+
+![Pixracer external telemtry options](../../assets/flight_controller/pixracer/pixracer_top_telemetry.jpg)
+
+:::note
+The `TELEM2` port must be configured as a second MAVLink instance using the [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) parameter. For more information see [MAVLink Peripherals > MAVLink Instances](../peripherals/mavlink_peripherals.md#mavlink-instances) (and [Serial Port Configuration](../peripherals/serial_configuration.md)).
+:::
