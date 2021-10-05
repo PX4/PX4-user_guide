@@ -3,7 +3,7 @@
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
-The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes. In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
+The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes. In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built WiFi, new sensors, convenient full servo headers, CAN and supports 2M flash.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
@@ -48,11 +48,19 @@ The Pixracer is designed to use a separate avionics power supply. This is necess
 
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. This frees it of the need of any desktop system.
 
-::note ToDo Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
-:::
-
 * [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
+
+:::note
+Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled). Setup and telemetry are supported.
+:::
+
+## External Telemetry
+
+The flight controller also supports telemetry via external Wi-Fi or radio telemetry modules connected to the `TELEM1` or `TELEM2` ports. This is shown in the wiring diagram below.
+
+:::note
+The `TELEM2` port must be configured as a second MAVLink instance using the [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) parameter. For more information see [Mavlink Peripherals > Mavlink Instances](../peripherals/mavlink_peripherals.md#mavlink-instances) (and [Serial Port Configuration](../peripherals/serial_configuration.md)).
 
 ## Wiring Diagrams
 
@@ -68,11 +76,11 @@ One of the main features of the board is its ability to use Wifi for flashing ne
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
-## 连接器
+## Connectors
 
 All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
 
-## 针脚定义
+## Pinouts
 
 ![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
 
@@ -182,7 +190,7 @@ For information about wiring and using this port see:
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## 原理图
+## Schematics
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
@@ -191,7 +199,7 @@ The following PDF files are provided for *convenience only*:
 * [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
 * [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -202,6 +210,6 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
     make px4_fmu-v4_default
     
 
-## 鸣谢
+## Credits
 
 This design was created by Nick Arsov and Phillip Kocmoud and architected by Lorenz Meier, David Sidrane and Leonard Hall.
