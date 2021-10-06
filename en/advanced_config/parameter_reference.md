@@ -18578,13 +18578,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
- <td>Maximum allowed angle the vehicle is allowed to pitch down to generate forward force <p><strong>Comment:</strong> When fixed-wing forward actuation is active (see VT_FW_TRHUST_EN). If demanded down pitch exceeds this limmit, the fixed-wing forward actuators are used instead.</p>   </td>
- <td>0.0 > 45.0 </td>
- <td>5.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VT_ELEV_MC_LOCK">VT_ELEV_MC_LOCK</strong> (INT32)</td>
  <td>Lock elevons in multicopter mode <p><strong>Comment:</strong> If set to 1 the elevons are locked in multicopter mode</p>   </td>
  <td></td>
@@ -18705,6 +18698,13 @@ table {
  <td>us</td>
 </tr>
 <tr>
+ <td><strong id="VT_LND_PTCH_MIN">VT_LND_PTCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PTCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
+ <td>-10.0 > 45.0 </td>
+ <td>-5.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VT_MC_ON_FMU">VT_MC_ON_FMU</strong> (INT32)</td>
  <td>Enable the usage of AUX outputs for hover motors <p><strong>Comment:</strong> Set this parameter to true if the vehicle's hover motors are connected to the FMU (AUX) port. Not required for boards that only have a FMU, and no IO. Only applies for standard VTOL and tiltrotor.</p>   </td>
  <td></td>
@@ -18723,6 +18723,13 @@ table {
  <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
  <td>? > 20 (0.01)</td>
  <td>3.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_PTCH_MIN">VT_PTCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
+ <td>-10.0 > 45.0 </td>
+ <td>-5.0</td>
  <td></td>
 </tr>
 <tr>
