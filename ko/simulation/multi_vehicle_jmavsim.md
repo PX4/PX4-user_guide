@@ -28,10 +28,12 @@
    ```
    포트는 `[0, N-1]`의 `i`에 대하여 `4560+i`로 설정되어야 합니다.
 
-*QGroundControl*과 같은 지상국은 PX4의 원격 UDP 포트 `14550`에서 모든 차량 인스턴스를 수신 대기합니다(모든 GCS 트래픽은 *동일한* 원격 포트로 전송됩니다).
+*QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances). The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instnaces (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.
 
 *MAVSDK* 또는 *MAVROS*와 같은 개발자 API는 `14540`(첫 번째 인스턴스)에서 `14549</1까지 순차적으로 할당된 PX4 원격 UDP 포트에서 수신 대기합니다.
 추가 인스턴스 <em x-id="3">모두</em>는 <code>14549` 포트에 연결됩니다.
+
+> **Tip** The **sitl_multiple_run.sh** script starts a separate process for each vehicle. To restart the simulations after killing one of them, you must call **sitl_multiple_run.sh** again, and also restart each of the individual instances in their own terminals.
 
 ## 추가 자료
 
