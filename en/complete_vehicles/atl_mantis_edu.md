@@ -1,11 +1,17 @@
 # ATL Mantis EDU
 
 :::warning
-The ATL Mantis EDU is currently work in progress.
-Use with caution.
+The ATL Mantis EDU is currently work in progress. Use with caution.
 :::
 
-The ATL Mantis EDU is based on the ready-to-fly Yuneec Mantis G and geared towards education.
+*ATL Mantis EDU* is the ready-to-fly [Yuneec Mantis G](https://shop.yuneec.com/eu/camera-drones/mantis-g/mantis-g/) vehicle that has been firmware-updated to run "vanilla" PX4 and MAVLink-compatible [camera](https://mavlink.io/en/services/camera.html)/[gimbal](https://mavlink.io/en/services/gimbal_v2.html) firmware.
+
+The updated vehicle is an ideal education platform for developing and testing [MAVSDK](https://mavsdk.mavlink.io/) applications that can run effectively on a ground station (_Mantis-G_ does not have an onboard companion computer).
+It can also be used for developing and testing PX4 autopilot software, including optical flow.
+
+:::warning
+Restoring the original Yuneec vehicle firmware is not supported.
+:::
 
 ## Purchase
 
@@ -65,12 +71,14 @@ If not, you should find a file **autopilot_update.log** with more details.
 
 ### Update RC
 
-1. Place the **update.lzo** file on a USB stick (or SD card in a USB card reader). It needs to be FAT32 formatted.
+1. Place the **update.lzo** file on a USB stick (or SD card in a USB card reader).
+   It needs to be FAT32 formatted.
 2. Plug the USB stick into the USB-A (not USB-C) port of the RC controller.
 3. Power on the RC controller by long pressing the power button.
 4. Wait for the blue LED to be on or blinking. This means the controller has finished booting.
 5. Hold the Home/RTL button (on the left) pressed while pressing the photo button (top right) quickly 4 times (within 2 seconds).
-6. Release the buttons when you hear a beep. It will beep while applying the update.
+6. Release the buttons when you hear a beep.
+   It will beep while applying the update.
 7. Once the beeping stops with a positive tone (after about 90 seconds), the controller reboots automatically.
 
 :::note
