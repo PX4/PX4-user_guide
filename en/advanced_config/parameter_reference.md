@@ -1969,6 +1969,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="COM_WIND_WARN">COM_WIND_WARN</strong> (FLOAT)</td>
+ <td>Wind speed warning threshold <p><strong>Comment:</strong> A warning is triggered if the currently estimated wind speed is above this value. Warning is sent periodically (every 1min). A negative value disables the feature.</p>   </td>
+ <td>-1 > 30 (0.1)</td>
+ <td>-1.</td>
+ <td>m/s</td>
+</tr>
+<tr>
  <td><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
  <td>Set data link loss failsafe mode <p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
