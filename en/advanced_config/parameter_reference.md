@@ -18593,7 +18593,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
- <td>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This technique can be used to avoid the plane having to pitch down in order to move forward. This prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demaded down pitch is above VT_DWN_PITCH_MAX, and uses VT_FWD_THRUST_SC to get from demanded down pitch to fixed-wing actuation.</p> <strong>Values:</strong><ul>
+ <td>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This technique can be used to avoid the plane having to pitch down in order to move forward. This prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demaded down pitch is below VT_PITCH_MIN, and uses VT_FWD_THRUST_SC to get from demanded down pitch to fixed-wing actuation.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable FW forward actuation in hover.</li> 
 
 <li><strong>1:</strong> Enable FW forward actuation in hover in altitude, position and auto modes (except LANDING).</li> 
@@ -18615,7 +18615,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td>Fixed-wing actuator thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is above VT_DWN_PITCH_MAX. Enabled via VT_FWD_THRUST_EN.</p>   </td>
+ <td>Fixed-wing actuator thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is below VT_PITCH_MIN. Enabled via VT_FWD_THRUST_EN.</p>   </td>
  <td>0.0 > 2.0 </td>
  <td>0.7</td>
  <td></td>
