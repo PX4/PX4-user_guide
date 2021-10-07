@@ -136,7 +136,7 @@ module.exports = {
           indexName: 'px4',
 		  algoliaOptions: {
             hitsPerPage: 10,
-		    facetFilters: [`version:master`],
+		    facetFilters: [`version:v1.12`],
 		  }
         } : {},   
         //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
