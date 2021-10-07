@@ -154,7 +154,7 @@ bmi088 <command> [arguments...]
    status        print status info
 ```
 ## bmi088_i2c
-Source: [drivers/imu/bosch/bmi088/bmi088_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi088/bmi088_i2c)
+Source: [drivers/imu/bosch/bmi088_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi088_i2c)
 
 <a id="bmi088_i2c_usage"></a>
 ### Usage
