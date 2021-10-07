@@ -10,18 +10,49 @@
 import re
 import os # for walk
 import subprocess #so I can use git to get the modified dates.
+import argparse
+
+
 
 dir_name='.'
-build_version = 'master'
-url_prefix = 'https://docs.px4.io/%s' % build_version
 #git log -1 --format="%as" -- .\zh\uavcan\notes.md
 
-exclude = set(['node_modules', '.git', '.vuepress', 'assets','.github','de','ja','ru','tr'])
+include_dirs = set(['en','zh','ko']) #update for new language builds.
+
+my_parser = argparse.ArgumentParser(description='Generate sitemap for all markdown files in directory (default to master for output)')
+# Add the arguments                      
+my_parser.add_argument('-v',
+                       '--version',
+                       action='store',
+                       type=str,
+                       #nargs=1,
+                       default='master')
+my_parser.add_argument('-d',
+                       '--date',
+                       action='store_true',
+                       help='generate date information')
+my_parser.add_argument('-o',
+                       '--output',
+                       action='store',
+                       type=str,
+                       #nargs=1,
+                       default='./.vuepress/dist/')
+
+# Execute the parse_args() method
+args = my_parser.parse_args()
+build_version = args.version
+
+
+url_prefix = 'https://docs.px4.io/%s' % build_version
+
+sitemapitems=[]
+
 for subdir, dirs, files in os.walk(dir_name, topdown=True):
-    dirs[:] = [d for d in dirs if d not in exclude]
-    print('X: %s' % subdir)
+    dirs[:] = [d for d in dirs if d in include_dirs]
 
     for file in files:
+        sitemapitem = dict()
+        sitemapitem['changefreq']='daily'
         if not file.endswith('.md'): #only process md files.
            #print("Skip not md: %s" % file)
            continue
@@ -29,49 +60,57 @@ for subdir, dirs, files in os.walk(dir_name, topdown=True):
         dir_name=subdir[2:].replace('\\','/')
         orig_file_forwardslash=originalfile.replace('\\','/')
         #git log -1 --format="%as" -- .\zh\uavcan\notes.md
-        modified_datestamp = subprocess.run(["git", "log", "-1", '--format="%as"', "--", "%s" % orig_file_forwardslash],capture_output=True).stdout.decode('UTF-8')
-        print("XX %s" % modified_datestamp)
+        if args.date:
+            modified_datestamp = subprocess.run(["git", "log", "-1", '--format="%as"', "--", "%s" % orig_file_forwardslash],capture_output=True).stdout.decode('UTF-8')
+            sitemapitem['modified']=modified_datestamp.strip().strip('"')
+            #print("XX %s" % modified_datestamp)
         file_name=file[:-3]+'.html'
         if file_name.startswith('README'):
             file_name=''
-        print("file_name: %s" % file_name)
-        print("dir_name: %s" % dir_name)
-        targetfile="%s/%s/%s" % (url_prefix, dir_name,file_name)
-        print("file: %s" % file)
-        print("targetfile: %s" % targetfile)
-
-
-
+        url="%s/%s/%s" % (url_prefix, dir_name,file_name)
+        sitemapitem['url']=url
 
 
         if subdir == '.':
-            print("RootFile: %s" % originalfile)
+            #print("RootFile: %s" % originalfile)
             #Handle a root file.
             continue
 
-        print("OrigFile: %s" % originalfile)
+        #print("OrigFile: %s" % originalfile)
+        #print("dir_name: %s" % dir_name)
         #print("Subdir: %s" % subdir )
+        #print("file_name: %s" % file_name)
+        #print(sitemapitem['url'])
         
-        redirect_file_text="""<!DOCTYPE HTML>
-<html data-proofer-ignore>
-<head>
-<meta charset='UTF-8'>
-<title>Redirecting to latest version of documentation</title>
-<link rel='canonical' href='%s'>
-<meta http-equiv=refresh content='0; url=%s'>
-</head>
-<body>
-<h1>Document moved to PX4 User Guide. Redirecting.</h1>
-<p><a href='%s'>Click here if you are not redirected</a></p>
-<script>window.location.href='%s';</script>
-</body></html>
-""" % (targetfile,targetfile,targetfile,targetfile)
-        #print("redirect_file_text: %s" % redirect_file_text)
-        pass
+        sitemapitems.append(sitemapitem)
         
-        #write the file
-        #with open(originalfile, 'w') as content_file:
-        #    content_file.write(redirect_file_text)
-        #    pass
+        
+        
+# Generate the sitemap from the sitemapitems
+urltext=''
+for item in sitemapitems:
+   urltext+='  <url>\n'
+   urltext+=f"    <loc>{item['url']}</loc>\n"
+   urltext+=f"    <changefreq>{item['changefreq']}</changefreq>\n"
+   if args.date:
+       urltext+=f"    <lastmod>{item['modified']}</lastmod>\n"
+   urltext+='  </url>\n'
+   
+   urltext+=urltext
 
-print("COMPLETED")
+
+sitemaptext = '''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+%s</urlset>
+''' % urltext
+
+# Write the sitemap to file
+outputfile=args.output+'sitemap.xml'
+with open(outputfile,"w") as f: 
+    f.write(sitemaptext)
+
+print("Sitemap generated to: %s" % outputfile)
+
+
+
+
