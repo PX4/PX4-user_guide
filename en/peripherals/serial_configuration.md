@@ -66,11 +66,14 @@ PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_cont
 Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
 :::
 
-You can include the missing driver in firmware by uncommenting (or adding) the driver in the **default.cmake** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. 
-For example, to enable the sf0x driver, you would remove the `#` at the beginning of the line below.
+You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. 
+For example, to enable the SRF02 driver, you would a the following line to the px4board.
 ```
-#distance_sensor/sf0x
+CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
 ```
+
+An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules.
+To launch boardconfig type `make <vendor>_<board>_<label> boardconfig`
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
 

@@ -14,18 +14,33 @@ For example: [Pixhawk 4 > Serial Port Mapping](../flight_controller/pixhawk4.md#
 This section shows how to get the mappings for NuttX builds on STMxxyyy architectures by inspecting the board configuration files.
 The instructions use FMUv5, but can similarly be extended for other FMU versions/NuttX boards.
 
-### default.cmake
+### default.px4board
 
-The **default.cmake** lists a number of serial port mappings (search for the text "SERIAL_PORTS").
+The **default.px4board** lists a number of serial port mappings (search for the text "SERIAL_PORTS").
 
-From [/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake#L13-L17):
+From [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board):
 
 ```
-SERIAL_PORTS
-	GPS1:/dev/ttyS0
-	TEL1:/dev/ttyS1
-	TEL2:/dev/ttyS2
-	TEL4:/dev/ttyS3
+CONFIG_BOARD_SERIAL_GPS1="/dev/ttyS0"
+CONFIG_BOARD_SERIAL_TEL1="/dev/ttyS1"
+CONFIG_BOARD_SERIAL_TEL2="/dev/ttyS2"
+CONFIG_BOARD_SERIAL_TEL4="/dev/ttyS3"
+```
+
+Alternatively you can launch boardconfig using `make px4_fmu-v5 boardconfig` and access the serial port menu
+
+```
+    Serial ports  --->
+        (/dev/ttyS0) GPS1 tty port
+        ()  GPS2 tty port
+        ()  GPS3 tty port
+        ()  GPS4 tty port
+        ()  GPS5 tty port
+        (/dev/ttyS1) TEL1 tty port
+        (/dev/ttyS2) TEL2 tty port
+        ()  TEL3 tty port
+        (/dev/ttyS3) TEL4 tty port
+        ()  TEL5 tty port
 ```
 
 ### nsh/defconfig

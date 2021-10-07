@@ -30,7 +30,7 @@ There is no need to set the baud rate for the port, as this is configured by the
 :::note
 If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 ```
-drivers/distance_sensor/leddar_one
+CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y
 ```
 :::
 
