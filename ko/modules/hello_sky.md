@@ -145,6 +145,14 @@
 `DYNAMIC`을 `px4_add_module`에 대한 옵션으로 지정하면 POSIX 플랫폼에서 정적 라이브러리 대신 *공유 라이브러리*가 생성됩니다. PX4를 다시 컴파일하고 소스 코드가 아닌 바이너리로 공유함). 앱은 내장 명령이 되지 않지만, `examples__px4_simple_app.px4mod`라는 별도의 파일로 끝이 납니다. 그런 다음 `dyn` 명령을 사용하여 런타임에 파일을 로드하여 명령을 실행할 수 있습니다. `dyn ./examples__px4_simple_app.px4mod`
 :::
 
+1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention) Copy in the text below:
+   ```menuconfig EXAMPLES_PX4_SIMPLE_APP
+    bool "PX4 Simple app"
+    default n
+    ---help---
+        Enable PX4 simple app
+   ```
+
 ## 애플리케이션/펌웨어 빌드
 
 이제 어플리케이션 제작이 완료되었습니다. 실행하려면 먼저 PX4의 일부로 빌드되었는지 확인합니다. 애플리케이션은 대상에 대한 적절한 보드 수준 *cmake* 파일의 빌드/펌웨어에 추가됩니다.
@@ -157,7 +165,7 @@
 애플리케이션을 펌웨어로 컴파일하려면 *cmake* 파일에 애플리케이션에 대한 새로운 행을 만드십시오.
 
 ```
-examples/px4_simple_app
+    examples/px4_simple_app
 ```
 
 :::note
