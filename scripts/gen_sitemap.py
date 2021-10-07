@@ -8,7 +8,7 @@
 #import requests
 #from bs4 import BeautifulSoup as bs
 import re
-import os # for walk
+import os # for walk, evironment vars
 import subprocess #so I can use git to get the modified dates.
 import argparse
 
@@ -42,7 +42,11 @@ my_parser.add_argument('-o',
 args = my_parser.parse_args()
 build_version = args.version
 
-
+#Get build version from process env by preference.
+BRANCH_NAME = os.getenv('BRANCH_NAME')
+if BRANCH_NAME:
+    build_version=BRANCH_NAME
+    
 url_prefix = 'https://docs.px4.io/%s' % build_version
 
 sitemapitems=[]
@@ -112,5 +116,6 @@ with open(outputfile,"w") as f:
 print("Sitemap generated to: %s" % outputfile)
 
 
-
+#print("BRANCH_NAME: %s" % BRANCH_NAME)
+#print("Build version: %s" % build_version)
 
