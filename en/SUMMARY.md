@@ -309,6 +309,7 @@
     * [Flight Controller Reference Design](hardware/reference_design.md)
     * [Manufacturer’s Board Support Guide](hardware/board_support_guide.md)
     * [Flight Controller Porting Guide](hardware/porting_guide.md)
+      * [PX4 Board Configuration (kconfig)](hardware/porting_guide_config.md)
       * [NuttX Board Porting Guide](hardware/porting_guide_nuttx.md)
     * [Serial Port Mapping](hardware/serial_port_mapping.md)
     * [Airframes](dev_airframes/README.md)
