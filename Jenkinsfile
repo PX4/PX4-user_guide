@@ -18,6 +18,7 @@ pipeline {
         sh('printenv | sort')
         sh('yarn install --ignore-engines')
         sh('yarn docs:build')
+        sh('yarn docs:sitemap')
         stash(includes: '.vuepress/dist/', name: 'vuepress')
         // publish html
         publishHTML(target: [
