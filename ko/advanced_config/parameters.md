@@ -49,13 +49,7 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 매개 변수가 펌웨어에 존재하지 않는 경우는 관련 모듈이 포함되지 않은 경우입니다. 이것은 (특히) *FMUv2 펌웨어*의 문제로, PX4가 1MB의 사용 가능한 플래시를 기준으로 많은 모듈을 생략합니다. 이 문제를 해결 방법으로 두 가지 옵션이 있습니다.
 
 - 모든 모듈을 포함하는 FMUv3 펌웨어를 실행하도록 보드를 업데이트 할 수 있는지 확인하십시오. [펌웨어 > FMUv2 부트 로더 업데이트](../config/firmware.md#bootloader)
-- 보드에서 FMUv2 펌웨어 만 실행할 수있는 경우에는 누락된 모듈을 활성화한 상태에서 [PX4를 다시 빌드](../dev_setup/building_px4.md)하여야 합니다. [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)에서 주석 처리된 것을 확인할 수 있습니다. 
-        DRIVERS
-            adc
-            #barometer # all available barometer drivers
-            barometer/ms5611
-            #batt_smbus
-            #camera_capture :::note 빌드된 펌웨어를 1MB 플래시에 맞추려면 다른 모듈을 비활성화하여야 할 수도 있습니다. 제거할 모듈을 찾으려면 시행 착오가 수반되며, 기체의 요구 사항에 따라 달라집니다.
+- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules ``` :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 :::
 
 <span id="changing"></span>
