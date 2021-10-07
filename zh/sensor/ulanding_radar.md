@@ -23,7 +23,7 @@ US-D1 can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3,
 :::note
 If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
-    drivers/distance_sensor/ulanding
+    CONFIG_DRIVERS_DISTANCE_SENSOR_ULANDING_RADAR=y
     
 
 :::
