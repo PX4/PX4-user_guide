@@ -23,7 +23,7 @@ LIDAR는 *직렬 포트* UART (예 : TELEM2, TELEM3, GPS2 등)에 연결됩니�
 :::note
 *QGroundControl*에서 설정 매개변수를 사용할 수 없는 경우에는 [펌웨어에 드라이버를 추가](../peripherals/serial_configuration.md#parameter_not_in_firmware)하여야 합니다:
 
-    drivers/distance_sensor/ulanding
+    CONFIG_DRIVERS_DISTANCE_SENSOR_ULANDING_RADAR=y
     
 
 :::

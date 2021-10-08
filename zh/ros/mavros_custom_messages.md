@@ -260,22 +260,19 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
    For a more detailed explanation see the topic [Writing your first application](../modules/hello_sky.md).
 
-1. Lastly add your module in the **default.cmake** file correspondent to your board in **PX4-Autopilot/boards/**. For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**:
-   ```cmake
-    MODULES
-        ...
-        key_receiver
-        ...
+1. Lastly add your module in the **default.px4board** file correspondent to your board in **PX4-Autopilot/boards/**. For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.px4board**: ```CONFIG_MODULES_KEY_RECEIVER=y
     ```
 
-测试是否从你的 ROS 话题中接收到 `a` 字符。
+MODULES
+        ...
 
-## 构建
-
-### Build for ROS
-
-1. In your workspace enter: `catkin build`.
-1. 在此之前，你必须设置你的“px4.launch”（/workspace/src/mavros/mavros/launch）文件。 编辑“px4.launch”文件如下： 如果你使用USB来连接你的电脑和Pixhawk，你必须设置“fcu_url”如下所示。 但是，如果你使用CP2102来连接你的电脑和Pixhawk，你必须将“ttyACM0” 替换为"ttyUSB0"。 修改“gcs_url”是为了连接你的 Pixhawk 和 UDP，因为串口通信不能同时接收 MAVROS 和 nutshell。
+key_receiver
+        ... In your workspace enter: `catkin build`.
+1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). 
+   Edit "px4.launch" as below.
+   If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below.
+   But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0".
+   Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
 
 1. Write your IP address at "xxx.xx.xxx.xxx"
    ```xml
@@ -285,7 +282,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ...
    ```
 
-### PX4 编译
+### Build for PX4
 
 1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
@@ -294,36 +291,35 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
     make px4_fmu-v5_default upload
     ```
 
-## Running the Code
+## 构建
 
-Next test if the MAVROS message is sent to PX4.
+测试是否从你的 ROS 话题中接收到 `a` 字符。
 
-### Running ROS
+### PX4 编译
 
 1. In a terminal enter
    ```sh
    roslaunch mavros px4.launch
    ```
-1. 在第二个终端中运行：
+1. In a second terminal run:
    ```sh
    rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
-   这意味着以“std_msgs/Char”消息类型发布97（ASCII码的‘a'）到ROS主题“/mavros/keyboard_command/keyboard_sub” “-r 10”意味着以“10Hz”频率持续发布。
+   This means, publish 97 ('a' in ASCII) to ROS topic "/mavros/keyboard_command/keyboard_sub" in message type "std_msgs/Char". "-r 10" means to publish continuously in "10Hz".
 
-### PX4 运行
+### Running PX4
 
-1. 通过UDP进入Pixhawk 的 nutshell。 用你的IP地址替换xxx.xx.xxx.xxx
+1. Enter the Pixhawk nutshell through UDP. Replace xxx.xx.xxx.xxx with your IP.
    ```sh
    cd PX4-Autopilot/Tools
    ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
    ```
 
-1. After few seconds, press **Enter** a couple of times. 你会看到终端中以下提示：
+1. After few seconds, press **Enter** a couple of times. You should see a prompt in the terminal as below:
    ```sh
-   nsh>
-   nsh>
+   rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
-   输入“key_receiver”命令来运行你的订阅模块。
+   Type "key_receiver", to run your subscriber module.
    ```
    nsh> key_receiver
    ```

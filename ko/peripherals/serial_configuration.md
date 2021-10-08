@@ -64,12 +64,14 @@ Port conflicts are handled by system startup, which ensures that at most one ser
 :::note PX4 펌웨어는 기본적으로 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 보드에 드라이버를 대부분 포함합니다. 플래시 제한 보드는 드라이버를 주석 처리하거나 생략할 수 있습니다(작성 시점에는 FMUv2 기반 보드에만 영향을 미침).
 :::
 
-빌드하려는 [보드](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4)에 해당하는 **default.cmake** 설정 파일에서 드라이버의 주석을 제거하거나 추가하여 누락된 드라이버를 펌웨어에 포함시킬 수 있습니다. 예를 들어, sf0x 드라이버를 활성화하려면 아래 줄의 시작 부분에서 `#`을 제거합니다.
+You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
 
-    #distance_sensor/sf0x
+    CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
     
 
-그런 다음 [PX4 소프트웨어 빌드](../dev_setup/building_px4.md) 방법으로 플랫폼용 펌웨어를 빌드하여야 합니다.
+An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules. To launch boardconfig type `make <vendor>_<board>_<label> boardconfig`
+
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
 
 ## 추가 정보
 

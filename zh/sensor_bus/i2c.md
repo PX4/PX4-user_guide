@@ -23,12 +23,12 @@ drivers/sf1xx
 
 You can also include all drivers of a particular type.
 ```
-distance_sensor # all available distance sensor drivers
+CONFIG_COMMON_DISTANCE_SENSOR=y
 ```
 
 
 :::tip
-For example, you can see/search for `distance_sensor` in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
+For example, you can see/search for `CONFIG_DRIVERS_DISTANCE_SENSOR_LIGHTWARE_LASER_I2C` in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.px4board) configuration.
 :::
 
 ## I2C 驱动程序示例

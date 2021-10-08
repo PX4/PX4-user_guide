@@ -258,7 +258,7 @@ Notes:
 - `VIEWER_MODEL_DEBUGGER`에 `없음` 값을 사용하여 PX4를 시작하고 시뮬레이터를 실행할 수 있습니다. 예를 들어 `make px4_sitl_default none`을 사용하여 PX4를 시작하고, `./Tools/jmavsim_run.sh -l`을 사용하여 jMAVSim을 시작합니다.
 
 
-The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
+The `VENDOR_MODEL_VARIANT` options map to particular *px4board* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)).
 
 *PX4 펌웨어 버전*과 *사용자 정의 펌웨어 버전*은 MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) 메시지를 사용하여 게시되고, *QGroundControl* < 2>설정 > 요약</strong> 기체 패널에서 출력됩니다.
 - `bloaty_compare_master`: [Binary Size Profiling]()
