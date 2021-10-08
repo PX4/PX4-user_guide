@@ -14,7 +14,7 @@ Board startup and configuration files are located under [/boards](https://github
 
 For example, for FMUv5:
 * (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4/fmu-v5).<!-- NEED px4_version -->
-* Build configuration: [/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake).<!-- NEED px4_version -->
+* Build configuration: [/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board).<!-- NEED px4_version -->
 * Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - A board-specific initialisation file is automatically included in startup scripts if found under the boards directory at **init/rc.board**.
   - The file is used to start sensors (and other things) that only exist on a particular board. It may also be used to set a board's default parameters, UART mappings, and any other special cases.
@@ -32,7 +32,7 @@ See [NuttX Board Porting Guide](porting_guide_nuttx.md).
 
 Linux boards do not include the OS and kernel configuration. These are already provided by the Linux image available for the board (which needs to support the inertial sensors out of the box).
 
-* [boards/px4/raspberrypi/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/raspberrypi/default.cmake) - RPI cross-compilation. <!-- NEED px4_version -->
+* [boards/px4/raspberrypi/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/raspberrypi/default.px4board) - RPI cross-compilation. <!-- NEED px4_version -->
 
 ## Middleware Components and Configuration
 

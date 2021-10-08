@@ -16,19 +16,13 @@ git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
 The example below shows how you might see the impact of removing the *mpu9250* driver from `px4_fmu-v2_default`. First it locally sets up a build without the driver:
 ```sh
  % git diff
-diff --git a/boards/px4/fmu-v2/default.cmake b/boards/px4/fmu-v2/default.cmake
+diff --git a/boards/px4/fmu-v2/default.px4board b/boards/px4/fmu-v2/default.px4board
 index 40d7778..2ce7972 100644
---- a/boards/px4/fmu-v2/default.cmake
-+++ b/boards/px4/fmu-v2/default.cmake
-@@ -36,7 +36,7 @@ px4_add_board(
-                imu/l3gd20
-                imu/lsm303d
-                imu/mpu6000
--               imu/mpu9250
-+               #imu/mpu9250
-                #iridiumsbd
-                #irlock
-                #magnetometer # all available magnetometer drivers
+--- a/boards/px4/fmu-v2/default.px4board
++++ b/boards/px4/fmu-v2/default.px4board
+@@ -36,7 +36,7 @@
+-               CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=y
++               CONFIG_DRIVERS_IMU_INVENSENSE_MPU9250=n
 ```
 Then use the make target, specifying the target build to compare (`px4_fmu-v2_default` in this case):
 ```sh
