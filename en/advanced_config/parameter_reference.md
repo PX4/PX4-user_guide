@@ -14511,6 +14511,12 @@ table {
 <li><strong>4:</strong> SF10/c</li> 
 
 <li><strong>5:</strong> SF11/c</li> 
+
+<li><strong>6:</strong> SF30/b</li> 
+
+<li><strong>7:</strong> SF30/c</li> 
+
+<li><strong>8:</strong> LW20/c</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
