@@ -1,20 +1,20 @@
 # 비행 기록
 
-PX4는 성능 문제를 분석을 위하여 항공기 상태 및 센서 데이터를 자세하게 기록합니다. 이 항목에서는 로그를 다운로드 및 분석하고 검토를 위해 개발 팀과 공유하는 방법을 설명합니다.
+PX4는 성능 분석을 위하여 항공기 상태와 센서 데이터를 자세하게 로그 파일로 저장합니다. 로그 파일 다운로드, 분석, 검토 및 개발 팀과 공유하는 방법을 설명합니다.
 
 :::tip
-비행 기록을 보관하는 것은 일부 지역에서는 법적인 요구 사항일 수 있습니다.
+비행 기록을 보관하는 것은 일부 국가와 지역에서는 법적으로 필수적일 수 있습니다.
 :::
 
-## 비행 컨트롤러에서 로그 다운로드
+## 비행 콘트롤러에서 로그 다운로드
 
-로그는 [ QGroundControl ](http://qgroundcontrol.com/) : **[ 분석보기> 로그 다운로드 ](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**를 사용하여 다운로드 할 수 있습니다.
+[QGroundControl](http://qgroundcontrol.com/)에서 **[분석보기 &gt; 로그 다운로드](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**를 클릭하여 로그를 다운로드합니다.
 
 ![비행 로그 다운로드](../../assets/qgc/analyze/log_download.jpg)
 
 ## 로그 분석
 
-온라인 [ Flight Review ](http://logs.px4.io) 도구에 로그 파일을 업로드합니다. 업로드 후 로그에 대한 분석 페이지 링크를 이메일로 보내드립니다.
+-- 온라인 [Flight Review](http://logs.px4.io) 도구에 로그 파일을 먼저 업로드합니다. 업로드 후 로그에 대한 분석 페이지 링크를 이메일로 보내드립니다.
 
 [ 비행 검토를 사용한 로그 분석 ](../log/flight_review.md)은 플롯을 해석하는 방법을 설명하고 과도한 진동, 불량한 PID 튜닝, 포화 된 컨트롤러, 불균형 차량, GPS 소음 등 일반적인 문제의 원인을 확인하는 데 도움이 됩니다.
 
