@@ -31,12 +31,12 @@ PX4는 성능 분석을 위하여 항공기 상태와 센서 데이터를 자세
 
 ## 로그 설정
 
--- 로깅 시스템은 기본적으로 [Flight Review](http://logs.px4.io)와 함께 사용하기 위해 합리적인 로그를 수집하도록 구성됩니다.
+로그 시스템은 기본적으로 [Flight Review](http://logs.px4.io)에서 사용하기 위하여 최적화된 로그를 수집합니다.
 
-로깅은 [SD 로깅](../advanced_config/parameter_reference.md#sd-logging) 매개변수를 사용하거나 SD 카드의 파일을 사용하여 설정할 수 있습니다. 설정 세부정보는 [로깅 설정](../dev_log/logging.md#configuration)을 참고하십시오.
+로그는 [SD 로깅](../advanced_config/parameter_reference.md#sd-logging) 매개변수를 사용하거나 SD 카드의 파일을 사용도록 설정합니다. 자세한 정보는 [로그 설정](../dev_log/logging.md#configuration)을 참고하십시오.
 
 ## 주요 링크
 
 - [비행 검토](http://logs.px4.io)
-- [비행 검토 기록을 이용한 로그 분석](../log/flight_review.md)
+- [비행 검토 프로그램을 이용한 로그 분석](../log/flight_review.md)
 - [비행 로그 분석](../dev_log/flight_log_analysis.md)
