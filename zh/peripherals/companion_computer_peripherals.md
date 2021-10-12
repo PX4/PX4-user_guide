@@ -19,7 +19,6 @@ Options are listed below:
 
 | 设备                                                                                                                      | 3.3v IO (默认) | 流控      | Tx/Rx LEDs | JST-GH接插件 |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------ | ------- | ---------- | --------- |
-| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes          | Yes     | Yes        | Yes       |
 | [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable      | Capable | No         | Yes       |
 | [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes          | No      | Yes        | No        |
 
