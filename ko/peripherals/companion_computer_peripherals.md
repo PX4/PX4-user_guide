@@ -17,11 +17,10 @@ FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신
 
 옵션은 다음과 같습니다:
 
-| 장치                                                                                                                      | 3.3v 입출력 (기본) | 흐름 제어 | Tx/Rx LED | JST-GH |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------- | ----- | --------- | ------ |
-| [PixDev FTDI JST-GH 브레이크아웃](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                                 | 예             | 예     | 예         | 예      |
-| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | 가능            | 가능    | 아니요       | 예      |
-| [SparkFun FTDI 기본 브레이크아웃](https://www.sparkfun.com/products/9873)                                                       | 예             | 아니요   | 예         | 아니요    |
+| 장치                                                                                                                      | 3.3v 입출력 (기본) | 흐름 제어   | Tx/Rx LED | JST-GH |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------- | ------- | --------- | ------ |
+| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable       | Capable | No        | 예      |
+| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes           | No      | Yes       | No     |
 
 ### 논리 레벨 시프터
 
