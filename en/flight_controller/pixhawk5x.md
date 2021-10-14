@@ -5,100 +5,110 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
-*Pixhawk 5x*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is the latest update to the successful family of Pixhawk® flight controllers. It comes with the latest PX4 Autopilot® pre-installed, triple redundancy, temperature-controlled, isolated sensor domain, delivering incredible performance and reliability.  
+*Pixhawk 5x*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
+It is the latest update to the successful family of Pixhawk® flight controllers.
+It comes with the latest PX4 Autopilot® pre-installed, triple redundancy, temperature-controlled, isolated sensor domain, delivering incredible performance and reliability.  
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_hero_upright.jpg" width="200px" title="Pixhawk5x Upright Image" /> <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_exploded_diagram.jpg" width="420px" title="Pixhawk5x Exploded Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** Open Standard and Autopilot Bus Standard
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** Open Standard and Autopilot Bus Standard
 :::
 
 ## Introduction
 
-Inside the Pixhawk® 5X, you can find an STMicroelectronics® based STM32F7, paired with sensor technology from Bosch®, InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications. The Pixhawk® 5X’s F7 microcontroller has 2MB flash memory and 512KB RAM. The PX4 Autopilot takes advantage of the increased power and RAM. Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+Inside the Pixhawk® 5X, you can find an STMicroelectronics® based STM32F7, paired with sensor technology from Bosch®, InvenSense®, giving you flexibility and reliability for controlling any autonomous vehicle, suitable for both academic and commercial applications.
+The Pixhawk® 5X’s F7 microcontroller has 2MB flash memory and 512KB RAM.
+The PX4 Autopilot takes advantage of the increased power and RAM.
+Thanks to the updated processing power, developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
 
-The FMUv5X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization. Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+The FMUv5X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
+Triple redundant IMU & double redundant barometer on separate buses. 
+hen the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
-An independent LDO powers every sensor set with independent power control. A newly designed vibration isolations to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances. External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY (LAN8742AI-CZ-TR), high-speed communication with mission computers via ethernet is now supported. Two smart battery monitoring ports (SMBus), support for INA226 SMBus Power module.
+An independent LDO powers every sensor set with independent power control.
+A newly designed vibration isolations to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface, and with an integrated Microchip Ethernet PHY (LAN8742AI-CZ-TR), high-speed communication with mission computers via ethernet is now supported.
+Two smart battery monitoring ports (SMBus), support for INA226 SMBus Power module.
 
 The Pixhawk® 5X is perfect for developers at corporate research labs, startups, academics (research, professors, students), and commercial application.
 
 
+## Key Design Points
 
-## Key Design Point
-
-*	Modular flight controller
+* Modular flight controller
  * separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk® Autopilot Bus connector, designed for flexible and customizable systems
-*	Redundancy
+* Redundancy
  * 3x IMU sensors & 2x Barometer sensors on separate buses, allowing parallel and continuous operation even in the event of a hardware failure
-*	Triple redundancy domains
+* Triple redundancy domains
  * Completely isolated sensor domains with separate buses and separate power control
-*	Temperature-controlled IMUs
+* Temperature-controlled IMUs
  * Onboard IMU heating resistors, allowing optimum working temperature of IMUs
-*	Vibration isolation system
- * Newly design system to filter out high frequency vibration and reduce noise to ensure accurate readings
-*	Ethernet interface
+* Vibration isolation system
+ * Newly designed system to filter out high frequency vibration and reduce noise to ensure accurate readings
+* Ethernet interface
  * For high-speed mission computer integration
-*	Automated sensor calibration eliminating varying signals and temperature
-*	Two smart batteries monitoring on SMBus
-*	Additional GPIO line and 5V for the external NFC reader
-*	Secure element for secure authentication of the drone (SE050)
+* Automated sensor calibration eliminating varying signals and temperature
+* Two smart batteries monitoring on SMBus
+* Additional GPIO line and 5V for the external NFC reader
+* Secure element for secure authentication of the drone (SE050)
 
 
 ## Technical specification
 
 * FMU Processor: STM32F765
- * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 * IO Processor: STM32F100
- * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * On-board Sensors:
- * Accel/Gyro: ICM-20649
- * Accel/Gyro: ICM-42688P
- * Accel/Gyro: ICM-20602
- * Magnetometer: BMM150
- * Barometer: 2x BMP388
+  * Accel/Gyro: ICM-20649
+  * Accel/Gyro: ICM-42688P
+  * Accel/Gyro: ICM-20602
+  * Magnetometer: BMM150
+  * Barometer: 2x BMP388
 
 * Interfaces
-  *	16- PWM servo outputs
-  *	R/C input for Spektrum / DSM
-  *	Dedicated R/C input for PPM and S.Bus input
-  *	Dedicated analog / PWM RSSI input and S.Bus output
-  *	4 general purpose serial ports
-   *	3 with full flow control
-   *	1 with separate 1.5A current limit
-   *	1 with I2C and additional GPIO line for external NFC reader
-  *	2 GPS ports
-   *	1 full GPS & Safety Switch Port
-   *	1 basic GPS port
-  *	1 I2C port
-  *	1 Ethernet port
-   *	Transformerless Applications
-   *	100Mbps
+  * 16- PWM servo outputs
+  * R/C input for Spektrum / DSM
+  * Dedicated R/C input for PPM and S.Bus input
+  * Dedicated analog / PWM RSSI input and S.Bus output
+  * 4 general purpose serial ports
+    * 3 with full flow control
+    * 1 with separate 1.5A current limit
+    * 1 with I2C and additional GPIO line for external NFC reader
+  * 2 GPS ports
+    * 1 full GPS & Safety Switch Port
+    * 1 basic GPS port
+  * 1 I2C port
+  * 1 Ethernet port
+     * Transformerless Applications
+   * 100Mbps
   *	1 SPI bus
-   *	2 chip select lines
-   *	2 data-ready lines
-   *	1 SPI SYNC line
-   *	1 SPI reset line
-  *	2 CAN Buses for CAN peripheral
-   *	CAN Bus has individual silent controls or ESC RX-MUX control
-  *	2 Power input ports with SMBus
-  *	1 AD & IO port
-   *	2 additional analog input
-   *	1 PWM/Capture input
-   *	2 Dedicated debug and GPIO lines
+    * 2 chip select lines
+    * 2 data-ready lines
+    * 1 SPI SYNC line
+    * 1 SPI reset line
+  * 2 CAN Buses for CAN peripheral
+    * CAN Bus has individual silent controls or ESC RX-MUX control
+  * 2 Power input ports with SMBus
+  * 1 AD & IO port
+    * 2 additional analog input
+    * 1 PWM/Capture input
+    * 2 Dedicated debug and GPIO lines
 
 * Voltage Ratings:
- * Max input voltage: 6V
- * USB Power Input: 4.75~5.25V
- * Servo Rail Input: 0~36V
+  * Max input voltage: 6V
+  * USB Power Input: 4.75~5.25V
+  * Servo Rail Input: 0~36V
 
 *	Dimensions
   * Flight Controller Module: 38.8 x 31.8 x 14.6mm
   * Standard Baseboard: 52.4 x 103.4 x 16.7mm
 
 * Weight
-  *	Flight Controller Module: 23g
-  *	Standard Baseboard: 51g
+  * Flight Controller Module: 23g
+  * Standard Baseboard: 51g
 
 * Other Characteristics:
   * Operating & storage temperature: -40 ~ 85°c
@@ -117,6 +127,7 @@ The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provid
 
 
 ## Pinouts
+
 ![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
 You can also download *Pixhawk 5X* pinouts from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
