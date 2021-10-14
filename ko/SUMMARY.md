@@ -15,7 +15,7 @@
   * [탑재중량과 카메라](payloads/README.md)
   * [비행 기록](getting_started/flight_reporting.md)
 * [조립 기초](assembly/README.md) 
-  * [비행 컨트롤러 설치](assembly/mount_and_orient_controller.md)
+  * [비행 콘트롤러 장착](assembly/mount_and_orient_controller.md)
   * [진동 방지](assembly/vibration_isolation.md)
   * [CUAV V5+ 배선](assembly/quick_start_cuav_v5_plus.md)
   * [CUAV V5 nano 배선](assembly/quick_start_cuav_v5_nano.md)
