@@ -18350,7 +18350,7 @@ table {
  <td><strong id="UAVCAN_V1_ID">UAVCAN_V1_ID</strong> (INT32)</td>
  <td>UAVCAN v1 Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 125 </td>
+ <td>-1 > 125 </td>
  <td>1</td>
  <td></td>
 </tr>
