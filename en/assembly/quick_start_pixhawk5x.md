@@ -1,4 +1,4 @@
-# Pixhawk 4 Wiring Quick Start
+# Holybro Pixhawk 5x Wiring Quick Start
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
@@ -25,7 +25,9 @@ More information about available ports can be found here: [Pixhawk 5X > Connecti
 
 ## Mount and Orient Controller
 
-*Pixhawk 5X* can be mounted on the frame using double side tape included in the kit. It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+*Pixhawk 5X* can be mounted on the frame using double side tape included in the kit.
+It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk5x standard set" />
 
 :::note
@@ -34,9 +36,10 @@ If the controller cannot be mounted in the recommended/default orientation (e.g
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
 
-The Pixhawk5X Standard Set can be purchased with M8N or M9N GPS (10-pin connector), these GPS has integrated compass, safety switch, buzzer and LED, it should be connected to the **GPS1** port.
+The _Pixhawk5X Standard Set_ can be purchased with M8N or M9N GPS (10-pin connector) that should be connected to the **GPS1** port.
+These GNSS modules have an integrated compass, safety switch, buzzer and LED.
 
-[M8N or M9N secondary GPS](https://shop.holybro.com/c/gps-systems_0428) (6-pin connector) can be purchased separately, it should connect to the **GPS2** port.
+A secondary [M8N or M9N GPS](https://shop.holybro.com/c/gps-systems_0428) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
 
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
@@ -54,12 +57,14 @@ You can press the safety switch again to enable safety and disarm the vehicle (t
 
 Connect the output of the *PM02D Power Module* (PM board) that comes with the Standard Set to one of the **POWER** port of *Pixhawk 5X* using the 6-wire cable.
 
-The PM02D input **2~6S** will be connected to your LiPo battery. Note that the PM board does not supply power to the + and - pins of **FMU PWM-OUT** for servo control. Please use a voltage regulator (BEC) to the + and - pin of the **FMU PWM-OUT** if servo control is needed.
+The PM02D input **2~6S** will be connected to your LiPo battery.
+
+Note that the PM board does not supply power to the + and - pins of **FMU PWM-OUT**.
+If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc.
+This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
 
 :::note
-If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc.
-To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
-Be careful with the voltage of servo you are going to use here.
+The power rail voltage must be appropriate for the servo being used!
 :::
 
 PIN & Connector | Function
@@ -69,16 +74,17 @@ FMU PWM Out | Connect Servos Signal, positive, and GND wires here.
 
 
 :::note
-**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 5X* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 5x*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
+**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 5X* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 5x*.
+For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
 :::
 
 
-<!--The pinout of *Pixhawk 5X*’s power ports is shown below.
+<!--
+The pinout of *Pixhawk 5X*’s power ports is shown below.
 The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default.
 The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default.
 The VCC lines have to offer at least 3A continuous and should default to 5.1V.
 A lower voltage of 5V is still acceptable, but discouraged.
-
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -91,10 +97,11 @@ Pin | Signal | Volt
 -->
 
 :::note
-Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/en/SetupView/Power.html) but you won't need to calibrate the *voltage divider*. Does not require users to set the voltage divider and the current divider ratio. With the default setting parameters, the voltage and current measurement
-accuracy can be better than 5%.
+Using the Power Module that comes with the kit, you will need to configure the *Number of Cells* in the [Power Settings](../config/battery.md#basic-battery-settings-default).
+However you will not need to calibrate the *voltage divider* (set the voltage divider and the current divider ratio).
+With the default setting parameters, the voltage and current measurement accuracy can be better than 5%.
 
-You will have to update the *voltage divider* if you are using any other power module
+You will have to update the *voltage divider* if you are using any other power module.
 :::
 
 ## Radio Control
@@ -106,7 +113,8 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 - Spektrum/DSM receivers connect to the **DSM/SBUS RC** input.
 - PPM or SBUS receivers connect to the **RC IN** input port.
 
-<!-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+<!--
+PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 -->
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
@@ -114,15 +122,18 @@ For more information about selecting a radio system, receiver compatibility, and
 
 ## Telemetry Radios (Optional)
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+[Telemetry radios](../telemetry/README.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB). Various Telemetry Radio are available to be purchased on [Holybro's website](http://www.holybro.com/product-category/radio/) .
+The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required).
+The other radio is connected to your ground station computer or mobile device (usually by USB).
 
-<span id="sd_card"></span>
+Radios are also available for purchase on [Holybro's website](http://www.holybro.com/product-category/radio/) .
+
+<a id="sd_card"></a>
 ## SD Card (Optional)
 
 SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware.
-Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
+Insert the card (included in Pixhawk 5X kit) into *Pixhawk 5X* as shown below.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk5x standard set" />
 
@@ -151,6 +162,7 @@ The wiring and configuration of optional/less common components is covered withi
 ![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
 You can also download *Pixhawk 5X* pinouts from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
+
 ## Configuration
 
 General configuration information is covered in: [Autopilot Configuration](../config/README.md).
