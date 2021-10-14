@@ -13,6 +13,8 @@ PX4 supports a number of types of telemetry radios:
 * [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
 * XBee Serial Telemetry Radio 
   * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
+* CUAV Serial Telemetry Radio 
+  * [CUAV P8 Telemetry Radio](../telemetry/cuav_p8_radio.md)
 
 PX4 is protocol compatible with [SiK Radio](../telemetry/sik_radio.md) and will generally work out of the box (though you may need to change/use an appropriate connector).
 
