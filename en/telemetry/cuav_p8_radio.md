@@ -4,7 +4,7 @@ CUAV P8 Radio is a long range (>60km) and high data rate (375Kbps) remote data t
 
 It supports multiple modes such as point-to-point, point-to-multipoint, and relay communication.
 
-![CUAV P8 Radio](../../assets/hardware/telemetry/p8.png)
+![CUAV P8 Radio](../../assets/hardware/telemetry/cuav_p8_hero.png)
 
 ## Key Features
 
@@ -35,7 +35,7 @@ On some flight controllers, or if used with a different serial port, you may nee
 
 ## Pinouts
 
-![P8 pinouts](../../assets/hardware/telemetry/p8-pinouts.png)
+![P8 pinouts](../../assets/hardware/telemetry/cuav_p8_pinouts.png)
 
 ### Data Port
 
@@ -50,7 +50,7 @@ On some flight controllers, or if used with a different serial port, you may nee
 
 ## Wiring
 
-![P8 wiring](../../assets/hardware/telemetry/p8-connect.png)
+![P8 wiring](../../assets/hardware/telemetry/cuav_p8_connect.png)
 
 Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module.
 The required cables are included in the package.
