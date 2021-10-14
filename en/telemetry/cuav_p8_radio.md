@@ -1,14 +1,10 @@
 # CUAV P8 Telemetry Radio
 
-CUAV P8 Radio is a long range (>60km) and high data rate (375Kbps) remote data transmission module for drones.
+CUAV P8 Radio is a long range (>60km) and high data rate (375Kbps) remote data transmission module for drones that works plug-and-play with PX4.
 
 It supports multiple modes such as point-to-point, point-to-multipoint, and relay communication.
 
 ![CUAV P8 Radio](../../assets/hardware/telemetry/p8.png)
-
-:::tip
- CUAV P8 Radio has completed the factory configuration (baud rate 57600, broadcast mode). It should be plug and play, no need to configure it. If you need to configure it, go to the [configuration guide](https://doc.cuav.net/data-transmission/p8-radio/en/config.html).
-:::
 
 ## Key Features
 
@@ -26,9 +22,22 @@ It supports multiple modes such as point-to-point, point-to-multipoint, and rela
 * [CUAV store](https://store.cuav.net/shop/cuav-p8-radio-uav-telemetry/)
 * [CUAV alibaba](https://www.alibaba.com/product-detail/Free-shipping-CUAV-UAV-P8-Radio_1600324379418.html?spm=a2747.manage.0.0.2dca71d2bY4B0M)
 
+## PX4 Configuration
+
+The CUAV P8 Radio comes pre-configured (baud rate 57600, broadcast mode) for use with PX4.
+It should require no additional setup if connected to `TELEM1` OR `TELEM2`. 
+
+On some flight controllers, or if used with a different serial port, you may need to [configure the port for MAVLink communication](../peripherals/mavlink_peripherals.md).
+
+:::tip
+[P8 Configuration](https://doc.cuav.net/data-transmission/p8-radio/en/config.html) provides full information about radio configuration, if required.
+:::
+
 ## Pinouts
 
-![ P8 pinouts](../../assets/hardware/telemetry/p8-pinouts.png)
+![P8 pinouts](../../assets/hardware/telemetry/p8-pinouts.png)
+
+### Data Port
 
 | pin | C-RTK GPS 6P  | pin | Pixhawk standard pins 
 | --- | ------------- | --- | ----------------------- |
@@ -41,16 +50,17 @@ It supports multiple modes such as point-to-point, point-to-multipoint, and rela
 
 ## Wiring
 
-![P8 pinouts](../../assets/hardware/telemetry/p8-connect.png)
+![P8 wiring](../../assets/hardware/telemetry/p8-connect.png)
 
-- Connect the CUAV P8 Radio to the TELEM1/TELEM2 interface of the flight controller and use a battery or BEC to power the module.
+Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module.
+The required cables are included in the package.
 
 :::tip
-CUAV P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC; the required cable is already included in the package.
+CUAV P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC.
 :::
 
 ## More information
 
 [P8 manual](http://manual.cuav.net/data-transmission/p8-radio/p8-user-manual-en.pdf)
 
-[CUAV docs](https://doc.cuav.net/data-transmission/p8-radio/en/)
+[CUAV P8 Radio](https://doc.cuav.net/data-transmission/p8-radio/en/) (Offical Guide)
