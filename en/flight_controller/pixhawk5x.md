@@ -1,4 +1,4 @@
-# Pixhawk 5X
+# Holybro Pixhawk 5X
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
