@@ -19,7 +19,7 @@ It runs PX4 firmware, supports [UAVCAN](../uavcan/README.md) [Firmware Updating]
 ### Holybro ST VL53L1X Lidar
 
 [The VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family.
-It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
+It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz. It comes with JST GHR 4pin connector for the I2C ports on pixhawk 4 & 5X and various flight controllers.
 
 ### Lidar-Lite
 
