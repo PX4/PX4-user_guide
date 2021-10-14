@@ -230,6 +230,7 @@
         * [3DR Telemetry Wifi (Discontinued)](telemetry/3dr_telemetry_wifi.md)
       * [Microhard Serial Telemetry Radio](telemetry/microhard_serial.md)
       * [HolyBro XBP9X Telemetry Radio](telemetry/holybro_xbp9x_radio.md)
+      * [CUAV P8 Telemetry Radio](telemetry/cuav_p8_radio.md)
     * [FrSky Telemetry](peripherals/frsky_telemetry.md)
     * [Power Modules](power_module/README.md)
       * [CUAV HV pm](power_module/cuav_hv_pm.md)
