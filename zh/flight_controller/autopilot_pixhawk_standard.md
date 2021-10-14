@@ -10,6 +10,7 @@ For more information about PX4 project autopilot board support levels see: [px4.
 
 The boards in this category are:
 
+- [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md) (FMUv5X)
 - [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 - [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
 - [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4pro)
