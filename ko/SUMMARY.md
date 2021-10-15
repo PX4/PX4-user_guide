@@ -229,6 +229,7 @@
         * [3DR Telemetry Wifi (Discontinued)](telemetry/3dr_telemetry_wifi.md)
       * [Microhard 직렬 텔레메트리 라디오](telemetry/microhard_serial.md)
       * [HolyBro XBP9X Telemetry Radio](telemetry/holybro_xbp9x_radio.md)
+      * [CUAV P8 Telemetry Radio](telemetry/cuav_p8_radio.md)
     * [FrSky 텔레메트리](peripherals/frsky_telemetry.md)
     * [전원 모듈](power_module/README.md) 
       * [CUAV HV 전원 모듈](power_module/cuav_hv_pm.md)
