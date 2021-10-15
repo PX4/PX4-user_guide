@@ -229,6 +229,7 @@
         * [3DR Wifi 数传(停产)](telemetry/3dr_telemetry_wifi.md)
       * [Microhard 串行数传电台](telemetry/microhard_serial.md)
       * [HolyBro XBP9X 数传电台](telemetry/holybro_xbp9x_radio.md)
+      * [CUAV P8 Telemetry Radio](telemetry/cuav_p8_radio.md)
     * [睿思凯数传](peripherals/frsky_telemetry.md)
     * [电源模块](power_module/README.md) 
       * [雷迅 HV pm](power_module/cuav_hv_pm.md)
