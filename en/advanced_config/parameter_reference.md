@@ -18537,8 +18537,8 @@ table {
 <tr>
  <td><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
  <td>Backtransition deceleration setpoint to pitch feedforward gain    </td>
- <td>0 > 0.2 (0.05)</td>
- <td>0.12</td>
+ <td>0 > 0.2 (0.01)</td>
+ <td>0.</td>
  <td>rad s^2/m</td>
 </tr>
 <tr>
