@@ -163,7 +163,7 @@
     * [Pixhawk Series](flight_controller/pixhawk_series.md)
       * [Silicon Errata](flight_controller/silicon_errata.md)
     * [Pixhawk Standard Autopilots](flight_controller/autopilot_pixhawk_standard.md)
-      * [Holybro Pixhawk 5X (FMUv5X)](flight_controller/pixhawk5X.md) 
+      * [Holybro Pixhawk 5X (FMUv5X)](flight_controller/pixhawk5x.md) 
       * [Holybro Pixhawk 4 (FMUv5)](flight_controller/pixhawk4.md)
       * [Holybro Pixhawk 4 Mini (FMUv5)](flight_controller/pixhawk4_mini.md)
       * [Drotek Pixhawk 3 Pro (FMUv4pro)](flight_controller/pixhawk3_pro.md)
