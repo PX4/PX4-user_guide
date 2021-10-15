@@ -8,7 +8,7 @@ Contact the [manufacturer](https://shop.holybro.com/) for hardware support or co
 This quick start guide shows how to power the [Pixhawk<sup>&reg;</sup> 5X](../flight_controller/pixhawk5x.md) flight controller and connect its most important peripherals.
 
 
-<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_standard_set.jpg" width="420px" title="Pixhawk5x standard set" />
+<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_standard_set.jpg" width="520px" title="Pixhawk5x standard set" />
 
 Pixhawk 5 Standard Set
 
@@ -57,11 +57,9 @@ You can press the safety switch again to enable safety and disarm the vehicle (t
 
 Connect the output of the *PM02D Power Module* (PM board) that comes with the Standard Set to one of the **POWER** port of *Pixhawk 5X* using the 6-wire cable.
 
-The PM02D input **2~6S** will be connected to your LiPo battery.
+The PM02D Power Module supports **2~6S** battery, the board input should be connected to your LiPo battery. Note that the PM board does not supply power to the + and - pins of **FMU PWM OUT** and **I/O PWM OUT**.
 
-Note that the PM board does not supply power to the + and - pins of **FMU PWM-OUT**.
-If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc.
-This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
+If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
 
 :::note
 The power rail voltage must be appropriate for the servo being used!
@@ -69,8 +67,8 @@ The power rail voltage must be appropriate for the servo being used!
 
 PIN & Connector | Function
 --- | ---
-I/O PWM Out | Connect motor signal and GND wires here.
-FMU PWM Out | Connect Servos Signal, positive, and GND wires here.
+I/O PWM Out | Connect Motor Signal and GND wires here.
+FMU PWM Out | Connect Servo Signal, positive, and GND wires here.
 
 
 :::note
@@ -79,22 +77,16 @@ For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps t
 :::
 
 
-<!--
-The pinout of *Pixhawk 5X*’s power ports is shown below.
-The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default.
-The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default.
-The VCC lines have to offer at least 3A continuous and should default to 5.1V.
-A lower voltage of 5V is still acceptable, but discouraged.
+The pinout of *Pixhawk 5X*’s power ports is shown below. The power ports takes in I2C digital signal from the PM02D power module for voltage and current data. The VCC lines have to offer at least 3A continuous and should default to 5.2V. A lower voltage of 5V is still acceptable, but discouraged.
 
 Pin | Signal | Volt
 --- | --- | ---
 1(red) | VCC | +5V
 2(black) | VCC | +5V
-3(black) | CURRENT | +3.3V
-4(black) | VOLTAGE | +3.3V
+3(black) | SCL | +3.3V
+4(black) | SDA | +3.3V
 5(black) | GND | GND
 6(black) | GND | GND
--->
 
 :::note
 Using the Power Module that comes with the kit, you will need to configure the *Number of Cells* in the [Power Settings](../config/battery.md#basic-battery-settings-default).
@@ -113,9 +105,7 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 - Spektrum/DSM receivers connect to the **DSM/SBUS RC** input.
 - PPM or SBUS receivers connect to the **RC IN** input port.
 
-<!--
-PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
--->
+PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC IN** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
@@ -129,7 +119,6 @@ The other radio is connected to your ground station computer or mobile device (u
 
 Radios are also available for purchase on [Holybro's website](http://www.holybro.com/product-category/radio/) .
 
-<a id="sd_card"></a>
 ## SD Card (Optional)
 
 SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware.
