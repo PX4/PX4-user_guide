@@ -9,11 +9,11 @@ Contact the [manufacturer](https://shop.holybro.com/) for hardware support or co
 It is the latest update to the successful family of Pixhawk® flight controllers.
 It comes with the latest PX4 Autopilot® pre-installed, triple redundancy, temperature-controlled, isolated sensor domain, delivering incredible performance and reliability.  
 
-<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_hero_upright.jpg" width="200px" title="Pixhawk5x Upright Image" /> <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_exploded_diagram.jpg" width="420px" title="Pixhawk5x Exploded Image" />
+<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_hero_upright.jpg" width="250px" title="Pixhawk5x Upright Image" /> <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_exploded_diagram.jpg" width="450px" title="Pixhawk5x Exploded Image" />
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** Open Standard and Autopilot Bus Standard
+It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5X** Open Standard and Autopilot Bus Standard
 :::
 
 ## Introduction
@@ -38,17 +38,17 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
 ## Key Design Points
 
 * Modular flight controller
- * separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk® Autopilot Bus connector, designed for flexible and customizable systems
+  * separated IMU, FMU, and Base system connected by a 100-pin & a 50-pin Pixhawk® Autopilot Bus connector, designed for flexible and customizable systems
 * Redundancy
- * 3x IMU sensors & 2x Barometer sensors on separate buses, allowing parallel and continuous operation even in the event of a hardware failure
+  * 3x IMU sensors & 2x Barometer sensors on separate buses, allowing parallel and continuous operation even in the event of a hardware failure
 * Triple redundancy domains
- * Completely isolated sensor domains with separate buses and separate power control
+  * Completely isolated sensor domains with separate buses and separate power control
 * Temperature-controlled IMUs
- * Onboard IMU heating resistors, allowing optimum working temperature of IMUs
+  * Onboard IMU heating resistors, allowing optimum working temperature of IMUs
 * Vibration isolation system
- * Newly designed system to filter out high frequency vibration and reduce noise to ensure accurate readings
+  * Newly designed system to filter out high frequency vibration and reduce noise to ensure accurate readings
 * Ethernet interface
- * For high-speed mission computer integration
+  * For high-speed mission computer integration
 * Automated sensor calibration eliminating varying signals and temperature
 * Two smart batteries monitoring on SMBus
 * Additional GPIO line and 5V for the external NFC reader
@@ -97,12 +97,12 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
     * 1 PWM/Capture input
     * 2 Dedicated debug and GPIO lines
 
-* Voltage Ratings:
+* Voltage Ratings
   * Max input voltage: 6V
   * USB Power Input: 4.75~5.25V
   * Servo Rail Input: 0~36V
 
-*	Dimensions
+* Dimensions
   * Flight Controller Module: 38.8 x 31.8 x 14.6mm
   * Standard Baseboard: 52.4 x 103.4 x 16.7mm
 
@@ -156,7 +156,6 @@ UART8 | /dev/ttyS7 | GPS2
 ## Voltage Ratings
 
 *Pixhawk 5X* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
-
 
 **Normal Operation Maximum Ratings**
 
