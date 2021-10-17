@@ -15,7 +15,7 @@ You will require the following:
 * [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
 * [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck. 
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/release/1.12/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck. 
 * Rename (or delete) the **px4_simple_app** directory. 
 
 ## Minimal Application
@@ -377,7 +377,7 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## Full Example Code
 
-The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c) is now:
+The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/release/1.12/src/examples/px4_simple_app/px4_simple_app.c) is now:
 
 ```c
 /****************************************************************************
