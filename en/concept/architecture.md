@@ -119,7 +119,7 @@ There are 2 different ways that a module can be executed:
   Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
 
 :::note
-Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`).
+Tasks running on a work queue do not show up in [`top`](../modules/modules_command.html#top) (only the work queues themselves can be seen - e.g. as `wq:lp_default`).
 Use [`work_queue status`](../modules/modules_system.md#work-queue) to display all active work queue items.
 :::
 
