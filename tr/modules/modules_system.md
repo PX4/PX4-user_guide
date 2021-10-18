@@ -102,7 +102,7 @@ commander <command> [arguments...]
    pair
 
    lockdown
-     [off]       Turn lockdown off
+     on|off      Turn lockdown on or off
 
    set_ekf_origin
      lat, lon, alt Origin Latitude, Longitude, Altitude
