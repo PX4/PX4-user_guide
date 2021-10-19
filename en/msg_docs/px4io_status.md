@@ -1,5 +1,5 @@
 # px4io_status (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/px4io_status.msg)

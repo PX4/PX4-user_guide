@@ -18,7 +18,7 @@ div.frame_common table, div.frame_common table {
 }
 
 div.frame_common table {
-   float: right; 
+   float: right;
    width: 70%;
 }
 

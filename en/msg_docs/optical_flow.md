@@ -1,5 +1,5 @@
 # optical_flow (UORB message)
-        
+
 Optical flow in XYZ body frame in SI units.
 http://en.wikipedia.org/wiki/International_System_of_Units
 

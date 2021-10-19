@@ -1,5 +1,5 @@
 # rtl_flight_time (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/rtl_flight_time.msg)

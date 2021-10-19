@@ -1,5 +1,5 @@
 # vehicle_gps_position (UORB message)
-        
+
 GPS position in WGS84 coordinates.
 the field 'timestamp' is for the position & velocity (microseconds)
 

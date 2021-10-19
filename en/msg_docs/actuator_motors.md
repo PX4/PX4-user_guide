@@ -1,5 +1,5 @@
 # actuator_motors (UORB message)
-        
+
 Motor control message
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/actuator_motors.msg)
@@ -13,6 +13,5 @@ uint8 NUM_CONTROLS = 8
 float32[8] control # range: [-1, 1], where 1 means maximum positive thrust,
                    # -1 maximum negative (if not supported by the output, <0 maps to NaN),
                    # and NaN maps to disarmed (stop the motors)
-
 
 ```

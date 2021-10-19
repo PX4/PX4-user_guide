@@ -1,5 +1,5 @@
 # collision_constraints (UORB message)
-        
+
 Local setpoint constraints in NED frame
 setting something to NaN means that no limit is provided
 

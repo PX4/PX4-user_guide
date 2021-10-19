@@ -1,5 +1,5 @@
 # mag_worker_data (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/mag_worker_data.msg)

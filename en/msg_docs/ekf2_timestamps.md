@@ -1,5 +1,5 @@
 # ekf2_timestamps (UORB message)
-        
+
 this message contains the (relative) timestamps of the sensor inputs used by EKF2.
 It can be used for reproducible replay.
 

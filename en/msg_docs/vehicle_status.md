@@ -1,5 +1,5 @@
 # vehicle_status (UORB message)
-        
+
 If you change the order, add or remove arming_state_t states make sure to update the arrays
 in state_machine_helper.cpp as well.
 

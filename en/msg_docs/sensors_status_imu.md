@@ -1,5 +1,5 @@
 # sensors_status_imu (UORB message)
-        
+
 Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensors_status_imu.msg)

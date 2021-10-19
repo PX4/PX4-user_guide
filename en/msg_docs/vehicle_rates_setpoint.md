@@ -1,5 +1,5 @@
 # vehicle_rates_setpoint (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_rates_setpoint.msg)
