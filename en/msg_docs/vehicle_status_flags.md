@@ -1,5 +1,5 @@
 # vehicle_status_flags (UORB message)
-        
+
 This is a struct used by the commander internally.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_status_flags.msg)

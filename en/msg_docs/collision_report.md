@@ -1,5 +1,5 @@
 # collision_report (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/collision_report.msg)

@@ -1,5 +1,5 @@
 # vehicle_local_position_setpoint (UORB message)
-        
+
 Local position setpoint in NED frame
 setting something to NaN means the state should not be controlled
 

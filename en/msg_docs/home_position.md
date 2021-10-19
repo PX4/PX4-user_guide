@@ -1,5 +1,5 @@
 # home_position (UORB message)
-        
+
 GPS home position in WGS84 coordinates.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/home_position.msg)

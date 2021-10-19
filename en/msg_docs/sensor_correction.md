@@ -1,5 +1,5 @@
 # sensor_correction (UORB message)
-        
+
 Sensor corrections in SI-unit form for the voted sensor
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_correction.msg)

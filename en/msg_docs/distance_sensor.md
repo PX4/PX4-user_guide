@@ -1,5 +1,5 @@
 # distance_sensor (UORB message)
-        
+
 DISTANCE_SENSOR message data
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/distance_sensor.msg)

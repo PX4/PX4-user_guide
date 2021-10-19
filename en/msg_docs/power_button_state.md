@@ -1,5 +1,5 @@
 # power_button_state (UORB message)
-        
+
 power button state notification message
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/power_button_state.msg)

@@ -1,5 +1,5 @@
 # vehicle_attitude (UORB message)
-        
+
 This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude.msg)

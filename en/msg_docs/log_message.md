@@ -1,5 +1,5 @@
 # log_message (UORB message)
-        
+
 A logging message, output with PX4_{WARN,ERR,INFO}
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/log_message.msg)

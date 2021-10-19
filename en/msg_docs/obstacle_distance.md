@@ -1,5 +1,5 @@
 # obstacle_distance (UORB message)
-        
+
 Obstacle distances in front of the sensor.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/obstacle_distance.msg)

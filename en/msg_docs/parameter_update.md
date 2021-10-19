@@ -1,5 +1,5 @@
 # parameter_update (UORB message)
-        
+
 This message is used to notify the system about one or more parameter changes
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/parameter_update.msg)

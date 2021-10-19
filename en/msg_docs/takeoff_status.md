@@ -1,5 +1,5 @@
 # takeoff_status (UORB message)
-        
+
 Status of the takeoff state machine currently just availble for multicopters
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/takeoff_status.msg)

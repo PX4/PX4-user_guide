@@ -1,5 +1,5 @@
 # vtol_vehicle_status (UORB message)
-        
+
 VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vtol_vehicle_status.msg)

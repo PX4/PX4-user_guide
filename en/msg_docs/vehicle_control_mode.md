@@ -1,5 +1,5 @@
 # vehicle_control_mode (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_control_mode.msg)
