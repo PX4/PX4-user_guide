@@ -14,17 +14,17 @@
 
 ## 기초적인 진동 해결 방법
 
--- 몇몇 간단한 단계로 진동을 감쇠할 수 있습니다:
+간단한 몇 가지의 단계로 진동을 줄일 수 있습니다:
 
-- 모든 장비 (랜딩 기어, GPS 지지대 등)가 기체에 단단히 고정되었는지 확인하십시오.
+- 모든 장비(랜딩 기어, GPS 지지대 등)가 기체에 단단히 고정되어 있는 지 확인하십시오.
 - 균형 잡힌 프로펠러를 사용하십시오.
-- 고품질의 프로펠러, 모터, ESC와 기체 프레임을 사용하십시오. 품질은 큰 차이를 만듭니다.
-- 비행 컨트롤러를 장착할 때 방진법을 사용하십시오. 많은 비행 컨트롤러는 방진을 위한 *장착 폼*과 함께 구성됩니다. 몇몇 다른 제품들은 독자적인 내장 방진 메커니즘을 가집니다.
-- *마지막* 방법으로, 소프트웨어 필터를 조정하십시오 ([여기](../config_mc/racer_setup.md#filters)를 참고하십시오). 그러나 진동 원인을 없애는 것이 소프트웨어를 사용한 필터링보다 좋습니다.
+- 고품질의 프로펠러, 모터, ESC와 기체 프레임을 사용하십시오. 품질에서 큰 차이가 발생합니다.
+- 비행 콘트롤러 장착시에 방진이 필요합니다. 대부분 비행 콘트롤러는 방진을 위하여 *장착 폼*과 함께 설치됩니다. 몇몇 다른 제품들은 자체 내장 방진 메커니즘을 가지고 있습니다.
+- *마지막* 방법으로, 소프트웨어 필터를 조정하십시오 ([여기](../config_mc/filter_tuning.md)를 참고하십시오). 그러나, 진동 원인을 근원적으로 제거하는 것이 소프트웨어 필터링보다 좋은 방법입니다.
 
 ## 참고
 
-다음 레퍼런스가 유용할 수 있습니다:
+유용한 참고사항들입니다.
 
-- [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](https://info.mide.com/hubfs/eBooks/ebook-tom-irvine-shock-vibration-response-spectra.pdf) (ebook, 무료)
+- [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (ebook, 무료)
 - [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (preview).
