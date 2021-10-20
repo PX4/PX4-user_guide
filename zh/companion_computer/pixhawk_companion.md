@@ -35,7 +35,7 @@ Typically the `TELEM 2` port is used for a companion computer.
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-| TELEM2 |   | FTDI    | FTDI            |
+| TELEM2 |   | FTDI    | &nbsp;          |
 | ------ | - | ------- | --------------- |
 | 1      | 1 |         | DO NOT CONNECT! |
 | 2      | 2 | Tx (输出) | 5               |
