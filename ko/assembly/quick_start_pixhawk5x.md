@@ -38,51 +38,51 @@ Pixhawk 5 표준 세트
 
 _Pixhawk5X 표준 세트_는 **GPS1** 포트에 연결하여야 하는 M8N 또는 M9N GPS(10핀 커넥터)와 함께 구입할 수 있습니다. 이 GNSS 모듈에는 나침반, 안전 스위치, 부저 및 LED가 통합되어 있습니다.
 
-A secondary [M8N or M9N GPS](https://shop.holybro.com/c/gps-systems_0428) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
+보조 [M8N 또는 M9N GPS](https://shop.holybro.com/c/gps-systems_0428)(6핀 커넥터)는 별도로 구매하여 **GPS2** 포트에 연결할 수 있습니다.
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS와 나침반은 차량 전명 방향 표시를 사용하여 가능하면 전자 장치에서 멀리 떨어진 프레임에 장착하여야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk5x standard set" />
 
-:::note
-The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::note GPS
+모듈에 내장된 안전 스위치는 *기본적으로* 활성화되어 있습니다 (활성화되면 PX4는 차량 시동을 걸 수 없습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
 
 
 
-## Power
+## 전원
 
-Connect the output of the *PM02D Power Module* (PM board) that comes with the Standard Set to one of the **POWER** port of *Pixhawk 5X* using the 6-wire cable.
+표준 세트와 함께 제공되는 *PM02D 전원 모듈*(PM 보드)의 출력을 6선 케이블을 사용하여 *Pixhawk 5X*의 **POWER** 포트 중 하나에 연결합니다.
 
-The PM02D Power Module supports **2~6S** battery, the board input should be connected to your LiPo battery. Note that the PM board does not supply power to the + and - pins of **FMU PWM OUT** and **I/O PWM OUT**.
+PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력은 LiPo 배터리에 연결하여야 합니다. 전원 보드는 **FMU PWM OUT** 및 **I/O PWM OUT**의 + 및 - 핀에 전원을 공급하지 않습니다.
 
-If using a plane or rover, the **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. This can be done by connecting the 8 pin power (+) rail of the **FMU PWM-OUT** to a voltage regulator (for example, a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery).
-
-:::note
-The power rail voltage must be appropriate for the servo being used!
-:::
-
-| PIN & Connector | Function                                            |
-| --------------- | --------------------------------------------------- |
-| I/O PWM Out     | Connect Motor Signal and GND wires here.            |
-| FMU PWM Out     | Connect Servo Signal, positive, and GND wires here. |
-
+비행기나 로버를 사용하는 경우 방향타, 엘레본 등의 서보를 구동하려면 **FMU PWM-OUT**에 별도로 전원을 공급하여야 합니다. 이는 **FMU PWM-OUT**의 8핀 전원(+) 레일을 전압 조정기(예: BEC 장착 ESC 또는 독립형 5V BEC 또는 2S LiPo 배터리)에 연결하여 수행할 수 있습니다.
 
 :::note
-**MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 5X* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 5x*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
+파워 레일 사용 중인 서보에 적절한 전압을 공급하여야 합니다.
 :::
 
-The pinout of *Pixhawk 5X*’s power ports is shown below. The power ports takes in I2C digital signal from the PM02D power module for voltage and current data. The VCC lines have to offer at least 3A continuous and should default to 5.2V. A lower voltage of 5V is still acceptable, but discouraged.
+| 핀 & 커넥터     | 기능                             |
+| ----------- | ------------------------------ |
+| I/O PWM Out | 여기에 모터 신호와 GND 배선을 연결합니다.      |
+| FMU PWM Out | 여기에 서보 신호, 양극 및 GND 전선을 연결합니다. |
 
-| Pin      | Signal | Volt  |
-| -------- | ------ | ----- |
-| 1(red)   | VCC    | +5V   |
-| 2(black) | VCC    | +5V   |
-| 3(black) | SCL    | +3.3V |
-| 4(black) | SDA    | +3.3V |
-| 5(black) | GND    | GND   |
-| 6(black) | GND    | GND   |
+
+:::note PX
+펌웨어의 **MAIN** 출력은 *Pixhawk 5X*의 **I/O PWM OUT** 포트에 매핑되는 반면, **AUX 출력**은 *Pixhawk 5X*의 **FMU PWM OUT**에 매핑됩니다. 예를 들어, **MAIN1**은 **I/O PWM OUT**의 IO_CH1 핀에 매핑되고, **AUX1**은 **FMU PWM OUT**의 FMU_CH1 핀에 매핑됩니다.
+:::
+
+*Pixhawk 5X* 전원 포트의 핀배열은 다음과 같습니다. 전원 포트는 전압 및 전류 데이터를 위해 PM02D 전원 모듈에서 I2C 디지털 신호를 수신합니다. VCC 라인은 최소 3A 연속을 제공해야하며 기본적으로 5.2V로 설정되어야 합니다. 5V 보다 낮은 전압은 허용되지만, 권장되지는 않습니다.
+
+| 핀     | 신호  | 전압    |
+| ----- | --- | ----- |
+| 1 (적) | VCC | +5V   |
+| 2 (흑) | VCC | +5V   |
+| 3 (흑) | SCL | +3.3V |
+| 4 (흑) | SDA | +3.3V |
+| 5 (흑) | GND | GND   |
+| 6 (흑) | GND | GND   |
 
 
 :::note
