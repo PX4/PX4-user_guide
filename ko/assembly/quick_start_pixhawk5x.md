@@ -4,7 +4,7 @@
 :::
 Pixhawk<sup>&reg;</sup> 5X<1> 비행 콘트롤러의 전원 공급 방법과 중요 주변 장치를 연결 방법에 대하여 설명합니다.</p> 
 
-<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_standard_set.jpg" width="520px" title="Pixhawk5x standard set" />
+<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_standard_set.jpg" width="520px" title="Pixhawk 5X 표준 세트" />
 
 Pixhawk 5 표준 세트
 
@@ -14,7 +14,7 @@ Pixhawk 5 표준 세트
 
 아래 그림은 주요 센서와 주변기기 연결 방법을 설명합니다.
 
-![Pixhawk 5x Wiring Overview](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
+![Pixhawk 5X 배선 개요](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
 
 :::tip
 사용 가능한 포트에 대한 자세한 설명은 [ Pixhawk  5X &gt; 연결 방법 ](../flight_controller/pixhawk5x.md#connections)을 참고하십시오.
@@ -26,7 +26,7 @@ Pixhawk 5 표준 세트
 
 *Pixhawk 5X*는 키트에 포함된 양면 테이프를 사용하여 프레임에 장착할 수 있습니다. 차량의 무게 중심에 최대한 가깝운 프레임에 장착하여야 하며, 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
 
-<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk5x standard set" />
+<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk 5X 표준 세트" />
 
 :::note
 콘트롤러를 권장 방향으로 장착하기 어려운 경우에는(예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에서 설정하여야 합니다([기체 콘트롤러 방향](../config/flight_controller_orientation.md) 참고).
@@ -42,7 +42,7 @@ _Pixhawk5X 표준 세트_는 **GPS1** 포트에 연결하여야 하는 M8N 또�
 
 GPS와 나침반은 차량 전명 방향 표시를 사용하여 가능하면 전자 장치에서 멀리 떨어진 프레임에 장착하여야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
-<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk5x standard set" />
+<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk 5X 표준 세트" />
 
 :::note GPS
 모듈에 내장된 안전 스위치는 *기본적으로* 활성화되어 있습니다 (활성화되면 PX4는 차량 시동을 걸 수 없습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
@@ -123,7 +123,7 @@ PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력은 L
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
 
-<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk5x standard set" />
+<img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk 5X 표준 세트" />
 
 :::tip
 자세한 내용은 [기본 개념 &gt; SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참고하십시오.
@@ -153,7 +153,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 ## 핀배열
 
-![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
+![Pixhawk 5X 핀배열 1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
 [여기](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) 또는 [여기](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf)에서 *Pixhawk 5X* 핀배열을 다운로드할 수 있습니다.
 
@@ -169,11 +169,11 @@ QuadPlane 관련 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_conf
 
 ## 추가 정보
 
-- [Pixhawk 5X](../flight_controller/pixhawk5x.md) (PX4 Doc Overview page)
-- [Pixhawk 5X Overview & Specification](http://www.holybro.com/manual/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
-- [Pixhawk 5X Pinouts](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
-- [PM02D Power Module Manual](http://www.holybro.com/manual/Holybro_PM02D_Power_Module_Manual.pdf) (Holybro)
-- [FMUv5X reference design pinout](https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340).
-- [Pixhawk Autopilot FMUv5X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf).
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Pixhawk 5X](../flight_controller/pixhawk5x.md) (PX4 개요 페이지)
+- [Pixhawk 5X 개요 & 스펙](http://www.holybro.com/manual/Holybro_Pixhawk5X_Spec_Overview.pdf) (홀리브로)
+- [Pixhawk  5X 핀아웃](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf) (홀리브로)
+- [PM02D 파워 모듈 매뉴얼](http://www.holybro.com/manual/Holybro_PM02D_Power_Module_Manual.pdf) (홀리브로)
+- [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340).
+- [Pixhawk Autopilot FMUv5X 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf).
+- [Pixhawk Autopilot FMUv5X 버스 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
+- [Pixhawk 커넥터 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
