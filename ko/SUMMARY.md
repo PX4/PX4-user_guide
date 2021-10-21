@@ -23,7 +23,7 @@
   * [픽스32 v5 배선](assembly/quick_start_holybro_pix32_v5.md)
   * [픽스호크 4 배선](assembly/quick_start_pixhawk4.md)
   * [픽스호크 4 미니 배선](assembly/quick_start_pixhawk4_mini.md)
-  * [필스호크 5X 배선 개요](assembly/quick_start_pixhawk5x.md)
+  * [픽스호크 5X 배선 개요](assembly/quick_start_pixhawk5x.md)
   * [큐브 배선 개요](assembly/quick_start_cube.md)
   * [픽스레이서 배선 개요](assembly/quick_start_pixracer.md)
   * [픽스호크 배선 개요](assembly/quick_start_pixhawk.md)
