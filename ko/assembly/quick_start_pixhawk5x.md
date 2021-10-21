@@ -1,39 +1,42 @@
-# Holybro Pixhawk 5x Wiring Quick Start
+# 홀리브로 픽스호크 5X 배선 개요
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
-
-This quick start guide shows how to power the [Pixhawk<sup>&reg;</sup> 5X](../flight_controller/pixhawk5x.md) flight controller and connect its most important peripherals.
-
+Pixhawk<sup>&reg;</sup> 5X<1> 비행 콘트롤러의 전원 공급 방법과 중요 주변 장치를 연결 방법에 대하여 설명합니다.</p> 
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_standard_set.jpg" width="520px" title="Pixhawk5x standard set" />
 
-Pixhawk 5 Standard Set
+Pixhawk 5 표준 세트
 
-## Wiring Chart Overview
 
-The image below shows how to connect the most important sensors and peripherals.
+
+## 배선 개요
+
+아래 그림은 주요 센서와 주변기기 연결 방법을 설명합니다.
 
 ![Pixhawk 5x Wiring Overview](../../assets/flight_controller/pixhawk5x/pixhawk5x_wiring_diagram.jpg)
 
-
 :::tip
-More information about available ports can be found here: [Pixhawk 5X > Connections](../flight_controller/pixhawk5x.md#connections).
+사용 가능한 포트에 대한 자세한 설명은 [ Pixhawk  5X &gt; 연결 방법 ](../flight_controller/pixhawk5x.md#connections)을 참고하십시오.
 :::
 
-## Mount and Orient Controller
 
-*Pixhawk 5X* can be mounted on the frame using double side tape included in the kit. It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+
+## 콘트롤러 장착 및 장착 방향
+
+*Pixhawk 5X*는 키트에 포함된 양면 테이프를 사용하여 프레임에 장착할 수 있습니다. 차량의 무게 중심에 최대한 가깝운 프레임에 장착하여야 하며, 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk5x standard set" />
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+콘트롤러를 권장 방향으로 장착하기 어려운 경우에는(예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에서 설정하여야 합니다([기체 콘트롤러 방향](../config/flight_controller_orientation.md) 참고).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
 
-The _Pixhawk5X Standard Set_ can be purchased with M8N or M9N GPS (10-pin connector) that should be connected to the **GPS1** port. These GNSS modules have an integrated compass, safety switch, buzzer and LED.
+
+## GPS + 나침반 + 부저 + 안전 스위치 + LED
+
+_Pixhawk5X 표준 세트_는 **GPS1** 포트에 연결하여야 하는 M8N 또는 M9N GPS(10핀 커넥터)와 함께 구입할 수 있습니다. 이 GNSS 모듈에는 나침반, 안전 스위치, 부저 및 LED가 통합되어 있습니다.
 
 A secondary [M8N or M9N GPS](https://shop.holybro.com/c/gps-systems_0428) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
 
@@ -41,10 +44,11 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_gps_front.jpg" width="200px" title="Pixhawk5x standard set" />
 
-
 :::note
 The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
+
+
 
 
 ## Power
@@ -69,7 +73,6 @@ The power rail voltage must be appropriate for the servo being used!
 **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 5X* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 5x*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**.
 :::
 
-
 The pinout of *Pixhawk 5X*’s power ports is shown below. The power ports takes in I2C digital signal from the PM02D power module for voltage and current data. The VCC lines have to offer at least 3A continuous and should default to 5.2V. A lower voltage of 5V is still acceptable, but discouraged.
 
 | Pin      | Signal | Volt  |
@@ -81,11 +84,14 @@ The pinout of *Pixhawk 5X*’s power ports is shown below. The power ports takes
 | 5(black) | GND    | GND   |
 | 6(black) | GND    | GND   |
 
+
 :::note
 Using the Power Module that comes with the kit, you will need to configure the *Number of Cells* in the [Power Settings](../config/battery.md#basic-battery-settings-default). However you will not need to calibrate the *voltage divider* (set the voltage divider and the current divider ratio). With the default setting parameters, the voltage and current measurement accuracy can be better than 5%.
 
 You will have to update the *voltage divider* if you are using any other power module.
 :::
+
+
 
 ## Radio Control
 
@@ -101,6 +107,8 @@ PPM and PWM receivers that have an *individual wire for each channel* must conne
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
 
+
+
 ## Telemetry Radios (Optional)
 
 [Telemetry radios](../telemetry/README.md) may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
@@ -108,6 +116,8 @@ For more information about selecting a radio system, receiver compatibility, and
 The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
 
 Radios are also available for purchase on [Holybro's website](http://www.holybro.com/product-category/radio/) .
+
+
 
 ## SD Card (Optional)
 
@@ -118,6 +128,8 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 :::tip
 For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 :::
+
+
 
 ## Motors
 
@@ -131,15 +143,21 @@ This reference lists the output port to motor/servo mapping for all supported ai
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 :::
 
+
+
 ## Other Peripherals
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+
+
 
 ## Pinouts
 
 ![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
 You can also download *Pixhawk 5X* pinouts from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
+
+
 
 ## Configuration
 
