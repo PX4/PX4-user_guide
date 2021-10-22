@@ -271,9 +271,14 @@ table {
 </tr>
 <tr>
  <td><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
- <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
+ <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0. Note that the data missing check is enabled if any of the options is set.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Only data missing check (triggers if more than 1s no data)</li> 
+  <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s)</li> 
+  <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li> 
+  <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
+</ul>
+ </td>
+ <td>0 > 15 </td>
+ <td>7</td>
  <td></td>
 </tr>
 <tr>
@@ -290,17 +295,17 @@ table {
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
- <td>Airspeed failsafe consistency threshold <p><strong>Comment:</strong> This specifies the minimum airspeed test ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the wind EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
- <td>0.5 > 3.0 </td>
- <td>1.0</td>
- <td></td>
+ <td>Airspeed failure innovation threshold <p><strong>Comment:</strong> This specifies the minimum airspeed innovation required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Large innovations indicate an inconsistency between predicted (groundspeed - windspeeed) and measured airspeed. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
+ <td>0.5 > 10.0 </td>
+ <td>5.</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INTEG">ASPD_FS_INTEG</strong> (FLOAT)</td>
- <td>Airspeed failsafe consistency delay <p><strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above ASPD_FS_INNOV required to trigger a failsafe. For example if ASPD_FS_INNOV is 1 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
- <td>? > 30.0 </td>
- <td>5.0</td>
- <td>s</td>
+ <td>Airspeed failure innovation integral threshold <p><strong>Comment:</strong> This sets the time integral of airspeed innovation exceedance above ASPD_FS_INNOV required to trigger a failsafe. Larger values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
+ <td>0.0 > 50.0 </td>
+ <td>10.</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (INT32)</td>
@@ -336,17 +341,41 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="ASPD_SCALE">ASPD_SCALE</strong> (FLOAT)</td>
- <td>Airspeed scale (scale from IAS to CAS) <p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ASPD_SCALE_EST to 1.</p>   </td>
- <td>0.5 > 1.5 </td>
+ <td><strong id="ASPD_SCALE_1">ASPD_SCALE_1</strong> (FLOAT)</td>
+ <td>Scale of airspeed sensor 1 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the first airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0.5 > 2.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="ASPD_SCALE_EST">ASPD_SCALE_EST</strong> (INT32)</td>
- <td>Automatic airspeed scale estimation on <p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS) on or off. It is recommended to fly level altitude while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved using the ASPD_SCALE parameter.</p>   </td>
+ <td><strong id="ASPD_SCALE_2">ASPD_SCALE_2</strong> (FLOAT)</td>
+ <td>Scale of airspeed sensor 2 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the second airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0.5 > 2.0 </td>
+ <td>1.0</td>
  <td></td>
- <td>Disabled (0)</td>
+</tr>
+<tr>
+ <td><strong id="ASPD_SCALE_3">ASPD_SCALE_3</strong> (FLOAT)</td>
+ <td>Scale of airspeed sensor 3 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the third airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0.5 > 2.0 </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ASPD_SCALE_APPLY">ASPD_SCALE_APPLY</strong> (INT32)</td>
+ <td>Controls when to apply the new estimated airspeed scale(s)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Do not automatically apply the estimated scale</li> 
+
+<li><strong>1:</strong> Apply the estimated scale after disarm</li> 
+
+<li><strong>2:</strong> Apply the estimated scale in air</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
