@@ -9156,6 +9156,20 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="RTL_HDG_MD">RTL_HDG_MD</strong> (INT32)</td>
+ <td>RTL heading mode <p><strong>Comment:</strong> Defines the heading behavior during RTL</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Towards next waypoint.</li> 
+
+<li><strong>1:</strong> Heading matches destination.</li> 
+
+<li><strong>2:</strong> Use current heading.</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
  <td>Return mode delay <p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
  <td>-1 > 300 (0.5)</td>
@@ -9177,6 +9191,20 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="RTL_PLD_MD">RTL_PLD_MD</strong> (INT32)</td>
+ <td>RTL precision land mode <p><strong>Comment:</strong> Use precision landing when doing an RTL landing phase.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> No precision landing</li> 
+
+<li><strong>1:</strong> Opportunistic precision landing</li> 
+
+<li><strong>2:</strong> Required precision landing</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RTL_RETURN_ALT">RTL_RETURN_ALT</strong> (FLOAT)</td>
  <td>Return mode return altitude <p><strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
  <td>0 > 150 (0.5)</td>
@@ -9193,30 +9221,6 @@ table {
 <li><strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path. Do not consider rally points.</li> 
 
 <li><strong>3:</strong> Return via direct path to closest destination: home, start of mission landing pattern or safe point. If the destination is a mission landing pattern, follow the pattern to land.</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## Return To Land
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RTL_PLD_MD">RTL_PLD_MD</strong> (INT32)</td>
- <td>RTL precision land mode <p><strong>Comment:</strong> Use precision landing when doing an RTL landing phase.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> No precision landing</li> 
-
-<li><strong>1:</strong> Opportunistic precision landing</li> 
-
-<li><strong>2:</strong> Required precision landing</li> 
 </ul>
   </td>
  <td></td>
