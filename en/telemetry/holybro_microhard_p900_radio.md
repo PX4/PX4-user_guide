@@ -1,15 +1,17 @@
 # Holybro Microhard P900 Radio
 
-Holybro P900 Radio integrates [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module which is capable of delivering high-performance wireless serial communications in robust and secure Mesh, Point to Point or Point to Multipoint topologies. It enable MAVLink communication between a radio on a vehicle and a GCS.
+The [Holybro Microhard P900 Radio](http://www.holybro.com/product/microhard-p900-radio/) integrates the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module, which is capable of delivering high-performance wireless serial communications in robust and secure mesh, point-to-point or point-to-multipoint topologies.
+It enables MAVLink communication between a radio on a vehicle and a GCS.
 
-This Radio operate within the 902-928 MHz ISM frequency band, using frequency hopping spread
-spectrum (FHSS) technology, providing reliable wireless asynchronous data transfer between most
-equipment types which employ a serial interface. The Radio may be configured as a Primary Coordinator, Secondary Coordinator, Standby Coordinator or Remote in a Mesh Topology, or a Master, Repeater or Remote in a PP or PMP Topology.
+This radio operate within the 902-928 MHz ISM frequency band, using frequency hopping spread spectrum (FHSS) technology, providing reliable wireless asynchronous data transfer between most equipment types which employ a serial interface.
+The radio may be configured as a primary coordinator, secondary coordinator, standby coordinator or remote in a mesh topology, or a master, repeater or remote in a PP or PMP topology.
 
-This versatility is very convenient for the user. This Radio is configured using AT commands through the Data port or using PicoConfig application through the Diagnosis Port
+This versatility is very convenient for the user.
+This radio is configured using AT commands through the data port or using *PicoConfig* application through the diagnosis port.
 
-The transmit power is software selectable from 100mW to 1W, with range up to 40 miles. A single ground station radio can be used to communicate with multiple vehicles using point to multi-point or mesh. Vehicles must have different MAVLINK IDs.
-
+The transmit power is software selectable from 100mW to 1W, with range up to 40 miles.
+A single ground station radio can be used to communicate with multiple vehicles using point to multi-point or mesh.
+Vehicles must have different MAVLINK IDs.
 
 ![Holybro Microhard Radio](../../assets/hardware/telemetry/holybro_microhard.jpg)
 
@@ -17,13 +19,14 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 ## Feature
 
 * USB Type-C port, integrated USB to UART converter
-* 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk standard flight controllers such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
+* 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk-standard flight controllers such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
 * High voltage BEC onboard, Support DC7~35V voltage supply
 * UART transmission & Three-stage RSSI LED indicator
 * Transmission within a public, license-exempt band of the radio spectrum
-* Transparent, low latency link rates up to 276 kbps
+* Transparent, low latency link rates up to 276 Kbps
 * Supports a robust true Mesh operation with auto-routing
-* 32 bits of CRC, selectable retransmission and forward error correction –Separate diagnostics port, transparent remote diagnostics and online network control
+* 32 bits of CRC, selectable retransmission and forward error correction
+* Separate diagnostics port, transparent remote diagnostics and online network control
 
 
 ## Purchase:
@@ -38,44 +41,51 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 
 #### Vehicle Radio
 
-This radio comes with a 6-Pin JST GH cable that can be connected to the `TELEM1` port on various pixhawk standard flight controller. The radio must be separately powered via the 4-pin JST-GH  XT30 power cable (7-35VDC).
-
+This radio comes with a 6-Pin JST GH cable that can be connected to the `TELEM1` port on flight controllers that are compliant with the Pixhawk connector standard.
+The radio must be separately powered via the 4-pin JST-GH XT30 power cable (7-35VDC).
 
 #### Ground Station Radio
 
-This radio has a internal USB to UART converter, the ground radio can be connected to the ground station via USB C. The radio must be separately powered via the XT30 power cable (7-35VDC).
+This radio has a internal USB to UART converter, the ground radio can be connected to the ground station via USB C.
+The radio must be separately powered via the XT30 power cable (7-35VDC).
 
 ## Setup
 
-The ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended). No further PX4 configuration is required if you are using this port and baud rate.
+The ground radio, air radio, PX4, and *QGroundControl* must all be set to the same baud rate.PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended).
+No further PX4 configuration is required if you are using this port and baud rate.
 
 :::note
 You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
 :::
 
-The radios are configured using Pico Config (window only). It can be download [here](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) or [here](http://www.holybro.com/download/picoconfig-1-8/). Holybro Microhard P900 Radio have been configured to Point to Point Operating Mode and 57600 Serial Baud Rate in factory. After Firmware Update or resetting the Radio, you need to re-config them as follows.
+The radios are configured using the *PicoConfig* application (Windows only).
+It can be downloaded from [here](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) or [here](http://www.holybro.com/download/picoconfig-1-8/).
+Holybro Microhard P900 Radio have been configured to point-to-point operating mode and 57600 serial baud rate in the factory.
+After firmware update or resetting the radio, you need to re-config them as follows.
 
 <img src="../../assets/hardware/telemetry/holybro_pico_config.png" width="400px" title="Holybro Pico Config" />
 <img src="../../assets/hardware/telemetry/holybro_pico_config1.png" width="400px" title="Holybro Pico Config" />
 
-In Point to Point operating modes, there must be a master to provide network synchronization for the
-system, so one Radio should be configured to PP Master and another should be configured to PP Remote.
-Refer to [Pico Series P900.Operating Manual.v1.8.7](../../assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf) for the detail information of Radio Configuration.
-
+In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
+Refer to [Pico Series P900.Operating Manual.v1.8.7](../../assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf) for the detailed information on radio configuration.
 
 ## Configuration
 
-P900 Radio is configured using AT commands through the Data port or using PicoConfig application through the Diagnostic Port.
-
+The P900 is configured using AT commands through the data port, or using the *PicoConfig* application through the diagnostic port.
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_uart converter.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
 
-Diagnostic Port uses a 4-position JST SH. If you use PicoConfig application or special diagnostic commands to config the Radio, you should connect to this port. Diagnostic Port is 3.3V logic level compatibility. A USB to Serial board is needed for connecting the radio to your computer. You can purchase a [Holybro UART to USB Converter](https://shop.holybro.com/gps-uart-to-usb-converter_p1234.html). *Pico Config* will automatically detect the radio. Adjust the baud rate setting to match PX4 (and the ground station radio).
+The diagnostic port uses a 4-position JST SH connector.
+If you use *PicoConfig* application or special diagnostic commands to config the radio, you should connect to this port.
+The diagnostic port is 3.3V logic level compatibile.
+A USB-to-serial board is needed for connecting the radio to your computer.
+You can purchase a [Holybro UART to USB Converter](https://shop.holybro.com/gps-uart-to-usb-converter_p1234.html).
 
 *Pico Config* will automatically detect and connect to the configuration port.
-Adjust the settings so that the baud rate matches PX4.
+Adjust the settings so that the baud rate matches PX4 (and the ground station).
 
-Once the radios and PX4 are all configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio. *QGroundControl* will not automatically detect the radio, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
+Once the radios and PX4 are configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio.
+*QGroundControl* will not automatically detect the radio, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
 
 Holding the Config button while powering-up the radio will boot the unit into COMMAND mode: the default serial interface will be active and temporarily set to operate at its default serial settings of 9600/8/N/1.
 
@@ -83,16 +93,17 @@ Holding the Config button while powering-up the radio will boot the unit into CO
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_leds.png" width="600px" title="Holybro Pico Config" />
 
-P900 Radio have 6 status LEDs, there are three blue, two orange and one green LEDs. The meaning of the different LEDs are:
+The P900 Radio has 6 status LEDs: three are blue, two are orange, and one is green.
+The meanings of the different LEDs are:
 
 * Power LED(green)
- * This LED will illuminate when the P900 Radio is connected to a power source (7-35VDC).
+  * This LED will illuminate when the P900 Radio is connected to a power source (7-35VDC).
 * TX LED (orange)
- * When illuminated, this LED indicates that the Radio is transmitting data over the air.
+  * When illuminated, this LED indicates that the Radio is transmitting data over the air.
 * RX LED (orange)
- * This LED indicates that the Radio is synchronized and has received valid packets.
+  * This LED indicates that the Radio is synchronized and has received valid packets.
 * RSSI LEDs (3x Blue)
- * As the received signal strength increases, starting with the furthest left, the number of active
+  * As the received signal strength increases, starting with the furthest left, the number of active
 * RSSI LEDs
 increases. Signal strength is calculated based on the last four valid received packets with correct CRC. The value of RSSI is reported in S123.
 
@@ -135,16 +146,19 @@ Pin | Signal | Voltage
 
 
 ### Dimensions
+
 <img src="../../assets/hardware/telemetry/holybro_microhard_dimension.png" width="600px" title="Holybro Pico Config" />
 
 
 ### Power Consumption
+
 * Supply voltage: DC7~35V from 4-pin JST-GH to XT30 (included)
 * Transmit current: 200 mA/7V at 20dBm
- * 350mA/7V at 27dBm
- * 800 mA/7V at 30dBm
+  * 350mA/7V at 27dBm
+  * 800 mA/7V at 30dBm
 * Receive current: 100 mA
 * Weight: 42g (without antenna)
 
 ## Further info
+
 [Holybro Microhard P900 Manual](http://www.holybro.com/manual/Holybro_Microhard_P900_Radio_QuickStartGuide.pdf) (Holybro)
