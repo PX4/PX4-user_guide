@@ -37,26 +37,26 @@
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
 :::note
-컨트롤러를 권장/기본 방향으로 장착 할 수없는 경우 (예 : 공간 제약으로 인해) 실제로 사용한 방향으로 자동 조종 소프트웨어를 구성해야합니다 : [ Flight Controller Orientation ](../advanced_features/rtk-gps.md).
+콘트롤러를 권장 기본 방향으로 장착 할 수 없는 경우(예 : 공간 제약으로 인해) 실 장착 방향을 자동항법장치 프로그램에서 설정하여야합니다. [비행 콘트롤러 방향](../advanced_features/rtk-gps.md)
 :::
 
 ## GPS + 나침반 + 안전 스위치 + LED
 
-권장되는 GPS 모듈은 GPS, 나침반, 안전 스위치, 부저, LED 상태 표시등이 포함된 * Neo v2 GPS *입니다.
+권장되는 GPS 모듈은 GPS, 나침반, 안전 스위치, 부저 및 LED 상태 표시등이 포함된 *Neo v2 GPS*입니다.
 
 :::note
-다른 GPS 모듈은 작동하지 않을 수 있습니다 ([이 호환성 문제 ](../flight_controller/cuav_v5_nano.md#compatibility_gps) 참조).
+다른 GPS 모듈은 작동하지 않을 수 있습니다 ([호환성 문제](../flight_controller/cuav_v5_nano.md#compatibility_gps) 참고).
 :::
 
-GPS/나침반 모듈은 차량 앞쪽을 향하는 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (* Neo v2 GPS * 화살표는 비행과 같은 방향에 있음. 컨트롤 화살표). 케이블을 사용하여 비행 제어 GPS 인터페이스에 연결합니다.
+GPS/나침반 모듈은 전자 장치들에서 최대한 멀리 떨어진 곳에 장착하여야합니다 (*Neo v2 GPS*). 케이블을 사용하여 비행제어 GPS 인터페이스에 연결합니다.
 
 :::note
-[NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable)를 사용하는 경우 케이블을 사용하여 비행 제어 CAN 인터페이스에 연결하십시오.
+[NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)를 사용하면, 케이블을 사용하여 비행제어 CAN 인터페이스에 연결하십시오.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
-## 안전 스위치
+## --안전 스위치
 
 V5+에 제공되는 전용 안전 스위치는 권장되는 *Neo V2 GPS* (내장 안전 스위치가 있음)를 사용하지 않는 경우에만 필요합니다.
 
