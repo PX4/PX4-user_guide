@@ -17,7 +17,7 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 ## Feature
 
 * USB Type-C port, integrated USB to UART converter
-* 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk standard flight controller such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
+* 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk standard flight controllers such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
 * High voltage BEC onboard, Support DC7~35V voltage supply
 * UART transmission & Three-stage RSSI LED indicator
 * Transmission within a public, license-exempt band of the radio spectrum
@@ -79,6 +79,27 @@ Once the radios and PX4 are all configured to use the same baud rate you can con
 
 Holding the Config button while powering-up the radio will boot the unit into COMMAND mode: the default serial interface will be active and temporarily set to operate at its default serial settings of 9600/8/N/1.
 
+## Status LED
+
+<img src="../../assets/hardware/telemetry/holybro_microhard_leds.png" width="600px" title="Holybro Pico Config" />
+
+P900 Radio have 6 status LEDs, there are three blue, two orange and one green LEDs. The meaning of the different LEDs are:
+
+* Power LED(green)
+ * This LED will illuminate when the P900 Radio is connected to a power source (7-35VDC).
+* TX LED (orange)
+ * When illuminated, this LED indicates that the Radio is transmitting data over the air.
+* RX LED (orange)
+ * This LED indicates that the Radio is synchronized and has received valid packets.
+* RSSI LEDs (3x Blue)
+ * As the received signal strength increases, starting with the furthest left, the number of active
+* RSSI LEDs
+increases. Signal strength is calculated based on the last four valid received packets with correct CRC. The value of RSSI is reported in S123.
+
+<img src="../../assets/hardware/telemetry/holybro_microhard_led_status.png" width="600px" title="Holybro Pico Config" />
+
+<img src="../../assets/hardware/telemetry/holybro_microhard_rssi.png" width="600px" title="Holybro Pico Config" />
+
 ### Pinout
 
 #### Diagnosis Port
@@ -124,3 +145,6 @@ Pin | Signal | Voltage
  * 800 mA/7V at 30dBm
 * Receive current: 100 mA
 * Weight: 42g (without antenna)
+
+## Further info
+[Holybro Microhard P900 Manual](http://www.holybro.com/manual/Holybro_Microhard_P900_Radio_QuickStartGuide.pdf) (Holybro)
