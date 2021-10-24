@@ -1,6 +1,6 @@
 # 기체 설정
 
-After installing firmware you need to select the [airframe configuration](../airframes/airframe_reference.md) that best matches your vehicle.
+펌웨어를 설치 후, 차량에 적절한 [기체 설정](../airframes/airframe_reference.md)을 선택하여야 합니다.
 
 :::note
 Select the airframe configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration. Otherwise select the closest "Generic" frame option.
