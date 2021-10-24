@@ -9,7 +9,9 @@ PX4 supports a number of types of telemetry radios:
   * <del>*HKPilot Telemetry Radio*</del> (Discontinued)
   * <del>*3DR Telemetry Radio*</del> (Discontinued)
 * [Telemetry Wifi](../telemetry/telemetry_wifi.md)
-* [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
+* Microhard Serial Telemetry Radio
+  * [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
+  * [ARK Electron Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
 * XBee Serial Telemetry Radio
   * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 * CUAV Serial Telemetry Radio
