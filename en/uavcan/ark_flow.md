@@ -90,6 +90,9 @@ Parameter | Description
 <a id="SENS_FLOW_MAXR"></a>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) | Maximum angular flow rate reliably measurable by the optical flow sensor.
 
 On the ARK Flow, you may need to configure the following parameters:
+
+Parameter | Description
+--- | ---
 <a id="CANNODE_FLOW_ROT"></a>[CANNODE_FLOW_ROT](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame.
 <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | CAN built-in bus termination.
 
