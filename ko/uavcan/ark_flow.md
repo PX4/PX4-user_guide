@@ -86,14 +86,20 @@ ARK Flow 보드를 사용하려면 Pixhawk CAN 버스에 연결하고 동적 노
 | <a id="SENS_FLOW_MAXHGT"></a>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | 광학 흐름에 의존시 지상 최대 높이.         |
 | <a id="SENS_FLOW_MINHGT"></a>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | 광학 흐름에 의존시 지상 최소 높이.         |
 | <a id="SENS_FLOW_MAXR"></a>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR)     | 광류 센서로 안정적으로 측정 기능한 최대 각 유량. |
-| <a id="SENS_FLOW_ROT"></a>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT)       | 차체 프레임을 기준으로 한 보드의 요 회전.     |
+
+On the ARK Flow, you may need to configure the following parameters:
+
+| Parameter                                                                                                 | Description                                                   |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| <a id="CANNODE_FLOW_ROT"></a>[CANNODE_FLOW_ROT](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame. |
+| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT)       | CAN built-in bus termination.                                 |
 
 
 ## Ark Flow 펌웨어 빌드
 
-Ark Flow는 최신 펌웨어로 빌드되어 판매됩니다. 최신 버전으로 업데이트하는 개발자는 일반 PX4 도구 모음 및 소스를 사용하여 직접 빌드하고 설치할 수 있습니다.
+Ark Flow is sold with a recent firmware build. Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
 
-단계는 아래와 같습니다:
+The steps are:
 1. [PX4 도구 모음](../dev_setup/dev_env.md)을 설치합니다.
 1. *git*을 사용하여 Ark Flow를 포함한 PX4-Autopilot 소스를 복제합니다.
    ```
@@ -110,9 +116,9 @@ Ark Flow는 최신 펌웨어로 빌드되어 판매됩니다. 최신 버전으�
 
 ## Ark Flow 부트로더 업데이트
 
-Ark Flow는 부트로더가 사전 설치된 상태로 판매됩니다. 그러나, PX4-Autopilot 환경에서 다시 빌드하고 다시 플래시할 수 있습니다.
+The Ark Flow comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
 
-단계는 다음과 같습니다:
+ARK Flow가 깜박일 때 빨간색과 파란색 LED가 모두 표시되고, 제대로 실행 중이면 파란색 LED가 계속 켜져 있습니다.
 1. Ark Flow 부트로더 펌웨어를 빌드합니다.
    ```
    make ark_can-flow_canbootloader
@@ -127,13 +133,15 @@ Ark Flow는 부트로더가 사전 설치된 상태로 판매됩니다. 그러�
 
 ## LED 신호의 의미
 
-ARK Flow가 깜박일 때 빨간색과 파란색 LED가 모두 표시되고, 제대로 실행 중이면 파란색 LED가 계속 켜져 있습니다.
-
 빨간색 LED가 계속 켜져 있으면, 오류가 있으므로 다음 사항들을 확인하여야 합니다.
+
+[유튜브](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0) *속도 추정을 위해 ARK Flow 센서를 사용한 PX4 고정 위치([위치 모드](../flight_modes/position_mc.md)에서)*
 - 비행 콘트롤러에 SD 카드가 설치되어 있는지 확인하십시오.
 - `ark_can-flow_default`를 플래싱하기 전에 Ark Flow에 `ark_can-flow_canbootloader`가 설치되어 있는 지 확인하십시오.
 - SD 카드의 루트 및 ufw 디렉토리에서 바이너리를 제거하고 빌드 및 플래시를 다시 시도하십시오.
 
 ## 비디오
 
-@[유튜브](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0) *속도 추정을 위해 ARK Flow 센서를 사용한 PX4 고정 위치([위치 모드](../flight_modes/position_mc.md)에서)* 
+@[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
+<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
+*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
