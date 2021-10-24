@@ -16,7 +16,7 @@ Vehicles must have different MAVLINK IDs.
 ![Holybro Microhard Radio](../../assets/hardware/telemetry/holybro_microhard.jpg)
 
 
-## Feature
+## Features
 
 * USB Type-C port, integrated USB to UART converter
 * 6-position JST-GH connector, can be directly connected to the TELEM port on various Pixhawk-standard flight controllers such [Pixhawk 4](../flight_controller/pixhawk4.md) & [Pixhawk 5X](../flight_controller/pixhawk5x.md)
@@ -51,8 +51,12 @@ The radio must be separately powered via the XT30 power cable (7-35VDC).
 
 ## Setup
 
-The ground radio, air radio, PX4, and *QGroundControl* must all be set to the same baud rate.PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended).
+:::note
+PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended).
 No further PX4 configuration is required if you are using this port and baud rate.
+:::
+
+The ground radio, air radio, PX4, and *QGroundControl* must all be set to the same baud rate.
 
 :::note
 You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
@@ -84,10 +88,10 @@ You can purchase a [Holybro UART to USB Converter](https://shop.holybro.com/gps-
 *Pico Config* will automatically detect and connect to the configuration port.
 Adjust the settings so that the baud rate matches PX4 (and the ground station).
 
-Once the radios and PX4 are configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio.
-*QGroundControl* will not automatically detect the radio, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
+Once the radios and PX4 are configured to use the same baud rate you can connect *QGroundControl* to the vehicle via the radio.
+*QGroundControl* will not automatically detect the radio for anything other than the default baud rate, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
 
-Holding the Config button while powering-up the radio will boot the unit into COMMAND mode: the default serial interface will be active and temporarily set to operate at its default serial settings of 9600/8/N/1.
+Holding the **Config** button while powering-up the radio will boot the unit into COMMAND mode: the default serial interface will be active and temporarily set to operate at its default serial settings of 9600/8/N/1.
 
 ## Status LED
 
