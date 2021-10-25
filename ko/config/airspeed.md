@@ -1,13 +1,13 @@
-# Airspeed Calibration
+# 대기속도 보정
 
-The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.
+대기속도 보정은 오프셋을 결정하기 위해 대기 속도가 0인 안정적인 기준선을 읽어야합니다.
 
 :::note
 [속도 센서](../sensor/airspeed.md)는 고정익과 VTOL 차량에 적극 권장됩니다.
 :::
 
 :::warning
-Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started. Before calibration they must be [enabled via the corresponding parameter](../advanced_config/parameters.md):
+대부분의 다른 센서 드라이버와 달리 대기속도 센서 드라이버는 자동으로 시작되지 않습니다. 보정하기 전에 [해당 매개변수를 통해 활성화](../advanced_config/parameters.md)하여야 합니다.
 
 * Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
 * TE MS4525 ([SENS_EN_MS4525](../advanced_config/parameter_reference.md#SENS_EN_MS4525))
