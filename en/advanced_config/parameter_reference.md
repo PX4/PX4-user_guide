@@ -633,6 +633,45 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="FW_AT_APPLY">FW_AT_APPLY</strong> (INT32)</td>
+ <td>Controls when to apply the new gains <p><strong>Comment:</strong> After the auto-tuning sequence is completed, a new set of gains is available and can be applied immediately or after landing.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Do not apply the new gains (logging only)</li> 
+
+<li><strong>1:</strong> Apply the new gains after disarm</li> 
+
+<li><strong>2:</strong> Apply the new gains in air</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_AXES">FW_AT_AXES</strong> (INT32)</td>
+ <td>Tuning axes selection <p><strong>Comment:</strong> Defines which axes will be tuned during the auto-tuning sequence Set bits in the following positions to enable: 0 : Roll 1 : Pitch 2 : Yaw</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> roll</li> 
+  <li><strong>1:</strong> pitch</li> 
+  <li><strong>2:</strong> yaw</li> 
+</ul>
+ </td>
+ <td>1 > 7 </td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_START">FW_AT_START</strong> (INT32)</td>
+ <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abord the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using FW_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_SYSID_AMP">FW_AT_SYSID_AMP</strong> (FLOAT)</td>
+ <td>Amplitude of the injected signal <p><strong>Comment:</strong> This parameter scales the signal sent to the rate controller during system identification.</p>   </td>
+ <td>0.1 > 6.0 </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MC_AT_APPLY">MC_AT_APPLY</strong> (INT32)</td>
  <td>Controls when to apply the new gains <p><strong>Comment:</strong> After the auto-tuning sequence is completed, a new set of gains is available and can be applied immediately or after landing. WARNING Applying the gains in air is dangerous as there is no guarantee that those new gains will be able to stabilize the drone properly.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Do not apply the new gains (logging only)</li> 
