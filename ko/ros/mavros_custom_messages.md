@@ -262,23 +262,20 @@
    자세한 설명은 [첫 번째 지원서 작성](../modules/hello_sky.md) 항목을 참고하십시오.
 
 1. 마지막으로 **PX4-Autopilot/boards/**의 보드에 해당하는 **default.cmake** 파일에 모듈을 추가합니다. 예를 들어, Pixhawk 4의 경우에는 **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**에 다음 코드를 추가합니다.
-   ```cmake
-    MODULES
-        ...
-        key_receiver
-        ...
     ```
 
-이제 작업을 빌드할 준비가 되었습니다!
+MODULES
+        ...
 
-## 빌드
+key_receiver
+        ... In your workspace enter: `catkin build`.
+1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). 
+   Edit "px4.launch" as below.
+   If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below.
+   But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0".
+   Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
 
-### ROS 빌드
-
-1. 작업 공간에서 `catkin build`를 입력합니다.
-1. 미리 "px4.launch"를 (/workspace/src/mavros/mavros/launch)에 설정합니다. 아래와 같이 "px4.launch"를 편집합니다. USB를 사용하여 Pixhawk와 컴퓨터를 연결하는 경우에는, 아래와 같이 "fcu_url"을 설정합니다. 그러나, CP2102를 사용하여 컴퓨터를 Pixhawk와 연결하는 경우 "ttyACM0"을 "ttyUSB0"로 변경합니다. "gcs_url"을 수정하는 것은 Pixhawk를 UDP와 연결하는 것입니다. 직렬 통신은 MAVROS와 간단한 연결을 동시에 수락할 수 없기 때문입니다.
-
-1. "xxx.xx.xxx.xxx"에 IP 주소를 입력합니다.
+1. Write your IP address at "xxx.xx.xxx.xxx"
    ```xml
    ...
      <arg name="fcu_url" default="/dev/ttyACM0:57600" />
@@ -286,47 +283,45 @@
    ...
    ```
 
-### PX4 빌드
+### ROS 빌드
 
-1. PX4-Autopilot을 빌드하고 [일반적인 방식으로](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 업로드합니다.
+1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
-    예를 들어, Pixhawk 4/FMUv5용으로 빌드하려면, PX4-Autopilot 디렉토리의 루트에서 다음 명령어를 실행하십시오.
+    For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
     ```sh
     make px4_fmu-v5_default upload
     ```
 
-## 코드 실행
+## 빌드
 
-MAVROS 메시지가 PX4로 전송되는 지 테스트합니다.
+이제 작업을 빌드할 준비가 되었습니다!
 
-### ROS 실행
+### PX4 빌드
 
-1. 터미널에서 입력합니다.
+1. In a terminal enter
    ```sh
    roslaunch mavros px4.launch
    ```
-1. 두 번째 터미널 실행합니다.
+1. In a second terminal run:
    ```sh
    rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
-   즉, 메시지 유형 "std_msgs/Char"의 ROS 주제 "/mavros/keyboard_command/keyboard_sub"에 97(ASCII의 'a')을 게시합니다. "-r 10"은 "10Hz"로 지속적으로 발행한다는 의미입니다.
+   This means, publish 97 ('a' in ASCII) to ROS topic "/mavros/keyboard_command/keyboard_sub" in message type "std_msgs/Char". "-r 10" means to publish continuously in "10Hz".
 
-### PX4 실행
+### ROS 실행
 
-1. UDP를 통해 Pixhawk nutshell을 오픈합니다. xxx.xx.xxx.xxx를 해당 컴퓨터의 IP로 변경합니다.
+1. Enter the Pixhawk nutshell through UDP. Replace xxx.xx.xxx.xxx with your IP.
    ```sh
-   cd PX4-Autopilot/Tools
-   ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
+   roslaunch mavros px4.launch
    ```
 
-1. 몇 초 후에, **Enter** 키를 두 번 입력합니다. 아래와 같이 터미널에서 프롬프트가 나타납니다.
+1. After few seconds, press **Enter** a couple of times. You should see a prompt in the terminal as below:
    ```sh
-   nsh>
-   nsh>
+   rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
-   "key_receiver"를 입력하여 subscriber 모듈을 실행합니다.
+   Type "key_receiver", to run your subscriber module.
    ```
    nsh> key_receiver
    ```
 
-ROS 토픽으로 부터 `a`를 올바르게 수신하는 지 확인합니다.
+MAVROS 메시지가 PX4로 전송되는 지 테스트합니다.

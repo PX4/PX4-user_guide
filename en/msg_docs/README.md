@@ -3,17 +3,21 @@
 :::note
 This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/msg/tools/generate_msg_docs.py) from the source code.
 :::
-    
+
 This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)).
 Graphs showing how these are used [can be found here](../middleware/uorb_graph.md).
-    
+
 - [actuator_armed](actuator_armed.md)
 - [actuator_controls](actuator_controls.md)
+- [actuator_controls_status](actuator_controls_status.md)
+- [actuator_motors](actuator_motors.md) — Motor control message
 - [actuator_outputs](actuator_outputs.md)
+- [actuator_servos](actuator_servos.md) — Servo control message
 - [adc_report](adc_report.md)
 - [airspeed](airspeed.md)
 - [airspeed_validated](airspeed_validated.md)
 - [airspeed_wind](airspeed_wind.md)
+- [autotune_attitude_control_status](autotune_attitude_control_status.md)
 - [battery_status](battery_status.md)
 - [camera_capture](camera_capture.md)
 - [camera_status](camera_status.md)
@@ -75,6 +79,7 @@ These are the externally visible LED's, not the board LED's
 - [log_message](log_message.md) — A logging message, output with PX4_{WARN,ERR,INFO}
 - [logger_status](logger_status.md)
 - [mag_worker_data](mag_worker_data.md)
+- [magnetometer_bias_estimate](magnetometer_bias_estimate.md)
 - [manual_control_setpoint](manual_control_setpoint.md)
 - [manual_control_switches](manual_control_switches.md)
 - [mavlink_log](mavlink_log.md)

@@ -13,11 +13,12 @@ make module_documentation
 생성된 파일은 `modules` 디렉토리에 저장됩니다.
 
 ## 카테고리
-- [명령어](modules_command.md)
-- [통신](modules_communication.md)
-- [콘트롤러](modules_controller.md)
-- [드라이버](modules_driver.md)
-- [추정기](modules_estimator.md)
-- [시뮬레이션](modules_simulation.md)
-- [시스템](modules_system.md)
-- [템플릿](modules_template.md)
+- [명령어](modules_autotune.md)
+- [통신](modules_command.md)
+- [콘트롤러](modules_communication.md)
+- [드라이버](modules_controller.md)
+- [추정기](modules_driver.md)
+- [시뮬레이션](modules_estimator.md)
+- [시스템](modules_simulation.md)
+- [템플릿](modules_system.md)
+- [Template](modules_template.md)

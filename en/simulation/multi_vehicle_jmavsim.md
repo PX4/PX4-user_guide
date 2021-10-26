@@ -22,20 +22,24 @@ To start multiple instances (on separate ports):
    ```
    ./Tools/sitl_multiple_run.sh 2
    ```
-1. Start the first instance:
+1. Start the first instance in the same terminal (this will run in the foreground):
    ```
    ./Tools/jmavsim_run.sh -l
    ```
-1. Start subsequent instances, specifying the *simulation* TCP port for the instance:
+1. Open a new terminal for each subsequent instance, specifying the *simulation* TCP port for the instance:
    ```
-   ./Tools/jmavsim_run.sh -p 4561 -l
+   ./Tools/jmavsim_run.sh -p 4560 -l
    ```
-   The port should be set to `4560+i` for `i` in `[0, N-1]`.
+   The port should be set to `4560+i` where `i` iterates for each instance (from `0` to `N-1`)
+ 
+*QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances).
+The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instnaces (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.  
 
-Ground stations such as *QGroundControl* listen for all vehicle instances on the PX4's remote UDP port: `14550` (all GCS traffic is sent to the *same* remote port).
-
-Developer APIs such as *MAVSDK* or *MAVROS* listen on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`.
+Developer APIs such as *MAVSDK* or *MAVROS* can connect to individual instances by listening on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`.
 Additional instances *all* connect to port `14549`.
+
+> **Tip** The **sitl_multiple_run.sh** script starts a separate process for each vehicle.
+  To restart the simulations after killing one of them, you must call **sitl_multiple_run.sh** again, and also restart each of the individual instances in their own terminals.
 
 ## Additional Resources
 

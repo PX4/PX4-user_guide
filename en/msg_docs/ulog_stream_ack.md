@@ -1,5 +1,5 @@
 # ulog_stream_ack (UORB message)
-        
+
 Ack a previously sent ulog_stream message that had
 the NEED_ACK flag set
 

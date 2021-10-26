@@ -8,11 +8,15 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 
 - [actuator_armed](actuator_armed.md)
 - [actuator_controls](actuator_controls.md)
+- [actuator_controls_status](actuator_controls_status.md)
+- [actuator_motors](actuator_motors.md) — Motor control message
 - [actuator_outputs](actuator_outputs.md)
+- [actuator_servos](actuator_servos.md) — Servo control message
 - [adc_report](adc_report.md)
 - [airspeed](airspeed.md)
 - [airspeed_validated](airspeed_validated.md)
 - [airspeed_wind](airspeed_wind.md)
+- [autotune_attitude_control_status](autotune_attitude_control_status.md)
 - [battery_status](battery_status.md)
 - [camera_capture](camera_capture.md)
 - [camera_status](camera_status.md)
@@ -69,6 +73,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [log_message](log_message.md) — A logging message, output with PX4_{WARN,ERR,INFO}
 - [logger_status](logger_status.md)
 - [mag_worker_data](mag_worker_data.md)
+- [magnetometer_bias_estimate](magnetometer_bias_estimate.md)
 - [manual_control_setpoint](manual_control_setpoint.md)
 - [manual_control_switches](manual_control_switches.md)
 - [mavlink_log](mavlink_log.md)

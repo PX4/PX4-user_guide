@@ -1,5 +1,5 @@
 # sensor_mag (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_mag.msg)

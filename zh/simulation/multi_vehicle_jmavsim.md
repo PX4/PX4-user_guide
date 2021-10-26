@@ -29,9 +29,11 @@ To start multiple instances (on separate ports):
    ```
    端口号应该被设置为 `4560+i` ， `i` 的范围为 `[0, N-1]` 。
 
-像 *MAVSDK* 或者 *MAVROS* 开发者 APIs 接口就是通过连接 UDP 接口 14540 （第一个实例）， UDP 接口 14541（第二个实例），以此类推。
+*QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances). The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instnaces (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.
 
-Developer APIs such as *MAVSDK* or *MAVROS* listen on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`. Additional instances *all* connect to port `14549`.
+Developer APIs such as *MAVSDK* or *MAVROS* can connect to individual instances by listening on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`. Additional instances *all* connect to port `14549`.
+
+> **Tip** The **sitl_multiple_run.sh** script starts a separate process for each vehicle. To restart the simulations after killing one of them, you must call **sitl_multiple_run.sh** again, and also restart each of the individual instances in their own terminals.
 
 ## 额外资源
 

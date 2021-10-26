@@ -37,6 +37,7 @@ USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완�
 
 * [최신 PX4 펌웨어를 비행 컨트롤러에 로드합니다](../config/firmware.md).
 * ESP8266 연결용 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. ESP8266에 설정된 값과 일치하려면 전송 속도를 921600으로 설정하여야 합니다.
+* [Configure MAVLink](../peripherals/mavlink_peripherals.md) on the corresponding serial port in order to receive telemetry and transmit commands over the ESP8266.
 
 무선 연결용 비행 콘트롤러 직렬 포트를 설정후에는 지상국과 기체간의 물리적 USB 연결을 해제할 수 있습니다.
 

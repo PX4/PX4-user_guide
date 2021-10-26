@@ -1,5 +1,5 @@
 # onboard_computer_status (UORB message)
-        
+
 ONBOARD_COMPUTER_STATUS message data
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/onboard_computer_status.msg)

@@ -13,15 +13,16 @@ There are a few devices that allow this communication bridge such as FTDI USB br
 
 ### FTDI Devices
 
-The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3v. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
+The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3V. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
 
-Options are listed below:
+A few "turnkey" options are listed below:
 
 | Device                                                                                                                  | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
 | ----------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
-| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes               | Yes          | Yes        | Yes    |
 | [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable           | Capable      | No         | Yes    |
 | [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes               | No           | Yes        | No     |
+
+You can also use an off-the-shelf FTDI cable [like this one](https://www.sparkfun.com/products/9717) and connect it to flight controller using the appropriate header adaptor (JST-GH connectors are specified in the Pixhawk standard, but you should confirm the connectors for your flight controller).
 
 ### Logic Level Shifters
 

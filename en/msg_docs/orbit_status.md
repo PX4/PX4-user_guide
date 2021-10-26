@@ -1,5 +1,5 @@
 # orbit_status (UORB message)
-        
+
 ORBIT_YAW_BEHAVIOUR
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/orbit_status.msg)

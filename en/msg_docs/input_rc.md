@@ -1,5 +1,5 @@
 # input_rc (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/input_rc.msg)
@@ -30,6 +30,7 @@ uint64 timestamp_last_signal		# last valid reception time
 
 uint8 channel_count			# number of channels actually being seen
 
+int8 RSSI_MAX = 100
 int32 rssi				# receive signal strength indicator (RSSI): < 0: Undefined, 0: no signal, 100: full reception
 
 bool rc_failsafe			# explicit failsafe flag: true on TX failure or TX out of range , false otherwise. Only the true state is reliable, as there are some (PPM) receivers on the market going into failsafe without telling us explicitly.

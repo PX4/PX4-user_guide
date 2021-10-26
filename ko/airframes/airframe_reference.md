@@ -16,7 +16,7 @@ div.frame_common table, div.frame_common table {
 }
 
 div.frame_common table {
-   float: right; 
+   float: right;
    width: 70%;
 }
 
@@ -782,10 +782,6 @@ div.frame_variant td, div.frame_variant th {
 <tr id="copter_quadrotor_x_nanomind_110_quad">
  <td>NanoMind 110 Quad</td>
  <td>Maintainer: Henry Zhang &lt;zhanghui629@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4090</p></td>
-</tr>
-<tr id="copter_quadrotor_x_teal_one">
- <td>Teal One</td>
- <td>Maintainer: Matt McFadden &lt;matt.mcfadden@tealdrones.com&gt;<p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>

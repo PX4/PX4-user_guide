@@ -36,7 +36,7 @@ Many modern companion computers only support 1.8V levels on their hardware UART 
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-| TELEM2 |           | FTDI | &nbsp                  |
+| TELEM2 |           | FTDI | &nbsp;                 |
 | ------ | --------- | ---- | ---------------------- |
 | 1      | +5V (red) |      | DO NOT CONNECT!        |
 | 2      | Tx  (out) | 5    | FTDI RX (yellow) (in)  |

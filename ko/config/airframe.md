@@ -1,22 +1,22 @@
 # 기체 설정
 
-After installing firmware you need to select the [airframe configuration](../airframes/airframe_reference.md) that best matches your vehicle.
+펌웨어를 설치 후, 차량에 적절한 [기체 설정](../airframes/airframe_reference.md)을 선택하여야 합니다.
 
 :::note
-Select the airframe configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration. Otherwise select the closest "Generic" frame option.
+표준 설정에 따라 비행할 수 있을 만큼 충분히 잘 조정되어야 하므로, 차량 브랜드 및 모델(있는 경우)에 대한 기체 설정을 선택하십시오. 그렇지 않으면, 가장 비슷한 "일반" 프레임 옵션을 선택하십시오.
 :::
 
 ## 기체 프레임 설정
 
-To set the airframe:
+기체 프레임 설정하기:
 
 1. *QGroundControl *을 시작하고 기체에 연결합니다.
-2. Select **"Q" icon > Vehicle Setup > Airframe** (sidebar) to open *Airframe Setup*.
+2. *기체 설정*을 오픈하여 사이드바의 **"Q" icon > Vehicle Setup > 기체**을 선택하십시오.
 3. 가지고 있는 기체 프레임과 일치하는 큰 범주의 그룹/유형을 선택하고, 그룹 내에서 드롭다운하여 기체와 가장 일치하는 기체 프레임을 선택하십시오.
     
     ![](../../assets/qgc/setup/airframe/airframe_px4.jpg)
     
-    The example above shows *Generic Hexarotor X geometry* selected from the *Hexarotor X* group.
+    위의 예는 *Hexarotor X* 그룹에서 선택된 *Generic Hexarotor X 기하학*을 보여줍니다.
 
 4. **적용하고 재시작**을 클릭하십시오. 그 다음 대화 상자에서 **적용**을 클릭하여 설정을 저장하고 기체을 다시 시작하십시오.
     

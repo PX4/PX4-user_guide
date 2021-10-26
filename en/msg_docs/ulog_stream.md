@@ -1,5 +1,5 @@
 # ulog_stream (UORB message)
-        
+
 Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA
 mavlink message
 

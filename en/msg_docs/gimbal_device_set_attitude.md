@@ -1,5 +1,5 @@
 # gimbal_device_set_attitude (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/gimbal_device_set_attitude.msg)

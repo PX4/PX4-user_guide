@@ -1,5 +1,5 @@
 # vehicle_global_position (UORB message)
-        
+
 Fused global position in WGS84.
 This struct contains global position estimation. It is not the raw GPS
 measurement (@see vehicle_gps_position). This topic is usually published by the position

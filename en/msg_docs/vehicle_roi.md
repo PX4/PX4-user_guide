@@ -1,5 +1,5 @@
 # vehicle_roi (UORB message)
-        
+
 Vehicle Region Of Interest (ROI)
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_roi.msg)

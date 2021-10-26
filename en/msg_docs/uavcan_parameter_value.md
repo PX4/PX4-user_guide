@@ -1,5 +1,5 @@
 # uavcan_parameter_value (UORB message)
-        
+
 UAVCAN-MAVLink parameter bridge response type
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/uavcan_parameter_value.msg)

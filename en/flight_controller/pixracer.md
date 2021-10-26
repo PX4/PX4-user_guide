@@ -6,7 +6,7 @@ Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or 
 :::
 
 The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes.
-In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
+In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built WiFi, new sensors, convenient full servo headers, CAN and supports 2M flash.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
@@ -52,17 +52,27 @@ The Pixracer is designed to use a separate avionics power supply. This is necess
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. 
 This frees it of the need of any desktop system.
 
-::note ToDo
-Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
-:::
-
 * [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
+
+:::note
+Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
+Setup and telemetry are supported.
+:::
+
+## Assembly
+
+See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 
 
 ## Wiring Diagrams
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
+
+:::note
+If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port.
+For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
+:::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
@@ -210,6 +220,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make px4_fmu-v4_default
 ```
+
 
 ## Credits
 

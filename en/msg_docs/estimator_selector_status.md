@@ -1,5 +1,5 @@
 # estimator_selector_status (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_selector_status.msg)

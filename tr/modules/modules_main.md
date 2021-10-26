@@ -13,6 +13,7 @@ make module_documentation
 The generated files will be written to the `modules` directory.
 
 ## Categories
+- [Autotune](modules_autotune.md)
 - [Command](modules_command.md)
 - [Communication](modules_communication.md)
 - [Controller](modules_controller.md)

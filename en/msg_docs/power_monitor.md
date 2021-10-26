@@ -1,5 +1,5 @@
 # power_monitor (UORB message)
-        
+
 power monitor message
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/power_monitor.msg)

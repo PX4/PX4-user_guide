@@ -1,5 +1,5 @@
 # vehicle_odometry (UORB message)
-        
+
 Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_odometry.msg)

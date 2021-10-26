@@ -63,10 +63,6 @@
     * 추력 설정점 (`SET_ATTITUDE_TARGET.thrust`)이 있는 자세/방향 (`SET_ATTITUDE_TARGET.q`).
     * 추력 설정점 (`SET_ATTITUDE_TARGET.thrust`)이 없는 Body rate (`SET_ATTITUDE_TARGET` `.body_roll_rate` ,`.body_pitch_rate`, `.body_yaw_rate`) .
 
-* [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)
-  
-  * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) 또는 [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)로 탐색시 순항 속도를 변경할 수 있습니다.
-
 ### 고정익
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
@@ -112,13 +108,6 @@
   * 다음 입력 조합이 지원됩니다. 
     * 추력 설정점 (`SET_ATTITUDE_TARGET.thrust`)이 있는 자세/방향 (`SET_ATTITUDE_TARGET.q`).
     * 추력 설정점 (`SET_ATTITUDE_TARGET.thrust`)이 없는 Body rate (`SET_ATTITUDE_TARGET` `.body_roll_rate` ,`.body_pitch_rate`, `.body_yaw_rate`) .
-
-* [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)
-  
-  * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) 또는 [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)로 탐색시 순항 속도를 변경할 수 있습니다.
-
-<!-- Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0.
-See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/PX4-Autopilot/pull/12311 -->
 
 ### 탐사선
 

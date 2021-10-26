@@ -81,14 +81,20 @@ You need to set the EKF optical flow parameters to enable fusing optical flow me
 - The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicles centre of gravity.
 - Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `0.08` and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `30`.
 
-In addition you may need to configure the following parameters:
+In addition you may need to configure the following parameters on the flight controller:
 
 Parameter | Description
 --- | ---
 <a id="SENS_FLOW_MAXHGT"></a>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | Maximum height above ground when reliant on optical flow.
 <a id="SENS_FLOW_MINHGT"></a>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | Minimum height above ground when reliant on optical flow.
 <a id="SENS_FLOW_MAXR"></a>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) | Maximum angular flow rate reliably measurable by the optical flow sensor.
-<a id="SENS_FLOW_ROT"></a>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame.
+
+On the ARK Flow, you may need to configure the following parameters:
+
+Parameter | Description
+--- | ---
+<a id="CANNODE_FLOW_ROT"></a>[CANNODE_FLOW_ROT](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame.
+<a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | CAN built-in bus termination.
 
 
 ## Building Ark Flow Firmware

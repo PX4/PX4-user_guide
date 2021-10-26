@@ -88,6 +88,7 @@ commander <command> [arguments...]
      [-f]        Force arming (do not run preflight checks)
 
    disarm
+     [-f]        Force disarming (disarm in air)
 
    takeoff
 
@@ -102,7 +103,7 @@ commander <command> [arguments...]
    pair
 
    lockdown
-     [off]       Turn lockdown off
+     on|off      Turn lockdown on or off
 
    set_ekf_origin
      lat, lon, alt Origin Latitude, Longitude, Altitude
@@ -381,6 +382,24 @@ logger <command> [arguments...]
    on            start logging now, override arming (logger must be running)
 
    off           stop logging now, override arming (logger must be running)
+
+   stop
+
+   status        print status info
+```
+## mag_bias_estimator
+Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mag_bias_estimator)
+
+
+### Description
+Online magnetometer bias estimator.
+
+<a id="mag_bias_estimator_usage"></a>
+### Usage
+```
+mag_bias_estimator <command> [arguments...]
+ Commands:
+   start         Start the background task
 
    stop
 

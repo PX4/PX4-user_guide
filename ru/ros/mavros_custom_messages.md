@@ -261,12 +261,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
    For a more detailed explanation see the topic [Writing your first application](../modules/hello_sky.md).
 
-1. Lastly add your module in the **default.cmake** file correspondent to your board in **PX4-Autopilot/boards/**. For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**:
-   ```cmake
-    MODULES
-        ...
-        key_receiver
-        ...
+1. Lastly add your module in the **default.px4board** file correspondent to your board in **PX4-Autopilot/boards/**. For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.px4board**: ```CONFIG_MODULES_KEY_RECEIVER=y
     ```
 
 Now you are ready to build all your work!
@@ -276,7 +271,11 @@ Now you are ready to build all your work!
 ### Build for ROS
 
 1. In your workspace enter: `catkin build`.
-1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
+1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). 
+   Edit "px4.launch" as below.
+   If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below.
+   But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0".
+   Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
 
 1. Write your IP address at "xxx.xx.xxx.xxx"
    ```xml

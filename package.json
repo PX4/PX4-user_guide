@@ -13,6 +13,7 @@
     "docs:buildfast_ubuntu": "yarn ununtu_copyworker && yarn docs:build_ubuntu",
     "docs:dev": "vuepress dev . ",
     "docs:buildnorm": "vuepress build .",
+    "docs:sitemap": "python3 ./scripts/gen_sitemap.py",
     "docs:build": "yarn docs:buildfast_ubuntu",
     "start": "yarn docs:dev",
     "linkcheck":"vuepress check-md . > linkinfo_check-md.log 2>&1"

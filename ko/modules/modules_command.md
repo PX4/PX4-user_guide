@@ -607,14 +607,27 @@ sd_bench [arguments...]
 ## system_time
 소스: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
+시스템 시간을 설정하고 출력합니다.<a id="sd_stress_usage"></a>
 
 ### 설명
+```
+sd_stress [arguments...]
+     [-r <val>]  Number of runs
+                 default: 5
+     [-b <val>]  Number of bytes
+                 default: 100
+```
+## top
+시스템 시간을 설정하고 다시 읽습니다.
 
-시스템 시간을 설정하고 출력합니다.
 
 ### 예
 
-시스템 시간을 설정하고 다시 읽습니다.
+소스: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+
+### 사용법
+
+실행 중인 프로세스와 해당 CPU, 스택 사용량, 우선 순위 및 상태를 모니터링합니다.
 ```
 system_time set 1600775044
 system_time get
@@ -624,26 +637,24 @@ system_time get
 
 ### 사용법
 ```
-system_time <command> [arguments...]
- Commands:
-   set           Set the system time, provide time in unix epoch time format
-
-   get           Get the system time
+top [arguments...]
+ once          print load only once
 ```
-## top
-소스: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+## usb_connected
+소스: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
 
-실행 중인 프로세스와 해당 CPU, 스택 사용량, 우선 순위 및 상태를 모니터링합니다.<a id="top_usage"></a>
+Monitor running processes and their CPU, stack usage, priority and state
+<a id="top_usage"></a>
 
 ### 사용법
 ```
 top [arguments...]
    once          print load only once
 ```
-## usb_connected
-소스: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
+## ver
+소스: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
-USB가 연결되어 있는지 확인하는 유틸리티입니다. 이전에 시작 스크립트에서 사용되었습니다. 반환 값 0은 USB가 연결되었음을 의미하고, 그렇지 않으면 1입니다.
+Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
 
 ### 사용법
@@ -651,11 +662,12 @@ USB가 연결되어 있는지 확인하는 유틸리티입니다. 이전에 시�
 usb_connected [arguments...]
 ```
 ## ver
-소스: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
-다양한 버전 정보를 출력합니다.<a id="ver_usage"></a>
+Tool to print various version information
+<a id="ver_usage"></a>
 
-### 사용법
+### Usage
 ```
 ver <command> [arguments...]
  Commands:

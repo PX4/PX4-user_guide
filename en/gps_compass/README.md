@@ -31,18 +31,17 @@ Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#co
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | &check; | | 
 [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md) | M8N | ICM20948 | | | 
 [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) | M8P | HMC5983 | &check; | | 
-[CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) | M8N | ICM20948 | | | 
+[CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) | M8P | ICM20948 | &check; | | 
 [Drotek DP0804](https://store-drotek.com/920-DP0804.html) (and other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass)) | M9N | LIS3MDL | | | 
 [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) | F9P | RM3100 | &check; | | &check;
 [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md) | M8U | LIS3MDL | &check; | | 
 [Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future. | &check; | &cross; | | | 
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 | &check; | &check; | | 
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P | IST8310 | &check; | 
-[Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) | M8N | IST8310 | | | 
-[Holybro Nano Ublox M8 5883 GPS Module](https://shop.holybro.com/nano-ublox-m8-5883-gps-module_p1236.html) | UBX-M8030 | QMC5883 | | | 
-[Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) | M8N | IST8310 | | | 
-[Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) | M8N | IST8310 | | | 
-[Holybro Pixhawk 4 2nd GPS Module (6 pin)](https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html) | M8N | IST8310 | | | 
+[Holybro Micro M8N GPS](https://shop.holybro.com/micro-m8n-gps_p1009.html) | M8N | IST8310 | | | 
+[Holybro Nano Ublox M8 5883 GPS](https://shop.holybro.com/nano-ublox-m8-5883-gps-module_p1236.html) | UBX-M8030 | QMC5883 | | | 
+[Holybro M8N GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) | M8N | IST8310 | | | 
+[Holybro M9N GPS](http://www.holybro.com/product/holybro-m9n-gps/) | M9N | IST8310 | | | 
 [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | &check; | | 
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | M8P | IST8310 | &check; | | 
 [Hobbyking u-blox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) | M8N | &check; | | | 

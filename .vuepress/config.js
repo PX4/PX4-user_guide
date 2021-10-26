@@ -12,7 +12,8 @@ module.exports = {
       // 'de/**/*.md',
       // 'ja/**/*.md',
       // 'ru/**/*.md',
-      '!**/node_modules' 
+      '!**/node_modules',
+      '!**/scripts'
       ], 
   markdown: {
     // options for markdown-it-toc (youtube video)

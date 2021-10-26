@@ -13,34 +13,35 @@ FTDI USB 모듈과 레벨 시프터(하단 참조)같은 통신 브릿징이 가
 
 ### FTDI 장치
 
-FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신 방법입니다. 어댑터의 IO가 3.3v로 설정된 플러그앤플레이 방식입니다. Pixhawk 하드웨어에서 제공되는 직렬 링크의 전체 기능와 신뢰성을 위하여 흐름 제어가 권장됩니다.
+FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신 방법입니다. They are usually plug and play as long as the IO of the adapter is set to 3.3V. Pixhawk 하드웨어에서 제공되는 직렬 링크의 전체 기능와 신뢰성을 위하여 흐름 제어가 권장됩니다.
 
-옵션은 다음과 같습니다:
+A few "turnkey" options are listed below:
 
-| 장치                                                                                                                      | 3.3v 입출력 (기본) | 흐름 제어 | Tx/Rx LED | JST-GH |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------- | ----- | --------- | ------ |
-| [PixDev FTDI JST-GH 브레이크아웃](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                                 | 예             | 예     | 예         | 예      |
-| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | 가능            | 가능    | 아니요       | 예      |
-| [SparkFun FTDI 기본 브레이크아웃](https://www.sparkfun.com/products/9873)                                                       | 예             | 아니요   | 예         | 아니요    |
+| 장치                                                                                                                      | 3.3v 입출력 (기본) | 흐름 제어   | Tx/Rx LED | JST-GH |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------- | ------- | --------- | ------ |
+| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable       | Capable | No        | 예      |
+| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes           | No      | Yes       | No     |
+
+You can also use an off-the-shelf FTDI cable [like this one](https://www.sparkfun.com/products/9717) and connect it to flight controller using the appropriate header adaptor (JST-GH connectors are specified in the Pixhawk standard, but you should confirm the connectors for your flight controller).
 
 ### 논리 레벨 시프터
 
-픽스호크 하드웨어는 3.3v 입출력 레벨에서 동작하나, 보조 컴퓨터의 경우 1.8v 또는 5v 레벨에서 하드웨어 수준 입출력을 보일 수 있습니다. 이 문제를 해결하려면 송수신 신호 전압 안전하게 변환할 레벨 시프터를 제작할 수 있습니다.
+On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
 
-옵션은 다음과 같습니다.
+Options include:
 
 - [SparkFun Logic Level Converter - 양방향](https://www.sparkfun.com/products/12009)
 - [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
 
 ## 카메라
 
-카메라는 이미지와 비디오를 캡쳐하며, 일반적으로 [컴퓨터 비전](../computer_vision/README.md) 애플리케이션에 데이터를 제공합니다. 이 경우 "카메라"는 원시 이미지가 아닌 처리된 데이터를 제공할 수 있습니다.
+Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images)
 
 ### 스테레오 카메라
 
-일반적으로, 스테레오 카메라는 깊이 인식, 경로 계획과 SLAM에 사용됩니다. 보조 컴퓨터와 플러그앤플레이가 보장되지는 않습니다.
+Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
 
-인기있는 스테레오 카메라는 다음과 같습니다.
+Popular stereo cameras include:
 
 - [인텔® 리얼센스™ 뎁스 카메라 D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
 - [인텔® 리얼센스™ 뎁스 카메라 D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
@@ -49,7 +50,7 @@ FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신
 
 ### 관성 주행 시각 측정 카메라/센서 
 
-다음 센서는 [관성 주행 시각 측정(VIO)](../computer_vision/visual_inertial_odometry.md)에 활용할 수 있습니다:
+The following sensors can be used for [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md):
 
 - [T265 리얼센스 트래킹 카메라](../peripherals/camera_t265_vio.md)
 
@@ -57,23 +58,23 @@ FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신
 
 ## 데이터 통신(LTE)
 
-LTE USB 모듈은 보조 컴퓨터에 연결하여 비행 컨트롤러와 인터넷 사이에서 MAVLink 트래픽을 라우팅을 할 수 있습니다.
+An LTE USB module can be attached to a companion computer and used to route MAVLink traffic between the flight controller and the Internet.
 
-지상통제장치와 보조 컴퓨터간의 인터넷 연결 표준은 없습니다. 일반적으로 둘 다 인터넷에서 공용/고정 IP를 없으서, 직접 연결할 수 없습니다.
+There is no "standard method" for a ground station and companion to connect over the Internet. Generally you can't connect them directly because neither of them will have a public/static IP on the Internet.
 
 :::note
-일반적으로 라우터 (또는 모바일 네트워크)에는 공용 IP 주소가 있으며 GCS 컴퓨터/차량은 *로컬* 네트워크에 있습니다. 라우터는 네트워크 주소 변환 (NAT)을 사용하여 로컬 네트워크의 *전송* 요청을 인터넷으로 매핑하고, 이 맵을 사용하여 *응답*을 요청 시스템으로 라우팅할 수 있습니다. 그러나 NAT는 임의의 외부 시스템에서 트래픽을 어디로 보낼지 알 수 없으므로 로컬 네트워크에서 실행되는 GCS 또는 차량에 대한 *연결*할 방법이 없습니다.
+Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a *local* network. The router uses network address translation (NAT) to map *outgoing* requests from your local network to the Internet, and can use the map to route the *responses* back to requesting system. However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to *initiate* a connection to a GCS or vehicle running in the local network.
 :::
 
-일반적인 접근 방식은 동반자와 GCS 컴퓨터간에 가상 사설망을 설정하는 것입니다. 즉, 두 컴퓨터에 [zerotier](https://www.zerotier.com/)와 같은 VPN 시스템 설치합니다. 다음에, 보조 컴퓨터에서 [mavlink-router](https://github.com/intel/mavlink-router)를 사용하여 VPN 네트워크의 직렬 인터페이스 (비행 컨트롤러)와 GCS 컴퓨터간에 트래픽을 라우팅합니다.
+A common approach is to set up a virtual private network between the companion and GCS computer (i.e. install a VPN system like [zerotier](https://www.zerotier.com/) on both computers). The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and GCS computer on the VPN network.
 
-이 방법은 GCS 컴퓨터 주소가 VPN 내에서 고정되는 장점이 있으므로 *mavlink 라우터*의 설정을 변경할 필요가 없습니다. 또한, 모든 VPN 트래픽이 암호화되기 때문에 통신 링크가 안전합니다. MAVLink는 암호화를 지원하지 않습니다.
+This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the *mavlink router* does not need to change over time. In addition, the communication link is secure because all VPN traffic is encrypted (MAVLink 2 itself does not support encryption).
 
-:::note VPN
-브로드캐스트 주소로 라우팅하도록 선택할 수도 있습니다(예: `x.x.x.255:14550`, 여기서 'x'는 VPN 시스템에 따라 다름). 이 접근 방식은 GCS 컴퓨터의 IP 주소를 알 필요가 없지만, 많은 트래픽이 발생할 수 있습니다(패킷이 VPN 네트워크의 모든 컴퓨터로 브로드캐스트되기 때문).
+:::note
+You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
 :::
 
-동작하는 USB 모듈은 다음과 같습니다:
+Some USB modules that are known to work include:
 
 - [화웨이 E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) , [화웨이 E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
   - *E8372*에는 SIM이 보조 컴퓨터에 연결중에는 SIM을 설정하는 WiFi가 포함되어 있습니다 (개발 절차가 조금 더 쉬워짐). *E3372*에는 WiFi가 없으므로, 스틱을 노트북에 연결하여 설정하여야 합니다.

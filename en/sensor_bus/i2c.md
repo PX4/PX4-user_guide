@@ -21,17 +21,17 @@ A small number of drivers will also need to include headers for their type of de
 To include a driver in firmware you must add the driver to the board-specific cmake file that corresponds to the target you want to build for.
 You can do this for a single driver:
 ```
-drivers/distance_sensor/lightware_laser_i2c
+CONFIG_DRIVERS_DISTANCE_SENSOR_LIGHTWARE_LASER_I2C=y
 ```
 
 You can also include all drivers of a particular type.
 ```
-distance_sensor # all available distance sensor drivers
+CONFIG_COMMON_DISTANCE_SENSOR=y
 ```
 
 
 :::tip
-For example, you can see/search for `distance_sensor` in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
+For example, you can see/search for `CONFIG_DRIVERS_DISTANCE_SENSOR_LIGHTWARE_LASER_I2C` in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.px4board) configuration.
 :::
 
 ## I2C Driver Examples

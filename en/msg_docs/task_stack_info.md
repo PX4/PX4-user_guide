@@ -1,5 +1,5 @@
 # task_stack_info (UORB message)
-        
+
 stack information for a single running process
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/task_stack_info.msg)

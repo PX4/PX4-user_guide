@@ -271,9 +271,14 @@ table {
 </tr>
 <tr>
  <td><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
- <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
+ <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0. Note that the data missing check is enabled if any of the options is set.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Only data missing check (triggers if more than 1s no data)</li> 
+  <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s)</li> 
+  <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li> 
+  <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
+</ul>
+ </td>
+ <td>0 > 15 </td>
+ <td>7</td>
  <td></td>
 </tr>
 <tr>
@@ -290,17 +295,17 @@ table {
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
- <td>Airspeed failsafe consistency threshold <p><strong>Comment:</strong> This specifies the minimum airspeed test ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the wind EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
- <td>0.5 > 3.0 </td>
- <td>1.0</td>
- <td></td>
+ <td>Airspeed failure innovation threshold <p><strong>Comment:</strong> This specifies the minimum airspeed innovation required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Large innovations indicate an inconsistency between predicted (groundspeed - windspeeed) and measured airspeed. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
+ <td>0.5 > 10.0 </td>
+ <td>5.</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INTEG">ASPD_FS_INTEG</strong> (FLOAT)</td>
- <td>Airspeed failsafe consistency delay <p><strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above ASPD_FS_INNOV required to trigger a failsafe. For example if ASPD_FS_INNOV is 1 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
- <td>? > 30.0 </td>
- <td>5.0</td>
- <td>s</td>
+ <td>Airspeed failure innovation integral threshold <p><strong>Comment:</strong> This sets the time integral of airspeed innovation exceedance above ASPD_FS_INNOV required to trigger a failsafe. Larger values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
+ <td>0.0 > 50.0 </td>
+ <td>10.</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (INT32)</td>
@@ -336,17 +341,41 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="ASPD_SCALE">ASPD_SCALE</strong> (FLOAT)</td>
- <td>Airspeed scale (scale from IAS to CAS) <p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ASPD_SCALE_EST to 1.</p>   </td>
- <td>0.5 > 1.5 </td>
+ <td><strong id="ASPD_SCALE_1">ASPD_SCALE_1</strong> (FLOAT)</td>
+ <td>Scale of airspeed sensor 1 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the first airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0.5 > 2.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="ASPD_SCALE_EST">ASPD_SCALE_EST</strong> (INT32)</td>
- <td>Automatic airspeed scale estimation on <p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS) on or off. It is recommended to fly level altitude while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved using the ASPD_SCALE parameter.</p>   </td>
+ <td><strong id="ASPD_SCALE_2">ASPD_SCALE_2</strong> (FLOAT)</td>
+ <td>Scale of airspeed sensor 2 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the second airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0.5 > 2.0 </td>
+ <td>1.0</td>
  <td></td>
- <td>Disabled (0)</td>
+</tr>
+<tr>
+ <td><strong id="ASPD_SCALE_3">ASPD_SCALE_3</strong> (FLOAT)</td>
+ <td>Scale of airspeed sensor 3 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the third airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0.5 > 2.0 </td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ASPD_SCALE_APPLY">ASPD_SCALE_APPLY</strong> (INT32)</td>
+ <td>Controls when to apply the new estimated airspeed scale(s)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Do not automatically apply the estimated scale</li> 
+
+<li><strong>1:</strong> Apply the estimated scale after disarm</li> 
+
+<li><strong>2:</strong> Apply the estimated scale in air</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -595,7 +624,7 @@ table {
 </tr>
 </tbody></table>
 
-## Battery Calibration
+## Autotune
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
@@ -604,261 +633,89 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="BAT1_A_PER_V">BAT1_A_PER_V</strong> (FLOAT)</td>
- <td>Battery 1 current per volt (A/V) <p><strong>Comment:</strong> The voltage seen by the ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT1_CAPACITY">BAT1_CAPACITY</strong> (FLOAT)</td>
- <td>Battery 1 capacity <p><strong>Comment:</strong> Defines the capacity of battery 1 in mAh.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>-1.0 > 100000 (50)</td>
- <td>-1.0</td>
- <td>mAh</td>
-</tr>
-<tr>
- <td><strong id="BAT1_I_CHANNEL">BAT1_I_CHANNEL</strong> (INT32)</td>
- <td>Battery 1 Current ADC Channel <p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor current of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT1_N_CELLS">BAT1_N_CELLS</strong> (INT32)</td>
- <td>Number of cells for battery 1 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>2:</strong> 2S Battery</li> 
+ <td><strong id="FW_AT_APPLY">FW_AT_APPLY</strong> (INT32)</td>
+ <td>Controls when to apply the new gains <p><strong>Comment:</strong> After the auto-tuning sequence is completed, a new set of gains is available and can be applied immediately or after landing.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Do not apply the new gains (logging only)</li> 
 
-<li><strong>3:</strong> 3S Battery</li> 
+<li><strong>1:</strong> Apply the new gains after disarm</li> 
 
-<li><strong>4:</strong> 4S Battery</li> 
-
-<li><strong>5:</strong> 5S Battery</li> 
-
-<li><strong>6:</strong> 6S Battery</li> 
-
-<li><strong>7:</strong> 7S Battery</li> 
-
-<li><strong>8:</strong> 8S Battery</li> 
-
-<li><strong>9:</strong> 9S Battery</li> 
-
-<li><strong>10:</strong> 10S Battery</li> 
-
-<li><strong>11:</strong> 11S Battery</li> 
-
-<li><strong>12:</strong> 12S Battery</li> 
-
-<li><strong>13:</strong> 13S Battery</li> 
-
-<li><strong>14:</strong> 14S Battery</li> 
-
-<li><strong>15:</strong> 15S Battery</li> 
-
-<li><strong>16:</strong> 16S Battery</li> 
+<li><strong>2:</strong> Apply the new gains in air</li> 
 </ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
+  </td>
  <td></td>
- <td>0</td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="BAT1_R_INTERNAL">BAT1_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT1_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>-1.0 > 0.2 (0.01)</td>
- <td>-1.0</td>
- <td>Ohm</td>
-</tr>
-<tr>
- <td><strong id="BAT1_SOURCE">BAT1_SOURCE</strong> (INT32)</td>
- <td>Battery 1 monitoring source <p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li> 
-
-<li><strong>0:</strong> Power Module</li> 
-
-<li><strong>1:</strong> External</li> 
-
-<li><strong>2:</strong> ESCs</li> 
+ <td><strong id="FW_AT_AXES">FW_AT_AXES</strong> (INT32)</td>
+ <td>Tuning axes selection <p><strong>Comment:</strong> Defines which axes will be tuned during the auto-tuning sequence Set bits in the following positions to enable: 0 : Roll 1 : Pitch 2 : Yaw</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> roll</li> 
+  <li><strong>1:</strong> pitch</li> 
+  <li><strong>2:</strong> yaw</li> 
 </ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT1_V_CHANNEL">BAT1_V_CHANNEL</strong> (INT32)</td>
- <td>Battery 1 Voltage ADC Channel <p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1</td>
+ </td>
+ <td>1 > 7 </td>
+ <td>3</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="BAT1_V_CHARGED">BAT1_V_CHARGED</strong> (FLOAT)</td>
- <td>Full cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>(0.01)</td>
- <td>4.05</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT1_V_DIV">BAT1_V_DIV</strong> (FLOAT)</td>
- <td>Battery 1 voltage divider (V divider) <p><strong>Comment:</strong> This is the divider from battery 1 voltage to ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
+ <td><strong id="FW_AT_START">FW_AT_START</strong> (INT32)</td>
+ <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abord the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using FW_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
  <td></td>
- <td>-1.0</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="BAT1_V_EMPTY">BAT1_V_EMPTY</strong> (FLOAT)</td>
- <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>(0.01)</td>
- <td>3.5</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>0.07 > 0.5 (0.01)</td>
- <td>0.3</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT2_A_PER_V">BAT2_A_PER_V</strong> (FLOAT)</td>
- <td>Battery 2 current per volt (A/V) <p><strong>Comment:</strong> The voltage seen by the ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1.0</td>
+ <td><strong id="FW_AT_SYSID_AMP">FW_AT_SYSID_AMP</strong> (FLOAT)</td>
+ <td>Amplitude of the injected signal <p><strong>Comment:</strong> This parameter scales the signal sent to the rate controller during system identification.</p>   </td>
+ <td>0.1 > 6.0 </td>
+ <td>1.0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="BAT2_CAPACITY">BAT2_CAPACITY</strong> (FLOAT)</td>
- <td>Battery 2 capacity <p><strong>Comment:</strong> Defines the capacity of battery 2 in mAh.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>-1.0 > 100000 (50)</td>
- <td>-1.0</td>
- <td>mAh</td>
-</tr>
-<tr>
- <td><strong id="BAT2_I_CHANNEL">BAT2_I_CHANNEL</strong> (INT32)</td>
- <td>Battery 2 Current ADC Channel <p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor current of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT2_N_CELLS">BAT2_N_CELLS</strong> (INT32)</td>
- <td>Number of cells for battery 2 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>2:</strong> 2S Battery</li> 
+ <td><strong id="MC_AT_APPLY">MC_AT_APPLY</strong> (INT32)</td>
+ <td>Controls when to apply the new gains <p><strong>Comment:</strong> After the auto-tuning sequence is completed, a new set of gains is available and can be applied immediately or after landing. WARNING Applying the gains in air is dangerous as there is no guarantee that those new gains will be able to stabilize the drone properly.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Do not apply the new gains (logging only)</li> 
 
-<li><strong>3:</strong> 3S Battery</li> 
+<li><strong>1:</strong> Apply the new gains after disarm</li> 
 
-<li><strong>4:</strong> 4S Battery</li> 
-
-<li><strong>5:</strong> 5S Battery</li> 
-
-<li><strong>6:</strong> 6S Battery</li> 
-
-<li><strong>7:</strong> 7S Battery</li> 
-
-<li><strong>8:</strong> 8S Battery</li> 
-
-<li><strong>9:</strong> 9S Battery</li> 
-
-<li><strong>10:</strong> 10S Battery</li> 
-
-<li><strong>11:</strong> 11S Battery</li> 
-
-<li><strong>12:</strong> 12S Battery</li> 
-
-<li><strong>13:</strong> 13S Battery</li> 
-
-<li><strong>14:</strong> 14S Battery</li> 
-
-<li><strong>15:</strong> 15S Battery</li> 
-
-<li><strong>16:</strong> 16S Battery</li> 
+<li><strong>2:</strong> WARNING Apply the new gains in air</li> 
 </ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
+  </td>
  <td></td>
- <td>0</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="BAT2_R_INTERNAL">BAT2_R_INTERNAL</strong> (FLOAT)</td>
- <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT2_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>-1.0 > 0.2 (0.01)</td>
- <td>-1.0</td>
- <td>Ohm</td>
+ <td><strong id="MC_AT_RISE_TIME">MC_AT_RISE_TIME</strong> (FLOAT)</td>
+ <td>Desired angular rate closed-loop rise time    </td>
+ <td>0.01 > 0.5 </td>
+ <td>0.14</td>
+ <td>s</td>
 </tr>
 <tr>
- <td><strong id="BAT2_SOURCE">BAT2_SOURCE</strong> (INT32)</td>
- <td>Battery 2 monitoring source <p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li> 
+ <td><strong id="MC_AT_START">MC_AT_START</strong> (INT32)</td>
+ <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abord the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using MC_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MC_AT_SYSID_AMP">MC_AT_SYSID_AMP</strong> (FLOAT)</td>
+ <td>Amplitude of the injected signal    </td>
+ <td>0.1 > 6.0 </td>
+ <td>0.7</td>
+ <td></td>
+</tr>
+</tbody></table>
 
-<li><strong>0:</strong> Power Module</li> 
+## Battery Calibration
 
-<li><strong>1:</strong> External</li> 
-
-<li><strong>2:</strong> ESCs</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT2_V_CHANNEL">BAT2_V_CHANNEL</strong> (INT32)</td>
- <td>Battery 2 Voltage ADC Channel <p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT2_V_CHARGED">BAT2_V_CHARGED</strong> (FLOAT)</td>
- <td>Full cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>(0.01)</td>
- <td>4.05</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT2_V_DIV">BAT2_V_DIV</strong> (FLOAT)</td>
- <td>Battery 2 voltage divider (V divider) <p><strong>Comment:</strong> This is the divider from battery 2 voltage to ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>-1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT2_V_EMPTY">BAT2_V_EMPTY</strong> (FLOAT)</td>
- <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>(0.01)</td>
- <td>3.5</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>0.07 > 0.5 (0.01)</td>
- <td>0.3</td>
- <td>V</td>
-</tr>
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
 <tr>
  <td><strong id="BAT_ADC_CHANNEL">BAT_ADC_CHANNEL</strong> (INT32)</td>
  <td>This parameter is deprecated. Please use BAT1_I_CHANNEL    </td>
@@ -1881,7 +1738,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
- <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV from their center position immediately gives control back to the pilot by switching to Position mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
+ <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV from their center position immediately gives control back to the pilot by switching to Position mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode. This parameter is not considered in case of a GPS failure (Descend flight mode), where stick override is always enabled.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
   <li><strong>1:</strong> Enable override during offboard mode</li> 
   <li><strong>2:</strong> Ignore throttle stick</li> 
 </ul>
@@ -1921,6 +1778,13 @@ table {
  <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td></td>
  <td>1</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="COM_WIND_WARN">COM_WIND_WARN</strong> (FLOAT)</td>
+ <td>Wind speed warning threshold <p><strong>Comment:</strong> A warning is triggered if the currently estimated wind speed is above this value. Warning is sent periodically (every 1min). A negative value disables the feature.</p>   </td>
+ <td>-1 > 30 (0.1)</td>
+ <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -2701,53 +2565,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="DSHOT_3D_DEAD_H">DSHOT_3D_DEAD_H</strong> (INT32)</td>
- <td>DSHOT 3D deadband high <p><strong>Comment:</strong> When the actuator_output is between DSHOT_3D_DEAD_L and DSHOT_3D_DEAD_H, motor will not spin. This value is with respect to the mixer_module range (0-1999), not the DSHOT values.</p>   </td>
- <td>1000 > 1999 </td>
- <td>1000</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="DSHOT_3D_DEAD_L">DSHOT_3D_DEAD_L</strong> (INT32)</td>
- <td>DSHOT 3D deadband low <p><strong>Comment:</strong> When the actuator_output is between DSHOT_3D_DEAD_L and DSHOT_3D_DEAD_H, motor will not spin. This value is with respect to the mixer_module range (0-1999), not the DSHOT values.</p>   </td>
- <td>0 > 1000 </td>
- <td>1000</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="DSHOT_3D_ENABLE">DSHOT_3D_ENABLE</strong> (INT32)</td>
- <td>Allows for 3d mode when using DShot and suitable mixer <p><strong>Comment:</strong> WARNING: ESC must be configured for 3D mode, and DSHOT_MIN set to 0. This splits the throttle ranges in two. Direction 1) 48 is the slowest, 1047 is the fastest. Direction 2) 1049 is the slowest, 2047 is the fastest. When mixer outputs 1000 or value inside DSHOT 3D deadband, DShot 0 is sent.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="DSHOT_CONFIG">DSHOT_CONFIG</strong> (INT32)</td>
- <td>Configure DShot <p><strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable (use PWM/Oneshot)</li> 
-
-<li><strong>150:</strong> DShot150</li> 
-
-<li><strong>300:</strong> DShot300</li> 
-
-<li><strong>600:</strong> DShot600</li> 
-
-<li><strong>1200:</strong> DShot1200</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)</td>
- <td>Minimum DShot Motor Output <p><strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.</p>   </td>
- <td>0 > 1 (0.01)</td>
- <td>0.055</td>
- <td>%</td>
-</tr>
-<tr>
  <td><strong id="DSHOT_TEL_CFG">DSHOT_TEL_CFG</strong> (INT32)</td>
  <td>Serial Configuration for DShot Driver <p><strong>Comment:</strong> Configure on which serial port to run DShot Driver.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -2778,13 +2595,6 @@ table {
 </td>
  <td></td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MOT_POLE_COUNT">MOT_POLE_COUNT</strong> (INT32)</td>
- <td>Number of magnetic poles of the motors <p><strong>Comment:</strong> Specify the number of magnetic poles of the motors. It is required to compute the RPM value from the eRPM returned with the ESC telemetry. Either get the number from the motor spec sheet or count the magnets on the bell of the motor (not the stator magnets). Typical motors for 5 inch props have 14 poles.</p>   </td>
- <td></td>
- <td>14</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -5029,6 +4839,20 @@ table {
  <td>0.0036</td>
  <td>normalized_thrust/s</td>
 </tr>
+<tr>
+ <td><strong id="HTE_VXY_THR">HTE_VXY_THR</strong> (FLOAT)</td>
+ <td>Horizontal velocity threshold for sensitivity reduction <p><strong>Comment:</strong> Above this speed, the measurement noise is linearly increased to reduce the sensitivity of the estimator from biased measurement. Set to a low value on vehicles with large lifting surfaces.</p>   </td>
+ <td>1.0 > 20.0 </td>
+ <td>10.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="HTE_VZ_THR">HTE_VZ_THR</strong> (FLOAT)</td>
+ <td>Vertical velocity threshold for sensitivity reduction <p><strong>Comment:</strong> Above this speed, the measurement noise is linearly increased to reduce the sensitivity of the estimator from biased measurement. Set to a low value on vehicles affected by air drag when climbing or descending.</p>   </td>
+ <td>1.0 > 10.0 </td>
+ <td>2.0</td>
+ <td>m/s</td>
+</tr>
 </tbody></table>
 
 ## Iridium SBD
@@ -5554,20 +5378,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="MAV_0_BROADCAST">MAV_0_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 0 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Never broadcast</li> 
-
-<li><strong>1:</strong> Always broadcast</li> 
-
-<li><strong>2:</strong> Only multicast</li> 
-</ul>
-  </td>
- <td></td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -5603,89 +5413,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="MAV_0_FORWARD">MAV_0_FORWARD</strong> (INT32)</td>
- <td>Enable MAVLink Message forwarding for instance 0 <p><strong>Comment:</strong> If enabled, forward incoming MAVLink messages to other MAVLink ports if the message is either broadcast or the target is not the autopilot. This allows for example a GCS to talk to a camera that is connected to the autopilot via MAVLink (on a different link than the GCS).</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_0_MODE">MAV_0_MODE</strong> (INT32)</td>
- <td>MAVLink Mode for instance 0 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Normal</li> 
-
-<li><strong>1:</strong> Custom</li> 
-
-<li><strong>2:</strong> Onboard</li> 
-
-<li><strong>3:</strong> OSD</li> 
-
-<li><strong>4:</strong> Magic</li> 
-
-<li><strong>5:</strong> Config</li> 
-
-<li><strong>7:</strong> Minimal</li> 
-
-<li><strong>8:</strong> External Vision</li> 
-
-<li><strong>10:</strong> Gimbal</li> 
-
-<li><strong>11:</strong> Onboard Low Bandwidth</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_0_RADIO_CTL">MAV_0_RADIO_CTL</strong> (INT32)</td>
- <td>Enable software throttling of mavlink on instance 0 <p><strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_0_RATE">MAV_0_RATE</strong> (INT32)</td>
- <td>Maximum MAVLink sending rate for instance 0 <p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>0 > ? </td>
- <td>1200</td>
- <td>B/s</td>
-</tr>
-<tr>
- <td><strong id="MAV_0_REMOTE_PRT">MAV_0_REMOTE_PRT</strong> (INT32)</td>
- <td>MAVLink Remote Port for instance 0 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 0, selected remote port will be set and used in MAVLink instance 0.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>14550</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_0_UDP_PRT">MAV_0_UDP_PRT</strong> (INT32)</td>
- <td>MAVLink Network Port for instance 0 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 0, selected udp port will be set and used in MAVLink instance 0.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>14556</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_1_BROADCAST">MAV_1_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Never broadcast</li> 
-
-<li><strong>1:</strong> Always broadcast</li> 
-
-<li><strong>2:</strong> Only multicast</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for MAVLink (instance 1) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -5716,89 +5443,6 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_1_FORWARD">MAV_1_FORWARD</strong> (INT32)</td>
- <td>Enable MAVLink Message forwarding for instance 1 <p><strong>Comment:</strong> If enabled, forward incoming MAVLink messages to other MAVLink ports if the message is either broadcast or the target is not the autopilot. This allows for example a GCS to talk to a camera that is connected to the autopilot via MAVLink (on a different link than the GCS).</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_1_MODE">MAV_1_MODE</strong> (INT32)</td>
- <td>MAVLink Mode for instance 1 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Normal</li> 
-
-<li><strong>1:</strong> Custom</li> 
-
-<li><strong>2:</strong> Onboard</li> 
-
-<li><strong>3:</strong> OSD</li> 
-
-<li><strong>4:</strong> Magic</li> 
-
-<li><strong>5:</strong> Config</li> 
-
-<li><strong>7:</strong> Minimal</li> 
-
-<li><strong>8:</strong> External Vision</li> 
-
-<li><strong>10:</strong> Gimbal</li> 
-
-<li><strong>11:</strong> Onboard Low Bandwidth</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_1_RADIO_CTL">MAV_1_RADIO_CTL</strong> (INT32)</td>
- <td>Enable software throttling of mavlink on instance 1 <p><strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_1_RATE">MAV_1_RATE</strong> (INT32)</td>
- <td>Maximum MAVLink sending rate for instance 1 <p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>0 > ? </td>
- <td>0</td>
- <td>B/s</td>
-</tr>
-<tr>
- <td><strong id="MAV_1_REMOTE_PRT">MAV_1_REMOTE_PRT</strong> (INT32)</td>
- <td>MAVLink Remote Port for instance 1 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 1, selected remote port will be set and used in MAVLink instance 1.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_1_UDP_PRT">MAV_1_UDP_PRT</strong> (INT32)</td>
- <td>MAVLink Network Port for instance 1 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 1, selected udp port will be set and used in MAVLink instance 1.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_2_BROADCAST">MAV_2_BROADCAST</strong> (INT32)</td>
- <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Never broadcast</li> 
-
-<li><strong>1:</strong> Always broadcast</li> 
-
-<li><strong>2:</strong> Only multicast</li> 
-</ul>
-  </td>
  <td></td>
  <td>0</td>
  <td></td>
@@ -5839,75 +5483,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="MAV_2_FORWARD">MAV_2_FORWARD</strong> (INT32)</td>
- <td>Enable MAVLink Message forwarding for instance 2 <p><strong>Comment:</strong> If enabled, forward incoming MAVLink messages to other MAVLink ports if the message is either broadcast or the target is not the autopilot. This allows for example a GCS to talk to a camera that is connected to the autopilot via MAVLink (on a different link than the GCS).</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_2_MODE">MAV_2_MODE</strong> (INT32)</td>
- <td>MAVLink Mode for instance 2 <p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Normal</li> 
-
-<li><strong>1:</strong> Custom</li> 
-
-<li><strong>2:</strong> Onboard</li> 
-
-<li><strong>3:</strong> OSD</li> 
-
-<li><strong>4:</strong> Magic</li> 
-
-<li><strong>5:</strong> Config</li> 
-
-<li><strong>7:</strong> Minimal</li> 
-
-<li><strong>8:</strong> External Vision</li> 
-
-<li><strong>10:</strong> Gimbal</li> 
-
-<li><strong>11:</strong> Onboard Low Bandwidth</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_2_RADIO_CTL">MAV_2_RADIO_CTL</strong> (INT32)</td>
- <td>Enable software throttling of mavlink on instance 2 <p><strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_2_RATE">MAV_2_RATE</strong> (INT32)</td>
- <td>Maximum MAVLink sending rate for instance 2 <p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>0 > ? </td>
- <td>0</td>
- <td>B/s</td>
-</tr>
-<tr>
- <td><strong id="MAV_2_REMOTE_PRT">MAV_2_REMOTE_PRT</strong> (INT32)</td>
- <td>MAVLink Remote Port for instance 2 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 2, selected remote port will be set and used in MAVLink instance 2.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_2_UDP_PRT">MAV_2_UDP_PRT</strong> (INT32)</td>
- <td>MAVLink Network Port for instance 2 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 2, selected udp port will be set and used in MAVLink instance 2.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="MAV_COMP_ID">MAV_COMP_ID</strong> (INT32)</td>
  <td>MAVLink component ID    <p><b>Reboot required:</b> true</p>
 </td>
@@ -5931,7 +5506,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_HB_FORW_EN">MAV_HB_FORW_EN</strong> (INT32)</td>
- <td>Hearbeat message forwarding <p><strong>Comment:</strong> The mavlink hearbeat message will not be forwarded if this parameter is set to 'disabled'. The main reason for disabling heartbeats to be forwarded is because they confuse dronekit.</p>   </td>
+ <td>Heartbeat message forwarding <p><strong>Comment:</strong> The mavlink heartbeat message will not be forwarded if this parameter is set to 'disabled'. The main reason for disabling heartbeats to be forwarded is because they confuse dronekit.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
@@ -6048,6 +5623,31 @@ table {
  <td>Use/Accept HIL GPS message even if not in HIL mode <p><strong>Comment:</strong> If set to 1 incoming HIL GPS messages are parsed.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## Magnetometer Bias Estimator
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MBE_ENABLE">MBE_ENABLE</strong> (INT32)</td>
+ <td>Enable online mag bias calibration <p><strong>Comment:</strong> This enables continuous calibration of the magnetometers before takeoff using gyro data.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MBE_LEARN_GAIN">MBE_LEARN_GAIN</strong> (FLOAT)</td>
+ <td>Mag bias estimator learning gain <p><strong>Comment:</strong> Increase to make the estimator more responsive Decrease to make the estimator more robust to noise</p>   </td>
+ <td>0.1 > 100 (0.1)</td>
+ <td>18.</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -7199,1385 +6799,6 @@ table {
  <td>0.0 > ? </td>
  <td>0.0</td>
  <td>s/(1000*PWM)</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS1">PWM_AUX_DIS1</strong> (INT32)</td>
- <td>PWM aux 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS2">PWM_AUX_DIS2</strong> (INT32)</td>
- <td>PWM aux 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS3">PWM_AUX_DIS3</strong> (INT32)</td>
- <td>PWM aux 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS4">PWM_AUX_DIS4</strong> (INT32)</td>
- <td>PWM aux 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS5">PWM_AUX_DIS5</strong> (INT32)</td>
- <td>PWM aux 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS6">PWM_AUX_DIS6</strong> (INT32)</td>
- <td>PWM aux 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS7">PWM_AUX_DIS7</strong> (INT32)</td>
- <td>PWM aux 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DIS8">PWM_AUX_DIS8</strong> (INT32)</td>
- <td>PWM aux 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DISARM">PWM_AUX_DISARM</strong> (INT32)</td>
- <td>PWM aux disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>0 > 2200 </td>
- <td>1500</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL1">PWM_AUX_FAIL1</strong> (INT32)</td>
- <td>PWM aux 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL2">PWM_AUX_FAIL2</strong> (INT32)</td>
- <td>PWM aux 2 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL3">PWM_AUX_FAIL3</strong> (INT32)</td>
- <td>PWM aux 3 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL4">PWM_AUX_FAIL4</strong> (INT32)</td>
- <td>PWM aux 4 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL5">PWM_AUX_FAIL5</strong> (INT32)</td>
- <td>PWM aux 5 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL6">PWM_AUX_FAIL6</strong> (INT32)</td>
- <td>PWM aux 6 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL7">PWM_AUX_FAIL7</strong> (INT32)</td>
- <td>PWM aux 7 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_FAIL8">PWM_AUX_FAIL8</strong> (INT32)</td>
- <td>PWM aux 8 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)</td>
- <td>PWM aux maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>1600 > 2200 </td>
- <td>2000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX1">PWM_AUX_MAX1</strong> (INT32)</td>
- <td>PWM aux 1 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX2">PWM_AUX_MAX2</strong> (INT32)</td>
- <td>PWM aux 2 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX3">PWM_AUX_MAX3</strong> (INT32)</td>
- <td>PWM aux 3 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX4">PWM_AUX_MAX4</strong> (INT32)</td>
- <td>PWM aux 4 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX5">PWM_AUX_MAX5</strong> (INT32)</td>
- <td>PWM aux 5 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX6">PWM_AUX_MAX6</strong> (INT32)</td>
- <td>PWM aux 6 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX7">PWM_AUX_MAX7</strong> (INT32)</td>
- <td>PWM aux 7 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX8">PWM_AUX_MAX8</strong> (INT32)</td>
- <td>PWM aux 8 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)</td>
- <td>PWM aux minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>800 > 1400 </td>
- <td>1000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN1">PWM_AUX_MIN1</strong> (INT32)</td>
- <td>PWM aux 1 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN2">PWM_AUX_MIN2</strong> (INT32)</td>
- <td>PWM aux 2 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN3">PWM_AUX_MIN3</strong> (INT32)</td>
- <td>PWM aux 3 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN4">PWM_AUX_MIN4</strong> (INT32)</td>
- <td>PWM aux 4 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN5">PWM_AUX_MIN5</strong> (INT32)</td>
- <td>PWM aux 5 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN6">PWM_AUX_MIN6</strong> (INT32)</td>
- <td>PWM aux 6 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN7">PWM_AUX_MIN7</strong> (INT32)</td>
- <td>PWM aux 7 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN8">PWM_AUX_MIN8</strong> (INT32)</td>
- <td>PWM aux 8 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_OUT">PWM_AUX_OUT</strong> (INT32)</td>
- <td>PWM channels used as ESC outputs <p><strong>Comment:</strong> Number representing the channels e.g. 134 - Channel 1, 3 and 4. Global e.g. PWM_AUX_MIN/MAX/DISARM limits only apply to these channels.</p>   </td>
- <td>0 > 123456789 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_RATE">PWM_AUX_RATE</strong> (INT32)</td>
- <td>PWM aux output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>-1 > 2000 </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_RATE1">PWM_AUX_RATE1</strong> (INT32)</td>
- <td>PWM aux 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the aux outputs</p>   </td>
- <td>0 > 400 </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td>PWM aux 1 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td>PWM aux 2 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td>PWM aux 3 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td>PWM aux 4 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td>PWM aux 5 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td>PWM aux 6 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV7">PWM_AUX_REV7</strong> (INT32)</td>
- <td>PWM aux 7 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV8">PWM_AUX_REV8</strong> (INT32)</td>
- <td>PWM aux 8 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
- <td>PWM aux 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
- <td>PWM aux 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
- <td>PWM aux 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
- <td>PWM aux 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
- <td>PWM aux 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
- <td>PWM aux 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM7">PWM_AUX_TRIM7</strong> (FLOAT)</td>
- <td>PWM aux 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM8">PWM_AUX_TRIM8</strong> (FLOAT)</td>
- <td>PWM aux 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS1">PWM_EXTRA_DIS1</strong> (INT32)</td>
- <td>PWM extra 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS2">PWM_EXTRA_DIS2</strong> (INT32)</td>
- <td>PWM extra 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS3">PWM_EXTRA_DIS3</strong> (INT32)</td>
- <td>PWM extra 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS4">PWM_EXTRA_DIS4</strong> (INT32)</td>
- <td>PWM extra 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS5">PWM_EXTRA_DIS5</strong> (INT32)</td>
- <td>PWM extra 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS6">PWM_EXTRA_DIS6</strong> (INT32)</td>
- <td>PWM extra 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS7">PWM_EXTRA_DIS7</strong> (INT32)</td>
- <td>PWM extra 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS8">PWM_EXTRA_DIS8</strong> (INT32)</td>
- <td>PWM extra 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DISARM">PWM_EXTRA_DISARM</strong> (INT32)</td>
- <td>PWM extra disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>0 > 2200 </td>
- <td>1500</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL1">PWM_EXTRA_FAIL1</strong> (INT32)</td>
- <td>PWM extra 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL2">PWM_EXTRA_FAIL2</strong> (INT32)</td>
- <td>PWM extra 2 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL3">PWM_EXTRA_FAIL3</strong> (INT32)</td>
- <td>PWM extra 3 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL4">PWM_EXTRA_FAIL4</strong> (INT32)</td>
- <td>PWM extra 4 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL5">PWM_EXTRA_FAIL5</strong> (INT32)</td>
- <td>PWM extra 5 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL6">PWM_EXTRA_FAIL6</strong> (INT32)</td>
- <td>PWM extra 6 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL7">PWM_EXTRA_FAIL7</strong> (INT32)</td>
- <td>PWM extra 7 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL8">PWM_EXTRA_FAIL8</strong> (INT32)</td>
- <td>PWM extra 8 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX">PWM_EXTRA_MAX</strong> (INT32)</td>
- <td>PWM extra maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>1600 > 2200 </td>
- <td>2000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX1">PWM_EXTRA_MAX1</strong> (INT32)</td>
- <td>PWM extra 1 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX2">PWM_EXTRA_MAX2</strong> (INT32)</td>
- <td>PWM extra 2 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX3">PWM_EXTRA_MAX3</strong> (INT32)</td>
- <td>PWM extra 3 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX4">PWM_EXTRA_MAX4</strong> (INT32)</td>
- <td>PWM extra 4 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX5">PWM_EXTRA_MAX5</strong> (INT32)</td>
- <td>PWM extra 5 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX6">PWM_EXTRA_MAX6</strong> (INT32)</td>
- <td>PWM extra 6 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX7">PWM_EXTRA_MAX7</strong> (INT32)</td>
- <td>PWM extra 7 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX8">PWM_EXTRA_MAX8</strong> (INT32)</td>
- <td>PWM extra 8 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN">PWM_EXTRA_MIN</strong> (INT32)</td>
- <td>PWM extra minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>800 > 1400 </td>
- <td>1000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN1">PWM_EXTRA_MIN1</strong> (INT32)</td>
- <td>PWM extra 1 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN2">PWM_EXTRA_MIN2</strong> (INT32)</td>
- <td>PWM extra 2 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN3">PWM_EXTRA_MIN3</strong> (INT32)</td>
- <td>PWM extra 3 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN4">PWM_EXTRA_MIN4</strong> (INT32)</td>
- <td>PWM extra 4 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN5">PWM_EXTRA_MIN5</strong> (INT32)</td>
- <td>PWM extra 5 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN6">PWM_EXTRA_MIN6</strong> (INT32)</td>
- <td>PWM extra 6 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN7">PWM_EXTRA_MIN7</strong> (INT32)</td>
- <td>PWM extra 7 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN8">PWM_EXTRA_MIN8</strong> (INT32)</td>
- <td>PWM extra 8 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_RATE">PWM_EXTRA_RATE</strong> (INT32)</td>
- <td>PWM extra output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>-1 > 2000 </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_RATE1">PWM_EXTRA_RATE1</strong> (INT32)</td>
- <td>PWM extra 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the main outputs</p>   </td>
- <td>0 > 400 </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV1">PWM_EXTRA_REV1</strong> (INT32)</td>
- <td>PWM extra 1 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV2">PWM_EXTRA_REV2</strong> (INT32)</td>
- <td>PWM extra 2 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV3">PWM_EXTRA_REV3</strong> (INT32)</td>
- <td>PWM extra 3 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV4">PWM_EXTRA_REV4</strong> (INT32)</td>
- <td>PWM extra 4 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV5">PWM_EXTRA_REV5</strong> (INT32)</td>
- <td>PWM extra 5 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV6">PWM_EXTRA_REV6</strong> (INT32)</td>
- <td>PWM extra 6 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV7">PWM_EXTRA_REV7</strong> (INT32)</td>
- <td>PWM extra 7 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV8">PWM_EXTRA_REV8</strong> (INT32)</td>
- <td>PWM extra 8 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM1">PWM_EXTRA_TRIM1</strong> (FLOAT)</td>
- <td>PWM extra 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM2">PWM_EXTRA_TRIM2</strong> (FLOAT)</td>
- <td>PWM extra 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM3">PWM_EXTRA_TRIM3</strong> (FLOAT)</td>
- <td>PWM extra 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM4">PWM_EXTRA_TRIM4</strong> (FLOAT)</td>
- <td>PWM extra 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM5">PWM_EXTRA_TRIM5</strong> (FLOAT)</td>
- <td>PWM extra 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM6">PWM_EXTRA_TRIM6</strong> (FLOAT)</td>
- <td>PWM extra 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM7">PWM_EXTRA_TRIM7</strong> (FLOAT)</td>
- <td>PWM extra 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM8">PWM_EXTRA_TRIM8</strong> (FLOAT)</td>
- <td>PWM extra 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS1">PWM_MAIN_DIS1</strong> (INT32)</td>
- <td>PWM main 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS10">PWM_MAIN_DIS10</strong> (INT32)</td>
- <td>PWM main 10 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS11">PWM_MAIN_DIS11</strong> (INT32)</td>
- <td>PWM main 11 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS12">PWM_MAIN_DIS12</strong> (INT32)</td>
- <td>PWM main 12 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS13">PWM_MAIN_DIS13</strong> (INT32)</td>
- <td>PWM main 13 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS14">PWM_MAIN_DIS14</strong> (INT32)</td>
- <td>PWM main 14 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS2">PWM_MAIN_DIS2</strong> (INT32)</td>
- <td>PWM main 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS3">PWM_MAIN_DIS3</strong> (INT32)</td>
- <td>PWM main 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS4">PWM_MAIN_DIS4</strong> (INT32)</td>
- <td>PWM main 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS5">PWM_MAIN_DIS5</strong> (INT32)</td>
- <td>PWM main 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS6">PWM_MAIN_DIS6</strong> (INT32)</td>
- <td>PWM main 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS7">PWM_MAIN_DIS7</strong> (INT32)</td>
- <td>PWM main 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS8">PWM_MAIN_DIS8</strong> (INT32)</td>
- <td>PWM main 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DIS9">PWM_MAIN_DIS9</strong> (INT32)</td>
- <td>PWM main 9 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DISARM">PWM_MAIN_DISARM</strong> (INT32)</td>
- <td>PWM main disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>0 > 2200 </td>
- <td>900</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL1">PWM_MAIN_FAIL1</strong> (INT32)</td>
- <td>PWM main 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL10">PWM_MAIN_FAIL10</strong> (INT32)</td>
- <td>PWM main 10 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL11">PWM_MAIN_FAIL11</strong> (INT32)</td>
- <td>PWM main 11 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL12">PWM_MAIN_FAIL12</strong> (INT32)</td>
- <td>PWM main 12 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL13">PWM_MAIN_FAIL13</strong> (INT32)</td>
- <td>PWM main 13 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL14">PWM_MAIN_FAIL14</strong> (INT32)</td>
- <td>PWM main 14 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL2">PWM_MAIN_FAIL2</strong> (INT32)</td>
- <td>PWM main 2 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL3">PWM_MAIN_FAIL3</strong> (INT32)</td>
- <td>PWM main 3 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL4">PWM_MAIN_FAIL4</strong> (INT32)</td>
- <td>PWM main 4 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL5">PWM_MAIN_FAIL5</strong> (INT32)</td>
- <td>PWM main 5 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL6">PWM_MAIN_FAIL6</strong> (INT32)</td>
- <td>PWM main 6 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL7">PWM_MAIN_FAIL7</strong> (INT32)</td>
- <td>PWM main 7 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL8">PWM_MAIN_FAIL8</strong> (INT32)</td>
- <td>PWM main 8 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_FAIL9">PWM_MAIN_FAIL9</strong> (INT32)</td>
- <td>PWM main 9 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX">PWM_MAIN_MAX</strong> (INT32)</td>
- <td>PWM main maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>1600 > 2200 </td>
- <td>2000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX1">PWM_MAIN_MAX1</strong> (INT32)</td>
- <td>PWM main 1 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX10">PWM_MAIN_MAX10</strong> (INT32)</td>
- <td>PWM main 10 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX11">PWM_MAIN_MAX11</strong> (INT32)</td>
- <td>PWM main 11 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX12">PWM_MAIN_MAX12</strong> (INT32)</td>
- <td>PWM main 12 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX13">PWM_MAIN_MAX13</strong> (INT32)</td>
- <td>PWM main 13 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX14">PWM_MAIN_MAX14</strong> (INT32)</td>
- <td>PWM main 14 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX2">PWM_MAIN_MAX2</strong> (INT32)</td>
- <td>PWM main 2 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX3">PWM_MAIN_MAX3</strong> (INT32)</td>
- <td>PWM main 3 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX4">PWM_MAIN_MAX4</strong> (INT32)</td>
- <td>PWM main 4 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX5">PWM_MAIN_MAX5</strong> (INT32)</td>
- <td>PWM main 5 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX6">PWM_MAIN_MAX6</strong> (INT32)</td>
- <td>PWM main 6 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX7">PWM_MAIN_MAX7</strong> (INT32)</td>
- <td>PWM main 7 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX8">PWM_MAIN_MAX8</strong> (INT32)</td>
- <td>PWM main 8 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX9">PWM_MAIN_MAX9</strong> (INT32)</td>
- <td>PWM main 9 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN">PWM_MAIN_MIN</strong> (INT32)</td>
- <td>PWM main minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>800 > 1400 </td>
- <td>1000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN1">PWM_MAIN_MIN1</strong> (INT32)</td>
- <td>PWM main 1 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN10">PWM_MAIN_MIN10</strong> (INT32)</td>
- <td>PWM main 10 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN11">PWM_MAIN_MIN11</strong> (INT32)</td>
- <td>PWM main 11 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN12">PWM_MAIN_MIN12</strong> (INT32)</td>
- <td>PWM main 12 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN13">PWM_MAIN_MIN13</strong> (INT32)</td>
- <td>PWM main 13 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN14">PWM_MAIN_MIN14</strong> (INT32)</td>
- <td>PWM main 14 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN2">PWM_MAIN_MIN2</strong> (INT32)</td>
- <td>PWM main 2 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN3">PWM_MAIN_MIN3</strong> (INT32)</td>
- <td>PWM main 3 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN4">PWM_MAIN_MIN4</strong> (INT32)</td>
- <td>PWM main 4 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN5">PWM_MAIN_MIN5</strong> (INT32)</td>
- <td>PWM main 5 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN6">PWM_MAIN_MIN6</strong> (INT32)</td>
- <td>PWM main 6 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN7">PWM_MAIN_MIN7</strong> (INT32)</td>
- <td>PWM main 7 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN8">PWM_MAIN_MIN8</strong> (INT32)</td>
- <td>PWM main 8 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN9">PWM_MAIN_MIN9</strong> (INT32)</td>
- <td>PWM main 9 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_OUT">PWM_MAIN_OUT</strong> (INT32)</td>
- <td>PWM channels used as ESC outputs <p><strong>Comment:</strong> Number representing the channels e.g. 134 - Channel 1, 3 and 4. Global e.g. PWM_MAIN_MIN/MAX/DISARM limits only apply to these channels.</p>   </td>
- <td>0 > 123456789 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_RATE">PWM_MAIN_RATE</strong> (INT32)</td>
- <td>PWM main output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>-1 > 2000 </td>
- <td>400</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_RATE1">PWM_MAIN_RATE1</strong> (INT32)</td>
- <td>PWM main 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the main outputs</p>   </td>
- <td>0 > 400 </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
- <td>PWM main 1 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV10">PWM_MAIN_REV10</strong> (INT32)</td>
- <td>PWM main 10 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV11">PWM_MAIN_REV11</strong> (INT32)</td>
- <td>PWM main 11 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV12">PWM_MAIN_REV12</strong> (INT32)</td>
- <td>PWM main 12 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV13">PWM_MAIN_REV13</strong> (INT32)</td>
- <td>PWM main 13 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV14">PWM_MAIN_REV14</strong> (INT32)</td>
- <td>PWM main 14 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV2">PWM_MAIN_REV2</strong> (INT32)</td>
- <td>PWM main 2 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV3">PWM_MAIN_REV3</strong> (INT32)</td>
- <td>PWM main 3 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV4">PWM_MAIN_REV4</strong> (INT32)</td>
- <td>PWM main 4 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV5">PWM_MAIN_REV5</strong> (INT32)</td>
- <td>PWM main 5 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV6">PWM_MAIN_REV6</strong> (INT32)</td>
- <td>PWM main 6 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV7">PWM_MAIN_REV7</strong> (INT32)</td>
- <td>PWM main 7 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV8">PWM_MAIN_REV8</strong> (INT32)</td>
- <td>PWM main 8 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV9">PWM_MAIN_REV9</strong> (INT32)</td>
- <td>PWM main 9 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM1">PWM_MAIN_TRIM1</strong> (FLOAT)</td>
- <td>PWM main 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM10">PWM_MAIN_TRIM10</strong> (FLOAT)</td>
- <td>PWM main 10 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM11">PWM_MAIN_TRIM11</strong> (FLOAT)</td>
- <td>PWM main 11 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM12">PWM_MAIN_TRIM12</strong> (FLOAT)</td>
- <td>PWM main 12 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM13">PWM_MAIN_TRIM13</strong> (FLOAT)</td>
- <td>PWM main 13 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM14">PWM_MAIN_TRIM14</strong> (FLOAT)</td>
- <td>PWM main 14 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM2">PWM_MAIN_TRIM2</strong> (FLOAT)</td>
- <td>PWM main 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM3">PWM_MAIN_TRIM3</strong> (FLOAT)</td>
- <td>PWM main 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM4">PWM_MAIN_TRIM4</strong> (FLOAT)</td>
- <td>PWM main 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM5">PWM_MAIN_TRIM5</strong> (FLOAT)</td>
- <td>PWM main 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM6">PWM_MAIN_TRIM6</strong> (FLOAT)</td>
- <td>PWM main 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM7">PWM_MAIN_TRIM7</strong> (FLOAT)</td>
- <td>PWM main 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM8">PWM_MAIN_TRIM8</strong> (FLOAT)</td>
- <td>PWM main 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM9">PWM_MAIN_TRIM9</strong> (FLOAT)</td>
- <td>PWM main 9 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
- <td>0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_SBUS_MODE">PWM_SBUS_MODE</strong> (INT32)</td>
@@ -10201,29 +8422,8 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="RC_ACRO_TH">RC_ACRO_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting acro mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_ARMSWITCH_TH">RC_ARMSWITCH_TH</strong> (FLOAT)</td>
  <td>Threshold for the arm switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_ASSIST_TH">RC_ASSIST_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting assist mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.25</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_AUTO_TH">RC_AUTO_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting auto mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td>-1 > 1 </td>
  <td>0.75</td>
  <td></td>
@@ -10250,15 +8450,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RC_MAN_TH">RC_MAN_TH</strong> (FLOAT)</td>
- <td>Threshold for the manual switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_MAP_ACRO_SW">RC_MAP_ACRO_SW</strong> (INT32)</td>
- <td>Acro switch channel  <strong>Values:</strong><ul>
+ <td>Acro switch channel (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10606,7 +8799,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_MAN_SW">RC_MAP_MAN_SW</strong> (INT32)</td>
- <td>Manual switch channel mapping  <strong>Values:</strong><ul>
+ <td>Manual switch channel mapping (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10652,7 +8845,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_MODE_SW">RC_MAP_MODE_SW</strong> (INT32)</td>
- <td>Mode switch channel mapping <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
+ <td>Mode switch channel mapping (deprecated) <p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10744,7 +8937,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_POSCTL_SW">RC_MAP_POSCTL_SW</strong> (INT32)</td>
- <td>Position Control switch channel  <strong>Values:</strong><ul>
+ <td>Position Control switch channel (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10882,7 +9075,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC_MAP_STAB_SW">RC_MAP_STAB_SW</strong> (INT32)</td>
- <td>Stabilize switch channel mapping  <strong>Values:</strong><ul>
+ <td>Stabilize switch channel mapping  (deprecated)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -10980,24 +9173,10 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RC_POSCTL_TH">RC_POSCTL_TH</strong> (FLOAT)</td>
- <td>Threshold for selecting posctl mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="RC_RETURN_TH">RC_RETURN_TH</strong> (FLOAT)</td>
  <td>Threshold for selecting return to launch mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td>-1 > 1 </td>
  <td>0.75</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RC_STAB_TH">RC_STAB_TH</strong> (FLOAT)</td>
- <td>Threshold for the stabilize switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
- <td>0.5</td>
  <td></td>
 </tr>
 <tr>
@@ -11045,6 +9224,20 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="RTL_HDG_MD">RTL_HDG_MD</strong> (INT32)</td>
+ <td>RTL heading mode <p><strong>Comment:</strong> Defines the heading behavior during RTL</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Towards next waypoint.</li> 
+
+<li><strong>1:</strong> Heading matches destination.</li> 
+
+<li><strong>2:</strong> Use current heading.</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
  <td>Return mode delay <p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
  <td>-1 > 300 (0.5)</td>
@@ -11066,6 +9259,20 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="RTL_PLD_MD">RTL_PLD_MD</strong> (INT32)</td>
+ <td>RTL precision land mode <p><strong>Comment:</strong> Use precision landing when doing an RTL landing phase.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> No precision landing</li> 
+
+<li><strong>1:</strong> Opportunistic precision landing</li> 
+
+<li><strong>2:</strong> Required precision landing</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RTL_RETURN_ALT">RTL_RETURN_ALT</strong> (FLOAT)</td>
  <td>Return mode return altitude <p><strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
  <td>0 > 150 (0.5)</td>
@@ -11082,30 +9289,6 @@ table {
 <li><strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path. Do not consider rally points.</li> 
 
 <li><strong>3:</strong> Return via direct path to closest destination: home, start of mission landing pattern or safe point. If the destination is a mission landing pattern, follow the pattern to land.</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## Return To Land
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RTL_PLD_MD">RTL_PLD_MD</strong> (INT32)</td>
- <td>RTL precision land mode <p><strong>Comment:</strong> Use precision landing when doing an RTL landing phase.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> No precision landing</li> 
-
-<li><strong>1:</strong> Opportunistic precision landing</li> 
-
-<li><strong>2:</strong> Required precision landing</li> 
 </ul>
   </td>
  <td></td>
@@ -11458,6 +9641,20 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="SDLOG_ALGORITHM">SDLOG_ALGORITHM</strong> (INT32)</td>
+ <td>Logfile Encryption algorithm <p><strong>Comment:</strong> Selects the algorithm used for logfile encryption</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>2:</strong> XChaCha20</li> 
+
+<li><strong>3:</strong> AES</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SDLOG_BOOT_BAT">SDLOG_BOOT_BAT</strong> (INT32)</td>
  <td>Battery-only Logging <p><strong>Comment:</strong> When enabled, logging will not start from boot if battery power is not detected (e.g. powered via USB on a test bench). This prevents extraneous flight logs from being created during bench testing. Note that this only applies to log-from-boot modes. This has no effect on arm-based modes.</p>   </td>
  <td></td>
@@ -11470,6 +9667,20 @@ table {
 </td>
  <td>0 > 1000 </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SDLOG_EXCH_KEY">SDLOG_EXCH_KEY</strong> (INT32)</td>
+ <td>Logfile Encryption key exchange key <p><strong>Comment:</strong> If the logfile is encrypted using a symmetric key algorithm, the used encryption key is generated at logging start and stored on the sdcard RSA2048 encrypted using this key.</p>   </td>
+ <td>0 > 255 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SDLOG_KEY">SDLOG_KEY</strong> (INT32)</td>
+ <td>Logfile Encryption key index <p><strong>Comment:</strong> Selects the key in keystore, used for encrypting the log. When using a symmetric encryption algorithm, the key is generated at logging start and kept stored in this index. For symmetric algorithms, the key is volatile and valid only for the duration of logging. The key is stored in encrypted format on the sdcard alongside the logfile, using an RSA2048 key defined by the SDLOG_EXCHANGE_KEY</p>   </td>
+ <td>0 > 255 </td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
@@ -13937,7 +12148,7 @@ table {
  <td>IMU gyro FFT maximum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>192.</td>
+ <td>150.</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -13945,7 +12156,7 @@ table {
  <td>IMU gyro FFT minimum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>32.</td>
+ <td>30.</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -14257,27 +12468,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
- <td>Distance Sensor Rotation <p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> ROTATION_FORWARD_FACING</li> 
-
-<li><strong>2:</strong> ROTATION_RIGHT_FACING</li> 
-
-<li><strong>6:</strong> ROTATION_LEFT_FACING</li> 
-
-<li><strong>12:</strong> ROTATION_BACKWARD_FACING</li> 
-
-<li><strong>24:</strong> ROTATION_UPWARD_FACING</li> 
-
-<li><strong>25:</strong> ROTATION_DOWNWARD_FACING</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>25</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="SENS_EN_ADIS164X">SENS_EN_ADIS164X</strong> (INT32)</td>
  <td>Analog Devices ADIS16448 IMU (external SPI)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -14434,6 +12624,12 @@ table {
 <li><strong>4:</strong> SF10/c</li> 
 
 <li><strong>5:</strong> SF11/c</li> 
+
+<li><strong>6:</strong> SF30/b</li> 
+
+<li><strong>7:</strong> SF30/c</li> 
+
+<li><strong>8:</strong> LW20/c</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -16387,20 +14583,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="LED_RGB1_MAXBRT">LED_RGB1_MAXBRT</strong> (INT32)</td>
- <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 31 (max)</p>   </td>
- <td>0 > 31 </td>
- <td>31</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="LED_RGB_MAXBRT">LED_RGB_MAXBRT</strong> (INT32)</td>
- <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 15 (max)</p>   </td>
- <td>0 > 15 </td>
- <td>15</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="SYS_AUTOCONFIG">SYS_AUTOCONFIG</strong> (INT32)</td>
  <td>Automatically configure default values <p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Keep parameters</li> 
@@ -16469,6 +14651,14 @@ table {
  <td></td>
  <td>5</td>
  <td>celcius</td>
+</tr>
+<tr>
+ <td><strong id="SYS_CTRL_ALLOC">SYS_CTRL_ALLOC</strong> (INT32)</td>
+ <td>Enable Dynamic Control Allocation <p><strong>Comment:</strong> If disabled, the existing mixing implementation is used. If enabled, dynamic control allocation with runtime configuration of the mixing and output functions is used. Note: this is work-in-progress and not all vehicle types are supported yet.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
@@ -16541,18 +14731,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SYS_RESTART_TYPE">SYS_RESTART_TYPE</strong> (INT32)</td>
- <td>Set restart type <p><strong>Comment:</strong> Set by px4io to indicate type of restart</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Data survives resets</li> 
-
-<li><strong>1:</strong> Data survives in-flight resets only</li> 
-
-<li><strong>2:</strong> Data does not survive reset</li> 
-</ul>
-  </td>
- <td>0 > 2 </td>
- <td>2</td>
+ <td><strong id="SYS_RGB_MAXBRT">SYS_RGB_MAXBRT</strong> (FLOAT)</td>
+ <td>RGB Led brightness limit <p><strong>Comment:</strong> Set to 0 to disable, 1 for maximum brightness</p>   </td>
  <td></td>
+ <td>1.</td>
+ <td>%</td>
 </tr>
 <tr>
  <td><strong id="SYS_STCK_EN">SYS_STCK_EN</strong> (INT32)</td>
@@ -16563,10 +14746,15 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_USE_IO">SYS_USE_IO</strong> (INT32)</td>
- <td>Set usage of IO board <p><strong>Comment:</strong> Can be used to use a standard startup script but with a FMU only set-up. Set to 0 to force the FMU only set-up.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Set usage of IO board <p><strong>Comment:</strong> Can be used to use a configure the use of the IO board.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> IO PWM disabled (RC only)</li> 
+
+<li><strong>1:</strong> IO enabled (RC & PWM)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1 </td>
- <td>Enabled (1)</td>
+ <td></td>
+ <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -18017,6 +16205,31 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CANNODE_FLOW_ROT">CANNODE_FLOW_ROT</strong> (INT32)</td>
+ <td>Cannode flow board rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the Cannode flow board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
  <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
  <td>1 > 125 </td>
@@ -18024,16 +16237,10 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="UAVCAN_BAT_MON">UAVCAN_BAT_MON</strong> (INT32)</td>
- <td>UAVCAN BATTERY_MONITOR battery monitor selection <p><strong>Comment:</strong> This parameter defines that the system will select the battery monitor under the following conditions 0 - default battery monitor 1 - CUAV battery monitor</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> default battery monitor</li> 
-
-<li><strong>1:</strong> CUAV battery monitor</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>0 > 1 </td>
- <td>0</td>
+ <td><strong id="CANNODE_TERM">CANNODE_TERM</strong> (INT32)</td>
+ <td>CAN built-in bus termination    </td>
+ <td>? > 1 </td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -18159,6 +16366,93 @@ table {
  <td>0.3</td>
  <td>m</td>
 </tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_ASPD">UAVCAN_SUB_ASPD</strong> (INT32)</td>
+ <td>subscription airspeed <p><strong>Comment:</strong> Enable UAVCAN airspeed subscriptions. uavcan::equipment::air_data::IndicatedAirspeed uavcan::equipment::air_data::TrueAirspeed uavcan::equipment::air_data::StaticTemperature</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_BARO">UAVCAN_SUB_BARO</strong> (INT32)</td>
+ <td>subscription barometer <p><strong>Comment:</strong> Enable UAVCAN barometer subscription. uavcan::equipment::air_data::StaticPressure uavcan::equipment::air_data::StaticTemperature</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_BAT">UAVCAN_SUB_BAT</strong> (INT32)</td>
+ <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. 1) uavcan::equipment::power::BatteryInfo 2) cuav::equipment::power::CBAT</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> disabled</li> 
+
+<li><strong>1:</strong> default</li> 
+
+<li><strong>2:</strong> CUAV battery monitor</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 2 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_DPRES">UAVCAN_SUB_DPRES</strong> (INT32)</td>
+ <td>subscription differential pressure <p><strong>Comment:</strong> Enable UAVCAN differential pressure subscription. uavcan::equipment::air_data::RawAirData</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_FLOW">UAVCAN_SUB_FLOW</strong> (INT32)</td>
+ <td>subscription flow <p><strong>Comment:</strong> Enable UAVCAN optical flow subscription.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_GPS">UAVCAN_SUB_GPS</strong> (INT32)</td>
+ <td>subscription GPS <p><strong>Comment:</strong> Enable UAVCAN GPS subscriptions. uavcan::equipment::gnss::Fix uavcan::equipment::gnss::Fix2 uavcan::equipment::gnss::Auxiliary</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_ICE">UAVCAN_SUB_ICE</strong> (INT32)</td>
+ <td>subscription ICE <p><strong>Comment:</strong> Enable UAVCAN internal combusion engine (ICE) subscription. uavcan::equipment::ice::reciprocating::Status</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_IMU">UAVCAN_SUB_IMU</strong> (INT32)</td>
+ <td>subscription IMU <p><strong>Comment:</strong> Enable UAVCAN IMU subscription. uavcan::equipment::ahrs::RawIMU</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_MAG">UAVCAN_SUB_MAG</strong> (INT32)</td>
+ <td>subscription magnetometer <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::ahrs::MagneticFieldStrength uavcan::equipment::ahrs::MagneticFieldStrength2</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_SUB_RNG">UAVCAN_SUB_RNG</strong> (INT32)</td>
+ <td>subscription range finder <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::range_sensor::Measurement</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## UAVCAN v1
@@ -18283,7 +16577,7 @@ table {
  <td><strong id="UAVCAN_V1_ID">UAVCAN_V1_ID</strong> (INT32)</td>
  <td>UAVCAN v1 Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 125 </td>
+ <td>-1 > 125 </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -18470,8 +16764,8 @@ table {
 <tr>
  <td><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
  <td>Backtransition deceleration setpoint to pitch feedforward gain    </td>
- <td>0 > 0.2 (0.05)</td>
- <td>0.12</td>
+ <td>0 > 0.2 (0.01)</td>
+ <td>0.</td>
  <td>rad s^2/m</td>
 </tr>
 <tr>
@@ -18524,13 +16818,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
- <td>Maximum allowed angle the vehicle is allowed to pitch down to generate forward force <p><strong>Comment:</strong> When fixed-wing forward actuation is active (see VT_FW_TRHUST_EN). If demanded down pitch exceeds this limmit, the fixed-wing forward actuators are used instead.</p>   </td>
- <td>0.0 > 45.0 </td>
- <td>5.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VT_ELEV_MC_LOCK">VT_ELEV_MC_LOCK</strong> (INT32)</td>
  <td>Lock elevons in multicopter mode <p><strong>Comment:</strong> If set to 1 the elevons are locked in multicopter mode</p>   </td>
  <td></td>
@@ -18539,7 +16826,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
- <td>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This technique can be used to avoid the plane having to pitch down in order to move forward. This prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demaded down pitch is above VT_DWN_PITCH_MAX, and uses VT_FWD_THRUST_SC to get from demanded down pitch to fixed-wing actuation.</p> <strong>Values:</strong><ul>
+ <td>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This technique can be used to avoid the plane having to pitch down in order to move forward. This prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demaded down pitch is below VT_PITCH_MIN, and uses VT_FWD_THRUST_SC to get from demanded down pitch to fixed-wing actuation.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable FW forward actuation in hover.</li> 
 
 <li><strong>1:</strong> Enable FW forward actuation in hover in altitude, position and auto modes (except LANDING).</li> 
@@ -18561,7 +16848,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td>Fixed-wing actuator thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is above VT_DWN_PITCH_MAX. Enabled via VT_FWD_THRUST_EN.</p>   </td>
+ <td>Fixed-wing actuator thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is below VT_PITCH_MIN. Enabled via VT_FWD_THRUST_EN.</p>   </td>
  <td>0.0 > 2.0 </td>
  <td>0.7</td>
  <td></td>
@@ -18651,6 +16938,13 @@ table {
  <td>us</td>
 </tr>
 <tr>
+ <td><strong id="VT_LND_PTCH_MIN">VT_LND_PTCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PTCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
+ <td>-10.0 > 45.0 </td>
+ <td>-5.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VT_MC_ON_FMU">VT_MC_ON_FMU</strong> (INT32)</td>
  <td>Enable the usage of AUX outputs for hover motors <p><strong>Comment:</strong> Set this parameter to true if the vehicle's hover motors are connected to the FMU (AUX) port. Not required for boards that only have a FMU, and no IO. Only applies for standard VTOL and tiltrotor.</p>   </td>
  <td></td>
@@ -18669,6 +16963,13 @@ table {
  <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
  <td>? > 20 (0.01)</td>
  <td>3.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_PTCH_MIN">VT_PTCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
+ <td>-10.0 > 45.0 </td>
+ <td>-5.0</td>
  <td></td>
 </tr>
 <tr>

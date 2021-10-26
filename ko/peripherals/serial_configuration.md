@@ -45,9 +45,9 @@ Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합�
 
 [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) 섹션은 *QGroundControl*에서 포트 설정 방법실제 예를 제공합니다(`TELEM 2` 포트의 보조 GPS 사용을 위한 `GPS_2_CONFIG`를 사용 방법을 보여줍니다. ).
 
-## 포트 충돌 해제
+## Deconflicting Ports
 
-포트 충돌은 시스템 시작에 의해 처리되므로 특정 포트에서 최대 하나의 서비스만 실행됩니다.
+Port conflicts are handled by system startup, which ensures that at most one service is run on a specific port. For example, it is not possible to start a MAVLink instance on a specific serial device, and then launch a driver that uses the same serial device.
 
 :::warning
 이 글을 쓰는 시점에는 충돌하는 포트에 관련된 사용자 피드백은 없습니다.
@@ -64,12 +64,14 @@ Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합�
 :::note PX4 펌웨어는 기본적으로 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 보드에 드라이버를 대부분 포함합니다. 플래시 제한 보드는 드라이버를 주석 처리하거나 생략할 수 있습니다(작성 시점에는 FMUv2 기반 보드에만 영향을 미침).
 :::
 
-빌드하려는 [보드](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4)에 해당하는 **default.cmake** 설정 파일에서 드라이버의 주석을 제거하거나 추가하여 누락된 드라이버를 펌웨어에 포함시킬 수 있습니다. 예를 들어, sf0x 드라이버를 활성화하려면 아래 줄의 시작 부분에서 `#`을 제거합니다.
+You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. For example, to enable the SRF02 driver, you would a the following line to the px4board.
 
-    #distance_sensor/sf0x
+    CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
     
 
-그런 다음 [PX4 소프트웨어 빌드](../dev_setup/building_px4.md) 방법으로 플랫폼용 펌웨어를 빌드하여야 합니다.
+An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules. To launch boardconfig type `make <vendor>_<board>_<label> boardconfig`
+
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
 
 ## 추가 정보
 

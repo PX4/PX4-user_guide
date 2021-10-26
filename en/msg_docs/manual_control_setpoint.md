@@ -1,5 +1,5 @@
 # manual_control_setpoint (UORB message)
-        
+
 
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/manual_control_setpoint.msg)
@@ -47,11 +47,11 @@ float32 r			 # yaw stick/twist position, -1..1
 
 float32 flaps			 # flap position
 
-float32 aux1			 # default function: camera yaw / azimuth
-float32 aux2			 # default function: camera pitch / tilt
-float32 aux3			 # default function: camera trigger
-float32 aux4			 # default function: camera roll
-float32 aux5			 # default function: payload drop
+float32 aux1
+float32 aux2
+float32 aux3
+float32 aux4
+float32 aux5
 float32 aux6
 
 
