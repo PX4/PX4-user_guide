@@ -76,45 +76,45 @@ GPS 없이 비행하는 경우 차량을 시동 스위치를 `GPS1` 포트에 �
 
 ## Spektrum Satellite 수신기
 
-V5+에는 전용 DSM 케이블이 있습니다. Spektrum 위성 수신기를 사용하는 경우 비행 컨트롤러 DSM/SBUS/RSSI 인터페이스에 연결해야합니다.
+V5+에는 DSM 전용 케이블이 포함되어 있습니다. Spektrum 위성 수신기는 비행 콘트롤러 DSM/SBUS/RSSI 인터페이스에 연결하여야합니다.
 
 ## 전원
 
 V5+ 키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포함되어 있습니다. *HW\_PM* 모듈의 6 핀 커넥터를 비행 제어 `Power1` 인터페이스에 연결합니다.
 
 :::warning
-제공된 전원 모듈은 퓨즈가 없습니다. 주변 장치를 연결하는 동안 전원을 **반드시** 꺼야 합니다.
+제공된 전원 모듈에는 퓨즈가 없습니다. 주변 장치를 연결하는 동안에는 전원을 **반드시** 꺼야 합니다.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
 :::note
-전원 모듈은 PWM 출력에 연결된 주변 장치의 전원이 아닙니다. 서보/액추에이터를 연결하는 경우에는 BEC를 사용하여 별도로 전원을 공급해야합니다.
+전원 모듈은 PWM 출력에 연결된 주변 장치의 전원이 아닙니다. 서보/액추에이터를 연결하는 경우에는 BEC를 사용하여 별도로 전원을 공급하여야 합니다.
 :::
 
-## 텔레메트리 시스템 (선택 사항)
+## 텔레메트리(선택 사항)
 
-텔레메트리 시스템은 지상국과 비행 중인 기체와 통신, 모니터링, 제어할 수 있도록 합니다 (예: 기체를 특정 위치로 움직이도록 지시하거나, 새로운 미션을 업로드할 수 있습니다).
+텔레메트리는 지상국과 비행 기체와 통신, 모니터링, 제어할 수 있습니다. 기체를 특정 위치로 움직이도록 지시하거나, 새로운 미션을 업로드할 수 있습니다.
 
-통신 채널은 Telemetry Radios를 통해 이루어집니다. 차량 기반 라디오는 `TELEM1` 또는 `TELEM2` 포트에 연결해야합니다 (이 포트에 연결되어있는 경우 추가 구성이 필요하지 않음). 다른 라디오는 지상국 컴퓨터 또는 모바일 장치 (일반적으로 USB를 통해)에 연결됩니다.
+통신 채널은 텔레메트리 라디로를 통하여 이루어집니다. 차량 기반 라디오는 `TELEM1` 또는 `TELEM2` 포트에 연결하여야합니다. 이 포트에 연결되어있는 경우 추가 설정이 필요 없습니다. 송신기는 지상국 컴퓨터나 모바일 장치 USB로 연결합니다.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <span id="sd_card"></span>
 
-## SD 카드 (선택 사항)
+## SD 카드(선택 사항)
 
-[SD 카드](../getting_started/px4_basic_concepts.md#sd_cards)가 제조 공장에서 삽입되어 있습니다 (아무 것도 할 필요가 없습니다).
+[SD 카드](../getting_started/px4_basic_concepts.md#sd_cards)가 제조 공장에서 삽입되어 있습니다. 추가 작업이 필요 없습니다.
 
 ## 모터
 
-모터/서보는 [ Airframes Reference ](../airframes/airframe_reference.md)에서 차량에 지정된 순서대로 MAIN 및 AUX 포트에 연결됩니다.
+모터/서보는 [기체 정의서](../airframes/airframe_reference.md)에서 차량에 지정된 순서대로 MAIN 및 AUX 포트에 연결합니다.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
-## 핀아웃
+## 핀배열
 
-[여기](http://manual.cuav.net/V5-Plus.pdf)에서 **V5 +** 핀아웃을 다운로드하세요.
+[여기](http://manual.cuav.net/V5-Plus.pdf)에서 **V5 +** 핀배열을 다운로드하십시오.
 
 ## 추가 정보
 
