@@ -145,7 +145,7 @@ The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_modu
 If you specify `DYNAMIC` as an option to `px4_add_module`, a *shared library* is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
 :::
 
-1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention) Copy in the text below:
+1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention)). Copy in the text below:
    ```menuconfig EXAMPLES_PX4_SIMPLE_APP
     bool "PX4 Simple app"
     default n

@@ -145,7 +145,7 @@
 如果您对`px4_add_module`指定`DYNAMIC`选项，则会在 POSIX 平台上创建一个动态库而不是静态库（这些可以在无需重新编译 PX4 的情况下加载，并作为二进制文件而不是源代码共享给其他人）。 您的应用程序不会成为内置命令，而是生成一个名为`examples__px4_simple_app.px4mod`的文件。 您可以通过在运行时使用以下`dyn`命令加载文件来运行您的命令：`dyn ./examples__px4_simple_app.px4mod`
 :::
 
-1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention) Copy in the text below:
+1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention)). Copy in the text below:
    ```menuconfig EXAMPLES_PX4_SIMPLE_APP
     bool "PX4 Simple app"
     default n
