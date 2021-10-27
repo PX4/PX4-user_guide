@@ -168,7 +168,7 @@ For more information see: [Simulation > Run Simulation Faster than Realtime](../
 
 ### Change Wind Speed
 
-To simulate wind speed, add this plugin to your world file and replace `SET_YOUR_WIND_SPEED` with the desired speed:
+To simulate wind speed, add this plugin to your world file and replace `SET_YOUR_WIND_SPEED` with the desired speed in m/s:
 ```xml
   <plugin name='wind_plugin' filename='libgazebo_wind_plugin.so'>
       <frameId>base_link</frameId>
