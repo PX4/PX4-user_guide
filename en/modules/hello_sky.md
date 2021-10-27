@@ -154,7 +154,7 @@ This consists of a single *C* file and a *cmake* definition (which tells the too
    You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
    :::
 
-1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention)
+1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention)).
    Copy in the text below:
    ```menuconfig EXAMPLES_PX4_SIMPLE_APP
 	bool "PX4 Simple app"
