@@ -58,7 +58,7 @@ The radios are configured using the *PicoConfig* application (Windows only). It 
 <img src="../../assets/hardware/telemetry/holybro_pico_config.png" width="400px" title="Holybro Pico Config" />
 <img src="../../assets/hardware/telemetry/holybro_pico_config1.png" width="400px" title="Holybro Pico Config" />
 
-In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote. Refer to [Pico Series P900.Operating Manual.v1.8.7](../../assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf) for the detailed information on radio configuration.
+In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote. Refer to [Pico Series P900.Operating Manual.v1.8.7](https://github.com/PX4/PX4-user_guide/raw/master/assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf) for the detailed information on radio configuration.
 
 ## Configuration
 
