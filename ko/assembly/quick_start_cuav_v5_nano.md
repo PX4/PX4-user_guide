@@ -94,32 +94,32 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 
 ## 텔레메트리(선택 사항)
 
-텔레메트리 시스템은 지상국과 비행 중인 기체와 통신, 모니터링, 제어할 수 있도록 합니다 (예: 기체를 특정 위치로 움직이도록 지시하거나, 새로운 미션을 업로드할 수 있습니다).
+지상국에서는 텔레메트리를 사용하여 기체를 통신, 모니터링, 제어 합니다. 기체를 특정 위치로 움직이도록 지시하거나, 새로운 임무를 업로드할 수 있습니다.
 
-통신 채널은 텔레메트리 라디오를 통해 이루어집니다. 차량 기반 라디오는 **TELEM1** 또는 **TELEM2** 포트에 연결해야합니다 (이 포트에 연결되어있는 경우 추가 구성이 필요하지 않음). 다른 라디오는 지상국 컴퓨터 또는 모바일 장치 (일반적으로 USB를 통해)에 연결됩니다.
+통신 채널은 텔레메트리를 통하여 이루어집니다. 차량 기반 라디오는 **TELEM1** 또는 **TELEM2** 포트에 연결합니다. 이 포트에 연결되어있는 경우에는 추가 설정이 필요하지 않습니다. 다른 라디오는 지상국 컴퓨터 또는 모바일 장치에 USB를 통하여 연결합니다.
 
 ![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
 <span id="sd_card"></span>
 
-## SD 카드 (선택 사항)
+## SD 카드(선택 사항)
 
-[SD 카드](../getting_started/px4_basic_concepts.md#sd_cards)가 제조 공장에서 삽입되어 있습니다 (아무 것도 할 필요가 없습니다).
+[SD 카드](../getting_started/px4_basic_concepts.md#sd_cards)가 제조 공장에서 삽입되어 있습니다. 추가 작업이 필요 없습니다.
 
 ## 모터
 
-모터/서보는 [기체 규정](../airframes/airframe_reference.md)에서 차량에 지정된 순서대로 MAIN 및 AUX 포트에 연결됩니다.
+모터/서보는 [기체 규격](../airframes/airframe_reference.md)에 지정된 순서대로 MAIN 및 AUX 포트에 연결됩니다.
 
 ![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-## 핀아웃
+## 핀배열
 
 ![V5 nano pinouts](../../assets/flight_controller/cuav_v5_nano/v5_nano_pinouts.png)
 
 ## 추가 정보
 
-- [DJI FlameWheel450에서 CUAV v5 nano를 사용하는 기체 빌드 로그](../frames_multicopter/dji_f450_cuav_5nano.md)
+- [DJI FlameWheel450에서 CUAV v5 nano를 사용하는 기체 조립 로그](../frames_multicopter/dji_f450_cuav_5nano.md)
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
 - [CUAV V nano 수동](http://manual.cuav.net/V5-nano.pdf) (CUAV)
-- [FMUv5 참조 설계 핀아웃](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
+- [FMUv5 기준 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 - [CUAV Github](https://github.com/cuav) (CUAV)
