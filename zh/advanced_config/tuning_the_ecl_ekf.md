@@ -33,18 +33,18 @@ EKF仅将IMU数据用于状态预测。 在EKF推导中，IMU数据不作为观�
 
 ## 运行单个EKF实例
 
-*默认行为* 是运行一个 EKF 的单个实例。 在这种情况下，在EKF收到数据之前执行传感器选择和故障切换。 This provides protection against a limited number of sensor faults, such as loss of data, but does not protect against the sensor providing inaccurate data that exceeds the ability of the EKF and control loops to compensate.
+*默认行为* 是运行一个 EKF 的单个实例。 在这种情况下，在EKF收到数据之前执行传感器选择和故障切换。 这为防止有限数量的传感器故障，如数据丢失等，提供了保护。 但不能防止传感器提供的不准确数据超过EKF和控制循环的补偿能力。
 
-The parameter settings for running a single EKF instance are:
+运行单个EKF实例的参数设置为：
 
 * [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) = 0
 * [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) = 0
 * [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1
 * [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1
 
-## Running Multiple EKF Instances
+## 运行多个EKF实例
 
-Depending on the number of IMUs and magnetometers and the autopilot's CPU capacity, multiple instances of the EKF can be run. This provides protection against a wider range of sensor errors and is achieved by each EKF instance using a different sensor combination. By comparing the internal consistency of each EKF instance, the EKF selector is able to determine the EKF and sensor combination with the best data consistency. This enables faults such as sudden changes in IMU bias, saturation or stuck data to be detected and isolated.
+根据IMU和磁强计的数量以及自动驾驶仪的CPU能力，EKF可以运行多个实例。 这提供了一系列更广泛的传感器错误的保护，每个EKF实例使用不同的传感器组合实现了这一点。 通过比较每个EKF实例的内部一致性，EKF选择器能够确定具有最佳数据一致性的EKF和传感器组合。 这样可以检测和隔离IMU偏差、饱和或数据卡住等故障。
 
 The total number of EKF instances is the product of the number of IMU's and number of magnetometers selected by [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) and [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) and is given by the following formula:
 
