@@ -11,10 +11,10 @@
 估计和控制库（ECL）使用扩展卡尔曼滤波算法（EKF）来处理传感器的测量信息，并提供如下状态量的估计值：
 
 * 四元数定义从北，东，地局部地球坐标系到 X，Y，Z 机体坐标系的旋转
-* Velocity at the IMU - North, East, Down (m/s)
-* Position at the IMU - North, East, Down (m)
-* IMU delta angle bias estimates - X, Y, Z (rad)
-* IMU delta velocity bias estimates - X, Y, Z (m/s)
+* IMU 处的速度 - 北，东，地 \(m/s)
+* IMU 处的位置 - 北，东，地 \(m)
+* IMU 增量角度偏差估计 - X, Y, Z \(rad)
+* IMU 增量速度偏差估计 - X, Y, Z\(m/s)
 * 地球磁场组分 - 北，东，地 \(gauss\)
 * 飞行器机体坐标系磁场偏差 - X, Y, Z \(gauss\)
 * 风速-北, 东\(m/s\)
@@ -29,11 +29,11 @@ EKF 在延迟的“融合时间范围”上运行，以允许相对于 IMU 的�
 
 位置及速度状态变量在输出至控制回路之前会根据IMU与机体坐标系之间的偏差量进行修正。 IMU 相对于机体坐标系的位置由 `EKF2_IMU_POS_X,Y,Z` 参数设置。
 
-EKF仅将IMU数据用于状态预测。 在EKF推导中，IMU数据不作为观测值使用。 The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
+EKF仅将IMU数据用于状态预测。 在EKF推导中，IMU数据不作为观测值使用。 使用Matlab符号工具箱导出了协方差预测、状态更新和协方差更新的代数方程，该工具箱可在这里找到：[Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m)。
 
-## Running a Single EKF Instance
+## 运行单个EKF实例
 
-The *default behaviour* is to run a single instance of the EKF. In this case sensor selection and failover is performed before data is received by the EKF. This provides protection against a limited number of sensor faults, such as loss of data, but does not protect against the sensor providing inaccurate data that exceeds the ability of the EKF and control loops to compensate.
+*默认行为* 是运行一个 EKF 的单个实例。 在这种情况下，在EKF收到数据之前执行传感器选择和故障切换。 This provides protection against a limited number of sensor faults, such as loss of data, but does not protect against the sensor providing inaccurate data that exceeds the ability of the EKF and control loops to compensate.
 
 The parameter settings for running a single EKF instance are:
 
