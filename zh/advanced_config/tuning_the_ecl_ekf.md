@@ -57,10 +57,9 @@ EKF实例总数是由 [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md
 * EKF instance 3 : IMU 2, magnetometer 1
 * EKF instance 4 : IMU 2, magnetometer 2
 
-The maximum number of IMU or magnetometer sensors that can be handled is 4 of each for a theoretical maximum of 4 x 4 = 16 EKF instances. In practice this is limited by available computing resources. During development of this feature, testing with STM32F7 CPU based HW demonstrated 4 EKF instances with acceptable processing load and memory utilisation margin.
+可处理的IMU或磁强计传感器的最大数量为每种传感器有4个，因此理论上最大有 4 x 4 = 16 个EKF实例。 实际上，这种做法受到现有计算资源的限制。 在开发这一功能的过程中，使用基于STM32F7的硬件的CPU进行测试，结果显示 4 个EKF实例具有可接受的处理负载和内存利用率裕度。
 
-:::warning
-Ground based testing to check CPU and memory utilisation should be performed before flying.
+:::警告 应在飞行前进行地面测试以检查 CPU 和内存使用。
 :::
 
 If [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) >= 3, then the failover time for large rate gyro errors is further reduced because the EKF selector is able to apply a median select strategy for faster isolation of the faulty IMU.
