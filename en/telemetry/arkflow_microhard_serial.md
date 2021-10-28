@@ -1,6 +1,8 @@
 # ARK Electron Microhard Serial Telemetry Radios
 
-[Microhard Pico Serial](http://microhardcorp.com/P900.php) radios enable MAVLink communication between a radio on a vehicle and a GCS.
+*ARK Electron Microhard Serial Telemetry Radios* integrate the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module.
+This can be used to enable MAVLink communication between a radio on a vehicle and a GCS.
+
 Microhard Pico Serial radios are (up to) 1 Watt output radios that support point to point, point to multi-point, and mesh modes.
 The Microhard Pico radios can also be ordered with AES-256 encryption.
 
@@ -20,6 +22,7 @@ Vehicles must have different MAVLINK IDs.
 ## Connecting
 
 ### Vehicle Radio
+
 Connect the vehicle radio to the flight controller `TELEM1` port (any free serial port can be used).
 A Pixhawk-standard 6 pin JST GH telemetry cable is supplied for this purpose.
 
