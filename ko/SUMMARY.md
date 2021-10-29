@@ -34,7 +34,7 @@
   * [나침반](config/compass.md)
   * [자이로스코프 ](config/gyroscope.md)
   * [가속도계](config/accelerometer.md)
-  * [항속 센서](config/airspeed.md)
+  * [항속센서 보정](config/airspeed.md)
   * [수평 보정](config/level_horizon_calibration.md)
   * [무선 조종기 설정](config/radio.md)
   * [조이스틱 설정](config/joystick.md)
