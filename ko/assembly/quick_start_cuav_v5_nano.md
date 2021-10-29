@@ -118,7 +118,7 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 
 ## 추가 정보
 
-- [DJI FlameWheel450에서 CUAV v5 nano를 사용하는 기체 조립 로그](../frames_multicopter/dji_f450_cuav_5nano.md)
+- [DJI FlameWheel450 CUAV v5 nano 기체 조립 방법](../frames_multicopter/dji_f450_cuav_5nano.md)
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
 - [CUAV V nano 수동](http://manual.cuav.net/V5-nano.pdf) (CUAV)
 - [FMUv5 기준 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
