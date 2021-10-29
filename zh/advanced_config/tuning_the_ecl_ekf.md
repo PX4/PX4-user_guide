@@ -320,32 +320,31 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 * \[16 ... 18\] 地球磁场 NED \(gauss^2\)
 * \[19 ... 21\] 机体磁场 XYZ \(gauss^2\)
 * \[22 ... 23\] 风速 NE \(m/s\)^2
-* \[24 ... 28\] Not Used
+* \[24 ... 28\] 未使用
 
 ### 观测新息和新息方差
 
-The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg). The messages all have the same field names/types (but different units).
+观测 `estimator_innovations`, `estimator_innovation_variances`, 和 `estimator_innovation_test_ratios` 的消息字段定义于 [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)。 消息都有相同的字段名称/类型(但是单位不同)。
 
-:::note
-The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created):
+:::注释 消息有相同的字段，因为它们是从相同的字段定义生成的。 `# TOPICS` 行(位于 [the file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg) 末尾)列出了要创建的消息集的名字：
 
     # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
     
 
 :::
 
-Some of the observations are:
+一些观测值为：
 
-* Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
-* Yaw angle (rad, rad^2) : `heading`
-* True Airspeed (m/s, (m/s)^2) : `airspeed`
-* Synthetic sideslip (rad, rad^2) : `beta`
-* Optical flow XY (rad/sec, (rad/s)^2) : `flow`
-* Height above ground (m, m^2) : `hagl`
-* Drag specific force ((m/s)^2): `drag`
-* Velocity and position innovations : per sensor
+* 磁力计 XYZ (gauss, gauss^2) : `mag_field[3]`
+* 偏航角度 (rad, rad^2) : `heading`
+* 真实空速 (m/s, (m/s)^2) : `airspeed`
+* 合成侧滑 (rad, rad^2) : `beta`
+* 光流 XY (rad/sec, (rad/s)^2) : `flow`
+* 距地高度 (m, m^2) : `hagl`
+* 阻力比力 ((m/s)^2): `drag`
+* 速度和位置新息：每个传感器
 
-In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate). These are largely self documenting, and are reproduced below:
+此外，每个传感器都有其自己的字段，即横向和纵向位置和/或速度值（视情况而定）。 这些基本上是自我描述的，现摘录如下：
 
     # GPS
     float32[2] gps_hvel # horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
@@ -376,37 +375,37 @@ In addition, each sensor has its own fields for horizontal and vertical position
 
 ### 输出互补滤波器
 
-The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to `output_tracking_error[3]` in the `ekf2_innovations` message.
+输出互补滤波器用于将状态从融合时间范围向前传播到当前时间。 要检查在融合时间范围内测量的角度，速度和位置跟踪误差的大小，请参阅 `ekf2_innovations` 消息中的 `output_tracking_error[3]` 字段。
 
-The index map is as follows:
+索引映射如下：
 
-* [0] Angular tracking error magnitude (rad)
-* [1] Velocity tracking error magnitude (m/s). The velocity tracking time constant can be adjusted using the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
-* [2] Position tracking error magnitude \(m\). The position tracking time constant can be adjusted using the [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED position outputs.
+* \[0\] 角度跟踪误差量级 (rad)
+* \[1\] 速度跟踪误差量级（m/s）。 速度跟踪时间常量可以使用 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 参数进行调整。 减小此参数可减少稳态误差，但会增加 NED 速度输出上的观测噪声量。
+* \[2\] 位置跟踪误差量级 \(m\)。 位置跟踪时间常量可以使用 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 参数进行调整。 减小此参数可减少稳态误差，但会增加 NED 位置输出上的观测噪声量。
 
 ### EKF 错误
 
-The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
+EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请参阅 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中的 filter\_fault\_flags。
 
 ### 观测错误
 
-There are two categories of observation faults:
+有两种类型观测错误：
 
-* Loss of data. An example of this is a range finder failing to provide a return.
-* The innovation, which is the difference between the state prediction and sensor observation is excessive. An example of this is excessive vibration causing a large vertical position error, resulting in the barometer height measurement being rejected.
+* 数据丢失。 一个例子是测距仪无法提供返回数据。
+* 新息，即状态预测和传感器观测之间的差异过度。 这种情况的一个例子是过度振动导致大的垂直位置误差，导致气压计高度测量被拒绝。
 
-Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
+这两者都可能导致观测数据被拒绝，如果时间足够长，使得 EKF 尝试重置状态以使用传感器观测数据。 所有观测结果均对新息进行了统计置信度检查。 要检查的标准偏差数据由每个观测类型的 `EKF2_*_GATE` 参数控制。
 
-Test levels are available in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) as follows:
+测试级别在 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中可用，如下所示：
 
-* `mag_test_ratio`: ratio of the largest magnetometer innovation component to the innovation test limit
-* `vel_test_ratio`: ratio of the largest velocity innovation component to the innovation test limit
-* `pos_test_ratio`: ratio of the largest horizontal position innovation component to the innovation test limit
-* `hgt_test_ratio`: ratio of the vertical position innovation to the innovation test limit
-* `tas_test_ratio`: ratio of the true airspeed innovation to the innovation test limit
-* `hagl_test_ratio`: ratio of the height above ground innovation to the innovation test limit
+* `mag_test_ratio`: 最大磁强计新息组分与新息测试极限的比率
+* `vel_test_ratio`: 最大速度新息组分与新息测试极限的比率
+* `pos_test_ratio`: 最大水平位置新息组分与新息测试极限的比率
+* `hgt_test_ratio`: 垂直位置新息与新息测试极限的比率
+* `tas_test_ratio`: 真空速新息与新息测试极限的比率
+* `hagl_test_ratio`: 距地高度新息与新息测试极限的比率
 
-For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
+对于每个传感器的二进制通过/失败摘要，请访问在 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中的innovation\_check\_flags。
 
 ### GPS 数据质量检查
 
