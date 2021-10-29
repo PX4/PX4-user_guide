@@ -1,15 +1,15 @@
 # Durandal 배선 개요
 
-:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://shop.holybro.com/)와 상담하십시오.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-이 설명서는 [Drundal](../flight_controller/durandal.md)<sup>&reg;</sup> 비행 컨트롤러에 전원 공급 방법과 가장 중요한 주변 장치 연결법을 설명합니다.
+[Drundal](../flight_controller/durandal.md)<sup>&reg;</sup> 비행 콘트롤러의 전원공급 방법과 주요 주변장치 연결 방법을 설명합니다.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 ## 포장 개봉
 
-Durandal은 전원 모듈 (* PM02 V3 *, * PM07 * 및 * Pixhawk 4 GPS / Compass *)을 포함한 다양한 액세서리 조합과 함께 번들로 판매됩니다. (유블럭스 NEO-M8N).
+Durandal은 전원 모듈(*PM02 V3*, *PM07* 및 *Pixhawk 4 GPS / Compass*)이 포함된 다양한 액세서리들과 함께 번들로 판매됩니다.(유블럭스 NEO-M8N).
 
 *PM02 V3* 전원 모듈이있는 상자의 내용물은 아래에 나와 있습니다 (상자에는 핀 배치 가이드 및 전원 모듈 지침도 포함되어 있음).
 
