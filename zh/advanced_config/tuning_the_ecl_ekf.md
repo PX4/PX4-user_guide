@@ -534,17 +534,17 @@ GPS 数据的丢失将通过速度和位置新息测试比率 'flat-lining' 来�
 
 如果机体在降落期间在靠近地面时往往爬升回到空中， 最可能的原因是气压计地面效应。
 
-这种情况是在推进器向地面推进并在无人机下空形成高压区时造成的。 The result is a lower reading of pressure altitude, leading to an unwanted climb being commanded. The figure below shows a typical situation where the ground effect is present. Note how the barometer signal dips at the beginning and end of the flight.
+这种情况是在推进器向地面推进并在无人机下空形成高压区时造成的。 其结果是降低了对压力高度的解读，从而导致了不必要的爬升。 下图显示了存在地面效应的典型情况。 注意气压计信号如何在飞行开始和结束时消失。
 
 ![Barometer ground effect](../../assets/ecl/gnd_effect.png)
 
-You can enable *ground effect compensation* to fix this problem:
+你可以启用 *ground effect compensation* 来解决这个问题：
 
-* From the plot estimate the magnitude of the barometer dip during takeoff or landing. In the plot above one can read a barometer dip of about 6 meters during landing.
-* Then set the parameter [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) to that value and add a 10 percent margin. Therefore, in this case a value of 6.6 meters would be a good starting point.
+* 从绘图中估算出气压计在起飞或着陆期间的跌落程度。 在上面的绘图中，人们可以看到降落过程中大约6米的气压计下沉。
+* 然后将参数 [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) 设置为该值，并添加 10% 的余量值。 因此，在这种情况下，6.6米的数值将是一个良好的起点。
 
-If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated. If no terrain estimate is available this parameter will have no effect and the system will use heuristics to determine if ground effect compensation should be activated.
+如果有可用的地形估计(例如，机体装备了测距仪)，然后你可以另外指定[EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT)， 即距地高度，低于该高度，地面效应补偿将被激活。 如果没有可用的地形估计，这个参数将不会产生任何效果，系统将使用继承法来确定是否应激活地面效果补偿。
 
-## Further Information
+## 更多信息：
 
-* [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ), *PX4 Developer Summit 2019*, Dr. Paul Riseborough): Overview of the estimator, and major changes from 2018/19, and the expected improvements through 2019/20.
+* tip[PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) 视频来自 *PX4 Developer Summit 2019* (Dr. Paul Riseborough) 概要介绍了估计器，并另外说明了2018/19年的主要变化以及2019/20年的预期改进。
