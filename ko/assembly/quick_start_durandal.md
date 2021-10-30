@@ -1,43 +1,43 @@
 # Durandal 배선 개요
 
-:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://shop.holybro.com/)와 상담하십시오.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-이 설명서는 [Drundal](../flight_controller/durandal.md)<sup>&reg;</sup> 비행 컨트롤러에 전원 공급 방법과 가장 중요한 주변 장치 연결법을 설명합니다.
+[Drundal](../flight_controller/durandal.md)<sup>&reg;</sup> 비행 콘트롤러의 전원공급 방법과 주요 주변장치 연결 방법을 설명합니다.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 ## 포장 개봉
 
-Durandal은 전원 모듈 (* PM02 V3 *, * PM07 * 및 * Pixhawk 4 GPS / Compass *)을 포함한 다양한 액세서리 조합과 함께 번들로 판매됩니다. (유블럭스 NEO-M8N).
+Durandal은 전원 모듈(*PM02 V3*, *PM07* 및 *Pixhawk 4 GPS / Compass*)이 포함된 다양한 액세서리들과 함께 번들로 판매됩니다.(유블럭스 NEO-M8N).
 
-*PM02 V3* 전원 모듈이있는 상자의 내용물은 아래에 나와 있습니다 (상자에는 핀 배치 가이드 및 전원 모듈 지침도 포함되어 있음).
+*PM02 V3* 전원 모듈이 상자의 내용물은 아래와 같습니다. 상자에는 핀 배치 가이드와 전원 모듈 매뉴얼이 포함되어 있습니다.
 
 ![Durandal 상자](../../assets/flight_controller/durandal/durandal_unboxing_schematics.jpg)
 
 ## 배선 개요
 
-아래의 이미지는 중요한 센서 및 주변 장치 (모터 및 서보 출력 제외)를 연결법을 나타냅니다. 다음 섹션에서 각각의 장치에 대해 자세히 설명합니다.
+아래의 이미지는 주요 센서와 주변 장치(모터 및 서보 출력 제외)의 연결 방법을 설명합니다. 다음 섹션에서 각 장치들에 대하여 자세히 설명합니다.
 
 ![큐브 - 배선 개요](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
 :::tip
-사용 가능한 포트에 대한 자세한 내용은 [ Durandal> 핀아웃 ](../flight_controller/durandal.md#pinouts)에서 찾을 수 있습니다.
+사용 가능한 포트에 대한 자세한 내용은 [Durandal &gt; 핀배열](../flight_controller/durandal.md#pinouts)을 참고하십시오.
 :::
 
 ## 콘트롤러 장착 및 장착 방향
 
-*Duranda *은 차량의 무게 중심에 최대한 가깝게 배치 된 프레임에 장착해야하며 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
+*Duranda*은 차량의 무게 중심에 최대한 가깝게 위치에 장착하여야하며, 화살표가 차량의 전방과 상향으로 향하도록 하여야 합니다.
 
 ![장착 및 방향](../../assets/flight_controller/durandal/orientation.jpg)
 
-컨트롤러를 공간의 제약등으로 인하여 권장하는 방향으로 장착 할 수없는 경우에는 실제 장착한 방향을 소프트웨어에서 설정하여야 합니다. : [비행 콘트롤러 방향 ](../config/flight_controller_orientation.md).
+콘트롤러를 공간의 제약 등으로 권장 방향으로 장착할 수없는 경우에는 실제 장착한 방향을 프로그램에서 설정하여야 합니다. [비행 콘트롤러 방향](../config/flight_controller_orientation.md).
 
 :::tip
-보드에는 내부 진동 차단 기능이 있습니다. 컨트롤러를 장착시 진동 차단 스티로폼을 사용하지 마십시오 (일반적으로 양면 테이프로 충분 함).
+보드는 내부 진동 차단 기능이 있습니다. 콘트롤러를 장착시 진동 차단 스티로폼을 사용하지 마십시오. 일반적으로 양면 테이프이면 충분합니다.
 :::
 
-## GPS + 나침반 + 부저 + 안전 스위치 + LED
+## -- GPS + 나침반 + 부저 + 안전 스위치 + LED
 
 Durandal은 나침반, 안전 스위치, 부저 및 LED가 통합된 *Pixhawk 4 GPS 모듈*에 최적화되도록 설계되었습니다. 10 핀 케이블을 사용하여 [GPS 포트](../flight_controller/durandal.md#gps)에 직접 연결합니다.
 
