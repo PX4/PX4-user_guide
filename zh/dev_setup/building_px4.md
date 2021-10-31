@@ -22,7 +22,7 @@ This is all you need to do just to build the latest code. [GIT Examples > Contri
 
 ## 初次编译（使用 jMAVSim 模拟器）
 
-First we'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+首先我们要用控制台（小黑窗）来构建一个模拟模拟目标 This allows us to validate the system setup before moving on to real hardware and an IDE.
 
 导航到 **Firmware** 目录，并使用以下命令启动 [jMAVSim](../simulation/jmavsim.md)：
 ```sh
