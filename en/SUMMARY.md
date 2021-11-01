@@ -210,6 +210,7 @@
       * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
   * [Flight Controller Peripherals](peripherals/README.md)
     * [GPS/Compass](gps_compass/README.md)
+      * [ARK GPS](uavcan/ark_gps.md)
       * [Hex Here2](gps_compass/gps_hex_here2.md)
     * [RTK GPS](gps_compass/rtk_gps.md)
       * [RTK GPS Heading with Dual u-blox F9P](gps_compass/u-blox_f9p_heading.md)
