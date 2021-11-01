@@ -56,7 +56,7 @@ GPS/나침반은 차량 전방 표식을 사용하여 가능한 전자 장치들
 <span id="pm02_v3"></span>
 ### PM02 v3 전원 모듈
 
-[전원 모듈 (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html)은 *Durandal*과 함께 번들로 제공될 수 있습니다. 비행 콘트롤러에 전력을 공급합니다.
+[전원 모듈 (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html)은 *Durandal*과 함께 번들로 제공될 수 있습니다. 비행 콘트롤러에 배터리의 전력을 공급합니다.
 
 그림과 같이 *전원 모듈*의 출력을 연결합니다.
 
@@ -72,46 +72,46 @@ GPS/나침반은 차량 전방 표식을 사용하여 가능한 전자 장치들
 :::
 
 :::tip
-** MAIN / AUX **의 8 핀 전원 (+) 레일은 비행 컨트롤러에 대한 전원 모듈 공급으로 전원이 공급되지 않습니다. 방향타, 엘레본 등의 서보를 구동하기 위해 별도로 전원을 공급해야하는 경우, 파워 레일을 BEC 장착 ESC 또는 독립형 5V BEC 또는 2S LiPo 배터리에 연결해야합니다. 사용하는 서보의 전압이 적절한 지 확인하십시오.
+**MAIN/AUX**의 8 핀 전원 (+) 레일은 비행 콘트롤러에 대한 전원 모듈 공급으로 전원이 공급되지 않습니다. 방향타, 엘레본 등의 서보를 구동하기 위해 별도로 전원을 공급해야하는 경우에는 파워 레일을 BEC 장착 ESC 또는 독립형 5V BEC나 2S LiPo 배터리에 연결합니다. 사용하는 서보의 전압이 적절한 지 확인하십시오.
 :::
 
-전원 모듈에는 다음과 같은 특성/제한이 있습니다.
+전원 모듈에는 다음과 같은 특성과 제약 사항이 있습니다.
 - 최대 입력 전압 : 60V
 - 최대 전류 감지 : 120A 전압
-- SV ADC 스위칭 레귤레이터 출력에 대해 구성된 전류 측정은 최대 5.2V 및 3A를 출력합니다.
+- SV ADC 스위칭 레귤레이터 출력에 대해 설정된 전원은 최대 5.2V 및 3A를 출력합니다.
 - 무게 : 20g
 - 패키지 내용물 :
   - PM02 보드
-  - 6 핀 MLX 케이블 (1)
-  - 6 핀 GH 케이블 (1)
+  - 6 핀 MLX 케이블 (1 개)
+  - 6 핀 GH 케이블 (1 개)
 
 :::note
-[ PM02v3 전원 모듈 설명서 ](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro)도 참조하십시오.
+[PM02v3 전원 모듈 설명서](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro)도 참고하십시오.
 :::
 
 <span id="pm07"></span>
 ### Pixhawk 4 전원 모듈 (PM07)
 
-[Pixhawk 4 전원 모듈 (PM07) ](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)은 * Durandal *과 함께 번들로 제공되기도 합니다. 전원 모듈 및 배전 보드 역할을 모두 수행하여 조정 된 전원을 비행 컨트롤러와 ESC에 제공하고 배터리 전압/전류를 비행 컨트롤러에 보냅니다.
+[Pixhawk 4 전원 모듈 (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)은 *Durandal*과 함께 번들로 제공될 수 있습니다. 전원 모듈 및 배전 보드 역할을 수행하여 배터리의 조정된 전력을 비행 콘트롤러와 ESC에 제공합니다.
 
-이것은 [ Pixhawk 4 빠른 시작> 전원 ](../assembly/quick_start_pixhawk4.md#power) 문서에 설명된 것과 같은 방식으로 연결됩니다.
+이것은 [ Pixhawk 4 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power)에 설명된 것과 동일 방식으로 연결합니다.
 
 전원 모듈에는 다음과 같은 특성과 제약 사항이 있습니다.
 - PCB 전류 : 총 120A 출력 (최대)
 - UBEC 5V 출력 전류 : 3A
 - UBEC 입력 전압 : 7 ~ 51v (2 ~ 12s LiPo)
-- 크기 : 68 * 50 * 8 mm
+- 크기 : 68 *50* 8 mm
 - 장착 구멍 : 45 * 45mm
 - 중량: 36g
 - 패키지 내용물 :
-  - PM07 보드 (1)
-  - 80mm XT60 커넥터 와이어 (1)
+  - PM07 보드 (1 개)
+  - 80mm XT60 커넥터 와이어 (1 개)
 
 :::note
-[ PM07 빠른 시작 안내서 ](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)도 참조하십시오.
+[PM07 빠른 시작 안내서](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)도 참고하십시오.
 :::
 
-### 배터리 설정
+### -- 배터리 설정
 
 배터리 전원 설정은 [ 전원 설정 ](../config/battery.md)에서 구성해야 합니다. 두 전원 모듈에 대해 * 셀 수 *를 구성해야 합니다.
 
