@@ -24,7 +24,7 @@ PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or E
 This list contains GNSS/Compass units that have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
 Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md)
-:--- | :---: | :---:  | :---:  | :---:  | :---: | :---:
+:--- | :---: | :---:  | :---:  | :---:  | :---: 
 [ARK GPS](https://arkelectron.com/product/ark-gps/) | M9N  | ICM42688p | | | 
 [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) | SAM-M8Q | MMC5983MA | | | 
 [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | &cross; | &check; | | | | 

@@ -1,6 +1,6 @@
 # ARK GPS
 
-ARK GPS is an open source [UAVCAN](README.md) [GPS](../gps_compass/README.md), magnetometer, IMU, buzzer, and safety switch module.
+ARK GPS is an open source [UAVCAN](README.md) [GNSS/GPS](../gps_compass/README.md), magnetometer, IMU, buzzer, and safety switch module.
 
 ![ARK GPS](../../assets/hardware/gps/ark_gps.jpg)
 
@@ -55,12 +55,9 @@ General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](..
 <a id="mounting"></a>
 ### Mounting/Orientation
 
-The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**. <!-- as shown in the following picture. -->
+The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**. 
 
-<!-- TODO: add a picture of this if necessary-->
-<!-- ![ARK GPS align with Pixhawk](../../assets/hardware/gps/ark_gps_orientation.png) -->
-
-The sensor can be mounted anywhere on the frame, but you will need to specify the focal point position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
+The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
 
 ## PX4 Setup
@@ -76,6 +73,8 @@ The steps are:
 Once enabled, the module will be detected on boot.
 GPS data should arrive at 10Hz.
 
+General instructions for UAVCAN PX4 configuration can also be found in [UAVCAN > PX4 Configuration](../uavcan/README.md#px4-configuration).
+
 ### PX4 Configuration
 
 The ARK GPS works with default parameters.
@@ -88,6 +87,7 @@ Ark GPS is sold with a recent firmware build.
 Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
 
 The steps are:
+
 1. Install the [PX4 toolchain](../dev_setup/dev_env.md). 
 1. Clone the PX4-Autopilot sources, including Ark GPS, using *git*:
    ```
@@ -98,10 +98,12 @@ The steps are:
    ```
    make ark_can-gps_default
    ```
-1. That will have created a binary in **build/ark_can-gps_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the Ark GPS. Next time you power your flight controller with the SD card installed, Ark GPS will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the ufw directory of the SD card.
-    :::note
-    The Ark GPS will not boot if there is no SD card in the flight controller when powered on.
-    :::
+1. That will have created a binary in **build/ark_can-gps_default** named **XX-X.X.XXXXXXXX.uavcan.bin**.
+   Put this binary on the root directory of the flight controller’s SD card to flash the Ark GPS. Next time you power your flight controller with the SD card installed, Ark GPS will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the *ufw* directory of the SD card.
+
+   :::note
+   The Ark GPS will not boot if there is no SD card in the flight controller when powered on.
+   :::
 
 
 ## Updating Ark GPS Bootloader
@@ -109,6 +111,7 @@ The steps are:
 The Ark GPS comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
 
 The steps are:
+
 1. Build the Ark GPS bootloader firmware:
    ```
    make ark_can-gps_canbootloader
@@ -117,8 +120,10 @@ The steps are:
    This will setup your `launch.json` file if you are in VS code. If using the Black Magic Probe and VS code, make sure to update `BMPGDBSerialPort` within this file to the correct port that your debugger is connected to. On MacOS, the port name should look something like `cu.usbmodemE4CCA0E11`.
    :::
 1. Connect to your Ark GPS to any Serial Wire Debugging (SWD) device that supports use of GNU Project Debugger (GDB), such as the Black Magic Probe and then connect power to your Ark GPS via one of the CAN ports.
-1. Flash the Ark Flow with `ark_can-gps_canbootloader`. To do so in VS code, you should see `CMake: [ark_can-gps_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing. You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code.
-1. With the bootloader flashed, you are ready to build and flash the Ark GPS firmware `ark_can-gps_default` as outlined above.
+1. Flash the Ark Flow with `ark_can-gps_canbootloader`.
+   To do so in VS code, you should see `CMake: [ark_can-gps_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing.
+   You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code.
+3. With the bootloader flashed, you are ready to build and flash the Ark GPS firmware `ark_can-gps_default` as outlined above.
 
 
 ## LED Meanings
