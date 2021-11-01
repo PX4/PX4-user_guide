@@ -192,7 +192,7 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Further info
 
-- [Pixhawk 5X Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
+- [Pixhawk 5X Wiring QuickStart](../assembly/quick_start_pixhawk5x.md)
 - [Pixhawk 5X Overview & Specification](http://www.holybro.com/manual/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
 - [Pixhawk 5X Pinouts](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
 - [PM02D Power Module Manual](http://www.holybro.com/manual/Holybro_PM02D_Power_Module_Manual.pdf) (Holybro)
