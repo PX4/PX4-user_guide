@@ -10,7 +10,7 @@ Manufacturers typically default-configure the radios in peer-to-peer mode and ma
 This allows plug and play telemetry when the radios are connected to the usual telemetry ports on a Pixhawk flight controllers (`TELEM1` or `TELEM2`) along with auto-detection of the connection in *QGroundControl*.
 
 Several manufacturers provide solutions based on these radios:
-* [ARK Electron Microhard Serial Telemetry Radio](../telemetry/arkflow_microhard_serial.md)
+* [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
 * [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
 
 ## Range Tradeoffs
