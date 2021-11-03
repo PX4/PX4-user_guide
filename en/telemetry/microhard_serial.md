@@ -48,7 +48,7 @@ See [Application Settings > Comms Links](https://docs.qgroundcontrol.com/master/
 ### Radio Configuration
 
 Microhard serial radios are configured using the *PicoConfig* application (Windows only).
-This can be downloaded from [ARK Electron](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) or [holybro](http://www.holybro.com/download/picoconfig-1-8/).
+This can be downloaded here: [PicoConfig-1.7.zip](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (ARK Electron) or [picoconfig-1-8](http://www.holybro.com/download/picoconfig-1-8/) (Holybro).
 
 In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
 

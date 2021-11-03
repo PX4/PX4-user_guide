@@ -49,33 +49,19 @@ The radio must be separately powered via the 4-pin JST-GH XT30 power cable (7-35
 This radio has a internal USB to UART converter, the ground radio can be connected to the ground station via USB C.
 The radio must be separately powered via the XT30 power cable (7-35VDC).
 
-## Setup
+## Setup/Configuration
+
+Holybro Microhard P900 Radios have been configured to point-to-point operating mode and 57600 serial baud rate in the factory.
+This allows them to connect to the PX4 `TELEM1` port and *QGroundControl* **without any further configuration**.
 
 :::note
-PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended).
-No further PX4 configuration is required if you are using this port and baud rate.
+You can use a different baud rate, mode or flight controller port.
+The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
 :::
 
-The ground radio, air radio, PX4, and *QGroundControl* must all be set to the same baud rate.
+[Microhard Serial Telemetry Radios > Configuration](../telemetry/microhard_serial.md#configuration) explains how to configure the radios, *QGroundControl*, and PX4.
 
-:::note
-You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-:::
-
-The radios are configured using the *PicoConfig* application (Windows only).
-It can be downloaded from [here](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) or [here](http://www.holybro.com/download/picoconfig-1-8/).
-Holybro Microhard P900 Radio have been configured to point-to-point operating mode and 57600 serial baud rate in the factory.
-After firmware update or resetting the radio, you need to re-config them as follows.
-
-<img src="../../assets/hardware/telemetry/holybro_pico_config.png" width="400px" title="Holybro Pico Config" />
-<img src="../../assets/hardware/telemetry/holybro_pico_config1.png" width="400px" title="Holybro Pico Config" />
-
-In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
-Refer to [Pico Series P900.Operating Manual.v1.8.7](https://github.com/PX4/PX4-user_guide/raw/master/assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf) for the detailed information on radio configuration.
-
-## Configuration
-
-The P900 is configured using AT commands through the data port, or using the *PicoConfig* application through the diagnostic port.
+In order to configure the radios using the *PicoConfig* application (as described in the link above) it must be connected through the diagnostic port:
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_uart converter.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
 
@@ -88,10 +74,19 @@ You can purchase a [Holybro UART to USB Converter](https://shop.holybro.com/gps-
 *Pico Config* will automatically detect and connect to the configuration port.
 Adjust the settings so that the baud rate matches PX4 (and the ground station).
 
-Once the radios and PX4 are configured to use the same baud rate you can connect *QGroundControl* to the vehicle via the radio.
-*QGroundControl* will not automatically detect the radio for anything other than the default baud rate, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
-
 Holding the **Config** button while powering-up the radio will boot the unit into COMMAND mode: the default serial interface will be active and temporarily set to operate at its default serial settings of 9600/8/N/1.
+
+Note that it is also possible to configure the radios using AT commands through the data port.
+
+### Default Configuration
+
+The default radio configuration as shipped is shown in *PicoConfig* below (you may need to reconfigure them as shown after firmware update or resetting the radio).
+
+<img src="../../assets/hardware/telemetry/holybro_pico_config.png" width="400px" title="Holybro Pico Config" />
+<img src="../../assets/hardware/telemetry/holybro_pico_config1.png" width="400px" title="Holybro Pico Config" />
+
+In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
+
 
 ## Status LED
 
