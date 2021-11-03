@@ -1,6 +1,8 @@
 # ARK Electron Microhard Serial Telemetry Radios
 
-[Microhard Pico Serial](http://microhardcorp.com/P900.php) radios enable MAVLink communication between a radio on a vehicle and a GCS.
+*ARK Electron Microhard Serial Telemetry Radios* integrate the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module.
+This can be used to enable MAVLink communication between a radio on a vehicle and a GCS.
+
 Microhard Pico Serial radios are (up to) 1 Watt output radios that support point to point, point to multi-point, and mesh modes.
 The Microhard Pico radios can also be ordered with AES-256 encryption.
 
@@ -20,7 +22,8 @@ Vehicles must have different MAVLINK IDs.
 ## Connecting
 
 ### Vehicle Radio
-Connect the vehicle radio to the flight controller `TELEM1` port (any free serial port can be used).
+
+Connect the vehicle radio to the flight controller `TELEM1` port.
 A Pixhawk-standard 6 pin JST GH telemetry cable is supplied for this purpose.
 
 The radio can be powered by the telemetry cable if the output power is set to less than 100mW.
@@ -36,28 +39,37 @@ The radio does not need to be separately powered when using USB PD (1W power can
 
 ## Setup/Configuration
 
-The ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
-
-PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended).
-No further PX4 configuration is required if you are using this port and baud rate.
+The radios are default-configured to use peer-to-peer mode and a baud rate of 57600.
+This allows them to connect to the PX4 `TELEM1` port and *QGroundControl* **without any further configuration**.
 
 :::note
-You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
+You can use a different baud rate, mode or flight controller port.
+The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
 :::
 
-The radios are configured using [Pico Config](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (Windows only).
+[Microhard Serial Telemetry Radios > Configuration](../telemetry/microhard_serial.md#configuration) explains how to configure the radios, *QGroundControl*, and PX4.
 
-![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
+The ARK Electron radios must be connected to the computer running the *PicoConfig* configuration tool as described below:
 
-For vehicle radio configuration you will have to connect an FTDI adapter between the radio's 3 pin JST-GH Config port and a Windows PC running *Pico Config* (the radio must be powered, which you can do from battery or the data connection to the flight-controller's `TELEM1` port).
-*Pico Config* will automatically detect the radio.
-Adjust the baud rate setting to match PX4 (and the ground station radio).
+- For vehicle radio configuration you will have to connect an FTDI adapter between the radio's 3 pin JST-GH Config port and a Windows PC running *Pico Config* (the radio must be powered, which you can do from battery or the data connection to the flight-controller's `TELEM1` port).
 
-![Ark Microhard Serial - Ports](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
+  ![Ark Microhard Serial - Ports](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
 
-The ground station radio USB C connection can be used for configuring the radio (as well as for telemetry data).
+  *Pico Config* will automatically detect the radio.
+  Adjust the baud rate setting to match PX4 (and the ground station radio).
+
+- The ground station radio USB C connection can be used for configuring the radio (as well as for telemetry data).
 *Pico Config* will automatically detect and connect to the configuration port.
 Adjust the settings so that the baud rate matches PX4.
 
 Once the radios and PX4 are all configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio.
-*QGroundControl* will not automatically detect the radio, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
+
+### Default Configuration
+
+The default radio configuration as shipped is shown in *PicoConfig* below.
+
+![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
+
+## Further information
+
+-  [Pico Config 1.7](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) - Radio configuration tool
