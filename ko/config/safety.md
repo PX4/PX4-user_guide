@@ -220,19 +220,22 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 | ------------------------------------------------------------------------------ | ---------------------------------------- |
 | [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | 비상 안전조치를 설정합니다 : 비활성화, 경고, 귀환 모드, 착륙 모드. |
 
-### 적응형 QuadChute 안전장치
+### QuadChute Failsafe
 
-푸셔 모터 (또는 대기 속도 센서)가 고장나거나, 고정익이 더 이상 고정익 모드에서 원하는 고도 설정 값에 도달할 수 없는 경우를위한 안전 장치입니다. 동작시에 수직이착륙기는 멀티 콥터 모드로 전환되고 안전 장치는 [반환 모드](../flight_modes/return.md)로 설정됩니다.
+Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps because a pusher motor, airspeed sensor or control surface failed. If triggered, the vehicle will immediately switch to multicopter mode. If the vehicle was in [Mission mode](../flight_modes/mission.md) it enters failsafe [Return mode](../flight_modes/return.md).
 
 :::note
-필요한 경우 *귀환 모드*를 일시 중지하고 고정익 비행으로 전환할 수 있습니다. 안전장치가 동작할 조건이 되면, 다시 작동하게 됩니다.
+The quadchute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
 :::
 
-관련 매개 변수는 다음과 같습니다.
+The parameters that control when the quadchute will trigger are listed in the table below.
 
-| 매개변수                                                                       | 설명                                                                               |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | 고정익 비행에 대한 고도 오류 음수의 최대 절대값 고도가 설정치 이하가 되면, 기체는 MC 모드로 다시 전환되고 안전 장치 RTL로 전환됩니다. |
+| 매개변수                                                                       | 설명                                                                                                                                                                        |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | 고정익 비행에 대한 고도 오류 음수의 최대 절대값 고도가 설정치 이하가 되면, 기체는 MC 모드로 다시 전환되고 안전 장치 RTL로 전환됩니다.                                                                                          |
+| [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | Minimum altitude for fixed wing flight. When the altitude drops below this value in fixed wing flight the vehicle will transition back to MC mode and enter failsafe RTL. |
+| [VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P)       | Maximum pitch angle before QuadChute engages. Above this the vehicle will transition back to MC mode and enter failsafe RTL.                                              |
+| [VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R)       | Maximum roll angle before QuadChute engages. Above this the vehicle will transition back to MC mode and enter failsafe RTL.                                               |
 
 <span id="failure_detector"></span>
 
