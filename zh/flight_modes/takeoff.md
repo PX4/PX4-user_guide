@@ -11,7 +11,7 @@
 * 该模式是自动的 - 不 *需要* 用户干预即可控制无人机。
 * 遥控开关可以在任何无人机上更改飞行模式。
 * 在多旋翼中移动遥控器摇杆（或 VTOL 在多旋翼模式下）[默认情况下](#COM_RC_OVERRIDE)会将无人机切换到[位置模式](../flight_modes/position_mc.md)，除非是处理电池失效保护。
-* 如果起飞时出现问题， [故障检测器](../config/safety.md#failure_detector) 将自动停止引擎。
+* The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
 下面描述每种类型飞机的具体行为。
