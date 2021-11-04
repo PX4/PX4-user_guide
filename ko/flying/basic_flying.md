@@ -14,9 +14,9 @@
 
 드론 시동을 거는 방법
 
-- 먼저 [안전 스위치](../getting_started/px4_basic_concepts.md#safety_switch)를 해제 하십시오.
+- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
 - 기체에 arm 명령을 사용하십시오. 스로틀 스틱을 오른쪽 하단에 놓으면 시동 명령이 실행됩니다. 
-  - 또는 [시동 스위치](../config/safety.md#arming_switch)를 설정하십시오.
+  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming-switch).
   - *QGroundControl*에서 시동을 걸 수도 있습니다. PX4는 자율 비행을 위해서 무선 조종기가 반드시 필요하지 않습니다.
 
 :::tip
@@ -47,7 +47,7 @@
 :::
 
 :::note
-이륙시 문제가 발생하면 [고장 감지기](../config/safety.md#failure_detector)가 자동으로 엔진을 중지합니다.
+The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
 ## 착륙
