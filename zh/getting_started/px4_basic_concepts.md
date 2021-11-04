@@ -132,25 +132,23 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 
-<a id="safety_switch"></a>
-
 ## 安全开关
 
-机体通常必须有一个 *安全开关*，然后才能使用 [解锁](#arming)（解锁后，电机会供电，螺旋桨开始旋转）。 通常，安全开关被整合到GPS设备中，但也可能是一个单独的物理组件。
+It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
 :::warning
-解锁后的机体是有潜在危险的。 安全开关是防止意外解锁发生的一个附加机制。
+A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
 :::
 
 ## 数传电台
 
-[数传电台](../telemetry/README.md) 可以在诸如 *QGC 地面站* 与运行 PX4 的机体之间提供无线 MAVLink 连接。 这使得飞机飞行中调试参数、实时检查遥测信息、更改任务等等成为了可能。
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
 ## 机载计算机
 
-PX4 可以通过串行接线或 WiFi 由独立的机载伴飞计算机进行控制。 机载计算机通常使用 MAVLink API（如 MAVSDK 或 MAVROS）进行通信。
+PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
-有关主题包括:
+Relevent topics include:
 
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
 - [Robotics APIs](../robotics/README.md)
@@ -159,15 +157,15 @@ PX4 可以通过串行接线或 WiFi 由独立的机载伴飞计算机进行控�
 
 ## SD卡（可移除储存器）
 
-PX4 使用 SD 储存卡存储 [飞行日志](../getting_started/flight_reporting.md)，而且还需要内存卡才能使用 UAVCAN 外围设备，运行 [飞行任务](../flying/missions.md)。
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
-默认情况下，如果没有 SD 卡，PX4 将在启动时播放 [格式化失败（2-声短响）](../getting_started/tunes.md#format-failed) 两次（且上述需要储存卡的功能都不可用）。
+By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
 :::tip
-Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐](../dev_log/logging.md#sd-cards)使用*SanDisk Extreme U3 32GB* 。
+The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](../dev_log/logging.md#sd-cards).
 :::
 
-SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器可以：
+SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
 
 - 使用参数 [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 禁用通知蜂鸣器。
 - [推流日志](../dev_log/logging.md#log-streaming) 到另一个组件（机载计算机）。
@@ -177,45 +175,45 @@ SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器
 
 ## 解锁和加锁
 
-机体是有可活动的部件的，其中一些在通电后会有潜在的危险性（特别是电机和螺旋桨）！
+Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
-为了减少事故概率：
+To reduce the chance of accidents:
 
 - 当不在使用时， PX4 机体是 *加锁状态的*（未供电的），必须在起飞前进行 *解锁*。
 - A vehicle will automatically disarm if a pilot does not take off quickly enough, and after landing (the disarm time is configurable).
-- Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+- Some vehicles also have a [safety switch](#safety-switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
 - Arming is prevented if the vehicle is not in a "healthy" state.
 - Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
-解锁默认情况下（美国手发射机）可以通过保持遥控油门+ YAW 摇杆到*右下角*一秒钟来解锁，要想加锁，则保持摇杆在左下角。 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送解锁命令）。
+Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
 
-还有更细节的解锁和加锁的配置的详细解读可以在这里找到：[预解锁，解锁，加锁配置](../advanced_config/prearm_arm_disarm.md)。 
+A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 <a id="flight_modes"></a>
 
 ## 飞行模式
 
-飞行模式为用户（飞手）提供不同类型/级别的飞行器自动化和自动驾驶辅助。 自主模式完全由自驾仪控制，无需飞手/遥控输入。 例如，它们可用于自动执行诸如起飞，返回 Home 点和着陆等常见任务。 其他自主模式执行预编程任务，跟随 GPS 信标，或接受来自机载计算机或地面站的命令。
+Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
 
-*手动模式* 由用户（通过遥控控制杆/手柄）在自驾仪的协助下实现控制。 不同的手动模式可以实现不同的飞行特性 - 例如，某些模式可以实现特技动作，而其他模式则无法翻转并且会抗风以保持位置/航向。
+*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
 
 :::tip
-并非所有的飞行模式都适用于所有飞行器，并且某些模式只能在满足特定条件时使用（例如，许多模式需要全局位置估计）。
+Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 :::
 
-可用飞行模式的概述可在 [这里](../getting_started/flight_modes.md)找到。 [飞行模式配置 ](../config/flight_mode.md)中提供了有关如何设置遥控开关以打开不同飞行模式的说明。
+An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 <a id="safety"></a>
 
 ## 安全设置（故障保护）
 
-PX4 具有可配置的故障安全系统，可在出现问题时保护和挽回您的飞行器！ 这些允许您指定可以安全飞行的区域和条件，以及触发故障保护时将执行的操作（例如，着陆、保持位置或返回指定点）。
+PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
 :::note
-您只能为 *第一个* 故障保护事件指定操作。 一旦发生故障保护，系统将执行特殊处理代码，以便后续故障保护触发器由单独的系统层级和飞行器特定代码管理。
+You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 :::
 
-主要的故障保护事件如下：
+The main failsafe areas are listed below:
 
 - 低电量
 - 遥控(RC) 信号丢失
@@ -226,22 +224,22 @@ PX4 具有可配置的故障安全系统，可在出现问题时保护和挽回�
 - 任务故障保护（防止先前的任务在新的起飞地点运行）。
 - 交通避障（由来自如 ADS-B 转发器的数据触发）。
 
-有关详细信息，请参阅：[安全](../config/safety.md)（基本配置）。
+For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
 ## 航向和运动方向
 
-所有车辆，船只和飞机都具有航向（机头朝向）或基于其前进运动的方向。
+All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
 :::note
-对于 VTOL Tailsitter 机头朝向是与多旋翼配置相关的(比如无人机在起飞，悬停，降落时的姿态)。
+For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
 :::
 
-知道机体朝向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有朝向！ 通常制造商使用彩色螺旋桨或带颜色的机臂来表示朝向。
+It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
 
 ![Frame Heading TOP](../../assets/concepts/frame_heading_top.png)
 
-在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的航向。
+In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
 
-您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解朝向。
+You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
