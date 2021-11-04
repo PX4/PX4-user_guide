@@ -85,7 +85,7 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 
 [RC 손실 및 배터리 안전 장치](../config/safety.md)를 설정합니다. GPS를 사용하지 않는 경우 안전 장치를 **잠금**으로 설정하면 모터가 꺼집니다. 차량이 시동이 켜지면 리모컨을 꺼서 프로펠러를 제거한 다음에, 벤치에서 RC 손실을 테스트합니다.
 
-[킬 스위치](../config/safety.md#kill_switch) 또는 [무장 스위치](../config/safety.md#arming_switch)를 지정하여야 합니다. 테스트하고 연습을 충분히 하여야 합니다.
+Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arming-switch). 테스트하고 연습을 충분히 하여야 합니다.
 
 ### PID 튜닝
 

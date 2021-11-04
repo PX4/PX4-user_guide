@@ -7,38 +7,36 @@
 무선 시스템을 보정하기 전에 수신기와 송신기를 연결하여 바인딩하여야 합니다. 송신기와 수신기 쌍을 바인딩하는 프로세스는 하드웨어에 따라 조금씩 다릅니다 (자세한 지침은 설명서 참조).
 
 :::note
-*Spektrum* 수신기를 사용하는 경우 [아래에 표시된 ](#spektrum_bind)과 같이 *QGroundControl*을 사용하여 바인딩 모드로 전환 할 수 있습니다.
+If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spectrum-bind).
 :::
 
 :::note
 *FrSky* 수신기를 사용하는 경우 [이 지침](https://www.youtube.com/watch?v=1IYg5mQdLVI)에 따라 송신기와 바인딩할 수 있습니다.
 :::
 
-<span id="rc_loss_detection"></span>
-
 ## RC 손실 감지
 
-PX4에서 [적절한 안전 조치](../config/safety.md#rc_loss_failsafe)를 수행하기 위해서는 RC 컨트롤러의 신호가 손실되는 시점을 감지할 수 있어야합니다.
+PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc-loss-failsafe).
 
-RC 수신기에는 신호 손실을 나타내는 다양한 방법이 있습니다.
+RC receivers have different ways of indicating signal loss:
 
 * 아무것도 출력하지 않음 (PX4에서 자동으로 감지 됨)
 * 낮은 스로틀 값을 출력합니다 (이를 감지하도록 PX4를 구성 할 수 있음).
 * 마지막으로 수신된 신호를 출력합니다 (유효한 입력처럼 보이므로 *PX4에서 감지 할 수 없음*).
 
-RC 수신기가 RC 손실시 신호 출력을 지원하지 않는 경우 대신 스로틀을 낮게 설정하도록 구성하고, [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR)에 해당 값을 설정해야합니다.
+If your RC receiver does not support outputting no signal on RC loss, you must configure it to set throttle low instead, and set the corresponding value in [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR).
 
-이를 수행하는 방법은 RC 컨트롤러 트림 및 스로틀 스틱을 가능한 낮게 설정하고 결과 출력 PWM 값을 PX4와 수신기 모두에서 사용하는 것입니다 (RC 손실 값을 설정하는 방법을 결정하려면 수신기 설명서를 참조하십시오). 그런 다음 스로틀 스틱을 원래 위치로 가져다 놓으십시오. 이 프로세스는 RC 손실 값이 정상 작동에서 수신기가 출력하는 최소값 미만이되도록 합니다.
+The way to do this is to set the RC controller trim and throttle stick as low as possible, and use the resulting output PWM value in both PX4 and the receiver (read your receiver manual to determine how to set the RC loss value). Then reset the throttle stick trim back to its normal position. This process ensures that the RC loss value is below the minimum value output by the receiver in normal operation.
 
 :::note
-지원되는 두 가지 RC 손실 감지 방법을 지원하지 않는 수신기를 사용하지 마십시오!
+Do not use a receiver that cannot support one of the two supported RC loss detection methods!
 :::
 
 ## 보정 작업
 
-보정 과정는 간단합니다. 화면 오른쪽 상단의 송신기 다이어그램에 표시된 특정 패턴으로 스틱을 이동하라는 메시지가 표시됩니다.
+The calibration process is straightforward - you will be asked to move the sticks in a specific pattern that is shown on the transmitter diagram on the top right of the screen.
 
-무선 조종기 보정 절차
+To calibrate the radio:
 
 1. RC 송신기를 켭니다.
 2. *QGroundControl*을 시작하고 드론에 연결합니다.
@@ -57,21 +55,19 @@ RC 수신기가 RC 손실시 신호 출력을 지원하지 않는 경우 대신 
 
 8. **Next(다음)**를 클릭하여 설정을 시작합니다.
 
-무선 조종기 보정은 [자동 조종 장치 설정 동영상](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube)에 자세히 설명되어 있습니다.
+Radio calibration is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube).
 
 ## 추가 무선 조종기 설정:
 
-조종 스틱 및 기타 송신기 컨트롤을 보정하는 것 외에도이 화면에서 유용 할 수있는 여러 추가 무선 설정 옵션이 있습니다.
+As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
-<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="무선 조종기 설정 - 추가 설정" width="300px" />
-
-<span id="spektrum_bind"></span>
+<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
 ### Spektrum 바인드
 
-무선 시스템을 보정하기 전에 수신기와 송신기를 연결하여 바인딩하여야 합니다. *Spektrum* 수신기가있는 경우 아래와 같이 *QGroundControl*을 사용하여 *바인드 모드*로 설정할 수 있습니다. 차량의 수신기에 쉽게 물리적으로 접근할 수 있습니다.)
+Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a *Spektrum* receiver you can put it in *bind mode* using *QGroundControl* as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
 
-Spektrum 송신기/수신기 바인딩 절차
+To bind a Spektrum transmitter/receiver:
 
 1. **Spektrum Bind** 버튼을 선택합니다
 2. 수신기의 라디오 버튼을 선택하십시오.
@@ -83,13 +79,13 @@ Spektrum 송신기/수신기 바인딩 절차
 
 ### 트림 복사
 
-이 설정은 자동 조종 장치 내에서 자동으로 적용될 수 있도록 무선 송신기에서 수동 트림 설정을 복사하는 데 사용됩니다. 이 작업이 끝나면 수동으로 설정 한 트림을 제거해야합니다.
+This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
 
 :::note
-트림 설정은 롤, 피치, 요를 조정하는 데 사용됩니다. 따라서 스틱을 리모컨의 중앙에 놓을 때 안정된 비행 또는 수평 비행을 얻을 수 있습니다 (안정화 된 비행 모드에서). 일부 RC 컨트롤러는 각 스틱 위치에 대해 RC 컨트롤러에서 전송 한 값에 오프셋을 제공 할 수있는 트림 노브를 제공합니다. 여기서 **트림 복사** 설정은 오프셋을 자동 조종 장치로 이동합니다.
+Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
 :::
 
-트림 복사 절차
+To copy the trims:
 
 1. **트림 복사**를 선택하십시오.
 2. 스틱을 중앙에 놓고 스로틀을 끝까지 내립니다. 
@@ -101,35 +97,35 @@ Spektrum 송신기/수신기 바인딩 절차
 
 ### AUX 패스 스루 채널
 
-AUX 패스 스루 채널을 사용하면 송신기에서 임의의 옵션 하드웨어 (예 : 그리퍼)를 제어 할 수 있습니다.
+AUX passthrough channels allow you to control arbitrary optional hardware from your transmitter (for example, a gripper).
 
-AUX 패스 스루 채널 설정 절차
+To use the AUX passthrough channels:
 
 1. 최대 2 개의 송신기 컨트롤을 별도의 채널에 매핑합니다. 
 2. 아래에 표시된 것처럼 이러한 채널을 지정하여 AUX1 및 AUX2 포트에 각각 매핑합니다. 값은 설정되는 즉시 차량에 저장됩니다.
     
     ![AUX1 및 AUX2 RC 패스 스루 채널](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
 
-비행 컨트롤러는 AUX1/AUX2의 지정된 채널에서 수정되지 않은 값을 통해 하드웨어를 구동하는 연결된 서보/릴레이로 전달합니다.
+The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
 
 ### Param 튜닝 채널
 
-튜닝 채널을 사용하면 송신기 튜닝 노브를 파라미터에 매핑 할 수 있습니다 (트랜스미터에서 파라미터를 동적으로 수정할 수 있음).
+Tuning channels allow you to map a transmitter tuning knob to a parameter (so that you can dynamically modify a parameter from your transmitter).
 
 :::tip
-이 기능은 수동 기내 튜닝을 가능하게하기 위해 제공됩니다 : [멀티콥터 PID 튜닝 설명서](../config_mc/pid_tuning_guide_multicopter.md), [고정익 PID 튜닝 설명서](../config_fw/pid_tuning_guide_fixedwing.md).
+This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
 :::
 
-매개 변수 튜닝에 사용되는 채널은 *라디오* 설정 (여기!)에서 할당되며 각 튜닝 채널에서 관련 매개 변수로의 매핑은 *매개 변수 편집기*에서 정의됩니다.
+The channels used for parameter tuning are assigned in the *Radio* setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the *Parameter editor*.
 
-채널 튜닝 절차
+To set up tuning channels:
 
 1. 최대 3 개의 송신기 컨트롤 (다이얼 또는 슬라이더)을 개별 채널에 매핑합니다.
 2. 선택 목록을 사용하여 라디오 채널에 대한 *PARAM Tuning Id* 매핑을 선택합니다. 값은 설정되는 즉시 차량에 저장됩니다.
     
     ![라디오 채널을 튜닝 채널에 매핑](../../assets/qgc/setup/radio/radio_additional_radio_setup_param_tuning.jpg)
 
-PARAM 튜닝 채널을 매개 변수에 매핑 절차
+To map a PARAM tuning channel to a parameter:
 
 1. **매개 변수** 사이드 바를 엽니 다. 
 2. 송신기에 매핑 할 매개 변수를 선택합니다 (이렇게하면 *매개 변수 편집기*가 열립니다).
@@ -144,7 +140,7 @@ PARAM 튜닝 채널을 매개 변수에 매핑 절차
 7. **저장**을 눌러 모든 변경 사항을 저장하고 *매개 변수 편집기*를 닫습니다.
 
 :::tip
-*Parameters* 화면의 오른쪽 상단에있는 메뉴 **Tools> Clear RC to Param**을 선택하여 모든 매개 변수/튜닝 채널 매핑을 지울 수 있습니다.
+You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
 :::
 
 ## 추가 정보

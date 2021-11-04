@@ -11,7 +11,7 @@
 * 이 모드는 자동입니다. 기체를 제어하기 위해 사용자 개입이 *필요하지* 않습니다.
 * RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 * 멀티콥터 (또는 멀티콥터 모드의 VTOL)에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.
-* 이륙시 문제가 발생하면 [고장 감지기](../config/safety.md#failure_detector)가 자동으로 엔진을 중지합니다.
+* The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
 각 기체 유형에 대한 구체적인 행동은 아래에 설명되어 있습니다.

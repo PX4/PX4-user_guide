@@ -107,19 +107,19 @@ PX4 和 *Pixhawk*兼容的接收机如下所示：
 
 在你校准和/使用无线系统之前，你需要先将接收机和发射机*对频*，好让他们之间进行通信。 各种遥控器的对频方法各不相同（参照遥控器说明书）。
 
-如果你使用* Spektrum *的接收机，你可以使用 *QGroundControl* 的[遥控器设置 > 对频 ](../config/radio.md#spektrum_bind)进行对频.
+If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spectrum-bind).
 
 ## 设置信号丢失动作
 
 遥控器接收器有不同方式指示信号损失：
 
 * 无输出(由PX4自动检测)
-* 输出低油门值(您可以 [配置 PX4 来检测这个](../config/radio.md#rc_loss_detection))。
+* Output a low throttle value (you can [configure PX4 to detect this](../config/radio.md#rc-loss-detection)).
 * 输出最后收到的信号 (PX4 无法处理此情况!)
 
 首选一个当RC断开时无输出的接收机，然后才是低油门的接收机。 可能需要配置接收器(请参阅手册)。
 
-欲了解更多信息，请参阅 [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
 
 ## 相关章节
 
