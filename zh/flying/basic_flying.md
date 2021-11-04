@@ -14,9 +14,9 @@
 
 解锁无人机
 
-- 首先关闭[安全开关](../getting_started/px4_basic_concepts.md#safety_switch)。
+- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
 - 对您的机体使用解锁命令 - 将油门杆放在右下角。 
-  - 或者增加一个[解锁/加锁开关](../config/safety.md#arming_switch)。
+  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming-switch).
   - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要电台控制）。
 
 :::tip
@@ -47,7 +47,7 @@
 :::
 
 :::note
-如果起飞过程出现故障[故障检测器](../config/safety.md#failure_detector)会自动关闭电机。
+The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
 ## 降落
