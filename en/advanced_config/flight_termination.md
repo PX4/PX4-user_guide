@@ -2,6 +2,11 @@
 
 The *Flight termination* [failsafe action](../config/safety.md#failsafe_actions) may be triggered by a [safety check](../config/safety.md) (e.g. RC Loss, geofence violation, etc. on any vehicle type or in any flight mode), or by the [Failure Detector](../config/safety.md#failure_detector).
 
+:::note
+Flight termination may also be triggered from a ground station or companion computer using the MAVLink [MAV_CMD_DO_FLIGHTTERMINATION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_FLIGHTTERMINATION) command.
+This is sent, for example, when you call the [MAVSDK Action plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1a47536c4a4bc8367ccd30a92eb09781c5) `terminate()` or `terminate_async()` methods.
+:::
+
 When *Flight termination* is activated, PX4 simultaneously turns off all controllers and sets all PWM outputs to their failsafe values.
 
 Depending on what devices are connected, the PWM failsafe outputs can be used to:
