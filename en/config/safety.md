@@ -250,7 +250,7 @@ If triggered, the vehicle will immediately switch to multicopter mode.
 If the vehicle was in [Mission mode](../flight_modes/mission.md) it enters failsafe [Return mode](../flight_modes/return.md).
 
 :::note
-The quadchote can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
+The quadchute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
 :::
 
 The parameters that control when the quadchute will trigger are listed in the table below.
