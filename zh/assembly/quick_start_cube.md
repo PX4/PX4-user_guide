@@ -30,7 +30,7 @@ The image below shows how to connect the most important sensors and peripherals.
 1. [数传系统](#telemetry) — 允许您计划/运行任务，实时控制和监控飞行器状态。 典型的包括数传、平板电脑/PC、地面站软件。
 2. [蜂鸣器](#buzzer) — 提供声音信号显示UAV目前的状态。
 3. [远程控制接收系统](#rc_control) — 连接手持发射器能够手动操控飞行（如图所述是一个PWM 接收器能包括 PWM->PPM 转换器）。
-4. （专用） [安全开关](#safety_switch) — 按下以解锁和锁定电机。 如果您没有使用推荐的内置安全开关的 [GPS](#gps) 时，安全开关是必须的。
+4. (Dedicated) [Safety switch](#safety-switch) — Press and hold to lock and unlock motors. 如果您没有使用推荐的内置安全开关的 [GPS](#gps) 时，安全开关是必须的。
 5. [GPS、罗盘、LED、安全开关](#gps) — 推荐的GPS模块包括GPS、罗盘、LED 和安全开关。 
 6. [电源系统](#power) — 电源线和电机ESC。 包括锂电池、电源模块和可选的电源报警系统（如果电池电量低于预定时发出警报）。 
 
@@ -77,10 +77,8 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 :::
 
 :::tip
-If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
+If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety-switch).
 :::
-
-<a id="safety_switch"></a>
 
 ## 安全开关
 
