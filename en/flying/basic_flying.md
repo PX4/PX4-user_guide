@@ -13,9 +13,9 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 This will power all motors and actuators; on a multicopter it will start propellers turning.
 
 To arm the drone:
-- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety_switch).
+- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
 - Use the arm command for your vehicle - put the throttle stick in the bottom right corner.
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming_switch).
+  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming-switch).
   - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
 
 :::tip
@@ -50,7 +50,7 @@ The vehicle may disarm if you take too long to take off after arming (tune the t
 :::
 
 :::note
-The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
 
