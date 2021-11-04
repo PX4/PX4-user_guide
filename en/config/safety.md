@@ -245,19 +245,22 @@ Parameter | Description
 
 ### QuadChute Failsafe
 
-Failsafe for when a pusher motor fails (or airspeed sensor or control surface) and a VTOL vehicle can no longer fly in fixed-wing mode.
-If triggered, the vehicle will immediately switch to multicopter mode. If the vehicle was in [Mission mode](../flight_modes/mission.md) it enters failsafe [Return mode](../flight_modes/return.md).
+Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps because a pusher motor, airspeed sensor or control surface failed.
+If triggered, the vehicle will immediately switch to multicopter mode.
+If the vehicle was in [Mission mode](../flight_modes/mission.md) it enters failsafe [Return mode](../flight_modes/return.md).
 
-A quadchute can be triggered on several parametrized conditions, see the table below. It can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with Param2 set to 1.
+:::note
+The quadchote can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
+:::
 
-The relevant parameters are shown below:
+The parameters that control when the quadchute will trigger are listed in the table below.
 
 Parameter | Description
 --- | ---
 [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Maximum negative altitude error for fixed wing flight. If the altitude drops more than this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.
-[VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | Minimum altitude for fixed wing flight, when in fixed wing the altitude drops below this altitude the vehicle will transition back to MC mode and enter failsafe RTL.
-[VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P) | Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL.
-[VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R) | Maximum roll angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL.
+[VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | Minimum altitude for fixed wing flight. When the altitude drops below this value in fixed wing flight the vehicle will transition back to MC mode and enter failsafe RTL.
+[VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P) | Maximum pitch angle before QuadChute engages. Above this the vehicle will transition back to MC mode and enter failsafe RTL.
+[VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R) | Maximum roll angle before QuadChute engages. Above this the vehicle will transition back to MC mode and enter failsafe RTL.
 
 
 <span id="failure_detector"></span>
