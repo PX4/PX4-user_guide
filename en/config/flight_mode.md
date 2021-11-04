@@ -24,7 +24,7 @@ Most users should set the following functions, as these make the vehicle easier 
 It is also common to map switches to:
 
 - [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
-- <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
+- <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 
 ## Multi Channel vs Single Channel Mode Selection

@@ -156,7 +156,6 @@ Joysticks are also commonly used to fly the vehicle in simulation.
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 
 
-<a id="safety_switch"></a>
 ## Safety Switch
 
 It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn).
@@ -210,7 +209,7 @@ Vehicles may have moving parts, some of which are potentially dangerous when pow
 To reduce the chance of accidents:
 - PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
 - A vehicle will automatically disarm if a pilot does not take off quickly enough, and after landing (the disarm time is configurable).
-- Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+- Some vehicles also have a [safety switch](#safety-switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
 - Arming is prevented if the vehicle is not in a "healthy" state.
 - Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 

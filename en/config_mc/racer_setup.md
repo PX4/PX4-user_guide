@@ -102,7 +102,7 @@ Configure [RC loss and low battery failsafe](../config/safety.md).
 If you do not use a GPS, set the failsafe to **Lockdown**, which turns off the motors.
 Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
 
-Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [arming switch](../config/safety.md#arming_switch).
+Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arming-switch).
 Test it and train to use it!
 
 
