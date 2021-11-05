@@ -686,6 +686,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MC_AT_EN">MC_AT_EN</strong> (INT32)</td>
+ <td>Multicopter autotune module enable    </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MC_AT_RISE_TIME">MC_AT_RISE_TIME</strong> (FLOAT)</td>
  <td>Desired angular rate closed-loop rise time    </td>
  <td>0.01 > 0.5 </td>
@@ -9290,7 +9297,7 @@ table {
  <td>Return type <p><strong>Comment:</strong> Return mode destination and flight path (home location, rally point, mission landing pattern, reverse mission)</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Return to closest safe point (home or rally point) via direct path.</li> 
 
-<li><strong>1:</strong> Return to closest safe point other than home (mission landing pattern or rally point), via direct path. If no mission landing or rally points are defined return home via direct path.</li> 
+<li><strong>1:</strong> Return to closest safe point other than home (mission landing pattern or rally point), via direct path. If no mission landing or rally points are defined return home via direct path. Always chose closest safe landing point if vehicle is a VTOL in hover mode.</li> 
 
 <li><strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path. Do not consider rally points.</li> 
 
