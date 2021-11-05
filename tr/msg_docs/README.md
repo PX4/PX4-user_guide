@@ -47,6 +47,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [estimator_status](estimator_status.md)
 - [estimator_status_flags](estimator_status_flags.md)
 - [event](event.md) — Events interface
+- [failure_detector_status](failure_detector_status.md)
 - [follow_target](follow_target.md)
 - [generator_status](generator_status.md)
 - [geofence_result](geofence_result.md)
