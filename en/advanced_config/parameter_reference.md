@@ -4704,44 +4704,6 @@ table {
 </tr>
 </tbody></table>
 
-## GPS Failure Navigation
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="NAV_GPSF_LT">NAV_GPSF_LT</strong> (FLOAT)</td>
- <td>Loiter time <p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it goes into flight termination. Set to 0 to disable.</p>   </td>
- <td>0.0 > 3600.0 (1)</td>
- <td>0.0</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="NAV_GPSF_P">NAV_GPSF_P</strong> (FLOAT)</td>
- <td>Fixed pitch angle <p><strong>Comment:</strong> Pitch in degrees during the open loop loiter</p>   </td>
- <td>-30.0 > 30.0 (0.5)</td>
- <td>0.0</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="NAV_GPSF_R">NAV_GPSF_R</strong> (FLOAT)</td>
- <td>Fixed bank angle <p><strong>Comment:</strong> Roll in degrees during the loiter</p>   </td>
- <td>0.0 > 30.0 (0.5)</td>
- <td>15.0</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="NAV_GPSF_TR">NAV_GPSF_TR</strong> (FLOAT)</td>
- <td>Thrust <p><strong>Comment:</strong> Thrust value which is set during the open loop loiter</p>   </td>
- <td>0.0 > 1.0 (0.05)</td>
- <td>0.0</td>
- <td>norm</td>
-</tr>
-</tbody></table>
-
 ## Geofence
 
 <table>
@@ -5667,6 +5629,20 @@ table {
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="FW_GPSF_LT">FW_GPSF_LT</strong> (INT32)</td>
+ <td>GPS failure loiter time <p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it starts descending. Set to 0 to disable. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
+ <td>0 > 3600 </td>
+ <td>30</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="FW_GPSF_R">FW_GPSF_R</strong> (FLOAT)</td>
+ <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter). Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
+ <td>0.0 > 30.0 (0.5)</td>
+ <td>15.0</td>
+ <td>deg</td>
+</tr>
 <tr>
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
  <td>Maximal horizontal distance from home to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the home position.</p>   </td>
