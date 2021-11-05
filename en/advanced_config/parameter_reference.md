@@ -686,13 +686,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="MC_AT_EN">MC_AT_EN</strong> (INT32)</td>
- <td>Multicopter autotune module enable    </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="MC_AT_RISE_TIME">MC_AT_RISE_TIME</strong> (FLOAT)</td>
  <td>Desired angular rate closed-loop rise time    </td>
  <td>0.01 > 0.5 </td>
