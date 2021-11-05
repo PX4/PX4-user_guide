@@ -686,6 +686,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MC_AT_EN">MC_AT_EN</strong> (INT32)</td>
+ <td>Multicopter autotune module enable    </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MC_AT_RISE_TIME">MC_AT_RISE_TIME</strong> (FLOAT)</td>
  <td>Desired angular rate closed-loop rise time    </td>
  <td>0.01 > 0.5 </td>
@@ -1525,6 +1532,22 @@ table {
  <td>5 > 25 (0.5)</td>
  <td>10.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="COM_IMB_PROP_ACT">COM_IMB_PROP_ACT</strong> (INT32)</td>
+ <td>Imbalanced propeller failsafe mode <p><strong>Comment:</strong> Action the system takes when an imbalanced propeller is detected by the failure detector. See also FD_IMB_PROP_THR to set the failure threshold.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Disabled</li> 
+
+<li><strong>0:</strong> Warning</li> 
+
+<li><strong>1:</strong> Return</li> 
+
+<li><strong>2:</strong> Land</li> 
+</ul>
+  </td>
+ <td>(1)</td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="COM_KILL_DISARM">COM_KILL_DISARM</strong> (FLOAT)</td>
@@ -4459,6 +4482,13 @@ table {
  <td>0.02 > 5 </td>
  <td>0.3</td>
  <td>s</td>
+</tr>
+<tr>
+ <td><strong id="FD_IMB_PROP_THR">FD_IMB_PROP_THR</strong> (INT32)</td>
+ <td>Imbalanced propeller check threshold <p><strong>Comment:</strong> Value at which the imbalanced propeller metric (based on horizontal and vertical acceleration variance) triggers a failure Setting this value to 0 disables the feature.</p>   </td>
+ <td>0 > 1000 (1)</td>
+ <td>30</td>
+ <td></td>
 </tr>
 </tbody></table>
 
