@@ -146,14 +146,14 @@ GPS/나침반은 차량 전방 표식을 사용하여 가능한 전자 장치들
 
 차량 기반 무선 장치는 6핀 커넥터 중 하나를 사용하여 아래와 같이 [TELEM1](../flight_controller/durandal.md#telem1_2_3) 포트에 연결합니다 (이 포트에 연결된 경우 추가 설정이 필요하지 않음). 다른 라디오는 지상국 컴퓨터 또는 모바일 장치에 USB를 통하여 연결합니다.
 
-![Durandal / 무선 텔레메트리](../../assets/flight_controller/durandal/holybro_telemetry_radio.jpg)
+![Durandal - 무선 텔레메트리](../../assets/flight_controller/durandal/holybro_telemetry_radio.jpg)
 
 
 ## SD 카드 (선택 사항)
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. 아래 표시된 곳에 SD 카드를 *Durandal*에 삽입합니다.
 
-![Durandal SD 카드](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
+![Durandal - SD 카드](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
 :::tip
 자세한 내용은 [기본 개념 &gt; SD 카드(이동식 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참고하십시오.
@@ -177,30 +177,30 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 ## 기타 주변 장치
 
-선택적인 주변 장치의 배선 및 구성은 개별 [주변 장치](../peripherals/README.md)에 대한 항목에서 다룹니다.
+주변 장치 배선 및 설정에 관한 선택 사항은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
 
-## 핀아웃
+## 핀 배열
 
-[Durandal > 핀아웃](../flight_controller/durandal.md#pinouts)
+[Durandal &gt; 핀아웃](../flight_controller/durandal.md#pinouts)
 
 <span id="configuration"></span>
 ## PX4 설정
 
-먼저 * QGroundControl *을 사용하여 컨트롤러에 [ PX4 "마스터"펌웨어 ](../config/firmware.md#custom)를 설치하여야 합니다.
+먼저 *QGroundControl*을 사용하여 콘트롤러에 [ PX4 "마스터"펌웨어 ](../config/firmware.md#custom)를 설치하여야 합니다.
 
 :::note
-Durandal 지원은 PX4 v1.10 이후의 * 안정 * PX4 릴리스에서 지원됩니다.
+Durandal 지원은 PX4 v1.10 이후의 *안정* PX4 릴리스에서 지원됩니다.
 :::
 
-더 자세한 일반 구성 정보는 [ Autopilot 구성 ](../config/README.md)에서 다룹니다.
+더 자세한 일반 설정 정보는 [자동항법장치 설정](../config/README.md)을 참고하십시오.
 
-QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
+QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 
 ## 추가 정보
 
 - [Durandal 개요](../flight_controller/durandal.md)
-- [ Durandal 기술 데이터 시트 ](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
-- [ Durandal 핀아웃 ](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
-- [ Durandal_MB_H743sch.pdf ](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal 회로도)
-- [ STM32H743IIK_pinout.pdf ](https://github.com/PX4/PX4-user_guide/raw/master/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)
+- [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
+- [Durandal 핀 배열](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal_MB_H743sch.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal 회로도)
+- [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/master/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)
