@@ -32,14 +32,14 @@ Pix32 v5는 *pix32 v5 베이스 보드*, 전원 모듈 *PM02 V3*과 [Pixhawk 4 G
 ![Pix32 v5 (방향 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png)
 
 :::note
-컨트롤러를 권장/기본 방향으로 장착 할 수 없는 경우 (예 : 공간 제약으로 인해) 실제로 사용한 방향으로 자동 조종 소프트웨어를 구성해야합니다 : [ Flight Controller Orientation ](../config/flight_controller_orientation.md).
+콘트롤러를 권장 방향으로 장착할 수 없는 경우 (예 : 공간 제약으로 인해) 실제 [장착 방향](../config/flight_controller_orientation.md)을 자동조종 소프트웨어를 설정하여야합니다.
 :::
 
 :::tip
-보드에는 내부 진동 차단 기능이 있습니다. 컨트롤러를 장착시 진동 차단 스티로폼을 사용하지 마십시오 (일반적으로 양면 테이프로 충분 함).
+보드에는 내부 진동 차단 기능이 있습니다. 콘트롤러 진동 차단 스티로폼을 사용하여 장착하시 마십시오. 일반적인 양면 테이프로 장착하여도 충분합니다.
 :::
 
-## GPS + 나침반 + 부저 + 안전 스위치 + LED
+## -- GPS + 나침반 + 부저 + 안전 스위치 + LED
 
 Pix32 v5은 나침반, 안전 스위치, 부저 및 LED가 통합된 [Pixhawk 4 GPS 모듈](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)에 최적화되도록 설계되었습니다. 10 핀 케이블을 사용하여 [GPS 포트](../flight_controller/holybro_pix32_v5.md#gps)에 직접 연결합니다.
 
