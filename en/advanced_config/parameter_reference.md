@@ -12173,6 +12173,13 @@ table {
  <td>Hz</td>
 </tr>
 <tr>
+ <td><strong id="IMU_GYRO_FFT_SNR">IMU_GYRO_FFT_SNR</strong> (FLOAT)</td>
+ <td>IMU gyro FFT SNR    </td>
+ <td>1 > 30 </td>
+ <td>10.</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)</td>
  <td>Notch filter bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
