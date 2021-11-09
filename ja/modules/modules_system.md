@@ -386,6 +386,25 @@ mag_bias_estimator <command> [arguments...]
 
    status        print status info
 ```
+## manual_control
+Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/manual_control)
+
+
+### Description
+Module consuming manual_control_inputs publishing one manual_control_setpoint.
+
+<a id="manual_control_usage"></a>
+
+### Usage
+```
+manual_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
@@ -435,7 +454,7 @@ Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src
 
 
 ### Description
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_setpoint`.
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
