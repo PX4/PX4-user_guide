@@ -1748,11 +1748,11 @@ table {
 <tr>
  <td><strong id="COM_RC_IN_MODE">COM_RC_IN_MODE</strong> (INT32)</td>
  <td>RC control input mode <p><strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> RC Transmitter</li> 
+<li><strong>0:</strong> RC Transmitter only</li> 
 
-<li><strong>1:</strong> Joystick/No RC Checks</li> 
+<li><strong>1:</strong> Joystick only/No RC Checks</li> 
 
-<li><strong>2:</strong> Virtual RC by Joystick</li> 
+<li><strong>2:</strong> RC and Joystick are accepted</li> 
 </ul>
   </td>
  <td>0 > 2 </td>
@@ -1768,12 +1768,11 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
- <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV from their center position immediately gives control back to the pilot by switching to Position mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode. This parameter is not considered in case of a GPS failure (Descend flight mode), where stick override is always enabled.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
+ <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV immediately gives control back to the pilot by switching to Position mode and if position is unavailable Altitude mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode. This parameter is not considered in case of a GPS failure (Descend flight mode), where stick override is always enabled.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
   <li><strong>1:</strong> Enable override during offboard mode</li> 
-  <li><strong>2:</strong> Ignore throttle stick</li> 
 </ul>
  </td>
- <td>0 > 7 </td>
+ <td>0 > 3 </td>
  <td>1</td>
  <td></td>
 </tr>

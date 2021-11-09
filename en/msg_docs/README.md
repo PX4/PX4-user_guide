@@ -7,6 +7,7 @@ This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/m
 This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)).
 Graphs showing how these are used [can be found here](../middleware/uorb_graph.md).
 
+- [action_request](action_request.md)
 - [actuator_armed](actuator_armed.md)
 - [actuator_controls](actuator_controls.md)
 - [actuator_controls_status](actuator_controls_status.md)
