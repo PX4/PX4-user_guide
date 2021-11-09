@@ -382,40 +382,33 @@ netman <command> [arguments...]
    show          Display the current persistent network settings to the console.
 ```
 ## pwm_input
-Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
+Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/manual_control)
 
-
-  예 $ netman save # 매개변수를 SD 카드에 저장합니다. $ netman show # 현재 설정을 표시합니다. $ netman update -i eth0 # 업데이트 수행 The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
-
-  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
-
-  ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
-
-<a id="netman_usage"></a>
 
 ### 사용법
+Module consuming manual_control_inputs publishing one manual_control_setpoint.
+
+<a id="manual_control_usage"></a>
+
+### 설명
 ```
 pwm_input <command> [arguments...]
  Commands:
    start
 
    test          prints PWM capture info.
-
-   update        Check SD card for net.cfg and update network persistent network
-                 settings.
-
-   save          Save the current network parameters to the SD card.
-     [-i <val>]  Set the interface name
-                 default: eth0
 ```
 ## rc_update
-소스: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
+Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
-### 설명
-rc_update 모듈은 RC 채널 매핑을 처리합니다. 원시 입력 채널(`input_rc`)을 읽은 다음 보정을 적용하고 RC 채널을 구성된 채널에 매핑합니다. 모드를 전환한 다음 `rc_channels` 및 `manual_control_setpoint`로 게시합니다.
+  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
 
-<a id="pwm_input_usage"></a>
+  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
+
+  ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
+
+<a id="netman_usage"></a>
 
 ### 구현
 ```
@@ -426,6 +419,13 @@ rc_update <command> [arguments...]
    stop
 
    status        print status info
+
+   update        Check SD card for net.cfg and update network persistent network
+                 settings.
+
+   save          Save the current network parameters to the SD card.
+     [-i <val>]  Set the interface name
+                 default: eth0
 ```
 ## replay
 제어 대기 시간을 줄이기 위하여 모듈은 input_rc 게시에 예약됩니다.
@@ -434,12 +434,9 @@ rc_update <command> [arguments...]
 ### 사용법
 소스: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
+<a id="pwm_input_usage"></a>
+
 ### 설명
-이 모듈은 ULog 파일을 재생하는 데 사용됩니다.
-
-<a id="rc_update_usage"></a>
-
-### 사용법
 ```
 replay <command> [arguments...]
  Commands:
@@ -454,6 +451,28 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
+이 모듈은 ULog 파일을 재생하는 데 사용됩니다.
+
+
+### 사용법
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
+
+### 설명
+To reduce control latency, the module is scheduled on input_rc publications.
+
+<a id="rc_update_usage"></a>
+
+### 사용법
+```
+send_event <command> [arguments...]
+ Commands:
+   start         Start the background task
+
+   stop
+
+   status        print status info
+```
+## sensors
 Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
@@ -470,27 +489,6 @@ The replay procedure is documented on the [System-wide Replay](https://dev.px4.i
 
 <a id="replay_usage"></a>
 
-### 사용법
-```
-send_event <command> [arguments...]
- Commands:
-   start         Start the background task
-
-   stop
-
-   status        print status info
-```
-## sensors
-작업은 CLI 또는 uORB 주제(MAVLink의 차량 명령 등)를 통하여 시작할 수 있습니다.
-
-
-### 설명
-Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
-
-The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
-
-<a id="send_event_usage"></a>
-
 ### 구현
 ```
 sensors <command> [arguments...]
@@ -503,23 +501,17 @@ sensors <command> [arguments...]
    status        print status info
 ```
 ## temperature_compensation
-제공 기능은 다음과 같습니다:
+Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
 
 
 ### 사용법
-The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
+Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
 
-소스: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
-- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
-- 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
-- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
+The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
+
+<a id="send_event_usage"></a>
 
 ### 설명
-It runs in its own thread and polls on the currently selected gyro topic.
-
-<a id="sensors_usage"></a>
-
-### 사용법
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -537,15 +529,43 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-소스: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
+소스: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
 
+
+### 사용법
+The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
+
+소스: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
+- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
+- 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
+- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
 
 ### 설명
+It runs in its own thread and polls on the currently selected gyro topic.
+
+<a id="sensors_usage"></a>
+
+### 예
+```
+sensors <command> [arguments...]
+ Commands:
+   start
+     [-h]        Start in HIL mode
+
+   stop
+
+   status        print status info
+```
+## work_queue
+Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tattu_can)
+
+
+### 사용법
 Driver for reading data from the Tattu 12S 16000mAh smart battery.
 
 <a id="tattu_can_usage"></a>
 
-### 예
+### 설명
 ```
 tattu_can <command> [arguments...]
  Commands:
@@ -555,7 +575,7 @@ tattu_can <command> [arguments...]
 
    status        print status info
 ```
-## work_queue
+## temperature_compensation
 Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
 
 
@@ -564,7 +584,7 @@ The temperature compensation module allows all of the gyro(s), accel(s), and bar
 
 <a id="temperature_compensation_usage"></a>
 
-### 설명
+### Usage
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -585,9 +605,9 @@ temperature_compensation <command> [arguments...]
 Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
-### 사용법
+### Description
 
-소스: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
+Command-line tool to control & test the (external) tunes.
 
 Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
 
