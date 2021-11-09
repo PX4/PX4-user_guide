@@ -88,7 +88,6 @@ These are the externally visible LED's, not the board LED's
 - [mission](mission.md)
 - [mission_result](mission_result.md)
 - [mount_orientation](mount_orientation.md)
-- [multirotor_motor_limits](multirotor_motor_limits.md)
 - [navigator_mission_item](navigator_mission_item.md)
 - [obstacle_distance](obstacle_distance.md) — Obstacle distances in front of the sensor.
 - [offboard_control_mode](offboard_control_mode.md) — Off-board control mode
