@@ -12121,7 +12121,14 @@ table {
  <td>Hz</td>
 </tr>
 <tr>
- <td><strong id="IMU_GYRO_DYN_NF">IMU_GYRO_DYN_NF</strong> (INT32)</td>
+ <td><strong id="IMU_GYRO_DNF_BW">IMU_GYRO_DNF_BW</strong> (FLOAT)</td>
+ <td>IMU gyro ESC notch filter bandwidth <p><strong>Comment:</strong> Bandwidth per notch filter when using dynamic notch filtering with ESC RPM.</p>   </td>
+ <td>5 > 30 </td>
+ <td>15.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="IMU_GYRO_DNF_EN">IMU_GYRO_DNF_EN</strong> (INT32)</td>
  <td>IMU gyro dynamic notch filtering <p><strong>Comment:</strong> Enable bank of dynamically updating notch filters. Requires ESC RPM feedback or onboard FFT (IMU_GYRO_FFT_EN).</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> ESC RPM</li> 
   <li><strong>1:</strong> FFT</li> 
 </ul>
