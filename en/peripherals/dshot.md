@@ -1,6 +1,6 @@
 # DShot ESCs
 
-DShot is an alternative ESC protocol that has several advantages over PWM or OneShot:
+DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
 - Reduced latency.
 - Increased robustness via a checksum.
 - No need for ESC calibration as the protocol uses digital encoding.
@@ -40,7 +40,7 @@ FMUv5x-based boards support DShot only on the first six FMU pins.
 You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port). 
 :::
 
-<span id="configuration"></span>
+
 ## Configuration
 
 :::warning
