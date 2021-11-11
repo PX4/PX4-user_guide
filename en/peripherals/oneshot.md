@@ -18,13 +18,7 @@ For PWM the pulse length typically ranges between 1000uS (zero) and 2000uS (full
 
 The theoretical maximum rate at which pulses can be sent, and hence the responsiveness, depends on the width of the largest pulse.
 For PWM this rate is close to 500 Hz while for OneShot it approaches 4 kHz.
-In practice the actual maximum rate for OneShot ESCs is typically between 1 kHz and 2 kHz, depends on the ESC used.
-
-:::note
-The actual frame rate/duty cycle depends on the capabilities of the ESC.
-PWM ESC commonly have a rate between 50Hz and 490Hz.
-OneShot 125 ESCs are generally higher than this, though not necessarily approaching the theoretical maximum.
-:::
+In practice the actual maximum rate for OneShot ESCs is typically between 1 kHz and 2 kHz, depending on the ESC used.
 
 
 ## Setup
