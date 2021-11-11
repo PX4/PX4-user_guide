@@ -64,18 +64,6 @@ sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyy
 
 ## Gazebo Simulation
 
-First run the following commands:
-
-```sh
-brew unlink tbb
-brew install tbb@2020
-brew link tbb@2020
-```
-:::note
-September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644).
-They can be removed once it is fixed (along with this note).
-:::
-
 To install SITL simulation with Gazebo:
 
 ```sh
