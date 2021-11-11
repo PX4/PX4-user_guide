@@ -54,56 +54,64 @@ PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전�
 
 BEC가 **없는** 광절연 ESC에서 +5V 라인을 연결하고 전원을 공급해야 할 수 있습니다 (ESC 마이크로 컨트롤러에 전원을 공급하기 위하여). 이 경우 와이어는 일반적으로 비행 콘트롤러 서보 레일에 연결되며, 서보 레일은 추가 BEC에서 전원을 공급하여야 합니다.
 
-## PWM 설정
+## PX4 Configuration
 
-PX4 PWM 설정 매개변수는 [PWM 출력](../advanced_config/parameter_reference.md#pwm-outputs)을 참고하십시오.
+Configure the outputs using the following paramters:
+
+- [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) (IO) and/or [PWM_AUX_RATE](../advanced_config/parameter_reference.md#PWM_AUX_RATE) (FMU): Set to the highest frame rate supported by the connected ESC, in Hz.
+- [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MIN](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAX](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAX](../advanced_config/parameter_reference.md#PWM_AUX_MAX): Set to the normal PWM range, nominally `1000` to `2000`.
+- [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG): Set to `0` in order to disable DShot.
+
+Then perform [ESC Calibration](../advanced_config/esc_calibration.md).
+
+Additional PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
 
 ## 문제 해결
 
-Pixhawk는 시중의 모든 *PWM ESC*와 호환됩니다. 특정 ESC가 작동하지 않으면, 연결이나 설정이 잘못된 것입니다.
+Pixhawk is compatible with all *PWM ESCs* on the market. If a particular ESC is not operational, it is incorrectly wired up or configured.
 
 ### 접지 연결
 
-ESC 서보 커넥터의 접지(검은 색 와이어)가 Pixhawk에 연결되어 있는 지 확인합니다 (접지 참조가 없는 유효한 배선 설정이 없음).
+Check that the ground (black wire) of the ESC servo connector is connected to Pixhawk (there is no valid wiring setup that does not have a ground reference).
 
 :::warning
-접지없이 비행하는 것은 안전하지 않습니다. 이는 모든 포지티브 펄스(ESC 신호)에 대해 깨끗한 신호 형태를 위하여, 인접한 접지 복귀 경로가 있어야하기 때문입니다.
+It is unsafe to fly without ground connected. This is because for every positive pulse (the ESC signal) there needs to be an adjacent ground return path for a clean signal shape.
 
-아래 이미지는 GND가 연결되지 않은 경우, 신호에 발생하는 노이즈를 보여줍니다.
+The image below shows how noisy the signal becomes if GND is not connected.
 
-![무접지 PWM](../../assets/hardware/pwm_esc/pwm_without_gnd.png)
+![PWM without ground](../../assets/hardware/pwm_esc/pwm_without_gnd.png)
 :::
 
 ### 전원 연결 / 광절연 ESC
 
-BEC/전원 출력을 제공하지 않는 광절연 ESC를 사용하는 경우, ESC에 광절연기에 전원이 공급되는 +5V 라인이 필요 여부를 확인하십시오.
+If using an opto-isolated ESC that does not provide a BEC / power output, please ensure that the ESC does not need its +5V line powered for the opto-isolator.
 
-다른 전원 연결 고려 사항에 대한 설명은이 페이지의 첫 번째 섹션을 참조하십시오.
+See the first section of this page explains for other power connection considerations.
 
 ### 잘못된 최소치
 
-일부 ESC는 전원을 켤 때, 스로틀 스틱이 중간 위치에 있는 사용자를 보호하기 위하여 전원을 켜기 전에 특별한 낮은 값 펄스를 확인하여야 합니다.
+Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
 
-PX4는 차량이 무장 해제될 때 [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) 펄스 값을 전송하여 무장 해제시 ESC를 무음으로 설정하고 ESC가 올바르게 초기화 합니다.
+PX4 sends a value of [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly.
 
-이 값은 ESC에 대해 올바르게 설정되어야 합니다 (올바른 값은 대략 1200에서 900 us 사이입니다).
+This value should be set correctly for the ESC (correct values vary between roughly 1200 and 900 us).
 
 ### 시간 초과
 
-일부 ESC는 전원을 켠 후 몇 초 이내에 유효한 로우 펄스를 받지 못하면 시간 초과 (모터 활성화 방지)될 수 있습니다.
+Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on.
 
-PX4는 전원이 켜진 직후 [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) 펄스 유휴/비무장 해제 펄스를 전송합니다. 이것이 올바르게 설정되면, ESC 시간 초과가 되지 않습니다.
+PX4 flight stack sends the [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse idle/disarmed pulse right after power on. Provided this is configured correctly, ESCs will not time out.
 
 ### 유효한 펄스 모양, 전압 및 업데이트 속도
 
 :::note
-이것은 문제가되지 않지만, 완전성을 위해 사용됩니다.
+This should not be a problem, but is included for completeness
 :::
 
-Pixhawk는 모든 주요 브랜드(Futaba, Spektrum, FrSky)에서 사용하는 활성 고펄스를 사용합니다.
+Pixhawk uses active high pulses, as used by all the major brands (Futaba, Spektrum, FrSky).
 
-PWM 인터페이스는 공식적으로 표준화되어 있지 않지만, 일반 마이크로 컨트롤러는 모두 TTL 또는 CMOS 전압 레벨을 사용합니다. TTL은 낮은 <0.8V 및 높은> 2.0V로 정의되며, 일부 제조업체는 추가 노이즈 마진을 위해 2.4V 이상의 전압을 사용합니다. CMOS 로직은 유사한 전압 레벨로 정의됩니다. 5V 레벨은 *켜짐* 상태로 성공적으로 전환에는 **절대** 필요하지 않습니다.
+PWM interfaces are not formally standardised, however, the normal micro controllers all use TTL or CMOS voltage levels. TTL is defined as low < 0.8V and high > 2.0V with some manufacturers using > 2.4V for additional noise margin. CMOS logic is defined with similar voltage levels. 5V levels are **never** required to successfully switch to an *on* state.
 
 :::tip
-Futaba, FrSky 및 Spektrum 수신기는 2.4V보다 훨씬 높은 3.3V 또는 3.0V 전압 레벨을 출력합니다. Pixhawk는 이러한 일반적인 산업 패턴을 채택하고, 최근 보드에서 3.3V 레벨을 출력합니다.
+Futaba, FrSky and Spektrum receivers output 3.3V or 3.0V voltage levels, as they are well above 2.4V. Pixhawk has adopted this common industry pattern and outputs 3.3V levels on recent boards.
 :::
