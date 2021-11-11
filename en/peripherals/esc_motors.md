@@ -75,6 +75,7 @@ Setup:
 ### UAVCAN
 
 [UAVCAN ESCs](../peripherals/uavcan_escs.md) are recommended when UAVCAN is the primary bus used for your vehicle.
+The PX4 implementation is currently limited to update rates of 200Hz.
 
 UAVCAN shares many similar benefits to [Dshot](#dshot) including high data rates, robust connection over long leads, telemetry feedback, no need for calibration of the ESC itself.
 
