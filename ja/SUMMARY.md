@@ -260,6 +260,7 @@
       * [PMW3901](sensor/pmw3901.md)
     * [ESCs & Motors](peripherals/esc_motors.md) 
       * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
+      * [OneShot ESCs and Servos](peripherals/oneshot.md)
       * [UAVCAN ESCs](uavcan/escs.md)
       * [DShot ESCs](peripherals/dshot.md)
     * [Camera](peripherals/camera.md)
