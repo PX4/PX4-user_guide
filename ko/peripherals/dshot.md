@@ -32,7 +32,7 @@ AUX 및 MAIN 레이블이 지정된 포트가 있는 Pixhawk를 사용하는 경
 :::tip FMU에서 DShot ESC/servos 및 PWM ESC/servos를 혼합할 수 없습니다 (DShot은 포트의 *모든* FMU 핀에 대해 활성화/비활성화 됨).
 :::
 
-<span id="configuration"></span>
+
 ## 설정
 
 :::warning ESC
