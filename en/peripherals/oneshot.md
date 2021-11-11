@@ -4,7 +4,8 @@ PX4 support OneShot 125 ESCs (only).
 These are typically faster and more responsive than [PWM ESCs](../peripherals/pwm_escs_and_servo.md) but share the same wiring setup (all you need to do is set some different parameters)
 
 :::note
-They are not as highly recommended as [DShot](../peripherals/dshot.md) ESCs, which are more responsive, robust, do not required calibration, and may support telemetry.
+[DShot](../peripherals/dshot.md) should always be used instead of OneShot where possible, as it is more responsive, more robust, does not required calibration, and may support telemetry.
+The only reason not to use DShot would be hardware limitations (insufficient DShot pins available or using an ESC that does not support DShot).
 :::
 
 
@@ -17,6 +18,7 @@ For PWM the pulse length typically ranges between 1000uS (zero) and 2000uS (full
 
 The theoretical maximum rate at which pulses can be sent, and hence the responsiveness, depends on the width of the largest pulse.
 For PWM this rate is close to 500 Hz while for OneShot it approaches 4 kHz.
+In practice the actual maximum rate for OneShot ESCs is typically between 1 kHz and 2 kHz, depends on the ESC used.
 
 :::note
 The actual frame rate/duty cycle depends on the capabilities of the ESC.
