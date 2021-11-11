@@ -87,11 +87,10 @@ brew install px4-sim-gazebo
 ## jMAVSim Simulation
 
 To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15).
-You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use the AdoptOpenJDK tap:
+You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use the [Termium](https://adoptium.net):
 
 ```sh
-brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk15
+brew install --cask temurin
 ```
 
 ```sh
