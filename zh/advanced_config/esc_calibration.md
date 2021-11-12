@@ -1,7 +1,7 @@
 # 电调（ESC）校准
 
 :::note
-这些说明仅与 [PWM 电调相关](../peripherals/pwm_escs_and_servo.md)。
+These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md) ([DShot](../peripherals/dshot.md) and [UAVCAN](../uavcan/escs.md) ESCs do not require calibration).
 :::
 
 电调根据飞控的 PWM 输入值 来调节电机速度（和方向）。 电调响应的输入范围是可配置的，甚至同一模型下的不同电调之间的默认范围也是不同的。
