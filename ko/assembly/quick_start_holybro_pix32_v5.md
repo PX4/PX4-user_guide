@@ -43,7 +43,7 @@ Pix32 v5는 *pix32 v5 베이스 보드*, 전원 모듈 *PM02 V3*과 [Pixhawk 4 G
 
 Pix32 v5은 나침반, 안전 스위치, 부저 및 LED가 통합된 [Pixhawk 4 GPS 모듈](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)에 최적화되어 있습니다. 10핀 케이블을 사용하여 **GPS 포트**에 연결합니다.
 
-![Pix32 v5 with GPS](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.jpg)
+![Pix32 v5 (GPS 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.jpg)
 
 GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치들에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다. 나침반은 다른 전자 장치와 떨어지면 간섭이 줄어듦니다.
 
@@ -106,7 +106,7 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 - Spektrum/DSM 수신기는 **DSM RC** 입력에 연결합니다.
 
-  ![Pix32v5 rc 수신기](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.jpg)
+  ![Pix32v5 RC 수신기](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.jpg)
 
 - PPM 방식 과 S 버스 방식의 수신기는 **SBUS_IN/PPM_IN** 입력 포트 (RC IN으로 표시됨)에 연결합니다.
 
@@ -140,7 +140,7 @@ SanDisk Extreme U3 32GB를 사용하는 것을 [적극 권장](../dev_log/loggin
 
 모터/서보 제어 신호는 **I/O PWM OUT** (**MAIN OUT**) 및 **FMU PWM OUT** (**AUX**)에 연결합니다. 포트는 [기체 정의서](../airframes/airframe_reference.md)에서 지정된 순서대로 연결합니다.
 
-  ![Pix32 v5 - 백 핀배열 (개략도)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+  ![Pix32 v5 백 핀배열(개략도)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 모터는 별도 [전원을 공급](#power)하여야 합니다.
 
