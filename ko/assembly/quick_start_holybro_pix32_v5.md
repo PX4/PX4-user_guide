@@ -92,75 +92,75 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 ### 배터리 설정
 
-배터리 설정은 [전원 설정](../config/battery.md)에서 설정합니다. 두 전원 모듈에 대해 * 셀 수 *를 구성해야 합니다.
+배터리 설정은 [전원 설정](../config/battery.md)에서 설정합니다. 전원 모듈의 *셀의 갯수*를 설정하여야 합니다.
 
-다른 전원 모듈(예 : Pixracer의 모듈)을 사용하지 않으면 * 전압 분배기 *를 업데이트 할 필요가 없습니다.
+다른 전원 모듈(예 : Pixracer의 모듈)을 사용하지 않으면 *전압 분배기*를 업데이트 할 필요는 없습니다.
 
 ## 무선 조종
 
-리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동*으로 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않습니다).
+리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동* 제어시에 사용합니다. PX4의 자율 비행 모드에는 라디오 시스템은 필수 항목은 아닙니다.
 
-기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
+[호환되는 송신기/수신기를 선택](../getting_started/rc_transmitter_receiver.md)후 *바인딩*을 하여야 통신이 가능합니다. 송신기/수신기의 매뉴얼을 참고하십시오.
 
-아래 지침은 다양한 유형의 수신기를 *Pix32 v5*에 연결하는 방법을 보여줍니다.
+아래의 지침은 여러가지 유형의 수신기를 *Pix32 v5*를 연결하는 방법을 설명합니다.
 
-- Spektrum/DSM 수신기는 [ DSM RC ](../flight_controller/holybro_pix32_v5.md#dsm-rc-port) 입력에 연결됩니다.
+- Spektrum/DSM 수신기는 **DSM RC** 입력에 연결합니다.
 
   ![Pix32v5 rc 수신기](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.jpg)
 
-- PPM 방식 과 S 버스 방식의 수신기는 [ SBUS_IN / PPM_IN ](../flight_controller/holybro_pix32_v5.md#rc-in) 입력 포트 (RC IN으로 표시됨)에 연결됩니다.
+- PPM 방식 과 S 버스 방식의 수신기는 **SBUS_IN/PPM_IN** 입력 포트 (RC IN으로 표시됨)에 연결합니다.
 
   ![핀배열](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 
-- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결해야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
+- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결하여야 합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
 
-무선 시스템 선택, 수신기 호환성 및 송신기/수신기 쌍 바인딩에 대한 자세한 내용은 다음을 참조하십시오. [ 원격 제어 송신기 & amp; 수신자 ](../getting_started/rc_transmitter_receiver.md).
+무선 시스템 선택, 수신기 호환성 및 송신기/수신기 바인딩에 대한 자세한 내용은 [원격 제어 송신기 & 수신기](../getting_started/rc_transmitter_receiver.md)를 참고하십시오.
 
 
 ## 무선 텔레메트리(선택 사항)
 
-무선 텔레메트리는 지상국 프로그램에서 비행중인 차량의 통신/제어에 사용할 수 있습니다 (예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
+무선 텔레메트리는 지상국 프로그램에서 비행 차량의 통신/제어에 사용합니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-기체의 텔레메트리를 **TELEM1** 포트에 연결해야 합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
+기체의 텔레메트리를 **TELEM1** 포트에 연결하여야 합니다 (이 포트에 연결된 경우 추가 설정이 필요하지 않음). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 USB를 통하여 연결됩니다.
 
 ![Pix32 v5(무선 텔레메트리 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_telemetry_radio.jpg)
 
 ## SD 카드 (선택 사항)
 
-SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_started/flight_reporting.md)에 사용됩니다. 마이크로 SD 카드는 pix32 v5에 미리 설치되어 있어야하며, 자신의 마이크로 SD 카드가있는 경우 아래 그림과 같이 * pix32 v5 *에 카드를 삽입하십시오.
+SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_started/flight_reporting.md)에 사용됩니다. 마이크로 SD 카드는 pix32 v5에 미리 설치되어 있어야하며, 별도의 마이크로 SD 카드가있는 경우 아래 그림과 같이 *pix32 v5*에 카드를 삽입하십시오.
 
 ![Pix32 v5 (SD 카드 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
 :::tip
-SanDisk Extreme U3 32GB를 [적극 권장](../dev_log/logging.md#sd-cards)합니다.
+SanDisk Extreme U3 32GB를 사용하는 것을 [적극 권장](../dev_log/logging.md#sd-cards)합니다.
 :::
 
 ## 모터
 
-모터/서보 제어 신호는 ** I/O PWM OUT ** (** MAIN OUT **) 및 ** FMU PWM OUT ** (** AUX **)에 연결됩니다. ) 포트는 [ Airframe Reference ](../airframes/airframe_reference.md)에서 차량에 지정된 순서로 지정됩니다.
+모터/서보 제어 신호는 **I/O PWM OUT** (**MAIN OUT**) 및 **FMU PWM OUT** (**AUX**)에 연결합니다. 포트는 [기체 정의서](../airframes/airframe_reference.md)에서 지정된 순서대로 연결합니다.
 
   ![Pix32 v5 - 백 핀배열 (개략도)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
-모터는 별도로 [전원을 공급](#power)하여야 합니다.
+모터는 별도 [전원을 공급](#power)하여야 합니다.
 
 :::note
-프레임이 기체 참조 목록에 없으면, 올바른 유형의 "일반"기체를 사용하십시오.
+프레임이 기체 참조 정의서에 없으면, 적절한 유형의 "일반"기체를 사용하십시오.
 :::
 
 ## 기타 주변 장치
 
-선택적인 주변 장치의 배선 및 구성은 개별 [주변 장치](../peripherals/README.md)에 대한 항목에서 다룹니다.
+주변 장치 배선 및 설정에 관한 선택 사항은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
 
-## 핀아웃
+## 핀배열
 
-[Pix32 v5 핀아웃](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) (Holybro)
+[Pix32 v5 핀배열](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) (Holybro)
 
 ## 설정
 
-더 자세한 일반 구성 정보는 [ Autopilot 구성 ](../config/README.md)에서 다룹니다.
+더 자세한 일반적인 설정 방법은 [자동항법장치 설정](../config/README.md)을 참고하십시오.
 
-QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
+QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. --> 
 
@@ -168,7 +168,7 @@ QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/v
 
 - [Pix32 v5 개요](../flight_controller/holybro_pix32_v5.md) (개요 페이지)
 - [Pix32 v5  기술 데이터 시트](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
-- [Pix32 v5 핀아웃](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
+- [Pix32 v5 핀배열](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
 - [Pix32 v5 기본 회로도](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
 - [Pix32 v5 기본 구성 요소 레이아웃](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf)
-- [FMUv5 레퍼런스 디자인 핀아웃](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [FMUv5 레퍼런스 디자인 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
