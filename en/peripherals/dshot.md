@@ -69,11 +69,6 @@ The most important ones are:
   ```
   dshot beep1 -m 1
   ```
-- Permanently reverse the spin direction of the first motor:
-  ```
-  dshot reverse -m 1
-  dshot save -m 1
-  ```
 - Retrieve ESC information (requires telemetry, see below):
   ```
   nsh> dshot esc_info -m 2
@@ -89,6 +84,20 @@ The most important ones are:
   INFO  [dshot] LED 2: unsupported
   INFO  [dshot] LED 3: unsupported
   ```
+  - Permanently reverse the spin direction of the first motor:
+  ```
+  dshot reverse -m 1
+  dshot save -m 1
+  ```
+  Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show: 
+  ```
+  Rotation Direction: reversed
+  ```
+  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction: 
+  ```
+  Rotation Direction: normal
+  ```
+  To change direction again new `dshot reverse -m 1` command needs to be sent. 
 
 ## Telemetry
 
