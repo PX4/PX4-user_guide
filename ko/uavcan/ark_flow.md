@@ -75,9 +75,10 @@ ARK Flow 보드를 사용하려면 Pixhawk CAN 버스에 연결하고 동적 노
 ### PX4 설정
 
 [Optical Flow > 추정기 > EKF2 ](../sensor/optical_flow.md#ekf2) 에서 EKF 광류 매개변수를 설정합니다.
-- *QGroundControl*에서 수동으로 매개변수 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)를 `2`로 설정하여 광학 흐름만 사용하거나 `3`으로 설정하여 GPS와 광학 흐름을 사용합니다. 값을 수동으로 설정하려면 `고급 설정`을 선택하고 `수동 입력`을 체크한 후 상단에 값을 입력하고 저장합니다.
-- 매개변수 [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) 및 [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z)는 차량 무게 중심에서 Ark Flow의 오프셋을 설명하도록 설정할 수 있습니다.
+- In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow. To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save.
+- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `0.08` and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `30`.
 - [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)을 `0.08`로, [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)를 `30`으로 설정합니다.
+- The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicle centre of gravity.
 
 또한 다음의 매개변수들을 설정할 수 있습니다.
 

@@ -76,7 +76,8 @@ General instructions for UAVCAN PX4 configuration can also be found in [UAVCAN >
 
 ### PX4 Configuration
 
-The ARK GPS works with default parameters.
+You need to set necessary [UAVCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle.
+- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
 - The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the Ark GPS from the vehicles centre of gravity.
 
 

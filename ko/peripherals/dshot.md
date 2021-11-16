@@ -62,21 +62,20 @@ DShot에는 *DShot150*, *DShot300*, *DShot600* 및 *DShot1200*과 같은 다양�
   dshot reverse -m 1
   dshot save -m 1
   ```
-- ESC 정보 검색(텔레메트리 필요, 아래 참조) :
+  - Permanently reverse the spin direction of the first motor:
   ```
-  nsh> dshot esc_info -m 2
-  INFO  [dshot] ESC Type: #TEKKO32_4in1#
-  INFO  [dshot] MCU Serial Number: xxxxxx-xxxxxx-xxxxxx-xxxxxx
-  INFO  [dshot] Firmware version: 32.60
-  INFO  [dshot] Rotation Direction: normal
-  INFO  [dshot] 3D Mode: off
-  INFO  [dshot] Low voltage Limit: off
-  INFO  [dshot] Current Limit: off
-  INFO  [dshot] LED 0: unsupported
-  INFO  [dshot] LED 1: unsupported
-  INFO  [dshot] LED 2: unsupported
-  INFO  [dshot] LED 3: unsupported
+  dshot reverse -m 1
+  dshot save -m 1
   ```
+  Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show:
+  ```
+  Rotation Direction: reversed
+  ```
+  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+  ```
+  Rotation Direction: normal
+  ```
+  To change direction again new `dshot reverse -m 1` command needs to be sent.
 
 ## 텔레메트리
 
