@@ -205,11 +205,11 @@ A multicopter must tune all three axes, and by default does not test the new gai
 The range is therefore between 19s (`5 + 2 + 5 + 2 + 5`) and 64s (`20x3 + 2x2`).
 
 By default a fixed wing vehicle tunes all three axes and runs tests the new gains in-air.
-The range is therefore between 23s (19+4) and 68s (64+4).
+The range is therefore between 25s (`5 + 2 + 5 + 2 + 5 + 2 + 4`) and 70s (`20x3 + 3x2 + 4`).
 
 Note however that the above settings are defaults.
 A multicopter can choose to run the tests in air, and a fixed wing can choose not to.
-Further, a fixed wing can choose to tune fewer axis.
+Further, a fixed wing can choose to tune fewer axes.
 
 Anecdotally, it usually takes around 40s for either vehicle.
 
