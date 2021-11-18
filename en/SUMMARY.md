@@ -42,6 +42,7 @@
   * [Battery](config/battery.md)
   * [Safety](config/safety.md)
   * [Motors/Servos](config/motors.md)
+  * [Autotune](config/autotune.md)
   * [MC PID Tuning](config_mc/pid_tuning_guide_multicopter_basic.md)
 * [Airframe Builds](airframes/README.md)
   * [Airframes Reference](airframes/airframe_reference.md)

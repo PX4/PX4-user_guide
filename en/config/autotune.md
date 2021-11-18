@@ -1,0 +1,223 @@
+# Auto-tuning
+
+Auto-tuning automates the process of tuning PX4 rate and attitude controllers.
+These are the most important controllers for stable and responsive flight (other tuning is more "optional").
+
+Tuning only needs to be done once, and is recommended unless unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
+
+:::warning
+Auto-tuning is performed while flying.
+The airframe must fly well enough handle moderate disturbances, and should be closely attended:
+- Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
+- Be ready to abort the autotuning process by moving remote control sticks.
+- Verify that the vehicle flies well after tuning.
+:::
+
+
+## Overview
+
+PX4 uses [PID controllers](../flight_stack/controller_diagrams.md) (rate, attitude, velocity, and position) to calculate the outputs required to move a vehicle from its current estimated state to match a desired setpoint.
+The controllers must be well tuned in order to get the best performance out of a vehicle.
+In particular, a poorly tuned rate controller results in less stable flight in all modes, and takes longer to recover from disturbances.
+
+Generally if you use an [airframe configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly.
+However unless the configuration precisely matches your hardware you should tune the rate and attitude controllers.
+Tuning the velocity and position controllers is less important because they are less affected by vehicle dynamics, and the default tuning configuration for a similar airframe is often sufficient.
+
+Autotuning provides an automatic mechanism to tune the rate and attitude controllers.
+It can be used to tune fixed wing and multicopter vehicles, and VTOL vehicles when flying as a multicopter or as a fixed wing (transition between modes must be manually tuned).
+In theory it should work for other vehicle types that have a rate controller, but currently only the above types are supported.
+
+Automatic tuning works well for the multicopter and fixed wing vehicle configurations supported by PX4, provided the frame is not too flexible
+(see [below for more information](#does-autotuning-work-for-all-supported-airframes)).
+
+The vehicle must be flying in [Hold mode](../flight_modes/hold.md), [Position mode](../flight_modes/position_mc.md), or [altitude mode](../flight_modes/altitude_mc.md).
+The flight stack will apply a small disturbance to the vehicle in each axis and then attempt to calculate the new tuning parameters.
+For fixed wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable.
+For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
+
+The tuning process takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)).
+The default behaviour can be configured using [parameters](#parameters).
+
+:::note
+For instructions on using the manual PID tuning see:
+- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
+- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
+- [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+:::
+
+<!-- 
+Overview of the auto-tuning workflow
+
+@[youtube](https://youtu.be/uHVlIIydcpg)
+-->
+
+## Pre-tuning Test
+
+The vehicle must be able to fly and adequately stabilize itself before running auto-tune.
+
+:::note
+During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle.
+This will usually be tuned well enough to fly, and it _may_ also be sufficiently well tuned to run autotuning.
+:::
+
+To make sure the vehicle is stable enough for auto-tuning:
+
+1. Perform a normal preflight safety checklist to ensure the flight zone is clear and has enough space.
+2. Takeoff and prepare for the test
+   - **Multicopters:** Take off and hover at 1m above ground in Position mode, Altitude mode or Hold mode.
+   - **Fixed-wing:** Take off and fly at cruise speed in Position mode or Alitude mode.
+2. Use the RC transmitter roll stick to perform the following maneuver, tilting the vehicle just a few degrees: _roll left > roll right > center_ (The whole maneuver should take about 3 seconds).
+   The vehicle should stabilise itself within 2 oscillations.
+3. Repeat the maneuver, tilting with larger amplitudes at each attempt.
+   If the vehicle can stabilise itself within 2 oscillations at ~20 degrees move to the next step.
+4. Repeat the same maneuvers but on the pitch axis.
+   A above, start with small angles and confirm that the vehicle can itself within 2 oscillations before increasing the tilt.
+
+If the drone can stabilize itself within 2 oscillations it is ready for the auto-tuning procedure.
+
+If not, go to the [troubleshooting](#troubleshooting) section, which explains the minimal manual tuning to prepare the vehicle for auto-tuning.
+
+
+### Auto-tuning procedure
+
+The auto-tuning sequence must be performed in a **safe flight zone, with enough space**.
+For best results, it is recommended to fly in calm weather conditions.
+
+:::note
+The sequence can be aborted at any time by the operator by moving the roll/pitch stick on the RC controller.
+:::
+
+1. Perform the [pre-tuning test](#pre-tuning-test) detailed previously
+3. Takeoff using RC control and prepare for test:
+   - **Multicopters:** Takeoff using the remote controller in altitude mode.
+     Hover the vehicle at a safe distance and at a few meters above ground (between 4 and 20m).
+     :::note
+     If the drone is known to be stable in position controlled mode, you can 
+     - run auto-tuning in position mode and also takeoff using takeoff mode.
+     - use takeoff mode to take off.
+     :::
+      
+   - **Fixed-wing:** Once flying at cruise speed, activate auto mode.
+      This will guide the plane to fly in circle at constant altitude and speed.
+      :::note
+      Autotuning can also be run when flying straight, in altitude or position modes.
+      However this requires a larger safe area for tuning, and does not give a significantly better tuning result.
+      :::
+4. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
+
+   ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
+5. Select either the *Rate Controller* or *Attitude Controller* tabs.
+   Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
+6. Stop moving the joysticks and click on the _Autotune_ button (Fig 1).
+   Read the warning popup and click on **OK** to start tuning.
+5. The drone will first start to perform quick roll motions followed by pitch and yaw motions.
+   The progress is shown in the progress bar, next to the _Autotune_ button.
+6. For fixed wing vehicles, by default the tuning will be applied and tested immediately (and reverted if automatic testing detects a problem).
+   For multicopters, by default you will have to land and disarm before the new tuning parameters are applied.
+   Takeoff carefully and manually test that the vehicle is stable.
+7. If any strong oscillations occur, land immediately and follow the instructions in the [Troubleshooting](#troubleshooting) section below.
+
+VTOL vehicles are tuned Tuning is the same as multicopter in MC mode and fixed-wing in FW mode.
+You should repeat the tuning process for each case.
+
+## Parameters
+
+By default MC vehicles land before parameters are applied, while FW vehicles apply the parameters in-air and then test that the controllers work properly.
+This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) and [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameters respectively:
+
+* `0`: the gains are not applied.
+  This is used for testing purposes if the user wants to inspect results of the auto-tuning algorithm without using them directly.
+* `1`: apply the gains after disarm (default for multirotors).
+  The operator can then test the new tuning while taking-off carefully.
+* `2`: apply immediately (default for fixed-fings).
+  The new tuning is applied, disturbances are sent to the controller and the stability is monitored during the next 4 seconds.
+  If the control loop is unstable, the control gains are immediately reverted back to their previous value.
+  If the test passes, the pilot can then use the new tuning.
+
+
+Fixed wing vehicles (only) can tune which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
+
+* bit `0`: roll (default)
+* bit `1`: pitch (default)
+* bit `2`: yaw
+
+
+### Troubleshooting
+
+#### The drone oscillates when performing the testing maneuvers prior to the multirotor auto-tuning
+
+* slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop -> decrease `MC_[ROLL|PITCH]_P` by steps of 1.0.
+* fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high -> decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.1
+
+#### The auto-tuning sequence fails
+
+If the drone was not moving enough during auto-tuning, the system identification algorithm might have issues to find the correct coefficients.
+Increase the `MC/FW_AT_SYS_ID` by steps of 1 and trigger the auto-tune again.
+
+#### The drone oscillates after auto-tuning
+
+Due to effects not included in the mathematical model such as delays, saturation, slew-rate, airframe flexibility, the loop gain can be too high.
+To fix this, reduce the `MC_[ROLL|PITCH|YAW]RATE_K` parameters by steps of 0.1 until the oscillation stops.
+If a slow oscillation appears, reduce `FW_[RPY]R_P` by steps of 0.5.
+
+
+### FAQ
+
+#### What frames types are supported?
+
+Autotuning is enabled for multicopter, fixed wing, and VTOL vehicles.
+
+While it is not yet enabled for other frame types, in theory it an be used with any frame that uses a rate controller.
+
+#### Does autotuning work for all supported airframes?
+
+The mathematical model used by autotuning to estimate the dynamics of the drone assumes this it is a linear system with no coupling between the axes (SISO), and with a limited complexity (2 poles and 2 zeros).
+If the real drone is too far from those conditions, the model will not be able to represent the real dynamics of the drone.
+
+In practise, autotuning generally works well for fixed wing and multicopter, provided the frame is not too flexible.
+
+#### How long does autotuning take?
+
+Tuning takes 5s-20s per axis (aborted if tuning could not be established in 20s) + 2s pause between each axis + 4s of testing if the new gains are applied in air.
+
+A multicopter must tune all three axes, and by default does not test the new gains in-air.
+The range is therefore between 19s (`5 + 2 + 5 + 2 + 5`) and 64s (`20x3 + 2x2`).
+
+By default a fixed wing vehicle tunes all three axes and runs tests the new gains in-air.
+The range is therefore between 23s (19+4) and 68s (64+4).
+
+Note however that the above settings are defaults.
+A multicopter can choose to run the tests in air, and a fixed wing can choose not to.
+Further, a fixed wing can choose to tune fewer axis.
+
+Anecdotally, it usually takes around 40s for either vehicle.
+
+<!-- 
+#### How vigorous is the disturbance applied by tuning
+
+This might be added later. I'd like to just point to a video.
+
+If not, perhaps say "not very" but you should expect that the vehicle might deflect by as much as 20degrees and so should be able to cope with that deflection with default tuning.
+
+-->
+
+## Developers/SDKs
+
+Autotuning is started using [MAV_CMD_DO_AUTOTUNE_ENABLE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_AUTOTUNE_ENABLE) MAVLink command.
+
+At time of writing the message is resent at regular intervals to poll PX4 for progress: the `COMMAND_ACK` includes result that the operation is in progress, and also the progress as a percentage.
+The operation completes when the progress is 100% or the vehicle lands and disarms.
+
+:::note
+This is not a MAVLink-compliant implementation of a [command protocol long running command](https://mavlink.io/en/services/command.html#long_running_commands).
+PX4 should stream progress as the protocol does not allow polling.
+:::
+
+The feature is not yet supported by MAVSDK.
+
+## See also
+
+- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
+- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
+- [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
