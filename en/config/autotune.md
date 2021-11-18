@@ -55,6 +55,7 @@ Overview of the auto-tuning workflow
 ## Pre-tuning Test
 
 The vehicle must be able to fly and adequately stabilize itself before running auto-tune.
+This test ensures that the vehicle can fly safely in position controlled modes..
 
 :::note
 During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle.
@@ -65,7 +66,7 @@ To make sure the vehicle is stable enough for auto-tuning:
 
 1. Perform a normal preflight safety checklist to ensure the flight zone is clear and has enough space.
 2. Takeoff and prepare for the test
-   - **Multicopters:** Take off and hover at 1m above ground in Position mode, Altitude mode or Hold mode.
+   - **Multicopters:** Take off and hover at 1m above ground in Altitude mode or Stabilized mode.
    - **Fixed-wing:** Take off and fly at cruise speed in Position mode or Alitude mode.
 2. Use the RC transmitter roll stick to perform the following maneuver, tilting the vehicle just a few degrees: _roll left > roll right > center_ (The whole maneuver should take about 3 seconds).
    The vehicle should stabilise itself within 2 oscillations.
@@ -98,7 +99,7 @@ The sequence can be aborted at any time by the operator by moving the roll/pitch
      - use takeoff mode to take off.
      :::
       
-   - **Fixed-wing:** Once flying at cruise speed, activate auto mode.
+   - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes/hold.md).
       This will guide the plane to fly in circle at constant altitude and speed.
       :::note
       Autotuning can also be run when flying straight, in altitude or position modes.
@@ -145,10 +146,14 @@ Fixed wing vehicles (only) can tune which axes are tuned using the [FW_AT_AXES](
 
 ### Troubleshooting
 
-#### The drone oscillates when performing the testing maneuvers prior to the multirotor auto-tuning
+#### The drone oscillates when performing the testing maneuvers prior to the auto-tuning
 
-* slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop -> decrease `MC_[ROLL|PITCH]_P` by steps of 1.0.
-* fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high -> decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.1
+* slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop.
+   - **Multicopter:** decrease `MC_[ROLL|PITCH]_P` by steps of 1.0
+   - **Fixed-wing:** increase `FW_[RPY]_TC` by steps of 0.1
+* fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
+   - **Multicopter:** decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02
+   - **Fixed-wing:** decrease `FW_[RPY]R_P` by steps of 0.01
 
 #### The auto-tuning sequence fails
 
@@ -158,15 +163,14 @@ Increase the `MC/FW_AT_SYS_ID` by steps of 1 and trigger the auto-tune again.
 #### The drone oscillates after auto-tuning
 
 Due to effects not included in the mathematical model such as delays, saturation, slew-rate, airframe flexibility, the loop gain can be too high.
-To fix this, reduce the `MC_[ROLL|PITCH|YAW]RATE_K` parameters by steps of 0.1 until the oscillation stops.
-If a slow oscillation appears, reduce `FW_[RPY]R_P` by steps of 0.5.
+To fix this, follow the same steps described in [troubleshooting](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning)
 
 
 ### FAQ
 
 #### What frames types are supported?
 
-Autotuning is enabled for multicopter, fixed wing, and VTOL vehicles.
+Autotuning is enabled for multicopter, fixed wing, and hybrid VTOL fixed wing vehicles.
 
 While it is not yet enabled for other frame types, in theory it an be used with any frame that uses a rate controller.
 
