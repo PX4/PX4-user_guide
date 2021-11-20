@@ -90,8 +90,7 @@ hmc5883 <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -169,8 +168,7 @@ lis2mdl <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -199,8 +197,7 @@ lis3mdl <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -227,8 +224,7 @@ lsm9ds1_mag <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -280,8 +276,7 @@ rm3100 <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
