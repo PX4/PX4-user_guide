@@ -57,9 +57,9 @@ Install the required Python packages
 
 ```sh
 # install required packages using pip3
-python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 # if this fails with a permissions error, your Python install is in a system path - use this command instead:
-sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 ```
 
 ## Gazebo Simulation
