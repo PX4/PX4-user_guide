@@ -25,7 +25,7 @@
 使用以下命令构建 PX4 源码：
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests 
+DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
 ```
 
 ### Install the MAVSDK C++ Library
@@ -79,7 +79,7 @@ optional 参数：
 Run a single test by specifying the `model` and test `case` as command line options. For example, to test flying a tailsitter in a mission you might run:
 
 ```bash
-test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10 --model tailsitter --case 'Fly square Multicopter Missions including RTL'
+test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10 --model tailsitter --case 'Fly VTOL mission'
 ```
 
 The easiest way to find out the current set of models and their associated test cases is to run all PX4 tests [as shown above](#run-all-px4-tests) (note, you can then cancel the build if you wish to test just one).
