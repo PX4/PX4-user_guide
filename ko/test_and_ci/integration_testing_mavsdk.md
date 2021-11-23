@@ -25,7 +25,7 @@ PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 테�
 시뮬레이터 테스트를 위한 PX4를 빌드하려면 다음 명령어를 실행하십시오.
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests 
+DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
 ```
 
 ### MAVSDK C++ 라이브러리 설치
