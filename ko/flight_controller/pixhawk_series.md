@@ -32,6 +32,7 @@ PX4 프로젝트는 [Pixhawk Standard Autopilots](../flight_controller/autopilot
 
 PX4 프로젝트에서 지원하는 보드 목록은 다음과 같습니다.
 
+* [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md) (FMUv5X)
 * [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 * [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
 * [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
@@ -83,7 +84,8 @@ PX4 *개발자*는 맞춤형 하드웨어를 구축하는 데 필요하므로, �
 * **FMUv3:** FMUv2와 동일하지만 사용 가능한 플래시가 2MB로 두 배 증가하였습니다 ([Hex Cube Black](../flight_controller/pixhawk-2.md), [CUAV Pixhack v3](../flight_controller/pixhack_v3.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini(단종됨)](../flight_controller/pixhawk_mini.md))
 * **FMUv4:** RAM 증가. 더 빨라진 CPU. 더 많은 직렬 포트. IO 프로세서 없음 ([Pixracer](../flight_controller/pixracer.md))
 * **FMUv4-PRO:** 약간 증가된 RAM. 더 많은 직렬 포트. IO 프로세서 ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
-* **FMUv5:** 새 프로세서 (F7). 훨씬 더 빨라짐. 더 많은 RAM. 더 많은 CAN 버스. 다양한 설정 가능([Pixhawk 4](../flight_controller/pixhawk4.md), [CUAV v5](../flight_controller/cuav_v5.md), [CUAV V5 +](../flight_controller/cuav_v5_plus.md), [CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
+* **FMUv5:** 새 프로세서 (F7). 훨씬 더 빨라짐. 더 많은 RAM. 더 많은 CAN 버스. Much more configurable. ([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
+* **FMUv5X:** New processor (F7). Much faster, Modular design. More reliable. More Redundancy. More RAM. More CAN busses. Much more configurable & customizable .([Pixhawk 5X](../flight_controller/pixhawk5X.md), Skynode)
 
 <span id="licensing-and-trademarks"></span>
 
