@@ -5657,6 +5657,24 @@ table {
 </tr>
 </tbody></table>
 
+## Manual Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MAN_ARM_GESTURE">MAN_ARM_GESTURE</strong> (INT32)</td>
+ <td>Enable arm/disarm stick gesture <p><strong>Comment:</strong> This determines if moving the left stick to the lower right arms and to the lower left disarms the vehicle.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Mission
 
 <table>
