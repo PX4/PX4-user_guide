@@ -3,37 +3,54 @@
 ## bl_update
 源码： [systemcmds/bl_update](https://github.com/PX4/Firmware/tree/master/src/systemcmds/bl_update)
 
-Utility to flash the bootloader from a file<a id="bl_update_usage"></a>
+
+Utility to flash the bootloader from a file
+
+源码： [systemcmds/dumpfile](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile)
+
+WARNING: remove all props before using this command.
+
+<a id="actuator_test_usage"></a>
 
 ### 用法
 ```
-bl_update [arguments...]
-   bl_update [arguments...]
+actuator_test <command> [arguments...]
+ bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
                  state)
 
    <file>        Bootloader bin file
 ```
 ## dumpfile
-源码： [systemcmds/dumpfile](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile)
+源码：[systemcmds/dyn](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dyn)
 
-转储文件应用。 Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
-<a id="dumpfile_usage"></a>
+载入并运行一个未被编译至 PX4 二进制文件内的动态 PX4 模块。<a id="bl_update_usage"></a>
 
 ### 用法
 ```
-dumpfile [arguments...]
-     dumpfile [arguments...]
+bl_update [arguments...]
+   dumpfile [arguments...]
      <file>      File to dump
 ```
 ## dyn
-源码：[systemcmds/dyn](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dyn)
+源码： [systemcmds/esc_calib](https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib)
 
+Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
+<a id="dumpfile_usage"></a>
 
 ### 描述
-载入并运行一个未被编译至 PX4 二进制文件内的动态 PX4 模块。
+```
+dumpfile [arguments...]
+     <file>      File to dump
+```
+## esc_calib
+校准流程（运行命令将会引导你完成此流程）：
+
 
 ### 示例
+Source: [systemcmds/config](https://github.com/PX4/Firmware/tree/master/src/systemcmds/config)
+
+### 用法
 ```
 dyn ./hello.px4mod start
 ```
@@ -43,26 +60,6 @@ dyn ./hello.px4mod start
 ### 用法
 ```
 dyn [arguments...]
-     dyn [arguments...]
-     <file>      File containing the module
-     [arguments...] Arguments to the module Arguments to the module
-```
-## esc_calib
-源码： [systemcmds/esc_calib](https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib)
-
-ESC 校准工具。
-
-校准流程（运行命令将会引导你完成此流程）：
-- 移除螺旋桨，将 ESC 断电
-- Stop attitude controllers: mc_att_control stop, fw_att_control stop
-- 确保安全设置断开（Make sure safety is off）
-- 运行这个命令
-
-<a id="esc_calib_usage"></a>
-
-### 用法
-```
-esc_calib [arguments...]
      esc_calib [arguments...]
      [-d <val>]  Select PWM output device
                  values: <file:dev>, default: /dev/pwm_output0
@@ -74,19 +71,46 @@ esc_calib [arguments...]
                  1=first)
      [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
                  default: 0
+     [-a]        Select all channels Arguments to the module
+```
+## esc_calib
+Source: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
+
+Tool for ESC calibration
+
+Calibration procedure (running the command will guide you through it):
+- 移除螺旋桨，将 ESC 断电
+- Stop attitude controllers: mc_att_control stop, fw_att_control stop
+- 确保安全设置断开（Make sure safety is off）
+- 运行这个命令
+
+<a id="esc_calib_usage"></a>
+
+### 描述
+```
+esc_calib [arguments...]
+     [-d <val>]  Select PWM output device
+                 values: <file:dev>, default: /dev/pwm_output0
+     [-l <val>]  Low PWM value in us
+                 default: 1000
+     [-h <val>]  High PWM value in us
+                 default: 2000
+     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
+                 1=first)
+     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
      [-a]        Select all channels
 ```
 ## failure
-Source: [systemcmds/config](https://github.com/PX4/Firmware/tree/master/src/systemcmds/config)
+Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
 
-
-### 描述
-Inject failures into system.
 
 ### 用法
-This system command sends a vehicle command over uORB to trigger failure.
+Inject failures into system.
 
 ### 示例
+This system command sends a vehicle command over uORB to trigger failure.
+
+### 用法
 Test the GPS failsafe by stopping GPS:
 
 failure gps off
@@ -108,7 +132,7 @@ failure [arguments...]
 Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
 
 
-### 用法
+### Description
 This command is used to read and write GPIOs
 ```
 gpio read <PORT><PIN>/<DEVICE> [PULLDOWN|PULLUP] [--force]
