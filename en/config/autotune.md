@@ -9,7 +9,7 @@ Tuning only needs to be done once, and is recommended unless unless you're using
 Auto-tuning is performed while flying.
 The airframe must fly well enough handle moderate disturbances, and should be closely attended:
 - Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
-- Be ready to abort the autotuning process by moving remote control sticks.
+- Be ready to abort the autotuning process by moving the remote control sticks.
 - Verify that the vehicle flies well after tuning.
 :::
 
@@ -70,7 +70,7 @@ The test steps are:
    ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
 1. Select either the *Rate Controller* or *Attitude Controller* tabs.
    Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
-1. Stop moving the joysticks and click on the _Autotune_ button.
+1. Stop moving the joysticks and click on the **Autotune** button.
    Read the warning popup and click on **OK** to start tuning.
 1. The drone will first start to perform quick roll motions followed by pitch and yaw motions.
    The progress is shown in the progress bar, next to the _Autotune_ button.
@@ -85,9 +85,9 @@ The test steps are:
 
 Additional notes:
 - **VTOL:** Hybrid VTOL fixed wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
-- **Multicopter:** The instructions above takeoff and tune the vehicle in [Altitude mode](../flight_modes/altitude_mc.md).
-  Takeoff mode and [Position mode](../flight_modes/position_mc.md) are recommended if the vehicle is is _known_ to be stable in these modes.
-- **Fixed wing:** Autotuning can also be run in [altitude](../flight_modes/altitude_mc.md) or [position](../flight_modes/position_mc.md) modes.
+- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes/altitude_mc.md).
+  You can instead takeoff in [Takeoff mode](../flight_modes/takeoff.md) and tune in [Position mode](../flight_modes/position_mc.md) if the vehicle is is _known_ to be stable in these modes.
+- **Fixed wing:** Autotuning can also be run in [Altitude mode](../flight_modes/altitude_mc.md) or [Position mode](../flight_modes/position_mc.md).
   However running the test while flying straight requires a larger safe area for tuning, and does not give a significantly better tuning result.
 - Whether tuning is applied in-air or after landing can be [configured using parameters](#parameters).
 
@@ -96,21 +96,21 @@ Additional notes:
 #### The drone oscillates when performing the testing maneuvers prior to the auto-tuning
 
 * slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop.
-   - **Multicopter:** decrease `MC_[ROLL|PITCH]_P` by steps of 1.0
-   - **Fixed-wing:** increase `FW_[RPY]_TC` by steps of 0.1
+   - **Multicopter:** decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0
+   - **Fixed-wing:** increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC), [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC), [FW_Y_TC](../advanced_config/parameter_reference.md#FW_Y_TC) by steps of 0.1
 * fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
-   - **Multicopter:** decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02
-   - **Fixed-wing:** decrease `FW_[RPY]R_P` by steps of 0.01
+   - **Multicopter:** decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02 
+   - **Fixed-wing:** decrease [FW_RR_R](../advanced_config/parameter_reference.md#FW_RR_R), [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_RR_Y](../advanced_config/parameter_reference.md#FW_RR_Y) by steps of 0.01
 
 #### The auto-tuning sequence fails
 
 If the drone was not moving enough during auto-tuning, the system identification algorithm might have issues to find the correct coefficients.
-Increase the `MC/FW_AT_SYS_ID` by steps of 1 and trigger the auto-tune again.
+Increase the [FW_AT_SYSID_AMP](../advanced_config/parameter_reference.md#FW_AT_SYSID_AMP), [MC_AT_SYSID_AMP](../advanced_config/parameter_reference.md#MC_AT_SYSID_AMP) by steps of 1 and trigger the auto-tune again.
 
 #### The drone oscillates after auto-tuning
 
 Due to effects not included in the mathematical model such as delays, saturation, slew-rate, airframe flexibility, the loop gain can be too high.
-To fix this, follow the same steps described in [troubleshooting](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning)
+To fix this, follow the same steps described [when the drone oscillates in the pre-tuning test](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning).
 
 #### I still can't get it to work
 
@@ -135,7 +135,7 @@ This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/para
   If the test passes, the pilot can then use the new tuning.
 
 
-Fixed wing vehicles (only) can tune which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
+Fixed wing vehicles (only) can select which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
 
 * bit `0`: roll (default)
 * bit `1`: pitch (default)
@@ -202,9 +202,9 @@ In practise, autotuning generally works well for fixed wing and multicopter, pro
 Tuning takes 5s-20s per axis (aborted if tuning could not be established in 20s) + 2s pause between each axis + 4s of testing if the new gains are applied in air.
 
 A multicopter must tune all three axes, and by default does not test the new gains in-air.
-The range is therefore between 19s (`5 + 2 + 5 + 2 + 5`) and 64s (`20x3 + 2x2`).
+Tuning will therefore take between 19s (`5 + 2 + 5 + 2 + 5`) and 64s (`20x3 + 2x2`).
 
-By default a fixed wing vehicle tunes all three axes and runs tests the new gains in-air.
+By default a fixed wing vehicle tunes all three axes and then tests the new gains in-air.
 The range is therefore between 25s (`5 + 2 + 5 + 2 + 5 + 2 + 4`) and 70s (`20x3 + 3x2 + 4`).
 
 Note however that the above settings are defaults.
@@ -221,7 +221,6 @@ This might be added later. I'd like to just point to a video.
 If not, perhaps say "not very" but you should expect that the vehicle might deflect by as much as 20degrees and so should be able to cope with that deflection with default tuning.
 
 -->
-
 
 
 ## See also
