@@ -107,7 +107,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [rc_channels](rc_channels.md)
 - [rc_parameter_map](rc_parameter_map.md)
 - [rpm](rpm.md)
-- [rtl_flight_time](rtl_flight_time.md)
+- [rtl_time_estimate](rtl_time_estimate.md)
 - [safety](safety.md)
 - [satellite_info](satellite_info.md)
 - [sensor_accel](sensor_accel.md)
