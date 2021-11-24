@@ -1,5 +1,34 @@
 # Modules Reference: Command
 
+## actuator_test
+Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/actuator_test)
+
+
+Utility to test actuators.
+
+Note: this is only used in combination with SYS_CTRL_ALLOC=1.
+
+WARNING: remove all props before using this command.
+
+<a id="actuator_test_usage"></a>
+### Usage
+```
+actuator_test <command> [arguments...]
+ Commands:
+   set           Set an actuator to a specific output value
+
+ The actuator can be specified by motor, servo or function directly:
+     [-m <val>]  Motor to test (1...8)
+     [-s <val>]  Servo to test (1...8)
+     [-f <val>]  Specify function directly
+     -v <val>    value (-1...1)
+     [-t <val>]  Timeout in seconds (run interactive if not set)
+                 default: 0
+
+   iterate-motors Iterate all motors starting and stopping one after the other
+
+   iterate-servos Iterate all servos deflecting one after the other
+```
 ## bl_update
 Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
 
