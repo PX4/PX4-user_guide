@@ -33,7 +33,7 @@
 
 GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치들에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다. 나침반은 다른 전자 장치와 떨어지면 간섭이 줄어듦니다.
 
-![Pixhawk 4에 나침반 / GPS 연결](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
+![Pixhawk 4 -- 나침반/GPS 연결](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
 :::note GPS
 모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다. 활성화되면 PX4는 차량 시동을 걸 수 없습니다. 안전 스위치를 1초간 길게 누르면 비활성화됩니다. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
@@ -128,45 +128,45 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 
 기체의 텔레메트리를 **TELEM1** 포트에 연결합니다. 이 포트에 연결된 경우에는 추가 설정이 필요하지 않습니다. 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 USB를 통하여 연결됩니다.
 
-![Pixhawk 4 / 무선 텔레메트리](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
+![Pixhawk 4 -- 무선 텔레메트리](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
 <span id="sd_card"></span>
 
-## -- SD 카드 (선택 사항)
+## SD 카드(선택 사항)
 
-SD 카드는 [ 비행 세부 정보를 기록 및 분석 ](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. 아래 그림과 같이 카드 (Pixhawk 4 키트에 포함됨)를 *Pixhawk 4*에 삽입합니다.
+SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. 아래 그림과 같이 SD 카드(Pixhawk 4 키트에 포함됨)를 *Pixhawk 4*에 삽입합니다.
 
-![Pixhawk 4/SD 카드](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
+![Pixhawk 4 -- SD 카드](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
 :::tip
-자세한 내용은 [ 기본 개념> SD 카드 (이동식 메모리) ](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
+자세한 내용은 [기본 개념 &gt; SD 카드(이동식 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참고하십시오.
 :::
 
 ## 모터
 
-모터/서보 신호는 ** I/O PWM OUT ** (** MAIN OUT **) 및 ** FMU PWM OUT ** (** AUX **)에 연결됩니다. ) 포트는 [ Airframe Reference ](../airframes/airframe_reference.md)에서 차량에 지정된 순서로 지정됩니다.
+모터/서보 신호는 **I/O PWM OUT** (**MAIN OUT**) 및 **FMU PWM OUT** (** AUX **)에 연결됩니다. ) 포트는 [기체 정의서](../airframes/airframe_reference.md)에서 순서가 지정되어 있습니다.
 
 :::note
-이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
+이 참고사항은 모든 지원되는 기체 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
 :::
 
 :::caution
-매핑이 프레임간에 일관되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음). 가지고 있는 기체의 프레임에 대해 올바르게 모터를 연결했는지 다시 한 번 확인하십시오.
+매핑이 프레임간에 일관되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음). 해당 기체의 프레임의 정확한 모터 연결 여부를 확인하십시오.
 :::
 
 ## 기타 주변 장치
 
-선택적인 주변 장치의 배선 및 구성은 개별 [주변 장치](../peripherals/README.md)에 대한 항목에서 다룹니다.
+주변 장치 배선 및 설정에 관한 선택 사항은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
 
-## 핀아웃
+## 핀배열
 
-[Pixhawk 4 핀아웃](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+[Pixhawk 4 핀배열](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 
 ## 설정
 
-더 자세한 일반 구성 정보는 [Autopilot 구성](../config/README.md)에서 다룹니다.
+더 자세한 일반 설정 방법은 [자동항법장치 설정](../config/README.md)을 참고하십시오.
 
-QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
+QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
@@ -174,5 +174,5 @@ QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/v
 
 - [Pixhawk 4](../flight_controller/pixhawk4.md) (개요 페이지)
 - [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-- [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 핀배열](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 빠른 시작 가이드 (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
