@@ -273,7 +273,7 @@ There are a number of ways to make the UDP packets available on external interfa
 
 ### Use MAVLink Router
 
-The [mavlink-router](https://github.com/intel/mavlink-router) can be used to route packets from localhost to an external interface.
+The [mavlink-router](https://github.com/mavlink-router/mavlink-router) can be used to route packets from localhost to an external interface.
 
 To route packets between SITL running on one computer (sending MAVLink traffic to localhost on UDP port 14550), and QGC running on another computer (e.g. at address `10.73.41.30`) you could:
 
@@ -295,7 +295,7 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
   ```
 
 :::note
-More information about *mavlink-router* configuration can be found [here](https://github.com/intel/mavlink-router/#running).
+More information about *mavlink-router* configuration can be found [here](https://github.com/mavlink-router/mavlink-router#running).
 :::
 
 ### Enable UDP Broadcasting
