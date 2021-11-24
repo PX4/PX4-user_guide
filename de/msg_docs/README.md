@@ -13,6 +13,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [actuator_motors](actuator_motors.md) — Motor control message
 - [actuator_outputs](actuator_outputs.md)
 - [actuator_servos](actuator_servos.md) — Servo control message
+- [actuator_test](actuator_test.md)
 - [adc_report](adc_report.md)
 - [airspeed](airspeed.md)
 - [airspeed_validated](airspeed_validated.md)
@@ -139,7 +140,6 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [ulog_stream](ulog_stream.md) — Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA mavlink message
 - [ulog_stream_ack](ulog_stream_ack.md) — Ack a previously sent ulog_stream message that had the NEED_ACK flag set
 - [vehicle_acceleration](vehicle_acceleration.md)
-- [vehicle_actuator_setpoint](vehicle_actuator_setpoint.md)
 - [vehicle_air_data](vehicle_air_data.md)
 - [vehicle_angular_acceleration](vehicle_angular_acceleration.md)
 - [vehicle_angular_acceleration_setpoint](vehicle_angular_acceleration_setpoint.md)
