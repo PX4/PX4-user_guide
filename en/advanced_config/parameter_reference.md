@@ -11714,13 +11714,6 @@ table {
  <td>2</td>
  <td></td>
 </tr>
-<tr>
- <td><strong id="RTL_FLT_TIME">RTL_FLT_TIME</strong> (FLOAT)</td>
- <td>Maximum allowed RTL flight in minutes <p><strong>Comment:</strong> This is used to determine when the vehicle should be switched to RTL due to low battery. Note, particularly for multirotors this should reflect flight time at cruise speed, not while stationary</p>   </td>
- <td></td>
- <td>15</td>
- <td>min</td>
-</tr>
 </tbody></table>
 
 ## Control Allocation
@@ -19948,6 +19941,30 @@ table {
  <td></td>
  <td>0</td>
  <td></td>
+</tr>
+</tbody></table>
+
+## Return To Land
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RTL_TIME_FACTOR">RTL_TIME_FACTOR</strong> (FLOAT)</td>
+ <td>RTL time estimate safety margin factor <p><strong>Comment:</strong> Safety factor that is used to scale the actual RTL time estiamte. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
+ <td>1.0 > 2.0 (0.1)</td>
+ <td>1.1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="RTL_TIME_MARGIN">RTL_TIME_MARGIN</strong> (INT32)</td>
+ <td>RTL time estimate safety margin offset <p><strong>Comment:</strong> Margin that is added to the time estimate, after it has already been scaled Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
+ <td>0 > 300 (1)</td>
+ <td>110</td>
+ <td>s</td>
 </tr>
 </tbody></table>
 
