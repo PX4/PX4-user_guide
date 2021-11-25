@@ -560,8 +560,10 @@ sd_bench [arguments...]
                  default: 5
      [-d <val>]  Duration of a run in ms
                  default: 2000
+     [-k]        Keep the test file
      [-s]        Call fsync after each block (default=at end of each run)
-     [-u]        Test performance with unaligned data)
+     [-u]        Test performance with unaligned data
+     [-v]        Verify data and block number
 ```
 ## top
 실행 중인 프로세스와 해당 CPU, 스택 사용량, 우선 순위 및 상태를 모니터링합니다.
