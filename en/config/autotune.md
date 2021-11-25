@@ -13,11 +13,8 @@ The airframe must fly well enough handle moderate disturbances, and should be cl
 - Verify that the vehicle flies well after tuning.
 :::
 
-<!--
-Overview of the auto-tuning workflow
+@[youtube](https://youtu.be/5xswOhhqrIQ)
 
-@[youtube](https://youtu.be/uHVlIIydcpg)
--->
 
 ## Pre-tuning Test
 

@@ -1,19 +1,16 @@
-# Multicopter PID Tuning Guide
+# Multicopter PID Tuning Guide (Manual/Basic)
 
-This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
-
-Tuning is recommended for all new vehicle setups, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight.
-For example, different ESCs or motors require different tuning gains.
+This tutorial explains how to _manually_ tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
 :::tip
-Generally if you're using an appropriate [supported airframe configuration](../airframes/airframe_reference.md#copter) (selected from [QGroundControl > Airframe](../config/airframe.md)), the default tuning should allow you to fly the vehicle safely.
-To get the _very best_ performance we recommend you tune your new vehicle.
+[Autotune](config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames.
+Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
 :::
 
-:::warning
-Poorly tuned vehicles are likely to be unstable, and easy to crash.
-Make sure to have assigned a [Kill switch](../config/safety.md#emergency-switches).
-:::
+Generally if you're using an appropriate [supported airframe configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely.
+Tuning is recommended for all new vehicle setups to get the _very best_ performance, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight.
+For example, different ESCs or motors change the optimal tuning gains.
+
 
 ## Introduction
 
@@ -42,7 +39,6 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 
 ## Preconditions
 
-- You are using the QGroundControl [**daily build**](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) (the latest tuning UI will be in the next release build after March 2021).
 - You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle.
   This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
@@ -57,6 +53,11 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 - Use a high-rate telemetry link such as WiFi if at all possible (a typical low-range telemetry radio is not fast enough for real-time feedback and plots).
   This is particularly important for the rate controller.
 - Disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) before tuning a vehicle (there is an options for this in the PID tuning screen).
+
+:::warning
+Poorly tuned vehicles are likely to be unstable, and easy to crash.
+Make sure to have assigned a [Kill switch](../config/safety.md#emergency-switches).
+:::
 
 ## Tuning Procedure
 
