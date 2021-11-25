@@ -635,8 +635,10 @@ sd_bench [arguments...]
                  default: 5
      [-d <val>]  Duration of a run in ms
                  default: 2000
+     [-k]        Keep the test file
      [-s]        Call fsync after each block (default=at end of each run)
-     [-u]        Test performance with unaligned data)
+     [-u]        Test performance with unaligned data
+     [-v]        Verify data and block number
 ```
 ## sd_stress
 Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_stress)
