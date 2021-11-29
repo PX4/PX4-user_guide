@@ -1,12 +1,12 @@
 # Holybro Telemetry Radio
 
-This Holybro [SiK](../telemetry/sik_radio.md) Telemetry Radio is a small, light and inexpensive open source "plug-and-play" radio platform that typically allows ranges of better than 300m “out of the box” (the range can be extended to several kilometers with the use of a patch antenna on the ground).
+This Holybro [SiK](../telemetry/sik_radio.md) Telemetry Radio is a small, light and inexpensive open source "plug-and-play" radio platform to connect your Autopilot and Ground Station.
 
-This radio is plug and play with all flight controller with PX4 that follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards) with the JST GH 6 Pin Connector. It provides the easiest ways to setup a telemetry connection between your Autopilot and a ground station. It uses open source firmware which has been specially designed to work well with MAVLink packets and to be integrated with the QGroundControl & PX4 Autopilot.
+This radio is "plug-and-play" with all flight controller running PX4 with the JST-GH 6 Pin Connector TELEM port ([Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards)). It provides the easiest ways to setup a telemetry connection between your Autopilot flight controller and a ground station. It uses open source firmware which has been specially designed to work well with MAVLink packets and to be integrated with the QGroundControl & PX4 Autopilot.
 
-The radios can be either 915Mhz or 433Mhz and you should purchase the model which is appropriate for your country/region. 
+The radios can be either 915Mhz or 433Mhz and you should purchase the model which is appropriate for your country/region. It typically allows ranges of better than 300m “out of the box” (the range can be extended to several kilometers with the use of a patch antenna on the ground).
 
-![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio_v3.png)
+<img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
 ### Purchase:
 
@@ -61,4 +61,4 @@ The necessary drivers should be installed automatically and the radio will appea
 * JST-GH-6P to JST-GH-6P cable *1 (for Pixhawk Standard FC)
 * JST-GH-6P to Molex DF12 6P (for Pix32, Pixhawk 2.4.6, etc.)
 
-![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio_v3_include.png)
+<img src="../../assets/hardware/telemetry/holybro_sik_radio_v3_include.png" width="600px" title="Sik Telemetry Radio" />

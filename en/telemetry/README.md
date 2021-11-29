@@ -5,7 +5,7 @@ Telemetry Radios can (optionally) be used to provide a wireless MAVLink connecti
 PX4 supports a number of types of telemetry radios:
 * [SiK Radio](../telemetry/sik_radio.md) based firmware (more generally, any radio with a UART interface should work).
   * [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
-  * [HolyBro (SIK) Telemetry Radio](../telemetry/holybro_sik_radio.md)
+  * [HolyBro SiK Telemetry Radio](../telemetry/holybro_sik_radio.md)
   * <del>*HKPilot Telemetry Radio*</del> (Discontinued)
   * <del>*3DR Telemetry Radio*</del> (Discontinued)
 * [Telemetry Wifi](../telemetry/telemetry_wifi.md)
