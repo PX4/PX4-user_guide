@@ -49,7 +49,7 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 
 ## Power
 
-Connect the output of the *PM02D Power Module* (PM board) that comes with the Standard Set to one of the **POWER** port of *Pixhawk 5X* using the 6-wire cable.
+Connect the output of the *PM02D Power Module* (PM board) that comes with the Standard Set to one of the **POWER** port of *Pixhawk 5X* using the 6-wire cable. The PM02D and Power ports on the Pixhawk 5X uses the 6 circuit [2.00mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle](https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670) & [Housing](https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600).
 
 The PM02D Power Module supports **2~6S** battery, the board input should be connected to your LiPo battery. Note that the PM board does not supply power to the + and - pins of **FMU PWM OUT** and **I/O PWM OUT**.
 
@@ -80,12 +80,6 @@ The pinout of *Pixhawk 5X*’s power ports is shown below. The power ports takes
 | 4(black) | SDA    | +3.3V |
 | 5(black) | GND    | GND   |
 | 6(black) | GND    | GND   |
-
-:::note
-Using the Power Module that comes with the kit, you will need to configure the *Number of Cells* in the [Power Settings](../config/battery.md#basic-battery-settings-default). However you will not need to calibrate the *voltage divider* (set the voltage divider and the current divider ratio). With the default setting parameters, the voltage and current measurement accuracy can be better than 5%.
-
-You will have to update the *voltage divider* if you are using any other power module.
-:::
 
 ## Radio Control
 
