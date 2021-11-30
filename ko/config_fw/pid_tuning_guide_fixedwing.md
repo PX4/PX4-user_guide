@@ -1,28 +1,27 @@
 # 고정익 튜닝 가이드
 
-이 가이드는 고정익 PID 계수를 튜닝 방법을 설명합니다.
-
-:::warning
-이 가이드는 고급 사용자와 전문가를 위한 것입니다. PID 튜닝이 잘못되면 기체가 충돌할 수 있습니다.
-:::
+This guide explains how to manually tune the fixed wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
 
 :::note
+[Autotune](config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
+:::
+
+:::tip
+Tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md). The most important parameters are covered in this guide.
+:::
+
+## Preconditions
 
 - 튜닝 게인을 잘못 설정하면 자세 제어가 불안정해질 수 있습니다. 조종사 튜닝 게인은 [수동](../flight_modes/manual_fw.md) 제어로 비행기를 비행하고 착륙할 수 있어야합니다.
 - 과도한 게인 (및 빠른 서보 모션)은 기체의 최대 힘을 위반할 수 있습니다. 게인을 신중하게 시켜야합니다.
 - 롤과 피치 튜닝의 순서는 같습니다. 차이점은 피치가 트림 오프셋에 더 민감하므로 [트리밍](../config_fw/trimming_guide_fixedwing.md)을 신중하게 수행해야하며, 적분 게인은 이를 보상하기 위하여 더 많은 주의가 필요합니다.
-:::
 
-:::tip
-모든 매개변수는 [매개변수 정의](../advanced_config/parameter_reference.md)편에 기술되어 있습니다. 이 가이드에서는 중요한 매개변수들을 설명합니다.
-:::
+## Establishing the Airframe Baseline
 
-## 기체 기준선 설정
-
-수동 비행이 가능하면, 수동 비행 시험에서 몇 가지 중요 시스템 속성을 설정하는 것이 가장 좋은 방법입니다. 이렇게 하려면, 충분한 비행 연습이 필요합니다. 모든 데이터를 종이에 즉시 기록할 수 없더라도, 로그 파일은 차후 튜닝시에 매우 유용합니다.
+If a pilot capable of manual flight is available, its best to establish a few core system properties on a manual trial. To do this, fly these maneuvers. Even if you can't note all the quantities immediately on paper, the log file will be very useful for later tuning.
 
 :::note
-아래의 모든 데이터는 자동으로 기록됩니다. 로그 파일을 보지 않고 직접 튜닝할 경우에만 데이터를 메모합니다.
+All these quantities will be automatically logged. You only need to take notes if you want to directly move on to tuning without looking at the log files.
 
 - 편리한 속도로 수평 비행하십시오. 스로틀 스틱 위치와 대기 속도를 기록하십시오 (예 : 70 % → 0.7 스로틀, 15m/s 대기 속도).
 - 최대 스로틀과 10-30 초 동안 충분한 대기 속도로 상승하십시오 (예 : 12m/s 대기 속도, 30초에 100m 상승).
@@ -31,15 +30,15 @@
 - 45도를 높이고 45도를 낮춥니다.
 :::
 
-이 가이드에서는 이러한 데이터를 사용하여 나중에 컨트롤러 게인중 일부를 설정합니다.
+This guide will use these quantities to set some of the controller gains later on.
 
-## 롤 튜닝
+## Tune Roll
 
-먼저 롤 축을 튜닝후에 피치를 튜닝합니다. 롤 축 튜닝이 잘 못 되어도, 고도 손실은 발생하지 않으므로 롤 축 튜닝이 더 안전합니다.
+Tune first the roll axis, then pitch. The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
 
 ### 피드포워드 게인 조정
 
-이 게인을 조정하려면, 다른 게인을 0으로 설정하십시오.
+To tune this gain, set the other gains to zero.
 
 #### 0으로 설정하는 게인
 
@@ -59,13 +58,13 @@
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - 0.01의 값에서 시작합니다. 명령된 롤 값과 실제 롤 값 사이에 오프셋이 없을 때까지이 값을 늘립니다 (매번 두 배로 증가) (로그 파일을 확인해야 할 가능성이 높음).
 
-## 피치 튜닝
+## Tune Pitch
 
-피치 축에는 더 많은 적분기 게인과 올바르게 설정된 피치 오프셋이 필요할 수 있습니다.
+The pitch axis might need more integrator gain and a correctly set pitch offset.
 
 ### 피드포워드 게인 조정
 
-이 게인을 조정하려면, 다른 게인을 0으로 설정하십시오.
+To tune this gain, set the other gains to zero.
 
 #### 0으로 설정하는 게인
 
@@ -85,9 +84,9 @@
 
 - [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - 0.01의 값에서 시작합니다. 명령된 피치 값과 실제 피치 값 사이에 오프셋이 없을 때까지이 값을 늘립니다 (매번 두 배로 증가) (로그 파일을 확인해야 할 가능성이 높음).
 
-## 외부 루프의 시간 상수 조정
+## Adjusting the Time Constant of the Outer Loop
 
-제어 루프의 전체적인 부드러움과 경도는 시간 상수로 조정할 수 있습니다. 기본값인 0.5 초는 일반적인 고정익 설정에 적합하며 일반적으로 조정할 필요는 없습니다.
+The overall softness / hardness of the control loop can be adjusted by the time constant. The default of 0.5 seconds should be fine for normal fixed-wing setups and usually does not require adjustment.
 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC)-기본값 0.5 초로 설정하고, 피치 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) -기본값 0.5 초로 설정하고, 롤 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.
