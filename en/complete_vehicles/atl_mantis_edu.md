@@ -31,14 +31,28 @@ The Mantis broadly features the following hardware components:
 The files to update the Mantis can currently be found on [GoogleDrive](https://drive.google.com/drive/u/1/folders/1LXW66IBGc_SgGLmk0ltl3R8IQYYVUvtz).
 
 Files include:
-- **firmware.bin**: Camera firmware
+- **camera.bin**: Camera firmware
 - **gimbal.yuneec**: Gimbal firmware
 - **autopilot.px4**: Autopilot firmware
+- **autopilot-bootloader.px4**: Autopilot firmware to update bootloader (only to be used for initial update).
 - **update.lzo**: RC firmware
+
+### Initial complete update
+
+:::note
+When starting off with a "stock" Yuneec Mantis G, you need to do an initial complete update!
+:::
+
+1. Download the [initial update zip](https://drive.google.com/uc?export=download&id=1SzAj9pTQCp15CApz7BsEzURlbIhPQzzm), uncompress it and place all files on an Micro SD card (FAT32 formatted).
+2. Insert the SD card into the Mantis.
+3. Insert a battery and power up the Mantis.
+4. It will now update all the components. After a while you will hear the PX4 startup sound, then a beep followed by "positive" happy beep. This means the PX4 bootloader has been updated. Wait a few minutes longer until you hear just the familiar PX4 startup. At this point everything should be updated.
+
+5. In the meantime you can already start [updating the RC as described below](#update-rc).
 
 ### Update Camera
 
-1. Place camera image **firmware.bin** on the SD card.
+1. Place camera image **camera.bin** on the SD card.
 2. Power up the drone.
    It will reboot and update automatically.
 3. Wait until the WiFi re-appears and re-connect.
@@ -58,6 +72,10 @@ If not, you should find a file **gimbal_update.log** with more details.
 :::
 
 ### Update Autopilot (PX4)
+
+:::warning
+Before being able to update autopilot.px4, you need to have done the [initial complete update](#initial-complete-update).
+:::
 
 1. Place the **autopilot.px4** file on the SD card.
 2. Power up the drone.
