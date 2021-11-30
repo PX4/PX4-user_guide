@@ -14407,10 +14407,16 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_UBX_MODE">GPS_UBX_MODE</strong> (INT32)</td>
- <td>u-blox GPS Mode <p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base, sending RTCM on UART2 to the rover GPS. RTK is still possible with this setup.</p> <strong>Values:</strong><ul>
+ <td>u-blox GPS Mode <p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base. Modes 1 and 2 require each F9P UART1 to be connected to the Autopilot. In addition, UART2 on the F9P units are connected to each other. Modes 3 and 4 only require UART1 on each F9P connected to the Autopilot or Can Node. UART RX DMA is required. RTK is still possible with this setup.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Default</li> 
 
-<li><strong>1:</strong> Heading</li> 
+<li><strong>1:</strong> Heading (Rover With Moving Base UART1 Connected To Autopilot, UART2 Connected To Moving Base)</li> 
+
+<li><strong>2:</strong> Moving Base (UART1 Connected To Autopilot, UART2 Connected To Rover)</li> 
+
+<li><strong>3:</strong> Heading (Rover With Moving Base UART1 Connected to Autopilot Or Can Node At 921600)</li> 
+
+<li><strong>4:</strong> Moving Base (Moving Base UART1 Connected to Autopilot Or Can Node At 921600)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14420,7 +14426,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. (currently only for the Trimble MB-Two). Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the first antenna is in front. The offset angle increases clockwise. Set this to 90 if the first antenna is placed on the right side and the second on the left side of the vehicle.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the first antenna is in front. The offset angle increases clockwise. Set this to 90 if the first antenna is placed on the right side and the second on the left side of the vehicle.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 360 </td>
  <td>0.</td>
