@@ -10,7 +10,7 @@ The updated vehicle is an ideal education platform for developing and testing [M
 It can also be used for developing and testing PX4 autopilot software, including optical flow.
 
 :::warning
-Restoring the original Yuneec vehicle firmware is not supported.
+Restoring the original Yuneec vehicle firmware is not possible.
 :::
 
 ## Purchase
