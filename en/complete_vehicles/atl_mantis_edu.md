@@ -34,21 +34,21 @@ Files include:
 - **camera.bin**: Camera firmware
 - **gimbal.yuneec**: Gimbal firmware
 - **autopilot.px4**: Autopilot firmware
-- **autopilot-bootloader.px4**: Autopilot firmware to update bootloader (only to be used for initial update).
+- **autopilot-bootloader.px4**: Autopilot firmware to update bootloader (only to be used during first update).
 - **update.lzo**: RC firmware
 
 ### Initial complete update
 
+When starting off with a "stock" Yuneec Mantis G, you need to do an initial complete update of all components in the order below!
+
 :::note
-When starting off with a "stock" Yuneec Mantis G, you need to do an initial complete update!
+During the initial update you need to update the PX4 bootloader! Use **autopilot-bootloader.px4** before **autopilot.px4**.
 :::
 
-1. Download the [initial update zip](https://drive.google.com/uc?export=download&id=1SzAj9pTQCp15CApz7BsEzURlbIhPQzzm), uncompress it and place all files on an Micro SD card (FAT32 formatted).
-2. Insert the SD card into the Mantis.
-3. Insert a battery and power up the Mantis.
-4. It will now update all the components. After a while you will hear the PX4 startup sound, then a beep followed by "positive" happy beep. This means the PX4 bootloader has been updated. Wait a few minutes longer until you hear just the familiar PX4 startup. At this point everything should be updated.
-
-5. In the meantime you can already start [updating the RC as described below](#update-rc).
+:::note
+Before being able to do px4 updates, the camera needs to be updated.
+The camera will not update if a autopilot.px4 file is already on the SD card!
+:::
 
 ### Update Camera
 
@@ -71,11 +71,23 @@ The file will be renamed to **gimbal.yuneec.updated** if the update was successf
 If not, you should find a file **gimbal_update.log** with more details.
 :::
 
-### Update Autopilot (PX4)
+### Update Autopilot Bootloader
 
 :::warning
-Before being able to update autopilot.px4, you need to have done the [initial complete update](#initial-complete-update).
+This is only required once for the initial update.
 :::
+
+1. Place the **autopilot-bootloader.px4** file on the SD card.
+2. Power up the drone.
+   The autopilot will be automatically updated.
+3. After the update, you should hear PX4 starting up, then another double beep, followed by a positive/success beep. This means the bootloader has been updated.
+
+:::note
+The file will be renamed to **autopilot-bootloader.px4.updated** if the update was successful.
+If not, you should find a file **autopilot-bootloader_update.log** with more details.
+:::
+
+### Update Autopilot (PX4)
 
 1. Place the **autopilot.px4** file on the SD card.
 2. Power up the drone.
