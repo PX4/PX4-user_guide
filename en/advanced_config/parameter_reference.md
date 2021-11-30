@@ -19962,8 +19962,8 @@ table {
 <tr>
  <td><strong id="RTL_TIME_MARGIN">RTL_TIME_MARGIN</strong> (INT32)</td>
  <td>RTL time estimate safety margin offset <p><strong>Comment:</strong> Margin that is added to the time estimate, after it has already been scaled Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
- <td>0 > 300 (1)</td>
- <td>110</td>
+ <td>0 > 3600 (1)</td>
+ <td>100</td>
  <td>s</td>
 </tr>
 </tbody></table>
