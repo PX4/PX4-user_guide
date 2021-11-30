@@ -80,27 +80,27 @@ PMB(Power Management Board)는 배전 보드와 전원 모듈로 사용됩니다
 키트의 전원모듈을 사용하면 [전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html)에서 *셀 수*를 설정하여하며, *전압 분배기*의 보정은 필요하지 않습니다. 다른 전원모듈(예 : Pixracer의 모듈)을 사용하는 경우에는 *전압 분배기*를 업데이트하여야 합니다.
 :::
 
-## -- 무선 조종
+## 무선 조종 
 
-리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동*으로 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않습니다).
+무선 조종기(RC)는 기체를 *수동*으로 조작합니다. PX4 자율 비행 모드에는 RC는 필수 요구 사항은 아닙니다.
 
-기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
+[호환되는 송신기/수신기를 선택](../getting_started/rc_transmitter_receiver.md)후 *바인딩*을 하여야 통신이 가능합니다. 송신기/수신기의 매뉴얼을 참고하십시오.
 
-아래 지침은 다양한 유형의 수신기의 * Pixhawk 4 Mini* 연결법을 설명합니다.
+아래 지침은 여러 종류의 수신기를 *Pixhawk 4 Mini*에 연결한는 방법을 설명합니다.
 
-- Spektrum/DSM 수신기는 **DSM/SBUS RC** 입력에 연결됩니다.
+- Spektrum/DSM 수신기는 **DSM/SBUS RC** 입력에 연결합니다.
     
     ![Pixhawk 4 Mini - Spektrum 수신기용 라디오 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
 
-- PPM 수신기는 **PPM RC** 입력 포트에 연결됩니다.
+- PPM 수신기는 **PPM RC** 입력 포트에 연결합니다.
     
     ![Pixhawk 4 Mini - PPM 수신기용 라디오 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)
 
-- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결해야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
+- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 케이블만 사용합니다.
 
-무선 시스템 선택, 수신기 호환성 및 송신기 / 수신기 쌍 바인딩에 대한 자세한 내용은 다음을 참조하십시오. [ 원격 제어 송신기 & amp; 수신자 ](../getting_started/rc_transmitter_receiver.md).
+무선 시스템 선택, 수신기 호환성 및 송신기/수신기 바인딩에 대한 자세한 내용은 [원격 제어 송신기 & 수신기](../getting_started/rc_transmitter_receiver.md)를 참고하십시오.
 
-## 무선 텔레메트리(선택 사항)
+## -- 무선 텔레메트리(선택 사항)
 
 무선 텔레메트리는 지상국 프로그램에서 비행중인 차량의 통신/제어에 사용할 수 있습니다 (예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
