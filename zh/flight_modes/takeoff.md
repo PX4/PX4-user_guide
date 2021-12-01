@@ -1,17 +1,17 @@
 # 起飞模式
 
-[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位（例如 GPS ）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *起飞*飞行模式使飞机起飞到指定高度并等待进一步指令。
 
 :::note
 
-* 该模式需要一个良好的位置估计（如，从GPS中获取）。
+* 该模式需要一个良好的位置估计（如，从 GPS 中获取）。
 * 使用此模式前必须先解锁。
 * 该模式是自动的 - 不 *需要* 用户干预即可控制无人机。
 * 遥控开关可以在任何无人机上更改飞行模式。
 * 在多旋翼中移动遥控器摇杆（或 VTOL 在多旋翼模式下）[默认情况下](#COM_RC_OVERRIDE)会将无人机切换到[位置模式](../flight_modes/position_mc.md)，除非是处理电池失效保护。
-* The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
+* 如果起飞时出现问题， [故障检测器](../config/safety.md#failure-detector) 将自动停止引擎。
 :::
 
 下面描述每种类型飞机的具体行为。
@@ -62,7 +62,7 @@
 
 <p>
 :::note
-起飞时，无人机时钟遵循正常的固定翼最大/最小油门设置（<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>，<a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>）。
+起飞时，无人机 总是遵循正常的固定翼最大/最小油门设置（<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>，<a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>）。
 :::
 </p>
 
