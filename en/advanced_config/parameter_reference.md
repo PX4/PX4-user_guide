@@ -27275,6 +27275,13 @@ table {
  <td>-1</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="UCAN1_UORB_GPS_P">UCAN1_UORB_GPS_P</strong> (INT32)</td>
+ <td>sensor_gps uORB over UAVCAN v1 publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## UAVCANv1
