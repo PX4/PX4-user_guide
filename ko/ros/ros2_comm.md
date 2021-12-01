@@ -69,10 +69,7 @@ ROS 2와 해당 종속성을 설치합니다.
 <!-- what other toolchain needed? e.g. for ROS - gcc? does it all come with the ROS setup? -->
 
 :::note
-빌드 프로세스는 다른 환경 구성을 소싱하는 빌드 프로세스의 여러 단계에 해당하는 콘솔에서 새 탭을 엽니다.
-:::
-
-작업 공간을 만들고 빌드합니다.
+빌드 프로세스는 다른 환경 구성을 소싱하는 빌드 프로세스의 여러 단계에 해당하는 콘솔에서 새 탭을 엽니다. ::: :::warning If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent. ::: To install ROS 2 and its dependencies:
 
 1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
 1. ROS 2 브리지 패키지 `px4_ros_com`와 `px4_msgs`를 `/src` 디렉토리에 복제합니다. `master` 분기는 기본적으로 복제됩니다.
@@ -98,12 +95,10 @@ ROS 2와 해당 종속성을 설치합니다.
 
 ### ROS 2 작업 공간 빌드
 
+This section shows how create a ROS 2 workspace hosted in your *home directory* (modify the commands as needed to put the source code elsewhere). The `px4_ros_com` and `px4_msg` packages are cloned to a workspace folder, and then a script is used to build the workspace.
+
 :::tip
 모든 스크립트 옵션은 `--help` 인수를 사용하여 출력합니다. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
-
-:::note
-`px4_ros_com/scripts` 디렉토리에는 다양한 종류의 작업 공간을 구축하기 위한 여러 스크립트가 포함되어 있습니다.
-:::
 
 To create and build the workspace:
 
@@ -190,18 +185,18 @@ You can also verify the rate of the message using `ros2 topic hz`. E.g. in the c
 
 ### ROS 2 리스너 생성
 
+With the `px4_ros_com` built successfully, one can now take advantage of the generated *microRTPS* agent app and also from the generated sources and headers of the ROS 2 msgs from `px4_msgs`, which represent a one-to-one matching with the uORB counterparts.
+
 그런 다음 일반 `rclcpp::Node` 기본 클래스의 하위 클래스인 `SensorCombinedListener` 클래스를 생성합니다.
 
 이것은 `sensor_combined` uORB 메시지가 수신될 때(현재는 RTPS/DDS 메시지로) 콜백 함수를 생성하고 메시지가 수신될 때마다 메시지 필드의 내용을 출력합니다.
-
-아래 줄은 하나 이상의 호환 가능한 ROS 게시자와 일치시킬 수 있는 `sensor_combined_topic`에 대한 구독을 만듭니다.
 
 ```cpp
 #include <rclcpp/rclcpp.hpp>
 #include <px4_msgs/msg/sensor_combined.hpp>
 ```
 
-`SensorCombinedListener` 클래스를 ROS 노드로 인스턴스화하는 작업은 `main` 함수에서 수행됩니다.
+아래 줄은 하나 이상의 호환 가능한 ROS 게시자와 일치시킬 수 있는 `sensor_combined_topic`에 대한 구독을 만듭니다.
 
 ```cpp
 /**
@@ -211,7 +206,7 @@ class SensorCombinedListener : public rclcpp::Node
 {
 ```
 
-ROS 2 광고주 노드는 DDS/RTPS 네트워크(따라서 PX4 Autopilot)에 데이터를 게시합니다.
+`SensorCombinedListener` 클래스를 ROS 노드로 인스턴스화하는 작업은 `main` 함수에서 수행됩니다.
 
 ```cpp
 public:
@@ -237,7 +232,7 @@ public:
     }
 ```
 
-`px4_ros_com/src/advertisers` 아래의 `debug_vect_advertiser.cpp`를 예로 들면 먼저 `debug_vect` msg 헤더를 포함한 필수 헤더를 가져옵니다.
+ROS 2 광고주 노드는 DDS/RTPS 네트워크(따라서 PX4 Autopilot)에 데이터를 게시합니다.
 
 ```cpp
 private:
@@ -245,7 +240,7 @@ private:
 };
 ```
 
-그런 다음 코드는 일반 `rclcpp::Node` 기본 클래스의 하위 클래스인 `DebugVectAdvertiser` 클래스를 생성합니다.
+`px4_ros_com/src/advertisers` 아래의 `debug_vect_advertiser.cpp`를 예로 들면 먼저 `debug_vect` msg 헤더를 포함한 필수 헤더를 가져옵니다.
 
 ```cpp
 int main(int argc, char *argv[])
@@ -263,9 +258,9 @@ int main(int argc, char *argv[])
 
 ### ROS 2 광고주 만들기
 
-A ROS 2 advertiser node publishes data into the DDS/RTPS network (and hence to the PX4 Autopilot).
+그런 다음 코드는 일반 `rclcpp::Node` 기본 클래스의 하위 클래스인 `DebugVectAdvertiser` 클래스를 생성합니다.
 
-`DebugVectAdvertiser` 클래스를 ROS 노드로 인스턴스화하는 작업은 `main` 함수에서 수행됩니다.
+Taking as an example the `debug_vect_advertiser.cpp` under `px4_ros_com/src/advertisers`, first we import required headers, including the `debug_vect` msg header.
 
 ```cpp
 #include <chrono>
@@ -273,15 +268,14 @@ A ROS 2 advertiser node publishes data into the DDS/RTPS network (and hence to t
 #include <px4_msgs/msg/debug_vect.hpp>
 ```
 
-PX4에서 오프보드 제어를 사용하는 전체 예제는 [ROS 2 오프보드 제어 예제](../ros/ros2_offboard_control.md)를 참고하십시오.
+`DebugVectAdvertiser` 클래스를 ROS 노드로 인스턴스화하는 작업은 `main` 함수에서 수행됩니다.
 
 ```cpp
 class DebugVectAdvertiser : public rclcpp::Node
 {
 ```
 
-:::note
-이것은 빌드 프로세스를 더 잘 이해하는 목적으로 제공됩니다. The messages are sent based on a timed callback, which sends two messages per second based on a timer.
+The code below creates a function for when messages are to be sent. The messages are sent based on a timed callback, which sends two messages per second based on a timer.
 
 ```cpp
 public:
@@ -353,7 +347,7 @@ This section describes the process to *manually* setup your workspace and build 
    git clone https://github.com/ros2/ros1_bridge.git -b dashing ~/px4_ros_com_ros2/src/ros1_bridge
    ```
 
-**clean_all.bash** 스크립트(**px4_ros_com/scripts**에 있음)는 이 정리 프로세스를 쉽게 하기 위해 제공되며, 이 스크립트는 위에 나열된 모든 작업 공간 옵션 (ROS 2, ROS 1 및 둘 다)을 정리할 수 있습니다.
+To build both ROS 2 and ROS (1) workspaces (replacing the previous steps):
 
 1. `cd` into `px4_ros_com_ros2` dir and source the ROS 2 environment. Don't mind if it tells you that a previous workspace was set before:
 
@@ -409,9 +403,9 @@ The build process may consume a lot of memory resources. On a resource limited m
 
 ### 작업 공간 청소
 
-이를 사용하는 가장 일반적인 방법은 ROS(1) 작업 공간 디렉토리 경로를 전달하는 것입니다(일반적으로 기본 경로에 없기 때문에).
+**clean_all.bash** 스크립트(**px4_ros_com/scripts**에 있음)는 이 정리 프로세스를 쉽게 하기 위해 제공되며, 이 스크립트는 위에 나열된 모든 작업 공간 옵션 (ROS 2, ROS 1 및 둘 다)을 정리할 수 있습니다.
 
-Unfortunately *colcon* does not currently have a way of cleaning the generated **build**, **install** and **log** directories, so these directories must be deleted manually.
+이를 사용하는 가장 일반적인 방법은 ROS(1) 작업 공간 디렉토리 경로를 전달하는 것입니다(일반적으로 기본 경로에 없기 때문에).
 
 The **clean_all.bash** script (in **px4_ros_com/scripts**) is provided to ease this cleaning process, this script can be used to clean all of the workspace options listed above (ROS 2, ROS 1, and Both)
 

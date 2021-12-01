@@ -1,9 +1,9 @@
-# 멀티콥터 PID 튜닝 가이드 (고급/상세) 
+# Multicopter PID Tuning Guide (Manual/Advanced)
 
 PX4 컨트롤러의 튜닝 방법에 대한 자세한 정보를 제공합니다.
 
 :::tip
-설명된 접근 방식이 직관적이므로 *호버 추력 지점 주변*의 기체을 튜닝시에는 [기본 PID 튜닝 가이드](pid_tuning_guide_multicopter_basic.md)를 따르는 것이 좋습니다. 이것은 대부분의 기체에 필요합니다.
+[Autotune](config/autotune.md) is recommended for tuning the vehicles *around the hover thrust point*, as the approach described is intuitive, easy, and fast. 이것은 대부분의 기체에 필요합니다.
 :::
 
 호버 추력 지점 주변의 튜닝이 충분하지 않을 때 이 가이드를 사용하십시오 (예 : 더 높은 추력에서 비선형성 및 진동이 방생하는 기체). 기본 튜닝을 충분히 이해하는 것이 [airmode](#airmode-mixer-saturation) 설정 사용법을 이해하는데 유용합니다.

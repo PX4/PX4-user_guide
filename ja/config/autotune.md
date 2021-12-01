@@ -11,12 +11,8 @@ Auto-tuning is performed while flying. The airframe must fly well enough handle 
 - Verify that the vehicle flies well after tuning.
 :::
 
+@[youtube](https://youtu.be/5xswOhhqrIQ)
 
-<!--
-Overview of the auto-tuning workflow
-
-@[youtube](https://youtu.be/uHVlIIydcpg)
--->
 
 ## Pre-tuning Test
 

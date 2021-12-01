@@ -1,9 +1,9 @@
-# Multicopter PID Tuning Guide (Advanced/Detailed)
+# Multicopter PID Tuning Guide (Manual/Advanced)
 
 This topic provides detailed information about PX4 controllers, and how they are tuned.
 
 :::tip
-We recommend that you follow the [basic PID tuning guide](pid_tuning_guide_multicopter_basic.md) for tuning the vehicles *around the hover thrust point*, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
+[Autotune](config/autotune.md) is recommended for tuning the vehicles *around the hover thrust point*, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
 :::
 
 Use this topic when tuning around the hover thrust point is not sufficient (e.g. on vehicles where there are non-linearities and oscillations at higher thrusts). It is also useful for a deeper understanding of how the basic tuning works, and to understand how to use the [airmode](#airmode-mixer-saturation) setting.

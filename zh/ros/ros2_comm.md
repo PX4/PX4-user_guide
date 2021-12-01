@@ -71,10 +71,7 @@ Check the guide to confirm the latest dependencies! You won't be able to continu
 <!-- what other toolchain needed? e.g. for ROS - gcc? does it all come with the ROS setup? -->
 
 :::note
-This install and build guide covers ROS 2 Foxy in Ubuntu 20.04.
-:::
-
-To install ROS 2 and its dependencies:
+This install and build guide covers ROS 2 Foxy in Ubuntu 20.04. ::: :::warning If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent. ::: To install ROS 2 and its dependencies:
 
 1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
 1. The install process should also install the **`colcon`** build tools, but in case that doesn't happen, you can install the tools manually:
