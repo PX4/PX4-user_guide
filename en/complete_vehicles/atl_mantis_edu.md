@@ -31,26 +31,28 @@ The Mantis broadly features the following hardware components:
 The files to update the Mantis can currently be found on [GoogleDrive](https://drive.google.com/drive/u/1/folders/1LXW66IBGc_SgGLmk0ltl3R8IQYYVUvtz).
 
 Files include:
+- **autopilot-bootloader.px4**: Autopilot firmware to update bootloader (only to be used during first update).
+- **autopilot.px4**: Autopilot firmware
 - **camera.bin**: Camera firmware
 - **gimbal.yuneec**: Gimbal firmware
-- **autopilot.px4**: Autopilot firmware
-- **autopilot-bootloader.px4**: Autopilot firmware to update bootloader (only to be used during first update).
 - **update.lzo**: RC firmware
 
 ### Initial complete update
 
 When starting off with a "stock" Yuneec Mantis G, you need to do an initial complete update of all components in the order below!
+These steps are required in order to unlock the drone and allow flashing custom PX4 builds. Furthermore the new bootloader is
+robuster and prevents the drone from being bricked should a bad custom PX4 build be flashed.
 
 :::note
 During the initial update you need to update the PX4 bootloader! Use **autopilot-bootloader.px4** before **autopilot.px4**.
 :::
 
 :::note
-Before being able to do px4 updates, the camera needs to be updated.
+Before being able to flash px4 updates to the Mantis, its camera firmware needs to be updated first.
 The camera will not update if a autopilot.px4 file is already on the SD card!
 :::
 
-### Update Camera
+#### Update Camera
 
 1. Place camera image **camera.bin** on the SD card.
 2. Power up the drone.
@@ -59,7 +61,7 @@ The camera will not update if a autopilot.px4 file is already on the SD card!
 
 Note: if the file has been removed from the SD card, the camera has successfully been updated.
 
-### Update Gimbal
+#### Update Gimbal
 
 1. Place the gimbal image **gimbal.yuneec** on the SD card.
 2. Power up the drone.
@@ -67,11 +69,11 @@ Note: if the file has been removed from the SD card, the camera has successfully
 3. After the update, you might hear a faint beep as the gimbal starts up again.
 
 :::note
-The file will be renamed to **gimbal.yuneec.updated** if the update was successful.
+The file on the SD card will be renamed to **gimbal.yuneec.updated** if the update was successful.
 If not, you should find a file **gimbal_update.log** with more details.
 :::
 
-### Update Autopilot Bootloader
+#### Update Autopilot Bootloader
 
 :::warning
 This is only required once for the initial update.
@@ -83,11 +85,11 @@ This is only required once for the initial update.
 3. After the update, you should hear PX4 starting up, then another double beep, followed by a positive/success beep. This means the bootloader has been updated.
 
 :::note
-The file will be renamed to **autopilot-bootloader.px4.updated** if the update was successful.
+The file on the SD card will be renamed to **autopilot-bootloader.px4.updated** if the update was successful.
 If not, you should find a file **autopilot-bootloader_update.log** with more details.
 :::
 
-### Update Autopilot (PX4)
+#### Update Autopilot (PX4)
 
 1. Place the **autopilot.px4** file on the SD card.
 2. Power up the drone.
@@ -95,24 +97,24 @@ If not, you should find a file **autopilot-bootloader_update.log** with more det
 3. After the update, you should hear PX4 starting up by the usual beeps.
 
 :::note
-The file will be renamed to **autopilot.px4.updated** if the update was successful.
+The file on the SD card will be renamed to **autopilot.px4.updated** if the update was successful.
 If not, you should find a file **autopilot_update.log** with more details.
 :::
 
-### Update RC
+#### Update Remote Control
 
-1. Place the **update.lzo** file on a USB stick (or SD card in a USB card reader).
-   It needs to be FAT32 formatted.
-2. Plug the USB stick into the USB-A (not USB-C) port of the RC controller.
-3. Power on the RC controller by long pressing the power button.
-4. Wait for the blue LED to be on or blinking. This means the controller has finished booting.
-5. Hold the Home/RTL button (on the left) pressed while pressing the photo button (top right) quickly 4 times (within 2 seconds).
-6. Release the buttons when you hear a beep.
-   It will beep while applying the update.
-7. Once the beeping stops with a positive tone (after about 90 seconds), the controller reboots automatically.
+1. Place the **update.lzo** file on a USB flashdrive. An SD card in a USB card reader also works.
+   In both cases the flash medium needs to be FAT32 formatted.
+2. Plug the USB stick into the USB-A (not USB-C) port of the RC.
+3. Power on the RC by long pressing the power button and letting go once the battery LEDs are solid or you hear the three startup beeps.
+4. Wait for the blue LED to be solid or blinking. This means the RC has finished booting.
+5. Hold the round Home/RTL button (on the left) pressed while pressing the photo button (top right shoulder) quickly 4 times within 2 seconds.
+6. Release the Home/RTL button when you hear a beep.
+   The RC will beep while applying the update.
+7. Once the beeping stops with a positive tone (after about 90 seconds), the RC reboots automatically.
 
 :::note
-The **update.lzo** file is not remove on the USB stick after the update.
+Unlike on the Mantis, the **update.lzo** file is not removed or renamed on the USB stick after updating the RC.
 :::
 
 ## Developing PX4 Firmware
