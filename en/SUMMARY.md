@@ -407,7 +407,7 @@
     * [ROS Integration Testing](test_and_ci/integration_testing.md)
     * [Docker Containers](test_and_ci/docker.md)
     * [Maintenance](test_and_ci/maintenance.md)
-* [Robotics](robotics/README.md)
+* [Drone Apps & APIs](robotics/README.md)
   * [Offboard Control from Linux](ros/offboard_control.md)
   * [ROS](ros/README.md)
     * [ROS 2](ros/ros2.md)
