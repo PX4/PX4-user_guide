@@ -100,19 +100,19 @@ PMB(Power Management Board)는 배전 보드와 전원 모듈로 사용됩니다
 
 무선 시스템 선택, 수신기 호환성 및 송신기/수신기 바인딩에 대한 자세한 내용은 [원격 제어 송신기 & 수신기](../getting_started/rc_transmitter_receiver.md)를 참고하십시오.
 
-## -- 무선 텔레메트리(선택 사항)
+## 무선 텔레메트리(선택 사항) 
 
-무선 텔레메트리는 지상국 프로그램에서 비행중인 차량의 통신/제어에 사용할 수 있습니다 (예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
+무선 텔레메트리는 지상국 프로그램의 비행 차량 통신 제어용입니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-기체의 텔레메트리를 **TELEM1** 포트에 연결해야 합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
+기체의 텔레메트리를 **TELEM1** 포트에 연결합니다. 이 포트에 연결된 경우에는 추가 설정이 필요하지 않습니다. 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 USB를 통하여 연결됩니다.
 
-![Pixhawk 4 Mini 텔레메트리](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
+![Pixhawk 4 Mini - 텔레메트리](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
 
 ## micro SD 카드 (선택 사항)
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. 아래 그림과 같이 카드(키트에 포함됨)를 *Pixhawk 4 Mini*에 삽입합니다.
 
-![Pixhawk 4 Mini SD 카드](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
+![Pixhawk 4 Mini - SD 카드](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
 
 :::tip
 자세한 내용은 [기본 개념> SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
@@ -120,25 +120,25 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 ## 모터
 
-모터/서보는 **MAIN**과 **AUX**포트에 [기체 프레임 정의](../airframes/airframe_reference.md)에 기체별로 정의된 순서대로 연결하여야 합니다. 자세한 내용은 [*Pixhawk 4 Mini* > 지원되는 플랫폼 ](../flight_controller/pixhawk4_mini.md#supported-platforms)을 참조하세요.
+모터와 서보는 **MAIN**과 **AUX**포트에 [기체 정의서](../airframes/airframe_reference.md)에 정의된 순서대로 연결합니다. 자세한 내용은 [*Pixhawk 4 Mini* > 지원되는 플랫폼 ](../flight_controller/pixhawk4_mini.md#supported-platforms)을 참고하십시오.
 
 :::note
-이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
+이 참고사항은 모든 지원되는 기체 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
 :::
 
 :::caution
-매핑이 프레임간에 일관 되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음). 가지고 있는 기체의 프레임에 대해 올바르게 모터를 제대로 연결하였는지 다시 한 번 확인하십시오.
+매핑이 프레임별로 일정하지지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력의 스로틀에 의존할 수 없음). 해당 기체의 프레임의 정확한 모터 연결 여부를 확인하십시오.
 :::
 
 ## 기타 주변 장치
 
-많이 사용하지 않는 옵션 부품들의 배선 및 조립법은 개별 [주변 장치](../peripherals/README.md)에서 설명합니다.
+많이 사용하지 않는 부품들의 배선과 조립 방법은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
 
 ## 설정
 
-더 자세한 일반 구성 정보는 [Autopilot 구성](../config/README.md)에서 다룹니다.
+더 자세한 일반 설정 방법은 [자동항법장치 설정](../config/README.md)을 참고하십시오.
 
-QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
+QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 

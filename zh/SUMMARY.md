@@ -407,7 +407,7 @@
     * [ROS集成测试](test_and_ci/integration_testing.md)
     * [Docker 容器](test_and_ci/docker.md)
     * [维护](test_and_ci/maintenance.md)
-* [机器人技术](robotics/README.md) 
+* [Drone Apps & APIs](robotics/README.md) 
   * [Linux 的外部控制](ros/offboard_control.md)
   * [ROS](ros/README.md) 
     * [ROS 2](ros/ros2.md) 
