@@ -407,7 +407,7 @@
     * [ROS 통합 테스트](test_and_ci/integration_testing.md)
     * [도커 컨테이너](test_and_ci/docker.md)
     * [유지보수](test_and_ci/maintenance.md)
-* [로봇공학](robotics/README.md) 
+* [Drone Apps & APIs](robotics/README.md) 
   * [리눅스 오프보드 제어](ros/offboard_control.md)
   * [ROS](ros/README.md) 
     * [ROS 2](ros/ros2.md) 
