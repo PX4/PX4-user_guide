@@ -31,17 +31,17 @@ The Mantis broadly features the following hardware components:
 The files to update the Mantis can currently be found on [GoogleDrive](https://drive.google.com/drive/u/1/folders/1LXW66IBGc_SgGLmk0ltl3R8IQYYVUvtz).
 
 Files include:
-- **autopilot-bootloader.px4**: Autopilot firmware to update bootloader (only to be used during first update).
-- **autopilot.px4**: Autopilot firmware
-- **camera.bin**: Camera firmware
-- **gimbal.yuneec**: Gimbal firmware
-- **update.lzo**: RC firmware
+1. **camera.bin**: Camera firmware
+2. **gimbal.yuneec**: Gimbal firmware
+3. **autopilot-bootloader.px4**: Autopilot firmware to update bootloader (only to be used during first update).
+4. **autopilot.px4**: Autopilot firmware
+5. **update.lzo**: RC firmware
 
 ### Initial complete update
 
 When starting off with a "stock" Yuneec Mantis G, you need to do an initial complete update of all components in the order below!
 These steps are required in order to unlock the drone and allow flashing custom PX4 builds. Furthermore the new bootloader is
-robuster and prevents the drone from being bricked should a bad custom PX4 build be flashed.
+more robust and prevents the drone from being bricked should a bad custom PX4 build be flashed.
 
 :::note
 During the initial update you need to update the PX4 bootloader! Use **autopilot-bootloader.px4** before **autopilot.px4**.
