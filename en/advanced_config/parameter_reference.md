@@ -23563,6 +23563,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_MAG_AUTOCAL">SENS_MAG_AUTOCAL</strong> (INT32)</td>
+ <td>Magnetometer auto calibration <p><strong>Comment:</strong> Automatically initialize magnetometer calibration from bias estimate if available.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_MAG_MODE">SENS_MAG_MODE</strong> (INT32)</td>
  <td>Sensors hub mag mode  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Publish all magnetometers</li> 
