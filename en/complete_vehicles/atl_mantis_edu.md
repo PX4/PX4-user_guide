@@ -47,7 +47,7 @@ more robust and prevents the drone from being bricked should a bad custom PX4 bu
 During the initial update you need to update the PX4 bootloader! Use **autopilot-bootloader.px4** before **autopilot.px4**.
 :::
 
-:::note
+:::warning 
 Before being able to flash px4 updates to the Mantis, its camera firmware needs to be updated first.
 The camera will not update if a autopilot.px4 file is already on the SD card!
 :::
@@ -59,7 +59,7 @@ The camera will not update if a autopilot.px4 file is already on the SD card!
    It will reboot and update automatically.
 3. Wait until the WiFi re-appears and re-connect.
 
-Note: if the file has been removed from the SD card, the camera has successfully been updated.
+If the camera has been updated successfully, the file will be removed from the SD card automatically.
 
 #### Update Gimbal
 
