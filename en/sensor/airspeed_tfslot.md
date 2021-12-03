@@ -36,7 +36,7 @@ TFSLOT is possible to buy at [Tindie store](https://www.tindie.com/products/thun
 
 ## Connection
 
-[TFASPDIMU02](https://github.com/ThunderFly-aerospace/TFASPDIMU02) is equipped with I2C JST-GH connector, which conforms to the pinout of the [dronecode standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). Therefor the sensor can be connected directly to an I2C port of autopilot using an I2C 4pin JST-GH cable.
+[TFASPDIMU02](https://github.com/ThunderFly-aerospace/TFASPDIMU02) is equipped with I2C JST-GH connector, which conforms to the pinout of the [dronecode standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). Therefore the sensor can be connected directly to an I2C port of autopilot using an I2C 4pin JST-GH cable.
 
 ## Configuration
 
