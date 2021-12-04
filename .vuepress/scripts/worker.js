@@ -49,7 +49,7 @@ parentPort.once('message', async payload => {
             url: page.path,
             userHeadTags: userHeadTags,
             pageMeta,
-            title: 'VuePress',
+            title: 'PX4 User Guide',
             lang: 'en',
             description: '',
             version
