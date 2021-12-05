@@ -48,7 +48,7 @@ The *Agent* and any *Fast DDS* applications are connected via UDP and may be on 
 ## Code generation
 
 ### Dependencies
-Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4 or later must be installed in order to generate the required code, and continue to the next steps. [Follow the installation guide.](../dev_setup/fast-dds-installation.md)
+Fast DDS 2.0.0 or later and Fast-RTPS-Gen 1.0.4 (not later!) must be installed in order to generate the required code, and continue to the next steps. [Follow the installation guide.](../dev_setup/fast-dds-installation.md)
 
 :::note RTPS
 has been adopted as the middleware for the ROS 2 (Robot Operating System).
@@ -159,10 +159,6 @@ cmake ..
 make
 ```
 
-:::note
-To cross-compile for the *Qualcomm Snapdragon Flight* platform see [this link](https://github.com/eProsima/PX4-FastRTPS-PoC-Snapdragon-UDP#how-to-use).
-:::
-
 The command syntax for the *Agent* is listed below:
 
 ```sh
@@ -211,10 +207,46 @@ cd micrortps_listener
 fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined.idl
 ```
 
-This creates a basic subscriber and publisher, and a main-application that you can run. In order to print the data from the `sensor_combined` topic, modify the `onNewDataMessage()` method in **sensor_combined_Subscriber.cxx**:
+This creates a basic subscriber and publisher, and a main-application that you can run.
+
+In order to print the data from the sensor combined topic, modify the following methods in **sensor_combined_Subscriber.cxx**:
+- `init()`: To change the subscription topic name (by default, the micrortps agent publishes the data on the named topic: `fmu/sensor_combined/out`),
+- `onNewDataMessage()`: To print the received sensor combined data.
 
 ```cpp
-void sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
+bool sensor_combinedSubscriber::init(Subscriber* sub)
+{
+    // Create RTPSParticipant
+
+    ParticipantAttributes PParam;
+    PParam.rtps.setName("Participant_subscriber"); //You can put the name you want
+    mp_participant = Domain::createParticipant(PParam);
+    if(mp_participant == nullptr)
+    {
+        return false;
+    }
+
+    //Register the type
+
+    Domain::registerType(mp_participant, static_cast<TopicDataType*>(&myType));
+
+    // Create Subscriber
+
+    SubscriberAttributes Rparam;
+    Rparam.topic.topicKind = NO_KEY;
+    Rparam.topic.topicDataType = myType.getName(); //Must be registered before the creation of the subscriber
+    Rparam.topic.topicName = "fmu/sensor_combined/out";
+    mp_subscriber = Domain::createSubscriber(mp_participant,Rparam, static_cast<SubscriberListener*>(&m_listener));
+    if(mp_subscriber == nullptr)
+    {
+        return false;
+    }
+    return true;
+}
+```
+
+```cpp
+void sensor_combinedSubscriber::SubListener::onNewDataMessage(Subscriber* sub)
 {
     // Take data
     sensor_combined_ st;

@@ -47,7 +47,7 @@ The *Agent* and any *Fast DDS* applications are connected via UDP and may be on 
 ## 代码生成
 
 ### ROS2/ROS 应用处理流程
-Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4 or later must be installed in order to generate the required code, and continue to the next steps. [Follow the installation guide.](../dev_setup/fast-dds-installation.md)
+Fast DDS 2.0.0 or later and Fast-RTPS-Gen 1.0.4 (not later!) must be installed in order to generate the required code, and continue to the next steps. [Follow the installation guide.](../dev_setup/fast-dds-installation.md)
 
 :::note RTPS
 has been adopted as the middleware for the ROS 2 (Robot Operating System).
@@ -169,10 +169,6 @@ make
 make
 ```
 
-:::note
-To cross-compile for the *Qualcomm Snapdragon Flight* platform see [this link](https://github.com/eProsima/PX4-FastRTPS-PoC-Snapdragon-UDP#how-to-use).
-:::
-
 The command syntax for the *Agent* is listed below:
 
 ```sh
@@ -202,12 +198,11 @@ Once the *Client* (on the flight controller) and the *Agent* (on an offboard com
 
 This example shows how to create a *Fast DDS* "listener" application that subscribes to the `sensor_combined` topic and prints out updates published from the PX4 Autopilot. A connected RTPS application can run on any computer on the same network as the *Agent*. For this example the *Agent* and *Listener application* will be on the same computer.
 
+The *fastrtpsgen* script can be used to generate a simple RTPS application from an IDL message file.
+
 一旦 *Client* (在飞行控制器上) 和 *Agent* (在一台 offboard 计算机上) 同时运行并且成功互联, *Fast RTPS* 应用就可以通过 RTPS 发布或订阅PX4 上的 uORB 消息。
 
-:::note RTPS
-messages are defined in IDL files and compiled to C++ using *fastrtpsgen*.
-
-*fastrtpsgen* 脚本可以从 IDL 消息文件创建一个简单的 RTPS 应用。
+When building the bridge code, IDL files are generated for the uORB messages that may be sent/received, these IDL files are needed when you create a Fast DDS application to communicate with the PX4 Autopilot.
 
 You can find them in following path per build target: **build/BUILDPLATFORM/src/modules/micrortps_bridge/micrortps_agent/idl/*.idl**.
 :::
@@ -222,10 +217,46 @@ cd micrortps_listener
 fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined.idl
 ```
 
-This creates a basic subscriber and publisher, and a main-application that you can run. In order to print the data from the `sensor_combined` topic, modify the `onNewDataMessage()` method in **sensor_combined_Subscriber.cxx**:
+This creates a basic subscriber and publisher, and a main-application that you can run.
+
+In order to print the data from the sensor combined topic, modify the following methods in **sensor_combined_Subscriber.cxx**:
+- `init()`: To change the subscription topic name (by default, the micrortps agent publishes the data on the named topic: `fmu/sensor_combined/out`),
+- `onNewDataMessage()`: To print the received sensor combined data.
 
 ```cpp
-void sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
+bool sensor_combinedSubscriber::init(Subscriber* sub)
+{
+    // Create RTPSParticipant
+
+    ParticipantAttributes PParam;
+    PParam.rtps.setName("Participant_subscriber"); //You can put the name you want
+    mp_participant = Domain::createParticipant(PParam);
+    if(mp_participant == nullptr)
+    {
+        return false;
+    }
+
+    //Register the type
+
+    Domain::registerType(mp_participant, static_cast<TopicDataType*>(&myType));
+
+    // Create Subscriber
+
+    SubscriberAttributes Rparam;
+    Rparam.topic.topicKind = NO_KEY;
+    Rparam.topic.topicDataType = myType.getName(); //Must be registered before the creation of the subscriber
+    Rparam.topic.topicName = "fmu/sensor_combined/out";
+    mp_subscriber = Domain::createSubscriber(mp_participant,Rparam, static_cast<SubscriberListener*>(&m_listener));
+    if(mp_subscriber == nullptr)
+    {
+        return false;
+    }
+    return true;
+}
+```
+
+```cpp
+void sensor_combinedSubscriber::SubListener::onNewDataMessage(Subscriber* sub)
 {
     // Take data
     sensor_combined_ st;
@@ -264,25 +295,15 @@ void sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
 To build and run the application on Linux:
 
 ```sh
-$ source clean_all.bash --ros1_ws_dir &lt;path/to/px4_ros_com_ros1/ws&gt;
+make -f makefile_x64Linux2.6gcc
+bin/*/sensor_combined_PublisherSubscriber subscriber
 ```
 
 Now you should see the sensor information being printed out:
 
 ```sh
-Sample received, count=10119
-Received sensor_combined data
-=============================
-gyro_rad: -0.0103228, 0.0140477, 0.000319406
-gyro_integral_dt: 0.004
-accelerometer_timestamp_relative: 0
-accelerometer_m_s2: -2.82708, -6.34799, -7.41101
-accelerometer_integral_dt: 0.004
-magnetometer_timestamp_relative: -10210
-magnetometer_ga: 0.60171, 0.0405879, -0.040995
-baro_timestamp_relative: -17469
-baro_alt_meter: 368.647
-baro_temp_celcius: 43.93
+make -f makefile_x64Linux2.6gcc
+bin/*/sensor_combined_PublisherSubscriber subscriber
 ```
 
 :::note
@@ -302,20 +323,6 @@ If the selected UART port is busy, it's possible that the MAVLink application is
 :::tip
 A quick/temporary fix to allow bridge testing during development is to stop MAVLink from *NuttShell*:
 ```sh
-make -f makefile_x64Linux2.6gcc
-bin/*/sensor_combined_PublisherSubscriber subscriber
-```
-:::
-
-### 分别安装 ROS 和 ROS2
-
-The *Agent* code is generated using a *Fast DDS* tool called *fastrtpsgen*.
-
-If you haven't installed Fast DDS in the default path then you must specify its installation directory by setting the `FASTRTPSGEN_DIR` environment variable before executing *make*.
-
-On Linux/Mac this is done as shown below:
-
-```sh
 Sample received, count=10119
 Received sensor_combined data
 =============================
@@ -329,6 +336,19 @@ magnetometer_ga: 0.60171, 0.0405879, -0.040995
 baro_timestamp_relative: -17469
 baro_alt_meter: 368.647
 baro_temp_celcius: 43.93
+```
+:::
+
+### 分别安装 ROS 和 ROS2
+
+The *Agent* code is generated using a *Fast DDS* tool called *fastrtpsgen*.
+
+If you haven't installed Fast DDS in the default path then you must specify its installation directory by setting the `FASTRTPSGEN_DIR` environment variable before executing *make*.
+
+On Linux/Mac this is done as shown below:
+
+```sh
+export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 ```
 
 :::note

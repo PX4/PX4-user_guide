@@ -1,19 +1,19 @@
-# Avionics Anonymous Laser Altimeter UAVCAN Interface
+# Avionics Anonymous Laser Altimeter UAVCAN 인터페이스
 
-The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/) allows a [number of common rangefinders](#supported_rangefinders) to be connected via the UAVCAN bus (this is a more robust interface than I2C).
+[Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)는 UAVCAN 버스로 [공통 거리계](#supported_rangefinders)를 연결합니다 (이는 I2C보다 강력한 인터페이스).
 
-![Avionics Anonymous Laser Altimeter UAVCAN Interface](../../assets/hardware/sensors/avionics_anon_uavcan_alt_interface/avionics_anon_altimeter_uavcan_interface.jpg)
+![Avionics Anonymous Laser Altimeter UAVCAN 인터페이스](../../assets/hardware/sensors/avionics_anon_uavcan_alt_interface/avionics_anon_altimeter_uavcan_interface.jpg)
 
-## Where to Buy
+## 구매처
 
-* [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
+* [AvAnon 레이저 인터페이스](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
 
 <span id="supported_rangefinders"></span>
-## Supported Rangefinders
+## 지원되는 거리 측정기
 
-A full list supported rangefinders can be found on the link above.
+지원되는 거리계의 전체 목록은 위의 링크를 참고하십시오.
 
-At time of writing the following rangefinders are supported:
+이 문서 작성 시점에는 아래의 거리 측정기들이 지원됩니다.
 
 - Lightware SF30/D
 - Lightware SF10/a
@@ -24,34 +24,34 @@ At time of writing the following rangefinders are supported:
 - Lightware SF/LW20/c
 
 
-## Pinouts
+## 핀배열
 
-### CAN Connector
-| Pin | Name     | Description                                                                         |
-| --- | -------- | ----------------------------------------------------------------------------------- |
-| 1   | POWER_IN | Power Supply. 4.0-5.5V supported, but must also be compatible with connected laser. |
-| 2   | TX/SCL   | TX for serial mode, Clock for I2C mode                                              |
-| 3   | RX/SDA   | RX for serial mode, Data for I2C mode                                               |
-| 4   | GND      | Signal/power ground.                                                                |
+### CAN 커넥터
+| 핀 | 명칭       | 설명                                           |
+| - | -------- | -------------------------------------------- |
+| 1 | POWER_IN | 전원 공급. 4.0-5.5V가 지원되지만, 연결된 레이저와도 호환되어야 합니다. |
+| 2 | TX/SCL   | 직렬 모드용 TX, I2C 모드용 Clock                     |
+| 3 | RX/SDA   | 직렬 모드용 RX, I2C 모드용 데이터                       |
+| 4 | GND      | 신호/전원 접지                                     |
 
-### Laser Connector
+### 레이저 커넥터
 
-| Pin | Name      | Description                            |
-| --- | --------- | -------------------------------------- |
-| 1   | POWER_OUT | Filtered power at the supply voltage.  |
-| 2   | CAN+      | TX for serial mode, Clock for I2C mode |
-| 3   | RX/SDA    | RX for serial mode, Data for I2C mode  |
-| 4   | GND       | Signal/power ground.                   |
+| 핀 | 명칭        | 설명                       |
+| - | --------- | ------------------------ |
+| 1 | POWER_OUT | 공급 전압에서 필터링된 전력.         |
+| 2 | CAN+      | 직렬 모드용 TX, I2C 모드용 Clock |
+| 3 | RX/SDA    | 직렬 모드용 RX, I2C 모드용 데이터   |
+| 4 | GND       | 신호/전원 접지                 |
 
 
-## Wiring
+## 배선
 
-The rangefinder (laser) is connected to the AvAnon interface board, which is connected to one of the CAN ports on your autopilot. The wiring is as per the pinout above, or the necessary cables can be purchased to connect to your system right out of the box. These are available at the links [here](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/).
+거리계 (레이저)는 자동조종장치의 CAN 포트 하나에 연결된 AvAnon 인터페이스 보드에 연결됩니다. 배선은 위의 핀 배치에 따르거나, 필요한 케이블을 구매하여 연결할 수 있습니다. [여기](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/) 링크를 참고하십시오.
 
-The interface board provides a filtered power output for the laser, but does not provide its own regulation. Therefore the laser must be compatible with whatever voltage is supplied to the board.
+인터페이스 보드는 레이저에 대해 필터링된 전력 출력을 제공하지만 자체 규정을 제공하지 않습니다. 따라서, 레이저는 보드에 공급되는 전압과 호환되어야합니다.
 
-## Software Configuration
+## 소프트웨어 설정
 
-UAVCAN must be enabled by setting [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) non zero.
+UAVCAN은 [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)을 0이 아닌 값으로 설정하여 활성화하여야 합니다.
 
-The minimum and maximum valid range for the laser must be set in the parameters [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX).
+레이저의 최소/최대 유효 범위는 [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN)와 [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) 매개변수로 설정합니다.

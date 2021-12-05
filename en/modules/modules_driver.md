@@ -8,7 +8,7 @@ Subcategories:
 - [Magnetometer](modules_driver_magnetometer.md)
 
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/board_adc)
+Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
 
 ### Description
@@ -29,7 +29,7 @@ adc <command> [arguments...]
    status        print status info
 ```
 ## ads1115
-Source: [drivers/adc/ads1115](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/ads1115)
+Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
 
 <a id="ads1115_usage"></a>
 ### Usage
@@ -51,7 +51,7 @@ ads1115 <command> [arguments...]
    status        print status info
 ```
 ## atxxxx
-Source: [drivers/osd/atxxxx](https://github.com/PX4/Firmware/tree/master/src/drivers/osd/atxxxx)
+Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
 
 
 ### Description
@@ -69,8 +69,7 @@ atxxxx <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -79,8 +78,47 @@ atxxxx <command> [arguments...]
 
    status        print status info
 ```
+## batmon
+Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
+
+
+### Description
+Driver for SMBUS Communication with BatMon enabled smart-battery
+Setup/usage information: https://rotoye.com/batmon-tutorial/
+### Examples
+To start at address 0x0B, on bus 4
+```
+batmon start -X -a 11 -b 4
+```
+
+
+<a id="batmon_usage"></a>
+### Usage
+```
+batmon <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 11
+
+   man_info      Prints manufacturer info.
+
+   suspend       Suspends the driver from rescheduling the cycle.
+
+   resume        Resumes the driver from suspension.
+
+   stop
+
+   status        print status info
+```
 ## batt_smbus
-Source: [drivers/batt_smbus](https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus)
+Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/batt_smbus)
 
 
 ### Description
@@ -130,7 +168,7 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/bst)
+Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 ### Usage
@@ -152,12 +190,15 @@ bst <command> [arguments...]
    status        print status info
 ```
 ## dshot
-Source: [drivers/dshot](https://github.com/PX4/Firmware/tree/master/src/drivers/dshot)
+Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
 
 
 ### Description
 This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement
 to use DShot as ESC communication protocol instead of PWM.
+
+On startup, the module tries to occupy all available pins for DShot output.
+It skips all pins already in use (e.g. by a camera trigger module).
 
 It supports:
 - DShot150, DShot300, DShot600, DShot1200
@@ -177,42 +218,7 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 ```
 dshot <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start the module if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
+   start
 
    telemetry     Enable Telemetry on a UART
      <device>    UART device
@@ -255,7 +261,7 @@ dshot <command> [arguments...]
    status        print status info
 ```
 ## fake_gps
-Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
+Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
 
 
 ### Description
@@ -273,7 +279,7 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fake_imu
-Source: [examples/fake_imu](https://github.com/PX4/Firmware/tree/master/src/examples/fake_imu)
+Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
 
 ### Description
@@ -291,7 +297,7 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/Firmware/tree/master/src/examples/fake_magnetometer)
+Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
 
 ### Description
@@ -310,7 +316,7 @@ fake_magnetometer <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [drivers/gps](https://github.com/PX4/Firmware/tree/master/src/drivers/gps)
+Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
 
 ### Description
@@ -357,7 +363,7 @@ gps <command> [arguments...]
      [-j <val>]  secondary GPS interface
                  values: spi|uart, default: uart
      [-p <val>]  GPS Protocol (default=auto select)
-                 values: ubx|mtk|ash|eml|fem
+                 values: ubx|mtk|ash|eml|fem|nmea
 
    stop
 
@@ -367,7 +373,7 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/ina226)
+Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
 
 
 ### Description
@@ -405,8 +411,112 @@ ina226 <command> [arguments...]
 
    status        print status info
 ```
+## ina228
+Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina228)
+
+
+### Description
+Driver for the INA228 power monitor.
+
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+
+For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
+
+If the INA228 module is not powered, then by default, initialization of the driver will fail. To change this, use
+the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
+every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
+this flag set, the battery must be plugged in before starting the driver.
+
+
+<a id="ina228_usage"></a>
+### Usage
+```
+ina228 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 69
+     [-k]        if initialization (probing) fails, keep retrying periodically
+     [-t <val>]  battery index for calibration values (1 or 2)
+                 default: 1
+
+   stop
+
+   status        print status info
+```
+## ina238
+Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina238)
+
+
+### Description
+Driver for the INA238 power monitor.
+
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+
+For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
+
+If the INA238 module is not powered, then by default, initialization of the driver will fail. To change this, use
+the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
+every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
+this flag set, the battery must be plugged in before starting the driver.
+
+
+<a id="ina238_usage"></a>
+### Usage
+```
+ina238 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 69
+     [-k]        if initialization (probing) fails, keep retrying periodically
+     [-t <val>]  battery index for calibration values (1 or 2)
+                 default: 1
+
+   stop
+
+   status        print status info
+```
+## iridiumsbd
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+
+
+### Description
+IridiumSBD driver.
+
+Creates a virtual serial port that another module can use for communication (e.g. mavlink).
+
+<a id="iridiumsbd_usage"></a>
+### Usage
+```
+iridiumsbd <command> [arguments...]
+ Commands:
+   start
+     -d <val>    Serial device
+                 values: <file:dev>
+     [-v]        Enable verbose output
+
+   test
+     [s|read|AT <cmd>] Test command
+
+   stop
+
+   status        print status info
+```
 ## irlock
-Source: [drivers/irlock](https://github.com/PX4/Firmware/tree/master/src/drivers/irlock)
+Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 ### Usage
@@ -428,7 +538,7 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-Source: [drivers/linux_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/linux_pwm_out)
+Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
 ### Description
@@ -446,7 +556,7 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 ### Usage
@@ -458,8 +568,7 @@ lsm303agr <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -471,7 +580,7 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
+Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
 
 
 ### Description
@@ -494,7 +603,7 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
+Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 ### Usage
@@ -506,8 +615,7 @@ paw3902 <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -519,7 +627,7 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685)
+Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 ### Usage
@@ -533,6 +641,8 @@ pca9685 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 64
 
    reset
 
@@ -543,7 +653,7 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685_pwm_out)
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
 ### Description
@@ -584,7 +694,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pcf8583
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/Firmware/tree/master/src/drivers/rpm/pcf8583)
+Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
 ### Usage
@@ -598,13 +708,15 @@ pcf8583 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 80
 
    stop
 
    status        print status info
 ```
 ## pmw3901
-Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/pmw3901)
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 ### Usage
@@ -616,8 +728,7 @@ pmw3901 <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -629,84 +740,28 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out)
+Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
 
 ### Description
-This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip
+This module is responsible for driving the output pins. For boards without a separate IO chip
 (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the
 px4io driver is used for main ones.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy.
-By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder
-driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture
-callback with ioctl calls.
+On startup, the module tries to occupy all available pins for PWM/Oneshot output.
+It skips all pins already in use (e.g. by a camera trigger module).
 
 ### Implementation
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
-
-### Examples
-It is typically started with:
-```
-pwm_out mode_pwm
-```
-To drive all available pins.
-
-Capture input (rising and falling edges) and print on the console: start pwm_out in one of the capture modes:
-```
-pwm_out mode_pwm3cap1
-```
-This will enable capturing on the 4th pin. Then do:
-```
-pwm_out test
-```
-
-Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load
-mixer files.
 
 <a id="pwm_out_usage"></a>
 ### Usage
 ```
 pwm_out <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start pwm_out if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
+   start
 
    sensor_reset  Do a sensor reset (SPI bus)
      [<ms>]      Delay time in ms between reset and re-enabling
@@ -717,14 +772,14 @@ pwm_out <command> [arguments...]
    i2c           Configure I2C clock rate
      <bus_id> <rate> Specify the bus id (>=0) and rate in Hz
 
-   test          Test inputs and outputs
+   test          Test outputs
 
    stop
 
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
 ### Description
@@ -751,7 +806,7 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## px4flow
-Source: [drivers/optical_flow/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
+Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 ### Usage
@@ -774,8 +829,57 @@ px4flow <command> [arguments...]
 
    status        print status info
 ```
+## px4io
+Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/px4io)
+
+
+### Description
+Output driver communicating with the IO co-processor.
+
+<a id="px4io_usage"></a>
+### Usage
+```
+px4io <command> [arguments...]
+ Commands:
+   start
+
+   detect        Try to detect the presence of an IO
+
+   checkcrc      Check CRC for a firmware file against current code on IO
+     <filename>  Firmware file
+
+   update        Update IO firmware
+     [<filename>] Firmware file
+
+   safety_off    Turn off safety (force)
+
+   safety_on     Turn on safety (force)
+
+   debug         set IO debug level
+     <debug_level> 0=disabled, 9=max verbosity
+
+   monitor       continuously monitor status
+
+   bind          DSM bind
+     dsm2|dsmx|dsmx8 protocol
+
+   lockdown      enable (or disable) lockdown
+     [disable]   disable lockdown
+
+   sbus1_out     enable sbus1 out
+
+   sbus2_out     enable sbus2 out
+
+   test_fmu_fail test: turn off IO updates
+
+   test_fmu_ok   re-enable IO updates
+
+   stop
+
+   status        print status info
+```
 ## rc_input
-Source: [drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
 
 ### Description
@@ -804,7 +908,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/rgbled_ncp5623c)
+Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 ### Usage
@@ -820,13 +924,15 @@ rgbled <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 57
+     [-o <val>]  RGB PWM Assignment
+                 default: 123
 
    stop
 
    status        print status info
 ```
 ## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/Firmware/tree/master/src/drivers/roboclaw)
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
 
 
 ### Description
@@ -876,7 +982,7 @@ roboclaw <command> [arguments...]
  Commands:
 ```
 ## safety_button
-Source: [drivers/safety_button](https://github.com/PX4/Firmware/tree/master/src/drivers/safety_button)
+Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
 
 
 ### Description
@@ -895,8 +1001,36 @@ safety_button <command> [arguments...]
 
    status        print status info
 ```
+## tap_esc
+Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tap_esc)
+
+
+### Description
+This module controls the TAP_ESC hardware via UART. It listens on the
+actuator_controls topics, does the mixing and writes the PWM outputs.
+
+### Implementation
+Currently the module is implementd as a threaded version only, meaning that it
+runs in its own thread instead of on the work queue.
+
+### Example
+The module is typically started with:
+tap_esc start -d /dev/ttyS2 -n <1-8>
+
+
+<a id="tap_esc_usage"></a>
+### Usage
+```
+tap_esc <command> [arguments...]
+ Commands:
+   start         Start the task
+     [-d <val>]  Device used to talk to ESCs
+                 values: <device>
+     [-n <val>]  Number of ESCs
+                 default: 4
+```
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm)
+Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
 
 
 ### Description
@@ -915,7 +1049,7 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## vmount
-Source: [modules/vmount](https://github.com/PX4/Firmware/tree/master/src/modules/vmount)
+Source: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
 
 
 ### Description
@@ -952,7 +1086,7 @@ vmount <command> [arguments...]
    status        print status info
 ```
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/voxlpm)
+Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 ### Usage
@@ -965,6 +1099,8 @@ voxlpm [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 68
      [-T <val>]  Type
                  values: VBATT|P5VDC|P12VDC, default: VBATT
      [-k]        if initialization (probing) fails, keep retrying periodically

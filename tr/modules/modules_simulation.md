@@ -1,11 +1,11 @@
 # Modules Reference: Simulation
 
 ## sih
-Source: [modules/sih](https://github.com/PX4/Firmware/tree/master/src/modules/sih)
+Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih)
 
 
 ### Description
-This module provide a simulator for quadrotors running fully inside the hardware autopilot.
+This module provide a simulator for quadrotors and fixed-wings running fully inside the hardware autopilot.
 
 This simulator subscribes to "actuator_outputs" which are the actuator pwm signals given by the mixer.
 

@@ -1,15 +1,19 @@
-# Crazyflie 2.0
+# Crazyflie 2.0 (Discontinued)
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+*Crazyflie 2.0* has been [discontinued/superseded](../flight_controller/autopilot_experimental.md).
+Try [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) instead!
 :::
 
 :::warning
-PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+- PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+- PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
-The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
+
+The Crazyflie line of micro quads was created by Bitcraze AB.
+An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 

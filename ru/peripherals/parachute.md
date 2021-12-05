@@ -40,10 +40,10 @@ Hardware setup:
 Enable flight termination:
 
 - Set [Safety](../config/safety.md) action to *Flight termination* for checks where you want the parachute to trigger
-- Set [Failure Detector](../config/safety.md#failure_detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
+- Set [Failure Detector](../config/safety.md#failure-detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
     
 :::note
-You can also configure an [external ATS](../config/safety.md#external_ats) for failure detection.
+You can also configure an [external ATS](../config/safety.md#external-automatic-trigger-system-ats) for failure detection.
 :::
 
 Parachute settings
@@ -65,6 +65,6 @@ There is no way to recover from a Termination state! Reboot/power cycle the vehi
 
 The parachute will trigger during [flight termination](../advanced_config/flight_termination.md).
 
-The easiest way to test a (real) parachute is to enable the [failure detector attitude trigger](../config/safety.md#attitude_trigger) and tip the vehicle over.
+The easiest way to test a (real) parachute is to enable the [failure detector attitude trigger](../config/safety.md#attitude-trigger) and tip the vehicle over.
 
 You can also simulate a parachute/flight termination in Gazebo: [Development > Simulation > Gazebo > Simulated Parachute/Flight Termination](../simulation/gazebo.md#flight_termination).

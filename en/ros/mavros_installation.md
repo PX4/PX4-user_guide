@@ -122,7 +122,7 @@ In the case of error, there are addition installation and troubleshooting notes 
 
 ## MAVROS Examples
 
-The MAVROS [Offboard Control exapmle](../ros/mavros_offboard.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
+The MAVROS [Offboard Control example](../ros/mavros_offboard.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
 
 :::note
 If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.

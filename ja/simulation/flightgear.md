@@ -49,7 +49,7 @@ For some models (e.g. those with electric engines) the daily build with the newe
    ```
 1. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
    ```
-   sudo chmod a+w /usr/share/games/flightgear/Protocols
+   sudo chmod a+w /usr/share/games/flightgear/Protocol
    ```
    Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
 
@@ -128,7 +128,7 @@ INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port
 INFO  [logger] logger started (mode=all)
 INFO  [logger] Start file log (type: full)
 INFO  [logger] Opened full log file: ./log/2020-04-28/22_03_36.ulg
-INFO  [mavlink] MAVLink only on localhost (set param MAV_BROADCAST = 1 to enable network)
+INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
 INFO  [px4] Startup script returned successfully
 pxh> StatsHandler::StatsHandler() Setting up GL2 compatible shaders
 Now checking for plug-in osgPlugins-3.4.1/osgdb_nvtt.so
@@ -185,7 +185,7 @@ The example above starts the simulation on the [Honolulu international airport](
 
 ### Using a Joystick
 
-Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
 

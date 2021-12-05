@@ -4,11 +4,10 @@ This topic explains how to setup and use ROS 2 with PX4.
 
 It provides an overview of the ROS2-PX4 bridge architecture and application pipeline, along with instructions on how to install all the needed software and build ROS 2 applications.
 
-
 :::note
 The Fast DDS interface in the PX4 Autopilot can be leveraged by any applications running and linked in DDS domains (including ROS nodes).
 
-For information about using the *microRTPS bridge* without ROS 2, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
+For information about using the *microRTPS bridge* **without ROS 2**, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
 :::
 
 :::note
@@ -20,49 +19,58 @@ For a more detailed and visual explanation on how to use PX4 with ROS 2 see thes
 ## Overview
 
 The application pipeline for ROS 2 is very straightforward, thanks to the native communications middleware (DDS/RTPS).
-The [microRTPS Bridge](../middleware/micrortps.md) consists of a client running on PX4 and an agent running on the ROS computer, which communicate to provide bi-direction message translation between UORB and ROS 2 message formats.
-This allows you to create ROS 2 listener or advertiser nodes that publish and subscribe directly to and from PX4 UORB data!
+The [microRTPS Bridge](../middleware/micrortps.md) consists of a client running on PX4 and an agent running on the Mission/Companion Computer, which communicate to provide bi-directional data exchange and message translation between UORB and ROS 2 message formats.
+This allows you to create ROS 2 subscribers or publisher nodes that interface directly with PX4 UORB topics!
 This is shown in the diagram below.
 
 ![Architecture with ROS 2](../../assets/middleware/micrortps/architecture_ros2.png)
 
 ROS 2 uses the [`px4_msgs`](https://github.com/PX4/px4_msgs) and [`px4_ros_com`](https://github.com/PX4/px4_ros_com) packages to ensure that matching message definitions are used for creating both the client and the agent code (this is important), and also to remove the requirement for PX4 to be present when building ROS code.
-- `px4_msgs` contains PX4 client message definitions. When this project is built it generates the corresponding ROS 2-compatible IDL files.
-- `px4_ros_com` builds the `px4_msgs` project, and then uses the generated IDL files to create (and build) the ROS 2 agent.
+- `px4_msgs` contains PX4 ROS message definitions. When this project is built it generates the corresponding ROS 2-compatible typesupport, used by ROS 2 nodes, and IDL files, used by `fastddsgen` to generate the microRTPS agent code.
+- `px4_ros_com` contains the microRTPS agent code templates for the agent publishers and subscribers.
+  The build process runs a `fastddsgen` instance to generate the code for the `micrortps_agent`, which compiles into a single executable.
 
-The PX4 Autopilot project automatically updates [`px4_msgs`](https://github.com/PX4/px4_msgs) with new message definitions whenever they are changed (in the master branch).
+The PX4 Autopilot project automatically updates [`px4_msgs`](https://github.com/PX4/px4_msgs) with new message definitions whenever they are changed (in the `master` branch).
 
 :::note
-The subset of uORB topics that will be accessible to ROS applications can be found in [px4_msgs/msg](https://github.com/PX4/px4_msgs/tree/master/msg).
+The subset of uORB topics that will be accessible to ROS applications can be found in the [bridge configuration yaml file](https://github.com/PX4/px4_ros_com/blob/master/templates/urtps_bridge_topics.yaml).
 :::
 
-PX4 firmware contains a microRTPS client based on its build-time message definitions.
-Astute readers will note that since the generated agent might not have been built to that same set of definitions (unless they were both built of the same 'master' commit).
-Right now this is not a problem because the PX4 message set/definitions are relatively stable.
-In the near future the intention is that branches will be created to match with specific PX4 releases.
+PX4 firmware contains the microRTPS client based on its build-time message definitions.
+
+:::note
+Astute readers will note that the generated agent might not have been built with that same set of definitions (unless they were both built of the same 'master' commit).
+
+Right now this is not a problem because the PX4 message set/definitions are relatively stable and the updated/new messages get automatically deployed to `px4_msgs`.
+
+In the near future the intention is to:
+1. Create also a branch per release in both `px4_ros_com` and `px4_msgs`, so both the message definitions and agent code match the ones present on the PX4/client side by the time of the release.
+2. Have an initial message exchange of the bridge configuration, using the messages structs MD5SUMs to verify if the messages definitions are the same, and if not, disable their stream and warn the user.
+:::
 
 :::warning
-You cannot use an agent generated as part of a "normal" PX4 build with ROS 2.
-While microRTPS client is the same, the IDL files used by ROS 2 are slightly different than used by normal DDS.
-We use the `px4_msg` to generate appropriate IDL files.
+You cannot use an agent generated as part of a "normal" PX4 build with ROS 2 (e.g. if the user uses `BUILD_MICRORTPS_AGENT=1 make px4_sitl_rtps`).
+While microRTPS client is the same, the IDL files used by ROS 2 are slightly different from the custom ones with generate in PX4.
+The other detail is that the "normal" PX4 build doesn't use `fastddsgen` with typesupport for ROS 2 networks - and that's also one of the main reasons we have a separate microRTPS agent in `px4_ros_com`, which is completely compatible with ROS 2 networks.
+We use the `px4_msg` to generate appropriate IDL files for the `micrortps_agent` in `px4_ros_com`.
 :::
 
 
 ## Installation & Setup
 
 To setup ROS 2 for use with PX4 you will need to:
-- [Install Fast DDS](##install-fast-dds)
+- [Install Fast DDS](#install-fast-dds)
 - [Install ROS2](#install-ros-2)
 - [Build ROS 2 Workspace](#build-ros-2-workspace)
 - [Sanity Check the Installation](#sanity-check-the-installation) (Optional)
 
 ### Install Fast DDS
 
-Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.0** (or later) and **Fast-RTPS-Gen 1.0.4** (or later) and their dependencies.
+Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.2** (or later) and **Fast-RTPS-Gen 1.0.4** (not later!) and their dependencies.
 
-:::note
+:::warning
 Check the guide to confirm the latest dependencies!
-You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen have been installed.
+You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen** have been installed.
 :::
 
 
@@ -73,7 +81,9 @@ You won't be able to continue with this guide until the correct versions of **Fa
 :::note
 This install and build guide covers ROS 2 Foxy in Ubuntu 20.04.
 :::
-
+:::warning
+If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent.
+:::
 To install ROS 2 and its dependencies:
 
 1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
@@ -118,7 +128,7 @@ To create and build the workspace:
    ```
 1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
    ```sh
-   $ cd scripts
+   $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
    $ source build_ros2_workspace.bash
    ```
 
@@ -144,22 +154,18 @@ We can do this by running the bridge against PX4 running in the simulator.
    make px4_sitl_rtps gazebo
    ```
    Once PX4 has fully started the terminal will display the [NuttShell/System Console](../debug/system_console.md).
+   Note also that PX4 SITL will automatically start the `micrortps_client` connected to UDP ports 2019 and 2020.
 1. On a *new* terminal, `source` the ROS 2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:
    ```sh
    $ source ~/px4_ros_com_ros2/install/setup.bash
    $ micrortps_agent -t UDP
-   ```
-1. On the original terminal (System console) start the `micrortps_client` daemon with UDP:
-   ```sh
-   pxh> micrortps_client start -t UDP
    ```
 1. Open a new terminal and start a "listener" using the provided launch file:
    ```sh
    $ source ~/px4_ros_com_ros2/install/setup.bash
    $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
-
-
+   
    If the bridge is working correctly you will be able to see the data being printed on the terminal/console where you launched the ROS listener:
 
    ```sh
@@ -178,7 +184,7 @@ We can do this by running the bridge against PX4 running in the simulator.
    ```
 
 You can also verify the rate of the message using `ros2 topic hz`.
-E.g. in the case of `sensor_combined` use `ros2 topic hz /SensorCombined_PubSubTopic`:
+E.g. in the case of `sensor_combined` use `ros2 topic hz /fmu/sensor_combined/out`:
    ```sh
    average rate: 248.187
    	min: 0.000s max: 0.012s std dev: 0.00147s window: 2724
@@ -193,7 +199,6 @@ E.g. in the case of `sensor_combined` use `ros2 topic hz /SensorCombined_PubSubT
    average rate: 247.485
    	min: 0.000s max: 0.012s std dev: 0.00148s window: 3960
    ```
-
 
 
 ## ROS 2 Example Applications
@@ -227,7 +232,7 @@ This creates a callback function for when the `sensor_combined` uORB messages ar
 public:
 	explicit SensorCombinedListener() : Node("sensor_combined_listener") {
 		subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>(
-			"SensorCombined_PubSubTopic",
+			"fmu/sensor_combined/out",
 			10,
 			[this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
 			std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
@@ -247,7 +252,7 @@ public:
 	}
 ```
 
-The lines below create a subscription to the `sensor_combined_topic` which can be matched with one or more compatible ROS publishers.
+The lines below create a publisher to the `sensor_combined` uORB topic, which can be matched with one or more compatible ROS2 subscribers to the `fmu/sensor_combined/out` ROS2 topic.
 
 ```cpp
 private:
@@ -298,7 +303,7 @@ The messages are sent based on a timed callback, which sends two messages per se
 ```cpp
 public:
 	DebugVectAdvertiser() : Node("debug_vect_advertiser") {
-		publisher_ = this->create_publisher<px4_msgs::msg::DebugVect>("DebugVect_PubSubTopic", 10);
+		publisher_ = this->create_publisher<px4_msgs::msg::DebugVect>("fmu/debug_vect/in", 10);
 		auto timer_callback =
 		[this]()->void {
 			auto debug_vect = px4_msgs::msg::DebugVect();
@@ -342,10 +347,10 @@ int main(int argc, char *argv[])
 For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros/ros2_offboard_control.md).
 
 
-## Manual Workspace Setup (FYI Only)
+## Manual Workspace Setup with a ROS1 compatible workspace (FYI Only)
 
 :::note
-This is provided to help you better understand the build process.
+This is provided to help you better understand the build process and how to include the ROS1 workspace.
 It is not needed to build or use ROS 2.
 It additionally includes instructions for building the `ros1_bridge` package, which is used in [ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md).
 :::
@@ -420,13 +425,13 @@ To build both ROS 2 and ROS (1) workspaces (replacing the previous steps):
    ```sh
    cd ~/px4_ros_com_ros2 && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure --event-handlers console_direct+
    ```
-   
+
    :::note
    The build process may consume a lot of memory resources.
    On a resource limited machine, reduce the number of jobs being processed in parallel (e.g. set environment variable `MAKEFLAGS=-j1`).
    For more details on the build process, see the build instructions on the [ros1_bridge](https://github.com/ros2/ros1_bridge) package page.
    :::
-   
+
 
 ### Cleaning the workspaces
 

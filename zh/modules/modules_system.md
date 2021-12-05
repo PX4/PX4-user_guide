@@ -1,7 +1,7 @@
 # 模块参考：系统
 
 ## battery_simulator
-Source: [modules/simulator/battery_simulator](https://github.com/PX4/Firmware/tree/master/src/modules/simulator/battery_simulator)
+Source: [modules/simulator/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/battery_simulator)
 
 
 ### 描述
@@ -90,6 +90,7 @@ commander <command> [arguments...]
      [-f]        Force arming (do not run preflight checks)
 
    disarm
+     [-f]        Force disarming (disarm in air)
 
    takeoff
 
@@ -104,7 +105,7 @@ commander <command> [arguments...]
    pair
 
    lockdown
-     [off]       Turn lockdown off
+     on|off      Turn lockdown on or off
 
    set_ekf_origin
      lat, lon, alt Origin Latitude, Longitude, Altitude
@@ -188,7 +189,7 @@ dmesg <command> [arguments...]
      [-f]        Follow: wait for new messages
 ```
 ## esc_battery
-Source: [modules/esc_battery](https://github.com/PX4/Firmware/tree/master/src/modules/esc_battery)
+Source: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/esc_battery)
 
 
 ### 描述
@@ -270,7 +271,7 @@ heater <command> [arguments...]
    status        打印状态信息
 ```
 ## load_mon
-Source: [modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/modules/land_detector)
+Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/land_detector)
 
 
 ### 用法
@@ -385,8 +386,52 @@ logger <command> [arguments...]
 
    status        print status info
 ```
-## netman
-Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/systemcmds/netman)
+## mag_bias_estimator
+Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mag_bias_estimator)
+
+
+### 参数描述
+Online magnetometer bias estimator.
+
+<a id="mag_bias_estimator_usage"></a>
+
+### 实现
+```
+mag_bias_estimator <command> [arguments...]
+ wind_estimator &lt;command&gt; [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        打印状态信息
+```
+## replay
+Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/manual_control)
+
+
+### 用法
+Module consuming manual_control_inputs publishing one manual_control_setpoint.
+
+<a id="manual_control_usage"></a>
+
+### 参数描述
+```
+manual_control <command> [arguments...]
+ replay <command> [arguments...]
+ Commands:
+   start         Start replay, using log file from ENV variable 'replay'
+
+   trystart      Same as 'start', but silently exit if no log file given
+
+   tryapplyparams Try to apply the parameters from the log file
+
+   stop
+
+   status        print status info
+```
+## send_event
+Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
   ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
@@ -397,12 +442,12 @@ Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/syst
 
 <a id="netman_usage"></a>
 
-### 参数描述
+### 用法
 ```
 netman <command> [arguments...]
- wind_estimator &lt;command&gt; [arguments...]
+ load_mon <command> [arguments...]
  Commands:
-   start
+   start         启动后台任务
 
    stop
 
@@ -415,11 +460,11 @@ netman <command> [arguments...]
      [-i <val>]  Set the interface name
                  default: eth0
 ```
-## replay
-此模块用于回放 ULog 文件。
+## sensors
+源码： [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
 
 
-### 实现
+### 参数描述
 Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
 
 <a id="pwm_input_usage"></a>
@@ -427,65 +472,6 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 ### 用法
 ```
 pwm_input <command> [arguments...]
- replay <command> [arguments...]
- Commands:
-   start         Start replay, using log file from ENV variable 'replay'
-
-   trystart      Same as 'start', but silently exit if no log file given
-
-   tryapplyparams Try to apply the parameters from the log file
-
-   stop
-
-   status        print status info
-
-   stop
-
-   status        print status info
-```
-## send_event
-Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modules/rc_update)
-
-
-### 参数描述
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
-
-### 用法
-源码： [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
-
-<a id="rc_update_usage"></a>
-
-### 参数描述
-```
-rc_update <command> [arguments...]
- load_mon <command> [arguments...]
- Commands:
-   start         启动后台任务
-
-   stop
-
-   status        打印状态信息
-```
-## sensors
-Source: [modules/replay](https://github.com/PX4/Firmware/tree/master/src/modules/replay)
-
-
-### 用法
-This module is used to replay ULog files.
-
-There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
-- `replay_mode=ekf2`: 指定 EKF2 回放模式。 `replay_mode=ekf2`: specific EKF2 replay mode. It can only be used with the ekf2 module, but allows the replay to run as fast as possible.
-- Generic otherwise: this can be used to replay any module(s), but the replay will be done with the same speed as the log was recorded.
-
-The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
-
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
-
-<a id="replay_usage"></a>
-
-### 参数描述
-```
-replay <command> [arguments...]
  sensors <command> [arguments...]
  Commands:
    start
@@ -495,20 +481,21 @@ replay <command> [arguments...]
 
    status        打印状态信息
 ```
-## send_event
-模块运行在它自己的线程中，并轮询当前选定的陀螺仪主题。
+## rc_update
+Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
 
+
+### 参数描述
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### 实现
-Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
+To reduce control latency, the module is scheduled on input_rc publications.
 
-The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
-
-<a id="send_event_usage"></a>
+<a id="rc_update_usage"></a>
 
 ### 用法
 ```
-send_event <command> [arguments...]
+rc_update <command> [arguments...]
  send_event <command> [arguments...]
  Commands:
    start         Start the background task
@@ -524,10 +511,62 @@ send_event <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-源码：[systemcmds/tune_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control)
+Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
 ### 参数描述
+This module is used to replay ULog files.
+
+There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
+- `replay_mode=ekf2`: 指定 EKF2 回放模式。 `replay_mode=ekf2`: specific EKF2 replay mode. It can only be used with the ekf2 module, but allows the replay to run as fast as possible.
+- Generic otherwise: this can be used to replay any module(s), but the replay will be done with the same speed as the log was recorded.
+
+The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
+
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+
+<a id="replay_usage"></a>
+
+### 用法
+```
+replay <command> [arguments...]
+ Commands:
+   start         Start replay, using log file from ENV variable 'replay'
+
+   trystart      Same as 'start', but silently exit if no log file given
+
+   tryapplyparams Try to apply the parameters from the log file
+
+   stop
+
+   status        print status info
+```
+## work_queue
+Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
+
+
+### 参数描述
+Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
+
+The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
+
+<a id="send_event_usage"></a>
+
+### 示例
+```
+send_event <command> [arguments...]
+ Commands:
+   start         Start the background task
+
+   stop
+
+   status        print status info
+```
+## sensors
+播放系统蜂鸣声 #2 ：
+
+
+### 用法
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
@@ -535,12 +574,12 @@ The provided functionality includes:
 - Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started. 传感器驱动使用 ioctl 接口获取参数更新。 为了使这一功能正常运行，当 `sensors` 模块启动时传感器驱动必须已经处于运行状态。
 - Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
 
-### 用法
+### 参数描述
 It runs in its own thread and polls on the currently selected gyro topic.
 
 <a id="sensors_usage"></a>
 
-### 参数描述
+### 用法
 ```
 sensors <command> [arguments...]
  Commands:
@@ -551,16 +590,35 @@ sensors <command> [arguments...]
 
    status        print status info
 ```
-## work_queue
-播放系统蜂鸣声 #2 ：
+## tattu_can
+Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tattu_can)
 
 
-### 示例
+### Description
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
+
+<a id="tattu_can_usage"></a>
+
+### Usage
+```
+tattu_can <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## temperature_compensation
+Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
+
+
+### Description
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
 
 <a id="temperature_compensation_usage"></a>
 
-### 用法
+### Usage
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -578,10 +636,10 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-Source: [systemcmds/tune_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control)
+Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
-### 参数描述
+### Description
 
 Command-line tool to control & test the (external) tunes.
 
@@ -589,7 +647,7 @@ Tunes are used to provide audible notification and warnings (e.g. when the syste
 
 Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
 
-### 用法
+### Examples
 
 Play system tune #2:
 ```
@@ -618,7 +676,7 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## work_queue
-Source: [systemcmds/work_queue](https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue)
+Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
 ### Description

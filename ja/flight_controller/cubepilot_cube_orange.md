@@ -113,7 +113,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 | UART8  | /dev/ttyS6 | GPS2                                     |
   
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/default.cmake -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/default.px4board -->
 <!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
 
 
@@ -132,11 +132,14 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target, open up the terminal and enter:
 ```
 make cubepilot_cubeorange
 ```
 
+:::warning
+At time of writing (June 2021) you can't [build this target in VSCode](../dev_setup/vscode.md) as it specifies an invalid target (`cubepilot_cubeorange_test`). For more information see [PX4-Autopilot#17745](https://github.com/PX4/PX4-Autopilot/issues/17745).
+:::
 
 ## Further Information/Documentation
 

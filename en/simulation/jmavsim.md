@@ -75,6 +75,12 @@ You can use *QGroundControl* to fly a mission or to connect to a [joystick](#joy
 
 ## Usage/Configuration Options
 
+Options that apply to all simulators are covered in the top level [Simulation](../simulation/README.md#sitl-simulation-environment) topic (some of these may be duplicated below).
+
+### Simulating Sensor/Hardware Failure
+
+[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+
 ### Set Custom Takeoff Location
 
 The default takeoff location in can be overridden using the environment variables: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
@@ -101,7 +107,7 @@ For more information see: [Simulation > Run Simulation Faster than Realtime](../
 <a id="joystick"></a>
 ### Using a Joystick
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 
 ### Simulating a Wifi Drone
@@ -131,6 +137,7 @@ To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
+
 
 ## Multi-Vehicle Simulation
 
@@ -240,9 +247,9 @@ When compiling jMAVsim, you might encounter the following error:
 Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
 ```
 
-This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, etc.
+This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
 
 To fix it under macOS, we recommend installing OpenJDK through homebrew
 ```sh
-brew install --cask adoptopenjdk15
+brew install --cask adoptopenjdk16
 ```

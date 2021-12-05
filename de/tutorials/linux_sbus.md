@@ -19,7 +19,7 @@ To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
 rc_input start -d /dev/ttyS2
 ```
 
-For other driver usage information see: [rc_input](../modules/modules_driver.md#rcinput).
+For other driver usage information see: [rc_input](../modules/modules_driver.md#rc-input).
 
 <a id="signal_inverter_circuit"></a>
 

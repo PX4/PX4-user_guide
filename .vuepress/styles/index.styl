@@ -2,7 +2,7 @@ table
   font-size: 1.0rem !important
   overflow: auto !important
   
-//Additional custom blocks (Note)  
+//Additional custom blocks (Note)
 .custom-block
   .custom-block-title
     font-weight 600
@@ -71,3 +71,35 @@ table
 .embed-responsive-1by1
     &::before
         padding-top 100%
+
+// Support for column grid layout boxes
+.grid_wrapper {
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.grid_wrapper.two_column {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid_wrapper.three_column {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid_wrapper .grid_item {
+  border:1px solid gray;
+  border-radius: 5px;
+  background-color: #dfe2e5;
+  margin: 5px;
+  padding: 5px;
+}
+.grid_wrapper .grid_item_heading
+{
+  font-weight: bold;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
+}
+.grid_wrapper img {
+  margin-top: 10px;
+}

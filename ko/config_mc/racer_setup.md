@@ -1,15 +1,15 @@
 # 레이서 설정
 
-최적의 성능 (특히 [곡예 모드](../flight_modes/acro_mc.md))을 위해 레이서를 설정법을 설명합니다.
+레이서의 최적의 성능 (특히 [곡예 모드](../flight_modes/acro_mc.md))을 위한 설정법을 설명합니다.
 
-레이서들은 빠른 기동을 위해 설계된 기체임을 명심하십시오! 유경험자에게 도움을 받는 것이 좋습니다.
+레이서들은 빠른 기동을 위해 설계된 기체입니다. 가능하면, 유경험자에게 도움을 받는 것이 좋습니다.
 
 :::tip
-여기에 설명된 많은 사항을 적용하여 다른 유형의 멀티콥터의 비행 성능을 개선 할 수도 있습니다.
+여기에 설명된 사항은 다른 유형의 멀티콥터의 성능을 개선할 수도 있습니다.
 :::
 
 :::note
-레이서는 일반적으로 일부 센서(예 : GPS)를 사용하지 않을 수도 있습니다. 결과적으로 사용 가능한 안전 장치 옵션은 적어집니다.
+일반적으로 레이서는 일부 센서(예 : GPS)들을 사용하지 않을 수도 있습니다. 결과적으로 사용 가능한 안전 장치 옵션은 적어지는 것입니다.
 :::
 
 ## 빌드 옵션
@@ -67,7 +67,7 @@
 
 중요한 매개 변수는 다음과 같습니다.
 
-- One-Shot ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)을 0으로 설정) 또는 DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG))을 활성화합니다.
+- Enable One-Shot (set [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
 - 수동/안정화 모드의 최대 롤, 피치 및 요 속도를 설정합니다 : [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) 및 [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). 최대 기울기 각도는 [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX)로 설정합니다.
 - 최소 추력 [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN)은 0으로 설정합니다.
 
@@ -85,7 +85,7 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 
 [RC 손실 및 배터리 안전 장치](../config/safety.md)를 설정합니다. GPS를 사용하지 않는 경우 안전 장치를 **잠금**으로 설정하면 모터가 꺼집니다. 차량이 시동이 켜지면 리모컨을 꺼서 프로펠러를 제거한 다음에, 벤치에서 RC 손실을 테스트합니다.
 
-[킬 스위치](../config/safety.md#kill_switch) 또는 [무장 스위치](../config/safety.md#arming_switch)를 지정하여야 합니다. 테스트하고 연습을 충분히 하여야 합니다.
+Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arming-switch). 테스트하고 연습을 충분히 하여야 합니다.
 
 ### PID 튜닝
 
@@ -95,7 +95,7 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 
 이 시점에서 첫 번째 테스트 비행을 준비하여야 합니다.
 
-기체의 기본 설정으로 비행이 가능하면, [기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)의 첫 번째 과정을 수행합니다. 기체는 **저 조율**하여야 합니다 (**P** 및 **D** 게인은 낮게 설정함). 컨트롤러에서 발생하는 진동이 없어야합니다. 잡음으로 해석되어 질 수 있습니다 (기본 이득이 충분할 수 있음). 이것은 [필터](#filters) 튜닝에 중요합니다 (나중에 두 번째 PID 튜닝이 있습니다).
+기체의 기본 설정으로 비행이 가능하면, [기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)의 첫 번째 과정을 수행합니다. 기체는 **저 조율**하여야 합니다 (**P** 및 **D** 게인은 낮게 설정함). 컨트롤러에서 발생하는 진동이 없어야합니다. 잡음으로 해석되어 질 수 있습니다 (기본 이득이 충분할 수 있음). 이것은 [필터 튜닝](#filter-tuning)에 중요합니다 (나중에 두 번째 PID 튜닝이 있습니다).
 
 ### 제어 지연
 
@@ -111,7 +111,7 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 - 소프트웨어 및 센서 칩의 [저역 통과 필터](../config_mc/filter_tuning.md)는 지연시간 증가분을 상쇄하여 노이즈 필터링을 원활하게 합니다.
 - PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
 - IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
-- PWM 출력 신호 : One-Shot을 활성화하여 지연 시간을 줄입니다 ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) = 0).
+- PWM 출력 신호 : One-Shot을 활성화하여 지연 시간을 줄입니다 ([PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) = 0).
 
 ### 필터 튜닝
 

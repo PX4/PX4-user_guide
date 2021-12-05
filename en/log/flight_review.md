@@ -73,7 +73,7 @@ Note that the y-axis scaling is different for different vehicles, but logs from 
 ![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
 :::note
-The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/racer_setup.md#filters) (reducing control latency).
+The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/filter_tuning.md) (reducing control latency).
 :::
 
 DJI F450 frame (good vibration).

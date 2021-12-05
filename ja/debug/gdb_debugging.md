@@ -1,14 +1,8 @@
 # Embedded Debugging
 
-The autopilots running PX4 support debugging via GDB or LLDB.
+## Handy console commands
 
-## Identifying large memory consumers
-
-The command below will list the largest static allocations:
-
-```bash
-arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v2_default/px4_fmu-v2_default.elf | grep " [bBdD] "
-```
+Below are a couple of commands which can be used in the [NuttShell](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410) to get insights of the system.
 
 This NSH command provides the remaining free memory:
 
@@ -24,50 +18,23 @@ top
 
 Stack usage is calculated with stack coloring and thus is not the current usage, but the maximum since the start of the task.
 
-### Heap allocations
+To see what is running in the work queues and at what rate, use:
 
-Dynamic heap allocations can be traced on POSIX in SITL with [gperftools](https://github.com/gperftools/gperftools).
-
-#### Install Instructions
-
-##### Ubuntu:
-```bash
-sudo apt-get install google-perftools libgoogle-perftools-dev
+```
+work_queue status
 ```
 
-#### Start heap profiling
+And to debug uORB topics:
 
-First of all, build the firmware as follows:
-```bash
-make px4_sitl_default
 ```
-Start jmavsim: `./Tools/jmavsim_run.sh -l`
-
-In another terminal, type:
-```bash
-cd build/px4_sitl_default/tmp/rootfs
-export HEAPPROFILE=/tmp/heapprofile.hprof
-export HEAP_PROFILE_TIME_INTERVAL=30
+uorb top
 ```
 
-Enter this depending on your system:
+And to inspect a specific uORB topic:
 
-##### Fedora:
-```bash
-env LD_PRELOAD=/lib64/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf 
 ```
-
-##### Ubuntu:
-```bash
-env LD_PRELOAD=/usr/lib/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
-google-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf 
+listener <topic_name>
 ```
-
-It will generate a pdf with a graph of the heap allocations. The numbers in the graph will all be zero, because they are in MB. Just look at the percentages instead. They show the live memory (of the node and the subtree), meaning the memory that was still in use at the end.
-
-See the [gperftools docs](https://htmlpreview.github.io/?https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.html) for more information.
-
 
 ## Hard Fault Debugging
 

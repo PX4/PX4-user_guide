@@ -1,13 +1,13 @@
-# HK 텔레프레전
+# HKPilot 텔레메트리 라디오
 
-HKPilot에는 PX4와 함께 사용할 수 있으며 915MHz(USA) 및 433MHz(유럽) 버전으로 제공하는 [SiK 무선 통신](../telemetry/sik_radio.md) 호환 텔레메트리 세트가 있습니다
+HKPilot은 PX4에 사용할 수 있으며 915MHz(USA) 및 433MHz(유럽) 버전의 [SiK 라디오](../telemetry/sik_radio.md) 호환 텔레메트리가 있습니다
 
-![HKPilot SiK Radio
+![HKPilot SiK 라디오
 ](../../assets/hardware/telemetry/hkpilot_telemetry_radio_v2.jpg)
 
-라디오는 6위치 DF13 커넥터와 함께 제공되며, 기본적으로 * Pixhawk 1 * 및 기타 초기 비행 컨트롤러 보드와 함께 플러그 앤 플레이됩니다.
+라디오는 6위치 DF13 커넥터와 함께 제공되며, 기본적으로 *Pixhawk 1* 및 기타 초기 비행 콘트롤러에서 플러그 앤 플레이됩니다.
 
-## 구매처
+## 구매
 
-* [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 433Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-433mhz.html)
-* [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 915Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-915mhz.html)
+* [통합 PCB 안테나 433Mhz를 갖춘 마이크로 HKPilot 텔레메트리 라디오 세트](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-433mhz.html)
+* [PCB 안테나 915Mhz가 통합된 마이크로 HKPilot 텔레메트리 라디오 세트](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-915mhz.html)

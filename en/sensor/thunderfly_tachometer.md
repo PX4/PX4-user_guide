@@ -87,7 +87,7 @@ pcf8583 status
 If the driver is running, the I²C port will be printed along with other basic parameters of the running instance.
 If the driver is not running it can be started started using theprocedure described above. 
 
-The [listener](../middleware/modules_command.html#listener) command allows you to monitor RPM UORB messages from the running driver. 
+The [listener](../modules/modules_command.md#listener) command allows you to monitor RPM UORB messages from the running driver. 
 ```
 listener rpm
 ```

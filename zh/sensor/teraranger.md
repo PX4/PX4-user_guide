@@ -4,12 +4,10 @@ TeraRanger provide a number of lightweight distance measurement sensor based on 
 
 PX4 supports:
 
-* [TeraRanger One](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-one/) (0.2 - 14 m) (Requires an [I2C adapter](https://www.terabee.com/shop/accessories/i2c-adapter-for-teraranger-one/))
 * [TeraRanger Evo 60m](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-60m/) (0.5 – 60 m)
 * [TeraRanger Evo 600Hz](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-600hz/) (0.75 - 8 m)
 
-:::note
-The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
+:::note PX4 also supports *TeraRanger One* (I2C adapter required). This has been discontinued.
 :::
 
 ## 购买渠道
@@ -21,8 +19,6 @@ The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_contro
 ## 布线
 
 All TeraRanger sensors must be connected via the I2C bus.
-
-While TeraRanger One requires an [I2C adapter](https://www.terabee.com/shop/accessories/i2c-adapter-for-teraranger-one/) any sensor from TeraRanger Evo series can be connected directly to the autopilot.
 
 ## 软件配置
 

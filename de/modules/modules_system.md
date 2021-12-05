@@ -1,7 +1,7 @@
 # Modules Reference: System
 
 ## battery_simulator
-Source: [modules/simulator/battery_simulator](https://github.com/PX4/Firmware/tree/master/src/modules/simulator/battery_simulator)
+Source: [modules/simulator/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/battery_simulator)
 
 
 ### Description
@@ -19,7 +19,7 @@ battery_simulator <command> [arguments...]
    status        print status info
 ```
 ## battery_status
-Source: [modules/battery_status](https://github.com/PX4/Firmware/tree/master/src/modules/battery_status)
+Source: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/battery_status)
 
 
 ### Description
@@ -44,7 +44,7 @@ battery_status <command> [arguments...]
    status        print status info
 ```
 ## camera_feedback
-Source: [modules/camera_feedback](https://github.com/PX4/Firmware/tree/master/src/modules/camera_feedback)
+Source: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/camera_feedback)
 
 
 ### Description
@@ -62,7 +62,7 @@ camera_feedback <command> [arguments...]
    status        print status info
 ```
 ## commander
-Source: [modules/commander](https://github.com/PX4/Firmware/tree/master/src/modules/commander)
+Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/commander)
 
 
 ### Description
@@ -87,6 +87,7 @@ commander <command> [arguments...]
      [-f]        Force arming (do not run preflight checks)
 
    disarm
+     [-f]        Force disarming (disarm in air)
 
    takeoff
 
@@ -101,7 +102,7 @@ commander <command> [arguments...]
    pair
 
    lockdown
-     [off]       Turn lockdown off
+     on|off      Turn lockdown on or off
 
    set_ekf_origin
      lat, lon, alt Origin Latitude, Longitude, Altitude
@@ -113,7 +114,7 @@ commander <command> [arguments...]
    status        print status info
 ```
 ## dataman
-Source: [modules/dataman](https://github.com/PX4/Firmware/tree/master/src/modules/dataman)
+Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/dataman)
 
 
 ### Description
@@ -151,7 +152,7 @@ dataman <command> [arguments...]
    status        print status info
 ```
 ## dmesg
-Source: [systemcmds/dmesg](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dmesg)
+Source: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dmesg)
 
 
 ### Description
@@ -174,7 +175,7 @@ dmesg <command> [arguments...]
      [-f]        Follow: wait for new messages
 ```
 ## esc_battery
-Source: [modules/esc_battery](https://github.com/PX4/Firmware/tree/master/src/modules/esc_battery)
+Source: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/esc_battery)
 
 
 ### Description
@@ -193,7 +194,7 @@ esc_battery <command> [arguments...]
    status        print status info
 ```
 ## gyro_calibration
-Source: [modules/gyro_calibration](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_calibration)
+Source: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gyro_calibration)
 
 
 ### Description
@@ -212,7 +213,7 @@ gyro_calibration <command> [arguments...]
    status        print status info
 ```
 ## gyro_fft
-Source: [modules/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_fft)
+Source: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gyro_fft)
 
 
 ### Description
@@ -230,7 +231,7 @@ gyro_fft <command> [arguments...]
    status        print status info
 ```
 ## heater
-Source: [drivers/heater](https://github.com/PX4/Firmware/tree/master/src/drivers/heater)
+Source: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/heater)
 
 
 ### Description
@@ -251,7 +252,7 @@ heater <command> [arguments...]
    status        print status info
 ```
 ## land_detector
-Source: [modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/modules/land_detector)
+Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/land_detector)
 
 
 ### Description
@@ -283,7 +284,7 @@ land_detector <command> [arguments...]
    status        print status info
 ```
 ## load_mon
-Source: [modules/load_mon](https://github.com/PX4/Firmware/tree/master/src/modules/load_mon)
+Source: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/load_mon)
 
 
 ### Description
@@ -304,7 +305,7 @@ load_mon <command> [arguments...]
    status        print status info
 ```
 ## logger
-Source: [modules/logger](https://github.com/PX4/Firmware/tree/master/src/modules/logger)
+Source: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
 
 
 ### Description
@@ -366,8 +367,46 @@ logger <command> [arguments...]
 
    status        print status info
 ```
+## mag_bias_estimator
+Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mag_bias_estimator)
+
+
+### Description
+Online magnetometer bias estimator.
+
+<a id="mag_bias_estimator_usage"></a>
+
+### Usage
+```
+mag_bias_estimator <command> [arguments...]
+ Commands:
+   start         Start the background task
+
+   stop
+
+   status        print status info
+```
+## manual_control
+Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/manual_control)
+
+
+### Description
+Module consuming manual_control_inputs publishing one manual_control_setpoint.
+
+<a id="manual_control_usage"></a>
+
+### Usage
+```
+manual_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## netman
-Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/systemcmds/netman)
+Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
   ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
@@ -392,7 +431,7 @@ netman <command> [arguments...]
                  default: eth0
 ```
 ## pwm_input
-Source: [drivers/pwm_input](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input)
+Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_input)
 
 
 ### Description
@@ -406,18 +445,16 @@ pwm_input <command> [arguments...]
  Commands:
    start
 
-   test          prints PWM capture info.
-
    stop
 
    status        print status info
 ```
 ## rc_update
-Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modules/rc_update)
+Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
 
 
 ### Description
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_setpoint`.
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
@@ -435,7 +472,7 @@ rc_update <command> [arguments...]
    status        print status info
 ```
 ## replay
-Source: [modules/replay](https://github.com/PX4/Firmware/tree/master/src/modules/replay)
+Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
 ### Description
@@ -466,7 +503,7 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-Source: [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
+Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
 
 
 ### Description
@@ -487,7 +524,7 @@ send_event <command> [arguments...]
    status        print status info
 ```
 ## sensors
-Source: [modules/sensors](https://github.com/PX4/Firmware/tree/master/src/modules/sensors)
+Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
 
 
 ### Description
@@ -514,8 +551,27 @@ sensors <command> [arguments...]
 
    status        print status info
 ```
+## tattu_can
+Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tattu_can)
+
+
+### Description
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
+
+<a id="tattu_can_usage"></a>
+
+### Usage
+```
+tattu_can <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## temperature_compensation
-Source: [modules/temperature_compensation](https://github.com/PX4/Firmware/tree/master/src/modules/temperature_compensation)
+Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
 
 
 ### Description
@@ -541,7 +597,7 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-Source: [systemcmds/tune_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control)
+Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
 ### Description
@@ -581,7 +637,7 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## work_queue
-Source: [systemcmds/work_queue](https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue)
+Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
 ### Description

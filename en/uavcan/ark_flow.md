@@ -17,11 +17,11 @@ Order this module from:
 * Supports [UAVCAN](README.md) [Firmware Updating](node_firmware.md)
 * Dynamic [UAVCAN](README.md) node enumeration
 * Sensors
-    * PixArt PAW3902 Optical Flow Sensor
+  * PixArt PAW3902 Optical Flow Sensor
     * Tracks under super low light condition of >9 lux
-    * Wide working range from 80mm up to infinity
+    * Wide working range from 80mm up to 30m
     * Up to 7.4 rad/s
-    * 40mW IR LED built onto board for improved low light operation
+  * 40mW IR LED built onto board for improved low light operation
   * Broadcom AFBR-S50LV85D Time-of-Flight Distance Sensor
     * Integrated 850 nm laser light source
     * Field-of-View (FoV) of 12.4° x 6.2° with 32 pixels
@@ -29,7 +29,7 @@ Order this module from:
     * Operation of up to 200k Lux ambient light
     * Works well on all surface conditions
     * Transmitter beam of 2° x 2° to illuminate between 1 and 3 pixels
-* Bosch BMI088 6-Axis IMU
+  * Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 * STM32F412CEU6 MCU
 * Two Pixhawk Standard CAN Connectors
   * 4 Pin JST GH
@@ -41,7 +41,6 @@ Order this module from:
 * USA Built
 
 
-
 ### Wiring/Connecting
 
 The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
@@ -49,7 +48,7 @@ Multiple sensors can be connected by plugging additional sensors into the ARK Fl
 
 General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](../uavcan/README.md#wiring).
 
-<span id="mounting"></span>
+<a id="mounting"></a>
 ### Mounting/Orientation
 
 The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
@@ -77,18 +76,27 @@ Flow data should arrive at 10Hz.
 
 ### PX4 Configuration
 
-Set the EKF optical flow parameters in [Optical Flow > Estimators > EKF2](../sensor/optical_flow.md#ekf2) in order to:
-- enable fusing optical flow measurements for velocity calculation.
-- define offsets if the sensor is not centred within the vehicle.
+You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [UAVCAN](README.md) parameters, and define offsets if the sensor is not centred within the vehicle.
+- In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow.
+  To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save. 
+- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `0.08` and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `30`.
+- Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW) and [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG).
+- The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicle centre of gravity.
 
-In addition you may need to configure the following parameters.
+In addition you may need to configure the following parameters on the flight controller:
 
 Parameter | Description
 --- | ---
-<span id="SENS_FLOW_MAXHGT"></span>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | Maximum height above ground when reliant on optical flow.
-<span id="SENS_FLOW_MINHGT"></span>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | Minimum height above ground when reliant on optical flow.
-<span id="SENS_FLOW_MAXR"></span>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) | Maximum angular flow rate reliably measurable by the optical flow sensor.
-<span id="SENS_FLOW_ROT"></span>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame.
+<a id="SENS_FLOW_MAXHGT"></a>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | Maximum height above ground when reliant on optical flow.
+<a id="SENS_FLOW_MINHGT"></a>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | Minimum height above ground when reliant on optical flow.
+<a id="SENS_FLOW_MAXR"></a>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) | Maximum angular flow rate reliably measurable by the optical flow sensor.
+
+On the ARK Flow, you may need to configure the following parameters:
+
+Parameter | Description
+--- | ---
+<a id="CANNODE_FLOW_ROT"></a>[CANNODE_FLOW_ROT](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame.
+<a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | CAN built-in bus termination.
 
 
 ## Building Ark Flow Firmware
@@ -99,12 +107,48 @@ Developers who want to update to the very latest version can build and install i
 The steps are:
 1. Install the [PX4 toolchain](../dev_setup/dev_env.md). 
 1. Clone the PX4-Autopilot sources, including Ark Flow, using *git*:
-   ```bash
+   ```
    git clone https://github.com/PX4/PX4-Autopilot --recursive
    cd PX4-Autopilot
    ```
-1. Build the *Ark Flow* firmware:
+1. Build the Ark Flow firmware:
    ```
-   make ark_can-flow
+   make ark_can-flow_default
    ```
-1. Follow instructions for [UAVCAN firmware updating](node_firmware.md) using the binary located in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**.
+1. That will have created a binary in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the Ark Flow. Next time you power your flight controller with the SD card installed, Ark Flow will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the ufw directory of the SD card.
+    :::note
+    The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
+    :::
+
+
+## Updating Ark Flow Bootloader
+
+The Ark Flow comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
+
+The steps are:
+1. Build the Ark Flow bootloader firmware:
+   ```
+   make ark_can-flow_canbootloader
+   ```
+   :::note
+   This will setup your `launch.json` file if you are in VS code. If using the Black Magic Probe and VS code, make sure to update `BMPGDBSerialPort` within this file to the correct port that your debugger is connected to. On MacOS, the port name should look something like `cu.usbmodemE4CCA0E11`.
+   :::
+1. Connect to your Ark Flow to any Serial Wire Debugging (SWD) device that supports use of GNU Project Debugger (GDB), such as the Black Magic Probe and then connect power to your Ark Flow via one of the CAN ports.
+1. Flash the Ark Flow with `ark_can-flow_canbootloader`. To do so in VS code, you should see `CMake: [ark_can-flow_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing. You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code and then selecting `Continue` after the first breakpoint.
+1. With the bootloader flashed, you are ready to build and flash the Ark Flow firmware `ark_can-flow_default` as outlined above.
+
+
+## LED Meanings
+
+You will see both red and blue LEDs on the ARK Flow when it is being flashed, and a solid blue LED if it is running properly.
+
+If you see a solid red LED there is an error and you should check the following:
+- Make sure the flight controller has an SD card installed.
+- Make sure the Ark Flow has `ark_can-flow_canbootloader` installed prior to flashing `ark_can-flow_default`.
+- Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
+
+## Video
+
+@[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
+<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
+*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 

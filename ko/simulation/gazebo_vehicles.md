@@ -1,22 +1,22 @@
-# Gazebo Vehicles
+# 가제보 기체
 
-This topic lists/displays the vehicles supported by the PX4 [Gazebo](../simulation/gazebo.md) simulation and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
+PX4 [Gazebo](../simulation/gazebo.md) 시뮬레이션과 이를 실행하는 데 필요한 `make` 명령이 지원하는 차량을 설명합니다(명령은 **PX4- Autopilot** 디렉토리).
 
-Supported vehicle types include: mutirotors, VTOL, VTOL Tailsitter, Plane, Rover, Submarine/UUV.
+지원되는 차량 유형에는 멀티콥터, VTOL, VTOL 테일시터, 고정익, 로보, 잠수함/UUV가 포함됩니다.
 
 :::tip
-For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
+빌드 대상의 전체 목록을 보려면 `make px4_sitl list_vmd_make_targets`를 실행하십시오(그리고 `gazebo_`로 시작하는 대상에서 필터링).
 :::
 
 :::note
-The [Gazebo](../simulation/gazebo.md) page shows how to install Gazebo, how to enable video and load custom maps, and many other configuration options.
+[Gazebo](../simulation/gazebo.md)에서는 Gazebo 설치 방법, 비디오를 활성화 방법, 사용자 정의 지도 로드 방법 및 기타 여러 설정 옵션을 설명합니다.
 :::
 
-## Multicopter
+## 멀티콥터
 
 <a id="quadrotor"></a>
 
-### Quadrotor (Default)
+### 쿼드콥터 (기본)
 
 ```sh
 make px4_sitl gazebo
@@ -24,7 +24,7 @@ make px4_sitl gazebo
 
 <a id="quadrotor_optical_flow"></a>
 
-### Quadrotor with Optical Flow
+### 광류센서 장착 쿼드콥터
 
 ```sh
 make px4_sitl gazebo_iris_opt_flow
@@ -32,80 +32,80 @@ make px4_sitl gazebo_iris_opt_flow
 
 <a id="3dr_solo"></a>
 
-### 3DR Solo (Quadrotor)
+### 3DR Solo (쿼드콥터)
 
 ```sh
 make px4_sitl gazebo_solo
 ```
 
-![3DR Solo in Gazebo](../../assets/simulation/gazebo/vehicles/solo.png)
+![가제보 3DR 솔로](../../assets/simulation/gazebo/vehicles/solo.png)
 
 <a id="typhoon_h480"></a>
 
-### Typhoon H480 (Hexrotor)
+### Typhoon H480 (헥스로터)
 
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
 
-![Typhoon H480 in Gazebo](../../assets/simulation/gazebo/vehicles/typhoon.jpg)
+![가제보 Typhoon H480](../../assets/simulation/gazebo/vehicles/typhoon.jpg)
 
 :::note
-This target also supports [video streaming simulation](#video).
+이 타겟은 [동영상 스트리밍 시뮬레이션](../simulation/gazebo.md#video-streaming)도 지원합니다.
 :::
 
 <a id="fixed_wing"></a>
 
-## Plane/Fixed Wing
+## 비행기/고정익
 
 <a id="standard_plane"></a>
 
-### Standard Plane
+### 표준 비행기
 
 ```sh
 make px4_sitl gazebo_plane
 ```
 
-![Plane in Gazebo](../../assets/simulation/gazebo/vehicles/plane.png)
+![가제보 비행기](../../assets/simulation/gazebo/vehicles/plane.png)
 
 <a id="standard_plane_catapult"></a>
 
-#### Standard Plane with Catapult Launch
+#### 투석기 발사형 표준 비행기
 
 ```sh
 make px4_sitl gazebo_plane_catapult
 ```
 
-This model simulates hand/catapult launch, which can be used for [fixed wing takeoff](../flying/fixed_wing_takeoff.md#fixed-wing-takeoff) in position mode, takeoff mode, or missions.
+이 모델은 위치 모드, 이륙 모드 또는 임무에서 [고정익 이륙](../flying/fixed_wing_takeoff.md#fixed-wing-takeoff)에 사용할 수 있는 손/투석기 발사를 시뮬레이션합니다.
 
-The plane will automatically be launched as soon as the vehicle is armed.
+차량이 시동이 걸리는 즉시, 비행기가 자동으로 시작됩니다.
 
 
 ## VTOL
 
 <a id="standard_vtol"></a>
 
-### Standard VTOL
+### 표준 VTOL
 
 ```sh
 make px4_sitl gazebo_standard_vtol
 ```
 
-![Standard VTOL in Gazebo](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+![가제보 표준 VTOL](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
 <a id="tailsitter_vtol"></a>
 
-### Tailsitter VTOL
+### 테일시터 VTOL
 
 ```sh
 make px4_sitl gazebo_tailsitter
 ```
 
-![Tailsitter VTOL in Gazebo](../../assets/simulation/gazebo/vehicles/tailsitter.png)
+![가제보 테일시터 VTOL](../../assets/simulation/gazebo/vehicles/tailsitter.png)
 
 <a id="ugv"></a>
 
-## Unmmanned Ground Vehicle (UGV/Rover/Car)
+## 무인 지상 차량(UGV/탐사선/자동차)
 
 <a id="ugv_ackerman"></a>
 
@@ -115,21 +115,21 @@ make px4_sitl gazebo_tailsitter
 make px4_sitl gazebo_rover
 ```
 
-![Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover.png)
+![가제보 탐사선](../../assets/simulation/gazebo/vehicles/rover.png)
 
 <a id="ugv_differential"></a>
 
-### Differential UGV
+### 차동 UGV
 
 ```sh
 make px4_sitl gazebo_r1_rover
 ```
 
-![Rover in Gazebo](../../assets/simulation/gazebo/vehicles/r1_rover.png)
+![가제보 탐사선](../../assets/simulation/gazebo/vehicles/r1_rover.png)
 
 <a id="uuv"></a>
 
-## Unmanned Underwater Vehicle (UUV/Submarine)
+## 무인 수중 차량(UUV/잠수함)
 
 <a id="uuv_hippocampus"></a>
 
@@ -139,32 +139,32 @@ make px4_sitl gazebo_r1_rover
 make px4_sitl gazebo_uuv_hippocampus
 ```
 
-![Submarine/UUV](../../assets/simulation/gazebo/vehicles/hippocampus.png)
+![잠수함/UUV](../../assets/simulation/gazebo/vehicles/hippocampus.png)
 
 <a id="usv"></a>
 
-## Unmanned Surface Vehicle (USV/Boat)
+## 무인 수면 기체(USV/보트)
 
 <a id="usv_boat"></a>
 
-### Boat
+### 보트
 
 ```sh
 make px4_sitl gazebo_boat
 ```
 
-![Boat/USV](../../assets/simulation/gazebo/vehicles/boat.png)
+![보트/USV](../../assets/simulation/gazebo/vehicles/boat.png)
 
 <a id="airship"></a>
 
-## Airship
+## 비행선
 
 <a id="cloudship"></a>
 
-### Cloudship
+### 클라우드쉽
 
 ```sh
 make px4_sitl gazebo_cloudship
 ```
 
-![Airship](../../assets/simulation/gazebo/vehicles/airship.png)
+![비행선](../../assets/simulation/gazebo/vehicles/airship.png)

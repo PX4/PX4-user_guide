@@ -1,36 +1,36 @@
-# Holybro Micro Power Module (PM06)
+# Holybro Micro 전원 모듈 (PM06)
 
-This power module provides regulated power for a flight controller and ESCs, and sends information to the autopilot about the battery’s voltage and current draw. It is supplied with the [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md), but can also be separately purchased.
+이 전원 모듈은 비행 컨트롤러와 ESC에 조정 전원을 제공하고, 배터리의 전압과 전류  정보를 자동조종장치에 전송합니다. [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)와 함께 제공되며, 별도 구매도 가능합니다.
 
 ![PM06](../../assets/hardware/power_module/holybro_pm06/pm06_hero.jpg)
 
 
-## Specifications
+## 사양
 
-- **PCB Current:** 120A continued
-- **UBEC Current:** 3A Max
-- **Power input:** DC 7V~42V(2S~10S)
-- **Power output:** DC 5.1V~5.3V
-- **Dimensions:** 35x35x5mm
-- **Mounting hole:** 30.5mm*30.5mm
-- **Weight:** 7g
+- **PCB 전류:** 120A 연속
+- **UBEC 전류:** 최대 3A
+- **전원 입력:** DC 7V~42V(2S~10S)
+- **전원 출력:** DC 5.1V~5.3V
+- **크기:** 35x35x5mm
+- **장착 구멍:** 30.5mm*30.5mm
+- **중량:** 7g
 
-## Package Contents
+## 패키지 내용물
 
-- PM06 board (1)
-- 80mm XT60 connector wire (1)
-- 6pin GH cable (1)
-- 6pin JST cable (1)
-
-
-## Purchase
-
-[PM06 V2 Power Management Board](https://shop.holybro.com/micro-power-module-pm06_p1036.html)
+- PM06 보드 1개
+- 80mm XT60 연결 와이어 1개
+- 6핀 GH 케이블 1개
+- 6 핀 JST 케이블 1개
 
 
-## Wiring/Connections
+## 구매
 
-Wiring and connection examples can be found in: [Pixhawk 4 Mini > Power](../assembly/quick_start_pixhawk4_mini.md#power).
+[PM06 V2  - 전원 관리 보드](https://shop.holybro.com/micro-power-module-pm06_p1036.html)
 
-![PM06 Pin Map](../../assets/hardware/power_module/holybro_pm06/pm06_pin_map.jpg)
+
+## 배선
+
+배선 예제는 [Pixhawk 4 Mini &gt; 전원](../assembly/quick_start_pixhawk4_mini.md#power)을 참고하십시오.
+
+![PM06 핀 맵](../../assets/hardware/power_module/holybro_pm06/pm06_pin_map.jpg)
 

@@ -4,14 +4,14 @@ PX4 can use [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillan
 If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
 
-<span id="supported_hardware"></span>
+<a id="supported_hardware"></a>
 ## Supported Hardware
 
 PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message.
 
 It has been tested with the following devices:
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx/) (uAvionix)
-- [FLARM](https://flarm.com/products/powerflarm/uav/)
+- [FLARM](https://flarm.com/products/powerflarm/uav/) 
 
 
 ## Hardware Setup

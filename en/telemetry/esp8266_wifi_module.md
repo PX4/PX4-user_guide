@@ -39,6 +39,7 @@ Using *QGroundControl*:
 - [Load recent PX4 firwmare onto the flight controller](../config/firmware.md).
 - [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266.
   Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
+- [Configure MAVLink](../peripherals/mavlink_peripherals.md) on the corresponding serial port in order to receive telemetry and transmit commands over the ESP8266.
 
 Once you have configured the flight controller serial port used for connecting to the radio, you can remove the physical USB connection between the ground station and the vehicle.
 

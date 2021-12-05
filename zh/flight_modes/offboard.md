@@ -40,7 +40,7 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
     * 速度设定值（仅 `vx`，`yy`，`vz`）
     * 加速度设定值（仅 `afx`，`afy`，`afz`）
     * 位置设定值**和**速度设定值（速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
-    * 位置设定值**和**速度设定值**和**加速度（加速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
+    * 位置设定点**、**速度设定点**和**加速度（速度和加速度设定点用作前馈；将速度设定点添加到位置控制器的输出，并将结果用作速度控制器的输入；加速度设定点添加到速度控制器的输出中，结果用于计算推力矢量）。
   * * PX4 支持以下 `坐标系` 值（仅限）： [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
@@ -63,10 +63,6 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
   * 支持以下输入组合： 
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的机身速率（`SET_ATTITUDE_TARGET` `.body_roll_rate` ，`.body_pitch_rate`，`.body_yaw_rate`）。
-
-* [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)
-  
-  * 当使用 [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) 或 [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT) 导航时，允许更改巡航速度。
 
 ### 固定翼
 
@@ -113,13 +109,6 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
   * 支持以下输入组合： 
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的机身速率（`SET_ATTITUDE_TARGET` `.body_roll_rate` ，`.body_pitch_rate`，`.body_yaw_rate`）。
-
-* [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)
-  
-  * 当导航使用 [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) 或者 [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT) 时，允许更改巡航速度。
-
-<!-- Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0.
-See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/PX4-Autopilot/pull/12311 -->
 
 ### 无人车
 

@@ -1,6 +1,6 @@
 # DShot ESCs
 
-DShot is an alternative ESC protocol that has several advantages over PWM or OneShot:
+DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
 - Reduced latency.
 - Increased robustness via a checksum.
 - No need for ESC calibration as the protocol uses digital encoding.
@@ -27,14 +27,14 @@ To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports la
 Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 :::
 
-:::note FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs.
+:::note FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs. FMUv5x-based boards support DShot only on the first six FMU pins.
 :::
 
 :::tip
 You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port).
 :::
 
-<span id="configuration"></span>
+
 ## Configuration
 
 :::warning
@@ -59,11 +59,6 @@ The most important ones are:
   ```
   dshot beep1 -m 1
   ```
-- Permanently reverse the spin direction of the first motor:
-  ```
-  dshot reverse -m 1
-  dshot save -m 1
-  ```
 - Retrieve ESC information (requires telemetry, see below):
   ```
   nsh> dshot esc_info -m 2
@@ -79,6 +74,20 @@ The most important ones are:
   INFO  [dshot] LED 2: unsupported
   INFO  [dshot] LED 3: unsupported
   ```
+  - Permanently reverse the spin direction of the first motor:
+  ```
+  dshot reverse -m 1
+  dshot save -m 1
+  ```
+  Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show:
+  ```
+  Rotation Direction: reversed
+  ```
+  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+  ```
+  Rotation Direction: normal
+  ```
+  To change direction again new `dshot reverse -m 1` command needs to be sent.
 
 ## Telemetry
 

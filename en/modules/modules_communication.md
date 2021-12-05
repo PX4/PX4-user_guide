@@ -1,7 +1,7 @@
 # Modules Reference: Communication
 
 ## frsky_telemetry
-Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/frsky_telemetry)
+Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/frsky_telemetry)
 
 FrSky Telemetry support. Auto-detects D or S.PORT protocol.
 <a id="frsky_telemetry_usage"></a>
@@ -23,7 +23,7 @@ frsky_telemetry <command> [arguments...]
    status
 ```
 ## mavlink
-Source: [modules/mavlink](https://github.com/PX4/Firmware/tree/master/src/modules/mavlink)
+Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink)
 
 
 ### Description
@@ -74,8 +74,7 @@ mavlink <command> [arguments...]
                  default: 14556
      [-o <val>]  Select UDP Network Port (remote)
                  default: 14550
-     [-t <val>]  Partner IP (broadcasting can be enabled via MAV_{i}_BROADCAST
-                 param)
+     [-t <val>]  Partner IP (broadcasting can be enabled via -p flag)
                  default: 127.0.0.1
      [-m <val>]  Mode: sets default streams and rates
                  values: custom|camera|onboard|osd|magic|config|iridium|minimal|
@@ -94,6 +93,11 @@ mavlink <command> [arguments...]
 
    stop-all      Stop all instances
 
+   stop          Stop a running instance
+     [-u <val>]  Select Mavlink instance via local Network Port
+     [-d <val>]  Select Mavlink instance via Serial Device
+                 values: <file:dev>
+
    status        Print status for all instances
      [streams]   Print all enabled streams
 
@@ -108,7 +112,7 @@ mavlink <command> [arguments...]
                  startup script.
 ```
 ## micrortps_client
-Source: [modules/micrortps_bridge/micrortps_client](https://github.com/PX4/Firmware/tree/master/src/modules/micrortps_bridge/micrortps_client)
+Source: [modules/micrortps_bridge/micrortps_client](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/micrortps_bridge/micrortps_client)
 
 <a id="micrortps_client_usage"></a>
 ### Usage
@@ -122,12 +126,15 @@ micrortps_client <command> [arguments...]
                  values: <file:dev>, default: /dev/ttyACM0
      [-b <val>]  Baudrate (can also be p:<param_name>)
                  default: 460800
-     [-p <val>]  Poll timeout for UART in ms
+     [-m <val>]  Maximum sending data rate in B/s (0=not limited)
+                 default: 0
+     [-p <val>]  Poll timeout for UART in milliseconds
+                 default: 1
      [-l <val>]  Limit number of iterations until the program exits
                  (-1=infinite)
-                 default: 10000
-     [-w <val>]  Time in ms for which each iteration sleeps
-                 default: 1
+     [-w <val>]  Iteration time for data publishing to the uORB side, in
+                 microseconds
+                 default: 1000
      [-r <val>]  Select UDP Network Port for receiving (local)
                  default: 2019
      [-s <val>]  Select UDP Network Port for sending (remote)
@@ -143,7 +150,7 @@ micrortps_client <command> [arguments...]
    status
 ```
 ## uorb
-Source: [systemcmds/uorb](https://github.com/PX4/Firmware/tree/master/src/systemcmds/uorb)
+Source: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/uorb)
 
 
 ### Description

@@ -43,7 +43,6 @@ See [NuttX Board Porting Guide](porting_guide_nuttx.md).
 * The start script is located in [posix-configs/](https://github.com/PX4/Firmware/tree/master/posix-configs). <!-- NEED px4_version -->
 * 操作系统配置是默认 Linux 镜像的一部分（TODO: 需要提供 LINUX 镜像文件位置和程序烧写指南）。
 * The PX4 middleware configuration is located in [src/drivers/boards](https://github.com/PX4/Firmware/tree/master/src/drivers/boards). TODO: ADD BUS CONFIG <!-- NEED px4_version --> TODO: ADD BUS CONFIG
-* 参考配置：运行 `make eagle_default` 命令可构建 Snapdragon Flight 的参考配置文件。
 
 
 ## RC UART 接线建议

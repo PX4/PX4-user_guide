@@ -30,7 +30,7 @@ The image below shows how to connect the most important sensors and peripherals.
 1. [Telemetry System](#telemetry) — Allows you to plan/run missions, and control and monitor the vehicle in real time. Typically includes telemetry radios, tablet/PC and ground station software.
 2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
 3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
-4. (Dedicated) [Safety switch](#safety_switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
+4. (Dedicated) [Safety switch](#safety-switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
 5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch. 
 6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level). 
 
@@ -56,14 +56,14 @@ The Cube can be mounted using either vibration-damping foam pads (included in th
 
 ![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
-<span id="gps"></span>
+<a id="gps"></a>
 
 ## GPS + Compass + Safety Switch + LED
 
-The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
+The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
 
-:::note
-The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
+:::warning
+The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [UAVCAN](../uavcan/README.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [UAVCAN](../uavcan/README.md) for documentation on how it should be connected.
 :::
 
 The module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference). It must be connected to the `GPS1` port using the supplied 8-pin cable.
@@ -77,10 +77,8 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 :::
 
 :::tip
-If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
+If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety-switch).
 :::
-
-<span id="safety_switch"></span>
 
 ## Safety Switch
 
@@ -90,11 +88,13 @@ If you are flying without the GPS you must attach the switch directly to the `GP
 
 ## Buzzer
 
-The buzzer provides audio signals to that indicate UAV status. This should be connected to the USB port as shown (no further configuration is required).
+The buzzer plays [tones and tunes](../getting_started/tunes.md) that provide audible notification of vehicle status (including tones that are helpful for debugging startup issues, and that notify of conditions that might affect safe operation of the vehicle).
+
+The buzzer should be connected to the USB port as shown (no further configuration is required).
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
-<span id="rc_control"></span>
+<a id="rc_control"></a>
 
 ## Radio Control
 
@@ -122,15 +122,18 @@ The Cube cannot directly connect to PPM or PWM receivers that have an *individua
 
 ## Power
 
-Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
+Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board, and may *separately* supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
 A typical power setup for a Multicopter vehicle is shown below.
 
 ![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
-<!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
+:::Note The power (+) rail of **MAIN/AUX** is *not powered* by the power module supply to the flight controller. In order to drive servos for rudders, elevons, etc., it will need to be separately powered.
 
-<span id="telemetry"></span>
+This can be done by connecting the power rail to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate!
+:::
+
+<a id="telemetry"></a>
 
 ## Telemetry System (Optional)
 
@@ -185,6 +188,12 @@ Basic/common configuration information is covered in: [Autopilot Configuration](
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+
+### Bootloader Updates
+
+If you get the [Program PX4IO(../getting_started/tunes.md#program-px4io) warning tone after flashing PX4 firmware, you may need to update the bootloader.
+
+The safety switch can be used to force bootloader updates. To use this feature de-power the Cube, hold down the safety switch, then power the Cube over USB.
 
 ## Further information
 

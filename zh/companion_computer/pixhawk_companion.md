@@ -15,7 +15,7 @@ Typically the `TELEM 2` port is used for a companion computer.
 * [MAV_1_MODE](../advanced/parameter_reference.md#MAV_1_MODE) = `Onboard`
 * [SER_TEL2_BAUD](../advanced/parameter_reference.md#SER_TEL2_BAUD) = `921600`（建议在像日志流或FastRTPS之类的应用，使用 921600 或更高）
 
-For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md).
+更多信息，请参考 [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)。
 
 
 ## 配套计算机设置
@@ -35,7 +35,7 @@ For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripheral
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-| TELEM2 |   | FTDI    | FTDI            |
+| TELEM2 |   | FTDI    | &nbsp;          |
 | ------ | - | ------- | --------------- |
 | 1      | 1 |         | DO NOT CONNECT! |
 | 2      | 2 | Tx (输出) | 5               |

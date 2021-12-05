@@ -1,7 +1,7 @@
 # 电调（ESC）校准
 
 :::note
-这些说明仅与 [PWM 电调相关](../peripherals/pwm_escs_and_servo.md)。
+These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md) ([DShot](../peripherals/dshot.md) and [UAVCAN](../uavcan/escs.md) ESCs do not require calibration).
 :::
 
 电调根据飞控的 PWM 输入值 来调节电机速度（和方向）。 电调响应的输入范围是可配置的，甚至同一模型下的不同电调之间的默认范围也是不同的。
@@ -45,5 +45,5 @@
     ![电调校准步骤 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
 :::note
-高品质的电调带有出厂校准。 *按理说*， 这意味着这些电调可以按照电调技术规格书仅通过设置 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) 和 [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) 参数来配置即可。 实际上，即使在高质量控制器上，输入范围也可能不同，这就是建议校准的原因。
+高品质的电调带有出厂校准。 In *theory* this means that they can be configured by just setting the [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAXn](../advanced_config/parameter_reference.md#PWM_AUX_MAX) parameters to the values provided in the ESC technical specification. 实际上，即使在高质量控制器上，输入范围也可能不同，这就是建议校准的原因。
 :::

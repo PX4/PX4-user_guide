@@ -57,11 +57,11 @@ The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-po
 
 To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above).
 Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API.
-This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
+This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
 
 :::note
-You will need to have installed *eProsima Fast DDS* and the `micrortps_agent` should be run in the different terminals for each vehicle.
-For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
+You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above and the `micrortps_agent` should be run in the different terminals for each vehicle.
+For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), for how to use the interaction with non-ROS2 DDS participant applications, or [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS2 nodes.
 :::
 
 To build an example setup, follow the steps below:
@@ -74,14 +74,14 @@ To build an example setup, follow the steps below:
    ```
 
 1. Build the `micrortps_agent`
-   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface)
+   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)
    * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
 
 1. Run `gazebo_sitl_multiple_run.sh`.
    For example, to spawn 4 vehicles, run:
 
    ```bash
-   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
+   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
    ```
 
    :::note
@@ -92,12 +92,16 @@ To build an example setup, follow the steps below:
    For example, to connect 4 vehicles, run:
 
    ```bash
-   micrortps_agent -t UDP -r 2020 -s 2019 &
-   micrortps_agent -t UDP -r 2022 -s 2021 &
-   micrortps_agent -t UDP -r 2024 -s 2023 &
-   micrortps_agent -t UDP -r 2026 -s 2025 &
+   micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0 &
+   micrortps_agent -t UDP -r 2022 -s 2021 -n vhcl1 &
+   micrortps_agent -t UDP -r 2024 -s 2023 -n vhcl2 &
+   micrortps_agent -t UDP -r 2026 -s 2025 -n vhcl3 &
    ```
-
+   :::note
+   In order to communicate with a specific instance of PX4 using ROS2, you must use the `-n <namespace>` option.
+   For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0` (eg. `sensor_combined` data from `vhcl0` will be published on the topic `/vhcl0/fmu/sensor_combined/out`, while if one wants to send commands to the same vehicle, it has to publish to topic `/vhcl0/fmu/vehicle_command/in`).
+   You can then subscribe and publish to just that vehicle's topics.
+   :::
 
 <a id="with_ros"></a>
 ## Multiple Vehicles with ROS and Gazebo
@@ -169,7 +173,7 @@ For each simulated vehicle, the following is required:
   The `MAV_SYS_ID` for each vehicle in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4), should match the `ID` for that vehicle in the launch file [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25).
   This will help make sure you keep the configurations consistent between the launch file and the startup file.
 
-* **MAVROS node** \(optional\): A seperate MAVROS node can be run in the launch file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41), in order to connect to PX4 SITL app, if you want to control your vehicle through ROS.
+* **MAVROS node** \(optional\): A separate MAVROS node can be run in the launch file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41), in order to connect to PX4 SITL app, if you want to control your vehicle through ROS.
   You need to start a MAVLink stream on a unique set of ports in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68).
   Those unique set of ports need to match those in the launch file for the MAVROS node, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26).
 
@@ -273,7 +277,7 @@ To add a new vehicle, you need to make sure the model can be found (in order to 
 
 1. The `vehicle` argument is used to set the `PX4_SIM_MODEL` environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model.
   Within PX4 these startup files can be found in the **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** directory.
-  For example, here is the plane model's [startup script](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/1030_plane).
+  For example, here is the plane model's [startup script](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/airframes/1030_plane).
   For this to work, the PX4 node in the launch file is passed arguments that specify the *rcS* file (**etc/init.d/rcS**) and the location of the rootfs etc directory (`$(find px4)/build_px4_sitl_default/etc`).
   For simplicity, it is suggested that the startup file for the model be placed alongside PX4's in **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**.
 

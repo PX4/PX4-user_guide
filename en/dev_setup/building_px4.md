@@ -38,6 +38,11 @@ This will bring up the PX4 console below:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
+:::note
+You may need to start *QGroundControl* before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. 
+This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html). 
+:::
+
 The drone can be flown by typing:
 ```sh
 pxh> commander takeoff
@@ -70,7 +75,7 @@ To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot*
 For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
 ```sh
 cd PX4-Autopilot
-make px4_fmu-v4_default
+make px4_fmu-v5_default
 ```
 
 A successful run will end with similar output to:
@@ -105,7 +110,6 @@ Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards
 The `_default` suffix is the firmware _configuration_.
 This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
-
 
 ### Uploading Firmware (Flashing the board)
 
@@ -193,6 +197,29 @@ xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
 
+### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+
+Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation.
+You can verify that this is the case by checking for missing dependencies using:
+```bash
+arm-none-eabi-gcc --version
+arm-none-eabi-g++ --version
+arm-none-eabi-gdb --version
+arm-none-eabi-size --version
+```
+
+Example of bash output with missing dependencies:
+```bash
+arm-none-eabi-gdb --version
+arm-none-eabi-gdb: command not found
+```
+
+This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+
+### Ubuntu 18.04: Visual Studio Code is unable to watch for file changes in this large workspace
+
+See [Visual Studio Code IDE (VSCode) > Troubleshooting](../dev_setup/vscode.md#troubleshooting).
+
 ### Failed to import Python packages
 
 "Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
@@ -265,9 +292,9 @@ Notes:
   For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/jmavsim_run.sh -l`.
 
 
-The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory.
-Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake**
-(e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
+The `VENDOR_MODEL_VARIANT` options map to particular *px4board* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory.
+Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board**
+(e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)).
 
 Additional make targets are discussed in relevant sections:
 - `bloaty_compare_master`: [Binary Size Profiling]()

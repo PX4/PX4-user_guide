@@ -8,9 +8,6 @@ In SITL some failsafes are disabled by default to enable easier simulation usage
 You can also test failsafes using [HITL simulation](../simulation/hitl.md). HITL uses the normal configuration parameters of your flight controller.
 :::
 
-:::tip
-The [SITL parameters](../advanced_config/parameter_reference.md#sitl) allow you to simulate other common sensor failure cases that are not covered here, including: loss of barometer, gyro and accelerometer, increased GPS noise etc.
-:::
 
 ## Data Link Loss
 
@@ -44,6 +41,19 @@ To control how fast the battery depletes to the minimal value use the parameter 
 By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
 :::
 
-## GPS Loss
+## Sensor/System Failure
 
-To simulate losing and regaining GPS information you can just stop the publication of GPS messages. This is done by running the `param set SIM_GPS_BLOCK 1` and `param set SIM_GPS_BLOCK 0` commands on your SITL instance *pxh shell* to block and unblock messages respectively.
+[Failure injection](../debug/failure_injection.md) can be used to simulate different types of failures in many sensors and systems. For example, this can be used to simulate absent or intermittent GPS, RC signal that has stopped or got stuck on a particular value, failure of the avoidance system, and much more.
+
+For example, to simulate GPS failure:
+1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
+1. Enter the following commands on the SITL instance *pxh shell*:
+   ```bash
+   # Turn (all) GPS off
+   failure gps off
+
+   # Turn (all) GPS on
+   failure gps ok
+   ```
+
+See [System Failure Injection](../debug/failure_injection.md) for a list of supported target sensors and failure modes.

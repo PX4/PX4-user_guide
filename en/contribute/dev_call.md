@@ -43,5 +43,5 @@ The core team/subsystem maintainers will be available for up to 45 additional mi
 * TIME: Wednesday 17h00 CET, 11h00 EST, 08h00 PST ([subscribe to calendar](https://www.dronecode.org/calendar/))
 * **Join the call**: [https://meet.jit.si/PX4DeveloperCallWeekly](https://meet.jit.si/PX4DeveloperCallWeekly)
 
-* Agenda is published before the call on [PX4 Discuss - weekly-dev-call](http://discuss.px4.io/c/weekly-dev-call)
+* Agenda is published before the call on [PX4 Discuss - weekly-dev-call](https://discuss.px4.io//c/weekly-dev-call)
 * To nominate Issues and PRs for the call you can use the [devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall) label to flag them for discussion.

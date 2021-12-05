@@ -49,13 +49,7 @@
 参数可能不在固件中的另一个原因是如果其关联的模块没有被包含。 这个问题（特别是）对*FMUv2 固件*，该固件省略了许多模块，才能使 PX4 可以适用于 1MB的闪存。 解决此问题有两种方法：
 
 - 检查你是否可以更新你的板来运行 FMUv3 固件，其中包括所有模块： [固件 > FMUv2 Bootloader 更新](../config/firmware.md#bootloader)
-- 如果你的控制板只能运行 FMUv2 固件，你需要 [重新构建 PX4](../dev_setup/building_px4.md) 并启用缺失的模块。 在[boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)文件中看到注释掉的模块: 
-        DRIVERS
-            adc
-            #barometer # 全部支持的气压计驱动
-            barometer/ms5611
-            #batt_smbus
-            #camera_capture :::note 您可能还需要禁用其他模块才能将重新构建的固件适用于 1MB 的闪存。 找到可以移除的模块需要一些试错， 还取决于你要求载具达到哪些使用案例。
+- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules ``` :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 :::
 
 <span id="changing"></span>

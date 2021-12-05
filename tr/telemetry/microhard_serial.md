@@ -1,50 +1,60 @@
-# Microhard Serial Radio
+# Microhard Serial Telemetry Radios
 
-[Microhard Pico Serial](http://microhardcorp.com/P900.php) radios enable MAVLink communication between a radio on a vehicle and a GCS. Microhard Pico Serial radios are (up to) 1 Watt output radios that support point to point, point to multi-point, and mesh modes. The Microhard Pico radios can also be ordered with AES-256 encryption.
+[Microhard Pico Serial Radios](http://microhardcorp.com/P900.php) integrate the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module.
 
-The approximate range with output power set to 1W is 8km (5miles) when using default settings. A single ground station radio can be used to communicate with multiple vehicles using point to multi-point or mesh. Vehicles must have different MAVLINK IDs.
+This is a relatively small size and low cost radio that supports modes including point to point, point to multi-point, and mesh modes. It has configurable power output and can also be configured to use forward error correction. Radios can also be ordered that support secure/encrypted channels, although this is subject to export restriction.
 
-![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
+Manufacturers typically default-configure the radios in peer-to-peer mode and match the baud rate expected by PX4 and *QGroundControl* (57600 baud). This allows plug and play telemetry when the radios are connected to the usual telemetry ports on a Pixhawk flight controllers (`TELEM1` or `TELEM2`) along with auto-detection of the connection in *QGroundControl*.
 
-## Purchase:
+Several manufacturers provide solutions based on these radios:
+* [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
+* [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
 
-* [1W 900MHz Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (vehicle)
-* [1W 900MHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (ground station)
-* [1W 2.4GHz Serial Telemetry Radio](https://arkelectron.com/product/1w-2400mhz-serial-telemetry-radio/) (vehicle)
-* [1W 2.4GHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-2400mhz-usb-serial-telemetry-radio/) (ground station)
+## Range Tradeoffs
 
-## Connecting
+The radio range depends on a number of factors, including: baud rate, power output, mode, whether forward error connection is enabled, whether encryption is enabled, antenna used etc.
 
-### Vehicle Radio
-Connect the vehicle radio to the flight controller `TELEM1` port (any free serial port can be used). A Pixhawk-standard 6 pin JST GH telemetry cable is supplied for this purpose.
+The selection of these parameters is a tradeoff:
+- increasing baud rate decreases radio range.
+- increasing radio power increases range, but decreases flight time.
+- point to multipoint means you can have a single ground station talking to multiple vehicles, but increases the bandwidth on the channel.
+- mesh configurations provide similar convenience and cost.
 
-The radio can be powered by the telemetry cable if the output power is set to less than 100mW. For higher output levels, the radio must be separately powered via the 2 Pin Molex Nano-Fit (i.e. from a battery).
+The maximum range quoted in specifications is around 60km. ARK Electron suggest an approximate range of 8km with output power set to 1W is 8km and using default settings.
 
-![Microhard Radio on Vehicle](../../assets/hardware/telemetry/microhard_serial_on_vehicle.jpg)
+## Configuration
 
-### Ground Station Radio
+For convenience, radios are usually default-configured so that they can be used with PX4 and *QGroundControl* out of the box.
 
-Connect the ground radio to the ground station via USB C. The radio does not need to be separately powered when using USB PD (1W power can be supplied).
+Developers can modify the configuration. The only "requirement" is that the: ground radio, air radio, PX4, and *QGroundControl* must all be set to use the **same** baud rate (and of course each MAVLink system must have a unique System ID).
 
+### PX4 Configuration
 
-## Setup/Configuration
+PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600. You can configure PX4 to use any other free serial port a different baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md).
 
-The ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
+### QGroundControl Configuration
 
-PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended). No further PX4 configuration is required if you are using this port and baud rate.
+QGroundControl autodetects a serial telemetry connection with the baud rate 57600.
 
-:::note
-You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-:::
+For any other rate you will need to add a serial comms link that sets the rate that was used. See [Application Settings > Comms Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html).
 
-The radios are configured using [Pico Config](https://arkelectron.com/wp-content/uploads/2020/09/PicoConfig-1.7.zip) (Windows only).
+### Radio Configuration
 
-![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
+Microhard serial radios are configured using the *PicoConfig* application (Windows only). This can be downloaded here: [PicoConfig-1.7.zip](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (ARK Electron) or [picoconfig-1-8](http://www.holybro.com/download/picoconfig-1-8/) (Holybro).
 
-For vehicle radio configuration you will have to connect an FTDI adapter between the radio's 3 pin JST-GH Config port and a Windows PC running *Pico Config* (the radio must be powered, which you can do from battery or the data connection to the flight-controller's `TELEM1` port). *Pico Config* will automatically detect the radio. Adjust the baud rate setting to match PX4 (and the ground station radio).
+In point-to-point operating modes, there must be a master to provide network synchronization for the system, so one radio should be configured to PP master and another should be configured to PP remote.
 
-![Ark Microhard Serial - Ports](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
+The screen shots below show the default radio configuration settings for connecting to PX4 and *QGroundControl*.
 
-The ground station radio USB C connection can be used for configuring the radio (as well as for telemetry data). *Pico Config* will automatically detect and connect to the configuration port. Adjust the settings so that the baud rate matches PX4.
+<img src="../../assets/hardware/telemetry/holybro_pico_config.png" width="400px" title="Holybro Pico Config" />
+<img src="../../assets/hardware/telemetry/holybro_pico_config1.png" width="400px" title="Holybro Pico Config" />
 
-Once the radios and PX4 are all configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio. *QGroundControl* will not automatically detect the radio, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
+The [Pico Series P900.Operating Manual.v1.8.7](https://github.com/PX4/PX4-user_guide/raw/master/assets/hardware/telemetry/Pico-Series-P900.Operating-Manual.v1.8.7.pdf) has additional information on radio configuration (including mesh and multipoint modes).
+
+### Mesh and Multipoint Modes
+
+Mesh and point to multi-point modes are supported, but all vehicles must have a unique Mavlink ID.
+
+Anecdotally:
+- At the highest link rate, with no FEC, we can have 201 drones in one mesh system transmitting 80 bytes once a second.
+- You can have multiple networks working together at the same time without mutual interference using "co-located systems". For example, to deploy more than 500 vehicles you would need to deploy three P900 mesh coordinators, each serving up to 201 drones in their respective local networks.

@@ -4,9 +4,19 @@ Distance sensors provide distance measurement that can be used for [terrain foll
 
 This section lists the distance sensors supported by PX4 (linked to more detailed documentation), the [generic configuration](#configuration) required for all rangefinders, [testing](#testing), and [simulation](#simulation) information. More detailed setup and configuration information is provided in the topics linked below (and sidebar).
 
-<img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" />
+<img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/optical_flow/ark_flow_distance_sensor.jpg" alt="ARK Flow" width="200px" />
 
 ## Supported Rangefinders
+
+### ARK Flow
+
+[ARK Flow](../uavcan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. It can be connected to the flight controller via its CAN1 port, allowing additional sensors to connect through its CAN2 port. It runs PX4 firmware, supports [UAVCAN](../uavcan/README.md) [Firmware Updating](../uavcan/node_firmware.md), and is packed into a tiny form factor.
+
+### Holybro ST VL53L1X Lidar
+
+The [VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family. It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
+
+It comes with a JST GHR 4 pin connector that is compatible with the I2C port on [Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhawk 5X](../flight_controller/pixhawk5x.md), and other flight controllers that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)).
 
 ### Lidar-Lite
 
@@ -74,9 +84,9 @@ The common rangefinder configuration is specified using [EKF2*RNG**](../advanced
 
 The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
 
-### QGroundControl Analyze Tool
+### QGroundControl MAVLink Inspector
 
-The *QGroundControl Analyze Tool* tool and *QGroundControl MAVLink Inspector* let you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
+The *QGroundControl MAVLink Inspector* lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
 
 :::note
 The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
@@ -84,11 +94,11 @@ The messages that are sent depend on the vehicle configuration. You will only ge
 
 To view the rangefinder output:
 
-1. Open the menu **Widgets > Analyze**:
+1. Open the menu **Q > Select Tool > Analyze Tools**:
     
-    ![Menu for QGC Analyze Tool](../../assets/qgc/menu_analyze_tool.png)
+    ![Menu for QGC Analyze Tool](../../assets/qgc/analyze/menu_analyze_tool.png)
 
-2. Select the message `DISTANCE_SENSOR.current_value`. The tool will then plot the result: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/qgc_analyze_tool_distance_sensor.png)
+2. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. The tool will then plot the result: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
 ### QGroundControl MAVLink Console
 
@@ -125,11 +135,12 @@ If you need to use a different vehicle you can include the model in its configur
 - [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf) 
         xml
         <include>
-          <uri>model://sonar</uri>
+          <uri>model://lidar</uri>
+          <pose>-0.12 0 0 0 3.1415 0</pose>
         </include>
-        <joint name="sonar_joint" type="revolute">
-          <child>sonar_model::link</child>
-          <parent>typhoon_h480::base_link</parent>
+        <joint name="lidar_joint" type="revolute">
+          <child>lidar::link</child>
+          <parent>iris::base_link</parent>
           <axis>
             <xyz>0 0 1</xyz>
             <limit>
@@ -139,15 +150,14 @@ If you need to use a different vehicle you can include the model in its configur
           </axis>
         </joint>
 
-- [typhoon_h480.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf#L1144) 
+- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145) 
         xml
         <include>
-          <uri>model://lidar</uri>
-          <pose>-0.12 0 0 0 3.1415 0</pose>
+          <uri>model://sonar</uri>
         </include>
-        <joint name="lidar_joint" type="revolute">
-          <child>lidar::link</child>
-          <parent>iris::base_link</parent>
+        <joint name="sonar_joint" type="revolute">
+          <child>sonar_model::link</child>
+          <parent>typhoon_h480::base_link</parent>
           <axis>
             <xyz>0 0 1</xyz>
             <limit>

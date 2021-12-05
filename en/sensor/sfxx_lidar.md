@@ -14,8 +14,8 @@ The following models are supported by PX4, and can be connected to either the I2
 Model | Range (m) | Bus | Description
 --- | --- | --- | ---
 [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120 | Serial or I2C bus | 
-[LW20/B](https://lightware.co.za/products/lw20-b-50-m) | 50 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
 [LW20/C](https://lightware.co.za/products/lw20-c-100-m) | 100 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
+
 
 ### Discontinued
 
@@ -27,6 +27,7 @@ Model | Range | Bus
 [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25 | Serial or I2C
 [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50 | Serial or I2C
 SF10/C | 100m | Serial or I2C
+LW20/B | 50 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
 
 
 ## I2C Setup
@@ -54,7 +55,7 @@ On Linux systems you may be able to determine the address using [i2cdetect](http
 If the I2C address is equal to `0x66` the sensor can be used with PX4.
 :::
 
-<span id="i2c_parameter_setup"></span>
+<a id="i2c_parameter_setup"></a>
 ### Parameter Setup
 
 Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) parameter to match the rangefinder model and then reboot.
@@ -62,14 +63,14 @@ Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX)
 
 ## Serial Setup
 
-<span id="serial_hardware_setup"></span>
+<a id="serial_hardware_setup"></a>
 ### Hardware
 
 The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 <!-- Would be good to show serial setup! -->
 
-<span id="serial_parameter_setup"></span>
+<a id="serial_parameter_setup"></a>
 ### Parameter Setup
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG).
@@ -83,4 +84,4 @@ Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF
 
 ## Further Information
 
-- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx)
+- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx) 

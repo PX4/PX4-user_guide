@@ -1,24 +1,24 @@
-# Manually Generate Client and Agent Code
+# 클라이언트 및 에이전트 코드 수동 생성
 
-This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 firmware is compiled).
+클라이언트와 에이전트 코드를 수동으로 생성하는 방법을 설명합니다(PX4 펌웨어가 컴파일될 때 코드를 [자동으로 생성](../middleware/micrortps.md)하는 대신).
 
-The code is generated using the python script: **/Tools/generate_microRTPS_bridge.py**.
+코드는 Python 스크립트 **/Tools/generate_microRTPS_bridge.py**를 사용하여 생성합니다.
 
 :::note
-This method should only be used for debugging purposes when creating new messages or if you just want to consume the generated code outside of the PX4 domain. Otherwise please use the *normal* method explained in [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), which uses the PX4-Autopilot build system.
+이 방법은 새 메시지를 만들거나 PX4 도메인 외부에서 생성된 코드를 사용하려는 경우에 디버깅 목적으로 사용하여야 합니다. 그렇지 않으면, PX4-Autopilot 빌드 시스템을 사용하는 [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md)에 설명된 *일반* 방법을 사용하십시오.
 :::
 
-## Disable automatic bridge code generation
+## 자동 브리지 코드 생성 비활성화
 
-First disable automatic generation of bridge code. Set the variable `GENERATE_RTPS_BRIDGE` to *off* in the **.cmake** file for the target platform:
+먼저, 브리지 코드 자동 생성을 비활성화합니다. 대상 플랫폼의 **.cmake** 파일에서 `GENERATE_RTPS_BRIDGE` 변수를 *off*로 설정합니다.
 
 ```sh
 set(GENERATE_RTPS_BRIDGE off)
 ```
 
-## Using generate_microRTPS_bridge.py
+## generate_microRTPS_bridge.py 사용
 
-The *generate_microRTPS_bridge* tool's command syntax is shown below:
+*generate_microRTPS_bridge* 스크립트의 명령 구문은 다음과 같습니다.
 
 ```sh
 $ cd /path/to/PX4/PX4-Autopilot/msg/tools
@@ -77,63 +77,63 @@ optional arguments:
 ```
 
 :::caution
-Using with `--delete-tree` option erases the content of the `CLIENTDIR` and the `AGENTDIR` before creating new files and folders.
+`--delete-tree` 옵션과 함께 사용하면 새 파일과 폴더를 만들기 전에 `CLIENTDIR` 및 `AGENTDIR`의 내용이 지워집니다.
 :::
 
-- The arguments `--send/-s` and `--receive/-r` specify the uORB topics that can be sent/received from PX4. Code will only be generated for specified messages.
-- The output appears in `CLIENTDIR` (`-o src/modules/micrortps_bridge/micrortps_client`, by default) and in the `AGENTDIR` (`-u src/modules/micrortps_bridge/micrortps_agent`, by default).
-- If no flag `-a` or `-c` is specified, both the client and the agent will be generated and installed.
-- The `-f` option may be needed if *Fast DDS* was not installed in the default location (`-f /path/to/fastdds/installation/bin`).
+- 인수 `--send/-s` 및 `--receive/-r`은 PX4에서 송수신하는 uORB 주제를 지정합니다. 코드는 지정된 메시지에 대해서만 생성됩니다.
+- 출력은 `CLIENTDIR`(기본적으로 `-o src/modules/micrortps_bridge/micrortps_client`) 및 `AGENTDIR`(`-u src/modules/micrortps_bridge/micrortps_agent` 기본값)에 표시됩니다.
+- 플래그 `-a` 또는 `-c`를 지정하지 않으면 클라이언트와 에이전트가 모두 생성되고 설치됩니다.
+- *Fast DDS*가 기본 위치(`-f /path/to/fastdds/installation/bin</0)에 설치되지 않은 경우 <code>-f` 옵션이 필요할 수 있습니다.
 
-The example below shows how you can generate bridge code to publish/subscribe just the `sensor_baro` single uORB topic.
+아래 예는 `sensor_baro` 단일 uORB 주제만 게시/구독하는 브리지 코드를 생성하는 방법을 보여줍니다.
 
 ```sh
 $ cd /path/to/PX4/Firmware
 $ python Tools/generate_microRTPS_bridge.py -s msg/sensor_baro.msg -r msg/sensor_combined.msg
 ```
 
-## Generated code
+## 생성된 코드
 
-Code is generated for the *Client*, *Agent*, *CDR serialization/deserialization* of uORB messages, and the definition of the associated RTPS messages (IDL files).
+uORB 메시지의 *클라이언트*, *에이전트*, *CDR 직렬화/역직렬화* 및 관련 RTPS 메시지(IDL 파일)를 정의하는 코드가 생성됩니다.
 
-Manually generated code for the bridge can be found here (by default):
+브리지에 대해 수동으로 생성된 코드는 여기(기본값)에서 찾을 수 있습니다.
 
-- *Client*: **src/modules/micrortps_bridge/micrortps_client/**
-- *Agent*: **src/modules/micrortps_bridge/micrortps_agent/**
+- *클라이언트*: **src/modules/micrortps_bridge/micrortps_client/**
+- *에이전트*: **src/modules/micrortps_bridge/micrortps_agent/**
 
 
-### uORB serialization code
+### uORB 직렬화 코드
 
-Serialization functions are generated for all the uORB topics as part of the normal PX4 compilation process (and also for manual generation). For example, the following functions would be generated for the *sensor_combined.msg*:
+직렬화 함수는 일반 PX4 컴파일 프로세스의 일부로 모든 uORB 주제에 대하여 생성됩니다(또한 수동 생성을 위하여). 예를 들어 *sensor_combined.msg*에 대해 다음 함수가 생성됩니다.
 
 ```sh
 void serialize_sensor_combined(const struct sensor_combined_s *input, char *output, uint32_t *length, struct microCDR *microCDRWriter);
 void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, struct microCDR *microCDRReader);
 ```
 
-### RTPS message IDL files
+### RTPS 메시지 IDL 파일
 
-IDL files are generated from the uORB **.msg** files ([for selected uORB topics](../middleware/micrortps.md#supported-uorb-messages)) in the generation of the bridge. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/**
+IDL 파일은 브리지 생성 시 uORB **.msg** 파일([선택한 uORB 주제에 대하여](../middleware/micrortps.md#supported-uorb-messages))에서 생성됩니다. 생성된 파일은**src/modules/micrortps_bridge/micrortps_agent/idl/** 에서 찾을 수 있습니다.
 
-*Fast DDS* uses IDL files to define the structure of RTPS/DDS messages (in this case, RTPS/DDS messages that map to uORB topics). They are used to generate code for the *Agent*, and *Fast DDS* applications that need to publish/subscribe to uORB topics.
+*Fast DDS*는 IDL 파일을 사용하여 RTPS/DDS 메시지(이 경우 uORB 주제에 매핑되는 RTPS/DDS 메시지)의 구조를 정의합니다. They are used to generate code for the *Agent*, and *Fast DDS* applications that need to publish/subscribe to uORB topics.
 
 :::note IDL
-files are compiled to C++ by the *fastrtpsgen* tool.
+파일은 *fastrtpsgen* 도구에 의해 C++로 컴파일됩니다.
 :::
 
-## Verify code generation
+## 코드 생성 검증
 
-The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client-px4-firmware).
+출력 디렉토리가 아래 표시된 목록과 일치하는지 확인하여, 성공적인 코드 생성을 확인할 수 있습니다(Linux에서는 `tree` 명령을 사용하여 파일 구조를 나열할 수 있음).
 
-Agent directory:
+에이전트 디렉터리:
 ```sh
 $ tree src/modules/micrortps_bridge/micrortps_agent
 src/modules/micrortps_bridge/micrortps_agent
 ├── build
 ├── CMakeLists.txt
 ├── idl
-│   ├── sensor_baro_.idl
-│   └── sensor_combined_.idl
+│   ├── sensor_baro_.idl
+│   └── sensor_combined_.idl
 ├── microRTPS_agent.cpp
 ├── microRTPS_timesync.cpp
 ├── microRTPS_timesync.h
@@ -156,7 +156,7 @@ src/modules/micrortps_bridge/micrortps_agent
  2 directories, 20 files
 ```
 
-Client directory:
+클라이언트 디렉토리:
 ```sh
 $ tree src/modules/micrortps_bridge/micrortps_client
 src/modules/micrortps_bridge/micrortps_client
@@ -169,18 +169,18 @@ src/modules/micrortps_bridge/micrortps_client
  0 directories, 4 files
 ```
 
-## Build and use the code
+## 코드 빌드 및 사용
 
-The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client_firmware).
+수동으로 생성된 *클라이언트* 코드는 [자동으로 생성된 클라이언트 코드](../middleware/micrortps.md#client_firmware)와 같은 방식으로 *정확히* 빌드되고 사용됩니다.
 
-Specifically, once manually generated, the *Client* source code is compiled and built into the PX4 Firmware as part of the normal build process. For example, to compile the code and include it in Firmware for NuttX/Pixhawk targets:
+특히, 수동으로 생성된 *클라이언트* 소스 코드는 컴파일되어 일반 빌드 프로세스의 일부로 PX4 펌웨어에 빌드됩니다. For example, to compile the code and include it in Firmware for NuttX/Pixhawk targets:
 
 ```sh
 make px4_fmu-v4_rtps upload
 ```
 
 :::note
-You must first [disable automatic bridge code generation](#disable-automatic-bridge-code-generation) so that the toolchain uses the manually generated source code (and does not attempt to regenerate it).
+도구 체인이 수동으로 생성된 소스 코드를 사용하고, 다시 생성을 시도하지 않도록 먼저 [자동 브리지 코드 생성을 비활성화](#disable-automatic-bridge-code-generation)하여야 합니다.
 :::
 
-The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface). The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong>build/BUILDPLATFORM</strong>**/src/modules/micrortps_bridge/micrortps_agent/**.
+수동으로 생성된 *에이전트* 코드도 [자동으로 생성된 코드](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)와 동일한 방식으로 컴파일되어 사용됩니다. 유일한 차이점은 수동 소스 코드가 <strong>build/BUILDPLATFORM</strong>**/src/modules/micrortps_bridge/micrortps_agent/ 대신 **src/modules/micrortps_bridge/micrortps_agent**에서 생성되는 점입니다.</p>

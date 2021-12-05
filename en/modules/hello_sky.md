@@ -11,7 +11,7 @@ These are covered in [Application/Module Template](../modules/module_template.md
 ## Prerequisites
 
 You will require the following:
-* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md#documented-boards).
+* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md).
 * [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
 * [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
@@ -154,21 +154,31 @@ This consists of a single *C* file and a *cmake* definition (which tells the too
    You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
    :::
 
+1. Create and open a new *Kconfig* definition file named **Kconfig** and define your symbol for naming (see [Kconfig naming convention](../hardware/porting_guide_config.md#px4_kconfig_symbol_naming_convention)).
+   Copy in the text below:
+   ```menuconfig EXAMPLES_PX4_SIMPLE_APP
+	bool "PX4 Simple app"
+	default n
+	---help---
+		Enable PX4 simple app
+   ```
+
 ## Build the Application/Firmware
 
 The application is now complete.
 In order to run it you first need to make sure that it is built as part of PX4.
-Applications are added to the build/firmware in the appropriate board-level *cmake* file for your target: 
+Applications are added to the build/firmware in the appropriate board-level *px4board* file for your target: 
 
-* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.cmake)
-* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)
-* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
-* *cmake* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)
+* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.px4board)
+* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.px4board)
+* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.px4board)
+* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)
 
-To enable the compilation of the application into the firmware create a new line for your application somewhere in the *cmake* file:
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4_menuconfig setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
-examples/px4_simple_app
+    examples  --->
+        [x] PX4 Simple app  ----
 ```
 
 :::note

@@ -17,9 +17,10 @@ This is the version that is installed by default.
 
 To install PX4:
 
-1. First select the **Gear** icon (*Vehicle Setup*) in the top toolbar and then **Firmware** in the sidebar. 
+1. Start *QGroundControl* and connect the vehicle.
+1. Select **"Q" icon > Vehicle Setup > Firmware** (sidebar) to open *Firmware Setup*.
 
-  ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
+   ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
 
 1. Connect the flight controller directly to your computer via USB.
 
@@ -64,13 +65,13 @@ To install a different version of PX4:
 Firmware update then continues as before.
 
 
-<span id="bootloader"></span>
+<a id="bootloader"></a>
 ## FMUv2 Bootloader Update
 
 If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
 :::note
-Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
+Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
 The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
 :::
 

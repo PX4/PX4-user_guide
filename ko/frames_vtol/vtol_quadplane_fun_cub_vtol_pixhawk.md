@@ -1,6 +1,6 @@
 # FunCub QuadPlane (Pixhawk)
 
-Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플레인 항공기 (Multiplex FunCub)입니다.
+Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플레인 항공기(Multiplex FunCub)입니다.
 
 주요 정보:
 
@@ -37,7 +37,7 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉아 있는" 방향과 같음).
 
 :::tip
-*QGroundControl* (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)의 PWM_OUTPUT 그룹에서 PWM \ _REV 매개 변수를 사용하여 서보 방향을 반전할 수 있습니다.
+서보 방향은 *QGroundControl*의 PWM_OUTPUT 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 반전될 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목).
 :::
 
 | 포트     | 연결               |

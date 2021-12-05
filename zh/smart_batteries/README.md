@@ -1,11 +1,11 @@
-# Smart Batteries
+# 智能电池
 
-Smart Batteries provide more accurate (and often more detailed) information about the state of a battery than an autopilot can estimate for "dumb" batteries. This allows for more more reliable flight planning notification of failure conditions. The information may include some of: remaining charge, time-to-empty (estimated), cell voltages (rated max/min, current voltage, etc.), temperature, currents, fault information, battery vendor, chemistry, etc.
+智能电池提供的电池状态信息比自动驾驶仪估计的“哑”电池更准确(通常也更详细)。 This allows for more more reliable flight planning notification of failure conditions. 这些信息可能包括:剩余电量、空电时间(估计)、电池电压(额定最大/最小电压、电流电压等)、温度、电流、故障信息、电池供应商、化学成分等。
 
-PX4 supports (at least) following smart batteries:
-* [Rotoye Batmon](../smart_batteries/rotoye_batmon.md)
+PX4至少支持以下智能电池:
+* [补充信息](../smart_batteries/rotoye_batmon.md)
 
-### Further Information
+### 更多信息
 
 - [Mavlink Battery Protocol](https://mavlink.io/en/services/battery.html)
 - [batt_smbus](../modules/modules_driver.md) - PX4 SMBus Battery Driver docs

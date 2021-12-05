@@ -10,8 +10,8 @@ This is a powerful debugging tool because it can be used even when QGC is connec
 The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
 :::
 
-:::note
-The `listener` command is only available on NuttX-based systems (Pixhawk, Pixracer, etc.) and Linux / OS X.
+:::tip
+To check what topics are available at what rate, just use the `uorb top` command.
 :::
 
 The image below demonstrates *QGroundControl* being used to get the value of the acceleration sensor.

@@ -1,38 +1,28 @@
-# 使用 ROS
+# ROS (Robot Operating System)
 
-[ROS](http://www.ros.org/) （机器人操作系统）是一种通用的机器人库，可与 PX4 一起用于 [离板控制 ](../ros/mavros_offboard.md)。 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
+[ROS](http://www.ros.org/) is a general purpose robotics library that can be used with PX4 for drone application development. It is only officially supported on Linux platforms.
 
-本节包含有关使用 ROS 在 PX4 的离板控制的主题。
+ROS benefits from an active ecosystem of developers solving common robotics problems, and access to other software libraries written for Linux. It has been used, for example, as part of the PX4 [computer vision](../computer_vision/README.md) solutions, including [obstacle avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
 
-:::tip ROS
-is only officially supported on Linux platforms.
-:::
-
-# Robotics using ROS 2
-
-[ROS 2](https://index.ros.org/doc/ros2/) is the newest version of ROS. It captures most of the learnings and recently added features of ROS (1), improving a number of flaws of the earlier version.
-
-The translation layer between ROS 2 and PX4 is software known as the [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md). This provides a bridge between PX4 UORB messages and ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes. The bridge uses UORB message definitions and correspondent IDL types to generate code to serialise and deserialise the messages heading in and out of PX4.
-
-For an explanation on how the bridge works, and for some examples, see: [PX4-ROS 2 bridge](../ros/ros2_comm.md).
-
-:::tip
-To use the *PX4-Fast RTPS(DDS) Bridge* bridge effectively you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions.
-
-This contrasts with ROS (1), which communicates with PX4 via MAVROS/MAVLink, hiding PX4's internal architecture and many of its conventions (e.g. frame and unit conversions).
-
-ROS 2 (and the bridge) will become easier to use as the development team provide ROS 2 APIs to abstract PX4 conventions, along with examples demonstrating their use. These are planned in the near-term PX4 roadmap.
-:::
-
-## 安装
-
-The easiest way to setup PX4 simulation with ROS (on Ubuntu Linux) is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS, the Gazebo simulator, and [MAVROS](../ros/mavros_installation.md).
-
-:::note
-If you just need to install ROS then follow the [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation) for your platform.
+:::warning
+tip [ROS 2](../ros/ros2.md) is the "latest and greatest" version of ROS. The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md)!
 :::
 
 
-## External Resources
+## ROS Setups
 
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision. The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
+PX4 supports both the "original" ROS and ROS 2, with the following configurations:
+
+- **[ROS 2](../ros/ros2.md): (Recommended)** PX4 and ROS 2 communicate over the [PX4-ROS 2 bridge](../ros/ros2_comm.md), an interface that provides a direct bridge between PX4 uORB messages and ROS 2 DDS messages/types. This effectively allows direct access to PX4 internals from ROS 2 workflows and nodes in realtime.
+- **[ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md):** PX4 connects first via the [PX4-ROS 2 bridge](../ros/ros2_comm.md) and then via a second bridge ([ros1_bridge](https://github.com/ros2/ros1_bridge)) between ROS 2 and ROS 1.
+- **[ROS (1) via MAVROS](../ros/ros1.md):** PX4 and ROS (1) communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
+
+
+## ROS Support Roadmap
+
+Unveiled at the [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (and [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), the PX4 Development team, announced the plans to support microROS.
+
+* microRTPS:  microRTPS bridge with Fast DDS (The current stable ROS 2 interface)
+* micro XRCE-DDS: DDS on PX4 (Next step!)
+* micro ROS: ROS 2 on the PX4 (Our Target!)
+

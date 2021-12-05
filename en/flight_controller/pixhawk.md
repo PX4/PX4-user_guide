@@ -1,17 +1,18 @@
 # 3DR Pixhawk 1 Flight Controller (Discontinued)
 
 :::warning
-PX4 does not manufacture this (or any) autopilot.
-Contact the manufacturer for support or compliance issues.
-:::
-
-:::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 :::
 
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the manufacturer for support or compliance issues.
+:::
+
+
 The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). 
-It runs PX4 on the [NuttX](http://nuttx.org) OS.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 
 ![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
@@ -258,7 +259,7 @@ UART8 | SERIAL4
 
 ### Console Port
 
-The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-45-port).
+The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-4-5-port).
 
 :::tip
 A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. 

@@ -31,11 +31,12 @@ EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only proc
 The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
 :::tip
-EFK2 is the default estimator used by PX4.
+EKF2 is the default estimator used by PX4.
 It is better tested and supported than LPE, and should be used by preference.
 :::
 
 The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz.
+If the message rate is too low, EKF2 will not fuse the external vision messages.
 
 The following MAVLink "vision" messages are not currently supported by PX4:
 [GLOBAL_VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE),
@@ -98,13 +99,14 @@ Technically this can be set to 0 if there is correct timestamping (not just arri
 In reality, this needs some empirical tuning since delays in the entire MoCap->PX4 chain are very setup-specific.
 It is rare that a system is setup with an entirely synchronised chain!
 
-A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates:
+A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates.
+To enable logging of EV rates set bit 7 (Computer Vision and Avoidance) of [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
 :::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.

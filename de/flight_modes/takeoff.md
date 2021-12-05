@@ -6,12 +6,12 @@ The *Takeoff* flight mode causes the vehicle to take off to a specified height a
 
 :::note
 
-* This mode requires GPS.
+* This mode requires a good position estimate (e.g. from GPS).
 * The vehicle must be armed before this mode can be engaged.
 * This mode is automatic - no user intervention is *required* to control the vehicle.
 * RC control switches can be used to change flight modes on any vehicle.
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
-* The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+* The [Failure Detector](../config/safety.md#failure-detector) will automatically stop the engines if there is a problem on takeoff.
 :::
 
 The specific behaviour for each vehicle type is described below.

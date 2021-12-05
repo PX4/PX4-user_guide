@@ -13,11 +13,11 @@ This section shows how you can get help from the core dev team and the wider com
 
 The core development team and community are active on the following forums and chat channels.
 
-* [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
-* [Slack](http://slack.px4.io) (sign up)
+* [PX4 Discuss](https://discuss.px4.io//) (*recommended*)
+* [Slack](https://px4.slack.com) ([join link](https://join.slack.com/t/px4/shared_invite/zt-si4xo5qs-R4baYFmMjlrT4rQK5yUnaA))
 
 :::tip
-Post on [PX4 Discuss](http://discuss.px4.io/) first! If you don't get a response in a few days then ping us on Slack with a link to your question (on discuss).
+Post on [PX4 Discuss](https://discuss.px4.io//) first! If you don't get a response in a few days then ping us on Slack with a link to your question (on discuss).
 
 Discuss is better than slack in the first instance because questions and answers are permanent.
 :::
@@ -26,13 +26,13 @@ Discuss is better than slack in the first instance because questions and answers
 
 If you are unsure what the problem is and you need help diagnosing
 
-* Upload logs to [Flight Log Review](http://logs.px4.io/)
-* Open a discussion on [PX4 Discuss](http://discuss.px4.io/) with a flight report and links to logs.
+* Upload logs to [Flight Log Review](https://logs.px4.io/)
+* Open a discussion on [PX4 Discuss](https://discuss.px4.io//) with a flight report and links to logs.
 * If you find an issue or bug with PX4 [open a Github Issue](https://github.com/PX4/Devguide/issues)
 
 ## Issue & Bug Reporting
 
-* Upload logs to [Flight Log Review](http://logs.px4.io/)
+* Upload logs to [Flight Log Review](https://logs.px4.io/)
 * [Open a Github Issue](https://github.com/PX4/Devguide/issues) with a flight report with as much detail as possible and links to logs.
 
 <a id="dev_call"></a>
@@ -40,7 +40,7 @@ If you are unsure what the problem is and you need help diagnosing
 ## Weekly Dev Call
 
 :::tip
-Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../README.md#calendar)) to engage more deeply with the project.
+Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../README.md#calendar-events)) to engage more deeply with the project.
 :::
 
 The [Dev Call](../contribute/dev_call.md) is a weekly meeting attended by the PX4 dev team to discuss platform technical details, coordinate activities and perform in-depth analysis.
@@ -57,6 +57,6 @@ See [Test Flights](../test_and_ci/test_flights.md) for information about availab
 
 ## General Support
 
-* [Join our Slack community](http://slack.px4.io/)
-* [Open a discussion](http://discuss.px4.io)
+* [Join our Slack community](https://slack.px4.io/)
+* [Open a discussion](https://discuss.px4.io/)
 * [Open Github Issue](https://github.com/PX4/Devguide/issues)

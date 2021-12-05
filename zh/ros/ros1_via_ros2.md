@@ -1,6 +1,6 @@
 # ROS (1) via ROS 2 Bridge (User Guide)
 
-This topic explains how use ROS (1) with PX4, by bridging via [ROS 2](..ros/ros2.md).
+This topic explains how use ROS (1) with PX4, by bridging via [ROS 2](../ros/ros2.md).
 
 It provides an overview of the ROS-ROS2-PX4 architecture, along with instructions on how to install all the needed software and build ROS (1) applications. It also covers how to run/setup ROS 2 and ROS 1 workspaces at the same time.
 
@@ -29,7 +29,7 @@ The other main difference is that the `px4_ros_com` and `px4_msgs` packages a se
 
 ## Installation & Setup
 
-Follow the instructions in [ROS 2 User Guide > Installation & Setup](../ros/ros2.md#installation-setup) to install ROS 2.
+Follow the instructions in [ROS 2 User Guide > Installation & Setup](../ros/ros2_comm.md#installation-setup) to install ROS 2.
 
 ### Build ROS (1) Workspace
 

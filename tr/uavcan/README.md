@@ -9,10 +9,11 @@
 
 It supports hardware like:
 
-- [ESC/Motor controllers](../uavcan/escs.html)
+- [ESC/Motor controllers](../uavcan/escs.md)
 - Airspeed sensors
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - GNSS receivers for GPS and GLONASS
+  - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - Power monitors
   - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
@@ -32,7 +33,7 @@ It supports hardware like:
 
 All UAVCAN components share the same connection architecture/are wired the same way. Connect all on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes (the order in which the nodes are connected/chained does not matter).
 
-The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.html) and a UAVCAN GNSS.
+The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.md) and a UAVCAN GNSS.
 
 ![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
 

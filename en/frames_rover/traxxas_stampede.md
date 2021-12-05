@@ -47,10 +47,10 @@ It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampe
 PWM Output | Actuator
 --- | ---
 MAIN2 | Steering servo
-MAIN4 | ESC input
+MAIN4 | Throttle (ESC input)
 
 :::note
-As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
+As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle).
 :::
 
 ## Configuration

@@ -179,7 +179,7 @@ Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for a
    _Figure 16_: GPS and mast
 
 
-1. Mount the telemetry radio onto the top plate. Plug the telemetry cable into `TELEM1` port and GPS module to `GPS MODULE` port on the flight controller. Plug the cable from PM07 FMU-PWM-in to FMU-PWM-out and PWR1 to `POWER1` on the flight controller, as shown in Figure 17.
+1. Mount the telemetry radio onto the top plate. Plug the telemetry cable into `TELEM1` port and GPS module to `GPS MODULE` port on the flight controller. Plug the cable from PM07 `FMU-PWM-in` to `I/O-PWM-out`on the FC and PM07 `PWR1` to `POWER1` on the FC, as shown in Figure 17.
 
    ![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/fc_connections.jpg)
 
@@ -189,7 +189,7 @@ Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for
 
 That's it. The fully assembled kit is shown below:
 
-![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_assembled.png)
+![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 <a id="configure"></a>
 

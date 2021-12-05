@@ -40,7 +40,7 @@ Ground stations such as *QGroundControl* connect to all instances using the norm
 
 The number of simultaneously running instances is limited mainly by computer resources.
 FlightGear is a single-thread application, but aerodynamics solvers consume a lot of memory.
-Therefore splitting to multiple computers and using a [multiplayer server](http://wiki.flightgear.org/index.php?title=Howto:Multiplayer) is probably required to run *many* vehicle instances.
+Therefore splitting to multiple computers and using a [multiplayer server](https://wiki.flightgear.org/Howto:Multiplayer) is probably required to run *many* vehicle instances.
 
 ## Additional Resources
 

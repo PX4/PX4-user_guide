@@ -1,9 +1,9 @@
-# Modules
+# 모듈
 
-This is a placholder to create the modules.
+이것은 모듈을 생성하기 위한 자리 표시자입니다.
 
-Directory contains:
+디렉토리에는 다음이 포함됩니다.
 
-* [Writing your First Application](hello_sky.md)
-* [Application/Module Template](module_template.md)
-* [Modules & Commands](modules_main.md)
+* [최초 프로그램 작성](hello_sky.md)
+* [어플리케이션 모듈 템플릿](module_template.md)
+* [모듈과 명령어](modules_main.md)

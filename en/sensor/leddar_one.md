@@ -1,6 +1,6 @@
 # LeddarOne Lidar
 
-[LeddarOne](https://leddartech.com/modules/leddarone/) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. 
+[LeddarOne](https://leddartech.com/solutions/leddarone/) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. 
 It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
@@ -30,7 +30,7 @@ There is no need to set the baud rate for the port, as this is configured by the
 :::note
 If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 ```
-drivers/distance_sensor/leddar_one
+CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y
 ```
 :::
 

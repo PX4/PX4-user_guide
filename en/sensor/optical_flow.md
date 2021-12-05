@@ -1,7 +1,10 @@
 # Optical Flow
 
 *Optical Flow* uses a downward facing camera and a downward facing distance sensor for velocity estimation.
-Optical Flow based navigation is enabled by the estimators: EKF2 and LPE (deprecated).
+
+@[youtube](https://youtu.be/aPQKgUof3Pc)
+*Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
+<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
 ## Setup
 
@@ -9,7 +12,7 @@ An Optical Flow setup requires a downward facing camera and a [distance sensor](
 These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
 :::note
-If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISTANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
 :::
 
 The output of the flow when moving in different directions must be as follows:
@@ -50,7 +53,7 @@ It is used in a number of products, including some from: Bitcraze, Tindie, Hex, 
 
 ### Other Cameras/Sensors
 
-It is also possible to use a board/quad that has an integrated camera (e.g. Snapdragon Flight).
+It is also possible to use a board/quad that has an integrated camera.
 For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
 
 
@@ -69,8 +72,9 @@ The offsets are calculated relative to the vehicle orientation and center as sho
  
 ![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
 
+Optical Flow based navigation is enabled by both the availableestimators: EKF2 and LPE (deprecated).
 
-<span id="ekf2"></span>
+<a id="ekf2"></a>
 ### Extended Kalman Filter (EKF2)
 
 For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:

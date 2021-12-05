@@ -1,25 +1,25 @@
-# Sending a Custom Message from MAVROS to PX4
+# MAVROS에서 PX4로 사용자 정의 메시지 전송
 
 :::warning
-This article has been tested against:
+이 문서는 다음 환경에서 테스트하였습니다.
 - **Ubuntu:** 18.04
 - **ROS:** Melodic
-- **PX4 Firmware:** 1.9.0
+- **PX4 펌웨어:** 1.9.0
 
-However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
+그러나 이러한 단계는 상당히 일반적이므로 수정이 거의 없이 다른 배포판/버전에서 작동합니다.
 :::
 
 <!-- Content reproduced with permission from @JoonmoAhn in https://github.com/JoonmoAhn/Sending-Custom-Message-from-MAVROS-to-PX4/issues/1 -->
 
-## MAVROS Installation
+## MAVROS 설치
 
-Follow *Source Installation* instructions from [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) to install "ROS Kinetic".
+[mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md)의 *소스 설치* 지침에 따라 "ROS Kinetic"을 설치합니다.
 
 ## MAVROS
 
-1. We start by creating a new MAVROS plugin, in this example named **keyboard_command.cpp** (in **workspace/src/mavros/mavros_extras/src/plugins**) by using the code below:
+1. 아래 코드를 사용하여 이 예에서 **keyboard_command.cpp**(**workspace/src/mavros/mavros_extras/src/plugins**에 있음)라는 이름의 새 MAVROS 플러그인을 생성합니다.
 
-   The code subscribes a 'char' message from ROS topic `/mavros/keyboard_command/keyboard_sub` and sends it as a MAVLink message.
+   이 코드는 ROS 주제 `/mavros/keyboard_command/keyboard_sub`의 'char' 메시지를 구독하고 MAVLink 메시지로 전송합니다.
    ```c
     #include <mavros/mavros_plugin.h>
     #include <pluginlib/class_list_macros.h>
@@ -63,14 +63,14 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plugin::PluginBase)
    ```
 
-1. Edit **mavros_plugins.xml** (in **workspace/src/mavros/mavros_extras**) and add the following lines:
+1. **mavros_plugins.xml**(**workspace/src/mavros/mavros_extras**)을 편집하고 다음 줄을 추가합니다.
    ```xml
    <class name="keyboard_command" type="mavros::extra_plugins::KeyboardCommandPlugin" base_class_type="mavros::plugin::PluginBase">
         <description>Accepts keyboard command.</description>
    </class>
    ```
 
-1. Edit **CMakeLists.txt** (in **workspace/src/mavros/mavros_extras**) and add the following line in `add_library`.
+1. **CMakeLists.txt**(**workspace/src/mavros/mavros_extras**)를 편집하고 `add_library`에 다음 줄을 추가합니다.
    ```cmake
    add_library( 
    ...
@@ -78,7 +78,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    )
    ```
 
-1. Inside **common.xml** in (**workspace/src/mavlink/message_definitions/v1.0**), copy the following lines to add your MAVLink message:
+1. (**workspace/src/mavlink/message_definitions/v1.0**)의 **common.xml** 내부에서 다음 줄을 복사하여 MAVLink 메시지를 추가합니다.
    ```xml
    ...
      <message id="229" name="KEY_COMMAND">
@@ -88,9 +88,9 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ...
    ```
 
-## PX4 Changes
+## PX4 수정사항
 
-1. Inside **common.xml** (in **PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions**), add your MAVLink message as following (same procedure as for MAVROS section above):
+1. **common.xml** 내부(**PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions**)에서 다음과 같이 MAVLink 메시지를 추가합니다(MAVROS 섹션과 동일한 절차).
    ```xml
    ...
      <message id="229" name="KEY_COMMAND">
@@ -100,32 +100,32 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ...
    ```
 
-1. Remove *common*, *standard* directories in (**PX4-Autopilot/mavlink/include/mavlink/v2.0**).
+1. (**PX4-Autopilot/mavlink/include/mavlink/v2.0**)에서 *공통*, *표준* 디렉토리를 제거합니다.
    ```sh
    rm -r common
    rm -r standard
    ```
-1. Git clone "mavlink_generator" to any directory you want and execute it.
+1. Git은 "mavlink_generator"를 원하는 디렉토리에 복제하고 실행합니다.
    ```sh
    git clone https://github.com/mavlink/mavlink mavlink-generator
    cd mavlink-generator
    python mavgenerate.py
    ```
 
-1. You will see a "MAVLink Generator" popup:
-   - For *XML*, "Browse" to **/PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions/standard.xml**.
-   - For Out, "Browse" to **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**.
-   - Select Language **C**
-   - Select Protocol **2.0**
-   - Check *Validate*
+1. "MAVLink Generator" 팝업이 표시됩니다.
+   - *XML*의 경우 **/PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions/standard.xml**으로 "찾아보기"합니다.
+   - Out의 경우 **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**으로 "찾아보기"합니다.
+   - **C** 언어를 선택합니다.
+   - 프로토콜 **2.0**을 선택합니다.
+   - *Validate*를 체크합니다.
 
-   Then, press **Generate**. You will see *common*, and *standard* directories created in **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**.
+   **Generate**를 누릅니다. **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**에서 생성된 *공통* 및 *표준* 디렉토리를 볼 수 있습니다.
 
-1. Make your own uORB message file **key_command.msg** in (PX4-Autopilot/msg). For this example the "key_command.msg" has only the code:
+1. (PX4-Autopilot/msg)에서 자신만의 uORB 메시지 파일 **key_command.msg**를 만듭니다. 이 예에서 "key_command.msg"에는 다음 코드만 있습니다.
    ```
    char cmd
    ```
-   Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include
+   그런 다음 **CMakeLists.txt**(**PX4-Autopilot/msg**)에 다음을 포함합니다.
    ```cmake
    set(
    ...
@@ -133,7 +133,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
         )
    ```
 
-1. Edit **mavlink_receiver.h** (in **PX4-Autopilot/src/modules/mavlink**)
+1. **mavlink_receiver.h**를 편집합니다. (**PX4-Autopilot/src/modules/mavlink**)
 
    ```cpp
    ...
@@ -149,7 +149,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    }
    ```
 
-1. Edit **mavlink_receiver.cpp** (in **PX4-Autopilot/src/modules/mavlink**). This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.
+1. **mavlink_receiver.cpp**를 수정합니다(**PX4-Autopilot/src/modules/mavlink**). 여기에서 PX4는 ROS에서 보낸 MAVLink 메시지를 수신하고, 이를 uORB 주제로 게시합니다.
    ```cpp
    ...
    void MavlinkReceiver::handle_message(mavlink_message_t *msg)
@@ -181,7 +181,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    }
    ```
 
-1. Make your own uORB topic subscriber just like any example subscriber module. For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver). In this directory, create two files **CMakeLists.txt**, **key_receiver.cpp**. Each one looks like following.
+1. 예제 구독자 모듈처럼 자신만의 uORB 주제 구독자를 생성합니다. 이 예에서는 (/PX4-Autopilot/src/modules/key_receiver)에서 모델을 생성할 수 있습니다. 이 디렉토리에서 두 개의 파일 **CMakeLists.txt**, **key_receiver.cpp**를 생성합니다. 각각은 다음과 같습니다.
 
    -CMakeLists.txt
 
@@ -259,24 +259,21 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    }
    ```
 
-   For a more detailed explanation see the topic [Writing your first application](../modules/hello_sky.md).
+   자세한 설명은 [첫 번째 지원서 작성](../modules/hello_sky.md) 항목을 참고하십시오.
 
-1. Lastly add your module in the **default.cmake** file correspondent to your board in **PX4-Autopilot/boards/**. For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**:
-   ```cmake
-    MODULES
-        ...
-        key_receiver
-        ...
+1. 마지막으로 **PX4-Autopilot/boards/**의 보드에 해당하는 **default.cmake** 파일에 모듈을 추가합니다. 예를 들어, Pixhawk 4의 경우에는 **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**에 다음 코드를 추가합니다.
     ```
 
-Now you are ready to build all your work!
+MODULES
+        ...
 
-## Building
-
-### Build for ROS
-
-1. In your workspace enter: `catkin build`.
-1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
+key_receiver
+        ... In your workspace enter: `catkin build`.
+1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). 
+   Edit "px4.launch" as below.
+   If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below.
+   But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0".
+   Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
 
 1. Write your IP address at "xxx.xx.xxx.xxx"
    ```xml
@@ -286,20 +283,20 @@ Now you are ready to build all your work!
    ...
    ```
 
-### Build for PX4
+### ROS 빌드
 
-1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx).
+1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
     For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
     ```sh
     make px4_fmu-v5_default upload
     ```
 
-## Running the Code
+## 빌드
 
-Next test if the MAVROS message is sent to PX4.
+이제 작업을 빌드할 준비가 되었습니다!
 
-### Running ROS
+### PX4 빌드
 
 1. In a terminal enter
    ```sh
@@ -311,22 +308,20 @@ Next test if the MAVROS message is sent to PX4.
    ```
    This means, publish 97 ('a' in ASCII) to ROS topic "/mavros/keyboard_command/keyboard_sub" in message type "std_msgs/Char". "-r 10" means to publish continuously in "10Hz".
 
-### Running PX4
+### ROS 실행
 
 1. Enter the Pixhawk nutshell through UDP. Replace xxx.xx.xxx.xxx with your IP.
    ```sh
-   cd PX4-Autopilot/Tools
-   ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
+   roslaunch mavros px4.launch
    ```
 
 1. After few seconds, press **Enter** a couple of times. You should see a prompt in the terminal as below:
    ```sh
-   nsh>
-   nsh>
+   rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
    Type "key_receiver", to run your subscriber module.
    ```
    nsh> key_receiver
    ```
 
-Check if it successfully receives `a` from your ROS topic.
+MAVROS 메시지가 PX4로 전송되는 지 테스트합니다.

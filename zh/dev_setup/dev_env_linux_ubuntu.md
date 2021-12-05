@@ -7,7 +7,6 @@
 * [Raspberry Pi](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
 * [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
-* [Snapdragon Flight](../flight_controller/snapdragon_flight.md#developer-setup-building-firmware) (Discontinued)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -79,18 +78,13 @@ Information-only notes
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    bash ubuntu.sh
    ```
-:::
-
-<!-- Do we need to add to our scripts or can we assume correct version installs over?
+:::<!-- Do we need to add to our scripts or can we assume correct version installs over?
 Remove any old versions of the arm-none-eabi toolchain.
 ```sh
 sudo apt-get remove gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi gcc-arm-embedded
 sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 ```
--->
-
-
-<a id="raspberry-pi-hardware"></a>
+--><a id="raspberry-pi-hardware"></a>
 
 ## 通用依赖
 
@@ -145,7 +139,7 @@ sudo -H pip install pandas jinja2 pyserial cerberus
 
 ### Gazebo
 
-First [install GCC](#gcc) (needed to use clang).
+First install GCC (needed to use clang).
 
 sudo apt-get update
 ```

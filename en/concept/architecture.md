@@ -119,8 +119,8 @@ There are 2 different ways that a module can be executed:
   Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
 
 :::note
-Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`).
-Use [`work_queue status`](../modules/modules_system.md#workqueue) to display all active work queue items.
+Tasks running on a work queue do not show up in [`top`](../modules/modules_command.html#top) (only the work queues themselves can be seen - e.g. as `wq:lp_default`).
+Use [`work_queue status`](../modules/modules_system.md#work-queue) to display all active work queue items.
 :::
 
 ### Background Tasks
@@ -144,7 +144,7 @@ independent_task = px4_task_spawn_cmd(
 
 #### NuttX
 
-[NuttX](http://nuttx.org/) is the primary RTOS for running PX4 on a flight-control board.
+[NuttX](https://nuttx.apache.org//) is the primary RTOS for running PX4 on a flight-control board.
 It is open source (BSD license), light-weight, efficient and very stable.
 
 Modules are executed as tasks: they have their own file descriptor lists, but they share a single address space.

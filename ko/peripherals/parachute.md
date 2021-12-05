@@ -1,70 +1,70 @@
-# Parachute
+# 낙하산
 
-PX4 can be configured to trigger a parachute connected to a free PWM output during [flight termination](../advanced_config/flight_termination.md).
+PX4는 [비행 종료](../advanced_config/flight_termination.md) 과정에서 여분의 PWM 출력에 낙하산을 연결할 수 있습니다.
 
-This topic provides the specific example of how to set up a parachute, using a spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/).
+[Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/)의 스프링 장착 런처로 낙하산을 설정하는 방법에 대한 구체적인 방법을 설명합니다.
 
 :::note
-In fact PX4 does not know that it is launching a parachute; during flight termination it just turns off all controllers and sets all PWM outputs to their failsafe values. You can therefore use this feature to activate multiple complementary safety devices. For more information see [Flight Termination Configuration](../advanced_config/flight_termination.md).
+사실 PX4는 낙하산을 발사하고 있다는 사실을 모릅니다. 비행 종료중에는 모든 콘트롤러를 끄고 모든 PWM 출력을 안전 장치 값으로 설정합니다. 이 기능을 사용하여 여러 보완 안전장치를 활성화할 수 있습니다. 자세한 내용은 [비행 종료 설정](../advanced_config/flight_termination.md)을 참고하십시오.
 :::
 
-## Using Parachutes
+## 낙하산 사용법
 
-Below are a few notes about using parachutes:
+낙하산 사용에 대한 몇 가지 참고 사항은 아래와 같습니다.
 
-- Having a parachute does not guarantee that the vehicle will not be destroyed or cause harm!
+- 낙하산이 있다고 해서 기체가 파손되지 않는다는 보장은 없습니다!
     
 :::warning
-You must always fly with safety in mind.
+항상 안전을 염두에 두고 비행하여야 합니다.
 :::
 
-- Parachutes require careful usage to be effective - for example, they must be folded correctly.
+- 낙하산을 효과적으로 사용하려면 주의하여 사용하여야 합니다. 예를 들어, 낙하산이 올바르게 접혀져 있어야 합니다.
 
-- Parachutes have a minimum effective altitude.
-- A parachute may trigger while the vehicle is upside down. This will increase the time required to slow, and may even result in the drone collapsing the parachute.
-- The system requires a working and powered flight controller. If something causes the flight stack to crash, the parachute will not deploy. 
+- 낙하산에는 최소 유효 고도가 있습니다.
+- 기체가 뒤집힌 상태에서 낙하산이 작동할 수 있습니다. 이것은 속도를 줄이는 데 필요한 시간을 증가시키고, 드론이 낙하산을 무너뜨리는 결과를 초래할 수 있습니다.
+- 이 시스템에는 전원이 공급되어 작동하고 있는 비행 콘트롤러가 필요합니다. 비행 스택이 충돌하는 원인이 되는 경우에는 낙하산이 전개되지 않습니다. 
 
-## Parachute Setup
+## 낙하산 설정
 
-The setup below explains how you might configure a quad multicopter with motors on MAIN 1-4 and a parachute on MAIN PWM port 7. The PWM values mentioned are for the *Fruity Chutes* parachute we tested.
+아래 설정은 MAIN 1-4에 모터가 있고 MAIN PWM 포트 7에 낙하산이 있는 쿼드터 설정방법을 설명합니다. 언급된 PWM 값은 테스트한 *Fruity Chutes* 낙하산에 관한 것입니다.
 
 :::tip
-For the first test, try on the bench, without the props and with an unloaded parachute device!
+첫 번째 테스트 시에는, 소품없이 낙하산 장치를 장착한 상태에서 벤치에서 시도하십시오!
 :::
 
-Hardware setup:
+하드웨어 설정:
 
-- Connect the parachute to the IO port (MAIN), channel 7 (starting from 1).
-- Power the servo rail - i.e. connect a 5V BEC to the servo rail.
+- 낙하산을 IO 포트(MAIN), 채널 7(1부터 시작)에 연결합니다.
+- 서보 레일에 전원을 공급합니다. 즉, 5V BEC를 서보 레일에 연결합니다.
 
-Enable flight termination:
+비행 종료 활성화:
 
-- Set [Safety](../config/safety.md) action to *Flight termination* for checks where you want the parachute to trigger
-- Set [Failure Detector](../config/safety.md#failure_detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
+- 낙하산을 작동 위치를 확인하려면, [안전](../config/safety.md) 작업을 *비행 종료*로 설정하십시오.
+- 충돌/반전 감지를 위한 [고장 감지기](../config/safety.md#failure_detector) 피치 각도, 롤 각도 및 시간 트리거를 설정하고 오류/IMU 시간 초과 회로 차단기를 비활성화합니다(예: [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) 설정).
     
 :::note
-You can also configure an [external ATS](../config/safety.md#external_ats) for failure detection.
+실패 감지를 위해 [외부 ATS](../config/safety.md#external_ats)를 설정할 수도 있습니다.
 :::
 
-Parachute settings
+낙하산 설정
 
-- Set [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS7) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
-- Set [PWM_MAIN_FAIL7](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL7) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
+- 낙하산 "OFF" 위치에 대한 PWM 값으로 [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS7) 설정(보통 700~1000ms 사이)
+- [PWM_MAIN_FAIL7](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL7)을 낙하산 "ON" 위치에 대한 PWM 값으로 설정합니다(보통 1800~2200ms 사이).
 
-Motor settings:
+모터 설정:
 
-- Set [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), where n is 1 - 4, to 900ms such that the motors directly go to disarmed values.
+- [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1)(여기서 n은 1 - 4임)을 모터가 직접 해제된 값으로 이동하도록 900ms로 설정합니다.
 
 :::note
-There is no way to recover from a Termination state! Reboot/power cycle the vehicle before your next test.
+종료 상태에서 복구할 방법이 없습니다! 다음 테스트 전에 기체를 재부팅합니다.
 :::
 
 <span id="testing"></span>
 
-## Parachute Testing
+## 낙하산 시험
 
-The parachute will trigger during [flight termination](../advanced_config/flight_termination.md).
+낙하산은 [비행 종료](../advanced_config/flight_termination.md) 중에 작동합니다.
 
-The easiest way to test a (real) parachute is to enable the [failure detector attitude trigger](../config/safety.md#attitude_trigger) and tip the vehicle over.
+(실제) 낙하산을 테스트하는 가장 쉬운 방법은 [고장 감지기 자세 트리거](../config/safety.md#attitude_trigger)를 활성화하고 기체를 뒤집는 것입니다.
 
-You can also simulate a parachute/flight termination in Gazebo: [Development > Simulation > Gazebo > Simulated Parachute/Flight Termination](../simulation/gazebo.md#flight_termination).
+Gazebo에서 낙하산/비행 종료를 시뮬레이션할 수 있습니다. [개발 &gt; 시뮬레이션 &gt; 전망대 &gt; 낙하산/비행 종료 시뮬레이션](../simulation/gazebo.md#flight_termination).

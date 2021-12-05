@@ -1,6 +1,6 @@
 # Freefly Systems RTK GPS
 
-The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/freefly-rtk-gps) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation.
+The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/rtk-gps-ground-station) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation.
 The modules can act as either rovers (when installed on an aircraft) or base stations (when plugged into a computer).
 
 Main features include:
@@ -17,7 +17,7 @@ This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P w
 
 ## Purchase
 
-* [Freefly Store](https://store.freeflysystems.com/products/freefly-rtk-gps)
+* [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 
 ## Kit Contents
 

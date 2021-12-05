@@ -1,11 +1,11 @@
-# Tachometers (Revolution Counters)
+# 회전 속도계 (회전 카운터)
 
-Tachometers (also known as [revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
+회전 속도계([회전 카운터 센서](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)라고도 함)는 자동조종장치가 실속 또는 다른 회전자 고장(대기 속도 나지면 속도가 아닌 양력을 보장하는 블레이드의 회전)을 감지할 수 있기 때문에 회전 날개 프레임에 *적극 권장*합니다.
 
-This section lists the tachometer sensors supported by PX4 (linked to more detailed documentation). More detailed setup and configuration information is provided in the topics linked below (and sidebar).
+이 섹션에는 PX4에서 지원하는 회전 속도계 센서가 나열되어 있습니다 (더 자세한 내용은 링크 참고). 보다 자세한 설정과 정보는 아래 링크(및 사이드 바)를 참고하십시오.
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-## Supported Hardware
+## 지원 하드웨어
 
-- [ThunderFly TFRPM01 Tachometer](../sensor/thunderfly_tachometer.md)
+- [ThunderFly TFRPM01 타코미터](../sensor/thunderfly_tachometer.md)

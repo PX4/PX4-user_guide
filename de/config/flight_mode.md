@@ -1,30 +1,26 @@
 # Flight Mode Configuration
 
-[Flight Modes](../flight_modes/README.md) provide different types of *autopilot-assisted flight*, and *fully autonomous flight* via missions or offboard (companion computer) control. Different flight modes allow new users to learn flying with a more forgiving platform than provided by basic RC control alone. They also enable automation of common tasks like taking off, landing and returning to the original launch position.
-
-PX4 allows you to select flight modes from a ground station (tablet or desktop) or from a radio control transmitter. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
-
-This topic explains how to map flight modes to the switches on your radio control transmitter.
+This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
 
 :::tip
-You must already have [configured your radio](../config/radio.md) in order to set flight modes.
+You must already have [configured your radio](../config/radio.md) in order to assign flight modes and functions.
 :::
 
-## What Flight Modes Should I Set?
+:::note PX4 allows you to select flight modes from a ground station (tablet or desktop) or from a radio control transmitter. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
+:::
 
-You can set any (or none) of the flight modes [described here](../flight_modes/README.md).
+## What Flight Modes and Switches Should I Set?
 
-New users should consider setting one or more of the following modes, which make the vehicle much easier to fly:
+*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
 
-* **Stabilized** - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position).
-* **Position** - When sticks are released the vehicle will stop (and hold position against wind drift).
-* **Altitude** - Climb and drop are controlled to have a maximum rate.
+* **Position mode** ([multicopter](../getting_started/flight_modes.md#position-mode-mc), [fixed-wing](../getting_started/flight_modes.md#position-mode-fw)) - Easiest and safest mode for manual flight.
+* [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
+* **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
 It is also common to map switches to:
 
-* [Return](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
 * [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
-* <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
+* <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 ## Multi Channel vs Single Channel Mode Selection
 
@@ -44,14 +40,14 @@ The recommended approach is use *Single Channel Mode Selection* because it easy 
 The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
 
 :::note
-In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter).
+In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide information on how this is done for the popular *Taranis* transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter).
 :::
 
 To configure single-channel flight mode selection:
 
 1. Start *QGroundControl* and connect the vehicle.
 2. Turn on your RC transmitter.
-3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
+3. Select **QGroundControl icon > Vehicle Setup**, and then **Flight Modes** in the sidebar.
     
     ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
     
@@ -61,11 +57,17 @@ If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode 
 
 4. Specify *Flight Mode Settings*:
     
-    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration). 
-    * Select up to six **Flight Modes**.
-5. Specify *Switch Settings*: 
+    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
+    * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 4*). :::note While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
+:::
+    * Select the flight mode that you want triggered for each switch position.
+
+5. Specify *Switch Settings*:
+    
     * Select the channels that you want to map to specific actions - e.g.: *Return* mode, *Kill switch*, *offboard* mode, etc. (if you have spare switches and channels on your transmitter).
-6. Test that the modes are mapped to the right transmitter switches: 
+
+6. Test that the modes are mapped to the right transmitter switches:
+    
     * Check the *Channel Monitor* to confirm that the expected channel is changed by each switch.
     * Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on *QGroundControl* for the active mode).
 
@@ -73,42 +75,41 @@ All values are automatically saved as they are changed.
 
 <span id="taranis_setup"></span>
 
-### Single-Channel Setup Video Example (including Transmitter Setup)
+### Taranis Setup: 3-way Switch Configuration for Single-Channel Mode
 
-It is common to use the positions of a 2- and a 3-position switch on the transmitter to represent the 6 flight modes, and encode each combination of switches as a particular PWM value for the mode that will be sent on a single channel.
-
-The video below shows how this is done with the *FrSky Taranis* transmitter (a very popular and highly recommended RC transmitter). The process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
-
-The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots".
-
-@[youtube](https://youtu.be/scqO7vbH2jo)
-
-### Single-Channel Setup Instructional Example
-
-This example shows how you can configure a transmitter and PX4 with:
-
-* A 3-way switch to choose between flight modes using the single-channel mode setting approach (Manual, Altitude, Acro).
-* A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
+If you only need to support selecting between two or three modes then you can map the modes to the positions of a single 3-way switch. Below we show how to map the Taranis 3-way "SD" switch to channel 5.
 
 :::note
-This example shows how to set up the popular *FrSky Taranis* transmitter. Configuration will be slightly different for other transmitters.
+This example shows how to set up the popular *FrSky Taranis* transmitter. Transmitter setup will be different on other transmitters.
 :::
 
-First set up your transmitter. Below we show how to map the Taranis "SD" switch to channel 5. This is done in the Taranis UI 'mixer' page, as shown below:
+Open the Taranis UI **MIXER** page and scroll down to **CH5**, as shown below:
 
 ![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
+Press **ENT(ER)** to edit the **CH5** configuration then change the **Source** to be the *SD* button.
+
 ![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
-You can then select the channel and the flight modes in single channel mode selection option in *QGroundControl*:
+That's it! Channel 5 will now output 3 different PWM values for the three different **SD** switch positions.
 
-![QGC - Set mode channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_3.png)
+The *QGroundControl* configuration is then as described in the previous section.
 
-The [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameters map a particular function to a channel. Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
+### Taranis Setup: Multi-Switch Configuration for Single-Channel Mode
 
-For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*.
+Most transmitters do not have 6-way switches, so if you need to be able to support more modes than the number of switch positions available (up to 6) then you will have to represent them using multiple switches. Commonly this is done by encoding the positions of a 2- and a 3-position switch into a single channel, so that each switch position results in a different PWM value.
 
-![QGC - Map ARM switch to channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_4.png)
+On the FrSky Taranis this process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
+
+The video below shows how this is done with the *FrSky Taranis* transmitter.
+
+<!-- [youtube](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available -->
+
+<!-- @[youtube](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs --> @
+
+[youtube](https://youtu.be/TFEjEQZqdVA)
+
+The *QGroundControl* configuration is then as [described above](#single-channel-flight-mode-selection).
 
 <span id="multi_channel"></span>
 
@@ -152,3 +153,4 @@ This flight mode selection mechanism is relatively complicated due to the way th
 * [Flight Modes Overview](../flight_modes/README.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
 * [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
+* [Radio switch parameters](../advanced_config/parameter_reference.md#radio-switches) - Can be used to set mappings via parameters

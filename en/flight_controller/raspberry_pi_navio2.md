@@ -17,7 +17,7 @@ It allows you to build PX4 and transfer to the RasPi, or build natively.
 
 ## OS Image
 
-Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/Navio-APM/configuring-raspberry-pi/).
+Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi).
 The default image will have most of the setup procedures shown below already done.
 
 :::warning
@@ -205,7 +205,7 @@ make emlid_navio2 # for cross-compiler build
 ```
 
 The "px4" executable file is in the directory **build/emlid_navio2_default/**.
-Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](../flight_controller/raspberry_pi_navio2.md#developer-quick-start).
+Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](#setting-up-access).
 
 Then upload it with:
 

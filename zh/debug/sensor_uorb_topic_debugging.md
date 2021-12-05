@@ -10,7 +10,9 @@ This is a powerful debugging tool because it can be used even when QGC is connec
 The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
 :::
 
-有关如何确定可用的主题以及如何调用 `listener` 的详细信息，请参阅：[uORB 消息列表主题和侦听 ](../middleware/uorb.md#listing-topics-and-listening-in)。
+:::tip
+To check what topics are available at what rate, just use the `uorb top` command.
+:::
 
 The image below demonstrates *QGroundControl* being used to get the value of the acceleration sensor.
 

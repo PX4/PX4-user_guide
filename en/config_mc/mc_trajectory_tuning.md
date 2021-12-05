@@ -31,20 +31,18 @@ Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lea
 Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
 :::
 
-<span id="modes"></span>
+<a id="modes"></a>
 ## Flight Modes Trajectory Support
 
 [Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
 
-[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below.
-It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory-implementations) listed below.
+It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-[Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory_implementation) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
+[Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory-implementations) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
 
 No other modes support trajectory tuning.
 
-
-<span id="trajectory_implementation"></span>
 ## Trajectory Implementations
 
 The following list provides an *overview* of the different trajectory implementations:
@@ -54,12 +52,6 @@ The following list provides an *overview* of the different trajectory implementa
   - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
   - May not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
   - Set in position mode using `MPC_POS_MODE=3`.
-- [Slew-rate](../config_mc/mc_slew_rate_type_trajectory.md)
-  - Used when quick response is more important than smooth motion (e.g.: aggressive flight with position hold).
-  - This is a simple implementation where the jerk and acceleration is limited using slew-rates.
-  - It allows asymmetric profiles based on user intention (smooth acceleration and quick stop).	
-  - The jerk and acceleration limits are not hard constraints.
-  - Set in position mode using `MPC_POS_MODE=1`.
 - **Simple position control**
   - Sticks map directly to velocity setpoints without smoothing.
   - Useful for velocity control tuning.

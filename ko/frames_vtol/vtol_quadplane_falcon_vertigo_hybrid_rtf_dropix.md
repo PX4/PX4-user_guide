@@ -30,8 +30,8 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고 시스템에 �
 * 4 x 프로펠러 10”x 5”(쿼드 모터)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
 * 프로펠러 10”x 5”1 개 (푸셔 모터)
-* 1 x [ESC 30A](http://rctimer.com/product-146.html)
-* [푸셔 모터 전원 시스템](http://airtekhobbies.com/c283410.html)
+* 1 x ESC 30A
+* 푸셔 모터 전원 시스템
 * 탄소 섬유 튜브 및 마운트
 * G10 모터 마운트
 * 1 x [3700mah 4S 30C 리포 배터리](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
@@ -241,7 +241,7 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="쿼드 모터 순서 / 방향" />
   
 :::note
-필요하면 QGroundControl의 `PWM_OUTPUT` 그룹 (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)에서 `PWM_REV` 매개 변수를 사용하여 서보 방향을 변경할 수 있습니다.
+필요한 경우 QGroundControl의 `PWM_OUTPUT` 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 서보 방향을 바꿀 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목).
 :::
 
 2. 차량이 예상 무게 중심 주변에서 균형을 이루는 지 확인하십시오.

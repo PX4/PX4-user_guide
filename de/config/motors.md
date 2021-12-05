@@ -7,7 +7,7 @@ Note the following PX4-specific behaviour:
 - The kill-switch can still be used to stop motors immediately.
 - The parameter [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) can be used to completely disable motor testing.
 - On boards with an IO, only the MAIN pins can be tested.
-- On the shell, [motor_test](../modules/modules_command.md#motortest) can be used as well, which has additional options.
+- On the shell, [motor_test](../modules/modules_command.md#motor-test) can be used as well, which has additional options.
 
 If one or more of the motors do not turn in the correct direction according to the configured [airframe](../airframes/airframe_reference.md), they must be reversed. There are several options:
 - If using ESCs that support [DShot](../peripherals/dshot.md) you can reverse the direction via [DShot commands](../peripherals/dshot.md#commands).

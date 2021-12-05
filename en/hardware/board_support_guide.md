@@ -3,7 +3,7 @@
 The PX4 development and test teams fully support and maintain boards that are compliant with the [Pixhawk Standard](https://pixhawk.org/standards/).
 Manufacturers who wish to deviate from the standard or create completely new boards can do so, but will need to support any resulting compatibility differences.
 
-This guide outlines the [general requirements](#general_requirements) for board support, along with the additional requirements for the different [board support categories](#board_support_categories).
+This guide outlines the [general requirements](#general_requirements) for board support, along with the additional requirements for the different [board support categories](#board-support-categories).
 
 :::note
 Boards that are not compliant with the requirements are [unsupported](#unsupported); they will not be listed on the PX4 website hardware list and will be removed from the codebase.
@@ -35,7 +35,7 @@ The general requirements for all supported boards are:
     - A manual of the finished product detailing its use
 1. There must be a dedicated webpage for the board with PX4, which lists the features and limitations for usage with PX4, and includes or links to the above described documentation.
 
-## Board Support Categories {#board_support_categories)
+## Board Support Categories
 
 The board support categories are listed below. The autopilot boards in each category are listed at: [https://px4.io/autopilots/.](https://px4.io/autopilots/)
 

@@ -8,7 +8,6 @@ This environment can be used to build PX4 for [most PX4 targets](../dev_setup/de
 * [Raspberry Pi](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
 * [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
-* [Snapdragon Flight](../flight_controller/snapdragon_flight.md#developer-setup-building-firmware) (Discontinued)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -23,7 +22,7 @@ The instructions should also work on other Debian Linux based systems, but this 
 
 ## Video Guide
 
-This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#gazebo-jmavsim-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.html).
+This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#gazebo-jmavsim-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md).
 
 @[youtube](https://youtu.be/OtValQdAdrU)
 
@@ -129,7 +128,7 @@ sudo apt-get install -y gcc-8-arm-linux-gnueabihf g++-8-arm-linux-gnueabihf
 Set them as default:
 
 ```sh
-sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-8 100 --slave /usr/bin/arm-linux-gnueabihf-g++ arm-linux-gnueabihf-g++ /usr/bin/arm-linux-gnueabihf-g++-8
+sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-gcc-8 100 --slave /usr/bin/arm-linux-gnueabihf-g++ arm-linux-gnueabihf-g++ /usr/bin/arm-linux-gnueabihf-g++-8
 sudo update-alternatives --config arm-linux-gnueabihf-gcc
 ```
 
@@ -145,7 +144,7 @@ sudo update-alternatives --config aarch64-linux-gnu-gcc
 
 ### Clang (optional)
 
-First [install GCC](#gcc) (needed to use clang).
+First install GCC (needed to use clang).
 
 We recommend you to get clang from the Ubuntu software repository, as shown below:
 ```

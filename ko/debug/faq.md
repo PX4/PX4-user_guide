@@ -1,31 +1,36 @@
-# Frequently Asked Questions
+# 자주 묻는 질문
 
 
-## Build Errors
+## 빌드 오류
 
-### Flash Overflow
+### 플래시 오버플로우
 
-:::tip
-Use the FMUv4 architecture to obtain double the flash. The first available board from this generation is the [Pixracer](../flight_controller/pixracer.md).
-:::
-
-The amount of code that can be loaded onto a board is limited by the amount of flash memory it has. The configurations are stored [here](https://github.com/PX4/Firmware/tree/master/cmake/configs). This will result in a "flash overflow". The upstream version will always build, but depending on what a developer adds it might overflow locally.
+보드에 로딩 가능한 코드의 양은 보드에 있는 플래시 메모리의 양에 따라 제한됩니다. 모듈 또는 코드를 추가시, 플래시 메모리를 초과할 가능성이 있습니다. This will result in a "flash overflow". 업스트림 버전은 항상 빌드되지만, 개발자가 추가하는 항목에 따라 로컬에서 오버플로될 수 있습니다.
 
 ```sh
 region `flash' overflowed by 12456 bytes
 ```
 
-To remedy it, either use more recent hardware or remove modules from the build which are not essential to your use case. The configuration is stored in **/PX4-Autopilot/boards/px4** (e.g. [PX4-Autopilot/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)). To remove a module, just comment it out:
+이를 해결하려면, 최신 하드웨어를 사용하거나 비필수 모듈을 빌드에서 제거하여야 합니다. 설정은 **/PX4-Autopilot/boards/px4**에 저장됩니다(예: [PX4-Autopilot/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)). 모듈을 제거하려면, 다음과 같이 주석 처리하십시오.
 
 ```cmake
-#drivers/trone
+#tune_control
 ```
 
-## USB Errors
+#### 대용량 메모리 소비 모듈 식별
 
-### The upload never succeeds
+아래 명령은 가장 큰 정적 할당을 출력합니다.
 
-On Ubuntu, uninstall the modem manager:
+```bash
+arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v5_default/px4_fmu-v5_default.elf | grep " [bBdD] "
+```
+
+
+## USB 오류
+
+### 업로드가 성공하지 못하였습니다
+
+Ubuntu에서 모뎀 관리자를 제거합니다.
 
 ```sh
 sudo apt-get remove modemmanager

@@ -1,34 +1,43 @@
-# 속도 센서
+# 풍속 센서
 
 고정 회선 및 VTOL 프레임의 경우 속도 센서가 *을 높게 권장합니다. 자동 조종 장치에는 실속을 감지 할 수있는 다른 수단이 없으므로이 신호는 매우 중요합니다. 고정익 비행의 경우 지상 속도가 아닌 양력을 보장하는 속도입니다.</p> 
 
-![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
+![디지털 풍속 센서](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 ## 하드웨어 옵션
 
 권장 디지털 속도 센서는 다음과 같습니다.
 
-* MEAS Spec series (e.g. [MS4525DO](https://www.te.com/usa-en/product-CAT-BLPS0002.html))
-  
-  * [mRo I2C Airspeed Sensor JST-GH MS4525DO](https://store.mrobotics.io/mRo-I2C-Airspeed-Sensor-JST-GH-p/mro-classy-arspd-mr.htm) (mRo store)
-  * [Digital Differential Airspeed Sensor Kit](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html) (Drotek).
-
-* [ EagleTree 항공 속도 MicroSensor V3 ](http://www.eagletreesystems.com/index.php?route=product/product&product_id=63) (이글트리 시스템)
-
-* [mRo 차세대 MS5525 속도 센서](https://store.mrobotics.io/mRo-Next-Gen-MS5525-Airspeed-Sensor-NEW-p/mro-ms5525v2-mr.htm)
+* MEAS Spec series (e.g. [MS4525DO](https://www.te.com/usa-en/product-CAT-BLPS0002.html), [MS5525](https://www.te.com/usa-en/product-CAT-BLPS0003.html)) 
+  * [mRo I2C 풍속 센서 JST-GH MS4525DO](https://store.mrobotics.io/mRo-I2C-Airspeed-Sensor-JST-GH-p/m10030a.htm) (mRo store)
+  * [디지털 차동 풍속 센서 키트](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html) (Drotek).
+* [EagleTree Airspeed MicroSensor V3](http://www.eagletreesystems.com/index.php?route=product/product&product_id=63) (eagletreesystems)
 * [Sensirion SDP3X 차압 센서](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/)
-* [Holybro Digital Air Speed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
+* [Holybro 디지털 풍속 센서](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
 
-All the above sensors are connected via the I2C bus/port.
+위의 센서들은 I2C 버스/포트를 통해 연결됩니다.
 
 :::note
-Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
+또한, [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/)를 UAVCAN 버스에 연결하여 고정밀 대기 속도뿐만 아니라 온보드 기압계와 OAT 프로브를 통해 실제 정압 및 대기 온도를 확인할 수 있습니다.
 :::
 
-## Configuration
+## 설정
 
-PX4 setup information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
+### Enable Airspeed Sensors
 
-## Developer Information
+Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started.
+
+Enable each type using its [corresponding parameter](../advanced_config/parameters.md):
+
+* Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
+* TE MS4525 ([SENS_EN_MS4525](../advanced_config/parameter_reference.md#SENS_EN_MS4525))
+* TE MS5525 ([SENS_EN_MS5525](../advanced_config/parameter_reference.md#SENS_EN_MS5525))
+* Eagle Tree airspeed sensor ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
+
+### Calibration
+
+Airspeed calibration information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
+
+## 개발 정보
 
 * [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)

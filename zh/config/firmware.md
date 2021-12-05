@@ -16,27 +16,28 @@ This is the version that is installed by default.
 
 To install PX4:
 
-1. 首先在顶部工具栏中选择 **齿轮** 图标 (*Vehicle Setup*) ，然后在侧边栏中选择 **Firmware** 。
+1. Start *QGroundControl* and connect the vehicle.
+2. Select **"Q" icon > Vehicle Setup > Firmware** (sidebar) to open *Firmware Setup*.
     
-    ![固件断开连接](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
+    ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
 
-2. 通过 USB 将飞行控制器直接连接到您的计算机。
+3. Connect the flight controller directly to your computer via USB.
     
 :::note
 Connect directly to a powered USB port on your machine (do not connect through a USB hub).
 :::
 
-3. 选择 **PX4 飞行栈 X.x.x Release** *为您的硬件*（自动检测）安装最新版的PX4。
+4. Select the **PX4 Flight Stack X.x.x Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
     
-    ![默认安装 PX4](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
+    ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
 
-4. 点击 **OK** 按钮开始更新固件。
+5. Click the **OK** button to start the update.
     
-    然后，固件将进行一系列升级步骤 (下载新固件，删除旧固件等)。 每个步骤都打印到屏幕上，整个进度显示在进度条上。
+    The firmware will then proceed through a number of upgrade steps (downloading new firmware, erasing old firmware etc.). Each step is printed to the screen and overall progress is displayed on a progress bar.
     
-    ![固件升级完成](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
+    ![Firmware upgrade complete](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
     
-    一旦固件完成加载，设备/飞行器将重新启动和重新连接。
+    Once the firmware has completed loading, the device/vehicle will reboot and reconnect.
     
 :::tip
 If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller.
@@ -59,14 +60,14 @@ To install a different version of PX4:
 
 Firmware update then continues as before.
 
-<span id="bootloader"></span>
+<a id="bootloader"></a>
 
 ## FMUv2 Bootloader 更新
 
 If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
 :::note
-Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
 :::
 
 To update the bootloader:

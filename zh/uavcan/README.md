@@ -9,10 +9,11 @@
 
 It supports hardware like:
 
-- [ESC/Motor controllers](../uavcan/escs.html)
+- [ESC/Motor controllers](../uavcan/escs.md)
 - Airspeed sensors
   - [Thiemar空速传感器](https://github.com/thiemar/airspeed)
 - 用于GPS和GLONASS的GNSS接收器
+  - [Zubax GNSS](https://www.cubepilot.org/#/here/here3)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - Power monitors
   - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
@@ -31,7 +32,7 @@ It supports hardware like:
 
 第一步是将所有启用uavcan的设备与飞行控制器连接。 下图显示了如何连接所有组件。
 
-The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.html) and a UAVCAN GNSS.
+The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.md) and a UAVCAN GNSS.
 
 ![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
 
