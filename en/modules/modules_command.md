@@ -452,8 +452,14 @@ param <command> [arguments...]
    save          Save params to a file
      [<file>]    File name (use default if not given)
 
+   dump          Dump params from a file
+     [<file>]    File name (use default if not given)
+
    select        Select default file
-     [<file>]    File name (use <root>/eeprom/parameters if not given)
+     [<file>]    File name
+
+   select-backup Select default file
+     [<file>]    File name
 
    show          Show parameter values
      [-a]        Show all parameters (not just used)
