@@ -52,24 +52,24 @@ PX4をサポートしている，Ready To Fly (RTF) の機体を持っている�
 
 **PX4を新しいハードウェアで実行し、プラットフォームを拡張したい：**
 
-* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [開発](development/development.md) では新しい機体や車両の支援方法、フライトアルゴリズムの改造や，新しいモードの追加，新しいハードウェアの追加，PX4とフライトコントローラーの外部からの通信，さらにPX4の開発への貢献などについて記載しています．
 
-## ヘルプの参照
+## ヘルプ
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[サポート](contribute/support.md) ページでは、コア開発チームとより広いコミュニティからヘルプを得る方法について説明します。
 
-Among other things it covers:
+その他にも以下のものをカバーしています:
 
-* [Forums where you can get help](contribute/support.md#forums-and-chat)
-* [Diagnosing issues](contribute/support.md#diagnosing-problems)
-* [How to report bugs](contribute/support.md#issue-bug-reporting)
-* [Weekly dev call](contribute/support.md#weekly-dev-call)
+* [サポートフォーラム](contribute/support.md#forums-and-chat)
+* [問題の診断](contribute/support.md#diagnosing-problems)
+* [バグを報告する方法](contribute/support.md#issue-bug-reporting)
+* [毎週の開発者コール](contribute/support.md#weekly-dev-call)
 
-## バグ & 問題提起
+## バグと問題の報告
 
-If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
+もしPX4に関して問題を発見した場合，まず [サポートフォーラム](contribute/support.md#forums-and-chat)に投稿してください (PX4の問題ではなく，機体の設定等が原因かもしれないため)．
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+そして，開発チームから指示があった場合， [Github](https://github.com/PX4/PX4-Autopilot/issues)にて，問題が報告されるかもしれません． Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## 貢献
 
