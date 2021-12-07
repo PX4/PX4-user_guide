@@ -18,7 +18,7 @@ Pixhawk 5 표준 세트
 
 
 :::tip
-사용 가능한 포트에 대한 자세한 설명은 [ Pixhawk  5X &gt; 연결 방법 ](../flight_controller/pixhawk5x.md#connections)을 참고하십시오.
+사용 가능한 포트에 대한 자세한 설명은 [Pixhawk  5X &gt; 연결 방법](../flight_controller/pixhawk5x.md#connections)을 참고하십시오.
 :::
 
 ## 콘트롤러 장착 및 장착 방향
@@ -28,7 +28,7 @@ Pixhawk 5 표준 세트
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_vehicle_front1.jpg" width="400px" title="Pixhawk 5X 표준 세트" />
 
 :::note
-콘트롤러를 권장 방향으로 장착하기 어려운 경우에는(예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에서 설정하여야 합니다([기체 콘트롤러 방향](../config/flight_controller_orientation.md) 참고).
+콘트롤러를 권장 기본 방향으로 장착 할 수 없는 경우(예 : 공간 제약으로 인해) 실 장착 방향을 자동항법장치 프로그램에서 설정하여야합니다. [비행 콘트롤러 방향](../config/flight_controller_orientation.md)
 :::
 
 ## GPS + 나침반 + 부저 + 안전 스위치 + LED
