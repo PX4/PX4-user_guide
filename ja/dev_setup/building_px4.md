@@ -133,13 +133,13 @@ make list_config_targets
 
 ### 一般的なビルドエラー
 
-Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
+ビルドの問題の多くは、サブモジュールの不一致またはビルド環境のクリーンアップが不完全なために発生します サブモジュールを更新して `distclean` を実行すると、エラーが修正されます。
 ```
 git submodule update --recursive
 make distclean
 ```
 
-### Flash overflowed by XXX bytes
+### XXXバイトでオーバーフローしました
 
 The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
 
