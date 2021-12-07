@@ -49,40 +49,40 @@ QGroundControlでシミュレーションすることは、車両の実際の動
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). These are also started with *make* - e.g.
+:::tip PX4は[Gazebo Simulation](../simulation/gazebo.md)と[AirSim Simulation](../simulation/airsim.md)を含む多くの[シミュレータ](../simulation/README.md)で使用できます． これらも *make*で起動されます。
 ```
 make px4_sitl gazebo
 ```
 :::
 
-## NuttX / Pixhawk Based Boards
+## NuttX / Pixhawk ベースのボード
 
-### Building for NuttX
+### NuttX用のビルド
 
-To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
+NuttX-またはPixhawkベースのボード用に構築する **PX4-Autopilot** ディレクトリに移動し、 `make` をビルドターゲットに対して使用します．
 
-For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
+たとえば、 [Pixhawk 4](../flight_controller/pixhawk4.md) ハードウェア用にビルドするには、次のコマンドを使用します。
 ```sh
 cd PX4-Autopilot
 make px4_fmu-v5_default
 ```
 
-A successful run will end with similar output to:
+実行が成功すると、次のような出力で終了します。
 ```sh
 -- Build files have been written to: /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The first part of the build target `px4_fmu-v4` indicates the firmware for a particular flight controller hardware. The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
+ビルドターゲット `px4_fmu-v4` の最初の部分は、特定のフライトコントローラハードウェアのファームウェアを示します。 次のリストは、 [Pixhawk 標準](../flight_controller/autopilot_pixhawk_standard.md) ボードのビルドコマンドを示しています。
 * [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
-* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
-* [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
-* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
-* [Pixracer](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
-* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
-* [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
+* [Pixhawk 4](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/pixracer.md): `make px4_fmu-v5_default`
+* [Pixhawk 3](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/pixhawk_mini.md): `make px4_fmu-v5_default`
 * [Pixhawk 2 (Cube Black)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
+* [mRO Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (2MB Flashをサポート)
 * [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
 * [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 * [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
