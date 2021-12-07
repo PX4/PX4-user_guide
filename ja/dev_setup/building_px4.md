@@ -86,25 +86,24 @@ make px4_fmu-v5_default
 * [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
 * [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 * [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::警告 You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
-Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
+Pixhawk NuttX 以外のフライトコントローラ(および他のすべてのボード)用のビルドコマンドは、個々の [フライトコントローラボード](../flight_controller/README.md) のドキュメントに記載されています。
 
-:::note
-The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
+:::ノート `_default` サフィックスは、ファームウェアの _設定_ です。 This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
-### Uploading Firmware (Flashing the board)
+### ファームウェアのアップロード（ボードへのフラッシュ）
 
-Append `upload` to the make commands to upload the compiled binary to the autopilot hardware via USB. For example
+`upload` をmakeコマンドに追加し、コンパイル済みバイナリをUSB経由でハードウェアにアップロードします。 例:
 
 ```sh
 make px4_fmu-v4_default upload
 ```
 
-A successful run will end with this output:
+実行が成功すると、次のような出力で終了します。
 
 ```sh
 Erase  : [====================] 100.0%
@@ -115,24 +114,24 @@ Rebooting.
 [100%] Built target upload
 ```
 
-## Other Boards
+## その他のボード
 
-Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading *Building Firmware*).
+他のボードのビルドコマンドには、 [ボード固有のフライトコントローラページ](../flight_controller/README.md) (通常は見出し *ファームウェアの構築* の下) が表示されます。
 
-You can also list all configuration targets using the command:
+以下のコマンドを使用して、すべての構成ターゲットを列挙することもできます。
 ```sh
 make list_config_targets
 ```
 
 
-## Compiling in a Graphical IDE
+## IDE でのコンパイル
 
-[VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
+[VScode](../dev_setup/vscode.md) は、PX4開発で正式にサポートされている(そして推奨されている)IDEです。 セットアップは簡単で、シミュレーション環境とハードウェア環境の両方でPX4をコンパイルできます。
 
 
-## Troubleshooting
+## トラブルシューティング
 
-### General Build Errors
+### 一般的なビルドエラー
 
 Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
 ```
