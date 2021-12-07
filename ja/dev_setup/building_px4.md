@@ -2,8 +2,7 @@
 
 PX4は、シミュレートされたターゲットとハードウェアの両方に対して、コンソールまたはIDEでビルドすることができます。
 
-:::note
-これらの手順に従う前に、まずホストOSとターゲットハードウェアに [Developer Toolchain](../dev_setup/dev_env.md) をインストールする必要があります。
+:::ノート これらの手順に従う前に、まずホストOSとターゲットハードウェアに [Developer Toolchain](../dev_setup/dev_env.md) をインストールする必要があります。
 :::
 
 :::tip
@@ -12,34 +11,32 @@ PX4は、シミュレートされたターゲットとハードウェアの両�
 
 ## PX4ソースコードをダウンロードする
 
-PX4のソースコードは，Githubの [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) に保存されています． To get the *very latest* version onto your computer, enter the following command into a terminal:
+PX4のソースコードは，Githubの [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) に保存されています． *最新のバージョン* を取得するには、コンソールに次のコマンドを入力します。
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
-This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4.
+:::ノート 最新のコードをビルドするために必要なのはこれだけです [GITの例 > PX4への貢献](../contribute/git_examples.md#contributing_code) ではPX4への貢献にgitを使用することについて、より多くの情報を提供します。
 :::
 
-## First Build (Using the jMAVSim Simulator)
+## 最初のビルド (jMAVSimシミュレータを使用)
 
-First we'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+最初に、ホストOS上で機体のシミュレーションをビルドします。 これにより、実際にハードウェアとIDEで設定する前にシステムを検証することができます。
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../simulation/jmavsim.md) using the following command:
+**PX4-Autopilot** ディレクトリに移動し、次のコマンドを使用して [jMAVSim](../simulation/jmavsim.md) を起動します。
 ```sh
 make px4_sitl jmavsim
 ```
 
-This will bring up the PX4 console below:
+PX4コンソールは以下のように表示されます:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
-:::note
-You may need to start *QGroundControl* before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
+:::ノート 先に進む前に *QGroundControl* を起動する必要があります。デフォルトのPX4設定では離陸前に地上局との接続が必要です。 [こちら](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) からダウンロードできます。
 :::
 
-The drone can be flown by typing:
+ドローンは次のコマンドで飛行します。
 ```sh
 pxh> commander takeoff
 ```
