@@ -43,9 +43,9 @@ pxh> commander takeoff
 
 ![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
 
-The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
+ドローンは `commander land` コマンドによって着陸します．また，**CTRL+C** (または `shutdown`コマンド）によってシミュレーションを停止できます。
 
-Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
+QGroundControlでシミュレーションすることは、車両の実際の動作に近くなります。 飛行中に地図上の場所をクリックし、スライダーを有効にします。 これにより、車両の位置が変更されます。
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
