@@ -141,23 +141,23 @@ make distclean
 
 ### XXXバイトでオーバーフローしました
 
-The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
+`region 'flash' overflowed by XXXX bytes` エラーは、ファームウェアのサイズがハードウェアの容量に対して大きすぎることを示しています。 これは フラッシュ サイズが1MBに制限されている場合に，`make px4_fmu-v2_default ` ビルドで一般的に起こりえます．
 
-If you're building the *vanilla* master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
+*素の*マスターブランチを構築している場合、最も可能性の高い原因はサポートされていないバージョンの GCC を使用することです。 この場合、 [Developer Toolchain](../dev_setup/dev_env.md) の説明で指定されたバージョンをインストールします。
 
-If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
+独自のブランチを構築する場合は、ファームウェアのサイズが 1MB 制限を超えている可能性があります。 この場合、ビルドから不要なドライバ/モジュールを削除する必要があります。
 
 
-### macOS: Too many open files error
+### macOS: 開いているファイルが多すぎます
 
-MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.
+MacOSでは、実行中のすべてのプロセスでデフォルトで最大256個のファイルを開くことができます。 PX4ビルドシステムは多数のファイルを開くため、この数を超える可能性があります。
 
-The build toolchain will then report `Too many open files` for many files, as shown below:
+次に示すように、ビルドツールチェーンは、 `Too many open files`エラーを出力します．
 ```sh
 /usr/local/Cellar/gcc-arm-none-eabi/20171218/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: cannot find NuttX/nuttx/fs/libfs.a: Too many open files
 ```
 
-The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS *Terminal* for each session:
+解決策は、開いているファイルの最大許容数を増やすことです (e.g. to 300)． 以下の方法をmacOS *ターミナル* 上で試すことができます．
 - Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
 - Enter this command:
   ```sh
