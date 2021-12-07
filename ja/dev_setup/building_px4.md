@@ -158,23 +158,23 @@ MacOSでは、実行中のすべてのプロセスでデフォルトで最大256
 ```
 
 解決策は、開いているファイルの最大許容数を増やすことです (e.g. to 300)． 以下の方法をmacOS *ターミナル* 上で試すことができます．
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
-- Enter this command:
+- このスクリプトを実行する [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
+- 次のコマンドを入力します。
   ```sh
   ulimit -S -n 300
   ```
 
-### macOS Catalina: Problem running cmake
+### macOS Catalina: cmake の実行に問題があります
 
-As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with *cmake*. If you have build problems on this platform then try run the following command in your terminal:
+macOS Catalina 10.15.1 以降、 *cmake* でシミュレータを構築しようとすると問題が生じる可能性があります。 このプラットフォームでビルドに問題がある場合は、ターミナルで次のコマンドを実行してみてください。
 ```sh
 xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
 
-### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+### Ubuntu 18.04：arm_none_eabi_gccに関連するコンパイルエラー
 
-Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
+`arm_none_eabi_gcc`に関連するビルドの問題は、g++ ツールチェーンのインストールが壊れていることが原因の可能性があります。 以下を使用して不足している依存関係を確認することで、この場合であることを確認できます。
 ```bash
 arm-none-eabi-gcc --version
 arm-none-eabi-g++ --version
@@ -182,13 +182,13 @@ arm-none-eabi-gdb --version
 arm-none-eabi-size --version
 ```
 
-Example of bash output with missing dependencies:
+依存関係が不足しているbash出力の例:
 ```bash
 arm-none-eabi-gdb --version
 arm-none-eabi-gdb: command not found
 ```
 
-This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+これは、コンパイラーを削除して[再インストール](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa)することで解決できます。
 
 ### Ubuntu 18.04: Visual Studio Code is unable to watch for file changes in this large workspace
 
