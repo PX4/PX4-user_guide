@@ -1,12 +1,12 @@
 # PX4 Development
 
-This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.
+このセクションでは、新しい機体のサポート方法、飛行アルゴリズムの改造，飛行モードの追加、新しいハードウェアへの統合、フライトコントローラ外部との通信について記述しています．
 
 ::: tip
-This section is for software developers and (new) hardware integrators. It is not needed if you're building an existing airframe or flying using a PX4 vehicle.
+このセクションは、ソフトウェア開発者とハードウェアインテグレータ向けのセクションです。 既存の機体を構築する場合や、PX4の機体を使用して飛行する場合は不要です。
 :::
 
-It explains how to:
+以下の方法を説明します。
 
 * Get a [minimum developer setup](../dev_setup/config_initial.md), [build PX4 from source](../dev_setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/README.md).
 * Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
