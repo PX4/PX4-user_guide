@@ -10347,6 +10347,8 @@ table {
 <tr>
  <td><strong id="BAT1_N_CELLS">BAT1_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 1 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>1:</strong> 1S Battery</li> 
+
 <li><strong>2:</strong> 2S Battery</li> 
 
 <li><strong>3:</strong> 3S Battery</li> 
@@ -10475,6 +10477,8 @@ table {
 <tr>
  <td><strong id="BAT2_N_CELLS">BAT2_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 2 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>1:</strong> 1S Battery</li> 
+
 <li><strong>2:</strong> 2S Battery</li> 
 
 <li><strong>3:</strong> 3S Battery</li> 
