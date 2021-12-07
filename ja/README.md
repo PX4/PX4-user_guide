@@ -11,21 +11,20 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 
 ## なにから始めればいいの？
 
-[はじめに](getting_started/README.md) はすべてのユーザーが読むべきです！ It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[はじめに](getting_started/README.md) はすべてのユーザーが読むべきです！ 本章は，様々な機能(フライトモードや安全機能) や利用可能なハードウェア(フライトコントローラ，機体，テレメトリーシステム，無線機) など，PX4の概要について説明しています。
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+貴方の行いたいことに応じて、以下のヒントがこの解説書を探索するのに役に立ちます。
 
-**I already have a drone and I just want to fly:**
+**既にドローンを持っていて，すぐ飛ばしたい場合:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+PX4をサポートしている，Ready To Fly (RTF) の機体を持っている:
 
-* [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法、主要センサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション及びRC装置や安全機能のセットアップについて説明しています．
-* [フライト](flying/README.md) ではどこでどのように安全に飛行させるかや，ア―ミングや飛行中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードの詳細についても解説しています．
+* [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法、主要センサー (コンパス, ジャイロ / IMU, 対気速度計 etc.) のキャリブレーション及びRC機器や安全機能のセットアップについて説明しています．
+* [フライト](flying/README.md) では安全に飛行させる方法や，起動・フライト中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードの詳細についても解説しています．
 
-**I want to build a drone with PX4 from scratch:**
+**PX4を使用してドローンを最初から作成したい:**
 
-:::tip
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+:::**Tip** サポートされている"機体のリストは [機体一覧](airframes/airframe_reference.md)にあります. これらの機体はテストされており，調整された設定値を*QGroundControl*を通して書き込むことができます.
 :::
 
 If you want to build a vehicle from scratch:
