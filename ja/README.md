@@ -69,48 +69,48 @@ PX4をサポートしている，Ready To Fly (RTF) の機体を持っている�
 
 もしPX4に関して問題を発見した場合，まず [サポートフォーラム](contribute/support.md#forums-and-chat)に投稿してください (PX4の問題ではなく，機体の設定等が原因かもしれないため)．
 
-そして，開発チームから指示があった場合， [Github](https://github.com/PX4/PX4-Autopilot/issues)にて，問題が報告されるかもしれません． Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+そして，開発チームから指示があった場合， [Github](https://github.com/PX4/PX4-Autopilot/issues)にて，問題が報告されるかもしれません． 可能であれば、 [フライトログ](getting_started/flight_reporting.md)や テンプレートで要求された情報をアップロードしてください． 
 
 ## 貢献
 
-Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+コードとドキュメントにどのように貢献するかについては、 [貢献](contribute/README.md)を参照してください。
 
 * [Code](contribute/README.md)
-* [Documentation](contribute/docs.md)
-* [Translation](contribute/translation.md)
+* [ドキュメント](contribute/docs.md)
+* [翻訳](contribute/translation.md)
 
-## Translations
+## 翻訳
 
-There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
+このガイドには [翻訳](contribute/translation.md) がいくつかあります。 言語メニューからアクセスできます(右上)。
 
-![Language Selector](../assets/vuepress/language_selector.png)
+![言語選択](../assets/vuepress/language_selector.png)
 
-## License
+## ライセンス
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
+PX4のコードは[BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)の下で，自由に使用・改造することができます． このドキュメントは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)ライセンスの元に管理されています． 詳細については以下を参照してください: [ライセンス](contribute/licenses.md)。
 
-## Calendar & Events
+## カレンダー & イベント
 
-The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+*Dronecode Calendar* は、プラットフォームユーザーや開発者にとって重要なコミュニティイベントです。 タイムゾーンにカレンダーを表示するには、以下のリンクを選択してください (そして自分のカレンダーに追加するには):
 
-* [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
-* [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+* [スイス – チューリッヒ](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+* [太平洋時間 – ティフアナ](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [オーストラリア – メルボルン/シドニー/ホバート島](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-Calendar defaults to CET. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
+カレンダーの標準時間は CETです。 ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
 ### アイコン
 
-The following icons used in this library are licensed separately (as shown below):
+本ライブラリで使用されている，以下のアイコンはそれぞれ個別にライセンスされています (以下を参照)：
 
-<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* アイコンは <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> によって <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>の下でライセンスされています．
 
-<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* アイコンは <a href="https://www.freepik.com" title="Freepik">Freepik</a> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> によって， <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>の下でライセンスされています．
 
-## Governance
+## 管理
 
-The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
+PX4 flight stackは， [Dronecode Project](https://www.dronecode.org/)の管理の下でホストされています．
 
 <a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
