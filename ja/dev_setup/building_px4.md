@@ -1,18 +1,18 @@
-# Building PX4 Software
+# PX4ソフトウェアのビルド
 
-PX4 can be built on the console or in an IDE, for both simulated and hardware targets.
+PX4は、シミュレートされたターゲットとハードウェアの両方に対して、コンソールまたはIDEでビルドすることができます。
 
 :::note
-Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
+これらの手順に従う前に、まずホストOSとターゲットハードウェアに [Developer Toolchain](../dev_setup/dev_env.md) をインストールする必要があります。
 :::
 
 :::tip
-For solutions to common build problems see [Troubleshooting](#troubleshooting) below.
+一般的なビルド問題の解決策については、以下の [トラブルシューティング](#troubleshooting) を参照してください。
 :::
 
-## Download the PX4 Source Code
+## PX4ソースコードをダウンロードする
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository. To get the *very latest* version onto your computer, enter the following command into a terminal:
+PX4のソースコードは，Githubの [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) に保存されています． To get the *very latest* version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
