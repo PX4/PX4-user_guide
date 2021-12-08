@@ -47,7 +47,7 @@ Order this module from:
 
 ### Wiring/Connecting
 
-The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. Multiple sensors can be connected by plugging additional sensors into the ARK GPS's second CAN connector.
+ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. Multiple sensors can be connected by plugging additional sensors into ARK GPS's second CAN connector.
 
 General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](../uavcan/README.md#wiring).
 
@@ -55,7 +55,7 @@ General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](..
 
 ### Mounting/Orientation
 
-The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**.
+The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
@@ -81,45 +81,45 @@ You need to set necessary [UAVCAN](README.md) parameters and define offsets if t
 - The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the Ark GPS from the vehicles centre of gravity.
 
 
-## Building Ark GPS Firmware
+## Building ARK GPS Firmware
 
-Ark GPS is sold with a recent firmware build. Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
+ARK GPS is sold with a recent firmware build. Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
 
 The steps are:
 
 1. Install the [PX4 toolchain](../dev_setup/dev_env.md).
-1. Clone the PX4-Autopilot sources, including Ark GPS, using *git*:
+1. Clone the PX4-Autopilot sources, including ARK GPS, using *git*:
    ```
    git clone https://github.com/PX4/PX4-Autopilot --recursive
    cd PX4-Autopilot
    ```
-1. Build the Ark GPS firmware:
+1. Build the ARK GPS firmware:
    ```
    make ark_can-gps_default
    ```
-1. That will have created a binary in **build/ark_can-gps_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the Ark GPS. Next time you power your flight controller with the SD card installed, Ark GPS will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the *ufw* directory of the SD card.
+1. That will have created a binary in **build/ark_can-gps_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the ARK GPS. Next time you power your flight controller with the SD card installed, ARK GPS will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the *ufw* directory of the SD card.
 
 :::note
-The Ark GPS will not boot if there is no SD card in the flight controller when powered on.
+The ARK GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 
 
-## Updating Ark GPS Bootloader
+## Updating ARK GPS Bootloader
 
-The Ark GPS comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
+The ARK GPS comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
 
 The steps are:
 
-1. Build the Ark GPS bootloader firmware:
+1. Build the ARK GPS bootloader firmware:
    ```
    make ark_can-gps_canbootloader
    ```
 :::note
 This will setup your `launch.json` file if you are in VS code. If using the Black Magic Probe and VS code, make sure to update `BMPGDBSerialPort` within this file to the correct port that your debugger is connected to. On MacOS, the port name should look something like `cu.usbmodemE4CCA0E11`.
 :::
-1. Connect to your Ark GPS to any Serial Wire Debugging (SWD) device that supports use of GNU Project Debugger (GDB), such as the Black Magic Probe and then connect power to your Ark GPS via one of the CAN ports.
-1. Flash the Ark Flow with `ark_can-gps_canbootloader`. To do so in VS code, you should see `CMake: [ark_can-gps_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing. You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code.
-3. With the bootloader flashed, you are ready to build and flash the Ark GPS firmware `ark_can-gps_default` as outlined above.
+1. Connect your ARK GPS to any Serial Wire Debugging (SWD) device that supports use of GNU Project Debugger (GDB), such as the Black Magic Probe and then connect power to your ARK GPS via one of the CAN ports.
+1. Flash the ARK GPS with `ark_can-gps_canbootloader`. To do so in VS code, you should see `CMake: [ark_can-gps_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing. You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code.
+3. With the bootloader flashed, you are ready to build and flash the ARK GPS firmware `ark_can-gps_default` as outlined above.
 
 
 ## LED Meanings
@@ -128,5 +128,5 @@ You will see green, blue and red LEDs on the ARK GPS when it is being flashed, a
 
 If you see a red LED there is an error and you should check the following:
 - Make sure the flight controller has an SD card installed.
-- Make sure the Ark GPS has `ark_can-gps_canbootloader` installed prior to flashing `ark_can-gps_default`.
+- Make sure the ARK GPS has `ark_can-gps_canbootloader` installed prior to flashing `ark_can-gps_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
