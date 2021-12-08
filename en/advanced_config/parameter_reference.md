@@ -15921,14 +15921,14 @@ table {
  <td><strong id="MNT_RANGE_PITCH">MNT_RANGE_PITCH</strong> (FLOAT)</td>
  <td>Range of pitch channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
- <td>360.0</td>
+ <td>90.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_ROLL">MNT_RANGE_ROLL</strong> (FLOAT)</td>
  <td>Range of roll channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
- <td>360.0</td>
+ <td>90.0</td>
  <td></td>
 </tr>
 <tr>
@@ -15950,6 +15950,18 @@ table {
  <td>Angular yaw rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-yaw rate..yaw rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MNT_RC_IN_MODE">MNT_RC_IN_MODE</strong> (INT32)</td>
+ <td>Input mode for RC gimbal input  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Angle</li> 
+
+<li><strong>1:</strong> Angular rate</li> 
+</ul>
+  </td>
+ <td>0 > 1 </td>
+ <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
