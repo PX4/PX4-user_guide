@@ -2,9 +2,7 @@
 
 [TFSLOT](https://github.com/ThunderFly-aerospace/TFSLOT01) is an open-source airspeed sensor based on the [Venturi effect](https://en.wikipedia.org/wiki/Venturi_effect) with IMU
 
-IMAGE OF TFSLOT
-
-IMAGE OF TFASPDIMU02
+![TFSLOT integrated in TF-G2](../../assets/hardware/sensors/airspeed/TFSLOT_compose.JPG)
 
 [TFSLOT](https://github.com/ThunderFly-aerospace/TFSLOT01) is an airspeed sensor based on venturi effects. In the basic configuration, the TFSLOT is equipped with the [TFASPDIMU02](https://github.com/ThunderFly-aerospace/TFASPDIMU02) sensor board, which contains a differential pressure sensor ([Sensirion SDP3x](https://www.sensirion.com/sdp3x/)) and a 9-axis motion tracking sensor ([ICM-20948](https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948/)). IMU unit can be used as an external compass. 
 
