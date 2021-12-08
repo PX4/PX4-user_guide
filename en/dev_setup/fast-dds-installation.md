@@ -42,7 +42,7 @@ If you have ROS 2 installed (and `rmw-fasrtps` as its default middleware), you c
 ### Java
 
 Java is required to build and use eProsima's RTPS/DDS from IDL code generation tool - *Fast-RTPS-Gen*.
-[Java JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is recommended, and it is installed through the setup scripts made available in [Ubuntu Development Environment](../dev_setu/dev_env_linux.md).
+[Java JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is recommended, and it is installed through the setup scripts made available in [Ubuntu Development Environment](../dev_setup/dev_env_linux.md).
 
 ### Gradle
 

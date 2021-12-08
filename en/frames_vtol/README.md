@@ -107,7 +107,7 @@ For example see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pi
 VTOL configuration is covered in a number of sections:
 - [Basic Configuration](../config/README.md) - Configuration that is common to all vehicle types (sensors, safety systems, batteries etc).
 - [VTOL Specific Configuration](../config_vtol/README.md)
-- [Peripheral Hardware](/peripherals/README.md) - Configuration for optional hardware and sensors.
+- [Peripheral Hardware](../peripherals/README.md) - Configuration for optional hardware and sensors.
 - [Advanced Configuration](../advanced_config/README.md): Additional configuration covering factory tuning and advanced and optional configuration.
 
 
