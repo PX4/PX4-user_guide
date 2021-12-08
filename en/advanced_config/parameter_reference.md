@@ -13720,10 +13720,10 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_L1_PERIOD">FW_L1_PERIOD</strong> (FLOAT)</td>
- <td>L1 period <p><strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the aircraft its following. A value of 18-25 meters works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
- <td>12.0 > 50.0 (0.5)</td>
+ <td>L1 period <p><strong>Comment:</strong> Used to determine the L1 gain and controller time constant. This parameter is proportional to the L1 distance (which points ahead of the aircraft on the path it is following). A value of 18-25 seconds works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
+ <td>7.0 > 50.0 (0.5)</td>
  <td>20.0</td>
- <td>m</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_L1_R_SLEW_MAX">FW_L1_R_SLEW_MAX</strong> (FLOAT)</td>
