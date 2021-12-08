@@ -124,19 +124,19 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/px4_
 
 모터/서보 신호는 **I/O PWM OUT** (**MAIN OUT**) 및 **FMU PWM OUT** (** AUX **)에 연결됩니다. ) 포트는 [기체 정의서](../airframes/airframe_reference.md)에서 순서가 지정되어 있습니다.
 
-:::tip
-자세한 내용은 [기본 개념 &gt; SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참고하십시오.
+:::note
+이 참고사항은 모든 지원되는 기체 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
 :::
 
 :::caution
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+매핑이 프레임별로 일정하지지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력의 스로틀에 의존할 수 없음). 해당 기체의 프레임의  정확한 모터 연결 여부를 확인하십시오.
 :::
 
 
 
 ## 기타 주변 장치
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+많이 사용하지 않는 부품들의 배선과 조립 방법은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
 
 
 
@@ -144,15 +144,15 @@ The wiring and configuration of optional/less common components is covered withi
 
 ![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-많이 사용하지 않는 옵션 부품들의 배선 및 조립법은 개별 [주변 장치](../peripherals/README.md)에서 설명합니다.
+[여기](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) 또는 [여기](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf)에서 *Pixhawk 5X* 핀배열을 다운로드할 수 있습니다.
 
 
 
 ## 설정
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+더 자세한 일반 설정 방법은 [자동항법장치 설정](../config/README.md)을 참고하십시오.
 
-[여기](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) 또는 [여기](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf)에서 *Pixhawk 5X* 핀배열을 다운로드할 수 있습니다.
+QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
