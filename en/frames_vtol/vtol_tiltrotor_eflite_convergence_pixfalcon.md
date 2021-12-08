@@ -67,7 +67,7 @@ That way the GPS can be put inside the body and is nicely stowed away without co
 Follow the [Standard Configuration](config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 The particular settings that are relevant to this vehicle are:
-- [Airframe](config/airframe.md) 
+- [Airframe](../config/airframe.md)
   - Select the airframe configuration **E-flite Convergence** under **VTOL Tiltrotor** and restart *QGroundControl*.
     ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
 - [Flight Modes/Switches](../config/flight_mode.md)
