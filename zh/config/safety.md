@@ -54,7 +54,7 @@ The settings and underlying parameters are shown below.
 
 ### 遥控信号丢失故障保护
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual modes* (RC loss does not trigger the failsafe in automatic modes - e.g. during missions).
+The RC Loss failsafe is triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions).
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
@@ -63,10 +63,11 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 The settings and underlying parameters are shown below.
 
-| 设置       | 参数                                                                         | 描述                  |
-| -------- | -------------------------------------------------------------------------- | ------------------- |
-| 遥控信号丢失超时 | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | 遥控信号失联后到故障保险触发前的时间。 |
-| 故障保护动作   | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | 禁用，悬停，返航，降落，终止，锁定。  |
+| 设置                 | 参数                                                                           | 描述                                                                            |
+| ------------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| 遥控信号丢失超时           | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | 遥控信号失联后到故障保险触发前的时间。                                                           |
+| 故障保护动作             | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 禁用，悬停，返航，降落，终止，锁定。                                                            |
+| RC Loss Exceptions | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard. |
 
 ### 数据链路丢失故障保护
 
