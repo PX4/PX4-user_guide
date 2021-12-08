@@ -105,7 +105,7 @@ VTOL 구성은 여러 섹션에서 다룹니다.
 
 - [기본 구성](../config/README.md) - 모든 차량 유형(센서, 안전 시스템, 배터리 등)에 공통적인 구성입니다.
 - [VTOL 특정 구성](../config_vtol/README.md)
-- [주변 하드웨어](/peripherals/README.md) - 선택적 하드웨어 및 센서에 대한 구성입니다.
+- [Peripheral Hardware](../peripherals/README.md) - Configuration for optional hardware and sensors.
 - [고급 구성](../advanced_config/README.md): 공장 조정과 고급 및 선택적 구성을 포함하는 추가 구성입니다.
 
 ## 비디오

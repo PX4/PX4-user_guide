@@ -40,7 +40,7 @@ Pixfalcon 자동조종장치([Holybro<sup>&reg;</sup>](http://www.holybro.com/)�
   * [Hobbyking OSD + EU 텔레메트리 (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 * 순수 텔레메트리 옵션: 
   * [Hobbyking 와이파이 텔레메트리](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
-  * [SIK Radios](/telemetry/sik_radio.md)
+  * [SIK Radios](../telemetry/sik_radio.md)
 
 ## 펌웨어 빌드
 
