@@ -1,113 +1,109 @@
-# Building PX4 Software
+# PX4ソフトウェアのビルド
 
-PX4 can be built on the console or in an IDE, for both simulated and hardware targets.
+PX4は、シミュレートされたターゲットとハードウェアの両方に対して、コンソールまたはIDEでビルドすることができます。
 
-:::note
-Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
+:::ノート これらの手順に従う前に、まずホストOSとターゲットハードウェアに [Developer Toolchain](../dev_setup/dev_env.md) をインストールする必要があります。
 :::
 
 :::tip
-For solutions to common build problems see [Troubleshooting](#troubleshooting) below.
+一般的なビルド問題の解決策については、以下の [トラブルシューティング](#troubleshooting) を参照してください。
 :::
 
-## Download the PX4 Source Code
+## PX4ソースコードをダウンロードする
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository. To get the *very latest* version onto your computer, enter the following command into a terminal:
+PX4のソースコードは，Githubの [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) に保存されています． *最新のバージョン* を取得するには、コンソールに次のコマンドを入力します。
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::note
-This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4.
+:::ノート 最新のコードをビルドするために必要なのはこれだけです [GITの例 > PX4への貢献](../contribute/git_examples.md#contributing_code) ではPX4への貢献にgitを使用することについて、より多くの情報を提供します。
 :::
 
-## First Build (Using the jMAVSim Simulator)
+## 最初のビルド (jMAVSimシミュレータを使用)
 
-First we'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+最初に、ホストOS上で機体のシミュレーションをビルドします。 これにより、実際にハードウェアとIDEで設定する前にシステムを検証することができます。
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../simulation/jmavsim.md) using the following command:
+**PX4-Autopilot** ディレクトリに移動し、次のコマンドを使用して [jMAVSim](../simulation/jmavsim.md) を起動します。
 ```sh
 make px4_sitl jmavsim
 ```
 
-This will bring up the PX4 console below:
+PX4コンソールは以下のように表示されます:
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
-:::note
-You may need to start *QGroundControl* before proceeding, as the default PX4 configuration requires a ground control connection before takeoff. This can be [downloaded from here](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html).
+:::ノート 先に進む前に *QGroundControl* を起動する必要があります。デフォルトのPX4設定では離陸前に地上局との接続が必要です。 [こちら](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) からダウンロードできます。
 :::
 
-The drone can be flown by typing:
+ドローンは次のコマンドで飛行します。
 ```sh
 pxh> commander takeoff
 ```
 
 ![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
 
-The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
+ドローンは `commander land` コマンドによって着陸します．また，**CTRL+C** (または `shutdown`コマンド）によってシミュレーションを停止できます。
 
-Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
+QGroundControlでシミュレーションすることは、車両の実際の動作に近くなります。 飛行中に地図上の場所をクリックし、スライダーを有効にします。 これにより、車両の位置が変更されます。
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). These are also started with *make* - e.g.
+:::tip PX4は[Gazebo Simulation](../simulation/gazebo.md)と[AirSim Simulation](../simulation/airsim.md)を含む多くの[シミュレータ](../simulation/README.md)で使用できます． これらも *make*で起動されます。
 ```
 make px4_sitl gazebo
 ```
 :::
 
-## NuttX / Pixhawk Based Boards
+## NuttX / Pixhawk ベースのボード
 
-### Building for NuttX
+### NuttX用のビルド
 
-To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
+NuttX-またはPixhawkベースのボード用に構築する **PX4-Autopilot** ディレクトリに移動し、 `make` をビルドターゲットに対して使用します．
 
-For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
+たとえば、 [Pixhawk 4](../flight_controller/pixhawk4.md) ハードウェア用にビルドするには、次のコマンドを使用します。
 ```sh
 cd PX4-Autopilot
 make px4_fmu-v5_default
 ```
 
-A successful run will end with similar output to:
+実行が成功すると、次のような出力で終了します。
 ```sh
 -- Build files have been written to: /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The first part of the build target `px4_fmu-v4` indicates the firmware for a particular flight controller hardware. The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
+ビルドターゲット `px4_fmu-v4` の最初の部分は、特定のフライトコントローラハードウェアのファームウェアを示します。 次のリストは、 [Pixhawk 標準](../flight_controller/autopilot_pixhawk_standard.md) ボードのビルドコマンドを示しています。
 * [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
-* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
-* [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
-* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
-* [Pixracer](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
-* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
-* [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
+* [Pixhawk 4](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/pixracer.md): `make px4_fmu-v5_default`
+* [Pixhawk 3](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v5_default`
+* [Pixhawk ](../flight_controller/pixhawk_mini.md): `make px4_fmu-v5_default`
 * [Pixhawk 2 (Cube Black)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
+* [mRO Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (2MB Flashをサポート)
 * [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
 * [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 * [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::警告 You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
-Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
+Pixhawk NuttX 以外のフライトコントローラ(および他のすべてのボード)用のビルドコマンドは、個々の [フライトコントローラボード](../flight_controller/README.md) のドキュメントに記載されています。
 
-:::note
-The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
+:::ノート `_default` サフィックスは、ファームウェアの _設定_ です。 This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
-### Uploading Firmware (Flashing the board)
+### ファームウェアのアップロード（ボードへのフラッシュ）
 
-Append `upload` to the make commands to upload the compiled binary to the autopilot hardware via USB. For example
+`upload` をmakeコマンドに追加し、コンパイル済みバイナリをUSB経由でハードウェアにアップロードします。 例:
 
 ```sh
 make px4_fmu-v4_default upload
 ```
 
-A successful run will end with this output:
+実行が成功すると、次のような出力で終了します。
 
 ```sh
 Erase  : [====================] 100.0%
@@ -118,67 +114,67 @@ Rebooting.
 [100%] Built target upload
 ```
 
-## Other Boards
+## その他のボード
 
-Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading *Building Firmware*).
+他のボードのビルドコマンドには、 [ボード固有のフライトコントローラページ](../flight_controller/README.md) (通常は見出し *ファームウェアの構築* の下) が表示されます。
 
-You can also list all configuration targets using the command:
+以下のコマンドを使用して、すべての構成ターゲットを列挙することもできます。
 ```sh
 make list_config_targets
 ```
 
 
-## Compiling in a Graphical IDE
+## IDE でのコンパイル
 
-[VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
+[VScode](../dev_setup/vscode.md) は、PX4開発で正式にサポートされている(そして推奨されている)IDEです。 セットアップは簡単で、シミュレーション環境とハードウェア環境の両方でPX4をコンパイルできます。
 
 
-## Troubleshooting
+## トラブルシューティング
 
-### General Build Errors
+### 一般的なビルドエラー
 
-Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
+ビルドの問題の多くは、サブモジュールの不一致またはビルド環境のクリーンアップが不完全なために発生します サブモジュールを更新して `distclean` を実行すると、エラーが修正されます。
 ```
 git submodule update --recursive
 make distclean
 ```
 
-### Flash overflowed by XXX bytes
+### XXXバイトでオーバーフローしました
 
-The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
+`region 'flash' overflowed by XXXX bytes` エラーは、ファームウェアのサイズがハードウェアの容量に対して大きすぎることを示しています。 これは フラッシュ サイズが1MBに制限されている場合に，`make px4_fmu-v2_default ` ビルドで一般的に起こりえます．
 
-If you're building the *vanilla* master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
+*素の*マスターブランチを構築している場合、最も可能性の高い原因はサポートされていないバージョンの GCC を使用することです。 この場合、 [Developer Toolchain](../dev_setup/dev_env.md) の説明で指定されたバージョンをインストールします。
 
-If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
+独自のブランチを構築する場合は、ファームウェアのサイズが 1MB 制限を超えている可能性があります。 この場合、ビルドから不要なドライバ/モジュールを削除する必要があります。
 
 
-### macOS: Too many open files error
+### macOS: 開いているファイルが多すぎます
 
-MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.
+MacOSでは、実行中のすべてのプロセスでデフォルトで最大256個のファイルを開くことができます。 PX4ビルドシステムは多数のファイルを開くため、この数を超える可能性があります。
 
-The build toolchain will then report `Too many open files` for many files, as shown below:
+次に示すように、ビルドツールチェーンは、 `Too many open files`エラーを出力します．
 ```sh
 /usr/local/Cellar/gcc-arm-none-eabi/20171218/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: cannot find NuttX/nuttx/fs/libfs.a: Too many open files
 ```
 
-The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS *Terminal* for each session:
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
-- Enter this command:
+解決策は、開いているファイルの最大許容数を増やすことです (e.g. to 300)． 以下の方法をmacOS *ターミナル* 上で試すことができます．
+- このスクリプトを実行する [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
+- 次のコマンドを入力します。
   ```sh
   ulimit -S -n 300
   ```
 
-### macOS Catalina: Problem running cmake
+### macOS Catalina: cmake の実行に問題があります
 
-As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with *cmake*. If you have build problems on this platform then try run the following command in your terminal:
+macOS Catalina 10.15.1 以降、 *cmake* でシミュレータを構築しようとすると問題が生じる可能性があります。 このプラットフォームでビルドに問題がある場合は、ターミナルで次のコマンドを実行してみてください。
 ```sh
 xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
 
-### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+### Ubuntu 18.04：arm_none_eabi_gccに関連するコンパイルエラー
 
-Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
+`arm_none_eabi_gcc`に関連するビルドの問題は、g++ ツールチェーンのインストールが壊れていることが原因の可能性があります。 以下を使用して不足している依存関係を確認することで、この場合であることを確認できます。
 ```bash
 arm-none-eabi-gcc --version
 arm-none-eabi-g++ --version
@@ -186,13 +182,13 @@ arm-none-eabi-gdb --version
 arm-none-eabi-size --version
 ```
 
-Example of bash output with missing dependencies:
+依存関係が不足しているbash出力の例:
 ```bash
 arm-none-eabi-gdb --version
 arm-none-eabi-gdb: command not found
 ```
 
-This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+これは、コンパイラーを削除して[再インストール](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa)することで解決できます。
 
 ### Ubuntu 18.04: Visual Studio Code is unable to watch for file changes in this large workspace
 
