@@ -247,5 +247,5 @@ If you then power up the Mantis, it will flash the file automatically.
 
 For hardware issues, please contact TODO: add vendor.
 
-Please get in contact with Alessandro on [PX4 slack](https://slack.px4.io/).
+Please get in contact with [Alessandro](https://px4.slack.com/team/UA8EJMGA3) on [PX4 slack](https://slack.px4.io/).
 
