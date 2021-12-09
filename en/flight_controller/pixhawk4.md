@@ -24,7 +24,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * On-board sensors:
   * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
+  * Accel/Gyro: BMI055 or ICM20602 
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
@@ -73,7 +73,7 @@ Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-
 :::note
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
-::: 
+:::
 
 ## Serial Port Mapping
 
@@ -165,4 +165,3 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 - [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
 - [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
-
