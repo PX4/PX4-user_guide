@@ -55,6 +55,7 @@
   * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
   * [Airlango Mystic](http://airlango.com/products/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
+  * [ATL Mantis EDU](complete_vehicles/atl_mantis_edu.md)
 * 고정익 
   * [Sentera PXH](https://sentera.shop/products/sentera-phx-complete-system)
 * VTOL 
