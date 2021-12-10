@@ -25396,6 +25396,21 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SYS_DM_BACKEND">SYS_DM_BACKEND</strong> (INT32)</td>
+ <td>Dataman storage backend  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Disabled</li> 
+
+<li><strong>0:</strong> default (SD card)</li> 
+
+<li><strong>1:</strong> RAM (not persistent)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
  <td>Enable factory calibration mode <p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p>   </td>
  <td></td>
