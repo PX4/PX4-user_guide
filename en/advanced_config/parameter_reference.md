@@ -11614,13 +11614,17 @@ table {
  <td>RC control input mode <p><strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> RC Transmitter only</li> 
 
-<li><strong>1:</strong> Joystick only/No RC Checks</li> 
+<li><strong>1:</strong> Joystick only</li> 
 
-<li><strong>2:</strong> RC and Joystick are accepted</li> 
+<li><strong>2:</strong> RC and Joystick with fallback</li> 
+
+<li><strong>3:</strong> RC or Joystick keep first</li> 
+
+<li><strong>4:</strong> Stick input disabled</li> 
 </ul>
   </td>
- <td>0 > 2 </td>
- <td>0</td>
+ <td>0 > 4 </td>
+ <td>3</td>
  <td></td>
 </tr>
 <tr>
