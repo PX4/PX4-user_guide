@@ -14632,28 +14632,28 @@ table {
 <tbody>
 <tr>
  <td><strong id="LNDFW_AIRSPD_MAX">LNDFW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Airspeed max <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state</p>   </td>
- <td>4 > 20 </td>
+ <td>Fixed-wing land detector: Max airspeed <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state</p>   </td>
+ <td>2 > 20 </td>
  <td>6.00</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state</p>   </td>
+ <td>Fixed-wing land detector: Max horizontal velocity threshold <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
  <td>0.5 > 10 </td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
+ <td>Fixed-wing land detector: Max vertiacal velocity threshold <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
  <td>0.1 > 20 </td>
- <td>3.0</td>
+ <td>2.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_XYACC_MAX">LNDFW_XYACC_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state</p>   </td>
+ <td>Fixed-wing land detector: Max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state</p>   </td>
  <td>2 > 15 </td>
  <td>8.0</td>
  <td>m/s^2</td>
