@@ -25313,6 +25313,58 @@ table {
 </tr>
 </tbody></table>
 
+## Simulator
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="SIM_BARO_OFF_P">SIM_BARO_OFF_P</strong> (FLOAT)</td>
+ <td>simulated barometer pressure offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_BARO_OFF_T">SIM_BARO_OFF_T</strong> (FLOAT)</td>
+ <td>simulated barometer temperature offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GPS_USED">SIM_GPS_USED</strong> (INT32)</td>
+ <td>simulated GPS number of satellites used    </td>
+ <td>0 > 50 </td>
+ <td>10</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_MAG_OFFSET_X">SIM_MAG_OFFSET_X</strong> (FLOAT)</td>
+ <td>simulated magnetometer X offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+<tr>
+ <td><strong id="SIM_MAG_OFFSET_Y">SIM_MAG_OFFSET_Y</strong> (FLOAT)</td>
+ <td>simulated magnetometer Y offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+<tr>
+ <td><strong id="SIM_MAG_OFFSET_Z">SIM_MAG_OFFSET_Z</strong> (FLOAT)</td>
+ <td>simulated magnetometer Z offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+</tbody></table>
+
 ## System
 
 <table>
