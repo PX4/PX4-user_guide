@@ -523,6 +523,60 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
+## sensor_baro_sim
+Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
+
+
+### Description
+
+<a id="sensor_baro_sim_usage"></a>
+
+### Usage
+```
+sensor_baro_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_gps_sim
+Source: [modules/simulator/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_gps_sim)
+
+
+### Description
+
+<a id="sensor_gps_sim_usage"></a>
+
+### Usage
+```
+sensor_gps_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_mag_sim
+Source: [modules/simulator/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_mag_sim)
+
+
+### Description
+
+<a id="sensor_mag_sim_usage"></a>
+
+### Usage
+```
+sensor_mag_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## sensors
 Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
 
