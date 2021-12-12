@@ -562,11 +562,65 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
-## sensors
-播放系统蜂鸣声 #2 ：
+## sensor_baro_sim
+Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
 
 
 ### 用法
+
+<a id="sensor_baro_sim_usage"></a>
+
+### Usage
+```
+sensor_baro_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_gps_sim
+Source: [modules/simulator/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_gps_sim)
+
+
+### Description
+
+<a id="sensor_gps_sim_usage"></a>
+
+### Usage
+```
+sensor_gps_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_mag_sim
+Source: [modules/simulator/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_mag_sim)
+
+
+### Description
+
+<a id="sensor_mag_sim_usage"></a>
+
+### Usage
+```
+sensor_mag_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensors
+Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
+
+
+### Description
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
@@ -574,12 +628,12 @@ The provided functionality includes:
 - Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started. 传感器驱动使用 ioctl 接口获取参数更新。 为了使这一功能正常运行，当 `sensors` 模块启动时传感器驱动必须已经处于运行状态。
 - Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
 
-### 参数描述
+### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
 
 <a id="sensors_usage"></a>
 
-### 用法
+### Usage
 ```
 sensors <command> [arguments...]
  Commands:
