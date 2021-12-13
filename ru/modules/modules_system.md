@@ -143,10 +143,6 @@ dataman <command> [arguments...]
  The options -f and -r are mutually exclusive. If nothing is specified, a file
  'dataman' is used
 
-   poweronrestart Restart dataman (on power on)
-
-   inflightrestart Restart dataman (in flight)
-
    stop
 
    status        print status info
