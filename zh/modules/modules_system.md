@@ -154,16 +154,12 @@ dataman <command> [arguments...]
 
    stop
 
-   status        print status info 如果未指定后端，
-那么就默认使用文件 'dataman' 
-
-   poweronrestart 重启 dataman (处于开机 power on 状态时)
-
-   inflightrestart 重启 dataman (处于飞行状态时)
+   status        print status info If nothing is specified, a file
+ 'dataman' is used
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## dmesg
 **maybe_landed**: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The trigger time is defined by MAYBE_LAND_TRIGGER_TIME. When maybe_landed is detected, the position controller sets the thrust setpoint to zero.
