@@ -18,7 +18,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
 * 内置传感器： 
   * 加速度计 / 陀螺仪：ICM-20689
-  * 加速度计 / 陀螺仪：BMI055
+  * Accel/Gyro: BMI055 or ICM20602
   * 磁力计：IST8310
   * 气压计：MS5611
 * GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
