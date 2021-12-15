@@ -6,7 +6,7 @@ PX4는 다양한 텔레메트리 라디오 타입을 지원합니다:
 
 * [SiK 라디오 ](../telemetry/sik_radio.md) 기반 펌웨어 (일반적으로 UART 인터페이스에서 작동해야 함). 
   * [RFD900 텔레메트리 라디오](../telemetry/rfd900_telemetry.md)
-  * [HolyBro (SIK) Telemetry Radio](../telemetry/holybro_sik_radio.md)
+  * [HolyBro SiK Telemetry Radio](../telemetry/holybro_sik_radio.md)
   * <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
   * <del><em>3DR Telemetry Radio</em></del> (Discontinued)
 * [텔레메트리 Wi-fi](../telemetry/telemetry_wifi.md)
