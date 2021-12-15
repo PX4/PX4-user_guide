@@ -2,9 +2,12 @@
 
 This Holybro [SiK](../telemetry/sik_radio.md) Telemetry Radio is a small, light and inexpensive open source "plug-and-play" radio platform to connect your Autopilot Flight Controller and Ground Station.
 
-This radio is "plug-and-play" with all flight controller running PX4 with the JST-GH 6 Pin Connector TELEM port ([Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards)). It provides the easiest ways to setup a telemetry connection between your Autopilot flight controller and a ground station. It uses open source firmware which has been specially designed to work well with MAVLink packets and to be integrated with the QGroundControl & PX4 Autopilot.
+This radio is "plug-and-play" with all flight controllers running PX4 that have a JST-GH 6 Pin Connector TELEM port ([Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards)).
+It provides the easiest way to setup a telemetry connection between your Autopilot flight controller and a ground station.
+It uses open source firmware that has been specially designed to work well with MAVLink packets and to be integrated with the QGroundControl & PX4 Autopilot.
 
-The radios can be either 915Mhz or 433Mhz and you should purchase the model which is appropriate for your country/region. It typically allows ranges of better than 300m “out of the box” (the range can be extended to several kilometers with the use of a patch antenna on the ground).
+The radios can be either 915Mhz or 433Mhz and you should purchase the model which is appropriate for your country/region.
+They typically allow ranges of better than 300m "out of the box" (the range can be extended to several kilometers with the use of a patch antenna on the ground).
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
