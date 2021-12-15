@@ -21,7 +21,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * On-board sensors:
   * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
+  * Accel/Gyro: BMI055 or ICM20602
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
