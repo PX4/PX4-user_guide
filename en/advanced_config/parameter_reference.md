@@ -11036,7 +11036,7 @@ table {
 </ul>
   </td>
  <td></td>
- <td>1</td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
@@ -12817,7 +12817,7 @@ table {
  <td><strong id="EKF2_MAG_CHECK">EKF2_MAG_CHECK</strong> (INT32)</td>
  <td>Magnetic field strength test selection <p><strong>Comment:</strong> When set, the EKF checks the strength of the magnetic field to decide whether the magnetometer data is valid. If GPS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance.</p>   </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
