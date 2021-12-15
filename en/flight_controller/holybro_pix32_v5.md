@@ -28,7 +28,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * On-board sensors:
   * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
+  * Accel/Gyro: BMI055 or ICM20602 
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
@@ -85,7 +85,7 @@ The [Pix32 v5 Wiring Quick Start](../assembly/quick_start_holybro_pix32_v5.md) p
 ## Pinouts
 
 Download pinouts here:
-- [*pix32 v5* baseboard](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) 
+- [*pix32 v5* baseboard](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
 - [*pix32 v5* mini baseboard](http://www.holybro.com/manual/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 
 ## Dimensions
