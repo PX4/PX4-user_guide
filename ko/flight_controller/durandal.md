@@ -30,7 +30,7 @@
   - 32 비트 Arm® Cortex®-M3, 24MHz, 8KB SRAM
 - 내장 센서 :
   - 가속도/자이로: ICM-20689
-  - 가속/자이로: BMI088
+  - Accel/Gyro: BMI088 or ICM20602
   - 자력계: IST8310
   - 기압계: MS5611
 - GPS: u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
@@ -111,7 +111,7 @@
 
 ![Durandal 크기](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
-<!-- 
+<!--
 ## Voltage Ratings
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
@@ -128,7 +128,7 @@ Under these conditions all power sources will be used in this order to power the
 1. **USB** input (4.75V to 5.25V)
 -->
 
-<!-- 
+<!--
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.

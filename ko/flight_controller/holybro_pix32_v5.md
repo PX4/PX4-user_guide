@@ -21,7 +21,7 @@ Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시�
   * 32 비트 Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * 내장 센서 :
   * 가속도/자이로: ICM-20689
-  * 가속/자이로: BMI055
+  * Accel/Gyro: BMI055 or ICM20602
   * 자력계 : IST8310
   * 기압계: MS5611
 * GPS: u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
