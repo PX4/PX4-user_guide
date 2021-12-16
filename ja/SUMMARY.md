@@ -160,7 +160,6 @@
     * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
     * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
     * [Bitcraze Crazyflie 2.1](complete_vehicles/crazyflie21.md)
-    * [ATL Mantis EDU](complete_vehicles/atl_mantis_edu.md)
   * [Flight Controllers (Autopilots)](flight_controller/README.md) 
     * [Pixhawk Series](flight_controller/pixhawk_series.md) 
       * [Silicon Errata](flight_controller/silicon_errata.md)
