@@ -160,7 +160,6 @@
     * [BetaFPV Beta75X 2S 穿越机](complete_vehicles/betafpv_beta75x.md)
     * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
     * [Bitcraze Crazyflie 2.1](complete_vehicles/crazyflie21.md)
-    * [ATL Mantis EDU](complete_vehicles/atl_mantis_edu.md)
   * [飞行控制器(Autopilots)](flight_controller/README.md) 
     * [Pixhawk 系列](flight_controller/pixhawk_series.md) 
       * [芯片勘误表](flight_controller/silicon_errata.md)
