@@ -160,7 +160,6 @@
     * [BetaFPV Beta75X 2S 브러시리스 후프](complete_vehicles/betafpv_beta75x.md)
     * [홀리브로 코피스 2](complete_vehicles/holybro_kopis2.md)
     * [Bitcraze Crazyflie 2.1](complete_vehicles/crazyflie21.md)
-    * [ATL Mantis EDU](complete_vehicles/atl_mantis_edu.md)
   * [비행 컨트롤러(자동조종장치)](flight_controller/README.md) 
     * [픽스호크 시리즈](flight_controller/pixhawk_series.md) 
       * [실리콘 정오표](flight_controller/silicon_errata.md)
