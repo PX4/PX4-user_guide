@@ -2385,6 +2385,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2479,6 +2481,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2573,6 +2577,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2667,6 +2673,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2761,6 +2769,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2855,6 +2865,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2949,6 +2961,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3043,6 +3057,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3137,6 +3153,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3231,6 +3249,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3325,6 +3345,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -14439,6 +14461,14 @@ table {
  <td>0 > 360 </td>
  <td>0.</td>
  <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="PPS_CAP_ENABLE">PPS_CAP_ENABLE</strong> (INT32)</td>
+ <td>PPS Capture Enable <p><strong>Comment:</strong> Enables the PPS capture module. This switches mode of FMU channel 7 to be the PPS input channel.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
 </tr>
 </tbody></table>
 
