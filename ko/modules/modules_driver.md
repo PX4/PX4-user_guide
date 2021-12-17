@@ -778,19 +778,38 @@ pmw3901 <command> [arguments...]
 
    status        print status info
 ```
-## px4flow
-시뮬레이션된 PWM 출력용 드라이버입니다.
+## pps_capture
+Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pps_capture)
 
 
 ### 설명
+This implements capturing PPS information from the GNSS module and calculates the drift between PPS and Real-time clock.
+
+<a id="pps_capture_usage"></a>
+
+### Usage
+```
+pps_capture <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## pwm_out
+Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
+
+
+### Description
 This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 On startup, the module tries to occupy all available pins for PWM/Oneshot output. It skips all pins already in use (e.g. by a camera trigger module).
 
-### 사용법
-소스: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
+### Implementation
+By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
 <a id="pwm_out_usage"></a>
 
@@ -815,20 +834,20 @@ pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## rc_input
+## pwm_out_sim
 Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
-### 설명
+### Description
 Driver for simulated PWM outputs.
 
-소스: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
+Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
 
 It is used in SITL and HITL.
 
 <a id="pwm_out_sim_usage"></a>
 
-### 사용법
+### Usage
 ```
 pwm_out_sim <command> [arguments...]
  Commands:
@@ -840,31 +859,10 @@ pwm_out_sim <command> [arguments...]
 
    status        print status info
 ```
-## rgbled
+## px4flow
 Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
-
-### 사용법
-```
-pwm_out_sim <command> [arguments...]
- Commands:
-   start         Start the module
-     [-m <val>]  Mode
-                 values: hil|sim, default: sim
-
-   stop
-
-   status        print status info
-```
-## roboclaw
-Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/px4io)
-
-
-### 설명
-Output driver communicating with the IO co-processor.
-
-<a id="px4io_usage"></a>
 
 ### 구현
 ```
@@ -886,11 +884,61 @@ px4flow <command> [arguments...]
 
    status        print status info
 ```
+## px4io
+Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/px4io)
+
+
+### 예
+Output driver communicating with the IO co-processor.
+
+<a id="px4io_usage"></a>
+
+### Usage
+```
+px4io <command> [arguments...]
+ Commands:
+   start
+
+   detect        Try to detect the presence of an IO
+
+   checkcrc      Check CRC for a firmware file against current code on IO
+     <filename>  Firmware file
+
+   update        Update IO firmware
+     [<filename>] Firmware file
+
+   safety_off    Turn off safety (force)
+
+   safety_on     Turn on safety (force)
+
+   debug         set IO debug level
+     <debug_level> 0=disabled, 9=max verbosity
+
+   monitor       continuously monitor status
+
+   bind          DSM bind
+     dsm2|dsmx|dsmx8 protocol
+
+   lockdown      enable (or disable) lockdown
+     [disable]   disable lockdown
+
+   sbus1_out     enable sbus1 out
+
+   sbus2_out     enable sbus2 out
+
+   test_fmu_fail test: turn off IO updates
+
+   test_fmu_ok   re-enable IO updates
+
+   stop
+
+   status        print status info
+```
 ## rc_input
 Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
 
-### 예
+### Description
 This module does the RC input parsing and auto-selecting the method. Supported methods are:
 - PPM
 - SBUS
