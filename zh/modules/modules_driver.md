@@ -698,6 +698,25 @@ pmw3901 <command> [arguments...]
 
    status        print status info
 ```
+## pps_capture
+Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pps_capture)
+
+
+### Description
+This implements capturing PPS information from the GNSS module and calculates the drift between PPS and Real-time clock.
+
+<a id="pps_capture_usage"></a>
+
+### Usage
+```
+pps_capture <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## pwm_out
 Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
