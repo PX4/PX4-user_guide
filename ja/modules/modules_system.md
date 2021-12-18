@@ -143,10 +143,6 @@ dataman <command> [arguments...]
  The options -f and -r are mutually exclusive. If nothing is specified, a file
  'dataman' is used
 
-   poweronrestart Restart dataman (on power on)
-
-   inflightrestart Restart dataman (in flight)
-
    stop
 
    status        print status info
@@ -518,6 +514,60 @@ The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, e
 send_event <command> [arguments...]
  Commands:
    start         Start the background task
+
+   stop
+
+   status        print status info
+```
+## sensor_baro_sim
+Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
+
+
+### Description
+
+<a id="sensor_baro_sim_usage"></a>
+
+### Usage
+```
+sensor_baro_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_gps_sim
+Source: [modules/simulator/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_gps_sim)
+
+
+### Description
+
+<a id="sensor_gps_sim_usage"></a>
+
+### Usage
+```
+sensor_gps_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_mag_sim
+Source: [modules/simulator/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_mag_sim)
+
+
+### Description
+
+<a id="sensor_mag_sim_usage"></a>
+
+### Usage
+```
+sensor_mag_sim <command> [arguments...]
+ Commands:
+   start
 
    stop
 

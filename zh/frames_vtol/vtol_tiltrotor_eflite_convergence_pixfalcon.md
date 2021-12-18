@@ -64,7 +64,7 @@ Follow the [Standard Configuration](config/README.md) in *QGroundControl* (radio
 
 The particular settings that are relevant to this vehicle are:
 
-- [Airframe](config/airframe.md) 
+- [Airframe](../config/airframe.md) 
   - Select the airframe configuration **E-flite Convergence** under **VTOL Tiltrotor** and restart *QGroundControl*. ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
 - [Flight Modes/Switches](../config/flight_mode.md) 
   - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.

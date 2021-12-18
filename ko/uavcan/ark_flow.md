@@ -76,24 +76,23 @@ ARK Flow 보드를 사용하려면 Pixhawk CAN 버스에 연결하고 동적 노
 
 [Optical Flow > 추정기 > EKF2 ](../sensor/optical_flow.md#ekf2) 에서 EKF 광류 매개변수를 설정합니다.
 - In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow. To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save.
-- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `0.08` and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `30`.
+- Set [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) to `10`.
 - [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)을 `0.08`로, [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)를 `30`으로 설정합니다.
+- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) to `0.08`.
+- Set [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `30`.
+- Set [SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) to `0.08`.
+- Set [SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) to `25`.
+- Set [SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) to `7.4` to match the PAW3902 maximum angular flow rate.
+- Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW).
+- Enable [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG).
 - The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicle centre of gravity.
 
 또한 다음의 매개변수들을 설정할 수 있습니다.
 
-| 매개변수                                                                                                      | 설명                           |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| <a id="SENS_FLOW_MAXHGT"></a>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | 광학 흐름에 의존시 지상 최대 높이.         |
-| <a id="SENS_FLOW_MINHGT"></a>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | 광학 흐름에 의존시 지상 최소 높이.         |
-| <a id="SENS_FLOW_MAXR"></a>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR)     | 광류 센서로 안정적으로 측정 기능한 최대 각 유량. |
-
-On the ARK Flow, you may need to configure the following parameters:
-
-| Parameter                                                                                                 | Description                                                   |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| <a id="CANNODE_FLOW_ROT"></a>[CANNODE_FLOW_ROT](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame. |
-| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT)       | CAN built-in bus termination.                                 |
+| 매개변수                                                                                                      | 설명                   |
+| --------------------------------------------------------------------------------------------------------- | -------------------- |
+| <a id="CANNODE_FLOW_ROT"></a>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | 광학 흐름에 의존시 지상 최대 높이. |
+| <a id="CANNODE_TERM"></a>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | 광학 흐름에 의존시 지상 최소 높이. |
 
 
 ## Ark Flow 펌웨어 빌드
@@ -119,7 +118,7 @@ The steps are:
 
 The Ark Flow comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
 
-ARK Flow가 깜박일 때 빨간색과 파란색 LED가 모두 표시되고, 제대로 실행 중이면 파란색 LED가 계속 켜져 있습니다.
+The steps are:
 1. Ark Flow 부트로더 펌웨어를 빌드합니다.
    ```
    make ark_can-flow_canbootloader
@@ -134,15 +133,13 @@ ARK Flow가 깜박일 때 빨간색과 파란색 LED가 모두 표시되고, 제
 
 ## LED 신호의 의미
 
-빨간색 LED가 계속 켜져 있으면, 오류가 있으므로 다음 사항들을 확인하여야 합니다.
+ARK Flow가 깜박일 때 빨간색과 파란색 LED가 모두 표시되고, 제대로 실행 중이면 파란색 LED가 계속 켜져 있습니다.
 
-[유튜브](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0) *속도 추정을 위해 ARK Flow 센서를 사용한 PX4 고정 위치([위치 모드](../flight_modes/position_mc.md)에서)*
+빨간색 LED가 계속 켜져 있으면, 오류가 있으므로 다음 사항들을 확인하여야 합니다.
 - 비행 콘트롤러에 SD 카드가 설치되어 있는지 확인하십시오.
 - `ark_can-flow_default`를 플래싱하기 전에 Ark Flow에 `ark_can-flow_canbootloader`가 설치되어 있는 지 확인하십시오.
 - SD 카드의 루트 및 ufw 디렉토리에서 바이너리를 제거하고 빌드 및 플래시를 다시 시도하십시오.
 
 ## 비디오
 
-@[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
-<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
-*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
+@[유튜브](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0) *속도 추정을 위해 ARK Flow 센서를 사용한 PX4 고정 위치([위치 모드](../flight_modes/position_mc.md)에서)* 

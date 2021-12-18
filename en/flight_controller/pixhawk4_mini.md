@@ -24,7 +24,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 * On-board sensors:
   * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
+  * Accel/Gyro: BMI055 or ICM20602
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
@@ -145,12 +145,12 @@ UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 
 
 ## Supported Platforms
-Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). 
+Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
 :::warning
-*Pixhawk 4 Mini* does not have AUX ports. 
-The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. 
+*Pixhawk 4 Mini* does not have AUX ports.
+The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces.
 It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
 :::
 

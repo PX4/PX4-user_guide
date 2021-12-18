@@ -1,9 +1,8 @@
 # 机器人
 
-Drone APIs let you write code to control and integrate with PX4-powered vehicles, without having to understand intimate details of the vehicle and flight stack (including vehicle stabilisation, airframe mechanics, the flight controller software programming language, operating system and architecture), or having to think about safety-critical behaviour.
+Drone APIs let you write code to control and integrate with PX4-powered vehicles, without having to understand intimate details of the vehicle and flight stack, or having to think about safety-critical behaviour.
 
-For example, you might want to create new "smart" flight modes or custom geofence modes, or integrate new hardware or software libraries. [DroneKit](../robotics/dronekit.md) 也可以用，但是优化不够好。 Under the the hood the APIs communicate with PX4 using [MAVLink](../middleware/mavlink.md) or [RTPS](../middleware/micrortps.md).
-
+For example, you might want to create new "smart" flight modes, or custom geofence modes, or integrate new hardware. [DroneKit](../robotics/dronekit.md) 也可以用，但是优化不够好。 Under the the hood the APIs communicate with PX4 using [MAVLink](../middleware/mavlink.md) or [RTPS](../middleware/micrortps.md).
 
 PX4 supports the following SDKs/Robotics tools:
 - [MAVSDK](https://mavsdk.mavlink.io/)

@@ -108,6 +108,7 @@ http://en.wikipedia.org/wiki/International_System_of_Units
 This are the three next waypoints (or just the next two or one).
 - [power_button_state](power_button_state.md) — power button state notification message
 - [power_monitor](power_monitor.md) — power monitor message
+- [pps_capture](pps_capture.md)
 - [pwm_input](pwm_input.md)
 - [px4io_status](px4io_status.md)
 - [radio_status](radio_status.md)

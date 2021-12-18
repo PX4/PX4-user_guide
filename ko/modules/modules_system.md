@@ -142,10 +142,6 @@ dataman <command> [arguments...]
  The options -f and -r are mutually exclusive. If nothing is specified, a file
  'dataman' is used
 
-   poweronrestart Restart dataman (on power on)
-
-   inflightrestart Restart dataman (in flight)
-
    stop
 
    status        print status info
@@ -528,24 +524,78 @@ temperature_compensation <command> [arguments...]
 
    status        print status info
 ```
-## tune_control
-소스: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
+## sensor_baro_sim
+Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
 
 
 ### 사용법
+
+<a id="sensor_baro_sim_usage"></a>
+
+### Usage
+```
+sensor_baro_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_gps_sim
+Source: [modules/simulator/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_gps_sim)
+
+
+### Description
+
+<a id="sensor_gps_sim_usage"></a>
+
+### Usage
+```
+sensor_gps_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_mag_sim
+Source: [modules/simulator/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_mag_sim)
+
+
+### Description
+
+<a id="sensor_mag_sim_usage"></a>
+
+### Usage
+```
+sensor_mag_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensors
+Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
+
+
+### Description
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
-소스: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
+The provided functionality includes:
 - 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
 - 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
 - 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
 
-### 설명
+### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
 
 <a id="sensors_usage"></a>
 
-### 예
+### Usage
 ```
 sensors <command> [arguments...]
  Commands:
@@ -556,16 +606,16 @@ sensors <command> [arguments...]
 
    status        print status info
 ```
-## work_queue
+## tattu_can
 Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tattu_can)
 
 
-### 사용법
+### Description
 Driver for reading data from the Tattu 12S 16000mAh smart battery.
 
 <a id="tattu_can_usage"></a>
 
-### 설명
+### Usage
 ```
 tattu_can <command> [arguments...]
  Commands:
@@ -579,7 +629,7 @@ tattu_can <command> [arguments...]
 Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
 
 
-### 사용법
+### Description
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
 
 <a id="temperature_compensation_usage"></a>

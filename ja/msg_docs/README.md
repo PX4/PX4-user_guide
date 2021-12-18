@@ -100,6 +100,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [position_setpoint_triplet](position_setpoint_triplet.md) — Global position setpoint triplet in WGS84 coordinates. This are the three next waypoints (or just the next two or one).
 - [power_button_state](power_button_state.md) — power button state notification message
 - [power_monitor](power_monitor.md) — power monitor message
+- [pps_capture](pps_capture.md)
 - [pwm_input](pwm_input.md)
 - [px4io_status](px4io_status.md)
 - [radio_status](radio_status.md)

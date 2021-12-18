@@ -2385,6 +2385,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2479,6 +2481,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2573,6 +2577,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2667,6 +2673,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2761,6 +2769,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2855,6 +2865,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -2949,6 +2961,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3043,6 +3057,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3137,6 +3153,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3231,6 +3249,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -3325,6 +3345,8 @@ table {
 <li><strong>2000:</strong> Camera Trigger</li> 
 
 <li><strong>2032:</strong> Camera Capture</li> 
+
+<li><strong>2064:</strong> PPS Input</li> 
 </ul>
   </td>
  <td></td>
@@ -10347,6 +10369,8 @@ table {
 <tr>
  <td><strong id="BAT1_N_CELLS">BAT1_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 1 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>1:</strong> 1S Battery</li> 
+
 <li><strong>2:</strong> 2S Battery</li> 
 
 <li><strong>3:</strong> 3S Battery</li> 
@@ -10475,6 +10499,8 @@ table {
 <tr>
  <td><strong id="BAT2_N_CELLS">BAT2_N_CELLS</strong> (INT32)</td>
  <td>Number of cells for battery 2 <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>1:</strong> 1S Battery</li> 
+
 <li><strong>2:</strong> 2S Battery</li> 
 
 <li><strong>3:</strong> 3S Battery</li> 
@@ -11032,7 +11058,7 @@ table {
 </ul>
   </td>
  <td></td>
- <td>1</td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
@@ -11610,13 +11636,17 @@ table {
  <td>RC control input mode <p><strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> RC Transmitter only</li> 
 
-<li><strong>1:</strong> Joystick only/No RC Checks</li> 
+<li><strong>1:</strong> Joystick only</li> 
 
-<li><strong>2:</strong> RC and Joystick are accepted</li> 
+<li><strong>2:</strong> RC and Joystick with fallback</li> 
+
+<li><strong>3:</strong> RC or Joystick keep first</li> 
+
+<li><strong>4:</strong> Stick input disabled</li> 
 </ul>
   </td>
- <td>0 > 2 </td>
- <td>0</td>
+ <td>0 > 4 </td>
+ <td>3</td>
  <td></td>
 </tr>
 <tr>
@@ -12809,7 +12839,7 @@ table {
  <td><strong id="EKF2_MAG_CHECK">EKF2_MAG_CHECK</strong> (INT32)</td>
  <td>Magnetic field strength test selection <p><strong>Comment:</strong> When set, the EKF checks the strength of the magnetic field to decide whether the magnetometer data is valid. If GPS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance.</p>   </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -13716,10 +13746,10 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_L1_PERIOD">FW_L1_PERIOD</strong> (FLOAT)</td>
- <td>L1 period <p><strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the aircraft its following. A value of 18-25 meters works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
- <td>12.0 > 50.0 (0.5)</td>
+ <td>L1 period <p><strong>Comment:</strong> Used to determine the L1 gain and controller time constant. This parameter is proportional to the L1 distance (which points ahead of the aircraft on the path it is following). A value of 18-25 seconds works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
+ <td>7.0 > 50.0 (0.5)</td>
  <td>20.0</td>
- <td>m</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_L1_R_SLEW_MAX">FW_L1_R_SLEW_MAX</strong> (FLOAT)</td>
@@ -14432,6 +14462,14 @@ table {
  <td>0.</td>
  <td>deg</td>
 </tr>
+<tr>
+ <td><strong id="PPS_CAP_ENABLE">PPS_CAP_ENABLE</strong> (INT32)</td>
+ <td>PPS Capture Enable <p><strong>Comment:</strong> Enables the PPS capture module. This switches mode of FMU channel 7 to be the PPS input channel.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## Geofence
@@ -14628,28 +14666,28 @@ table {
 <tbody>
 <tr>
  <td><strong id="LNDFW_AIRSPD_MAX">LNDFW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Airspeed max <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state</p>   </td>
- <td>4 > 20 </td>
+ <td>Fixed-wing land detector: Max airspeed <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state</p>   </td>
+ <td>2 > 20 </td>
  <td>6.00</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state</p>   </td>
+ <td>Fixed-wing land detector: Max horizontal velocity threshold <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
  <td>0.5 > 10 </td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
+ <td>Fixed-wing land detector: Max vertiacal velocity threshold <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
  <td>0.1 > 20 </td>
- <td>3.0</td>
+ <td>2.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_XYACC_MAX">LNDFW_XYACC_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state</p>   </td>
+ <td>Fixed-wing land detector: Max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state</p>   </td>
  <td>2 > 15 </td>
  <td>8.0</td>
  <td>m/s^2</td>
@@ -15917,14 +15955,14 @@ table {
  <td><strong id="MNT_RANGE_PITCH">MNT_RANGE_PITCH</strong> (FLOAT)</td>
  <td>Range of pitch channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
- <td>360.0</td>
+ <td>90.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_ROLL">MNT_RANGE_ROLL</strong> (FLOAT)</td>
  <td>Range of roll channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
- <td>360.0</td>
+ <td>90.0</td>
  <td></td>
 </tr>
 <tr>
@@ -15946,6 +15984,18 @@ table {
  <td>Angular yaw rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-yaw rate..yaw rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MNT_RC_IN_MODE">MNT_RC_IN_MODE</strong> (INT32)</td>
+ <td>Input mode for RC gimbal input  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Angle</li> 
+
+<li><strong>1:</strong> Angular rate</li> 
+</ul>
+  </td>
+ <td>0 > 1 </td>
+ <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -25293,6 +25343,58 @@ table {
 </tr>
 </tbody></table>
 
+## Simulator
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="SIM_BARO_OFF_P">SIM_BARO_OFF_P</strong> (FLOAT)</td>
+ <td>simulated barometer pressure offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_BARO_OFF_T">SIM_BARO_OFF_T</strong> (FLOAT)</td>
+ <td>simulated barometer temperature offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GPS_USED">SIM_GPS_USED</strong> (INT32)</td>
+ <td>simulated GPS number of satellites used    </td>
+ <td>0 > 50 </td>
+ <td>10</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_MAG_OFFSET_X">SIM_MAG_OFFSET_X</strong> (FLOAT)</td>
+ <td>simulated magnetometer X offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+<tr>
+ <td><strong id="SIM_MAG_OFFSET_Y">SIM_MAG_OFFSET_Y</strong> (FLOAT)</td>
+ <td>simulated magnetometer Y offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+<tr>
+ <td><strong id="SIM_MAG_OFFSET_Z">SIM_MAG_OFFSET_Z</strong> (FLOAT)</td>
+ <td>simulated magnetometer Z offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+</tbody></table>
+
 ## System
 
 <table>
@@ -25374,6 +25476,21 @@ table {
 <tr>
  <td><strong id="SYS_CTRL_ALLOC">SYS_CTRL_ALLOC</strong> (INT32)</td>
  <td>Enable Dynamic Control Allocation <p><strong>Comment:</strong> If disabled, the existing mixing implementation is used. If enabled, dynamic control allocation with runtime configuration of the mixing and output functions is used. Note: this is work-in-progress and not all vehicle types are supported yet.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SYS_DM_BACKEND">SYS_DM_BACKEND</strong> (INT32)</td>
+ <td>Dataman storage backend  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Disabled</li> 
+
+<li><strong>0:</strong> default (SD card)</li> 
+
+<li><strong>1:</strong> RAM (not persistent)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>

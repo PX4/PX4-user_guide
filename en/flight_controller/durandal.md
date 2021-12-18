@@ -5,7 +5,7 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
-*Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. 
+*Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers.
 It was designed and developed by Holybro.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
@@ -34,7 +34,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   - 32 Bit Arm ® Cortex® -M3, 24MHz, 8KB SRAM
 - On-board sensors
   - Accel/Gyro: ICM-20689
-  - Accel/Gyro: BMI088
+  - Accel/Gyro: BMI088 or ICM20602
   - Mag: IST8310
   - Barometer: MS5611
 - GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
@@ -42,7 +42,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 #### Interfaces
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
-- 6 dedicated PWM/Capture inputs on FMU 
+- 6 dedicated PWM/Capture inputs on FMU
 - Dedicated R/C input for Spektrum / DSM
 - Dedicated R/C input for CPPM and S.Bus
 - Dedicated S.Bus servo output and analog / PWM RSSI input
@@ -116,7 +116,7 @@ All dimensions are in millimeters.
 
 ![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
-<!-- 
+<!--
 ## Voltage Ratings
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
@@ -133,7 +133,7 @@ Under these conditions all power sources will be used in this order to power the
 1. **USB** input (4.75V to 5.25V)
 -->
 
-<!-- 
+<!--
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.

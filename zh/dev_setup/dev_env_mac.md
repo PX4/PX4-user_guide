@@ -27,31 +27,29 @@ This setup is supported by the PX4 dev team. To build other targets you will nee
 
 The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
 
-## 额外工具
+## Enable more open files (Handle "LD: too many open files" error)
 
-完成编译/仿真开发环境设置后，你可以从 [Additional Tools](../setup/generic_dev_tools.md) 找到一些有用的“通用”开发工具。
+Create the `~/.zshenv` file or append it (by running `open ~/.zshenv` on the terminal) and add this line:
 ```sh
-brew tap PX4/px4
-brew install px4-dev
-# 可选，但建议安装额外的仿真模拟用工具
-brew install px4-sim
+ulimit -S -n 2048
 ```
 
-## 后续步骤
+## Enforce Python Version
 
-设置完环境后，请转至 [build instructions](../setup/building_px4.md) 。
+If not already existing, create the file `~/.zshrc` and add these lines:
 
 ```sh
-brew cask install xquartz java
+# Point pip3 to MacOS system python 3 pip
+alias pip3=/usr/bin/pip3
 ```
 
-## Gazebo 仿真
+## Common Tools
 
 After installing Homebrew, run these commands in your shell to install the common tools:
 
 ```sh
-sudo easy_install pip
-sudo -H pip install pyserial empy toml numpy pandas jinja2 pyyaml
+brew tap PX4/px4
+brew install px4-dev
 ```
 Install the required Python packages
 
@@ -62,7 +60,7 @@ python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyro
 sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 ```
 
-## jMAVSim 仿真模拟
+## Gazebo Simulation
 
 First run the following commands:
 

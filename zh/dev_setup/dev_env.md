@@ -10,13 +10,13 @@ The *supported platforms* for PX4 development are:
 
 下表显示了您可以在每个操作系统上构建何种 PX平台的固件编译。
 
-| 平台                                                                                                                                                                                                                                                              | Linux (Ubuntu) |   Mac   | Windows |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
-| **基于 NuttX 的硬件：** [Pixhawk 系列](https://docs.px4.io/en/flight_controller/pixhawk_series.html), [Crazyflie](https://docs.px4.io/en/flight_controller/crazyflie2.html), [Intel® Aero Ready to Fly Drone](https://docs.px4.io/en/flight_controller/intel_aero.html) |       X        |    X    |    X    |
-| **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                                                                                                                                                       |       X        |         |         |
-| **基于 Linux 的硬件：** [Raspberry Pi 2/3](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html), [Parrot Bebop](https://docs.px4.io/en/flight_controller/bebop.html)                                                                                    |       X        | &check; | &check; |
-| **模拟器：** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                                                                               |       X        |    X    |         |
-| **模拟器：** [Gazebo SITL](../simulation/gazebo.md)                                                                                                                                                                                                                 |       X        |         |         |
+| 平台                                                                                                                                                                                                        | Linux (Ubuntu) |   Mac   | Windows |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
+| **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) |       X        |    X    |    X    |
+| **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                                                                                                 |       X        |         |         |
+| **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                  |       X        | &check; | &check; |
+| **模拟器：** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                         |       X        |    X    |         |
+| **模拟器：** [Gazebo SITL](../simulation/gazebo.md)                                                                                                                                                           |       X        |         |         |
 
 不同操作系统的开发环境的安装请参阅：
 

@@ -255,6 +255,7 @@
     * [Tachometers (Revolution Counters)](sensor/tachometers.md)
       * [ThunderFly TFRPM01 Tachometer Sensor](sensor/thunderfly_tachometer.md)
     * [Airspeed Sensors](sensor/airspeed.md)
+      * [TFSlot Airspeed Sensor](sensor/airspeed_tfslot.md)
     * [Optical Flow](sensor/optical_flow.md)
       * [ARK Flow](uavcan/ark_flow.md)
       * [PX4FLOW](sensor/px4flow.md)

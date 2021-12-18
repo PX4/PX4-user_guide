@@ -54,7 +54,7 @@ The settings and underlying parameters are shown below.
 
 ### RC 연결불안정 안전장치
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual modes* (RC loss does not trigger the failsafe in automatic modes - e.g. during missions).
+The RC Loss failsafe is triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions).
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
@@ -63,10 +63,11 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 The settings and underlying parameters are shown below.
 
-| 설정            | 매개변수                                                                       | 설명                                   |
-| ------------- | -------------------------------------------------------------------------- | ------------------------------------ |
-| RC 연결불량 시간 초과 | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | RC 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다. |
-| 안전장치 동작       | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | 비활성화, 배회, 귀환, 착륙, 종료, 봉쇄.            |
+| 설정                 | 매개변수                                                                         | 설명                                                                            |
+| ------------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| RC 연결불량 시간 초과      | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | RC 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다.                                          |
+| 안전장치 동작            | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 비활성화, 배회, 귀환, 착륙, 종료, 봉쇄.                                                     |
+| RC Loss Exceptions | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard. |
 
 ### 데이터 연결불량 안전장치
 

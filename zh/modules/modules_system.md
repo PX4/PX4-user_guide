@@ -154,16 +154,12 @@ dataman <command> [arguments...]
 
    stop
 
-   status        print status info 如果未指定后端，
-那么就默认使用文件 'dataman' 
-
-   poweronrestart 重启 dataman (处于开机 power on 状态时)
-
-   inflightrestart 重启 dataman (处于飞行状态时)
+   status        print status info If nothing is specified, a file
+ 'dataman' is used
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## dmesg
 **maybe_landed**: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The trigger time is defined by MAYBE_LAND_TRIGGER_TIME. When maybe_landed is detected, the position controller sets the thrust setpoint to zero.
@@ -562,11 +558,65 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
-## sensors
-播放系统蜂鸣声 #2 ：
+## sensor_baro_sim
+Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
 
 
 ### 用法
+
+<a id="sensor_baro_sim_usage"></a>
+
+### Usage
+```
+sensor_baro_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_gps_sim
+Source: [modules/simulator/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_gps_sim)
+
+
+### Description
+
+<a id="sensor_gps_sim_usage"></a>
+
+### Usage
+```
+sensor_gps_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_mag_sim
+Source: [modules/simulator/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_mag_sim)
+
+
+### Description
+
+<a id="sensor_mag_sim_usage"></a>
+
+### Usage
+```
+sensor_mag_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensors
+Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
+
+
+### Description
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
@@ -574,12 +624,12 @@ The provided functionality includes:
 - Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started. 传感器驱动使用 ioctl 接口获取参数更新。 为了使这一功能正常运行，当 `sensors` 模块启动时传感器驱动必须已经处于运行状态。
 - Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
 
-### 参数描述
+### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
 
 <a id="sensors_usage"></a>
 
-### 用法
+### Usage
 ```
 sensors <command> [arguments...]
  Commands:

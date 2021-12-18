@@ -184,7 +184,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ```
 
 1. Make your own uORB topic subscriber just like any example subscriber module.
-   For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver). 
+   For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver).
    In this directory, create two files **CMakeLists.txt**, **key_receiver.cpp**.
    Each one looks like following.
 
