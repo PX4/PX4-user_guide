@@ -45,7 +45,7 @@ Battery pad                   |  3mm Silicone sheet black                       
 Platform board                |  Thickness: 2mm                                       | 1
 Hanger & rubber ring gasket	  | Inner hole diameter: 10mm black	                      | 8
 
-### ![X500V2 Full Package Contents](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/whats_inside_x500v2_labeled.jpg)
+### ![X500V2 Full Package Contents](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/X500_V2_whats_inside.png)
 
 ### Electronics
 
