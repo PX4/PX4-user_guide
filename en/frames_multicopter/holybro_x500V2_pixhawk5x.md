@@ -15,7 +15,7 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 The Holybro [X500 Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) includes almost all the required components:
 
-* [Pixhawk 4 autopilot](../flight_controller/pixhawk5x.md)
+* [Pixhawk 5x autopilot](../flight_controller/pixhawk5x.md)
 * [Pixhawk 4 GPS](http://shop.holybro.com/holybro-m8n-gps_p1094.html)
 * [Power Management - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
 * [Holybro Motors - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
@@ -45,14 +45,14 @@ Battery pad                   |  3mm Silicone sheet black                       
 Platform board                |  Thickness: 2mm                                       | 1
 Hanger & rubber ring gasket	  | Inner hole diameter: 10mm black	                      | 8
 
-![X500V2 Full Package Contents](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/whats_inside_x500v2_labeled.jpg)
+### ![X500V2 Full Package Contents](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/whats_inside_x500v2_labeled.jpg)
 
 ### Electronics
 
 Item Description | Quantity
 --- | ---
-Pixhawk4 & Assorted Cables                                            |  1
-Pixhawk4 GPS Module	                                                  |  1
+Pixhawk5x & Assorted Cables                                            |  1
+GPS Module	                                                  |  1
 Power Management PM07 (with pre-soldered ESC power cables)            |  1
 Motors 2216 KV880（V2 Update)                                         |  4
 Holybro BLHeli S ESC 20A x4                                           |  1
@@ -60,22 +60,17 @@ Holybro BLHeli S ESC 20A x4                                           |  1
 
 ### Tools needed
 
-The following tools are used in this assembly:
+Tools are included to do the assembly, however you may need:
 
-- 1.5 mm Hex screwdriver
-- 2.0 mm Hex screwdriver
-- 2.5 mm Hex screwdriver
-- 3mm Phillips screwdriver
-- 5.5 mm socket wrench or small piler
 - Wire cutters
 - Precision tweezers
 
 
 ## Assembly
 
-Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
+Estimate time to assemble is 1.5 hours (60 minutes for frame, 30 minutes for autopilot installation/configuration)
 
-1. Start by assembling the landing gear.
+1. Start by assembling the payload & battery holder.
    Unscrew the landing gear screws and insert the vertical pole (figures 1 and 2).
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
