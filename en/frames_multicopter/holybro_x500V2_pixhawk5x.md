@@ -73,13 +73,13 @@ Estimate time to assemble is 1.5 hours (60 minutes for frame, 30 minutes for aut
 1. Start by assembling the payload & battery holder.
    Unscrew the landing gear screws and insert the vertical pole (figures 1 and 2).
 
-   ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
+   ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/Payload_holder_Required_stuff.png)
 
-   _Figure 2_: Landing gear components
+   _Figure 2_: Payload holder components
 
-   ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
+   ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/Payload_holder_assembled.png)
 
-   _Figure 2_: Landing gear assembled
+   _Figure 3_: Payload holder assembled
 
 1. Then put the 4 arms through the 4 motor bases shown in figure 3.
    Make sure the rods protrude the base slightly and are consistent throughout all 4 arms, and be sure to have the motor wires facing outward.
