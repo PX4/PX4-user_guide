@@ -71,7 +71,7 @@ Tools are included to do the assembly, however you may need:
 Estimate time to assemble is 1.5 hours (60 minutes for frame, 30 minutes for autopilot installation/configuration)
 
 1. Start by assembling the payload & battery holder.
-   Unscrew the landing gear screws and insert the vertical pole (figures 1 and 2).
+   Push the rubbers into grippers (Do not use sharp items to push them in!!!). Next, pass the holders through the holder bars with the battery holder bases as Figure 2. 
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/Payload_holder_Required_stuff.png)
 
