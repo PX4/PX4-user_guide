@@ -40,7 +40,7 @@ Order this module from:
   * Safety LED
   * GPS Fix
   * RTK Status
-  * RGB System Status
+  * RGB system status
 * USA Built
 * Power Requirements
   * 5V
@@ -50,11 +50,11 @@ Order this module from:
 
 ### Wiring/Connecting
 
-The ARK RTK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. Multiple sensors can be connected by plugging additional sensors into the ARK RTK GPS's second CAN connector.
+The ARK RTK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+Multiple sensors can be connected by plugging additional sensors into the ARK RTK GPS's second CAN connector.
 
 General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](../uavcan/README.md#wiring).
 
-<a id="mounting"></a>
 
 ### Mounting/Orientation
 
@@ -86,7 +86,8 @@ You need to set necessary [UAVCAN](README.md) parameters and define offsets if t
 
 ## Building ARK RTK GPS Firmware
 
-ARK RTK GPS is sold with a recent firmware build. Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
+ARK RTK GPS is sold with a recent firmware build.
+Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
 
 The steps are:
 
@@ -100,7 +101,9 @@ The steps are:
    ```
    make ark_can-rtk-gps_default
    ```
-1. That will have created a binary in **build/ark_can-rtk-gps_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the ARK RTK GPS. Next time you power your flight controller with the SD card installed, ARK RTK GPS will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the *ufw* directory of the SD card.
+1. That will have created a binary in **build/ark_can-rtk-gps_default** named **XX-X.X.XXXXXXXX.uavcan.bin**.
+   Put this binary on the root directory of the flight controller’s SD card to flash the ARK RTK GPS.
+   Next time you power your flight controller with the SD card installed, ARK RTK GPS will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the *ufw* directory of the SD card.
 
 :::note
 ARK RTK GPS will not boot if there is no SD card in the flight controller when powered on.
@@ -109,7 +112,8 @@ ARK RTK GPS will not boot if there is no SD card in the flight controller when p
 
 ## Updating ARK RTK GPS Bootloader
 
-ARK RTK GPS comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
+ARK RTK GPS comes with the bootloader pre-installed.
+You can rebuild and reflash it within the PX4-Autopilot environment if desired.
 
 The steps are:
 
@@ -117,11 +121,15 @@ The steps are:
    ```
    make ark_can-rtk-gps_canbootloader
    ```
-:::note
-This will setup your `launch.json` file if you are in VS code. If using the Black Magic Probe and VS code, make sure to update `BMPGDBSerialPort` within this file to the correct port that your debugger is connected to. On MacOS, the port name should look something like `cu.usbmodemE4CCA0E11`.
-:::
+   :::note
+   This will setup your `launch.json` file if you are in VS code.
+   If using the Black Magic Probe and VS code, make sure to update `BMPGDBSerialPort` within this file to the correct port that your debugger is connected to.
+   On MacOS, the port name should look something like `cu.usbmodemE4CCA0E11`.
+   :::
 1. Connect your ARK RTK GPS to any Serial Wire Debugging (SWD) device that supports use of GNU Project Debugger (GDB), such as the Black Magic Probe, and then connect power to your ARK RTK GPS via one of the CAN ports.
-1. Flash the ARK RTK GPS with `ark_can-rtk-gps_canbootloader`. To do so in VS code, you should see `CMake: [ark_can-rtk-gps_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing. You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code.
+1. Flash the ARK RTK GPS with `ark_can-rtk-gps_canbootloader`.
+   To do so in VS code, you should see `CMake: [ark_can-rtk-gps_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing.
+   You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code.
 3. With the bootloader flashed, you are ready to build and flash the ARK RTK GPS firmware `ark_can-rtk-gps_default` as outlined above.
 
 
