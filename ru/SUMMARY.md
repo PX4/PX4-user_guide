@@ -214,6 +214,7 @@
       * [ARK GPS](uavcan/ark_gps.md)
       * [Hex Here2](gps_compass/gps_hex_here2.md)
     * [RTK GPS](gps_compass/rtk_gps.md) 
+      * [ARK RTK GPS](uavcan/ark_rtk_gps.md)
       * [RTK GPS Heading with Dual u-blox F9P](gps_compass/u-blox_f9p_heading.md)
       * [CUAV C-RTK](gps_compass/rtk_gps_cuav_c-rtk.md)
       * [Drotek XL](gps_compass/rtk_gps_drotek_xl.md)
