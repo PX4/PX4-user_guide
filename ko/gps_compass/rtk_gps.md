@@ -16,9 +16,10 @@ PX4에서 작동하는 RTK 호환 장치(단종 된 장치 제외)는 아래와 
 
 | GPS                                                                                                                         | 편요각 출력  | [듀얼 FP9 GPS 방향각](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) |
 |:--------------------------------------------------------------------------------------------------------------------------- |:-------:|:------------------------------------------------------:|:--------------------------:|
+| [ARK RTK GPS](../uavcan/ark_rtk_gps.md)                                                                                     |         |                        &check;                         |          &check;           |
 | [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                      |         |                                                        |                            |
 | [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                    |         |                                                        |                            |
-| [Femtones MINI2 수신기](../gps_compass/rtk_gps_fem_mini2.md)                                                                   |         |                                                        |                            |
+| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                              |         |                                                        |                            |
 | [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                                                  |         |                                                        |                            |
 | [CubePilot Here3](https://www.cubepilot.org/#/here/here3)                                                                   |         |                                                        |          &check;           |
 | [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                       |         |                                                        |                            |
