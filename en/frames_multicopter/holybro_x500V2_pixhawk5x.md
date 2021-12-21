@@ -85,9 +85,9 @@ Estimate time to assemble is 1.5 hours (60 minutes for frame, 30 minutes for aut
 
 1. The next is to go for atthacing the top plate to the payload holder.
    You will need the parts as shown in 
-   ![Attach arms to motor bases](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
+   ![Materials to attach top plate](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/Topplate_holder_stuff.png)
 
-   _Figure 4_: Attach arms to motor bases
+   _Figure 4_: Needed Materials
 
 1. Insert 4 nylon screws and nylon standoffs and attach the power module PM07 to the bottom plate using 4 nylon nuts as shown in Figures 4.
 
