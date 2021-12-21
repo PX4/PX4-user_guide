@@ -47,6 +47,8 @@ Hanger & rubber ring gasket	  | Inner hole diameter: 10mm black	                
 
 ### ![X500V2 Full Package Contents](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/X500_V2_whats_inside.png)
 
+   _Figure 1_: X500 V2 what's inside
+
 ### Electronics
 
 Item Description | Quantity
@@ -71,7 +73,7 @@ Tools are included to do the assembly, however you may need:
 Estimate time to assemble is 1.5 hours (60 minutes for frame, 30 minutes for autopilot installation/configuration)
 
 1. Start by assembling the payload & battery holder.
-   Push the rubbers into grippers (Do not use sharp items to push them in!!!). Next, pass the holders through the holder bars with the battery holder bases as Figure 2. 
+   Push the rubbers into grippers (Do not use sharp items to push them in!!!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3. 
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/Payload_holder_Required_stuff.png)
 
@@ -81,12 +83,11 @@ Estimate time to assemble is 1.5 hours (60 minutes for frame, 30 minutes for aut
 
    _Figure 3_: Payload holder assembled
 
-1. Then put the 4 arms through the 4 motor bases shown in figure 3.
-   Make sure the rods protrude the base slightly and are consistent throughout all 4 arms, and be sure to have the motor wires facing outward.
-
+1. The next is to go for atthacing the top plate to the payload holder.
+   You will need the parts as shown in 
    ![Attach arms to motor bases](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
-   _Figure 3_: Attach arms to motor bases
+   _Figure 4_: Attach arms to motor bases
 
 1. Insert 4 nylon screws and nylon standoffs and attach the power module PM07 to the bottom plate using 4 nylon nuts as shown in Figures 4.
 
