@@ -16,6 +16,8 @@ It supports hardware like:
 - Airspeed sensors
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - GNSS receivers for GPS and GLONASS
+  - [ARK GPS](../uavcan/ark_gps.md)
+  - [ARK RTK GPS](../uavcan/ark_rtk_gps.md)
   - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - Power monitors
