@@ -132,14 +132,14 @@ module.exports = {
         },
         // algolia docsearch options for current locale
         algolia: process.env.BRANCH_NAME ?{
-          apiKey: '48919e1dffc6e0ce4c0d6331343d2c0e',
+          apiKey: 'c944f3489b25a87a95e33d9386025057',
           indexName: 'px4',
           algoliaOptions: {
             hitsPerPage: 10,
             facetFilters: [`version:master`],
           }
         } : {},   
-        //algolia: process.env.BRANCH_NAME ? {apiKey: '48919e1dffc6e0ce4c0d6331343d2c0e',indexName: 'px4'} : {} ,
+        //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
         nav: [
           {
             text: 'PX4',
@@ -214,10 +214,10 @@ module.exports = {
           }
         },
         // algolia docsearch options for current locale
-        //algolia: process.env.BRANCH_NAME ? {apiKey: '48919e1dffc6e0ce4c0d6331343d2c0e',indexName: 'px4'} : {} ,
+        //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
         // algolia docsearch options for current locale
         algolia: process.env.BRANCH_NAME ?{
-          apiKey: '48919e1dffc6e0ce4c0d6331343d2c0e',
+          apiKey: 'c944f3489b25a87a95e33d9386025057',
           indexName: 'px4',
           algoliaOptions: {
             hitsPerPage: 10,
@@ -292,9 +292,9 @@ module.exports = {
           }
         },
         // algolia docsearch options for current locale
-        //algolia: process.env.BRANCH_NAME ? {apiKey: '48919e1dffc6e0ce4c0d6331343d2c0e',indexName: 'px4'} : {} ,
+        //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
         algolia: process.env.BRANCH_NAME ?{
-          apiKey: '48919e1dffc6e0ce4c0d6331343d2c0e',
+          apiKey: 'c944f3489b25a87a95e33d9386025057',
           indexName: 'px4',
           algoliaOptions: {
             hitsPerPage: 10,
