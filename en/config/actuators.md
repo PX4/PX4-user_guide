@@ -1,50 +1,60 @@
 # Actuator Configuration and Testing
 
-After the airframe is setup you should configure the geometry, assign actuators to outputs, and test the actuator response.
+:::note
+The *Actuators* view is only displayed if dynamic control allocation is enabled using the [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) parameter.
+This replaces geometry and mixer configuration files with configuration using parameters.
+
+You should also ensure that the appropriate airframe type is selected using [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
+:::
+
+After selecting an [airframe](../config/airframe.md) you will generally need to configure the specific geometry, assign actuators to outputs, and test the actuator response.
 This can be done in *QGroundControl*, under the **Vehicle Setup > Actuators** tab.
 
-:::note
-This view is only enabled if dynamic control allocation is enabled via [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC), which will become the default in future.
-If you enable it, also make sure to select the airframe with [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
-It replaces the existing mixer files and allows configuration via parameters instead.
-:::
+The multicopter configuration screen looks like this.
 
-This is a screenshot for a multicotor:
+![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
-![Actuators MC (QGC)](../../assets/config/qgc_actuators_mc_aux.png)
-
-
-:::note
-If you find a setting missing (e.g. reversable motors), make sure to enable the **advanced** checkbox in the top right corner.
-:::
+Note that some settings are hidden unless you select the **Advanced** checkbox in the top right corner.
 
 ## Geometry
-The airframe pre-selects the geometry type, which can provide additional configuration options, such as the motors positions on a multicotor, or the control surface types on a plane.
-The UI reflects that and displays a customized view for each type.
+
+The geometry section is used to configure any additional geometry-related settings for the selected [airframe](../config/airframe.md).
+The UI displays a customised view for the selected type; if there are no configurable options this may display a static image of the frame geometry, or nothing at all.
+
+The screenshot below shows the geometry screen for a multicopter frame, which allows you to select the number of motors, their relative positions on the frame, and their expected spin directions (select "**Direction CCW**" for counter-clockwise motors).
+This particular frame also includes an image showing the motor positions, which dynamically updates as the motors settings are changed.
+
+![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry.png)
+
+A fixed wing airframe would instead display the parameters that define control surfaces, while a VTOL airframe would display both motors and control surfaces.
 
 
 ### Conventions
+
 The following sections contain the conventions and explanations for configuring the geometry.
 
 #### Coordinate system
+
 The coordinate system is NED (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
 Positions are relative to the center of gravity (in meters).
 
 #### Control Surfaces and Servo Direction
+
 Control surfaces use the following deflection direction convention:
 - horizontal (e.g. Aileron): up = positive deflection
 - vertical (e.g. Rudder): right = positive deflection
 - mixed (e.g. V-Tail): up = positive deflection
 
-![Plane Deflections](../../assets/config/plane_servo_convention.png)
+![Plane Deflections](../../assets/config/actuators/plane_servo_convention.png)
 
 :::note
-If a servo does not move into the expected direction, reverse it via checkbox on the Actuator Output.
+If a servo does not move into the expected direction set in the geometry, you can reverse it using a checkbox on the Actuator Output.
 :::
 
 
 ### Motor Tilt Servos
-Tilt servos are configured as following:
+
+Tilt servos are configured as follows:
 - The reference direction is upwards (negative Z direction).
 - Tilt direction: **Towards Front** means the servo tilts towards positive X direction, whereas **Towards Right** means towards positive Y direction.
 - Minimum and maximum tilt angles: specify the physical limits in degrees of the tilt at minimum control and maximum respectively.
@@ -62,19 +72,21 @@ Tilt servos are configured as following:
     Bicopters are among those.
 - Tiltable motors are then assigned to one of the tilt servos.
 
-![Tilt Axis](../../assets/config/tilt_axis.png)
+![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
+
 
 ### Reversible Motors
 
 If reversible motor(s) are used (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half), make sure to select the **Reversible** checkbox for those motor(s).
 Also ensure the ESC is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
 
-![Reversible](../../assets/config/qgc_geometry_reversible.png)
+![Reversible](../../assets/config/actuators/qgc_geometry_reversible.png)
+
 
 ## Actuator Outputs
 
 The actuators and any other output function can be assigned to any of the physical outputs.
-Each output has its own tab, e.g. the PWM MAIN or AUX output pins.
+Each output has its own tab, e.g. the PWM MAIN or AUX output pins, or UAVCAN.
 
 PWM outputs are grouped according to the hardware groups of the autopilot.
 Each group allows to configure the PWM rate or DShot/Oneshot (if supported).
@@ -90,7 +102,10 @@ Selecting these requires a reboot before they are applied.
 ## Actuator Testing
 
 When testing actuators, make sure that:
-- Motors spin at the minimum. The sliders snap into place at the lower end: at the bottom, the motor is turned off (disarmed), whereas the next slider position commands the minimum thrust.
+- Motors spin at the "minimum thrust" position.
+
+  The sliders snap into place at the lower end, and motors are turned off (disarmed).
+  The "minimum thrust" position is the next slider position, which commands the minimum thrust.
   Adjust the minimum output value such that the motors spin at that slider position.
   :::note
   VTOLs will automatically turn off motors pointing upwards during fixed-wing flight.
@@ -112,11 +127,9 @@ Note the following behaviour:
 
 ### Reversing Motors
 
-:::note
-The *spin direction* checkbox for the geometry must be set to reflect the actual spin direction of the motor (it does not change the motor spin direction).
-:::
+The motors must turn in the direction defined in configured geometry ("**Direction CCW**" checkboxes).
+If any motors do not turn in the correct direction they must be reversed.
 
-If one or more of the motors do not turn in the correct direction according to the configured geometry, they must be reversed.
 There are several options:
 - If the ESCs are configured as [DShot](../peripherals/dshot.md) you can reverse the direction via UI (**Set Spin Direction** buttons).
   Note that the current direction cannot be queried, so you might have to try both options.
@@ -125,4 +138,3 @@ There are several options:
   :::note
   If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
   :::
-
