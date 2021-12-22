@@ -48,7 +48,7 @@ Control surfaces use the following deflection direction convention:
 ![Plane Deflections](../../assets/config/actuators/plane_servo_convention.png)
 
 :::note
-If a servo does not move into the expected direction set in the geometry, you can reverse it using a checkbox on the Actuator Output.
+If a servo does not move in the expected direction set in the geometry, you can reverse it using a checkbox on the Actuator Output.
 :::
 
 
