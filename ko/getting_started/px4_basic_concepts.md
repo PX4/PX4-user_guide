@@ -14,7 +14,7 @@
 항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 :::
 
-드론의 두뇌에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치는 여러가지 비행 모듈들로 구성됩니다.
+자동비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. 자동비행장치는 여러 가지 비행 모듈들로 구성됩니다.
 
 <a id="autopilot"></a>
 
