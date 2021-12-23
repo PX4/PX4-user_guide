@@ -3,8 +3,12 @@
 :::note
 The *Actuators* view is only displayed if dynamic control allocation is enabled using the [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) parameter.
 This replaces geometry and mixer configuration files with configuration using parameters.
-
 You should also ensure that the appropriate airframe type is selected using [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
+
+The easiest way to try this out in simulation is to use the following make target, which has control allocation pre-enabled:
+```
+make px4_sitl gazebo_iris_ctrlalloc
+```
 :::
 
 After selecting an [airframe](../config/airframe.md) you will generally need to configure the specific geometry, assign actuators to outputs, and test the actuator response.
