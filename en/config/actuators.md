@@ -79,12 +79,16 @@ Tilt servos are configured as follows:
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
 
-### Reversible Motors
+### Bidirectional Motors
 
-If reversible motor(s) are used (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half), make sure to select the **Reversible** checkbox for those motor(s).
-Also ensure the ESC is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
+Some geometries require bidirectional motors (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half).
+For example, ground vehicles that need to move forwards and backwards, or VTOL vehicles that have pusher motors that go in either direction.
+
+If bidiectional motors are required, make sure to select the **Reversible** checkbox for those motors (the option will only be displayed if relevant for the frame type).
 
 ![Reversible](../../assets/config/actuators/qgc_geometry_reversible.png)
+
+Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
 
 
 ## Actuator Outputs
@@ -105,12 +109,14 @@ Selecting these requires a reboot before they are applied.
 
 ## Actuator Testing
 
+<!-- Not documented: "Identify and assign motors" -->
+ 
 When testing actuators, make sure that:
 - Motors spin at the "minimum thrust" position.
 
   The sliders snap into place at the lower end, and motors are turned off (disarmed).
   The "minimum thrust" position is the next slider position, which commands the minimum thrust.
-  Adjust the minimum output value such that the motors spin at that slider position.
+  For PWM motors, adjust the minimum output value such that the motors spin at that slider position (not required for DShot).
   :::note
   VTOLs will automatically turn off motors pointing upwards during fixed-wing flight.
   For Standard VTOLs these are the motors defined as multicopter motors.
