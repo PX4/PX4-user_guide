@@ -11392,6 +11392,14 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="COM_HOME_EN">COM_HOME_EN</strong> (INT32)</td>
+ <td>Home position enabled <p><strong>Comment:</strong> Set home position automatically if possible.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_HOME_H_T">COM_HOME_H_T</strong> (FLOAT)</td>
  <td>Home set horizontal threshold <p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
  <td>2 > 15 (0.5)</td>
