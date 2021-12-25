@@ -14,6 +14,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [actuator_motors](actuator_motors.md) — Motor control message
 - [actuator_outputs](actuator_outputs.md)
 - [actuator_servos](actuator_servos.md) — Servo control message
+- [actuator_servos_trim](actuator_servos_trim.md) — Servo trims, added as offset to servo outputs
 - [actuator_test](actuator_test.md)
 - [adc_report](adc_report.md)
 - [airspeed](airspeed.md)
