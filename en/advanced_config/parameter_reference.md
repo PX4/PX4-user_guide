@@ -14901,6 +14901,65 @@ table {
 </tr>
 </tbody></table>
 
+## Landing Target Estimator
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="LTEST_SENS_POS_X">LTEST_SENS_POS_X</strong> (FLOAT)</td>
+ <td>X Position of IRLOCK in body frame (forward)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SENS_POS_Y">LTEST_SENS_POS_Y</strong> (FLOAT)</td>
+ <td>Y Position of IRLOCK in body frame (right)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SENS_POS_Z">LTEST_SENS_POS_Z</strong> (FLOAT)</td>
+ <td>Z Position of IRLOCK in body frame (downward)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="LTEST_SENS_ROT">LTEST_SENS_ROT</strong> (INT32)</td>
+ <td>Rotation of IRLOCK sensor relative to airframe <p><strong>Comment:</strong> Default orientation of Yaw 90°</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>-1 > 40 </td>
+ <td>2</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Landing target Estimator
 
 <table>
