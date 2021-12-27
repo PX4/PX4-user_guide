@@ -132,6 +132,7 @@ the field 'timestamp' is for the position & velocity (microseconds)
 - [sensor_gyro](sensor_gyro.md)
 - [sensor_gyro_fft](sensor_gyro_fft.md)
 - [sensor_gyro_fifo](sensor_gyro_fifo.md)
+- [sensor_hygrometer](sensor_hygrometer.md)
 - [sensor_mag](sensor_mag.md)
 - [sensor_preflight_mag](sensor_preflight_mag.md) — Pre-flight sensor check metrics.
 The topic will not be updated when the vehicle is armed

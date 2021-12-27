@@ -27468,6 +27468,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_SUB_HYGRO">UAVCAN_SUB_HYGRO</strong> (INT32)</td>
+ <td>subscription hygrometer <p><strong>Comment:</strong> Enable UAVCAN hygrometer subscriptions. dronecan::sensors::hygrometer::Hygrometer</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_SUB_ICE">UAVCAN_SUB_ICE</strong> (INT32)</td>
  <td>subscription ICE <p><strong>Comment:</strong> Enable UAVCAN internal combusion engine (ICE) subscription. uavcan::equipment::ice::reciprocating::Status</p>   <p><b>Reboot required:</b> true</p>
 </td>
