@@ -819,15 +819,6 @@ pwm_out <command> [arguments...]
  Commands:
    start
 
-   sensor_reset  Do a sensor reset (SPI bus)
-     [<ms>]      Delay time in ms between reset and re-enabling
-
-   peripheral_reset Reset board peripherals
-     [<ms>]      Delay time in ms between reset and re-enabling
-
-   i2c           Configure I2C clock rate
-     <bus_id> <rate> Specify the bus id (>=0) and rate in Hz
-
    test          Test outputs
 
    stop
