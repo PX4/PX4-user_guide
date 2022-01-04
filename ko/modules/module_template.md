@@ -1,6 +1,6 @@
 # 전체 애플리케이션을 위한 모듈 템플릿
 
-애플리케이션은 *작업*(자체 스택 및 프로세스 우선순위가 있는 모듈) 또는 *작업 대기열 작업*(작업에서 실행되는 모듈, 대기열 스레드, 작업 대기열의 다른 작업과 스택 및 스레드 우선순위 공유)으로 실행되도록 작성할 수 있습니다. 대부분은, 리소스 최소화를 위하여 작업 대기열을 사용합니다.
+An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priority with other tasks on the work queue). 대부분은, 리소스 최소화를 위하여 작업 대기열을 사용합니다.
 
 :::note
 [구조 개요 > 런타임 환경](../concept/architecture.md#runtime-environment)은 작업 및 작업 대기열 작업에 대한 자세한 정보를 제공합니다.
