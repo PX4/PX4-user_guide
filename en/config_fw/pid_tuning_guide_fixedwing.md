@@ -56,7 +56,6 @@ To tune this gain, set the other gains to zero.
 
 - FW_RR_I = 0
 - FW_RR_P = 0
-- FW_RSP_OFF = 0
 
 
 #### Gains to tune
@@ -88,8 +87,6 @@ To tune this gain, set the other gains to zero.
 
 - FW_PR_I = 0
 - FW_PR_P = 0
-- FW_PSP_OFF = 0
-
 
 #### Gains to tune
 
