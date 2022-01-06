@@ -6,12 +6,9 @@ This guide explains how to manually tune the fixed wing PID loop. It is intended
 [Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
 :::
 
-:::tip
-Tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md). The most important parameters are covered in this guide.
-:::
-
 ## Preconditions
 
+- Trims must be configured first (before PID turning). The [Fixed-Wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md) explains how.
 - Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes/manual_fw.md) (override) control.
 - Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
 - Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
@@ -44,7 +41,6 @@ To tune this gain, set the other gains to zero.
 
 - FW_RR_I = 0
 - FW_RR_P = 0
-- FW_RSP_OFF = 0
 
 #### Gains to tune
 
@@ -70,7 +66,6 @@ To tune this gain, set the other gains to zero.
 
 - FW_PR_I = 0
 - FW_PR_P = 0
-- FW_PSP_OFF = 0
 
 #### Gains to tune
 
@@ -90,3 +85,7 @@ The overall softness / hardness of the control loop can be adjusted by the time 
 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the Pitch response softer, decrease to make the response harder.
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the Roll response softer, decrease to make the response harder.
+
+## Other Tuning Parameters
+
+The most important parameters are covered in this guide. Additional tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
