@@ -9,7 +9,7 @@ This topic explains how to install Fast DDS and *Fast-RTPS-Gen* to use in the PX
 :::note
 You do not have to install Fast DDS if you have ROS 2 Dashing (Ubuntu 18.04) or ROS 2 Foxy (Ubuntu 20.04) installed, as it comes included with the default `base` or `desktop` installations through the `ros-<distro>-rmw-fastrtps` package. This means you just need to install *Fast-RTPS-Gen* and have your ROS 2 environment sourced (`source /opt/ros/<distro>/setup.bash`) in order to be able to compile the `rtps` targets in the PX4-Autopilot repo.
 
-For *ROS2 Galactic and above*, one has to install the `rmw` implementation through `apt` using `apt install ros-galatic-rmw-fastrtps`, since the default middleware for Galactic and above is CycloneDDS and the FastDDS middleware doesn't come installed by default.
+For *ROS2 Galactic and above*, one has to install the `rmw` implementation through `apt` using `apt install ros-galactic-rmw-fastrtps`, since the default middleware for Galactic and above is CycloneDDS and the FastDDS middleware doesn't come installed by default.
 :::
 
 :::tip
