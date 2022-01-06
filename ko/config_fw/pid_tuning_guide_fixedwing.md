@@ -6,15 +6,12 @@ This guide explains how to manually tune the fixed wing PID loop. It is intended
 [Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
 :::
 
-:::tip
-Tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md). The most important parameters are covered in this guide.
-:::
-
 ## Preconditions
 
-- 튜닝 게인을 잘못 설정하면 자세 제어가 불안정해질 수 있습니다. 조종사 튜닝 게인은 [수동](../flight_modes/manual_fw.md) 제어로 비행기를 비행하고 착륙할 수 있어야합니다.
-- 과도한 게인 (및 빠른 서보 모션)은 기체의 최대 힘을 위반할 수 있습니다. 게인을 신중하게 시켜야합니다.
-- 롤과 피치 튜닝의 순서는 같습니다. 차이점은 피치가 트림 오프셋에 더 민감하므로 [트리밍](../config_fw/trimming_guide_fixedwing.md)을 신중하게 수행해야하며, 적분 게인은 이를 보상하기 위하여 더 많은 주의가 필요합니다.
+- Trims must be configured first (before PID turning). The [Fixed-Wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md) explains how.
+- Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes/manual_fw.md) (override) control.
+- Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
+- Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
 
 ## Establishing the Airframe Baseline
 
@@ -44,7 +41,6 @@ To tune this gain, set the other gains to zero.
 
 - FW_RR_I = 0
 - FW_RR_P = 0
-- FW_RSP_OFF = 0
 
 #### 튜닝 대상 게인
 
@@ -70,7 +66,6 @@ To tune this gain, set the other gains to zero.
 
 - FW_PR_I = 0 
 - FW_PR_P = 0 
-- FW_PSP_OFF = 0 
 
 #### 튜닝 대상 게인
 
@@ -90,3 +85,7 @@ The overall softness / hardness of the control loop can be adjusted by the time 
 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC)-기본값 0.5 초로 설정하고, 피치 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) -기본값 0.5 초로 설정하고, 롤 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.
+
+## Other Tuning Parameters
+
+The most important parameters are covered in this guide. Additional tuning parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
