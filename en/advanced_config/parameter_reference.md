@@ -20723,7 +20723,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="CAL_ACC0_ID">CAL_ACC0_ID</strong> (INT32)</td>
- <td>ID of the Accelerometer that the calibration is for    </td>
+ <td>Accelerometer 0 calibration device ID <p><strong>Comment:</strong> Device ID of the accelerometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
@@ -20731,17 +20731,17 @@ table {
 <tr>
  <td><strong id="CAL_ACC0_PRIO">CAL_ACC0_PRIO</strong> (INT32)</td>
  <td>Accelerometer 0 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -20752,7 +20752,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_ROT">CAL_ACC0_ROT</strong> (INT32)</td>
- <td>Rotation of accelerometer 0 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Accelerometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -20837,64 +20837,63 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_TEMP">CAL_ACC0_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Accelerometer 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
- <td>Accelerometer X-axis offset    </td>
+ <td>Accelerometer 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
- <td>Accelerometer X-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 0 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_YOFF">CAL_ACC0_YOFF</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis offset    </td>
+ <td>Accelerometer 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 0 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_ZOFF">CAL_ACC0_ZOFF</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis offset    </td>
+ <td>Accelerometer 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 0 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_ID">CAL_ACC1_ID</strong> (INT32)</td>
- <td>ID of the Accelerometer that the calibration is for    </td>
+ <td>Accelerometer 1 calibration device ID <p><strong>Comment:</strong> Device ID of the accelerometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
@@ -20902,17 +20901,17 @@ table {
 <tr>
  <td><strong id="CAL_ACC1_PRIO">CAL_ACC1_PRIO</strong> (INT32)</td>
  <td>Accelerometer 1 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -20923,7 +20922,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_ROT">CAL_ACC1_ROT</strong> (INT32)</td>
- <td>Rotation of accelerometer 1 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Accelerometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -21008,64 +21007,63 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_TEMP">CAL_ACC1_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Accelerometer 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_XOFF">CAL_ACC1_XOFF</strong> (FLOAT)</td>
- <td>Accelerometer X-axis offset    </td>
+ <td>Accelerometer 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_XSCALE">CAL_ACC1_XSCALE</strong> (FLOAT)</td>
- <td>Accelerometer X-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 1 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_YOFF">CAL_ACC1_YOFF</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis offset    </td>
+ <td>Accelerometer 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_YSCALE">CAL_ACC1_YSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 1 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_ZOFF">CAL_ACC1_ZOFF</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis offset    </td>
+ <td>Accelerometer 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_ZSCALE">CAL_ACC1_ZSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 1 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_ID">CAL_ACC2_ID</strong> (INT32)</td>
- <td>ID of the Accelerometer that the calibration is for    </td>
+ <td>Accelerometer 2 calibration device ID <p><strong>Comment:</strong> Device ID of the accelerometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
@@ -21073,17 +21071,17 @@ table {
 <tr>
  <td><strong id="CAL_ACC2_PRIO">CAL_ACC2_PRIO</strong> (INT32)</td>
  <td>Accelerometer 2 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -21094,7 +21092,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_ROT">CAL_ACC2_ROT</strong> (INT32)</td>
- <td>Rotation of accelerometer 2 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Accelerometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -21179,64 +21177,63 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_TEMP">CAL_ACC2_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Accelerometer 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_XOFF">CAL_ACC2_XOFF</strong> (FLOAT)</td>
- <td>Accelerometer X-axis offset    </td>
+ <td>Accelerometer 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_XSCALE">CAL_ACC2_XSCALE</strong> (FLOAT)</td>
- <td>Accelerometer X-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 2 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_YOFF">CAL_ACC2_YOFF</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis offset    </td>
+ <td>Accelerometer 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_YSCALE">CAL_ACC2_YSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 2 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_ZOFF">CAL_ACC2_ZOFF</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis offset    </td>
+ <td>Accelerometer 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_ZSCALE">CAL_ACC2_ZSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 2 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_ID">CAL_ACC3_ID</strong> (INT32)</td>
- <td>ID of the Accelerometer that the calibration is for    </td>
+ <td>Accelerometer 3 calibration device ID <p><strong>Comment:</strong> Device ID of the accelerometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
@@ -21244,17 +21241,17 @@ table {
 <tr>
  <td><strong id="CAL_ACC3_PRIO">CAL_ACC3_PRIO</strong> (INT32)</td>
  <td>Accelerometer 3 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -21265,7 +21262,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_ROT">CAL_ACC3_ROT</strong> (INT32)</td>
- <td>Rotation of accelerometer 3 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Accelerometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -21350,82 +21347,81 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_TEMP">CAL_ACC3_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Accelerometer 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_XOFF">CAL_ACC3_XOFF</strong> (FLOAT)</td>
- <td>Accelerometer X-axis offset    </td>
+ <td>Accelerometer 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_XSCALE">CAL_ACC3_XSCALE</strong> (FLOAT)</td>
- <td>Accelerometer X-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 3 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_YOFF">CAL_ACC3_YOFF</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis offset    </td>
+ <td>Accelerometer 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_YSCALE">CAL_ACC3_YSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 3 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_ZOFF">CAL_ACC3_ZOFF</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis offset    </td>
+ <td>Accelerometer 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_ZSCALE">CAL_ACC3_ZSCALE</strong> (FLOAT)</td>
- <td>Accelerometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Accelerometer 3 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_ID">CAL_GYRO0_ID</strong> (INT32)</td>
- <td>ID of the Gyro that the calibration is for    </td>
+ <td>Gyroscope 0 calibration device ID <p><strong>Comment:</strong> Device ID of the gyroscope this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_PRIO">CAL_GYRO0_PRIO</strong> (INT32)</td>
- <td>Gyro 0 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Gyroscope 0 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -21436,7 +21432,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_ROT">CAL_GYRO0_ROT</strong> (INT32)</td>
- <td>Rotation of gyro 0 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Gyroscope 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -21521,61 +21517,60 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_TEMP">CAL_GYRO0_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Gyroscope 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_XOFF">CAL_GYRO0_XOFF</strong> (FLOAT)</td>
- <td>Gyro X-axis offset    </td>
+ <td>Gyroscope 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_YOFF">CAL_GYRO0_YOFF</strong> (FLOAT)</td>
- <td>Gyro Y-axis offset    </td>
+ <td>Gyroscope 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_ZOFF">CAL_GYRO0_ZOFF</strong> (FLOAT)</td>
- <td>Gyro Z-axis offset    </td>
+ <td>Gyroscope 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_ID">CAL_GYRO1_ID</strong> (INT32)</td>
- <td>ID of the Gyro that the calibration is for    </td>
+ <td>Gyroscope 1 calibration device ID <p><strong>Comment:</strong> Device ID of the gyroscope this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_PRIO">CAL_GYRO1_PRIO</strong> (INT32)</td>
- <td>Gyro 1 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Gyroscope 1 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -21586,7 +21581,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_ROT">CAL_GYRO1_ROT</strong> (INT32)</td>
- <td>Rotation of gyro 1 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Gyroscope 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -21671,61 +21666,60 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_TEMP">CAL_GYRO1_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Gyroscope 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_XOFF">CAL_GYRO1_XOFF</strong> (FLOAT)</td>
- <td>Gyro X-axis offset    </td>
+ <td>Gyroscope 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_YOFF">CAL_GYRO1_YOFF</strong> (FLOAT)</td>
- <td>Gyro Y-axis offset    </td>
+ <td>Gyroscope 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_ZOFF">CAL_GYRO1_ZOFF</strong> (FLOAT)</td>
- <td>Gyro Z-axis offset    </td>
+ <td>Gyroscope 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_ID">CAL_GYRO2_ID</strong> (INT32)</td>
- <td>ID of the Gyro that the calibration is for    </td>
+ <td>Gyroscope 2 calibration device ID <p><strong>Comment:</strong> Device ID of the gyroscope this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_PRIO">CAL_GYRO2_PRIO</strong> (INT32)</td>
- <td>Gyro 2 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Gyroscope 2 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -21736,7 +21730,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_ROT">CAL_GYRO2_ROT</strong> (INT32)</td>
- <td>Rotation of gyro 2 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Gyroscope 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -21821,61 +21815,60 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_TEMP">CAL_GYRO2_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Gyroscope 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_XOFF">CAL_GYRO2_XOFF</strong> (FLOAT)</td>
- <td>Gyro X-axis offset    </td>
+ <td>Gyroscope 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_YOFF">CAL_GYRO2_YOFF</strong> (FLOAT)</td>
- <td>Gyro Y-axis offset    </td>
+ <td>Gyroscope 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_ZOFF">CAL_GYRO2_ZOFF</strong> (FLOAT)</td>
- <td>Gyro Z-axis offset    </td>
+ <td>Gyroscope 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_ID">CAL_GYRO3_ID</strong> (INT32)</td>
- <td>ID of the Gyro that the calibration is for    </td>
+ <td>Gyroscope 3 calibration device ID <p><strong>Comment:</strong> Device ID of the gyroscope this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_PRIO">CAL_GYRO3_PRIO</strong> (INT32)</td>
- <td>Gyro 3 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Gyroscope 3 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -21886,7 +21879,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_ROT">CAL_GYRO3_ROT</strong> (INT32)</td>
- <td>Rotation of gyro 3 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Gyroscope 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -21971,61 +21964,60 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_TEMP">CAL_GYRO3_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Gyroscope 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_XOFF">CAL_GYRO3_XOFF</strong> (FLOAT)</td>
- <td>Gyro X-axis offset    </td>
+ <td>Gyroscope 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_YOFF">CAL_GYRO3_YOFF</strong> (FLOAT)</td>
- <td>Gyro Y-axis offset    </td>
+ <td>Gyroscope 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_ZOFF">CAL_GYRO3_ZOFF</strong> (FLOAT)</td>
- <td>Gyro Z-axis offset    </td>
+ <td>Gyroscope 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ID">CAL_MAG0_ID</strong> (INT32)</td>
- <td>ID of Magnetometer the calibration is for    </td>
+ <td>Magnetometer 0 calibration device ID <p><strong>Comment:</strong> Device ID of the magnetometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_PRIO">CAL_MAG0_PRIO</strong> (INT32)</td>
- <td>Mag 0 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Magnetometer 0 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -22036,7 +22028,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td>Rotation of magnetometer 0 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 0 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -22121,124 +22113,123 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_TEMP">CAL_MAG0_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Magnetometer 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XCOMP">CAL_MAG0_XCOMP</strong> (FLOAT)</td>
- <td>X Axis throttle compensation for Mag 0 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 0 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XODIAG">CAL_MAG0_XODIAG</strong> (FLOAT)</td>
- <td>Magnetometer X-axis off diagonal factor    </td>
+ <td>Magnetometer 0 X-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XOFF">CAL_MAG0_XOFF</strong> (FLOAT)</td>
- <td>Magnetometer X-axis offset    </td>
+ <td>Magnetometer 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XSCALE">CAL_MAG0_XSCALE</strong> (FLOAT)</td>
- <td>Magnetometer X-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 0 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YCOMP">CAL_MAG0_YCOMP</strong> (FLOAT)</td>
- <td>Y Axis throttle compensation for Mag 0 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 0 Y Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YODIAG">CAL_MAG0_YODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis off diagonal factor    </td>
+ <td>Magnetometer 0 Y-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YOFF">CAL_MAG0_YOFF</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis offset    </td>
+ <td>Magnetometer 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YSCALE">CAL_MAG0_YSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 0 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ZCOMP">CAL_MAG0_ZCOMP</strong> (FLOAT)</td>
- <td>Z Axis throttle compensation for Mag 0 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 0 Z Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ZODIAG">CAL_MAG0_ZODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis off diagonal factor    </td>
+ <td>Magnetometer 0 Z-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ZOFF">CAL_MAG0_ZOFF</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis offset    </td>
+ <td>Magnetometer 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ZSCALE">CAL_MAG0_ZSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 0 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ID">CAL_MAG1_ID</strong> (INT32)</td>
- <td>ID of Magnetometer the calibration is for    </td>
+ <td>Magnetometer 1 calibration device ID <p><strong>Comment:</strong> Device ID of the magnetometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_PRIO">CAL_MAG1_PRIO</strong> (INT32)</td>
- <td>Mag 1 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Magnetometer 1 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -22249,7 +22240,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td>Rotation of magnetometer 1 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 1 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -22334,124 +22325,123 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_TEMP">CAL_MAG1_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Magnetometer 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XCOMP">CAL_MAG1_XCOMP</strong> (FLOAT)</td>
- <td>X Axis throttle compensation for Mag 1 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 1 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XODIAG">CAL_MAG1_XODIAG</strong> (FLOAT)</td>
- <td>Magnetometer X-axis off diagonal factor    </td>
+ <td>Magnetometer 1 X-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XOFF">CAL_MAG1_XOFF</strong> (FLOAT)</td>
- <td>Magnetometer X-axis offset    </td>
+ <td>Magnetometer 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XSCALE">CAL_MAG1_XSCALE</strong> (FLOAT)</td>
- <td>Magnetometer X-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 1 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YCOMP">CAL_MAG1_YCOMP</strong> (FLOAT)</td>
- <td>Y Axis throttle compensation for Mag 1 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 1 Y Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YODIAG">CAL_MAG1_YODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis off diagonal factor    </td>
+ <td>Magnetometer 1 Y-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YOFF">CAL_MAG1_YOFF</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis offset    </td>
+ <td>Magnetometer 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YSCALE">CAL_MAG1_YSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 1 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ZCOMP">CAL_MAG1_ZCOMP</strong> (FLOAT)</td>
- <td>Z Axis throttle compensation for Mag 1 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 1 Z Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ZODIAG">CAL_MAG1_ZODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis off diagonal factor    </td>
+ <td>Magnetometer 1 Z-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ZOFF">CAL_MAG1_ZOFF</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis offset    </td>
+ <td>Magnetometer 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ZSCALE">CAL_MAG1_ZSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 1 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ID">CAL_MAG2_ID</strong> (INT32)</td>
- <td>ID of Magnetometer the calibration is for    </td>
+ <td>Magnetometer 2 calibration device ID <p><strong>Comment:</strong> Device ID of the magnetometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_PRIO">CAL_MAG2_PRIO</strong> (INT32)</td>
- <td>Mag 2 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Magnetometer 2 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -22462,7 +22452,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ROT">CAL_MAG2_ROT</strong> (INT32)</td>
- <td>Rotation of magnetometer 2 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 2 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -22547,124 +22537,123 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_TEMP">CAL_MAG2_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Magnetometer 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XCOMP">CAL_MAG2_XCOMP</strong> (FLOAT)</td>
- <td>X Axis throttle compensation for Mag 2 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 2 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XODIAG">CAL_MAG2_XODIAG</strong> (FLOAT)</td>
- <td>Magnetometer X-axis off diagonal factor    </td>
+ <td>Magnetometer 2 X-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XOFF">CAL_MAG2_XOFF</strong> (FLOAT)</td>
- <td>Magnetometer X-axis offset    </td>
+ <td>Magnetometer 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XSCALE">CAL_MAG2_XSCALE</strong> (FLOAT)</td>
- <td>Magnetometer X-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 2 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YCOMP">CAL_MAG2_YCOMP</strong> (FLOAT)</td>
- <td>Y Axis throttle compensation for Mag 2 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 2 Y Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YODIAG">CAL_MAG2_YODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis off diagonal factor    </td>
+ <td>Magnetometer 2 Y-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YOFF">CAL_MAG2_YOFF</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis offset    </td>
+ <td>Magnetometer 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YSCALE">CAL_MAG2_YSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 2 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ZCOMP">CAL_MAG2_ZCOMP</strong> (FLOAT)</td>
- <td>Z Axis throttle compensation for Mag 2 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 2 Z Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ZODIAG">CAL_MAG2_ZODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis off diagonal factor    </td>
+ <td>Magnetometer 2 Z-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ZOFF">CAL_MAG2_ZOFF</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis offset    </td>
+ <td>Magnetometer 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ZSCALE">CAL_MAG2_ZSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 2 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ID">CAL_MAG3_ID</strong> (INT32)</td>
- <td>ID of Magnetometer the calibration is for    </td>
+ <td>Magnetometer 3 calibration device ID <p><strong>Comment:</strong> Device ID of the magnetometer this calibration applies to.</p>   </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_PRIO">CAL_MAG3_PRIO</strong> (INT32)</td>
- <td>Mag 3 priority  <strong>Values:</strong><ul>
-<li><strong>-1:</strong>  Uninitialized</li> 
+ <td>Magnetometer 3 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
 
-<li><strong>0:</strong>   Disabled</li> 
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong>   Min</li> 
+<li><strong>1:</strong> Min</li> 
 
-<li><strong>25:</strong>  Low</li> 
+<li><strong>25:</strong> Low</li> 
 
-<li><strong>50:</strong>  Medium (Default)</li> 
+<li><strong>50:</strong> Medium (Default)</li> 
 
-<li><strong>75:</strong>  High</li> 
+<li><strong>75:</strong> High</li> 
 
 <li><strong>100:</strong> Max</li> 
 </ul>
@@ -22675,7 +22664,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td>Rotation of magnetometer 3 relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td>Magnetometer 3 rotation relative to airframe <p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -22760,100 +22749,99 @@ table {
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_TEMP">CAL_MAG3_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
+ <td>Magnetometer 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>-1000.</td>
+ <td>-1000.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XCOMP">CAL_MAG3_XCOMP</strong> (FLOAT)</td>
- <td>X Axis throttle compensation for Mag 3 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 3 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XODIAG">CAL_MAG3_XODIAG</strong> (FLOAT)</td>
- <td>Magnetometer X-axis off diagonal factor    </td>
+ <td>Magnetometer 3 X-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XOFF">CAL_MAG3_XOFF</strong> (FLOAT)</td>
- <td>Magnetometer X-axis offset    </td>
+ <td>Magnetometer 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XSCALE">CAL_MAG3_XSCALE</strong> (FLOAT)</td>
- <td>Magnetometer X-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 3 X-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YCOMP">CAL_MAG3_YCOMP</strong> (FLOAT)</td>
- <td>Y Axis throttle compensation for Mag 3 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 3 Y Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YODIAG">CAL_MAG3_YODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis off diagonal factor    </td>
+ <td>Magnetometer 3 Y-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YOFF">CAL_MAG3_YOFF</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis offset    </td>
+ <td>Magnetometer 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YSCALE">CAL_MAG3_YSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Y-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 3 Y-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ZCOMP">CAL_MAG3_ZCOMP</strong> (FLOAT)</td>
- <td>Z Axis throttle compensation for Mag 3 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
+ <td>Magnetometer 3 Z Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ZODIAG">CAL_MAG3_ZODIAG</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis off diagonal factor    </td>
+ <td>Magnetometer 3 Z-axis off diagonal scale factor    </td>
  <td></td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ZOFF">CAL_MAG3_ZOFF</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis offset    </td>
+ <td>Magnetometer 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ZSCALE">CAL_MAG3_ZSCALE</strong> (FLOAT)</td>
- <td>Magnetometer Z-axis scaling factor    </td>
- <td></td>
+ <td>Magnetometer 3 Z-axis scaling factor    </td>
+ <td>0.1 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
