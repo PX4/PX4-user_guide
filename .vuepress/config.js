@@ -25,9 +25,9 @@ module.exports = {
   },
   plugins: [
       '@vuepress/medium-zoom',
-	  ['check-md', {
+      ['check-md', {
         pattern: 'en/**/*.md'
-	  }],
+      }],
       ['container', {
         type: 'note',
         defaultTitle: {
@@ -134,10 +134,10 @@ module.exports = {
         algolia: process.env.BRANCH_NAME ?{
           apiKey: 'c944f3489b25a87a95e33d9386025057',
           indexName: 'px4',
-		  algoliaOptions: {
+          algoliaOptions: {
             hitsPerPage: 10,
-		    facetFilters: [`version:master`],
-		  }
+            facetFilters: [`version:master`],
+          }
         } : {},   
         //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
         nav: [
@@ -189,13 +189,13 @@ module.exports = {
               
             ]
           },
-          
+
         ],
         sidebar: {
           '/en/': getSidebar.sidebar('en')
         }
       },
-      
+
       //Korean
       '/ko/': {
         // text for the language dropdown
@@ -219,10 +219,10 @@ module.exports = {
         algolia: process.env.BRANCH_NAME ?{
           apiKey: 'c944f3489b25a87a95e33d9386025057',
           indexName: 'px4',
-		  algoliaOptions: {
+          algoliaOptions: {
             hitsPerPage: 10,
-		    facetFilters: [`version:master`],
-		  }
+            facetFilters: [`version:master`],
+        }
         } : {}, 
         nav: [
           {
@@ -250,7 +250,7 @@ module.exports = {
               
             ]
           },
-      
+
           { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
           {
             text: 'Version',
@@ -273,13 +273,13 @@ module.exports = {
 
             ]
           },
-          
+
         ],
         sidebar: {
           '/ko/': getSidebar.sidebar('ko')
         }
       },
-      
+
       //Chinese
       '/zh/': {
         selectText: '选择语言',
@@ -296,10 +296,10 @@ module.exports = {
         algolia: process.env.BRANCH_NAME ?{
           apiKey: 'c944f3489b25a87a95e33d9386025057',
           indexName: 'px4',
-		  algoliaOptions: {
+          algoliaOptions: {
             hitsPerPage: 10,
-		    facetFilters: [`version:master`],
-		  }
+            facetFilters: [`version:master`],
+          }
         } : {}, 
         nav: [
           {

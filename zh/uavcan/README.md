@@ -13,7 +13,9 @@ It supports hardware like:
 - Airspeed sensors
   - [Thiemar空速传感器](https://github.com/thiemar/airspeed)
 - 用于GPS和GLONASS的GNSS接收器
-  - [Zubax GNSS](https://www.cubepilot.org/#/here/here3)
+  - [ARK GPS](../uavcan/ark_gps.md)
+  - [ARK RTK GPS](../uavcan/ark_rtk_gps.md)
+  - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - Power monitors
   - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)

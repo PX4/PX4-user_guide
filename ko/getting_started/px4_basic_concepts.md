@@ -11,10 +11,10 @@
 드론은 [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진/영상, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
 
 :::tip
-항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV)와 Unmanned Underwater Vehicles (UUV) 등이 있습니다.
+항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 :::
 
-드론의 두뇌에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치는 여러가지 비행 모듈들로 구성됩니다.
+자동비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. 자동비행장치는 여러 가지 비행 모듈들로 구성됩니다.
 
 <a id="autopilot"></a>
 
@@ -134,21 +134,21 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 
 ## 안전 스위치
 
-It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+기체의 *안전 스위치*를 킨 다음에 기체에 [시동](#arming)을 걸 수 있습니다. 기체에 시동이 걸리면 모터와 프로펠러가 작동하게 됩니다. 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도의 부품으로 제공되는 제품도 있습니다.
 
 :::warning
-A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+시동이 걸린 기체는 안전 사고의 위험성이 항상 존재합니다. 안전 스위치는 예기치 않은 시동으로 인하여 발생할 수 있는 사고를 방치하는 것이 목적입니다.
 :::
 
 ## 텔레메트리 무선 통신
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[텔레메트리 무선 통신](../telemetry/README.md)은 *QGroundControl*과 같은 지상 통제국과 PX4를 구동하는 차량을 MAVLink 프로토콜로 연결합니다. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
 
 ## 외부 보조 컴퓨터
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+차량에 장착된 보조 컴퓨터는 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로, 보조 컴퓨터는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
 
-Relevent topics include:
+관련 주제는 다음과 같습니다.
 
 - [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드 
 - [로보틱스 API](../robotics/README.md)
@@ -157,15 +157,15 @@ Relevent topics include:
 
 ## SD 카드 (휴대용 저장 장치)
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
+PX4는 [비행 로그](../getting_started/flight_reporting.md)를 SD 카드에 저장합니다. UAVCAN 주변 장치를 사용하거나 비행 임무 수행에는 SD 카드가 반드시 필요합니다.
 
-By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
+기본적으로, PX4는 부팅 과정에 SD 카드가 없으면, [포맷 실패](../getting_started/tunes.md#format-failed) 경고음을 두 번 울립니다. 그리고, 위에서 설명한 다수의 기능들이 작동하지 않습니다.
 
 :::tip
-The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](../dev_log/logging.md#sd-cards).
+픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
-SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
+SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 다음의 작업들을 수행하여야 합니다.
 
 - [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 껍니다.
 - [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 보조 장치에 기록합니다.
@@ -175,45 +175,45 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 
 ## 시동 및 해제 
 
-Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+기체에 전원을 공급하게 되면, 모터와 프로펠러와 같은 부품들은 안전 사고를 유발할 수 있으므로 항상 주의하여야 합니다.
 
-To reduce the chance of accidents:
+사고를 줄일 수 있는 방법들은 다음과 같습니다.
 
 - 비행중이 아닐 때는 PX4의 *시동을 해제*하거나 전원을 차단하고, 이륙 전에만 *시동*을 켜는 것이 좋습니다.
 - 기체가 정해진 시간 안에 이륙하지 않으면, 착륙후에는 기체의 시동은 자동으로 해제됩니다. 시동 해제 시간은 매개변수로 설정합니다.
-- Some vehicles also have a [safety switch](#safety-switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+- 일부 기체에는 시동전에 조작하는 [안전 스위치](#safety-switch)(보통 GPS 수신기의 일부임)가 장착되어 있습니다.
 - 기체는 정상 상태가 아니면, 시동은 걸리지 않습니다.
 - 수직이착륙기는 고정익 모드에서는 시동이 걸리지 않습니다([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
-Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
+모드 2 수신기의 경우에는 추진력/방위각 조절 스틱을 *우측 하단*에 1초 정도 위치하면 시동이 걸립니다. 시동을 해제하려면 좌측 하단으로 둡니다. PX4에서 무선 조종 스위치로 시동을 걸 수 있도록 설정할 수 있습니다. 또한, 지상통제국에서 시동 명령을 MAVLink로 전송할 수 있습니다.
 
-A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
+시동 및 해제에 관한 자세한 내용은 [시동 준비, 시동, 시동 해제](../advanced_config/prearm_arm_disarm.md)를 참고하십시오.
 
 <a id="flight_modes"></a>
 
 ## 비행 모드 
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+비행 모드는 다양한 유형과 수준의 차량 자동화 기능을 제공합니다. *자율 모드*에서는 자동조종장치에 의해 자동으로 제어되며, 원격으로 수동 제어하지 않아도 됩니다. 예를 들어 이륙, 복귀 및 착륙 등의 작업을 자동으로 제어할 수 있습니다. 또 다른 자율 모드에는 사전 프로그래밍된 임무 수행, GPS 위치 정보 비행, 외부 컴퓨터 또는 지상관제국 명령에 의한 비행 작업이 가능합니다.
 
-*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+*수동 모드*에서는 사용자가 비행 콘트롤러를 RC로 직접 제어합니다. 다른 수동 모드에서는 또 다른 기능의 비행이 가능합니다. 예를 들어, 곡예 비행이나 바람이 불어도 일정환 경로나 위치를 유지하는 비행 등의 작업이 가능합니다.
 
 :::tip
-Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+모든 기체마다 모든 비행 모드가 적용되지 않습니다. 비행 모드는 조건이 충족된 기체에만 적용할 수 있습니다. 대부분의 모드에서는 GPS 위치 정보가 필요합니다.
 :::
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+비행 모드에 자세한 정보는 [비행 모드](../getting_started/flight_modes.md)를 참고하십시오. RC 스위치로 비행 모드를 변경하는 방법은 [비행 모드 설정](../config/flight_mode.md)을 참고하십시오.
 
 <a id="safety"></a>
 
 ## 안전 설정(사고 방지) 
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4는 시스템 사고시에 기체을 보호하고 복구할 수 있는 안전 시스템이 있으며, 이와 관련된 여러가지 설정들이 있습니다. 안정 설정으로 안전 비행 지역과 조건을 지정하고, 안전 장치에서 수행하는 작업(예: 착륙, 위치 유지 또는 지정된 지점으로 복귀)을 설정할 수 있습니다.
 
 :::note
-You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+안전 설정시에 동작은 *첫 번째* 사고 방지 이벤트에 대해서만 지정가능합니다. 이벤트가 발생하면, 시스템은 특별한 처리 코드를 실행하여 안전 장치 트리거가 분리된 시스템에서 기체별 코드에 의해 관리되도록 합니다.
 :::
 
-The main failsafe areas are listed below:
+주요 안전장치는 다음과 같습니다.
 
 - 배터리 부족
 - RC(원격 제어) 신호 상실
@@ -224,22 +224,22 @@ The main failsafe areas are listed below:
 - 미션 안전장치(재 이륙 시 이전 미션이 실행되는 것을 방지합니다)
 - 트래픽 회피(예: ADSB 응답기에 의해 작동됩니다)
 
-For more information see: [Safety](../config/safety.md) (Basic Configuration).
+더 자세한 내용은 [안전](../config/safety.md)편을 참고하십시오.
 
 ## 전진 방향 
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+차량, 보트 및 항공기에는 전진 방향이 정해져 있습니다.
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-:::note
-For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
+:::note VTOL
+테일 시터의 방향은 멀티콥터 설정(즉, 이륙, 호버링, 착륙 중 차량 포즈)에 의하여 결정됩니다.
 :::
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+차량의 전진 방향을 알아야만 차량의 이동 벡터와 정렬할 수 있습니다. 멀티콥터는 모든 방향에서 대칭인 경우에도 전진 방향이 정의됩니다. 제조사에서는 일반적으로 프로펠러나 팔(프레임)에 색깔을 사용하여 차량의 전진 방향을 표시합니다.
 
 ![Frame Heading TOP](../../assets/concepts/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+위 그림에서 전진 방향은 멀티콥터의 프로펠러에 빨간색으로 표시되어 있습니다.
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+[비행 콘트롤러 방향](../config/flight_controller_orientation.md)에서 전진 방향에 대한 자세한 정보를 참고하십시오.

@@ -7,6 +7,7 @@
 이 기능은 GPS UART2 포트기 노출된 F9P 장치에서 작동합니다 (설정을 위하여 포트에 액세스하여야 함).
 
 이 사용 사례에 대하여 다음 장치들이 지원됩니다.
+* [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) (arkelectron.com)
 * [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 * [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 * [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) (store.mrobotics.io)
