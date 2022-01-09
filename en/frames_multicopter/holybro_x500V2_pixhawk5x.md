@@ -84,10 +84,20 @@ Estimate time to assemble is 1.5 hours (60 minutes for frame, 30 minutes for aut
    _Figure 3_: Payload holder assembled
 
 1. The next is to go for atthacing the top plate to the payload holder.
-   You will need the parts as shown in Figure 4.
+
+   You will need the parts as shown in Figure 4. The mount the base for power distribution board using nylon nuts as Figure 5. 
+
    ![Materials to attach top plate](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/Topplate_holder_stuff.png)
 
    _Figure 4_: Needed Materials
+
+   ![PDB attachment](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/Powerboard-mountbase.png)
+
+   _Figure 5_: PDB mount base
+
+   ![PDB attachment](../../assets/airframes/multicopter/x500_V2_holybro_pixhawk5x/PDB_Bottom_plate.png)
+
+   _Figure 6_: Mounted pdb with nylon nuts
 
 1. Insert 4 nylon screws and nylon standoffs and attach the power module PM07 to the bottom plate using 4 nylon nuts as shown in Figures 4.
 
