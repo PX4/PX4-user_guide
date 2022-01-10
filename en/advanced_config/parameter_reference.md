@@ -23729,6 +23729,13 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="SENS_IMU_AUTOCAL">SENS_IMU_AUTOCAL</strong> (INT32)</td>
+ <td>IMU auto calibration <p><strong>Comment:</strong> Automatically initialize IMU (accel/gyro) calibration from bias estimates if available.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_IMU_MODE">SENS_IMU_MODE</strong> (INT32)</td>
  <td>Sensors hub IMU mode  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
