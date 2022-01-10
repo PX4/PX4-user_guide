@@ -775,8 +775,6 @@ pwm_out <command> [arguments...]
  Commands:
    start
 
-   test          Test outputs
-
    stop
 
    status        print status info
@@ -846,8 +844,6 @@ px4io <command> [arguments...]
  Commands:
    start
 
-   detect        Try to detect the presence of an IO
-
    checkcrc      Check CRC for a firmware file against current code on IO
      <filename>  Firmware file
 
@@ -861,13 +857,8 @@ px4io <command> [arguments...]
    debug         set IO debug level
      <debug_level> 0=disabled, 9=max verbosity
 
-   monitor       continuously monitor status
-
    bind          DSM bind
      dsm2|dsmx|dsmx8 protocol
-
-   lockdown      enable (or disable) lockdown
-     [disable]   disable lockdown
 
    sbus1_out     enable sbus1 out
 
