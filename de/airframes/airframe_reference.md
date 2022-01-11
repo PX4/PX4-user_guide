@@ -1188,6 +1188,40 @@ div.frame_variant td, div.frame_variant th {
 
 ## VTOL
 
+### Simulation (VTOL)
+
+<div class="frame_common">
+  <img src="../../assets/airframes/types/AirframeUnknown.svg" /> 
+  
+  <table>
+    <tr>
+      <th>
+        Common Outputs
+      </th>
+    </tr>
+<tr>
+ <td><ul><li><b>MAIN1</b>: motor right</li><li><b>MAIN2</b>: motor left</li><li><b>MAIN5</b>: elevon right</li><li><b>MAIN6</b>: elevon left</li></ul></td>
+</tr>
+  </table>
+</div>
+
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
+<tr id="vtol_simulation_(vtol)_sih_tailsitter_duo">
+ <td>SIH Tailsitter Duo</td>
+ <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
+</tr>
+  </table>
+</div>
+
 ### Standard VTOL
 
 <div class="frame_common">
