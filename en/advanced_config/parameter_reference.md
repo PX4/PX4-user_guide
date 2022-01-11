@@ -25536,9 +25536,11 @@ table {
 <tr>
  <td><strong id="SIH_VEHICLE_TYPE">SIH_VEHICLE_TYPE</strong> (INT32)</td>
  <td>Vehicle type  <strong>Values:</strong><ul>
-<li><strong>0:</strong> MC</li> 
+<li><strong>0:</strong> Multicopter</li> 
 
-<li><strong>1:</strong> FW</li> 
+<li><strong>1:</strong> Fixed-Wing</li> 
+
+<li><strong>2:</strong> Tailsitter</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
