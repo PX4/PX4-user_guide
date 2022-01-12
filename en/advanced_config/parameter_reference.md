@@ -14847,7 +14847,7 @@ table {
  <td><strong id="LNDMC_ALT_GND">LNDMC_ALT_GND</strong> (FLOAT)</td>
  <td>Ground effect altitude for multicopters <p><strong>Comment:</strong> The height above ground below which ground effect creates barometric altitude errors. A negative value indicates no ground effect.</p>   </td>
  <td>-1 > ? </td>
- <td>-1.0</td>
+ <td>2.</td>
  <td>m</td>
 </tr>
 <tr>
