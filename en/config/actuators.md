@@ -30,7 +30,7 @@ This particular frame also includes an image showing the motor positions, which 
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry.png)
 
-A fixed wing airframe would instead display the parameters that define control surfaces, while a VTOL airframe would display both motors and control surfaces.
+A fixed wing airframe would instead display the parameters that define control surfaces, while a VTOL airframe could display both motors and control surfaces.
 
 
 ### Conventions
@@ -81,10 +81,10 @@ Tilt servos are configured as follows:
 
 ### Bidirectional Motors
 
-Some geometries require bidirectional motors (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half).
-For example, ground vehicles that need to move forwards and backwards, or VTOL vehicles that have pusher motors that go in either direction.
+Some vehicles may use bidirectional motors (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half).
+For example, ground vehicles that want to move forwards and backwards, or VTOL vehicles that have pusher motors that go in either direction.
 
-If bidiectional motors are required, make sure to select the **Reversible** checkbox for those motors (the option will only be displayed if relevant for the frame type).
+If bidiectional motors are used, make sure to select the **Reversible** checkbox for those motors (the checkbox is displayed as an "advanced" option).
 
 ![Reversible](../../assets/config/actuators/qgc_geometry_reversible.png)
 
