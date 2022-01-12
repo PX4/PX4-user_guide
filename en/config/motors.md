@@ -1,5 +1,9 @@
 # Motor/Servo Checks
 
+:::note
+This section is being replaced by an [Actuators](../config/actuators.md) configuration screen.
+:::
+
 After the airframe is setup and configured you should validate the motor assignment and spin direction, and the servo response.
 This can be done in *QGroundControl*, under the [Vehicle Setup > Motors](https://docs.qgroundcontrol.com/en/SetupView/Motors.html) tab.
 
