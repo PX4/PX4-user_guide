@@ -5,7 +5,7 @@ The Jerk-limited trajectory type provides smooth motion in response to user stic
 This trajectory type is always enabled in [Mission mode](../flight_modes/mission.md). To enable it in [Position mode](../flight_modes/position_mc.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
 :::note
-The jerk-limited type is used *by default* in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+The jerk-limited type is not used *by default* in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
 :::
 
 ## Trajectory Generator
@@ -27,7 +27,7 @@ The resulting velocity profile is often called "S-Curve".
 
 ## Manual Mode
 
-In manual position mode, the sticks are mapped to velocity where a full stick deflection corresponds to [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL).
+In manual position mode, the sticks are mapped to velocity where a full XY-stick deflection corresponds to [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) and a full Z-stick deflection corresponds to [MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) (upward motion) or [MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) (downward motion).
 
 ### Constraints
 
@@ -44,7 +44,7 @@ Z-axis:
 
 ## Auto Mode
 
-In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk.
+In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk. The vertical speed is defined by [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (upward motion) and [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (downward motion).
 
 ### Constraints
 
