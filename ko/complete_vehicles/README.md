@@ -9,7 +9,9 @@
 
 이 섹션에는 PX4가 설치된 상태에서 즉시 비행 가능한 완전 조립품으로 판매되는 차량을 설명합니다.
 
-* 멀티콥터 
+* Autogyro 
+  * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
+* Multicopter 
   * [Teal One](https://tealdrones.com/teal-one/)
   * [ModalAI m500](https://modalai.com/products/voxl-m500)
 * VTOL 
@@ -17,7 +19,7 @@
 
 ## 완전 조립품(PX4 사전 설치됨)
 
-이 섹션에는 PX4를 실행하도록 소프트웨어를 업데이트할 수 있는 완전히 조립된 차량을 설명합니다.
+This section lists fully assembled vehicles where you can update the software to run PX4.
 
 * 멀티콥터 
   * [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
