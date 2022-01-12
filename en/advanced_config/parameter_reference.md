@@ -27287,6 +27287,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CANNODE_GPS_RTCM">CANNODE_GPS_RTCM</strong> (INT32)</td>
+ <td>Enable RTCM pub/sub    </td>
+ <td>? > 1 </td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
  <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
  <td>1 > 125 </td>
