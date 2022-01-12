@@ -5,7 +5,7 @@
 이 궤적 유형은 항상 [임무 모드](../flight_modes/mission.md)에서 활성화됩니다. [위치 모드](../flight_modes/position_mc.md)에서 활성화하려면 매개변수를 설정하십시오 : [MPC_POS_MODE = 3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
 :::note
-저크 제한 유형은 위치 모드에서 *기본적으로* 사용됩니다. 더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
+The jerk-limited type is not used *by default* in position mode. 더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
 :::
 
 ## 궤적 생성기
@@ -27,7 +27,7 @@
 
 ## 수동 모드
 
-수동 위치 모드에서 스틱은 전체 스틱 편향이 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)에 해당하는 속도로 매핑됩니다.
+In manual position mode, the sticks are mapped to velocity where a full XY-stick deflection corresponds to [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) and a full Z-stick deflection corresponds to [MPC_Z_VEL_MAX_UP](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_UP) (upward motion) or [MPC_Z_VEL_MAX_DN](../advanced_config/parameter_reference.md#MPC_Z_VEL_MAX_DN) (downward motion).
 
 ### 제약 조건
 
@@ -44,7 +44,7 @@ Z축
 
 ## 자동 모드
 
-자동 모드에서 목표 속도는 [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)이지만, 다음 웨이포인트까지의 거리, 웨이포인트에서 가능한 최대 속도, 원하는 최대 가속도 및 저크에 따라 자동으로 조정됩니다.
+In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) but this value is automatically adjusted depending on the distance to the next waypoint, the maximum possible velocity in the waypoint and the maximum desired acceleration and jerk. The vertical speed is defined by [MPC_Z_V_AUTO_UP](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_UP) (upward motion) and [MPC_Z_V_AUTO_DN](../advanced_config/parameter_reference.md#MPC_Z_V_AUTO_DN) (downward motion).
 
 ### 제약 조건
 
