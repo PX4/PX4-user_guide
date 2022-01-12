@@ -16398,7 +16398,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
- <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
+ <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" (or "MPC_Z_V_AUTO_DN") and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
  <td>0 > 122 </td>
  <td>10.0</td>
  <td>m</td>
@@ -16669,16 +16669,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_DN">MPC_Z_VEL_MAX_DN</strong> (FLOAT)</td>
- <td>Maximum vertical descent velocity <p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>   </td>
- <td>0.5 > 4.0 </td>
- <td>1.0</td>
+ <td>Maximum descent velocity <p><strong>Comment:</strong> Descent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_DN</p>   </td>
+ <td>0.5 > 4.0 (0.1)</td>
+ <td>1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
- <td>Maximum vertical ascent velocity <p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>   </td>
- <td>0.5 > 8.0 </td>
- <td>3.0</td>
+ <td>Maximum ascent velocity <p><strong>Comment:</strong> Ascent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_UP</p>   </td>
+ <td>0.5 > 8.0 (0.1)</td>
+ <td>3.</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -16687,6 +16687,20 @@ table {
  <td>2.0 > 15.0 </td>
  <td>4.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="MPC_Z_V_AUTO_DN">MPC_Z_V_AUTO_DN</strong> (FLOAT)</td>
+ <td>Automatic descent velocity <p><strong>Comment:</strong> Descent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_DN</p>   </td>
+ <td>0.5 > 4.0 (0.1)</td>
+ <td>1.</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_Z_V_AUTO_UP">MPC_Z_V_AUTO_UP</strong> (FLOAT)</td>
+ <td>Automatic ascent velocity <p><strong>Comment:</strong> Ascent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_UP</p>   </td>
+ <td>0.5 > 8.0 (0.1)</td>
+ <td>3.</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="SYS_VEHICLE_RESP">SYS_VEHICLE_RESP</strong> (FLOAT)</td>
