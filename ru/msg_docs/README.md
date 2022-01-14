@@ -85,6 +85,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [mission_result](mission_result.md)
 - [mount_orientation](mount_orientation.md)
 - [navigator_mission_item](navigator_mission_item.md)
+- [npfg_status](npfg_status.md)
 - [obstacle_distance](obstacle_distance.md) — Obstacle distances in front of the sensor.
 - [offboard_control_mode](offboard_control_mode.md) — Off-board control mode
 - [onboard_computer_status](onboard_computer_status.md) — ONBOARD_COMPUTER_STATUS message data
