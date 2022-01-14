@@ -12656,6 +12656,100 @@ table {
 </tr>
 </tbody></table>
 
+## FW NPFG Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_USE_NPFG">FW_USE_NPFG</strong> (INT32)</td>
+ <td>Use NPFG as lateral-directional guidance law for fixed-wing vehicles <p><strong>Comment:</strong> Replaces L1.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_DAMPING">NPFG_DAMPING</strong> (FLOAT)</td>
+ <td>NPFG damping ratio <p><strong>Comment:</strong> Damping ratio of the NPFG control law.</p>   </td>
+ <td>0.10 > 1.00 (0.01)</td>
+ <td>0.7</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_EN_MIN_GSP">NPFG_EN_MIN_GSP</strong> (INT32)</td>
+ <td>Enable minimum forward ground speed maintaining excess wind handling logic    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_GSP_MAX_TK">NPFG_GSP_MAX_TK</strong> (FLOAT)</td>
+ <td>Maximum, minimum forward ground speed for track keeping in excess wind <p><strong>Comment:</strong> The maximum value of the minimum forward ground speed that may be commanded by the track keeping excess wind handling logic. Commanded in full at the normalized track error fraction of the track error boundary and reduced to zero on track.</p>   </td>
+ <td>0.0 > 10.0 (0.5)</td>
+ <td>5.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="NPFG_LB_PERIOD">NPFG_LB_PERIOD</strong> (INT32)</td>
+ <td>Enable automatic lower bound on the NPFG period <p><strong>Comment:</strong> Avoids limit cycling from a too aggressively tuned period/damping combination. If set to false, also disables the upper bound NPFG_PERIOD_UB.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_PERIOD">NPFG_PERIOD</strong> (FLOAT)</td>
+ <td>NPFG period <p><strong>Comment:</strong> Period of the NPFG control law.</p>   </td>
+ <td>1.0 > 100.0 (0.1)</td>
+ <td>10.0</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="NPFG_PERIOD_SF">NPFG_PERIOD_SF</strong> (FLOAT)</td>
+ <td>Period safety factor <p><strong>Comment:</strong> Multiplied by period for conservative minimum period bounding (when period lower bounding is enabled). 1.0 bounds at marginal stability.</p>   </td>
+ <td>1.0 > 10.0 (0.1)</td>
+ <td>1.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_ROLL_TC">NPFG_ROLL_TC</strong> (FLOAT)</td>
+ <td>Roll time constant <p><strong>Comment:</strong> Time constant of roll controller command / response, modeled as first order delay. Used to determine lower period bound. Setting zero disables automatic period bounding.</p>   </td>
+ <td>0.00 > 2.00 (0.05)</td>
+ <td>0.5</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="NPFG_SW_DST_MLT">NPFG_SW_DST_MLT</strong> (FLOAT)</td>
+ <td>NPFG switch distance multiplier <p><strong>Comment:</strong> Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1. 1/pi (0.32) sets the switch distance equivalent to that of the L1 controller.</p>   </td>
+ <td>0.1 > 1.0 (0.01)</td>
+ <td>0.32</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_TRACK_KEEP">NPFG_TRACK_KEEP</strong> (INT32)</td>
+ <td>Enable track keeping excess wind handling logic    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_UB_PERIOD">NPFG_UB_PERIOD</strong> (INT32)</td>
+ <td>Enable automatic upper bound on the NPFG period <p><strong>Comment:</strong> Adapts period to maintain track keeping in variable winds and path curvature.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_WIND_REG">NPFG_WIND_REG</strong> (INT32)</td>
+ <td>Enable wind excess regulation <p><strong>Comment:</strong> Disabling this parameter further disables all other airspeed incrementation options.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## FW TECS
 
 <table>
