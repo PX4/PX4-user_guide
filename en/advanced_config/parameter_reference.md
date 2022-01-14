@@ -12150,7 +12150,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
- <td>Max manual pitch <p><strong>Comment:</strong> Max pitch for manual control in attitude stabilized mode</p>   </td>
+ <td>Maximum manual pitch angle <p><strong>Comment:</strong> Maximum manual pitch angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>0.0 > 90.0 (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
@@ -12164,7 +12164,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_MAX">FW_MAN_R_MAX</strong> (FLOAT)</td>
- <td>Max manual roll <p><strong>Comment:</strong> Max roll for manual control in attitude stabilized mode</p>   </td>
+ <td>Maximum manual roll angle <p><strong>Comment:</strong> Maximum manual roll angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>0.0 > 90.0 (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
@@ -12494,21 +12494,21 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MAX">FW_P_LIM_MAX</strong> (FLOAT)</td>
- <td>Positive pitch limit <p><strong>Comment:</strong> The maximum positive pitch the controller will output.</p>   </td>
+ <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
  <td>0.0 > 60.0 (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MIN">FW_P_LIM_MIN</strong> (FLOAT)</td>
- <td>Negative pitch limit <p><strong>Comment:</strong> The minimum negative pitch the controller will output.</p>   </td>
+ <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
  <td>-60.0 > 0.0 (0.5)</td>
  <td>-45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
- <td>Controller roll limit <p><strong>Comment:</strong> The maximum roll the controller will output.</p>   </td>
+ <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for autonomous modes including altitude and position control.</p>   </td>
  <td>35.0 > 65.0 (0.5)</td>
  <td>50.0</td>
  <td>deg</td>
