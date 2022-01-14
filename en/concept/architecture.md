@@ -123,22 +123,6 @@ Tasks running on a work queue do not show up in [`top`](../modules/modules_comma
 Use [`work_queue status`](../modules/modules_system.md#work-queue) to display all active work queue items.
 :::
 
-### Background Tasks
-
-`px4_task_spawn_cmd()` is used to launch new tasks (NuttX) or threads (POSIX - Linux/macOS) that run independently from the calling (parent) task:
-
-```cpp
-independent_task = px4_task_spawn_cmd(
-    "commander",                    // Process name
-    SCHED_DEFAULT,                  // Scheduling type (RR or FIFO)
-    SCHED_PRIORITY_DEFAULT + 40,    // Scheduling priority
-    3600,                           // Stack size of the new task or thread
-    commander_thread_main,          // Task (or thread) main function
-    (char * const *)&argv[0]        // Void pointer to pass to the new task
-                                    // (here the commandline arguments).
-    );
-```
-
 
 ### OS-Specific Information
 
