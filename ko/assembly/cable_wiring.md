@@ -1,14 +1,14 @@
 # 배선 개요
 
-Cables are a common source of [electromagnetic interference (EMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can cause problems including flyways, "toilet bowling" and generally poor flight. These problems can be avoided by using appropriate cabling in the UAV.
+케이블은 플라이웨이, "화장실 볼링" 및 일반적으로 열악한 비행을 비롯한 문제를 일으킬 수 있는 [전자기 간섭(EMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference)의 일반적인 원인입니다. 이러한 문제는 UAV에서 적절한 케이블을 사용하여 피할 수 있습니다.
 
-The following basic concepts should be kept in mind when designing drone cabling:
-* High-Power and signal cables should be separated as much as is practical
-* Cable lengths should be the minimum needed to enable easy handling of wired components. The wire tension should be adequate to survive possible airframe deformations even in a crash landing (wires must not be the first thing to break).
-* Cable loops to reduce excess length should be avoided - use shorter lengths!
-* For digital signals you can decrease the baudrate to reduce radiated energy and increase the robustness of data transfer. This means that you may be able to use longer cables when high data rates are not needed.
+드론 케이블링을 설계할 때 다음 기본 개념을 염두에 두어야 합니다.
+* High-Power 케이블과 신호 케이블은 최대한 분리합니다.
+* 케이블 길이는 유선 구성 요소를 쉽게 처리할 수 있도록 최대한 짧게 합니다. 와이어 장력은 충돌 착륙 시에도 가능한 기체 변형을 견딜 수 있어야 합니다. 와이어가 가장 먼저 끊어지면 안 됩니다.
+* 초과 길이를 줄이기 위한 케이블 루프는 피해야 합니다. 더 짧은 길이를 사용하십시오!
+* 디지털 신호의 경우 전송 속도를 줄여 방사 에너지를 줄이고, 데이터 전송의 견고성을 높일 수 있습니다. 이는 높은 데이터 전송률이 필요하지 않으면, 더 긴 케이블을 사용할 수 있음을 의미합니다.
 
-## Signal wiring
+## 신호 배선
 
 Signalling protocols have different characteristics, and therefore the cables used in each case require slightly different specifications.
 
