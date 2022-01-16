@@ -1,4 +1,4 @@
-# Cable Wiring Basics
+# 배선 개요
 
 Cables are a common source of [electromagnetic interference (EMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can cause problems including flyways, "toilet bowling" and generally poor flight. These problems can be avoided by using appropriate cabling in the UAV.
 
