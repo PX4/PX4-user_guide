@@ -10,12 +10,12 @@
 
 ## 신호 배선
 
-Signalling protocols have different characteristics, and therefore the cables used in each case require slightly different specifications.
+신호 전송 프로토콜들은 특성이 각기 다르므로 목적에 따라 사용되는 케이블의 사양이 달라집니다.
 
-This topic provides specific guidance of cabling for different signalling protocols, along with the [colour coding](#cable-colour-coding) used by a number different drone hardware vendors.
+이 항목에서는 드론 하드웨어 공급업체들의 [색상 코딩](#cable-colour-coding)과 함께 신호 프로토콜별로 케이블 연결에 대한 구체적인 지침을 제공합니다.
 
 
-### I²C cables
+### I²C 케이블
 
 The [I2C bus](https://en.wikipedia.org/wiki/I%C2%B2C) is widely used for connecting sensors. Cable colors from several vendors are specified in following table.
 
