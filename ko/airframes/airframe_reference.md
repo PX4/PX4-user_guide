@@ -724,29 +724,33 @@ div.frame_variant td, div.frame_variant th {
  <td>제어 할당이 있는 S500</td>
  <td>유지보수: Silvan Fuhrer<p><code>SYS_AUTOSTART</code> = 4018</p></td>
 </tr>
+<tr id="copter_quadrotor_x_holybro_x500_v2">
+ <td>Holybro X500 V2</td>
+ <td>Maintainer: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019</p></td>
+</tr>
 <tr id="copter_quadrotor_x_3dr_solo">
  <td>3DR Solo</td>
- <td>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 4030</p></td>
+ <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 4030</p></td>
 </tr>
 <tr id="copter_quadrotor_x_3dr_diy_quad">
  <td>3DR DIY Quad</td>
- <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4031</p></td>
+ <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4031</p></td>
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
  <td>Generic 250 Racer</td>
- <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
+ <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
  <td><a href="https://docs.px4.io/master/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
- <td>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4052</p></td>
+ <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4052</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td>Holybro Kopis 2</td>
- <td>유지보수: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
+ <td>Maintainer: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
 </tr>
 <tr id="copter_quadrotor_x_dji_matrice_100">
  <td>DJI Matrice 100</td>
- <td>유지보수 : James Goppert &lt;james.goppert@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4060</p></td>
+ <td>Maintainer: James Goppert &lt;james.goppert@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4060</p></td>
 </tr>
 <tr id="copter_quadrotor_x_advanced_technology_labs_(atl)_mantis_edu">
  <td>Advanced Technology Labs (ATL) Mantis EDU</td>
