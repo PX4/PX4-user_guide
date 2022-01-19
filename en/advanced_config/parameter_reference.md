@@ -12521,15 +12521,13 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_POSCTL_INV_ST">FW_POSCTL_INV_ST</strong> (INT32)</td>
- <td>RC stick mapping fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing position and altitude controlled flight.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Normal stick configuration (airspeed on throttle stick, altitude on pitch stick)</li> 
-
-<li><strong>1:</strong> Alternative stick configuration (altitude on throttle stick, airspeed on pitch stick)</li> 
+ <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
+ <td>RC stick configuraton fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
+  <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li> 
 </ul>
-  </td>
- <td>0 > 1 </td>
- <td>0</td>
+ </td>
+ <td>0 > 3 </td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
