@@ -79,8 +79,54 @@ dps310 <command> [arguments...]
 
    status        print status info
 ```
+## icp10100
+Source: [drivers/barometer/invensense/icp10100](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/invensense/icp10100)
+
+<a id="icp10100_usage"></a>
+
+### 사용법
+```
+icp10100 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 99
+
+   stop
+
+   status        print status info
+```
+## icp10111
+Source: [drivers/barometer/invensense/icp10111](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/invensense/icp10111)
+
+<a id="icp10111_usage"></a>
+
+### 사용법
+```
+icp10111 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 99
+
+   stop
+
+   status        print status info
+```
 ## lps22hb
-소스: [drivers/barometer/lps22hb](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps22hb)
+Source: [drivers/barometer/lps22hb](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps22hb)
 
 <a id="lps22hb_usage"></a>
 
@@ -95,8 +141,7 @@ lps22hb <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -106,7 +151,7 @@ lps22hb <command> [arguments...]
    status        print status info
 ```
 ## lps25h
-소스: [drivers/barometer/lps25h](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps25h)
+Source: [drivers/barometer/lps25h](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps25h)
 
 <a id="lps25h_usage"></a>
 
@@ -121,8 +166,7 @@ lps25h <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -132,7 +176,7 @@ lps25h <command> [arguments...]
    status        print status info
 ```
 ## lps33hw
-소스: [drivers/barometer/lps33hw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps33hw)
+Source: [drivers/barometer/lps33hw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps33hw)
 
 <a id="lps33hw_usage"></a>
 
@@ -147,8 +191,7 @@ lps33hw <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
@@ -160,12 +203,35 @@ lps33hw <command> [arguments...]
 
    status        print status info
 ```
-## mpl3115a2
-소스: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/mpl3115a2)
+## mpc2520
+Source: [drivers/barometer/maiertek/mpc2520](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/maiertek/mpc2520)
 
 <a id="mpc2520_usage"></a>
 
-### 사용법
+### Usage
+```
+mpc2520 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 118
+
+   stop
+
+   status        print status info
+```
+## mpl3115a2
+Source: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/mpl3115a2)
+
+<a id="mpl3115a2_usage"></a>
+
+### Usage
 ```
 mpl3115a2 <command> [arguments...]
  Commands:
@@ -178,34 +244,6 @@ mpl3115a2 <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 96
-
-   stop
-
-   status        print status info
-```
-## ms5611
-소스: [drivers/barometer/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611)
-
-<a id="mpl3115a2_usage"></a>
-
-### 사용법
-```
-ms5611 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-T <val>]  Device type
-                 values: 5607|5611, default: 5611
 
    stop
 
