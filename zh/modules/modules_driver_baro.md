@@ -96,6 +96,52 @@ dps310 <command> [arguments...]
 
    status        print status info
 ```
+## icp10100
+Source: [drivers/barometer/invensense/icp10100](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/invensense/icp10100)
+
+<a id="icp10100_usage"></a>
+
+### 使用
+```
+icp10100 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 99
+
+   stop
+
+   status        print status info
+```
+## icp10111
+Source: [drivers/barometer/invensense/icp10111](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/invensense/icp10111)
+
+<a id="icp10111_usage"></a>
+
+### 使用
+```
+icp10111 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 99
+
+   stop
+
+   status        print status info
+```
 ## lps22hb
 Source: [drivers/barometer/lps22hb](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps22hb)
 
@@ -179,7 +225,7 @@ Source: [drivers/barometer/maiertek/mpc2520](https://github.com/PX4/PX4-Autopilo
 
 <a id="mpc2520_usage"></a>
 
-### 使用
+### Usage
 ```
 mpc2520 <command> [arguments...]
  Commands:
@@ -202,7 +248,7 @@ Source: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/
 
 <a id="mpl3115a2_usage"></a>
 
-### 使用
+### Usage
 ```
 mpl3115a2 <command> [arguments...]
  Commands:
