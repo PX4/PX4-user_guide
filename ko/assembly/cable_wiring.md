@@ -28,21 +28,21 @@
 
 [Dronecode 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)은 자동 조종 장치의 SDA 및 SCL 신호에 1.5k 옴 풀업 저항을 가정합니다.
 
-#### 케이블 꼬임
+#### 케이블 꼬기
 
-I2C bus signal cross-talk and electromagnetic compatibility can be greatly improved by proper twisting of the cable wires. [Twisted pairs](https://en.wikipedia.org/wiki/Twisted_pair) is especially important for sensor wiring.
+I2C 버스 신호 혼선 및 전자기 호환성은 케이블 와이어를 적절하게 비틀면 크게 향상될 수 있습니다. [트위스트 페어](https://en.wikipedia.org/wiki/Twisted_pair)는 센서 배선에 특히 중요합니다.
 
-- 10 turns for each pair SCL/+5V and SDA/GND per 30cm cable length. ![I²C JST-GH cable](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
-- 4 turns of both pairs together per 30cm cable length. ![I²C JST-GH connector detail](../../assets/hardware/cables/i2c_jst-gh_connector.jpg)
+- 30cm 케이블 길이당 각 쌍 SCL/+5V 및 SDA/GND에 대해 10회 회전합니다.![I²C JST-GH cable](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
+- 케이블 길이 30cm당 두 쌍을 함께 4회 감습니다.![I²C JST-GH connector detail](../../assets/hardware/cables/i2c_jst-gh_connector.jpg)
 
-When using appropriate twisted pair cables, the I²C bus is generally suitable for submeter-scale airframes. For larger aircraft the use of CAN or other differential signaling based interface is generally more reliable.
+적절한 트위스트 페어 케이블을 사용할 때 I²C 버스는 일반적으로 서브미터 규모 기체에 적합합니다. 대형 항공기의 경우 CAN 또는 기타 차동 신호 기반 인터페이스를 사용하는 것이 일반적으로 더 안정적입니다.
 
 :::note
-This turns/cable-length recommendation has been successfully used with I2C sensors including the [ThunderFly TFSLOT airspeed sensor](../../en/sensor/airspeed_tfslot.md) and [TFRPM01 Revolution Counter](../../en/sensor/thunderfly_tachometer.md).
+이 권수/케이블 길이 권장 사항은 [ThunderFly TFSLOT 속도 센서](../../en/sensor/airspeed_tfslot.md) 및 [TFRPM01 회전 카운터](../../en/sensor/thunderfly_tachometer.md)를 포함한 I2C 센서에 성공적으로 사용되었습니다.
 :::
 
 
-#### Pull-up resistors
+#### 풀업 저항
 
 Pull-up resistors are required for all ends of an I2C bus. This acts both as [signal termination](https://en.wikipedia.org/wiki/Electrical_termination) and as bus idle signal generator.
 
