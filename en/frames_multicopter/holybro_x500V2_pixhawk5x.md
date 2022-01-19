@@ -30,7 +30,7 @@ The Holybro [X500 V2 Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) includ
 * Power Distribution Board – XT60 plug for battery & XT30 plug for ESCs & peripherals
 * Camera mount (optional and the 3D file can be downloaded from [here](http://www.holybro.com/3D_Print/Holybro_X500_V2_3D%20Print.rar))
 
-Other parts in this build(Not included in the ARF kit):
+Other parts in this build(**Not included in the ARF kit**):
 * [Pixhawk 5X autopilot](../flight_controller/pixhawk5x.md)
 * [M8N GPS](http://shop.holybro.com/holybro-m8n-gps_p1094.html)
 * [Power Module - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
