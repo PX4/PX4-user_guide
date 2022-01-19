@@ -44,18 +44,18 @@ I2C 버스 신호 혼선 및 전자기 호환성은 케이블 와이어를 적�
 
 #### 풀업 저항
 
-Pull-up resistors are required for all ends of an I2C bus. This acts both as [signal termination](https://en.wikipedia.org/wiki/Electrical_termination) and as bus idle signal generator.
+풀업 저항은 I2C 버스의 모든 끝 부분에 필요합니다. 이것은 [신호 종료](https://en.wikipedia.org/wiki/Electrical_termination)와 버스 유휴 신호 생성기의 역할을 모두 합니다.
 
-An oscilloscope measurement is sometimes required to check correct value of pull-up resistors. The signals on the I2C bus should have clear sharp rectangle-like edges and amplitude of few volts. In case the signal has a low amplitude, the value of pull-up resistors is too low and should be decreased. In the case of rounded signals, the value of pull-up resistors is too high.
+풀업 저항의 정확한 값을 확인하기 위해 오실로스코프 측정이 필요한 경우가 있습니다. I2C 버스의 신호는 명확하고 예리한 직사각형과 같은 가장자리와 몇 볼트의 진폭을 가져야 합니다. 신호의 진폭이 낮은 경우 풀업 저항 값이 너무 낮으므로 줄여야 합니다. 반올림된 신호의 경우 풀업 저항 값이 너무 높습니다.
 
-### UAVCAN cables
+### UAVCAN 케이블
 
-| Signal | Pixhawk                                                | ThunderFly                                                | Zubax                                                     | CUAV (I2C/CAN)                                            |
-| ------ | ------------------------------------------------------ | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| +5V    | ![red](../../assets/hardware/cables/red.png) Red       | ![red](../../assets/hardware/cables/red.png) Red          | ![red](../../assets/hardware/cables/red.png) Red          | ![red](../../assets/hardware/cables/red.png) Red          |
-| CAN_H  | ![black](../../assets/hardware/cables/black.png) Black | ![white](../../assets/hardware/cables/white.png) White    | ![white](../../assets/hardware/cables/white.png) White    | ![white](../../assets/hardware/cables/white.png) White    |
-| CAN_L  | ![black](../../assets/hardware/cables/black.png) Black | ![yellow](../../assets/hardware/cables/yellow.png) Yellow | ![yellow](../../assets/hardware/cables/yellow.png) Yellow | ![yellow](../../assets/hardware/cables/yellow.png) Yellow |
-| GND    | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black    | ![black](../../assets/hardware/cables/black.png) Black    | ![black](../../assets/hardware/cables/black.png) Black    |
+| 신호    | Pixhawk                                             | ThunderFly                                            | Zubax                                                 | CUAV (I2C/CAN)                                        |
+| ----- | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| +5V   | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
+| CAN_H | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   | ![white](../../assets/hardware/cables/white.png) 흰색   | ![white](../../assets/hardware/cables/white.png) 흰색   |
+| CAN_L | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND   | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
 
 #### Cable twisting
 
