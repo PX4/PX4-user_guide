@@ -17,18 +17,18 @@
 
 ### I²C 케이블
 
-The [I2C bus](https://en.wikipedia.org/wiki/I%C2%B2C) is widely used for connecting sensors. Cable colors from several vendors are specified in following table.
+[I2C 버스](https://en.wikipedia.org/wiki/I%C2%B2C)는 센서 연결에 널리 사용됩니다. 여러 공급업체의 케이블 색상이 다음 표에 지정되어 있습니다.
 
-| Signal | Pixhawk Colors                                         | ThunderFly colors                                         | CUAV colors (I2C/CAN)                                     |
-| ------ | ------------------------------------------------------ | --------------------------------------------------------- | --------------------------------------------------------- |
-| +5V    | ![red](../../assets/hardware/cables/red.png) Red       | ![red](../../assets/hardware/cables/red.png) Red          | ![red](../../assets/hardware/cables/red.png) Red          |
-| SCL    | ![black](../../assets/hardware/cables/black.png) Black | ![yellow](../../assets/hardware/cables/yellow.png) Yellow | ![white](../../assets/hardware/cables/white.png) White    |
-| SDA    | ![black](../../assets/hardware/cables/black.png) Black | ![green](../../assets/hardware/cables/green.png) Green    | ![yellow](../../assets/hardware/cables/yellow.png) Yellow |
-| GND    | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black    | ![black](../../assets/hardware/cables/black.png) Black    |
+| 신호  | Pixhawk 색상                                          | ThunderFly 색상                                         | CUAV 색상 (I2C/CAN)                                     |
+| --- | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| +5V | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
+| SCL | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![white](../../assets/hardware/cables/white.png) 흰색   |
+| SDA | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
 
-The [Dronecode standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) assumes a 1.5k ohm pull-up resistor on SDA and SCL signals in autopilot.
+[Dronecode 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)은 자동 조종 장치의 SDA 및 SCL 신호에 1.5k 옴 풀업 저항을 가정합니다.
 
-#### Cable twisting
+#### 케이블 꼬임
 
 I2C bus signal cross-talk and electromagnetic compatibility can be greatly improved by proper twisting of the cable wires. [Twisted pairs](https://en.wikipedia.org/wiki/Twisted_pair) is especially important for sensor wiring.
 
