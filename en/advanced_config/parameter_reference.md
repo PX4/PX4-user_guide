@@ -23988,7 +23988,7 @@ table {
  <td>Magnetometer max rate <p><strong>Comment:</strong> Magnetometer data maximum publication rate. This is an upper bound, actual magnetometer data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 200 </td>
- <td>50.0</td>
+ <td>15.0</td>
  <td>Hz</td>
 </tr>
 <tr>
