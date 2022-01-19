@@ -2,10 +2,11 @@
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
+This kit brings the shortest and straightforward assembly experience for those who want to jump into the development on drones and not to put that much time on the hardware. The ARF kit includes the frame,motors, ESCs, propellers and power distribution board. It is compatible with most of the flight controllers. You need to have the flight controller, radio transmitters, GPS and RC controller to have the kit ready to fly. 
+
 ## Key information
 
 - **Kit:** [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html)
-- **Frame:** [Holybro X500 V2 Frame Kit](https://shop.holybro.com/x500-v2-kit_p1288.html)
 - **Flight controller:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
 - **Assembly time (approx.):** 55 min (25 minutes for frame, 30 minutes for autopilot installation/configuration)
 
@@ -29,7 +30,7 @@ The Holybro [X500 V2 Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) includ
 * Power Distribution Board – XT60 plug for battery & XT30 plug for ESCs & peripherals
 * Camera mount (optional and the 3D file can be downloaded from [here](http://www.holybro.com/3D_Print/Holybro_X500_V2_3D%20Print.rar))
 
-Other parts in this build:
+Other parts in this build(Not included in the ARF kit):
 * [Pixhawk 5X autopilot](../flight_controller/pixhawk5x.md)
 * [M8N GPS](http://shop.holybro.com/holybro-m8n-gps_p1094.html)
 * [Power Module - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
@@ -37,7 +38,7 @@ Other parts in this build:
 
 Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
-## Main Hardware
+## Kit Hardware
 
 This section lists all hardware for the frame and the autopilot installation.
 
@@ -54,7 +55,7 @@ Battery pad                   |  3mm Silicone sheet black                       
 Platform board                |  Thickness: 2mm                                       | 1
 Hanger & rubber ring gasket   |  Inner hole diameter: 10mm black	                    | 8
 
-### ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
+ ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
 
    _Figure 1_: X500 V2 ARF Kit what's inside
 
