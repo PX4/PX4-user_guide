@@ -83,9 +83,9 @@ I2C 케이블과 같은 이유로 CAN 케이블도 꼬는 것이 좋습니다. C
 
 ### UART
 
-UART는 주변 장치를 자동 조종 장치에 연결하는 데 사용됩니다. By default, UART does not support networking and therefore it directly connects two devices together. It is often used to connect an autopilot and a [radio modem](../telemetry/README.md).
+UART는 주변 장치를 자동 조종 장치에 연결하는 데 사용됩니다. 기본적으로 UART는 네트웤을 지원하지 않으므로 두 장치를 직접 연결합니다. 자동 조종 장치와 [무선 모뎀](../telemetry/README.md)을 연결하는 데 자주 사용됩니다.
 
-CTS and RTS are signals that are used to indicate that data is being transmitted on TX/RX pins. This hand-shake mechanism increases reliability of data transfer. CTS and RTS may remain loose when it is not used by the device.
+CTS 및 RTS는 데이터가 TX/RX 핀에서 전송되고 있음을 나타내는 데 사용되는 신호입니다. 이 핸드셰이크 메커니즘은 데이터 전송의 신뢰성을 높입니다. CTS and RTS may remain loose when it is not used by the device.
 
 The connecting cable is not crossed. Therefore, it is necessary to connect only the autopilot and peripherals with this straight cable. The device must cross the wiring internally by swapping RX/TX and RTS/CTS pins.
 
