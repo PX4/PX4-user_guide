@@ -57,33 +57,33 @@ I2C 버스 신호 혼선 및 전자기 호환성은 케이블 와이어를 적�
 | CAN_L | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
 | GND   | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
 
-#### Cable twisting
+#### 케이블 꼬기
 
-CAN cables should also be twisted, for exactly the same reason as I2C cables. For CAN the recommended twisting is:
+I2C 케이블과 같은 이유로 CAN 케이블도 꼬는 것이 좋습니다. CAN의 경우 권장되는 비틀림은 다음과 같습니다.
 
-- 10 turns for each pair GND/+5V and CAN_L/CAN_H per 30cm cable length. ![CAN JST-GH cable](../../assets/hardware/cables/can_jst-gh_cable.jpg)
+- 30cm 케이블 길이당 각 쌍 GND/+5V 및 CAN_L/CAN_H에 대해 10회 회전합니다.![CAN JST-GH cable](../../assets/hardware/cables/can_jst-gh_cable.jpg)
 
-- 4 turns of both pairs together per 30cm cable length.
+- 케이블 길이 30cm당 두 쌍을 함께 4회 감습니다.
 
 
 ### SPI
 
-[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) is synchronous serial communication interface used for connecting faster sensors and devices. This protocol is commonly use is for connecting [optical flow](../../en/sensor/optical_flow.md) sensors or special telemetry modems.
+[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)는 더 빠른 센서와 장치를 연결하는 데 사용되는 동기식 직렬 통신 인터페이스입니다. 이 프로토콜은 일반적으로 [광류](../../en/sensor/optical_flow.md) 센서 또는 특수 텔레메트리 모뎀을 연결에 사용됩니다.
 
-| Signal | Pixhawk Color                                          | ThunderFly color                                          |
-| ------ | ------------------------------------------------------ | --------------------------------------------------------- |
-| +5V    | ![red](../../assets/hardware/cables/red.png) Red       | ![red](../../assets/hardware/cables/red.png) Red          |
-| SCK    | ![black](../../assets/hardware/cables/black.png) Black | ![yellow](../../assets/hardware/cables/yellow.png) Yellow |
-| MISO   | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue       |
-| MOSI   | ![black](../../assets/hardware/cables/black.png) Black | ![green](../../assets/hardware/cables/green.png) Green    |
-| CS!    | ![black](../../assets/hardware/cables/black.png) Black | ![white](../../assets/hardware/cables/white.png) White    |
-| CS2    | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue       |
-| GND    | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black    |
+| 신호   | Pixhawk 색상                                          | ThunderFly 색상                                         |
+| ---- | --------------------------------------------------- | ----------------------------------------------------- |
+| +5V  | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       |
+| SCK  | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
+| MISO | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
+| MOSI | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
+| CS!  | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   |
+| CS2  | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
+| GND  | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   |
 
 
 ### UART
 
-UART is used to connect peripherals to the autopilot. By default, UART does not support networking and therefore it directly connects two devices together. It is often used to connect an autopilot and a [radio modem](../telemetry/README.md).
+UART는 주변 장치를 자동 조종 장치에 연결하는 데 사용됩니다. By default, UART does not support networking and therefore it directly connects two devices together. It is often used to connect an autopilot and a [radio modem](../telemetry/README.md).
 
 CTS and RTS are signals that are used to indicate that data is being transmitted on TX/RX pins. This hand-shake mechanism increases reliability of data transfer. CTS and RTS may remain loose when it is not used by the device.
 
