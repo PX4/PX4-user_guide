@@ -85,20 +85,20 @@ I2C 케이블과 같은 이유로 CAN 케이블도 꼬는 것이 좋습니다. C
 
 UART는 주변 장치를 자동 조종 장치에 연결하는 데 사용됩니다. 기본적으로 UART는 네트웤을 지원하지 않으므로 두 장치를 직접 연결합니다. 자동 조종 장치와 [무선 모뎀](../telemetry/README.md)을 연결하는 데 자주 사용됩니다.
 
-CTS 및 RTS는 데이터가 TX/RX 핀에서 전송되고 있음을 나타내는 데 사용되는 신호입니다. 이 핸드셰이크 메커니즘은 데이터 전송의 신뢰성을 높입니다. CTS and RTS may remain loose when it is not used by the device.
+CTS 및 RTS는 데이터가 TX/RX 핀에서 전송되고 있음을 나타내는 데 사용되는 신호입니다. 이 핸드셰이크 메커니즘은 데이터 전송의 신뢰성을 높입니다. CTS 및 RTS는 장치에서 사용하지 않을 때 느슨한 상태로 남아 있을 수 있습니다.
 
-The connecting cable is not crossed. Therefore, it is necessary to connect only the autopilot and peripherals with this straight cable. The device must cross the wiring internally by swapping RX/TX and RTS/CTS pins.
+연결 케이블은 교차되지 않습니다. 따라서, 이 직선 케이블로 자동 조종 장치와 주변 장치만 연결하면 됩니다. 장치는 RX/TX 및 RTS/CTS 핀을 교환하여 내부적으로 배선을 교차하여야 합니다.
 
-| Signal | Pixhawk Color                                          | ThunderFly color                                          |
-| ------ | ------------------------------------------------------ | --------------------------------------------------------- |
-| +5V    | ![red](../../assets/hardware/cables/red.png) Red       | ![red](../../assets/hardware/cables/red.png) Red          |
-| TX     | ![black](../../assets/hardware/cables/black.png) Black | ![white](../../assets/hardware/cables/white.png) White    |
-| RX     | ![black](../../assets/hardware/cables/black.png) Black | ![green](../../assets/hardware/cables/green.png) Green    |
-| CTS    | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue       |
-| RTS    | ![black](../../assets/hardware/cables/black.png) Black | ![yellow](../../assets/hardware/cables/yellow.png) Yellow |
-| GND    | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black    |
+| 신호  | Pixhawk 색상                                          | ThunderFly 색상                                         |
+| --- | --------------------------------------------------- | ----------------------------------------------------- |
+| +5V | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       |
+| TX  | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   |
+| RX  | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
+| CTS | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
+| RTS | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   |
 
-UART signals are common sources of low frequency EMI, therefore the length of the cable should be minimized as much as possible. Cable twisting is not needed for UART cables.
+UART 신호는 저주파 EMI의 일반적인 소스이므로 케이블 길이를 최대한 최소화해야 합니다. UART 케이블은 꼬임이 필요하지 않습니다.
 
 
 ### GPS(UART) & SAFETY
