@@ -101,23 +101,23 @@ CTS 및 RTS는 데이터가 TX/RX 핀에서 전송되고 있음을 나타내는 
 UART 신호는 저주파 EMI의 일반적인 소스이므로 케이블 길이를 최대한 최소화해야 합니다. UART 케이블은 꼬임이 필요하지 않습니다.
 
 
-### GPS(UART) & SAFETY
+### GPS(UART) 와 안전
 
-[GPS receivers and magnetometers](en/gps_compass/README.md) are generally very sensitive to EMI. Therefore thse should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna). This may be insufficient if the cabling is badly designed.
+[GPS 수신기와 자력계](en/gps_compass/README.md)는 일반적으로 EMI에 매우 민감합니다. 따라서, RF 소스(고출력 케이블, ESC, 무선 모뎀 및 안테나)에서 멀리 떨어진 곳에 장착하여야 합니다. 케이블링이 잘못 설계된 경우 오동작할 수 있습니다.
 
 
-| Signal          | Pixhawk Color                                          | ThunderFly color                                          |
-| --------------- | ------------------------------------------------------ | --------------------------------------------------------- |
-| +5V             | ![red](../../assets/hardware/cables/red.png) Red       | ![red](../../assets/hardware/cables/red.png) Red          |
-| TX              | ![black](../../assets/hardware/cables/black.png) Black | ![white](../../assets/hardware/cables/white.png) White    |
-| RX              | ![black](../../assets/hardware/cables/black.png) Black | ![green](../../assets/hardware/cables/green.png) Green    |
-| SCL             | ![black](../../assets/hardware/cables/black.png) Black | ![yellow](../../assets/hardware/cables/yellow.png) Yellow |
-| SDA             | ![black](../../assets/hardware/cables/black.png) Black | ![green](../../assets/hardware/cables/green.png) Green    |
-| SAFETY_SW       | ![black](../../assets/hardware/cables/black.png) Black | ![white](../../assets/hardware/cables/white.png) White    |
-| SAFETY_SW_LED | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue       |
-| +3v3            | ![black](../../assets/hardware/cables/black.png) Black | ![red](../../assets/hardware/cables/red.png) Red          |
-| BUZZER          | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue       |
-| GND             | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black    |
+| 신호              | Pixhawk 색상                                             | ThunderFly 색상                                          |
+| --------------- | ------------------------------------------------------ | ------------------------------------------------------ |
+| +5V             | ![red](../../assets/hardware/cables/red.png) 빨강        | ![red](../../assets/hardware/cables/red.png) 빨강        |
+| TX              | ![black](../../assets/hardware/cables/black.png) 검정    | ![white](../../assets/hardware/cables/white.png) 흰색    |
+| RX              | ![black](../../assets/hardware/cables/black.png) 검정    | ![green](../../assets/hardware/cables/green.png) 녹색    |
+| SCL             | ![black](../../assets/hardware/cables/black.png) 검정    | ![yellow](../../assets/hardware/cables/yellow.png) 노랑  |
+| SDA             | ![black](../../assets/hardware/cables/black.png) 검정    | ![green](../../assets/hardware/cables/green.png) 녹색    |
+| SAFETY_SW       | ![black](../../assets/hardware/cables/black.png) 검정    | ![white](../../assets/hardware/cables/white.png) 흰색    |
+| SAFETY_SW_LED | ![black](../../assets/hardware/cables/black.png) 검정    | ![blue](../../assets/hardware/cables/blue.png) 청색      |
+| +3V3            | ![black](../../assets/hardware/cables/black.png) 검정    | ![red](../../assets/hardware/cables/red.png) 빨강        |
+| BUZZER          | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue    |
+| GND             | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black |
 
 
 ### GPS
