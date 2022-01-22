@@ -24,7 +24,7 @@ Once you've [installed MAVLink](https://mavlink.io/en/getting_started/installati
 python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated/include/mavlink/v2.0 message_definitions/v1.0/custom_messages.xml
 ```
 
-For your own use/testing you can just copy the generated headers into **PX4-Autopilot/mavlink/include/mavlink/v2.0**.
+For your own use/testing you can just copy the generated headers into **PX4-Autopilot/mavlink/include/mavlink/v2.0**. // is this outdated?
 
 To make it easier for others to test your changes, a better approach is to add your generated headers to a fork of https://github.com/mavlink/c_library_v2.
 PX4 developers can then update the submodule to your fork in the PX4-Autopilot repo before building.
