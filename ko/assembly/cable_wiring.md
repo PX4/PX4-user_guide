@@ -134,29 +134,29 @@ UART 신호는 저주파 EMI의 일반적인 소스이므로 케이블 길이를
 GPS 케이블은 UART 및 I2C 버스에 모두 연결됩니다. UART 배선은 꼬울 필요가 없으므로, 케이블의 길이는 짧을 수록 좋습니다.
 
 
-### Analog signal (power module)
+### 아날로그 신호(전원 모듈)
 
-| Signal  | Pixhawk Color                                          | ThunderFly color                                          | CUAV color                                                |
-| ------- | ------------------------------------------------------ | --------------------------------------------------------- | --------------------------------------------------------- |
-| VCC     | ![red](../../assets/hardware/cables/red.png) Red       | ![red](../../assets/hardware/cables/red.png) Red          | ![red](../../assets/hardware/cables/red.png) Red          |
-| VCC     | ![black](../../assets/hardware/cables/black.png) Black | ![red](../../assets/hardware/cables/red.png) Red          | ![red](../../assets/hardware/cables/red.png) Red          |
-| CURRENT | ![black](../../assets/hardware/cables/black.png) Black | ![white](../../assets/hardware/cables/white.png) White    | ![white](../../assets/hardware/cables/white.png) White    |
-| VOLTAGE | ![black](../../assets/hardware/cables/black.png) Black | ![yellow](../../assets/hardware/cables/yellow.png) Yellow | ![yellow](../../assets/hardware/cables/yellow.png) Yellow |
-| GND     | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black    | ![black](../../assets/hardware/cables/black.png) Black    |
-| GND     | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black    | ![black](../../assets/hardware/cables/black.png) Black    |
+| 신호      | Pixhawk 색상                                          | ThunderFly 색상                                         | CUAV 색상                                               |
+| ------- | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| VCC     | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
+| VCC     | ![black](../../assets/hardware/cables/black.png) 검정 | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
+| CURRENT | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   | ![white](../../assets/hardware/cables/white.png) 흰색   |
+| VOLTAGE | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND     | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
+| GND     | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
 
-This connector is example of mix of relatively high-power and low voltage signaling. Unfortunately, twisting is applicable for high-power GND and VCC wires only. That does not help much for noisy reading of analog signals by autopilot.
+이 커넥터는 상대적으로 고전력 및 저전압 신호를 혼합한 예입니다. 아쉽게도 꼬임은 고전력 GND 및 VCC 전선에만 적용할 수 있습니다. 자동 조종 장치로 잡음이 많은 아날로그 신호를 송수신에는 별로 도움이 되지 않습니다.
 
-### SAFETY
+### 안전
 
-| Signal          | Pixhawk Color                                          | ThunderFly color                                       |
-| --------------- | ------------------------------------------------------ | ------------------------------------------------------ |
-| SAFE_VCC        | ![red](../../assets/hardware/cables/red.png) Red       | ![red](../../assets/hardware/cables/red.png) Red       |
-| SAFETY_SW_LED | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue    |
-| SAFETY_SW       | ![black](../../assets/hardware/cables/black.png) Black | ![white](../../assets/hardware/cables/white.png) White |
-| BUZZER          | ![black](../../assets/hardware/cables/black.png) Black | ![blue](../../assets/hardware/cables/blue.png) Blue    |
-| +5V             | ![black](../../assets/hardware/cables/black.png) Black | ![red](../../assets/hardware/cables/red.png) Red       |
-| GND             | ![black](../../assets/hardware/cables/black.png) Black | ![black](../../assets/hardware/cables/black.png) Black |
+| 신호              | Pixhawk 색상                                          | ThunderFly 색상                                       |
+| --------------- | --------------------------------------------------- | --------------------------------------------------- |
+| SAFE_VCC        | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강     |
+| SAFETY_SW_LED | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색   |
+| SAFETY_SW       | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색 |
+| BUZZER          | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색   |
+| +5V             | ![black](../../assets/hardware/cables/black.png) 검정 | ![red](../../assets/hardware/cables/red.png) 빨강     |
+| GND             | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정 |
 
 
 ## High-power wiring
