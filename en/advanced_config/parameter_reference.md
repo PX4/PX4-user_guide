@@ -23189,6 +23189,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="IMU_GYRO_DNF_HMC">IMU_GYRO_DNF_HMC</strong> (INT32)</td>
+ <td>IMU gyro dynamic notch filter harmonics <p><strong>Comment:</strong> ESC RPM number of harmonics (multiples of RPM) for ESC RPM dynamic notch filtering.</p>   </td>
+ <td>1 > 7 </td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="IMU_GYRO_FFT_EN">IMU_GYRO_FFT_EN</strong> (INT32)</td>
  <td>IMU gyro FFT enable    <p><b>Reboot required:</b> true</p>
 </td>
