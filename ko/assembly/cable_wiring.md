@@ -159,30 +159,30 @@ GPS 케이블은 UART 및 I2C 버스에 모두 연결됩니다. UART 배선은 �
 | GND             | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정 |
 
 
-## High-power wiring
+## 고전력 배선
 
-For high power wiring the most important design criteria is having an appropriate wire thickness, in order to allow sufficient current to flow. The general cross section requirement is area of 1 mm² per 8A of wire current.
+고전력 배선의 경우 가장 중요한 설계 기준은 충분한 전류가 흐를 수 있는 전선 굵기입니다. 일반적인 단면적 요구 사항은 와이어 전류 8A당 1mm²의 면적입니다.
 
-While rarely practical, it is beneficial to have positive and negative wires twisted together.
+실용적이지 않지만, 양극과 음극 전선을 함께 꼬는 것이 좋습니다.
 
-EMI from high power cabling has a significant effect on magnetometers. For this reason a large seapration between high-power cables and navigation magnetometers is always required.
+고전력 케이블의 EMI는 자력계에 상당한 영향을 미칩니다. 이러한 이유로 고전력 케이블과 항법 자력계 사이에는 거리를 두는 것이 좋습니다.
 
 
-### Cable colour coding
+### 케이블 색상 코딩
 
-Most manufacturers use red for the high voltage line and black for ground. Other colouring is at the manufacturer discretion. The [Pixhawk connector standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) requires only that the Voltage Common Collector (VCC) pin/cable be red.
+대부분의 제조업체는 고압선에 빨간색을 사용하고 접지에 검정색을 사용합니다. 기타 색상은 제조사 재량입니다. [Pixhawk 커넥터 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)에서는 VCC(Voltage Common Collector) 핀/케이블이 빨간색이면 됩니다.
 
-Color coding signal wires can help identify particular cables, making it easier to assemble your drone.
+신호 와이어의 색상은 특정 케이블을 식별하는 데 도움이 되어 드론을 더 쉽게 조립할 수 있습니다.
 
-A colour coding scheme designed for easy cable identification might follow the following rules:
-- The red and black colors are reserved for power.
-- The same signal type should have the same colour.
-- Color of the signal does not repeat in the connector for wires adjacent to each other.
-- Wiring harnesses of the same pin count have to have a unique color sequence. This determines the cable type. (This is especially useful on photographs used in a manual).
+쉬운 케이블 식별을 위해 설계된 색상 코딩 체계는 다음 규칙을 따를 수 있습니다.
+- 빨간색과 검은색은 전원용으로 예약되어 있습니다.
+- 동일한 신호 유형은 동일한 색상을 가져야 합니다.
+- 신호의 색상은 서로 인접한 와이어의 커넥터에서 반복되지 않습니다.
+- 핀 수가 동일한 배선 하니스는 고유한 색상 순서를 가져야 합니다. 이것은 케이블 유형을 결정합니다. (매뉴얼에 사용된 사진에 특히 유용합니다.)
 
-An example of a cable colouring designed to these rules is:
+이러한 규칙에 따라 설계된 케이블 색상의 예는 다음과 같습니다.
 
-| Color                                              | Name   | Preferred usage                             |
+| 색상                                                 | 이름     | Preferred usage                             |
 | -------------------------------------------------- | ------ | ------------------------------------------- |
 | ![red](../../assets/hardware/cables/red.png)       | Red    | Power voltage                               |
 | ![green](../../assets/hardware/cables/green.png)   | Green  | General purpose signal                      |
