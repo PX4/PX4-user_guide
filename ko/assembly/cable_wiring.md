@@ -19,12 +19,12 @@
 
 [I2C 버스](https://en.wikipedia.org/wiki/I%C2%B2C)는 센서 연결에 널리 사용됩니다. 여러 공급업체의 케이블 색상이 다음 표에 지정되어 있습니다.
 
-| 신호  | Pixhawk 색상                                          | ThunderFly 색상                                         | CUAV 색상 (I2C/CAN)                                     |
-| --- | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| +5V | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| SCL | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| SDA | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
-| GND | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
+| 신호  | Pixhawk 색상                                       | ThunderFly 색상                                     | CUAV 색상 (I2C/CAN)                                 |
+| --- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------- |
+| +5V | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강    | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| SCL | ![검정](../../assets/hardware/cables/black.png) 검정 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| SDA | ![검정](../../assets/hardware/cables/black.png) 검정 | ![녹색](../../assets/hardware/cables/green.png) 녹색  | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  | ![검정](../../assets/hardware/cables/black.png) 검정  |
 
 [Dronecode 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)은 자동 조종 장치의 SDA 및 SCL 신호에 1.5k 옴 풀업 저항을 가정합니다.
 
@@ -32,8 +32,8 @@
 
 I2C 버스 신호 혼선 및 전자기 호환성은 케이블 와이어를 적절하게 비틀면 크게 향상될 수 있습니다. [트위스트 페어](https://en.wikipedia.org/wiki/Twisted_pair)는 센서 배선에 특히 중요합니다.
 
-- 30cm 케이블 길이당 각 쌍 SCL/+5V 및 SDA/GND에 대해 10회 회전합니다.![I²C JST-GH cable](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
-- 케이블 길이 30cm당 두 쌍을 함께 4회 감습니다.![I²C JST-GH connector detail](../../assets/hardware/cables/i2c_jst-gh_connector.jpg)
+- 30cm 케이블 길이당 각 쌍 SCL/+5V 및 SDA/GND에 대해 10회 회전합니다.![I²C JST-GH 케이블](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
+- 케이블 길이 30cm당 두 쌍을 함께 4회 감습니다.![I²C JST-GH 커넥터 상세](../../assets/hardware/cables/i2c_jst-gh_connector.jpg)
 
 적절한 트위스트 페어 케이블을 사용할 때 I²C 버스는 일반적으로 서브미터 규모 기체에 적합합니다. 대형 항공기의 경우 CAN 또는 기타 차동 신호 기반 인터페이스를 사용하는 것이 일반적으로 더 안정적입니다.
 
@@ -50,18 +50,18 @@ I2C 버스 신호 혼선 및 전자기 호환성은 케이블 와이어를 적�
 
 ### UAVCAN 케이블
 
-| 신호    | Pixhawk                                             | ThunderFly                                            | Zubax                                                 | CUAV (I2C/CAN)                                        |
-| ----- | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| +5V   | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| CAN_H | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   | ![white](../../assets/hardware/cables/white.png) 흰색   | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| CAN_L | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
-| GND   | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
+| 신호    | Pixhawk                                          | ThunderFly                                        | Zubax                                             | CUAV (I2C/CAN)                                    |
+| ----- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| +5V   | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강    | ![빨강](../../assets/hardware/cables/red.png) 빨강    | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| CAN_H | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색  | ![흰색](../../assets/hardware/cables/white.png) 흰색  | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| CAN_L | ![검정](../../assets/hardware/cables/black.png) 검정 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND   | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  | ![검정](../../assets/hardware/cables/black.png) 검정  | ![검정](../../assets/hardware/cables/black.png) 검정  |
 
 #### 케이블 꼬기
 
 I2C 케이블과 같은 이유로 CAN 케이블도 꼬는 것이 좋습니다. CAN의 경우 권장되는 비틀림은 다음과 같습니다.
 
-- 30cm 케이블 길이당 각 쌍 GND/+5V 및 CAN_L/CAN_H에 대해 10회 회전합니다.![CAN JST-GH cable](../../assets/hardware/cables/can_jst-gh_cable.jpg)
+- 30cm 케이블 길이당 각 쌍 GND/+5V 및 CAN_L/CAN_H에 대해 10회 회전합니다.![CAN JST-GH 케이블](../../assets/hardware/cables/can_jst-gh_cable.jpg)
 
 - 케이블 길이 30cm당 두 쌍을 함께 4회 감습니다.
 
@@ -70,15 +70,15 @@ I2C 케이블과 같은 이유로 CAN 케이블도 꼬는 것이 좋습니다. C
 
 [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)는 더 빠른 센서와 장치를 연결하는 데 사용되는 동기식 직렬 통신 인터페이스입니다. 이 프로토콜은 일반적으로 [광류](../../en/sensor/optical_flow.md) 센서 또는 특수 텔레메트리 모뎀을 연결에 사용됩니다.
 
-| 신호   | Pixhawk 색상                                          | ThunderFly 색상                                         |
-| ---- | --------------------------------------------------- | ----------------------------------------------------- |
-| +5V  | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| SCK  | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
-| MISO | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
-| MOSI | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
-| CS!  | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| CS2  | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
-| GND  | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   |
+| 신호   | Pixhawk 색상                                       | ThunderFly 색상                                     |
+| ---- | ------------------------------------------------ | ------------------------------------------------- |
+| +5V  | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| SCK  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 |
+| MISO | ![검정](../../assets/hardware/cables/black.png) 검정 | ![청색](../../assets/hardware/cables/blue.png) 청색   |
+| MOSI | ![검정](../../assets/hardware/cables/black.png) 검정 | ![녹색](../../assets/hardware/cables/green.png) 녹색  |
+| CS!  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| CS2  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![청색](../../assets/hardware/cables/blue.png) 청색   |
+| GND  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  |
 
 
 ### UART
@@ -89,14 +89,14 @@ CTS 및 RTS는 데이터가 TX/RX 핀에서 전송되고 있음을 나타내는 
 
 연결 케이블은 교차되지 않습니다. 따라서, 이 직선 케이블로 자동 조종 장치와 주변 장치만 연결하면 됩니다. 장치는 RX/TX 및 RTS/CTS 핀을 교환하여 내부적으로 배선을 교차하여야 합니다.
 
-| 신호  | Pixhawk 색상                                          | ThunderFly 색상                                         |
-| --- | --------------------------------------------------- | ----------------------------------------------------- |
-| +5V | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| TX  | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| RX  | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
-| CTS | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
-| RTS | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
-| GND | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   |
+| 신호  | Pixhawk 색상                                       | ThunderFly 색상                                     |
+| --- | ------------------------------------------------ | ------------------------------------------------- |
+| +5V | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| TX  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| RX  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![녹색](../../assets/hardware/cables/green.png) 녹색  |
+| CTS | ![검정](../../assets/hardware/cables/black.png) 검정 | ![청색](../../assets/hardware/cables/blue.png) 청색   |
+| RTS | ![검정](../../assets/hardware/cables/black.png) 검정 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  |
 
 UART 신호는 저주파 EMI의 일반적인 소스이므로 케이블 길이를 최대한 최소화해야 합니다. UART 케이블은 꼬임이 필요하지 않습니다.
 
@@ -106,57 +106,57 @@ UART 신호는 저주파 EMI의 일반적인 소스이므로 케이블 길이를
 [GPS 수신기와 자력계](en/gps_compass/README.md)는 일반적으로 EMI에 매우 민감합니다. 따라서, RF 소스(고출력 케이블, ESC, 무선 모뎀 및 안테나)에서 멀리 떨어진 곳에 장착하여야 합니다. 케이블링이 잘못 설계된 경우 오동작할 수 있습니다.
 
 
-| 신호              | Pixhawk 색상                                          | ThunderFly 색상                                         |
-| --------------- | --------------------------------------------------- | ----------------------------------------------------- |
-| +5V             | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| TX              | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| RX              | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
-| SCL             | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
-| SDA             | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
-| SAFETY_SW       | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| SAFETY_SW_LED | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
-| +3V3            | ![black](../../assets/hardware/cables/black.png) 검정 | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| BUZZER          | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색     |
-| GND             | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   |
+| 신호              | Pixhawk 색상                                       | ThunderFly 색상                                     |
+| --------------- | ------------------------------------------------ | ------------------------------------------------- |
+| +5V             | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| TX              | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| RX              | ![검정](../../assets/hardware/cables/black.png) 검정 | ![녹색](../../assets/hardware/cables/green.png) 녹색  |
+| SCL             | ![검정](../../assets/hardware/cables/black.png) 검정 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 |
+| SDA             | ![검정](../../assets/hardware/cables/black.png) 검정 | ![녹색](../../assets/hardware/cables/green.png) 녹색  |
+| SAFETY_SW       | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| SAFETY_SW_LED | ![검정](../../assets/hardware/cables/black.png) 검정 | ![청색](../../assets/hardware/cables/blue.png) 청색   |
+| +3V3            | ![검정](../../assets/hardware/cables/black.png) 검정 | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| BUZZER          | ![검정](../../assets/hardware/cables/black.png) 검정 | ![청색](../../assets/hardware/cables/blue.png) 청색   |
+| GND             | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  |
 
 
 ### GPS
 
-| 신호  | Pixhawk 색상                                          | ThunderFly 색상                                         |
-| --- | --------------------------------------------------- | ----------------------------------------------------- |
-| +5V | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| TX  | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| RX  | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
-| SCL | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
-| SDA | ![black](../../assets/hardware/cables/black.png) 검정 | ![green](../../assets/hardware/cables/green.png) 녹색   |
-| GND | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   |
+| 신호  | Pixhawk 색상                                       | ThunderFly 색상                                     |
+| --- | ------------------------------------------------ | ------------------------------------------------- |
+| +5V | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| TX  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| RX  | ![검정](../../assets/hardware/cables/black.png) 검정 | ![녹색](../../assets/hardware/cables/green.png) 녹색  |
+| SCL | ![검정](../../assets/hardware/cables/black.png) 검정 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 |
+| SDA | ![검정](../../assets/hardware/cables/black.png) 검정 | ![녹색](../../assets/hardware/cables/green.png) 녹색  |
+| GND | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  |
 
 GPS 케이블은 UART 및 I2C 버스에 모두 연결됩니다. UART 배선은 꼬울 필요가 없으므로, 케이블의 길이는 짧을 수록 좋습니다.
 
 
 ### 아날로그 신호(전원 모듈)
 
-| 신호      | Pixhawk 색상                                          | ThunderFly 색상                                         | CUAV 색상                                               |
-| ------- | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| VCC     | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| VCC     | ![black](../../assets/hardware/cables/black.png) 검정 | ![red](../../assets/hardware/cables/red.png) 빨강       | ![red](../../assets/hardware/cables/red.png) 빨강       |
-| CURRENT | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색   | ![white](../../assets/hardware/cables/white.png) 흰색   |
-| VOLTAGE | ![black](../../assets/hardware/cables/black.png) 검정 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 | ![yellow](../../assets/hardware/cables/yellow.png) 노랑 |
-| GND     | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
-| GND     | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정   | ![black](../../assets/hardware/cables/black.png) 검정   |
+| 신호      | Pixhawk 색상                                       | ThunderFly 색상                                     | CUAV 색상                                           |
+| ------- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------- |
+| VCC     | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강    | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| VCC     | ![검정](../../assets/hardware/cables/black.png) 검정 | ![빨강](../../assets/hardware/cables/red.png) 빨강    | ![빨강](../../assets/hardware/cables/red.png) 빨강    |
+| CURRENT | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색  | ![흰색](../../assets/hardware/cables/white.png) 흰색  |
+| VOLTAGE | ![검정](../../assets/hardware/cables/black.png) 검정 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 | ![노랑](../../assets/hardware/cables/yellow.png) 노랑 |
+| GND     | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  | ![검정](../../assets/hardware/cables/black.png) 검정  |
+| GND     | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정  | ![검정](../../assets/hardware/cables/black.png) 검정  |
 
 이 커넥터는 상대적으로 고전력 및 저전압 신호를 혼합한 예입니다. 아쉽게도 꼬임은 고전력 GND 및 VCC 전선에만 적용할 수 있습니다. 자동 조종 장치로 잡음이 많은 아날로그 신호를 송수신에는 별로 도움이 되지 않습니다.
 
 ### 안전
 
-| 신호              | Pixhawk 색상                                          | ThunderFly 색상                                       |
-| --------------- | --------------------------------------------------- | --------------------------------------------------- |
-| SAFE_VCC        | ![red](../../assets/hardware/cables/red.png) 빨강     | ![red](../../assets/hardware/cables/red.png) 빨강     |
-| SAFETY_SW_LED | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색   |
-| SAFETY_SW       | ![black](../../assets/hardware/cables/black.png) 검정 | ![white](../../assets/hardware/cables/white.png) 흰색 |
-| BUZZER          | ![black](../../assets/hardware/cables/black.png) 검정 | ![blue](../../assets/hardware/cables/blue.png) 청색   |
-| +5V             | ![black](../../assets/hardware/cables/black.png) 검정 | ![red](../../assets/hardware/cables/red.png) 빨강     |
-| GND             | ![black](../../assets/hardware/cables/black.png) 검정 | ![black](../../assets/hardware/cables/black.png) 검정 |
+| 신호              | Pixhawk 색상                                       | ThunderFly 색상                                    |
+| --------------- | ------------------------------------------------ | ------------------------------------------------ |
+| SAFE_VCC        | ![빨강](../../assets/hardware/cables/red.png) 빨강   | ![빨강](../../assets/hardware/cables/red.png) 빨강   |
+| SAFETY_SW_LED | ![검정](../../assets/hardware/cables/black.png) 검정 | ![청색](../../assets/hardware/cables/blue.png) 청색  |
+| SAFETY_SW       | ![검정](../../assets/hardware/cables/black.png) 검정 | ![흰색](../../assets/hardware/cables/white.png) 흰색 |
+| BUZZER          | ![검정](../../assets/hardware/cables/black.png) 검정 | ![청색](../../assets/hardware/cables/blue.png) 청색  |
+| +5V             | ![검정](../../assets/hardware/cables/black.png) 검정 | ![빨강](../../assets/hardware/cables/red.png) 빨강   |
+| GND             | ![검정](../../assets/hardware/cables/black.png) 검정 | ![검정](../../assets/hardware/cables/black.png) 검정 |
 
 
 ## 고전력 배선
@@ -182,17 +182,17 @@ GPS 케이블은 UART 및 I2C 버스에 모두 연결됩니다. UART 배선은 �
 
 이러한 규칙에 따라 설계된 케이블 색상의 예는 다음과 같습니다.
 
-| 색상                                                 | 이름     | Preferred usage                             |
-| -------------------------------------------------- | ------ | ------------------------------------------- |
-| ![red](../../assets/hardware/cables/red.png)       | Red    | Power voltage                               |
-| ![green](../../assets/hardware/cables/green.png)   | Green  | General purpose signal                      |
-| ![white](../../assets/hardware/cables/white.png)   | White  | General purpose signal                      |
-| ![yellow](../../assets/hardware/cables/yellow.png) | Yellow | General purpose signal                      |
-| ![blue](../../assets/hardware/cables/blue.png)     | Blue   | Power return, Open-collector control signal |
-| ![black](../../assets/hardware/cables/black.png)   | Black  | GND, Power return ground                    |
+| 색상                                             | 이름 | 선호하는 사용법            |
+| ---------------------------------------------- | -- | ------------------- |
+| ![빨강](../../assets/hardware/cables/red.png)    | 빨강 | 전원 전압               |
+| ![녹색](../../assets/hardware/cables/green.png)  | 녹색 | 범용 신호               |
+| ![흰색](../../assets/hardware/cables/white.png)  | 흰색 | 범용 신호               |
+| ![노랑](../../assets/hardware/cables/yellow.png) | 노랑 | 범용 신호               |
+| ![청색](../../assets/hardware/cables/blue.png)   | 청색 | 전원 복귀, 오픈 컬렉터 제어 신호 |
+| ![검정](../../assets/hardware/cables/black.png)  | 검정 | GND, 전원 반환 접지       |
 
 
 <!-- references for the image source.
-This approach just allows more compact markdown --> :::note The above rules were provided by Thunderfly and are used in their cable design.
+This approach just allows more compact markdown --> :::note 위의 규칙은 Thunderfly에서 제공했으며 케이블 디자인에 사용됩니다.
 
-The cable colour-coding for Thunderfly and some other vendors are given in the sections below. The pin labels correspond to the pinout on the autopilot side. All cables are straight (1:1). If they require crossover (e.g. UART), this should be solved by internal connection of the devices. :::
+Thunderfly 및 일부 다른 공급업체의 케이블 색상 코딩은 아래 섹션에 나와 있습니다. 핀 레이블은 자동 조종 장치 쪽의 핀 배치에 해당합니다. 모든 케이블은 직선(1:1)입니다. 크로스오버(예: UART)가 필요한 경우 장치의 내부 연결을 통해 해결하여야 합니다. :::
