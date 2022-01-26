@@ -463,11 +463,11 @@ perf [arguments...]
  如果未给出参数则打印所有性能计数器
 ```
 ## pwm
-Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
+源码: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
 
 
-### Description
-This command is used to configure PWM outputs for servo and ESC control.
+### 描述
+此命令用于配置输出给舵机和电调的 PWM。
 
 The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
 
