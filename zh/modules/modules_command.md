@@ -367,10 +367,10 @@ nshterm [arguments...]
 
 如果启用了基于 FLASH 的后端（这是在编译时完成的，例如对于 Intel Aero 或 Omnibus）， `param select` 则没有任何效果，并且默认始终是 FLASH 后端。 但是 `param save/load <file>` 仍可用于写入/读取文件。
 
-每个参数有一个“已使用”的标志，此标志在启动过程参数被读取后被置位。 It is used to only show relevant parameters to a ground control station.
+每个参数有一个“已使用”的标志，此标志在启动过程参数被读取后被置位。 它只是用于向地面控制站显示相关参数。
 
-### Examples
-Change the airframe and make sure the airframe's default parameters are loaded:
+### 示例
+更改机身并确保已加载机身的默认参数：
 ```
 param set SYS_AUTOSTART 4001
 param set SYS_AUTOCONFIG 1
@@ -379,7 +379,7 @@ reboot
 
 <a id="param_usage"></a>
 
-### Usage
+### 用法
 ```
 param <command> [arguments...]
  Commands:
