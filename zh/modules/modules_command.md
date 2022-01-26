@@ -1,7 +1,7 @@
 # 模块参考：命令（Command）
 
 ## actuator_test
-来源: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/actuator_test)
+源码: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/actuator_test)
 
 
 用于测试执行器的实用程序
@@ -31,7 +31,7 @@ actuator_test <command> [arguments...]
    iterate-servos 使所有舵机依次开始和停止
 ```
 ## bl_update
-来源: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
+源码: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
 
 用于从文件刷新引导加载程序的实用程序<a id="bl_update_usage"></a>
 
@@ -43,7 +43,7 @@ bl_update [arguments...]
    <file>        Bootloader bin 文件                
 ```
 ## dumpfile
-来源: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
+源码: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
 
 转储文件实用程序。 以二进制模式（不要用 CR LF 替换 LF）将文件大小和内容打印到标准输出。
 <a id="dumpfile_usage"></a>
@@ -74,7 +74,7 @@ dyn [arguments...]
      [arguments...] 输入模块的参数
 ```
 ## failure
-来源: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
+源码: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
 
 
 ### 描述
@@ -102,7 +102,7 @@ failure [arguments...]
                  默认: 0
 ```
 ## gpio
-来源: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
+源码: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
 
 
 ### 描述
@@ -146,7 +146,7 @@ gpio [arguments...]
      [--force]  强制 (忽略板gpio列表)
 ```
 ## hardfault_log
-来源: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
+源码: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
 
 Hardfault 实用程序
 
@@ -174,7 +174,7 @@ hardfault_log <command> [arguments...]
    reset         重置重启计数器
 ```
 ## i2cdetect
-来源: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
+源码: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
 
 用于扫描特定总线上的 I2C 设备的实用程序。<a id="i2cdetect_usage"></a>
 
@@ -185,7 +185,7 @@ i2cdetect [arguments...]
                  default: 1
 ```
 ## led_control
-来源: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
+源码: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
 
 
 ### 描述
@@ -234,7 +234,7 @@ led_control <command> [arguments...]
                  默认: 2
 ```
 ## listener
-来源: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
+源码: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
 
 
 监听 uORB 主题并将数据打印到控制台的实用程序。
@@ -256,7 +256,7 @@ listener <command> [arguments...]
                  默认: 0
 ```
 ## mfd
-来源: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
+源码: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
 
 Utility interact with the manifest
 <a id="mfd_usage"></a>
@@ -265,14 +265,14 @@ Utility interact with the manifest
 ```
 mfd <command> [arguments...]
  Commands:
-   query         Returns true if not existed
+   query         如果不存在返回 ture
 ```
 ## mixer
-Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)
+源码: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)
 
 
-### Description
-Load or append mixer files to the ESC driver.
+### 描述
+向电调驱动器载入和添加一个混控器文件。
 
 Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
 
