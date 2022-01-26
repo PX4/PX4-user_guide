@@ -1,12 +1,12 @@
 # 模块参考：命令（Command）
 
-## bl_update
-源码： [systemcmds/bl_update](https://github.com/PX4/Firmware/tree/master/src/systemcmds/bl_update)
+## actuator_test
+来源: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/actuator_test)
 
 
-Utility to flash the bootloader from a file
+用于测试执行器的实用程序
 
-源码： [systemcmds/dumpfile](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile)
+注意：这仅与 SYS_CTRL_ALLOC=1 结合使用。
 
 WARNING: remove all props before using this command.
 
