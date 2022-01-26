@@ -479,15 +479,15 @@ Channels are assigned to a group. Due to hardware limitations, the update rate c
 
 The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
 
-Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
+注意，在 OneShot 模式下， PWM 范围 [1000, 2000] 会被自动映射到 [125, 250] 。
 
-### Examples
-Set the PWM rate for all channels to 400 Hz:
+### 示例
+将所有通道的 PWM 频率设置为 400 Hz:
 ```
 pwm rate -a -r 400
 ```
 
-Test the outputs of eg. channels 1 and 3, and set the PWM value to 1200 us:
+测试输出，例如 1 和 3 通道，并设置 PWM 脉宽值为 1200 微妙
 ```
 pwm arm
 pwm test -c 13 -p 1200
@@ -495,7 +495,7 @@ pwm test -c 13 -p 1200
 
 <a id="pwm_usage"></a>
 
-### Usage
+### 用法
 ```
 pwm <command> [arguments...]
  Commands:
