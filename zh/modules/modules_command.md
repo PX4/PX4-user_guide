@@ -207,56 +207,56 @@ led_control blink -c blue -l 0 -n 5
 ```
 led_control <command> [arguments...]
  Commands:
-   test          Run a test pattern
+   test          运行一个测试示例
 
-   on            Turn LED on
+   on            打开 LED
 
-   off           Turn LED off
+   off           关闭 LED
 
-   reset         Reset LED priority
+   reset         复位 LED 优先级
 
-   blink         Blink LED N times
-     [-n <val>]  Number of blinks
-                 default: 3
-     [-s <val>]  Set blinking speed
-                 values: fast|normal|slow, default: normal
+   blink         使LED闪烁 N 次
+     [-n <val>]  闪烁的次数
+                 默认: 3
+     [-s <val>]  设置闪烁速度
+                 值: fast|normal|slow, 默认: normal
 
-   breathe       Continuously fade LED in & out
+   breathe       渐变 LED 亮 & 暗
 
-   flash         Two fast blinks and then off with frequency of 1Hz
+   flash         以 1Hz 的频率 先快闪两次再熄灭
 
- The following arguments apply to all of the above commands except for 'test':
+ 以下参数适用于所有除 ‘test’ 的命令:
      [-c <val>]  color
-                 values: red|blue|green|yellow|purple|amber|cyan|white, default:
+                 值: red|blue|green|yellow|purple|amber|cyan|white, 默认:
                  white
-     [-l <val>]  Which LED to control: 0, 1, 2, ... (default=all)
-     [-p <val>]  Priority
-                 default: 2
+     [-l <val>]  被控制的 LED : 0, 1, 2, ... (默认=all)
+     [-p <val>]  优先级
+                 默认: 2
 ```
 ## listener
-Source: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
+来源: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
 
 
-Utility to listen on uORB topics and print the data to the console.
+监听 uORB 主题并将数据打印到控制台的实用程序。
 
-The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
+可以通过按 Ctrl+C、Esc 或 Q 随时退出侦听器。
 
 <a id="listener_usage"></a>
 
-### Usage
+### 用法
 ```
 listener <command> [arguments...]
  Commands:
-     <topic_name> uORB topic name
-     [-i <val>]  Topic instance
-                 default: 0
-     [-n <val>]  Number of messages
-                 default: 1
-     [-r <val>]  Subscription rate (unlimited if 0)
-                 default: 0
+     <topic_name> uORB 主题名
+     [-i <val>]  主题实例序号
+                 默认: 0
+     [-n <val>]  消息数量
+                 默认: 1
+     [-r <val>]  订阅频率 (0为无限制)
+                 默认: 0
 ```
 ## mfd
-Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
+来源: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
 
 Utility interact with the manifest
 <a id="mfd_usage"></a>
