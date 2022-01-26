@@ -11735,6 +11735,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="EKF2_PREDICT_US">EKF2_PREDICT_US</strong> (INT32)</td>
+ <td>EKF prediction period <p><strong>Comment:</strong> EKF prediction period in microseconds. This should ideally be an integer multiple of the IMU time delta. Actual filter update will be an integer multiple of IMU update.</p>   </td>
+ <td>1000 > 20000 </td>
+ <td>10000</td>
+ <td>us</td>
+</tr>
+<tr>
  <td><strong id="EKF2_REQ_EPH">EKF2_REQ_EPH</strong> (FLOAT)</td>
  <td>Required EPH to use GPS    </td>
  <td>2 > 100 </td>
