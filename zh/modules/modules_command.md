@@ -261,7 +261,7 @@ listener <command> [arguments...]
 Utility interact with the manifest
 <a id="mfd_usage"></a>
 
-### Usage
+### 用法
 ```
 mfd <command> [arguments...]
  Commands:
@@ -316,28 +316,27 @@ motor_test <command> [arguments...]
    iterate       依次开始所有的电机启动和停止
 ```
 ## mtd
-Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
+源码: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
 
-Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
-<a id="mtd_usage"></a>
+挂载和测试分区的实用程序（基于板定义的 FRAM/EEPROM 存储）<a id="mtd_usage"></a>
 
-### Usage
+### 用法
 ```
 mtd <command> [arguments...]
  Commands:
-   status        Print status information
+   status        打印状态信息
 
-   readtest      Perform read test
+   readtest      执行读取测试
 
-   rwtest        Perform read-write test
+   rwtest        执行读写测试
 
-   erase         Erase partition(s)
+   erase        擦除分区
 
- The commands 'readtest' and 'rwtest' have an optional instance index:
-     [-i <val>]  storage index (if the board has multiple storages)
-                 default: 0
+ 命令‘readtest’和‘rwtest'有一个可选的实例索引:
+     [-i <val>]  存储索引 (如果板拥有多个存储)
+                 默认: 0
 
- The commands 'readtest', 'rwtest' and 'erase' have an optional parameter:
+ 命令 'readtest', 'rwtest' and 'erase' 有一个可选的参数:
      [<partition_name1> [<partition_name2> ...]] Partition names (eg.
                  /fs/mtd_params), use system default if not provided
 ```
