@@ -8,7 +8,7 @@
 
 注意：这仅与 SYS_CTRL_ALLOC=1 结合使用。
 
-WARNING: remove all props before using this command.
+警告：在使用此命令之前移除所有螺旋桨。
 
 <a id="actuator_test_usage"></a>
 
