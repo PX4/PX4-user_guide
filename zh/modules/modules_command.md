@@ -83,55 +83,55 @@ dyn [arguments...]
 ### 实现
 此系统命令通过 uORB 发送一个机体命令来出发故障。
 
-### Examples
-Test the GPS failsafe by stopping GPS:
+### 示例
+通过停止GPS来测试GPS故障保护:
 
 failure gps off
 
 <a id="failure_usage"></a>
 
-### Usage
+### 用法
 ```
 failure [arguments...]
-   help          Show this help text
+   help          显示此帮助文档
 
-   gps|...       Specify component
+   gps|...       指定的组件
 
-   ok|off|...    Specify failure type
-     [-i <val>]  sensor instance (0=all)
-                 default: 0
+   ok|off|...    指定的故障类型
+     [-i <val>]  传感器实例 (0=all)
+                 默认: 0
 ```
 ## gpio
-Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
+来源: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
 
 
-### Description
-This command is used to read and write GPIOs
+### 描述
+此命令用于读写GPIO
 ```
 gpio read <PORT><PIN>/<DEVICE> [PULLDOWN|PULLUP] [--force]
 gpio write <PORT><PIN>/<DEVICE> <VALUE> [PUSHPULL|OPENDRAIN] [--force]
 ```
 
-### Examples
-Read the value on port H pin 4 configured as pullup, and it is high
+### 示例
+读取配置为上拉的 PH4 引脚，它的值为高
 ```
 gpio read H4 PULLUP
 ```
 1 OK
 
-Set the output value on Port E pin 7 to high
+设置 PE7 的输出值为高
 ```
 gpio write E7 1 --force
 ```
 
-Set the output value on device /dev/gpin1 to high
+设置 device /dev/gpin1 的输出值为高
 ```
 gpio write /dev/gpin1 1
 ```
 
 <a id="gpio_usage"></a>
 
-### Usage
+### 用法
 ```
 gpio [arguments...]
    read
