@@ -15,30 +15,40 @@
 ### 用法
 ```
 actuator_test <command> [arguments...]
- bl_update [arguments...]
-   setopt        Set option bits to unlock the FLASH (only needed if in locked
-                 state)
+ Commands:
+   set           将一个执行器设置为一个指定的输出值
 
-   <file>        Bootloader bin file
+ 执行器可以是一个指定的电机、舵机或者 function directly:
+     [-m <val>]  被测试的电机 (1...8)
+     [-s <val>]  被测试的舵机 (1...8)
+     [-f <val>]  Specify function directly
+     -v <val>    值(-1...1)
+     [-t <val>]  以秒为单位的超时时间 (如果没有设置则为交互式运行)
+                 默认: 0
+
+   iterate-motors 使所有电机依次开始和停止
+
+   iterate-servos 使所有舵机依次开始和停止
 ```
-## dumpfile
-源码：[systemcmds/dyn](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dyn)
+## bl_update
+来源: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
 
-载入并运行一个未被编译至 PX4 二进制文件内的动态 PX4 模块。<a id="bl_update_usage"></a>
+用于从文件刷新引导加载程序的实用程序<a id="bl_update_usage"></a>
 
 ### 用法
 ```
 bl_update [arguments...]
-   dumpfile [arguments...]
-     <file>      File to dump
-```
-## dyn
-源码： [systemcmds/esc_calib](https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib)
+   setopt        设置选项比特来解锁 FLASH (只有在锁定状态下需要）
 
-Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
+   <file>        Bootloader bin 文件                
+```
+## dumpfile
+来源: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
+
+转储文件实用程序。 以二进制模式（不要用 CR LF 替换 LF）将文件大小和内容打印到标准输出。
 <a id="dumpfile_usage"></a>
 
-### 描述
+### 用法
 ```
 dumpfile [arguments...]
      <file>      File to dump
