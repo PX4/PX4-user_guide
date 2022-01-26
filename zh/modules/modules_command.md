@@ -51,16 +51,16 @@ bl_update [arguments...]
 ### 用法
 ```
 dumpfile [arguments...]
-     <file>      File to dump
+     <file>      被转储的文件
 ```
-## esc_calib
-校准流程（运行命令将会引导你完成此流程）：
+## dyn
+来源: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
 
+
+### 描述
+加载并运行一个没有被编译进 PX4 的二进制文件的动态 PX4 模块
 
 ### 示例
-Source: [systemcmds/config](https://github.com/PX4/Firmware/tree/master/src/systemcmds/config)
-
-### 用法
 ```
 dyn ./hello.px4mod start
 ```
@@ -70,28 +70,18 @@ dyn ./hello.px4mod start
 ### 用法
 ```
 dyn [arguments...]
-     esc_calib [arguments...]
-     [-d <val>]  Select PWM output device
-                 values: <file:dev>, default: /dev/pwm_output0
-     [-l <val>]  Low PWM value in us
-                 default: 1000
-     [-h <val>]  High PWM value in us
-                 default: 2000
-     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
-                 1=first)
-     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-                 default: 0
-     [-a]        Select all channels Arguments to the module
+     <file>      包含模块的文件
+     [arguments...] 输入模块的参数
 ```
 ## failure
-Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
+来源: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
 
 
-### Description
-Inject failures into system.
+### 描述
+向系统中注入故障。
 
-### Implementation
-This system command sends a vehicle command over uORB to trigger failure.
+### 实现
+此系统命令通过 uORB 发送一个机体命令来出发故障。
 
 ### Examples
 Test the GPS failsafe by stopping GPS:
