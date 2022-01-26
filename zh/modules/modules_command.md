@@ -176,23 +176,22 @@ hardfault_log <command> [arguments...]
 ## i2cdetect
 来源: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
 
-Utility to scan for I2C devices on a particular bus.
-<a id="i2cdetect_usage"></a>
+用于扫描特定总线上的 I2C 设备的实用程序。<a id="i2cdetect_usage"></a>
 
-### Usage
+### 用法
 ```
 i2cdetect [arguments...]
-     [-b <val>]  I2C bus
+     [-b <val>]  I2C 总线
                  default: 1
 ```
 ## led_control
-Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
+来源: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
 
 
-### Description
-Command-line tool to control & test the (external) LED's.
+### 描述
+用于控制和测试（外部）LED 的命令行工具
 
-To use it make sure there's a driver running, which handles the led_control uorb topic.
+要使用它，请确保有一个处理 led_control 的 uorb 主题的设备正在运行。
 
 There are different priorities, such that for example one module can set a color with low priority, and another module can blink N times with high priority, and the LED's automatically return to the lower priority state after the blinking. The `reset` command can also be used to return to a lower priority.
 
