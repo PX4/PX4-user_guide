@@ -469,7 +469,7 @@ perf [arguments...]
 ### 描述
 此命令用于配置输出给舵机和电调的 PWM。
 
-The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
+默认设备 `/dev/pwm_output0` 是主通道, AUX 通道在 `/dev/pwm_output1` (`-d` 参数).
 
 It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm status` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
 
