@@ -27587,17 +27587,10 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_BAT">UAVCAN_SUB_BAT</strong> (INT32)</td>
- <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. 1) uavcan::equipment::power::BatteryInfo 2) cuav::equipment::power::CBAT</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> disabled</li> 
-
-<li><strong>1:</strong> default</li> 
-
-<li><strong>2:</strong> CUAV battery monitor</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
+ <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 2 </td>
- <td>0</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
