@@ -193,17 +193,17 @@ i2cdetect [arguments...]
 
 要使用它，请确保有一个处理 led_control 的 uorb 主题的设备正在运行。
 
-There are different priorities, such that for example one module can set a color with low priority, and another module can blink N times with high priority, and the LED's automatically return to the lower priority state after the blinking. The `reset` command can also be used to return to a lower priority.
+有不同的优先级，例如一个模块可以设置低优先级的颜色，另一个模块可以高优先级闪烁 N 次，闪烁后 LED 自动返回低优先级状态。 该 `rese` t命令还可用于返回较低的优先级。
 
-### Examples
-Blink the first LED 5 times in blue:
+### 示例
+第一个 LED 闪烁蓝光 5 次：
 ```
 led_control blink -c blue -l 0 -n 5
 ```
 
 <a id="led_control_usage"></a>
 
-### Usage
+### 用法
 ```
 led_control <command> [arguments...]
  Commands:
