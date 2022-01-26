@@ -471,9 +471,9 @@ perf [arguments...]
 
 默认设备 `/dev/pwm_output0` 是主通道, AUX 通道在 `/dev/pwm_output1` (`-d` 参数).
 
-It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm status` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
+该命令用于在启动脚本中确认 PWM 参数 (`PWM_*`)被应用(或有机身配置提供，当被指定时）。 `pwm status` 展示当前设置 (中立位微调值是一个偏移，通过 `PWM_MAIN_TRIMx` 和 `PWM_AUX_TRIMx` 来配置).
 
-The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the minimum value they should spin.
+应设置加锁值以使电机不旋转（它也用于停止开关），它时能够旋转的最小值。
 
 Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
 
