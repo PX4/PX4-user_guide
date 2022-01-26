@@ -521,23 +521,23 @@ pwm <command> [arguments...]
      [-c <val>]  通过以下形式选择通道: 1234 (1 digit per channel,
                  1=first)
      [-m <val>]  通过位掩码选择通道 (eg. 0xF, 3)
-     [-g <val>]  通过组选择通道 (eg. 0, 1, 2. use 'pwm status' to show
-                 groups)
-     [-a]        Select all channels
+     [-g <val>]  通过组选择通道 (eg. 0, 1, 2. 使用 'pwm status' 显示
+                 组)
+     [-a]        选择所有通道
 
- These parameters apply to all commands:
-     [-d <val>]  Select PWM output device
-                 values: <file:dev>, default: /dev/pwm_output0
-     [-v]        Verbose output
-     [-e]        Exit with 1 instead of 0 on error
+ 这些参数适用于所有命令:
+     [-d <val>]  选择 PWM 输出设备
+                 值: <file:dev>, 默认: /dev/pwm_output0
+     [-v]        详细输出
+     [-e]        退出时用1代替0表示错误
 ```
 ## reboot
-Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
+源码: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
 
-Reboot the system
+重启系统
 <a id="reboot_usage"></a>
 
-### Usage
+### 用法
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
