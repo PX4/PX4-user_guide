@@ -499,30 +499,29 @@ pwm test -c 13 -p 1200
 ```
 pwm <command> [arguments...]
  Commands:
-   arm           Arm output
+   arm           解锁输出
 
-   disarm        Disarm output
+   disarm        加锁输出
 
-   status        Print current configuration of all channels
+   status        打印所有通道的当前配置
 
-   rate          Configure PWM rates
-     -r <val>    PWM Rate in Hz (0 = Oneshot, otherwise 50 to 400Hz)
+   rate          配置 PWM 频率
+     -r <val>    PWM频率 (0 = 单发, 否则 50 to 400Hz)
 
-   oneshot       Configure Oneshot125 (rate is set to 0)
+   oneshot       配置单发125 (rate 设置为 0)
 
-   min           Set Minimum PWM value
+   min           设置 PWM 最小值
 
-   max           Set Maximum PWM value
+   max           设置 PWM 最大值
 
- The commands 'min' and 'max' require a PWM value:
-     -p <val>    PWM value (eg. 1100)
+命令'min' 和 'max' 需要一个 PWM 值:
+     -p <val>    PWM 值(例如. 1100)
 
- The commands 'rate', 'oneshot', 'min', 'max' additionally require to specify
- the channels with one of the following commands:
-     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
+ 命令 'rate', 'oneshot', 'min', 'max' 还需要使用以下命令之一指定通道:
+     [-c <val>]  通过以下形式选择通道: 1234 (1 digit per channel,
                  1=first)
-     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-     [-g <val>]  Select channels by group (eg. 0, 1, 2. use 'pwm status' to show
+     [-m <val>]  通过位掩码选择通道 (eg. 0xF, 3)
+     [-g <val>]  通过组选择通道 (eg. 0, 1, 2. use 'pwm status' to show
                  groups)
      [-a]        Select all channels
 
