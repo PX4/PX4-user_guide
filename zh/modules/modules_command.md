@@ -302,18 +302,18 @@ mixer <command> [arguments...]
 ```
 motor_test <command> [arguments...]
  Commands:
-   test          Set motor(s) to a specific output value
-     [-m <val>]  Motor to test (1...8, all if not specified)
+   test          设置电机输出值
+     [-m <val>]  测试的电机 (1...8, 没有指定时为全部)
      [-p <val>]  Power (0...100)
-                 default: 0
-     [-t <val>]  Timeout in seconds (default=no timeout)
-                 default: 0
-     [-i <val>]  driver instance
-                 default: 0
+                 默认: 0
+     [-t <val>]  以秒为单位的超时时间 (默认=无超时)
+                 默认: 0
+     [-i <val>]  驱动实例序号
+                 默认: 0
 
-   stop          Stop all motors
+   stop          停止所有电机
 
-   iterate       Iterate all motors starting and stopping one after the other
+   iterate       依次开始所有的电机启动和停止
 ```
 ## mtd
 Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
