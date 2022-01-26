@@ -456,11 +456,11 @@ param <command> [arguments...]
 ### 用法
 ```
 perf [arguments...]
-   reset         Reset all counters
+   reset         复位所有计数器
 
-   latency       Print HRT timer latency histogram
+   latency       打印 HRT 定时器延迟柱状图
 
- Prints all performance counters if no arguments given
+ 如果未给出参数则打印所有性能计数器
 ```
 ## pwm
 Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
