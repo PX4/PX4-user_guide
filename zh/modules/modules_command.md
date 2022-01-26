@@ -552,42 +552,41 @@ reboot [arguments...]
 ### 用法
 ```
 sd_bench [arguments...]
-     [-b <val>]  Block size for each read/write
-                 default: 4096
-     [-r <val>]  Number of runs
-                 default: 5
-     [-d <val>]  Duration of a run in ms
-                 default: 2000
-     [-k]        Keep the test file
-     [-s]        Call fsync after each block (default=at end of each run)
-     [-u]        Test performance with unaligned data
-     [-v]        Verify data and block number
+     [-b <val>]  每次读/写的块大小
+                 默认: 4096
+     [-r <val>]  运行次数
+                 默认: 5
+     [-d <val>]  以毫秒为单位的运行持续时间
+                 默认: 2000
+     [-k]        保持测试文件
+     [-s]        在每个块后调用 fsync  (默认=每次运行结束)
+     [-u]        使用非对其数据测试性能
+     [-v]        校验数据和块序号
 ```
 ## sd_stress
-Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_stress)
+源码: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_stress)
 
-Test operations on an SD Card
-<a id="sd_stress_usage"></a>
+在 SD 卡上测试操作<a id="sd_stress_usage"></a>
 
-### Usage
+### 用法
 ```
 sd_stress [arguments...]
-     [-r <val>]  Number of runs
-                 default: 5
-     [-b <val>]  Number of bytes
-                 default: 100
+     [-r <val>]  运行次数
+                 默认: 5
+     [-b <val>]  字节数量
+                 默认100: 100
 ```
 ## system_time
-Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
+源码: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
 
-### Description
+### 描述
 
-Command-line tool to set and get system time.
+设置和获取系统时间的命令行工具。
 
-### Examples
+### 示例
 
-Set the system time and read it back
+设置系统时间和回读
 ```
 system_time set 1600775044
 system_time get
@@ -595,7 +594,7 @@ system_time get
 
 <a id="system_time_usage"></a>
 
-### Usage
+### 用法
 ```
 system_time <command> [arguments...]
  Commands:
