@@ -449,12 +449,11 @@ param <command> [arguments...]
      <param>     参数名
 ```
 ## perf
-Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
+源码: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
 
-Tool to print performance counters
-<a id="perf_usage"></a>
+性能计数器打印工具<a id="perf_usage"></a>
 
-### Usage
+### 用法
 ```
 perf [arguments...]
    reset         Reset all counters
