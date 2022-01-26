@@ -258,8 +258,7 @@ listener <command> [arguments...]
 ## mfd
 源码: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
 
-Utility interact with the manifest
-<a id="mfd_usage"></a>
+交互显示的实用程序<a id="mfd_usage"></a>
 
 ### 用法
 ```
@@ -615,46 +614,45 @@ top [arguments...]
 ## usb_connected
 源码: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
 
-Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
+检查 USB 是否连接的实用程序 此前曾在启动脚本中使用过， 返回值为 0 表示 USB 已连接，否则返回 1 。
 <a id="usb_connected_usage"></a>
 
-### Usage
+### 用法
 ```
 usb_connected [arguments...]
 ```
 ## ver
-Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+源码: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
-Tool to print various version information
-<a id="ver_usage"></a>
+打印各种版本信息的工具<a id="ver_usage"></a>
 
-### Usage
+### 用法
 ```
 ver <command> [arguments...]
  Commands:
-   hw            Hardware architecture
+   hw            硬件架构
 
-   mcu           MCU info
+   mcu           MCU 信息
 
-   git           git version information
+   git           git 版本信息
 
-   bdate         Build date and time
+   bdate         编译日期和时间
 
-   gcc           Compiler info
+   gcc           编译器信息
 
-   bdate         Build date and time
+   bdate         编译日期和时间
 
    px4guid       PX4 GUID
 
-   uri           Build URI
+   uri           编译 URI
 
-   all           Print all versions
+   all           打印所有版本
 
-   hwcmp         Compare hardware version (returns 0 on match)
-     <hw> [<hw2>] Hardware to compare against (eg. PX4_FMU_V4). An OR comparison
-                 is used if multiple are specified
+   hwcmp         比较硬件版本 (匹配时返回0)
+     <hw> [<hw2>] 要与之比较的硬件 (如. PX4_FMU_V4). 如果
+                 指定了多个，则使用或比较
 
-   hwtypecmp     Compare hardware type (returns 0 on match)
-     <hwtype> [<hwtype2>] Hardware type to compare against (eg. V2). An OR
-                 comparison is used if multiple are specified
+   hwtypecmp     比较硬件类型 (匹配时返回0)
+     <hwtype> [<hwtype2>] 要与之进行比较的硬件类型 (eg. V2). 
+                 如果指定了多个，则使用或比较
 ```
