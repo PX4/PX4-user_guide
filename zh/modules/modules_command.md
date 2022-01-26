@@ -363,11 +363,11 @@ nshterm [arguments...]
 
 例如，这在启动脚本中用于设置特定于机身的参数。
 
-更改时会自动保存参数，例如 使用 `param set`。 它们通常存储在 FRAM 或 SD 卡中。 `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
+更改时会自动保存参数，例如 使用 `param set`。 它们通常存储在 FRAM 或 SD 卡中。 `param select` 可用于更改后续保存的存储位置（需要在每次启动时（重新）配置）。
 
-If the FLASH-based backend is enabled (which is done at compile time, e.g. for the Intel Aero or Omnibus), `param select` has no effect and the default is always the FLASH backend. However `param save/load <file>` can still be used to write to/read from files.
+如果启用了基于 FLASH 的后端（这是在编译时完成的，例如对于 Intel Aero 或 Omnibus）， `param select` 则没有任何效果，并且默认始终是 FLASH 后端。 但是 `param save/load <file>` 仍可用于写入/读取文件。
 
-Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station.
+每个参数有一个“已使用”的标志，此标志在启动过程参数被读取后被置位。 It is used to only show relevant parameters to a ground control station.
 
 ### Examples
 Change the airframe and make sure the airframe's default parameters are loaded:
