@@ -135,26 +135,26 @@ gpio write /dev/gpin1 1
 ```
 gpio [arguments...]
    read
-     <PORT><PIN>/<DEVICE> GPIO port and pin or device
-     [PULLDOWN|PULLUP] Pulldown/Pullup
-     [--force]   Force (ignore board gpio list)
+     <PORT><PIN>/<DEVICE> GPIO 的端口和引脚
+     [PULLDOWN|PULLUP] 下拉/上拉
+     [--force]   强制 (忽略板gpio列表)
 
    write
-     <PORT> <PIN> GPIO port and pin
-     <VALUE>     Value to write
-     [PUSHPULL|OPENDRAIN] Pushpull/Opendrain
-     [--force]   Force (ignore board gpio list)
+     <PORT> <PIN> GPIO 的端口和引脚
+     <VALUE>     要写入的值
+     [PUSHPULL|OPENDRAIN] 推挽/开漏
+     [--force]  强制 (忽略板gpio列表)
 ```
 ## hardfault_log
-Source: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
+来源: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
 
-Hardfault utility
+Hardfault 实用程序
 
-Used in startup scripts to handle hardfaults
+在启动脚本中用于处理 hardfaults。
 
 <a id="hardfault_log_usage"></a>
 
-### Usage
+### 用法
 ```
 hardfault_log <command> [arguments...]
  Commands:
