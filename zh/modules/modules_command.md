@@ -540,16 +540,16 @@ pwm <command> [arguments...]
 ### 用法
 ```
 reboot [arguments...]
-     [-b]        Reboot into bootloader
-     [lock|unlock] Take/release the shutdown lock (for testing)
+     [-b]        重启进入bootloader
+     [lock|unlock] 使用/释放关机锁 (用于测试)
 ```
 ## sd_bench
-Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
+源码: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
 
-Test the speed of an SD Card
+测试SD卡速度
 <a id="sd_bench_usage"></a>
 
-### Usage
+### 用法
 ```
 sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
