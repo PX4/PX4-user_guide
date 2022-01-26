@@ -337,29 +337,29 @@ mtd <command> [arguments...]
                  默认: 0
 
  命令 'readtest', 'rwtest' and 'erase' 有一个可选的参数:
-     [<partition_name1> [<partition_name2> ...]] Partition names (eg.
-                 /fs/mtd_params), use system default if not provided
+     [<partition_name1> [<partition_name2> ...]] 分区名 (eg.
+                 /fs/mtd_params), 未提供时使用系统默认值
 ```
 ## nshterm
-Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
+源码: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
 
-Start an NSH shell on a given port.
+在指定端口启动一个 NSH shell。
 
-This was previously used to start a shell on the USB serial port. Now there runs mavlink, and it is possible to use a shell over mavlink.
+该命令此前被用于在 USB 串口端口开启一个 shell。 现在运行mavlink，并且可以在mavlink 上使用shell。
 
 <a id="nshterm_usage"></a>
 
-### Usage
+### 用法
 ```
 nshterm [arguments...]
-     <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
+     <file:dev>  启动 shell 的设备 (eg. /dev/ttyACM0)
 ```
 ## param
-Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
+源码: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
 
 
-### Description
-Command to access and manipulate parameters via shell or script.
+### 描述
+通过 shell 或脚本访问和操作参数的命令。
 
 This is used for example in the startup script to set airframe-specific parameters.
 
