@@ -598,23 +598,22 @@ system_time get
 ```
 system_time <command> [arguments...]
  Commands:
-   set           Set the system time, provide time in unix epoch time format
+   set           设置系统时间，提供一个unix纪元时间格式的时间
 
-   get           Get the system time
+   get           获取系统时间
 ```
 ## top
-Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+源码: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
 
-Monitor running processes and their CPU, stack usage, priority and state
-<a id="top_usage"></a>
+监控运行中的进程和它使用的CPU，栈，优先级和状态。<a id="top_usage"></a>
 
-### Usage
+### 用法
 ```
 top [arguments...]
-   once          print load only once
+   once          只打印一次
 ```
 ## usb_connected
-Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
+源码: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
 
 Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
