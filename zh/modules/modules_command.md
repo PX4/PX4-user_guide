@@ -475,9 +475,9 @@ perf [arguments...]
 
 应设置加锁值以使电机不旋转（它也用于停止开关），它时能够旋转的最小值。
 
-Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
+通道被分配到一组。 由于硬件限制, 只能为每个组设置更新频率。 使用 `pwm status` 显示所有组. 如果使用了 `-c` 参数, 所有通道所在组都将生效。
 
-The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
+参数 `-p` 和 `-r` 可以设置未一个参数变量而不是一个指定的整数：使用 -p p:PWM_MIN。
 
 注意，在 OneShot 模式下， PWM 范围 [1000, 2000] 会被自动映射到 [125, 250] 。
 
