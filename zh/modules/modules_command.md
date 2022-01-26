@@ -424,30 +424,29 @@ param <command> [arguments...]
      [-s]        如果提供，参数不存在时引起无声错误
      <param_name> <value> 参数名和被比较的值
 
-   greater       将参数同某个值比较。 Command will succeed if param is
-                 greater than the value
-     [-s]        If provided, silent errors if parameter doesn't exists
-     <param_name> <value> Parameter name and value to compare
-     <param_name> <value> Parameter name and value to compare
+   greater       将参数同某个值比较。 如果参数值比该值大
+                 则命令执行成功
+     [-s]        将参数同某个值比较。
+     <param_name> <value> 参数名和被比较的值
+     <param_name> <value> 参数名和被比较的值
 
-   touch         Mark a parameter as used
-     [<param_name1> [<param_name2>]] Parameter name (one or more)
+   touch         标记已使用的参数
+     [<param_name1> [<param_name2>]] 参数名 (一个或多个)
 
-   reset         Reset only specified params to default
-     [<param1> [<param2>]] Parameter names to reset (wildcard at end allowed)
+   reset         复位指定的参数为默认值
+     [<param1> [<param2>]] 复位的参数名 (结尾的通配符是被允许的)
 
-   reset_all     Reset all params to default
-     [<exclude1> [<exclude2>]] Do not reset matching params (wildcard at end
-                 allowed)
+   reset_all     复位所有的参数为默认值
+     [<exclude1> [<exclude2>]] 不复位匹配参数 (结尾的通配符是被允许的)
 
-   index         Show param for a given index
-     <index>     Index: an integer >= 0
+   index         显示给定索引的参数
+     <index>     索引: 一个 >= 0 的整数
 
-   index_used    Show used param for a given index
-     <index>     Index: an integer >= 0
+   index_used    显示给定索引的已用参数
+     <index>     索引: 一个 >= 0 的整数
 
-   find          Show index of a param
-     <param>     param name
+   find          显示参数的索引
+     <param>     参数名
 ```
 ## perf
 Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
