@@ -87,6 +87,7 @@ These are the externally visible LED's, not the board LED's
 - [manual_control_setpoint](manual_control_setpoint.md)
 - [manual_control_switches](manual_control_switches.md)
 - [mavlink_log](mavlink_log.md)
+- [mavlink_tunnel](mavlink_tunnel.md) — MAV_TUNNEL_PAYLOAD_TYPE enum
 - [mission](mission.md)
 - [mission_result](mission_result.md)
 - [mount_orientation](mount_orientation.md)
