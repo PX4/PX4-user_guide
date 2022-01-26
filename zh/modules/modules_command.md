@@ -274,31 +274,31 @@ mfd <command> [arguments...]
 ### 描述
 向电调驱动器载入和添加一个混控器文件。
 
-Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
+需要注意的是驱动必须支持这个命令使用的 ioctl ，这一点在 Nuttx 上是成立的，但在其它平台上就不一定成立，如 RPI。
 
 <a id="mixer_usage"></a>
 
-### Usage
+### 用法
 ```
 mixer <command> [arguments...]
  Commands:
    load
-     <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
+     <file:dev> <file> 输出设备 (eg. /dev/pwm_output0) 和混控器文件
 
    append
-     <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
+     <file:dev> <file> 输出设备 (eg. /dev/pwm_output0) 和混控器文件
 ```
 ## motor_test
-Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
+源码: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
 
 
-Utility to test motors.
+用于测试执行器的实用程序
 
-WARNING: remove all props before using this command.
+警告：在使用此命令之前移除所有螺旋桨。
 
 <a id="motor_test_usage"></a>
 
-### Usage
+### 用法
 ```
 motor_test <command> [arguments...]
  Commands:
