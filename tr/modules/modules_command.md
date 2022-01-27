@@ -75,33 +75,6 @@ dyn [arguments...]
      <file>      File containing the module
      [arguments...] Arguments to the module
 ```
-## esc_calib
-Source: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
-
-Tool for ESC calibration
-
-Calibration procedure (running the command will guide you through it):
-- Remove props, power off the ESC's
-- Stop attitude and rate controllers: mc_rate_control stop, fw_att_control stop
-- Make sure safety is off
-- Run this command
-
-<a id="esc_calib_usage"></a>
-
-### Usage
-```
-esc_calib [arguments...]
-     [-d <val>]  Select PWM output device
-                 values: <file:dev>, default: /dev/pwm_output0
-     [-l <val>]  Low PWM value in us
-                 default: 1000
-     [-h <val>]  High PWM value in us
-                 default: 2000
-     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
-                 1=first)
-     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-     [-a]        Select all channels
-```
 ## failure
 Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
 
@@ -317,42 +290,6 @@ mixer <command> [arguments...]
 
    append
      <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
-```
-## motor_ramp
-Source: [systemcmds/motor_ramp](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_ramp)
-
-
-### Description
-Application to test motor ramp up.
-
-Before starting, make sure to stop any running attitude controller:
-```
-mc_rate_control stop
-fw_att_control stop
-```
-
-When starting, a background task is started, runs for several seconds (as specified), then exits.
-
-### Example
-```
-motor_ramp sine -a 1100 -r 0.5
-```
-
-<a id="motor_ramp_usage"></a>
-
-### Usage
-```
-motor_ramp [arguments...]
-     ramp|sine|square mode
-     [-d <val>]  Pwm output device
-                 default: /dev/pwm_output0
-     -a <val>    Select minimum pwm duty cycle in usec
-     [-b <val>]  Select maximum pwm duty cycle in usec
-                 default: 2000
-     [-r <val>]  Select motor ramp duration in sec
-                 default: 1.0
-
- WARNING: motors will ramp up to full speed!
 ```
 ## motor_test
 Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
@@ -574,39 +511,20 @@ pwm <command> [arguments...]
 
    status        Print current configuration of all channels
 
-   forcefail     Force Failsafe mode. PWM outputs are set to failsafe values.
-     on|off      Turn on or off
-
-   terminatefail Enable Termination Failsafe mode. While this is true, any
-                 failsafe that occurs will be unrecoverable (even if recovery
-                 conditions are met).
-     on|off      Turn on or off
-
    rate          Configure PWM rates
      -r <val>    PWM Rate in Hz (0 = Oneshot, otherwise 50 to 400Hz)
 
    oneshot       Configure Oneshot125 (rate is set to 0)
 
-   failsafe      Set Failsafe PWM value
-
-   disarmed      Set Disarmed PWM value
-
    min           Set Minimum PWM value
 
    max           Set Maximum PWM value
 
-   test          Set Output to a specific value until 'q' or 'c' or 'ctrl-c'
-                 pressed
-
-   steps         Run 5 steps from 0 to 100%
-
- The commands 'failsafe', 'disarmed', 'min', 'max' and 'test' require a PWM
- value:
+ The commands 'min' and 'max' require a PWM value:
      -p <val>    PWM value (eg. 1100)
 
- The commands 'rate', 'oneshot', 'failsafe', 'disarmed', 'min', 'max', 'test'
- and 'steps' additionally require to specify the channels with one of the
- following commands:
+ The commands 'rate', 'oneshot', 'min', 'max' additionally require to specify
+ the channels with one of the following commands:
      [-c <val>]  select channels in the form: 1234 (1 digit per channel,
                  1=first)
      [-m <val>]  Select channels via bitmask (eg. 0xF, 3)

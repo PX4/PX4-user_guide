@@ -26,6 +26,7 @@ The sub topics cover each of the steps in detail (first install the PX4 firmware
 * [Battery](../config/battery.md) (optional)
 * [Safety](../config/safety.md) (optional)
 * [Motors/Servos](../config/motors.md)
+* [Actuators](../config/actuators.md)
 * [Autotune](../config/autotune.md)
 
 ## Video Guide

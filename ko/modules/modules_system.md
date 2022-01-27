@@ -87,6 +87,7 @@ commander <command> [arguments...]
      [-f]        Force arming (do not run preflight checks)
 
    disarm
+     [-f]        Force disarming (disarm in air)
 
    takeoff
 
@@ -101,12 +102,14 @@ commander <command> [arguments...]
    pair
 
    lockdown
-     [off]       Turn lockdown off
+     on|off      Turn lockdown on or off
 
    set_ekf_origin
      lat, lon, alt Origin Latitude, Longitude, Altitude
 
    lat|lon|alt   Origin latitude longitude altitude
+
+   poweroff      Power off board (if supported)
 
    stop
 
@@ -353,6 +356,8 @@ logger <command> [arguments...]
      [-p <val>]  Poll on a topic instead of running with fixed rate (Log rate
                  and topic intervals are ignored if this is set)
                  values: <topic_name>
+     [-c <val>]  Log rate factor (higher is faster)
+                 default: 1.0
 
    on            start logging now, override arming (logger must be running)
 

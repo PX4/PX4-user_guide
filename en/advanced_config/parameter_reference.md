@@ -1921,226 +1921,250 @@ table {
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX1">PCA9685_MAX1</strong> (INT32)</td>
- <td>PCA9685 Output Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX10">PCA9685_MAX10</strong> (INT32)</td>
- <td>PCA9685 Output Channel 10 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 10 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX11">PCA9685_MAX11</strong> (INT32)</td>
- <td>PCA9685 Output Channel 11 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 11 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX12">PCA9685_MAX12</strong> (INT32)</td>
- <td>PCA9685 Output Channel 12 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 12 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX13">PCA9685_MAX13</strong> (INT32)</td>
- <td>PCA9685 Output Channel 13 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 13 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX14">PCA9685_MAX14</strong> (INT32)</td>
- <td>PCA9685 Output Channel 14 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 14 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX15">PCA9685_MAX15</strong> (INT32)</td>
- <td>PCA9685 Output Channel 15 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 15 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX16">PCA9685_MAX16</strong> (INT32)</td>
- <td>PCA9685 Output Channel 16 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 16 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX2">PCA9685_MAX2</strong> (INT32)</td>
- <td>PCA9685 Output Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX3">PCA9685_MAX3</strong> (INT32)</td>
- <td>PCA9685 Output Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX4">PCA9685_MAX4</strong> (INT32)</td>
- <td>PCA9685 Output Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX5">PCA9685_MAX5</strong> (INT32)</td>
- <td>PCA9685 Output Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX6">PCA9685_MAX6</strong> (INT32)</td>
- <td>PCA9685 Output Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX7">PCA9685_MAX7</strong> (INT32)</td>
- <td>PCA9685 Output Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX8">PCA9685_MAX8</strong> (INT32)</td>
- <td>PCA9685 Output Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX9">PCA9685_MAX9</strong> (INT32)</td>
- <td>PCA9685 Output Channel 9 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 9 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN1">PCA9685_MIN1</strong> (INT32)</td>
- <td>PCA9685 Output Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN10">PCA9685_MIN10</strong> (INT32)</td>
- <td>PCA9685 Output Channel 10 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 10 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN11">PCA9685_MIN11</strong> (INT32)</td>
- <td>PCA9685 Output Channel 11 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 11 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN12">PCA9685_MIN12</strong> (INT32)</td>
- <td>PCA9685 Output Channel 12 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 12 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN13">PCA9685_MIN13</strong> (INT32)</td>
- <td>PCA9685 Output Channel 13 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 13 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN14">PCA9685_MIN14</strong> (INT32)</td>
- <td>PCA9685 Output Channel 14 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 14 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN15">PCA9685_MIN15</strong> (INT32)</td>
- <td>PCA9685 Output Channel 15 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 15 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN16">PCA9685_MIN16</strong> (INT32)</td>
- <td>PCA9685 Output Channel 16 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 16 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN2">PCA9685_MIN2</strong> (INT32)</td>
- <td>PCA9685 Output Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN3">PCA9685_MIN3</strong> (INT32)</td>
- <td>PCA9685 Output Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN4">PCA9685_MIN4</strong> (INT32)</td>
- <td>PCA9685 Output Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN5">PCA9685_MIN5</strong> (INT32)</td>
- <td>PCA9685 Output Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN6">PCA9685_MIN6</strong> (INT32)</td>
- <td>PCA9685 Output Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN7">PCA9685_MIN7</strong> (INT32)</td>
- <td>PCA9685 Output Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN8">PCA9685_MIN8</strong> (INT32)</td>
- <td>PCA9685 Output Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN9">PCA9685_MIN9</strong> (INT32)</td>
- <td>PCA9685 Output Channel 9 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PCA9685 Output Channel 9 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="PCA9685_REV">PCA9685_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for PCA9685 Output <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> PCA9685 Output Channel 1</li> 
+  <li><strong>1:</strong> PCA9685 Output Channel 2</li> 
+  <li><strong>2:</strong> PCA9685 Output Channel 3</li> 
+  <li><strong>3:</strong> PCA9685 Output Channel 4</li> 
+  <li><strong>4:</strong> PCA9685 Output Channel 5</li> 
+  <li><strong>5:</strong> PCA9685 Output Channel 6</li> 
+  <li><strong>6:</strong> PCA9685 Output Channel 7</li> 
+  <li><strong>7:</strong> PCA9685 Output Channel 8</li> 
+  <li><strong>8:</strong> PCA9685 Output Channel 9</li> 
+  <li><strong>9:</strong> PCA9685 Output Channel 10</li> 
+  <li><strong>10:</strong> PCA9685 Output Channel 11</li> 
+  <li><strong>11:</strong> PCA9685 Output Channel 12</li> 
+  <li><strong>12:</strong> PCA9685 Output Channel 13</li> 
+  <li><strong>13:</strong> PCA9685 Output Channel 14</li> 
+  <li><strong>14:</strong> PCA9685 Output Channel 15</li> 
+  <li><strong>15:</strong> PCA9685 Output Channel 16</li> 
+</ul>
+ </td>
+ <td>0 > 65535 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -3355,154 +3379,154 @@ table {
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX1">PWM_AUX_MAX1</strong> (INT32)</td>
- <td>PWM Aux 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX10">PWM_AUX_MAX10</strong> (INT32)</td>
- <td>PWM Capture 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Capture 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX11">PWM_AUX_MAX11</strong> (INT32)</td>
- <td>PWM Capture 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Capture 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX2">PWM_AUX_MAX2</strong> (INT32)</td>
- <td>PWM Aux 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX3">PWM_AUX_MAX3</strong> (INT32)</td>
- <td>PWM Aux 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX4">PWM_AUX_MAX4</strong> (INT32)</td>
- <td>PWM Aux 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX5">PWM_AUX_MAX5</strong> (INT32)</td>
- <td>PWM Aux 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX6">PWM_AUX_MAX6</strong> (INT32)</td>
- <td>PWM Aux 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX7">PWM_AUX_MAX7</strong> (INT32)</td>
- <td>PWM Aux 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX8">PWM_AUX_MAX8</strong> (INT32)</td>
- <td>PWM Aux 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX9">PWM_AUX_MAX9</strong> (INT32)</td>
- <td>PWM Capture 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Capture 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN1">PWM_AUX_MIN1</strong> (INT32)</td>
- <td>PWM Aux 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN10">PWM_AUX_MIN10</strong> (INT32)</td>
- <td>PWM Capture 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Capture 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN11">PWM_AUX_MIN11</strong> (INT32)</td>
- <td>PWM Capture 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Capture 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN2">PWM_AUX_MIN2</strong> (INT32)</td>
- <td>PWM Aux 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN3">PWM_AUX_MIN3</strong> (INT32)</td>
- <td>PWM Aux 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN4">PWM_AUX_MIN4</strong> (INT32)</td>
- <td>PWM Aux 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN5">PWM_AUX_MIN5</strong> (INT32)</td>
- <td>PWM Aux 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN6">PWM_AUX_MIN6</strong> (INT32)</td>
- <td>PWM Aux 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN7">PWM_AUX_MIN7</strong> (INT32)</td>
- <td>PWM Aux 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN8">PWM_AUX_MIN8</strong> (INT32)</td>
- <td>PWM Aux 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Aux 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN9">PWM_AUX_MIN9</strong> (INT32)</td>
- <td>PWM Capture 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>PWM Capture 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
@@ -4444,112 +4468,112 @@ table {
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX1">PWM_MAIN_MAX1</strong> (INT32)</td>
- <td>MAIN 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX2">PWM_MAIN_MAX2</strong> (INT32)</td>
- <td>MAIN 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX3">PWM_MAIN_MAX3</strong> (INT32)</td>
- <td>MAIN 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX4">PWM_MAIN_MAX4</strong> (INT32)</td>
- <td>MAIN 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX5">PWM_MAIN_MAX5</strong> (INT32)</td>
- <td>MAIN 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX6">PWM_MAIN_MAX6</strong> (INT32)</td>
- <td>MAIN 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX7">PWM_MAIN_MAX7</strong> (INT32)</td>
- <td>MAIN 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX8">PWM_MAIN_MAX8</strong> (INT32)</td>
- <td>MAIN 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>1600 > 2200 </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN1">PWM_MAIN_MIN1</strong> (INT32)</td>
- <td>MAIN 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN2">PWM_MAIN_MIN2</strong> (INT32)</td>
- <td>MAIN 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN3">PWM_MAIN_MIN3</strong> (INT32)</td>
- <td>MAIN 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN4">PWM_MAIN_MIN4</strong> (INT32)</td>
- <td>MAIN 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN5">PWM_MAIN_MIN5</strong> (INT32)</td>
- <td>MAIN 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN6">PWM_MAIN_MIN6</strong> (INT32)</td>
- <td>MAIN 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN7">PWM_MAIN_MIN7</strong> (INT32)</td>
- <td>MAIN 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN8">PWM_MAIN_MIN8</strong> (INT32)</td>
- <td>MAIN 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>MAIN 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>800 > 1400 </td>
  <td>1000</td>
  <td></td>
@@ -5348,6 +5372,22 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="TAP_ESC_REV">TAP_ESC_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for TAP ESC Output <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> TAP ESC Output ESC 1</li> 
+  <li><strong>1:</strong> TAP ESC Output ESC 2</li> 
+  <li><strong>2:</strong> TAP ESC Output ESC 3</li> 
+  <li><strong>3:</strong> TAP ESC Output ESC 4</li> 
+  <li><strong>4:</strong> TAP ESC Output ESC 5</li> 
+  <li><strong>5:</strong> TAP ESC Output ESC 6</li> 
+  <li><strong>6:</strong> TAP ESC Output ESC 7</li> 
+  <li><strong>7:</strong> TAP ESC Output ESC 8</li> 
+</ul>
+ </td>
+ <td>0 > 255 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_EC_FAIL1">UAVCAN_EC_FAIL1</strong> (INT32)</td>
  <td>UAVCAN ESC 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC1).</p>   </td>
  <td>-1 > 8191 </td>
@@ -6125,112 +6165,112 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX1">UAVCAN_EC_MAX1</strong> (INT32)</td>
- <td>UAVCAN ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX2">UAVCAN_EC_MAX2</strong> (INT32)</td>
- <td>UAVCAN ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX3">UAVCAN_EC_MAX3</strong> (INT32)</td>
- <td>UAVCAN ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX4">UAVCAN_EC_MAX4</strong> (INT32)</td>
- <td>UAVCAN ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX5">UAVCAN_EC_MAX5</strong> (INT32)</td>
- <td>UAVCAN ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX6">UAVCAN_EC_MAX6</strong> (INT32)</td>
- <td>UAVCAN ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX7">UAVCAN_EC_MAX7</strong> (INT32)</td>
- <td>UAVCAN ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX8">UAVCAN_EC_MAX8</strong> (INT32)</td>
- <td>UAVCAN ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN1">UAVCAN_EC_MIN1</strong> (INT32)</td>
- <td>UAVCAN ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN2">UAVCAN_EC_MIN2</strong> (INT32)</td>
- <td>UAVCAN ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN3">UAVCAN_EC_MIN3</strong> (INT32)</td>
- <td>UAVCAN ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN4">UAVCAN_EC_MIN4</strong> (INT32)</td>
- <td>UAVCAN ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN5">UAVCAN_EC_MIN5</strong> (INT32)</td>
- <td>UAVCAN ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN6">UAVCAN_EC_MIN6</strong> (INT32)</td>
- <td>UAVCAN ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN7">UAVCAN_EC_MIN7</strong> (INT32)</td>
- <td>UAVCAN ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN8">UAVCAN_EC_MIN8</strong> (INT32)</td>
- <td>UAVCAN ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
@@ -7085,112 +7125,112 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX1">UAVCAN_SV_MAX1</strong> (INT32)</td>
- <td>UAVCAN Servo 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX2">UAVCAN_SV_MAX2</strong> (INT32)</td>
- <td>UAVCAN Servo 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX3">UAVCAN_SV_MAX3</strong> (INT32)</td>
- <td>UAVCAN Servo 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX4">UAVCAN_SV_MAX4</strong> (INT32)</td>
- <td>UAVCAN Servo 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX5">UAVCAN_SV_MAX5</strong> (INT32)</td>
- <td>UAVCAN Servo 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX6">UAVCAN_SV_MAX6</strong> (INT32)</td>
- <td>UAVCAN Servo 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX7">UAVCAN_SV_MAX7</strong> (INT32)</td>
- <td>UAVCAN Servo 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX8">UAVCAN_SV_MAX8</strong> (INT32)</td>
- <td>UAVCAN Servo 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN1">UAVCAN_SV_MIN1</strong> (INT32)</td>
- <td>UAVCAN Servo 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN2">UAVCAN_SV_MIN2</strong> (INT32)</td>
- <td>UAVCAN Servo 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN3">UAVCAN_SV_MIN3</strong> (INT32)</td>
- <td>UAVCAN Servo 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN4">UAVCAN_SV_MIN4</strong> (INT32)</td>
- <td>UAVCAN Servo 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN5">UAVCAN_SV_MIN5</strong> (INT32)</td>
- <td>UAVCAN Servo 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN6">UAVCAN_SV_MIN6</strong> (INT32)</td>
- <td>UAVCAN Servo 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN7">UAVCAN_SV_MIN7</strong> (INT32)</td>
- <td>UAVCAN Servo 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN8">UAVCAN_SV_MIN8</strong> (INT32)</td>
- <td>UAVCAN Servo 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCAN Servo 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 1000 </td>
  <td>0</td>
  <td></td>
@@ -8765,224 +8805,224 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX1">UCAN1_ESC_MAX1</strong> (INT32)</td>
- <td>UAVCANv1 ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX10">UCAN1_ESC_MAX10</strong> (INT32)</td>
- <td>UAVCANv1 ESC 10 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 10 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX11">UCAN1_ESC_MAX11</strong> (INT32)</td>
- <td>UAVCANv1 ESC 11 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 11 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX12">UCAN1_ESC_MAX12</strong> (INT32)</td>
- <td>UAVCANv1 ESC 12 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 12 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX13">UCAN1_ESC_MAX13</strong> (INT32)</td>
- <td>UAVCANv1 ESC 13 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 13 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX14">UCAN1_ESC_MAX14</strong> (INT32)</td>
- <td>UAVCANv1 ESC 14 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 14 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX15">UCAN1_ESC_MAX15</strong> (INT32)</td>
- <td>UAVCANv1 ESC 15 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 15 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX16">UCAN1_ESC_MAX16</strong> (INT32)</td>
- <td>UAVCANv1 ESC 16 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 16 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX2">UCAN1_ESC_MAX2</strong> (INT32)</td>
- <td>UAVCANv1 ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX3">UCAN1_ESC_MAX3</strong> (INT32)</td>
- <td>UAVCANv1 ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX4">UCAN1_ESC_MAX4</strong> (INT32)</td>
- <td>UAVCANv1 ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX5">UCAN1_ESC_MAX5</strong> (INT32)</td>
- <td>UAVCANv1 ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX6">UCAN1_ESC_MAX6</strong> (INT32)</td>
- <td>UAVCANv1 ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX7">UCAN1_ESC_MAX7</strong> (INT32)</td>
- <td>UAVCANv1 ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX8">UCAN1_ESC_MAX8</strong> (INT32)</td>
- <td>UAVCANv1 ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX9">UCAN1_ESC_MAX9</strong> (INT32)</td>
- <td>UAVCANv1 ESC 9 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 9 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN1">UCAN1_ESC_MIN1</strong> (INT32)</td>
- <td>UAVCANv1 ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN10">UCAN1_ESC_MIN10</strong> (INT32)</td>
- <td>UAVCANv1 ESC 10 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 10 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN11">UCAN1_ESC_MIN11</strong> (INT32)</td>
- <td>UAVCANv1 ESC 11 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 11 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN12">UCAN1_ESC_MIN12</strong> (INT32)</td>
- <td>UAVCANv1 ESC 12 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 12 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN13">UCAN1_ESC_MIN13</strong> (INT32)</td>
- <td>UAVCANv1 ESC 13 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 13 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN14">UCAN1_ESC_MIN14</strong> (INT32)</td>
- <td>UAVCANv1 ESC 14 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 14 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN15">UCAN1_ESC_MIN15</strong> (INT32)</td>
- <td>UAVCANv1 ESC 15 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 15 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN16">UCAN1_ESC_MIN16</strong> (INT32)</td>
- <td>UAVCANv1 ESC 16 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 16 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN2">UCAN1_ESC_MIN2</strong> (INT32)</td>
- <td>UAVCANv1 ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN3">UCAN1_ESC_MIN3</strong> (INT32)</td>
- <td>UAVCANv1 ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN4">UCAN1_ESC_MIN4</strong> (INT32)</td>
- <td>UAVCANv1 ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN5">UCAN1_ESC_MIN5</strong> (INT32)</td>
- <td>UAVCANv1 ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN6">UCAN1_ESC_MIN6</strong> (INT32)</td>
- <td>UAVCANv1 ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN7">UCAN1_ESC_MIN7</strong> (INT32)</td>
- <td>UAVCANv1 ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN8">UCAN1_ESC_MIN8</strong> (INT32)</td>
- <td>UAVCANv1 ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN9">UCAN1_ESC_MIN9</strong> (INT32)</td>
- <td>UAVCANv1 ESC 9 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed). The output range can be reversed by setting Min > Max.</p>   </td>
+ <td>UAVCANv1 ESC 9 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>0 > 8191 </td>
  <td>1</td>
  <td></td>
@@ -11559,14 +11599,6 @@ table {
  <td>1/s</td>
 </tr>
 <tr>
- <td><strong id="EKF2_MIN_OBS_DT">EKF2_MIN_OBS_DT</strong> (INT32)</td>
- <td>Minimum time of arrival delta between non-IMU observations before data is downsampled <p><strong>Comment:</strong> Baro and Magnetometer data will be averaged before downsampling, other data will be point sampled resulting in loss of information.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>10 > 50 </td>
- <td>20</td>
- <td>ms</td>
-</tr>
-<tr>
  <td><strong id="EKF2_MIN_RNG">EKF2_MIN_RNG</strong> (FLOAT)</td>
  <td>Expected range finder reading when on ground <p><strong>Comment:</strong> If the vehicle is on ground, is not moving as determined by the motion test controlled by EKF2_MOVE_TEST and the range finder is returning invalid or no data, then an assumed range value of EKF2_MIN_RNG will be used by the terrain estimator so that a terrain height estimate is avilable at the start of flight in situations where the range finder may be inside its minimum measurements distance when on ground.</p>   </td>
  <td>0.01 > ? </td>
@@ -11701,6 +11733,13 @@ table {
  <td>-0.5 > 0.5 </td>
  <td>0.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_PREDICT_US">EKF2_PREDICT_US</strong> (INT32)</td>
+ <td>EKF prediction period <p><strong>Comment:</strong> EKF prediction period in microseconds. This should ideally be an integer multiple of the IMU time delta. Actual filter update will be an integer multiple of IMU update.</p>   </td>
+ <td>1000 > 20000 </td>
+ <td>10000</td>
+ <td>us</td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_EPH">EKF2_REQ_EPH</strong> (FLOAT)</td>
@@ -12150,7 +12189,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
- <td>Max manual pitch <p><strong>Comment:</strong> Max pitch for manual control in attitude stabilized mode</p>   </td>
+ <td>Maximum manual pitch angle <p><strong>Comment:</strong> Maximum manual pitch angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>0.0 > 90.0 (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
@@ -12164,7 +12203,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_MAX">FW_MAN_R_MAX</strong> (FLOAT)</td>
- <td>Max manual roll <p><strong>Comment:</strong> Max roll for manual control in attitude stabilized mode</p>   </td>
+ <td>Maximum manual roll angle <p><strong>Comment:</strong> Maximum manual roll angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>0.0 > 90.0 (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
@@ -12481,34 +12520,32 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_POSCTL_INV_ST">FW_POSCTL_INV_ST</strong> (INT32)</td>
- <td>RC stick mapping fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing position and altitude controlled flight.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Normal stick configuration (airspeed on throttle stick, altitude on pitch stick)</li> 
-
-<li><strong>1:</strong> Alternative stick configuration (altitude on throttle stick, airspeed on pitch stick)</li> 
+ <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
+ <td>RC stick configuraton fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
+  <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li> 
 </ul>
-  </td>
- <td>0 > 1 </td>
- <td>0</td>
+ </td>
+ <td>0 > 3 </td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MAX">FW_P_LIM_MAX</strong> (FLOAT)</td>
- <td>Positive pitch limit <p><strong>Comment:</strong> The maximum positive pitch the controller will output.</p>   </td>
+ <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
  <td>0.0 > 60.0 (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MIN">FW_P_LIM_MIN</strong> (FLOAT)</td>
- <td>Negative pitch limit <p><strong>Comment:</strong> The minimum negative pitch the controller will output.</p>   </td>
+ <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
  <td>-60.0 > 0.0 (0.5)</td>
  <td>-45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
- <td>Controller roll limit <p><strong>Comment:</strong> The maximum roll the controller will output.</p>   </td>
+ <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for autonomous modes including altitude and position control.</p>   </td>
  <td>35.0 > 65.0 (0.5)</td>
  <td>50.0</td>
  <td>deg</td>
@@ -12613,6 +12650,100 @@ table {
  <td>0.0 > 5.0 (0.05)</td>
  <td>0.05</td>
  <td>s</td>
+</tr>
+</tbody></table>
+
+## FW NPFG Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_USE_NPFG">FW_USE_NPFG</strong> (INT32)</td>
+ <td>Use NPFG as lateral-directional guidance law for fixed-wing vehicles <p><strong>Comment:</strong> Replaces L1.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_DAMPING">NPFG_DAMPING</strong> (FLOAT)</td>
+ <td>NPFG damping ratio <p><strong>Comment:</strong> Damping ratio of the NPFG control law.</p>   </td>
+ <td>0.10 > 1.00 (0.01)</td>
+ <td>0.7</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_EN_MIN_GSP">NPFG_EN_MIN_GSP</strong> (INT32)</td>
+ <td>Enable minimum forward ground speed maintaining excess wind handling logic    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_GSP_MAX_TK">NPFG_GSP_MAX_TK</strong> (FLOAT)</td>
+ <td>Maximum, minimum forward ground speed for track keeping in excess wind <p><strong>Comment:</strong> The maximum value of the minimum forward ground speed that may be commanded by the track keeping excess wind handling logic. Commanded in full at the normalized track error fraction of the track error boundary and reduced to zero on track.</p>   </td>
+ <td>0.0 > 10.0 (0.5)</td>
+ <td>5.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="NPFG_LB_PERIOD">NPFG_LB_PERIOD</strong> (INT32)</td>
+ <td>Enable automatic lower bound on the NPFG period <p><strong>Comment:</strong> Avoids limit cycling from a too aggressively tuned period/damping combination. If set to false, also disables the upper bound NPFG_PERIOD_UB.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_PERIOD">NPFG_PERIOD</strong> (FLOAT)</td>
+ <td>NPFG period <p><strong>Comment:</strong> Period of the NPFG control law.</p>   </td>
+ <td>1.0 > 100.0 (0.1)</td>
+ <td>10.0</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="NPFG_PERIOD_SF">NPFG_PERIOD_SF</strong> (FLOAT)</td>
+ <td>Period safety factor <p><strong>Comment:</strong> Multiplied by period for conservative minimum period bounding (when period lower bounding is enabled). 1.0 bounds at marginal stability.</p>   </td>
+ <td>1.0 > 10.0 (0.1)</td>
+ <td>1.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_ROLL_TC">NPFG_ROLL_TC</strong> (FLOAT)</td>
+ <td>Roll time constant <p><strong>Comment:</strong> Time constant of roll controller command / response, modeled as first order delay. Used to determine lower period bound. Setting zero disables automatic period bounding.</p>   </td>
+ <td>0.00 > 2.00 (0.05)</td>
+ <td>0.5</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="NPFG_SW_DST_MLT">NPFG_SW_DST_MLT</strong> (FLOAT)</td>
+ <td>NPFG switch distance multiplier <p><strong>Comment:</strong> Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1. 1/pi (0.32) sets the switch distance equivalent to that of the L1 controller.</p>   </td>
+ <td>0.1 > 1.0 (0.01)</td>
+ <td>0.32</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_TRACK_KEEP">NPFG_TRACK_KEEP</strong> (INT32)</td>
+ <td>Enable track keeping excess wind handling logic    </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_UB_PERIOD">NPFG_UB_PERIOD</strong> (INT32)</td>
+ <td>Enable automatic upper bound on the NPFG period <p><strong>Comment:</strong> Adapts period to maintain track keeping in variable winds and path curvature.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NPFG_WIND_REG">NPFG_WIND_REG</strong> (INT32)</td>
+ <td>Enable wind excess regulation <p><strong>Comment:</strong> Disabling this parameter further disables all other airspeed incrementation options.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 </tbody></table>
 
@@ -13918,7 +14049,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CA_R_REV">CA_R_REV</strong> (INT32)</td>
- <td>Reversible motors <p><strong>Comment:</strong> Configure motors to be reversible. Note that the output driver needs to support this as well.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Motor 1</li> 
+ <td>Bidirectional/Reversible motors <p><strong>Comment:</strong> Configure motors to be bidirectional/reversible. Note that the output driver needs to support this as well.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Motor 1</li> 
   <li><strong>1:</strong> Motor 2</li> 
   <li><strong>2:</strong> Motor 3</li> 
   <li><strong>3:</strong> Motor 4</li> 
@@ -14847,7 +14978,7 @@ table {
  <td><strong id="LNDMC_ALT_GND">LNDMC_ALT_GND</strong> (FLOAT)</td>
  <td>Ground effect altitude for multicopters <p><strong>Comment:</strong> The height above ground below which ground effect creates barometric altitude errors. A negative value indicates no ground effect.</p>   </td>
  <td>-1 > ? </td>
- <td>-1.0</td>
+ <td>2.</td>
  <td>m</td>
 </tr>
 <tr>
@@ -16398,7 +16529,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
- <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
+ <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" (or "MPC_Z_V_AUTO_DN") and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
  <td>0 > 122 </td>
  <td>10.0</td>
  <td>m</td>
@@ -16669,16 +16800,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_DN">MPC_Z_VEL_MAX_DN</strong> (FLOAT)</td>
- <td>Maximum vertical descent velocity <p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>   </td>
- <td>0.5 > 4.0 </td>
- <td>1.0</td>
+ <td>Maximum descent velocity <p><strong>Comment:</strong> Descent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_DN</p>   </td>
+ <td>0.5 > 4.0 (0.1)</td>
+ <td>1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
- <td>Maximum vertical ascent velocity <p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>   </td>
- <td>0.5 > 8.0 </td>
- <td>3.0</td>
+ <td>Maximum ascent velocity <p><strong>Comment:</strong> Ascent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_UP</p>   </td>
+ <td>0.5 > 8.0 (0.1)</td>
+ <td>3.</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -16687,6 +16818,20 @@ table {
  <td>2.0 > 15.0 </td>
  <td>4.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="MPC_Z_V_AUTO_DN">MPC_Z_V_AUTO_DN</strong> (FLOAT)</td>
+ <td>Automatic descent velocity <p><strong>Comment:</strong> Descent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_DN</p>   </td>
+ <td>0.5 > 4.0 (0.1)</td>
+ <td>1.</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_Z_V_AUTO_UP">MPC_Z_V_AUTO_UP</strong> (FLOAT)</td>
+ <td>Automatic ascent velocity <p><strong>Comment:</strong> Ascent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_UP</p>   </td>
+ <td>0.5 > 8.0 (0.1)</td>
+ <td>3.</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="SYS_VEHICLE_RESP">SYS_VEHICLE_RESP</strong> (FLOAT)</td>
@@ -20656,7 +20801,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SDLOG_PROFILE">SDLOG_PROFILE</strong> (INT32)</td>
- <td>Logging topic profile (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data) 7 : Topics for computer vision and collision avoidance 8 : Raw FIFO high-rate IMU (Gyro) 9 : Raw FIFO high-rate IMU (Accel)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
+ <td>Logging topic profile (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data) 7 : Topics for computer vision and collision avoidance 8 : Raw FIFO high-rate IMU (Gyro) 9 : Raw FIFO high-rate IMU (Accel) 10: Logging of mavlink tunnel message (useful for payload communication debugging)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
   <li><strong>1:</strong> Estimator replay (EKF2)</li> 
   <li><strong>2:</strong> Thermal calibration</li> 
   <li><strong>3:</strong> System identification</li> 
@@ -20666,10 +20811,11 @@ table {
   <li><strong>7:</strong> Computer Vision and Avoidance</li> 
   <li><strong>8:</strong> Raw FIFO high-rate IMU (Gyro)</li> 
   <li><strong>9:</strong> Raw FIFO high-rate IMU (Accel)</li> 
+  <li><strong>10:</strong> Mavlink tunnel message logging</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1023 </td>
+ <td>0 > 2047 </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -23051,6 +23197,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="IMU_GYRO_DNF_HMC">IMU_GYRO_DNF_HMC</strong> (INT32)</td>
+ <td>IMU gyro dynamic notch filter harmonics <p><strong>Comment:</strong> ESC RPM number of harmonics (multiples of RPM) for ESC RPM dynamic notch filtering.</p>   </td>
+ <td>1 > 7 </td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="IMU_GYRO_FFT_EN">IMU_GYRO_FFT_EN</strong> (INT32)</td>
  <td>IMU gyro FFT enable    <p><b>Reboot required:</b> true</p>
 </td>
@@ -23729,6 +23882,13 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="SENS_IMU_AUTOCAL">SENS_IMU_AUTOCAL</strong> (INT32)</td>
+ <td>IMU auto calibration <p><strong>Comment:</strong> Automatically initialize IMU (accel/gyro) calibration from bias estimates if available.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_IMU_MODE">SENS_IMU_MODE</strong> (INT32)</td>
  <td>Sensors hub IMU mode  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -23835,7 +23995,7 @@ table {
  <td>Magnetometer max rate <p><strong>Comment:</strong> Magnetometer data maximum publication rate. This is an upper bound, actual magnetometer data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 200 </td>
- <td>50.0</td>
+ <td>15.0</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -25529,9 +25689,11 @@ table {
 <tr>
  <td><strong id="SIH_VEHICLE_TYPE">SIH_VEHICLE_TYPE</strong> (INT32)</td>
  <td>Vehicle type  <strong>Values:</strong><ul>
-<li><strong>0:</strong> MC</li> 
+<li><strong>0:</strong> Multicopter</li> 
 
-<li><strong>1:</strong> FW</li> 
+<li><strong>1:</strong> Fixed-Wing</li> 
+
+<li><strong>2:</strong> Tailsitter</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27264,6 +27426,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CANNODE_GPS_RTCM">CANNODE_GPS_RTCM</strong> (INT32)</td>
+ <td>Enable RTCM pub/sub    </td>
+ <td>? > 1 </td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
  <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
  <td>1 > 125 </td>
@@ -27418,17 +27587,10 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_BAT">UAVCAN_SUB_BAT</strong> (INT32)</td>
- <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. 1) uavcan::equipment::power::BatteryInfo 2) cuav::equipment::power::CBAT</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> disabled</li> 
-
-<li><strong>1:</strong> default</li> 
-
-<li><strong>2:</strong> CUAV battery monitor</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
+ <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 2 </td>
- <td>0</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
