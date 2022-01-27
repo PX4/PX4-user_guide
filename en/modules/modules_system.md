@@ -110,6 +110,8 @@ commander <command> [arguments...]
 
    lat|lon|alt   Origin latitude longitude altitude
 
+   poweroff      Power off board (if supported)
+
    stop
 
    status        print status info
@@ -374,6 +376,8 @@ logger <command> [arguments...]
      [-p <val>]  Poll on a topic instead of running with fixed rate (Log rate
                  and topic intervals are ignored if this is set)
                  values: <topic_name>
+     [-c <val>]  Log rate factor (higher is faster)
+                 default: 1.0
 
    on            start logging now, override arming (logger must be running)
 

@@ -1,6 +1,6 @@
 # Simulation-In-Hardware (SIH)
 
-Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for a quadrotor or a fixed-wing vehicle ("airplane").
+Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and tailsitters.
 In this setup, everything is running on embedded hardware - the controller, the state estimator, and the simulator.
 The Desktop computer is only used to display the virtual vehicle.
 
@@ -19,7 +19,10 @@ The SIH can be used by new PX4 users to get familiar with PX4 and the different 
 The quadrotor dynamic model is described in this [pdf report](https://github.com/PX4/PX4-user_guide/raw/master/assets/simulation/SIH_dynamic_model.pdf).
 
 The aerodynamic model for the fixed-wing airplane is inspired from the PhD thesis:  
-> "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Meyer Nahon, McGill University, PhD thesis, 2016.
+> "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
+
+The model for the tailsitter vehicle is inspired from the Master thesis:  
+> "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
 
 Furthermore, the physical parameters representing the vehicle (such as mass, inertia, and maximum thrust force) can easily be modified from the [SIH parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
 
@@ -32,15 +35,15 @@ you will also need either a [radio control transmitter and receiver pair](../get
 
 - SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
 - SIH for quadrotor supported from PX4 v1.9.
-- SIH for fixed-wing (airplane) is supported in versions after PX v1.12 (currently in the master branch).
+- SIH for fixed-wing (airplane) and tailsitter are supported in versions after PX v1.12 (currently in the master branch).
 
 ## Setting up SIH
 
 Running the SIH is as easy as selecting an airframe.
-Plug the autopilot to the desktop computer with a USB cable, let it boot, then using a ground control station select the [SIH Quadcopter X](../airframes/airframe_reference.md#simulation-copter) or the `SIH plane AERT`.
+Plug the autopilot to the desktop computer with a USB cable, let it boot, then using a ground control station select [SIH Quadcopter X](../airframes/airframe_reference.md#simulation-copter), `SIH plane AERT`, or 'SIH Tailsitter Duo'.
 The autopilot will then reboot.
 
-When the SIH airframe is selected, the SIH module starts by itself, the vehicle should be displayed on the ground control station map.
+When the SIH airframe is selected, the module `sih` starts by itself, the vehicle should be displayed on the ground control station map.
 
 :::warning
 The airplane needs to takeoff in manual mode at full throttle. Also, if the airplane hits the floor the state estimator might lose its fix.
@@ -65,7 +68,7 @@ To display the simulated vehicle:
      On macOS this would be `/dev/tty.usbmodem1`.
    - `-b` to set the serial baud rate to `2000000`.
    - `-o` to start jMAVSim in *display Only* mode (i.e. the physical engine is turned off and jMAVSim only displays the trajectory given by the SIH in real-time).
-   - add a flag `-a` to display an aircraft. If this flag is not present a quadrotor will be displayed by default.
+   - add a flag `-a` to display an aircraft or '-t' to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
 1. After few seconds, *QGroundControl* can be opened again.
 
 At this point, the system can be armed and flown.
@@ -74,7 +77,7 @@ The vehicle can be observed moving in jMAVSim, and on the QGC __Fly__ view.
 
 ## Credits
 
-The SIH was originally developed by Coriolis g Corporation, then the airplane model was added by Altitude R&D inc.
+The SIH was originally developed by Coriolis g Corporation, then the airplane model and tailsitter models were added by Altitude R&D inc.
 Both are Canadian companies, Coriolis develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems [www.vogi-vtol.com](http://www.vogi-vtol.com/);
-Altitude R&D is specialized in dynamics, control, and real-time simulation.
+Altitude R&D is specialized in dynamics, control, and real-time simulation [www.altitude-rd.com](https://www.altitude-rd.com/).
 They provide the SIH as a simple simulator for quadrotors and airplanes released for free under BSD license.

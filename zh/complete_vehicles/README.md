@@ -10,6 +10,8 @@ This is a small subset of vehicles that can run PX4. You can find others on [px4
 
 This section lists vehicles that are sold fully assembled and ready to fly (RTF), with PX4 installed.
 
+* Autogyro 
+  * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 * Multicopter 
   * [Teal One](https://tealdrones.com/teal-one/)
   * [ModalAI m500](https://modalai.com/products/voxl-m500)
@@ -18,7 +20,7 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
 
 ## Fully Assembled (PX4 Compatible)
 
-This section lists fully assembed vehicles where you can update the software to run PX4.
+This section lists fully assembled vehicles where you can update the software to run PX4.
 
 * Multicopter 
   * [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)

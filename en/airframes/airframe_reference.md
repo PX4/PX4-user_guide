@@ -608,6 +608,10 @@ div.frame_variant td, div.frame_variant th {
  <td>S500 with control allocation</td>
  <td>Maintainer: Silvan Fuhrer<p><code>SYS_AUTOSTART</code> = 4018</p></td>
 </tr>
+<tr id="copter_quadrotor_x_holybro_x500_v2">
+ <td>Holybro X500 V2</td>
+ <td>Maintainer: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019</p></td>
+</tr>
 <tr id="copter_quadrotor_x_3dr_solo">
  <td>3DR Solo</td>
  <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 4030</p></td>
@@ -1051,6 +1055,35 @@ div.frame_variant td, div.frame_variant th {
 </div>
 
 ## VTOL
+
+### Simulation (VTOL)
+
+<div class="frame_common">
+<img src="../../assets/airframes/types/AirframeUnknown.svg"/>
+<table>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+ <tbody>
+<tr>
+ <td><ul><li><b>MAIN1</b>: motor right</li><li><b>MAIN2</b>: motor left</li><li><b>MAIN5</b>: elevon right</li><li><b>MAIN6</b>: elevon left</li></ul></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="frame_variant">
+<table>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="vtol_simulation_(vtol)_sih_tailsitter_duo">
+ <td>SIH Tailsitter Duo</td>
+ <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ### Standard VTOL
 
