@@ -36,7 +36,7 @@ PX4 支持: SF11/c 和 SF/LW20. PX4 也可用于一下停产的型号: SF02, SF1
 
 ### TeraRanger 测距仪
 
-[TeraRanger](../sensor/teraranger.md) 提供了一些基于红外光飞行时间(ToF)技术的轻量级距离测量传感器。 他们通常更快并且比声纳距离更远、比基于激光的系统更小、更轻。
+[TeraRanger](../sensor/teraranger.md) 提供了一些基于红外光飞行时间(ToF)技术的轻量级距离测量传感器。 他们通常比声纳更快、范围更大、比基于激光的系统更小、更轻。
 
 PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo 60m 和 TeraRanger Evo 600Hz。
 
