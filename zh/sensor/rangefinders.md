@@ -42,11 +42,11 @@ PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo
 
 ### Ainstein US-D1 标准雷达高度计
 
-*Ainstein* [US-D1 标准雷达高度计](../sensor/ulanding_radar.md) 是紧凑型的微波测距仪，已经针对无人机做过优化. 它有大约50米的感测范围。 A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+*Ainstein* [US-D1 标准雷达高度计](../sensor/ulanding_radar.md) 是紧凑型的微波测距仪，已经针对无人机做过优化. 它有大约50米的感测范围。 该产品的一个特别优势是它可以在所有天气条件下和所有地形类型（包括水）上有效运行。
 
 ### LeddarOne
 
-[LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
+[LeddarOne](../sensor/leddar_one.md) 是一种小型激光雷达模块，具有窄而漫反射的光束，在一个坚固、可靠、经济高效的组件中提供出色的整体探测范围和性能。 它的遥感范围从1厘米到40米不等，需要与UART/串行总线连接。
 
 ### TFmini
 
