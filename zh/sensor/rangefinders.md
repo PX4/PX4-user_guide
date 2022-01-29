@@ -42,7 +42,7 @@ PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo
 
 ### Ainstein US-D1 标准雷达高度计
 
-The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+*Ainstein* [US-D1 标准雷达高度计](../sensor/ulanding_radar.md) 是紧凑型的微波测距仪，已经针对无人机做过优化. 它有大约50米的感测范围。 A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
 ### LeddarOne
 
