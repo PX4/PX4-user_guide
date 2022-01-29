@@ -12,13 +12,13 @@ This section lists the distance sensors supported by PX4 (linked to more detaile
 
 [ARK Flow](../uavcan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. It can be connected to the flight controller via its CAN1 port, allowing additional sensors to connect through its CAN2 port. It runs PX4 firmware, supports [UAVCAN](../uavcan/README.md) [Firmware Updating](../uavcan/node_firmware.md), and is packed into a tiny form factor.
 
-### Holybro ST VL53L1X Lidar
+### Holybro ST VL53L1X 激光雷达
 
 The [VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family. It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
 
 It comes with a JST GHR 4 pin connector that is compatible with the I2C port on [Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhawk 5X](../flight_controller/pixhawk5x.md), and other flight controllers that follow the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)).
 
-### Lidar-Lite
+### 激光雷达精简版
 
 [Lidar-Lite](../sensor/lidar_lite.md) is a compact, high-performance optical distant measurement rangefinder. It has a sensor range from (5cm - 40m) and can be connected to either PWM or I2C ports.
 
@@ -34,13 +34,13 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 
 PX4 supports: SF11/c and SF/LW20. PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
 
-### TeraRanger Rangefinders
+### TeraRanger 测距仪
 
 [TeraRanger](../sensor/teraranger.md) provide a number of lightweight distance measurement sensors based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems.
 
 PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
 
-### Ainstein US-D1 Standard Radar Altimeter
+### Ainstein US-D1 标准雷达高度计
 
 The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
