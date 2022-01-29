@@ -89,7 +89,7 @@ PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo
 *QGroundControl MAVLink Inspector*可让您查看从车辆发送的消息, 包括`DISTANCE_SENSOR` 来自测距仪的信息。 工具之间的主要区别在于*分析*工具可以在图表中绘制值。
 
 :::note
-发送的消息取决于车辆配置。 You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
+发送的消息取决于车辆配置。 `DISTANCE_SENSOR`只有在联网车辆安装了测距仪并发布传感器值时，您才会收到消息。
 :::
 
 查看测距仪输出：
@@ -98,25 +98,24 @@ PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo
     
     ![Menu for QGC Analyze Tool](../../assets/qgc/analyze/menu_analyze_tool.png)
 
-2. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. The tool will then plot the result: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
+2. 选择消息`DISTANCE_SENSOR`，然后选中plot复选框`current_distance`。 工具将会绘制结果： ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
 ### QGroundControl MAVLink 控制台
 
-You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
+你也可以使用 *QGroundControl MAVLink 控制台* 来观察 `distance_sensor` uORB 主题：
 
 ```sh
 listener distance_sensor 5
 ```
 
-:::note
-The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
+*QGroundControl MAVLink 控制台* 在连接到 Pixhawk 或者其他 Nuttx目标板时工作，无法在模拟器上使用。 在模拟器上可以直接在终端中运行命令。
 :::
 
-For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
+更多信息请看：[开发> 调试/日志> 使用侦听器命令进行传感器/主题调试](../debug/sensor_uorb_topic_debugging.md)。
 
 ## 仿真
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../simulation/gazebo.md). To do this you must start the simulator using a vehicle model that includes the rangefinder.
+激光测距和声纳测距仪可以在[Gazebo Simulator](../simulation/gazebo.md)上使用。 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
 
 The iris optical flow model includes a Lidar rangefinder:
 
