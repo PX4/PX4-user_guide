@@ -50,11 +50,11 @@ PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo
 
 ### TFmini
 
-The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
+[Benewake TFmini Lidar](../sensor/tfmini.md) 是一个的小巧、低成本、低功率的激光测距拥有 12m 的测量范围
 
 ### PSK-CM8JL65-CC5
 
-The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
+[Lanbao PSK-CM8JL65-CC5 ToF 红外距离测量传感器](../sensor/cm8jl65_ir_distance_sensor.md) 非常小 (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
 
 ### Avionics Anonymous UAVCAN 激光高度计接口
 
