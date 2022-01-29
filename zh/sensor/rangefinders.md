@@ -66,13 +66,13 @@ PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo
 
 测距仪通常连接到串口(PWM)或者 I2C 接口(取决于设备驱动），并通过设置特定的参数在端口上启用。
 
-硬件和软件设置针对*每个距离传感器是特定的*。
+*每个距离传感器特定的<0>硬件和软件设置将在各自的主题中介绍</p> 
 
-The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
+下面给出了*所有距离传感器*的通用配置，包括物理设置和使用。
 
 ### 常规配置
 
-The common rangefinder configuration is specified using [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters. These include (non exhaustively):
+通用测距仪配置使用特定的[EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID)参数。 These include (non exhaustively):
 
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - offset of the rangefinder from the vehicle centre of gravity in X, Y, Z directions.
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - A value of 0 degrees (default) corresponds to the range finder being exactly aligned with the vehicle vertical axis (i.e. straight down), while 90 degrees indicates that the range finder is pointing forward. Simple trigonometry is used to calculate the distance to ground if a non-zero pitch is used.
