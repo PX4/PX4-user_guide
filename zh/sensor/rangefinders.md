@@ -30,9 +30,9 @@ MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-max
 
 ### Lightware LIDARs
 
-[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight "laser altimeters" that are suitable for many drone applications.
+[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) 提供一个宽范围的轻量级激光高度计，适用于许多无人机应用。
 
-PX4 supports: SF11/c and SF/LW20. PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
+PX4 支持: SF11/c 和 SF/LW20. PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
 
 ### TeraRanger 测距仪
 
