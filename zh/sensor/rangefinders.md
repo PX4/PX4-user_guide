@@ -10,7 +10,7 @@
 
 ### ARK Flow
 
-[ARK Flow](../uavcan/ark_flow.md) 是一个开源的飞行时间 (ToF) 和光流模块, 能够测量从 8cm 到 30m 的距离. 它可以通过CAN1接口连接至飞控，允许通过CAN2接口添加传感器。 It runs PX4 firmware, supports [UAVCAN](../uavcan/README.md) [Firmware Updating](../uavcan/node_firmware.md), and is packed into a tiny form factor.
+[ARK Flow](../uavcan/ark_flow.md) 是一个开源的飞行时间 (ToF) 和光流模块, 能够测量从 8cm 到 30m 的距离. 它可以通过CAN1接口连接至飞控，允许通过CAN2接口添加传感器。 它运行 PX4 固件，支持U[AVCAN](../uavcan/README.md) [固件更新](../uavcan/node_firmware.md)，并被打包成一个小尺寸。
 
 ### Holybro ST VL53L1X 激光雷达
 
