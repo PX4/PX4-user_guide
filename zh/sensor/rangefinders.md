@@ -1,4 +1,4 @@
-# Distance Sensors (Rangefinders)
+# 距离传感器（测距仪）
 
 Distance sensors provide distance measurement that can be used for [terrain following](../flying/terrain_following_holding.md#terrain_following), [terrain holding](../flying/terrain_following_holding.md#terrain_hold) (i.e. precision hovering for photography), improved landing behaviour ([range aid](../flying/terrain_following_holding.md#range_aid)), warning of regulatory height limits, collision prevention, etc.
 
@@ -6,7 +6,7 @@ This section lists the distance sensors supported by PX4 (linked to more detaile
 
 <img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/optical_flow/ark_flow_distance_sensor.jpg" alt="ARK Flow" width="200px" />
 
-## Supported Rangefinders
+## 支持的测距仪
 
 ### ARK Flow
 
