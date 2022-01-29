@@ -24,9 +24,9 @@
 
 ### MaxBotix I2CXL-MaxSonar-EZ
 
-The MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-maxsonar-ez-products) range has a number of relatively short-ranged sonar based rangefinders that are suitable for assisted takeoff/landing and collision avoidance. These can be connected using an I2C port.
+MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-maxsonar-ez-products) 测距 有许多基于声纳的相对短程测距仪 ，适用于辅助起飞/着陆和避免碰撞。 这些可以使用 I2C 端口连接。
 
-The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_config/parameter_reference.md#SENS_EN_MB12XX).
+测距仪通过使用参数[SENS_EN_MB12XX](../advanced_config/parameter_reference.md#SENS_EN_MB12XX)启用。
 
 ### Lightware LIDARs
 
