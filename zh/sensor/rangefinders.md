@@ -77,24 +77,24 @@ PX4 提供以下通过 I2C总线连接的型号：TeraRanger One, TeraRanger Evo
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - 测距仪在 X、Y、Z 方向上与车辆重心的偏移量。
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - 0 度值（默认值）对应于测距仪与车辆垂直轴精确对齐（即垂直向下），而 90 度表示测距仪指向前方。 如果使用非零间距，则使用简单的三角法计算到地面的距离。
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - 数据从传感器到达估计器的近似延迟。
-- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependant noise scaler.
-- [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Measurement noise for range finder fusion
+- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - 测距仪范围相关的噪声定标器。
+- [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - 测距仪融合的测量噪声
 
 ## 测试
 
-The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
+测试测距仪最简单的方法是改变距离并与 PX4 检测到的值进行比较 以下部分显示了一些获取测量范围的方法。
 
-### QGroundControl MAVLink Inspector
+### QGroundControl MAVLink 检查器
 
-The *QGroundControl MAVLink Inspector* lets you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
+*QGroundControl MAVLink Inspector*可让您查看从车辆发送的消息, 包括`DISTANCE_SENSOR` 来自测距仪的信息。 工具之间的主要区别在于*分析*工具可以在图表中绘制值。
 
 :::note
-The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
+发送的消息取决于车辆配置。 You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
 :::
 
-To view the rangefinder output:
+查看测距仪输出：
 
-1. Open the menu **Q > Select Tool > Analyze Tools**:
+1. 打开菜单**Q > 选择工具 > 分析工具**：
     
     ![Menu for QGC Analyze Tool](../../assets/qgc/analyze/menu_analyze_tool.png)
 
