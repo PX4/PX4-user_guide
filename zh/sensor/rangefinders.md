@@ -56,13 +56,13 @@ The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low po
 
 The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
 
-### Avionics Anonymous UAVCAN Laser Altimeter Interface
+### Avionics Anonymous UAVCAN 激光高度计接口
 
 The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../uavcan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [UAVCAN](../uavcan/README.md) bus, a more robust interface than I2C.
 
 <span id="configuration"></span>
 
-## Configuration/Setup
+## 配置/设置
 
 Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
 
@@ -70,7 +70,7 @@ The hardware and software setup that is *specific to each distance sensor* is co
 
 The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
 
-### Generic Configuration
+### 常规配置
 
 The common rangefinder configuration is specified using [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters. These include (non exhaustively):
 
@@ -100,7 +100,7 @@ To view the rangefinder output:
 
 2. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. The tool will then plot the result: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
-### QGroundControl MAVLink Console
+### QGroundControl MAVLink 控制台
 
 You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
 
