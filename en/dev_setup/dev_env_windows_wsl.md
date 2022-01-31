@@ -13,6 +13,10 @@ Alternatively QGC for Linux can be run within WSL
 - Direct serial MCU flashing doesn't work<br>
   Flashing can be done through QGC (see [instructions below](dev_env_windows_wsl.md#flash-a-flight-control-board))
 
+### Requirements for graphics support
+The requirement for any out of the box graphics support in WSL is [WSLg](https://github.com/microsoft/wslg). It is included in WSL on all recent enough Windows versions namely all Windows 11 versions and a few recent enough insider Windows 10 builds. Check the linked project GitHub page to read the latest availability.
+If these requirements are not met then you can still build PX4, flash it to boards using QGC for Windows and run the simulation in headless mode. All windowed, graphics features like e.g. gazebo rendered visualization, QGC running in WSL, git gui, will not work without [WSLg](https://github.com/microsoft/wslg).
+
 ## Installation instructions
 
 1. Open cmd.exe as administrator.
