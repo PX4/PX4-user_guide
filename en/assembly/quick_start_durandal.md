@@ -69,7 +69,9 @@ It provides regulated power to flight controller and sends battery voltage/curre
 
 Connect the output of the *Power Module* as shown.
 
-![Durandal PM02v3 Power connections](../../assets/flight_controller/durandal/connection_power.jpg)
+![Durandal PM02v3 Power connections]
+![F26148D7-7A98-418D-8966-8C80649C6108](https://user-images.githubusercontent.com/31726584/151736048-a22251ae-42f4-4a31-8d69-27b1af4261a5.jpeg)
+
 
 
 - PM voltage/current port: connect to [POWER1](../flight_controller/durandal.md#power) port (or `POWER2`) using the 6-wire GH cable supplied.
