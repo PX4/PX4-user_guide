@@ -66,7 +66,7 @@ Note: This has to be repeated when WSL restarts because it gets a dynamic IP add
 ## Flash a Flight Control Board
 Flashing a custom built PX4 bianry has to be done using QGroundcontrol for Windows since WSL 2 does not natively offer direct access to serial devices like pixhawk boards. Do the following steps to flash your custom binary built in WSL.
 
-1. If you haven't allready build the binary in WSL e.g. with a [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) and by running:
+1. If you haven't already build the binary in WSL e.g. with a [WSL shell](dev_env_windows_wsl.md#opening-a-wsl-shell) and by running:
    ```
    cd ~/PX4-Autopilot
    make px4_fmu-v5
