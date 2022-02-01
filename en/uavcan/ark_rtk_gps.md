@@ -92,21 +92,22 @@ You need to set necessary [UAVCAN](README.md) parameters and define offsets if t
 The simplest way to set up moving baseline and GPS heading with two ARK RTK GPS modules is via CAN, though it can be done via UART to reduce traffic on the CAN bus if desired.
 
 Setup via CAN:
-- Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN (one can connect to another's secondary CAN port)
-- Choose one ARK RTK GPS to be the *Rover* and one to be the *Moving Base*
+- Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN (one can connect to another's secondary CAN port).
+- Choose one ARK RTK GPS to be the *Rover* and one to be the *Moving Base*.
 - Reopen QGroundControl, go to parameters, and select `Standard` to hide that dropdown and select `Component ##` to view each of your ARK RTK GPS's CAN node parameters
-:::note
-`Component ##` won't be visible unless the ARK RTK GPS is connected to the Pixhawk prior to opening QGroundControl
-:::
+  :::note
+  `Component ##` won't be visible unless the ARK RTK GPS is connected to the Pixhawk prior to opening QGroundControl.
+  :::
 - On the *Rover*, set the following:
   - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `3`
-  - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) to `0` if your *Rover* is in front of your *Moving Base*, `90` if *Rover* is right of *Moving Base*, `180` if *Rover* is behind *Moving Base*, or `270` if *Rover* is left of *Moving Base*
+  - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) to `0` if your *Rover* is in front of your *Moving Base*, `90` if *Rover* is right of *Moving Base*, `180` if *Rover* is behind *Moving Base*, or `270` if *Rover* is left of *Moving Base*.
 - On the *Moving Base*, set the following:
-  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `4`
+  - [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `4`.
 
 Setup via UART:
-- Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN
-- Ensure the ARK RTK GPS modules are connected to each other via their UART2 port (UART2 pinout shown below). Note that TX of one module needs to connect with RX of the other.
+- Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN.
+- Ensure the ARK RTK GPS modules are connected to each other via their UART2 port (UART2 pinout shown below).
+  Note that TX of one module needs to connect with RX of the other.
 
 Pin | Name
 --- | ---
