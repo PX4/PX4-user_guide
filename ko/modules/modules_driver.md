@@ -1034,6 +1034,60 @@ safety_button <command> [arguments...]
 
    status        print status info
 ```
+## sht3x
+Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/hygrometer/sht3x)
+
+
+### Description
+SHT3x Temperature and Humidity Sensor Driver by Senserion.
+
+### Examples
+CLI usage example:
+```
+sht3x start -X
+```
+  Start the sensor driver on the external bus
+
+```
+sht3x status
+```
+  Print driver status
+
+```
+sht3x values
+```
+  Print last measured values
+
+```
+sht3x reset
+```
+  Reinitialize senzor, reset flags
+
+<a id="sht3x_usage"></a>
+
+### Usage
+```
+sht3x <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 68
+     [-k]        if initialization (probing) fails, keep retrying periodically
+
+   stop
+
+   status        print status info
+
+   values        Print actual data
+
+   reset         Reinitialize sensor
+```
 ## tap_esc
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tap_esc)
 
