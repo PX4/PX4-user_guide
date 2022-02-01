@@ -58,7 +58,7 @@ General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](..
 
 ### Mounting/Orientation
 
-The ARK RTK GPS needs to be mounted with the connectors on the board pointing towards the **back of vehicle**, as shown in the following picture.
+The ARK RTK GPS must be mounted with the connectors on the board pointing towards the **back of vehicle**, as shown in the following picture.
 
 ![ARK RTK GPS Orientation](../../assets/hardware/gps/ark_rtk_gps_orientation.png)
 
