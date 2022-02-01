@@ -23781,6 +23781,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_SHT3X">SENS_EN_SHT3X</strong> (INT32)</td>
+ <td>SHT3x temperature and hygrometer    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_SR05">SENS_EN_SR05</strong> (INT32)</td>
  <td>HY-SRF05 / HC-SR05    <p><b>Reboot required:</b> true</p>
 </td>
