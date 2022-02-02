@@ -17,15 +17,28 @@ This setup is supported by the PX4 dev team. To build other targets you will nee
 1. Tick the box at the end of the installation to *clone the PX4 repository, build and run simulation with jMAVSim* (this simplifies the process to get you started). :::note If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting_started).
 :::
 
+:::warning
+At time of writing the installer is missing some dependencies (and cannot yet be rebuilt to add them - see [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
+
+To add these yourself:
+1. 进入到工具链的安装目录(默认**C:\PX4**)
+1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console
+1. Enter the following command in the console:
+   ```
+   pip3 install --user kconfiglib jsonschema future
+   ```
+
+:::
+
 <a id="getting_started"></a>
 
 ## 入门指南
 
-这篇文章将解释怎样下载和使用该环境，并且在需要的时候怎样扩展和更新(比如，使用其他的编译器)。
+The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
-1. 进入到工具链的安装目录(默认**C:\PX4**)
-1. 运行**run-console.bat**(双击)启动Cygwin bash控制台
-1. 在控制台中运行克隆PX4 Firmware仓库命令
+1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
+1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
+1. Clone the PX4 PX4-Autopilot repository from within the console:
 
 :::note
 Skip this step if you ticked the installer option to *clone the PX4 repository, build and run simulation with jMAVSim*. Cloning only needs to be done once!
@@ -38,21 +51,21 @@ Skip this step if you ticked the installer option to *clone the PX4 repository, 
 
    You can now use the console/PX4-Autopilot repository to build PX4.
 
-1. 举例，要运行JMAVSim:
+1. For example, to run JMAVSim:
    ```bash
-   # 进入Firmware仓库目录
-    cd Firmware 
-    # 使用JMAVSim编译并运行SITL模拟器来验证 
-    make px4_sitl jmavsim
+   # Navigate to PX4-Autopilot repo
+   cd Firmware
+   # Build and runs SITL simulation with jMAVSim to test the setup
+   make px4_sitl jmavsim
    ```
-   控制台将会显示：
+   The console will then display:
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_windows_cygwin.png)
 
 
 ## 使用说明
 
-编写或复制 ** 批处理脚本 ** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat) 和 [`setup-environment-variables.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat)。
+Once you have finished setting up the command-line toolchain:
 
 - 使用 jMAVSim 编译和运行 SITL, 其性能明显优于虚拟机 (Cygwin会生成一个本机 windows 二进制文件 ** px4.exe **)。
 - 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）。
@@ -63,9 +76,9 @@ Skip this step if you ticked the installer option to *clone the PX4 repository, 
 
 ### Windows & Git 特殊情况
 
-工具链使用专门配置的控制台(通过运行**run-console.bat**脚本)从而可以使用PX4编译命令
+Antivirus and other background file monitoring tools can significantly slow down both installation of the toolchain and PX4 build times.
 
-下面[ 有关如何生成 PX4 的详细说明 ](../setup/building_px4.md) (或参阅下面的部分以了解更多常规用法说明)。
+You may wish to halt them temporarily during builds (at your own risk).
 
 ### Windows & Git 特殊情况
 
@@ -94,7 +107,7 @@ old mode 100644
 new mode 100755
 ```
 
-但我们并不建议这样做, 因为它可能会影响 Windows 计算机上的任何其他 (无关) git 使用。
+We recommend globally disabling the permission check on Windows to avoid the problem:
 ```sh
 git config --global core.fileMode false # disable execution bit check globally for the machine 
 ```
