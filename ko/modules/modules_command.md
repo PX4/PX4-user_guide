@@ -576,6 +576,26 @@ sd_stress [arguments...]
      [-b <val>]  Number of bytes
                  default: 100
 ```
+## serial_passthru
+Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/serial_passthru)
+
+Pass data from one device to another.
+
+This can be used to use u-center connected to USB with a GPS on a serial port.
+
+<a id="serial_passthru_usage"></a>
+
+### Usage
+```
+serial_passthru [arguments...]
+     -e <val>    External device path
+                 values: <file:dev>
+     -d <val>    Internal device path
+                 values: <file:dev>
+     [-b <val>]  Baudrate
+                 default: 115200
+     [-t]        Track the External devices baudrate on internal device
+```
 ## system_time
 Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
@@ -594,7 +614,7 @@ system_time get
 
 <a id="system_time_usage"></a>
 
-### 설명
+### 예
 ```
 system_time <command> [arguments...]
  Commands:
@@ -608,7 +628,7 @@ Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
 
-### 예
+### Usage
 ```
 top [arguments...]
    once          print load only once
