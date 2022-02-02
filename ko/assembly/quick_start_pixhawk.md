@@ -1,27 +1,27 @@
 # Pixhawk 배선 개요
 
-:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://store.mrobotics.io/)와 상담하십시오.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
 :::
 
-이 설명서는 *3DR Pixhawk * 비행 컨트롤러의 전원 공급 방법과 주변 장치 연결 방법을 설명합니다.
+*3DR Pixhawk* 비행 콘트롤러 전원 공급방법과 주변 장치 연결방법을 설명합니다.
 
 ![Pixhawk4 이미지](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
 :::note
-[3DR Pixhawk](../flight_controller/pixhawk.md)는 더 이상 3DR에서 사용할 수 없습니다. [Pixhawk FMUv2 아키텍처](../flight_controller/pixhawk_series.md)를 기반으로하는 비행 컨트롤러는 다른 회사에서 구입할 수 있습니다 (동일한 연결, 출력, 기능 등을 공유 하고 유사한 방식으로 연결됨).
+[3DR Pixhawk](../flight_controller/pixhawk.md)는 더 이상 3DR에서 제공하지 않습니다. [Pixhawk FMUv2 아키텍처](../flight_controller/pixhawk_series.md) 기반 비행 콘트롤러는 다른 회사에서 구매할 수 있습니다 (동일한 연결, 출력, 기능 등을 공유 하고 유사한 방식으로 연결됨).
 :::
 
 ## 배선 개요
 
-아래 이미지는 표준 Pixhawk 연결을 보여줍니다 (모터 및 서보 출력 제외). 다음 섹션에서 각 장치에 대해 자세히 설명합니다.
+아래 이미지는 표준 Pixhawk 연결을 나타냅니다 (모터 및 서보 출력 제외). 다음 섹션에서 각 장치에 대해 자세히 설명합니다.
 
 ![Pixhawk  배선 개요](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)
 
 :::note
-자세한 배선 정보는 [아래에 표시](#detailed-wiring-infographic-copter) 됩니다.
+자세한 배선 정보는 [아래](#detailed-wiring-infographic-copter)에서 설명합니다.
 :::
 
-## 콘트롤러 장착 및 장착 방향
+## -- 콘트롤러 장착 및 장착 방향
 
 *Pixhawk *는 진동 방지 폼 패드(키트에 포함)를 프레임에 장착해야 합니다. 차량의 무게 중심에 최대한 가깝게 배치 된 프레임에 장착해야하며 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
 
