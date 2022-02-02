@@ -579,6 +579,25 @@ sd_stress [arguments...]
      [-b <val>]  Number of bytes
                  default: 100
 ```
+## serial_passthru
+Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/serial_passthru)
+
+Pass data from one device to another.
+
+This can be used to use u-center connected to USB with a GPS on a serial port.
+
+<a id="serial_passthru_usage"></a>
+### Usage
+```
+serial_passthru [arguments...]
+     -e <val>    External device path
+                 values: <file:dev>
+     -d <val>    Internal device path
+                 values: <file:dev>
+     [-b <val>]  Baudrate
+                 default: 115200
+     [-t]        Track the External devices baudrate on internal device
+```
 ## system_time
 Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
