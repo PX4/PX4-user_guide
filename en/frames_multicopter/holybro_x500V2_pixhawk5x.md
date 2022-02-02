@@ -200,7 +200,7 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md) - You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**)
+* [Airframe](../config/airframe.md) - You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro X500 V2**)
   ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/X500V2-Airframe-QGC.png)
 
 Then perform the mandatory setup/calibration:
