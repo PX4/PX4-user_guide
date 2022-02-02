@@ -17,42 +17,55 @@
 1. 설치가 끝날 때 상자를 선택하여 *PX4 리포지토리를 복제하고, jMAVSim으로 시뮬레이션을 빌드 및 실행*합니다(이렇게 하면 시작 프로세스가 간소화됨). :::note 이 단계를 놓친 경우 [PX4-Autopilot 저장소를 수동으로 복제](#getting_started)하여야 합니다.
 :::
 
+:::warning
+At time of writing the installer is missing some dependencies (and cannot yet be rebuilt to add them - see [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
+
+To add these yourself:
+1. 도구 모음 설치 디렉터리로 이동합니다(기본값 **C:\\PX4\\**).
+1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console
+1. Enter the following command in the console:
+   ```
+   pip3 install --user kconfiglib jsonschema future
+   ```
+
+:::
+
 <a id="getting_started"></a>
 
 ## 시작하기
 
-툴체인은 일반 PX4 빌드 명령얼 실행을 위해 특별히 구성된 콘솔창(**run-console.bat** 스크립트를 실행하여 시작)을 사용합니다.
+The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
-1. 도구 모음 설치 디렉터리로 이동합니다(기본값 **C:\\PX4\\**).
-1. **run-console.bat**를 실행(두 번 클릭)하여 Linux와 같은 Cygwin bash 콘솔을 시작합니다(PX4를 빌드하려면 이 콘솔을 사용하여야 함).
-1. 콘솔에서 PX4-Autopilot 저장소를 복제합니다.
+1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
+1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
+1. Clone the PX4 PX4-Autopilot repository from within the console:
 
 :::note
-설치 프로그램 옵션을 선택하여 *PX4 저장소를 복제하고 jMAVSim으로 시뮬레이션을 빌드 및 실행*한 경우에는 이 단계를 건너뛰십시오. 복제는 한 번만 수행하면 됩니다!
+Skip this step if you ticked the installer option to *clone the PX4 repository, build and run simulation with jMAVSim*. Cloning only needs to be done once!
 :::
 
    ```bash
-   # PX4-Autopilot 저장소를 홈 폴더와 하위 모듈을 복제
+   # Clone the PX4-Autopilot repository into the home folder & loads submodules in parallel
    git clone --recursive -j8 https://github.com/PX4/PX4-Autopilot.git
    ```
 
-   이제 콘솔/PX4-Autopilot 저장소를 사용하여 PX4를 빌드할 수 있습니다.
+   You can now use the console/PX4-Autopilot repository to build PX4.
 
-1. 예를 들어 jMAVSim을 실행하려면:
+1. For example, to run JMAVSim:
    ```bash
-   # PX4-Autopilot 저장소로 이동
-   cd PX4-Autopilot
-   # jMAVSim으로 SITL 시뮬레이션을 빌드하고 실행하여 설정을 테스트합니다.
+   # Navigate to PX4-Autopilot repo
+   cd Firmware
+   # Build and runs SITL simulation with jMAVSim to test the setup
    make px4_sitl jmavsim
    ```
-   그러면 콘솔에 다음이 표시됩니다.
+   The console will then display:
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_windows_cygwin.png)
 
 
 ## 다음 단계
 
-명령줄 도구 모음 설정후, 다음을 수행합니다.
+Once you have finished setting up the command-line toolchain:
 
 - [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)를 설치합니다.
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
@@ -63,42 +76,42 @@
 
 ### 파일 모니터링 도구와 툴체인 속도
 
-바이러스 백신 및 기타 백그라운드 파일 모니터링 도구는 툴체인 설치와 PX4 빌드 시간을 매우 느리게 할 수 있습니다.
+Antivirus and other background file monitoring tools can significantly slow down both installation of the toolchain and PX4 build times.
 
-빌드하는 동안 일시적으로 중지할 수 있습니다(자신의 책임).
+You may wish to halt them temporarily during builds (at your own risk).
 
 ### 윈도우와 Git 특수 사례
 
 #### Windows CR+LF 대 Unix LF 줄 끝
 
-이 도구 모음을 사용하여 작업 중인 모든 저장소에 대해 Unix 스타일 LF 종료를 강제 실행하는 것이 좋습니다(그리고 변경 사항을 저장할 때 이를 보존하는 편집기(예: Eclipse 또는 VS Code) 사용). 소스 파일의 컴파일은 로컬에서 체크아웃된 CR+LF 엔딩에서도 작동하지만, Cygwin에는 Unix 줄 끝이 필요한 경우(예: 쉘 스크립트 실행)가 있습니다(그렇지 않으면 `$'\r': Command not found.`). 운 좋게도 git은 저장소 루트 디렉토리에서 두 명령을 실행할 때 이 작업을 수행할 수 있습니다.
+We recommend that you force Unix style LF endings for every repository you're working with using this toolchain (and use an editor which preserves them when saving your changes - e.g. Eclipse or VS Code). Compilation of source files also works with CR+LF endings checked out locally, but there are cases in Cygwin (e.g. execution of shell scripts) that require Unix line endings (otherwise you get errors like `$'\r': Command not found.`). Luckily git can do this for you when you execute the two commands in the root directory of your repo:
 ```
 git config core.autocrlf false
 git config core.eol lf
 ```
 
-여러 저장소에서 이 도구 체인으로 작업하는 경우 컴퓨터에 대해 다음 두 가지 구성을 전역적으로 설정할 수도 있습니다.
+If you work with this toolchain on multiple repositories you can also set these two configurations globally for your machine:
 ```
 git config --global ...
 ```
-이것은 Windows 시스템에서 다른 (관련되지 않은) git 사용에 영향을 줄 수 있으므로 권장하지 않습니다.
+This is not recommended because it may affect any other (unrelated) git use on your Windows machine.
 
 #### 유닉스 권한 실행 비트
 
-Unix에서는 각 파일의 권한에 파일이 실행 여부를 OS에 알려주는 플래그가 있습니다. Cygwin의 *git*은 해당 비트를 지원하고 처리합니다(Windows NTFS 파일 시스템에서 사용하지 않더라도). 이로 인해 *git*이 권한에서 "거짓 양성" 차이를 찾는 경우가 많습니다. diff 실행결과는 다음과 같을 수 있습니다.
+Under Unix there's a flag in the permissions of each file that tells the OS whether or not the file is allowed to be executed. *git* under Cygwin supports and cares about that bit (even though the Windows NTFS file system does not use it). This often results in *git* finding "false-positive" differences in permissions. The resulting diff might look like this:
 ```
 diff --git ...
 old mode 100644
 new mode 100755
 ```
 
-문제를 방지하려면 Windows에서 권한 검사를 전역적으로 비활성화하는 것이 좋습니다.
+We recommend globally disabling the permission check on Windows to avoid the problem:
 ```sh
 # 머신에 대해 전역적으로 실행 비트 검사를 비활성화합니다.
 git config --global core.fileMode false 
 ```
 
-로컬 설정으로 인하여 이 문제가 발생한 기존 저장소의 경우 추가로:
+For existing repositories that have this problem caused by a local configuration, additionally:
 ```sh
 # 전역 옵션을 적용하려면 이 저장소에 대한 로컬 옵션을 제거합니다.
 git config --unset core.filemode
