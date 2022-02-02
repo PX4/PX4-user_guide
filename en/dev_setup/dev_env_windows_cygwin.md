@@ -21,7 +21,7 @@ To build other targets you will need to use a [different OS](../dev_setup/dev_en
    If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting_started).
    :::
 
-:::note
+:::warning
 At time of writing the installer is missing some dependencies (and cannot yet be rebuilt to add them - see [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
 
 To add these yourself:
