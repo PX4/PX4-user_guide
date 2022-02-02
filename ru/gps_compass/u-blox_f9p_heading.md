@@ -4,16 +4,16 @@ Two u-blox F9P [RTK GPS](../gps_compass/rtk_gps.md) modules mounted on a vehicle
 
 ## Supported Devices
 
-This feature works on F9P devices that expose the GPS UART2 port (access to the port is required for setup).
+This feature works on F9P devices that support CAN or expose the GPS UART2 port.
 
-The following devices are supported for this use case:
+The following devices are supported:
 * [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) (arkelectron.com)
 * [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 * [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 * [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) (store.mrobotics.io)
 
 :::note
-- [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the UART2 port.
+- [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the CAN or UART2 port.
 - Supported devices are also listed in [GPS/Compass > Supported GPS and/or Compass](../gps_compass/README.md#supported-gps-and-or-compass).
 :::
 
@@ -23,7 +23,18 @@ Ideally the two antennas should be identical, on the same level/horizontal plane
 - The application note does not state the minimal required separation between modules (50cm has been used in test vehicles running PX4).
 - The antennas can be positioned as needed, but the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) must be configured: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source).
 
-In overview:
+### CAN Setup
+
+- The CAN port of the GPS devices need to be connected together and one connected to the autopilot.
+- Choose one GPS module to be the *Rover* and the other to be the *Moving Base*.
+  - On the *Rover*, set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `1`.
+  - On the *Moving Base*, set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `2`.
+- [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter bit 7 must be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
+- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) may need to be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
+- Reboot and wait until both devices have GPS reception. `gps status` should then show the *Rover* GPS going into RTK mode, which means the heading angle is available.
+
+### UART Setup
+
 - The UART2 of the GPS devices need to be connected together (TXD2 of the "Moving Base" to RXD2 of the "Rover")
 - Connect UART1 on each of the GPS to (separate) unused UART's on the autopilot, and configure both of them as GPS with baudrate set to `Auto`. The mapping is as follows:
   - Main GPS = Rover
