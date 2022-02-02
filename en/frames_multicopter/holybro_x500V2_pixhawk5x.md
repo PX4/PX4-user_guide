@@ -1,8 +1,12 @@
 # Holybro X500 V2 (Pixhawk 5X Build)
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) and configuring PX4 using *QGroundControl*.
 
-This kit brings the shortest and straightforward assembly experience for those who want to jump into the development on drones and not to put that much time on the hardware. The ARF kit includes the frame,motors, ESCs, propellers and power distribution board. It is compatible with most of the flight controllers. You need to have the flight controller, radio transmitters, GPS and RC controller to have the kit ready to fly. 
+The ARF ("Almost Ready to Fly") kit provides the shortest and straightforward assembly experience for those who want to jump into drone development and not spend that much time on setting up the hardware.
+It includes the frame, motors, ESCs, propellers and power distribution board.
+
+In addition to the kit you will need to have the flight controller, radio transmitters, GPS and RC controller.
+The ARF kit can be used with most flight controllers supported by PX4.
 
 ## Key information
 
@@ -53,7 +57,7 @@ Mounting Rail                 |  Diameter: 10mm length: 250mm                   
 Battery mounting board        |  Thickness: 2mm                                       | 1
 Battery pad                   |  3mm Silicone sheet black                             | 1
 Platform board                |  Thickness: 2mm                                       | 1
-Hanger & rubber ring gasket   |  Inner hole diameter: 10mm black	                    | 8
+Hanger & rubber ring gasket   |  Inner hole diameter: 10mm black                      | 8
 
  ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
 
@@ -64,9 +68,9 @@ Hanger & rubber ring gasket   |  Inner hole diameter: 10mm black	               
 Item Description | Quantity
 --- | ---
 Pixhawk5x & Assorted Cables                                           |  1
-M8N GPS Module	                                                       |  1
+M8N GPS Module                                                        |  1
 Power Module PM02D (with pre-soldered ESC power cables)               |  1
-Motors 2216 KV880（V2 Update)                                         |  4
+Motors 2216 KV880（V2 Update)                                          |  4
 Holybro BLHeli S ESC 20A x4                                           |  1
 433MHz Telemetry Radio / 915MHz Telemetry Radio                       |  1
 
