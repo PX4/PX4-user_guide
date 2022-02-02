@@ -2,7 +2,9 @@
 
 <img style="float:right; width: 200px ; padding: 10px;" src="../../assets/uavcan/uavcan_logo_transparent.png" alt="UAVCAN Logo" /> [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics/peripherals. It uses rugged, differential signalling, and supports firmware upgrades over the bus and status feedback from peripherals.
 
-[UAVCAN](http://uavcan.org)是一个板载网络, 它允许自动驾驶仪连接到航空电子设备。 它支持如下硬件:
+The [videos section](#videos) contains additional information and guides.
+
+:::note PX4 requires an SD card for UAVCAN node allocation and firmware upgrade. It is not used during flight by UAVCAN.
 :::
 
 ## 初始设置
@@ -27,18 +29,19 @@ It supports hardware like:
   - [Ark Flow](ark_flow.md)
 
 
-以下说明提供了一个分步指南, 用于连接和设置通过uavcan连接的电调和GPS的四轮车。 选择的硬件是Pixhawk 2.1、Zubax orrel 20电调和Zubax GNSS GPS模块。
+:::note PX4 does not support UAVCAN servos (at time of writing).
+:::
 
 
 ## 升级节点固件
 
-第一步是将所有启用uavcan的设备与飞行控制器连接。 下图显示了如何连接所有组件。
+All UAVCAN components share the same connection architecture/are wired the same way. Connect all on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes (the order in which the nodes are connected/chained does not matter).
 
 The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.md) and a UAVCAN GNSS.
 
 ![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
 
-接下来, 按照 [UAVCAN配置](../uavcan/node_enumeration.md)中的说明激活固件中的uavcan功能。 断电重连。
+The diagram does not show any power wiring. Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
 
 For more information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
 
@@ -82,6 +85,27 @@ PX4 requires an SD card for UAVCAN node allocation and during firmware update (w
 ### 固件设置
 
 If the PX4 Firmware arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use UAVCAN ESCs. If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
+
+## Videos
+
+Intro to UAVCAN and Practical Example with Setup in QGroundControl!
+
+@[youtube](https://youtu.be/IZMTq9fTiOM)
+
+----
+UAVCAN for drones — PX4 Developer Summit Virtual 2020
+
+@[youtube](https://youtu.be/6Bvtn_g8liU)
+
+----
+
+Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020 @[youtube](https://youtu.be/MwdHwjaXYKs)
+
+----
+UAVCAN: a highly dependable publish-subscribe protocol for hard real-time intravehicular networking  — PX4 Developer Summit Virtual 2019
+
+@[youtube](https://youtu.be/MBtROivYPik)
+
 
 ## Developer Information
 

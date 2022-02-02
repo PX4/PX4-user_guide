@@ -693,6 +693,10 @@ div.frame_variant td, div.frame_variant th {
  <td>S500 with control allocation</td>
  <td>Maintainer: Silvan Fuhrer<p><code>SYS_AUTOSTART</code> = 4018</p></td>
 </tr>
+<tr id="copter_quadrotor_x_holybro_x500_v2">
+ <td>Holybro X500 V2</td>
+ <td>Maintainer: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019</p></td>
+</tr>
 <tr id="copter_quadrotor_x_3dr_solo">
  <td>3DR Solo</td>
  <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 4030</p></td>

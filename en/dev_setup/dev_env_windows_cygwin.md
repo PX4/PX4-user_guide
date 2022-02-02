@@ -21,6 +21,17 @@ To build other targets you will need to use a [different OS](../dev_setup/dev_en
    If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting_started).
    :::
 
+:::warning
+At time of writing the installer is missing some dependencies (and cannot yet be rebuilt to add them - see [PX4-windows-toolchain#31](https://github.com/PX4/PX4-windows-toolchain/issues/31)).
+
+To add these yourself:
+1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
+1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console
+1. Enter the following command in the console:
+   ```
+   pip3 install --user kconfiglib jsonschema future
+   ```
+   :::
 
 <a id="getting_started"></a>
 ## Getting Started
@@ -46,7 +57,7 @@ The toolchain uses a specially configured console window (started by running the
 1. For example, to run JMAVSim:
    ```bash
    # Navigate to PX4-Autopilot repo
-   cd PX4-Autopilot
+   cd Firmware
    # Build and runs SITL simulation with jMAVSim to test the setup
    make px4_sitl jmavsim
    ```
