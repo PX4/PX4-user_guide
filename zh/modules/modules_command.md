@@ -575,17 +575,37 @@ sd_stress [arguments...]
      [-b <val>]  字节数量
                  默认100: 100
 ```
+## serial_passthru
+Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/serial_passthru)
+
+Pass data from one device to another.
+
+This can be used to use u-center connected to USB with a GPS on a serial port.
+
+<a id="serial_passthru_usage"></a>
+
+### Usage
+```
+serial_passthru [arguments...]
+     -e <val>    External device path
+                 values: <file:dev>
+     -d <val>    Internal device path
+                 values: <file:dev>
+     [-b <val>]  Baudrate
+                 default: 115200
+     [-t]        Track the External devices baudrate on internal device
+```
 ## system_time
-源码: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
+Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
 
-### 描述
+### Description
 
-设置和获取系统时间的命令行工具。
+Command-line tool to set and get system time.
 
-### 示例
+### Examples
 
-设置系统时间和回读
+Set the system time and read it back
 ```
 system_time set 1600775044
 system_time get
@@ -597,24 +617,25 @@ system_time get
 ```
 system_time <command> [arguments...]
  Commands:
-   set           设置系统时间，提供一个unix纪元时间格式的时间
+   set           Set the system time, provide time in unix epoch time format
 
-   get           获取系统时间
+   get           Get the system time
 ```
 ## top
-源码: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
 
-监控运行中的进程和它使用的CPU，栈，优先级和状态。<a id="top_usage"></a>
+Monitor running processes and their CPU, stack usage, priority and state
+<a id="top_usage"></a>
 
 ### 用法
 ```
 top [arguments...]
-   once          只打印一次
+   once          print load only once
 ```
 ## usb_connected
-源码: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
+Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
 
-检查 USB 是否连接的实用程序 此前曾在启动脚本中使用过， 返回值为 0 表示 USB 已连接，否则返回 1 。
+Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
 
 ### 用法
@@ -622,37 +643,38 @@ top [arguments...]
 usb_connected [arguments...]
 ```
 ## ver
-源码: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
-打印各种版本信息的工具<a id="ver_usage"></a>
+Tool to print various version information
+<a id="ver_usage"></a>
 
-### 用法
+### Usage
 ```
 ver <command> [arguments...]
  Commands:
-   hw            硬件架构
+   hw            Hardware architecture
 
-   mcu           MCU 信息
+   mcu           MCU info
 
-   git           git 版本信息
+   git           git version information
 
-   bdate         编译日期和时间
+   bdate         Build date and time
 
-   gcc           编译器信息
+   gcc           Compiler info
 
-   bdate         编译日期和时间
+   bdate         Build date and time
 
    px4guid       PX4 GUID
 
-   uri           编译 URI
+   uri           Build URI
 
-   all           打印所有版本
+   all           Print all versions
 
-   hwcmp         比较硬件版本 (匹配时返回0)
-     <hw> [<hw2>] 要与之比较的硬件 (如. PX4_FMU_V4). 如果
-                 指定了多个，则使用或比较
+   hwcmp         Compare hardware version (returns 0 on match)
+     <hw> [<hw2>] Hardware to compare against (eg. PX4_FMU_V4). An OR comparison
+                 is used if multiple are specified
 
-   hwtypecmp     比较硬件类型 (匹配时返回0)
-     <hwtype> [<hwtype2>] 要与之进行比较的硬件类型 (eg. V2). 
-                 如果指定了多个，则使用或比较
+   hwtypecmp     Compare hardware type (returns 0 on match)
+     <hwtype> [<hwtype2>] Hardware type to compare against (eg. V2). An OR
+                 comparison is used if multiple are specified
 ```
