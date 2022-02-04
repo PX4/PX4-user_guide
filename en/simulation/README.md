@@ -200,7 +200,7 @@ The system starts with a "freewheeling" period where the simulation sends sensor
 The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature.
 In this case the simulator and PX4 use the host system time and do not wait on each other.
 
-To disable lockstep in PX4, run `px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
+To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
 
 To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
