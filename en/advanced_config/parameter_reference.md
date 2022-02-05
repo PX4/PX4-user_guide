@@ -16536,10 +16536,24 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
- <td>Altitude for 2. step of slow landing (landing) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED". Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
+ <td>Altitude for 2. step of slow landing (landing) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
  <td>0 > 122 </td>
  <td>5.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="MPC_LAND_ALT3">MPC_LAND_ALT3</strong> (FLOAT)</td>
+ <td>Altitude for 3. step of slow landing <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_CRWL", if LIDAR available. No effect if LIDAR not available</p>   </td>
+ <td>0 > 122 </td>
+ <td>1.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="MPC_LAND_CRWL">MPC_LAND_CRWL</strong> (FLOAT)</td>
+ <td>Land crawl descend rate. Used below    </td>
+ <td>0.3 > ? </td>
+ <td>0.3</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_SPEED">MPC_LAND_SPEED</strong> (FLOAT)</td>
