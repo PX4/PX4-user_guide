@@ -165,9 +165,9 @@ PX4 SITL과 시뮬레이터(jMAVSim 또는 Gazebo)는 *잠금단계*로 실행�
 
 SITL이 이 기능을 지원하지 않는 시뮬레이터와 함께 사용되는 경우에는 잠금단계 시뮬레이션을 비활성화할 수 있습니다. 이 경우 시뮬레이터와 PX4는 호스트 시스템 시간을 사용하며 서로를 기다리지 않습니다.
 
-PX4에서 잠금 단계를 비활성화하려면 [SITL 보드 설정](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/boards/px4/sitl/default.cmake#L104)에서 `set(ENABLE_LOCKSTEP_SCHEDULER no)`를 사용하십시오.
+To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
 
-Gazebo에서 잠금 단계를 비활성화하려면 [모델 SDF 파일](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449)을 편집하여 `<enable_lockstep>false</enable_lockstep>`를 설정합니다. Iris의 경우 [xacro 파일](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/rotors_description/urdf/iris_base.xacro#L22)을 편집합니다.
+To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
 jMAVSim에서 잠금 단계를 비활성화하려면 [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75)에서 `-l`을 제거하거나, Java 바이너리가 `-lockstep` 플래그 없이 시작되었는지 확인하십시오.
 
