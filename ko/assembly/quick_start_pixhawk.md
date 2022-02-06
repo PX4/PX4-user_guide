@@ -96,11 +96,11 @@
 :::
 
 :::tip
-프레임이 기체 참조 목록에 없으면, 올바른 유형의 "일반"기체를 사용하십시오.
+프레임이 기체 참조 정의서에 없으면, 적절한 유형의 "일반"기체를 사용하십시오.
 :::
 
 :::note
-출력 레일은 위의 [전원](#power) 섹션에 언급한 바와 같이 별도의 전원이 공급되어야합니다.
+출력 레일은 위의 [전원](#power) 섹션에 설명한 것과 같이 별도의 전원이 공급되어야합니다.
 :::
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
@@ -111,9 +111,9 @@
 
 ## 설정
 
-더 자세한 일반 구성 정보는 [Autopilot 설정](../config/README.md)편에서 다룹니다.
+더 자세한 일반 설정 방법은 [자동항법장치 설정](../config/README.md)을 참고하십시오.
 
-QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
+QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
