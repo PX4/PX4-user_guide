@@ -63,25 +63,25 @@
 
 <!-- It would be good to have real example of this powering -->
 
-## -- 무선 조종
+## 무선 조종 
 
-무선 조종기는 기체 *수동*제어시에 사용합니다 (PX4에는 자율 비행 모드에서는 무선 조종기가 필수는 아닙니다).
+라디오 리모트 컨트롤(RC)은 기체를 *수동*으로 조작합니다. PX4 자율 비행 모드에는 RC는 필수 요구 사항은 아닙니다.
 
-기체와 조종자가 서로 통신하기 위해 호환되는 송신기/수신기를 선택하고, 송신기와 수신기를 바인드해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
+[호환되는 송신기/수신기를 선택](../getting_started/rc_transmitter_receiver.md)후 *바인딩*을 하여야 통신이 가능합니다. 송신기/수신기의 매뉴얼을 참고하십시오.
 
-아래 지침은 다양한 유형의 수신기의 Pixhawk 연결법을 설명합니다.
+아래 지침은 여러 종류의 수신기를 Pixhawk에 연결한는 방법을 설명합니다.
 
-- Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결하여야 합니다. ![Pixhawk  - Spektrum 수신기용 라디오 포트](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_spektrum.jpg)
+- Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결합니다. ![Pixhawk  - Spektrum 수신기용 라디오 포트](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_spektrum.jpg)
 
-- PPM-SUM 및 S.BUS 수신기는 그림과 같이 **RC** 접지, 전원 및 신호 핀에 연결됩니다. ![Pixhawk  - PPM/S.BUS 수신기용 라디오 포트](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
+- PPM-SUM 및 S.BUS 수신기는 그림과 같이 **RC** 접지, 전원 및 신호 핀에 연결합니다. ![Pixhawk  - PPM/S.BUS 수신기용 라디오 포트](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
-- *각각의 채널이 독립적으로 배선된*PPM/PWM 수신기는 반드시** PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결하여야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
+- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 케이블만 사용합니다.
 
-무선 시스템 선택, 수신기 호환성 및 송신기/수신기 쌍 바인딩에 대한 자세한 내용은 다음을 참조하십시오. [ 원격 제어 송신기 & amp; 수신자 ](../getting_started/rc_transmitter_receiver.md).
+무선 시스템 선택, 수신기 호환성 및 송신기/수신기 바인딩에 대한 자세한 내용은 [원격 제어 송신기 & 수신기](../getting_started/rc_transmitter_receiver.md)를 참고하십시오.
 
 ## 무선 텔레메트리(선택 사항)
 
-무선 텔레메트리는 지상국 프로그램에서 비행중인 차량의 통신/제어에 사용할 수 있습니다 (예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음). 아래 그림과 같이 하나의 무전기를 차량에 연결해야합니다. 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
+무선 텔레메트리는 지상국 프로그램의 비행 차량 통신 제어용입니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음). 아래 그림과 같이 하나의 RC 수신기를 차량에 연결하여야 합니다. 다른 RC 송신기는 지상국 컴퓨터 또는 모바일 장치에 USB를 통하여 연결합니다.
 
 ![Pixhawk/무선 텔레메트리](../../assets/flight_controller/pixhawk1/pixhawk_3dr_telemetry_radio.jpg)
 
@@ -92,7 +92,7 @@
 지원되는 모든 기체의 MAIN/AUX 출력 포트와 모터/서보 간의 매핑은 [기체 정의서](../airframes/airframe_reference.md)에 기술되어 있습니다.
 
 :::caution
-매핑이 프레임간에 일관되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음). 가지고 있는 기체의 프레임에 대해 올바르게 모터를 연결했는지 다시 한 번 확인하십시오.
+매핑이 프레임별로 일정하지지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력의 스로틀에 의존할 수 없음). 해당 기체의 프레임의 정확한 모터 연결 여부를 확인하십시오.
 :::
 
 :::tip
