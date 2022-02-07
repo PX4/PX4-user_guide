@@ -70,7 +70,7 @@ dyn ./hello.px4mod start
 ### 用法
 ```
 dyn [arguments...]
-     <file>      包含模块的文件
+     <file>         包含模块的文件
      [arguments...] 输入模块的参数
 ```
 ## failure
@@ -248,12 +248,12 @@ led_control <command> [arguments...]
 listener <command> [arguments...]
  Commands:
      <topic_name> uORB 主题名
-     [-i <val>]  主题实例序号
-                 默认: 0
-     [-n <val>]  消息数量
-                 默认: 1
-     [-r <val>]  订阅频率 (0为无限制)
-                 默认: 0
+     [-i <val>]   主题实例序号
+                  默认: 0
+     [-n <val>]   消息数量
+                  默认: 1
+     [-r <val>]   订阅频率 (0为无限制)
+                  默认: 0
 ```
 ## mfd
 源码: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
@@ -576,15 +576,15 @@ sd_stress [arguments...]
                  默认100: 100
 ```
 ## serial_passthru
-Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/serial_passthru)
+源码: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/serial_passthru)
 
-Pass data from one device to another.
+把数据从一个设备传输到另一个设备。
 
 This can be used to use u-center connected to USB with a GPS on a serial port.
 
 <a id="serial_passthru_usage"></a>
 
-### Usage
+### 用法
 ```
 serial_passthru [arguments...]
      -e <val>    External device path
@@ -595,15 +595,15 @@ serial_passthru [arguments...]
                  default: 115200
      [-t]        Track the External devices baudrate on internal device
 ```
-## system_time
-Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
+## 系统时间
+源码: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
 
-### Description
+### 描述
 
 Command-line tool to set and get system time.
 
-### Examples
+### 示例
 
 Set the system time and read it back
 ```
@@ -622,7 +622,7 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+源码
 
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
@@ -643,7 +643,7 @@ Utility to check if USB is connected. Was previously used in startup scripts. A 
 usb_connected [arguments...]
 ```
 ## ver
-Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+源码: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
 Tool to print various version information
 <a id="ver_usage"></a>
