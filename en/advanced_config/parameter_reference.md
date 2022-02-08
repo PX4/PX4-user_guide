@@ -16224,16 +16224,16 @@ table {
 </tr>
 <tr>
  <td><strong id="MNT_MODE_IN">MNT_MODE_IN</strong> (INT32)</td>
- <td>Mount input mode <p><strong>Comment:</strong> RC uses the AUX input channels (see MNT_MAN_* parameters), MAVLINK_ROI uses the MAV_CMD_DO_SET_ROI Mavlink message, and MAVLINK_DO_MOUNT the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mount.</p> <strong>Values:</strong><ul>
+ <td>Mount input mode <p><strong>Comment:</strong> This is the protocol used between the ground station and the autopilot. Recommended is Auto, RC only or MAVLink gimbal protocol v2. The rest will be deprecated.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> DISABLED</li> 
 
-<li><strong>0:</strong> AUTO</li> 
+<li><strong>0:</strong> Auto (RC and MAVLink gimbal protocol v2)</li> 
 
 <li><strong>1:</strong> RC</li> 
 
-<li><strong>2:</strong> MAVLINK_ROI (protocol v1)</li> 
+<li><strong>2:</strong> MAVLINK_ROI (protocol v1, to be deprecated)</li> 
 
-<li><strong>3:</strong> MAVLINK_DO_MOUNT (protocol v1)</li> 
+<li><strong>3:</strong> MAVLINK_DO_MOUNT (protocol v1, to be deprecated)</li> 
 
 <li><strong>4:</strong> MAVlink gimbal protocol v2</li> 
 </ul>
@@ -16245,14 +16245,15 @@ table {
 </tr>
 <tr>
  <td><strong id="MNT_MODE_OUT">MNT_MODE_OUT</strong> (INT32)</td>
- <td>Mount output mode <p><strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)</p> <strong>Values:</strong><ul>
+ <td>Mount output mode <p><strong>Comment:</strong> This is the protocol used between the autopilot and a connected gimbal. Recommended is the MAVLink gimbal protocol v2 if the gimbal supports it.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> AUX</li> 
 
 <li><strong>1:</strong> MAVLink gimbal protocol v1</li> 
 
 <li><strong>2:</strong> MAVLink gimbal protocol v2</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> true</p>
+</td>
  <td>0 > 2 </td>
  <td>0</td>
  <td></td>
