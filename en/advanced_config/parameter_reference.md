@@ -18015,6 +18015,14 @@ table {
  <td>0</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="RTPS_RATE">RTPS_RATE</strong> (INT32)</td>
+ <td>Maximum RTPS data rate <p><strong>Comment:</strong> Configure the maximum sending rate for the RTPS streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. 0 is unlimited. Note this can cause reliability issues if enough RTPS topics are selected that exceed the serial bus limit.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>0 > ? </td>
+ <td>0</td>
+ <td>B/s</td>
+</tr>
 </tbody></table>
 
 ## Radio Calibration
