@@ -316,6 +316,37 @@ fake_magnetometer <command> [arguments...]
 
    status        print status info
 ```
+## gimbal
+Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gimbal)
+
+
+### Description
+Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
+
+Documentation how to use it is on the [gimbal_control](https://docs.px4.io/master/en/advanced/gimbal_control.html) page.
+
+### Examples
+Test the output by setting a angles (all omitted axes are set to 0):
+```
+gimbal test pitch -45 yaw 30
+```
+
+<a id="gimbal_usage"></a>
+
+### Usage
+```
+gimbal <command> [arguments...]
+ Commands:
+   start
+
+   test          Test the output: set a fixed angle for one or multiple axes
+                 (gimbal must be running)
+     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
+
+   stop
+
+   status        print status info
+```
 ## gps
 Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
@@ -1083,41 +1114,6 @@ This module is responsible for the tone alarm.
 tone_alarm <command> [arguments...]
  Commands:
    start
-
-   stop
-
-   status        print status info
-```
-## vmount
-Source: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
-
-
-### Description
-Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
-
-Documentation how to use it is on the [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html) page.
-
-### Implementation
-Each method is implemented in its own class, and there is a common base class for inputs and outputs. They are connected via an API, defined by the `ControlData` data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.
-
-### Examples
-Test the output by setting a fixed yaw angle (and the other axes to 0):
-```
-vmount stop
-vmount test yaw 30
-```
-
-<a id="vmount_usage"></a>
-
-### Usage
-```
-vmount <command> [arguments...]
- Commands:
-   start
-
-   test          Test the output: set a fixed angle for one axis (vmount must
-                 not be running)
-     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
 
    stop
 
