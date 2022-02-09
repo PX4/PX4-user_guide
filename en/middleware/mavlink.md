@@ -14,27 +14,28 @@ The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_traject
 
 ## Defining Custom MAVLink Messages
 
-PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink), and generates the MAVLink 2 C library at build time from [/mavlink/messages/1.0/development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml) (by default).
-The dialect that is built is specified using the variable `MAVLINK_DIALECT` in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/CMakeLists.txt#L34).
+PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
+
+There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/).
+The dialect that is built is specified using the variable `MAVLINK_DIALECT` in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/CMakeLists.txt#L34); by default this is [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml).
+The files are generated into the build directory: `/build/<build target>/mavlink/`.
 
 In order to add your message we recommend that you create your messages in a new dialect file in the same directory, for example `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `MAVLINK_DIALECT` to build the new file.
 This dialect file should include `development.xml`.
 
+You can alternatively add your messages to `common.xml` or `development.xml`.
+Whatever dialect file you use must eventually be built in QGroundControl (or whatever software you use to communicate with PX4).
+
+The MAVLink developer guide explains how to define new messages in [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html).
+
+You can check that your new messages are built by inspecting the headers generated in the build directory.
+If your messages are not built they may be incorrectly formatted, or use clashing ids.
+Inspect the build log for information.
+
 :::note
-You might alternatively add your messages to `common.xml` or `development.xml`.
-Either way, remember that the same dialect file must eventually be built in QGroundControl (or whatever software you use to communicate with PX4).
+The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more information about using the MAVLink toolchain.
 :::
 
-The MAVLink developer guide explains how to define new messages and build them into new programming-specific libraries:
-
-- [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html)
-- [Install MAVLink Toolchain](https://mavlink.io/en/getting_started/installation.html)
-- [Generating MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html).
-
-Even though PX4 will build the files for you, you should test that your messages are correctly defined by building your XML file on the command line:
-```sh
-python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated/include/mavlink/v2.0 message_definitions/v1.0/https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml
-```
 
 ## Sending Custom MAVLink Messages
 
