@@ -284,6 +284,15 @@ div.frame_variant td, div.frame_variant th {
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/HexaRotorX.svg"/>
+<table>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+ <tbody>
+<tr>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li></ul></td>
+</tr>
+</tbody></table>
 </div>
 
 <div class="frame_variant">
@@ -294,15 +303,11 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td>Generic Hexarotor x geometry</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
+ <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
 </tr>
 <tr id="copter_hexarotor_x_uvify_draco-r">
  <td>UVify Draco-R</td>
- <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 6002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li></ul></p></td>
-</tr>
-<tr id="copter_hexarotor_x_hex_x_with_control_allocation">
- <td>Hex X with control allocation</td>
- <td>Maintainer: Silvan Fuhrer<p><code>SYS_AUTOSTART</code> = 6003</p></td>
+ <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 6002</p></td>
 </tr>
 </tbody>
 </table>
@@ -603,10 +608,6 @@ div.frame_variant td, div.frame_variant th {
 <tr id="copter_quadrotor_x_nxp_hovergames">
  <td>NXP HoverGames</td>
  <td>Maintainer: Iain Galloway &lt;iain.galloway@nxp.com&gt;<p><code>SYS_AUTOSTART</code> = 4017</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
-</tr>
-<tr id="copter_quadrotor_x_s500_with_control_allocation">
- <td>S500 with control allocation</td>
- <td>Maintainer: Silvan Fuhrer<p><code>SYS_AUTOSTART</code> = 4018</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_x500_v2">
  <td>Holybro X500 V2</td>
