@@ -3,7 +3,7 @@
 PX4 차량의 표준 소프트웨어 설정 방법과 보정 방법에 대하여 설명합니다.
 
 :::note
-이 섹션을 시작하기 전에 [QGroundControl을 다운로드](http://qgroundcontrol.com/downloads/)하고 **데스크톱** 컴퓨터에 설치하여야 합니다. 모바일 플랫폼에서 *QGroundControl*을 사용하여 차량 설정을 할 수 없습니다.
+이 섹션을 시작하기 전에 [QGroundControl을 다운로드](http://qgroundcontrol.com/downloads/)하고 **데스크톱** 컴퓨터에 설치하여야 합니다. 모바일 플랫폼에서는 *QGroundControl*을 사용하여 차량 설정을 할 수 없습니다.
 
 **차량 설정** 화면에 액세스하려면 QGC 애플리케이션 메뉴(왼쪽 상단의 "Q" 아이콘)를 연 다음 *선택 도구* 팝업에서 **차량 설정**을 선택하십시오. 
 
@@ -26,8 +26,8 @@ PX4 차량의 표준 소프트웨어 설정 방법과 보정 방법에 대하여
 * [배터리](../config/battery.md)(선택 사항)
 * [안전 설정](../config/safety.md)(선택 사항)
 * [모터/서보](../config/motors.md)
-* [Actuators](../config/actuators.md)
-* [Autotune](../config/autotune.md)
+* [액츄에이터](../config/actuators.md)
+* [자동 튜닝](../config/autotune.md)
 
 ## 영상 가이드
 
