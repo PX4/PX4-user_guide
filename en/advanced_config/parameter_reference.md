@@ -23076,6 +23076,14 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="ADC_ADS1115_EN">ADC_ADS1115_EN</strong> (INT32)</td>
+ <td>Enable external ADS1115 ADC <p><strong>Comment:</strong> If enabled, the internal ADC is not used.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="BAT1_C_MULT">BAT1_C_MULT</strong> (FLOAT)</td>
  <td>Capacity/current multiplier for high-current capable SMBUS battery    <p><b>Reboot required:</b> true</p>
 </td>
