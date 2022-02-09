@@ -31,18 +31,18 @@ PX4 차량의 표준 소프트웨어 설정 방법과 보정 방법에 대하여
 
 ## 영상 가이드
 
-아래 비디오는 보정 프로세스를 자세히 설명합니다. *QGroundControl*의 이전 버전을 사용하지만 대부분의 프로세스는 동일합니다.
+아래 비디오는 보정 프로세스를 자세히 설명합니다. *QGroundControl*의 버전은 차이가 나지만, 대부분의 프로세스는 유사합니다.
 
 @[유투브](https://youtu.be/91VGmdSlbo4)
 
-## 고급 설정 
+## 고급 설정
 
-[선택한 기체 구성](../config/airframe.md)이 *특정 차량 모델*(예: [Holybro s500](../frames_multicopter/holybro_s500_v2_pixhawk4.md#install-configure-px4))인 경우 미세 조정의 이점을 얻을 수 있지만, 필수 사항은 아닙니다.
+[선택한 기체 구성](../config/airframe.md)이 *특정 차량 모델*(예: [Holybro s500](../frames_multicopter/holybro_s500_v2_pixhawk4.md#install-configure-px4))인 경우 미세 조정이 가능하지만, 필수적이지는 않습니다.
 
 새 기체, "일반" 기체를 사용하거나 기체를 많이 수정하거나 일반적이지 않은 센서를 사용하는 경우에는 다음을 참조하십시오.
 
 * [고급 설정](../advanced_config/README.md): 차량별 조정, 미세 조정, 공장 수준 구성.
-* [비행 콘트롤러 주변 장치](../peripherals/README.md) - 특정 하드웨어(특히 덜 사용되는 센서)와 관련된 하드웨어 및 소프트웨어 설정입니다.
+* [비행 콘트롤러 주변 장치](../peripherals/README.md) - 특정 하드웨어(특히 많이 사용되지 않는 센서)와 관련된 하드웨어 및 소프트웨어 설정입니다.
 
 ## 지원
 
