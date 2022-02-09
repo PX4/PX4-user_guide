@@ -22,7 +22,7 @@ This dialect file should include `development.xml`.
 
 :::note
 You might alternatively add your messages to `common.xml` or `development.xml`.
-Either way, remember that the same dialect file must be eventually be built in QGroundControl (or whatever software you use to communicate with PX4).
+Either way, remember that the same dialect file must eventually be built in QGroundControl (or whatever software you use to communicate with PX4).
 :::
 
 The MAVLink developer guide explains how to define new messages and build them into new programming-specific libraries:
