@@ -135,6 +135,8 @@ You can also download *Pixhawk 5X* pinouts from [here](../../assets/flight_contr
 
 :::note
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
+
+FMU_CAP1 is mapped to camera capture pin (PI0) as referenced [here](http://docs.px4.io/master/en/peripherals/camera.html#camera-capture).
 :::
 
 ## Serial Port Mapping
