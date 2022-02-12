@@ -14859,6 +14859,13 @@ table {
  <td>normalized_thrust/s</td>
 </tr>
 <tr>
+ <td><strong id="HTE_THR_RANGE">HTE_THR_RANGE</strong> (FLOAT)</td>
+ <td>Max deviation from MPC_THR_HOVER <p><strong>Comment:</strong> Defines the range of the hover thrust estimate around MPC_THR_HOVER. A value of 0.2 with MPC_THR_HOVER at 0.5 results in a range of [0.3, 0.7]. Set to a large value if the vehicle operates in varying physical conditions that affect the required hover thrust strongly (e.g. differently sized payloads).</p>   </td>
+ <td>0.01 > 0.4 </td>
+ <td>0.2</td>
+ <td>normalized_thrust</td>
+</tr>
+<tr>
  <td><strong id="HTE_VXY_THR">HTE_VXY_THR</strong> (FLOAT)</td>
  <td>Horizontal velocity threshold for sensitivity reduction <p><strong>Comment:</strong> Above this speed, the measurement noise is linearly increased to reduce the sensitivity of the estimator from biased measurement. Set to a low value on vehicles with large lifting surfaces.</p>   </td>
  <td>1.0 > 20.0 </td>
@@ -23659,6 +23666,14 @@ table {
 <tr>
  <td><strong id="SENS_EN_INA238">SENS_EN_INA238</strong> (INT32)</td>
  <td>Enable INA238 Power Monitor <p><strong>Comment:</strong> For systems a INA238 Power Monitor, this should be set to true</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_IRLOCK">SENS_EN_IRLOCK</strong> (INT32)</td>
+ <td>IR-LOCK Sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
