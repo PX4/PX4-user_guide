@@ -284,3 +284,24 @@ ms5611 <command> [arguments...]
 
    status        print status info
 ```
+## ms5837
+Source: [drivers/barometer/ms5837](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5837)
+
+<a id="ms5837_usage"></a>
+
+### Usage
+```
+ms5837 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+
+   stop
+
+   status        print status info
+```
