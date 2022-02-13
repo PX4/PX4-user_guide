@@ -50,8 +50,8 @@ And sending in the main loop is even simpler:
 dbg.value = position[0];
 orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
-/* somehow the :::caution ::: seem not to be rendered properly (also in other parts of the guide)*/
-:::caution
+
+:::warning
 Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. 
 This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
 :::
