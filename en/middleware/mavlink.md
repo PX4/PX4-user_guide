@@ -159,7 +159,7 @@ Add an uORB publisher in the `MavlinkReceiver` class in
 [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)
 
 ```C
-uORB::Publication<ca_trajectory_s>			_flow_pub{ORB_ID(ca_trajectory)};
+uORB::Publication<ca_trajectory_s>			_ca_traj_msg_pub{ORB_ID(ca_trajectory)};
 ```
 
 Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)
