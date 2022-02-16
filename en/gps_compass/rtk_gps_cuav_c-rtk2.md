@@ -1,7 +1,10 @@
 # CUAV C-RTK2
 
 The [CUAV C-RTK2 receiver](http://doc.cuav.net/gps/c-rtk/en/) is a high-performance PPK/RTK positioning module created by CUAV for professional applications such as drone aerial survey (Mapping).
-It adopts high-precision imu and positioning module; it can reduce more than 80% of control points; it can also be used as an RTK receiver; it can be widely used in aerial surveying and mapping, agricultural plant protection, drone swarms and other application scenarios.
+It has a high-precision IMU and positioning module.
+It can reduce more than 80% of control points.
+it can also be used as an RTK receiver.
+It is suitable for many applictions including: aerial surveying and mapping, agricultural plant protection, drone swarms and other application scenarios.
 
 ![C-RTK2](../../assets/hardware/gps/c-rtk2.png)
 
