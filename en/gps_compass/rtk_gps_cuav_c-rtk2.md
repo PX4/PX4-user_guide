@@ -108,7 +108,7 @@ It is suitable for many applictions including: aerial surveying and mapping, agr
 
 ![C-RTK2](../../assets/hardware/gps/c-rtk2_pinouts0.jpg)
 
-![C-RTK2](../../assets/hardware/gps/rc-rtk2_pinouts2.jpg)
+![C-RTK2](../../assets/hardware/gps/c-rtk2_pinouts2.jpg)
 
 ## More information
 
