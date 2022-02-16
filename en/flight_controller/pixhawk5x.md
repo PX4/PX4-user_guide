@@ -172,6 +172,10 @@ Under these conditions the system will not draw any power (will not be operation
 1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
 1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
+:::note
+If you need analog battery voltage monitoring, you can connect an ADS1115 ADC via I2C, enable it via [ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN) and pull down the nPOWER_IN_A gpio input.
+:::
+
 ## Building Firmware
 
 :::tip
