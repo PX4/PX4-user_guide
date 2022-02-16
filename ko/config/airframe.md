@@ -16,7 +16,7 @@
     
     ![](../../assets/qgc/setup/airframe/airframe_px4.jpg)
     
-    위의 예는 *Hexarotor X* 그룹에서 선택된 *Generic Hexarotor X 기하학*을 보여줍니다.
+    위의 예는 *Hexarotor X* 그룹에서 선택된 *Generic Hexarotor X 프레임들*을 나타냅니다.
 
 4. **적용하고 재시작**을 클릭하십시오. 그 다음 대화 상자에서 **적용**을 클릭하여 설정을 저장하고 기체을 다시 시작하십시오.
     
