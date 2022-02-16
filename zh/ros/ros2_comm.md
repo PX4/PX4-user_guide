@@ -45,7 +45,7 @@ In the near future the intention is to:
 :::
 
 :::warning
-You cannot use an agent generated as part of a "normal" PX4 build with ROS 2 (e.g. if the user uses `BUILD_MICRORTPS_AGENT=1 make px4_sitl_rtps`). While microRTPS client is the same, the IDL files used by ROS 2 are slightly different from the custom ones with generate in PX4. The other detail is that the "normal" PX4 build doesn't use `fastddsgen` with typesupport for ROS 2 networks - and that's also one of the main reasons we have a separate microRTPS agent in `px4_ros_com`, which is completely compatible with ROS 2 networks. We use the `px4_msg` to generate appropriate IDL files for the `micrortps_agent` in `px4_ros_com`.
+You cannot use an agent generated as part of a "normal" PX4 build with ROS 2 (e.g. if the user uses `BUILD_MICRORTPS_AGENT=1 make px4_sitl_rtps`). While microRTPS client is the same, the IDL files used by ROS 2 are slightly different from the [ROS-independent files generated in PX4 builds](../middleware/micrortps.md). The other detail is that the "normal" PX4 build doesn't use `fastddsgen` with typesupport for ROS 2 networks - and that's also one of the main reasons we have a separate microRTPS agent in `px4_ros_com`, which is completely compatible with ROS 2 networks. We use the `px4_msg` to generate appropriate IDL files for the `micrortps_agent` in `px4_ros_com`.
 :::
 
 
