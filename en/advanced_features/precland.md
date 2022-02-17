@@ -127,18 +127,21 @@ PX4 does not explicitly require a [distance sensor](../sensor/rangefinders.md) o
 
 ## Firmware Configuration
 
-Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default.
-They can be included by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)):
+Precision landing requires the modules `irlock` and `landing_target_estimator`.
+These are included in PX4 firmware by default, for most flight controllers.
+
+They are not included by default on FMUv2-based controllers.
+On these, and other boards where they are not included, you can add them by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. as done here for FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)):
 
 ```
 CONFIG_DRIVERS_IRLOCK=y
 CONFIG_MODULES_LANDING_TARGET_ESTIMATOR=y
 ```
 
-The two modules should also be started on system boot.
-For instructions see: [customizing the system startup](../concept/system_startup.md#customizing-the-system-startup).
-
 ## PX4 Configuration (Parameters)
+
+The IR-Lock sensor is disabled by default.
+Enable it by setting [SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) to `1` (true).
 
 [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the target is assumed to be stationary or moving.
 If `LTEST_MODE` is set to moving (e.g. it is installed on a vehicle on which the multicopter is to land), target measurements are only used to generate position setpoints in the precision landing controller.
@@ -149,6 +152,7 @@ Some of the most useful ones are listed below.
 
 Parameter | Description
 --- | ---
+<a id="SENS_EN_IRLOCK"></a>[SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) | IR-LOCK Sensor (external I2C). Disable: `0` (default): Enable: `1`).
 <a id="LTEST_MODE"></a>[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) | Landing target is moving (`0`) or stationary (`1`). Default is moving.
 <a id="PLD_HACC_RAD"></a>[PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD) | Horizontal acceptance radius, within which the vehicle will start descending. Default is 0.2m.
 <a id="PLD_BTOUT"></a>[PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT) | Landing Target Timeout, after which the target is assumed lost. Default is 5 seconds.
