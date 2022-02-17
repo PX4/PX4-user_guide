@@ -131,11 +131,14 @@ The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provid
 
 ![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-You can also download *Pixhawk 5X* pinouts from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
-
 :::note
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 :::
+
+Notes:
+- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
+
 
 ## Serial Port Mapping
 
