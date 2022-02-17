@@ -13193,6 +13193,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>
+ <td>Enable sat info (if available) <p><strong>Comment:</strong> Enable publication of satellite info (ORB_ID(satellite_info)) if possible. Not available on MTK.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="GPS_UBX_DYNMODEL">GPS_UBX_DYNMODEL</strong> (INT32)</td>
  <td>u-blox GPS dynamic platform model <p><strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.</p> <strong>Values:</strong><ul>
 <li><strong>2:</strong> stationary</li> 
