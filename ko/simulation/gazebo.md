@@ -226,7 +226,7 @@ GPS noise is enabled if the target vehicle's SDF file contains a value for the `
    </plugin>
    ```
    * GPS가 있으면, GPS가 활성화된 것입니다. `<gpsNoise>true</gpsNoise>` 줄을 삭제하여 비활성화 됩니다.
-   * 사전 설정되어 있지 않으면, GPS가 비활성화됩니다. 위의 그림과 같이, `gps_plugin` 섹션에 `gpsNoise` 요소를 추가하여 활성화할 수 있습니다.
+   * If it is not present, GPS is disabled. 위의 그림과 같이, `gps_plugin` 섹션에 `gpsNoise` 요소를 추가하여 활성화할 수 있습니다.
 
 PX4는 [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)에 저장된 다수의 [Gazebo Worlds](../simulation/gazebo_worlds.md)를 지원합니다. 기본적으로 Gazebo는 [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world)에 정의된 것처럼 평평한 특징 없는 평면을 표시합니다.
 

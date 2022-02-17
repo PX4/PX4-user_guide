@@ -26,7 +26,8 @@ This is shown in the diagram below.
 ![Architecture with ROS 2](../../assets/middleware/micrortps/architecture_ros2.png)
 
 ROS 2 uses the [`px4_msgs`](https://github.com/PX4/px4_msgs) and [`px4_ros_com`](https://github.com/PX4/px4_ros_com) packages to ensure that matching message definitions are used for creating both the client and the agent code (this is important), and also to remove the requirement for PX4 to be present when building ROS code.
-- `px4_msgs` contains PX4 ROS message definitions. When this project is built it generates the corresponding ROS 2-compatible typesupport, used by ROS 2 nodes, and IDL files, used by `fastddsgen` to generate the microRTPS agent code.
+- `px4_msgs` contains PX4 ROS message definitions.
+  When this project is built it generates the corresponding ROS 2-compatible typesupport, used by ROS 2 nodes, and IDL files, used by `fastddsgen` to generate the microRTPS agent code.
 - `px4_ros_com` contains the microRTPS agent code templates for the agent publishers and subscribers.
   The build process runs a `fastddsgen` instance to generate the code for the `micrortps_agent`, which compiles into a single executable.
 
@@ -50,7 +51,7 @@ In the near future the intention is to:
 
 :::warning
 You cannot use an agent generated as part of a "normal" PX4 build with ROS 2 (e.g. if the user uses `BUILD_MICRORTPS_AGENT=1 make px4_sitl_rtps`).
-While microRTPS client is the same, the IDL files used by ROS 2 are slightly different from the custom ones with generate in PX4.
+While microRTPS client is the same, the IDL files used by ROS 2 are slightly different from the [ROS-independent files generated in PX4 builds](../middleware/micrortps.md).
 The other detail is that the "normal" PX4 build doesn't use `fastddsgen` with typesupport for ROS 2 networks - and that's also one of the main reasons we have a separate microRTPS agent in `px4_ros_com`, which is completely compatible with ROS 2 networks.
 We use the `px4_msg` to generate appropriate IDL files for the `micrortps_agent` in `px4_ros_com`.
 :::

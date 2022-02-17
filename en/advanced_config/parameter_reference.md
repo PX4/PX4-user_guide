@@ -28310,6 +28310,23 @@ table {
 </tr>
 </tbody></table>
 
+## VTOL Takeoff
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="VTO_LOITER_ALT">VTO_LOITER_ALT</strong> (FLOAT)</td>
+ <td>VTOL Takeoff relative loiter altitude <p><strong>Comment:</strong> Altitude relative to home at which vehicle will loiter after front transition.</p>   </td>
+ <td>20 > 300 (1)</td>
+ <td>80</td>
+ <td>m</td>
+</tr>
+</tbody></table>
+
 ## Vehicle Model
 
 <table>

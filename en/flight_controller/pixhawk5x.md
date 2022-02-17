@@ -26,7 +26,7 @@ Thanks to the updated processing power, developers can be more productive and ef
 
 The FMUv5X open standard includes high-performance, low-noise IMUs on board, designed for better stabilization.
 Triple redundant IMU & double redundant barometer on separate buses.
-hen the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 
 An independent LDO powers every sensor set with independent power control.
 A newly designed vibration isolations to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
@@ -131,11 +131,14 @@ The [Pixhawk 5X Wiring Quick Start](../assembly/quick_start_pixhawk5x.md) provid
 
 ![Pixhawk 5X Pinout](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-You can also download *Pixhawk 5X* pinouts from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
-
 :::note
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 :::
+
+Notes:
+- The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
+- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
+
 
 ## Serial Port Mapping
 
