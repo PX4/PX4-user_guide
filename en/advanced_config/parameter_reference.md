@@ -16292,56 +16292,56 @@ table {
  <td>Offset for pitch channel output in degrees    </td>
  <td>-360.0 > 360.0 </td>
  <td>0.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_OFF_ROLL">MNT_OFF_ROLL</strong> (FLOAT)</td>
  <td>Offset for roll channel output in degrees    </td>
  <td>-360.0 > 360.0 </td>
  <td>0.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_OFF_YAW">MNT_OFF_YAW</strong> (FLOAT)</td>
  <td>Offset for yaw channel output in degrees    </td>
  <td>-360.0 > 360.0 </td>
  <td>0.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_PITCH">MNT_RANGE_PITCH</strong> (FLOAT)</td>
  <td>Range of pitch channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>90.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_ROLL">MNT_RANGE_ROLL</strong> (FLOAT)</td>
  <td>Range of roll channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>90.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_YAW">MNT_RANGE_YAW</strong> (FLOAT)</td>
  <td>Range of yaw channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>360.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_PITCH">MNT_RATE_PITCH</strong> (FLOAT)</td>
  <td>Angular pitch rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-pitch rate..pitch rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
- <td></td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_YAW">MNT_RATE_YAW</strong> (FLOAT)</td>
  <td>Angular yaw rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-yaw rate..yaw rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
- <td></td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MNT_RC_IN_MODE">MNT_RC_IN_MODE</strong> (INT32)</td>
