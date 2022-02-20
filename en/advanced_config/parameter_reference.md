@@ -16158,6 +16158,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MNT_LND_P_MAX">MNT_LND_P_MAX</strong> (FLOAT)</td>
+ <td>Pitch maximum when landed    </td>
+ <td>-90.0 > 90.0 </td>
+ <td>90.0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="MNT_LND_P_MIN">MNT_LND_P_MIN</strong> (FLOAT)</td>
+ <td>Pitch minimum when landed    </td>
+ <td>-90.0 > 90.0 </td>
+ <td>-90.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="MNT_MAN_PITCH">MNT_MAN_PITCH</strong> (INT32)</td>
  <td>Auxiliary channel to control pitch (in AUX input or manual mode)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li> 
