@@ -40,11 +40,11 @@ setting something to NaN means that no limit is provided
 - [distance_sensor](distance_sensor.md) — DISTANCE_SENSOR message data
 - [ekf2_timestamps](ekf2_timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2.
 It can be used for reproducible replay.
-- [ekf_gps_drift](ekf_gps_drift.md)
 - [esc_report](esc_report.md)
 - [esc_status](esc_status.md)
 - [estimator_baro_bias](estimator_baro_bias.md)
 - [estimator_event_flags](estimator_event_flags.md)
+- [estimator_gps_status](estimator_gps_status.md)
 - [estimator_innovations](estimator_innovations.md)
 - [estimator_optical_flow_vel](estimator_optical_flow_vel.md)
 - [estimator_selector_status](estimator_selector_status.md)
