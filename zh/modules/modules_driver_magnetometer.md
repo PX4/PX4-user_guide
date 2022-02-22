@@ -283,8 +283,6 @@ rm3100 <command> [arguments...]
      [-R <val>]  Rotation
                  default: 0
 
-   reset
-
    stop
 
    status        print status info
