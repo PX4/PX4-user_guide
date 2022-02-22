@@ -23422,19 +23422,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)</td>
- <td>PCF8583 rotorfreq (i2c) i2c address  <strong>Values:</strong><ul>
-<li><strong>80:</strong> Address 0x50 (80)</li> 
-
-<li><strong>81:</strong> Address 0x51 (81)</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>80</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)</td>
  <td>PCF8583 rotorfreq (i2c) pulse count <p><strong>Comment:</strong> Nmumber of signals per rotation of actuator</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -23759,6 +23746,19 @@ table {
 </td>
  <td></td>
  <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_PCF8583">SENS_EN_PCF8583</strong> (INT32)</td>
+ <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Eneabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 1 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
