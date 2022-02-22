@@ -4,8 +4,9 @@
 - [Source: [drivers/distance_sensor/pga460](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460)](modules_driver_distance_sensor.md)
 - [Airspeed Sensor](modules_driver_airspeed_sensor.md)
 - [Baro](modules_driver_baro.md)
-- [光流](modules_driver_optical_flow.md)
-- [磁力计](modules_driver_magnetometer.md)
+- [Rpm Sensor](modules_driver_rpm_sensor.md)
+- [Optical Flow](modules_driver_optical_flow.md)
+- [Magnetometer](modules_driver_magnetometer.md)
 
 ## adc
 Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
@@ -675,29 +676,6 @@ pca9685_pwm_out <command> [arguments...]
                  default: 1
      [-r <val>]  schedule rate limit
                  default: 400
-
-   stop
-
-   status        print status info
-```
-## pcf8583
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
-
-<a id="pcf8583_usage"></a>
-
-### Usage
-```
-pcf8583 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 80
 
    stop
 
