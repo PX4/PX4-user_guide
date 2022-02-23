@@ -22,6 +22,9 @@ It supports hardware like:
   - [ARK RTK GPS](../uavcan/ark_rtk_gps.md)
   - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
+  - [CUAV NEO v2 Pro GNSS](https://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)
+  - [CUAV NEO 3 Pro GNSS](https://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)
+  - [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk2.md)
 - Power monitors
   - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
   - [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
