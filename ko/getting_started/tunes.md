@@ -148,6 +148,8 @@
 
 - Home position initialised (first time only).
 
-#### Power Off Tune
+#### Power Off Tune<audio controls> <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+
+- Vehicle powering off.
 
 <!--19, POWER_OFF -->
