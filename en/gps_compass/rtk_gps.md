@@ -15,6 +15,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 
 The RTK compatible devices below that are expected to work with PX4 (it omits discontined devices).
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
+It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
 GPS | Yaw Output | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) | PPK
 :--- | :---: | :---: | :---: | :---:

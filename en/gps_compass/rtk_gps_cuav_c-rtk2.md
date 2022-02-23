@@ -1,11 +1,10 @@
-# CUAV C-RTK2
+# CUAV C-RTK2 GNSS Module (RTK/PPK)
 
-The [CUAV C-RTK2 receiver](http://doc.cuav.net/gps/c-rtk/en/) is a high-performance PPK/RTK positioning module created by CUAV for professional applications such as drone aerial survey (Mapping).
-It has a high-precision IMU and positioning module.
-It can reduce more than 80% of [control points](https://www.youtube.com/watch?v=3k7v5aXyuKQ).
-It is suitable for many applictions including: aerial surveying and mapping, agricultural plant protection, drone swarms and other application scenarios.
+The [CUAV C-RTK2 receiver](http://doc.cuav.net/gps/c-rtk/en/) is a high-performance PPK/RTK positioning module created by CUAV for professional applications such as drone aerial surveying and mapping.
+It has a high-precision IMU and positioning module, and can reduce the number of required [control points](https://www.youtube.com/watch?v=3k7v5aXyuKQ) by more than to 80%.
+In addition to surveying/mapping, it is suitable for many other use-cases, including: agricultural plant protection and drone swarms.
 
-![C-RTK2](../../assets/hardware/gps/c-rtk2.png)
+![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2.png)
 
 ## Other characteristics
 
@@ -19,8 +18,8 @@ It is suitable for many applictions including: aerial surveying and mapping, agr
 
 ## Purchase
 
-* [cuav Store](https://store.cuav.net/shop/c-rtk-2/)
-* [cuav aliexpress](https://pt.aliexpress.com/item/1005003754165772.html?spm=a2g0o.store_pc_groupList.8148356.13.2f893550i0NE4o)
+* [CUAV Store](https://store.cuav.net/shop/c-rtk-2/)
+* [CUAV aliexpress](https://pt.aliexpress.com/item/1005003754165772.html?spm=a2g0o.store_pc_groupList.8148356.13.2f893550i0NE4o)
 
 # Quick Summary
 
@@ -99,16 +98,17 @@ It is suitable for many applictions including: aerial surveying and mapping, agr
   
 ## Configuration
 
-[CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html) will guide you through it.
+[CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/quick-start-c-rtk2.html)
 
 ## Pinout
 
-![C-RTK2](../../assets/hardware/gps/c-rtk2_pinouts1.jpg)
+![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts1.jpg)
 
-![C-RTK2](../../assets/hardware/gps/c-rtk2_pinouts0.jpg)
+![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts0.jpg)
 
-![C-RTK2](../../assets/hardware/gps/c-rtk2_pinouts2.jpg)
+![C-RTK2](../../assets/hardware/gps/cuav_rtk2/c-rtk2_pinouts2.jpg)
 
 ## More information
 
 [CUAV Docs](https://doc.cuav.net/gps/c-rtk2/en/)
+

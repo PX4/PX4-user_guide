@@ -1,7 +1,7 @@
 # GPS & Compass
 
 PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
-It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+It also supports [Real Time Kinematic (RTK) ](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GPS Receivers, which extend GPS systems to centimetre-level precision.
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
@@ -23,14 +23,14 @@ On small vehicles an external compass is almost always required.
 PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
 This list contains GNSS/Compass units that have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
-Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | PPK(Post-Processing Kinematic) 
-:--- | :---: | :---:  | :---:  | :---:  | :---: 
+Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | PPK
+:--- | :---: | :---:  | :---:  | :---:  | :---: | :---:
 [ARK GPS](https://arkelectron.com/product/ark-gps/) | M9N  | ICM42688p | | | |
 [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) | F9P  | ICM42688p | &check; | | &check; |
 [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) | SAM-M8Q | MMC5983MA | | | |
 [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | &cross; | &check; | | | | 
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | &check; | | |
-[CUAV C-RTK2  PPK and RTK](../gps_compass/rtk_gps_cuav_c-rtk.md) | F9P | RM3100 | &check; | | | &check;
+[CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk.md) | F9P | RM3100 | &check; | | | &check;
 [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md) | M8N | ICM20948 | | | |
 [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) | M8P | HMC5983 | &check; | | |
 [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) | M8P | ICM20948 | &check; | | |
@@ -71,7 +71,7 @@ Instructions for connecting the GPS (and compass, if present) are usually provid
 
 [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers typically have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). 
 
-The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2),[CUAV C-RTK2](https://store.cuav.net/shop/c-rtk-2/), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
+The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
 
 
 :::warning
