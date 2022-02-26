@@ -14072,22 +14072,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CA_STDVTOL_N_P">CA_STDVTOL_N_P</strong> (INT32)</td>
- <td>Number of fixed wing (pusher/puller) motors  <strong>Values:</strong><ul>
-<li><strong>1:</strong> 1</li> 
-
-<li><strong>2:</strong> 2</li> 
-
-<li><strong>3:</strong> 3</li> 
-
-<li><strong>4:</strong> 4</li> 
-</ul>
-  </td>
- <td></td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="CA_SV0_SLEW">CA_SV0_SLEW</strong> (FLOAT)</td>
  <td>Servo 0 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
  <td>0 > 10 (0.05)</td>
