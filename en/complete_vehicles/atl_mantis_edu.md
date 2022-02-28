@@ -11,10 +11,6 @@ The ATL Mantis EDU is currently work in progress. Use with caution.
 The updated vehicle is an ideal education platform for developing and testing [MAVSDK](https://mavsdk.mavlink.io/) applications that can run effectively on a ground station (_Mantis-G_ does not have an onboard companion computer).
 It can also be used for developing and testing PX4 autopilot software, including optical flow.
 
-:::warning
-Restoring the original Yuneec vehicle firmware is not possible.
-:::
-
 :::note
 If you have any problems, please first check [Troubleshooting/FAQ](#troubleshooting-fqa). And if the problem persists, ask on the [Support channels](../contribute/support.md) of PX4!
 :::
@@ -70,6 +66,10 @@ make atl_mantis-edu upload_wifi
 Make sure to have an SD card inserted for this.
 :::
 
+:::note
+You can't upgrade the Firmware via QGC neither! TODO : reason.
+:::
+
 #### Upload using the SD card
 
 The built firmware can be found in `build/atl_mantis-edu_default/atl_mantis-edu_default.px4`.
@@ -122,6 +122,19 @@ Video is streamed at 1280x720 at 30 Hz over RTSP.
 QGC should connect automatically, as Mantis broadcasts the stream parameters using the [VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#VIDEO_STREAM_INFORMATION) MAVLink message.
 
 If you want to connect manually, you can do so on `rtsp://192.168.42.1:554/live`.
+
+## Photo and Video Recording
+
+There are 3 main control interfaces on the remote for controlling the camera :
+- Slider on the left hand side for gimbal pitch control (points camera up and down)
+- Video recording button on the left hand side : Starts & Stops video recording
+- Photo button on the right hand side : Takes a photo
+
+### Footage retrieval
+
+Turn on the Mantis, then connect the USB-C cable to the computer, and then it will be recognised as a 'storage device' (7.6 GB Volume). Inside that, check the `DCIM` Folder for the footages.
+
+
 
 
 ## Troubleshooting/FAQ
