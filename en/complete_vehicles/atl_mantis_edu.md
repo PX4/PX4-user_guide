@@ -52,8 +52,11 @@ If you don't have the PX4 Development Environment, check out [this page](../dev_
 :::
 
 ### Upload/flash the PX4 Firmware
-
 There are two ways to update the firmware:
+
+:::note
+Mantis Edu does NOT support firmware upgrade through USB-C connection, since the USB port is not connected to the FMU.
+:::
 
 #### Upload while connected to the Mantis' WiFi:
 
@@ -135,8 +138,6 @@ There are 3 main control interfaces on the remote for controlling the camera :
 Turn on the Mantis, then connect the USB-C cable to the computer, and then it will be recognised as a 'storage device' (7.6 GB Volume). Inside that, check the `DCIM` Folder for the footages.
 
 
-
-
 ## Troubleshooting/FAQ
 
 ### MAVLink and the camera don't connect even though WiFi is connected
@@ -173,6 +174,14 @@ No, this is not possible, unless you have a special cable.
 
 You can however, copy the `build/atl_mantis-edu_default/atl_mantis-edu_default.px4` file on SD card and rename it to `autopilot.px4`.
 If you then power up the Mantis, it will flash the file automatically.
+
+### SD card logging isn't working even though the setting is to log 'from startup until shutdown'
+
+Unfortunately the Mantis FMU (Flight Management Unit) can't write to the SD card directly. The actual logging is being done via Camera processor (to which FMU streams the log), which is hard-coded to log from when the vehicle is armed, until it's disarmed.
+
+Therefore, currently there is no way for a user to control how the logging should behave, and changes in the SD card logging mode will not take into affect. And the `logger` module won't behave as in normal PX4 Vehicles (You can't manually start logging via `logger on` for example).
+
+More Info : The `/fs/microsd` you can view in the MavLink console is not the actual SD card, but another Memory located inside the drone.
 
 ## What is open-source?
 
