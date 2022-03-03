@@ -5,6 +5,11 @@ It is currently enabled for multicopter, fixed wing, and hybrid VTOL fixed wing 
 
 Tuning only needs to be done once, and is recommended unless unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
 
+:::note
+The QGroundControl Autotuning UI is not enabled for Fixed wing vehicles - see [qgroundcontrol#10194](https://github.com/mavlink/qgroundcontrol/issues/10194) (though it is for VTOL vehicles in fixed wing flight).
+You can start Fixed-wing autotuning by setting the parameter [FW_AT_START](../advanced_config/parameter_reference.md#FW_AT_START).
+:::
+
 :::warning
 Auto-tuning is performed while flying.
 The airframe must fly well enough handle moderate disturbances, and should be closely attended:
