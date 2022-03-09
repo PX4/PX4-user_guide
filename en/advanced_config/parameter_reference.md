@@ -10876,13 +10876,6 @@ table {
  <td>%</td>
 </tr>
 <tr>
- <td><strong id="COM_REARM_GRACE">COM_REARM_GRACE</strong> (INT32)</td>
- <td>Rearming grace period <p><strong>Comment:</strong> Re-arming grace allows to rearm the drone with manual command without running prearmcheck during 5 s after disarming.</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
  <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Hold</li> 
