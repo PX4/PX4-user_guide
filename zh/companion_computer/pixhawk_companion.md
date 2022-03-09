@@ -1,36 +1,28 @@
 # Pixhawk系列的配套计算机
 
-Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只有一种：通过串口2 `TELEM 2`。 消息格式是MAVLINK。
+PX4 can connect to companion computers (Raspberry Pi, Odroid, Tegra K1, etc.) using any configurable serial port, including the Ethernet port (if supported). Message are sent over the link using the [MAVLink](https://mavlink.io/en/) protocol.
 
 ## Pixhawk设置
 
-在 任何 [可配置的串口 ](https://docs.px4.io/en/peripherals/serial_configuration.html)上使能MAVLink消息。
+PX4 is configured by default to connect to a companion computer connected to the `TELEM 2` serial port. No additional PX4-side configuration should be required if you use this port
 
-:::tip
-Typically the `TELEM 2` port is used for a companion computer.
-:::
-
-更多信息，请参考 [MAVLink Peripherals (GCS/OSD/Companion)](https://docs.px4.io/en/peripherals/mavlink_peripherals.html)。
-* [MAV_1_CONFIG](../advanced/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG`总是配置为 `TELEM 2` 端口)
-* [MAV_1_MODE](../advanced/parameter_reference.md#MAV_1_MODE) = `Onboard`
-* [SER_TEL2_BAUD](../advanced/parameter_reference.md#SER_TEL2_BAUD) = `921600`（建议在像日志流或FastRTPS之类的应用，使用 921600 或更高）
-
-更多信息，请参考 [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)。
-
+To enable MAVLink to connect on another port see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
 
 ## 配套计算机设置
 
-按照以下说明连接串行端口。 所有 pixhawk 串行端口都以 3.3 v 电平工作，同时与5v 电平兼容。
+In order to receive MAVLink, the companion computer needs to run some software talking to the serial port. The most common options are:
 
-  * [MAVROS](../ros/mavros_installation.md) 与ros 节点通信
-  * C/C++ example code </0> 连接自定义代码
-  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](http://mavproxy.org) to route MAVLink between serial and UDP
+  * [MAVROS](../ros/mavros_installation.md) to communicate to ROS nodes
+  * [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) to connect custom code
+  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](https://ardupilot.org/mavproxy/) to route MAVLink between serial and UDP
 
-## 硬件设置
 
-安全的选择是使用 ftdi 芯片 usb 到串行适配器板和下面的接线方式。 这种方式有效且容易设置。
+### Serial Port Hardware Setup
 
-在 linux 上, usb ftdi 的默认名称将类似于 `\dev\ttyUSB0`。 如果您在 usb 或 arduino 上连接了第二个 ftdi, 它将注册为 `\dev\ttyUSB1`。 为了避免第一次插入和第二个插头之间的混淆, 我们建议您创建一个从 `ttyUSBx` 到友好名称的符号链接, 具体取决于 usb 设备的供应商和产品 ID。
+If you're connecting using a serial port, wire the port according to the instructions below. All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
+
+:::warning
+Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. Use a level shifter. In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
 :::
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
@@ -44,11 +36,11 @@ The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring b
 | 5      | 5 | RTS（输出） | 2               |
 | 6      | 6 | GND     | 1               |
 
-## Linux系统上的软件设置
+### Serial Port Software setup on Linux
 
 On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`. If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device.
 
-Pixhawk 是 `Bus 003 Device 005: ID 26ac:0011`
+Using `lsusb` we can get the vendor and product IDs.
 
 ```sh
 $lsusb
@@ -66,9 +58,9 @@ $lsusb
     Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-最终，我们可以在文件中创建一个新的UDEV规则，文件名是`/etc/udev/rules.d/99-pixhawk.rules` 。 文件能把idVendor和idProduct改成你的。
+The Arduino is `Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC ACM)`
 
-最后, 在 **reboot** 后, 您可以确定您的设备名, 并将 `/dev/ttyPixhawk`替换掉在脚本中的 `/dev/ttyUSB0`。
+The Pixhawk is `Bus 003 Device 005: ID 26ac:0011`
 
 :::note
 If you do not find your device, unplug it, execute `lsusb`, plug it, execute `lsusb` again and see the added device.
