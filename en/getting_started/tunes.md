@@ -6,7 +6,9 @@ The set of standard sounds are listed below.
 
 :::note
 **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module.
+You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACHUTE_RELEASE)
 :::
+
 
 ## Boot/Startup
 
@@ -20,14 +22,17 @@ These tunes are played during the boot sequence.
   <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- tune: 1, STARTUP -->
 
 - microSD card successfully mounted (during boot).
 
 #### Error Tune
+
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- tune 2, ERROR_TUNE -->
 
 - Hard fault has caused a system reboot.
 - System set to use PX4IO but no IO present.
@@ -42,6 +47,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 14, SD_INIT (previously tune 16) -->
 
 - Formatting microSD card. 
 - Mounting failed (if formatting succeeds boot sequence will try to mount again).
@@ -54,8 +60,10 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 15, SD_ERROR (previously 17) -->
 
 - Formatting microSD card failed (following previous attempt to mount card).
+
 
 ####  Program PX4IO
 
@@ -63,6 +71,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 16, PROG_PX4IO (previously id 18) -->
 
 - Starting to program PX4IO.
 
@@ -72,6 +81,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 17, PROG_PX4IO_OK (previously tune 19) -->
 
 - PX4IO programming succeeded.
 
@@ -81,6 +91,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 18, PROG_PX4IO_ERR (previously tune 20) -->
 
 - PX4IO programming failed.
 - PX4IO couldn't start.
@@ -91,12 +102,14 @@ Your browser does not support the audio element.
 
 These tones/tunes are emitted during normal operation.
 
-<span id="error_tune_operational"></span>
+<a id="error_tune_operational"></a>
 #### Error Tune
+
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 2, ERROR_TUNE -->
 
 - RC Loss
 
@@ -106,6 +119,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 3, NOTIFY_POSITIVE -->
 
 - Calibration succeeded.
 - Successful mode change.
@@ -118,6 +132,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 4, NOTIFY_NEUTRAL -->
 
 - Mission is valid and has no warnings.
 - Airspeed calibration: supply more air pressure, or calibration complete.
@@ -129,6 +144,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 5, NOTIFY_NEGATIVE -->
 
 - Calibration failed.
 - Calibration already completed.
@@ -143,9 +159,9 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 6, ARMING_WARNING -->
 
 - Vehicle is now armed.
-
 
 #### Arming Failure Tune
 
@@ -153,7 +169,9 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 10, ARMING_FAILURE -->
 
+- Arming failed
 
 #### Battery Warning Slow
 
@@ -161,6 +179,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 7,  BATTERY_WARNING_SLOW -->
 
 - Low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
 
@@ -170,6 +189,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 8, BATTERY_WARNING_FAST -->
 
 - Critical low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
 
@@ -180,7 +200,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
-
+<!-- 9,  GPS_WARNING -->
 
 #### Parachute Release
 
@@ -188,28 +208,10 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 11, PARACHUTE_RELEASE -->
 
-<!-- Does not appear to be used: TONE_PARACHUTE_RELEASE_TUNE -->
+- Parachute release triggered.
 
-
-#### EKF Warning
-
-<audio controls>
-  <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<!-- Does not appear to be used: TONE_EKF_WARNING_TUNE -->
-
-
-#### Baro Warning
-
-<audio controls>
-  <source src="../../assets/tunes/13_baro_warning.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<!-- Does not appear to be used: TONE_BARO_WARNING_TUNE -->
 
 #### Single Beep
 
@@ -217,6 +219,7 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 12, SINGLE_BEEP (previously was id 14 -->
 
 - Magnetometer/Compass calibration: Notify user to start rotating vehicle.
 
@@ -226,8 +229,17 @@ Your browser does not support the audio element.
   <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+<!-- 13, HOME_SET (previously id 15) -->
 
 - Home position initialised (first time only).
 
+#### Power Off Tune
 
+<audio controls>
+  <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
 
+- Vehicle powering off.
+
+<!--19, POWER_OFF -->

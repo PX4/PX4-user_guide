@@ -10876,13 +10876,6 @@ table {
  <td>%</td>
 </tr>
 <tr>
- <td><strong id="COM_REARM_GRACE">COM_REARM_GRACE</strong> (INT32)</td>
- <td>Rearming grace period <p><strong>Comment:</strong> Re-arming grace allows to rearm the drone with manual command without running prearmcheck during 5 s after disarming.</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
  <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Hold</li> 
@@ -13193,6 +13186,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>
+ <td>Enable sat info (if available) <p><strong>Comment:</strong> Enable publication of satellite info (ORB_ID(satellite_info)) if possible. Not available on MTK.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="GPS_UBX_DYNMODEL">GPS_UBX_DYNMODEL</strong> (INT32)</td>
  <td>u-blox GPS dynamic platform model <p><strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.</p> <strong>Values:</strong><ul>
 <li><strong>2:</strong> stationary</li> 
@@ -14061,22 +14062,6 @@ table {
  </td>
  <td>0 > 255 </td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="CA_STDVTOL_N_P">CA_STDVTOL_N_P</strong> (INT32)</td>
- <td>Number of fixed wing (pusher/puller) motors  <strong>Values:</strong><ul>
-<li><strong>1:</strong> 1</li> 
-
-<li><strong>2:</strong> 2</li> 
-
-<li><strong>3:</strong> 3</li> 
-
-<li><strong>4:</strong> 4</li> 
-</ul>
-  </td>
- <td></td>
- <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -16150,6 +16135,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MNT_LND_P_MAX">MNT_LND_P_MAX</strong> (FLOAT)</td>
+ <td>Pitch maximum when landed    </td>
+ <td>-90.0 > 90.0 </td>
+ <td>90.0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="MNT_LND_P_MIN">MNT_LND_P_MIN</strong> (FLOAT)</td>
+ <td>Pitch minimum when landed    </td>
+ <td>-90.0 > 90.0 </td>
+ <td>-90.0</td>
+ <td>deg</td>
+</tr>
+<tr>
  <td><strong id="MNT_MAN_PITCH">MNT_MAN_PITCH</strong> (INT32)</td>
  <td>Auxiliary channel to control pitch (in AUX input or manual mode)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li> 
@@ -16284,56 +16283,56 @@ table {
  <td>Offset for pitch channel output in degrees    </td>
  <td>-360.0 > 360.0 </td>
  <td>0.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_OFF_ROLL">MNT_OFF_ROLL</strong> (FLOAT)</td>
  <td>Offset for roll channel output in degrees    </td>
  <td>-360.0 > 360.0 </td>
  <td>0.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_OFF_YAW">MNT_OFF_YAW</strong> (FLOAT)</td>
  <td>Offset for yaw channel output in degrees    </td>
  <td>-360.0 > 360.0 </td>
  <td>0.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_PITCH">MNT_RANGE_PITCH</strong> (FLOAT)</td>
  <td>Range of pitch channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>90.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_ROLL">MNT_RANGE_ROLL</strong> (FLOAT)</td>
  <td>Range of roll channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>90.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_YAW">MNT_RANGE_YAW</strong> (FLOAT)</td>
  <td>Range of yaw channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>360.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_PITCH">MNT_RATE_PITCH</strong> (FLOAT)</td>
  <td>Angular pitch rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-pitch rate..pitch rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
- <td></td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_YAW">MNT_RATE_YAW</strong> (FLOAT)</td>
  <td>Angular yaw rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-yaw rate..yaw rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
- <td></td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MNT_RC_IN_MODE">MNT_RC_IN_MODE</strong> (INT32)</td>
@@ -23400,19 +23399,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)</td>
- <td>PCF8583 rotorfreq (i2c) i2c address  <strong>Values:</strong><ul>
-<li><strong>80:</strong> Address 0x50 (80)</li> 
-
-<li><strong>81:</strong> Address 0x51 (81)</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>80</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)</td>
  <td>PCF8583 rotorfreq (i2c) pulse count <p><strong>Comment:</strong> Nmumber of signals per rotation of actuator</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -23737,6 +23723,19 @@ table {
 </td>
  <td></td>
  <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_PCF8583">SENS_EN_PCF8583</strong> (INT32)</td>
+ <td>PCF8583 eneable driver <p><strong>Comment:</strong> Run PCF8583 driver automatically</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Eneabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 1 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -28307,6 +28306,23 @@ table {
  <td>0.0 > 3.0 (0.01)</td>
  <td>1.0</td>
  <td>Hz</td>
+</tr>
+</tbody></table>
+
+## VTOL Takeoff
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="VTO_LOITER_ALT">VTO_LOITER_ALT</strong> (FLOAT)</td>
+ <td>VTOL Takeoff relative loiter altitude <p><strong>Comment:</strong> Altitude relative to home at which vehicle will loiter after front transition.</p>   </td>
+ <td>20 > 300 (1)</td>
+ <td>80</td>
+ <td>m</td>
 </tr>
 </tbody></table>
 

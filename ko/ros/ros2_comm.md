@@ -22,7 +22,7 @@ ROS 2의 애플리케이션 파이프라인은 기본 통신 미들웨어(DDS/RT
 ![ROS 2를 사용한 아키텍처](../../assets/middleware/micrortps/architecture_ros2.png)
 
 ROS 2는 [`px4_msgs`](https://github.com/PX4/px4_msgs) 및 [`px4_ros_com`](https://github.com/PX4/px4_ros_com) 패키지를 사용하여 일치하는 메시지 정의가 클라이언트와 에이전트 코드를 생성하는 데 사용되는지 확인하고(중요함), ROS 코드를 빌드시에는 PX4가 있어야 합니다.
-- `px4_msgs`에는 PX4 클라이언트 메시지 정의가 포함됩니다. 이 프로젝트가 빌드되면 해당 ROS 2 호환 IDL 파일이 생성됩니다.
+- `px4_msgs` contains PX4 ROS message definitions. When this project is built it generates the corresponding ROS 2-compatible typesupport, used by ROS 2 nodes, and IDL files, used by `fastddsgen` to generate the microRTPS agent code.
 - `px4_ros_com` contains the microRTPS agent code templates for the agent publishers and subscribers. The build process runs a `fastddsgen` instance to generate the code for the `micrortps_agent`, which compiles into a single executable.
 
 PX4 Autopilot 프로젝트는 (마스터 분기에서) 변경될 때마다, 새 메시지 정의로 [`px4_msgs`](https://github.com/PX4/px4_msgs)를 자동으로 업데이트합니다.
@@ -44,7 +44,7 @@ PX4에서 ROS 2를 설정하려면 다음이 필요합니다.
 :::
 
 :::note
-최신 종속성을 확인하려면 가이드를 확인하십시오. 올바른 버전의 **Fast RTPS(DDS)** 및 **Fast-RTPS-Gen이 설치될 때까지, 이 가이드를 계속 진행할 수 없습니다. The other detail is that the "normal" PX4 build doesn't use `fastddsgen` with typesupport for ROS 2 networks - and that's also one of the main reasons we have a separate microRTPS agent in `px4_ros_com`, which is completely compatible with ROS 2 networks. We use the `px4_msg` to generate appropriate IDL files for the `micrortps_agent` in `px4_ros_com`.
+최신 종속성을 확인하려면 가이드를 확인하십시오. While microRTPS client is the same, the IDL files used by ROS 2 are slightly different from the [ROS-independent files generated in PX4 builds](../middleware/micrortps.md). The other detail is that the "normal" PX4 build doesn't use `fastddsgen` with typesupport for ROS 2 networks - and that's also one of the main reasons we have a separate microRTPS agent in `px4_ros_com`, which is completely compatible with ROS 2 networks. We use the `px4_msg` to generate appropriate IDL files for the `micrortps_agent` in `px4_ros_com`.
 :::
 
 

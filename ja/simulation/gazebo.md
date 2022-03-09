@@ -231,7 +231,7 @@ The SDF files are not overwritten on subsequent builds.
    </plugin>
    ```
    * If it is present, GPS is enabled. You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
-   * If it is not preset GPS is disabled. You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
+   * If it is not present, GPS is disabled. You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
 
 The next time you build/restart Gazebo it will use the new GPS noise setting.
 

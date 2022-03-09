@@ -4,8 +4,9 @@
 - [거리 센서](modules_driver_distance_sensor.md)
 - [항속 센서](modules_driver_airspeed_sensor.md)
 - [기압계](modules_driver_baro.md)
-- [광류 센서](modules_driver_optical_flow.md)
-- [지자계](modules_driver_magnetometer.md)
+- [Rpm Sensor](modules_driver_rpm_sensor.md)
+- [Optical Flow](modules_driver_optical_flow.md)
+- [Magnetometer](modules_driver_magnetometer.md)
 
 ## adc
 소스: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
@@ -422,7 +423,6 @@ gps <command> [arguments...]
                  values: <file:dev>
      [-g <val>]  Baudrate (secondary GPS, can also be p:<param_name>)
                  default: 0
-     [-s]        Enable publication of satellite info
      [-i <val>]  GPS interface
                  values: spi|uart, default: uart
      [-j <val>]  secondary GPS interface
@@ -753,29 +753,6 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## pcf8583
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
-
-<a id="pcf8583_usage"></a>
-
-### Usage
-```
-pcf8583 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 80
-
-   stop
-
-   status        print status info
-```
 ## pmw3901
 Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 
@@ -810,7 +787,7 @@ This implements capturing PPS information from the GNSS module and calculates th
 
 <a id="pps_capture_usage"></a>
 
-### 사용법
+### Usage
 ```
 pps_capture <command> [arguments...]
  Commands:
@@ -836,7 +813,7 @@ By default the module runs on a work queue with a callback on the uORB actuator_
 
 <a id="pwm_out_usage"></a>
 
-### 구현
+### Usage
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -850,7 +827,7 @@ pwm_out <command> [arguments...]
 Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
-### 예
+### Description
 Driver for simulated PWM outputs.
 
 Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.

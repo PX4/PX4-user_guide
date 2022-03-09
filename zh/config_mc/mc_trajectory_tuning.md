@@ -31,22 +31,39 @@ P/PID 增益<0>整定不当会导致机体不稳定。 *设定值*整定不当�
 
 [任务模式](../flight_modes/mission.md)始终使用[加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md)轨迹。
 
-[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory-implementations) listed below. It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+[Position mode](../flight_modes/position_mc.md) supports the [implementations](#position-mode-implementations) listed below. It uses the acceleration based mapping by default; other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-[Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory-implementations) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
+[Altitude mode](../flight_modes/altitude_mc.md) similarly supports the [implementations](#altitude-mode-implementations) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
 
 其他模式不支持轨迹调整。
 
-## 轨迹实现
+## Position Mode Implementations
 
-The following list provides an *overview* of the different trajectory implementations:
+The following list provides an *overview* of the different implementations of how the stick input is interpreted and turned into trajectory setpoints:
 
-- [加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md) （默认） 
-  - 当需要平滑运动时使用（例如：航拍、测绘、货运）。
-  - 生成对称平滑 S-曲线，使加加速度和加速度的极限始终得到保证。
-  - 可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
-  - 通过设置 `MPC_POS_MODE=3` 在位置模式中启用。
+- Acceleration based (Default) 
+  - Horizontal stick input mapped to acceleration setpoints.
+  - Intuitive stick feel because it's like pushing the vehicle around.
+  - No unexpected tilt changes upon reaching travel speed velocity.
+  - Vertical stick input mapped with jerk-limited trajectory.
+  - Set in position mode using `MPC_POS_MODE=4`.
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
+  - Used when smooth motion is required (e.g.: filming, mapping, cargo).
+  - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+  - May not be suitable for vehicles/use-cases that require a faster response - e.g. race quads.
+  - Set in position mode using `MPC_POS_MODE=3`.
 - **Simple position control** 
   - Sticks map directly to velocity setpoints without smoothing.
   - Useful for velocity control tuning.
   - Set in position mode using `MPC_POS_MODE=0`.
+
+## Altitude Mode Implementations
+
+Analogously to [position mode implementations](#position-mode-implementations) these are the implementations for interpreting vertical stick input:
+
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
+  - Smoothed vertical input.
+  - Set in altitude mode with `MPC_POS_MODE` 3 or 4.
+- **Simple altitude control** 
+  - Unsmoothed vertical input.
+  - Set in altitude mode only when using `MPC_POS_MODE=0`.
