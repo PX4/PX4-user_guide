@@ -15483,6 +15483,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MAV_0_FLOW_CTRL">MAV_0_FLOW_CTRL</strong> (INT32)</td>
+ <td>Enable serial flow control for instance 0 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detction fails.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Force off</li> 
+
+<li><strong>1:</strong> Force on</li> 
+
+<li><strong>2:</strong> Auto-detected</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MAV_0_FORWARD">MAV_0_FORWARD</strong> (INT32)</td>
  <td>Enable MAVLink Message forwarding for instance 0 <p><strong>Comment:</strong> If enabled, forward incoming MAVLink messages to other MAVLink ports if the message is either broadcast or the target is not the autopilot. This allows for example a GCS to talk to a camera that is connected to the autopilot via MAVLink (on a different link than the GCS).</p>   <p><b>Reboot required:</b> True</p>
 </td>
@@ -15571,6 +15585,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="MAV_1_FLOW_CTRL">MAV_1_FLOW_CTRL</strong> (INT32)</td>
+ <td>Enable serial flow control for instance 1 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detction fails.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Force off</li> 
+
+<li><strong>1:</strong> Force on</li> 
+
+<li><strong>2:</strong> Auto-detected</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MAV_1_FORWARD">MAV_1_FORWARD</strong> (INT32)</td>
  <td>Enable MAVLink Message forwarding for instance 1 <p><strong>Comment:</strong> If enabled, forward incoming MAVLink messages to other MAVLink ports if the message is either broadcast or the target is not the autopilot. This allows for example a GCS to talk to a camera that is connected to the autopilot via MAVLink (on a different link than the GCS).</p>   <p><b>Reboot required:</b> True</p>
 </td>
@@ -15656,6 +15684,20 @@ table {
 </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_FLOW_CTRL">MAV_2_FLOW_CTRL</strong> (INT32)</td>
+ <td>Enable serial flow control for instance 2 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detction fails.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Force off</li> 
+
+<li><strong>1:</strong> Force on</li> 
+
+<li><strong>2:</strong> Auto-detected</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
