@@ -1,23 +1,14 @@
 # Companion Computer for Pixhawk Series
 
-Interfacing a companion computer (Raspberry Pi, Odroid, Tegra K1) to Pixhawk-family boards always works the same way: They are interfaced using a serial port to `TELEM 2`, the port intended for this purpose.
-The message format on this link is [MAVLink](https://mavlink.io/en/).
+PX4 can connect to companion computers (Raspberry Pi, Odroid, Tegra K1, etc.) using any configurable serial port, including the Ethernet port (if supported).
+Message are sent over the link using the [MAVLink](https://mavlink.io/en/) protocol.
 
 ## Pixhawk Setup
 
-Enable MAVLink on any [configurable serial port](../peripherals/serial_configuration.md).
+PX4 is configured by default to connect to a companion computer connected to the `TELEM 2` serial port.
+No additional PX4-side configuration should be required if you use this port
 
-:::tip
-Typically the `TELEM 2` port is used for a companion computer.
-:::
-
-To set up the default companion computer message stream on `TELEM 2`, set the following parameters:
-* [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG` is often used to map the `TELEM 2` port)
-* [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = `Onboard`
-* [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` (921600 or higher recommended for applications like log streaming or FastRTPS)
-
-For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md).
-
+To enable MAVLink to connect on another port see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
 
 ## Companion Computer Setup
 
@@ -28,9 +19,11 @@ The most common options are:
   * [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) to connect custom code
   * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](https://ardupilot.org/mavproxy/) to route MAVLink between serial and UDP
 
-## Hardware setup
 
-Wire the serial port according to the instructions below. All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
+### Serial Port Hardware Setup
+
+If you're connecting using a serial port, wire the port according to the instructions below.
+All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
 
 :::warning
 Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels.
@@ -49,7 +42,7 @@ TELEM2 | | FTDI | &nbsp;
 5 | RTS (out)| 2 | FTDI CTS (brown) (in)
 6 | GND     | 1 | FTDI GND (black)
 
-## Software setup on Linux
+### Serial Port Software setup on Linux
 
 On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`. If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device. 
 
