@@ -175,6 +175,14 @@ Under these conditions the system will not draw any power (will not be operation
 1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
 1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
+**Voltage monitoring**
+
+Digital I2C battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk5x.md#power)).
+
+:::note
+Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
+:::
+
 ## Building Firmware
 
 :::tip
