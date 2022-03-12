@@ -21060,13 +21060,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_ACC0_TEMP">CAL_ACC0_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
  <td>Accelerometer 0 X-axis offset    </td>
  <td></td>
@@ -21228,13 +21221,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_ACC1_TEMP">CAL_ACC1_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_XOFF">CAL_ACC1_XOFF</strong> (FLOAT)</td>
@@ -21400,13 +21386,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_ACC2_TEMP">CAL_ACC2_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_ACC2_XOFF">CAL_ACC2_XOFF</strong> (FLOAT)</td>
  <td>Accelerometer 2 X-axis offset    </td>
  <td></td>
@@ -21568,13 +21547,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_ACC3_TEMP">CAL_ACC3_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_XOFF">CAL_ACC3_XOFF</strong> (FLOAT)</td>
@@ -21740,13 +21712,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_GYRO0_TEMP">CAL_GYRO0_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_GYRO0_XOFF">CAL_GYRO0_XOFF</strong> (FLOAT)</td>
  <td>Gyroscope 0 X-axis offset    </td>
  <td></td>
@@ -21887,13 +21852,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_GYRO1_TEMP">CAL_GYRO1_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_XOFF">CAL_GYRO1_XOFF</strong> (FLOAT)</td>
@@ -22038,13 +21996,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_GYRO2_TEMP">CAL_GYRO2_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_GYRO2_XOFF">CAL_GYRO2_XOFF</strong> (FLOAT)</td>
  <td>Gyroscope 2 X-axis offset    </td>
  <td></td>
@@ -22187,13 +22138,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_GYRO3_TEMP">CAL_GYRO3_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_GYRO3_XOFF">CAL_GYRO3_XOFF</strong> (FLOAT)</td>
  <td>Gyroscope 3 X-axis offset    </td>
  <td></td>
@@ -22334,13 +22278,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG0_TEMP">CAL_MAG0_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XCOMP">CAL_MAG0_XCOMP</strong> (FLOAT)</td>
@@ -22548,13 +22485,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG1_TEMP">CAL_MAG1_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG1_XCOMP">CAL_MAG1_XCOMP</strong> (FLOAT)</td>
  <td>Magnetometer 1 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
@@ -22760,13 +22690,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG2_TEMP">CAL_MAG2_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG2_XCOMP">CAL_MAG2_XCOMP</strong> (FLOAT)</td>
  <td>Magnetometer 2 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
@@ -22970,13 +22893,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG3_TEMP">CAL_MAG3_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XCOMP">CAL_MAG3_XCOMP</strong> (FLOAT)</td>
