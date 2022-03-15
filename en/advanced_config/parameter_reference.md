@@ -25906,6 +25906,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
+ <td>Control the number of distance sensors on the vehicle <p><strong>Comment:</strong> If set to the number of distance sensors, the preflight check will check for their presence and valid data publication. Disable with 0 if no distance sensor present or to disbale the preflight check.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 4 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SYS_HITL">SYS_HITL</strong> (INT32)</td>
  <td>Enable HITL/SIH mode on next boot <p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to 'external HITL', if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> external HITL</li> 
