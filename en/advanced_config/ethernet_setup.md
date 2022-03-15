@@ -1,5 +1,9 @@
 ## PX4 Ethernet setup:
-PX4 supports Ethernet connectivity on specified boards that are capable of it on hardware. The supported hardware are listed below:
+
+Ethernet connectivity a faster, more reliable, and more flexible communication technology than serial communication approach. This method is preferred over serial communication in case of direct connection between Pixhawk and IP Radio telemetry,companion computers and Networks. It utilizes UDP connection for MAVLINK communication over the port 14550 with [MAVLINK2](https://mavlink.io/en/guide/mavlink_2.html) version. 
+PX4 supports Ethernet connectivity on specified boards that are capable of it on hardware thanks to [Pixhawk 5x hardware standard ](https://docs.google.com/document/d/1KlQeYnhtK43maBSeFuH5s03XsbLIsRVQQ3sZO1HYUM0/edit#heading=h.fj4efant2uu6).
+
+The supported hardware are listed below:
 
  - [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md )
 
