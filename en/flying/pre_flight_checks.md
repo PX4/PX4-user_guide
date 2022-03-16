@@ -55,7 +55,9 @@ It is most likely a sign that accelerometer or thermal calibration are required:
 - If you _sometimes_ get the warning: [re-calibrate the accelerometer](../config/accelerometer.md).
 - If you get _regularly_ get the warning: Perform a [thermal calibration](../advanced_config/sensor_thermal_calibration.md).
 - If you still get the warning after thermal calibration (or you can't perform thermal calibration): 
-  - Verify that the issues does not come from the sensor, or autopilot hardware
+  - Verify that the issues do not come from the sensor or autopilot hardware:
+    - The easiest way to do this is to test the same frame/sensors with another autopilot.
+    - Alternatively, [log and compare](../dev_log/logging.md#configuration) all accelerometers across a number of bench test runs with `6: Sensor comparison` enabled in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
   - Attempt to change the accelerometer bias learning tuning parameters.
 
 Increasing the parameters will make the autopilot less likely to detect an anomaly and can modify the stability of the estimator.
