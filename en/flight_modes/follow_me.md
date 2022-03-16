@@ -78,10 +78,10 @@ The follow-me behavior can be configured using the following parameters:
 Parameter | Description
 --- | ---
 NAV_FT_ALT_M
-<span id="NAV_FT_ALT_M"></span>[NAV_FT_ALT_M](../advanced_config/parameter_reference.md#NAV_FT_ALT_M) | Altitude control mode. This defines where the baseline for the follow height will be.<br>- `0` = 2D Tracking <br>- `1` = 2D Tracking + Terrain Following <br>- `2` = 3D Tracking
-<span id="NAV_MIN_FT_HT"></span>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | Vehicle follow-me height. Note that this height is fixed *relative to the home/arming position* (not the target vehicle). Default and minimum height is 8 meters (about 26 ft).
-<span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST) | Vehicle/ground station separation in the *horizontal* (x,y) plane. Minimum allowed separation is 1 meter. Default distance is 8 meters (about 26 ft).
-<span id="NAV_FT_FS"></span>[NAV_FT_FS](../advanced_config/parameter_reference.md#NAV_FT_FS) | Flight position relative to the user when follow-me mode is active.<br>- `0` = Follow from the front right.<br>- `1` = Follow from behind or trail the user (Default).<br>- `2` = Follow from the front.<br>- `3` = Follow from the front left.
+<a id="NAV_FT_ALT_M"></a>[NAV_FT_ALT_M](../advanced_config/parameter_reference.md#NAV_FT_ALT_M) | Altitude control mode. This defines where the baseline for the follow height will be.<br>- `0` = 2D Tracking <br>- `1` = 2D Tracking + Terrain Following <br>- `2` = 3D Tracking
+<a id="NAV_MIN_FT_HT"></a>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | Vehicle follow-me height. Note that this height is fixed *relative to the home/arming position* (not the target vehicle). Default and minimum height is 8 meters (about 26 ft).
+<a id="NAV_FT_DST"></a>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST) | Vehicle/ground station separation in the *horizontal* (x,y) plane. Minimum allowed separation is 1 meter. Default distance is 8 meters (about 26 ft).
+<a id="NAV_FT_FS"></a>[NAV_FT_FS](../advanced_config/parameter_reference.md#NAV_FT_FS) | Flight position relative to the user when follow-me mode is active.<br>- `0` = Follow from the front right.<br>- `1` = Follow from behind or trail the user (Default).<br>- `2` = Follow from the front.<br>- `3` = Follow from the front left.
 
 
 ## Known Issues
