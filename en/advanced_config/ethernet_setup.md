@@ -1,7 +1,7 @@
 # PX4 Ethernet Setup
 
 Ethernet connectivity a faster, more reliable, and more flexible communication technology than serial communication approach.
-This method is preferred over serial communication in case of direct connection between Pixhawk and IP Radio telemetry, companion computers and Networks.
+This method is preferred over serial communication in case of direct connection between the Flight Controller and IP Radio telemetry, companion computers and Networks.
 It utilizes UDP connection for MAVLINK communication over the port 14550 with [MAVLINK2](https://mavlink.io/en/guide/mavlink_2.html). 
 
 ## Supported Flight Controllers
