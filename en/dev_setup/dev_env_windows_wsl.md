@@ -3,7 +3,7 @@
 The following instructions explain how to set up a PX4 development environment on Windows 11, running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
 
 This environment can be used to build PX4 for:
-* Pixhawk and other NuttX-based hardware
+* [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 * [Gazebo Simulation](../simulation/gazebo.md)
 
@@ -23,12 +23,15 @@ The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/a
 With this environment developers can:
 - Build any simulator or hardware target supported by [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) in the WSL Shell.
   (Ubuntu is the best supported and tested PX4 development platform).
-- Monitor the simulation using _QGroundControl for Linux_ running in WSL.
-  QGC for Linux connects automatically to the simulation, but cannot connect to "real hardware" connected to the Windows computer.
 - Debug code in [Visual Studio Code](dev_env_windows_wsl.md#visual-studio-code-integration) (**Windows**).
-- [Update firmware](#flash-a-flight-control-board) on a real vehicle using _QGroundControl for Windows_ (**Windows**).
-- Monitor a real vehicle using _QGroundControl for Windows_ (**Windows**).
-  You can also monitor a simulation from windows, but you must manually [connect to the simulation running in WSL](#connect-qgroundcontrol-on-windows-to-wsl-simulation).
+- Monitor a _simulation_ using _QGroundControl for Linux_ running in WSL.
+  QGC for Linux connects automatically to the simulation.
+
+_QGroundControl for Windows_ is additionally required if you need to:
+- [Update firmware](#flash-a-flight-control-board) on a real vehicle.
+- Monitor a real vehicle.
+  Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#connect-qgroundcontrol-on-windows-to-wsl-simulation).
+
 
 :::note
 Connecting to a real device from within WSL is not supported, so you can't update firmware using the [`upload`](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) option when building on the command line, or from *QGroundControl for Linux*.
@@ -38,6 +41,7 @@ Connecting to a real device from within WSL is not supported, so you can't updat
 The approach is similar to installing PX4 in your _own_ virtual machine, as described in [Windows VM-Hosted Toolchain](../dev_setup/dev_env_windows_vm.md).
 The benefit of WSL2 is that its virtual machine is deeply integrated into Windows, system-managed, and performance optimised.
 :::
+
 
 ### Windows 10 GUI Support
 
@@ -86,7 +90,7 @@ To open a WSL shell:
 1. Open a command prompt:
    - Press the Windows **Start** key.
    - Type `cmd` and press **Enter** to open the prompt.
-1. To access the WSL shell, execute the command:
+1. To start WSL and access the WSL shell, execute the command:
    ```
    wsl
    ```
@@ -149,8 +153,12 @@ For more build options see [Building PX4 Software](../dev_setup/building_px4.md)
 
 ## Visual Studio Code Integration
 
-1. Download and install Visual Studio Code (VS Code) on Windows from <https://code.visualstudio.com/>
-2. Open _Visual Studio Code_.
+VS Code running on Windows is well integrated with WSL.
+The following instructions 
+
+To set up the integration:
+1. [Download](https://code.visualstudio.com/) and install Visual Studio Code (VS Code) on Windows,
+2. Open _VS Code_.
 3. Install the extension called [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (marketplace) 
 4. [Open a WSL shell](#opening-a-wsl-shell)
 5. In the WSL shell, switch to the PX4 folder:
@@ -162,8 +170,17 @@ For more build options see [Building PX4 Software](../dev_setup/building_px4.md)
    code .
    ```
    This will open the IDE fully integrated with the WSL shell.
+   
    Make sure you always open the PX4 repository in the Remote WSL mode.
-   It will be available in your recently opened locations whenever you start VS Code.
+
+7. Next time you want to develop WSL2 you can very easily open it again in Remote WSL mode by selecting **Open Recent** (as shown below).
+   This will start WSL for you.
+
+   ![](../../assets/toolchain/vscode/vscode_wsl.png)
+   
+   Note however that the IP address of the WSL virtual machine will have changed, so you won't be able to monitor simulation from QGC for Windows (you can still monitor using QGC for Linux)
+   
+   
 
 ## QGroundControl
 
