@@ -1,8 +1,11 @@
 # PX4 Ethernet Setup
 
-Ethernet connectivity a faster, more reliable, and more flexible communication technology than serial communication approach.
-This method is preferred over serial communication in case of direct connection between the Flight Controller and IP Radio telemetry, companion computers and Networks.
-It utilizes UDP connection for MAVLINK communication over the port 14550 with [MAVLINK2](https://mavlink.io/en/guide/mavlink_2.html). 
+Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
+
+It can be used to connect to ground stations, companion computers, and other MAVLink systems.
+It is particularly recommended when connecting to systems that "natively" use Ethernet - for example IP Radios.
+
+By default PX4 is configured to connect to a ground station (streaming GCS [MAVLINK](https://mavlink.io/en/guide/mavlink_2.html) messages on port 14550). 
 
 ## Supported Flight Controllers
 
