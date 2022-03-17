@@ -568,7 +568,7 @@
       * [CentOS Linux](dev_setup/dev_env_linux_centos.md)
       * [Arch Linux](dev_setup/dev_env_linux_arch.md)
       * [Windows VM 工具链](dev_setup/dev_env_windows_vm.md)
-      * [Windows WSL 工具链](dev_setup/dev_env_windows_bash_on_win.md)
+      * [Windows WSL 工具链](dev_setup/dev_env_windows_wsl.md)
       * [Qt Creator IDE](dev_setup/qtcreator.md)
   * [平台测试和连续集成](test_and_ci/README.md) 
     * [试飞](test_and_ci/test_flights.md) 

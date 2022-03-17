@@ -568,7 +568,7 @@
       * [CentOS 리눅스](dev_setup/dev_env_linux_centos.md)
       * [Arch 리눅스](dev_setup/dev_env_linux_arch.md)
       * [Windows VM 툴체인](dev_setup/dev_env_windows_vm.md)
-      * [Windows WSL 툴체인](dev_setup/dev_env_windows_bash_on_win.md)
+      * [Windows WSL 툴체인](dev_setup/dev_env_windows_wsl.md)
       * [Qt Creator IDE](dev_setup/qtcreator.md)
   * [플랫폼 시험과 지속 통합](test_and_ci/README.md) 
     * [시험 비행](test_and_ci/test_flights.md) 

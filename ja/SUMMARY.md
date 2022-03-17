@@ -568,7 +568,7 @@
       * [CentOS Linux](dev_setup/dev_env_linux_centos.md)
       * [Arch Linux](dev_setup/dev_env_linux_arch.md)
       * [Windows VM Toolchain](dev_setup/dev_env_windows_vm.md)
-      * [Windows WSL Toolchain](dev_setup/dev_env_windows_bash_on_win.md)
+      * [Windows WSL Toolchain](dev_setup/dev_env_windows_wsl.md)
       * [Qt Creator IDE](dev_setup/qtcreator.md)
   * [Platform Testing and CI](test_and_ci/README.md) 
     * [Test Flights](test_and_ci/test_flights.md) 

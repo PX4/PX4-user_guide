@@ -20,7 +20,7 @@ MAVLink 짐벌을 활성화하려면, 매개변수 [MNT_MODE_IN](../advanced_con
 
 짐벌은 \[MAVLink 주변 기기 (GCS/OSD/보조)\](../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) 에서 다루는 방법과 같이 *어떤 여분의 직렬 포트*에든 연결할 수 있습니다([직렬 포트 구성](../peripherals/serial_configuration.md#serial-port-configuration)도 참고).
 
-일반적인 설정 방법은 비행 콘트롤러 TELEM2 포트에서 짐벌에 직렬 연결을 하는 것입니다(TELEM2가 사용 가능할 때). 이렇게 구성하려면, 다음과 같이 설정합니다:
+일반 구성은 비행 제어장치의 TELEM2 포트(TELEM2가 비어있다고 가정)에 짐벌을 직렬 연결하는 방식입니다. 이렇게 구성하려면, 다음과 같이 설정합니다:
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG)에서 **TELEM2**까지(`MAV_1_CONFIG`가 이미 보조 컴퓨터에 사용되고 있는 경우(예: `MAV_2_CONFIG` 사용))
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE)에서 **NORMAL**로
 - 제조업체 권장 전송 속도에 대한 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD).
