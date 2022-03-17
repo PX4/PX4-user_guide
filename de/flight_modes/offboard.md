@@ -84,8 +84,6 @@ Acceleration setpoint values are mapped to create a normalized thrust setpoint (
         * 16384: Idle setpoint (zero throttle, zero roll / pitch).
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
-    * Velocity setpoint (`vx`, `vy`, `vz` only; position and acceleration setpoints are ignored).
-
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
   * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
