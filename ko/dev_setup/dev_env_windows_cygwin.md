@@ -4,8 +4,14 @@
 * Pixhawk와 기타 NuttX 기반 하드웨어
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
 
+
+:::warning
+The current version of this toolchain does not work with the master codeline (though it does with stable versions). The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) is a highly recommended Windows 11 (only) alternative, and is likely to become the supported Windows solution in the near future.
+:::
+
+
 :::tip
-이 설정은 PX4 개발 팀에서 지원합니다. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
+This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
 :::
 
 <a id="installation"></a>
