@@ -153,9 +153,9 @@ Since we have to listen to port 14550 as mentioned earlier, the only thing chang
 
 ### Example for MAVSDK-Python:
 
-To give an idea about how this can be done, we make a change in a MAVSDK-Python example in its Github repo. You can extend this to your own application accordingly. Change [this line](https://github.com/mavlink/MAVSDK-Python/blob/3c2ad41273a42597499d5c4ec4ad90c6a494e691/examples/telemetry.py#L10) to the one below in your local script:
+To give an idea about how this can be done, we make a change in a MAVSDK-Python example in its Github repo. You can extend this to your own application accordingly. Change [this line](https://github.com/mavlink/MAVSDK-Python/blob/master/examples/telemetry.py#L10) to the one below in your local script:
 ```
-    await drone.connect(system_address="udp://:14550")
+await drone.connect(system_address="udp://:14550")
 ```
 Successfully connected one gives you Telemetry information from your flight controller. 
 
@@ -163,7 +163,7 @@ Successfully connected one gives you Telemetry information from your flight cont
 
 Prerequisites:
 
-- You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](https://docs.px4.io/master/en/middleware/micrortps.html#client-px4-px4-autopilot).
+- You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](../middleware/micrortps.md#client-px4-px4-autopilot).
 - [ROS2](https://docs.px4.io/master/en/ros/ros2_comm.html#sanity-check-the-installation) has been set up correctly and [sanity check](https://docs.px4.io/master/en/ros/ros2_comm.html#sanity-check-the-installation) has been confirmed. 
 - You have followed the Ethernet setup as of the top of this page. 
 
