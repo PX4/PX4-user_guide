@@ -146,3 +146,20 @@ The setup for a companion computer will depend on the companion computer operati
 A Linux operating system may support netplan, in which case the instructions would be the same as above, but using a unique IP address.
 
 <!-- Then link or continue on with MAVSDK setup - depending on what works when you try it -->
+
+## MAVSDK Sanity check
+
+Since we have to listen to port 14550 as mentioned earlier, the only thing changes in MAVSDK is the port we connect to UDP. 
+
+###Example for MAVSDK-Python:
+
+To give an idea about how this can be done, we make a change in on of the MAVSDK-Python examples in its own Github repo. You can extened to your own application accordingly. You can change [this line](https://github.com/mavlink/MAVSDK-Python/blob/3c2ad41273a42597499d5c4ec4ad90c6a494e691/examples/telemetry.py#L10) to the one below in your local script:
+```
+    await drone.connect(system_address="udp://:14550")
+```
+Successfully connected one gives you Telemetry information from your flight controller. 
+
+###Example for ROS2:
+
+
+
