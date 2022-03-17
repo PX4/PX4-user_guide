@@ -58,7 +58,8 @@ To setup *Follow Me* mode:
   - Set the vehicle on the ground, press the safety switch and step back at least 10 meters.
   - Arm the vehicle and takeoff.
 - Switch into follow me mode.
-  - The copter will first ascend to the specified [minimum height](#NAV_MIN_FT_HT) while facing the target, then move horizontally, to avoid potential collisions
+  - The copter will first ascend to the specified [minimum height](#NAV_MIN_FT_HT) while facing the target, to avoid potential collisions, before moving horizontally, 
+
 
 At this point you can start moving, and the drone will be following you.
 
@@ -70,7 +71,9 @@ The mode has been tested on the following Android devices:
 ## Configuration
 
 :::warning
-Setting the **Altitude mode ([NAV_FT_ALT_M](../advanced_config/parameter_reference.md#NAV_FT_ALT_M)**) to '3D Tracking' can be dangerous and unstable, as Android phones for example are known for having huge altitude errors in their GPS coordinates, around 10 to 50 meters. Therefore, 3D Tracking is only advised if you have an accurate GPS source for the Ground Station!
+Do not set the **Altitude mode ([NAV_FT_ALT_M](#NAV_FT_ALT_M)**) to `3D Tracking`!
+This can be dangerous and unstable because many Android phones (and other devices) are known to have significant altitude errors in their GPS coordinates (around 10 to 50 meters!).
+3D Tracking is only advised if you have an accurate GPS source for the Ground Station!
 :::
 
 The follow-me behavior can be configured using the following parameters:
