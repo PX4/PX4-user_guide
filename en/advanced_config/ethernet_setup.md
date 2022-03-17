@@ -154,7 +154,8 @@ Since we have to listen to port 14550 as mentioned earlier, the only thing chang
 ### Example for MAVSDK-Python:
 
 To give an idea about how this can be done, we make a change in a MAVSDK-Python example in its Github repo. You can extend this to your own application accordingly. Change [this line](https://github.com/mavlink/MAVSDK-Python/blob/master/examples/telemetry.py#L10) to the one below in your local script:
-```
+
+```python
 await drone.connect(system_address="udp://:14550")
 ```
 Successfully connected one gives you Telemetry information from your flight controller. 
@@ -164,33 +165,37 @@ Successfully connected one gives you Telemetry information from your flight cont
 Prerequisites:
 
 - You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](../middleware/micrortps.md#client-px4-px4-autopilot).
-- [ROS2](https://docs.px4.io/master/en/ros/ros2_comm.html#sanity-check-the-installation) has been set up correctly and [sanity check](https://docs.px4.io/master/en/ros/ros2_comm.html#sanity-check-the-installation) has been confirmed. 
+- [ROS2](../ros/ros2_comm.md#sanity-check-the-installation) has been set up correctly and [sanity check](../ros/ros2_comm.md#sanity-check-the-installation) has been confirmed. 
 - You have followed the Ethernet setup as of the top of this page. 
 
 In this example it is assumed that you have followed the example to set your IP addresses.
 
 1. Connect your Flight controller via Ethernet
 2. Open **QGroundcontrol > Analyze Tools > MAVLink Console**
-3. Enter the command below to start micro_rtps client on your flight controller. Note that the remote IP here is your companion computer IP. This by default starts the micrortps_client connected to UDP ports 2019 and 2020. To make changes you can take a look at [RTPS guide](https://docs.px4.io/master/en/middleware/micrortps.html#client-px4-px4-autopilot)
-```
-micrortps_client start -t UDP -i <remote IP>
-```
-An output like below is expected in the console:
-```
-INFO  [micrortps_client] UDP transport: ip address: 192.168.0.1; recv port: 2019; send port: 2020
-INFO  [micrortps_client] UDP transport: Trying to connect...
-INFO  [micrortps_client] UDP transport: Connected to server!
-```
-5. Then we need to run the agent by typing the below commands in a new terminal on either our Linux computer. This will start the agent on `localhost` which is `127.0.0.1`.
-```
-$ source ~/px4_ros_com_ros2/install/setup.bash
-$ micrortps_agent start -t UDP
-```
+3. Enter the command below to start micro_rtps client on your flight controller. Note that the remote IP here is your companion computer IP.
+   This by default starts the micrortps_client connected to UDP ports 2019 and 2020
+   To make changes you can take a look at [RTPS guide](../middleware/micrortps.md#client-px4-px4-autopilot)
+   ```
+   micrortps_client start -t UDP -i <remote IP>
+   ```
+   An output like below is expected in the console:
+   ```
+   INFO  [micrortps_client] UDP transport: ip address: 192.168.0.1; recv port: 2019; send port: 2020
+   INFO  [micrortps_client] UDP transport: Trying to connect...
+   INFO  [micrortps_client] UDP transport: Connected to server!
+   ```
+5. Then we need to run the agent by typing the below commands in a new terminal on either our Linux computer.
+   This will start the agent on `localhost` which is `127.0.0.1`.
+   ```
+   $ source ~/px4_ros_com_ros2/install/setup.bash
+   $ micrortps_agent start -t UDP
+   ```
 6. In a new terminal you can run a listener node to confirm the connection is established:
-```
-$ source ~/px4_ros_com_ros2/install/setup.bash
-$ ros2 launch px4_ros_com sensor_combined_listener.launch.py
-```
+   ```
+   $ source ~/px4_ros_com_ros2/install/setup.bash
+   $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
+   ```
+
 If everything goes ok and there is an established connection you can see the output below in your terminal:
 ```
 RECEIVED SENSOR COMBINED DATA
