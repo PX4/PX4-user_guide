@@ -73,7 +73,7 @@ To install WSL2 with the default Ubuntu distribution on a new installation of Wi
    **Note:** _Remember the credentials for later on!_
 
 :::note
-If you have any problems with your setup, check the current microsoft WSL installation documentation.
+If you have any problems with your setup, check the current [Microsoft WSL installation documentation](https://docs.microsoft.com/windows/wsl/).
 :::
 
 ### Install PX4 Toolchain
