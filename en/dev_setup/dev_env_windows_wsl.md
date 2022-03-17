@@ -154,7 +154,6 @@ For more build options see [Building PX4 Software](../dev_setup/building_px4.md)
 ## Visual Studio Code Integration
 
 VS Code running on Windows is well integrated with WSL.
-The following instructions 
 
 To set up the integration:
 1. [Download](https://code.visualstudio.com/) and install Visual Studio Code (VS Code) on Windows,
