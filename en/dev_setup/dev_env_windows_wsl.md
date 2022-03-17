@@ -114,7 +114,7 @@ To install the development toolchain:
    If you work from a location outside of the WSL file system you'll run into issues such as very slow execution and access right/permission errors.
    :::
 
-1. Download PX4 Source Code:
+1. Download PX4 source code using `git` (which is already installed in WSL2):
    ```bash
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
@@ -122,12 +122,11 @@ To install the development toolchain:
    ```bash
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
-   
+
    :::note
    This installs tools to build PX4 for Pixhawk, Gazebo and JMAVSim targets.
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
-     Note that `git` is already installed in WSL.
    :::
 
 1. Restart the "WSL computer" after the script completes (exit the shell, shutdown WSL, and restart WSL):
