@@ -19,7 +19,7 @@ Once you have finished setting up the command-line toolchain:
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
 - Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
   :::tip
-  The *daily build* includes development tools that hidden in release builds. 
+  The *daily build* includes development tools that hidden in release builds.
   It may also provide access to new PX4 features that are not yet supported in release builds.
 
 :::
@@ -28,15 +28,15 @@ Once you have finished setting up the command-line toolchain:
 
 ## Other Windows Toolchains
 
-There are a number of other legacy/alternative solutions that may be of interest to some developers. 
+There are a number of other legacy/alternative solutions that may be of interest to some developers.
 A comparison of the options is provided below.
 
 :::note
 The [Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the only one that is supported by the PX4 dev team.
-It is regularly tested as part of our continuous integration system and is known to be better performing than the other alternatives. 
+It is regularly tested as part of our continuous integration system and is known to be better performing than the other alternatives.
 :::
 
-| | [Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) **(Supported)**  | [Virtual Machine Toolchain](../dev_setup/dev_env_windows_vm.md) | [Bash on Windows Toolchain](../dev_setup/dev_env_windows_bash_on_win.md) |
+| | [Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) **(Supported)**  | [Virtual Machine Toolchain](../dev_setup/dev_env_windows_vm.md) | [WSL Toolchain](../dev_setup/dev_env_windows_wsl.md) |
 |---|---|---|---|---|
 | Installation | MSI installer or Script | Script | Script |
 | Native binary execution | yes | no | no |
