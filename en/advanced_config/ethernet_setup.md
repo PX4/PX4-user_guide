@@ -149,7 +149,7 @@ A Linux operating system may support netplan, in which case the instructions wou
 
 ## MAVSDK Sanity check
 
-Since we have to listen to port 14550 as mentioned earlier, the only thing changes in MAVSDK is the port we connect to UDP. 
+Here we assume that you already have [set up your MAVSDK-python](https://github.com/mavlink/MAVSDK-Python#install-using-pip-from-pypi). According to setup since we have to listen to port 14550 as mentioned earlier, the only thing changes in MAVSDK is the port we connect to UDP. 
 
 ### Example for MAVSDK-Python:
 
