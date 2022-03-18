@@ -15838,15 +15838,9 @@ table {
 
 <li><strong>4:</strong> Normal helicopter with tail rotor</li> 
 
-<li><strong>5:</strong> Ground installation</li> 
-
-<li><strong>6:</strong> Operator control unit / ground control station</li> 
-
 <li><strong>7:</strong> Airship, controlled</li> 
 
 <li><strong>8:</strong> Free balloon, uncontrolled</li> 
-
-<li><strong>9:</strong> Rocket</li> 
 
 <li><strong>10:</strong> Ground rover</li> 
 
@@ -15860,33 +15854,17 @@ table {
 
 <li><strong>15:</strong> Tricopter</li> 
 
-<li><strong>16:</strong> Flapping wing</li> 
+<li><strong>19:</strong> VTOL Tailsitter Duo</li> 
 
-<li><strong>17:</strong> Kite</li> 
+<li><strong>20:</strong> VTOL Tailsitter Quad</li> 
 
-<li><strong>18:</strong> Onboard companion controller</li> 
+<li><strong>21:</strong> VTOL Tiltrotor</li> 
 
-<li><strong>19:</strong> Two-rotor VTOL using control surfaces in vertical operation in addition. Tailsitter.</li> 
-
-<li><strong>20:</strong> Quad-rotor VTOL using a V-shaped quad config in vertical operation. Tailsitter.</li> 
-
-<li><strong>21:</strong> Tiltrotor VTOL</li> 
-
-<li><strong>22:</strong> VTOL reserved 2</li> 
-
-<li><strong>23:</strong> VTOL reserved 3</li> 
-
-<li><strong>24:</strong> VTOL reserved 4</li> 
-
-<li><strong>25:</strong> VTOL reserved 5</li> 
-
-<li><strong>26:</strong> Onboard gimbal</li> 
-
-<li><strong>27:</strong> Onboard ADSB peripheral</li> 
+<li><strong>22:</strong> VTOL Standard (quadplane)</li> 
 </ul>
   </td>
- <td>1 > 27 </td>
- <td>2</td>
+ <td>0 > 22 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
