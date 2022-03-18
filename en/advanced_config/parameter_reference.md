@@ -13311,6 +13311,13 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="GF_PREDICT">GF_PREDICT</strong> (INT32)</td>
+ <td>Use Pre-emptive geofence triggering <p><strong>Comment:</strong> Predict the motion of the vehicle and trigger the breach if it is determined that the current trajectory would result in a breach happening before the vehicle can make evasive maneuvers. The vehicle is then re-routed to a safe hold position (stop for multirotor, loiter for fixed wing).</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="GF_SOURCE">GF_SOURCE</strong> (INT32)</td>
  <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> GPOS</li> 
