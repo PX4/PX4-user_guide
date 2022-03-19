@@ -23232,16 +23232,32 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)</td>
- <td>Notch filter bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td><strong id="IMU_GYRO_NF0_BW">IMU_GYRO_NF0_BW</strong> (FLOAT)</td>
+ <td>Notch filter bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF0_FRQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 100 </td>
  <td>20.0</td>
  <td>Hz</td>
 </tr>
 <tr>
- <td><strong id="IMU_GYRO_NF_FREQ">IMU_GYRO_NF_FREQ</strong> (FLOAT)</td>
- <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td><strong id="IMU_GYRO_NF0_FRQ">IMU_GYRO_NF0_FRQ</strong> (FLOAT)</td>
+ <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF0_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 1000 </td>
+ <td>0.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="IMU_GYRO_NF1_BW">IMU_GYRO_NF1_BW</strong> (FLOAT)</td>
+ <td>Notch filter 1 bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF1_FRQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 100 </td>
+ <td>20.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="IMU_GYRO_NF1_FRQ">IMU_GYRO_NF1_FRQ</strong> (FLOAT)</td>
+ <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF1_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 1000 </td>
  <td>0.0</td>
