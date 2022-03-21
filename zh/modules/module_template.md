@@ -24,7 +24,7 @@ PX4-Autopilot包含一个用于创建一个通过 *工作队列任务*运行的�
       px4_work_queue
    ```
 1. 除了 `ModuleBase`, 任务还源自 `ScheduledWorkitem` (包含在 [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
-1. 在构造函数初始化中指定要添加任务的队列。 The [work_item](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
+1. 在构造函数初始化中指定要添加任务的队列。 [work_item](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/WorkItemExample.cpp#L42) 示例添加自身到 `wq_configurations::test1` 工作队列，如下所示：
    ```cpp
    WorkItemExample::WorkItemExample() :
        ModuleParams(nullptr),
@@ -34,20 +34,20 @@ PX4-Autopilot包含一个用于创建一个通过 *工作队列任务*运行的�
    ```
 
 :::note
-The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+可用的工作队列(`wq_configurations`) 列于 [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49) 中。
 :::
 
-1. Implement the `ScheduledWorkItem::Run()` method to perform "work".
-1. Implement the `task_spawn` method, specifying that the task is a work queue (using the `task_id_is_work_queue` id.
-1. Schedule the work queue task using one of the scheduling methods (in the example we use `ScheduleOnInterval` from within the `init` method).
+1. 实现 `ScheduledWorkitem:::Run()` 方法来执行"work"。
+1. 实现`task_spawn` 方法，指定任务是一个工作队列(使用 `task_id_is_work_queue` id)。
+1. 使用其中一种调度方法使工作队列任务开始调度(本例中我们在使用`init` 方法中使用 `ScheduleOnInterval` )。
 
 
 
-## Tasks
+## 任务
 
-PX4/PX4-Autopilot contains a template for writing a new application (module) that runs as a task on its own stack: [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/master/src/templates/template_module).
+PX4/PX4-Autopilot包含一个用于写一个新的应用程序(模块)的模板，它作为一个任务运行在自己的堆栈上： [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/master/src/templates/template_module)
 
-The template demonstrates the following additional features/aspects that are required or are useful for a full application:
+该模板演示了完整应用程序所需或有用的以下附加功能/方面：
 
 - 访问参数并对参数更新做出反应。
 - 订阅、等待 topic 更新。
