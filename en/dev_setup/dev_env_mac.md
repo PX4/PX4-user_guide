@@ -79,10 +79,16 @@ They can be removed once it is fixed (along with this note).
 To install SITL simulation with Gazebo:
 
 ```sh
+brew install --cask temurin
 brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
+Go into the PX4-Autopilot/Tools/setup directory (by using the cd command):
+
+```sh
+sh macos.sh
+```
 
 ## jMAVSim Simulation
 
