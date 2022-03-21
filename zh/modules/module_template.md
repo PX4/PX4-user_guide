@@ -23,8 +23,8 @@ PX4-Autopilot包含一个用于创建一个通过 *工作队列任务*运行的�
    DEPENDS
       px4_work_queue
    ```
-1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
-1. Specify the queue to add the task to in the constructor initialisation. The [work_item](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
+1. 除了 `ModuleBase`, 任务还源自 `ScheduledWorkitem` (包含在 [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
+1. 在构造函数初始化中指定要添加任务的队列。 The [work_item](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
    ```cpp
    WorkItemExample::WorkItemExample() :
        ModuleParams(nullptr),
