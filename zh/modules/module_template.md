@@ -1,20 +1,20 @@
 # 适用于开发完整应用的模版
 
-An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priority with other tasks on the work queue). In most cases a work queue task can be used, as this minimizes resource usage.
+一个应用程序可以写作一个 *任务* (一个有自己的堆栈和处理优先级的模块)或作为 *工作队列任务* (一个运行在工作队列线程上的模块, 与工作队列上的其他任务分享堆栈和线程优先级)。 在大多数情况下，可以使用工作队列任务，因为这会减少资源的使用。
 
 :::note
-[Architectural Overview > Runtime Environment](../concept/architecture.md#runtime-environment) provides more information about tasks and work queue tasks.
+[架构概述 > 运行环境](../concept/architecture.md#runtime-environment) 提供更多关于任务和工作队列任务的信息。
 :::
 
 :::note
-All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
+[第一个应用程序教程](../modules/hello_sky.md) 中所学到的所有东西都与编写完整应用程序有关。
 :::
 
-## Work Queue Task
+## 工作队列任务
 
-PX4-Autopilot contains a template for writing a new application (module) that runs as a *work queue task*: [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item).
+PX4-Autopilot包含一个用于创建一个通过 *工作队列任务*运行的新应用程序(模块)的模板，: [src/examples es/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item)。
 
-PX4 固件中包含了一个模版文件： [src/templates/module](https://github.com/PX4/Firmware/tree/master/src/templates/module) ，基于该模版编写的应用（模块）可以在应用自己的栈上执行 [任务](../concept/architecture.md#runtime-environment) 。
+工作队列任务应用程序与普通(任务)应用程序相同。 除了它需要指定它是一个工作队列任务，并在初始化期间运行调度它本身。
 
 The example shows how. In summary:
 1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/CMakeLists.txt)):
