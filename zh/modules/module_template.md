@@ -16,8 +16,8 @@ PX4-Autopilot包含一个用于创建一个通过 *工作队列任务*运行的�
 
 工作队列任务应用程序与普通(任务)应用程序相同。 除了它需要指定它是一个工作队列任务，并在初始化期间运行调度它本身。
 
-The example shows how. In summary:
-1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/CMakeLists.txt)):
+示例显示了如何操作。 总结：
+1. 在 cmake 定义文件([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/CMakeLists.txt))中的指定工作队列库的依赖关系:
    ```
    ...
    DEPENDS
