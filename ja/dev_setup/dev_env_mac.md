@@ -76,27 +76,34 @@ September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#
 To install SITL simulation with Gazebo:
 
 ```sh
+brew install --cask temurin
 brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
+Navigate into the **PX4-Autopilot/Tools/setup** directory (using the `cd` command) and enter:
+
+```sh
+sh macos.sh
+```
 
 ## jMAVSim Simulation
 
-To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use [Termium](https://adoptium.net):
+To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use [Eclipse Temurin](https://adoptium.net):
 
 ```sh
 brew install --cask temurin
 ```
 
+Then install jMAVSim:
+
 ```sh
 brew install px4-sim-jmavsim
 ```
 
-:::warning
-jMAVSim for PX4 v1.11 and beyond we require at least JDK 15.
+:::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
+For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
 :::
 
 ## Next Steps
