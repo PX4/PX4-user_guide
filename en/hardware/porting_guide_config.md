@@ -30,6 +30,10 @@ if DRIVERS_UAVCAN_V1
 endif #DRIVERS_UAVCAN_V1
 ```
 
+:::note
+The `menuconfig` property in Kconfig file is the name used for configuration. If you edit the `*.px4board` configuration file manually, make sure you didn't misspell the module name! Otherwise, it won't include the module for the build.
+:::
+
 ## PX4 Kconfig Label Inheritance
 
 Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`.
