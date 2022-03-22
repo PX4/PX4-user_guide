@@ -430,7 +430,44 @@ manual_control <command> [arguments...]
 
    status        print status info
 ```
-## send_event
+## microdds_client
+Source: [modules/microdds_client](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/microdds_client)
+
+
+### Description
+MicroDDS Client used to communicate uORB topics with an Agent over serial or UDP.
+
+### Examples
+```
+microdds_client start -t serial -d /dev/ttyS3 -b 921600
+microdds_client start -t udp -h 127.0.0.1 -p 15555
+```
+
+<a id="microdds_client_usage"></a>
+
+### 用法
+```
+microdds_client <command> [arguments...]
+ Commands:
+   start
+     [-t <val>]  Transport protocol
+                 values: serial|udp, default: udp
+     [-d <val>]  serial device
+                 values: <file:dev>
+     [-b <val>]  Baudrate (can also be p:<param_name>)
+                 default: 0
+     [-h <val>]  Host IP
+                 values: <IP>, default: 127.0.0.1
+     [-p <val>]  Remote Port
+                 default: 15555
+     [-l]        Restrict to localhost (use in combination with
+                 ROS_LOCALHOST_ONLY=1)
+
+   stop
+
+   status        print status info
+```
+## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
@@ -442,16 +479,11 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src
 
 <a id="netman_usage"></a>
 
-### 用法
+### Usage
 ```
 netman <command> [arguments...]
- load_mon <command> [arguments...]
  Commands:
-   start         启动后台任务
-
-   stop
-
-   status        打印状态信息
+   show          Display the current persistent network settings to the console.
 
    update        Check SD card for net.cfg and update network persistent network
                  settings.
@@ -460,11 +492,11 @@ netman <command> [arguments...]
      [-i <val>]  Set the interface name
                  default: eth0
 ```
-## sensors
-源码： [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
+## pwm_input
+Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_input)
 
 
-### 参数描述
+### Description
 Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
 
 <a id="pwm_input_usage"></a>
@@ -472,14 +504,12 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 ### 用法
 ```
 pwm_input <command> [arguments...]
- sensors <command> [arguments...]
  Commands:
    start
-     [-h]        在 HIL 模式下启动
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## rc_update
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
@@ -488,33 +518,26 @@ Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src
 ### 参数描述
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
-### 实现
+### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
 
 <a id="rc_update_usage"></a>
 
-### 用法
+### Usage
 ```
 rc_update <command> [arguments...]
- send_event <command> [arguments...]
  Commands:
-   start         Start the background task
-
-   temperature_calibration Run temperature calibration process
-     [-g]        calibrate the gyro
-     [-a]        calibrate the accel
-     [-b]        calibrate the baro (if none of these is given, all will be
-                 calibrated)
+   start
 
    stop
 
    status        print status info
 ```
-## tune_control
+## replay
 Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
-### 参数描述
+### Description
 This module is used to replay ULog files.
 
 There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
@@ -527,7 +550,7 @@ The replay procedure is documented on the [System-wide Replay](https://dev.px4.i
 
 <a id="replay_usage"></a>
 
-### 用法
+### Usage
 ```
 replay <command> [arguments...]
  Commands:
@@ -541,18 +564,18 @@ replay <command> [arguments...]
 
    status        print status info
 ```
-## work_queue
+## send_event
 Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
 
 
-### 参数描述
+### Description
 Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
 
 The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
 
 <a id="send_event_usage"></a>
 
-### 示例
+### Usage
 ```
 send_event <command> [arguments...]
  Commands:
@@ -566,7 +589,7 @@ send_event <command> [arguments...]
 Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
 
 
-### 用法
+### Description
 
 <a id="sensor_baro_sim_usage"></a>
 

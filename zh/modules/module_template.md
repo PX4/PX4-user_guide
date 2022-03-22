@@ -55,5 +55,5 @@ PX4/PX4-Autopilot包含一个用于写一个新的应用程序(模块)的模板�
 - 命令行参数解析。
 - 文档记录：`PRINT_MODULE_*` 方法有两个用处（该 API 在 [源代码](https://github.com/PX4/Firmware/blob/v1.8.0/src/platforms/px4_module.h#L381) 中有详细记录）：
   - 它们可用于在控制台键入 `module help` 指令后输出命令行指令的用法。
-  - 可通过脚本提取该部分内容以自动生成 [Modules & Commands Reference](../middleware/modules_main.md) 页面。
+  - 通过脚本自动提取他们来生成 [模块 & 命令参考](../modules/modules_main.md) 页面。
 
