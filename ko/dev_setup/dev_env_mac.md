@@ -74,26 +74,34 @@ jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java
 :::warning PX4 v1.11 이상용 jMAVSim에는 JDK 15 이상의 버전이 필요합니다.
 
 ```sh
-brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk15
+brew install --cask temurin
+brew install --cask xquartz
+brew install px4-sim-gazebo
 ```
 
+Navigate into the **PX4-Autopilot/Tools/setup** directory (using the `cd` command) and enter:
+
+```sh
+sh macos.sh
+```
 
 ## jMAVSim 시뮬레이션
 
-이전 버전의 경우 macOS 사용자는 `스레드 "main" java.lang.UnsupportedClassVersionError의 예외:` 오류가 발생할 수 있습니다. 여기에서 수정 방법을 참고하십시오: [SITL이 있는 jMAVSim > 문제 해결](../simulation/jmavsim.md#troubleshooting)).
+To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use [Eclipse Temurin](https://adoptium.net):
+
+```sh
+brew install --cask temurin
+```
+
+Then install jMAVSim:
 
 ```sh
 brew install px4-sim-jmavsim
 ```
 
-```sh
-brew install px4-sim-jmavsim
-```
+:::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-명령줄 도구 모음 설정후, 다음을 수행합니다.
-
-For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
+For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
 :::
 
 ## 다음 단계
