@@ -53,6 +53,8 @@ GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수
 
 ## 기본 MAVLink 포트
 
+### TELEM1
+
 `TELEM 1` 포트는 대부분 GCS 원격 분석 스트림에 사용됩니다.
 
 이를 지원하기 위하여 아래와 같은 MAVLink 인스턴스 0의 [기본 직렬 포트 매핑](../peripherals/serial_configuration.md#default_port_mapping)을 사용합니다.
@@ -63,13 +65,29 @@ GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수
 - [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) = `True`
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD) = `57600`
 
+### ETHERNET
+
+Pixhawk 5x devices (and later) that have an Ethernet port, configure it by default to connect to a GCS:
+
+On this hardware, there is a [default serial port mapping](../peripherals/serial_configuration.md#default_port_mapping) of MAVLink instance 2 as shown below:
+
+- [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `Ethernet` (1000)
+- [MAV_2_BROADCAST](../advanced_config/parameter_reference.md#MAV_2_BROADCAST) = `1`
+- [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `0` (normal/GCS)
+- [MAV_2_RADIO_CTL](../advanced_config/parameter_reference.md#MAV_2_RADIO_CTL) = `0`
+- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE) = `100000`
+- [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT)= `14550` (GCS)
+- [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) = `14550` (GCS)
+
+For more information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
+
 ## 예
 
-예를 들어, `TELEM 2`에서 보조 컴퓨터를 사용하려면 아래와 같은 매개변수를 설정합니다.
+For example, to use a companion computer on `TELEM 2` you might set parameters as shown:
 
 - [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `TELEM 2`
 - [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `Onboard`
-- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` 바이트/초 :::tip 이 값은 메시지 유실시 조정하거나 감소할 수 있습니다.
+- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` Bytes/s :::tip This value might have to be tuned/reduced in the event of message losses.
 :::
 - [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) = `True`
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` baud

@@ -21,11 +21,12 @@ The following functions are typically mapped to the same specific serial ports o
 
 * MAVLink is mapped to the `TELEM 1` port with baudrate 57600 (for a [telemetry module](../telemetry/README.md)).
 * GPS 1 ([gps driver](../modules/modules_driver.md#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
+* MAVLink is mapped to the Ethernet port using `MAV_2_CONFIG` on Pixhawk devices that have an Ethernet port.
 
 All other ports have no assigned functions by default (are disabled).
 
 :::tip
-The ports mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) and [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) to *Disabled*, respectively.
+The port mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) to *Disabled*, respectively.
 :::
 
 ## How to Configure a Port
