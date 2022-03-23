@@ -70,8 +70,7 @@ To support this there is a [default serial port mapping](../peripherals/serial_c
 
 ### ETHERNET
 
-Pixhawk 5x and later devices that have an Ethernet port, configure it by default to connect to a GCS on the standard GCS UDP port:
-PX4 configures the Ethernet (serial) port to connect to a GCS by default via MAVLink.
+Pixhawk 5x devices (and later) that have an Ethernet port, configure it by default to connect to a GCS:
 
 On this hardware, there is a [default serial port mapping](../peripherals/serial_configuration.md#default_port_mapping) of MAVLink instance 2 as shown below:
 - [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `Ethernet`  (1000)
@@ -81,6 +80,8 @@ On this hardware, there is a [default serial port mapping](../peripherals/serial
 - [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE) = `100000`
 - [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT)= `14550` (GCS)
 - [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) = `14550` (GCS)
+
+For more information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md)
 
 ## Example
 
