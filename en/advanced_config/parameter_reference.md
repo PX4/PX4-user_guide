@@ -10773,21 +10773,6 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="COM_POS_FS_GAIN">COM_POS_FS_GAIN</strong> (INT32)</td>
- <td>Loss of position probation gain factor <p><strong>Comment:</strong> This sets the rate that the loss of position probation time grows when position checks are failing. The default value has been optimised for rotary wing applications. For fixed wing applications a value of 0 should be used.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>10</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_POS_FS_PROB">COM_POS_FS_PROB</strong> (INT32)</td>
- <td>Loss of position probation delay at takeoff <p><strong>Comment:</strong> The probation delay is the number of seconds that the EKF innovation checks need to pass for the position to be declared good after it has been declared bad. The probation delay will be reset to this parameter value when takeoff is detected. After takeoff, if position checks are passing, the probation delay will reduce by one second for every lapsed second of valid position down to a minimum of 1 second. If position checks are failing, the probation delay will increase by COM_POS_FS_GAIN seconds for every lapsed second up to a maximum of 100 seconds. The default value has been optimised for rotary wing applications. For fixed wing applications, a value of 1 should be used.</p>   </td>
- <td>1 > 100 </td>
- <td>30</td>
- <td>s</td>
-</tr>
-<tr>
  <td><strong id="COM_POWER_COUNT">COM_POWER_COUNT</strong> (INT32)</td>
  <td>Required number of redundant power modules <p><strong>Comment:</strong> This configures a check to verify the expected number of 5V rail power supplies are present. By default only one is expected. Note: CBRK_SUPPLY_CHK disables all power checks including this one.</p>   </td>
  <td>0 > 4 </td>
