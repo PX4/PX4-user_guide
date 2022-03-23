@@ -3,7 +3,7 @@
 This page documents how to connect the hardware target using GDB (from a terminal).
 To use an IDE instead, see the instructions for [Eclipse](../debug/eclipse_jlink.md) or [VSCode](../dev_setup/vscode.md#hardware-debugging).
 
-For the wiring interface setup, please see [this detailed information](../debug/swd_debug.md).
+For the wiring interface setup, please see this detailed information: [SWD/JTAG Debug Interface](../debug/swd_debug.md).
 
 ## Using Dronecode probe / Blackmagic probe
 
