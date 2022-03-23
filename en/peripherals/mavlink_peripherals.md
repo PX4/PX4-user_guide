@@ -57,6 +57,8 @@ The value you use will depend on the type of connection and the capabilities of 
 <span id="default_ports"></span>
 ## Default MAVLink Ports
 
+### TELEM1
+
 The `TELEM 1` port is almost always used for the GCS telemetry stream.
 
 To support this there is a [default serial port mapping](../peripherals/serial_configuration.md#default_port_mapping) of MAVLink instance 0 as shown below:
@@ -66,6 +68,19 @@ To support this there is a [default serial port mapping](../peripherals/serial_c
 - [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) = `True`
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD) = `57600`
 
+### ETHERNET
+
+Pixhawk 5x and later devices that have an Ethernet port, configure it by default to connect to a GCS on the standard GCS UDP port:
+PX4 configures the Ethernet (serial) port to connect to a GCS by default via MAVLink.
+
+On this hardware, there is a [default serial port mapping](../peripherals/serial_configuration.md#default_port_mapping) of MAVLink instance 2 as shown below:
+- [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `Ethernet`  (1000)
+- [MAV_2_BROADCAST](../advanced_config/parameter_reference.md#MAV_2_BROADCAST) = `1`
+- [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `0` (normal/GCS)
+- [MAV_2_RADIO_CTL](../advanced_config/parameter_reference.md#MAV_2_RADIO_CTL) = `0`
+- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE) = `100000`
+- [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT)= `14550` (GCS)
+- [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) = `14550` (GCS)
 
 ## Example
 
