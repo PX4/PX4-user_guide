@@ -153,6 +153,7 @@
   * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
   * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [MAVLink Telemetry (OSD/GCS)](peripherals/mavlink_peripherals.md)
+  * [PX4 Ethernet Setup](advanced_config/ethernet_setup.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Hardware (Drones&Parts)](hardware/drone_parts.md) 
   * [Complete Vehicles](complete_vehicles/README.md) 
