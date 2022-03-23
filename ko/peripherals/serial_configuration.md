@@ -21,11 +21,12 @@ Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합�
 
 * MAVLink는 전송 속도가 57600인 `TELEM 1` 포트에 매핑됩니다([원격 측정 모듈](../telemetry/README.md)의 경우).
 * GPS 1 ([gps 드라이버](../modules/modules_driver.md#gps))은 전송 속도가 *자동*인 `GPS 1` 포트에 매핑됩니다. 이 설정은 GPS 전송 속도를 자동으로 감지합니다(115200 전송 속도가 필요한 Trimble MB-Two 제외).
+* MAVLink is mapped to the Ethernet port using `MAV_2_CONFIG` on Pixhawk devices that have an Ethernet port.
 
 다른 모든 포트에는 할당된 기능이 없습니다(비활성화 됨).
 
 :::tip
-위의 포트 매핑은 [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) 및 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)를 각각 *비활성화*로 설정할 수 있습니다.
+The port mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) to *Disabled*, respectively.
 :::
 
 ## 포트를 설정 방법
