@@ -5,7 +5,11 @@ Ethernet connectivity provides a fast, reliable, and flexible communication alte
 It can be used to connect to ground stations, companion computers, and other MAVLink systems.
 It is particularly recommended when connecting to systems that "natively" use Ethernet - for example IP Radios.
 
-By default PX4 is configured to connect to a ground station (streaming GCS [MAVLINK](https://mavlink.io/en/guide/mavlink_2.html) messages on port 14550). 
+This topic covers:
+- Supported flight controllers
+- Ethernet network setup for PX4 and any systems it needs to connect to (including ground stations and companion computers).
+- Configuring the PX4 Ethernet port, specifying the UDP ports and profiles that should be used for connecting to a GCS and a companion computer.
+- Using MAVSDK or ROS to connect to PX4 over the network.
 
 ## Supported Flight Controllers
 
@@ -21,11 +25,11 @@ Supported flight controllers include:
 :::note
 The Ethernet port configuration sets the properties of the _serial link_ (which is how PX4 views the Ethernet connection).
 This includes the set of MAVLink messages that are streamed, the data rate, the UDP ports that a remote system can connect listen to, etc.
-You will separately need to configure the PX4 network settings
+You will separately need to configure the PX4 _network settings_.
 This is covered separately (in the following sections).
 :::
 
-PX4 configures the Ethernet (serial) port for connecting to a GCS by default via MAVLink.
+PX4 configures the Ethernet (serial) port to connect to a GCS by default via MAVLink.
 
 Specifically it sets the configuration parameters as shown:
 
@@ -142,37 +146,54 @@ If you have already configured the Pixhawk 5X, at this point you could connect i
   
 ### Companion Computer Ethernet Network Setup
 
-The setup for a companion computer will depend on the companion computer operating system.
-A Linux operating system may support netplan, in which case the instructions would be the same as above, but using a unique IP address.
+The setup for a companion computer will depend on the companion computer's operating system.
 
-<!-- Then link or continue on with MAVSDK setup - depending on what works when you try it -->
+A Linux operating system may support `netplan`, in which case the instructions would be the same as above, but using a unique IP address.
 
-## MAVSDK Sanity check
+## GCS Setup Example
 
-Here we assume that you already have [set up your MAVSDK-python](https://github.com/mavlink/MAVSDK-Python#install-using-pip-from-pypi). According to setup since we have to listen to port 14550 as mentioned earlier, the only thing changes in MAVSDK is the port we connect to UDP. 
+To connect a GCS to PX4 over Ethernet:
+1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network. 
+1. Connect the computer and PX4 using an Ethernet cable and start QGroundControl.
+1. QGroundControl should connect automatically.
 
-### Example for MAVSDK-Python:
+:::note
+[PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) is not required because it is setup by default for connecting to a GCS.
+:::
 
-To give an idea about how this can be done, we make a change in a MAVSDK-Python example in its Github repo. You can extend this to your own application accordingly. Change [this line](https://github.com/mavlink/MAVSDK-Python/blob/master/examples/telemetry.py#L10) to the one below in your local script:
+## MAVSDK-Python Setup Example
 
-```python
-await drone.connect(system_address="udp://:14550")
-```
-Successfully connected one gives you Telemetry information from your flight controller. 
+To setup MAVSDK-Python running on a companion computer:
+1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your companion computer and PX4 run on the same network.
+1. Modify the [PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) to connect to a companion computer.
+   You will need to change the parameters [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540`, and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
+1. Follow the instructions in [MAVSDK-python](https://github.com/mavlink/MAVSDK-Python) to install and use MAVSDK.
 
-### Example for ROS2:
+   For example, your code will connect to the PX4 using:
+   ```python
+   await drone.connect(system_address="udp://:14540")
+   ```
+
+:::note
+MAVSDK can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port configuration.
+However this is not recommended because the default configuration is optimised for communicating with a GCS (not a companion computer).
+:::
+
+
+### ROS2 Setup Example
 
 Prerequisites:
 
 - You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](../middleware/micrortps.md#client-px4-px4-autopilot).
 - [ROS2](../ros/ros2_comm.md#sanity-check-the-installation) has been set up correctly and [sanity check](../ros/ros2_comm.md#sanity-check-the-installation) has been confirmed. 
-- You have followed the Ethernet setup as of the top of this page. 
+- You have followed the Ethernet network and port setup as discussed at the top of this page. 
 
 In this example it is assumed that you have followed the example to set your IP addresses.
 
 1. Connect your Flight controller via Ethernet
 2. Open **QGroundcontrol > Analyze Tools > MAVLink Console**
-3. Enter the command below to start micro_rtps client on your flight controller. Note that the remote IP here is your companion computer IP.
+3. Enter the command below to start the micro_rtps client on your flight controller.
+   Note that the remote IP here is your companion computer IP.
    This by default starts the micrortps_client connected to UDP ports 2019 and 2020
    To make changes you can take a look at [RTPS guide](../middleware/micrortps.md#client-px4-px4-autopilot)
    ```
