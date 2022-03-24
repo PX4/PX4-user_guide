@@ -10794,6 +10794,22 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_QC_ACT">COM_QC_ACT</strong> (INT32)</td>
+ <td>Set command after a quadchute  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> No action: stay in current flight mode</li> 
+
+<li><strong>0:</strong> Return mode</li> 
+
+<li><strong>1:</strong> Land mode</li> 
+
+<li><strong>2:</strong> Hold mode</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_RCL_ACT_T">COM_RCL_ACT_T</strong> (FLOAT)</td>
  <td>Delay between RC loss and configured reaction <p><strong>Comment:</strong> RC signal not updated -> still use data for COM_RC_LOSS_T seconds Consider RC signal lost -> wait COM_RCL_ACT_T seconds in Hold mode to regain signal React with failsafe action NAV_RCL_ACT A zero value disables the delay.</p>   </td>
  <td>0.0 > 25.0 </td>
