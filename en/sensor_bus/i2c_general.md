@@ -58,15 +58,15 @@ The following scheme shows how to connect 6 TFRPM01 to one autopilot bus. By add
 <!-- original mermaid graph
 graph TD
     FMU(FMU - PX4 autopilot)
-    FMU --> AIR(Airspeed sensor)
-    FMU --> RPM1(TFRPM01C 0x50)
-    FMU --> RPM2(TFRPM01C 0x51)
-    FMU --> TFI2CEXT
-    TFI2CEXT --> ADT(TFI2CADT01: 0x0f, 0x7f)
-    ADT --> RPM3(Out1: TFRPM01C 0x50 - 0x5f)
-    ADT --> RPM4(Out1: TFRPM01C 0x51 - 0x5e)
-    ADT --> RPM5(Out2: TFRPM01C 0x50 - 0x2f)
-    ADT --> RPM6(Out2: TFRPM01C 0x52 - 0x2e)
+    FMU -- > AIR(Airspeed sensor)
+    FMU -- > RPM1(TFRPM01C 0x50)
+    FMU -- > RPM2(TFRPM01C 0x51)
+    FMU -- > TFI2CEXT
+    TFI2CEXT -- > ADT(TFI2CADT01: 0x0f, 0x7f)
+    ADT -- > RPM3(Out1: TFRPM01C 0x50 - 0x5f)
+    ADT -- > RPM4(Out1: TFRPM01C 0x51 - 0x5e)
+    ADT -- > RPM5(Out2: TFRPM01C 0x50 - 0x2f)
+    ADT -- > RPM6(Out2: TFRPM01C 0x52 - 0x2e)
 -->
 
 
