@@ -9,7 +9,7 @@ Details on software development for I2C devices are described on the page [i2c](
 ## Wiring
 I2C uses a pair of wires: SDA - serial data and SCL - serial clock. The bus is of open-drain type, meaning that devices ground the data line. It uses a pullup resistor to push it to log.1 (idle state) - every wire has it usually located on the bus terminating devices. One bus can connect to multiple I2C devices. The individual devices are connected without any crossing.
 
-For connection (according to dronecode standard) 4-wire cables equipped with JST-GH connectors are used. To ensure reliable communication and to reduce crosstalk it is advised to apply recommendations concerning (cable twisting)[../assembly/cable_wiring.md#i2c-cables]  and pullup resistors placement.
+For connection (according to dronecode standard) 4-wire cables equipped with JST-GH connectors are used. To ensure reliable communication and to reduce crosstalk it is advised to apply recommendations concerning [cable twisting](../assembly/cable_wiring.md#i2c-cables)  and pullup resistors placement.
 
 ![Cable twisting](../../assets/hardware/cables/i2c_jst-gh_cable.jpg)
 
