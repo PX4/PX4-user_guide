@@ -15,14 +15,14 @@ For connection (according to dronecode standard) 4-wire cables equipped with JST
 
 ## Common problems
 With an increasing number of devices connected to the bus its capacity increases as well. This can cause transmission errors and network unreliability. The problem can be analyzed using e.g. oscilloscope, where we see that the edges of SDA/SCL signals are no longer sharp enough. There are several ways to eliminate the problem:
-    •    Dividing the devices into groups, each with approximately the same number of devices and connecting each group to one autopilot port
-    •    Using the shortest and the highest quality I2C cables possible
-    •    Separating the devices with a weak open-drain driver to smaller bus with lower capacity
+ * Dividing the devices into groups, each with approximately the same number of devices and connecting each group to one autopilot port
+ * Using the shortest and the highest quality I2C cables possible
+ * Separating the devices with a weak open-drain driver to smaller bus with lower capacity
 
 ### I2CEXTENDER
 If none of the above mentioned can be applied or if the solution is not sufficient enough it is possible to use the so-called I2C bus accelerators. These are circuits that physically divide the I2C network into 2 parts and use their own transistors to amplify I2C signals.
 
-For the pixhawk infrastructure there exists a TFI2CEXT module that can be inserted into an extensive I2C network and extend its reach. TFI2CEXT is equipped with dronecode and connectors so its connection is very easy. The module has no settings.
+For the pixhawk infrastructure there exists a (TFI2CEXT01)[https://github.com/ThunderFly-aerospace/TFI2CEXT01] module that can be inserted into an extensive I2C network and extend its reach. TFI2CEXT01 is equipped with dronecode and connectors so its connection is very easy. The module has no settings.
 
 ![I2C bus extender](../../assets/peripherals/i2c_tfi2cext/TFI2CEXT01A_bottom.jpg)
 
@@ -34,7 +34,7 @@ A solution to this problem is an I2C address translator. The translator listens 
 
 ### TFI2CADT01
 
-TFI2CADT01 is a module that translates I2C addresses. A sensor is connected to the master device on one side. On the output side sensors, whose addresses are to be translated, can be connected. Module contains two pairs of connectors, each pair responsible for different translations.
+[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is a module that translates I2C addresses. A sensor is connected to the master device on one side. On the output side sensors, whose addresses are to be translated, can be connected. Module contains two pairs of connectors, each pair responsible for different translations.
 
 
 ![TFI2CADT - i2c address translator](../../assets/peripherals/i2c_tfi2cadt/TFI2CADT01A_booth_sides.jpg)
