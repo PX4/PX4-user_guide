@@ -1,9 +1,9 @@
 
-# I2C bus
+# I2C Bus Overview
 [I2C](https://en.wikipedia.org/wiki/I2C) bus is a widely used bus originally designed for internal communication on computer motherboards. A lot of currently used sensors are equipped with this interface. I2C is easy to implement. It enables two-way communication via a pair of wires (SDA, SCL). The bus is based on master-slave principle and an individual slave device is addressable. One bus can theoretically connect with up to 128 devices, each with its unique address.
 
 :::note
-Details on software development for I2C devices are described on the page [i2c](./i2c.md) in development section.
+Details on software development for I2C devices are described on the page [i2c](./i2c_development.md) in development section.
 :::
 
 ## Wiring
@@ -65,3 +65,11 @@ The tool can be run in px4 terminal with the following command:
 i2cdetect -b 1
 ```
 where the bus number is specified after -b parameter
+
+
+
+## Further Information
+
+* [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) (Wikipedia)
+* [I2C Comparative Overview](https://learn.sparkfun.com/tutorials/i2c) (learn.sparkfun.com)
+* [Driver Framework](../middleware/drivers.md)

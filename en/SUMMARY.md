@@ -333,7 +333,7 @@
     * [Telemetry Radio](data_links/telemetry.md)
       * [SiK Radio](data_links/sik_radio.md)
     * [Sensor and Actuator I/O](sensor_bus/README.md)
-      * [I2C Bus](sensor_bus/i2c.md)
+      * [I2C Bus](sensor_bus/i2c_development.md)
       * [UAVCAN Bus](uavcan/developer.md)
         * [UAVCAN Bootloader](uavcan/bootloader_installation.md)
         * [UAVCAN Firmware Upgrades](uavcan/node_firmware.md)
