@@ -2,6 +2,10 @@
 
 I2C is a packet-switched serial communication protocol that allows multiple master devices to connect to multiple slave devices using only 2 wires per connection. It is intended for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication.
 
+:::note
+The page [Hardware > I2C Peripherals](/i2c_general.md) contains information about the features of the i2c bus from the user's point of view and information, how to solve the most common problems.
+:::
+
 Pixhawk/PX4 support it for:
 * Connecting off board components that require greater data rates than provided by a strict serial UART: e.g. rangefinders.
 * Compatibility with peripheral devices that only support I2C.
@@ -39,8 +43,8 @@ For example, you can see/search for `CONFIG_DRIVERS_DISTANCE_SENSOR_LIGHTWARE_LA
 To find I2C driver examples, search for **i2c.h** in [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers).
 
 Just a few examples are:
-* [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_i2c) - I2C driver for [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md). 
-* [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_serial) - Serial driver for [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md). 
+* [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_i2c) - I2C driver for [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md).
+* [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_serial) - Serial driver for [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md).
 * [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611) - I2C Driver for the MS5611 and MS6507 barometric pressure sensor connected via I2C (or SPI).
 
 ## Further Information

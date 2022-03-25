@@ -276,6 +276,7 @@
     * [ADSB/FLARM (Traffic Avoidance)](peripherals/adsb_flarm.md)
     * [Smart Batteries](smart_batteries/README.md)
       * [Rotoye Batmon Battery Smartification Kit](smart_batteries/rotoye_batmon.md)
+    * [I2C Peripherals](sensor_bus/i2c_general.md)
     * [UAVCAN Peripherals](uavcan/README.md)
   * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
 * [Development](development/development.md)
