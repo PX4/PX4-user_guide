@@ -22,7 +22,7 @@ With an increasing number of devices connected to the bus its capacity increases
 ### I2CEXTENDER
 If none of the above mentioned can be applied or if the solution is not sufficient enough it is possible to use the so-called I2C bus accelerators. These are circuits that physically divide the I2C network into 2 parts and use their own transistors to amplify I2C signals.
 
-For the pixhawk infrastructure there exists a (TFI2CEXT01)[https://github.com/ThunderFly-aerospace/TFI2CEXT01] module that can be inserted into an extensive I2C network and extend its reach. TFI2CEXT01 is equipped with dronecode and connectors so its connection is very easy. The module has no settings.
+For the pixhawk infrastructure there exists a [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01) module that can be inserted into an extensive I2C network and extend its reach. TFI2CEXT01 is equipped with dronecode and connectors so its connection is very easy. The module has no settings.
 
 ![I2C bus extender](../../assets/peripherals/i2c_tfi2cext/TFI2CEXT01A_bottom.jpg)
 
