@@ -52,6 +52,23 @@ The tachometer sensor TFRPM01]() can be set to 2 different addresses using a sol
 
 The following scheme shows how to connect 6 TFRPM01 to one autopilot bus. By adding another TFI2CADT01, 4 more devices can be connected to the same bus.
 
+[![Connection of multiple sensors](https://mermaid.ink/img/pako:eNptkd9rwjAQx_-VcE8dtJB2ukEfBLEWfJCJy8CHvgRznQH7gzSBDfF_33VZB2oCyf3I576XcBc4dgohh08j-xMTRdUyWuX2I6LNErY7zJh0tuv1ubNP_7csSRZsudlHS22GHlGxAduhM3fEfrdNI1GS4emK8a85fwSyGyC9A0S5yVbrg_DZKfLtCxH9JsjhaU7VvI7pfK3_NCg_NXmO3pwl5uYt9D0yAXoWoFNP4yM9H-kspJ0FtF8CdObpURtiaNA0UisaymWsrsCesMEKcnIV1tKdbQVVeyXU9UpaXCttOwO5NQ5jGKf1_t0ep9gzhZY04sYnrz9BI4mU)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNptkd9rwjAQx_-VcE8dtJB2ukEfBLEWfJCJy8CHvgRznQH7gzSBDfF_33VZB2oCyf3I576XcBc4dgohh08j-xMTRdUyWuX2I6LNErY7zJh0tuv1ubNP_7csSRZsudlHS22GHlGxAduhM3fEfrdNI1GS4emK8a85fwSyGyC9A0S5yVbrg_DZKfLtCxH9JsjhaU7VvI7pfK3_NCg_NXmO3pwl5uYt9D0yAXoWoFNP4yM9H-kspJ0FtF8CdObpURtiaNA0UisaymWsrsCesMEKcnIV1tKdbQVVeyXU9UpaXCttOwO5NQ5jGKf1_t0ep9gzhZY04sYnrz9BI4mU)
+
+
+<!-- original mermaid graph
+graph TD
+    FMU(FMU - PX4 autopilot)
+    FMU --> AIR(Airspeed sensor)
+    FMU --> RPM1(TFRPM01C 0x50)
+    FMU --> RPM2(TFRPM01C 0x51)
+    FMU --> TFI2CEXT
+    TFI2CEXT --> ADT(TFI2CADT01: 0x0f, 0x7f)
+    ADT --> RPM3(Out1: TFRPM01C 0x50 - 0x5f)
+    ADT --> RPM4(Out1: TFRPM01C 0x51 - 0x5e)
+    ADT --> RPM5(Out2: TFRPM01C 0x50 - 0x2f)
+    ADT --> RPM6(Out2: TFRPM01C 0x52 - 0x2e)
+-->
+
 
 :::note
 TFI2CADT01 does not contain any I2C buffer or accelerator. It itself creates an additional capacity on the bus. Therefore it is advisable to combine TFI2CADT01 with some bus booster, e.g. TFI2CEXT01.
