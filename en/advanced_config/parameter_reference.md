@@ -21577,6 +21577,150 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CAL_BARO0_ID">CAL_BARO0_ID</strong> (INT32)</td>
+ <td>Barometer 0 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO0_OFF">CAL_BARO0_OFF</strong> (FLOAT)</td>
+ <td>Barometer 0 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO0_PRIO">CAL_BARO0_PRIO</strong> (INT32)</td>
+ <td>Barometer 0 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO1_ID">CAL_BARO1_ID</strong> (INT32)</td>
+ <td>Barometer 1 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO1_OFF">CAL_BARO1_OFF</strong> (FLOAT)</td>
+ <td>Barometer 1 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO1_PRIO">CAL_BARO1_PRIO</strong> (INT32)</td>
+ <td>Barometer 1 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO2_ID">CAL_BARO2_ID</strong> (INT32)</td>
+ <td>Barometer 2 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO2_OFF">CAL_BARO2_OFF</strong> (FLOAT)</td>
+ <td>Barometer 2 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO2_PRIO">CAL_BARO2_PRIO</strong> (INT32)</td>
+ <td>Barometer 2 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO3_ID">CAL_BARO3_ID</strong> (INT32)</td>
+ <td>Barometer 3 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO3_OFF">CAL_BARO3_OFF</strong> (FLOAT)</td>
+ <td>Barometer 3 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO3_PRIO">CAL_BARO3_PRIO</strong> (INT32)</td>
+ <td>Barometer 3 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CAL_GYRO0_ID">CAL_GYRO0_ID</strong> (INT32)</td>
  <td>Gyroscope 0 calibration device ID <p><strong>Comment:</strong> Device ID of the gyroscope this calibration applies to.</p>   </td>
  <td></td>
@@ -23384,16 +23528,14 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
- <td>QNH for barometer    <p><b>Reboot required:</b> true</p>
-</td>
+ <td>QNH for barometer    </td>
  <td>500 > 1500 </td>
  <td>1013.25</td>
  <td>hPa</td>
 </tr>
 <tr>
  <td><strong id="SENS_BARO_RATE">SENS_BARO_RATE</strong> (FLOAT)</td>
- <td>Baro max rate <p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Baro max rate <p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   </td>
  <td>1 > 200 </td>
  <td>20.0</td>
  <td>Hz</td>
@@ -25744,7 +25886,7 @@ table {
  <td>simulated barometer temperature offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="SIM_GPS_USED">SIM_GPS_USED</strong> (INT32)</td>

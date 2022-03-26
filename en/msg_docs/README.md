@@ -140,6 +140,7 @@ the field 'timestamp' is for the position & velocity (microseconds)
 The topic will not be updated when the vehicle is armed
 - [sensor_selection](sensor_selection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic.
 Will be updated on startup of the sensor module and when sensor selection changes
+- [sensors_status](sensors_status.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [sensors_status_imu](sensors_status_imu.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [system_power](system_power.md)
 - [takeoff_status](takeoff_status.md) — Status of the takeoff state machine currently just availble for multicopters
