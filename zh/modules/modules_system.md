@@ -81,7 +81,7 @@ commander <command> [arguments...]
      [-h]        Enable HIL mode
 
    calibrate     Run sensor calibration
-     mag|accel|gyro|level|esc|airspeed Calibration type
+     mag|baro|accel|gyro|level|esc|airspeed Calibration type
      quick       Quick calibration (accel only, not recommended)
 
    check         Run preflight checks
