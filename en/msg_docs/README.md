@@ -129,6 +129,7 @@ This are the three next waypoints (or just the next two or one).
 These fields are scaled and offset-compensated where possible and do not
 change with board revisions and sensor updates.
 - [sensor_correction](sensor_correction.md) — Sensor corrections in SI-unit form for the voted sensor
+- [sensor_gnss_relative](sensor_gnss_relative.md) — GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.
 - [sensor_gps](sensor_gps.md) — GPS position in WGS84 coordinates.
 the field 'timestamp' is for the position & velocity (microseconds)
 - [sensor_gyro](sensor_gyro.md)
