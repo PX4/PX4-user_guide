@@ -16,26 +16,66 @@ Changes will be merged when they pass our [continuous integration](https://en.wi
 
 All code contributions have to be under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and all code must not impose any further constraints on the use.
 
-## Code Style Formatting
+## Code Style
 
-PX4 uses [astyle](http://astyle.sourceforge.net/) for code formatting. Valid versions are
-* [astyle 2.06](https://sourceforge.net/projects/astyle/files/astyle/astyle%202.06/) (deprecated)
-* [astyle 3.0](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0/)
-* [astyle 3.01](https://sourceforge.net/projects/astyle/files/) (recommended)
+PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
-Once installed, formatting can be checked with `./Tools/astyle/check_code_style_all.sh`. The output should be `Format checks passed` on a clean master. If that worked, `make format` can be used in the future to check and format all files automatically.
+### Tabs
 
-## File name conventions
+- Tabs are used for indentation (equivalent to 8 spaces).
+- Spaces are used for alignment.
 
-Going forward we aim to follow these file naming conventions:
+### Line Length
 
-- C++ source files should be named in CamelCase and match the class name. E.g. A C++ file containing a class named `FooThing` should be named `FooThing.cpp`.
-- C++ header files should be named the same as source files except have the suffix `.hpp`.
-- C++ header files that are required to be C compatible, should have the suffix `.h`.
-- Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
-- Test files must have a `Test` suffix as shown: `FooThingTest.cpp`.
+- Maximum line length is 120 characters.
 
-- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+### File Extensions
+
+- Source files use extension `*.cpp` instead of `*.cc`
+
+- An exception to the rule above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+
+### Function and Method Names
+
+- `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
+
+### Class Privacy Keywords
+
+- *zero* spaces before `public:`, `private:`, or `protected:` keywords.
+
+### Example Code Snippet
+
+```
+class MyClass {
+public:
+
+    /**
+     * @breif Description of what this function does.
+     *
+     * @param[in] input_param Clear description of the input [units]
+     * @return Whatever we are returning [units]
+     */
+    float doSomething(const float input_param) const {
+        const float in_scope_variable = input_param + kConstantFloat;
+        return in_scope_variable * private_member_variable_;
+    }
+
+    void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
+
+    /**
+     * @return Whatever we are "getting" [units]
+     */
+    float getPrivateMember() const { return private_member_variable_; }
+
+private:
+    
+    // Clear description of the constant if not completely obvious from the name [units]
+    static constexpr float kConstantFloat = ...;  
+
+    // Clear description of the variable if not completely obvious from the name [units]
+    float private_member_variable_{...};
+};
+```
 
 ## In-Source Documentation
 
@@ -57,6 +97,7 @@ Currently we have two types of source-based documentation:
   :::
   
   - Do not add documentation that can trivially be assumed from C++ entity names.
+  - ALWAYS specify units of variables, constants, and input/return parameters where they are defined
   - Commonly you may want to add information about corner cases and error handling.
   - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
 
