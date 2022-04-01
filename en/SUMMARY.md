@@ -227,6 +227,8 @@
       * [Freefly RTK GPS](gps_compass/rtk_gps_freefly.md)
       * [Holybro H-RTK-F9P](gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
       * [Holybro H-RTK-M8P](gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
+      * [Septentrio AsteRx-RIB](gps_compass/septentrio_asterx-rib.md)
+      * [Septentrio mosaic-go](gps_compass/septentrio_mosaic-go.md)
       * [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
       * [CubePilot Here+ (Discontined)](gps_compass/rtk_gps_hex_hereplus.md)
     * [Telemetry Radios](telemetry/README.md)
