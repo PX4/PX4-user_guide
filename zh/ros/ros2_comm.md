@@ -1,32 +1,32 @@
-# ROS 2 User Guide (PX4-ROS 2 Bridge)
+# ROS 2 用户指南 (PX4-ROS 2 Bridge)
 
-This topic explains how to setup and use ROS 2 with PX4.
+这个主题将告诉你如何在PX4上设置和使用ROS2
 
-It provides an overview of the ROS2-PX4 bridge architecture and application pipeline, along with instructions on how to install all the needed software and build ROS 2 applications.
+它提供了有关 ROS 2-PX4 桥架构和应用程序管道的概述，以及如何安装所有需要的软件和构建 ROS 2 应用的说明。
 
 :::note
-The Fast DDS interface in the PX4 Autopilot can be leveraged by any applications running and linked in DDS domains (including ROS nodes).
+PX4 Autopilot 中的 Fast DDS 接口可供在 DDS 域中运行和连接的任何应用程序使用（包括 ROS 节点）。
 
-For information about using the *microRTPS bridge* **without ROS 2**, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
+有关单独使用*microRTPS bridge* 不使用**ROS 2** 参阅[RTPS/DDS Interface section](../middleware/micrortps.md).
 :::
 
 :::note
-For a more detailed and visual explanation on how to use PX4 with ROS 2 see these presentations from the PX4 maintainers:
+有关与和 ROS 2 一起使用 PX4 的更详细的信息，参考这些来自 PX4 维护人员的演示
 1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 :::
 
-## Overview
+## 概述
 
-The application pipeline for ROS 2 is very straightforward, thanks to the native communications middleware (DDS/RTPS). The [microRTPS Bridge](../middleware/micrortps.md) consists of a client running on PX4 and an agent running on the Mission/Companion Computer, which communicate to provide bi-directional data exchange and message translation between UORB and ROS 2 message formats. This allows you to create ROS 2 subscribers or publisher nodes that interface directly with PX4 UORB topics! This is shown in the diagram below.
+得益于原生通信中间件 (DDS/RTPS)，ROS 2 的应用程序管道非常简单。 [microRTPS Bridge](../middleware/micrortps.md) 由运行在 PX4 上的客户端（client）和运行在任务计算机/伴侣计算机上的代理端(agent)组成，它们提供 UORB 和 ROS 2 数据格式之间的双向数据交换和消息转换。 这允许您创建直接与 PX4 UORB 主题(topic)交互的 ROS 2 订阅者(subscribers)或发布者(publisher)节点。 如下图所示。
 
 ![Architecture with ROS 2](../../assets/middleware/micrortps/architecture_ros2.png)
 
-ROS 2 uses the [`px4_msgs`](https://github.com/PX4/px4_msgs) and [`px4_ros_com`](https://github.com/PX4/px4_ros_com) packages to ensure that matching message definitions are used for creating both the client and the agent code (this is important), and also to remove the requirement for PX4 to be present when building ROS code.
-- `px4_msgs` contains PX4 ROS message definitions. When this project is built it generates the corresponding ROS 2-compatible typesupport, used by ROS 2 nodes, and IDL files, used by `fastddsgen` to generate the microRTPS agent code.
-- `px4_ros_com` contains the microRTPS agent code templates for the agent publishers and subscribers. The build process runs a `fastddsgen` instance to generate the code for the `micrortps_agent`, which compiles into a single executable.
+ROS 2 使用[`px4_msgs`](https://github.com/PX4/px4_msgs) 和 [`px4_ros_com`](https://github.com/PX4/px4_ros_com) 来确保用于创建客户端和代理端代码的消息定义是匹配的（这很重要），并且还消除了在构建 ROS 代码时需要 PX4 存在的要求。
+- `px4_msgs` 包含 PX4 ROS 消息定义。 构建此项目时，它会生成相应的 ROS 2-兼容 类型支持，供 ROS 2 节点使用，以及 IDL 文件，供 fastddsgen生成 microRTPS 代理端代码使用。
+- `px4_ros_com` 包含代理端发布者和订阅者的 microRTPS 代理端代码模板。 构建过程将运行一个 fastddsgen 实例来生成 micrortps_agent 的代码，该代码将被编译成单个可执行文件。
 
-The PX4 Autopilot project automatically updates [`px4_msgs`](https://github.com/PX4/px4_msgs) with new message definitions whenever they are changed (in the `master` branch).
+PX4 Autopilot 项目会在 [`px4_msgs`](https://github.com/PX4/px4_msgs) 发生更改时自动更新消息定义（在`master`分支中）。
 
 :::note
 The subset of uORB topics that will be accessible to ROS applications can be found in the [bridge configuration yaml file](https://github.com/PX4/px4_ros_com/blob/master/templates/urtps_bridge_topics.yaml).
@@ -49,44 +49,51 @@ You cannot use an agent generated as part of a "normal" PX4 build with ROS 2 (e.
 :::
 
 
-## Installation & Setup
+## 安装与设置
 
-To setup ROS 2 for use with PX4 you will need to:
-- [Install Fast DDS](#install-fast-dds)
-- [Install ROS2](#install-ros-2)
+设置 PX4 与 ROS 2 你需要:
+- [安装 Fast DDS](#install-fast-dds)
+- [安装 ROS2](#install-ros-2)
 - [Build ROS 2 Workspace](#build-ros-2-workspace)
-- [Sanity Check the Installation](#sanity-check-the-installation) (Optional)
+- [Sanity Check the Installation](#sanity-check-the-installation) (可选)
 
-### Install Fast DDS
+### 安装 Fast DDS
 
-Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.2** (or later) and **Fast-RTPS-Gen 1.0.4** (not later!) and their dependencies.
+按照 [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) 来安装 **Fast RTPS(DDS) 2.0.2** (或更新版本) 和 **Fast-RTPS-Gen 1.0.4** (不能选新版本) 以及它们的依赖关系。
 
 :::warning
 Check the guide to confirm the latest dependencies! You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen** have been installed.
 :::
 
 
-### Install ROS 2
+### 安装 ROS 2
 
 <!-- what other toolchain needed? e.g. for ROS - gcc? does it all come with the ROS setup? -->
 
 :::note
-This install and build guide covers ROS 2 Foxy in Ubuntu 20.04. ::: :::warning If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent. ::: To install ROS 2 and its dependencies:
+This install and build guide covers ROS 2 Foxy in Ubuntu 20.04.
+:::
 
-1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
-1. The install process should also install the **`colcon`** build tools, but in case that doesn't happen, you can install the tools manually:
+:::warning
+If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent.
+:::
+
+安装 ROS 2 及其依赖项:
+
+1. [安装 ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
+1. 安装过程应该包括安装 **`colcon`** 工具，但如果没有安装你可以手动安装：
 
    ```sh
    sudo apt install python3-colcon-common-extensions
    ```
 
-1. **`eigen3_cmake_module`** is also required, since Eigen3 is used on the transforms library:
+1. **`eigen3_cmake_module`** 也是必需的，因为 Eigen3 用于转换库：
 
    ```sh
    sudo apt install ros-foxy-eigen3-cmake-module
    ```
 
-1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
+1. 还必须安装一些 Python 依赖项 (使用 **`pip`** or **`apt`**):
 
    ```sh
    sudo pip3 install -U empy pyros-genmsg setuptools
@@ -95,7 +102,7 @@ This install and build guide covers ROS 2 Foxy in Ubuntu 20.04. ::: :::warning I
 
 ### Build ROS 2 Workspace
 
-This section shows how create a ROS 2 workspace hosted in your *home directory* (modify the commands as needed to put the source code elsewhere). The `px4_ros_com` and `px4_msg` packages are cloned to a workspace folder, and then a script is used to build the workspace.
+本节将演示如何创建一个在您的 *家目录* 中的 ROS 2 工作区（根据需要修改命令以将源代码放在其他位置）。 `px4_ros_com` 和 `px4_msg` 包将被克隆到一个工作空间文件夹，然后将使用一个脚本来构建工作空间。
 
 :::note
 The build process will open new tabs on the console, corresponding to different stages of the build process that need to have different environment configurations sourced.
