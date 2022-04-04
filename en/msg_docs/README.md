@@ -164,6 +164,10 @@ then the frequency, duration are used otherwise those values are ignored.
 mavlink message
 - [ulog_stream_ack](ulog_stream_ack.md) — Ack a previously sent ulog_stream message that had
 the NEED_ACK flag set
+- [uwb_distance](uwb_distance.md) — UWB distance contains the distance information measured by an ultra-wideband positioning system,
+such as Pozyx or NXP Rddrone.
+- [uwb_grid](uwb_grid.md) — UWB report message contains the grid information measured by an ultra-wideband positioning system,
+such as Pozyx or NXP Rddrone.
 - [vehicle_acceleration](vehicle_acceleration.md)
 - [vehicle_air_data](vehicle_air_data.md)
 - [vehicle_angular_acceleration](vehicle_angular_acceleration.md)

@@ -28230,6 +28230,77 @@ table {
 </tr>
 </tbody></table>
 
+## UWB
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UWB_INIT_OFF_X">UWB_INIT_OFF_X</strong> (FLOAT)</td>
+ <td>UWB sensor X offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. X offset. A Positiv offset results in a Position o</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_Y">UWB_INIT_OFF_Y</strong> (FLOAT)</td>
+ <td>UWB sensor Y offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Y offset.</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_YAW">UWB_INIT_OFF_YAW</strong> (FLOAT)</td>
+ <td>UWB sensor YAW offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Yaw rotation in relation to direction of FMU.</p>   </td>
+ <td>(0.1)</td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_Z">UWB_INIT_OFF_Z</strong> (FLOAT)</td>
+ <td>UWB sensor Y offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Z offset.</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_PORT_CFG">UWB_PORT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Ultrawideband position sensor driver <p><strong>Comment:</strong> Configure on which serial port to run Ultrawideband position sensor driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## VTOL Attitude Control
 
 <table>
