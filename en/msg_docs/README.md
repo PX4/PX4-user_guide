@@ -22,6 +22,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [airspeed_wind](airspeed_wind.md)
 - [autotune_attitude_control_status](autotune_attitude_control_status.md)
 - [battery_status](battery_status.md)
+- [button_event](button_event.md)
 - [camera_capture](camera_capture.md)
 - [camera_status](camera_status.md)
 - [camera_trigger](camera_trigger.md)

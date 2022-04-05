@@ -10591,6 +10591,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_FORCE_SAFETY">COM_FORCE_SAFETY</strong> (INT32)</td>
+ <td>Enable force safety <p><strong>Comment:</strong> Force safety when the vehicle disarms. Not supported when safety button used over PX4IO board.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_HLDL_LOSS_T">COM_HLDL_LOSS_T</strong> (INT32)</td>
  <td>High Latency Datalink loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
  <td>60 > 3600 </td>
@@ -27874,6 +27881,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_SUB_BTN">UAVCAN_SUB_BTN</strong> (INT32)</td>
+ <td>subscription button <p><strong>Comment:</strong> Enable UAVCAN button subscription. ardupilot::indication::Button</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_SUB_DPRES">UAVCAN_SUB_DPRES</strong> (INT32)</td>
  <td>subscription differential pressure <p><strong>Comment:</strong> Enable UAVCAN differential pressure subscription. uavcan::equipment::air_data::RawAirData</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27923,7 +27938,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_MAG">UAVCAN_SUB_MAG</strong> (INT32)</td>
- <td>subscription magnetometer <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::ahrs::MagneticFieldStrength uavcan::equipment::ahrs::MagneticFieldStrength2</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription magnetometer <p><strong>Comment:</strong> Enable UAVCAN mag subscription. uavcan::equipment::ahrs::MagneticFieldStrength uavcan::equipment::ahrs::MagneticFieldStrength2</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Enabled (1)</td>
@@ -27931,7 +27946,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_RNG">UAVCAN_SUB_RNG</strong> (INT32)</td>
- <td>subscription range finder <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::range_sensor::Measurement</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription range finder <p><strong>Comment:</strong> Enable UAVCAN range finder subscription. uavcan::equipment::range_sensor::Measurement</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
