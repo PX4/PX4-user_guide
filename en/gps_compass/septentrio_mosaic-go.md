@@ -16,11 +16,7 @@ includes:
 - Size: 71 x 59 x 12 mm ± 1mm
 - Weight: 58g ± 1g
 
-<div style="text-align: center;">
-
 ![Highly accurate GNSS receiver module](../../assets/hardware/gps/septentrio_sbf/mosaic-go.png "Highly accurate GNSS receiver module")
-
-</div>
 
 
 ## Purchase
