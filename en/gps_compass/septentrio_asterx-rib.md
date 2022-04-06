@@ -158,7 +158,7 @@ Edit the following parameters in the GPS tab:
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
 
 
-Go to “Tools” &#8250; “Reboot Vehicle”
+Go to **Tools > Reboot Vehicle**
 
 ### Dual antenna
 
