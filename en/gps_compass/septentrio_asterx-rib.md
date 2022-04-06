@@ -19,22 +19,6 @@ Weight = 50g
 
 </div>
 
-## Table Of Contents
-1. [Key Features](../../en/gps_compass/septentrio_asterx-rib.md#key-features)
-2. [Purchase](../../en/gps_compass/septentrio_asterx-rib.md#purchase)
-3. [Interfaces](../../en/gps_compass/septentrio_asterx-rib.md#interfaces)
-   1. [USB](../../en/gps_compass/septentrio_asterx-rib.md#usb)
-   2. [44-pin Header](../../en/gps_compass/septentrio_asterx-rib.md#44-pin-header)
-   3. [LED's](../../en/gps_compass/septentrio_asterx-rib.md#leds)
-   4. [LOG Button Header](../../en/gps_compass/septentrio_asterx-rib.md#log-button-header)
-   5. [PPS/Event Header](../../en/gps_compass/septentrio_asterx-rib.md#ppsevent-header)
-   6. [Power Supply Options](../../en/gps_compass/septentrio_asterx-rib.md#power-supply-options)
-4. [Hardware Setup](../../en/gps_compass/septentrio_asterx-rib.md#hardware-setup)
-   1. [Dual Antenna](../../en/gps_compass/septentrio_asterx-rib.md#hardware-setup)
-   2. [Web App](../../en/gps_compass/septentrio_asterx-rib.md#web-app)
-5. [PX4 Setup](../../en/gps_compass/septentrio_asterx-rib.md#px4-setup)
-   1. [Single Antenna](../../en/gps_compass/septentrio_asterx-rib.md#single-antenna)
-   2. [Dual Antenna](../../en/gps_compass/septentrio_asterx-rib.md#px4-setup)
 
 ## Key Features
 
