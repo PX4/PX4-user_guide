@@ -13,11 +13,7 @@ Size: 71.53 x 47.5 x 18.15 mm
 
 Weight = 50g
 
-<div style="text-align: center;">
-
-![](../../assets/hardware/gps/septentrio_sbf/AsteRX-m3+RIB-board.png "Septentrio Robotics Interface Board")
-
-</div>
+![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/AsteRX-m3+RIB-board.png)
 
 
 ## Key Features
