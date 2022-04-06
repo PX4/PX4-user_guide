@@ -22,23 +22,6 @@ includes:
 
 </div>
 
-## Table Of Contents
-1. [Purchase](../../en/gps_compass/septentrio_mosaic-go.md#purchase)
-2. [The mosaic-go heading evaluation kit contains](../../en/gps_compass/septentrio_mosaic-go.md#the-mosaic-go-heading-evaluation-kit-contains)
-3. [Interfaces](../../en/gps_compass/septentrio_mosaic-go.md#interfaces)
-   1. [USB](../../en/gps_compass/septentrio_mosaic-go.md#usb)
-   2. [RSV USB](../../en/gps_compass/septentrio_mosaic-go.md#rsv-usb)
-   3. [RF_IN1 and RF_IN2](../../en/gps_compass/septentrio_mosaic-go.md#rf_in1-and-rf_in2)
-   4. [TF-Card](../../en/gps_compass/septentrio_mosaic-go.md#tf-card)
-   5. [6-pin connector](../../en/gps_compass/septentrio_mosaic-go.md#6-pin-connector)
-   6. [4-pin connector](../../en/gps_compass/septentrio_mosaic-go.md#4-pin-connector)
-4. [Hardware Setup](../../en/gps_compass/septentrio_mosaic-go.md#hardware-setup)
-   1. [Dual Antenna](../../en/gps_compass/septentrio_mosaic-go.md#hardware-setup)
-   2. [Web App](../../en/gps_compass/septentrio_mosaic-go.md#web-app)
-5. [PX4 Setup](../../en/gps_compass/septentrio_mosaic-go.md#px4-setup)
-   1. [Single Antenna](../../en/gps_compass/septentrio_mosaic-go.md#single-antenna)
-   2. [Dual Antenna](../../en/gps_compass/septentrio_mosaic-go.md#px4-setup)
-6. [LED Status](../../en/gps_compass/septentrio_mosaic-go.md#led-status)
 
 ## Purchase
 
