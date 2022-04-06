@@ -24998,7 +24998,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_ULAND_CFG">SENS_ULAND_CFG</strong> (INT32)</td>
- <td>Serial Configuration for uLanding Radar <p><strong>Comment:</strong> Configure on which serial port to run uLanding Radar.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for US-D1 Radar <p><strong>Comment:</strong> Configure on which serial port to run US-D1 Radar.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>6:</strong> UART 6</li> 
