@@ -145,11 +145,7 @@ The receiver includes an intuitive web user interface for easy operation and mon
 receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to
 monitor the receiver operation during the job at hand.
 
-<div style="text-align: center;">
-
-![Illustrative image for Septentrio mosaic-H GNSS Receiver Module Web User Interface (WebUI)]( ../../assets/hardware/gps/septentrio_sbf/Septentrio-mosaic-X5-H-T-CLAS-GNSS-Module-Receiver-WebUI.png "Septentrio web user interface")
-
-</div>
+![Septentrio web user interface]( ../../assets/hardware/gps/septentrio_sbf/Septentrio-mosaic-X5-H-T-CLAS-GNSS-Module-Receiver-WebUI.png)
 
 ## PX4 setup
 
