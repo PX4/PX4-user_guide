@@ -9797,6 +9797,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="BAT_AVRG_CURRENT">BAT_AVRG_CURRENT</strong> (FLOAT)</td>
+ <td>Expected battery current in flight <p><strong>Comment:</strong> This value is used to initialize the in-flight average current estimation, which in turn is used for estimating remaining flight time and RTL triggering.</p>   </td>
+ <td>0 > 500 (0.1)</td>
+ <td>15.0</td>
+ <td>A</td>
+</tr>
+<tr>
  <td><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
  <td>Critical threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   </td>
  <td>0.05 > 0.25 (0.01)</td>
@@ -10581,6 +10588,13 @@ table {
   </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_FORCE_SAFETY">COM_FORCE_SAFETY</strong> (INT32)</td>
+ <td>Enable force safety <p><strong>Comment:</strong> Force safety when the vehicle disarms. Not supported when safety button used over PX4IO board.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -15468,6 +15482,20 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="MAV_0_BROADCAST">MAV_0_BROADCAST</strong> (INT32)</td>
+ <td>Broadcast heartbeats on local network for MAVLink instance 0 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Never broadcast</li> 
+
+<li><strong>1:</strong> Always broadcast</li> 
+
+<li><strong>2:</strong> Only multicast</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -15568,6 +15596,36 @@ table {
  <td>0 > ? </td>
  <td>1200</td>
  <td>B/s</td>
+</tr>
+<tr>
+ <td><strong id="MAV_0_REMOTE_PRT">MAV_0_REMOTE_PRT</strong> (INT32)</td>
+ <td>MAVLink Remote Port for instance 0 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 0, selected remote port will be set and used in MAVLink instance 0.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>14550</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_0_UDP_PRT">MAV_0_UDP_PRT</strong> (INT32)</td>
+ <td>MAVLink Network Port for instance 0 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 0, selected udp port will be set and used in MAVLink instance 0.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>14556</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_1_BROADCAST">MAV_1_BROADCAST</strong> (INT32)</td>
+ <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Never broadcast</li> 
+
+<li><strong>1:</strong> Always broadcast</li> 
+
+<li><strong>2:</strong> Only multicast</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
@@ -15672,6 +15730,36 @@ table {
  <td>B/s</td>
 </tr>
 <tr>
+ <td><strong id="MAV_1_REMOTE_PRT">MAV_1_REMOTE_PRT</strong> (INT32)</td>
+ <td>MAVLink Remote Port for instance 1 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 1, selected remote port will be set and used in MAVLink instance 1.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_1_UDP_PRT">MAV_1_UDP_PRT</strong> (INT32)</td>
+ <td>MAVLink Network Port for instance 1 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 1, selected udp port will be set and used in MAVLink instance 1.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_BROADCAST">MAV_2_BROADCAST</strong> (INT32)</td>
+ <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Never broadcast</li> 
+
+<li><strong>1:</strong> Always broadcast</li> 
+
+<li><strong>2:</strong> Only multicast</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -15772,6 +15860,22 @@ table {
  <td>0 > ? </td>
  <td>0</td>
  <td>B/s</td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_REMOTE_PRT">MAV_2_REMOTE_PRT</strong> (INT32)</td>
+ <td>MAVLink Remote Port for instance 2 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 2, selected remote port will be set and used in MAVLink instance 2.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_UDP_PRT">MAV_2_UDP_PRT</strong> (INT32)</td>
+ <td>MAVLink Network Port for instance 2 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 2, selected udp port will be set and used in MAVLink instance 2.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MAV_COMP_ID">MAV_COMP_ID</strong> (INT32)</td>
@@ -27777,6 +27881,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_SUB_BTN">UAVCAN_SUB_BTN</strong> (INT32)</td>
+ <td>subscription button <p><strong>Comment:</strong> Enable UAVCAN button subscription. ardupilot::indication::Button</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_SUB_DPRES">UAVCAN_SUB_DPRES</strong> (INT32)</td>
  <td>subscription differential pressure <p><strong>Comment:</strong> Enable UAVCAN differential pressure subscription. uavcan::equipment::air_data::RawAirData</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27826,7 +27938,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_MAG">UAVCAN_SUB_MAG</strong> (INT32)</td>
- <td>subscription magnetometer <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::ahrs::MagneticFieldStrength uavcan::equipment::ahrs::MagneticFieldStrength2</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription magnetometer <p><strong>Comment:</strong> Enable UAVCAN mag subscription. uavcan::equipment::ahrs::MagneticFieldStrength uavcan::equipment::ahrs::MagneticFieldStrength2</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Enabled (1)</td>
@@ -27834,7 +27946,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_RNG">UAVCAN_SUB_RNG</strong> (INT32)</td>
- <td>subscription range finder <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::range_sensor::Measurement</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription range finder <p><strong>Comment:</strong> Enable UAVCAN range finder subscription. uavcan::equipment::range_sensor::Measurement</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -28129,6 +28241,77 @@ table {
   </td>
  <td></td>
  <td>1</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## UWB
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UWB_INIT_OFF_X">UWB_INIT_OFF_X</strong> (FLOAT)</td>
+ <td>UWB sensor X offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. X offset. A Positiv offset results in a Position o</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_Y">UWB_INIT_OFF_Y</strong> (FLOAT)</td>
+ <td>UWB sensor Y offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Y offset.</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_YAW">UWB_INIT_OFF_YAW</strong> (FLOAT)</td>
+ <td>UWB sensor YAW offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Yaw rotation in relation to direction of FMU.</p>   </td>
+ <td>(0.1)</td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_Z">UWB_INIT_OFF_Z</strong> (FLOAT)</td>
+ <td>UWB sensor Y offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Z offset.</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_PORT_CFG">UWB_PORT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Ultrawideband position sensor driver <p><strong>Comment:</strong> Configure on which serial port to run Ultrawideband position sensor driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
  <td></td>
 </tr>
 </tbody></table>

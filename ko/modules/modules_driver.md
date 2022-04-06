@@ -1132,6 +1132,40 @@ tone_alarm <command> [arguments...]
 
    status        print status info
 ```
+## uwb
+Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/uwb/uwb_sr150)
+
+
+### Description
+
+Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message whenever the UWB_SR150 has a position measurement available.
+
+### Example
+
+Start the driver with a given device:
+
+```
+uwb start -d /dev/ttyS2
+```
+
+<a id="uwb_usage"></a>
+
+### Usage
+```
+uwb <command> [arguments...]
+ Commands:
+   start
+     -d <val>    Name of device for serial communication with UWB
+                 values: <file:dev>
+     -b <val>    Baudrate for serial communication
+                 values: <int>
+     -p <val>    Position Debug: displays errors in Multilateration
+                 values: <int>
+
+   stop
+
+   status
+```
 ## voxlpm
 Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
 
