@@ -171,7 +171,7 @@ Edit the following parameters in the GPS tab:
 - [EKF2_AID_MASK](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#EKF2_AID_MASK): Use GPS & GPS yaw fusion (129)
 - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): set according to your setup
 
-Go to “Tools” &#8250; “Reboot Vehicle”
+Go to **Tools > Reboot Vehicle**
 
 :::tip 
 If you want more detailed information about the AsteRx and the Robotics Interface Board, please refer to
