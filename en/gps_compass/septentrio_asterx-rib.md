@@ -85,11 +85,7 @@ On-board diodes prevent short circuits. The interface board provides the 3V3 sup
 
 ## Hardware setup
 
-<div style="text-align: center;">
-
-![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/RIB_wiring.png "Septentrio Robotics Interface Board wiring diagram")
-
-</div>
+![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/RIB_wiring.png)
 
 1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
 2. Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board.
