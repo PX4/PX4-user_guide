@@ -98,11 +98,7 @@ Type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S
 :::warning
 Make sure the JST cable is wired correctly (since this is not a standard cable):
 
-<div style="text-align: center;">
-
-![Wiring of JST cable](../../assets/hardware/gps/septentrio_sbf/JST-cable.png "Wiring of JST cable")
-
-</div>
+![Wiring of JST cable](../../assets/hardware/gps/septentrio_sbf/JST-cable.png)
 
 :::
 :::note 
