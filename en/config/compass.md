@@ -3,14 +3,15 @@
 The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/README.md).
 *QGroundControl* will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
+You will need to calibrate your compass on first use, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics.
+
 :::note
-If you are using an external magnetometer/compass (e.g. a compass integrated into a GPS module) make sure you mount the external compass on your vehicle properly and connect it to the autopilot hardware.
-Instructions for connecting your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware.
+If you are using an external magnetometer/compass (or a compass integrated into a GPS module) make sure it is [mounted](../assembly/mount_gps_compass.md) as far as possible form other electronics and in a _supported orientation_.
+Instructions for _connecting_ your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware.
 Once connected, *QGroundControl* will automatically detect the external magnetometer.
 :::
 
 :::tip
-You will need to calibrate your compass on first use, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics.
 Indications of a poor compass calibration include multicopter circling during hover, toilet bowling (circling at increasing radius/spiraling-out, usually constant altitude, leading to fly-way), or veering off-path when attempting to fly straight.
 :::
 
