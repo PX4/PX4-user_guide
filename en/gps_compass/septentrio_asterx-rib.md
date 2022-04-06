@@ -97,11 +97,11 @@ The 6-pin 2mm header next to the micro USB connector exposes the first PPS signa
 
 ### Power Supply Options
 
-When a USB cable is connected to the micro USB connector, the interface board is powered from the computer through the
-USB connector.Alternatively, the power can be applied from the PWR_IN pins of the 44-pin connector. The voltage range
-when powering from the PWR_IN pins is 4.5V to 30V. Power can be applied from both sources at the same time. On-board
-diodes prevent short circuits. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC
-voltage to the VANT pin of the AsteRx-m3 OEM.
+When a USB cable is connected to the micro USB connector, the interface board is powered from the computer through the USB connector.
+Alternatively, the power can be applied from the PWR_IN pins of the 44-pin connector.
+The voltage range when powering from the PWR_IN pins is 4.5V to 30V.
+Power can be applied from both sources at the same time.
+On-board diodes prevent short circuits. The interface board provides the 3V3 supply to the AsteRx-m3 OEM receiver and a 5V DC voltage to the VANT pin of the AsteRx-m3 OEM.
 
 ## Hardware setup
 
