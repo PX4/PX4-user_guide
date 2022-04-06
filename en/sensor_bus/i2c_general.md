@@ -40,7 +40,7 @@ These are circuits that physically divide the I2C network into 2 parts and use t
 For the pixhawk infrastructure there exists a [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01) module that can be inserted into an extensive I2C network and extend its reach.
 TFI2CEXT01 is equipped with dronecode and connectors so its connection is very easy. The module has no settings.
 
-![I2C bus extender](../../assets/peripherals/i2c_tfi2cext/TFI2CEXT01A_bottom.jpg)
+![I2C bus extender](../../assets/peripherals/i2c_tfi2cext/tfi2cext01a_bottom.jpg)
 
 ## Address translator
 
