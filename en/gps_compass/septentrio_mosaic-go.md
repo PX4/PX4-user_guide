@@ -170,15 +170,12 @@ Go to “Tools” &#8250; “Reboot Vehicle”
 
 Edit the following parameters in the GPS tab:
 
-- [GPS_1_CONFIG](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#GPS_1_CONFIG): TELEM1
-- [GPS_1_GNSS](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#GPS_1_GNSS): 31
-- [GPS_1_PROTOCOL](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#GPS_1_PROTOCOL): Auto detect (
-  or SBF)
-- [SER_TEL1_BAUD](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#SER_TEL1_BAUD): 115200 8N1
-- [EKF2_AID_MASK](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#EKF2_AID_MASK): Use GPS & GPS
-  yaw fusion (129)
-- [GPS_YAW_OFFSET](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#GPS_YAW_OFFSET): set according
-  to your setup
+- [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): TELEM1
+- [GPS_1_GNSS](../advanced_config/parameter_reference.md#GPS_1_GNSS): 31
+- [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
+- [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
+- [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK): Use GPS & GPS yaw fusion (129)
+- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): set according to your setup
 
 Go to “Tools” &#8250; “Reboot Vehicle”
 
