@@ -15,6 +15,6 @@ If you're using the normal [Compass Calibration](../config/compass.md) process t
 :::warning
 You must mount the compass in a supported orientation!
 
-If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, the PX4 will detect the closest matching value.
-This will result error and warnings, even if the calibration appeared to succeed.
+If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, PX4 will detect the closest supported value.
+This will result in errors/warnings, even if the calibration appeared to succeed.
 :::
