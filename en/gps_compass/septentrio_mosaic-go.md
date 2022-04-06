@@ -153,11 +153,7 @@ monitor the receiver operation during the job at hand.
 
 ## PX4 setup
 
-<div style="text-align: center;">
-
-![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/QGC_param.png "QGroundControl parameter settings")
-
-</div>
+![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/QGC_param.png)
 
 ### Single antenna
 
