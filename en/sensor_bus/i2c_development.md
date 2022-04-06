@@ -1,15 +1,17 @@
-# I2C Bus Overview
+# I2C Bus (Development Overview)
 
-I2C is a packet-switched serial communication protocol that allows multiple master devices to connect to multiple slave devices using only 2 wires per connection. It is intended for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication.
-
-:::note
-The page [Hardware > I2C Peripherals](/i2c_general.md) contains information about the features of the i2c bus from the user's point of view and information, how to solve the most common problems.
-:::
+I2C is a packet-switched serial communication protocol that allows multiple master devices to connect to multiple slave devices using only 2 wires per connection.
+It is intended for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication.
 
 Pixhawk/PX4 support it for:
-* Connecting off board components that require greater data rates than provided by a strict serial UART: e.g. rangefinders.
+* Connecting off board components that require higher data rates than provided by a strict serial UART, such as rangefinders.
 * Compatibility with peripheral devices that only support I2C.
-* Allowing multiple devices to attach to a single bus (useful for conserving ports). For example, LEDs, Compass, rangefinders etc.
+* Allowing multiple devices to attach to a single bus (useful for conserving ports).
+  For example, LEDs, Compass, rangefinders etc.
+
+:::note
+The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about the features of the I2C bus from the user's point of view and information, how to solve the most common problems.
+:::
 
 :::tip
 IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used).
