@@ -113,11 +113,8 @@ is required to set the layout as accurately as possible in the web app.
 ### Dual antenna
 
 The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS antennas.
-<div style="text-align: center;">
 
-![Multi-antenna attitude determination setup.]( ../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png "Multi-antenna attitude determination setup.")
-
-</div>
+![Multi-antenna attitude determination setup]( ../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png")
 
 To enable multi-antenna attitude determination, follow the following procedure:
 
