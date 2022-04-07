@@ -19,7 +19,9 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RT
 
 ## Wiring and Connections
 
-All H-RTK GNSS models come with a GH 10-pin connector/cable that is compatible with [Pixhawk 4](../flight_controller/pixhawk4.md).
+H-RTK Helical models come with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the Pixhawk Connector Standard, such as [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 5x](../flight_controller/pixhawk5x.md).
+
+The H-RTK Rover Lite comes in two version. The standard version comes with 10 pin connector for the `GPS1` port. The "2nd GPS" version comes with 6 pin connector for the `GPS2` port. This is used as a secondary GPS for [Dual GPS Systems](../gps_compass/README.md#dual_gps).
 
 :::note
 The cables/connectors may need to be modified in order to connect to other flight controller boards (see [Pin Map](#pin-map) below).
@@ -27,7 +29,9 @@ The cables/connectors may need to be modified in order to connect to other fligh
 
 ## Pin Map
 
-![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_pinmap.jpg)
+![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
+
+![h-rtk-f9p_helical_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
 
 
 ## Specification and Model Comparison
