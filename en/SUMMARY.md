@@ -16,6 +16,7 @@
   * [Flight Reporting](getting_started/flight_reporting.md)
 * [Basic Assembly](assembly/README.md)
   * [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
+  * [Mounting the GPS/Compass](assembly/mount_gps_compass.md)
   * [Vibration Isolation](assembly/vibration_isolation.md)
   * [Cable Wiring](assembly/cable_wiring.md)
   * [CUAV V5+ Wiring Quickstart](assembly/quick_start_cuav_v5_plus.md)
