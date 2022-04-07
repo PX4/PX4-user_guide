@@ -15978,13 +15978,15 @@ table {
 
 <li><strong>15:</strong> Tricopter</li> 
 
-<li><strong>19:</strong> VTOL Tailsitter Duo</li> 
+<li><strong>19:</strong> VTOL Two-rotor Tailsitter</li> 
 
-<li><strong>20:</strong> VTOL Tailsitter Quad</li> 
+<li><strong>20:</strong> VTOL Quad-rotor Tailsitter</li> 
 
 <li><strong>21:</strong> VTOL Tiltrotor</li> 
 
-<li><strong>22:</strong> VTOL Standard (quadplane)</li> 
+<li><strong>22:</strong> VTOL Standard (separate fixed rotors for hover and cruise flight)</li> 
+
+<li><strong>23:</strong> VTOL Tailsitter</li> 
 </ul>
   </td>
  <td>0 > 22 </td>
