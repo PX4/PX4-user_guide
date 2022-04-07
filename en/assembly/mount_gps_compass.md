@@ -1,7 +1,6 @@
 # Mounting the GPS/Compass
 
-The GPS/Compass (or just the Compass) should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
-
+The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle.
 The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
