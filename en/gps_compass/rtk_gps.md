@@ -17,7 +17,7 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-GPS | Yaw Output | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) | PPK
+GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) | PPK
 :--- | :---: | :---: | :---: | :---:
 [ARK RTK GPS](../uavcan/ark_rtk_gps.md) | | &check; | &check; |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | | |
@@ -26,7 +26,8 @@ GPS | Yaw Output | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md) 
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | | | |
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P) | | | |
 [CubePilot Here3](https://www.cubepilot.org/#/here/here3) | | | &check; |
-[Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
+[Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | |&check; | |
+[Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | | |
 [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | | &check; | |
 [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) | | &check; | |
@@ -58,7 +59,7 @@ At time of writing this use case has not been tested.
 The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
 
 Most are connected via the flight controller's GPS port, in the same way as any other GPS module.
-Some are connected to the [UAVCAN](../uavcan/README.md) bus. 
+Some are connected to the [UAVCAN](../uavcan/README.md) bus.
 
 See [documentation for the selected device](#supported-rtk-devices) and [UAVCAN](../uavcan/README.md) for more information on wiring and configuration.
 
@@ -99,13 +100,13 @@ The RTK GPS connection is essentially plug and play:
    The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
 
    You can track the progress by clicking the RTK GPS status icon.
-   
+
    ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
 1. Once Survey-in completes:
 
    - The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
-   
+
      ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
    - Vehicle GPS switches to RTK mode.
