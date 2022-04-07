@@ -2,17 +2,19 @@
 
 나침반 보정은 내부 및 외부 [나침반 센서](../gps_compass/README.md)들을 설정합니다. *QGroundControl*에서 차량을 설정 방향으로 배치하고, 지정된 축을 기준으로 차량을 회전하도록 안내합니다.
 
-:::note GPS
-모듈에 통합된 나침반과 같은 외부 자력계(나침반)을 사용하는 경우에는 차량의 외부 나침반을 올바르게 장착하고 자동조종장치에 연결합니다. GPS/나침반 통합 모듈을 연결하는 방법은 특정 오토파일럿 하드웨어의 [조립 기초](../assembly/README.md)편을 참고하십시오. 연결되면 *QGroundControl*에서 외부 자기장 센서를 자동으로 감지합니다.
+You will need to calibrate your compass on first use, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics.
+
+:::note
+If you are using an external magnetometer/compass (or a compass integrated into a GPS module) make sure it is [mounted](../assembly/mount_gps_compass.md) as far as possible from other electronics and in a *supported orientation*. Instructions for *connecting* your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware. Once connected, *QGroundControl* will automatically detect the external magnetometer.
 :::
 
 :::tip
-사용전에 나침반을 보정하여야하며, 차량이 매우 강한 자기장에 노출되었거나 비정상적인 자기 특성이있는 지역에서 사용되는 경우에는 나침반을 다시 보정하는 것이 좋습니다. 나침반 보정이 잘못된 경우에는 호버링 중 멀티 콥터 회전, 변기 볼링 (반경 증가 / 스파이럴 아웃, 일반적으로 일정한 고도에서 회전, 플라이 웨이로 이어지는) 또는 직선 비행시에 경로를 벗어나는 경우가 있습니다.
+Indications of a poor compass calibration include multicopter circling during hover, toilet bowling (circling at increasing radius/spiraling-out, usually constant altitude, leading to fly-way), or veering off-path when attempting to fly straight.
 :::
 
 ## 보정 방법 
 
-보정 절차는 다음과 같습니다:
+The calibration steps are:
 
 1. 큰 금속 물체등과 같이 자기장이 강한 곳에서 멀리 떨어진 위치를 선택하십시오. :::tip 금속이 많은 장소는 보정 작업에 적당하지 않습니다. 사무실 테이블 위에서나 (종종 금속 막대 포함) 또는 차량 옆에서 보정하지 마십시오. 철근이 고르지 않게 분포된 콘크리트 슬래브 근처 장소들도 보정에 영향을 미칠 수 있습니다.
 :::
@@ -34,10 +36,11 @@
 
 7. 드론의 모든 방향에 대해 보정 과정을 반복합니다. 
 
-모든 방향에서 보정 작업이 종료되면, *QGroundControl*에서 *Calibration complete* 메시지를 표시할 것입니다 (모든 이미지는 녹색으로 표시되고 프로그레스 바는 끝까지 채워질 것입니다). 이제 다음 센서로 이동할 수 있습니다.
+Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
 
 ## 추가 정보
 
-* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
-* [PX4 설정 비디오 - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (유튜브)
-* [나침반 전력 보정](../advanced_config/compass_power_compensation.md) (고급 설정)
+* [Peripherals > GPS & Compass > Compass Configuration](../gps_compass/README.md#compass-configuration)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
+* [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
+* [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)
