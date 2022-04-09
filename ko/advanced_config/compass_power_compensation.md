@@ -27,7 +27,7 @@
 1. 드론의 펌웨어 버전이 전력 보정을 지원하는지 확인하십시오.  (현재 마스터 버전 또는 v.1.11.0 릴리즈)
 1. [표준 나침반 캘리브레이션](../config/compass.md#compass-calibration)을 수행하십시오.
 1. 부팅시 데이터 로깅을 활성화하기 위해 [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 매개 변수를 2로 설정하십시오.
-1. 더 많은 데이터 포인트를 취득을 위해 [ SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 매개 변수를 *high rate *(bit 2)으로 설정하십시오.
+1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *Sensor comparison* (bit 6) to get more data points.
 1. 드론이 움직이지 않도록 고정하고 프로펠러를 부착하십시오(모터가 비행 중과 동일한 전류를 소비하게 됩니다). 이 예시에서는 끈으로 드론을 고정시킵니다.
 
    ![스트랩](../../assets/advanced_config/strap.png)
@@ -36,7 +36,7 @@
    - 스로틀을 천천히 0까지 낮춥니다.
    - 기체 시동을 끄십시오. > **참고** 진동을 면밀히 관찰하고, 신중하게 테스트를 진행하십시오.
 
-:::note
+   :::note
 테스트를 면밀하게 실시하고, 진동을 자세히 모니터링 하십시오.
 :::
 1. ulog를 검색하고, python 스크립트 [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)를 사용하여 보정 매개변수를 확인하십시오.
@@ -44,8 +44,9 @@
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-:::note
+   :::note
 로그에 배터리 전류 측정값이 포함되어 있지 않은 경우, python 스크립트에서 해당 라인을 주석 처리하여 추력만 계산하여야합니다.
+
 :::
 1. 스크립트는 추력 및 전류에 대한 매개변수 식별값을 계산하여 콘솔에 인쇄할 것입니다. 스크립트에서 나타나는 그림은 각 나침반 인스턴스에 대한 "적합성"과 제안된 값으로 데이터가 보정된 경우의 모습을 보여줍니다. 전류 측정이 가능한 경우,  일반적으로 전류 보정을 사용하면 더 나은 결과를 얻을 수 있습니다. 다음은 현재 적합도는 양호하지만 관계가 선형이 아니므로 추력 매개 변수를 사용할 수 없는 로그의 예입니다. ![선형 적합](../../assets/advanced_config/line_fit.png)
 
