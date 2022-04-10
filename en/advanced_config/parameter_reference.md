@@ -16178,7 +16178,7 @@ table {
  <td><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>   </td>
  <td>25 > 1000 (0.5)</td>
- <td>50.0</td>
+ <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -20481,7 +20481,7 @@ table {
  <td><strong id="RTL_LOITER_RAD">RTL_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius for rtl descend <p><strong>Comment:</strong> Set the radius for loitering to a safe altitude for VTOL transition.</p>   </td>
  <td>25 > 1000 (0.5)</td>
- <td>50.0</td>
+ <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
