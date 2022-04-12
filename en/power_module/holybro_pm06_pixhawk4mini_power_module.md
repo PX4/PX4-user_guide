@@ -1,37 +1,33 @@
 # Holybro Micro Power Module (PM06)
 
-This power module provides regulated power for a flight controller and ESCs, and sends information to the autopilot about the battery’s voltage and current draw.
-It is supplied with the [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md), but can also be separately purchased.
+This power module has integrated power distribution board and provides regulated power for a flight controller and ESCs, and sends information to the autopilot about the battery’s voltage and current draw.
 
-![PM06](../../assets/hardware/power_module/holybro_pm06/pm06_hero.jpg)
- 
+![PM06](../../assets/hardware/power_module/holybro_pm06_14s/pm06v2_pm06v2-14s.jpg)
+
 
 ## Specifications
 
 - **PCB Current:** 120A continued
 - **UBEC Current:** 3A Max
-- **Power input:** DC 7V~42V(2S~10S)
+- **Power input:** 2S~10S (standard version)
+- **Power input:** 2S~14S (14S version)
 - **Power output:** DC 5.1V~5.3V
+- **Voltage Divider:** 18.182
+- **Amperes per Volt:** 36.364
+
+## Mechanical Specifications
+
 - **Dimensions:** 35x35x5mm
 - **Mounting hole:** 30.5mm*30.5mm
-- **Weight:** 7g
-
-## Package Contents
-
-- PM06 board (1)
-- 80mm XT60 connector wire (1)
-- 6pin GH cable (1)
-- 6pin JST cable (1)
-
+- **Weight:** 24g
 
 ## Purchase
 
-[PM06 V2 Power Management Board](https://shop.holybro.com/micro-power-module-pm06_p1036.html) 
-
+[PM06 V2 Power Module](https://shop.holybro.com/micro-power-module-pm06_p1036.html)
+[PM06 V2-14S Power Module](https://shop.holybro.com/pm06-v2-14s-power-module_p1316.html)
 
 ## Wiring/Connections
 
 Wiring and connection examples can be found in: [Pixhawk 4 Mini > Power](../assembly/quick_start_pixhawk4_mini.md#power).
 
-![PM06 Pin Map](../../assets/hardware/power_module/holybro_pm06/pm06_pin_map.jpg)
-
+<img src="../../assets/hardware/power_module/holybro_pm06/pm06_pin_map.jpg" width="450px" title="pm06" />
