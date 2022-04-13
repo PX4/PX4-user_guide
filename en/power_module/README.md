@@ -19,7 +19,7 @@ This section provides links/information about supported power modules and power 
   * [Holybro PM02](../power_module/holybro_pm02.md)
   * [Holybro PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
   * [Holybro PM06 V2](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
-* Digital voltage and current power modules (for flight controller based on FMUv6X & FMU5X):
+* Digital voltage and current power modules (for flight controllers based on FMUv6X and FMUv5X):
   * [Holybro PM02D](../power_module/holybro_pm02d.md)
   * [Holybro PM03D](../power_module/holybro_pm03d.md)
 * [UAVCAN](../uavcan/README.md) power modules
