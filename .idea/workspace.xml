@@ -6,7 +6,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33069d3c-976b-4f46-b32e-1a96044eb7ae" name="Changes" comment="" />
+    <list default="true" id="33069d3c-976b-4f46-b32e-1a96044eb7ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/en/gps_compass/septentrio_asterx-rib.md" beforeDir="false" afterPath="$PROJECT_DIR$/en/gps_compass/septentrio_asterx-rib.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en/gps_compass/septentrio_mosaic-go.md" beforeDir="false" afterPath="$PROJECT_DIR$/en/gps_compass/septentrio_mosaic-go.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +50,7 @@
       <workItem from="1647936574357" duration="17000" />
       <workItem from="1649230664099" duration="662000" />
       <workItem from="1649231702824" duration="58000" />
+      <workItem from="1649858591932" duration="1000" />
     </task>
     <servers />
   </component>
