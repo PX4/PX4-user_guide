@@ -11867,6 +11867,13 @@ table {
  <td>SD</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_RNG_K_GATE">EKF2_RNG_K_GATE</strong> (FLOAT)</td>
+ <td>Gate size used for range finder kinematic consistency check <p><strong>Comment:</strong> To be used, the time derivative of the distance sensor measurements projected on the vertical axis needs to be statistically consistent with the estimated vertical velocity of the drone. Decrease this value to make the filter more robust against range finder faulty data (stuck, reflections, ...). Note: tune the range finder noise parameters (EKF2_RNG_NOISE and EKF2_RNG_SFE) before tuning this gate.</p>   </td>
+ <td>0.1 > 5.0 </td>
+ <td>1.0</td>
+ <td>SD</td>
+</tr>
+<tr>
  <td><strong id="EKF2_RNG_NOISE">EKF2_RNG_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for range finder fusion    </td>
  <td>0.01 > ? </td>
