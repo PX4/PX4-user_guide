@@ -1,15 +1,16 @@
-# Holybro Pixhawk 4 Power Module (PM03D)
+# Holybro PM03D Power Module
 
-This board serves the purpose of a Power Module as well as a Power Distribution Board.
+The PM03D Power Module acts as both a Power Module (PM) and a Power Distribution Board (PDB).
+In addition to providing regulated power to Pixhawk v5X and the ESCs, it sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.
 
-In addition to providing regulated power to Pixhawk 5X and the ESCs, it sends information to the autopilot about battery’s voltage and current supplied to the flight controller and the motors.
+The power module is connected using the I2C protocol.
+It is designed for flight controllers based on the Pixhawk FMUv5X and FMUv6X open standard, including the [Pixhawk 5X](../flight_controller/pixhawk5x.md).
 
 :::note
-This power module using digital I2C protocol for voltage and current monitoring that is designed for flight controller based on FMUv5X & FMUv6X open standard such as the [Pixhawk 5X](../flight_controller/pixhawk5x.md).
-It is **NOT** compatible with flight controller that uses analog power module like the [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc.
+The PM is **NOT** compatible with flight controllers that require an analog power module, including: [Pixhawk 4](../flight_controller/pixhawk4.md), [Durandal](../flight_controller/durandal.md), [Pix32 v5](../flight_controller/holybro_pix32_v5.md), etc.
 :::
 
-<img src="../../assets/hardware/power_module/holybro_pm03d/pm03d_pinout.jpg" width="850px" title="Pixhawk5x Upright Image" />
+![Pixhawk5x Upright Image](../../assets/hardware/power_module/holybro_pm03d/pm03d_pinout.jpg)
 
 ## Features
 
@@ -58,6 +59,6 @@ It is **NOT** compatible with flight controller that uses analog power module li
 
 ## Wiring/Connections
 
-<img src="../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png" width="550px" title="pinout" />
+![pinout](../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png)
 
-Additional wiring and connection information can be found in: [Pixhawk 5X](../assembly/quick_start_pixhawk5x.html).
+Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.html).
