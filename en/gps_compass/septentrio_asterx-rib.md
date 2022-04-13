@@ -9,9 +9,6 @@ synchronized with accurate positioning.
 The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet,
 on board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
 
-Size: 71.53 x 47.5 x 18.15 mm 
-
-Weight = 50g
 
 ![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/AsteRX-m3+RIB-board.png)
 
@@ -27,6 +24,10 @@ Weight = 50g
 - On-board logging
 - Micro USB connector
 
+Size: 71.53 x 47.5 x 18.15 mm
+
+Weight = 50g
+
 ## Purchase
 
 All AsteRx receivers and Robotic Interface Boards can be purchased from the Septentrio webshop:
@@ -39,14 +40,10 @@ Other PX4 supported devices from Septentrio:
 
 ## Interfaces
 
-<div style="text-align: center;">
-
 ![Septentrio Robotics Interface Board Fritzing drawing](../../assets/hardware/gps/septentrio_sbf/RIB.png "Septentrio Robotics Interface Board Fritzing drawing")
 
-</div>
-
 ### USB
-_Connector type: micro USB type B._
+_Connector type: micro-USB type B._
 
 The micro USB type B connector can be attached to a PC to power the receiver and to communicate with it over its USB
 port.
@@ -89,7 +86,8 @@ On-board diodes prevent short circuits. The interface board provides the 3V3 sup
 
 1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
 2. Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board.
-3. Connect the 44-pin cable to the AsteRx-i3 D board on RIB and connect the 6 pin JST GH connector to the UART & I2C B port on the Pixhawk 4 as shown in the diagram above.
+3. Connect the 44-pin cable to the AsteRx-i3 D board on RIB and connect the 10-pin JST connector to the `GPS MODULE` port on the Pixhawk 4 as shown in the diagram above.
+4. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 (this is the default value).
 
 
 :::note 
@@ -137,11 +135,8 @@ monitor the receiver operation during the job at hand.
 
 ## PX4 setup
 
-<div style="text-align: center;">
-
 ![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/QGC_param.png "QGroundControl parameter settings")
 
-</div>
 
 ### Single antenna
 

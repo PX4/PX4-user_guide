@@ -41,14 +41,17 @@ Other PX4 supported devices from Septentrio:
 ## Interfaces
 
 ### USB
+_Connector type: micro-USB type B._
 
 This micro-B connector is used to access the mosaic-go over USB. It can also be used to power the mosaic-go.
 
 ### RSV USB
+_Connector type: micro-USB type B._
 
 This connector is reserved and should not be used.
 
 ### RF_IN1 and RF_IN2
+_Connector type: SMA._
 
 These are the main and auxiliary antenna connectors, connected to the ANT_1 and ANT_2 pins of the internal mosaic.
 Mosaic-go provides a 5V DC supply to both antenna connectors. The combined main and auxiliary antenna power consumption must not exceed 150mA.
@@ -56,12 +59,12 @@ Mosaic-go provides a 5V DC supply to both antenna connectors. The combined main 
 Note that RF_IN2 is only available on the dual-antenna mosaic-go.
 
 ### TF Card
+_Connector type: MicroSD._
 
 Socket for a micro SD Card. The module can log (SBF/NMEA) files on the micro SD Card in this socket.
 
 ### 6-pin Connector
-
-Type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S
+_Connector type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S._
 
 | Pin Name | Direction | Level      | Description               | Comment                                                           |
 |----------|-----------|------------|---------------------------|-------------------------------------------------------------------|
@@ -73,8 +76,7 @@ Type: GH connector, 1.25mm pitch, 6 way. Mating connector housing: GHR-06V-S
 | EVENT    | In        | 3V3_LVTTL  | Event timer input         | Connects to EVENTA of mosaic through a 3V3to 1V8 level translator |
 
 ### 4-pin Connector
-
-Type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S
+_Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S._
 
 | Pin Name | Direction | Level     | Description               | Comment                                         |
 |----------|-----------|-----------|---------------------------|-------------------------------------------------|
@@ -84,27 +86,22 @@ Type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR-04V-S
 | GND      |           | 0         | Ground                    |                                                 |
 
 ## Hardware setup
-<div style="text-align: center;">
 
 ![Wiring diagram, Pixhawk 4 - mosaic-go](../../assets/hardware/gps/septentrio_sbf/mosaic-go_wiring.png "Wiring diagram, Pixhawk 4 - mosaic-go")
 
-</div>
-
 1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the 6-pin connector.
 2. Connect one or two GNSS antennas to the RF-IN ports on the mosaic-go.
-3. Connect the 6-pin connector (COM1) to the Pixhawk's TELEM1 port. This will provide power to the mosaic-go and with
+3. Connect the 6-pin connector (COM1) to the Pixhawk's `GPS MODULE` port. This will provide power to the mosaic-go and with
    this single connection it will be able to send single and dual antenna information to the Pixhawk 4.
+4. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 (this is the default value).
 
 :::warning
 Make sure the JST cable is wired correctly (since this is not a standard cable):
 
-<div style="text-align: center;">
-
 ![Wiring of JST cable](../../assets/hardware/gps/septentrio_sbf/JST-cable.png "Wiring of JST cable")
 
-</div>
-
 :::
+
 :::note 
 PX4 will ensure that the GNSS module is automatically configured however, if you have a dual antenna setup, it
 is required to set the layout as accurately as possible in the web app.
@@ -114,7 +111,7 @@ is required to set the layout as accurately as possible in the web app.
 
 The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS antennas.
 
-![Multi-antenna attitude determination setup]( ../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png")
+![Multi-antenna attitude determination setup]( ../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png)
 
 To enable multi-antenna attitude determination, follow the following procedure:
 
@@ -160,7 +157,7 @@ Edit the following parameters in the GPS tab:
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
 
-Go to “Tools” &#8250; “Reboot Vehicle”
+Go to **Tools > Reboot Vehicle**
 
 ### Dual antenna
 
@@ -171,9 +168,10 @@ Edit the following parameters in the GPS tab:
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
 - [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK): Use GPS & GPS yaw fusion (129)
+- [GPS_PITCH_OFFSET](../advanced_config/parameter_reference.md#GPS_PITCH_OFFSET): set according to your setup
 - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): set according to your setup
 
-Go to “Tools” &#8250; “Reboot Vehicle”
+Go to **Tools > Reboot Vehicle**
 
 
 ## LED Status
