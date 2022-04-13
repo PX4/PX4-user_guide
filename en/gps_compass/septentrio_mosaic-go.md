@@ -93,7 +93,7 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 2. Connect one or two GNSS antennas to the RF-IN ports on the mosaic-go.
 3. Connect the 6-pin connector (COM1) to the Pixhawk's `GPS MODULE` port. This will provide power to the mosaic-go and with
    this single connection it will be able to send single and dual antenna information to the Pixhawk 4.
-4. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 (this is the default value).
+4. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
 
 :::warning
 Make sure the JST cable is wired correctly (since this is not a standard cable):
