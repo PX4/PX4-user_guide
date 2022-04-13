@@ -20,7 +20,7 @@ Below are a few considerations when using parachutes:
 - Parachutes have a minimum effective altitude.
 - A parachute may trigger while the vehicle is upside down.
   This will increase the time required to slow, and may result in the drone collapsing the parachute.
-- The parachute will only deploy if the flight controller is powered and PX4 is running properly.
+- The parachute will only deploy if the flight controller is powered and PX4 is running properly (unless it is triggered independently of PX4).
   It will not deploy if something causes the flight stack to crash.
 
 
