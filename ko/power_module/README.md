@@ -5,15 +5,21 @@
 PX4 배터리/전원 모듈 설정 방법(ADC 인터페이스를 통한)은 [전원모듈 설정](../config/battery.md)을 참고하십시오.
 
 :::note
-배전반도이 항목에서 다룹니다. 여기에는 전원 모듈이 포함되며, 모터 전원 공급을 위하여 배선이 필요합니다. 또한 서보 및 기타 액추에이터에 전원을 공급하는 BEC를 포함할 수 있습니다.
+배전반도이 항목에서 다룹니다.
+여기에는 전원 모듈이 포함되며, 모터 전원 공급을 위하여 배선이 필요합니다.
+또한 서보 및 기타 액추에이터에 전원을 공급하는 BEC를 포함할 수 있습니다.
 :::
 
 이 섹션에서는 지원되는 전원 모듈과 배전 보드에 대하여 설명합니다.
 
 * 아날로그 전압 및 전류 전력 모듈 :
   * [CUAV HV PM](../power_module/cuav_hv_pm.md)
-  * [Holybro PM07 (Pixhawk 4 PM)](../power_module/holybro_pm07_pixhawk4_power_module.md)
-  * [Holybro PM06 (Pixhawk 4 Mini PM)](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
-* [UAVCAN](../uavcan/README.md) 전원 모듈
+  * [Holybro PM02](../power_module/holybro_pm02.md)
+  * [Holybro PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
+  * [Holybro PM06 V2](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
+* Digital (I2C) voltage and current power modules (for Pixhawk FMUv6X and FMUv5X derived controllers):
+  * [Holybro PM02D](../power_module/holybro_pm02d.md)
+  * [Holybro PM03D](../power_module/holybro_pm03d.md)
+* [UAVCAN](../uavcan/README.md) power modules
   * [CUAV CAN PMU](../uavcan/cuav_can_pmu.md)
-  * [Pomegranate 시스템 전원 모듈](../uavcan/pomegranate_systems_pm.md)
+  * [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
