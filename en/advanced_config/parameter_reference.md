@@ -23945,6 +23945,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_PAA3905">SENS_EN_PAA3905</strong> (INT32)</td>
+ <td>paa3905 Optical Flow    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
  <td>PAW3902 & PAW3903 Optical Flow    <p><b>Reboot required:</b> true</p>
 </td>
