@@ -1,16 +1,42 @@
 # 모듈 참조: 명령
 
+## actuator_test
+Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/actuator_test)
+
+### 설명
+actuator를 테스트 하기 위한 유틸리티입니다.
+
+Note: SYS_CTRL_ALLOC=1 과 함께 사용되어야 합니다.
+WARNING: 이 명령어를 사용하기 전에 모든 props를 제거하십시오.
+
+<a id="actuator_test_usage"></a>
+### 사용법
+```
+actuator_test <command> [arguments...]
+ Commands:
+   set           Set an actuator to a specific output value
+
+ The actuator can be specified by motor, servo or function directly:
+     [-m <val>]  Motor to test (1...8)
+     [-s <val>]  Servo to test (1...8)
+     [-f <val>]  Specify function directly
+     -v <val>    value (-1...1)
+     [-t <val>]  Timeout in seconds (run interactive if not set)
+                 default: 0
+
+   iterate-motors Iterate all motors starting and stopping one after the other
+
+   iterate-servos Iterate all servos deflecting one after the other
+```
+
 ## bl_update
 소스: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
 
+### 설명
+파일에서 부트로더를 플래시하는 유틸리티입니다.
 
-파일에서 부트로더를 플래시하는 유틸리티
 
-소스: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
-
-WARNING: remove all props before using this command.
-
-<a id="actuator_test_usage"></a>
+<a id="bl_update_usage"></a>
 
 ### 사용법
 ```
@@ -19,9 +45,12 @@ bl_update [arguments...]
    <file>        부트로더 바이너리 파일
 ```
 ## dumpfile
-소스: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
+소스: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
 
-PX4 바이너리로 컴파일되지 않은 동적 PX4 모듈을 로드하고 실행합니다.<a id="bl_update_usage"></a>
+### 설명
+덤프 파일 유틸리티입니다. 바이너리 모드(LF를 CR LF로 바꾸지 않음)인 파일의 크기와 내용을 stdout으로 출력합니다. 
+<a id="dumpfile_usage"></a>
+
 
 ### 사용법
 ```
@@ -29,29 +58,42 @@ dumpfile [arguments...]
    <file>      덤프할 파일
 ```
 ## dyn
-소스: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
-
-Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
-<a id="dumpfile_usage"></a>
+소스: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
 
 ### 설명
+PX4 바이너리로 컴파일되지 않은 동적 PX4 모듈을 로드하고 실행합니다.<a id="bl_update_usage"></a>
+
 ```
 dumpfile [arguments...]
      <file>      File to dump
 ```
-## esc_calib
-보정 절차(명령을 실행하면 안내 도움말이 표시됨):
 
-
-### 예
-소스: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
-
-### 사용법
+### 예시
 ```
 dyn ./hello.px4mod start
 ```
 
+### 사용법
+```
+dyn [arguments...]
+     <file>      File containing the module
+     [arguments...] Arguments to the module
+```
+
 <a id="dyn_usage"></a>
+## esc_calib
+소스: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
+보정 절차(명령을 실행하면 안내 도움말이 표시됨):
+
+### 설명
+ESC calibraration을 위한 도구입니다.
+
+Calibration 절차는 아래와 같습니다.
+* props를 제거하고 ESC의 전원을 끕니다.
+* attitude controller를 정지합니다: mc_att_control stop, fw_att_control stop
+* safety 가 까졌는지 확인합니다.
+* 명령어를 실행합니다.
+
 
 ### 사용법
 ```
@@ -67,24 +109,25 @@ esc_calib [arguments...]
      [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
      [-a]        Select all channels Arguments to the module
 ```
+
 ## failure
-Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
+소스: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
 
 
-### Description
-Inject failures into system.
+### 설명
+시스템에 failure를 주입합니다.
 
-### Implementation
-This system command sends a vehicle command over uORB to trigger failure.
+### 구현
+이 시스템 명령어는 uORB를 통해 기체에 failure를 일으키는 명령어를 전송합니다.
 
-### Examples
-Test the GPS failsafe by stopping GPS:
+### 예시
+GPS를 멈춰 GPS failsafe를 테스트하려면:
 
 failure gps off
 
 <a id="failure_usage"></a>
 
-### Usage
+### 사용법
 ```
 failure [arguments...]
    help          Show this help text
