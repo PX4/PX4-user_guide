@@ -49,13 +49,13 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 ls /obj
 ```
 
-要监听五条信息中的一个主题内容，运行监听器：
+要监听一个主题内容中五条信息，运行监听器：
 
 ```sh
 listener sensor_accel 5
 ```
 
-uorb top 命令实时显示每个主题的发布频率。
+输出是n次主题正文：
 
 ```sh
 TOPIC: sensor_accel #3
@@ -88,7 +88,7 @@ scaling: 0
 ```
 
 :::tip
-On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+在 NuttX上的系统 (Pixhawk, Pixracer, 等) `侦听器` 命令可以从 *QGroundControl* MAVLink 控制台调用来查看传感器和其他主题的值。 This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
 :::
 
 ### uorb top 命令
