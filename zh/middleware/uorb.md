@@ -88,12 +88,12 @@ scaling: 0
 ```
 
 :::tip
-在 NuttX上的系统 (Pixhawk, Pixracer, 等) `侦听器` 命令可以从 *QGroundControl* MAVLink 控制台调用来查看传感器和其他主题的值。 This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+在 NuttX上的系统 (Pixhawk, Pixracer, 等) `侦听器` 命令可以从 *QGroundControl* MAVLink 控制台调用来查看传感器和其他主题的值。 这是一个非常实用的调试工具，应为它可以在QGC通过无线连接的时候使用（例如，当机体在飞行中）。 有关详细信息，请参阅 [传感器/主题调试 ](../debug/sensor_uorb_topic_debugging.md)。
 :::
 
 ### uorb top 命令
 
-The command `uorb top` shows the publishing frequency of each topic in real-time:
+命令 `uorb top` 实时显示每个主题的发布频率：
 
 ```sh
 update: 1s, num topics: 77
