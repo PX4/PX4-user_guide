@@ -39,15 +39,17 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 
 ## 主题列表和监听（Listener）
 
-要列出所有主题，列出文件句柄：
+:::note
+`listener` 命令只存在于Pixracer (FMUv4) 和Linux / OS X中.
+:::
 
-要监听五条信息中的一个主题内容，运行监听器：
+列出所有主题，列出文件句柄：
 
 ```sh
 ls /obj
 ```
 
-输出主题内容如下：
+要监听五条信息中的一个主题内容，运行监听器：
 
 ```sh
 listener sensor_accel 5
