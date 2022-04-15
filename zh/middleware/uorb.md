@@ -6,7 +6,7 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 
 查看[教程](../modules/hello_sky.md)以了解如何在 C++ 中使用它。
 
-作为很多应用程序依赖的uORB，会在启动时自动启动。 它以 `uorb start</0 > 开头。 单元测试可以从 <code>uorb_tests` 开始。
+作为很多应用程序依赖的uORB，很早便会在启动过程中自动启动。 使用命令 `uorb start`启动。 单元测试可以使用`uorb_tests`启动。
 
 ## 添加新 Topic（主题）
 
