@@ -119,13 +119,13 @@ sensor_combined                      0    6  242   636 1
 
 uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独立实例的机制。 它将返回实例索引到发布器。 然后, 订阅者必须通过`orb_subscribe_multi`选择订阅哪个实例（`orb_subscribe` 将订阅第一个实例）。 多实例是很有用的，例如，如果系统有几个同类型的传感器。
 
-下面解释了一些常见的陷阱和边界案例：
+确保不要再同一个主题上弄混 `orb_advertise_multi` 和`orb_advertise`
 
-The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp).
+完整的 API 记录在 [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp) 中。
 
 <a id="deprecation"></a>
 
-## 故障排除和常见的陷阱
+## 消息/字段弃用
 As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
 
 - Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
