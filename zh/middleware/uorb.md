@@ -2,9 +2,9 @@
 
 ## 简介
 
-uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进程或者线程间通信(IPC)。
+uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进程或者线程间通信。
 
-查看 [教程](../apps/hello_sky.md) 以了解如何在 C++ 中使用它。
+查看[教程](../modules/hello_sky.md)以了解如何在 C++ 中使用它。
 
 作为很多应用程序依赖的uORB，会在启动时自动启动。 它以 `uorb start</0 > 开头。 单元测试可以从 <code>uorb_tests` 开始。
 
