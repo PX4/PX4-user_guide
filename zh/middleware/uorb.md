@@ -112,12 +112,12 @@ sensor_accel                         1    1  249    43 1
 sensor_baro                          0    1   42     0 1
 sensor_combined                      0    6  242   636 1
 ```
-请确保不要为同一主题混合 `orb_advertise_multi` 和 `orb_advertise`。
+列分别是：主题名字，多实例索引值，订阅者数量，发布频率（Hz），每秒丢失的信息数（对所有订阅者）和队列大小。
 
 
 ## 多实例
 
-uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`. It will return an instance index to the publisher. A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance). Having multiple instances is useful for example if the system has several sensors of the same type.
+uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独立实例的机制。 它将返回实例索引到发布器。 然后, 订阅者必须通过`orb_subscribe_multi`选择订阅哪个实例（`orb_subscribe` 将订阅第一个实例）。 多实例是很有用的，例如，如果系统有几个同类型的传感器。
 
 下面解释了一些常见的陷阱和边界案例：
 
