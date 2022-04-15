@@ -12,11 +12,11 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 
 新的uORB主题通过在主PX4/Firmware 存储库中添加，也能通过在out-of-tree消息定义中添加。 有关添加树外 uORB 消息定义的信息，请参阅[本节](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions)。
 
-若要添加新主题，需要在 **msg/** 目录中创建一个新的 `msg` 文件，并将文件名添加到`msg/CMakeLists.txt` 列表中。 由此，将自动生成所需的 C/C++ 代码。
+若要添加新主题，需要在 `msg` 目录中创建一个新的 **.msg** 文件，并将文件名添加到`msg/CMakeLists.txt` 列表中。 由此，将自动生成所需的 C/C++ 代码。
 
 查看支持类型的现有 `msg` 文件。 消息还可以在其他消息中嵌套使用。
 
-对于每个生成的 C/C + 结构，将添加一个字段 `uint64_t timestamp`。 此用于记录日志，因此请确保在发布时填充数据。
+对于每个生成的 C/C + 结构体，都将添加一个 `uint64_t timestamp`字段。 此用于记录日志，因此请确保在发布时填充数据。
 
 若要在代码中使用该主题，请包括头文件：
 
