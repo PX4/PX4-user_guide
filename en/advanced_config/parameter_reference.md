@@ -10620,25 +10620,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_HOME_H_T">COM_HOME_H_T</strong> (FLOAT)</td>
- <td>Home set horizontal threshold <p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
- <td>2 > 15 (0.5)</td>
- <td>5.0</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="COM_HOME_IN_AIR">COM_HOME_IN_AIR</strong> (INT32)</td>
  <td>Allows setting the home position after takeoff <p><strong>Comment:</strong> If set to true, the autopilot is allowed to set its home position after takeoff The true home position is back-computed if a local position is estimate if available. If no local position is available, home is set to the current position.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="COM_HOME_V_T">COM_HOME_V_T</strong> (FLOAT)</td>
- <td>Home set vertical threshold <p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
- <td>5 > 25 (0.5)</td>
- <td>10.0</td>
- <td>m</td>
 </tr>
 <tr>
  <td><strong id="COM_IMB_PROP_ACT">COM_IMB_PROP_ACT</strong> (INT32)</td>
