@@ -162,7 +162,16 @@ For platforms operating in a fixed wing mode, wind speed state estimation requir
 For multi-rotors, fusion of [Drag Specific Forces](#mc_wind_estimation_using_drag) can be enabled and tuned to provide the required wind velocity state estimates.
 
 The EKF2 module models the error as a body fixed ellipsoid that specifies the fraction of dynamic pressure that is added to/subtracted from the barometric pressure - before it is converted to a height estimate.
-See the following parameter documentation for information on how to use this feature:
+
+A good tuning is obtained as follows:
+1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
+2. Extract the `.ulg` log file and use [this python script](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation) to obtain the optimal set of parameters.
+
+:::note
+The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag) and [the static pressure position error](#correction-for-static-pressure-position-error) coefficients.
+:::
+
+Tuning parameters:
 - [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
 - [EKF2_PCOEF_XN](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN)
 - [EKF2_PCOEF_YP](../advanced_config/parameter_reference.md#EKF2_PCOEF_YP)
@@ -285,6 +294,10 @@ The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](.
 A good tuning is obtained as follows:
 1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
 2. Extract the `.ulg` log file and use [this python script](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) to obtain the optimal set of parameters.
+
+:::note
+The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag) and [the static pressure position error](#correction-for-static-pressure-position-error) coefficients.
+:::
 
 ### Optical Flow
 
