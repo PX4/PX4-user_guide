@@ -21,10 +21,10 @@ includes:
 
 ## Purchase
 
-The mosaic-go kit is available on the [official shop](https://shop.septentrio.com/en) of Septentrio.
+The mosaic-go kit is available on the [official shop](https://web.septentrio.com/l/858493/2022-04-19/xgrnz) of Septentrio.
 
-- [mosaic-go heading GNSS module evaluation kit](https://shop.septentrio.com/en/shop/mosaic-go-heading-gnss-module-evaluation-kit)
-- [mosaic-go GNSS module receiver evaluation kit](https://shop.septentrio.com/en/shop/mosaic-go-gnss-module-receiver-evaluation-kit)
+- [mosaic-go heading GNSS module evaluation kit](https://web.septentrio.com/l/858493/2022-04-19/xgrp9)
+- [mosaic-go GNSS module receiver evaluation kit](https://web.septentrio.com/l/858493/2022-04-19/xgrpd)
 
 Other PX4 supported devices from Septentrio:
 
@@ -129,13 +129,13 @@ For optimal heading results, the two antennas should be seperated by at least 30
 19.7in or more)
 
 For additional configuration of the dual antenna setup, please refer to
-our [Knowledge Base](https://customersupport.septentrio.com/s/article/Setting-up-and-configuring-the-AsteRx-i-compensating-for-a-non-default-antenna-orientation) or the [hardware manual](https://www.septentrio.com/system/files/support/asterx-i3_product_group_hardware_manual_1.0.0.pdf)
+our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrqd) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrql)
 :::
 
 ### Web app
 
 mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and data messages. The
-included GNSS receiver control and analysis software [RxTools](https://www.septentrio.com/en/products/software/rxtools)
+included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrqp)
 allows receiver configuration, monitoring as well as data logging and analysis.
 
 The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the
@@ -187,6 +187,6 @@ Go to **Tools > Reboot Vehicle**
 
 :::tip 
 If you want more detailed information about the mosaic-go and its module, please refer to
-the [hardware manual](https://www.septentrio.com/system/files/support/mosaic_hardware_manual_v1.5.0.pdf) or the [Septentrio Support](https://customersupport.septentrio.com) page.
+the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrrd) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrrl) page.
 :::
 

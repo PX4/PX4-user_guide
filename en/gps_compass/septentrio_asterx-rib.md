@@ -32,8 +32,8 @@ Weight = 50g
 
 All AsteRx receivers and Robotic Interface Boards can be purchased from the Septentrio webshop:
 
-- [AsteRx-m3 Pro](https://www.septentrio.com/en/products/gnss-receivers/oem-receiver-boards/asterx-m3-pro)
-- [AsteRx-m3 Pro+](https://www.septentrio.com/en/products/gnss-receivers/oem-receiver-boards/asterx-m3-pro-plus)
+- [AsteRx-m3 Pro](https://web.septentrio.com/l/858493/2022-04-19/xgrrz)
+- [AsteRx-m3 Pro+](https://web.septentrio.com/l/858493/2022-04-19/xgrs3)
 
 Other PX4 supported devices from Septentrio:
 - [mosaic-go evaluation kit](../../en/gps_compass/septentrio_mosaic-go.md)
@@ -52,7 +52,7 @@ port.
 _Connector type: SAMTEC TMM-122-03-S-D, 2-mm pitch._
 
 The 44-pin header can be used to connect multiple GPIO devices. Please refer to
-the [hardware manual](https://www.septentrio.com/system/files/support/asterx-m3_product_group_hardware_manual_2.2.0_1.pdf)
+the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw)
 for the pinout.
 
 ### LED's
@@ -118,13 +118,13 @@ For optimal heading results, the two antennas should be seperated by at least 30
 19.7in or more)
 
 For additional configuration of the dual antenna setup, please refer to
-our [Knowledge Base](https://customersupport.septentrio.com/s/article/Setting-up-and-configuring-the-AsteRx-i-compensating-for-a-non-default-antenna-orientation) or the [hardware manual](https://www.septentrio.com/system/files/support/asterx-i3_product_group_hardware_manual_1.0.0.pdf)
+our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrsh) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsl)
 :::
 
 ### Web app
 
 mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and data messages. The
-included GNSS receiver control and analysis software [RxTools](https://www.septentrio.com/en/products/software/rxtools)
+included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrss)
 allows receiver configuration, monitoring as well as data logging and analysis.
 
 The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the
@@ -166,5 +166,5 @@ Go to **Tools > Reboot Vehicle**
 
 :::tip 
 If you want more detailed information about the AsteRx and the Robotics Interface Board, please refer to
-the [hardware manual](https://www.septentrio.com/system/files/support/mosaic_hardware_manual_v1.5.0.pdf) or the [Septentrio Support](https://customersupport.septentrio.com) page.
+the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrsz) page.
 :::
