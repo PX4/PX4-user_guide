@@ -627,6 +627,31 @@ newpixel <command> [arguments...]
 
    status        print status info
 ```
+## paa3905
+Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paa3905)
+
+<a id="paa3905_usage"></a>
+
+### Usage
+```
+paa3905 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-Y <val>]  custom yaw rotation (degrees)
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## paw3902
 Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
 

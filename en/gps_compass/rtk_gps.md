@@ -60,7 +60,7 @@ At time of writing this use case has not been tested.
 The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
 
 Most are connected via the flight controller's GPS port, in the same way as any other GPS module.
-Some are connected to the [UAVCAN](../uavcan/README.md) bus. 
+Some are connected to the [UAVCAN](../uavcan/README.md) bus.
 
 See [documentation for the selected device](#supported-rtk-devices) and [UAVCAN](../uavcan/README.md) for more information on wiring and configuration.
 
@@ -101,13 +101,13 @@ The RTK GPS connection is essentially plug and play:
    The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
 
    You can track the progress by clicking the RTK GPS status icon.
-   
+
    ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
 1. Once Survey-in completes:
 
    - The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
-   
+
      ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
    - Vehicle GPS switches to RTK mode.

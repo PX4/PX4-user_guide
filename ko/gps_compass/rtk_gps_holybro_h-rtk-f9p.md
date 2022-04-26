@@ -19,15 +19,19 @@ _QGroundControl_을 통한 PX4의 RTK 설정 및 사용 방법은 대부분 플�
 
 ## 배선
 
-모든 H-RTK GNSS 모델에는 [Pixhawk 4](../flight_controller/pixhawk4.md)와 호환되는 GH 10 핀 커넥터/케이블이  제공됩니다.
+H-RTK Helical models come with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the Pixhawk Connector Standard, such as [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 5x](../flight_controller/pixhawk5x.md).
+
+The H-RTK Rover Lite comes in two version. The standard version comes with 10 pin connector for the `GPS1` port. The "2nd GPS" version comes with 6 pin connector for the `GPS2` port. This is used as a secondary GPS for [Dual GPS Systems](../gps_compass/README.md#dual_gps).
 
 :::note
-다른 비행 콘트롤러에 연결하기 위하여 케이블/커넥터를 수정하는 경우도 있습니다 (아래 [핀 맵](#pin-map) 참조).
+The cables/connectors may need to be modified in order to connect to other flight controller boards (see [Pin Map](#pin-map) below).
 :::
 
 ## 핀 맵
 
-![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_pinmap.jpg)
+![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
+
+![h-rtk-f9p_helical_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
 
 
 ## 사양 및 모델 비교
@@ -36,6 +40,6 @@ _QGroundControl_을 통한 PX4의 RTK 설정 및 사용 방법은 대부분 플�
 
 ## GPS 소품
 
-[H-RTK 마운트 (Holybro 웹사이트)](https://shop.holybro.com/spare-parts-gps-mount_p1228.html)
+[H-RTK Mount (Holybro Website)](https://shop.holybro.com/spare-parts-gps-mount_p1228.html)
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk_mount_3.png)

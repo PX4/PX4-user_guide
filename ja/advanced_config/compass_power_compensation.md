@@ -27,7 +27,7 @@ Performing this power compensation is advisable only if all the following statem
 1. Make sure your drone runs a Firmware version supporting power compensation (current master, or releases from v.1.11.0).
 1. Perform the [standard compass calibration](../config/compass.md#compass-calibration).
 1. Set the parameter [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) to 2 to enable logging of data from boot.
-1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *high rate* (bit 2) to get more data points.
+1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *Sensor comparison* (bit 6) to get more data points.
 1. Secure the drone so that it cannot move, and attach the propellers (so the motors can draw the same current as in flight). This example secures the vehicle using straps.
 
    ![strap](../../assets/advanced_config/strap.png)
@@ -36,7 +36,7 @@ Performing this power compensation is advisable only if all the following statem
    - Slowly lower the throttle down to zero
    - Disarm the vehicle
 
-:::note
+   :::note
 Perform the test carefully and closely monitor the vibrations.
 :::
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
@@ -44,8 +44,9 @@ Perform the test carefully and closely monitor the vibrations.
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-:::note
-If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
+   :::note
+ If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
+
 :::
 1. The script will return the parameter identification for thrust as well as for current and print them to the console. The figures that pop up from the script show the "goodness of fit" for each compass instance, and how the data would look if compensated with the suggested values. If a current measurement is available, using the current-compensation usually yields the better results. Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear. ![line fit](../../assets/advanced_config/line_fit.png)
 

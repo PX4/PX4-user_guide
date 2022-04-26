@@ -11,9 +11,10 @@ The following devices are supported:
 * [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 * [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 * [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) (store.mrobotics.io)
+* [Holybro H-RTK F9P Helical or Base](https://shop.holybro.com/h-rtk-f9p-gnss-series_p1226.html) (Holybro Store)
 
 :::note
-- [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the CAN or UART2 port.
+- [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the CAN or UART2 port.
 - 지원되는 장치는 [지원되는 GPS 및 나침반](../gps_compass/README.md#supported-gps-and-or-compass)을 참고하십시오.
 :::
 
@@ -21,7 +22,7 @@ The following devices are supported:
 
 이상적으로 두 안테나는 동일한 레벨/수평면에서 동일한 방향으로, 동일한 접지면 크기와 모양을 가지고 있어야합니다 ([애플리케이션 노트](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf), 섹션 *시스템 레벨 고려 사항*).
 - 애플리케이션 노트에는 모듈 사이에 필요한 최소 간격이 명시되어 있지 않습니다 (PX4를 실행하는 테스트 차량에 50cm가 사용되었습니다).
-- 필요에 따라 안테나를 배치 할 수 있지만 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET)을 설정하여야합니다. [GPS > 구성 > 요/헤딩 소스로서의 GPS](../gps_compass/README.md#configuring-gps-as-yaw-heading-source).
+- The antennas can be positioned as needed, but the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) must be configured: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source).
 
 ### CAN Setup
 

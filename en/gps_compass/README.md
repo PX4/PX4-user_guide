@@ -55,6 +55,7 @@ Device |         GPS          | Compass | [RTK](../gps_compass/rtk_gps.md) | [GP
 [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md) |         F9P          | &cross; | &check; | &check; | | |
 [Zubax GNSS 2](https://zubax.com/products/gnss_2) |       MAX-M8Q        | LIS3MDL | | | |
 
+
 :::note
 - &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
   "?" indicates "unknown".
@@ -71,7 +72,7 @@ Device |         GPS          | Compass | [RTK](../gps_compass/rtk_gps.md) | [GP
 
 Instructions for connecting the GPS (and compass, if present) are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
 
-[Pixhawk Series](../flight_controller/pixhawk_series.md) controllers typically have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). 
+[Pixhawk Series](../flight_controller/pixhawk_series.md) controllers typically have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device).
 
 The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
 
@@ -119,7 +120,7 @@ The following steps show how to configure a secondary GPS on the `TELEM 2` port 
 After setting up the second GPS port:
 1. Configure the ECL/EKF2 estimator to blend data from both GPS systems.
    For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
-   
+
 ### Configuring GPS as Yaw/Heading Source
 
 GPS can be used as a source for yaw fusion when using modules where *yaw output is supported by the device* (e.g. [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
@@ -140,7 +141,7 @@ If using this feature, all other configuration should be setup up as normal (e.g
 ## Compass Configuration
 
 Compass calibration is covered in: [Compass Configuration](../config/compass.md).
-The process is straightforward and will autodetect, calibrate and prioritise all connected magnetometers.
+The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO), calibrate, and prioritise, all connected magnetometers.
 
 Further compass configuration should generally not be required.
 

@@ -10620,25 +10620,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_HOME_H_T">COM_HOME_H_T</strong> (FLOAT)</td>
- <td>Home set horizontal threshold <p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
- <td>2 > 15 (0.5)</td>
- <td>5.0</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="COM_HOME_IN_AIR">COM_HOME_IN_AIR</strong> (INT32)</td>
  <td>Allows setting the home position after takeoff <p><strong>Comment:</strong> If set to true, the autopilot is allowed to set its home position after takeoff The true home position is back-computed if a local position is estimate if available. If no local position is available, home is set to the current position.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="COM_HOME_V_T">COM_HOME_V_T</strong> (FLOAT)</td>
- <td>Home set vertical threshold <p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
- <td>5 > 25 (0.5)</td>
- <td>10.0</td>
- <td>m</td>
 </tr>
 <tr>
  <td><strong id="COM_IMB_PROP_ACT">COM_IMB_PROP_ACT</strong> (INT32)</td>
@@ -11864,6 +11850,13 @@ table {
  <td>Gate size for range finder fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>1.0 > ? </td>
  <td>5.0</td>
+ <td>SD</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_RNG_K_GATE">EKF2_RNG_K_GATE</strong> (FLOAT)</td>
+ <td>Gate size used for range finder kinematic consistency check <p><strong>Comment:</strong> To be used, the time derivative of the distance sensor measurements projected on the vertical axis needs to be statistically consistent with the estimated vertical velocity of the drone. Decrease this value to make the filter more robust against range finder faulty data (stuck, reflections, ...). Note: tune the range finder noise parameters (EKF2_RNG_NOISE and EKF2_RNG_SFE) before tuning this gate.</p>   </td>
+ <td>0.1 > 5.0 </td>
+ <td>1.0</td>
  <td>SD</td>
 </tr>
 <tr>
@@ -15978,13 +15971,15 @@ table {
 
 <li><strong>15:</strong> Tricopter</li> 
 
-<li><strong>19:</strong> VTOL Tailsitter Duo</li> 
+<li><strong>19:</strong> VTOL Two-rotor Tailsitter</li> 
 
-<li><strong>20:</strong> VTOL Tailsitter Quad</li> 
+<li><strong>20:</strong> VTOL Quad-rotor Tailsitter</li> 
 
 <li><strong>21:</strong> VTOL Tiltrotor</li> 
 
-<li><strong>22:</strong> VTOL Standard (quadplane)</li> 
+<li><strong>22:</strong> VTOL Standard (separate fixed rotors for hover and cruise flight)</li> 
+
+<li><strong>23:</strong> VTOL Tailsitter</li> 
 </ul>
   </td>
  <td>0 > 22 </td>
@@ -16176,7 +16171,7 @@ table {
  <td><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>   </td>
  <td>25 > 1000 (0.5)</td>
- <td>50.0</td>
+ <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -20479,7 +20474,7 @@ table {
  <td><strong id="RTL_LOITER_RAD">RTL_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius for rtl descend <p><strong>Comment:</strong> Set the radius for loitering to a safe altitude for VTOL transition.</p>   </td>
  <td>25 > 1000 (0.5)</td>
- <td>50.0</td>
+ <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -23930,6 +23925,14 @@ table {
 <tr>
  <td><strong id="SENS_EN_MS5525">SENS_EN_MS5525</strong> (INT32)</td>
  <td>TE MS5525 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_PAA3905">SENS_EN_PAA3905</strong> (INT32)</td>
+ <td>paa3905 Optical Flow    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>

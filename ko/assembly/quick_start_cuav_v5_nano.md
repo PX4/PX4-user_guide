@@ -48,7 +48,7 @@
 다른 GPS 모듈은 작동하지 않을 수 있습니다 ([호환성 문제](../flight_controller/cuav_v5_nano.md#compatibility_gps) 참조).
 :::
 
-GPS/나침반 모듈은 차량 전방 표식를 기준으로 가능한 전자 장치에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다( Neo GPS 화살표는 비행과 같은 방향에 있음). 케이블을 사용하여 비행 제어 GPS에 연결합니다.
+The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow). 케이블을 사용하여 비행 제어 GPS에 연결합니다.
 
 :::note CAN
 GPS를 사용하는 경우 케이블을 사용하여 비행 제어 CAN 인터페이스에 연결하십시오.
