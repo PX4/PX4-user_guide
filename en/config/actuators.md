@@ -40,7 +40,9 @@ The following sections contain the conventions and explanations for configuring 
 #### Coordinate system
 
 The coordinate system is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
-Positions are relative to the center of gravity (in meters).
+**Positions are relative to the center of gravity (in meters)**.
+
+
 
 #### Control Surfaces and Servo Direction
 
