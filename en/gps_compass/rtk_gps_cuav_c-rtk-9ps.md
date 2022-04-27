@@ -37,23 +37,20 @@ Using C-RTK 9Ps enables PX4 to gain centimeter-level precision flight capability
 
 ## Configuration
 
-RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see \[RTK GPS](../advanced_features/rtk-gps.md) for more information\).
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
 
 ## Pinouts
 
-![rtk](../assets/hardware/gps/9ps/pinouts-en.jpg)
+![rtk](../../assets/hardware/gps/9ps/pinouts-en.jpg)
 
 ## Size and Weight
 
-![rtk](../assets/hardware/gps/9ps/size-weight.jpg)
+![rtk](../../assets/hardware/gps/9ps/size-weight.jpg)
 
 ## Nav. update rate
 
-![rtk](../..assets/9ps/nav-rate-en.png)
+![rtk](../../assets/hardware/gps/9ps/nav-rate-en.png)
 
 ## More information
 
 [CUAV docs]（https://doc.cuav.net/gps/c-rtk/en/c-rtk-9ps.html)
-
-
-
