@@ -174,7 +174,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
 3. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
 
-## Chnages in config
+## Changes in config
 
 All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
 
