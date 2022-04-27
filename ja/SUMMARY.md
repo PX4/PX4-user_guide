@@ -224,6 +224,7 @@
       * [RTK GPS Heading with Dual u-blox F9P](gps_compass/u-blox_f9p_heading.md)
       * [CUAV C-RTK](gps_compass/rtk_gps_cuav_c-rtk.md)
       * [CUAV C-RTK2 PPK/RTK GNSS](gps_compass/rtk_gps_cuav_c-rtk2.md)
+      * [CUAV C-RTK 9Ps](gps_compass/rtk_gps_cuav_c-rtk-9ps.md)
       * [Drotek XL](gps_compass/rtk_gps_drotek_xl.md)
       * [Femtones MINI2 Receiver](gps_compass/rtk_gps_fem_mini2.md)
       * [Freefly RTK GPS](gps_compass/rtk_gps_freefly.md)
