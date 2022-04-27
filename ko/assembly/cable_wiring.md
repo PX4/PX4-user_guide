@@ -38,7 +38,7 @@ I2C 버스 신호 혼선 및 전자기 호환성은 케이블 와이어를 적�
 적절한 트위스트 페어 케이블을 사용할 때 I²C 버스는 일반적으로 서브미터 규모 기체에 적합합니다. 대형 항공기의 경우 CAN 또는 기타 차동 신호 기반 인터페이스를 사용하는 것이 일반적으로 더 안정적입니다.
 
 :::note
-이 권수/케이블 길이 권장 사항은 [ThunderFly TFSLOT 속도 센서](../../en/sensor/airspeed_tfslot.md) 및 [TFRPM01 회전 카운터](../../en/sensor/thunderfly_tachometer.md)를 포함한 I2C 센서에 성공적으로 사용되었습니다.
+This turns/cable-length recommendation has been successfully used with I2C sensors including the [ThunderFly TFSLOT airspeed sensor](../sensor/airspeed_tfslot.md) and [TFRPM01 Revolution Counter](../sensor/thunderfly_tachometer.md).
 :::
 
 
@@ -68,7 +68,7 @@ I2C 케이블과 같은 이유로 CAN 케이블도 꼬는 것이 좋습니다. C
 
 ### SPI
 
-[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)는 더 빠른 센서와 장치를 연결하는 데 사용되는 동기식 직렬 통신 인터페이스입니다. 이 프로토콜은 일반적으로 [광류](../../en/sensor/optical_flow.md) 센서 또는 특수 텔레메트리 모뎀을 연결에 사용됩니다.
+[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)는 더 빠른 센서와 장치를 연결하는 데 사용되는 동기식 직렬 통신 인터페이스입니다. This protocol is commonly use is for connecting [optical flow](../sensor/optical_flow.md) sensors or special telemetry modems.
 
 | 신호   | Pixhawk 색상                                       | ThunderFly 색상                                     |
 | ---- | ------------------------------------------------ | ------------------------------------------------- |
@@ -103,7 +103,7 @@ UART 신호는 저주파 EMI의 일반적인 소스이므로 케이블 길이를
 
 ### GPS(UART) 와 안전
 
-[GPS 수신기와 자력계](en/gps_compass/README.md)는 일반적으로 EMI에 매우 민감합니다. 따라서, RF 소스(고출력 케이블, ESC, 무선 모뎀 및 안테나)에서 멀리 떨어진 곳에 장착하여야 합니다. 케이블링이 잘못 설계된 경우 오동작할 수 있습니다.
+[GPS receivers and magnetometers](../gps_compass/README.md) are generally very sensitive to EMI. 따라서, RF 소스(고출력 케이블, ESC, 무선 모뎀 및 안테나)에서 멀리 떨어진 곳에 장착하여야 합니다. 케이블링이 잘못 설계된 경우 오동작할 수 있습니다.
 
 
 | 신호              | Pixhawk 색상                                       | ThunderFly 색상                                     |
