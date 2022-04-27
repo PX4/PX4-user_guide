@@ -174,7 +174,7 @@ BeagleBone Blue에서 다음 명령을 실행합니다 (예 : SSH를 통해).
 2. PX4 펌웨어를 BeagleBone Blue에 복제합니다.
 3. [표준 빌드 시스템 설치](../dev_setup/dev_env_linux.md)를 계속 진행합니다.
 
-## 설정 변경
+## Changes in config
 
 모든 변경은 beaglebone의 px4.config 파일에서 직접 수행할 수 있습니다. 예를 들어 WIFI를 wlan으로 변경할 수 있습니다.
 

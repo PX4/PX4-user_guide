@@ -174,7 +174,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 2. 将 PX4 固件直接克隆到 BeagleBone Blue 上。
 3. 继续 [标准构建系统安装](../dev_setup/dev_env_linux.md)。
 
-## Chnages in config
+## Changes in config
 
 All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
 
