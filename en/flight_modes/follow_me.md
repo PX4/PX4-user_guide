@@ -1,23 +1,23 @@
 ---
 author: Jimmy Johnson
+author: Junwoo Hwang
 ---
 
 # Follow-Me Mode
-
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Follow Me* mode allows a multicopter to autonomously follow and track another system that is broadcasting its position using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
+*Follow Me* mode allows a multicopter to autonomously hold position and altitude relative to another system that is broadcasting its position (and optionally velocity) using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
 
 ![Follow-me Concept](../../assets/flight_modes/followme_concept.png)
 
 The vehicle will automatically yaw to face and follow the target from a specified [relative angle](#NAV_FT_FS), [distance](#NAV_FT_DST) and [height](#NAV_FT_HT) and altitude, depending on the [altitude control mode](#NAV_FT_ALT_M)).
 
-By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home(arming) position.
+By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position.
 
 User has an option to control the follow angle, height and distance by :
-- Follow Angle : Roll input. Left and right command will be as if you were controlling the drone's roll while facing it, i.e. Left command moves drone around counter clockwise
-- Follow Height : Throttle input. Center the stick to keep follow height constant, increase or decrease to adjust height
-- Follow Distance : Pitch input. Pushing pitch stick up increases the follow distance, pulling it down decreases the distance.
+- _Follow Height_ is controlled using the `up-down` input ("Throttle"). Center the stick to keep follow height constant, increase or decrease to adjust height
+- _Follow Distance_ is controlled using the `forward-back` input ("Pitch"). Pushing the stick forward increases the follow distance, pulling it back decreases the distance.
+- _Follow Angle_ is controlled using the `left-right` input ("Roll"). The movement is from the user's perspective, so if you face the drone and move the stick left, it will move to your left. From above if you move the stick left the drone will move counter-clockwise.
 
 Follow Angle is defined as increasing in clockwise direction, and it get's applied relative to where the target is headed:
 
@@ -82,7 +82,16 @@ MAVSDK supports [Follow Me](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_m
 Therefore using MAVSDK for a Follow Me isn't covered here for now.
 
 ## Configuration
+### Altitude Control Mode
+To make Follow Me simple, the default [altitude mode](#FLW_TGT_ALT_M), 2D tracking, keeps drone's altitude constant unless user adjusts them via parameter or RC stick input. This means that if you are going up on a hill, drone wouldn't know about this and would assume that you are at a constant altitude.
 
+The 2D + Terrain mode can compensate for the terrain's altitude change using a distance sensor. However if your drone doesn't have the distance sensor, it would behave exactly the same as 2D tracking mode. However this can make drone very jumpy as distance sensors aren't always accurate. Also since it's assuming that the ground under the drone is at the same level as you (the target), if the field isn't flat enough it can lead to drone flying at the wrong altitude.
+
+The 3D tracking mode will take your GPS altitude into account, therefore adapting to the altitude changes, e.g. You walking up hill. BUT as mentioned above in the beginning, due to the bug in QGC, using this mode without checking the altitude output of the ground station can lead to a faulty altitude being sent to the drone, making it think that you are either high up in the sky or deep underneath the earth.
+
+The drone would likely not crash into the ground due to the built in minimum safety altitude limit (1 meter), but it may fly high up into the sky. If the drone's altitude is way off, assume that the ground station's altitude output is wrong and use 2D tracking.
+
+### Parameters
 :::warning
 Do not set the **Altitude mode ([FLW_TGT_ALT_M](#FLW_TGT_ALT_M)**) to `3D Tracking`!
 The MAVLink [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) message definition requires the Altitude above Mean Sea Level (AMSL) for the target altitude. Testing of QGC on Android phone however showed that it's reporting Altitude above Ellipsoid (which can differ as much as 200 meters!), which is a bug in QGC right now.
@@ -93,19 +102,12 @@ The follow-me behavior can be configured using the following parameters:
 
 Parameter | Description
 --- | ---
-<a id="FLW_TGT_ALT_M"></a>[FLW_TGT_ALT_M](../advanced_config/parameter_reference.md#FLW_TGT_ALT_M) | Altitude control mode. <br>- `0` = 2D Tracking <br>- `1` = 2D Tracking + Terrain Following <br>- `2` = 3D Tracking of the target's altitude
 <a id="FLW_TGT_HT"></a>[FLW_TGT_HT](../advanced_config/parameter_reference.md#FLW_TGT_HT) | Vehicle follow-me height. Note that this height is fixed *relative to the home/arming position* (not the target vehicle). Default and minimum height is 8 meters (about 26 ft)
 <a id="FLW_TGT_DST"></a>[FLW_TGT_DST](../advanced_config/parameter_reference.md#FLW_TGT_DST) | Vehicle/ground station separation in the *horizontal* (x,y) plane. Minimum allowed separation is 1 meter. Default distance is 8 meters (about 26 ft).
 <a id="FLW_TGT_FS"></a>[FLW_TGT_FS](../advanced_config/parameter_reference.md#FLW_TGT_FS) | Flight position relative to the user when follow-me mode is active.<br>- `0` = Follow from the front right.<br>- `1` = Follow from behind or trail the user (Default).<br>- `2` = Follow from the front.<br>- `3` = Follow from the front left.
-
-### Altitude Control mode explanation
-To make Follow Me simple, the default [altitude mode](#FLW_TGT_ALT_M), 2D tracking, keeps drone's altitude constant unless user adjusts them via parameter or RC stick input. This means that if you are going up on a hill, drone wouldn't know about this and would assume that you are at a constant altitude.
-
-The 2D + Terrain mode can compensate for the terrain's altitude change using a distance sensor. However if your drone doesn't have the distance sensor, it would behave exactly the same as 2D tracking mode. However this can make drone very jumpy as distance sensors aren't always accurate. Also since it's assuming that the ground under the drone is at the same level as you (the target), if the field isn't flat enough it can lead to drone flying at the wrong altitude.
-
-The 3D tracking mode will take your GPS altitude into account, therefore adapting to the altitude changes, e.g. You walking up hill. BUT as mentioned above in the beginning, due to the bug in QGC, using this mode without checking the altitude output of the ground station can lead to a faulty altitude being sent to the drone, making it think that you are either high up in the sky or deep underneath the earth.
-
-The drone would likely not crash into the ground due to the built in minimum safety altitude limit (1 meter), but it may fly high up into the sky. If the drone's altitude is way off, assume that the ground station's altitude output is wrong and use 2D tracking.
+<a id="FLW_TGT_ALT_M"></a>[FLW_TGT_ALT_M](../advanced_config/parameter_reference.md#FLW_TGT_ALT_M) | Altitude control mode. <br>- `0` = 2D Tracking (Altitude Fixed) <br>- `1` = 2D Tracking + Terrain Following <br>- `2` = 3D Tracking of the target's GPS altitude
+<a id="FLW_TGT_RS"></a>[FLW_TGT_RS](../advanced_config/parameter_reference.md#FLW_TGT_RS) | Dynamic filtering algorithm responsiveness that filters incoming target location.<br>- `0.0` = Very sensitive to movements and noisy estimates of position, velocity and acceleration.<br>- `1.0` = Very stable but not responsive filter
+<a id="FLW_TGT_MAX_VEL"></a>[FLW_TGT_MAX_VEL](../advanced_config/parameter_reference.md#FLW_TGT_MAX_VEL) | Maximum relative velocity for orbital motion around the target.<br>- 10 m/s has proven to be a sweet spot for aggressiveness vs smoothness.<br>- Setting it to higher value means the orbit trajectory around the target will move faster, but if the drone is physically not capable of achieving that speed, it leads to an aggressive behavior.
 
 ## Known Issues
 
