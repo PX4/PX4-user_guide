@@ -165,11 +165,11 @@ The EKF2 module models the error as a body fixed ellipsoid that specifies the fr
 
 A good tuning is obtained as follows:
 1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
-2. Extract the `.ulg` log file and use [this python script](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation) to obtain the optimal set of parameters.
-
-:::note
-The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag) and [the static pressure position error](#correction-for-static-pressure-position-error) coefficients.
-:::
+2. Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)
+   :::note
+   The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag).
+   :::
+3. Use the log with the [baro_static_pressure_compensation_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation) Python script to obtain the optimal set of parameters.
 
 Tuning parameters:
 - [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
@@ -283,21 +283,23 @@ Airspeed data will be used when it exceeds the threshold set by a positive value
 Fixed wing platforms can take advantage of an assumed sideslip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor.
 This is enabled by setting the [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) parameter to 1.
 
-<span id="mc_wind_estimation_using_drag"></span>
+<a id="mc_wind_estimation_using_drag"></a>
 ### Multicopter Wind Estimation using Drag Specific Forces
 
 Multi-rotor platforms can take advantage of the relationship between airspeed and drag force along the X and Y body axes to estimate North/East components of wind velocity.
-This is enabled by setting bit position 5 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to true.
+This is enabled by setting bit position 5 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to `true`.
 The relationship between airspeed and specific force (IMU accelerometer measurements) along the X and Y body axes is controlled by the [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X), [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) and [EKF2_MCOEF](../advanced_config/parameter_reference.md#EKF2_MCOEF) parameters which set the ballistic coefficients for flight in the X and Y directions, and the momentum drag produced by the propellers, respectively.
 The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) parameter.
 
 A good tuning is obtained as follows:
 1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
-2. Extract the `.ulg` log file and use [this python script](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) to obtain the optimal set of parameters.
+2. Extract the **.ulg** log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)
+   :::note
+   The same **.ulg** log file can also be used to tune the [static pressure position error coefficients](#correction-for-static-pressure-position-error).
+   :::
+3. Use the log with the [mc_wind_estimator_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) Python script to obtain the optimal set of parameters.
 
-:::note
-The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag) and [the static pressure position error](#correction-for-static-pressure-position-error) coefficients.
-:::
+
 
 ### Optical Flow
 
