@@ -5,7 +5,7 @@ It simultaneously receives GPS, GLONASS, Galileo and Beidou satellite signals; f
 
 Using C-RTK 9Ps enables PX4 to gain centimeter-level precision flight capability; ideal for drone performances, agricultural drones and other application scenarios.
 
-![C-RTK 9Ps](../../assets/hardware/gps/9ps/c-rtk9s.jpg)
+![C-RTK 9Ps](../../assets/hardware/gps/cuav_9ps/c-rtk9s.jpg)
 
 ## Purchase
 
@@ -13,20 +13,20 @@ Using C-RTK 9Ps enables PX4 to gain centimeter-level precision flight capability
 
 ## Specification
 
-![Specification](../../assets/hardware/gps/9ps/c-rtk9s-specification.jpg)
+![Specification](../../assets/hardware/gps/cuav_9ps/c-rtk9s-specification.jpg)
 
 ## Wiring and Connections
 
 **C-RTK 9Ps（Base）**
 
-![crtk use](../../assets/hardware/gps/9ps/c-rtk9ps.png)
+![crtk use](../../assets/hardware/gps/cuav_9ps/c-rtk9ps.png)
 
 - Use a tripod to mount the base station's antenna to the top, and connect the antenna to the base station
 - Connect the base station and telemetry to the computer with a usb cable.
 
 **C-RTK 9Ps（Rover）**
 
-![crtk use](../../assets/hardware/gps/9ps/c-rtk9ps-rover.png)
+![crtk use](../../assets/hardware/gps/cuav_9ps/c-rtk9ps-rover.png)
 
 - Mount the C-RTK 9Ps (Rover) antenna vertically.
 - Connect the antenna to the C-RTK 9Ps (Rover).
@@ -41,15 +41,15 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK
 
 ## Pinouts
 
-![rtk](../../assets/hardware/gps/9ps/pinouts-en.jpg)
+![rtk](../../assets/hardware/gps/cuav_9ps/pinouts-en.jpg)
 
 ## Size and Weight
 
-![rtk](../../assets/hardware/gps/9ps/size-weight.jpg)
+![rtk](../../assets/hardware/gps/cuav_9ps/size-weight.jpg)
 
 ## Nav. update rate
 
-![rtk](../../assets/hardware/gps/9ps/nav-rate-en.png)
+![rtk](../../assets/hardware/gps/cuav_9ps/nav-rate-en.png)
 
 ## More information
 
