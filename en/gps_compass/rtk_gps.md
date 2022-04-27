@@ -22,6 +22,7 @@ GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) 
 [ARK RTK GPS](../uavcan/ark_rtk_gps.md) | | &check; | &check; |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | | |
 [CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md) | | | | &check;
+[CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | | &check; | | 
 [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md) | | | |
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | | | |
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P) | | | |

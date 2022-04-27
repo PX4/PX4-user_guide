@@ -1,9 +1,12 @@
 # CUAV C-RTK 9Ps
-The [C-RTK 9Ps](https://www.cuav.net/en/c_rtk_9ps/) is a multi-satellite system multi-band centimeter-level RTK GNSS system launched by CUAV.
 
-It simultaneously receives GPS, GLONASS, Galileo and Beidou satellite signals; faster positioning and higher accuracy; supports [RTK GPS Heading](../gps_compass/u-blox_f9p_heading.md) using dual modules.
+The CUAV [C-RTK 9Ps](https://www.cuav.net/en/c_rtk_9ps/) is a multi-satellite, multi-band, centimeter-level, RTK GNSS system.
 
-Using C-RTK 9Ps enables PX4 to gain centimeter-level precision flight capability; ideal for drone performances, agricultural drones and other application scenarios.
+The module simultaneously receives GPS, GLONASS, Galileo and Beidou satellite signals, enabling faster positioning and higher accuracy.
+It also supports [RTK GPS Heading](../gps_compass/u-blox_f9p_heading.md) using dual modules.
+
+Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision.
+This is ideal for survey drones, agricultural drones and other application scenarios.
 
 ![C-RTK 9Ps](../../assets/hardware/gps/cuav_9ps/c-rtk9s.jpg)
 
@@ -17,23 +20,27 @@ Using C-RTK 9Ps enables PX4 to gain centimeter-level precision flight capability
 
 ## Wiring and Connections
 
-**C-RTK 9Ps（Base）**
+**C-RTK 9Ps (Base)**
 
-![crtk use](../../assets/hardware/gps/cuav_9ps/c-rtk9ps.png)
+![Base module setup](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_base.png)
 
 - Use a tripod to mount the base station's antenna to the top, and connect the antenna to the base station
 - Connect the base station and telemetry to the computer with a usb cable.
 
-**C-RTK 9Ps（Rover）**
+**C-RTK 9Ps (Rover)**
 
-![crtk use](../../assets/hardware/gps/cuav_9ps/c-rtk9ps-rover.png)
+![Rover mode setup](../../assets/hardware/gps/cuav_9ps/c-rtk9ps-rover.png)
 
 - Mount the C-RTK 9Ps (Rover) antenna vertically.
 - Connect the antenna to the C-RTK 9Ps (Rover).
 - Connect the C-RTK 9Ps (Rover) to the flight controller.
-- Connect telemetry to the flight controller Telem1/Telem2 interface
+- Connect telemetry to the flight controller `TELEM1`/`TELEM2` interface
 
-> **NOTE** C-RTK 9Ps come with 6Pin and 10Pin connectors compatible with Pixhawk standard flight controllers, connect to CPS1 or GPS2; please select the special cable according to the cable identification
+:::note
+C-RTK 9Ps come with 6-pin and 10-pin connectors compatible with Pixhawk-standard flight controllers.
+Connect to `GPS1` or `GPS2`.
+Select the appropriate cable for the flight controller.
+:::
 
 ## Configuration
 
@@ -41,16 +48,22 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play (see [RTK
 
 ## Pinouts
 
-![rtk](../../assets/hardware/gps/cuav_9ps/pinouts-en.jpg)
+![Pinouts](../../assets/hardware/gps/cuav_9ps/pinouts-en.jpg)
 
-## Size and Weight
+## Physical Dimensions
 
-![rtk](../../assets/hardware/gps/cuav_9ps/size-weight.jpg)
+![Cuav-9ps dimensions](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_dimensions.jpg)
 
-## Nav. update rate
+![Base unit antenna: physical dimensions](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_base_unit_antenna_dimensions.jpg)
 
-![rtk](../../assets/hardware/gps/cuav_9ps/nav-rate-en.png)
+![Sky unit antenna: physical dimensions](../../assets/hardware/gps/cuav_9ps/c-rtk9ps_sky_unit_antenna_dimensions.jpg)
+
+
+## Navigation update rates
+
+![Navigation update rate information](../../assets/hardware/gps/cuav_9ps/nav-rate-en.png)
+
 
 ## More information
 
-[CUAV docs]（https://doc.cuav.net/gps/c-rtk/en/c-rtk-9ps.html)
+[CUAV docs](https://doc.cuav.net/gps/c-rtk/en/c-rtk-9ps.html)
