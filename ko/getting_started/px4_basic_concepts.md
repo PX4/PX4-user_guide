@@ -24,7 +24,7 @@ Some of PX4's key features are:
 
 - 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체, 잠수정 등 [다양한 차량들](../airframes/airframe_reference.md)을 제어합니다. 
 - Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
-- 유연하고 강력한 [비행 모드](#flight_modes)와 [안전 기능](#safety)을 지원합니다.
+- Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
@@ -51,11 +51,9 @@ For more information see:
 - [센서](../getting_started/sensor_selection.md) 
 - [주변 장치](../peripherals/README.md)
 
-<a id="outputs"></a>
-
 ## 출력 장치: 모터, 서보, 액츄에이터
 
-PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
 For example, the images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
 
@@ -83,8 +81,6 @@ The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controll
 
 - `MAIN` 포트와 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트를 가지고 있습니다. 이론적으로는, 보드 버스에서 더 많은 출력 포트를 제공할 수 있습니다. UAVCAN 버스에는 이러한 제한이 없습니다.
 
-<a id="esc_and_motors"></a>
-
 ## 전자변속기(ESC)와 모터 
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
@@ -101,8 +97,6 @@ PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. Th
 
 Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
-<a id="rc_systems"></a>
-
 ## 무선 조종(RC)
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
@@ -117,8 +111,6 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 - [무선/RC 설정](../config/radio.md) - *QGroundControl*에서의 RC 설정.
 - [비행 첫걸음](../flying/basic_flying.md) - RC 비행 방법을 설명합니다.
 - [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4의 텔레메트리 정보나 상태 정보를 수신을 위한 RC 송신기 설정방법을 설명합니다.
-
-<a id="joystick"></a>
 
 ## 지상 통제국과 조이스틱
 
@@ -147,8 +139,6 @@ Relevent topics include:
 - [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드 
 - [로보틱스 API](../robotics/README.md)
 
-<span id="sd_cards"></span>
-
 ## SD 카드 (휴대용 저장 장치)
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
@@ -164,8 +154,6 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 - [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 껍니다.
 - [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 보조 장치에 기록합니다.
 - 비행 임무를 RAM/플래시에 저장합니다.<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
-
-<a id="arming"></a>
 
 ## 시동 및 해제 
 
@@ -183,8 +171,6 @@ Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/
 
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
-<a id="flight_modes"></a>
-
 ## 비행 모드 
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
@@ -196,8 +182,6 @@ Not all flight modes are available on all vehicle types, and some modes can only
 :::
 
 An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
-
-<a id="safety"></a>
 
 ## 안전 설정(사고 방지) 
 
