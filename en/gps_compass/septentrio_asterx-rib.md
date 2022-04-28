@@ -1,6 +1,7 @@
 # AsteRx OEM with Robotics Interface Board
 
-Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers. Our OEM receivers deliver accurate and
+Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers. Septentrio OEM receivers deliver accurate and
+
 reliable positions to demanding industrial applications in a small, light-weight form factor. We also offer several dual
 antenna receivers providing heading & pitch or heading & roll angles ideal for autonomous navigation or machine control.
 Inertial sensor integration of the AsteRx-i family offers a full attitude solution (heading, pitch and roll)
