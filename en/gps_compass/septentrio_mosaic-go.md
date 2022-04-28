@@ -149,7 +149,7 @@ monitor the receiver operation during the job at hand.
 
 Edit the following parameters in the GPS tab:
 
-- [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): TELEM1
+- [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG): GPS 1
 - [GPS_1_GNSS](../advanced_config/parameter_reference.md#GPS_1_GNSS): 31
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL): Auto detect (or SBF)
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
