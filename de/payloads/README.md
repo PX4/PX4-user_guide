@@ -2,6 +2,13 @@
 
 PX4 supports a wide range of payloads and cameras.
 
+Payloads are connected to [Fight Controller outputs](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators), and can generally be triggered automatically in missions, or manually using RC passthrough or MAVLink/MAVSDK commands.
+
+:::note
+Payloads (actuators) can be tested in the [pre-arm state](../getting_started/px4_basic_concepts.html#arming-and-disarming), which allows movement of actuators while disabling motors. This may be safer than testing when the vehicle is armed.
+:::
+
+
 ## Mapping Drones
 
 Mapping drones use cameras to capture images at time or distance intervals during surveys.
