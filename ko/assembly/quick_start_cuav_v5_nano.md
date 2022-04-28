@@ -104,7 +104,7 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 
 ## SD 카드(선택 사항)
 
-[SD 카드](../getting_started/px4_basic_concepts.md#sd_cards)가 제조 공장에서 삽입되어 있습니다. 추가 작업이 필요 없습니다.
+An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
 
 ## 모터
 
