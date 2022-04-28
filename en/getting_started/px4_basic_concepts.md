@@ -28,7 +28,7 @@ It consists of *flight stack* software running on *vehicle controller* ("flight 
 Some of PX4's key features are:
 - Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles. 
 - Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
-- Flexible and powerful [flight modes](#flight_modes) and [safety features](#safety).
+- Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol.
 PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
@@ -62,10 +62,9 @@ For more information see:
 * [Peripherals](../peripherals/README.md)
 
 
-<a id="outputs"></a>
 ## Outputs: Motors, Servos, Actuators
 
-PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
 For example, the images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
 
@@ -105,7 +104,6 @@ The (same) airframe mapping of outputs to nodes is used in this case.
   In theory there can be many more outputs if the bus supports it (i.e. a UAVCAN bus is not limited to this few nodes).
 
 
-<a id="esc_and_motors"></a>
 ## ESCs & Motors
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) 
@@ -127,7 +125,6 @@ Information about batteries and battery configuration can be found in [Battery C
 and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
 
-<a id="rc_systems"></a>
 ## Radio Control (RC)
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. 
@@ -145,7 +142,7 @@ PX4 does not require a remote control system for autonomous flight modes.
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
 * [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
-<a id="joystick"></a>
+
 ## GCS Joystick Controller
 
 A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link).
@@ -180,7 +177,7 @@ Relevent topics include:
 * [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
 * [Robotics APIs](../robotics/README.md)
 
-<span id="sd_cards"></span>
+
 ## SD Cards (Removable Memory)
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
@@ -200,7 +197,6 @@ Flight controllers that do not include an SD Card slot may:
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 
-<a id="arming"></a>
 ## Arming and Disarming
 
 Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
@@ -218,7 +214,6 @@ It is alternatively possible to configure PX4 to arm using an RC switch or butto
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 
-<a id="flight_modes"></a>
 ## Flight Modes
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). 
@@ -238,7 +233,6 @@ An overview of the available flight modes [can be found here](../getting_started
 Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 
-<a id="safety"></a>
 ## Safety Settings (Failsafe)
 
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! 
@@ -260,6 +254,7 @@ The main failsafe areas are listed below:
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
 For more information see: [Safety](../config/safety.md) (Basic Configuration).
+
 
 ## Heading and Directions
 
