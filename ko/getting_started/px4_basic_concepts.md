@@ -55,7 +55,9 @@ For more information see:
 
 PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
-For example, the images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
+The outputs may be PWM ports or be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The same airframe mapping of outputs to nodes is used in both cases case.
+
+The images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
 
 ![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
@@ -66,7 +68,7 @@ The specific purpose for each output is hard coded on a per-airframe basis. The 
 :::
 
 :::warning
-A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`. Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+A flight controller may only have `MAIN` PWM outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`. Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
 :::
 
 Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL). For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
@@ -74,8 +76,6 @@ Typically the `MAIN` port is used for core flight controls while `AUX` is used f
 The actual ports/bus used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration. *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
 
 They might also be marked as `FMU PWM OUT` or `IO PWM Out` (or similar). Pixhawk controllers have a "main" FMU board and *may* have a separate IO board. If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board. Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports. The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour. This can be useful for racers and other airframes that require better performance.
-
-The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The (same) airframe mapping of outputs to nodes is used in this case.
 
 **Notes:**
 
@@ -120,7 +120,7 @@ A [computer joystick](../config/joystick.md) connected through *QGroundControl* 
 
 ## 안전 스위치
 
-It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming-and-disarming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
 :::warning
 A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
@@ -157,15 +157,24 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 
 ## 시동 및 해제 
 
-Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+Vehicles may have moving parts, some of which are dangerous when powered (in particular motors and propellers)!
 
-To reduce the chance of accidents:
+To reduce accidents, PX4 defines three power states:
 
-- 비행중이 아닐 때는 PX4의 *시동을 해제*하거나 전원을 차단하고, 이륙 전에만 *시동*을 켜는 것이 좋습니다.
-- 기체가 정해진 시간 안에 이륙하지 않으면, 착륙후에는 기체의 시동은 자동으로 해제됩니다. 시동 해제 시간은 매개변수로 설정합니다.
-- 일부 기체에는 시동전에 조작하는 [안전 스위치](#safety-switch)(보통 GPS 수신기의 일부임)가 장착되어 있습니다.
-- 기체는 정상 상태가 아니면, 시동은 걸리지 않습니다.
-- 수직이착륙기는 고정익 모드에서는 시동이 걸리지 않습니다([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- **Disarmed:** All motors and actuators are unpowered.
+- **Prearmed:** Motors are unpowered, but actuators are not (allowing non-dangerous actuators to be bench-tested).
+- **Armed:** Motors and other actuators are powered, and propellers may be spinning. 
+
+Vehicles are *armed* only when necessary. Some vehicles may even have a [safety switch](#safety-switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+
+By default:
+
+- Vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- Vehicles automatically disarm if a pilot does not take off quickly enough (the disarm time is configurable).
+- Vehicles automatically disarm after landing (the disarm time is configurable).
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- Prearming may be used safely bench-test actuators, while still keeping motors unpowered.
 
 Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
 
@@ -193,14 +202,14 @@ You can only specify the action for the *first* failsafe event. Once a failsafe 
 
 The main failsafe areas are listed below:
 
-- 배터리 부족
-- RC(원격 제어) 신호 상실
-- 위치 상실(GPS 전역 위치 추정 품질이 너무 낮음)
-- 외부 보드 연결 손실(예: 보조 컴퓨터와의 연결이 끊어짐)
-- 데이터 링크 손실(예: GCS에 대한 텔레메트리 연결이 끊어짐)
-- 지리적 경계 위반(가상 실린더 내부로 기체 비행을 제한합니다)
-- 미션 안전장치(재 이륙 시 이전 미션이 실행되는 것을 방지합니다)
-- 트래픽 회피(예: ADSB 응답기에 의해 작동됩니다)
+- Low Battery
+- Remote Control (RC) Loss
+- Position Loss (global position estimate quality is too low).
+- Offboard Loss (e.g. lose connection to companion computer)
+- Data Link Loss (e.g. lose telemetry connection to GCS).
+- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
+- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
+- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
 For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
