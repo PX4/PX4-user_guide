@@ -18086,6 +18086,42 @@ table {
 </tr>
 </tbody></table>
 
+## RC Input
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RC_INPUT_PROTO">RC_INPUT_PROTO</strong> (INT32)</td>
+ <td>RC input protocol <p><strong>Comment:</strong> Select your RC input protocol or auto to scan.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Auto</li> 
+
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> PPM</li> 
+
+<li><strong>2:</strong> SBUS</li> 
+
+<li><strong>3:</strong> DSM</li> 
+
+<li><strong>4:</strong> ST24</li> 
+
+<li><strong>5:</strong> SUMD</li> 
+
+<li><strong>6:</strong> CRSF</li> 
+
+<li><strong>7:</strong> GHST</li> 
+</ul>
+  </td>
+ <td>-1 > 7 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## RTPS
 
 <table>
@@ -23915,16 +23951,24 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SENS_EN_MS4525">SENS_EN_MS4525</strong> (INT32)</td>
- <td>TE MS4525 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+ <td><strong id="SENS_EN_MS4515">SENS_EN_MS4515</strong> (INT32)</td>
+ <td>TE MS4515 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SENS_EN_MS5525">SENS_EN_MS5525</strong> (INT32)</td>
- <td>TE MS5525 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+ <td><strong id="SENS_EN_MS4525DO">SENS_EN_MS4525DO</strong> (INT32)</td>
+ <td>TE MS4525DO differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_MS5525DS">SENS_EN_MS5525DS</strong> (INT32)</td>
+ <td>TE MS5525DSO differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
