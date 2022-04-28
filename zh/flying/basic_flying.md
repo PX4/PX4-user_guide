@@ -10,7 +10,7 @@
 
 ## 解锁机体
 
-在您起飞机体前，必须要先解锁它。 这将为所有电机和驱动器供电；在多轴飞行器上，它将启动螺旋桨转动。
+Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming). 这将为所有电机和驱动器供电；在多轴飞行器上，它将启动螺旋桨转动。
 
 解锁无人机
 
