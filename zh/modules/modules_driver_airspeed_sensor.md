@@ -22,14 +22,14 @@ ets_airspeed <command> [arguments...]
 
    status        print status info
 ```
-## ms4525_airspeed
-Source: [drivers/differential_pressure/ms4525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms4525)
+## ms4515
+Source: [drivers/differential_pressure/ms4515](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms4515)
 
-<a id="ms4525_airspeed_usage"></a>
+<a id="ms4515_usage"></a>
 
 ### 用法
 ```
-ms4525_airspeed <command> [arguments...]
+ms4515 <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -38,21 +38,44 @@ ms4525_airspeed <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-T <val>]  Device type
-                 values: 4525|4515, default: 4525
+     [-a <val>]  I2C address
+                 default: 70
 
    stop
 
    status        print status info
 ```
-## ms5525_airspeed
-Source: [drivers/differential_pressure/ms5525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms5525)
+## ms4525do
+Source: [drivers/differential_pressure/ms4525do](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms4525do)
 
-<a id="ms5525_airspeed_usage"></a>
+<a id="ms4525do_usage"></a>
 
 ### 用法
 ```
-ms5525_airspeed <command> [arguments...]
+ms4525do <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 40
+
+   stop
+
+   status        print status info
+```
+## ms5525dso
+Source: [drivers/differential_pressure/ms5525dso](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms5525dso)
+
+<a id="ms5525dso_usage"></a>
+
+### 用法
+```
+ms5525dso <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -68,14 +91,14 @@ ms5525_airspeed <command> [arguments...]
 
    status        print status info
 ```
-## sdp3x_airspeed
+## sdp3x
 Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/sdp3x)
 
-<a id="sdp3x_airspeed_usage"></a>
+<a id="sdp3x_usage"></a>
 
-### 用法
+### Usage
 ```
-sdp3x_airspeed <command> [arguments...]
+sdp3x <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
