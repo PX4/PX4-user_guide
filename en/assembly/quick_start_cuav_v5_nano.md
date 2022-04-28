@@ -120,7 +120,7 @@ The other radio is connected to your ground station computer or mobile device (u
 <span id="sd_card"></span>
 ## SD Card (Optional)
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
+An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
 
 
 ## Motors
