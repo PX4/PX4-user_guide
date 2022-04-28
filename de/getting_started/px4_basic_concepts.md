@@ -16,8 +16,6 @@ Different types of drones exist for use in air, ground, sea, and underwater. The
 
 The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
 
-<a id="autopilot"></a>
-
 ## PX4 Autopilot
 
 [PX4](https://px4.io/) is powerful open source autopilot *flight stack*.
@@ -25,12 +23,10 @@ The "brain" of the drone is called an autopilot. It consists of *flight stack* s
 Some of PX4's key features are:
 
 - Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles. 
-- Great choice of hardware for [vehicle controller](#vehicle_controller), sensors and other peripherals.
+- Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
 - Flexible and powerful [flight modes](#flight_modes) and [safety features](#safety).
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
-
-<a id="qgc"></a>
+PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
 ## QGroundControl
 
@@ -39,8 +35,6 @@ The Dronecode ground control station is called [QGroundControl](http://qgroundco
 *QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
-
-<span id="vehicle_controller"></span>
 
 ## Vehicle/Flight Controller Board
 
