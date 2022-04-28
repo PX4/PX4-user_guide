@@ -34,7 +34,8 @@ More information about available ports can be found here: [Durandal > Pinouts](.
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
 :::tip
-The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+The board has internal vibration-isolation.
+Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
 :::
 
 ## GPS + 指南针 + 蜂鸣器 + 安全开关 + LED
@@ -156,7 +157,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## 电机
