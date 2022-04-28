@@ -9,7 +9,7 @@ Before you fly for the first time you should read our [First Flight Guidelines](
 <span id="arm"></span>
 ## Arm the Vehicle
 
-Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming).
+Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming).
 This will power all motors and actuators; on a multicopter it will start propellers turning.
 
 To arm the drone:
