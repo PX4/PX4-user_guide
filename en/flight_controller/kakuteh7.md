@@ -66,7 +66,7 @@ This is the silkscreen for the *Kakute H7*, showing the top of the board:
 | R3, T3 | UART3 RX and TX | NuttX debug console |
 | R4, T4 | UART4 RX and TX | GPS1 |
 | R6, T6 | UART6 RX and TX (R6 also located in the GH plug)| RC port |
-| R7, T7 | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) |DShot telemetry|
+| R7 | UART7 RX (RX is located in the plugs for use with 4-in-1 ESCs) |DShot telemetry|
 | LED | WS2182 addressable LED signal wire (not tested) ||
 | Z- | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad) ||
 | M1 to M4 | Motor signal outputs (located in plug for use in 4-in-1 ESCs) ||
@@ -114,7 +114,6 @@ Parameter | Setting
 UART | Device | Port
 --- | --- | ---
 USART1 | /dev/ttyS0 | TELEM1
-USART2 | /dev/ttyS1 | TELEM2
 USART3 | /dev/ttyS2 | Debug Console
 UART4 | /dev/ttyS3 | GPS1
 USART6 | /dev/ttyS4 | RC SBUS
