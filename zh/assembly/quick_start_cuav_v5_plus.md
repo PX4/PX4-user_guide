@@ -104,7 +104,7 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 ## SD 卡
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
+An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
 
 ## 电机
 

@@ -10,7 +10,7 @@
 
 ## 기체 시동
 
-비행 전에 먼저 [시동](../getting_started/px4_basic_concepts.md#arming)을 걸어야 합니다. 시동을 걸면 모든 모터와 액추에이터에 전원을 공급합니다. 멀티 콥터에서는 프로펠러가 회전할 수 있습니다.
+Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming-and-disarming). 시동을 걸면 모든 모터와 액추에이터에 전원을 공급합니다. 멀티 콥터에서는 프로펠러가 회전할 수 있습니다.
 
 드론 시동을 거는 방법
 

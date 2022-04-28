@@ -116,7 +116,8 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk5x standard set" />
 
-SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/px4_basic_concepts.md#sd_cards), 임무 수행 및 UAVCAN 버스 하드웨어를 위하여 사용하는 것이 좋습니다. 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
+:::tip
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory). 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
 
 
 

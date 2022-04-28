@@ -115,7 +115,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 ![Pixhawk 4 Mini - SD 카드](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
 
 :::tip
-자세한 내용은 [기본 개념> SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## 모터
