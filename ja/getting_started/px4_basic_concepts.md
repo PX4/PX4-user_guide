@@ -16,8 +16,6 @@ Different types of drones exist for use in air, ground, sea, and underwater. The
 
 The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
 
-<a id="autopilot"></a>
-
 ## PX4 Autopilot
 
 [PX4](https://px4.io/) is powerful open source autopilot *flight stack*.
@@ -25,12 +23,10 @@ The "brain" of the drone is called an autopilot. It consists of *flight stack* s
 Some of PX4's key features are:
 
 - [様々な構造/タイプの機体](../airframes/airframe_reference.md)を制御することができます。例: 航空機 (マルチコプター, 固定翼機，VTOL機), 地上走行型ロボット，水中ドローン。 
-- [ビークルコントローラ](#vehicle_controller)，センサー，周辺機器には，様々な選択肢があります。
+- Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
 - 柔軟かつパワフルな [フライトモード](#flight_modes) と [安全機能](#safety)。
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
-
-<a id="qgc"></a>
+PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
 ## QGroundControl
 
@@ -39,8 +35,6 @@ The Dronecode ground control station is called [QGroundControl](http://qgroundco
 *QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
-
-<span id="vehicle_controller"></span>
 
 ## Vehicle/Flight Controller Board
 
