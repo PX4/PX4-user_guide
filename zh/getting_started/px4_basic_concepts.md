@@ -24,7 +24,7 @@ Some of PX4's key features are:
 
 - 可控制[许多不同的设备机架/类型](../airframes/airframe_reference.md)，包括：飞机（多旋翼，固定翼和垂直起降），地面车辆和水下潜航器。 
 - Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
-- 灵活而强大的[飞行模式](#flight_modes)和[安全功能](#safety)。
+- Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
@@ -51,11 +51,9 @@ For more information see:
 - [传感器](../getting_started/sensor_selection.md) 
 - [外设](../peripherals/README.md)
 
-<a id="outputs"></a>
-
 ## 输出:电机，舵机，执行器
 
-PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
 For example, the images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
 
@@ -83,8 +81,6 @@ The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controll
 
 - `MAIN` 和 `AUX` 中仅有6-8个输出，因为大多数飞行控制器只有这么多的 PWM/Dshot/Oneshot 输出。 理论上来说，如果总线支持，可以有更多的输出（比如UAVCAN就不限于这几个节点）。
 
-<a id="esc_and_motors"></a>
-
 ## 电调 & 电机
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
@@ -101,8 +97,6 @@ PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. Th
 
 Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
-<a id="rc_systems"></a>
-
 ## 无线电控制（遥控）
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
@@ -117,8 +111,6 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 - [遥控设置](../config/radio.md) - *QGC 地面站* 中的遥控配置。
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
 - [FrSky 数传](../peripherals/frsky_telemetry.md) - 设置遥控发射机以从 PX4 接收数传/状态更新。
-
-<a id="joystick"></a>
 
 ## 地面站游戏手柄控制器
 
@@ -147,8 +139,6 @@ Relevent topics include:
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
 - [Robotics APIs](../robotics/README.md)
 
-<span id="sd_cards"></span>
-
 ## SD卡（可移除储存器）
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
@@ -164,8 +154,6 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 - 使用参数 [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 禁用通知蜂鸣器。
 - [推流日志](../dev_log/logging.md#log-streaming) 到另一个组件（机载计算机）。
 - 在 RAM/FLASH 中储存任务。<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
-
-<a id="arming"></a>
 
 ## 解锁和加锁
 
@@ -183,8 +171,6 @@ Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/
 
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
-<a id="flight_modes"></a>
-
 ## 飞行模式
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
@@ -196,8 +182,6 @@ Not all flight modes are available on all vehicle types, and some modes can only
 :::
 
 An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
-
-<a id="safety"></a>
 
 ## 安全设置（故障保护）
 
