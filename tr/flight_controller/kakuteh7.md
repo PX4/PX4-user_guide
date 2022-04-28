@@ -48,27 +48,27 @@ This is the silkscreen for the *Kakute H7*, showing the top of the board:
 <img src="../../assets/flight_controller/kakuteh7/kakuteh7_silk.png" width="380px" title="Kakute h7" />
 
 
-| Pin      | Function                                                             | PX4 default         |
-| -------- | -------------------------------------------------------------------- | ------------------- |
-| B+       | Battery positive voltage (2S-8S)                                     |                     |
-| SDA, SCL | I2C connection (for peripherals)                                     |                     |
-| 5V       | 5V output (2A max)                                                   |                     |
-| 3V3      | 3.3V output (0.25A max)                                              |                     |
-| VI       | Video input from FPV camera                                          |                     |
-| VO       | Video output to video transmitter                                    |                     |
-| CAM      | To camera OSD control                                                |                     |
-| G or GND | Ground                                                               |                     |
-| RSI      | Analog RSSI (0-3.3V) input from receiver                             |                     |
-| R1, T1   | UART1 RX and TX                                                      | TELEM1              |
-| R3, T3   | UART3 RX and TX                                                      | NuttX debug console |
-| R4, T4   | UART4 RX and TX                                                      | GPS1                |
-| R6, T6   | UART6 RX and TX (R6 also located in the GH plug)                     | RC port             |
-| R7, T7   | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) | DShot telemetry     |
-| LED      | WS2182 addressable LED signal wire (not tested)                      |                     |
-| Z-       | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad)    |                     |
-| M1 to M4 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)        |                     |
-| M5 to M8 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)        |                     |
-| Boot     | Bootloader button                                                    |                     |
+| Pin      | Function                                                          | PX4 default         |
+| -------- | ----------------------------------------------------------------- | ------------------- |
+| B+       | Battery positive voltage (2S-8S)                                  |                     |
+| SDA, SCL | I2C connection (for peripherals)                                  |                     |
+| 5V       | 5V output (2A max)                                                |                     |
+| 3V3      | 3.3V output (0.25A max)                                           |                     |
+| VI       | Video input from FPV camera                                       |                     |
+| VO       | Video output to video transmitter                                 |                     |
+| CAM      | To camera OSD control                                             |                     |
+| G or GND | Ground                                                            |                     |
+| RSI      | Analog RSSI (0-3.3V) input from receiver                          |                     |
+| R1, T1   | UART1 RX and TX                                                   | TELEM1              |
+| R3, T3   | UART3 RX and TX                                                   | NuttX debug console |
+| R4, T4   | UART4 RX and TX                                                   | GPS1                |
+| R6, T6   | UART6 RX and TX (R6 also located in the GH plug)                  | RC port             |
+| R7       | UART7 RX (RX is located in the plugs for use with 4-in-1 ESCs)    | DShot telemetry     |
+| LED      | WS2182 addressable LED signal wire (not tested)                   |                     |
+| Z-       | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad) |                     |
+| M1 to M4 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)     |                     |
+| M5 to M8 | Motor signal outputs (located in plug for use in 4-in-1 ESCs)     |                     |
+| Boot     | Bootloader button                                                 |                     |
 
 
 <a id="bootloader"></a>
@@ -109,7 +109,6 @@ In addition to the [basic configuration](../config/README.md), the following par
 | UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | USART1 | /dev/ttyS0 | TELEM1                |
-| USART2 | /dev/ttyS1 | TELEM2                |
 | USART3 | /dev/ttyS2 | Debug Console         |
 | UART4  | /dev/ttyS3 | GPS1                  |
 | USART6 | /dev/ttyS4 | RC SBUS               |
