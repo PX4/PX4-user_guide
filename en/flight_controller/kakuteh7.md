@@ -98,6 +98,9 @@ The firmware can be installed in any of the normal ways:
 - [Load the firmware](../config/firmware.md) using *QGroundControl*.
   You can use either pre-built firmware or your own custom firmware.
 
+:::note
+KakuteH7 is supported with PX4 master & PX4 v1.13 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC verision newer than 4.1.7.
+:::
 
 ## PX4 Configuration
 
