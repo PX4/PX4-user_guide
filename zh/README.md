@@ -16,31 +16,31 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 根据你想要实现的目标，以下提示将帮助您浏览本指南：
 
-**I already have a drone and I just want to fly:**
+**我已经拥有一架无人机，我只是想让它飞起来：**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+如果您有支持 PX4 的到手飞（RTF）的飞行器：
 
 * [基本配置](config/README.md) 解释了如何将固件更新到最新版本，校准主传感器（罗盘、陀螺仪、空速等），以及如何设置遥控器和安全功能。
 * [飞行](flying/README.md) 教授飞行要领，包括安全飞行的地点和方式，以及如何调试解锁和飞行问题。 同样提供了关于飞行模式的详细信息。
 
-**I want to build a drone with PX4 from scratch:**
+**我想要从头开始组装一架使用PX4的无人机：**
 
 :::tip
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+支持的机体列举在 [机架参考](airframes/airframe_reference.md)。 这里面有已经测试过的机体类型和调整过的配置，您可以通过*QGroundControl*下载它们。
 :::
 
-If you want to build a vehicle from scratch:
+如果您想从头开始组装一架飞机：
 
 * 选择机架 - [Airframe Builds](airframes/README.md) 列举出了支持的机架，并且提供了详细的说明如何组装。
 * 选择飞控板 - 请参阅 [入门指南 > 飞控板](getting_started/flight_controller_selection.md)和 [自驾仪硬件](flight_controller/README.md)。
 * [装配](assembly/README.md) 解释了如何将重要的外围设备连接到自动驾驶仪上。
 * [基本配置](config/README.md) 演示如何更新固件，并使用适合您的机身的设置对其进行配置。 本节还介绍了如何校准主传感器（罗盘、陀螺仪、空速等），并设置遥控器和安全功能。
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+当您准备好飞您的飞机时，请访问[飞行](flying/README.md)部分。
 
-**I want to add payload or a camera:**
+**我想添加有效负载或相机：**
 
-The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
+有效负载部分描述了如何添加一个相机以及如何配置PX4以使您能够运送包裹。
 
 * [Payloads](payloads/README.md) describes how to integrate payloads
 
