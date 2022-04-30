@@ -17,7 +17,7 @@
 * [基本装配](assembly/README.md) 
   * [安装飞控](assembly/mount_and_orient_controller.md)
   * [安装GPS/指南针](assembly/mount_gps_compass.md)
-  * [Vibration Isolation](assembly/vibration_isolation.md)
+  * [震动隔离](assembly/vibration_isolation.md)
   * [Cable Wiring](assembly/cable_wiring.md)
   * [CUAV V5+ Wiring Quickstart](assembly/quick_start_cuav_v5_plus.md)
   * [CUAV V5 nano Wiring Quickstart](assembly/quick_start_cuav_v5_nano.md)
