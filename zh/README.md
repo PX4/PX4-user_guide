@@ -69,7 +69,7 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 ## 报告Bug & 问题
 
-If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
+如果您在使用PX4的过程中遇到任何问题，请先将他们发布到[支持论坛](contribute/support.md#forums-and-chat)上（即使他们可能是飞行器配置问题导致的）
 
 If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
