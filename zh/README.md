@@ -75,15 +75,15 @@ If directed by the development team, code issues may be raised on [Github here](
 
 ## 参与贡献
 
-Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+有关如何贡献代码和文档的信息可以在[贡献](contribute/README.md)部分中找到：
 
-* [Code](contribute/README.md)
-* [Documentation](contribute/docs.md)
-* [Translation](contribute/translation.md)
+* [代码](contribute/README.md)
+* [文档](contribute/docs.md)
+* [翻译](contribute/translation.md)
 
 ## 翻译
 
-There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
+本指南有多版本的[翻译](contribute/translation.md)。 您可以从语言菜单中访问到它们（右上角）：
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
@@ -100,7 +100,7 @@ The *Dronecode Calendar* shows important community events for platform users and
 * [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-Calendar defaults to CET. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe> 
+日历默认为CET（中欧时间）。 ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe> 
 
 ### 图标
 
