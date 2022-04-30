@@ -7,14 +7,14 @@
 PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 Check out the [Development](development/development.md) section.
+本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 查看[开发](development/development.md)部分。
 :::
 
 ## 如何开始？
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+所有使用者都应该阅读[入门指南](getting_started/README.md)！ 它提供了对PX4的概述，包括飞行控制栈（飞行模式和安全功能）以及支持的硬件（飞控板，飞行器，机架，数传系统，遥控系统）提供的功能。
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+根据你想要实现的目标，以下提示将帮助您浏览本指南：
 
 **I already have a drone and I just want to fly:**
 
