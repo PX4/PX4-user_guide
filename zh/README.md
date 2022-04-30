@@ -50,22 +50,22 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 * [外设硬件](peripherals/README.md)提供了有关使用外部传感器的其他信息。
 * [基本配置](config/README.md)解释了如何校准主传感器。
-* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+* [高级配置](advanced_config/README.md)应该用于重新/微调机架。
 
-**I want to run PX4 on new hardware and extend the platform:**
+**我想在新硬件上运行 PX4 并扩展平台：**
 
-* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [开发](development/development.md)介绍了如何支持新的机架、机型，修改飞行算法，添加新的模式，集成新的硬件，从飞行控制器的外部与PX4通信，以及如何为PX4做出贡献。
 
 ## 获取帮助
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[帮助](contribute/support.md)页面介绍了如何从核心开发团队和更广泛的社区获取帮助。
 
-Among other things it covers:
+除此以外，它还包括了：
 
-* [Forums where you can get help](contribute/support.md#forums-and-chat)
-* [Diagnosing issues](contribute/support.md#diagnosing-problems)
-* [How to report bugs](contribute/support.md#issue-bug-reporting)
-* [Weekly dev call](contribute/support.md#weekly-dev-call)
+* [您可以得到帮助的论坛](contribute/support.md#forums-and-chat)
+* [问题诊断](contribute/support.md#diagnosing-problems)
+* [如何报告错误（bugs）](contribute/support.md#issue-bug-reporting)
+* [每周开发通讯](contribute/support.md#weekly-dev-call)
 
 ## 报告Bug & 问题
 
