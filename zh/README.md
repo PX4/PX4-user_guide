@@ -42,14 +42,14 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 有效负载部分描述了如何添加一个相机以及如何配置PX4以使您能够运送包裹。
 
-* [Payloads](payloads/README.md) describes how to integrate payloads
+* [有效负载](payloads/README.md)描述了如何整合有效负载
 
-**I am modifying a supported vehicle:**
+**我想要修改已支持的机体：**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+上文介绍了如何修改飞行控制器和基本的传感器。 为了使用新的传感器，或者您的修改对飞行特性有重大的影响：
 
-* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
+* [外设硬件](peripherals/README.md)提供了有关使用外部传感器的其他信息。
+* [基本配置](config/README.md)解释了如何校准主传感器。
 * [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
 
 **I want to run PX4 on new hardware and extend the platform:**
