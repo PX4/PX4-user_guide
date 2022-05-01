@@ -17,7 +17,8 @@ PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面端�
 下面列举的这些设备是经过我们测试的可以在 [用户手册](../gps_compass/rtk_gps.md#supported-rtk-devices) 找到。
 
 :::note
-大多数设备都有两个变体, 一个基站和一个移动站。 确保选择正确的变体。
+大多数设备都有两个变体, 一个基站和一个移动站。
+确保选择正确的变体。
 :::
 
 ## 自动配置
@@ -55,7 +56,8 @@ RTCM 基础位置消息(1005)长度为 22 字节， 而其他卫星的长度则�
 
 如果 *MAVLink 2* 被使用，则 `GPS_RTCM_DATA消息` 中的所有空格将被删除。 由此产生的上行链路需求与理论值 (约 300 字节/秒) 大致相同。
 
-:::tip PX4 自动切换到 MAVLink 2，如果GCS 和遥测模块支持。
+:::tip
+PX4 自动切换到 MAVLink 2，如果GCS 和遥测模块支持。
 :::
 
 MAVLink 2 必须用于低带宽链接以保证 RTK 性能。 Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. 您可以使用系统控制台上的 `mavlink status` 命令验证协议版本：

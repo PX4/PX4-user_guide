@@ -137,7 +137,8 @@ make px4_sitl jmavsim
 ```
 
 :::note
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically". Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
+At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
+Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
 :::
 
 :::note
@@ -207,7 +208,7 @@ The simulated camera is a gazebo plugin that implements the [MAVLink Camera Prot
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
-:::note
+   :::note
 More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
 :::
 

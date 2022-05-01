@@ -6,7 +6,7 @@ VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/
 
 本节说明如何通过设置 PX4 和机载计算机来使用*已支持的* VIO 配置。
 
-<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <!-- https://youtu.be/gWtrka2mK7U -->
 
 :::tip

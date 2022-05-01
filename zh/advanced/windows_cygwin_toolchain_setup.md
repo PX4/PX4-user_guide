@@ -76,7 +76,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
    * Shells:bash-completion
    * Web:wget
 
-:::note
+   :::note
 不要选择尽可能多的不在这个列表上的软件包，有些软件包冲突和中断构建。
 :::
 
@@ -119,8 +119,9 @@ git clone https://github.com/PX4/windows-toolchain PX4
 
 1. 下载 Windows的二进制文件压缩包[**Apache Ant**](https://ant.apache.org/bindownload.cgi) ，并将内容解包到文件夹 `C:\PX4\toolchain\apache-ant`
 
-:::tip
-请确保您在下载的归档中没有其他文件夹层。
+   :::tip
+ 请确保您在下载的归档中没有其他文件夹层。
+
 :::
 
 :::note

@@ -77,8 +77,9 @@ You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above an
    ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
    ```
 
-:::note
-Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), can receive data from a unique remote UDP port (2019, 2021, 2023, etc.), and transmit data to UDP port (2020, 2022, 2024, etc.).
+   :::note
+ Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), can receive data from a unique remote UDP port (2019, 2021, 2023, etc.), and transmit data to UDP port (2020, 2022, 2024, etc.).
+
 :::
 
 1. Run `micrortps_agent`. For example, to connect 4 vehicles, run:

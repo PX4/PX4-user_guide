@@ -40,7 +40,8 @@ PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有�
 PX4 developers are encouraged to create appropriate in-source documentation.
 
 :::note
-Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+Source-code documentation standards are not enforced, and the code is currently inconsistently documented.
+We'd like to do better!
 :::
 
 Currently we have two types of source-based documentation:
@@ -49,7 +50,7 @@ Currently we have two types of source-based documentation:
   - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
 * We encourage other in-source documentation *where it adds value/is not redundant*.
 
-:::tip
+  :::tip
 Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
