@@ -32,32 +32,32 @@ PX4是一个大型无人机平台的核心部分，整个平台包括了[QGround
 
 Dronecode 地面控制站称为 [QGC 地面站](http://qgroundcontrol.com/)。 您可以使用*QGroundControl*将PX4加载（闪存）到[飞行器控制硬件](flight_controller_selection.md)中，您可以设置飞行器，修改不同的参数，获取实时飞行信息，创建并执行全自主任务。
 
-*QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
+*QGroundControl*可以在Windows，安卓，MacOS或Linux平台上运行。 从[这里](http://qgroundcontrol.com/downloads/)下载并安装。
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
 
 ## 机体/飞行控制板
 
-PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+PX4最初设计用于在[Pixhawk系列](../flight_controller/pixhawk_series.md)飞控上运行，但是现在可以在Linux计算机或者其他硬件上运行。 在选择飞控板时你应当考虑飞机的物理尺寸限制、想要进行的活动，当然还需要考虑成本。
 
-For more information see: [Flight Controller Selection](flight_controller_selection.md).
+更多信息，请参阅[飞行控制器选择](flight_controller_selection.md)。
 
 ## 传感器
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4使用传感器确定机体状态（这是稳定和启动自动控制所必须的）。 该系统*最低要求*为一套陀螺仪，加速度计，磁力计（罗盘）和气压计。 GPS和其他定位系统是启用所有的自动[模式](../getting_started/flight_modes.md#categories)以及部分辅助模式所必须的。 固定翼和 VTOL 飞行器还应包括空速传感器（强烈推荐）。
 
-For more information see:
+更多信息请参阅：
 
 - [传感器](../getting_started/sensor_selection.md) 
 - [外设](../peripherals/README.md)
 
 ## 输出:电机，舵机，执行器
 
-PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+PX4使用*输出*来控制：电机转速（例如通过[ECS（电调）](#escs-motors)），飞行器表面如副翼和襟翼，相机快门，降落伞，抓手以及多种其他类型的有效载荷。
 
 The outputs may be PWM ports or be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The same airframe mapping of outputs to nodes is used in both cases case.
 
-The images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
+下面的图片显示了[Pixhawk 4](../flight_controller/pixhawk4.md)和[Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)的PWM输出端口。
 
 ![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
