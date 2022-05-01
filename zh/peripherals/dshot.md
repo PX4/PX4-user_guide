@@ -27,7 +27,10 @@ To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports la
 Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 :::
 
-:::note FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs. FMUv5x-based boards support DShot only on the first six FMU pins.
+:::note
+FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
+The other pins cannot be used as motor/servo outputs.
+FMUv5x-based boards support DShot only on the first six FMU pins.
 :::
 
 :::tip
