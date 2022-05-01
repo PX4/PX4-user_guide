@@ -44,7 +44,8 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
 :::warning
-Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
+Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. 
+This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
 :::
 
 The result in QGroundControl then looks like this on the real-time plot:
