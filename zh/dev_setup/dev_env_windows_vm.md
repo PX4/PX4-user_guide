@@ -22,8 +22,9 @@ There are multiple ways to setup a VM which is capable of executing the PX4 envi
 1. 打开 *VMWare Player* 并选择创建新虚拟机的选项。
 1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
 
-:::note
-This option is required to properly run 3D simulation environments like jMAVSim and Gazebo. We recommend this is done before installing Linux in the virtual environment.
+   :::note
+This option is required to properly run 3D simulation environments like jMAVSim and Gazebo.
+We recommend this is done before installing Linux in the virtual environment.
 :::
 1. Select the option to create a new virtual machine.
 1. In the VM creation wizard choose the downloaded Ubuntu ISO image as your installation medium and will automatically detect the operating system you want to use.
