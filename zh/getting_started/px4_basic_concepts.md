@@ -18,9 +18,9 @@
 
 ## PX4 自动驾驶仪
 
-[PX4](https://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](https://px4.io/)是强大的开源自动驾驶*飞行栈*。
 
-Some of PX4's key features are:
+PX4的一些主要功能包括：
 
 - 可控制[许多不同的设备机架/类型](../airframes/airframe_reference.md)，包括：飞机（多旋翼，固定翼和垂直起降），地面车辆和水下潜航器。 
 - Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
