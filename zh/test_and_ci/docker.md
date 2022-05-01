@@ -168,7 +168,7 @@ In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/en/S
 </code>
 
 :::note
-Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook). 
 :::
 
 ### 故障处理
