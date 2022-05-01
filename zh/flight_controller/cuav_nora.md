@@ -63,7 +63,8 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canon
   * Internal shock absorption
 
 :::note
-When it runs PX4 firmware, only 8 PWM outputs work. The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
+When it runs PX4 firmware, only 8 PWM outputs work.
+The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 :::
 
 ## 采购
