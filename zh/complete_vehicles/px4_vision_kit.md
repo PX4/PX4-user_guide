@@ -122,7 +122,9 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 1. 将套件中预先烧录好镜像的U盘插入 *UP Core* 的端口 `USB1` （下面高亮的）
 
    ![UP Core：USB1 端口 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. 用充好电的电池的为无人机供电。 :::note 连接电池前要移除螺旋桨。
+1. 用充好电的电池的为无人机供电。  :::note
+连接电池前要移除螺旋桨。
+
 :::
 1. 使用以下默认凭据将地面站连接到无人机WiFi网络（几秒钟后）：
    - **SSID：** pixhawk4
@@ -135,8 +137,9 @@ WiFi 网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 
 1. 在地面站启动 *QGroundControl*。
 1. [配置/校准](../config/README.md) 无人机：
 
-:::note
-无人机要进行预先校准(例如使用固件、机架、电池和传感器所有安装)。 您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
+   :::note
+无人机要进行预先校准(例如使用固件、机架、电池和传感器所有安装)。
+您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
 :::
 
    - [校准遥控](../config/radio.md)
