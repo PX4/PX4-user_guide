@@ -23,8 +23,8 @@
 PX4的一些主要功能包括：
 
 - 可控制[许多不同的设备机架/类型](../airframes/airframe_reference.md)，包括：飞机（多旋翼，固定翼和垂直起降），地面车辆和水下潜航器。 
-- Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
-- Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
+- 适用于[设备控制器](#vehicle-flight-controller-board)，传感器和其他外围设备的硬件选择。
+- 灵活而强大的[飞行模式](#flight-modes)和[安全功能](#safety-settings-failsafe)。
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
