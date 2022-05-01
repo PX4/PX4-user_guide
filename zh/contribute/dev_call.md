@@ -17,7 +17,8 @@ PX4开发团队会深入分析技术细节并同步到平台上。 在议程中�
 * 社区成员
 
 :::tip
-The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+The dev call is open to all interested developers (not just the core dev team). 
+This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
 :::
 
 ## 讨论什么内容?
