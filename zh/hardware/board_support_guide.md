@@ -70,7 +70,8 @@ These boards are supported by the manufacturer. To qualify for this category the
 - Manufacturer must supply at least 2 boards to the core-dev team (for use on test rack and by test team)
 
 :::tip
-While there is no commitment from the PX4 maintainers and the flight test team to support and test boards in this category, we strongly recommended PX4 and manufacturer teams build close working relationships. This will result in a better result for all parties.
+While there is no commitment from the PX4 maintainers and the flight test team to support and test boards in this category, we strongly recommended PX4 and manufacturer teams build close working relationships.
+This will result in a better result for all parties.
 :::
 
 :::note
@@ -116,7 +117,8 @@ Contact PX4 board maintainers at [boards@px4.io](mailto:boards@px4.io) and reque
 Integrate the board according to the board porting release process described in the [porting guide](../hardware/porting_guide.md)
 
 :::warning
-The board support process may be changed and improved over time. Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Slack.
+The board support process may be changed and improved over time.
+Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Slack.
 :::
 
 ## 技术支持
