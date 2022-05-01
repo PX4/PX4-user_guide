@@ -50,7 +50,8 @@ To connect systems over Ethernet you need to configure them to run on the same I
 There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with addresses `192.168.0.Xxx`, where PX4 has a statically allocated address `192.168.0.4` and the computer has address `192.168.0.1`. If you connect a companion computer or other system to the network you would need to use a similar approach to allocate its address (or you could set up a DHCP server and allocate addresses dynamically).
 
 :::note
-There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network. Which is to say that a knowledge of how IP networks work is highly desirable!
+There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network.
+Which is to say that a knowledge of how IP networks work is highly desirable!
 :::
 
 ### PX4 Ethernet Network Setup
