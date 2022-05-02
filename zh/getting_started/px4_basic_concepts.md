@@ -68,10 +68,10 @@ PX4使用*输出*来控制：电机转速（例如通过[ECS（电调）](#escs-
 :::
 
 :::warning
-每个飞行控制器可能只有`MAIN`PWM输出（例如*Pixhawk 4 Mini*），也可能只有6个`MIAN`或`AUX`输出。 Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+每个飞行控制器可能只有`MAIN`PWM输出（例如*Pixhawk 4 Mini*），也可能只有6个`MIAN`或`AUX`输出。 确保您选择的控制器有足够且正确的端口/输出接口能够适配您的[机架](../airframes/airframe_reference.md)。
 :::
 
-Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL). For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
+通常情况下，`MAIN`端口用于核心飞行控制，`AUX`用于非关键的执行器/有效载荷（但是，如果`MAIN`没有足够的接口，比如VTOL机型，`AUX`也可能用于飞行控制）。 例如，对于一架[通用四旋翼](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)，`MAIN`输出中的1-4用于控制电机，剩余的`MAIN`和一些`AUX`用来做遥控透传（透传：输入内容直接给到输出，中途不经过任何修改）。
 
 The actual ports/bus used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration. *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
 
