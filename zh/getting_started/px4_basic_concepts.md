@@ -83,9 +83,9 @@ PX4使用*输出*来控制：电机转速（例如通过[ECS（电调）](#escs-
 
 ## 电调 & 电机
 
-Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
+许多 PX4 无人机使用由飞行控制器通过电子调速器（ESC）驱动的无刷电机（ESC将来自飞行控制器的信号转换为合适的功率水平，并传递给电机）。
 
-For information about what ESC/Motors are supported by PX4 see:
+有关 PX4 支持的电调和电机的信息，请参阅：
 
 - [电调 & 电机](../peripherals/esc_motors.md)
 - [电调（ESC）校准](../advanced_config/esc_calibration.md)
@@ -93,13 +93,13 @@ For information about what ESC/Motors are supported by PX4 see:
 
 ## 电池/电源
 
-PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用*电源模块 *或*电源管理板 *连接到系统，它为飞行控制器和 电调（用于电动机）提供单独的动力。
 
-Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+有关电池和电池配置的信息，请参见[电池配置](../config/battery.md)和[基本组件](../assembly/README.md)（例如[ Pixhawk 4 接线快速入门>电源](../assembly/quick_start_pixhawk4.md#power)）。
 
 ## 无线电控制（遥控）
 
-A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+[遥控（RC）](../getting_started/rc_transmitter_receiver.md)系统用于 *手动* 控制载具。 It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
 :::note PX4 does not require a remote control system for autonomous flight modes.
 :::
