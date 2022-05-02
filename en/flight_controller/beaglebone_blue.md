@@ -57,7 +57,8 @@ connmanctl>scan wifi
 connmanctl>services
 #(at this point you should see your network SSID appear.)
 connmanctl>agent on
-connmanctl>connect <SSID>
+connmanctl>connect wifixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	Enter Passphrase
 connmanctl>quit
 ```
 ### SSH root Login on Beaglebone
