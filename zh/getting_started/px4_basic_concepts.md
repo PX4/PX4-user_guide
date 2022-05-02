@@ -99,7 +99,7 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ## 无线电控制（遥控）
 
-[遥控（RC）](../getting_started/rc_transmitter_receiver.md)系统用于 *手动* 控制载具。 It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+[遥控（RC）](../getting_started/rc_transmitter_receiver.md)系统用于 *手动* 控制载具。 它由一个遥控装置组成，使用发射机来与飞行器上的接收机通信。 一些遥控系统还可以额外接收自动驾驶仪传回的数传信息。
 
 :::note PX4 在自主飞行模式中不需要遥控系统。
 :::
