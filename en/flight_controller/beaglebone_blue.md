@@ -122,9 +122,14 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
          :::note
          Logout and Login to apply the change, or execute the same line on your current shell.
 		 :::
-         
-         Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions.
-         
+		 
+         ```
+	 wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
+	 wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
+	 bash ubuntu.sh --no-nuttx --no-sim-tools
+         ```
+         Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions for more informations.
+	
          You may have to edit the upload target to match with your setup:
          ```
          nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
