@@ -1,6 +1,6 @@
-# 机架安装
+# 机架设置
 
-After installing firmware you need to select the [airframe configuration](../airframes/airframe_reference.md) that best matches your vehicle.
+安装固件后，您需要选择最适合您载具的 [机架配置](../airframes/airframe_reference.md)。
 
 :::note
 Select the airframe configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration. Otherwise select the closest "Generic" frame option.
