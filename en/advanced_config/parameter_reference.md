@@ -12124,6 +12124,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="FW_DTRIM_P_SPOIL">FW_DTRIM_P_SPOIL</strong> (FLOAT)</td>
+ <td>Pitch trim increment for spoiler configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever spoilers are fully deployed.</p>   </td>
+ <td>-0.25 > 0.25 (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
  <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
  <td>-0.25 > 0.25 (0.01)</td>
@@ -12173,29 +12180,15 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_FLAPERON_SCL">FW_FLAPERON_SCL</strong> (FLOAT)</td>
- <td>Scale factor for flaperons    </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>0.0</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps (FW_FLAPS_SCL) during landing</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="FW_FLAPS_SCL">FW_FLAPS_SCL</strong> (FLOAT)</td>
- <td>Scale factor for flaps    </td>
+ <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
  <td>0.0 > 1.0 (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps (FW_FLAPS_SCL) during take-off</p>   </td>
+ <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
  <td>0.0 > 1.0 (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
@@ -12339,6 +12332,34 @@ table {
  <td>0.4 > 1.0 (0.05)</td>
  <td>0.4</td>
  <td>s</td>
+</tr>
+<tr>
+ <td><strong id="FW_SPOILERS_DESC">FW_SPOILERS_DESC</strong> (FLOAT)</td>
+ <td>Spoiler descend setting    </td>
+ <td>0.0 > 1.0 (0.01)</td>
+ <td>0.</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_SPOILERS_LND">FW_SPOILERS_LND</strong> (FLOAT)</td>
+ <td>Spoiler landing setting    </td>
+ <td>0.0 > 1.0 (0.01)</td>
+ <td>0.</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_SPOILERS_MAN">FW_SPOILERS_MAN</strong> (INT32)</td>
+ <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Flaps channel</li> 
+
+<li><strong>2:</strong> Aux1</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
@@ -28595,6 +28616,13 @@ table {
  <td>-10.0 > 45.0 </td>
  <td>-5.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_SPOILER_MC_LD">VT_SPOILER_MC_LD</strong> (FLOAT)</td>
+ <td>Spoiler setting while landing (hover)    </td>
+ <td>-1 > 1 (0.05)</td>
+ <td>0.</td>
+ <td>norm</td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
