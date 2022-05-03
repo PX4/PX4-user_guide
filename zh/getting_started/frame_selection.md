@@ -12,7 +12,7 @@ PX4支持空中，表面（地面，水面）以及水下载具。 您可以在[
 - **船**是水面载具。
 - **潜水艇**是水下载具。
 
-:::note PX4使用的机架设置是在初始化设置期间[Airframe setup](../config/airframe.md)在 *QGroundControl* 中配置的 。
+:::note PX4使用的机架设置是在初始化设置期间在 *QGroundControl* 中配置： [Airframe 设置](../config/airframe.md)。
 
 ![机架选择](../../assets/qgc/setup/airframe/airframe_px4.jpg)
 :::
