@@ -24,7 +24,7 @@
 실시간 커널로 업데이트 할 수 있으며, 업데이트 하는경우 *librobotcontrol*이 실시간 커널에서 제대로 작동하는지 다시 확인합니다.
 :::
 
-이 문서를 업데이트 시점의 최신 OS 이미지는 [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz)입니다.
+The latest OS images at time of updating this document is [bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz).
 
 ## 크로스 컴파일러 빌드 (권장)
 
@@ -89,41 +89,42 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     1. 툴체인 다운로드
         
-        1. 먼저 툴체인을 */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*에 설치합니다. 다음은 소프트 링크를 사용하여 사용할 도구 모음 버전을 선택하는 예입니다.
+        1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use: ``` mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf chmod -R 777 /opt/bbblue_toolchain cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+             ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](https://www.linaro.org/downloads/#gnu_and_llvm). 
             
-                mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
-                chmod -R 777 /opt/bbblue_toolchain
-                
-            
-            *BeagleBone Blue* 용 ARM 크로스 컴파일러는 [Linaro Toolchain Binaries 사이트](http://www.linaro.org/downloads/)에서 찾을 수 있습니다.
-            
-:::tip
-툴체인의 GCC는 *BeagleBone Blue*의 커널과 호환되어야 합니다. 경험상 일반적으로 GCC 버전이 *BeagleBone Blue*의 OS 이미지와 함께 제공되는 GCC 버전보다 높지 않은 도구 모음을 선택합니다.
+             :::tip
+             GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*.
+             General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+
 :::
             
-            [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz)를 bbblue_toolchain 폴더에 다운로드하고 압축을 해제합니다.
+             Download and unpack [gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz](https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
             
-            *BeagleBone Blue*를위한 다양한 ARM 크로스 컴파일러 버전은 [Linaro Toolchain Binaries 사이트](http://www.linaro.org/downloads/)에서 찾을 수 있습니다.
+             Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).         
+             ```
+            wget https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
+            tar -xf gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
             
-:::tip
-도구 모음의 GCC 버전은 *BeagleBone Blue* 커널과 호환되어야 합니다.
-:::
-            
-            경험상 일반적으로 GCC 버전이 *BeagleBone Blue*의 OS 이미지와 함께 제공되는 GCC 버전보다 높지 않은 도구 모음을 선택합니다.
         
-        2. 아래와 같이 ~/.profile의 PATH에 추가합니다
+:::tip
+The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+:::
+        
+        General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*.
+        
+        1. Add it to the PATH in ~/.profile as shown below
             
             ```sh
-            export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
+            export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf/bin
             ```
             
 :::note
-로그 아웃후 다시 로그인하여 변경 사항을 적용하거나 현재 셸에서 동일한 줄을 실행합니다.
+Logout and Login to apply the change, or execute the same line on your current shell.
 :::
             
-            [개발 환경 설정](../dev_setup/dev_env_linux_ubuntu.md) 지침을 따릅니다.
+            Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions.
             
-            설정과 일치하도록 업로드 대상을 편집해야 할 수 있습니다.
+            You may have to edit the upload target to match with your setup:
             
                 nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
                 
