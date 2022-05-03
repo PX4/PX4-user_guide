@@ -97,18 +97,22 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
          ```
          mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
          chmod -R 777 /opt/bbblue_toolchain
-         ```
-         ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). 
+	 cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+	 ```
+         ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](https://www.linaro.org/downloads/#gnu_and_llvm). 
 
          :::tip
          GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*.
          General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
 		 :::
    
-         Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
+         Download and unpack [gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz](https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
          
          Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).         
-         
+         ```
+	 wget https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
+	 tar -xf gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
+	 ```
          :::tip
 		 The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
 		 :::
@@ -117,7 +121,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 
       1. Add it to the PATH in ~/.profile as shown below
          ```sh
-         export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
+         export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf/bin
          ```
          :::note
          Logout and Login to apply the change, or execute the same line on your current shell.
