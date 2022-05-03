@@ -94,48 +94,52 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
    1. Toolchain download
       1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*.
          Here is an example of using soft link to select which version of the toolchain you want to use:
-         ```
+	 
+         ```sh
          mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
          chmod -R 777 /opt/bbblue_toolchain
          ```
+	 
          ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). 
 
          :::tip
          GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*.
          General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
-		 :::
+         :::
    
          Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
          
          Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).         
          
          :::tip
-		 The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
-		 :::
+         The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+         :::
          
          General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*. 
 
       1. Add it to the PATH in ~/.profile as shown below
+  
          ```sh
          export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
          ```
          :::note
          Logout and Login to apply the change, or execute the same line on your current shell.
-		 :::
-		 
+         :::
+
+      1. Setup other dependencies by downloading the PX4 source code and then running the setup scripts:
          ```
-	 wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
-	 wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
-	 bash ubuntu.sh --no-nuttx --no-sim-tools
-         ```
-         Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions for more informations.
-	
+         git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+	 bash ./Tools/setup/ubuntu.sh --no-nuttx --no-sim-tools
+	 ```
+	 
          You may have to edit the upload target to match with your setup:
-         ```
+         ```sh
          nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
          
-         #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
+         # in row 37 change debian@beaglebone.lan TO root@beaglebone (or root@<IP>)
          ```
+	 
+	 See the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions for additional information.
    
 ### Cross Compile and Upload
 
@@ -158,7 +162,7 @@ sudo ./bin/px4 -s px4.config
 Currently *librobotcontrol* requires root access.
 :::
 
-<span id="native_builds"></span>
+<a id="native_builds"></a>
 ## Native Builds (optional)
 
 You can also natively build PX4 builds directly on the BeagleBone Blue.
