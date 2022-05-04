@@ -3,7 +3,7 @@
 [I2C](https://en.wikipedia.org/wiki/I2C) is a serial communication protocol that is commonly used (at least on smaller drones), for connecting peripheral components like rangefinders, LEDs, Compass, etc.
 
 It is recommended for:
-* Connecting off board components that require higher data rates than provided by a strict serial UART, such as rangefinders.
+* Connecting off board components that require low bandwidth and low latency communication, e.g. [rangefinders](../sensor/rangefinders.md), [magnetometers](../gps_compass/), [airspeed sensors](../sensor/airspeed.md) and [tachometers](../sensor/tachometers.md) .
 * Compatibility with peripheral devices that only support I2C.
 * Allowing multiple devices to attach to a single bus, which is useful for conserving ports.
 
@@ -15,10 +15,8 @@ in theory a bus can support 128 devices, each accessed via its unique address.
 
 ## Wiring
 
-I2C uses a pair of wires: SDA (serial data) and SCL (serial clock).
-The bus is of open-drain type, meaning that devices ground the data line.
-It uses a pullup resistor to push it to `log.1` (idle state) - every wire has it usually located on the bus terminating devices.
-One bus can connect to multiple I2C devices.
+I2C uses a pair of wires: SDA (serial data) and SCL (serial clock). The bus is of open-drain type, meaning that devices ground the data line.
+It uses a pullup resistor to push it to `log.1` (idle state) - every wire has it usually located on the bus terminating devices. One bus can connect to multiple I2C devices.
 The individual devices are connected without any crossing.
 
 For connection (according to dronecode standard) 4-wire cables equipped with JST-GH connectors are used.
@@ -28,17 +26,24 @@ To ensure reliable communication and to reduce crosstalk it is advised to apply 
 
 ## Common problems
 
-### Insufficient Capacity
+### Insufficient Transfer Capacity
 
-The capacity available for each individual device decreases as more devices are added.
+The bandwidth available for each individual device generally decreases as more devices are added. The exact decrease depends on the bandwidth used by each individual device. Therefore it is possible to connect many low bandwidth devices, like [tachometers](../sensor/tachometers.md).
 If too many devices are added, it can cause transmission errors and network unreliability.
 
+There are several ways to reduce the problem:
+* Dividing the devices into groups, each with approximately the same number of devices and connecting each group to one autopilot port
+* Increase bus speed limit (usually set to 100kHz for external I2C bus)
+
+### Excessive Wiring Capacitance
+
+The electrical capacity of bus wiring increases as more devices/wires are added. The exact decrease depends on total lenght of bus wiring and wiring secific capacitance.
 The problem can be analyzed using an oscilloscope, where we see that the edges of SDA/SCL signals are no longer sharp.
 
 There are several ways to reduce the problem:
 * Dividing the devices into groups, each with approximately the same number of devices and connecting each group to one autopilot port
 * Using the shortest and the highest quality I2C cables possible
-* Separating the devices with a weak open-drain driver to smaller bus with lower capacity
+* Separating the devices with a weak open-drain driver to smaller bus with lower capacitance
 * [I2C Bus Accelerators](#i2c-bus-accelerators)
 
 
@@ -47,7 +52,7 @@ There are several ways to reduce the problem:
 If two I2C devices on a bus have the same ID there will be a clash, and neither device will not work properly (or at all).
 This usually occurs because a user needs to attach two sensors of the same type to the bus, but may also happen if devices use duplicate addresses by default.
 
-Particular I2C may allow you to select a new address for one of the devices to avoid the clash.
+Particular I2C devices may allow you to select a new address for one of the devices to avoid the clash.
 Some devices do not support this option, or do not have broad options for the addresses that can be used (i.e. cannot be used to avoid a clash).
 
 If you can't change the addresses, one option is to use an [I2C Address Translator](#i2c-address-translators).
@@ -55,7 +60,7 @@ If you can't change the addresses, one option is to use an [I2C Address Translat
 
 ## I2C Bus Accelerators
 
-I2C bus accelerators are separate circuits that can be used to support more devices on the same I2C bus.
+I2C bus accelerators are separate circuits that can be used to support longer wiring lenght of the same I2C bus.
 They work by physically dividing an I2C network into 2 parts and using their own transistors to amplify I2C signals.
 
 Available accelerators include:
@@ -72,8 +77,6 @@ The work by listening for I2C communication and tranforming the address when a s
 
 Supported I2C Address Translators include:
 - [TFI2CADT01](i2c_address_translator.md#TFI2CADT)
-
-
 
 ## Checking the Bus and Device Status
 
