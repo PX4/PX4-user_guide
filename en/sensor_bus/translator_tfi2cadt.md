@@ -11,7 +11,7 @@ Address translation is a method of connecting multiple slave devices with the sa
 ![TFI2CADT - i2c address translator](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01a_both_sides.jpg)
 
 :::Note
-The address converter [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license. It is commercially available from [ThunderFly](https://www.thunderfly.cz/) company or from [tindie](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/) eshop. Manufacturing data are available on github.
+The address converter [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license. It is commercially available from [ThunderFly](https://www.thunderfly.cz/) company or from [Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
 :::
 
 ## Address translation method
@@ -29,7 +29,7 @@ The tachometer sensor [TFRPM01](../sensor/thunderfly_tachometer.md) can be set t
 If the autopilot has 3 buses, only 6 sensors can be connected and no bus remains free.
 (2 available addresses * 3 i2c ports).
 In case of some multicopters or VTOL solutions, there is a request for measuring RPM of e.g. 8 elements.
-For this purpose, TFI2CEXT01 can be easily used.
+For this purpose, [TFI2CADT01](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/) can be easily used.
 
 ![Multiple sensors](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01_multi_tfrpm01.jpg)
 
@@ -57,7 +57,7 @@ graph TD
 :::note
 TFI2CADT01 does not contain any I2C buffer or accelerator.
 It itself creates an additional capacity on the bus.
-Therefore it is advisable to combine TFI2CADT01 with some bus booster, e.g. TFI2CEXT01.
+Therefore it is advisable to combine [TFI2CADT01](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/) with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
 :::
 
 ### Other resousrces
