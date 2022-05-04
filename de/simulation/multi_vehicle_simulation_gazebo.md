@@ -11,7 +11,7 @@ To simulate multiple iris or plane vehicles in Gazebo use the following commands
 Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`.
+- `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
 - `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 255.
 - `<world>`: The [world](../simulation/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
 - `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). For example:
@@ -19,7 +19,7 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
    ```
    -s "iris:3,plane:2,standard_vtol:3"
    ```
-   - Supported vehicle types are: `iris`, `plane`, `standard_vtol`.
+   - Supported vehicle types are: `iris`, `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
    - The number after the colon indicates the number of vehicles (of that type) to spawn.
    - Maximum number of vehicles is 255.
 
@@ -79,8 +79,9 @@ To build an example setup, follow the steps below:
    ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
    ```
 
-:::note
-Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), can receive data from a unique remote UDP port (2019, 2021, 2023, etc.), and transmit data to UDP port (2020, 2022, 2024, etc.).
+   :::note
+ Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), can receive data from a unique remote UDP port (2019, 2021, 2023, etc.), and transmit data to UDP port (2020, 2022, 2024, etc.).
+
 :::
 
 1. Run `micrortps_agent`. For example, to connect 4 vehicles, run:

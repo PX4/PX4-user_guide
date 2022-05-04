@@ -11,7 +11,7 @@ Gazebo에서 다중 차량을 시뮬레이션하려면, 터미널에서 다음 �
 Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: 실행할 [차량 유형/모델](../simulation/gazebo_vehicles.md), 예: `iris`(기본값), `plane`, `standard_vtol`
+- `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
 - `<number_of_vehicles>`: 실행할 차량의 수입니다. 기본값은 3. 최대값은 255.
 - `<world>`: 차량이 생성되어야 하는 [세계](../simulation/gazebo_worlds.md), 예: `empty` (기본값)
 - `<script>`: 여러 유형의 다중 차량을 생성합니다(`-m` 및 `-n`의 값 무시). 예:
@@ -19,7 +19,7 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
    ```
    -s "iris:3,plane:2,standard_vtol:3"
    ```
-   - 지원되는 차량 유형은 `iris`, `plane`, `standard_vtol`입니다.
+   - Supported vehicle types are: `iris`, `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
    - 콜론 뒤의 숫자는 실행할 차량(해당 유형) 대수를 나타냅니다.
    - 최대 차량 대수는 255대입니다.
 
@@ -79,8 +79,9 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
    ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
    ```
 
-:::note
+   :::note
 각 차량 인스턴스에는 고유한 MAVLink 시스템 ID(1, 2, 3 등)가 할당되고, 고유한 원격 UDP 포트(2019, 2021, 2023 등)에서 데이터를 수신하고, UDP 포트(2020, 2022, 2024 등)에서 데이터를 전송합니다.
+
 :::
 
 1. `micrortps_agent`를 실행합니다. 예를 들어 4대의 차량을 연결하려면, 다음을 명령어를 실행하십시오.
