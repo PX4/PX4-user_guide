@@ -21,7 +21,7 @@ PX4 参考设计是飞行控制器的 [Pixhawk 系列 ](../flight_controller/pix
 * FMUv6：尚未完成，最终命名为 TBD，变种 6s \(STM32H7, 400 MHz, 2 MB RAM,  2 MB flash\) 和变种 6i \(i.MX RT1050, 600 MHz, 512 KB RAM, 外部 flash\)
 
 
-## Main/IO Function Breakdown
+## Main/IO 功能分解
 
 The diagram below shows the division of bus and functional responsibilities between the FMU and I/O boards in a Pixhawk-series flight controller (the boards are incorporated into a single physical module).
 
