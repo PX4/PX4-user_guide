@@ -132,7 +132,7 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ## 机载计算机
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4可以通过串行电缆或wifi由一个独立的记载计算机控制。 The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
 Relevent topics include:
 
