@@ -132,21 +132,21 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ## 机载计算机
 
-PX4可以通过串行电缆或wifi由一个独立的记载计算机控制。 The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4可以通过串行电缆或wifi由一个独立的记载计算机控制。 机载计算机通常使用MAVLink API（如MAVSDK或MAVROS）进行通讯。
 
-Relevent topics include:
+相关的主题包括：
 
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
-- [Robotics APIs](../robotics/README.md)
+- [机器人（Robotics) APIs](../robotics/README.md)
 
 ## SD卡（可移除储存器）
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
+PX4 使用 SD 储存卡存储 [飞行日志](../getting_started/flight_reporting.md)，而且还需要内存卡才能使用 UAVCAN 外围设备，运行 [飞行任务](../flying/missions.md)。
 
-By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
+默认情况下，如果没有 SD 卡，PX4 将在启动时播放 [格式化失败（2-声短响）](../getting_started/tunes.md#format-failed) 两次（且上述需要储存卡的功能都不可用）。
 
 :::tip
-The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](../dev_log/logging.md#sd-cards).
+Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐](../dev_log/logging.md#sd-cards)使用*SanDisk Extreme U3 32GB* 。
 :::
 
 SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
