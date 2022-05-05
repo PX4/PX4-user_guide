@@ -68,21 +68,21 @@ ads1115 <command> [arguments...]
 atxxxx <command> [arguments...]
  Commands:
    start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
+     [-s]        内部 SPI 总线(们)
+     [-S]        外部SPI 总线(们)
+     [-b <val>]  指定板总线 (默认=all) (外部 SPI: n 条总线
+                 (默认=1))
+     [-c <val>]  片选引脚 (对于内部SPI) 或者索引(对于外部SPI)
+     [-m <val>]  SPI 模式
+     [-f <val>]  总线频率单位kHz
+     [-q]        安静启动 (没有发现设备时无消息输出)
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
-## batt_smbus
-源码位置: [drivers/batt_smbus](https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus)
+## batmon
+源码: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
 
 
 ### 描述
