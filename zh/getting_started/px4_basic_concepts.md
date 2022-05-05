@@ -106,7 +106,7 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
+[遥控系统选择](../getting_started/rc_transmitter_receiver.md)解释了如何选择遥控系统。 其他相关主题包括：
 
 - [遥控设置](../config/radio.md) - *QGC 地面站* 中的遥控配置。
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
@@ -114,7 +114,7 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ## 地面站游戏手柄控制器
 
-A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/). Joysticks are also commonly used to fly the vehicle in simulation.
+通过 *QGC 地面站* 连接 [计算机游戏手柄](../config/joystick.md) 也可以用来手动控制 PX4（QGC 将游戏手柄的动作转换为 MAVLink 消息通过数传链接发送）。 这种方法用于一些集成了地面站的地面端遥控器，如 *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/)。 游戏手柄也常被用于控制仿真中的无人机。
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 
