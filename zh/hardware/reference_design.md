@@ -32,8 +32,8 @@ PX4 参考设计是飞行控制器的 [Pixhawk 系列 ](../flight_controller/pix
 一些Pixhawk系列控制器为了减少空间或复杂性，或者更好解决使用问题，没有通过I/O板构建。
 
 I/O 板被设置参数 [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) 禁用。 当I/O 板被禁用时：
-- The MAIN mixer file is loaded into the FMU (so the "MAIN" outputs listed in the [Airframe Reference](../airframes/airframe_reference.md) appear on the port labeled AUX). The AUX mixer file isn't loaded, so outputs defined in this file are not used.
-- RC input goes directly to the FMU rather than via the IO board.
+- 主混合器文件被加载到FMU(所以列在[机型参考](../airframes/airframe_reference.md)的“主”输出出现在标有AUX的端口上） AUX 混合器不被加载，所以定义在文件中的输出不会使用。
+- 遥控输出不通过IO板，而是直接连接在FMU上。
 
 Flight controllers without an I/O board have `MAIN` ports, but they *do not* have `AUX` ports. Consequently they can only be used in [airframes](../airframes/airframe_reference.md) that do not use `AUX` ports, or that only use them for non-essential purposes (e.g. RC passthrough). They can be used for most multicopters and *fully* autonomous vehicles (without a safety pilot using RC control), as these typically only use `MAIN` ports for motors/essential controls.
 
