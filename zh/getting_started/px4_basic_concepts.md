@@ -120,15 +120,15 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ## 安全开关
 
-It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming-and-disarming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+无人机通常需要一个*安全开关*，只有当安全开关激活时无人机才能[解锁](#arming-and-disarming)（一旦解锁，电机会供上电，并且螺旋桨可以开始旋转）。 通常，安全开关被整合到GPS设备中，但也可能是一个单独的物理组件。
 
 :::warning
-A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+解锁后的载具有潜在危险。 安全开关是防止意外解锁发生的一个附加机制。
 :::
 
 ## 数传电台
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[数据/遥测无线电](../telemetry/README.md)可以在诸如* QGroundControl *地面站与运行 PX4 的载具之间提供无线 MAVLink 连接。 这使得在飞行过程中调整参数，实时监视遥测信息，更改任务等成为可能。
 
 ## 机载计算机
 
