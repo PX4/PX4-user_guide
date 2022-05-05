@@ -23,7 +23,7 @@ PX4 参考设计是飞行控制器的 [Pixhawk 系列 ](../flight_controller/pix
 
 ## Main/IO 功能分解
 
-The diagram below shows the division of bus and functional responsibilities between the FMU and I/O boards in a Pixhawk-series flight controller (the boards are incorporated into a single physical module).
+下图展示了在Pixhawk系列飞行控制器（这些板被合并进一个单独的物理模块中）中 FMU 和 I/O 板之间总线和功能的职能划分。
 
 ![PX4 Main/IO Functional Breakdown](../../assets/diagrams/px4_fmu_io_functions.png)
 
