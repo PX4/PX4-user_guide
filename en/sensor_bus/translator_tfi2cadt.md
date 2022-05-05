@@ -1,20 +1,23 @@
-# TFI2CADT01
+# TFI2CADT01 - I²C Address Translator
 
-[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is a module that translates I2C addresses.
-A sensor is connected to the master device on one side. On the output side sensors, whose addresses are to be translated, can be connected.
-Module contains two pairs of connectors, each pair responsible for different translations.
+[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is an address translator module that is compatible with Pixhawk and PX4.
 
-:::Note
-Address translation is a method of connecting multiple slave devices with the same address to one I2C master device. Currently, only one I2C address translator compatible with the dronecode standard is known.
-:::
+Address translation allows multiple I2C devices with the same address to coexist on an I2C network.
+The module may be needed if using several devices that have the same hard-coded address.
+
+The module has an input and an output side.
+A sensor is connected to the master device on one side.
+On the output side sensors, whose addresses are to be translated, can be connected.
+The module contains two pairs of connectors, each pair responsible for different translations.
 
 ![TFI2CADT - i2c address translator](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01a_both_sides.jpg)
 
-:::Note
-The address converter [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license. It is commercially available from [ThunderFly](https://www.thunderfly.cz/) company or from [Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
+:::note
+[TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is designed as open-source hardware with GPLv3 license.
+It is commercially available from [ThunderFly](https://www.thunderfly.cz/) company or from [Tindie eshop](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/).
 :::
 
-## Address translation method
+## Address Translation Method
 
 TFI2CADT01 performs an XOR operation on the called address.
 Therefore, a new device address can be found by taking the original address and applying an XOR operation with the value specified on the module.
@@ -23,13 +26,12 @@ By short-circuiting the solder jumper you can change the XOR value to 0x0f for t
 
 If you need your own value for address translation, changing the configuration resistors makes it possible to set any XOR value.
 
-## Example of use
+## Example of Use
 
-The tachometer sensor [TFRPM01](../sensor/thunderfly_tachometer.md) can be set to 2 different addresses using a solder jumper.
-If the autopilot has 3 buses, only 6 sensors can be connected and no bus remains free.
-(2 available addresses * 3 i2c ports).
-In case of some multicopters or VTOL solutions, there is a request for measuring RPM of e.g. 8 elements.
-For this purpose, [TFI2CADT01](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/) can be easily used.
+The tachometer sensor [TFRPM01](../sensor/thunderfly_tachometer.md) can be set to two different addresses using a solder jumper.
+If the autopilot has three buses, only 6 sensors can be connected and no bus remains free (2 available addresses * 3 I2C ports).
+In some multicopters or VTOL solutions, there is a need to measure the RPM of 8 or more elements.
+The [TFI2CADT01](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/) is highly recommended in this case.
 
 ![Multiple sensors](../../assets/peripherals/i2c_tfi2cadt/tfi2cadt01_multi_tfrpm01.jpg)
 
@@ -56,10 +58,9 @@ graph TD
 
 :::note
 TFI2CADT01 does not contain any I2C buffer or accelerator.
-It itself creates an additional capacity on the bus.
-Therefore it is advisable to combine [TFI2CADT01](https://www.tindie.com/products/thunderfly/tfi2cadt01-i2c-address-translator/) with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
+As it adds additional capacitance on the bus, we advise combining it with some bus booster, e.g. [TFI2CEXT01](https://github.com/ThunderFly-aerospace/TFI2CEXT01).
 :::
 
-### Other resousrces
+### Other Resources
 
- * Datasheet of [LTC4317](https://www.analog.com/media/en/technical-documentation/data-sheets/4317fa.pdf)
+* Datasheet of [LTC4317](https://www.analog.com/media/en/technical-documentation/data-sheets/4317fa.pdf)

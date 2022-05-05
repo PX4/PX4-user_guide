@@ -278,7 +278,7 @@
       * [Rotoye Batmon Battery Smartification Kit](smart_batteries/rotoye_batmon.md)
     * [I2C Peripherals](sensor_bus/i2c_general.md)
       * [I2C bus accelerators](sensor_bus/i2c_general.md#i2c-bus-accelerators)
-      * [I2C address translator TFI2CADT01](sensor_bus/translator_tfi2cadt.md) 
+      * [TFI2CADT01 I2C address translator](sensor_bus/translator_tfi2cadt.md) 
     * [UAVCAN Peripherals](uavcan/README.md)
   * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
 * [Development](development/development.md)

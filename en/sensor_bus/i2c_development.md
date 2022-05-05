@@ -10,7 +10,7 @@ Pixhawk/PX4 support it for:
   For example, LEDs, Compass, rangefinders etc.
 
 :::note
-The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about the features of the I2C bus from the user's point of view and information, how to solve the most common problems.
+The page [Hardware > I2C Peripherals](../sensor_bus/i2c_general.md) contains information about how to _use_ (rather than integrate) I2C peripherals and solve common setup problems.
 :::
 
 :::tip
@@ -34,7 +34,6 @@ You can also include all drivers of a particular type.
 ```
 CONFIG_COMMON_DISTANCE_SENSOR=y
 ```
-
 
 :::tip
 For example, you can see/search for `CONFIG_DRIVERS_DISTANCE_SENSOR_LIGHTWARE_LASER_I2C` in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.px4board) configuration.
