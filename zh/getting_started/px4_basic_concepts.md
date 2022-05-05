@@ -162,19 +162,19 @@ Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐](../dev
 为了减少事故，PX4定义了三种供电状态：
 
 - **锁定（Disarmed）：**所有电机和执行器均不供电。
-- **Prearmed:** Motors are unpowered, but actuators are not (allowing non-dangerous actuators to be bench-tested).
-- **Armed:** Motors and other actuators are powered, and propellers may be spinning. 
+- **预解锁（Prearmed）：**电机不供电，但是执行器上电（允许不危险的执行器进行基准测试）。
+- **解锁（Armd）：**电机和其他执行器均上电，并且螺旋桨可能会旋转。 
 
-Vehicles are *armed* only when necessary. Some vehicles may even have a [safety switch](#safety-switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+载具仅在需要的时候*解锁*。 部分载具可能还有一个[安全开关](#safety-switch)，必须解除安全开关才能成功解锁(通常这个开关是GPS的一部分)。
 
-By default:
+默认情况下：
 
-- Vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
-- Vehicles automatically disarm if a pilot does not take off quickly enough (the disarm time is configurable).
-- Vehicles automatically disarm after landing (the disarm time is configurable).
-- Arming is prevented if the vehicle is not in a "healthy" state.
-- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
-- Prearming may be used safely bench-test actuators, while still keeping motors unpowered.
+- 当不在使用时， 载具是 *锁定的*（未供电的），必须在起飞前进行 *解锁*。
+- 如果飞手没有迅速起飞，飞行器会自动上锁（上锁的时间是可调的）。
+- 飞行器将在降落后自动锁定（上锁时间是可调的）。
+- 载具如果不是在“健康”状态，则会解锁不通过。
+- 如果VTOL飞行器处于固定翼飞机模式，则阻止解锁([默认情况下](../advanced_config/parameter_reference.md#CBRK_VTOLARMING))。
+- 预解锁可在电机保持未供电的状态下安全地测试执行器。
 
 Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
 
