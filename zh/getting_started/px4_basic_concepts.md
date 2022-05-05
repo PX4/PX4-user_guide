@@ -149,7 +149,7 @@ PX4 使用 SD 储存卡存储 [飞行日志](../getting_started/flight_reporting
 Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐](../dev_log/logging.md#sd-cards)使用*SanDisk Extreme U3 32GB* 。
 :::
 
-SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
+尽管如此，SD卡也只是可选的。 不包含 SD 卡槽的飞行控制器可以：
 
 - 使用参数 [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 禁用通知蜂鸣器。
 - [推流日志](../dev_log/logging.md#log-streaming) 到另一个组件（机载计算机）。
@@ -157,11 +157,11 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 
 ## 解锁和加锁
 
-Vehicles may have moving parts, some of which are dangerous when powered (in particular motors and propellers)!
+载具可能有可动部件的，其中一些在通电后会有一定的危险性（特别是电机和螺旋桨）！
 
-To reduce accidents, PX4 defines three power states:
+为了减少事故，PX4定义了三种供电状态：
 
-- **Disarmed:** All motors and actuators are unpowered.
+- **锁定（Disarmed）：**所有电机和执行器均不供电。
 - **Prearmed:** Motors are unpowered, but actuators are not (allowing non-dangerous actuators to be bench-tested).
 - **Armed:** Motors and other actuators are powered, and propellers may be spinning. 
 
