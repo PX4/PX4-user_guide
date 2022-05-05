@@ -35,7 +35,7 @@ I/O 板被设置参数 [SYS_USE_IO=0](../advanced_config/parameter_reference.md#
 - 主混合器文件被加载到FMU(所以列在[机型参考](../airframes/airframe_reference.md)的“主”输出出现在标有AUX的端口上） AUX 混合器不被加载，所以定义在文件中的输出不会使用。
 - 遥控输出不通过IO板，而是直接连接在FMU上。
 
-没有I/O板的飞行控制器有`MAIN`端口，但是它们*没*有`AUX端口`。 Consequently they can only be used in [airframes](../airframes/airframe_reference.md) that do not use `AUX` ports, or that only use them for non-essential purposes (e.g. RC passthrough). They can be used for most multicopters and *fully* autonomous vehicles (without a safety pilot using RC control), as these typically only use `MAIN` ports for motors/essential controls.
+没有I/O板的飞行控制器有`MAIN`端口，但是它们*没*有`AUX端口`。 因此，他们只能在哪些不使用AUX端口或者使用非必要途径(例如 遥控直通）的机型使用。 They can be used for most multicopters and *fully* autonomous vehicles (without a safety pilot using RC control), as these typically only use `MAIN` ports for motors/essential controls.
 
 :::warning
 Flight controllers without an I/O board cannot be used in [airframes](../airframes/airframe_reference.md) that map any `AUX` ports to essential flight controls or motors (as they have no `AUX` ports).
