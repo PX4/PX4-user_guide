@@ -1,19 +1,19 @@
 # 模块参考：驱动
 子分类
 - [Imu](modules_driver_imu.md)
-- [Source: [drivers/distance_sensor/pga460](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460)](modules_driver_distance_sensor.md)
-- [Airspeed Sensor](modules_driver_airspeed_sensor.md)
-- [Baro](modules_driver_baro.md)
-- [Rpm Sensor](modules_driver_rpm_sensor.md)
-- [Optical Flow](modules_driver_optical_flow.md)
-- [Magnetometer](modules_driver_magnetometer.md)
+- [距离传感器](modules_driver_distance_sensor.md)
+- [空速传感器](modules_driver_airspeed_sensor.md)
+- [气压计](modules_driver_baro.md)
+- [转速传感器](modules_driver_rpm_sensor.md)
+- [光流](modules_driver_optical_flow.md)
+- [磁力计](modules_driver_magnetometer.md)
 
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
+源码: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
 
 ### 描述
-To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN
+ADC 驱动。
 
 <a id="adc_usage"></a>
 
@@ -27,10 +27,10 @@ adc <command> [arguments...]
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
-## fmu
-Source: [drivers/px4fmu](https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu)
+## ads1115
+源码: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
 
 <a id="ads1115_usage"></a>
 
@@ -39,27 +39,27 @@ Source: [drivers/px4fmu](https://github.com/PX4/Firmware/tree/master/src/drivers
 ads1115 <command> [arguments...]
  Commands:
    start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+     [-I]        内部I2C总线(们)
+     [-X]        外部I2C 总线(们)
+     [-b <val>]  指定板总线(default=all) (外部SPI: n条总线
                  (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 72
+     [-f <val>]  总线频率单位kHz
+     [-q]       安静启动 (没有设备发现时不输出消息)
+     [-a <val>]  I2C 地址
+                 默认: 72
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
 ## atxxxx
-This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
+源码: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
 
 
 ### 描述
-例如，安装在OmnibusF4SD板子上的用于OSD驱动的ATXXXX芯片
+例如挂载在OmnibusF4SD板上的针对 ATXXXX 芯片的OSD驱动。
 
-The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, the fmu can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
+可以通过 OSD_ATXXXX_CFG 参数使能.
 
 <a id="atxxxx_usage"></a>
 
