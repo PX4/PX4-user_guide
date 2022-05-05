@@ -283,6 +283,8 @@ $$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{
 
 and implement it directly in the rollrate, pitchrate and yawrate controllers.
 
+In the case of airframes with controls performance that is not dependent directly on airspeed e.g. a rotorcraft like [autogyro](../frames_autogyro/). There is possibility to disable airspeed scaling feature by [FW_ARSP_SCALE_EN](../advanced_config/parameter_reference.md#FW_ARSP_SCALE_EN) parameter.
+
 #### Tuning recommendations
 
 The beauty of this airspeed scaling algorithm is that it does not require any specific tuning. 
