@@ -33,52 +33,56 @@ This particular frame also includes an image showing the motor positions, which 
 A fixed wing airframe would instead display the parameters that define control surfaces, while a VTOL airframe could display both motors and control surfaces.
 
 
-### Conventions
-
-The following sections contain the conventions and explanations for configuring the geometry.
-
-#### Coordinate system
+### Position Coordinate system
 
 The coordinate system is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
-**Positions are relative to the center of gravity (in meters)**.
-
-
-
-#### Control Surfaces and Servo Direction
-
-Control surfaces use the following deflection direction convention:
-- horizontal (e.g. Aileron): up = positive deflection
-- vertical (e.g. Rudder): right = positive deflection
-- mixed (e.g. V-Tail): up = positive deflection
-
-![Plane Deflections](../../assets/config/actuators/plane_servo_convention.png)
 
 :::note
-If a servo does not move in the expected direction set in the geometry, you can reverse it using a checkbox on the Actuator Output.
+**Positions are relative to the Center of Gravity of the vehicle, and NOT the Autopilot location!**
 :::
 
+![Actuators CG reference diagram](/assets/config/actuators/Quadcopter_Actuators_CG_Reference.png)
 
-### Motor Tilt Servos
+### Control Surface direction (Conceptual)
 
-Tilt servos are configured as follows:
-- The reference direction is upwards (negative Z direction).
-- Tilt direction: **Towards Front** means the servo tilts towards positive X direction, whereas **Towards Right** means towards positive Y direction.
-- Minimum and maximum tilt angles: specify the physical limits in degrees of the tilt at minimum control and maximum respectively.
-  An angle of 0° means to point upwards, then increases towards the tilt direction.
+:::note
+It is extremely important that we decouple the concept of Control Surface, Servo and Motor Tilt directions in Control Allocation from the actual Servo output / connections in the physical vehicle.
+
+That means that the Control Allocation Control Surface & Servo settings are physical vehicle independent. Therefore when we think about the Surface Movements, we imagine the ideal vehicle as shown below that moves actuators in the given direction!
+:::
+
+![Plane Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
+
+Control surfaces use the following deflection direction convention:
+* **Horizontal Control Surface (e.g. Aileron)**: 'UP' equals positive deflection.
+  * Example : To roll in positive direction (banking to the right), the 'Right Aileron' needs a positive deflection.
+  * Example : To pitch in positive direction (pitching skywards), 'Both Ailerons (Right & Left)' need a positive deflection.
+* **Vertical Control Surface (e.g. Rudder)**: 'RIGHT' equals positive deflection.
+  * Example : To yaw in positive direction (clockwise rotation), conventional rudder airplane needs a positive deflection.
+* **Mixed Control Surface (e.g. V-Tail)**: 'UP' equals positive deflection.
+  * Example : To pitch in positive direction (pitching upwards),  'Both V-tail surfaces' need a positive deflection
+
+### Motor Tilt Servos (Conceptual)
+
+Similar to the Control Surfaces, Servos can also rotate the motors themselves! This is often the case in VTOLS like [Tiltrotor airframes](/en/frames_vtol/tiltrotor.md). 
+
+![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
+
+* The reference direction is upwards, indicating that a positive motor thrust will point upwards as well (negative Z direction).
+* Tilting **Front** means the servo tilts towards positive X direction.
+* Tilting **Right** means the servo tilts towards positive Y direction.
+* **Minimum and maximum tilt angles** specify the physical limits in degrees of the tilt at minimum & maximum control.
   :::note
   Negative angles are possible. For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
   :::
   :::note
   If a motor/tilt points downwards and tilts towards the back it is logically equivalent to a motor pointing upwards and tilting towards the front.
   :::
-- Control: depending on the airframe, tilt servos can be used to control torque on one or more axis (it's possible to only use a subset of the available tilts for a certain torque control):
-  - Yaw: the tilts are used to control yaw (generally desired).
+* **Tilt servos can be used to control torque** on one or more axis (it's possible to only use a subset of the available tilts for a certain torque control):
+  * Yaw: the tilts are used to control yaw (generally desired).
     If four or more motors are used, the motors can be used instead.
-  - Pitch: typically differential motor thrust is used to control pitch, but some airframes require pitch to be controlled by the tilt servos.
-    Bicopters are among those.
-- Tiltable motors are then assigned to one of the tilt servos.
-
-![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
+  * Pitch: typically differential motor thrust is used to control pitch, but some airframes require pitch to be controlled by the tilt servos (Example: [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A))
+* Tiltable motors get assigned to one of the tilt servos in the setup screen.
 
 
 ### Bidirectional Motors
