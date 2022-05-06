@@ -34,7 +34,7 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::note
-It can be useful to call *roslaunch* with the `-w` (warn) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
+It can be useful to call *roslaunch* with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
 ```sh
 cd <Firmware_clone>
 make px4_sitl_default gazebo

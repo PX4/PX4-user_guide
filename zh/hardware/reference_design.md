@@ -21,21 +21,21 @@ PX4 参考设计是飞行控制器的 [Pixhawk 系列 ](../flight_controller/pix
 * FMUv6：尚未完成，最终命名为 TBD，变种 6s \(STM32H7, 400 MHz, 2 MB RAM,  2 MB flash\) 和变种 6i \(i.MX RT1050, 600 MHz, 512 KB RAM, 外部 flash\)
 
 
-## Main/IO Function Breakdown
+## Main/IO 功能分解
 
-The diagram below shows the division of bus and functional responsibilities between the FMU and I/O boards in a Pixhawk-series flight controller (the boards are incorporated into a single physical module).
+下图展示了在Pixhawk系列飞行控制器（这些板被合并进一个单独的物理模块中）中 FMU 和 I/O 板之间总线和功能的职能划分。
 
 ![PX4 Main/IO Functional Breakdown](../../assets/diagrams/px4_fmu_io_functions.png)
 
 <!-- Draw.io version of file can be found here: https://drive.google.com/file/d/1H0nK7Ufo979BE9EBjJ_ccVx3fcsilPS3/view?usp=sharing -->
 
-Some Pixhawk-series controllers are built without the I/O board in order to reduce space or complexity, or to better address certain board use-cases.
+一些Pixhawk系列控制器为了减少空间或复杂性，或者更好解决使用问题，没有通过I/O板构建。
 
-The I/O board is disabled by setting parameter [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO). When the I/O board is disabled:
-- The MAIN mixer file is loaded into the FMU (so the "MAIN" outputs listed in the [Airframe Reference](../airframes/airframe_reference.md) appear on the port labeled AUX). The AUX mixer file isn't loaded, so outputs defined in this file are not used.
-- RC input goes directly to the FMU rather than via the IO board.
+I/O 板被设置参数 [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) 禁用。 当I/O 板被禁用时：
+- 主混合器文件被加载到FMU(所以列在[机型参考](../airframes/airframe_reference.md)的“主”输出出现在标有AUX的端口上） AUX 混合器不被加载，所以定义在文件中的输出不会使用。
+- 遥控输出不通过IO板，而是直接连接在FMU上。
 
-Flight controllers without an I/O board have `MAIN` ports, but they *do not* have `AUX` ports. Consequently they can only be used in [airframes](../airframes/airframe_reference.md) that do not use `AUX` ports, or that only use them for non-essential purposes (e.g. RC passthrough). They can be used for most multicopters and *fully* autonomous vehicles (without a safety pilot using RC control), as these typically only use `MAIN` ports for motors/essential controls.
+没有I/O板的飞行控制器有`MAIN`端口，但是它们*没*有`AUX端口`。 因此，他们只能在哪些不使用AUX端口或者使用非必要途径(例如 遥控直通）的机型使用。 They can be used for most multicopters and *fully* autonomous vehicles (without a safety pilot using RC control), as these typically only use `MAIN` ports for motors/essential controls.
 
 :::warning
 Flight controllers without an I/O board cannot be used in [airframes](../airframes/airframe_reference.md) that map any `AUX` ports to essential flight controls or motors (as they have no `AUX` ports).

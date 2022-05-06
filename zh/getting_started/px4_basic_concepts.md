@@ -106,7 +106,7 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
+[遥控系统选择](../getting_started/rc_transmitter_receiver.md)解释了如何选择遥控系统。 其他相关主题包括：
 
 - [遥控设置](../config/radio.md) - *QGC 地面站* 中的遥控配置。
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
@@ -114,42 +114,42 @@ PX4无人机最常使用的是锂聚合物（LiPo）电池。 电池通常使用
 
 ## 地面站游戏手柄控制器
 
-A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/). Joysticks are also commonly used to fly the vehicle in simulation.
+通过 *QGC 地面站* 连接 [计算机游戏手柄](../config/joystick.md) 也可以用来手动控制 PX4（QGC 将游戏手柄的动作转换为 MAVLink 消息通过数传链接发送）。 这种方法用于一些集成了地面站的地面端遥控器，如 *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/)。 游戏手柄也常被用于控制仿真中的无人机。
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 
 ## 安全开关
 
-It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming-and-disarming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+无人机通常需要一个*安全开关*，只有当安全开关激活时无人机才能[解锁](#arming-and-disarming)（一旦解锁，电机会供上电，并且螺旋桨可以开始旋转）。 通常，安全开关被整合到GPS设备中，但也可能是一个单独的物理组件。
 
 :::warning
-A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+解锁后的载具有潜在危险。 安全开关是防止意外解锁发生的一个附加机制。
 :::
 
 ## 数传电台
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[数据/遥测无线电](../telemetry/README.md)可以在诸如* QGroundControl *地面站与运行 PX4 的载具之间提供无线 MAVLink 连接。 这使得在飞行过程中调整参数，实时监视遥测信息，更改任务等成为可能。
 
 ## 机载计算机
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4可以通过串行电缆或wifi由一个独立的记载计算机控制。 机载计算机通常使用MAVLink API（如MAVSDK或MAVROS）进行通讯。
 
-Relevent topics include:
+相关的主题包括：
 
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
-- [Robotics APIs](../robotics/README.md)
+- [机器人（Robotics) APIs](../robotics/README.md)
 
 ## SD卡（可移除储存器）
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
+PX4 使用 SD 储存卡存储 [飞行日志](../getting_started/flight_reporting.md)，而且还需要内存卡才能使用 UAVCAN 外围设备，运行 [飞行任务](../flying/missions.md)。
 
-By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
+默认情况下，如果没有 SD 卡，PX4 将在启动时播放 [格式化失败（2-声短响）](../getting_started/tunes.md#format-failed) 两次（且上述需要储存卡的功能都不可用）。
 
 :::tip
-The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](../dev_log/logging.md#sd-cards).
+Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐](../dev_log/logging.md#sd-cards)使用*SanDisk Extreme U3 32GB* 。
 :::
 
-SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
+尽管如此，SD卡也只是可选的。 不包含 SD 卡槽的飞行控制器可以：
 
 - 使用参数 [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 禁用通知蜂鸣器。
 - [推流日志](../dev_log/logging.md#log-streaming) 到另一个组件（机载计算机）。
@@ -157,24 +157,24 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 
 ## 解锁和加锁
 
-Vehicles may have moving parts, some of which are dangerous when powered (in particular motors and propellers)!
+载具可能有可动部件的，其中一些在通电后会有一定的危险性（特别是电机和螺旋桨）！
 
-To reduce accidents, PX4 defines three power states:
+为了减少事故，PX4定义了三种供电状态：
 
-- **Disarmed:** All motors and actuators are unpowered.
-- **Prearmed:** Motors are unpowered, but actuators are not (allowing non-dangerous actuators to be bench-tested).
-- **Armed:** Motors and other actuators are powered, and propellers may be spinning. 
+- **锁定（Disarmed）：**所有电机和执行器均不供电。
+- **预解锁（Prearmed）：**电机不供电，但是执行器上电（允许不危险的执行器进行基准测试）。
+- **解锁（Armd）：**电机和其他执行器均上电，并且螺旋桨可能会旋转。 
 
-Vehicles are *armed* only when necessary. Some vehicles may even have a [safety switch](#safety-switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+载具仅在需要的时候*解锁*。 部分载具可能还有一个[安全开关](#safety-switch)，必须解除安全开关才能成功解锁(通常这个开关是GPS的一部分)。
 
-By default:
+默认情况下：
 
-- Vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
-- Vehicles automatically disarm if a pilot does not take off quickly enough (the disarm time is configurable).
-- Vehicles automatically disarm after landing (the disarm time is configurable).
-- Arming is prevented if the vehicle is not in a "healthy" state.
-- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
-- Prearming may be used safely bench-test actuators, while still keeping motors unpowered.
+- 当不在使用时， 载具是 *锁定的*（未供电的），必须在起飞前进行 *解锁*。
+- 如果飞手没有迅速起飞，飞行器会自动上锁（上锁的时间是可调的）。
+- 飞行器将在降落后自动锁定（上锁时间是可调的）。
+- 载具如果不是在“健康”状态，则会解锁不通过。
+- 如果VTOL飞行器处于固定翼飞机模式，则阻止解锁([默认情况下](../advanced_config/parameter_reference.md#CBRK_VTOLARMING))。
+- 预解锁可在电机保持未供电的状态下安全地测试执行器。
 
 Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
 
