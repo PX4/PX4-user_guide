@@ -77,7 +77,7 @@ The code is implemented as a library which is used in the fixed wing position co
 ![TECS](../../assets/diagrams/tecs_in_context.svg)
 
 As seen in the diagram above, TECS receives as inputs airspeed and altitude setpoints and outputs a throttle and pitch angle setpoint.
-These two outputs are sent to the fixed wing attitude controller which implements the attitude control solution.
+These two outputs are sent to the fixed-wing attitude controller which implements the attitude control solution. However, the throttle setpoint is passed through if it is finite and if no engine failure was detected.
 It's therefore important to understand that the performance of TECS is directly affected by the performance of the pitch control loop.
 A poor tracking of airspeed and altitude is often caused by a poor tracking of the aircraft pitch angle.
 
