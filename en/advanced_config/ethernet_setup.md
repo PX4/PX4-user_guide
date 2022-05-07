@@ -158,6 +158,10 @@ To connect a GCS to PX4 over Ethernet:
 1. QGroundControl should connect automatically.
 
 :::note
+In case if QGC doesn't connect automatically try to add communication link manually. in QGC go to Application Settings → Comm Links and create UDP connection with port `14550` and server address 192.168.0.4 (Pixhawk IP address). 
+:::
+
+:::note
 [PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) is not required because it is setup by default for connecting to a GCS.
 :::
 
