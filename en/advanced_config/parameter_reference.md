@@ -10591,6 +10591,16 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_FLT_TIME_MAX">COM_FLT_TIME_MAX</strong> (INT32)</td>
+ <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any mode other than RTL or Land. Set a nagative value to disable.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable</li> 
+</ul>
+  </td>
+ <td>-1 > 10000 </td>
+ <td>-1</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="COM_FORCE_SAFETY">COM_FORCE_SAFETY</strong> (INT32)</td>
  <td>Enable force safety <p><strong>Comment:</strong> Force safety when the vehicle disarms. Not supported when safety button used over PX4IO board.</p>   </td>
  <td></td>
@@ -10905,6 +10915,13 @@ table {
  <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td></td>
  <td>1</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="COM_WIND_MAX">COM_WIND_MAX</strong> (FLOAT)</td>
+ <td>Wind speed RLT threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered and enforced as long as the threshold is exceeded. A negative value disables the feature.</p>   </td>
+ <td>-1 > 30 (0.1)</td>
+ <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
