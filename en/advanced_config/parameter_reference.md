@@ -504,6 +504,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -593,6 +601,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -684,6 +700,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -773,6 +797,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -864,6 +896,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -953,6 +993,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1044,6 +1092,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1133,6 +1189,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1224,6 +1288,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1313,6 +1385,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1404,6 +1484,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1493,6 +1581,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1584,6 +1680,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1673,6 +1777,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1764,6 +1876,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1853,6 +1973,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2346,6 +2474,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -2441,6 +2577,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2538,6 +2682,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -2633,6 +2785,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2730,6 +2890,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -2825,6 +2993,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2922,6 +3098,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3017,6 +3201,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -3114,6 +3306,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3210,6 +3410,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3305,6 +3513,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -3771,6 +3987,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3860,6 +4084,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -3951,6 +4183,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4040,6 +4280,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4131,6 +4379,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4220,6 +4476,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4311,6 +4575,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4400,6 +4672,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4676,6 +4956,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4765,6 +5053,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4856,6 +5152,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4945,6 +5249,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5036,6 +5348,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5125,6 +5445,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5216,6 +5544,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5305,6 +5641,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5468,6 +5812,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5557,6 +5909,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5648,6 +6008,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5737,6 +6105,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5828,6 +6204,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5917,6 +6301,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6008,6 +6400,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6097,6 +6497,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6428,6 +6836,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6517,6 +6933,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6608,6 +7032,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6697,6 +7129,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6788,6 +7228,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6877,6 +7325,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6968,6 +7424,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7057,6 +7521,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7388,6 +7860,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7477,6 +7957,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7568,6 +8056,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7657,6 +8153,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7748,6 +8252,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7837,6 +8349,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7928,6 +8448,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8017,6 +8545,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8108,6 +8644,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8197,6 +8741,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8288,6 +8840,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8377,6 +8937,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8468,6 +9036,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8557,6 +9133,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8648,6 +9232,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8737,6 +9329,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -13419,10 +14019,82 @@ table {
 <li><strong>8:</strong> Multirotor with Tilt</li> 
 
 <li><strong>9:</strong> Custom</li> 
+
+<li><strong>10:</strong> Helicopter</li> 
 </ul>
   </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C0">CA_HELI_PITCH_C0</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 0 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 0 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C1">CA_HELI_PITCH_C1</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 1 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 1 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.15</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C2">CA_HELI_PITCH_C2</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 2 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 2 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C3">CA_HELI_PITCH_C3</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 3 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 3 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.35</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C4">CA_HELI_PITCH_C4</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 4 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 4 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.45</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C0">CA_HELI_THR_C0</strong> (FLOAT)</td>
+ <td>Throttle curve at position 0 <p><strong>Comment:</strong> Defines the output throttle at the interval position 0.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C1">CA_HELI_THR_C1</strong> (FLOAT)</td>
+ <td>Throttle curve at position 1 <p><strong>Comment:</strong> Defines the output throttle at the interval position 1.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C2">CA_HELI_THR_C2</strong> (FLOAT)</td>
+ <td>Throttle curve at position 2 <p><strong>Comment:</strong> Defines the output throttle at the interval position 2.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.6</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C3">CA_HELI_THR_C3</strong> (FLOAT)</td>
+ <td>Throttle curve at position 3 <p><strong>Comment:</strong> Defines the output throttle at the interval position 3.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.8</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C4">CA_HELI_THR_C4</strong> (FLOAT)</td>
+ <td>Throttle curve at position 4 <p><strong>Comment:</strong> Defines the output throttle at the interval position 4.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -13442,6 +14114,20 @@ table {
 <tr>
  <td><strong id="CA_R0_SLEW">CA_R0_SLEW</strong> (FLOAT)</td>
  <td>Motor 0 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R10_SLEW">CA_R10_SLEW</strong> (FLOAT)</td>
+ <td>Motor 10 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R11_SLEW">CA_R11_SLEW</strong> (FLOAT)</td>
+ <td>Motor 11 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
  <td>0 > 10 (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -13491,6 +14177,20 @@ table {
 <tr>
  <td><strong id="CA_R7_SLEW">CA_R7_SLEW</strong> (FLOAT)</td>
  <td>Motor 7 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R8_SLEW">CA_R8_SLEW</strong> (FLOAT)</td>
+ <td>Motor 8 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R9_SLEW">CA_R9_SLEW</strong> (FLOAT)</td>
+ <td>Motor 9 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
  <td>0 > 10 (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -13554,6 +14254,154 @@ table {
 <tr>
  <td><strong id="CA_ROTOR0_TILT">CA_ROTOR0_TILT</strong> (INT32)</td>
  <td>Rotor 0 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_AX">CA_ROTOR10_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 10 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_AY">CA_ROTOR10_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 10 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_AZ">CA_ROTOR10_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 10 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_CT">CA_ROTOR10_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 10 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_KM">CA_ROTOR10_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 10 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_PX">CA_ROTOR10_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 10 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_PY">CA_ROTOR10_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 10 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_PZ">CA_ROTOR10_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 10 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_TILT">CA_ROTOR10_TILT</strong> (INT32)</td>
+ <td>Rotor 10 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_AX">CA_ROTOR11_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 11 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_AY">CA_ROTOR11_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 11 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_AZ">CA_ROTOR11_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 11 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_CT">CA_ROTOR11_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 11 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_KM">CA_ROTOR11_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 11 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_PX">CA_ROTOR11_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 11 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_PY">CA_ROTOR11_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 11 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_PZ">CA_ROTOR11_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 11 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_TILT">CA_ROTOR11_TILT</strong> (INT32)</td>
+ <td>Rotor 11 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li> 
 
 <li><strong>1:</strong> Tilt 1</li> 
@@ -14088,6 +14936,154 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CA_ROTOR8_AX">CA_ROTOR8_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 8 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_AY">CA_ROTOR8_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 8 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_AZ">CA_ROTOR8_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 8 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_CT">CA_ROTOR8_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 8 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_KM">CA_ROTOR8_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 8 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_PX">CA_ROTOR8_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 8 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_PY">CA_ROTOR8_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 8 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_PZ">CA_ROTOR8_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 8 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_TILT">CA_ROTOR8_TILT</strong> (INT32)</td>
+ <td>Rotor 8 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_AX">CA_ROTOR9_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 9 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_AY">CA_ROTOR9_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 9 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_AZ">CA_ROTOR9_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 9 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_CT">CA_ROTOR9_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 9 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_KM">CA_ROTOR9_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 9 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_PX">CA_ROTOR9_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 9 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_PY">CA_ROTOR9_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 9 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_PZ">CA_ROTOR9_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 9 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_TILT">CA_ROTOR9_TILT</strong> (INT32)</td>
+ <td>Rotor 9 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CA_ROTOR_COUNT">CA_ROTOR_COUNT</strong> (INT32)</td>
  <td>Total number of rotors  <strong>Values:</strong><ul>
 <li><strong>0:</strong> 0</li> 
@@ -14107,6 +15103,14 @@ table {
 <li><strong>7:</strong> 7</li> 
 
 <li><strong>8:</strong> 8</li> 
+
+<li><strong>9:</strong> 9</li> 
+
+<li><strong>10:</strong> 10</li> 
+
+<li><strong>11:</strong> 11</li> 
+
+<li><strong>12:</strong> 12</li> 
 </ul>
   </td>
  <td></td>
@@ -14123,10 +15127,82 @@ table {
   <li><strong>5:</strong> Motor 6</li> 
   <li><strong>6:</strong> Motor 7</li> 
   <li><strong>7:</strong> Motor 8</li> 
+  <li><strong>8:</strong> Motor 9</li> 
+  <li><strong>9:</strong> Motor 10</li> 
+  <li><strong>10:</strong> Motor 11</li> 
+  <li><strong>11:</strong> Motor 12</li> 
 </ul>
  </td>
- <td>0 > 255 </td>
+ <td>0 > 4095 </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG0">CA_SP0_ANG0</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 0    </td>
+ <td>0 > 360 (10)</td>
+ <td>0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG1">CA_SP0_ANG1</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 1    </td>
+ <td>0 > 360 (10)</td>
+ <td>140</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG2">CA_SP0_ANG2</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 2    </td>
+ <td>0 > 360 (10)</td>
+ <td>220</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG3">CA_SP0_ANG3</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 3    </td>
+ <td>0 > 360 (10)</td>
+ <td>0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L0">CA_SP0_ARM_L0</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 0 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L1">CA_SP0_ARM_L1</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 1 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L2">CA_SP0_ARM_L2</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 2 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L3">CA_SP0_ARM_L3</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 3 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_COUNT">CA_SP0_COUNT</strong> (INT32)</td>
+ <td>Number of swash plates servos  <strong>Values:</strong><ul>
+<li><strong>3:</strong> 3</li> 
+
+<li><strong>4:</strong> 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>3</td>
  <td></td>
 </tr>
 <tr>
