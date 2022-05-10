@@ -11571,6 +11571,131 @@ table {
 </tr>
 </tbody></table>
 
+## Cyphal
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="CYPHAL_BAUD">CYPHAL_BAUD</strong> (INT32)</td>
+ <td>UAVCAN/CAN v1 bus bitrate    <p><b>Reboot required:</b> true</p>
+</td>
+ <td>20000 > 1000000 </td>
+ <td>1000000</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="CYPHAL_ENABLE">CYPHAL_ENABLE</strong> (INT32)</td>
+ <td>Cyphal <p><strong>Comment:</strong> 0 - Cyphal disabled. 1 - Enables Cyphal</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CYPHAL_ID">CYPHAL_ID</strong> (INT32)</td>
+ <td>Cyphal Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>-1 > 125 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
+ <td>actuator_outputs uORB over Cyphal publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_BP_SUB">UCAN1_BMS_BP_SUB</strong> (INT32)</td>
+ <td>UDRAL battery parameters subscription  port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_BS_SUB">UCAN1_BMS_BS_SUB</strong> (INT32)</td>
+ <td>UDRAL battery status subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_ES_SUB">UCAN1_BMS_ES_SUB</strong> (INT32)</td>
+ <td>UDRAL battery energy source subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC0_SUB">UCAN1_ESC0_SUB</strong> (INT32)</td>
+ <td>ESC 0 subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
+ <td>Cyphal ESC publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
+ <td>GPS 0 subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS1_SUB">UCAN1_GPS1_SUB</strong> (INT32)</td>
+ <td>GPS 1 subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
+ <td>Cyphal GPS publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
+ <td>Cyphal leagcy battery port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
+ <td>Cyphal Servo publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
+ <td>sensor_gps uORB over Cyphal subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_UORB_GPS_P">UCAN1_UORB_GPS_P</strong> (INT32)</td>
+ <td>sensor_gps uORB over Cyphal publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## DShot
 
 <table>
@@ -29111,141 +29236,6 @@ table {
 </td>
  <td></td>
  <td>Disabled (0)</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## UAVCAN v1
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="UAVCAN_V1_BAUD">UAVCAN_V1_BAUD</strong> (INT32)</td>
- <td>UAVCAN/CAN v1 bus bitrate    <p><b>Reboot required:</b> true</p>
-</td>
- <td>20000 > 1000000 </td>
- <td>1000000</td>
- <td>bit/s</td>
-</tr>
-<tr>
- <td><strong id="UAVCAN_V1_ENABLE">UAVCAN_V1_ENABLE</strong> (INT32)</td>
- <td>UAVCAN v1 <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables UAVCANv1</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
- <td>actuator_outputs uORB over UAVCAN v1 publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_BP_SUB">UCAN1_BMS_BP_SUB</strong> (INT32)</td>
- <td>DS-015 battery parameters subscription  port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_BS_SUB">UCAN1_BMS_BS_SUB</strong> (INT32)</td>
- <td>DS-015 battery status subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_ES_SUB">UCAN1_BMS_ES_SUB</strong> (INT32)</td>
- <td>DS-015 battery energy source subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ESC0_SUB">UCAN1_ESC0_SUB</strong> (INT32)</td>
- <td>ESC 0 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 ESC publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
- <td>GPS 0 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS1_SUB">UCAN1_GPS1_SUB</strong> (INT32)</td>
- <td>GPS 1 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 GPS publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
- <td>UAVCAN v1 leagcy battery port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 Servo publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
- <td>sensor_gps uORB over UAVCAN v1 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_UORB_GPS_P">UCAN1_UORB_GPS_P</strong> (INT32)</td>
- <td>sensor_gps uORB over UAVCAN v1 publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## UAVCANv1
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="UAVCAN_V1_ID">UAVCAN_V1_ID</strong> (INT32)</td>
- <td>UAVCAN v1 Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>-1 > 125 </td>
- <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
