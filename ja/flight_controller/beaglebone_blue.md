@@ -51,8 +51,13 @@ connmanctl>services
 #(at this point you should see your network SSID appear.)
 connmanctl>agent on
 connmanctl>connect <SSID>
+    Enter Passphrase
 connmanctl>quit
 ```
+
+:::note
+The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters. After entering the command you will be prompted to enter the wifi password.
+:::
 
 ### SSH root Login on Beaglebone
 
