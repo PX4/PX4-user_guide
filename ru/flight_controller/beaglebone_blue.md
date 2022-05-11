@@ -78,10 +78,10 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     2. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts** and copy the public SSH key to the board for password-less SSH access:
         
-            ssh-copy-id root@beaglebone
+            ssh-copy-id debian@beaglebone
             
     
-    3. Alternatively you can use the beaglebone's IP directly: ```ssh-copy-id root@<IP>```
+    3. Alternatively you can use the beaglebone's IP directly: ```ssh-copy-id debian@<IP>```
     4. When prompted if you trust: yes
     5. Enter root password
 
