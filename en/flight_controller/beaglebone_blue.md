@@ -61,6 +61,12 @@ connmanctl>connect <SSID>
 	Enter Passphrase
 connmanctl>quit
 ```
+
+:::note
+The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters.
+After entering the command you will be prompted to enter the wifi password.
+:::
+
 ### SSH root Login on Beaglebone
 
 Root login can be enabled on the board with:
