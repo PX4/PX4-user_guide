@@ -356,40 +356,6 @@ div.frame_variant td, div.frame_variant th {
   </table>
 </div>
 
-### Octo Coax Wide
-
-<div class="frame_common">
-  <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" /> 
-  
-  <table>
-    <tr>
-      <th>
-        Common Outputs
-      </th>
-    </tr>
-<tr>
- <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
-</tr>
-  </table>
-</div>
-
-<div class="frame_variant">
-  <table>
-    <tr>
-      <th>
-        Name
-      </th>
-      
-      <th>
-      </th>
-    </tr>
-<tr id="copter_octo_coax_wide_steadidrone_mavrik">
- <td>Steadidrone MAVRIK</td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 12002</p></td>
-</tr>
-  </table>
-</div>
-
 ### Octorotor +
 
 <div class="frame_common">
@@ -398,11 +364,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -436,7 +402,7 @@ div.frame_variant td, div.frame_variant th {
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -500,7 +466,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -599,10 +565,6 @@ div.frame_variant td, div.frame_variant th {
  <td>3DR Iris Quadrotor</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 10016</p></td>
 </tr>
-<tr id="copter_quadrotor_wide_steadidrone_qu4d">
- <td>Steadidrone QU4D</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 10017</p><p><b>Specific Outputs:</b><ul><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
-</tr>
 <tr id="copter_quadrotor_wide_team_blacksheep_discovery_endurance">
  <td>Team Blacksheep Discovery Endurance</td>
  <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 10018</p><p><b>Specific Outputs:</b><ul><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
@@ -618,7 +580,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -672,14 +634,6 @@ div.frame_variant td, div.frame_variant th {
  <td>Lumenier QAV250</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4009</p></td>
 </tr>
-<tr id="copter_quadrotor_x_dji_f330_w/_dji_escs">
- <td>DJI F330 w/ DJI ESCs</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4010</p></td>
-</tr>
-<tr id="copter_quadrotor_x_dji_f450_w/_dji_escs">
- <td>DJI F450 w/ DJI ESCs</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4011</p></td>
-</tr>
 <tr id="copter_quadrotor_x_s500_generic">
  <td>S500 Generic</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4014</p></td>
@@ -719,10 +673,6 @@ div.frame_variant td, div.frame_variant th {
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td>Holybro Kopis 2</td>
  <td>Maintainer: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
-</tr>
-<tr id="copter_quadrotor_x_dji_matrice_100">
- <td>DJI Matrice 100</td>
- <td>Maintainer: James Goppert &lt;james.goppert@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4060</p></td>
 </tr>
 <tr id="copter_quadrotor_x_advanced_technology_labs_(atl)_mantis_edu">
  <td>Advanced Technology Labs (ATL) Mantis EDU</td>
@@ -906,7 +856,7 @@ div.frame_variant td, div.frame_variant th {
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN4</b>: throttle</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -923,43 +873,27 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td>Generic Flying Wing</td>
- <td><p><code>SYS_AUTOSTART</code> = 3000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
-</tr>
-<tr id="plane_flying_wing_io_camflyer">
- <td>IO Camflyer</td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 3000</p></td>
 </tr>
 <tr id="plane_flying_wing_phantom_fpv_flying_wing">
  <td><a href="https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html">Phantom FPV Flying Wing</a></td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3031</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
+ <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3031</p></td>
 </tr>
 <tr id="plane_flying_wing_skywalker_x5_flying_wing">
  <td>Skywalker X5 Flying Wing</td>
- <td>Maintainer: Julian Oes &lt;julian@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3032</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
+ <td>Maintainer: Julian Oes &lt;julian@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3032</p></td>
 </tr>
 <tr id="plane_flying_wing_wing_wing_(aka_z-84)_flying_wing">
  <td><a href="https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html">Wing Wing (aka Z-84) Flying Wing</a></td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3033</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
-</tr>
-<tr id="plane_flying_wing_fx-79_buffalo_flying_wing">
- <td>FX-79 Buffalo Flying Wing</td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3034</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: right aileron</li><li><b>MAIN2</b>: left aileron</li></ul></p></td>
-</tr>
-<tr id="plane_flying_wing_viper">
- <td>Viper</td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3035</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
+ <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3033</p></td>
 </tr>
 <tr id="plane_flying_wing_sparkle_tech_pigeon">
  <td><a href="http://www.sparkletech.hk/">Sparkle Tech Pigeon</a></td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3036</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
-</tr>
-<tr id="plane_flying_wing_modified_parrot_disco">
- <td>Modified Parrot Disco</td>
- <td>Maintainer: Jan Liphardt &lt;JTLiphardt@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 3037</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
+ <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3036</p></td>
 </tr>
 <tr id="plane_flying_wing_tbs_caipirinha">
  <td>TBS Caipirinha</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li></ul></p></td>
+ <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3100</p></td>
 </tr>
   </table>
 </div>
@@ -1402,10 +1336,6 @@ div.frame_variant td, div.frame_variant th {
 <tr id="vtol_vtol_tiltrotor_birdseyeview_aerobotics_firefly6">
  <td>BirdsEyeView Aerobotics FireFly6</td>
  <td>Maintainer: Roman Bapst &lt;roman@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 13002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Front right motor bottom</li><li><b>MAIN2</b>: Front right motor top</li><li><b>MAIN3</b>: Back motor bottom</li><li><b>MAIN4</b>: Back motor top</li><li><b>MAIN5</b>: Front left motor bottom</li><li><b>MAIN6</b>: Front left motor top</li><li><b>AUX1</b>: Tilt servo</li><li><b>AUX2</b>: Elevon 1</li><li><b>AUX3</b>: Elevon 2</li><li><b>AUX4</b>: Gear</li></ul></p></td>
-</tr>
-<tr id="vtol_vtol_tiltrotor_cruiseader_claire">
- <td>CruiseAder Claire</td>
- <td>Maintainer: Samay Siga &lt;samay_s@icloud.com&gt;<p><code>SYS_AUTOSTART</code> = 13010</p></td>
 </tr>
 <tr id="vtol_vtol_tiltrotor_e-flite_convergence">
  <td>E-flite Convergence</td>
