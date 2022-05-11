@@ -57,7 +57,7 @@ connmanctl>scan wifi
 connmanctl>services
 #(at this point you should see your network SSID appear.)
 connmanctl>agent on
-connmanctl>connect wifixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+connmanctl>connect <SSID>
 	Enter Passphrase
 connmanctl>quit
 ```
