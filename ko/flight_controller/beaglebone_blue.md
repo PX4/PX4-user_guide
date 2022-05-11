@@ -78,10 +78,10 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     2. **/etc/hosts**에서 BeagleBone Blue 보드를 `beaglebone`으로 정의하고 암호없는 SSH 액세스를 위해 공개 SSH 키를 보드에 복사합니다.
         
-            ssh-copy-id root@beaglebone
+            ssh-copy-id debian@beaglebone
             
     
-    3. 또는 beaglebone의 IP를 직접 사용할 수 있습니다. ```ssh-copy-id root@<IP>```
+    3. 또는 beaglebone의 IP를 직접 사용할 수 있습니다. ```ssh-copy-id debian@<IP>```
     4. 확인 메시지가 표시되면 : yes
     5. 루트 비밀번호 입력
 
