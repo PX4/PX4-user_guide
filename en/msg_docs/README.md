@@ -154,6 +154,10 @@ Will be updated on startup of the sensor module and when sensor selection change
 - [timesync_status](timesync_status.md)
 - [trajectory_bezier](trajectory_bezier.md) — Bezier Trajectory description. See also Mavlink TRAJECTORY msg
 The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
+- [trajectory_setpoint](trajectory_setpoint.md) — Trajectory setpoint in NED frame
+Input to PID position controller.
+Needs to be kinematically consistent and feasible for smooth flight.
+setting a value to NaN means the state should not be controlled
 - [trajectory_waypoint](trajectory_waypoint.md) — Waypoint Trajectory description. See also Mavlink TRAJECTORY msg
 The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
 - [transponder_report](transponder_report.md)
@@ -194,7 +198,8 @@ the field 'timestamp' is for the position & velocity (microseconds)
 - [vehicle_local_position](vehicle_local_position.md) — Fused local position in NED.
 The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 - [vehicle_local_position_setpoint](vehicle_local_position_setpoint.md) — Local position setpoint in NED frame
-setting something to NaN means the state should not be controlled
+Telemetry of PID position controller to monitor tracking.
+NaN means the state was not controlled
 - [vehicle_magnetometer](vehicle_magnetometer.md)
 - [vehicle_odometry](vehicle_odometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
 - [vehicle_rates_setpoint](vehicle_rates_setpoint.md)
