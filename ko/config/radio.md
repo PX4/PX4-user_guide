@@ -1,42 +1,42 @@
 # 무선 조종기(RC) 설정
 
-*무선 조종기 설정* 화면은 송신기 제어/RC 채널용 리모컨 장치의 기본 자세 제어 스틱 (롤, 피치, 요, 스로틀)을 채널에 매핑하고 최소, 최대, 트림 및 리버스 설정을 보정하는 데 사용됩니다. 
+*무선 조종기 설정* 화면은 송신기의 기본 자세 제어 스틱(롤, 피치, 요, 스로틀)을 채널에 매핑하고 최소, 최대, 트림 및 리버스 설정을 보정합니다.
 
 ## 수신기 바인딩
 
-무선 시스템을 보정하기 전에 수신기와 송신기를 연결하여 바인딩하여야 합니다. 송신기와 수신기 쌍을 바인딩하는 프로세스는 하드웨어에 따라 조금씩 다릅니다 (자세한 지침은 설명서 참조).
+무선 시스템을 보정을 하기 위하여 우선 수신기와 송신기를 바인딩하여야 합니다. 송신기와 수신기를 바인딩 프로세스는 하드웨어에 따라 조금씩 차이가 날 수 있습니다 (자세한 지침은 설명서 참조).
 
 :::note
-If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spectrum-bind).
+*Spektrum* 수신기를 사용하는 경우 [아래에 표시된 ](#spectrum-bind)과 같이 *QGroundControl*을 사용하여 바인딩 모드로 전환 가능합니다.
 :::
 
 :::note
-*FrSky* 수신기를 사용하는 경우 [이 지침](https://www.youtube.com/watch?v=1IYg5mQdLVI)에 따라 송신기와 바인딩할 수 있습니다.
+*FrSky* 수신기를 사용하는 경우 [이 지침](https://www.youtube.com/watch?v=1IYg5mQdLVI)에 따라 송신기를 바인딩할 수 있습니다.
 :::
 
-## RC 손실 감지
+## RC 손실 감지 
 
-PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc-loss-failsafe).
+PX4에서 [적절한 안전 조치](../config/safety.md#rc-loss-failsafe)를 수행하기 위해서는 RC 컨트롤러의 신호가 손실되는 시점을 감지할 수 있어야합니다.
 
-RC receivers have different ways of indicating signal loss:
+RC 수신기에는 신호 손실을 나타내는 여러가지 방법이 있습니다.
 
 * 아무것도 출력하지 않음 (PX4에서 자동으로 감지 됨)
 * 낮은 스로틀 값을 출력합니다 (이를 감지하도록 PX4를 구성 할 수 있음).
 * 마지막으로 수신된 신호를 출력합니다 (유효한 입력처럼 보이므로 *PX4에서 감지 할 수 없음*).
 
-If your RC receiver does not support outputting no signal on RC loss, you must configure it to set throttle low instead, and set the corresponding value in [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR).
+RC 수신기가 RC 손실시 신호 출력을 지원하지 않는 경우 대신 스로틀을 낮게 설정하도록 구성하고, [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR)에 해당 값을 설정하여야 합니다.
 
-The way to do this is to set the RC controller trim and throttle stick as low as possible, and use the resulting output PWM value in both PX4 and the receiver (read your receiver manual to determine how to set the RC loss value). Then reset the throttle stick trim back to its normal position. This process ensures that the RC loss value is below the minimum value output by the receiver in normal operation.
+이를 수행하는 방법은 RC 컨트롤러 트림 및 스로틀 스틱을 가능한 낮게 설정하고 결과 출력 PWM 값을 PX4와 수신기 모두에서 사용하는 것입니다 (RC 손실 값을 설정하는 방법을 결정하려면 수신기 설명서를 참조하십시오). 그런 다음 스로틀 스틱을 원래 위치로 가져다 놓으십시오. 이 프로세스는 RC 손실 값이 정상 작동에서 수신기가 출력하는 최소값 미만이되도록 합니다.
 
 :::note
-Do not use a receiver that cannot support one of the two supported RC loss detection methods!
+지원되는 두 가지 RC 손실 감지 방법을 지원하지 않는 수신기를 사용하지 마십시오!
 :::
 
 ## 보정 작업
 
-The calibration process is straightforward - you will be asked to move the sticks in a specific pattern that is shown on the transmitter diagram on the top right of the screen.
+보정 과정는 간단합니다. 화면 오른쪽 상단의 송신기 다이어그램에 표시된 특정 패턴으로 스틱을 이동하라는 메시지가 표시됩니다.
 
-To calibrate the radio:
+무선 조종기 보정 절차
 
 1. RC 송신기를 켭니다.
 2. *QGroundControl*을 시작하고 드론에 연결합니다.
@@ -55,19 +55,19 @@ To calibrate the radio:
 
 8. **Next(다음)**를 클릭하여 설정을 시작합니다.
 
-Radio calibration is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube).
+무선 조종기 보정은 [자동 조종 장치 설정 동영상](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube)에 자세히 설명되어 있습니다.
 
 ## 추가 무선 조종기 설정:
 
-As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
+조종 스틱 및 기타 송신기 컨트롤을 보정하는 것 외에도이 화면에서 유용 할 수있는 여러 추가 무선 설정 옵션이 있습니다.
 
 <img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
 ### Spektrum 바인드
 
-Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a *Spektrum* receiver you can put it in *bind mode* using *QGroundControl* as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
+무선 시스템을 보정을 하기 위하여 우선 수신기와 송신기를 바인딩하여야 합니다. *Spektrum* 수신기가있는 경우 아래와 같이 *QGroundControl*을 사용하여 *바인드 모드*로 설정할 수 있습니다. 차량의 수신기에 쉽게 물리적으로 접근할 수 있습니다.)
 
-To bind a Spektrum transmitter/receiver:
+Spektrum 송신기/수신기 바인딩 절차
 
 1. **Spektrum Bind** 버튼을 선택합니다
 2. 수신기의 라디오 버튼을 선택하십시오.
@@ -79,7 +79,7 @@ To bind a Spektrum transmitter/receiver:
 
 ### 트림 복사
 
-This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
+이 설정은 자동 조종 장치 내에서 자동으로 적용될 수 있도록 무선 송신기에서 수동 트림 설정을 복사하는 데 사용됩니다. After this is done you will need to remove the manually set trims.
 
 :::note
 Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
