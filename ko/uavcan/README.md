@@ -4,7 +4,9 @@
 
 The [videos section](#videos) contains additional information and guides.
 
-:::note PX4 requires an SD card for UAVCAN node allocation and firmware upgrade. It is not used during flight by UAVCAN.
+:::note
+PX4 requires an SD card for UAVCAN node allocation and firmware upgrade.
+It is not used during flight by UAVCAN.
 :::
 
 ## 지원 하드웨어
@@ -32,7 +34,8 @@ It supports hardware like:
   - [Ark Flow](ark_flow.md)
 
 
-:::note PX4 does not support UAVCAN servos (at time of writing).
+:::note
+PX4 does not support UAVCAN servos (at time of writing).
 :::
 
 
@@ -71,7 +74,8 @@ In order to use UAVCAN components with PX4 you will first need to enable the UAV
    연결된 UAVCAN 장치가 자동 구성을 지원하지 _없으면_ `1`, `2` 또는 `3` 사용 _일부_가 자동 구성을 지원하고, UAVCAN ESC를 사용하는 경우 `3`입니다(이는 PWM이 아닌 UAVCAN 버스에 모터 제어를 할당함).
 
 :::note
-You will need to manually allocate static ids for any nodes that don't support automatic configuration. When using dynamic configuration, any manually allocated ids should be given a value greater than the number of UAVCAN devices (to avoid clashes).
+You will need to manually allocate static ids for any nodes that don't support automatic configuration.
+When using dynamic configuration, any manually allocated ids should be given a value greater than the number of UAVCAN devices (to avoid clashes).
 :::
 
 Most UAVCAN sensors require no further setup (they are plug'n'play, unless specifically noted in their documentation).
