@@ -129,7 +129,8 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 <!--- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 -->
 
 :::note
-실제 시작 스크립트는 믹서를 단일 장치(출력 그룹)에만 로드합니다. 이것은 기술적 제한이 아니라 설정입니다. 메인 믹서를 여러 드라이버에 로드할 수 있습니다. 예를 들어 UAVCAN과 메인 핀 모두에서 동일한 신호를 가질 수 있습니다.
+실제 시작 스크립트는 믹서를 단일 장치(출력 그룹)에만 로드합니다.
+이것은 기술적 제한이 아니라 설정입니다. 메인 믹서를 여러 드라이버에 로드할 수 있습니다. 예를 들어 UAVCAN과 메인 핀 모두에서 동일한 신호를 가질 수 있습니다.
 :::
 
 ## PX4 믹서 정의
