@@ -111,7 +111,8 @@ The new version was rewritten to use UDP as data source and pack one source UDP 
 **A:** Wifibrodcast use FEC (forward error correction) which can recover 4 lost packets from 12 packets block with default settings. You can tune it (both TX and RX simultaneously!) to fit your needs.
 
 :::caution
-Don't use band that the RC TX operates on! Or setup RTL properly to avoid model loss.
+Don't use band that the RC TX operates on! 
+Or setup RTL properly to avoid model loss.
 :::
 
 **Q:** *Is only Raspberry PI supported?*
