@@ -61,7 +61,7 @@ RC 수신기가 RC 손실시 신호 출력을 지원하지 않는 경우 대신 
 
 조종 스틱 및 기타 송신기 컨트롤을 보정하는 것 외에도이 화면에서 유용 할 수있는 여러 추가 무선 설정 옵션이 있습니다.
 
-<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
+<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="무선 조종기 설정 - 추가 설정" width="300px" />
 
 ### Spektrum 바인드
 
@@ -79,13 +79,13 @@ Spektrum 송신기/수신기 바인딩 절차
 
 ### 트림 복사
 
-이 설정은 자동 조종 장치 내에서 자동으로 적용될 수 있도록 무선 송신기에서 수동 트림 설정을 복사하는 데 사용됩니다. After this is done you will need to remove the manually set trims.
+이 설정은 자동 조종 장치 내에서 자동으로 적용될 수 있도록 무선 송신기에서 수동 트림 설정을 복사합니다. 이 작업이 끝나면 수동으로 설정한 트림을 제거하여야 합니다.
 
 :::note
-Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
+트림 설정은 롤, 피치, 요를 조정하는 데 사용됩니다. 따라서 스틱을 리모컨의 중앙에 놓을 때 안정된 비행 또는 수평 비행을 얻을 수 있습니다 (안정화 비행 모드에서). 일부 RC 컨트롤러는 각 스틱 위치에 대해 RC 컨트롤러에서 전송 한 값에 오프셋을 제공할 수있는 트림 노브를 제공합니다. 여기서 **트림 복사** 설정은 오프셋을 자동 조종 장치로 이동합니다.
 :::
 
-To copy the trims:
+트림 복사 절차
 
 1. **트림 복사**를 선택하십시오.
 2. 스틱을 중앙에 놓고 스로틀을 끝까지 내립니다. 
@@ -97,35 +97,35 @@ To copy the trims:
 
 ### AUX 패스 스루 채널
 
-AUX passthrough channels allow you to control arbitrary optional hardware from your transmitter (for example, a gripper).
+AUX 패스 스루 채널을 사용하면 송신기에서 임의의 옵션 하드웨어 (예 : 그리퍼)를 제어 할 수 있습니다.
 
-To use the AUX passthrough channels:
+AUX 패스 스루 채널 설정 절차
 
 1. 최대 2 개의 송신기 컨트롤을 별도의 채널에 매핑합니다. 
 2. 아래에 표시된 것처럼 이러한 채널을 지정하여 AUX1 및 AUX2 포트에 각각 매핑합니다. 값은 설정되는 즉시 차량에 저장됩니다.
     
     ![AUX1 및 AUX2 RC 패스 스루 채널](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
 
-The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
+비행 컨트롤러는 AUX1/AUX2의 지정된 채널에서 수정되지 않은 값을 통해 하드웨어를 구동하는 연결된 서보/릴레이로 전달합니다.
 
-### Param 튜닝 채널
+### 매개변수 튜닝 채널
 
-Tuning channels allow you to map a transmitter tuning knob to a parameter (so that you can dynamically modify a parameter from your transmitter).
+튜닝 채널을 사용하면 송신기 튜닝 노브를 매개변수에 매핑할 수 있습니다 (트랜스미터에서 매개변수를 동적으로 수정할 수 있음).
 
 :::tip
-This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+이 기능을 사용하여 수동으로 기내 튜닝을 할 수 있습니다 : [멀티콥터 PID 튜닝 설명서](../config_mc/pid_tuning_guide_multicopter.md), [고정익 PID 튜닝 설명서](../config_fw/pid_tuning_guide_fixedwing.md).
 :::
 
-The channels used for parameter tuning are assigned in the *Radio* setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the *Parameter editor*.
+매개 변수 튜닝에 사용되는 채널은 *라디오* 설정 (여기!)에서 할당되며 각 튜닝 채널에서 관련 매개변수로의 매핑은 *매개변수 편집기*에서 정의됩니다.
 
-To set up tuning channels:
+채널 튜닝 절차
 
 1. 최대 3 개의 송신기 컨트롤 (다이얼 또는 슬라이더)을 개별 채널에 매핑합니다.
 2. 선택 목록을 사용하여 라디오 채널에 대한 *PARAM Tuning Id* 매핑을 선택합니다. 값은 설정되는 즉시 차량에 저장됩니다.
     
     ![라디오 채널을 튜닝 채널에 매핑](../../assets/qgc/setup/radio/radio_additional_radio_setup_param_tuning.jpg)
 
-To map a PARAM tuning channel to a parameter:
+PARAM 튜닝 채널을 매개 변수에 매핑 절차
 
 1. **매개 변수** 사이드 바를 엽니 다. 
 2. 송신기에 매핑 할 매개 변수를 선택합니다 (이렇게하면 *매개 변수 편집기*가 열립니다).
@@ -140,7 +140,7 @@ To map a PARAM tuning channel to a parameter:
 7. **저장**을 눌러 모든 변경 사항을 저장하고 *매개 변수 편집기*를 닫습니다.
 
 :::tip
-You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
+*Parameters* 화면의 오른쪽 상단에있는 메뉴 **Tools> Clear RC to Param**을 선택하여 모든 매개변수/튜닝 채널 매핑을 삭제할 수 있습니다.
 :::
 
 ## 추가 정보
