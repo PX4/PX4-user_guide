@@ -51,7 +51,8 @@ make px4_sitl_nolockstep flightgear_rascal-electric
 ```
 
 :::note
-이 변종에는 최신 FlightGear 코드가 필요합니다(적어도 2020년 4월 26일부터 출처). 그렇지 않으면, 전기 엔진의 예기치 않은 정의로 인하여 FlightGear가 충돌합니다.
+이 변종에는 최신 FlightGear 코드가 필요합니다(적어도 2020년 4월 26일부터 출처).
+그렇지 않으면, 전기 엔진의 예기치 않은 정의로 인하여 FlightGear가 충돌합니다.
 :::
 
 ### Rascal 110 JSBsim
