@@ -138,7 +138,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-최신 코드를 빌드하는 과정입니다.
+최신 코드를 빌드하는 과정입니다. 
 :::
 
 #### Raspberry Pi OS용 크로스 빌드
