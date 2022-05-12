@@ -102,7 +102,7 @@ We use thrust to regulate the specific total energy of the vehicle and pitch mai
 #### Total energy control loop
 
 ![Energy loop](../../assets/diagrams/TECS_throttle.jpg)
-
+<!-- https://drive.google.com/file/d/1q12b6ASbQRkFWqLMXm92cryOI-cZnrKv/view?usp=sharing -->
 
 #### Total energy balance control loop
 
