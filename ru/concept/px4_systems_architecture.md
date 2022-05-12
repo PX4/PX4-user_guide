@@ -41,6 +41,7 @@ The flight controller runs the normal PX4 flight stack, while a companion comput
 PX4 systems typically run a Linux OS on the companion computer (because the [PX4/Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux). Linux is a much better platform for "general" software development than NuttX; there are many more Linux developers and a lot of useful software has already been written (e.g. for computer vision, communications, cloud integrations, hardware drivers). Companion computers sometimes run Android for the same reason.
 
 :::note
-The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems. PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development).
+The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems.
+PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development). 
 :::
 
