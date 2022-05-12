@@ -99,7 +99,8 @@ In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver:
 1. **기체 설정 > 매개 변수** 화면으로 이동합니다. :::note [매개변수](../advanced_config/parameters.md)에서 매개변수를 검색/설정 방법을 설명합니다.
 :::
 1. [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)을 *센서 및 모터* (3) 값으로 설정후, 비행 콘트롤러를 재부팅합니다. 이렇게 하면 [다음 섹션](#esc-setup)에 설명대로 모터(ESC)의 자동 열거가 가능합니다.
-1. (선택 사항) [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT)를 1로 설정하여 시스템이 준비된 동안 모터가 항상 최소한 유휴 스로틀에서 실행되도록 합니다. :::note 일부 시스템은이 동작의 장점을 사용하지 못합니다 (예: 글라이더 드론).
+1. (선택 사항) [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT)를 1로 설정하여 시스템이 준비된 동안 모터가 항상 최소한 유휴 스로틀에서 실행되도록 합니다. :::note
+일부 시스템은이 동작의 장점을 사용하지 못합니다 (예: 글라이더 드론).
 :::
 
 
@@ -133,7 +134,8 @@ To enumerate the ESC:
    비행 컨트롤러가 ESC 열거 모드에 진입한 소리가 들립니다.
 1. 첫 번째 모터에서 시작하여 마지막 모터로 마무리하면서 각 모터를 올바른 회전 방향 ([Airframe Reference](../airframes/airframe_reference.md)에 지정된대로)으로 수동으로 돌립니다. 모터를 돌릴 때마다 확인음이 들려야합니다.
 
-   :::note ESC가 자동으로 방향을 학습하고 기억하므로 각 모터를 올바른 방향으로 돌리십시오 (즉, 정상 작동 중에 시계 방향으로 회전하는 모터도 열거 중에 시계 방향으로 돌려야 함).
+   :::note
+ESC가 자동으로 방향을 학습하고 기억하므로 각 모터를 올바른 방향으로 돌리십시오 (즉, 정상 작동 중에 시계 방향으로 회전하는 모터도 열거 중에 시계 방향으로 돌려야 함).
 :::
 
 1. 마지막 모터가 열거된 후에는 열거 절차가 완료되었음을 알리는 확인 소리가 변경되어야합니다.
