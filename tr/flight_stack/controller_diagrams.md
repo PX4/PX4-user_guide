@@ -87,7 +87,7 @@ TECS offers a solution by respresenting the problem in terms of energies rather 
 #### Total energy control loop
 
 ![Energy loop](../../assets/diagrams/TECS_throttle.jpg)
-
+<!-- https://drive.google.com/file/d/1q12b6ASbQRkFWqLMXm92cryOI-cZnrKv/view?usp=sharing -->
 
 #### Total energy balance control loop
 
