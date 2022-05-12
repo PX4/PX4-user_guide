@@ -28,7 +28,8 @@ Holybro [S500 V2 키트](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-pro
 * 축거 : 480mm
 
 :::note
-LiPo 배터리는 포함되어 있지 않습니다. FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 설명합니다.
+LiPo 배터리는 포함되어 있지 않습니다. 
+FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 설명합니다.
 :::
 
 ## 하드웨어
