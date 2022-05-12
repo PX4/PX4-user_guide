@@ -79,7 +79,8 @@ The `config.txt` file can be used to modify shell variables. It is loaded after 
 The `extras.txt` can be used to start additional applications after the main system boot. Typically these would be payload controllers or similar optional custom components.
 
 :::warning
-Calling an unknown command in system boot files may result in boot failure. Typically the system does not stream mavlink messages after boot failure, in this case check the error messages that are printed on the system console.
+Calling an unknown command in system boot files may result in boot failure.
+Typically the system does not stream mavlink messages after boot failure, in this case check the error messages that are printed on the system console.
 :::
 
 The following example shows how to start custom applications:
