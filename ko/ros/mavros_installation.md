@@ -119,5 +119,6 @@ $ wstool init ~/catkin_ws/src
 
 MAVROS [오프보드 제어 예제](../ros/mavros_offboard.md)는 원격 측정 읽기, 드론 상태 확인, 비행 모드 변경 및 드론 제어부터 MAVROS의 기본 사항들을 설명합니다.
 
-:::note PX4와 MAVROS를 사용하는 예제 앱이 있으면, 문서에서 다운로드할 수 있도록 도와드릴 수 있습니다.
+:::note
+PX4와 MAVROS를 사용하는 예제 앱이 있으면, 문서에서 다운로드할 수 있도록 도와드릴 수 있습니다.
 :::

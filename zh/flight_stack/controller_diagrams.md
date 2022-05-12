@@ -85,7 +85,7 @@ TECS 提供了一种解决方案，即根据能量而不是初始设定值来反
 #### 总能量控制回路
 
 ![能量平衡回路](../../assets/diagrams/TECS_throttle.jpg)
-
+<!-- https://drive.google.com/file/d/1q12b6ASbQRkFWqLMXm92cryOI-cZnrKv/view?usp=sharing -->
 
 #### 比能量控制回路
 

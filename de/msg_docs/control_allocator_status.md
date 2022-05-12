@@ -27,4 +27,6 @@ int8[16] actuator_saturation            # Indicates actuator saturation status.
                                         # Note 1: actuator saturation does not necessarily imply that the thrust setpoint or the torque setpoint were not achieved.
                                         # Note 2: an actuator with limited dynamics can be indicated as upper-saturated even if it as not reached its maximum value.
 
+uint16 handled_motor_failure_mask        # Bitmask of failed motors that were removed from the allocation / effectiveness matrix. Not necessarily identical to the report from FailureDetector
+
 ```

@@ -195,7 +195,8 @@ For example when using MAVLink to interface PX4 with an embedded device, the mes
 An alternative - and temporary - solution is to re-purpose debug messages. Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields. See [this tutorial](../debug/debug_values.md). for an example usage of debug messages.
 
 :::note
-This solution is not efficient as it sends character string over the network and involves comparison of strings. It should be used for development only!
+This solution is not efficient as it sends character string over the network and involves comparison of strings.
+It should be used for development only!
 :::
 
 ## Testing

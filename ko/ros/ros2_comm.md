@@ -69,7 +69,10 @@ ROS 2와 해당 종속성을 설치합니다.
 <!-- what other toolchain needed? e.g. for ROS - gcc? does it all come with the ROS setup? -->
 
 :::note
-빌드 프로세스는 다른 환경 구성을 소싱하는 빌드 프로세스의 여러 단계에 해당하는 콘솔에서 새 탭을 엽니다. ::: :::warning If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent. ::: To install ROS 2 and its dependencies:
+빌드 프로세스는 다른 환경 구성을 소싱하는 빌드 프로세스의 여러 단계에 해당하는 콘솔에서 새 탭을 엽니다.
+::: :::warning
+If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent.
+::: To install ROS 2 and its dependencies:
 
 1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
 1. ROS 2 브리지 패키지 `px4_ros_com`와 `px4_msgs`를 `/src` 디렉토리에 복제합니다. `master` 분기는 기본적으로 복제됩니다.

@@ -2,8 +2,9 @@
 
 PX4 will automatically upgrade firmware on UAVCAN nodes if the appropriate firmware is supplied. The firmware build process is manufacturer dependent (instructions for different firmware linked below).
 
-:::warning UAVCAN
-장치는 일반적으로 적절한 펌웨어가 사전 설치된 상태로 판매됩니다. 이러한 지침은 UAVCAN 장치를 개발할 때 주로 필요합니다.
+:::warning
+UAVCAN 장치는 일반적으로 적절한 펌웨어가 사전 설치된 상태로 판매됩니다. 
+이러한 지침은 UAVCAN 장치를 개발할 때 주로 필요합니다.
 :::
 
 ## Vectorcontrol ESC 코드 베이스 (Pixhawk ESC  1.6과 S2740VC)

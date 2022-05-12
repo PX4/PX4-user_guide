@@ -32,7 +32,7 @@ You must already have installed the command line [PX4 developer environment](../
    ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
 1. A number of notifications/prompts may appear in the bottom right corner
 
-:::tip
+   :::tip
 If the prompts disappear, click the little "alarm" icon on the right of the bottom blue bar.
 :::
 
@@ -73,8 +73,9 @@ To debug PX4 on SITL:
 
 1. Then choose your debug target (e.g. *Debug SITL (Gazebo Iris)*) from the top bar debug dropdown (purple box).
 
-:::note
-The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar). For example, to debug SITL targets, your build target must include SITL.
+   :::note
+The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar).
+For example, to debug SITL targets, your build target must include SITL.
 :::
 1. Start debugging by clicking the debug "play" arrow (next to the debug target in the top bar - pink box).
 

@@ -63,7 +63,7 @@ For this example, PX4 SITL is being used, so it is assumed, first of all, that t
       receive: true
     ```
 
-:::note
+   :::note
 At time of writing, the above topic is already configured to be sent.
 :::
 

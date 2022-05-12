@@ -13,7 +13,8 @@ For *ROS2 Galactic and above*, one has to install the `rmw` implementation throu
 :::
 
 :::tip
-Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to interface the PX4 Autopilot with Fast RTPS/DDS participants. ROS 2 nodes are an example of these, though Fast DDS middleware and C++ implementations are installed by default on ROS 2 Foxy and below, as mentioned above.
+Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to interface the PX4 Autopilot with Fast RTPS/DDS participants.
+ROS 2 nodes are an example of these, though Fast DDS middleware and C++ implementations are installed by default on ROS 2 Foxy and below, as mentioned above.
 :::
 
 :::note
@@ -44,7 +45,8 @@ Java is required to build and use eProsima's RTPS/DDS from IDL code generation t
 You also need to [install Gradle](https://gradle.org/install/) to build *Fast-RTPS-Gen*. We recommend you install Gradle via [sdkman](https://sdkman.io).
 
 :::warning
-Do not install Gradle version 7 or higher. The recommended version is 6.3.
+Do not install Gradle version 7 or higher.
+The recommended version is 6.3.
 :::
 
 ### Foonathan memory

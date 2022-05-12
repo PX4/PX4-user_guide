@@ -17,7 +17,8 @@ The PX4 dev team syncs up on platform technical details and in-depth analysis. T
 * Community members
 
 :::tip
-The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+The dev call is open to all interested developers (not just the core dev team). 
+This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
 :::
 
 ## What gets discussed?

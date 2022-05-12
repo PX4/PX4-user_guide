@@ -1,7 +1,8 @@
 # PilotPi with Ubuntu Server
 
 :::warning
-Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. Design for better heat dissipation and high power consumption when using this hardware.
+Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat.
+Design for better heat dissipation and high power consumption when using this hardware.
 :::
 
 ## Developer Quick Start
@@ -220,7 +221,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code.
+This is all you need to do just to build the latest code. 
 :::
 
 #### Set RPi upload target

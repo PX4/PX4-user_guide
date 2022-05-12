@@ -11,7 +11,8 @@ Crowdin은 "풀 요청"(이 단계에서 개발팀이 주기적으로 검토하�
 :::
 
 :::note
-이 시스템의 장점은 번역이 원본 문서에 근접하게 따라갑니다. 독자 입장에서는 오래되어 때가 지난 번역을 보고 오해할 일이 없습니다.
+이 시스템의 장점은 번역이 원본 문서에 근접하게 따라갑니다.
+독자 입장에서는 오래되어 때가 지난 번역을 보고 오해할 일이 없습니다. 
 :::
 
 
@@ -26,7 +27,9 @@ Crowdin은 "풀 요청"(이 단계에서 개발팀이 주기적으로 검토하�
    - [QGroundControl 사용 안내서](https://crowdin.com/project/qgroundcontrol-user-guide)
    - [MAVLink 안내서](https://crowdin.com/project/mavlink)
 1. 번역하려는 언어를 선택합니다
-1. **Join** 단추를 누릅니다(*You must join the translators team to be able to participate in this project* 옆에 있음) :::note 참여 신청 승인을 받으면 알림이 옵니다.
+1. **Join** 단추를 누릅니다(*You must join the translators team to be able to participate in this project* 옆에 있음)  :::note
+ 참여 신청 승인을 받으면 알림이 옵니다.
+
 :::
 1. 번역을 시작하세요!
 
@@ -47,7 +50,8 @@ Vuepress에서는 참고, 팁, 경고 시작 부분에 `:::` 표시를 사용합
 번역 대상 언어가 없으면, 프로젝트 관리자에게 요청하십시오.(각 프로젝트 홈페이지에 연락처 링크가 있음).
 
 :::warning
-번역 작업은 어렵습니다. 새로운 언어 번역을 요청하기 전에, 번역을 도와줄 다른 사람이 있는지 찾아보십시오.
+번역 작업은 어렵습니다.
+새로운 언어 번역을 요청하기 전에, 번역을 도와줄 다른 사람이 있는지 찾아보십시오.
 :::
 
 

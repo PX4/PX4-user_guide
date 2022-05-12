@@ -122,7 +122,9 @@ In addition, users will need ground station hardware/software:
 1. Insert the pre-imaged USB2.0 stick from the kit into the *UP Core* port labeled `USB1` (highlighted below).
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. Power the vehicle with a fully charged battery. :::note Ensure propellers are removed before connecting the battery.
+1. Power the vehicle with a fully charged battery.  :::note
+ Ensure propellers are removed before connecting the battery.
+
 :::
 1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
    - **SSID:** pixhawk4
@@ -135,8 +137,9 @@ WiFi network SSID, password, and other credentials may be changed after connecti
 1. Start *QGroundControl* on the ground station.
 1. [Configure/calibrate](../config/README.md) the vehicle:
 
-:::note
-The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+   :::note
+The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).
+You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
 :::
 
    - [Calibrate the Radio System](../config/radio.md)

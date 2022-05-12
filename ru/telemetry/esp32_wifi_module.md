@@ -12,7 +12,8 @@ No configuration is generally required if connected to `TELEM2`. The typical ran
 *DroneBridge for ESP32* can run on almost every ESP32 development board. Boards and modules with an external antenna connector are recommended, since these will offer more range.
 
 :::warning
-Many ESP32 modules support 3.3V and 5V power supply input, while some flight controllers (e.g. Pixhawk 4) output at 5V. You will need to check compatibility and step down the voltage if needed.
+Many ESP32 modules support 3.3V and 5V power supply input, while some flight controllers (e.g. Pixhawk 4) output at 5V.
+You will need to check compatibility and step down the voltage if needed.
 :::
 
 Modules and DevKits that accept 3.3V or 5V power supply:
