@@ -47,7 +47,8 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
 :::warning
-Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. 이는 코드가 여러 디버그 메시지 게시 사이에 대기하거나, 각 함수 호출 반복에서 메시지를 대체하는 것을 의미합니다.
+Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. 
+이는 코드가 여러 디버그 메시지 게시 사이에 대기하거나, 각 함수 호출 반복에서 메시지를 대체하는 것을 의미합니다.
 :::
 
 QGroundControl의 결과는 실시간 플롯에서 다음과 같습니다.
