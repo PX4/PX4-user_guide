@@ -143,7 +143,8 @@ Where each number from left to right means:
     O:      10000  10000   0 -10000  10000
     ```
 * S: Indicates the first input scaler: It takes input from control group #0 (Flight Control) and the first input (roll). It scales the roll control input * 0.6 and reverts the sign (-0.6 becomes -6000 in scaled units). It applies no offset (0) and outputs to the full range (-1..+1)
-* S: Indicates the second input scaler: It takes input from control group #0 (Flight Control) and the second input (pitch). \ It scales the pitch control input * 0.65. It applies no offset (0) and outputs to the full range (-1..+1)
+* S: Indicates the second input scaler: It takes input from control group #0 (Flight Control) and the second input (pitch). \
+It scales the pitch control input * 0.65. It applies no offset (0) and outputs to the full range (-1..+1)
 
 :::note
 In short, the output of this mixer would be SERVO = ( (roll input \* -0.6 + 0)  \* 1 + (pitch input \* 0.65 + 0)  \* 1 ) \* 1 + 0
