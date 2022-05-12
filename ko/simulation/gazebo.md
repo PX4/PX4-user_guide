@@ -213,8 +213,8 @@ GPS noise is enabled if the target vehicle's SDF file contains a value for the `
    ```
    make px4_sitl gazebo_iris
    ```
-:::tip SDF
-파일은 후속 빌드에서 덮어 쓰지 않습니다.
+   :::tip
+SDF 파일은 후속 빌드에서 덮어 쓰지 않습니다.
 :::
 
 2. 대상 차량에 대한 SDF 파일을 엽니다(예: **./Tools/sitl_gazebo/models/iris/iris.sdf**).
@@ -420,7 +420,8 @@ VERBOSE_SIM=1 make px4_sitl gazebo
 빌드 시스템은 시뮬레이터를 포함하여 올바른 GIT 하위 모듈을 적용합니다. 디렉토리에 있는 파일의 변경 사항을 덮어쓰지 않습니다.
 
 :::note
-The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+The build system enforces the correct GIT submodules, including the simulator.
+It will not overwrite changes in files in the directory.
 :::
 
 ## 추가 정보
