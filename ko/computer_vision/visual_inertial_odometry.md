@@ -6,7 +6,7 @@ VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체
 
 *지원 가능한*  VIO 설정을 사용하도록 PX4와 보조 컴퓨터 설정 방법을 설명합니다.
 
-<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <!-- https://youtu.be/gWtrka2mK7U -->
 
 :::tip
