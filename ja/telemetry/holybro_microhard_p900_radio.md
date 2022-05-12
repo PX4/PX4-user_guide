@@ -47,7 +47,8 @@ This radio has a internal USB to UART converter, the ground radio can be connect
 Holybro Microhard P900 Radios have been configured to point-to-point operating mode and 57600 serial baud rate in the factory. This allows them to connect to the PX4 `TELEM1` port and *QGroundControl* **without any further configuration**.
 
 :::note
-You can use a different baud rate, mode or flight controller port. The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
+You can use a different baud rate, mode or flight controller port.
+The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
 :::
 
 [Microhard Serial Telemetry Radios > Configuration](../telemetry/microhard_serial.md#configuration) explains how to configure the radios, *QGroundControl*, and PX4.
