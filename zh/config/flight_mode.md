@@ -3,10 +3,10 @@
 This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
 
 :::tip
-You must already have [configured your radio](../config/radio.md) in order to assign flight modes and functions.
-:::
+In order to set up flight modes you must already have:
 
-:::note PX4 allows you to select flight modes from a ground station (tablet or desktop) or from a radio control transmitter. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
+* [Configured your radio](../config/radio.md)
+* [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. We provide examples for the popular *Taranis* transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter).
 :::
 
 ## What Flight Modes and Switches Should I Set?
@@ -22,26 +22,9 @@ It is also common to map switches to:
 * [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
 * <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
-## 多通道飞行模式选择 vs 单通道飞行模式选择
+## Flight Mode Selection
 
-*PX4* (*QGroundControl*) supports two modes for mapping flight modes to transmitter switches/dials:
-
-* **单通道模式选择：** 单通道编码模式下最多分配 6 个飞行模式到遥控器的不同开关位置上。
-* **多通道模式选择：** 把不同飞行模式分配到不同的遥控器开关位置，来使用一个或者多个通道的编码。 一些模式被硬编码以共享通道，或者是根据其他选择的模式被自动指定（多通道模式选择的方式很多时候会导致困惑）。 
-
-:::tip
-The recommended approach is use *Single Channel Mode Selection* because it easy to understand and configure.
-:::
-
-<span id="single_channel"></span>
-
-## 单通道飞行模式选择
-
-The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
-
-:::note
-In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide information on how this is done for the popular *Taranis* transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter).
-:::
+PX4 allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
 
 To configure single-channel flight mode selection:
 
@@ -50,15 +33,11 @@ To configure single-channel flight mode selection:
 3. Select **QGroundControl icon > Vehicle Setup**, and then **Flight Modes** in the sidebar.
     
     ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
-    
-:::tip
-If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
-:::
 
 4. 进行 *飞行模式设置* :
     
     * 选择 **Mode channel** （上面显示的是 Channel 5 ，但是这是取决于你遥控器的设置的）。
-    * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 4*). :::note While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
+    * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 1*). :::note While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
 :::
     * Select the flight mode that you want triggered for each switch position.
 
@@ -72,6 +51,10 @@ If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode 
     * 拨动你遥控器上刚刚映射的飞行模式有关的开关，并检查对应的飞行模式已被激活（ *QGroundeControl* 上对应的通道的字体在被激活的情况下变为黄色 ）
 
 All values are automatically saved as they are changed.
+
+## RC Transmitter Setup
+
+This section contains a small number of possible setup configurations for taranis. QGroundControl *may* have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup).
 
 <span id="taranis_setup"></span>
 
@@ -111,44 +94,7 @@ The video below shows how this is done with the *FrSky Taranis* transmitter.
 
 The *QGroundControl* configuration is then as [described above](#single-channel-flight-mode-selection).
 
-<span id="multi_channel"></span>
-
-## 多通道飞行模式选择
-
-:::tip
-We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection.
-:::
-
-The multi-channel selection user interface allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
-
-To configure flight modes using the multi-channel UI:
-
-1. 打开您的 RC 遥控器发射机。
-2. 打开 *QGroundControl* 并连接上飞机。
-3. 点击上方工具栏的 **Gear** 图标（飞行器设置），然后在左侧边栏选择 **Flight Modes** 。
-    
-    ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
-    
-:::tip
-If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
-:::
-
-4. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the user interface to be grouped by channel). There are a number of complications on the mode to channel assignments:
-    
-    * Some modes cannot be manually edited (are grayed out) because their channel and threshold level are automatically defined based on the values of other mode settings. 例如： 
-        * *Mission* mode - is automatically assigned the same channel number as *Hold* (if the channel for *Hold* is defined by the user). If the channel for *Hold* is not defined, *Mission* mode is automatically assigned the same channel as *Stabilized/Main* mode. This, for example, prevents the user from defining *Stabilized/Main* and *Mission* mode on different channels, to ensure that the user cannot switch both modes ON at the same time. 
-        * *Altitude* mode - is automatically assigned the same channel number as *Position Control* (if it is defined), or otherwise the same channel as *Stabilized/Main* mode.
-    * *Assist* mode - This mode is added to the same channel as *Stabilized/Main* mode if (and only if) *Position Control* is enabled and defined on a different channel than *Stabilized/Main*.
-5. Click the **Generate Thresholds** button. 
-    * This will automatically create threshold values for all modes, spread evenly across each channel for its assigned modes. For example, in the mode assignment shown above, most modes are assigned to mode 5, and you can see that the channel thresholds for each mode are spread evenly across the channel. 
-
-This mode is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=6m53s) (youtube).
-
-:::note
-This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](../concept/flight_modes.md#flight-mode-evaluation-diagram).
-:::
-
-## 更多信息
+## Further Information
 
 * [Flight Modes Overview](../flight_modes/README.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
