@@ -10672,14 +10672,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CBRK_ENGINEFAIL">CBRK_ENGINEFAIL</strong> (INT32)</td>
- <td>Circuit breaker for engine failure detection <p><strong>Comment:</strong> Setting this parameter to 284953 will disable the engine failure detection. If the aircraft is in engine failure mode the engine failure flag will be set to healthy WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>0 > 284953 </td>
- <td>284953</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="CBRK_FLIGHTTERM">CBRK_FLIGHTTERM</strong> (INT32)</td>
  <td>Circuit breaker for flight termination <p><strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss, geofence, and takeoff failure detection safety logic.</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -10740,6 +10732,24 @@ table {
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="COM_ACT_FAIL_ACT">COM_ACT_FAIL_ACT</strong> (INT32)</td>
+ <td>Set the actuator failure failsafe mode <p><strong>Comment:</strong> Note: actuator failure needs to be enabled and configured via FD_ACT_* parameters.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Hold mode</li> 
+
+<li><strong>2:</strong> Land mode</li> 
+
+<li><strong>3:</strong> Return mode</li> 
+
+<li><strong>4:</strong> Terminate</li> 
+</ul>
+  </td>
+ <td>0 > 3 </td>
+ <td>0</td>
+ <td></td>
+</tr>
 <tr>
  <td><strong id="COM_ARM_ARSP_EN">COM_ARM_ARSP_EN</strong> (INT32)</td>
  <td>Enable preflight check for maximal allowed airspeed when arming <p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the cruise airspeed (FW_AIRSPD_TRIM). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>Values:</strong><ul>
@@ -10928,27 +10938,6 @@ table {
  <td>Datalink loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
  <td>5 > 300 (1)</td>
  <td>10</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="COM_EF_C2T">COM_EF_C2T</strong> (FLOAT)</td>
- <td>Engine Failure Current/Throttle Threshold <p><strong>Comment:</strong> Engine failure triggers only below this current value</p>   </td>
- <td>0.0 > 50.0 (1)</td>
- <td>5.0</td>
- <td>A/%</td>
-</tr>
-<tr>
- <td><strong id="COM_EF_THROT">COM_EF_THROT</strong> (FLOAT)</td>
- <td>Engine Failure Throttle Threshold <p><strong>Comment:</strong> Engine failure triggers only above this throttle value</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>0.5</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="COM_EF_TIME">COM_EF_TIME</strong> (FLOAT)</td>
- <td>Engine Failure Time Threshold <p><strong>Comment:</strong> Engine failure triggers only if the throttle threshold and the current to throttle threshold are violated for this time</p>   </td>
- <td>0.0 > 60.0 (1)</td>
- <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
@@ -13710,6 +13699,35 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="FD_ACT_EN">FD_ACT_EN</strong> (INT32)</td>
+ <td>Enable Actuator Failure check <p><strong>Comment:</strong> If enabled, failure detector will verify that for motors, a minimum amount of ESC current per throttle level is being consumed. Otherwise this indicates an motor failure.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FD_ACT_MOT_C2T">FD_ACT_MOT_C2T</strong> (FLOAT)</td>
+ <td>Motor Failure Current/Throttle Threshold <p><strong>Comment:</strong> Motor failure triggers only below this current value</p>   </td>
+ <td>0.0 > 50.0 (1)</td>
+ <td>2.0</td>
+ <td>A/%</td>
+</tr>
+<tr>
+ <td><strong id="FD_ACT_MOT_THR">FD_ACT_MOT_THR</strong> (FLOAT)</td>
+ <td>Motor Failure Throttle Threshold <p><strong>Comment:</strong> Motor failure triggers only above this throttle value.</p>   </td>
+ <td>0.0 > 1.0 (0.01)</td>
+ <td>0.2</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FD_ACT_MOT_TOUT">FD_ACT_MOT_TOUT</strong> (INT32)</td>
+ <td>Motor Failure Time Threshold <p><strong>Comment:</strong> Motor failure triggers only if the throttle threshold and the current to throttle threshold are violated for this time.</p>   </td>
+ <td>10 > 10000 (100)</td>
+ <td>100</td>
+ <td>ms</td>
+</tr>
+<tr>
  <td><strong id="FD_ESCS_EN">FD_ESCS_EN</strong> (INT32)</td>
  <td>Enable checks on ESCs that report their arming state <p><strong>Comment:</strong> If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state. Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle.</p>   </td>
  <td></td>
@@ -14146,6 +14164,18 @@ table {
 <li><strong>9:</strong> Custom</li> 
 
 <li><strong>10:</strong> Helicopter</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_FAILURE_MODE">CA_FAILURE_MODE</strong> (INT32)</td>
+ <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Ignore</li> 
+
+<li><strong>1:</strong> Remove first failed motor from effectiveness</li> 
 </ul>
   </td>
  <td></td>
