@@ -51,8 +51,13 @@ connmanctl>services
 #(at this point you should see your network SSID appear.)
 connmanctl>agent on
 connmanctl>connect <SSID>
+    Enter Passphrase
 connmanctl>quit
 ```
+
+:::note
+The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters. After entering the command you will be prompted to enter the wifi password.
+:::
 
 ### SSH root Login on Beaglebone
 
@@ -78,10 +83,10 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     2. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts** and copy the public SSH key to the board for password-less SSH access:
         
-            ssh-copy-id root@beaglebone
+            ssh-copy-id debian@beaglebone
             
     
-    3. Alternatively you can use the beaglebone's IP directly: ```ssh-copy-id root@<IP>```
+    3. Alternatively you can use the beaglebone's IP directly: ```ssh-copy-id debian@<IP>```
     4. When prompted if you trust: yes
     5. Enter root password
 

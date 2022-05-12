@@ -2,13 +2,13 @@
 
 Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
 
-It can be used to connect to ground stations, companion computers, and other MAVLink systems. It is particularly recommended when connecting to systems that "natively" use Ethernet - for example IP Radios.
+It can be used to connect to ground stations, companion computers, and other MAVLink systems. It is particularly recommended when connecting to systems that "natively" use Ethernet - for example IP radios.
 
 This topic covers:
-- Supported flight controllers
-- Ethernet network setup for PX4 and any systems it needs to connect to (including ground stations and companion computers).
-- Configuring the PX4 Ethernet port, specifying the UDP ports and profiles that should be used for connecting to a GCS and a companion computer.
-- Using MAVSDK or ROS to connect to PX4 over the network.
+- [Supported flight controllers](#supported-flight-controllers)
+- [Setting up an Ethernet network](#setting-up-the-ethernet-network) for PX4 and any systems it needs to connect to (including ground stations and companion computers).
+- [PX4 MAVLink Serial Port Configuration](#px4-mavlink-serial-port-configuration), specifying the UDP ports and MAVLink profiles that should be used for connecting to a GCS and a companion computer.
+- Using [MAVSDK](#mavsdk-python-setup-example) or [ROS2](#ros2-setup-example) to connect to PX4 over the network.
 
 ## Supported Flight Controllers
 
@@ -18,39 +18,16 @@ Supported flight controllers include:
 
  - [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md)
 
-## PX4 Ethernet Port Configuration
-
-:::note
-The Ethernet port configuration sets the properties of the _serial link_ (which is how PX4 views the Ethernet connection). This includes the set of MAVLink messages that are streamed, the data rate, the UDP ports that a remote system can connect listen to, etc. You will separately need to configure the PX4 _network settings_. This is covered separately (in the following sections).
-:::
-
-PX4 configures the Ethernet (serial) port to connect to a GCS by default via MAVLink.
-
-Specifically it sets the configuration parameters as shown:
-
-| Parameter                                                                        | Value  | Description                                                  |
-| -------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------ |
-| [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)         | 1000   | Configure Ethernet port                                      |
-| [MAV_2_BROADCAST](../advanced_config/parameter_reference.md#MAV_2_BROADCAST)   | 1      | Broadcast `HEARTBEAT` messages                               |
-| [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE)             | 0      | Send the "normal" set of MAVLink messages (i.e. the GCS set) |
-| [MAV_2_RADIO_CTL](../advanced_config/parameter_reference.md#MAV_2_RADIO_CTL)   | 0      | Disable software throttling of MAVLink traffic               |
-| [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)             | 100000 | Maximum sending rate                                         |
-| [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) | 14550  | MAVLink Remote Port of 14550 (GCS)                           |
-| [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT)       | 14550  | MAVLink Network Port of 14550 (GCS)                          |
-
-To configure the port to connect to a companion computer you would change [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540` and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
-
-For more information on MAVLink serial port configuration see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)
-
 
 ## Setting up the Ethernet Network
 
-To connect systems over Ethernet you need to configure them to run on the same IP network, so that each system has a unique IP address and knows how to find the other systems.
+To connect systems over Ethernet you need to configure them to run on the same IP network, so that each system has a unique IP address and can find the other systems. This might be done using a DHCP server to allocate addresses, or by manually configuring the addresses of each system on the network.
 
-There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with addresses `192.168.0.Xxx`, where PX4 has a statically allocated address `192.168.0.4` and the computer has address `192.168.0.1`. If you connect a companion computer or other system to the network you would need to use a similar approach to allocate its address (or you could set up a DHCP server and allocate addresses dynamically).
+There is no single "out of the box configuration" that we can provide that will necessarily work in your local network. Therefore as an example of the kind of configuration you might do, below we show how to set up the systems on an IP network with static addresses in the range `192.168.0.Xxx`, where PX4 has a statically allocated address `192.168.0.4` and the computer has address `192.168.0.1`. If you wanted to connect a companion computer or other system to the network you could use a similar approach to allocate a static address.
 
 :::note
-There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network. Which is to say that a knowledge of how IP networks work is highly desirable!
+There is nothing "special" about the network configuration (other than perhaps the tools used to modify the network settings); it works much the same as any home or business network.
+Which is to say that a knowledge of how IP networks work is highly desirable!
 :::
 
 ### PX4 Ethernet Network Setup
@@ -93,6 +70,8 @@ To set the above "example" configuration using the *QGroundControl*:
 1. Once the network configuration has been set you can disconnect the USB cable.
 1. Reboot the flight controller to apply the settings.
 
+Note that the above setup gives the flight controller an address on the Ethernet network. You also need to \[configure the Ethernet port\]((#px4-mavlink-serial-port-configuration) to use MAVLink.
+
 
 ### Ubuntu Ethernet Network Setup
 
@@ -130,7 +109,6 @@ To setup the Ubuntu Computer:
    sudo netplan apply
    ```
 
-If you have already configured the Pixhawk 5X, at this point you could connect it to the computer via an Ethernet cable and it would be automatically deteced by QGroundControl.
 
 ### Companion Computer Ethernet Network Setup
 
@@ -138,27 +116,63 @@ The setup for a companion computer will depend on the companion computer's opera
 
 A Linux operating system may support `netplan`, in which case the instructions would be the same as above, but using a unique IP address.
 
-## GCS Setup Example
 
-To connect a GCS to PX4 over Ethernet:
-1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network.
-1. Connect the computer and PX4 using an Ethernet cable and start QGroundControl.
-1. QGroundControl should connect automatically.
+## PX4 MAVLink Serial Port Configuration
+
+The Ethernet port configuration sets the properties of the _serial link_ (which is how PX4 views the Ethernet connection). This includes the set of MAVLink messages that are streamed, the data rate, the UDP ports that a remote system can connect listen to, etc.
 
 :::note
-[PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) is not required because it is setup by default for connecting to a GCS.
+You must separately configure the PX4 IP address and other _network settings_ ([as shown previously](#px4-ethernet-network-setup)).
+:::
+
+PX4 configures the serial port to connect to a GCS via MAVLink, using the parameters shown below:
+
+| Parameter                                                                        | Value  | Description                                                  |
+| -------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------ |
+| [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG)         | 1000   | Configure Ethernet port                                      |
+| [MAV_2_BROADCAST](../advanced_config/parameter_reference.md#MAV_2_BROADCAST)   | 1      | Broadcast `HEARTBEAT` messages                               |
+| [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE)             | 0      | Send the "normal" set of MAVLink messages (i.e. the GCS set) |
+| [MAV_2_RADIO_CTL](../advanced_config/parameter_reference.md#MAV_2_RADIO_CTL)   | 0      | Disable software throttling of MAVLink traffic               |
+| [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)             | 100000 | Maximum sending rate                                         |
+| [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) | 14550  | MAVLink Remote Port of 14550 (GCS)                           |
+| [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT)       | 14550  | MAVLink Network Port of 14550 (GCS)                          |
+
+Normally a companion computer would use port `14540` (rather than `14550`) and stream the set of MAVLink messages specified in the `Onboard` profile. You can configure this setup by changing [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540` and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard). Note however that this will still work using the GCS profile.
+
+For more information on MAVLink serial port configuration see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)
+
+
+## QGroundControl Setup Example
+
+Assuming you have already [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network, and
+
+To connect QGroundControl to PX4 over Ethernet:
+1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your ground station computer and PX4 run on the same network.
+1. Connect the ground station computer and PX4 using an Ethernet cable.
+1. Start QGroundControl and [define a comm link](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (**Application Settings > Comm Links**) specifying the _server address_ and port as the IP address and port assigned in PX4, respectively.
+
+   Assuming that the values are set as described in the rest of this topic the setup will look like this:
+
+   ![QGC comm link for ethernet setup](../../assets/qgc/settings/comm_link/px4_ethernet_link_config.png)
+
+1. QGroundControl should then connect if you select this link.
+
+:::note
+[PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) should not be needed (the default are appropriate for a GCS).
 :::
 
 ## MAVSDK-Python Setup Example
 
 To setup MAVSDK-Python running on a companion computer:
+
 1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your companion computer and PX4 run on the same network.
-1. Modify the [PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) to connect to a companion computer. You will need to change the parameters [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540`, and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
+1. Modify the [PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) to connect to a companion computer. You might change the parameters [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540`, and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
 1. Follow the instructions in [MAVSDK-python](https://github.com/mavlink/MAVSDK-Python) to install and use MAVSDK.
 
    For example, your code will connect to the PX4 using:
+
    ```python
-   await drone.connect(system_address="udp://:14540")
+   await drone.connect(system_address="udp://192.168.0.4:14540")
    ```
 
 :::note MAVSDK
@@ -166,7 +180,7 @@ can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port
 :::
 
 
-### ROS2 Setup Example
+## ROS2 Setup Example
 
 Prerequisites:
 
@@ -177,7 +191,7 @@ Prerequisites:
 In this example it is assumed that you have followed the example to set your IP addresses.
 
 1. Connect your Flight controller via Ethernet
-2. Open **QGroundcontrol > Analyze Tools > MAVLink Console**
+2. Open **QGroundControl > Analyze Tools > MAVLink Console**
 3. Enter the command below to start the micro_rtps client on your flight controller. Note that the remote IP here is your companion computer IP. This by default starts the micrortps_client connected to UDP ports 2019 and 2020 To make changes you can take a look at [RTPS guide](../middleware/micrortps.md#client-px4-px4-autopilot)
    ```
    micrortps_client start -t UDP -i <remote IP>

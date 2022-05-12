@@ -51,12 +51,17 @@ connmanctl>services
 #(at this point you should see your network SSID appear.)
 connmanctl>agent on
 connmanctl>connect <SSID>
+    Enter Passphrase
 connmanctl>quit
 ```
 
+:::note
+The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters. After entering the command you will be prompted to enter the wifi password.
+:::
+
 ### Beaglebone에서 SSH 루트 로그인
 
-아래의 명령어로 보드에서 루트 로그인을 활성화 할 수 있습니다.
+Root login can be enabled on the board with:
 
 ```sh
 sudo su
@@ -78,10 +83,10 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     2. **/etc/hosts**에서 BeagleBone Blue 보드를 `beaglebone`으로 정의하고 암호없는 SSH 액세스를 위해 공개 SSH 키를 보드에 복사합니다.
         
-            ssh-copy-id root@beaglebone
+            ssh-copy-id debian@beaglebone
             
     
-    3. 또는 beaglebone의 IP를 직접 사용할 수 있습니다. ```ssh-copy-id root@<IP>```
+    3. 또는 beaglebone의 IP를 직접 사용할 수 있습니다. ```ssh-copy-id debian@<IP>```
     4. 확인 메시지가 표시되면 : yes
     5. 루트 비밀번호 입력
 
@@ -146,16 +151,16 @@ Logout and Login to apply the change, or execute the same line on your current s
 
 ### 교차 컴파일 및 업로드
 
-컴파일 및 업로드
+Compile and Upload
 
     make beaglebone_blue_default upload
     
 
 :::note
-업로드하지 않으면, 파일이 로컬 빌드 폴더에 저장됩니다.
+Without upload, files stored local in build folder.
 :::
 
-업로드한 파일을 테스트하려면 *BeagleBone Blue* 보드에서 다음 명령을 실행합니다.
+To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
 
 ```sh
 cd /home/debian/px4 
@@ -163,22 +168,22 @@ sudo ./bin/px4 -s px4.config
 ```
 
 :::note
-현재 *librobotcontrol*에는 루트 권한이 필요합니다.
+Currently *librobotcontrol* requires root access.
 :::
 
 <a id="native_builds"></a>
 
 ## 네이티브 빌드(선택 사항)
 
-BeagleBone Blue에서 직접 PX4를 빌드할 수 있습니다.
+You can also natively build PX4 builds directly on the BeagleBone Blue.
 
-사전 구축된 라이브러리를 설치후
+After acquiring the pre-built library,
 
 1. *librobotcontrol* 설치 디렉터리를 선택하고, 원하지 않는 다른 헤더가 포함되지 않도록 `LIBROBOTCONTROL_INSTALL_DIR` 환경변수를 설정합니다.
 2. **robotcontrol.h** 및 **rc/\***를 `$LIBROBOTCONTROL_INSTALL_DIR/include` 폴더에 설치합니다.
 3. 사전 빌드된 기본 (ARM) 버전의 librobotcontrol.\ *을 `$LIBROBOTCONTROL_INSTALL_DIR/lib` 폴더에 설치합니다.
 
-BeagleBone Blue에서 다음 명령을 실행합니다 (예 : SSH를 통해).
+Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 1. 종속성 설치: 
         sh
@@ -190,15 +195,15 @@ BeagleBone Blue에서 다음 명령을 실행합니다 (예 : SSH를 통해).
 
 ## Changes in config
 
-모든 변경은 beaglebone의 px4.config 파일에서 직접 수행할 수 있습니다. 예를 들어 WIFI를 wlan으로 변경할 수 있습니다.
+All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
 
 :::note
-영구적으로 변경하려면, 빌드전에 빌드 머신에서 **PX4-Autopilot/posix-configs/bbblue/px4.config**를 변경하여야 합니다.
+If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
 :::
 
 ## 부팅 중 자동 시작
 
-다음은 [/etc/rc.local] 예제입니다.
+Here is an example [/etc/rc.local]:
 
 ```sh
 #!/bin/sh -e
@@ -224,7 +229,7 @@ cd /home/debian/px4
 exit 0
 ```
 
-다음은 *systemd* 서비스 예제입니다. [/lib/systemd/system/px4-quad-copter.service] :
+Below is a *systemd* service example [/lib/systemd/system/px4-quad-copter.service]:
 
 ```sh
 [Unit]
@@ -249,19 +254,19 @@ WantedBy=multi-user.target
 
 #### 파워 서보 레일
 
-PX4가 시작되면 자동으로 서보에 전원을 공급합니다.
+When PX4 starts, it automatically applies power to servos.
 
 #### 독특한 기능
 
-BeagleBone Blue에는 다양한 WiFi 인터페이스와 전원 소스와 같은 몇 가지 고유한 기능이 있습니다. 이러한 기능을 사용하려면 **/home/debian/px4/px4.config**의 주석을 참고하십시오.
+BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
 #### SBUS 신호 변환기
 
-수신기의 SBUS 신호(예: FrSky X8R)는 반전된 신호입니다. BeagleBone Blue의 UART는 반전되지 않은 3.3V 레벨 신호에서만 작동할 수 있습니다. 이 [자습서](../tutorials/linux_sbus.md)에는 SBUS 신호 인버터 회로가 포함되어 있습니다.
+SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](../tutorials/linux_sbus.md) contains a SBUS signal inverter circuit.
 
 #### 일반적인 연결
 
-GPS와 SBUS 수신기가 있는 쿼드콥터의 경우의 일반적인 연결은 다음과 같습니다.
+For a quadcopter with GPS and an SBUS receiver, here are typical connections:
 
 1. 비글본 블루에서 모터 1, 2, 3 및 4의 ESC를 서보 출력의 채널 1, 2, 3 및 4에 연결합니다. 비글본 블루에서 ESC 커넥터에 전원 출력이 포함되어 있는 경우 핀, 제거 및 서보 채널의 전원 출력 핀에 연결하지 마십시오. 
 
