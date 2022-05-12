@@ -51,7 +51,8 @@ make px4_sitl_nolockstep flightgear_rascal-electric
 ```
 
 :::note
-This variant needs the latest FlightGear code (sources at least from 26 April 2020). Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.
+This variant needs the latest FlightGear code (sources at least from 26 April 2020).
+Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.
 :::
 
 ### Rascal 110 JSBsim
