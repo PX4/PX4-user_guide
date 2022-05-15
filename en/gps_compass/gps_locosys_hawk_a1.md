@@ -14,9 +14,7 @@ Main features include:
 - Three LED indicator for Power, PPS and Data transmit
 * Note: SBAS support 5Hz only.
 
-
 <img src="../../assets/hardware/gps/locosys_hawk_a1_gps.png" />
-
 
 ## Purchase
 
@@ -24,18 +22,29 @@ Main features include:
 
 ## Configuration
 
-Setup and use on PX4 is plug and play. Currently, the GPS receiver is delivered with 
+Since the current connectors is compatible with GPS2 port on pixhawk (FMU-v5 and up), two scenarios could be considred for configuration:
+
+1. Using LOCOSYS as your main GPS device, then below settings are needed to be done:
+
+Parameter | Value | Description
+--- | --- | ---
+[GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) | 102 (Telem 2 or another available serial port) | Configure main GPS port
+[GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox) | Configure GPS protocol
+[SER_TEL_2_BAUD](../advanced_config/parameter_reference.md#SER_TEL_2_BAUD) | 9600 | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance)
+
+2. Using as an auxillary GPS device in addition to the main GPS:
+
+Parameter | Value | Description
+--- | --- | ---
+[GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) | 102 (Telem 2 or another available serial port) | Configure main GPS port
+[GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox) | Configure GPS protocol
+[SER_TEL_2_BAUD](../advanced_config/parameter_reference.md#SER_TEL_2_BAUD) | 9600 | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance)
 
 ## Wiring and Connections
 
-The Locosys GPS comes with an 8 pin connector that can be inserted directly into the GPS2 UART port.
+The Locosys GPS comes with an 6-pin JST-GH connector that can be inserted directly into the GPS2 UART port. 
 
-The Pixhawk 
-For these controllers you can modify the GPS cable (as shown below) to remove pin 6 and 7. 
-
-<img src="../../assets/hardware/gps/ width="500px" /> 
-
-Pin 6 and 7 are for the safety button - these can be attached as well if needed.
+<img src="../../assets/hardware/gps/locosys_gps_cable.png" width="500px" /> 
 
 ### Pinout
 
@@ -46,13 +55,11 @@ The LOCOSYS GPS pinout is provided below. This can be used to help modify the co
 | 1   | VCC_5V        | 1   | VCC               |
 | 2   | GPS_RX        | 2   | GPS_TX            |
 | 3   | GPS_TX        | 3   | GPS_RX            |
-| 4   | N/A           | 4   | SCL               |
-| 5   | N/A           | 5   | SDA               |
-| 6   | N/A        | 6   | -                 |
-| 7   | N/A    | 7   | -                 |
-| 8   | GND           | 6   | GND               |
+| 4   | NC           | 4   | SDA             |
+| 5   | NC         | 5   |    SCL           |
+| 6   | GND           | 6   | GND               |
 
-## Specification
+## Specifications
 - **Receiver Type:** 135-channel LOCOSYS MC-1612-V2b engine, GPS/QZSS L1 C/A, L5C, GLONASS L1OF, BeiDou B1I, B2a Galileo:E1, E5a SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
 - **Navigation Update Rate:** Max: 5Hz default Max: 10 Hz
 - **Positionaing Accuracy:** 3D Fix
