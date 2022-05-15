@@ -1,6 +1,6 @@
 # LOCOSYS HAWK A1 GPS/GNSS
 
-The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is an update to the Here GPS module from HEX.
+The [LOCOSYS GPS/GNSS RECEIVER](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) is a dual frequency multi-constellation GNSS receiver GPS receiver compatible with PX4.
 
 Main features include:
 - Concurrent reception of L1 and L5 band signals
@@ -24,7 +24,7 @@ Main features include:
 
 ## Configuration
 
-Setup and use on PX4 is plug and play. 
+Setup and use on PX4 is plug and play. Currently, the GPS receiver is delivered with 
 
 ## Wiring and Connections
 
@@ -39,19 +39,36 @@ Pin 6 and 7 are for the safety button - these can be attached as well if needed.
 
 ### Pinout
 
-The Here2 GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
+The LOCOSYS GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
-| pin | Here2 GPS     | pin | Pixhawk 3 Pro GPS |
+| pin | Locosys GPS   | pin | Pixhawk GPS 2 |
 | --- | ------------- | --- | ----------------- |
 | 1   | VCC_5V        | 1   | VCC               |
 | 2   | GPS_RX        | 2   | GPS_TX            |
 | 3   | GPS_TX        | 3   | GPS_RX            |
-| 4   | SCL           | 4   | SCL               |
-| 5   | SDA           | 5   | SDA               |
-| 6   | BUTTON        | -   | -                 |
-| 7   | BUTTON_LED    | -   | -                 |
+| 4   | N/A           | 4   | SCL               |
+| 5   | N/A           | 5   | SDA               |
+| 6   | N/A        | 6   | -                 |
+| 7   | N/A    | 7   | -                 |
 | 8   | GND           | 6   | GND               |
 
 ## Specification
+- **Receiver Type:** 135-channel LOCOSYS MC-1612-V2b engine, GPS/QZSS L1 C/A, L5C, GLONASS L1OF, BeiDou B1I, B2a Galileo:E1, E5a SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
+- **Navigation Update Rate:** Max: 5Hz default Max: 10 Hz
+- **Positionaing Accuracy:** 3D Fix
+- **Time to first fix:**
+  - **Cold start:** 28s
+  - **Aided start:** EASY
+- **Sensitivity:**
+  - **Tracking & Navigation:** -165 dBm
+- **Assisted GNSS:** EASY DGPS                                             
+- **Oscillator:** 26Mhz TCXO
+- **RTC crystal:** 32.768KHz
+- **Available Antennas:** L1+L5 multi frequency antenna
+- **Signal Integrity:** L1+L5 GPS GLONASS GALILEO BEIDOU QZSS SBAS
+- **Protocols & Interfaces:**
+  - **UART/I2C:** JST_GH Main interface, Switch internally.
+                                                  
+## Further info
 
-
+- [LOCOSYS GPS User Manual](https://www.locosystech.com/Templates/att/LU23031-V2%20datasheet_v0.2.pdf?lng=en)
