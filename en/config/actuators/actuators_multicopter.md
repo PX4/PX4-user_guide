@@ -1,1 +1,0 @@
-# Actuators Setup for Multicopters
