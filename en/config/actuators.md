@@ -54,23 +54,47 @@ That means that the Control Allocation Control Surface & Servo settings are phys
 ![Plane Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
 
 Control surfaces use the following deflection direction convention:
-* **Horizontal Control Surface (e.g. Aileron)**: 'UP' equals positive deflection.
-  * Example : To roll in positive direction (banking to the right), the 'Right Aileron' needs a positive deflection.
-  * Example : To pitch in positive direction (pitching skywards), 'Both Ailerons (Right & Left)' need a positive deflection.
-* **Vertical Control Surface (e.g. Rudder)**: 'RIGHT' equals positive deflection.
-  * Example : To yaw in positive direction (clockwise rotation), conventional rudder airplane needs a positive deflection.
-* **Mixed Control Surface (e.g. V-Tail)**: 'UP' equals positive deflection.
-  * Example : To pitch in positive direction (pitching upwards),  'Both V-tail surfaces' need a positive deflection
+
+#### Horizontal Control Surface (e.g. Aileron)
+> Upwards movement equals Positive deflection
+
+'Pitch UP' control input should command positive deflection to both ailerons
+
+* Example : To pitch in positive direction (pitching skywards), 'Both Ailerons (Right & Left)' need a positive deflection.
+
+'Roll RIGHT' control input should command positive deflection to right aileron and negative deflection to left aileron
+
+* Example : To roll in positive direction (banking to the right), the 'Right Aileron' needs a positive deflection.
+
+#### Vertical Control Surface (e.g. Rudder)
+> Rightwards movement equals Positive Deflection
+
+'Yaw RIGHT' control input should command positive deflection.
+
+* Example : To yaw in positive direction (clockwise rotation), conventional rudder airplane needs a positive deflection.
+
+#### Mixed Control Surface (e.g. V-Tail)
+> Upwards movement equals Positive deflection
+
+'Pitch UP' control input should command positive deflection to both V-tails
+
+* Example : To pitch in positive direction (pitching upwards),  'Both V-tail surfaces' need a positive deflection.
+
+> Rightwards movement equals Positive Deflection
+'Yaw RIGHT' control input should command positive deflection to both V-tails.
+
+* Example : Having a V or A shaped tail in the back, positive deflection in Rightwards direction will Yaw the vehicle to the right.
+
 
 ### Motor Tilt Servos (Conceptual)
 
-Similar to the Control Surfaces, Servos can also rotate the motors themselves! This is often the case in VTOLS like [Tiltrotor airframes](/en/frames_vtol/tiltrotor.md). 
+Similar to the Control Surfaces, Servos can also rotate the motors themselves! This is often the case in a VTOL like [Tiltrotors](/en/frames_vtol/tiltrotor.md). 
 
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
-* The reference direction is upwards, indicating that a positive motor thrust will point upwards as well (negative Z direction).
-* Tilting **Front** means the servo tilts towards positive X direction.
-* Tilting **Right** means the servo tilts towards positive Y direction.
+* The reference direction is upwards, indicating that a positive commanded motor thrust will point upwards (negative Z direction).
+* Tilting **Front** means the servo tilts towards Front (Positive X direction).
+* Tilting **Right** means the servo tilts towards Right (Positive Y direction).
 * **Minimum and maximum tilt angles** specify the physical limits in degrees of the tilt at minimum & maximum control.
   :::note
   Negative angles are possible. For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
