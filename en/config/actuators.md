@@ -139,31 +139,46 @@ Selecting these requires a reboot before they are applied.
 
 ## Actuator Testing
 
-<!-- Not documented: "Identify and assign motors" -->
- 
-When testing actuators, make sure that:
-- Motors spin at the "minimum thrust" position.
+### Identifying & Assign Motors
+:::note
+This is only supported for Multirotors currently, as it requires a GUI interface
+:::
 
-  The sliders snap into place at the lower end, and motors are turned off (disarmed).
-  The "minimum thrust" position is the next slider position, which commands the minimum thrust.
-  For PWM motors, adjust the minimum output value such that the motors spin at that slider position (not required for DShot).
-  :::note
-  VTOLs will automatically turn off motors pointing upwards during fixed-wing flight.
-  For Standard VTOLs these are the motors defined as multicopter motors.
-  For Tiltrotors these are the motors that have no associated tilt servo.
-  Tailsitters use all motors in fixed-wing flight.
-  :::
-- Servos move into the direction of the convention described above.
-  :::note
-  A trim value can be configured for control surfaces, which is also applied to the test slider.
-  :::
+### Slider testing
+![Actuator Testing Slider](../../assets/config/actuators/actuator_testing_slider.png)
 
-Note the following behaviour:
+> Slider testing example with a VTOL Tiltrotor setup
+
+Sliders can be used to verify the following:
+
+1. Motors spin at the **minimum command**
+2. Motors give **positive thrust** in the expected direction
+3. **Control Surface** moves in the direction as defined in the [Convention](#control-surface-direction-conceptual)
+4. **Motor Tilt Servos** move in the direction as defined in the [Convention](#motor-tilt-servos-conceptual)
+
+To do so, follow the following instructions:
+1. Pull the Motor slider down, and it will snap in lower end, where it will command **disarmed** value to the motors, verify that it doesn't spin
+   1. For PWM output, adjust the Disarmed value in case the motor spins at the disarmed command
+2. Slowly move the Motor slider up, and it will snap in at the '**minimum** command'. Verify that the motor is spinning at the minimum speed.
+   1. For **PWM output, adjust the minimum output** value in the 'Actuator Outputs' tab on the right such that the motors barely spin
+    ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)
+   2. For DShot output, this is not required
+3. Move the Control Surface Slider upwards (positive command) and verify that it moves the surfaces in the direction defined in the [convention](#control-surface-direction-conceptual).
+   1. 
+
+Note the following behavior:
 - If a safety button is used, it must be pressed before actuator testing is allowed.
 - The kill-switch can still be used to stop motors immediately.
 - Servos do not actually move until the corresponding slider is changed.
 - The parameter [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) can be used to completely disable actuator testing.
 - On the shell, [actuator_test](../modules/modules_command.md#actuator-test) can be used as well.
+
+:::note
+  VTOLs will automatically turn off motors pointing upwards during fixed-wing flight.
+  For Standard VTOLs these are the motors defined as multicopter motors.
+  For Tiltrotors these are the motors that have no associated tilt servo.
+  Tailsitters use all motors in fixed-wing flight.
+  :::
 
 ### Reversing Motors
 
