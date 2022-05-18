@@ -1,58 +1,162 @@
 # Actuator Configuration and Testing
 
-:::note
-The *Actuators* view is only displayed if dynamic control allocation is enabled using the [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) parameter.
-This replaces geometry and mixer configuration files with configuration using parameters.
-You should also ensure that the appropriate airframe type is selected using [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
+The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
 
-The easiest way to try this out in simulation is to use the following make target, which has control allocation pre-enabled:
+The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
+
+:::note
+The *Actuators* view is only displayed if _dynamic control allocation_ is enabled, which replaces geometry and mixer configuration files with parameters.
+This is expected to be enabled by default in PX4 v1.13 (currently disabled in `master`).
+
+To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
+You may need to restart *QGroundControl*
+
+The easiest way to try this out in simulation is to use any of the following gazebo `make` targets, which have control allocation pre-enabled:
 ```
 make px4_sitl gazebo_iris_ctrlalloc
+make px4_sitl gazebo_typhoon_h480_ctrlalloc
 ```
 :::
 
-After selecting an [airframe](../config/airframe.md) you will generally need to configure the specific geometry, assign actuators to outputs, and test the actuator response.
-This can be done in *QGroundControl*, under the **Vehicle Setup > Actuators** tab.
+Open the view in *QGroundControl* here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab).
 
-The multicopter configuration screen looks like this.
+## Overview
+
+The view has three sections:
+- [Geometry](#geometry): Set any configurable geometry-related parameters for the [selected airframe](../config/airframe.md).
+  This includes the number and relative position of motors, and the number, function, and properties of [control surfaces](#control-surfaces-geometry) (ailerons, rudders, etc.).
+- [Actuator Outputs](): Assign motors, control surfaces, and other actuators to specific flight controller outputs.
+- [Actuator Testing](): Test that motors and actuators are mapped to the correct outputs, and move as expected.
+
+A quadcopter might have an setup screen similar to the one shown below.
+This defines a 4 motor copter with X-geometry, and maps each of the motors to DShot ESC.
+It also maps PWM400 AUX outputs for controlling a parachute and landing gear.
 
 ![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
-Note that some settings are hidden unless you select the **Advanced** checkbox in the top right corner.
+Note that only the most common settings are displayed by default.
+Select the **Advanced** checkbox in the top right corner to display all settings.
+
 
 ## Geometry
 
-The geometry section is used to configure any additional geometry-related settings for the selected [airframe](../config/airframe.md).
-The UI displays a customised view for the selected type; if there are no configurable options this may display a static image of the frame geometry, or nothing at all.
+The geometry section is used to set any configurable geometry-related parameters for the selected [airframe](../config/airframe.md).
+This includes the number and position of [motors](#motor-geometry), and the number, function, and properties of [control surfaces](#control-surfaces-geometry).
+For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
 
-The screenshot below shows the geometry screen for a multicopter frame, which allows you to select the number of motors, their relative positions on the frame, and their expected spin directions (select "**Direction CCW**" for counter-clockwise motors).
-This particular frame also includes an image showing the motor positions, which dynamically updates as the motors settings are changed.
+The UI is customised for the selected airframe.
+Only motors and/or control surfaces that are relevant to the airframe type are displayed or available to assign.
+If there are no configurable geometry options for a particular frame, this section could conceivably be empty.
+
+:::note
+Not all aspects of a geometry are necessarily configurable through this interface.
+Factors that cannot be configured are hard coded for the current airframe. 
+:::
+
+### Motor Geometry
+
+The motor geometry section lets you set the number motors, and the relative position, function, and other properties of each motor.
+The motor properties are similar for all frames, but there are some exceptions.
+
+Multicopter frames (only) provide a diagram showing the X, Y positions, which is useful for checking that the motors configuration is correct, and that the motors rotate in the expected direction.
+To get a feeling for the motor layout for VTOL and other vehicles see the [Airframe Reference](../airframes/airframe_reference.md)
+
+The motor geometry sections for a number of different frames are shown below.
+
+
+#### Motor Geometry: Multicopter
+
+The screenshot below shows the geometry screen for a multicopter frame with (right) and without (left) advanced settings.
+Multicopters don't have any control surfaces, so none are shown.
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry.png)
 
-A fixed wing airframe would instead display the parameters that define control surfaces, while a VTOL airframe could display both motors and control surfaces.
+The **Motors** setting lets you choose the number of motors.
+
+For each multicopter motor you can then set:
+- `Position X`: [X-position](#motor-position-coordinate-system), in metres.
+- `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
+- `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
+- `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
+- `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors) 
+- `Slew Rate`: ?
+
+The X, Y, Z positions are in [FRD relative to the centre of gravity](#motor-position-coordinate-system).
 
 
-### Position Coordinate system
+#### Motor Geometry: VTOL Tailsitter
 
-The coordinate system is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
+The default tailsitter motor geometry is shown below.
+Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
-:::note
-**Positions are relative to the Center of Gravity of the vehicle, and NOT the Autopilot location!**
-:::
+![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
-![Actuators CG reference diagram](/assets/config/actuators/Quadcopter_Actuators_CG_Reference.png)
+#### Motor Geometry: VTOL Tiltrotor
 
-### Control Surface direction (Conceptual)
+The default VTOL tiltrotor motor geometry is shown below.
+
+![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
+
+Motors have most of the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
+There is an additional field to indicate which servo is used to tilt the motor:
+
+- `Tilted by`: The associated servo used for tilting the motor.
+  The properties of this servo are defined in the [Motor Tilt Servo Geometry](#motor-tilt-servo-geometry).
+
+
+#### Motor Geometry: Standard VTOL
+
+The default standard VTOL ("quadplane") motor geometry is shown below.
+
+![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
+
+Motors have most of the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
+There is an additional field to indicate the direction in which the motor moves the vehicle (for a standard VTOL, the hover motors are usually set "upwards" and the pusher motor is set to "forwards").
+
+- `Axis`: One of `Upwards`, `Downwards`, `Forwards`, `Backwards`, `Leftwards`, `Rightwards`, `Custom`
+  - If `Custom` is selected, then the UI displays three additional fields for setting the motor orientation.
+
+#### Motor Geometry: Other Vehicles
+
+Other vehicle types will define an appropriate motor geometry for their frame type.
+Once again these motors will generally have the same kinds of properties as shown above.
+
+For example, a fixed-wing vehicle may just have a single pusher moter, while a rover with differential steering will have a motor for throttle and for steering.
+
+#### Motor Position Coordinate System
+
+The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
+The origin of the system is the vehicle centre-of-gravity (COG) (**not** the autopilot location).
+
+![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
+
+#### Bidirectional Motors
+
+Some vehicles may use bidirectional motors (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half).
+For example, ground vehicles that want to move forwards and backwards, or VTOL vehicles that have pusher motors that go in either direction.
+
+If bidiectional motors are used, make sure to select the **Reversible** checkbox for those motors (the checkbox is displayed as an "advanced" option).
+
+![Reversible](../../assets/config/actuators/qgc_geometry_reversible.png)
+
+Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
+
+
+<!-- For example, the roll scale, pitch scale, slew rate and trim can be set (where appropriate) for a control surface, but the positions of these surfaces to each other and to motors cannot be specified. -->
+
+
+### Control Surfaces Geometry
+
+### Control Surface Direction (Conceptual)
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
 > Example Control Surface Geometry setup for a Tiltrotor VTOL
 
 :::note
-It is extremely important that we decouple the concept of Control Surface, Servo and Motor Tilt directions in Control Allocation from the actual Servo output / connections in the physical vehicle.
+It is extremely important that we decouple the concept of control surface, servo and motor tilt directions in control allocation from the actual servo output / connections in the physical vehicle.
 
-That means that the Control Allocation Control Surface & Servo settings are physical vehicle independent. Therefore when we think about the Surface Movements, we imagine the ideal vehicle as shown below that moves actuators in the given direction!
+That means that the Control Allocation Control Surface & Servo settings are physical vehicle independent. Therefore when we think about the surfaces moving, we imagine the ideal vehicle as shown below that moves actuators in the given direction!
 :::
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
@@ -60,6 +164,7 @@ That means that the Control Allocation Control Surface & Servo settings are phys
 Control surfaces use the following deflection direction convention:
 
 #### Horizontal Control Surface (e.g. Aileron)
+
 > Upwards movement equals Positive deflection
 
 'Pitch UP' control input should command positive deflection to both ailerons
@@ -71,6 +176,7 @@ Control surfaces use the following deflection direction convention:
 * Example : To roll in positive direction (banking to the right), the 'Right Aileron' needs a positive deflection.
 
 #### Vertical Control Surface (e.g. Rudder)
+
 > Rightwards movement equals Positive Deflection
 
 'Yaw RIGHT' control input should command positive deflection.
@@ -78,6 +184,7 @@ Control surfaces use the following deflection direction convention:
 * Example : To yaw in positive direction (clockwise rotation), conventional rudder airplane needs a positive deflection.
 
 #### Mixed Control Surface (e.g. V-Tail)
+
 > Upwards movement equals Positive deflection
 
 'Pitch UP' control input should command positive deflection to both V-tails
@@ -89,43 +196,56 @@ Control surfaces use the following deflection direction convention:
 
 * Example : Having a V or A shaped tail in the back, positive deflection in Rightwards direction will Yaw the vehicle to the right.
 
+### Motor Tilt Servo Geometry
 
-### Motor Tilt Servos (Conceptual)
+[VTOL tiltrotor vehicles](../en/frames_vtol/tiltrotor.md) can tilt their motors to transition between hover and forward flight.
+This section defines the properties of the tilting servos.
+These are mapped to specific motors in the [motor geometry for a tiltrotor](../config/actuators.md#motor-geometry-vtol-tiltrotor).
+
+The example below shows the tilt servo setup for the [tiltrotor motor geometry shown above](../config/actuators.md#motor-geometry-vtol-tiltrotor)
+
 ![Tilt Servo Geometry Setup Example](../../assets/config/actuators/tilt_servo_geometry_config.png)
 
-> Example Tilt Servo Geometry setup for a Tiltrotor VTOL
+The values that can be set are:
+- `Tilt servos`: The number of servos (tiltable motors).
+- `Angle at min tilt`: Maximum tilt angle
+- `Angle at max tilt`: Minimum tilt angle
+- `Tilt direction`: `Towards front` (Positive X direction) or `Towards right` (Positive Y direction)
+- `Use for control`: `None`, `Yaw`, `Pitch`, `Both Yaw and Pitch`.
+  For more information see [Tilt Servos for Yaw/Pitch Control](#) below.
 
-Similar to the Control Surfaces, Servos can also rotate the motors themselves! This is often the case in a VTOL like [Tiltrotors](/en/frames_vtol/tiltrotor.md). 
+The coordinate system for tilt rotors is shown below:
 
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
-* The reference direction is upwards, indicating that a positive commanded motor thrust will point upwards (negative Z direction).
-* Tilting **Front** means the servo tilts towards Front (Positive X direction).
-* Tilting **Right** means the servo tilts towards Right (Positive Y direction).
-* **Minimum and maximum tilt angles** specify the physical limits in degrees of the tilt at minimum & maximum control.
+The reference direction is upwards.
+- Tilting **Front** means the servo tilts towards Front .
+- Tilting **Right** means the servo tilts towards Right .
+- **Minimum and maximum tilt angles** specify the physical limits in degrees of the tilt at minimum & maximum control.
+
   :::note
-  Negative angles are possible. For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
+  Negative angles are possible.
+  For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
   :::
+  
   :::note
   If a motor/tilt points downwards and tilts towards the back it is logically equivalent to a motor pointing upwards and tilting towards the front.
   :::
-* **Tilt servos can be used to control torque** on one or more axis (it's possible to only use a subset of the available tilts for a certain torque control):
-  * Yaw: the tilts are used to control yaw (generally desired).
+
+#### Tilt Servos for Yaw/Pitch Control
+
+Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle.
+
+
+
+
+ (it's possible to only use a subset of the available tilts for a certain torque control):
+  - Yaw: the tilts are used to control yaw (generally desired).
     If four or more motors are used, the motors can be used instead.
-  * Pitch: typically differential motor thrust is used to control pitch, but some airframes require pitch to be controlled by the tilt servos (Example: [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A))
-* Tiltable motors get assigned to one of the tilt servos in the setup screen.
+  - Pitch: typically differential motor thrust is used to control pitch, but some airframes require pitch to be controlled by the tilt servos (Example: [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A))
+- Tiltable motors get assigned to one of the tilt servos in the setup screen.
 
 
-### Bidirectional Motors
-
-Some vehicles may use bidirectional motors (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half).
-For example, ground vehicles that want to move forwards and backwards, or VTOL vehicles that have pusher motors that go in either direction.
-
-If bidiectional motors are used, make sure to select the **Reversible** checkbox for those motors (the checkbox is displayed as an "advanced" option).
-
-![Reversible](../../assets/config/actuators/qgc_geometry_reversible.png)
-
-Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
 
 
 ## Actuator Outputs
@@ -148,7 +268,7 @@ Selecting these requires a reboot before they are applied.
 
 ### Identify & Assign Motors
 
-![](../../assets/config/actuators/identify_motors_button.png)
+![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
 
 QGC Supports a feature of identifying the motors by sending the motor command to different output pins and letting you click on the motor to map the Motor to each Output ports.
 
@@ -161,10 +281,11 @@ To use this mode:
 4. After assigning all motors, it will automatically exit and set the Actuator Outputs settings to map correct motors to different outputs.
 
 :::note
-This is only supported for Multirotors currently, as it requires a GUI interface that shows where each motor is located at
+This is only supported for multirotors currently, as it requires a GUI interface that shows where each motor is located.
 :::
 
-### Actuator setup using Slider
+### Actuator Setup Using Slider
+
 ![Actuator Testing Slider](../../assets/config/actuators/vtol_tiltrotor_sliders_example.png)
 
 > Slider testing example with a VTOL Tiltrotor setup
@@ -177,14 +298,16 @@ Sliders can be used to verify the following:
 4. **Motor Tilt Servos** move in the direction as defined in the [Tilt Servo Convention](#motor-tilt-servos-conceptual)
 
 :::note
-The Slider has a Safety Feature built in so that even after you toggle the "Enable sliders" switch, if you don't move the slider, it won't send actuator control commands. This is to prevent unwanted action from happening just after enabling the sliders.
+The Slider has a safety feature built in so that even after you toggle the _Enable sliders_ switch, if you don't move the slider, it won't send actuator control commands.
+This is to prevent unwanted action from happening just after enabling the sliders.
 :::
 
 More detailed setup directions are described below.
 
-#### Motor setup & testing
-:::note
-Always remove the propellers from the motor before you do the Actuator testing for Safety!!
+#### Motor Setup & Testing
+
+:::warning
+Always remove the propellers from the motor before you do the actuator testing for safety!
 :::
 
 1. Pull the Motor slider down, and it will snap in lower end, where it will command **disarmed** value to the motors, verify that it doesn't spin
@@ -200,7 +323,7 @@ Always remove the propellers from the motor before you do the Actuator testing f
    2. For Fixed Wings, the thrust should point to forward direction
    3. For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#motor-tilt-servos-conceptual). Testing of the [Tilt Servo](#tilt-servo-testing) is covered below as well.
 
-#### Control Surface setup
+#### Control Surface Setup
 
 ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_disarmed_1500.png)
 
@@ -220,7 +343,8 @@ Always remove the propellers from the motor before you do the Actuator testing f
       1. Which will enable the control of Servos even when the vehicle is disarmed, and will constantly be applying the Trim setting to the Control Surfaces
       2. Here you can try setting different values for the Trim and check the alignment, and then settle on the value you are happy with.
 
-#### Tilt Servo setup
+#### Tilt Servo Setup
+
 ![Tilt Servo Setup](../../assets/config/actuators/tilt_servo_setup.png)
 
 > Setup of Tilt Servo is similar to Control Surface, as both of them uses the Servo hardware (in most cases)
@@ -235,6 +359,7 @@ Always remove the propellers from the motor before you do the Actuator testing f
 4. Position the Slider of the Tilt Servo in the highest position and **verify that the angle of motor thrust position matches the 'Angle at Max Tilt' angle set in Geometry.**
 
 #### Other Notes
+
 - If a safety button is used, it must be pressed before actuator testing is allowed.
 - The kill-switch can still be used to stop motors immediately.
 - Servos do not actually move until the corresponding slider is changed.
