@@ -24,7 +24,7 @@
 실시간 커널로 업데이트 할 수 있으며, 업데이트 하는경우 *librobotcontrol*이 실시간 커널에서 제대로 작동하는지 다시 확인합니다.
 :::
 
-이 문서를 업데이트 시점의 최신 OS 이미지는 [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz)입니다.
+The latest OS images at time of updating this document is [bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz).
 
 ## 크로스 컴파일러 빌드 (권장)
 
@@ -51,12 +51,17 @@ connmanctl>services
 #(at this point you should see your network SSID appear.)
 connmanctl>agent on
 connmanctl>connect <SSID>
+    Enter Passphrase
 connmanctl>quit
 ```
 
+:::note
+The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters. After entering the command you will be prompted to enter the wifi password.
+:::
+
 ### Beaglebone에서 SSH 루트 로그인
 
-아래의 명령어로 보드에서 루트 로그인을 활성화 할 수 있습니다.
+Root login can be enabled on the board with:
 
 ```sh
 sudo su
@@ -78,10 +83,10 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     2. **/etc/hosts**에서 BeagleBone Blue 보드를 `beaglebone`으로 정의하고 암호없는 SSH 액세스를 위해 공개 SSH 키를 보드에 복사합니다.
         
-            ssh-copy-id root@beaglebone
+            ssh-copy-id debian@beaglebone
             
     
-    3. 또는 beaglebone의 IP를 직접 사용할 수 있습니다. ```ssh-copy-id root@<IP>```
+    3. 또는 beaglebone의 IP를 직접 사용할 수 있습니다. ```ssh-copy-id debian@<IP>```
     4. 확인 메시지가 표시되면 : yes
     5. 루트 비밀번호 입력
 
@@ -89,59 +94,73 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     1. 툴체인 다운로드
         
-        1. 먼저 툴체인을 */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*에 설치합니다. 다음은 소프트 링크를 사용하여 사용할 도구 모음 버전을 선택하는 예입니다.
-            
-                mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
-                chmod -R 777 /opt/bbblue_toolchain
-                
-            
-            *BeagleBone Blue* 용 ARM 크로스 컴파일러는 [Linaro Toolchain Binaries 사이트](http://www.linaro.org/downloads/)에서 찾을 수 있습니다.
-            
-:::tip
-툴체인의 GCC는 *BeagleBone Blue*의 커널과 호환되어야 합니다. 경험상 일반적으로 GCC 버전이 *BeagleBone Blue*의 OS 이미지와 함께 제공되는 GCC 버전보다 높지 않은 도구 모음을 선택합니다.
-:::
-            
-            [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz)를 bbblue_toolchain 폴더에 다운로드하고 압축을 해제합니다.
-            
-            *BeagleBone Blue*를위한 다양한 ARM 크로스 컴파일러 버전은 [Linaro Toolchain Binaries 사이트](http://www.linaro.org/downloads/)에서 찾을 수 있습니다.
-            
-:::tip
-도구 모음의 GCC 버전은 *BeagleBone Blue* 커널과 호환되어야 합니다.
-:::
-            
-            경험상 일반적으로 GCC 버전이 *BeagleBone Blue*의 OS 이미지와 함께 제공되는 GCC 버전보다 높지 않은 도구 모음을 선택합니다.
-        
-        2. 아래와 같이 ~/.profile의 PATH에 추가합니다
+        1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
             
             ```sh
-            export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
+            mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+            chmod -R 777 /opt/bbblue_toolchain
+            cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+            ```
+            
+            The ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](https://www.linaro.org/downloads/#gnu_and_llvm).
+            
+:::tip GCC
+in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+:::
+            
+            Download and unpack [gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz](https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
+            
+            Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
+            
+            ```sh
+            wget https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
+            tar -xf gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
+            ```
+            
+:::tip
+The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+:::
+            
+            As a general rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*.
+        
+        2. Add it to the PATH in ~/.profile as shown below
+            
+            ```sh
+            export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf/bin
             ```
             
 :::note
-로그 아웃후 다시 로그인하여 변경 사항을 적용하거나 현재 셸에서 동일한 줄을 실행합니다.
+Logout and Login to apply the change, or execute the same line on your current shell.
 :::
+        
+        3. Setup other dependencies by downloading the PX4 source code and then running the setup scripts:
             
-            [개발 환경 설정](../dev_setup/dev_env_linux_ubuntu.md) 지침을 따릅니다.
-            
-            설정과 일치하도록 업로드 대상을 편집해야 할 수 있습니다.
-            
-                nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
+                git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+                bash ./Tools/setup/ubuntu.sh --no-nuttx --no-sim-tools
                 
-                #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
-                
+            
+            You may have to edit the upload target to match with your setup:
+            
+            ```sh
+            nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
+            
+            # in row 37 change debian@beaglebone.lan TO root@beaglebone (or root@<IP>)
+            ```
+            
+            See the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions for additional information.
 
 ### 교차 컴파일 및 업로드
 
-컴파일 및 업로드
+Compile and Upload
 
     make beaglebone_blue_default upload
     
 
 :::note
-업로드하지 않으면, 파일이 로컬 빌드 폴더에 저장됩니다.
+Without upload, files stored local in build folder.
 :::
 
-업로드한 파일을 테스트하려면 *BeagleBone Blue* 보드에서 다음 명령을 실행합니다.
+To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
 
 ```sh
 cd /home/debian/px4 
@@ -149,22 +168,22 @@ sudo ./bin/px4 -s px4.config
 ```
 
 :::note
-현재 *librobotcontrol*에는 루트 권한이 필요합니다.
+Currently *librobotcontrol* requires root access.
 :::
 
-<span id="native_builds"></span>
+<a id="native_builds"></a>
 
 ## 네이티브 빌드(선택 사항)
 
-BeagleBone Blue에서 직접 PX4를 빌드할 수 있습니다.
+You can also natively build PX4 builds directly on the BeagleBone Blue.
 
-사전 구축된 라이브러리를 설치후
+After acquiring the pre-built library,
 
 1. *librobotcontrol* 설치 디렉터리를 선택하고, 원하지 않는 다른 헤더가 포함되지 않도록 `LIBROBOTCONTROL_INSTALL_DIR` 환경변수를 설정합니다.
 2. **robotcontrol.h** 및 **rc/\***를 `$LIBROBOTCONTROL_INSTALL_DIR/include` 폴더에 설치합니다.
 3. 사전 빌드된 기본 (ARM) 버전의 librobotcontrol.\ *을 `$LIBROBOTCONTROL_INSTALL_DIR/lib` 폴더에 설치합니다.
 
-BeagleBone Blue에서 다음 명령을 실행합니다 (예 : SSH를 통해).
+Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 1. 종속성 설치: 
         sh
@@ -176,15 +195,15 @@ BeagleBone Blue에서 다음 명령을 실행합니다 (예 : SSH를 통해).
 
 ## Changes in config
 
-모든 변경은 beaglebone의 px4.config 파일에서 직접 수행할 수 있습니다. 예를 들어 WIFI를 wlan으로 변경할 수 있습니다.
+All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
 
 :::note
-영구적으로 변경하려면, 빌드전에 빌드 머신에서 **PX4-Autopilot/posix-configs/bbblue/px4.config**를 변경하여야 합니다.
+If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
 :::
 
 ## 부팅 중 자동 시작
 
-다음은 [/etc/rc.local] 예제입니다.
+Here is an example [/etc/rc.local]:
 
 ```sh
 #!/bin/sh -e
@@ -210,7 +229,7 @@ cd /home/debian/px4
 exit 0
 ```
 
-다음은 *systemd* 서비스 예제입니다. [/lib/systemd/system/px4-quad-copter.service] :
+Below is a *systemd* service example [/lib/systemd/system/px4-quad-copter.service]:
 
 ```sh
 [Unit]
@@ -235,19 +254,19 @@ WantedBy=multi-user.target
 
 #### 파워 서보 레일
 
-PX4가 시작되면 자동으로 서보에 전원을 공급합니다.
+When PX4 starts, it automatically applies power to servos.
 
 #### 독특한 기능
 
-BeagleBone Blue에는 다양한 WiFi 인터페이스와 전원 소스와 같은 몇 가지 고유한 기능이 있습니다. 이러한 기능을 사용하려면 **/home/debian/px4/px4.config**의 주석을 참고하십시오.
+BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
 #### SBUS 신호 변환기
 
-수신기의 SBUS 신호(예: FrSky X8R)는 반전된 신호입니다. BeagleBone Blue의 UART는 반전되지 않은 3.3V 레벨 신호에서만 작동할 수 있습니다. 이 [자습서](../tutorials/linux_sbus.md)에는 SBUS 신호 인버터 회로가 포함되어 있습니다.
+SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](../tutorials/linux_sbus.md) contains a SBUS signal inverter circuit.
 
 #### 일반적인 연결
 
-GPS와 SBUS 수신기가 있는 쿼드콥터의 경우의 일반적인 연결은 다음과 같습니다.
+For a quadcopter with GPS and an SBUS receiver, here are typical connections:
 
 1. 비글본 블루에서 모터 1, 2, 3 및 4의 ESC를 서보 출력의 채널 1, 2, 3 및 4에 연결합니다. 비글본 블루에서 ESC 커넥터에 전원 출력이 포함되어 있는 경우 핀, 제거 및 서보 채널의 전원 출력 핀에 연결하지 마십시오. 
 

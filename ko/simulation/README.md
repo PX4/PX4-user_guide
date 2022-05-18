@@ -66,8 +66,7 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 및 오프보드 API용 포트는 파일에서 설정되는 반면에, 시뮬레이터 브로드캐스트 포트는 시뮬레이션 MAVLink 모듈에서 하드 코딩되어 있습니다. See [System Startup](../concept/system_startup.md) to learn more.
 :::
 
-
-<!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 --> 
+<!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 -->
 
 
 ## SITL 시뮬레이션 환경
@@ -140,7 +139,8 @@ make px4_sitl jmavsim
 ```
 
 :::note
-어느 시점에서 IO 또는 CPU는 컴퓨터의 가능한 속도를 제한하고 "자동으로" 느려집니다. 강력한 데스크탑 컴퓨터는 일반적으로 약 6-10x에서 시뮬레이션할 수 있으며, 노트북의 경우의 최고 속도는 약 3-4x 입니다.
+어느 시점에서 IO 또는 CPU는 컴퓨터의 가능한 속도를 제한하고 "자동으로" 느려집니다.
+강력한 데스크탑 컴퓨터는 일반적으로 약 6-10x에서 시뮬레이션할 수 있으며, 노트북의 경우의 최고 속도는 약 3-4x 입니다.
 :::
 
 :::note PX4가 데이터 링크 시간 초과를 감지하지 않도록, 시뮬레이션 속도에 비례하여 매개변수 [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) 값을 증가시키십시오. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
@@ -209,7 +209,7 @@ PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
-:::note
+   :::note
 카메라 MAVLink 메시지 이상은 전달되지만, 카메라는 관련이 없는 것으로 간주되는 메시지들은 무시합니다.
 :::
 

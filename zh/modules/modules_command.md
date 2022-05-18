@@ -481,15 +481,15 @@ perf [arguments...]
 注意，在 OneShot 模式下， PWM 范围 [1000, 2000] 会被自动映射到 [125, 250] 。
 
 ### 示例
+
 将所有通道的 PWM 频率设置为 400 Hz:
 ```
 pwm rate -a -r 400
 ```
 
-测试输出，例如 1 和 3 通道，并设置 PWM 脉宽值为 1200 微妙
+Arm and set the outputs of channels 1 and 3 to a PWM value to 1200 us:
 ```
-pwm arm
-pwm test -c 13 -p 1200
+pwm min -c 13 -p 1200
 ```
 
 <a id="pwm_usage"></a>

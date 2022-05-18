@@ -54,7 +54,7 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 미션 모드에서 발사하려면:
 1. 임무 **시작**에 고정 날개 이륙 항목을 추가합니다.
 
-:::tip
+   :::tip
 이륙 항목 최소 피치 매개 변수를 기체에 적합한 값으로 설정하십시오!
 :::
 1. 임무 모드로 전환합니다.

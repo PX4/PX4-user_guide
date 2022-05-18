@@ -15,7 +15,8 @@ Note the following PX4-specific behaviour:
 
 If one or more of the motors do not turn in the correct direction according to the configured [airframe](../airframes/airframe_reference.md), they must be reversed. There are several options:
 - [DShot](../peripherals/dshot.md)을 지원하는 ESC를 사용하는 경우 [DShot 명령](../peripherals/dshot.md#commands)을 통해 방향을 바꿀 수 있습니다.
-- 모터 케이블 3개 중 2개를 바꿉니다 (어떤 케이블이든 상관 없음). :::note 모터가 총알 커넥터를 통해 연결되지 않은 경우 납땜을 다시 하여야 합니다 (이러한 이유로 DShot ESC를 선호합니다).
+- 모터 케이블 3개 중 2개를 바꿉니다 (어떤 케이블이든 상관 없음). :::note
+모터가 총알 커넥터를 통해 연결되지 않은 경우 납땜을 다시 하여야 합니다 (이러한 이유로 DShot ESC를 선호합니다).
 :::
 
 The following additional checks should be performed to validate that the vehicle is setup correctly:

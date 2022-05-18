@@ -27,7 +27,9 @@ PX4 uses the following MAVLink messages for getting external position informatio
 
 EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
-:::tip EKF2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
+:::tip
+EKF2 is the default estimator used by PX4.
+It is better tested and supported than LPE, and should be used by preference.
 :::
 
 The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz. If the message rate is too low, EKF2 will not fuse the external vision messages.

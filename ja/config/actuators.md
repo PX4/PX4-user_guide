@@ -55,7 +55,10 @@ If a servo does not move in the expected direction set in the geometry, you can 
 Tilt servos are configured as follows:
 - The reference direction is upwards (negative Z direction).
 - Tilt direction: **Towards Front** means the servo tilts towards positive X direction, whereas **Towards Right** means towards positive Y direction.
-- Minimum and maximum tilt angles: specify the physical limits in degrees of the tilt at minimum control and maximum respectively. An angle of 0° means to point upwards, then increases towards the tilt direction. :::note Negative angles are possible. For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum. ::: :::note If a motor/tilt points downwards and tilts towards the back it is logically equivalent to a motor pointing upwards and tilting towards the front.
+- Minimum and maximum tilt angles: specify the physical limits in degrees of the tilt at minimum control and maximum respectively. An angle of 0° means to point upwards, then increases towards the tilt direction. :::note
+Negative angles are possible. For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
+::: :::note
+If a motor/tilt points downwards and tilts towards the back it is logically equivalent to a motor pointing upwards and tilting towards the front.
 :::
 - Control: depending on the airframe, tilt servos can be used to control torque on one or more axis (it's possible to only use a subset of the available tilts for a certain torque control):
   - Yaw: the tilts are used to control yaw (generally desired). If four or more motors are used, the motors can be used instead.
@@ -96,9 +99,14 @@ The AUX pins have additional configuration options for camera capture/triggering
 When testing actuators, make sure that:
 - Motors spin at the "minimum thrust" position.
 
-  The sliders snap into place at the lower end, and motors are turned off (disarmed). The "minimum thrust" position is the next slider position, which commands the minimum thrust. For PWM motors, adjust the minimum output value such that the motors spin at that slider position (not required for DShot). :::note VTOLs will automatically turn off motors pointing upwards during fixed-wing flight. For Standard VTOLs these are the motors defined as multicopter motors. For Tiltrotors these are the motors that have no associated tilt servo. Tailsitters use all motors in fixed-wing flight.
+  The sliders snap into place at the lower end, and motors are turned off (disarmed). The "minimum thrust" position is the next slider position, which commands the minimum thrust. For PWM motors, adjust the minimum output value such that the motors spin at that slider position (not required for DShot). :::note
+VTOLs will automatically turn off motors pointing upwards during fixed-wing flight.
+For Standard VTOLs these are the motors defined as multicopter motors.
+For Tiltrotors these are the motors that have no associated tilt servo.
+Tailsitters use all motors in fixed-wing flight.
 :::
-- Servos move into the direction of the convention described above. :::note A trim value can be configured for control surfaces, which is also applied to the test slider.
+- Servos move into the direction of the convention described above. :::note
+A trim value can be configured for control surfaces, which is also applied to the test slider.
 :::
 
 Note the following behaviour:
@@ -116,6 +124,6 @@ There are several options:
 - If the ESCs are configured as [DShot](../peripherals/dshot.md) you can reverse the direction via UI (**Set Spin Direction** buttons). Note that the current direction cannot be queried, so you might have to try both options.
 - Swap 2 of the 3 motor cables (it does not matter which ones).
 
-:::note
+  :::note
 If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
 :::

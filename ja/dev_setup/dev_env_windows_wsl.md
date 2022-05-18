@@ -245,6 +245,7 @@ Do the following steps to flash your custom binary built in WSL:
 1. In QGC go to **Q > Vehicle Setup > Firmware**
 1. Plug your pixhawk board via USB
 1. Once connected select "PX4 Flight Stack", check "Advanced settings" and choose "Custom firmware file ..." from the drop down below.
-1. Continue and select the firmware binary you just built before. In the open dialog look for the "Linux" location with the penguin icon in the left pane. It's usually all the way at the bottom. Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4` :::note You can add the folder to the favourites to access it quickly next time.
+1. Continue and select the firmware binary you just built before. In the open dialog look for the "Linux" location with the penguin icon in the left pane. It's usually all the way at the bottom. Choose the file in the path: `Ubuntu\home\{your WSL user name}\PX4-Autopilot\build\{your build target}\{your build target}.px4` :::note
+You can add the folder to the favourites to access it quickly next time.
 :::
 1. Start the flashing.

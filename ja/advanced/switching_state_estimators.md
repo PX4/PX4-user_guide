@@ -2,7 +2,8 @@
 
 This page shows you which state estimators are available and how you can switch between them.
 
-:::tip EKF2 is highly recommended for all purposes (LPE is no longer supported/maintained).
+:::tip
+EKF2 is highly recommended for all purposes (LPE is no longer supported/maintained).
 :::
 
 ## Available Estimators

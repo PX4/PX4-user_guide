@@ -110,7 +110,9 @@ The steps are:
    ```
    make ark_can-flow_default
    ```
-1. That will have created a binary in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the Ark Flow. Next time you power your flight controller with the SD card installed, Ark Flow will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the ufw directory of the SD card. :::note The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
+1. That will have created a binary in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the Ark Flow. Next time you power your flight controller with the SD card installed, Ark Flow will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the ufw directory of the SD card.  :::note
+ The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
+
 :::
 
 

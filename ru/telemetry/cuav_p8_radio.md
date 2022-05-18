@@ -53,8 +53,8 @@ On some flight controllers, or if used with a different serial port, you may nee
 
 Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module. The required cables are included in the package.
 
-:::tip CUAV
-P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC.
+:::tip
+CUAV P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC.
 :::
 
 ## More information

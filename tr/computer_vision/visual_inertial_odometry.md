@@ -6,7 +6,7 @@ VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to est
 
 This topic shows how to set up PX4 and a companion computer to use the *supported* VIO setup.
 
-<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <!-- https://youtu.be/gWtrka2mK7U -->
 
 :::tip

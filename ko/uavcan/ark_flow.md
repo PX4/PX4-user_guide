@@ -110,7 +110,9 @@ The steps are:
    ```
    make ark_can-flow
    ```
-1. **build/ark_can-flow_default**에 **XX-X.X.XXXXXXXX.uavcan.bin**이라는 바이너리가 생성됩니다. 이 바이너리를 비행 컨트롤러 SD 카드의 루트 디렉터리에 저장하여 Ark Flow를 플래시합니다. 다음으로 SD 카드가 설치된 상태에서 비행 컨트롤러의 전원을 켜면 Ark Flow가 자동으로 깜박이고 바이너리가 더 이상 루트 디렉터리에 없고 이제  SD 카드의 ufw 디렉토리에 **80.bin**이라는 파일이 생깁니다. :::note 전원을 켤 때 비행 컨트롤러에 SD 카드가 없으면, Ark Flow가 부팅되지 않습니다.
+1. **build/ark_can-flow_default**에 **XX-X.X.XXXXXXXX.uavcan.bin**이라는 바이너리가 생성됩니다. 이 바이너리를 비행 컨트롤러 SD 카드의 루트 디렉터리에 저장하여 Ark Flow를 플래시합니다. 다음으로 SD 카드가 설치된 상태에서 비행 컨트롤러의 전원을 켜면 Ark Flow가 자동으로 깜박이고 바이너리가 더 이상 루트 디렉터리에 없고 이제  SD 카드의 ufw 디렉토리에 **80.bin**이라는 파일이 생깁니다.  :::note
+전원을 켤 때 비행 컨트롤러에 SD 카드가 없으면, Ark Flow가 부팅되지 않습니다.
+
 :::
 
 
