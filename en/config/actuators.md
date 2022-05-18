@@ -23,10 +23,10 @@ Open the view in *QGroundControl* here: **"Q" (app menu) > Vehicle Setup > Actua
 ## Overview
 
 The view has three sections:
-- [Geometry](#geometry): Set any configurable geometry-related parameters for the [selected airframe](../config/airframe.md).
-  This includes the number and relative position of motors, and the number, function, and properties of [control surfaces](#control-surfaces-geometry) (ailerons, rudders, etc.).
-- [Actuator Outputs](): Assign motors, control surfaces, and other actuators to specific flight controller outputs.
-- [Actuator Testing](): Test that motors and actuators are mapped to the correct outputs, and move as expected.
+- [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md).
+  This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
+- [Actuator Outputs](#actuator-outputs): Assign motors, control surfaces, and other actuators to specific output.
+- [Actuator Testing](#actuator-testing): Test that motors and actuators are mapped to the correct outputs, and move as expected.
 
 A quadcopter might have an setup screen similar to the one shown below.
 This defines a 4 motor copter with X-geometry, and maps each of the motors to DShot ESC.
@@ -46,7 +46,6 @@ For VTOL tiltrotor vehicles, it will also include the number and properties of [
 
 The UI is customised for the selected airframe.
 Only motors and/or control surfaces that are relevant to the airframe type are displayed or available to assign.
-If there are no configurable geometry options for a particular frame, this section could conceivably be empty.
 
 :::note
 Not all aspects of a geometry are necessarily configurable through this interface.
@@ -55,13 +54,20 @@ Factors that cannot be configured are hard coded for the current airframe.
 
 ### Motor Geometry
 
-The motor geometry section lets you set the number motors, and the relative position, function, and other properties of each motor.
-The motor properties are similar for all frames, but there are some exceptions.
+The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor. The motor properties are similar for all frames, but there are some exceptions.
 
-Multicopter frames (only) provide a diagram showing the X, Y positions, which is useful for checking that the motors configuration is correct, and that the motors rotate in the expected direction.
-To get a feeling for the motor layout for VTOL and other vehicles see the [Airframe Reference](../airframes/airframe_reference.md)
+Multicopter airframe provides a diagram in QGC showing the X, Y positions, which is useful for checking whether the motors configuration is correct. To get a feeling for the motor layout for VTOL and other vehicles see the [Airframe Reference](../airframes/airframe_reference.md)
 
-The motor geometry sections for a number of different frames are shown below.
+The motor geometry explanations for a number of different frames are described below.
+
+
+#### Motor Position Coordinate System
+
+The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
+
+The **origin is the vehicle's centre-of-gravity (COG)**, and **NOT** the autopilot location).
+
+![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
 
 
 #### Motor Geometry: Multicopter
@@ -69,25 +75,29 @@ The motor geometry sections for a number of different frames are shown below.
 The screenshot below shows the geometry screen for a multicopter frame with (right) and without (left) advanced settings.
 Multicopters don't have any control surfaces, so none are shown.
 
-![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry.png)
+![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
-The **Motors** setting lets you choose the number of motors.
+First, the **Motors** drop-down setting lets you choose the number of motors, which is 4 for the example above.
 
-For each multicopter motor you can then set:
+For each motor you can then set:
 - `Position X`: [X-position](#motor-position-coordinate-system), in metres.
 - `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
 - `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
-- `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
-- `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors) 
-- `Slew Rate`: ?
+- (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
+- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors) 
+- (Advanced) `Slew Rate`: ?
 
-The X, Y, Z positions are in [FRD relative to the centre of gravity](#motor-position-coordinate-system).
+The X, Y, Z positions are in [FRD coordinate frame, relative to the centre of gravity](#motor-position-coordinate-system).
 
 
-#### Motor Geometry: VTOL Tailsitter
+#### Motor Geometry: VTOL Quadrotor Tailsitter
 
-The default tailsitter motor geometry is shown below.
-Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
+VTOL Quadrotor is a tailsitter with 4 motors like a quadcopter as shown below.
+
+![VTOL Quadrotor Tailsitter](../../assets/airframes/types/VTOLQuadRotorTailSitter.svg)
+![VTOL Quadrotor Tailsitter Real Example](../../assets/airframes/vtol/skypull/skypull_sp1.jpg)
+
+The default motor geometry is shown below. Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
@@ -95,10 +105,11 @@ Motors have the same configuration fields as for the [multicopter geometry](#mot
 
 The default VTOL tiltrotor motor geometry is shown below.
 
+![Tiltrotor VTOL Airframe](../../assets/airframes/types/VTOLTiltRotor.svg)
+
 ![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
 
-Motors have most of the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
-There is an additional field to indicate which servo is used to tilt the motor:
+For 
 
 - `Tilted by`: The associated servo used for tilting the motor.
   The properties of this servo are defined in the [Motor Tilt Servo Geometry](#motor-tilt-servo-geometry).
@@ -123,21 +134,14 @@ Once again these motors will generally have the same kinds of properties as show
 
 For example, a fixed-wing vehicle may just have a single pusher moter, while a rover with differential steering will have a motor for throttle and for steering.
 
-#### Motor Position Coordinate System
-
-The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
-The origin of the system is the vehicle centre-of-gravity (COG) (**not** the autopilot location).
-
-![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
-
 #### Bidirectional Motors
 
-Some vehicles may use bidirectional motors (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half).
+Some vehicles may use bidirectional motors (i.e. motor supports spinning in both directions)
 For example, ground vehicles that want to move forwards and backwards, or VTOL vehicles that have pusher motors that go in either direction.
 
 If bidiectional motors are used, make sure to select the **Reversible** checkbox for those motors (the checkbox is displayed as an "advanced" option).
 
-![Reversible](../../assets/config/actuators/qgc_geometry_reversible.png)
+![Reversible](../../assets/config/actuators/qgc_geometry_reversible_marked.png)
 
 Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
 
