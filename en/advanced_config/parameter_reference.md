@@ -29557,7 +29557,7 @@ table {
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
  <td>Duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition</p>   </td>
- <td>0.00 > 20.00 (1)</td>
+ <td>0.1 > 20.00 (1)</td>
  <td>4.0</td>
  <td>s</td>
 </tr>
@@ -29647,13 +29647,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_FW_PERM_STAB">VT_FW_PERM_STAB</strong> (INT32)</td>
- <td>Permanent stabilization in fw mode <p><strong>Comment:</strong> If set to one this parameter will cause permanent attitude stabilization in fw mode. This parameter has been introduced for pure convenience sake.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
  <td>QuadChute Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
  <td>0 > 180 </td>
@@ -29670,7 +29663,7 @@ table {
 <tr>
  <td><strong id="VT_F_TRANS_DUR">VT_F_TRANS_DUR</strong> (FLOAT)</td>
  <td>Duration of a front transition <p><strong>Comment:</strong> Time in seconds used for a transition</p>   </td>
- <td>0.00 > 20.00 (1)</td>
+ <td>0.1 > 20.00 (1)</td>
  <td>5.0</td>
  <td>s</td>
 </tr>
@@ -29696,8 +29689,8 @@ table {
  <td>us</td>
 </tr>
 <tr>
- <td><strong id="VT_LND_PTCH_MIN">VT_LND_PTCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PTCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
+ <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
  <td>-10.0 > 45.0 </td>
  <td>-5.0</td>
  <td></td>
@@ -29717,17 +29710,17 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="VT_PITCH_MIN">VT_PITCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
+ <td>-10.0 > 45.0 </td>
+ <td>-5.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
  <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
  <td>? > 20 (0.01)</td>
  <td>3.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="VT_PTCH_MIN">VT_PTCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
- <td>-10.0 > 45.0 </td>
- <td>-5.0</td>
  <td></td>
 </tr>
 <tr>
@@ -29782,7 +29775,7 @@ table {
 <tr>
  <td><strong id="VT_TRANS_TIMEOUT">VT_TRANS_TIMEOUT</strong> (FLOAT)</td>
  <td>Front transition timeout <p><strong>Comment:</strong> Time in seconds after which transition will be cancelled. Disabled if set to 0.</p>   </td>
- <td>0.00 > 30.00 (1)</td>
+ <td>0.1 > 30.00 (1)</td>
  <td>15.0</td>
  <td>s</td>
 </tr>
