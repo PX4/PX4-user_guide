@@ -10909,7 +10909,7 @@ table {
  <td><strong id="COM_BAT_ACT_T">COM_BAT_ACT_T</strong> (FLOAT)</td>
  <td>Delay between battery state change and failsafe reaction <p><strong>Comment:</strong> Battery state requires action -> wait COM_BAT_ACT_T seconds in Hold mode for the user to realize and take a custom action -> React with failsafe action COM_LOW_BAT_ACT A zero value disables the delay.</p>   </td>
  <td>0.0 > 25.0 </td>
- <td>10.0</td>
+ <td>5.</td>
  <td>s</td>
 </tr>
 <tr>
