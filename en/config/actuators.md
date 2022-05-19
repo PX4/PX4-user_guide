@@ -148,54 +148,39 @@ Note that you will need to also ensure that the ESC associated with bidirectiona
 
 ### Control Surfaces Geometry
 
-### Control Surface Direction (Conceptual)
+The control surfaces section of the geometry panel lets you set the number of control surfaces that are present on the vehicle.
+You can then specify the type of each individual surface, and configure the appropriate scaling values for the Roll scale, Yaw scale, Pitch scale, Trim and Slew rate (advanced).
+
+An "example" control surface section for a vehicle with two ailerons is shown below.
+Note that ailerons only affect roll, so the pitch and yaw fields are disabled.
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-> Example Control Surface Geometry setup for a Tiltrotor VTOL
+The fields are:
 
-:::note
-It is extremely important that we decouple the concept of control surface, servo and motor tilt directions in control allocation from the actual servo output / connections in the physical vehicle.
+- `Control Surfaces`: The number of control surfaces (set this first!)
+- `Type`: The type of each control surface: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder`, `Left Elevon`, `Right Elevon`, `Left V-Tail`, `Right V-Tail`, `Left Flap`, `Right Flap`, `Airbrakes`, `Custom`.
+- `Roll scale`: Roll scale (normalised: -1 to 1)
+- `Pitch scale`: Pitch scale (normalised: -1 to 1)
+- `Yaw scale`: Yaw scale (normalised: -1 to 1)
+- `Trim`: ?
+- `Skew`: ?
 
-That means that the Control Allocation Control Surface & Servo settings are physical vehicle independent. Therefore when we think about the surfaces moving, we imagine the ideal vehicle as shown below that moves actuators in the given direction!
-:::
+The scaling values are normalised (-1 to 1), decoupling the outputs of PX4 controllers from the physical servo control signals.
+
+#### Control Surface Deflection Convention
+
+The diagram below shows the convention for deflections:
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
 
-Control surfaces use the following deflection direction convention:
-
-#### Horizontal Control Surface (e.g. Aileron)
-
-> Upwards movement equals Positive deflection
-
-'Pitch UP' control input should command positive deflection to both ailerons
-
-* Example : To pitch in positive direction (pitching skywards), 'Both Ailerons (Right & Left)' need a positive deflection.
-
-'Roll RIGHT' control input should command positive deflection to right aileron and negative deflection to left aileron
-
-* Example : To roll in positive direction (banking to the right), the 'Right Aileron' needs a positive deflection.
-
-#### Vertical Control Surface (e.g. Rudder)
-
-> Rightwards movement equals Positive Deflection
-
-'Yaw RIGHT' control input should command positive deflection.
-
-* Example : To yaw in positive direction (clockwise rotation), conventional rudder airplane needs a positive deflection.
-
-#### Mixed Control Surface (e.g. V-Tail)
-
-> Upwards movement equals Positive deflection
-
-'Pitch UP' control input should command positive deflection to both V-tails
-
-* Example : To pitch in positive direction (pitching upwards),  'Both V-tail surfaces' need a positive deflection.
-
-> Rightwards movement equals Positive Deflection
-'Yaw RIGHT' control input should command positive deflection to both V-tails.
-
-* Example : Having a V or A shaped tail in the back, positive deflection in Rightwards direction will Yaw the vehicle to the right.
+In summary:
+- **Horizontal Control Surfaces:** Upwards movement equals positive deflection.
+  Includes Ailerons, ...
+- **Vertical Control Surfaces:** Rightwards movement is positive deflection
+  Includes rudders etc.
+- **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above)
+  Includes V-Tail etc.
 
 
 ### Motor Tilt Servo Geometry
