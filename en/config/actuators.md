@@ -200,16 +200,11 @@ The values that can be set are:
 - `Angle at min tilt`: [Maximum tilt angle](#tilt-servo-coordinate-system), relative to the z axis (degrees).
 - `Angle at max tilt`: [Minimum tilt angle](#tilt-servo-coordinate-system), relative to the z-axis (degrees).
 - `Tilt direction`: `Towards front` (Positive X direction) or `Towards right` (Positive Y direction).
-- `Use for control`:
+- `Use for control`: [Tilt server used for yaw/pitch](#tilt-servos-for-yaw-pitch-control)
   - `None`: Torque control is not used.
   - `Yaw`: Tilt servos used to control yaw.
   - `Pitch`: Tilt servos used to control pitch.
   - `Both Yaw and Pitch`: Tilt servos are used to control both yaw and pitch.
-  :::note
-  Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle:
-  - Yaw is commonly set in this way, though motors can be used instead on vehicles with four or more motors.
-  - Pitch is more commonly controlled using differential motors thrust.
-    Control using tilt servos is useful on airframes that can't use differential thrust, such as a [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A).
 
 
 #### Tilt Servo Coordinate System
@@ -233,6 +228,14 @@ For example:
 
 The `Tilt direction` indicates whether the servo tilts in the plane towards the `Front` or `Right` of the vehicle of the vehicle (at the moment the assumption is that it can only tilt in these directions).
 
+#### Tilt Servos for Yaw/Pitch Control
+
+Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle:
+- Yaw is commonly set in this way, though motors are often used instead on vehicles with four or more motors.
+- Pitch is more commonly controlled using differential motors thrust.
+  Control using tilt servos is useful on airframes that can't use differential thrust, such as a [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A).
+
+Whether this feature is used is configured in the `Use for control` setting.
 
 ## Actuator Outputs
 
