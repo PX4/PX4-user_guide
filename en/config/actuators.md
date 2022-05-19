@@ -146,9 +146,6 @@ If bidiectional motors are used, make sure to select the **Reversible** checkbox
 Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
 
 
-<!-- For example, the roll scale, pitch scale, slew rate and trim can be set (where appropriate) for a control surface, but the positions of these surfaces to each other and to motors cannot be specified. -->
-
-
 ### Control Surfaces Geometry
 
 ### Control Surface Direction (Conceptual)
@@ -200,9 +197,10 @@ Control surfaces use the following deflection direction convention:
 
 * Example : Having a V or A shaped tail in the back, positive deflection in Rightwards direction will Yaw the vehicle to the right.
 
+
 ### Motor Tilt Servo Geometry
 
-[VTOL tiltrotor vehicles](../en/frames_vtol/tiltrotor.md) can tilt their motors to transition between hover and forward flight.
+[VTOL tiltrotor vehicles](../frames_vtol/tiltrotor.md) can tilt their motors to transition between hover and forward flight.
 This section defines the properties of the tilting servos.
 These are mapped to specific motors in the [motor geometry for a tiltrotor](../config/actuators.md#motor-geometry-vtol-tiltrotor).
 
@@ -215,41 +213,36 @@ The values that can be set are:
 - `Angle at min tilt`: Maximum tilt angle
 - `Angle at max tilt`: Minimum tilt angle
 - `Tilt direction`: `Towards front` (Positive X direction) or `Towards right` (Positive Y direction)
-- `Use for control`: `None`, `Yaw`, `Pitch`, `Both Yaw and Pitch`.
-  For more information see [Tilt Servos for Yaw/Pitch Control](#) below.
+- `Use for control`: 
+  - `None`: Torque control is not used.
+  - `Yaw`: Tilt servos used to control yaw.
+  - `Pitch`: Tilt servos used to control pitch.
+  - `Both Yaw and Pitch`: Tilt servos are used to control both yaw and pitch.
 
-The coordinate system for tilt rotors is shown below:
+  :::note
+  Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle:
+  - Yaw is commonly set in this way, though motors can be used instead on vehicles with four or more motors.
+  - Pitch is more commonly controlled using differential motors thrust.
+    Control using tilt servos is useful on airframes that can't use differential thrust, such as a [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A).
+
+
+The coordinate system for tilt rotor angles is shown below:
 
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
 The reference direction is upwards.
-- Tilting **Front** means the servo tilts towards Front .
-- Tilting **Right** means the servo tilts towards Right .
+- Tilting **Front** means the servo tilts towards Front.
+- Tilting **Right** means the servo tilts towards Right.
 - **Minimum and maximum tilt angles** specify the physical limits in degrees of the tilt at minimum & maximum control.
 
   :::note
   Negative angles are possible.
   For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
   :::
-  
+
   :::note
   If a motor/tilt points downwards and tilts towards the back it is logically equivalent to a motor pointing upwards and tilting towards the front.
   :::
-
-#### Tilt Servos for Yaw/Pitch Control
-
-Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle.
-
-
-
-
- (it's possible to only use a subset of the available tilts for a certain torque control):
-  - Yaw: the tilts are used to control yaw (generally desired).
-    If four or more motors are used, the motors can be used instead.
-  - Pitch: typically differential motor thrust is used to control pitch, but some airframes require pitch to be controlled by the tilt servos (Example: [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A))
-- Tiltable motors get assigned to one of the tilt servos in the setup screen.
-
-
 
 
 ## Actuator Outputs
