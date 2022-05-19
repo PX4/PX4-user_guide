@@ -197,10 +197,10 @@ The example below shows the tilt servo setup for the [tiltrotor motor geometry s
 
 The values that can be set are:
 - `Tilt servos`: The number of servos (tiltable motors).
-- `Angle at min tilt`: Maximum tilt angle
-- `Angle at max tilt`: Minimum tilt angle
-- `Tilt direction`: `Towards front` (Positive X direction) or `Towards right` (Positive Y direction)
-- `Use for control`: 
+- `Angle at min tilt`: [Maximum tilt angle](#tilt-servo-coordinate-system), relative to the z axis (degrees).
+- `Angle at max tilt`: [Minimum tilt angle](#tilt-servo-coordinate-system), relative to the z-axis (degrees).
+- `Tilt direction`: `Towards front` (Positive X direction) or `Towards right` (Positive Y direction).
+- `Use for control`:
   - `None`: Torque control is not used.
   - `Yaw`: Tilt servos used to control yaw.
   - `Pitch`: Tilt servos used to control pitch.
@@ -212,23 +212,26 @@ The values that can be set are:
     Control using tilt servos is useful on airframes that can't use differential thrust, such as a [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A).
 
 
+#### Tilt Servo Coordinate System
+
 The coordinate system for tilt rotor angles is shown below:
 
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
 The reference direction is upwards.
-- Tilting **Front** means the servo tilts towards Front.
-- Tilting **Right** means the servo tilts towards Right.
-- **Minimum and maximum tilt angles** specify the physical limits in degrees of the tilt at minimum & maximum control.
+For example:
+- a servo pointing upwards has an angle of zero
+- a servo pointing forwards or right would have an angle of 90 degrees.
+- A servo pointing backwards or left would have an angle of -90 degrees.
 
-  :::note
-  Negative angles are possible.
-  For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
-  :::
+The `Angle at min tilt` and `Angle at max tilt` indicate the ranges of movement for the tilt server.
+The minimum is the smaller _numerical value_ (not absolute)  of the two angles.
+For example:
+- A servo that moves between the upright and forward postions would have `min=0` and `max=90`. 
+- A servo that moves symmetrically around the upright position might have `min=-45` and `max=45`
+- A servo that moves between the upright and backward positions would have `min=-90` and `max=0`.
 
-  :::note
-  If a motor/tilt points downwards and tilts towards the back it is logically equivalent to a motor pointing upwards and tilting towards the front.
-  :::
+The `Tilt direction` indicates whether the servo tilts in the plane towards the `Front` or `Right` of the vehicle of the vehicle (at the moment the assumption is that it can only tilt in these directions).
 
 
 ## Actuator Outputs
