@@ -9,7 +9,7 @@ The *Actuators* view is only displayed if _dynamic control allocation_ is enable
 This is expected to be enabled by default in PX4 v1.13 (currently disabled in `master`).
 
 To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
-You may need to restart *QGroundControl*
+You may need to restart *QGroundControl*. <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/systemlib/system_params.c#L298 -->
 
 The easiest way to try this out in simulation is to use any of the following gazebo `make` targets, which have control allocation pre-enabled:
 ```
@@ -44,21 +44,22 @@ The geometry section is used to set any configurable geometry-related parameters
 This includes the number and position of [motors](#motor-geometry), and the number, function, and properties of [control surfaces](#control-surfaces-geometry).
 For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
 
-The UI is customised for the selected airframe.
-Only motors and/or control surfaces that are relevant to the airframe type are displayed or available to assign.
-
 :::note
-Not all aspects of a geometry are necessarily configurable through this interface.
-Factors that cannot be configured are hard coded for the current airframe. 
+The UI is customised for the selected airframe.
+Only the motors and/or control surface options that are configurable for the airframe type are displayed.
 :::
 
 ### Motor Geometry
 
-The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor. The motor properties are similar for all frames, but there are some exceptions.
+The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor.
 
-Multicopter airframe provides a diagram in QGC showing the X, Y positions, which is useful for checking whether the motors configuration is correct. To get a feeling for the motor layout for VTOL and other vehicles see the [Airframe Reference](../airframes/airframe_reference.md)
+Most motor properties apply to all frames.
+A few properties apply to specific frames.
+For example, as `Tilted-by` and `axis` are only relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
 
-The motor geometry explanations for a number of different frames are described below.
+Multicopter airframe provides a diagram in QGC showing the X, Y positions, which is useful for checking whether the motors configuration is correct. To get a feeling for the motor layout for VTOL and other vehicles see the [Airframe Reference](../airframes/airframe_reference.md).
+
+Core geometry concepts and the configuration for a number of different frames are provided in the following sections.
 
 
 #### Motor Position Coordinate System
@@ -72,12 +73,17 @@ The **origin is the vehicle's centre-of-gravity (COG)**, and **NOT** the autopil
 
 #### Motor Geometry: Multicopter
 
-The screenshot below shows the geometry screen for a multicopter frame with (right) and without (left) advanced settings.
+The image below shows the geometry setup for a multicopter frame with and without advanced settings.
 Multicopters don't have any control surfaces, so none are shown.
+
+:::note
+Specifically this is the motor geometry for a [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) muticopter.
+Other multicopters frames are configured similarly.
+:::
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
-First, the **Motors** drop-down setting lets you choose the number of motors, which is 4 for the example above.
+First, the **Motors** drop-down setting lets you choose the number of motors (4 for the example above).
 
 For each motor you can then set:
 - `Position X`: [X-position](#motor-position-coordinate-system), in metres.
@@ -92,24 +98,18 @@ The X, Y, Z positions are in [FRD coordinate frame, relative to the centre of gr
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
-VTOL Quadrotor is a tailsitter with 4 motors like a quadcopter as shown below.
+The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
 
-![VTOL Quadrotor Tailsitter](../../assets/airframes/types/VTOLQuadRotorTailSitter.svg)
-![VTOL Quadrotor Tailsitter Real Example](../../assets/airframes/vtol/skypull/skypull_sp1.jpg)
-
-The default motor geometry is shown below. Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
+Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
+
 #### Motor Geometry: VTOL Tiltrotor
 
-The default VTOL tiltrotor motor geometry is shown below.
-
-![Tiltrotor VTOL Airframe](../../assets/airframes/types/VTOLTiltRotor.svg)
+The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
 
 ![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
-
-For 
 
 - `Tilted by`: The associated servo used for tilting the motor.
   The properties of this servo are defined in the [Motor Tilt Servo Geometry](#motor-tilt-servo-geometry).
@@ -117,7 +117,7 @@ For
 
 #### Motor Geometry: Standard VTOL
 
-The default standard VTOL ("quadplane") motor geometry is shown below.
+The motor geometry for a [Generic Standard Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
@@ -206,7 +206,7 @@ Control surfaces use the following deflection direction convention:
 This section defines the properties of the tilting servos.
 These are mapped to specific motors in the [motor geometry for a tiltrotor](../config/actuators.md#motor-geometry-vtol-tiltrotor).
 
-The example below shows the tilt servo setup for the [tiltrotor motor geometry shown above](../config/actuators.md#motor-geometry-vtol-tiltrotor)
+The example below shows the tilt servo setup for the [tiltrotor motor geometry shown above](../config/actuators.md#motor-geometry-vtol-tiltrotor).
 
 ![Tilt Servo Geometry Setup Example](../../assets/config/actuators/tilt_servo_geometry_config.png)
 
