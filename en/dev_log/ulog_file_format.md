@@ -1,19 +1,19 @@
 # ULog File Format
 
 ULog is the file format used for logging system data.
-
-ULog is **self-describing** : It contains the format and message types that are logged.
+The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
 
 ::: note
-The [logger](../dev_log/logging.md#sd-card-configuration) allows the specifying a custom *default set* of logged topics with the `logger_topics.txt` file
+The [system logger](../modules/modules_system.md#logger) allows the default set of logged topics to be replaced with a custom set that is defined on an SD Card.
+See [Logging > SD Card Configuration](../dev_log/logging.html#sd-card-configuration) for more information.
 :::
 
-ULog can log including but not limited to:
-1. **Device inputs** : sensors, RC input, etc.
-2. **Internal states** : cpu load, attitude, EKF state, etc.
-3. **Logged messages** : MAVLink Info message, PX4_INFO(), Custom `printf` statements, etc.
+ULog commonly logs uORB topics related to (but not limited to) the following sources:
+- **Device inputs:** Sensors, RC input, etc.
+- **Internal states:** CPU load, attitude, EKF state, etc.
+- **Messages:** MAVLink communications, `PX4_INFO()`, Custom `printf` statements, and so on.
 
-The format uses Little Endian for all binary types. This means that the Least Significant Byte is placed at the lowest address.
+The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory layout for all binary types (the least significant byte (LSB) of data type is placed at the lowest memory address).
 
 ## Data types
 
@@ -29,12 +29,15 @@ The following binary types are used for logging. They all correspond to the type
 |double             |  8            |
 |bool, char         |  1            |
 
-Additionally the types can be used as an array : eg. `float[5]`. In case of logging of strings : (`char[length]`), it usually does not contain the termination NULL character `'\0'` at the end.
+Additionally the types can be used as an array: e.g. `float[5]`.
+
+Strings (`char[length]`) do not usually contain the termination NULL character `'\0'` at the end.
 String comparisons are case sensitive.
 
-## ULog structure
+## ULog File Structure
 
-ULog consists of the following three sections:
+ULog files have the following three sections:
+
 ```
 ----------------------
 |       Header       |
@@ -45,12 +48,13 @@ ULog consists of the following three sections:
 ----------------------
 ```
 
-Description on each section is explained below.
+A description of each section is provided below.
 
 
 ### Header Section
 
 The header is a fixed-size section and has the following format (16 bytes):
+
 ```
 ----------------------------------------------------------------------
 | 0x55 0x4c 0x6f 0x67 0x01 0x12 0x35 | 0x01         | uint64_t       |
@@ -58,13 +62,13 @@ The header is a fixed-size section and has the following format (16 bytes):
 ----------------------------------------------------------------------
 ```
 
-* **File Magic (7 Bytes)** : Custom Specifier that reads "ULog"
-* **Version (1 Byte)** : File format version, currently 1
-* **Timestamp (8 Bytes)** : `uint64_t` integer that denotes when the logging started in microseconds.
+- **File Magic (7 Bytes):** File type indicator that reads "ULog"
+- **Version (1 Byte):** File format version (currently 1)
+- **Timestamp (8 Bytes):** `uint64_t` integer that denotes when the logging started in microseconds.
 
-### Definition & Data section message header
+### Definition & Data Section Message Header
 
-Definitions and Data sections consist of a stream of **messages** that always starts with this header:
+The _Definitions and Data_ section consists of a stream of **messages** that always starts with this header: 
 
 ```c
 struct message_header_s {
@@ -73,8 +77,8 @@ struct message_header_s {
 };
 ```
 
-* `msg_size` is the size of the message in bytes without the header
-* `msg_type` defines the content, and is a single alphabet character.
+- `msg_size` is the size of the message in bytes without the header.
+- `msg_type` defines the content, and is a single alphabet character.
 
 :::note
 Message types described below are noted with the single alphabet `msg_type` characteristic in the beginning.
@@ -83,9 +87,9 @@ Message types described below are noted with the single alphabet `msg_type` char
 
 ### Definitions Section
 
-Definitions section contains various basic information like software version information, uORB Topic format, and initial parameter values and so on.
+The definitions section contains basic information such as software version, uORB Topic format, initial parameter values, and so on.
 
-The full list of message types in the Definitions Section:
+The message types in this section are:
 1. [Flag Bits](#b--flag-bits-message)
 2. [Format Definition](#f--format-definition-message)
 3. [Information](#i--information-message)
@@ -94,10 +98,10 @@ The full list of message types in the Definitions Section:
 6. [Default Parameter](#q--default-parameter-message)
 
 
-#### B : Flag Bits Message
+#### 'B': Flag Bits Message
 
 :::note
-**This message must be the first message** right after the header section to have a fixed constant offset from the start of the file!
+This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
 :::
 
 ```c
@@ -133,7 +137,7 @@ It is possible that there are more fields appended at the end of this message in
 This means a parser must not assume a fixed length of this message.
 If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored.
 
-#### F : Format definition message
+#### 'F': Format Definition Message
 
 Format definition that can be logged or used in another format definitions as a nested type.
 
@@ -166,7 +170,7 @@ Some field names are special:
   - This means the `message_data_s.data` will be shorter by the size of the padding.
   - However the padding is still needed when the message is used in a nested definition.
 
-#### I : Information Message
+#### 'I': Information Message
 
 ```c
 struct message_info_s {
@@ -189,25 +193,26 @@ Predefined information messages are:
 
 key | Description | Example for value
 --- | ---  | ---
-char[3] sys_name | Name of the system |  "PX4"
-char[9] ver_hw | Hardware version (board) |  "PX4FMU_V4"
-char[2] ver_hw_subtype| Board subversion (variation)|  "V2"
-char[7] ver_sw | Software version (git tag)|  "7f65e01"
-char[6] ver_sw_branch| git branch |  "master"
-uint32_t ver_sw_release | Software version (see below)|  0x010401ff
-char[5] sys_os_name | Operating System Name |  "Linux"
-char[7] sys_os_ver | OS version (git tag) |  "9f82919"
-uint32_t ver_os_release | OS version (see below) |  0x010401ff
-char[7] sys_toolchain | Toolchain Name |  "GNU GCC"
-char[5] sys_toolchain_ver | Toolchain Version |  "6.2.1"
-char[16] sys_mcu | Chip name and revision |  "STM32F42x, rev A"
-char[12] sys_uuid | Unique identifier for vehicle (eg. MCU ID) |  "392a93e32fa3"...
-char[7] log_type | Type of the log (full log if not specified) | "mission"
-char[10] replay | File name of replayed log if in replay mode | "log001.ulg"
-int32_t time_ref_utc | UTC Time offset in seconds | -3600 |
+`char[3] sys_name` | Name of the system |  "PX4"
+`char[9] ver_hw` | Hardware version (board) |  "PX4FMU_V4"
+`char[2] ver_hw_subtype` | Board subversion (variation)|  "V2"
+`char[7] ver_sw` | Software version (git tag)|  "7f65e01"
+`char[6] ver_sw_branch` | git branch |  "master"
+`uint32_t ver_sw_release` | Software version (see below)|  0x010401ff
+`char[5] sys_os_name` | Operating System Name |  "Linux"
+`char[7] sys_os_ve`r | OS version (git tag) |  "9f82919"
+`uint32_t ver_os_release` | OS version (see below) |  0x010401ff
+`char[7] sys_toolchain` | Toolchain Name |  "GNU GCC"
+`char[5] sys_toolchain_ver | Toolchain Version |  "6.2.1"
+char[16] sys_mcu` | Chip name and revision |  "STM32F42x, rev A"
+`char[12] sys_uuid` | Unique identifier for vehicle (eg. MCU ID) |  "392a93e32fa3"...
+`char[7] log_type` | Type of the log (full log if not specified) | "mission"
+`char[10] replay` | File name of replayed log if in replay mode | "log001.ulg"
+`int32_t time_ref_utc` | UTC Time offset in seconds | -3600 |
 
 :::note
-The `key_len` value in `char key[key_len]` has no fixed value. Therefore the key lengths in the example above (3, 9, 2, 7, ...) may not be exactly same with your ULog's Information message!
+The `key_len` value in `char key[key_len]` has no fixed value.
+Therefore the key lengths in the example above (3, 9, 2, 7, ...) may not be exactly same with your ULog's information message.
 :::
 
 * The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
@@ -216,7 +221,7 @@ The `key_len` value in `char key[key_len]` has no fixed value. Therefore the key
 
 This message can also be used in the Data section (this is however the preferred section).
 
-#### M : Multi Information Message
+#### 'M': Multi Information Message
 
 The same as the information message, except that there can be multiple messages with the same key (parsers store them as a list).
 
@@ -234,7 +239,7 @@ struct ulog_message_info_multiple_header_s {
 
 Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
 
-#### P : Parameter Message
+#### 'P': Parameter Message
 
 Same format as the [Information Message](#i--information-message).
 
@@ -247,11 +252,11 @@ struct message_info_s {
 };
 ```
 
-If a parameter dynamically changes during runtime, this message can also be [used in the Data section](#messages-shared-with-the-definitions-section) as well!
+If a parameter dynamically changes during runtime, this message can also be [used in the Data section](#messages-shared-with-the-definitions-section) as well.
 
 The data type is restricted to `int32_t` and `float`.
 
-#### Q : Default Parameter Message
+#### 'Q': Default Parameter Message
 
 ```c
 struct ulog_message_parameter_default_header_s {
@@ -277,38 +282,41 @@ The data type is restricted to `int32_t` and `float`.
 
 This section ends before the start of the first [Subscription Message](#a--subscription-message) or [Logging](#l--logged-string-message) message, whichever comes first.
 
+
 ### Data Section
 
-The full list of message types in the Definitions Section are:
+The message types in the _Data_ section are:
 
 - [ULog File Format](#ulog-file-format)
   - [Data types](#data-types)
-  - [ULog structure](#ulog-structure)
+  - [ULog File Structure](#ulog-file-structure)
     - [Header Section](#header-section)
-    - [Definition & Data section message header](#definition--data-section-message-header)
+    - [Definition & Data Section Message Header](#definition--data-section-message-header)
     - [Definitions Section](#definitions-section)
-      - [B : Flag Bits Message](#b--flag-bits-message)
-      - [F : Format definition message](#f--format-definition-message)
-      - [I : Information Message](#i--information-message)
-      - [M : Multi Information Message](#m--multi-information-message)
-      - [P : Parameter Message](#p--parameter-message)
-      - [Q : Default Parameter Message](#q--default-parameter-message)
+      - ['B': Flag Bits Message](#b-flag-bits-message)
+      - ['F': Format Definition Message](#f-format-definition-message)
+      - ['I': Information Message](#i-information-message)
+      - ['M': Multi Information Message](#m-multi-information-message)
+      - ['P': Parameter Message](#p-parameter-message)
+      - ['Q': Default Parameter Message](#q-default-parameter-message)
     - [Data Section](#data-section)
-      - [A : Subscription Message](#a--subscription-message)
-      - [R : Unsubscription Message](#r--unsubscription-message)
-      - [D : Logged Data Message](#d--logged-data-message)
-      - [L : Logged String Message](#l--logged-string-message)
+      - [`A`: Subscription Message](#a-subscription-message)
+      - [`R`: Unsubscription Message](#r-unsubscription-message)
+      - ['D': Logged Data Message](#d-logged-data-message)
+      - ['L': Logged String Message](#l-logged-string-message)
       - [C : Tagged Logged String Message](#c--tagged-logged-string-message)
-      - [S : Synchronization message](#s--synchronization-message)
-      - [O : Dropout message](#o--dropout-message)
+      - ['S': Synchronization message](#s-synchronization-message)
+      - ['O': Dropout message](#o-dropout-message)
       - [Messages shared with the Definitions Section](#messages-shared-with-the-definitions-section)
   - [Requirements for Parsers](#requirements-for-parsers)
   - [Known Parser Implementations](#known-parser-implementations)
   - [File Format Version History](#file-format-version-history)
     - [Changes in version 2](#changes-in-version-2)
 
-#### A : Subscription Message
-Subscribe a message by name and give it an id that is used in [Logged data Message](#d--logged-data-message). This must come before the first corresponding [Logged data Message](#d--logged-data-message).
+#### `A`: Subscription Message
+
+Subscribe a message by name and give it an id that is used in [Logged data Message](#d--logged-data-message).
+This must come before the first corresponding [Logged data Message](#d--logged-data-message).
 
 ```c
 struct message_add_logged_s {
@@ -325,7 +333,8 @@ struct message_add_logged_s {
 * `message_name`: message name to subscribe to.
 Must match one of the [Format Message](#f--format-definition-message) definitions.
 
-#### R : Unsubscription Message
+#### `R`: Unsubscription Message
+
 Unsubscribe a message, to mark that it will not be logged anymore (not used currently).
 
 ```c
@@ -335,7 +344,7 @@ struct message_remove_logged_s {
 };
 ```
 
-#### D : Logged Data Message
+#### 'D': Logged Data Message
 
 ```c
 struct message_data_s {
@@ -350,8 +359,9 @@ struct message_data_s {
 
 See above for special treatment of padding fields.
 
-#### L : Logged String Message
-Logged string message, i.e. printf output.
+#### 'L': Logged String Message
+
+Logged string message, i.e. `printf()` output.
 
 ```c
 struct message_logging_s {
@@ -419,7 +429,7 @@ enum class ulog_tag : uint16_t {
 | INFO       |      '6'     | Informational                        |
 | DEBUG      |      '7'     | Debug-level messages                 |
 
-#### S : Synchronization message
+#### 'S': Synchronization message
 
 Synchronization message so that a reader can recover from a corrupt message by searching for the next sync message.
 
@@ -432,7 +442,7 @@ struct message_sync_s {
 
 * `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
-#### O : Dropout message
+#### 'O': Dropout message
 
 Mark a dropout (lost logging messages) of a given duration in ms
 
@@ -447,14 +457,12 @@ struct message_dropout_s {
 
 #### Messages shared with the Definitions Section
 
-:::note
-Since the Definitions and Data Sections use the same message header format, they also share the same messages listed below.
-:::
+Since the Definitions and Data Sections use the same message header format, they also share the same messages listed below:
 
-* [Information Message](#i--information-message).
-* [Multi Information Message](#m--multi-information-message)
-* [Parameter Message](#p--parameter-message)
-* [Default Parameter Message](#q--default-parameter-message)
+- [Information Message](#i--information-message).
+- [Multi Information Message](#m--multi-information-message)
+- [Parameter Message](#p--parameter-message)
+- [Default Parameter Message](#q--default-parameter-message)
 
 ## Requirements for Parsers
 

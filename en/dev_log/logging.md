@@ -1,6 +1,6 @@
 # Logging
 
-The logger is able to log any ORB topic with all included fields.
+The [system logger](../modules/modules_system.md#logger) is able to log any ORB topic with all included fields.
 Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified.
 An optional interval parameter specifies the maximum logging rate of a certain topic.
 All existing instances of a topic are logged.
