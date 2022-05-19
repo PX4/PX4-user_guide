@@ -165,8 +165,10 @@ The fields are:
 - `Yaw scale`: Yaw scale (normalised: -1 to 1)
 - `Trim`: ?
 - `Skew`: ?
+- `Lock control surfaces in hover`: `Enabled` or `Disabled`.
 
 The scaling values are normalised (-1 to 1), decoupling the outputs of PX4 controllers from the physical servo control signals.
+
 
 #### Control Surface Deflection Convention
 
@@ -203,7 +205,6 @@ The values that can be set are:
   - `Yaw`: Tilt servos used to control yaw.
   - `Pitch`: Tilt servos used to control pitch.
   - `Both Yaw and Pitch`: Tilt servos are used to control both yaw and pitch.
-
   :::note
   Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle:
   - Yaw is commonly set in this way, though motors can be used instead on vehicles with four or more motors.
