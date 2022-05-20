@@ -1,12 +1,10 @@
 # vehicle_status (UORB message)
 
-If you change the order, add or remove arming_state_t states make sure to update the arrays in state_machine_helper.cpp as well.
+
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_status.msg)
 
 ```c
-# If you change the order, add or remove arming_state_t states make sure to update the arrays
-# in state_machine_helper.cpp as well.
 uint64 timestamp                # time since system start (microseconds)
 
 uint8 ARMING_STATE_INIT = 0
