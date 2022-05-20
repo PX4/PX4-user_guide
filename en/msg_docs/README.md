@@ -204,8 +204,7 @@ NaN means the state was not controlled
 - [vehicle_odometry](vehicle_odometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
 - [vehicle_rates_setpoint](vehicle_rates_setpoint.md)
 - [vehicle_roi](vehicle_roi.md) — Vehicle Region Of Interest (ROI)
-- [vehicle_status](vehicle_status.md) — If you change the order, add or remove arming_state_t states make sure to update the arrays
-in state_machine_helper.cpp as well.
+- [vehicle_status](vehicle_status.md)
 - [vehicle_status_flags](vehicle_status_flags.md) — This is a struct used by the commander internally.
 - [vehicle_thrust_setpoint](vehicle_thrust_setpoint.md)
 - [vehicle_torque_setpoint](vehicle_torque_setpoint.md)
