@@ -124,4 +124,7 @@ uint64 armed_time       # Arming timestamp (microseconds)
 
 uint64 takeoff_time     # Takeoff timestamp (microseconds)
 
+bool safety_button_available	# Set to true if a safety button is connected
+bool safety_off					# Set to true if safety is off
+
 ```

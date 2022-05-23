@@ -121,7 +121,6 @@ This are the three next waypoints (or just the next two or one).
 - [rc_parameter_map](rc_parameter_map.md)
 - [rpm](rpm.md)
 - [rtl_time_estimate](rtl_time_estimate.md)
-- [safety](safety.md)
 - [satellite_info](satellite_info.md)
 - [sensor_accel](sensor_accel.md)
 - [sensor_accel_fifo](sensor_accel_fifo.md)
