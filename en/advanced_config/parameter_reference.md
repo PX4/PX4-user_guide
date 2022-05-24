@@ -10248,7 +10248,7 @@ table {
  <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
- <td>3.5</td>
+ <td>3.6</td>
  <td>V</td>
 </tr>
 <tr>
@@ -10378,7 +10378,7 @@ table {
  <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
- <td>3.5</td>
+ <td>3.6</td>
  <td>V</td>
 </tr>
 <tr>
@@ -10442,7 +10442,7 @@ table {
  <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
  <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead    </td>
  <td></td>
- <td>3.5</td>
+ <td>3.6</td>
  <td></td>
 </tr>
 <tr>
