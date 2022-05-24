@@ -32,7 +32,7 @@ The IMU pipeline is: gyro data > apply calibration parameters > remove estimated
 
   ![IMU pipeline](../../assets/diagrams/px4_imu_pipeline.png)
 :::
-  
+
   <!-- source for image is https://github.com/PX4/PX4-Autopilot/blob/850d0bc588af79186286652af4c8293daafd2c4c/src/lib/mixer/MultirotorMixer/MultirotorMixer.cpp#L323-L326 -->
 
 ### Multicopter Attitude Controller
@@ -73,7 +73,7 @@ The PX4 implementation of the Total Energy Control System (TECS) enables simulta
 
 ![TECS](../../assets/diagrams/tecs_in_context.svg)
 
-As seen in the diagram above, TECS receives as inputs airspeed and altitude setpoints and outputs a throttle and pitch angle setpoint. These two outputs are sent to the fixed wing attitude controller which implements the attitude control solution. It's therefore important to understand that the performance of TECS is directly affected by the performance of the pitch control loop. A poor tracking of airspeed and altitude is often caused by a poor tracking of the aircraft pitch angle.
+As seen in the diagram above, TECS receives as inputs airspeed and altitude setpoints and outputs a throttle and pitch angle setpoint. These two outputs are sent to the fixed-wing attitude controller which implements the attitude control solution. However, the throttle setpoint is passed through if it is finite and if no engine failure was detected. It's therefore important to understand that the performance of TECS is directly affected by the performance of the pitch control loop. A poor tracking of airspeed and altitude is often caused by a poor tracking of the aircraft pitch angle.
 
 :::note
 Make sure to tune the attitude controller before attempting to tune TECS.
@@ -86,12 +86,16 @@ TECS offers a solution by respresenting the problem in terms of energies rather 
 
 #### Total energy control loop
 
-![Energy loop](../../assets/diagrams/TECS_throttle.jpg)
+![Energy loop](../../assets/diagrams/TECS_throttle.png)
+
 <!-- https://drive.google.com/file/d/1q12b6ASbQRkFWqLMXm92cryOI-cZnrKv/view?usp=sharing -->
 
 #### Total energy balance control loop
 
-![Energy balance loop](../../assets/diagrams/TECS_pitch.jpg)
+![Energy balance loop](../../assets/diagrams/TECS_pitch.png)
+
+<!-- The drawing is on draw.io: https://drive.google.com/file/d/1bZtFULYmys-_EQNhC9MNcKLFauc7OYJZ/view -->
+
 
 The total energy of an aircraft is the sum of kinetic and potential energy:
 
@@ -140,7 +144,14 @@ If no airspeed sensor is used then gain scheduling for the FW attitude controlle
 
 The feedforward gain is used to compensate for aerodynamic damping. Basically, the two main components of body-axis moments on an aircraft are produced by the control surfaces (ailerons, elevators, rudders, - producing the motion) and the aerodynamic damping (proportional to the body rates - counteracting the motion). In order to keep a constant rate, this damping can be compensated using feedforward in the rate loop.
 
-The roll and pitch controllers have the same structure and the longitudinal and lateral dynamics are assumed to be uncoupled enough to work independently. The yaw controller, however, generates its yaw rate setpoint using the turn coordination constraint in order to minimize lateral acceleration, generated when the aircraft is slipping. The yaw rate controller also helps to counteract adverse yaw effects (https://youtu.be/sNV_SDDxuWk) and to damp the [Dutch roll mode](https://en.wikipedia.org/wiki/Dutch_roll) by providing extra directional damping.
+### Turn coordination
+
+The roll and pitch controllers have the same structure and the longitudinal and lateral dynamics are assumed to be uncoupled enough to work independently. The yaw controller, however, generates its yaw rate setpoint using the turn coordination constraint in order to minimize lateral acceleration, generated when the aircraft is slipping.  The turn coordination algorithm is based solely on coordinated turn geometry calculation.
+
+$$\dot{\Psi}_{sp} = \frac{g}{V_T} \tan{\phi_{sp}} \cos{\theta_{sp}}$$
+
+The yaw rate controller also helps to counteract [adverse yaw effects](https://youtu.be/sNV_SDDxuWk) and to damp the [Dutch roll mode](https://en.wikipedia.org/wiki/Dutch_roll) by providing extra directional damping.
+
 
 
 ## VTOL Flight Controller
@@ -246,6 +257,8 @@ Finally, since the actuator outputs are normalized and that the mixer and the se
 $$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{sp_{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}_{sp_{FF}}^b$$
 
 and implement it directly in the rollrate, pitchrate and yawrate controllers.
+
+In the case of airframes with controls performance that is not dependent directly on airspeed e.g. a rotorcraft like [autogyro](../frames_autogyro/). There is possibility to disable airspeed scaling feature by [FW_ARSP_SCALE_EN](../advanced_config/parameter_reference.md#FW_ARSP_SCALE_EN) parameter.
 
 #### Tuning recommendations
 
