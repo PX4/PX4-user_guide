@@ -40,6 +40,9 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [ekf2_timestamps](ekf2_timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2. It can be used for reproducible replay.
 - [esc_report](esc_report.md)
 - [esc_status](esc_status.md)
+- [estimator_aid_source_1d](estimator_aid_source_1d.md)
+- [estimator_aid_source_2d](estimator_aid_source_2d.md)
+- [estimator_aid_source_3d](estimator_aid_source_3d.md)
 - [estimator_baro_bias](estimator_baro_bias.md)
 - [estimator_event_flags](estimator_event_flags.md)
 - [estimator_gps_status](estimator_gps_status.md)
