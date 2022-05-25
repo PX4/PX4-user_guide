@@ -259,7 +259,7 @@ Selecting these requires a reboot before they are applied.
 
 ![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
 
-QGC Supports a feature of identifying the motors by sending the motor command to different output pins and letting you click on the motor to map the Motor to each Output ports.
+QGC Supports a feature of identifying the motors by sending the motor command to different outputs and letting you click on the motor to map the Motor to each Output ports.
 
 To use this mode:
 1. Setup the Motors Geometry correctly to include all the motors in your vehicle you want to configure
