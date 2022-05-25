@@ -247,40 +247,61 @@ Whether this feature is used is configured in the `Use for control` setting.
 
 ## Actuator Outputs
 
-The actuators and any other output function can be assigned to any of the physical outputs.
-Each output has its own tab, e.g. the PWM MAIN or AUX output pins, or UAVCAN.
+The _Actuator Outputs_ section is used to assign motors, control surface servos, and other actuators used by the particular frame to the physical outputs on the flight controller.
+
+Separate tabs are displayed for each output bus _that is present_ on the connected flight controller: PWM AUX, PWM MAIN, UAVCAN.
+Motors and actuators (which are referred to as "functions") can be assigned to any physical output on any of the available busses.
+
+![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
+
+
+:::note
+PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
+:::
 
 PWM outputs are grouped according to the hardware groups of the autopilot.
 Each group allows to configure the PWM rate or DShot/Oneshot (if supported).
+The AUX tab also has "CAP" options for camera capture/triggering.
+Selecting these requires a reboot before they are applied.
 
-:::note
-For boards with MAIN and AUX, prefer the AUX pins over the MAIN pins for motors, as they have lower latency.
+You need to manually assign functions to outputs.
+The sections below explain the tools that have been provided to help you.
+
+
+### Multicopter PWM: Identify & Assign Motors
+
+:::warning
+Remove the propellers from motors before assigning outputs.
 :::
 
-The AUX pins have additional configuration options for camera capture/triggering.
-Selecting these requires a reboot before they are applied.
+You can use the **Identify & Assign Motors** button to assign motors to PWM outputs for **multicopter vehicles** (UAVCAN outputs and other frame types do not support this feature).
+
+When you click the button, QGC sends a command to each a motor, causing it to spin.
+To assign a motor to an output you simply select the corresponding motor displayed in the screen.
+
+![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
+
+To use this tool:
+1. First setup the motors geometry to match the motors on your frame.
+1. Select the PWM tab where you want to assign the motors.
+2. Click the **Identify & Assign Motors** button.
+3. One motor will start spinning. 
+   Select the corresponding motor in the geometry section.
+   ![](../../assets/config/actuators/identify_motors_in_progress.png)
+   
+   You can also click **Spin Motor Again** if the motor span too quickly to record.
+4. After assigning all motors, the tool will set the correct motor mapping for the outputs and then exit. 
+
+:::note
+This is only supported for multirotors because it requires a GUI interface that shows where each motor is located.
+:::
+
+
 
 
 ## Actuator Testing
 
-### Identify & Assign Motors
 
-![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
-
-QGC Supports a feature of identifying the motors by sending the motor command to different outputs and letting you click on the motor to map the Motor to each Output ports.
-
-To use this mode:
-1. Setup the Motors Geometry correctly to include all the motors in your vehicle you want to configure
-1. Select the Output tab where you want to assign the motors (if not assigned already)
-2. Click the 'Identify & Assign Motors' Button
-3. One motor will start spinning. Select the motor that spun up in the GUI.
-![](../../assets/config/actuators/identify_motors_in_progress.png)
-   * Click 'Spin Motor Again' if you want to check which motor spun again
-4. After assigning all motors, it will automatically exit and set the Actuator Outputs settings to map correct motors to different outputs.
-
-:::note
-This is only supported for multirotors currently, as it requires a GUI interface that shows where each motor is located.
-:::
 
 ### Actuator Setup Using Slider
 
@@ -296,16 +317,16 @@ Sliders can be used to verify the following:
 4. **Motor Tilt Servos** move in the direction as defined in the [Tilt Servo Convention](#motor-tilt-servos-conceptual)
 
 :::note
-The Slider has a safety feature built in so that even after you toggle the _Enable sliders_ switch, if you don't move the slider, it won't send actuator control commands.
+The slider has a safety feature built in so that even after you toggle the _Enable sliders_ switch, if you don't move the slider, it won't send actuator control commands.
 This is to prevent unwanted action from happening just after enabling the sliders.
 :::
 
-More detailed setup directions are described below.
+More detailed setup directions are provided below.
 
 #### Motor Setup & Testing
 
 :::warning
-Always remove the propellers from the motor before you do the actuator testing for safety!
+Remove the propellers from motors before assigning outputs.
 :::
 
 1. Pull the Motor slider down, and it will snap in lower end, where it will command **disarmed** value to the motors, verify that it doesn't spin
