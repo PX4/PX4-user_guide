@@ -166,7 +166,9 @@ The fields are:
 - `Yaw scale`: Yaw scale (normalised: -1 to 1)
 - `Trim`: ?
 - `Skew`: ?
-- `Lock control surfaces in hover`: `Enabled` or `Disabled`.
+- `Lock control surfaces in hover`:
+  - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
+ - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
 
 The scaling values are normalised (-1 to 1), decoupling the outputs of PX4 controllers from the physical servo control signals.
 
