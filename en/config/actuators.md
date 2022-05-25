@@ -339,7 +339,7 @@ Always remove the propellers from the motor before you do the actuator testing f
 
 > Setup of Tilt Servo is similar to Control Surface, as both of them uses the Servo hardware (in most cases)
 
-1. **Set the 'Disarmed' value for Control Surface outputs to '1500'** in case of using a PWM output
+1. **Set the 'Disarmed' value for control surface outputs. The value depends on the vehicle.
    * Unlike Motors, when **disarmed** we want the control surface to be in the middle commanded value, which correlates to 1500 in PWM
 2. **Set the Output mode to 'PWM 50Hz'**, instead of default PWM 400 Hz when using a PWM output for Control Surfaces using Servos
    * If your Servo is creating weird noise, it is most likely because of the "PWM 400Hz" output, which is usually not accepted by commercial Servos.
