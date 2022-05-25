@@ -57,18 +57,10 @@ Most motor properties apply to all frames.
 A few properties apply to specific frames.
 For example, as `Tilted-by` and `axis` are only relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
 
-Multicopter airframe provides a diagram in QGC showing the X, Y positions, which is useful for checking whether the motors configuration is correct. To get a feeling for the motor layout for VTOL and other vehicles see the [Airframe Reference](../airframes/airframe_reference.md).
+The geometry configuration for multicopter airframes provides a diagram showing the relative x,y positions for each of the motors.
+See the [Airframe Reference](../airframes/airframe_reference.md) for an broad understanding of the motor positions for other frames.
 
 Core geometry concepts and the configuration for a number of different frames are provided in the following sections.
-
-
-#### Motor Position Coordinate System
-
-The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
-
-The **origin is the vehicle's centre-of-gravity (COG)**, and **NOT** the autopilot location).
-
-![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
 
 
 #### Motor Geometry: Multicopter
@@ -134,6 +126,15 @@ Once again these motors will generally have the same kinds of properties as show
 
 For example, a fixed-wing vehicle may just have a single pusher moter, while a rover with differential steering will have a motor for throttle and for steering.
 
+
+#### Motor Position Coordinate System
+
+The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
+
+The **origin is the vehicle's centre-of-gravity (COG)**, and **NOT** the autopilot location).
+
+![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
+
 #### Bidirectional Motors
 
 Some vehicles may use bidirectional motors (i.e. motor supports spinning in both directions)
@@ -197,10 +198,10 @@ The example below shows the tilt servo setup for the [tiltrotor motor geometry s
 
 The values that can be set are:
 - `Tilt servos`: The number of servos (tiltable motors).
-- `Angle at min tilt`: [Maximum tilt angle](#tilt-servo-coordinate-system), relative to the z axis (degrees).
-- `Angle at max tilt`: [Minimum tilt angle](#tilt-servo-coordinate-system), relative to the z-axis (degrees).
-- `Tilt direction`: `Towards front` (Positive X direction) or `Towards right` (Positive Y direction).
-- `Use for control`: [Tilt server used for yaw/pitch](#tilt-servos-for-yaw-pitch-control)
+- `Angle at min tilt`: [Maximum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z axis.
+- `Angle at max tilt`: [Minimum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z-axis.
+- `Tilt direction`: `Towards front` (positive x direction) or `Towards right` (positive y direction).
+- `Use for control`: [Tilt servo used for yaw/pitch](#tilt-servos-for-yaw-pitch-control)
   - `None`: Torque control is not used.
   - `Yaw`: Tilt servos used to control yaw.
   - `Pitch`: Tilt servos used to control pitch.
@@ -209,24 +210,31 @@ The values that can be set are:
 
 #### Tilt Servo Coordinate System
 
-The coordinate system for tilt rotor angles is shown below:
+The coordinate system for tilt rotor angles is shown below.
+The reference direction for tilt angles is straight upwards (0 degrees).
+Tilt angles towards the front or right of the vehicle are positive, and towards the back or to the left are negative.
 
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
-The reference direction is upwards.
-For example:
-- a servo pointing upwards has an angle of zero
-- a servo pointing forwards or right would have an angle of 90 degrees.
-- A servo pointing backwards or left would have an angle of -90 degrees.
+The `Angle at min tilt` and `Angle at max tilt` indicate the range of movement for the tilt servo.
+The minimum tilt is the smaller _numerical value_ (not absolute) of the two angles.
 
-The `Angle at min tilt` and `Angle at max tilt` indicate the ranges of movement for the tilt server.
-The minimum is the smaller _numerical value_ (not absolute)  of the two angles.
-For example:
-- A servo that moves between the upright and forward postions would have `min=0` and `max=90`. 
-- A servo that moves symmetrically around the upright position might have `min=-45` and `max=45`
-- A servo that moves between the upright and backward positions would have `min=-90` and `max=0`.
+If the max/min tilt vectors are **P<sub>0</sub>** and **P<sub>1</sub>** as shown above, both tilt angles are positive but **θ<sub>0</sub>** is smaller:
+- `Angle at min tilt` = **θ<sub>0</sub>**
+- `Angle at max tilt` = **θ<sub>1</sub>**
 
-The `Tilt direction` indicates whether the servo tilts in the plane towards the `Front` or `Right` of the vehicle of the vehicle (at the moment the assumption is that it can only tilt in these directions).
+:::note
+If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were tilting into the -x, -y quadrant, then both the tilt angles would be negative.
+Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**, it would be the `Angle at min tilt`.
+
+Similarly, a servo that moves:
+- between the upright and forward postions would have `min=0` and `max=90`. 
+- symmetrically 45 degrees around the upright position would have `min=-45` and `max=45`
+- between the upright and backward positions would have `min=-90` and `max=0`.
+:::
+
+The `Tilt direction` indicates whether the servo tilts in the plane towards the `Front` or `Right` of the vehicle.
+On the diagram this would be represented by **α** that can only take values of 0 (front) or 90 (right).
 
 #### Tilt Servos for Yaw/Pitch Control
 
