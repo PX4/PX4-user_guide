@@ -265,7 +265,7 @@ To use this mode:
 1. Setup the Motors Geometry correctly to include all the motors in your vehicle you want to configure
 1. Select the Output tab where you want to assign the motors (if not assigned already)
 2. Click the 'Identify & Assign Motors' Button
-3. Each motor will start spinning. Select the motor that spun up in the GUI.
+3. One motor will start spinning. Select the motor that spun up in the GUI.
 ![](../../assets/config/actuators/identify_motors_in_progress.png)
    * Click 'Spin Motor Again' if you want to check which motor spun again
 4. After assigning all motors, it will automatically exit and set the Actuator Outputs settings to map correct motors to different outputs.
