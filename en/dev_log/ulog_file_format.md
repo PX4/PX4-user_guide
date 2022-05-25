@@ -5,7 +5,7 @@ The format is self-describing, i.e. it contains the format and [uORB](../middlew
 
 ::: note
 The [system logger](../modules/modules_system.md#logger) allows the default set of logged topics to be replaced with a custom set that is defined on an SD Card.
-See [Logging > SD Card Configuration](../dev_log/logging.html#sd-card-configuration) for more information.
+See [Logging > SD Card Configuration](../dev_log/logging#sd-card-configuration) for more information.
 :::
 
 ULog commonly logs uORB topics related to (but not limited to) the following sources:
@@ -32,7 +32,10 @@ The following binary types are used for logging. They all correspond to the type
 Additionally the types can be used as an array: e.g. `float[5]`.
 
 Strings (`char[length]`) do not usually contain the termination NULL character `'\0'` at the end.
-String comparisons are case sensitive.
+
+:::note
+String comparisons are case sensitive, which should be taken into account when comparing the uORB topic names when [adding subscriptions](#a-subscription-message).
+:::
 
 ## ULog File Structure
 
@@ -80,10 +83,10 @@ struct message_header_s {
 - `msg_size` is the size of the message in bytes without the header.
 - `msg_type` defines the content, and is a single alphabet character.
 
-In practice, we include the `msg_size` and `msg_type` in each message definitions as the first 2 members, so the header `message_header_s` never gets used directly in most cases.
+In practice, we include the `msg_size` and `msg_type` in each message definitions as the first 2 members of different message definitions.
 
 :::note
-Messages described below are prefixed with the single alphabet that corresponds to it's `msg_type` in the beginning.
+Messages below are prefixed with the single alphabet that corresponds to it's `msg_type`.
 :::
 
 
@@ -100,7 +103,7 @@ The message types in this section are:
 6. [Default Parameter](#q-default-parameter-message)
 
 
-#### 'B': Flag Bits Message
+#### 'B': Flag Bits Message (`msg_type = 'B'`)
 
 :::note
 This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
@@ -168,7 +171,8 @@ Some field names are special:
 - `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
   - Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`.
   - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
-  - A log writer must make sure to log messages often enough to be able to detect wrap-arounds and a log reader must handle wrap-arounds (and take into account dropouts).
+  - A log writer must make sure to log messages often enough to be able to detect **wrap-arounds** (when the timestamp overflows the data type and goes back to 0)
+  - Also, the log reader must handle wrap-arounds (and take into account dropouts).
   - The timestamp must always be monotonic increasing for a message series with the same `msg_id`.
 - `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
   - These fields can be inserted by a writer to ensure correct alignment.
