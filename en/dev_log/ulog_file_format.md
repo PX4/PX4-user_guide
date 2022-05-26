@@ -143,7 +143,7 @@ struct ulog_message_flag_bits_s {
 
 It is possible that there are more fields appended at the end of this message in future ULog specifications.
 This means a parser must not assume a fixed length of this message.
-If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored.
+If the message is longer than expected (currently 40 bytes), any additional bytes must be ignored/discarded.
 
 #### 'F': Format Message
 
