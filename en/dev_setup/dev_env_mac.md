@@ -84,9 +84,12 @@ brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
-Navigate into the **PX4-Autopilot/Tools/setup** directory (using the `cd` command) and enter:
+Run the `macos.sh` setup script.
+The easiest way to do this is to clone the PX4 source, navigate into the **PX4-Autopilot/Tools/setup** directory, and then run the script:
 
 ```sh
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+cd PX4-Autopilot/Tools/setup
 sh macos.sh
 ```
 
