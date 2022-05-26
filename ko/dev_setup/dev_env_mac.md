@@ -12,7 +12,7 @@
 3. 복제된 터미널 앱의 이름을 변경합니다(예: *x86 터미널*으로)
 4. 이름이 변경된 *x86 Terminal* 앱을 선택하고 마우스 오른쪽 버튼을 클릭하고 **정보 입수*를 선택합니다.
 5. **Rosetta를 사용하여 열기** 확인란을 선택하고, 창을 닫습니다.
-6. 현재 PX4 도구 모음을 지원하는 *x86 터미널*을 실행합니다.
+6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
 :::
 
 :::tip
@@ -79,9 +79,11 @@ brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
-Navigate into the **PX4-Autopilot/Tools/setup** directory (using the `cd` command) and enter:
+Run this macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh` The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
 
 ```sh
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+cd PX4-Autopilot/Tools/setup
 sh macos.sh
 ```
 
