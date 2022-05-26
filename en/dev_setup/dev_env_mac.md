@@ -13,7 +13,7 @@ If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting
 3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
 4. Now select the renamed *x86 Terminal* app and right-click and choose **Get Info*
 5. Check the box for **Open using Rosetta**, then close the window
-6. Run the *x86 Terminal*` as usual, which will fully support the current PX4 toolchain
+6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
 :::
 
 :::tip
@@ -84,8 +84,8 @@ brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
-Run the `macos.sh` setup script.
-The easiest way to do this is to clone the PX4 source, navigate into the **PX4-Autopilot/Tools/setup** directory, and then run the script:
+Run this macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh`
+The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
