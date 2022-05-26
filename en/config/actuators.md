@@ -170,9 +170,27 @@ The fields are:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
  - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
 
-The scaling values are normalised (-1 to 1), decoupling the outputs of PX4 controllers from the physical servo control signals.
 
 
+
+#### Actuator Roll, Pitch, and Yaw Scaling
+
+:::note
+For the majority of airframe setups the default values for each control surface types should not be changed.
+:::
+
+The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized effectiveness of the actuator around the corresponding axis.
+
+Tuning the values is a low/level/advanced topic, and is generally only needed when tuning coupled control surfaces (like an elevon, that controls both pitch and roll).
+In this case the things you need to know are:
+- The numbers that are entered are directly put into the allocation matrix, that is then inverted to get from desired moments (normalized) to control signals.
+- Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
+
+<!-- For more information see: []() (PX4 Dev Summit, 2022) -->
+ 
+
+<!-- I don't think this is needed -->
+<!--
 #### Control Surface Deflection Convention
 
 The diagram below shows the convention for deflections:
@@ -186,7 +204,7 @@ In summary:
   Includes rudders etc.
 - **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above)
   Includes V-Tail etc.
-
+--> 
 
 ### Motor Tilt Servo Geometry
 
