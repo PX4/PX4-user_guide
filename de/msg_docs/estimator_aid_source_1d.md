@@ -26,5 +26,6 @@ bool innovation_rejected     # true if the observation has been rejected
 bool fused                   # true if the sample was successfully fused
 
 # TOPICS estimator_aid_source_1d
+# TOPICS estimator_aid_src_baro_hgt estimator_aid_src_rng_hgt
 
 ```
