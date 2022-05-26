@@ -11191,7 +11191,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FORCE_SAFETY">COM_FORCE_SAFETY</strong> (INT32)</td>
- <td>Enable force safety <p><strong>Comment:</strong> Force safety when the vehicle disarms</p>   </td>
+ <td>Enable force safety <p><strong>Comment:</strong> Force safety when the vehicle disarms. Not supported when safety button used over PX4IO board.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
