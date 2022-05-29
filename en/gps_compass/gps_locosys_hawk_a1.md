@@ -30,7 +30,7 @@ Parameter | Value | Description
 --- | --- | ---
 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) | 102 (Telem 2 or another available serial port) | Configure main GPS port
 [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) | 1 (u-blox) | Configure GPS protocol
-[SER_TEL_2_BAUD](../advanced_config/parameter_reference.md#SER_TEL_2_BAUD) | 9600 | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance)
+[SER_TEL_2_BAUD](../advanced_config/parameter_reference.md#SER_TEL_2_BAUD) | 230400 | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance)
 
 2. Using as an auxillary GPS device in addition to the main GPS:
 
@@ -38,13 +38,23 @@ Parameter | Value | Description
 --- | --- | ---
 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) | 102 (Telem 2 or another available serial port) | Configure main GPS port
 [GPS_2_PROTOCOL](../advanced_config/parameter_reference.md#GPS_2_PROTOCOL) | 1 (u-blox) | Configure GPS protocol
-[SER_TEL_2_BAUD](../advanced_config/parameter_reference.md#SER_TEL_2_BAUD) | 9600 | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance)
+[SER_TEL_2_BAUD](../advanced_config/parameter_reference.md#SER_TEL_2_BAUD) | 230400 | Configure the serial port baudrate (here the GPS is connected to TELEM2 for instance)
 
 ## Wiring and Connections
 
 The Locosys GPS comes with an 6-pin JST-GH connector that can be inserted directly into the GPS2 UART port. 
 
 <img src="../../assets/hardware/gps/locosys_gps_cable.png" width="500px" /> 
+
+## Status LEDs meaning
+
+| Color | Name  | Description |
+| --- | ------------- | --- |
+| Green   | TX Indicator        | GNSS Data transmission | 
+| Red   | Power Indicator      | Power  | 
+| Blue  | PPS     |  Precise Positioning Service active  |
+
+
 
 ### Pinout
 
@@ -58,6 +68,8 @@ The LOCOSYS GPS pinout is provided below. This can be used to help modify the co
 | 4   | NC           | 4   | SDA             |
 | 5   | NC         | 5   |    SCL           |
 | 6   | GND           | 6   | GND               |
+
+
 
 ## Specifications
 - **Receiver Type:** 135-channel LOCOSYS MC-1612-V2b engine, GPS/QZSS L1 C/A, L5C, GLONASS L1OF, BeiDou B1I, B2a Galileo:E1, E5a SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
