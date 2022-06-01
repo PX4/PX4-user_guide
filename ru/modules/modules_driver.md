@@ -883,10 +883,6 @@ px4io <command> [arguments...]
    update        Update IO firmware
      [<filename>] Firmware file
 
-   safety_off    Turn off safety (force)
-
-   safety_on     Turn on safety (force)
-
    debug         set IO debug level
      <debug_level> 0=disabled, 9=max verbosity
 
