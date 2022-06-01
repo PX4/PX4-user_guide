@@ -161,9 +161,9 @@ The fields are:
 
 - `Control Surfaces`: The number of control surfaces (set this first!)
 - `Type`: The type of each control surface: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder`, `Left Elevon`, `Right Elevon`, `Left V-Tail`, `Right V-Tail`, `Left Flap`, `Right Flap`, `Airbrakes`, `Custom`.
-- `Roll scale`: Roll scale (normalised: -1 to 1)
-- `Pitch scale`: Pitch scale (normalised: -1 to 1)
-- `Yaw scale`: Yaw scale (normalised: -1 to 1)
+- `Roll scale`: Effectiveness of actuator around roll axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
+- `Pitch scale`: : Effectiveness of actuator around pitch axis (normalised: -1 to 1).  [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
+- `Yaw scale`: Effectiveness of actuator around yaw axis (normalised: -1 to 1).  [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Trim`: ?
 - `Skew`: ?
 - `Lock control surfaces in hover`:
