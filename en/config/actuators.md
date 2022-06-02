@@ -278,8 +278,9 @@ Motors and actuators (which are referred to as "functions") can be assigned to a
 PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
 :::
 
-PWM outputs are grouped according to the hardware groups of the autopilot.
-Each group allows to configure the PWM rate or DShot/Oneshot (if supported).
+PWM outputs are grouped based on the protocols that they support.
+In other words, the outputs that support DShot/Oneshot/PWM would be grouped together, separate from those that don't support Dshot (say).
+
 The AUX tab also has "CAP" options for camera capture/triggering.
 Selecting these requires a reboot before they are applied.
 
