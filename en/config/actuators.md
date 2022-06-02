@@ -164,7 +164,7 @@ The fields are:
 - `Roll scale`: Effectiveness of actuator around roll axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Pitch scale`: : Effectiveness of actuator around pitch axis (normalised: -1 to 1).  [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Yaw scale`: Effectiveness of actuator around yaw axis (normalised: -1 to 1).  [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Trim`: ?
+- `Trim`: An offset added to the actuator so that it is centered without input. This might be determined by trial and error.
 - `Skew`: ?
 - `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
