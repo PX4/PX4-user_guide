@@ -189,8 +189,6 @@ In this case the things you need to know are:
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
  
 
-<!-- I don't think this is needed -->
-<!--
 #### Control Surface Deflection Convention
 
 The diagram below shows the convention for deflections:
@@ -199,12 +197,13 @@ The diagram below shows the convention for deflections:
 
 In summary:
 - **Horizontal Control Surfaces:** Upwards movement equals positive deflection.
-  Includes Ailerons, ...
+  Includes Ailerons, etc
 - **Vertical Control Surfaces:** Rightwards movement is positive deflection
   Includes rudders etc.
 - **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above)
   Includes V-Tail etc.
---> 
+
+<!-- Also see this comment: https://github.com/PX4/PX4-Autopilot/blob/96b03040491e727752751c0e0beed87f0966e6d4/src/modules/control_allocator/module.yaml#L492 -->
 
 ### Motor Tilt Servo Geometry
 
