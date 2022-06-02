@@ -24,8 +24,6 @@ Main features include:
 You can use the Hawk A1 as either main (primary) or secondary GPS system.
 The PX4 parameters should be set as below for each case.
 
-If configured as below, RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
-
 ### Main GNSS
  
 To use the Hawk A1 your main GPS device:
