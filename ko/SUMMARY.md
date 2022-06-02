@@ -218,6 +218,7 @@
   * [비행 콘트롤러 주변장치](peripherals/README.md) 
     * [GPS/나침반](gps_compass/README.md) 
       * [ARK GPS](uavcan/ark_gps.md)
+      * [LOCOSYS Hawk A1 GNSS](gps_compass/gps_locosys_hawk_a1.md)
       * [Hex Here2](gps_compass/gps_hex_here2.md)
     * [RTK GPS](gps_compass/rtk_gps.md) 
       * [ARK RTK GPS](uavcan/ark_rtk_gps.md)
