@@ -18,44 +18,44 @@
 
 ## PX4 자동비행장치
 
-[PX4](https://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](https://px4.io/)는 오픈 소스 기반의 강력한 *자동조종장치*입니다.
 
-Some of PX4's key features are:
+PX4의 주요 특징은 아래와 같습니다.
 
 - 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체, 잠수정 등 [다양한 차량들](../airframes/airframe_reference.md)을 제어합니다. 
-- Great choice of hardware for [vehicle controller](#vehicle-flight-controller-board), sensors and other peripherals.
-- Flexible and powerful [flight modes](#flight-modes) and [safety features](#safety-settings-failsafe).
+- [차량 콘트롤러](#vehicle-flight-controller-board), 센서 및 다양한 주변 장치에 적합한 매우 탁월한 선택입니다.
+- 유연하고 강력한 [비행 모드](#flight-modes)와 [안전 기능](#safety-settings-failsafe)을 지원합니다.
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgroundcontrol) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
+PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜 지원 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
 ## QGroundControl
 
-The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/). You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 여러가지 매개변수 설정, 실시간 비행 정보 조회 및 완전 자동 임무 비행 등의 작업이 가능합니다.
 
-*QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
+*QGroundControl*은 윈도우, 안드로이드, MacOS 및 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하여 설치할 수 있습니다. 
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
 
 ## 비행 콘트롤러(보드)
 
-PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 차량의 물리적 조건, 운용 목적과 비용을 고려하여 적절한 보드를 선택할 수 있습니다.
 
-For more information see: [Flight Controller Selection](flight_controller_selection.md).
+자세한 내용은 [비행 콘트롤러 선택](flight_controller_selection.md)을 참고하십시오.
 
 ## 센서
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는 자율비행 기체 안정화에 필수 과정입니다. 각속도 센서, 가속도 센서, 지자기 센서(나침반)와 기압 센서는 시스템 구동을 위한 *최소 요구 사항*입니다. [자동 모드](../getting_started/flight_modes.md#categories)와 기타 모드를 사용하기 위해서는 GPS와 같은 위치측정시스템이 필요합니다. 고정익과 수직이착륙기에는 대기속도 센서가 필수입니다.
 
-For more information see:
+더 자세한 정보는 다음을 참고하십시오.
 
 - [센서](../getting_started/sensor_selection.md) 
 - [주변 장치](../peripherals/README.md)
 
 ## 출력 장치: 모터, 서보, 액츄에이터
 
-PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+PX4는 모터 속도(예 : [ ESC](#escs-motors)를 통하여), 에일러론과 플랩 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 적재 장비 등을 *출력*을 통하여 제어합니다.
 
-The outputs may be PWM ports or be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The same airframe mapping of outputs to nodes is used in both cases case.
+출력 포트는 PWM 포트를 이거나, UAVCAN 노드에 연결할 수 있습니다(예: UAVCAN [모터 제어 장치](../peripherals/uavcan_escs.md)). The same airframe mapping of outputs to nodes is used in both cases case.
 
 The images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
 
