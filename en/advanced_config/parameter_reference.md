@@ -13752,7 +13752,7 @@ table {
 <tr>
  <td><strong id="FD_FAIL_P">FD_FAIL_P</strong> (INT32)</td>
  <td>FailureDetector Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
- <td>60 > 180 </td>
+ <td>0 > 180 </td>
  <td>60</td>
  <td>deg</td>
 </tr>
@@ -13766,7 +13766,7 @@ table {
 <tr>
  <td><strong id="FD_FAIL_R">FD_FAIL_R</strong> (INT32)</td>
  <td>FailureDetector Max Roll <p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
- <td>60 > 180 </td>
+ <td>0 > 180 </td>
  <td>60</td>
  <td>deg</td>
 </tr>
