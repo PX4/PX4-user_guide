@@ -1,8 +1,8 @@
-# 비행 콘트롤러 선택 
+# 비행 콘트롤러 선정
 
-기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선택하여야 합니다.
+기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선정하여야 합니다.
 
-여러가지 비행 콘트롤러 제품에서 PX4를 실행할 수 있습니다. [자동조종장치 하드웨어](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하십시오. 주요 목록은 아래와 같습니다.
+다양한 비행 콘트롤러에서 PX4를 실행할 수 있습니다. [자동조종장치 하드웨어](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하십시오. 주요 목록은 아래와 같습니다.
 
 ## Pixhawk 시리즈 
 
