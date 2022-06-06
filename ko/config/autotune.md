@@ -54,85 +54,85 @@
 1. RC를 사용하여 이륙하고 테스트 준비:
    - **멀티콥터:** [고도 모드](../flight_modes/altitude_mc.md)에서 조종기를 사용하여 이륙합니다. 안전한 거리와 지상에서 몇 미터(4~20m)에서 기체를 호버링하십시오.
    - **고정익:** 순항 속도로 비행하면 [유지 모드](../flight_modes/hold.md)를 활성화합니다. 이렇게 하면 비행기가 일정한 고도와 속도로 원을 그리며 비행합니다.
-1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
+1. QGroundControl에서 메뉴(**차량 설정 > PID 조정**)를 클릭합니다.
 
    ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
-1. Select either the *Rate Controller* or *Attitude Controller* tabs. Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
-1. Stop moving the joysticks and click on the **Autotune** button. Read the warning popup and click on **OK** to start tuning.
-1. The drone will first start to perform quick roll motions followed by pitch and yaw motions. The progress is shown in the progress bar, next to the _Autotune_ button.
-1. Apply the tuning:
-   - **Fixed Wing:** The tuning will be immediately/automatically be applied and tested in flight (by default). PX4 will then run a 4 second test and revert the new tuning if a problem is detected.
-   - **Multicopters:** Manually land and disarm to apply the new tuning parameters. Takeoff carefully and manually test that the vehicle is stable.
-1. If any strong oscillations occur, land immediately and follow the instructions in the [Troubleshooting](#troubleshooting) section below.
+1. *Rate Controller* 또는 *Attitude Controller* 탭을 선택합니다. **자동 튜닝 활성화** 버튼이 활성화되어 있는 지 확인합니다(이렇게 하면 **자동 튜닝** 버튼이 표시되고 수동 튜닝 선택기가 제거됨).
+1. 조이스틱의 움직임을 멈추고 **자동 조정** 버튼을 클릭합니다. 경고 팝업을 읽고 **확인**을 클릭하여 튜닝을 시작합니다.
+1. 드론은 먼저 빠른 롤 동작을 수행한 후 피치 및 요 동작을 수행합니다. 진행률은 _자동 조정_ 버튼 옆의 진행률 표시줄에 표시됩니다.
+1. 조정 적용:
+   - **고정익:** 조정이 즉시/자동으로 적용되고 비행 중에 테스트됩니다(기본값). 그런 다음, PX4는 4초 테스트를 실행하고 문제가 감지되면 새 튜닝 작업을 이전 상태로 되돌립니다.
+   - **멀티콥터:** 새로운 조정 매개변수를 적용하기 위해 수동으로 착륙하고 시동을 해제합니다. 조심스럽게 이륙하고 차량이 안정적인지 수동으로 테스트하십시오.
+1. 강한 진동이 발생하면 즉시 착지하고 아래 [문제 해결](#troubleshooting) 섹션의 지침을 따르세요.
 
 <br/>
 
-Additional notes:
-- **VTOL:** Hybrid VTOL fixed wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
-- **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes/altitude_mc.md). You can instead takeoff in [Takeoff mode](../flight_modes/takeoff.md) and tune in [Position mode](../flight_modes/position_mc.md) if the vehicle is is _known_ to be stable in these modes.
-- **Fixed wing:** Autotuning can also be run in [Altitude mode](../flight_modes/altitude_mc.md) or [Position mode](../flight_modes/position_mc.md). However running the test while flying straight requires a larger safe area for tuning, and does not give a significantly better tuning result.
-- Whether tuning is applied in-air or after landing can be [configured using parameters](#parameters).
+추가 참고 사항:
+- **VTOL:** 하이브리드 VTOL 고정익은 MC 모드의 멀티콥터 지침과 FW 모드의 고정익 지침에 따라 두 번 튜닝하여야 합니다.
+- **멀티콥터:** 위의 지침은 [고도 모드](../flight_modes/altitude_mc.md)에서 기체를 튜닝합니다. 대신 [이륙 모드](../flight_modes/takeoff.md)에서 이륙하고 기체가 이러한 모드에서 안정적인 것으로 _알려진 경우_ [위치 모드](../flight_modes/position_mc.md)에서 튜닝할 수 있습니다.
+- **고정익:** 자동 튜닝은 [고도 모드](../flight_modes/altitude_mc.md) 또는 [위치 모드](../flight_modes/position_mc.md)에서도 실행할 수 있습니다. 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
+- 튜닝이 공중에서 적용되는 지 또는 착지 후에 적용되는 지 여부는 [매개변수에서 설정](#parameters)할 수 있습니다.
 
-## Troubleshooting
+## 문제 해결
 
-#### The drone oscillates when performing the testing maneuvers prior to the auto-tuning
+#### 자동 튜닝 전에 테스트 기동을 수행할 때 드론이 진동합니다.
 
-* slow oscillations (1 oscillation per second or slower): this often occurs on large platforms and means that the attitude loop is too fast compared to the rate loop.
-   - **Multicopter:** decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0
-   - **Fixed-wing:** increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC), [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC), [FW_Y_TC](../advanced_config/parameter_reference.md#FW_Y_TC) by steps of 0.1
-* fast oscillations (more than 1 oscillation per second): this is because the gain of the rate loop is too high.
-   - **Multicopter:** decrease `MC_[ROLL|PITCH|YAW]RATE_K` by steps of 0.02
-   - **Fixed-wing:** decrease [FW_RR_R](../advanced_config/parameter_reference.md#FW_RR_R), [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_RR_Y](../advanced_config/parameter_reference.md#FW_RR_Y) by steps of 0.01
+* 느린 진동(초당 1회 또는 더 느린 진동): 이는 종종 대형 플랫폼에서 발생하며 자세 루프가 속도 루프에 비해 너무 빠르다는 것을 의미합니다.
+   - **멀티콥터:** [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) 및 [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)를 1.0씩 감소
+   - **고정익:** 0.1단계씩 [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC), [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC), [FW_Y_TC](../advanced_config/parameter_reference.md#FW_Y_TC) 증가
+* 빠른 진동(초당 1회 이상): 이는 속도 루프의 이득이 너무 높기 때문입니다.
+   - **멀티콥터:** 0.02씩 `MC_[ROLL|PITCH|YAW]RATE_K` 감소
+   - **고정익:** 0.01 단계씩 [FW_RR_R](../advanced_config/parameter_reference.md#FW_RR_R), [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_RR_Y](../advanced_config/parameter_reference.md#FW_RR_Y) 감소
 
-#### The auto-tuning sequence fails
+#### 자동 튜닝 실패
 
-If the drone was not moving enough during auto-tuning, the system identification algorithm might have issues to find the correct coefficients. Increase the [FW_AT_SYSID_AMP](../advanced_config/parameter_reference.md#FW_AT_SYSID_AMP), [MC_AT_SYSID_AMP](../advanced_config/parameter_reference.md#MC_AT_SYSID_AMP) by steps of 1 and trigger the auto-tune again.
+자동 튜닝 중에 드론이 충분히 움직이지 않으면, 시스템 식별 알고리즘에 올바른 계수를 찾는 데 문제가 있을 수 있습니다. [FW_AT_SYSID_AMP](../advanced_config/parameter_reference.md#FW_AT_SYSID_AMP), [MC_AT_SYSID_AMP](../advanced_config/parameter_reference.md#MC_AT_SYSID_AMP)를 1단계씩 증가시키고 자동 튜닝을 다시 시작하십시오.
 
-#### The drone oscillates after auto-tuning
+#### 드론이 자동 튜닝 후 진동합니다.
 
-Due to effects not included in the mathematical model such as delays, saturation, slew-rate, airframe flexibility, the loop gain can be too high. To fix this, follow the same steps described [when the drone oscillates in the pre-tuning test](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning).
+지연, 포화, 슬루율, 기체 유연성과 같은 수학적 모델에 포함되지 않은 효과로 인하여, 루프 이득이 너무 높을 수 있습니다. 이 문제를 해결하려면 [사전 조정 테스트에서 드론이 진동할 때](#the-drone-oscillates-when-performing-the-testing-maneuvers-prior-to-the-auto-tuning)에 설명된 것과 동일한 단계를 따르세요.
 
-#### I still can't get it to work
+#### 여전히 제대로 작동하지 않는 경우:
 
-Attempt manual tuning using the appropriate guides:
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
-- [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-
-
-## Parameters
-
-By default MC vehicles land before parameters are applied, while FW vehicles apply the parameters in-air and then test that the controllers work properly. This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) and [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameters respectively:
-
-* `0`: the gains are not applied. This is used for testing purposes if the user wants to inspect results of the auto-tuning algorithm without using them directly.
-* `1`: apply the gains after disarm (default for multirotors). The operator can then test the new tuning while taking-off carefully.
-* `2`: apply immediately (default for fixed-fings). The new tuning is applied, disturbances are sent to the controller and the stability is monitored during the next 4 seconds. If the control loop is unstable, the control gains are immediately reverted back to their previous value. If the test passes, the pilot can then use the new tuning.
+적절한 가이드를 사용하여 수동 튜닝을 시도합니다.
+- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter_basic.md)(수동/간단)
+- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)(고급/상세)
+- [고정익 PID 튜닝 가이드](../config_fw/pid_tuning_guide_fixedwing.md)
 
 
-Fixed wing vehicles (only) can select which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
+## 매개변수
 
-* bit `0`: roll (default)
-* bit `1`: pitch (default)
-* bit `2`: yaw
+기본적으로 멀티콥터는 매개변수가 적용되기 전에 착륙하는 반면 고정익은 매개변수를 공중에 적용한 다음 컨트롤러가 제대로 작동하는지 테스트합니다. 이 동작은 각각 [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) 및 [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) 매개변수로 설정할 수 있습니다.
+
+* `0`: 게인이 적용되지 않습니다. 오토 튜닝 알고리즘의 결과를 직접 사용하지 않고 검사하고자 하는 경우 테스트용으로 사용합니다.
+* `1`: 무장 해제 후 게인을 적용합니다(멀티콥터의 경우 기본값). 그런 다음 운전자는 조심스럽게 이륙하면서 새로운 튜닝을 테스트할 수 있습니다.
+* `2`: 즉시 적용됩니다(고정익의 경우 기본값). 새로운 튜닝이 적용되고 교란이 컨트롤러로 전송되고 다음 4초 동안 안정성이 모니터링됩니다. 제어 루프가 불안정하면 제어 게인이 즉시 이전 값으로 되돌아갑니다. 테스트를 통과하면 조종사는 새로운 튜닝을 사용할 수 있습니다.
 
 
-## Developers/SDKs
+고정익(전용)은 [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) 비트마스크 매개변수로 조정할 축을 선택할 수 있습니다.
 
-Autotuning is started using [MAV_CMD_DO_AUTOTUNE_ENABLE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_AUTOTUNE_ENABLE) MAVLink command.
+* 비트 `0`: 롤(기본값)
+* 비트 `1`: 피치(기본값)
+* 비트 `2`: 요
 
-At time of writing the message is resent at regular intervals to poll PX4 for progress: the `COMMAND_ACK` includes result that the operation is in progress, and also the progress as a percentage. The operation completes when the progress is 100% or the vehicle lands and disarms.
+
+## 개발자 SDK
+
+자동 튜닝은 [MAV_CMD_DO_AUTOTUNE_ENABLE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_AUTOTUNE_ENABLE) MAVLink 명령을 사용하여 시작됩니다.
+
+작성시 메시지는 진행을 위해 PX4를 폴링하기 위해 정기적인 간격으로 재전송됩니다. `COMMAND_ACK`에는 작업이 진행 중이라는 결과와 진행률이 백분율로 표시됩니다. 진행률이 100%이거나 차량이 착륙하고 시동 해제하면 작업이 완료됩니다.
 
 :::note
-This is not a MAVLink-compliant implementation of a [command protocol long running command](https://mavlink.io/en/services/command.html#long_running_commands). PX4 should stream progress as the protocol does not allow polling.
+이것은 [명령 프로토콜 장기 실행 명령](https://mavlink.io/en/services/command.html#long_running_commands)의 MAVLink 호환 구현이 아닙니다. 프로토콜이 폴링을 허용하지 않으므로 PX4는 진행 상황을 스트리밍하여야 합니다.
 :::
 
-The feature is not yet supported by MAVSDK.
+이 기능은 아직 MAVSDK에서 지원되지 않습니다.
 
-## Background/Detail
+## 배경/세부 사항
 
-PX4 uses [PID controllers](../flight_stack/controller_diagrams.md) (rate, attitude, velocity, and position) to calculate the outputs required to move a vehicle from its current estimated state to match a desired setpoint. The controllers must be well tuned in order to get the best performance out of a vehicle. In particular, a poorly tuned rate controller results in less stable flight in all modes, and takes longer to recover from disturbances.
+PX4는 [PID 컨트롤러](../flight_stack/controller_diagrams.md)(속도, 자세, 속도 및 위치)를 사용하여 차량을 현재 예상 상태에서 원하는 설정값과 일치시키기 위해 이동에 필요한 출력을 계산합니다. 기체의 최고 성능을 얻으려면 컨트롤러를 잘 튜닝하여야 합니다. 특히, 속도 컨트롤러를 잘못 튜닝하면 모든 모드에서 비행 안정성이 떨어지고, 교란 회복에 오랜 시간이 걸립니다.
 
-Generally if you use an [airframe configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly. However unless the configuration precisely matches your hardware you should tune the rate and attitude controllers. Tuning the velocity and position controllers is less important because they are less affected by vehicle dynamics, and the default tuning configuration for a similar airframe is often sufficient.
+일반적으로 기체와 유사한 [기체 설정](../config/airframe.md)을 사용하면 기체의 비행이 가능합니다. 그러나 설정이 하드웨어와 정확히 일치하지 않으면, 속도 및 자세 컨트롤러를 튜닝하여야 합니다. 속도 및 위치 컨트롤러를 튜닝하는 것은 기체 역학의 영향을 덜 받고 유사한 기체에 대한 기본 튜닝 설정으로 충분하기 때문에 덜 중요합니다.
 
 Autotuning provides an automatic mechanism to tune the rate and attitude controllers. It can be used to tune fixed wing and multicopter vehicles, and VTOL vehicles when flying as a multicopter or as a fixed wing (transition between modes must be manually tuned). In theory it should work for other vehicle types that have a rate controller, but currently only the above types are supported.
 
