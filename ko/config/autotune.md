@@ -4,56 +4,56 @@
 
 튜닝은 한 번 수행으로 충분하며, 제조업체에서 이미 튜닝한(그 이후로 수정하지 않은) 차량을 사용하지 않는 한 권장됩니다.
 
-:::note QGroundControl Autotuning UI는 고정익 차량에 사용할 수 없습니다. [qgroundcontrol#10194](https://github.com/mavlink/qgroundcontrol/issues/10194)를 참조하세요(고정익 비행의 VTOL 차량에 해당). 매개변수 [FW_AT_START](../advanced_config/parameter_reference.md#FW_AT_START)를 설정하여 고정익 자동 튜닝을 시작할 수 있습니다.
+:::note QGroundControl Autotuning UI는 고정익 기체에 사용할 수 없습니다. [qgroundcontrol#10194](https://github.com/mavlink/qgroundcontrol/issues/10194)를 참조하세요(고정익 비행의 VTOL 기체에 해당). 매개변수 [FW_AT_START](../advanced_config/parameter_reference.md#FW_AT_START)를 설정하여 고정익 자동 튜닝을 시작할 수 있습니다.
 :::
 
 :::warning
-비행 중에 자동 튜닝이 수행됩니다. The airframe must fly well enough handle moderate disturbances, and should be closely attended:
-- Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
-- Be ready to abort the autotuning process by moving the remote control sticks.
-- Verify that the vehicle flies well after tuning.
+비행 중에 자동 튜닝이 수행됩니다. 기체는 중간 정도의 교란을 처리할 수 있을 만큼 원할하게 비행해야 하며, 다음 사항에 주의를 기울여야 합니다.
+- 기체가 [자동 튜닝을 할 만큼 충분히 안정적인지](#pre-tuning-test) 테스트합니다.
+- 리모콘 스틱을 움직여 자동 튜닝 프로세스를 중단할 준비를 하십시오.
+- 튜닝 후 기체가 잘 비행하는지 확인하십시오.
 :::
 
-@[youtube](https://youtu.be/5xswOhhqrIQ)
+@[유투브](https://youtu.be/5xswOhhqrIQ)
 
 
-## Pre-tuning Test
+## 사전 튜닝 테스트
 
-The vehicle must be able to fly and adequately stabilize itself before running auto-tune. This test ensures that the vehicle can fly safely in position controlled modes.
+기체 자동 튜닝을 실행하기 전에 비행할 수 있고 적절하게 안정화되어야 합니다. 이 테스트는 기체의 위치 제어 모드에서 안전하게 비행할 수 있는 지 확인합니다.
 
 :::note
-During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle. This will usually be tuned well enough to fly, and it _may_ also be sufficiently well tuned to run autotuning.
+[기체 설정](../config/airframe.md) 중에 귀하의 기체와 가장 근접하게 일치하는 프레임을 미리 선택하여야 합니다. 이것은 일반적으로 비행하기에 충분히 잘 조정되며 자동 조정을 실행하기에 충분히 잘 _조정될 수_ 있습니다.
 :::
 
-To make sure the vehicle is stable enough for auto-tuning:
+기체 자동 튜닝을 위해 충분히 안정적인지 확인하는 방법:
 
-1. Perform a normal preflight safety checklist to ensure the flight zone is clear and has enough space.
-1. Takeoff and prepare for the test
-   - **Multicopters:** Take off and hover at 1m above ground in [Altitude mode](../flight_modes/altitude_mc.md) or Stabilized mode.
-   - **Fixed-wing:** Take off and fly at cruise speed in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md).
-1. Use the RC transmitter roll stick to perform the following maneuver, tilting the vehicle just a few degrees: _roll left > roll right > center_ (The whole maneuver should take about 3 seconds). The vehicle should stabilise itself within 2 oscillations.
-1. Repeat the maneuver, tilting with larger amplitudes at each attempt. If the vehicle can stabilise itself within 2 oscillations at ~20 degrees move to the next step.
-1. Repeat the same maneuvers but on the pitch axis. A above, start with small angles and confirm that the vehicle can itself within 2 oscillations before increasing the tilt.
+1. 비행 구역이 깨끗하고 충분한 공간이 있는지 확인하기 위하여 일반적인 비행 전 안전 체크리스트를 수행합니다.
+1. 이륙 및 시험 준비
+   - **멀티콥터:** [고도 모드](../flight_modes/altitude_mc.md) 또는 안정화 모드에서 이륙하여 지상 1m에서 호버링합니다.
+   - **고정익:** [위치 모드](../flight_modes/position_mc.md) 또는 [고도 모드](../flight_modes/altitude_mc.md)에서 순항 속도로 이륙하고 비행합니다.
+1. RC 송신기 롤 스틱을 사용하여 기체를 몇 도만 기울여 다음 기동을 수행하십시오. _좌회전 > 오른쪽 롤 > 중심_ (전체 기동은 약 3초가 소요됩니다). 차량은 2번의 진동 내에서 안정되어야 합니다.
+1. 각 시도에서 더 큰 진폭으로 기울이면서 기동을 반복합니다. 기체가 ~20도에서 2번의 진동 내에서 안정화될 수 있으면 다음 단계로 이동합니다.
+1. 피치 축에서 동일한 동작을 반복합니다. 위의 A에서 작은 각도로 시작하여  기체의 틸트를 증가시키기 전에 2개의 진동 내에서 스스로 움직일 수 있는지 확인하십시오.
 
-If the drone can stabilize itself within 2 oscillations it is ready for the auto-tuning procedure.
+드론이 2번의 진동 내에서 스스로 안정화될 수 있으면 자동 튜닝 절차를 위한 준비가 된 것입니다.
 
-If not, go to the [troubleshooting](#troubleshooting) section, which explains the minimal manual tuning to prepare the vehicle for auto-tuning.
+그렇지 않은 경우 자동 튜닝을 위해 기체를 준비하기 위한 최소한의 수동 튜닝을 설명하는 [문제 해결](#troubleshooting) 섹션으로 이동합니다.
 
 
-### Auto-tuning procedure
+### 자동 튜닝 단계
 
-The auto-tuning sequence must be performed in a **safe flight zone, with enough space**. It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). For best results, we recommend running the test in calm weather conditions.
+자동 튜닝은 **충분한 공간이 있는 안전한 지역**에서 진행하여야 합니다. 약 40초([19~68초](#how-long-does-autotuning-take)) 가량 걸립니다. 최상의 결과를 얻으려면 날씨가 잔잔할 때 테스트를 실행하는 것이 좋습니다.
 
 :::note
-The sequence can be aborted at any time by the operator by moving the roll/pitch stick on the RC controller.
+조작자는 RC 컨트롤러의 롤/피치 스틱을 움직여 언제든지 시퀀스를 중단할 수 있습니다.
 :::
 
-The test steps are:
+테스트 단계는 다음과 같습니다:
 
-1. Perform the [pre-tuning test](#pre-tuning-test).
-1. Takeoff using RC control and prepare for test:
-   - **Multicopters:** Takeoff using the remote controller in [Altitude mode](../flight_modes/altitude_mc.md). Hover the vehicle at a safe distance and at a few meters above ground (between 4 and 20m).
-   - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes/hold.md). This will guide the plane to fly in circle at constant altitude and speed.
+1. [사전 튜닝 테스트](#pre-tuning-test)를 수행합니다.
+1. RC를 사용하여 이륙하고 테스트 준비:
+   - **멀티콥터:** [고도 모드](../flight_modes/altitude_mc.md)에서 조종기를 사용하여 이륙합니다. 안전한 거리와 지상에서 몇 미터(4~20m)에서 기체를 호버링하십시오.
+   - **고정익:** 순항 속도로 비행하면 [유지 모드](../flight_modes/hold.md)를 활성화합니다. 이렇게 하면 비행기가 일정한 고도와 속도로 원을 그리며 비행합니다.
 1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
 
    ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
