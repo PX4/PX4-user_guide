@@ -3,127 +3,127 @@
 :::note
 *액추에이터* 보기는 [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) 매개변수를 사용하여 동적 제어 할당이 활성화된 경우에만 표시됩니다. 이것은 지오메트리 및 믹서 구성 파일을 매개변수를 사용하는 설정으로 대체합니다. 또한, [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME)을(를) 사용하여 적절한 기체 유형이 선택되었는지 확인하여야 합니다.
 
-The easiest way to try this out in simulation is to use the following make target, which has control allocation pre-enabled:
+시뮬레이션에서 실행하는 가장 쉬운 방법은 사전에 제어 할당이 활성화된 다음 make 대상을 사용하는 것입니다.
 ```
 make px4_sitl gazebo_iris_ctrlalloc
 ```
 :::
 
-After selecting an [airframe](../config/airframe.md) you will generally need to configure the specific geometry, assign actuators to outputs, and test the actuator response. This can be done in *QGroundControl*, under the **Vehicle Setup > Actuators** tab.
+[기체](../config/airframe.md)를 선택한 후 일반적으로 특정 형상을 구성하고 출력에 액추에이터를 할당하고 액추에이터 응답을 테스트하여야 합니다. 이 작업은 * QGroundControl </ 0>의 **차량 설정 > 애츄에이터** 탭에서 실행할 수 있습니다.</p>
 
-The multicopter configuration screen looks like this.
+멀티콥터 설정 화면은 다음과 같습니다.
 
-![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
+![액추에이터 MC(QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
-Note that some settings are hidden unless you select the **Advanced** checkbox in the top right corner.
+오른쪽 상단 모서리에 있는 **고급** 확인란을 선택하지 않으면 일부 설정이 숨겨집니다.
 
-## Geometry
+## 지오메트리
 
-The geometry section is used to configure any additional geometry-related settings for the selected [airframe](../config/airframe.md). The UI displays a customised view for the selected type; if there are no configurable options this may display a static image of the frame geometry, or nothing at all.
+기하학 섹션은 선택한 [기체](../config/airframe.md)에 대한 추가 기하학 관련 설정에 사용됩니다. UI는 선택한 유형에 대한 사용자 정의 보기를 표시합니다. 구성 가능한 옵션이 없는 경우 프레임 지오메트리의 정적 이미지가 표시되거나 전혀 표시되지 않을 수 있습니다.
 
-The screenshot below shows the geometry screen for a multicopter frame, which allows you to select the number of motors, their relative positions on the frame, and their expected spin directions (select "**Direction CCW**" for counter-clockwise motors). This particular frame also includes an image showing the motor positions, which dynamically updates as the motors settings are changed.
+아래 스크린샷은 멀티콥터 프레임의 지오메트리 화면을 나타냅니다. 이 화면에서는 모터 수, 프레임에서의 상대적 위치 및 예상 회전 방향을 선택할 수 있습니다(카운터의 경우 "**CCW 방향**" 선택, 시계 방향 모터). 이 특정 프레임에는 모터 설정이 변경되면 동적으로 업데이트되는 모터 위치를 나타내는 이미지도 포함됩니다.
 
-![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry.png)
+![지오메트리 MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry.png)
 
-A fixed wing airframe would instead display the parameters that define control surfaces, while a VTOL airframe could display both motors and control surfaces.
+고정익은 대신 조종면을 정의하는 매개변수를 표시하는 반면, VTOL 기체는 모터와 조종면을 모두 표시할 수 있습니다.
 
 
-### Conventions
+### 규칙
 
-The following sections contain the conventions and explanations for configuring the geometry.
+다음 섹션에는 지오메트리 구성에 대한 규칙과 설명이 포함되어 있습니다.
 
-#### Coordinate system
+#### 좌표계
 
-The coordinate system is NED (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down. Positions are relative to the center of gravity (in meters).
+좌표계는 NED(본체 프레임)이며 X축은 앞으로, Y축은 오른쪽, Z축은 아래를 가리킵니다. 위치는 무게 중심(미터)을 기준으로 합니다.
 
-#### Control Surfaces and Servo Direction
+#### 제어면과 서보 방향
 
-Control surfaces use the following deflection direction convention:
-- horizontal (e.g. Aileron): up = positive deflection
-- vertical (e.g. Rudder): right = positive deflection
-- mixed (e.g. V-Tail): up = positive deflection
+제어면은 다음과 같은 편향 방향 규칙을 사용합니다.
+- 수평(예: 에일러론): 위쪽 = 양의 편향
+- 수직(예: 방향타): 오른쪽 = 양의 편향
+- 혼합(예: V-Tail): 위쪽 = 양의 편향
 
-![Plane Deflections](../../assets/config/actuators/plane_servo_convention.png)
+![평면 편향](../../assets/config/actuators/plane_servo_convention.png)
 
 :::note
-If a servo does not move in the expected direction set in the geometry, you can reverse it using a checkbox on the Actuator Output.
+지오메트리에 설정된 예상 방향으로 서보가 움직이지 않으면 액츄에이터 출력 확인란을 사용하여 서보를 역전시킬 수 있습니다.
 :::
 
 
-### Motor Tilt Servos
+### 모터 틸트 서보
 
-Tilt servos are configured as follows:
-- The reference direction is upwards (negative Z direction).
-- Tilt direction: **Towards Front** means the servo tilts towards positive X direction, whereas **Towards Right** means towards positive Y direction.
-- Minimum and maximum tilt angles: specify the physical limits in degrees of the tilt at minimum control and maximum respectively. An angle of 0° means to point upwards, then increases towards the tilt direction. :::note
-Negative angles are possible. For example tiltable multirotors have symmetrical limits and one could specify -30 as minimum and 30 degrees as maximum.
+틸트 서보는 다음과 같이 구성됩니다.
+- 기준 방향은 위쪽(음의 Z 방향)입니다.
+- 틸트 방향: **앞으로**은 서보가 양의 X 방향으로 기울어짐을 의미하고 **오른쪽으로**은 양의 Y 방향으로 기울어짐을 의미합니다.
+- 최소 및 최대 기울기 각도: 각각 최소 제어 및 최대에서 기울기의 물리적 한계를 지정합니다. 0°의 각도는 위쪽을 가리키고 기울기 방향으로 증가함을 의미합니다. :::note
+음의 각도가 가능합니다. 예를 들어 기울일 수 있는 멀티로터는 대칭 제한이 있으며 최소 -30도, 최대 30도를 지정할 수 있습니다.
 ::: :::note
-If a motor/tilt points downwards and tilts towards the back it is logically equivalent to a motor pointing upwards and tilting towards the front.
+모터/틸트가 아래쪽을 가리키고 뒤쪽으로 기울어지면 논리적으로 모터가 위쪽을 가리키고 앞쪽으로 기울어지는 것과 같습니다.
 :::
-- Control: depending on the airframe, tilt servos can be used to control torque on one or more axis (it's possible to only use a subset of the available tilts for a certain torque control):
-  - Yaw: the tilts are used to control yaw (generally desired). If four or more motors are used, the motors can be used instead.
-  - Pitch: typically differential motor thrust is used to control pitch, but some airframes require pitch to be controlled by the tilt servos. Bicopters are among those.
-- Tiltable motors are then assigned to one of the tilt servos.
+- 제어: 기체에 따라 틸트 서보를 사용하여 하나 이상의 축에서 토크를 제어할 수 있습니다(특정 토크 제어에 대해 사용 가능한 틸트의 하위 집합만 사용할 수 있음).
+  - 요: 틸트는 요(일반적으로 원함)를 제어하는 데 사용됩니다. 4개 이상의 모터를 사용하는 경우 모터를 대신 사용할 수 있습니다.
+  - 피치: 일반적으로 차동 모터 추력은 피치를 제어하는 데 사용되지만 일부 기체는 틸트 서보에 의해 제어되는 피치가 필요합니다. 바이콥터가 그 중 하나입니다.
+- 그런 다음 틸트 가능한 모터가 틸트 서보 중 하나에 할당됩니다.
 
-![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
-
-
-### Bidirectional Motors
-
-Some vehicles may use bidirectional motors (i.e. motor spins in direction 1 for lower output range and in direction 2 for the upper half). For example, ground vehicles that want to move forwards and backwards, or VTOL vehicles that have pusher motors that go in either direction.
-
-If bidiectional motors are used, make sure to select the **Reversible** checkbox for those motors (the checkbox is displayed as an "advanced" option).
-
-![Reversible](../../assets/config/actuators/qgc_geometry_reversible.png)
-
-Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
+![틸트 축](../../assets/config/actuators/tilt_axis.png)
 
 
-## Actuator Outputs
+### 양방향 모터
 
-The actuators and any other output function can be assigned to any of the physical outputs. Each output has its own tab, e.g. the PWM MAIN or AUX output pins, or UAVCAN.
+일부 차량은 양방향 모터를 사용할 수 있습니다. (즉, 모터는 더 낮은 출력 범위에 대해 방향 1로 회전하고 상위 절반에 대해 방향 2로 회전합니다). 예를 들어, 전진 및 후진을 원하는 지상 차량 또는 어느 방향으로든 이동하는 푸셔 모터가 있는 VTOL 차량이 있습니다.
 
-PWM outputs are grouped according to the hardware groups of the autopilot. Each group allows to configure the PWM rate or DShot/Oneshot (if supported).
+양방향 모터를 사용하는 경우 해당 모터에 대해 **가역성** 확인란을 선택하여야 합니다(확인란은 "고급" 옵션으로 표시됨).
+
+![역전가능](../../assets/config/actuators/qgc_geometry_reversible.png)
+
+양방향 모터와 연결된 ESC가 적절하게 구성되었는지도 확인하여야 합니다(예: [DShot 명령](../peripherals/dshot.md#commands)을 통해 달성할 수 있는 DShot ESC에 대해 활성화된 3D 모드).
+
+
+## 액추에이터 출력
+
+액추에이터 및 기타 출력 기능은 물리적 출력에 할당할 수 있습니다. 각 출력에는 고유한 탭(PWM MAIN 또는 AUX 출력 핀, 또는 UAVCAN)이 있습니다.
+
+PWM 출력은 자동 조종 장치의 하드웨어 그룹에 따라 그룹화됩니다. 각 그룹은 PWM 속도 또는 DShot/Oneshot(지원되는 경우)을 설정할 수 있습니다.
 
 :::note
-For boards with MAIN and AUX, prefer the AUX pins over the MAIN pins for motors, as they have lower latency.
+MAIN 및 AUX가 있는 보드의 경우 대기 시간이 더 짧기 때문에 모터용 MAIN 핀보다 AUX 핀을 선호합니다.
 :::
 
-The AUX pins have additional configuration options for camera capture/triggering. Selecting these requires a reboot before they are applied.
+AUX 핀에는 카메라 캡처/트리거를 위한 추가 설정 옵션이 있습니다. 이를 선택하려면 적용전에 재부팅하여야 합니다.
 
 
-## Actuator Testing
+## 액추에이터 테스트
 
 <!-- Not documented: "Identify and assign motors" -->
  
-When testing actuators, make sure that:
-- Motors spin at the "minimum thrust" position.
+액추에이터를 테스트시에는 다음을 확인하십시오.
+- 모터는 "최소 추력" 위치에서 회전합니다.
 
-  The sliders snap into place at the lower end, and motors are turned off (disarmed). The "minimum thrust" position is the next slider position, which commands the minimum thrust. For PWM motors, adjust the minimum output value such that the motors spin at that slider position (not required for DShot). :::note
-VTOLs will automatically turn off motors pointing upwards during fixed-wing flight.
-For Standard VTOLs these are the motors defined as multicopter motors.
-For Tiltrotors these are the motors that have no associated tilt servo.
-Tailsitters use all motors in fixed-wing flight.
+  슬라이더가 하단에서 제자리에 고정되고 모터가 꺼집니다(무장 해제). "최소 추력" 위치는 최소 추력을 명령하는 다음 슬라이더 위치입니다. PWM 모터의 경우 모터가 해당 슬라이더 위치에서 회전하도록 최소 출력 값을 조정합니다(DShot에는 필요하지 않음). :::note
+VTOL은 고정익 비행 중에 위쪽을 가리키는 모터를 자동으로 끕니다.
+표준 VTOL의 경우 멀티콥터 모터로 정의된 모터입니다.
+틸트로터의 경우 관련 틸트 서보가 없는 모터입니다.
+Tailsitters는 고정익 비행에서 모든 모터를 사용합니다.
 :::
-- Servos move into the direction of the convention described above. :::note
-A trim value can be configured for control surfaces, which is also applied to the test slider.
+- 서보는 위에서 설명한 규칙의 방향으로 이동합니다. :::note
+테스트 슬라이더에도 적용되는 제어면의 트림 값을 설정할 수 있습니다.
 :::
 
-Note the following behaviour:
-- If a safety button is used, it must be pressed before actuator testing is allowed.
-- The kill-switch can still be used to stop motors immediately.
-- Servos do not actually move until the corresponding slider is changed.
-- The parameter [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) can be used to completely disable actuator testing.
-- On the shell, [actuator_test](../modules/modules_command.md#actuator-test) can be used as well.
+다음 동작에 유의하십시오.
+- 안전 버튼을 쿨러야 액츄에이트를 테스트 할 수 있습니다.
+- 중지 스위치를 사용하여 모터를 즉시 중지할 수 있습니다.
+- 해당 슬라이더가 변경될 때까지 서보는 실제로 이동하지 않습니다.
+- 매개 변수 [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN)을 사용하여 액츄에이터 테스트를 완전히 비활성화 할 수 있습니다.
+- 셸에서 [actuator_test](../modules/modules_command.md#actuator-test)를 사용할 수 있습니다.
 
-### Reversing Motors
+### 모터 역전
 
-The motors must turn in the direction defined in configured geometry ("**Direction CCW**" checkboxes). If any motors do not turn in the correct direction they must be reversed.
+모터는 구성된 지오메트리에 정의된 방향으로 회전하여야 합니다("**Direction CCW**" 확인란). 모터가 올바른 방향으로 회전하지 않으면 역전하여야 합니다.
 
-There are several options:
-- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can reverse the direction via UI (**Set Spin Direction** buttons). Note that the current direction cannot be queried, so you might have to try both options.
-- Swap 2 of the 3 motor cables (it does not matter which ones).
+몇 가지 방법은 아래와 같습니다.
+- ESC가 [DShot](../peripherals/dshot.md)으로 구성된 경우 UI를 통해 방향을 바꿀 수 있습니다(**회전 방향 설정** 버튼). 현재 방향은 쿼리할 수 없으므로 두 옵션을 모두 시도하여야 할 수 있습니다.
+- 모터 케이블 3개 중 2개를 바꿉니다 (어떤 케이블이든 상관 없음).
 
   :::note
-If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
+모터가 총알 커넥터를 통해 연결되지 않은 경우 납땜을 다시 하여야 합니다 (이러한 이유로 DShot ESC를 선호합니다).
 :::
