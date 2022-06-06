@@ -56,7 +56,7 @@
    - **고정익:** 순항 속도로 비행하면 [유지 모드](../flight_modes/hold.md)를 활성화합니다. 이렇게 하면 비행기가 일정한 고도와 속도로 원을 그리며 비행합니다.
 1. QGroundControl에서 메뉴(**차량 설정 > PID 조정**)를 클릭합니다.
 
-   ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
+   ![튜닝 설정 > 자동 튜닝 활성화됨](../../assets/qgc/setup/autotune/autotune.png)
 1. *Rate Controller* 또는 *Attitude Controller* 탭을 선택합니다. **자동 튜닝 활성화** 버튼이 활성화되어 있는 지 확인합니다(이렇게 하면 **자동 튜닝** 버튼이 표시되고 수동 튜닝 선택기가 제거됨).
 1. 조이스틱의 움직임을 멈추고 **자동 조정** 버튼을 클릭합니다. 경고 팝업을 읽고 **확인**을 클릭하여 튜닝을 시작합니다.
 1. 드론은 먼저 빠른 롤 동작을 수행한 후 피치 및 요 동작을 수행합니다. 진행률은 _자동 조정_ 버튼 옆의 진행률 표시줄에 표시됩니다.
@@ -134,40 +134,40 @@ PX4는 [PID 컨트롤러](../flight_stack/controller_diagrams.md)(속도, 자세
 
 일반적으로 기체와 유사한 [기체 설정](../config/airframe.md)을 사용하면 기체의 비행이 가능합니다. 그러나 설정이 하드웨어와 정확히 일치하지 않으면, 속도 및 자세 컨트롤러를 튜닝하여야 합니다. 속도 및 위치 컨트롤러를 튜닝하는 것은 기체 역학의 영향을 덜 받고 유사한 기체에 대한 기본 튜닝 설정으로 충분하기 때문에 덜 중요합니다.
 
-Autotuning provides an automatic mechanism to tune the rate and attitude controllers. It can be used to tune fixed wing and multicopter vehicles, and VTOL vehicles when flying as a multicopter or as a fixed wing (transition between modes must be manually tuned). In theory it should work for other vehicle types that have a rate controller, but currently only the above types are supported.
+자동 튜닝은 속도 및 자세 컨트롤러의  자동 튜닝 메커니즘을 제공합니다. 고정익 및 멀티콥터를 튜닝할 수 있으며 멀티콥터 또는 고정익으로 비행시 VTOL 기체를 튜닝할 수 있습니다(모드간 전환은 수동으로 튜닝하여야 함). 이론상으로는 속도 컨트롤러가 있는 다른 기체 유형에서 작동하여야 하지만 현재는 위 유형만 지원됩니다.
 
-Automatic tuning works well for the multicopter and fixed wing vehicle configurations supported by PX4, provided the frame is not too flexible (see [below for more information](#does-autotuning-work-for-all-supported-airframes)).
+프레임이 너무 유연하지 않다면 자동 튜닝은 PX4에서 지원하는 멀티콥터 및 고정익 설정에 적합합니다([자세한 내용은 아래](#does-autotuning-work-for-all-supported-airframes) 참조).
 
-The vehicle must be flying in an altitude-stabilized mode ([Altitude mode](../flight_modes/altitude_mc.md), [Hold mode](../flight_modes/hold.md), or [Position mode](../flight_modes/position_mc.md)). The flight stack will apply a small disturbance to the vehicle in each axis and then attempt to calculate the new tuning parameters. For fixed wing vehicles the new tuning is applied in-air by default, after which the vehicle tests the new settings and reverts the tuning if the controllers are not stable. For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
+기체는 고도 안정화 모드([고도 모드](../flight_modes/altitude_mc.md), [유지 모드](../flight_modes/hold.md) 또는 [위치 모드](../flight_modes/position_mc.md))에서 비행하여야 합니다. 비행 스택은 각 축에서 차량에 작은 교란을 적용한 다음 새 튜닝 매개변수를 계산하려고 시도합니다. 고정익은 새 튜닝은 기본적으로 공중에서 적용하며, 그 후 기체는 새 설정을 테스트하고 컨트롤러가 안정적이지 않으면 튜닝을 이전 값으로 되돌립니다. 멀티콥터의 경우 기체가 착륙하고 무장 해제 후 새 튜닝 매개변수를 적용합니다. 조종사는 조심스럽게 이륙하여 튜닝을 테스트하여야 합니다.
 
-The tuning process takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)). The default behaviour can be configured using [parameters](#parameters).
+튜닝 프로세스는 약 40초([19~68초](#how-long-does-autotuning-take))가 소요됩니다. 기본 동작은 [매개변수](#parameters)를 사용하여 설정할 수 있습니다.
 
 
-### FAQ
+### 자주 묻는 질문
 
-#### What frames types are supported?
+#### 어떤 기체 유형이 지원됩니까?
 
-Autotuning is enabled for multicopter, fixed wing, and hybrid VTOL fixed wing vehicles.
+멀티콥터, 고정익 및 하이브리드 VTOL 고정익에 대하여 자동 튜닝이 활성화됩니다.
 
-While it is not yet enabled for other frame types, in theory it an be used with any frame that uses a rate controller.
+아직 다른 기체 유형에는 사용할 수 없지만, 이론상으로는 속도 컨트롤러를 사용하는 모든 기체에에 사용할 수 있습니다.
 
-#### Does autotuning work for all supported airframes?
+#### 지원되는 모든 기체에 대해 자동 튜닝이 작동합니까?
 
-The mathematical model used by autotuning to estimate the dynamics of the drone assumes this it is a linear system with no coupling between the axes (SISO), and with a limited complexity (2 poles and 2 zeros). If the real drone is too far from those conditions, the model will not be able to represent the real dynamics of the drone.
+무인 항공기의 역학을 추정하기 위해 자동 튜닝에 의해 사용되는 수학적 모델은 이것이 축 사이의 결합(SISO)이 없고 복잡성이 제한된(2개의 극과 2개의 0) 선형 시스템이라고 가정합니다. 실제 드론이 이러한 조건에서 너무 멀리 떨어져 있으면, 모델이 드론의 실제 역학을 표현할 수 없습니다.
 
-In practise, autotuning generally works well for fixed wing and multicopter, provided the frame is not too flexible.
+실제로 자동 튜닝은 기체 유형이 너무 유연하지 않다면, 일반적으로 고정익과 멀티콥터에 적합합니다.
 
-#### How long does autotuning take?
+#### 자동 튜닝은 얼마나 걸립니까?
 
-Tuning takes 5s-20s per axis (aborted if tuning could not be established in 20s) + 2s pause between each axis + 4s of testing if the new gains are applied in air.
+조정은 축당 5초-20초가 소요됩니다(20초 내에 조정을 설정할 수 없는 경우 중단됨) + 각 축 사이의 2초 일시 중지 + 새로운 게인이 공중에서 적용되는 경우 테스트 4초.
 
-A multicopter must tune all three axes, and by default does not test the new gains in-air. Tuning will therefore take between 19s (`5 + 2 + 5 + 2 + 5`) and 64s (`20x3 + 2x2`).
+멀티콥터는 세 축을 모두 조정해야 하며 기본적으로 새로운 게인을 공중에서 테스트하지 않습니다. 따라서 조정은 19초(`5 + 2 + 5 + 2 + 5`)에서 64초(`20x3 + 2x2`) 사이가 소요됩니다.
 
-By default a fixed wing vehicle tunes all three axes and then tests the new gains in-air. The range is therefore between 25s (`5 + 2 + 5 + 2 + 5 + 2 + 4`) and 70s (`20x3 + 3x2 + 4`).
+기본적으로 고정익은 3개의 축을 모두 조정한 다음, 새 게인을 공중에서 테스트합니다. 따라서 범위는 25초(`5 + 2 + 5 + 2 + 5 + 2 + 4`)와 70초(`20x3 + 3x2 + 4`) 사이입니다.
 
-Note however that the above settings are defaults. A multicopter can choose to run the tests in air, and a fixed wing can choose not to. Further, a fixed wing can choose to tune fewer axes.
+그러나 위의 설정은 기본값입니다. 멀티콥터는 공중에서 테스트를 실행하도록 선택할 수 있고, 고정익은 실행하지 않도록 선택할 수 있습니다. 또한 고정익은 더 적은 축을 조정하도록 선택할 수 있습니다.
 
-Anecdotally, it usually takes around 40s for either vehicle.
+일화에 따르면 두 기체 모두 보통 40초 정도 걸립니다.
 
 
 <!-- 
@@ -180,8 +180,8 @@ If not, perhaps say "not very" but you should expect that the vehicle might defl
 -->
 
 
-## See also
+## 참고 항목:
 
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter_basic.md) (Manual/Simple)
-- [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) (Advanced/Detailed)
-- [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter_basic.md)(수동/간단)
+- [Multicopter PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)(고급/상세)
+- [고정익 PID 튜닝 가이드](../config_fw/pid_tuning_guide_fixedwing.md)
