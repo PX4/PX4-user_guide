@@ -1,15 +1,14 @@
-# Auto-tuning
+# 자동 튜닝
 
-Auto-tuning automates the process of tuning the PX4 rate and attitude controllers, which are the most important controllers for stable and responsive flight (other tuning is more "optional"). It is currently enabled for multicopter, fixed wing, and hybrid VTOL fixed wing vehicles.
+자동 튜닝은 안정적이고 반응성이 뛰어난 비행을 위한 가장 중요한 컨트롤러인 PX4의 속도 및 자세 컨트롤러 튜닝 프로세스를 자동화합니다(다른 튜닝은 "선택 사항"에 가깝습니다). 현재 멀티콥터, 고정익 및 하이브리드 VTOL 고정익 차량에 사용할 수 있습니다.
 
-Tuning only needs to be done once, and is recommended unless unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
+튜닝은 한 번 수행으로 충분하며, 제조업체에서 이미 튜닝한(그 이후로 수정하지 않은) 차량을 사용하지 않는 한 권장됩니다.
 
-:::note
-The QGroundControl Autotuning UI is not enabled for Fixed wing vehicles - see [qgroundcontrol#10194](https://github.com/mavlink/qgroundcontrol/issues/10194) (though it is for VTOL vehicles in fixed wing flight). You can start Fixed-wing autotuning by setting the parameter [FW_AT_START](../advanced_config/parameter_reference.md#FW_AT_START).
+:::note QGroundControl Autotuning UI는 고정익 차량에 사용할 수 없습니다. [qgroundcontrol#10194](https://github.com/mavlink/qgroundcontrol/issues/10194)를 참조하세요(고정익 비행의 VTOL 차량에 해당). 매개변수 [FW_AT_START](../advanced_config/parameter_reference.md#FW_AT_START)를 설정하여 고정익 자동 튜닝을 시작할 수 있습니다.
 :::
 
 :::warning
-Auto-tuning is performed while flying. The airframe must fly well enough handle moderate disturbances, and should be closely attended:
+비행 중에 자동 튜닝이 수행됩니다. The airframe must fly well enough handle moderate disturbances, and should be closely attended:
 - Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
 - Be ready to abort the autotuning process by moving the remote control sticks.
 - Verify that the vehicle flies well after tuning.
