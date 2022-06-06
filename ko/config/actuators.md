@@ -1,7 +1,7 @@
-# Actuator Configuration and Testing
+# 액추에이터 설정 및 테스트
 
 :::note
-The *Actuators* view is only displayed if dynamic control allocation is enabled using the [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) parameter. This replaces geometry and mixer configuration files with configuration using parameters. You should also ensure that the appropriate airframe type is selected using [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
+*액추에이터* 보기는 [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) 매개변수를 사용하여 동적 제어 할당이 활성화된 경우에만 표시됩니다. 이것은 지오메트리 및 믹서 구성 파일을 매개변수를 사용하는 설정으로 대체합니다. 또한, [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME)을(를) 사용하여 적절한 기체 유형이 선택되었는지 확인하여야 합니다.
 
 The easiest way to try this out in simulation is to use the following make target, which has control allocation pre-enabled:
 ```
