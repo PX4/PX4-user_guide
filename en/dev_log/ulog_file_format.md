@@ -1,7 +1,6 @@
 # ULog File Format
 
-ULog is the file format used for logging system data.
-The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
+ULog is the file format used for logging system data. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
 
 ::: note
 The [system logger](../modules/modules_system.md#logger) allows the default set of logged topics to be replaced with a custom set that is defined on an SD Card.
@@ -86,7 +85,7 @@ struct message_header_s {
 In practice, we include the `msg_size` and `msg_type` in each message definitions as the first 2 members of different message definitions.
 
 :::note
-Messages below are prefixed with the single alphabet that corresponds to it's `msg_type`.
+Message sections below are prefixed with the character that corresponds to it's `msg_type`!
 :::
 
 
@@ -103,7 +102,7 @@ The message types in this section are:
 6. [Default Parameter](#q-default-parameter-message)
 
 
-#### 'B': Flag Bits Message (`msg_type = 'B'`)
+#### 'B': Flag Bits Message
 
 :::note
 This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
@@ -111,11 +110,10 @@ This message must be the **first message** right after the header section, so th
 
 ```c
 struct ulog_message_flag_bits_s {
-  uint16_t msg_size;
-  uint8_t msg_type = 'B';
+  struct message_header_s header; // msg_type = 'B'
   uint8_t compat_flags[8];
   uint8_t incompat_flags[8];
-  uint64_t appended_offsets[3]; ///< file offset(s) for appended data if appending bit is set
+  uint64_t appended_offsets[3]; // file offset(s) for appended data if appending bit is set
 };
 ```
 
@@ -151,7 +149,7 @@ Format message defines a single uORB topic's name and it's inner fields in a sin
 
 ```c
 struct message_format_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'F'
   char format[header.msg_size];
 };
 ```
@@ -186,17 +184,16 @@ The Information message defines a dictionary type definition `key` : `value` pai
 
 ```c
 struct ulog_message_info_header_s {
-  uint16_t msg_size;
-  uint8_t msg_type = 'I';
+  struct message_header_s header; // msg_type = 'I'
   uint8_t key_len;
-  char key[255];
+  char key[key_len];
+  char value[header.msg_size-2-key_len]
 };
 ```
 
 - `key_len`: Length of the key value
-- `key`: String with the `key` and `value` information combined: e.g. `char[5] sys_toolchain_ver9.4.0`
-  - The `key` part has the format identical as the field in the [Format message](#f-format-message) (can also be a custom type), but consists of only a single field without ending `;`, eg. `char[5] sys_toolchain_ver`
-  - The `value` contains the data corresponding to the `key`, and is written right after the `key`, e.g. `9.4.0`.
+- `key`: Contains the key string. eg. `char[5] sys_toolchain_ver`
+- `value`: Contains the data corresponding to the `key` e.g. `9.4.0`.
 
 :::note
 A key : value pair defined in the Information message should be unique. Meaning there shouldn't be more than one definition with the same key value!
@@ -242,8 +239,8 @@ Multi information message serves the same purpose as the information message, bu
 
 ```c
 struct ulog_message_info_multiple_header_s {
-  struct message_header_s header;
-  uint8_t is_continued; ///< can be used for arrays
+  struct message_header_s header; // msg_type = 'M'
+  uint8_t is_continued; // can be used for arrays
   uint8_t key_len;
   char key[key_len];
   char value[header.msg_size-2-key_len]
@@ -260,7 +257,7 @@ Parameter message in the _Definitions_ section defines the parameter values of t
 
 ```c
 struct message_info_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'P'
   uint8_t key_len;
   char key[key_len];
   char value[header.msg_size-1-key_len]
@@ -277,7 +274,7 @@ The default parameter message defines the default value of a parameter for a giv
 
 ```c
 struct ulog_message_parameter_default_header_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'Q'
   uint8_t default_types;
   uint8_t key_len;
   char key[key_len];
@@ -293,9 +290,7 @@ struct ulog_message_parameter_default_header_s {
 A log may not contain default values for all parameters.
 In those cases the default is equal to the parameter value, and different default types are treated independently.
 
-This message can also be used in the Data section.
-
-The data type is restricted to `int32_t` and `float`.
+This message can also be used in the Data section, and the data type is restricted to `int32_t` and `float`.
 
 This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
 
@@ -323,7 +318,7 @@ This must come before the first corresponding [Logged data Message](#d-logged-da
 
 ```c
 struct message_add_logged_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'A'
   uint8_t multi_id;
   uint16_t msg_id;
   char message_name[header.msg_size-3];
@@ -342,7 +337,7 @@ Unsubscribe a message, to mark that it will not be logged anymore (not used curr
 
 ```c
 struct message_remove_logged_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'R'
   uint16_t msg_id;
 };
 ```
@@ -351,7 +346,7 @@ struct message_remove_logged_s {
 
 ```c
 struct message_data_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'D'
   uint16_t msg_id;
   uint8_t data[header.msg_size-2];
 };
@@ -368,7 +363,7 @@ Logged string message, i.e. `printf()` output.
 
 ```c
 struct message_logging_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'L'
   uint8_t log_level;
   uint64_t timestamp;
   char message[header.msg_size-9]
@@ -393,7 +388,7 @@ struct message_logging_s {
 
 ```c
 struct message_logging_tagged_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'C'
   uint8_t log_level;
   uint16_t tag;
   uint64_t timestamp;
@@ -439,7 +434,7 @@ Synchronization message so that a reader can recover from a corrupt message by s
 
 ```c
 struct message_sync_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'S'
   uint8_t sync_magic[8];
 };
 ```
@@ -454,7 +449,7 @@ Dropouts can occur e.g. if the device is not fast enough.
 
 ```c
 struct message_dropout_s {
-  struct message_header_s header;
+  struct message_header_s header; // msg_type = 'O'
   uint16_t duration;
 };
 ```
