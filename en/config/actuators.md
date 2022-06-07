@@ -62,14 +62,6 @@ See the [Airframe Reference](../airframes/airframe_reference.md) for an broad un
 
 Core geometry concepts and the configuration for a number of different frames are provided in the following sections.
 
-#### Motor Position Coordinate System
-
-The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
-
-The **origin is the vehicle's centre-of-gravity (COG)**, and **NOT** the autopilot location).
-
-![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
-
 
 #### Motor Geometry: Multicopter
 
@@ -90,9 +82,11 @@ For each motor you can then set:
 - `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
 - (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
 - (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors) 
-- (Advanced) `Slew Rate`: ?
+- (Advanced) `Slew Rate`: Refer to the [Control surfaces Geometry](#control-surfaces-geometry) section for more information
 
-The X, Y, Z positions are in [FRD coordinate frame, relative to the centre of gravity](#motor-position-coordinate-system).
+:::note
+The X, Y, Z positions are in [FRD coordinate frame, relative to the centre of gravity](#motor-position-coordinate-system) and **NOT relative to the Autopilot Hardware**! Make sure you check where the Center of Gravity is located in your vehicle for this reason!
+:::
 
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
@@ -132,6 +126,15 @@ Other vehicle types will define an appropriate motor geometry for their frame ty
 Once again these motors will generally have the same kinds of properties as shown above.
 
 For example, a fixed-wing vehicle may just have a single pusher moter, while a rover with differential steering will have a motor for throttle and for steering.
+
+
+#### Motor Position Coordinate System
+
+The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
+
+The **origin is the vehicle's centre-of-gravity (COG)**, and **NOT** the autopilot location).
+
+![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
 
 
 #### Bidirectional Motors
