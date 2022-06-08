@@ -17299,8 +17299,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MAN_ARM_GESTURE">MAN_ARM_GESTURE</strong> (INT32)</td>
- <td>Enable arm/disarm stick gesture <p><strong>Comment:</strong> This determines if moving the left stick to the lower right arms and to the lower left disarms the vehicle.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Enable arm/disarm stick gesture <p><strong>Comment:</strong> This determines if moving the left stick to the lower right arms and to the lower left disarms the vehicle.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
