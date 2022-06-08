@@ -57,7 +57,7 @@ The motor geometry section lets you set the number of motors, the relative posit
 
 Most motor properties apply to all frames.
 A few properties apply to specific frames.
-For example, `Tilted-by` and `axis` are only shown & relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
+For example, `Tilted-by` and `axis` are only relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
 
 The geometry configuration for multicopter airframes provides a diagram showing the relative x,y positions for each of the motors.
 See the [Airframe Reference](../airframes/airframe_reference.md) for an broad understanding of the motor positions for other frames.
