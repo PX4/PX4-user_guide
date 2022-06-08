@@ -301,7 +301,7 @@ These steps are covered in [Output Assignment and Configuration](#output-assignm
 
 ## Actuator Testing
 
-The _Actuator Testing_ section provides sliders that can be used to test (and determine) actuator and motor settings. 
+The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings. 
 A slider is provided for each output defined in the [Actuator Outputs](#actuator-outputs) section.
 The slider example below shows the section for a typical VTOL Tiltrotor airframe.
 
@@ -312,25 +312,26 @@ The sliders can power the motors/servos across their full range of motion, and "
 
 :::note
 After you toggle the **Enable sliders** switch, actuators/motors won't do anything until the corresponding slider is _moved_.
-This is a safety feature.
+This is a safety feature to prevent sudden motor movements after switch is enabled.
 :::
 
 Sliders can be used to verify the following:
 
-1. Motors and actuators are assigned to the expected output.
+1. Actuators (Motors, Control surfaces, etc.) are assigned to the expected output.
 1. Motors don't spin when at the `disarmed` PWM output value
 1. Motors barely spin at the `minimum` PWM output value.
 1. Motors give **positive thrust** in the expected direction
-1. Control Surfaces are in the correct idle position when disarmed.
+1. Control Surfaces are in the correct idle position for `disarmed` output value
 1. Control Surfaces move in the direction as defined in the [Control Surface Convention](#control-surface-direction-conceptual)
-1. **Motor Tilt Servos** move in the direction as defined in the [Tilt Servo Convention](#motor-tilt-servos-conceptual)
+1. Motor Tilt Servos are in the correct idle position for `disarmed` output value
+1. Motor Tilt Servos move in the direction as defined in the [Tilt Servo Convention](#motor-tilt-servos-conceptual)
 
 
 ## Output Assignment and Configuration
 
-This section explains how to assign and configure outputs:
+In the _Actuator Outputs_ section on the right panel, you can assign and configure outputs, optionally using the [Actuator Testing](#actuator-testing) sliders:
 - MC vehicles that have connected motors to PWM outputs can use the [Identify & Assign Motors](#multicopter-pwm-identify-assign-motors) button to perform motor assignment "semi-automatically".
-- Motor output assignment can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)). 
+- Motor output assignment can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)).
 - Actuator output assignment can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)). 
 - Disarmed, minimum, and maximum settings, for all outputs can also be also determined using sliders.
   This is shown as part of [Motor Assignment & Configuration](#motor-assignment-configuration), [Control Surface Setup](#control-surface-setup), [Tilt servo setup](#tilt-servo-setup)
@@ -348,22 +349,22 @@ On other frames you can follow the instructions in [Output Assignment (Manual)](
 Remove the propellers from motors before assigning outputs or any testing.
 :::
 
+![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
+
 When you click the button, QGC sends a command to a motor, causing it to spin.
 To assign that motor to an output you simply select the corresponding motor displayed in the screen.
 QGC will then spin the next motor for you to assign, and so on.
 
-![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
-
-To use this tool:
+Instructions:
 1. Setup the motor geometry to match the motors on your frame.
 1. Select the PWM tab where you want to assign the motors.
-2. Click the **Identify & Assign Motors** button.
-3. One motor will start spinning (click **Spin Motor Again** if it stops spinning too quickly to note.)
+1. Click the **Identify & Assign Motors** button.
+1. One motor will start spinning (click **Spin Motor Again** if it stops spinning too quickly to note.)
 
-   Select the corresponding motor in the geometry section.
+   Click on the corresponding motor in the geometry section.
    
    ![](../../assets/config/actuators/identify_motors_in_progress.png)
-4. After assigning all motors, the tool will set the correct motor mapping for the outputs and then exit. 
+1. After assigning all motors, the tool will set the correct motor mapping for the outputs and then exit.
 
 
 ### Output Assignment (Manual)
@@ -372,27 +373,26 @@ To use this tool:
 Remove the propellers from motors before assigning outputs or any testing.
 :::
 
-Motor and actuator outputs can be manually assigned using using sliders in the [Actuator Testing](#actuator-testing) section.
+Motor and actuator outputs can be manually assigned using sliders in the [Actuator Testing](#actuator-testing) section.
 
-To assign motors (assuming you have/can not use the [Identify & Assign Motors](#multicopter-pwm-identify-assign-motors) tool):
-1. First assign motor functions (and actuators) to the outputs that you think are _likely_ to be correct. 
-1. Toggle the **Enable sliders** switch
-1. Move the slider for MOTOR1 to the minimal position and note what motor or actuator moves on the vehicle.
-   This should match MOTOR1 in your motor geometry (or the position of the motor in the [airframe reference](../airframes/airframe_reference.md) for your frame, if you are using a standard configuration).
-   - If the correct motor moves, then proceed to the next step.
-   - If a motor other that MOTOR1 moves, swap the output assignment over.
+To assign actuators (assuming you have/can not use the [Identify & Assign Motors](#multicopter-pwm-identify-assign-motors) tool):
+1. First assign actuator function to the output that you think are _likely_ to be correct in Actuator Outputs section.
+1. Toggle the **Enable sliders** switch in Actuator Testing section.
+1. Move the slider for the actuator you want to test: to the minimum thrust position for Motors, or around the middle position for Servos.
+1. Check which actuator moves on the vehicle.
+   This should match the actuator in your motor geometry (you can refer to the position in the [airframe reference](../airframes/airframe_reference.md) for your frame, if you are using a standard geometry configuration).
+   - If the correct actuator moves, then proceed to the next step.
+   - If a wrong actuator moves, swap the output assignment over.
    - If nothing moves then increase the slider mid-way though the range, then higher if needed. 
      If nothing moves after that the output might not be connected, the motor might not be powered, or the output might be misconfigured.
-	 You will need to troubleshoot (perhaps try other actuators to see if "anything" moves.
-1. Return the slider to the minimal position.
-1. Repeat for all motors
-
-Actuator assignment can be checked in a similar way.
+	 You will need to troubleshoot (perhaps try other actuator outputs to see if "anything" moves.
+1. Return the slider to the minimal position (the disarmed command will continue to be sent to that actuator)
+1. Repeat for all actuators
 
 
 ### Motor Configuration
 
-The motor configuaration sets output values such that motors:
+The motor configuration sets output values such that motors:
 - don't spin when disarmed (at the `disarmed` PWM output value)
 - barely spin at the `minimum` PWM output value
 - give **positive thrust** in the expected direction
@@ -421,23 +421,23 @@ For each motor:
 
 ### Control Surface Setup
 
-The control surface configuaration sets output values such that the surfaces:
-
-1. have the correct idle position when disarmed.
-1. move in the directions as defined in the [Control Surface Convention](#control-surface-direction-conceptual).
-
 ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_disarmed_1500.png)
 
-For each control surface:
-1. Set the `Disarmed` value for Control Surface outputs to `1500` (note, this assumes we're using a PWM actuator where 1500 is the middle of the range)
-   - Unlike motors, when `disarmed` we usually control surfaces to be in the middle position of their range.
-   - Adjust the value until the control is positioned correctly.
-2. Set the Output mode to `PWM 50Hz`, instead of default PWM 400 Hz when using a PWM output for Control Surfaces
-   - If your servo is creating weird noise, it is most likely because of the "PWM 400Hz" output, which is usually not accepted by commercial Servos.
-   - In case your Servo supports 100, 200 or 400 Hz command, you can of course set the output mode to the maximum PWM frequency it supports!
-3. Move Control Surface slider upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-direction-conceptual).
-   1. If the control surface moves in the opposite direction, click on the 'Rev Range' checkbox to reverse the range
-4. Move the slider to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
+:::note
+It depends on what kind of Servo you have, but generally for PWM Servos, you need to set the Output mode to `PWM 50Hz`, instead of default `PWM 400 Hz`.
+:::
+
+- If your servo is creating **weird noise**, it is most likely because of the "PWM 400Hz" output, which is usually not accepted by commercial Servos.
+- In case your Servo supports 100, 200 or 400 Hz command, you can of course set the output mode to the maximum PWM frequency it supports!
+
+We will be configuring `Trim` setting of the Geometry panel in addition, as we need to test the outputs on actual hardware to figure out the correct value.
+
+For each control surfaces:
+
+1. Set the `Disarmed` value (e.g. `1500` for PWM Servos) so that the surfaces will stay at neutral position when disarmed.
+2. Move Control Surface slider upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-direction-conceptual).
+   1. If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range
+3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
 
     ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
    1. If it is not aligned, you can set the **Trim** value for each control surface.
@@ -455,17 +455,18 @@ For each control surface:
 
 :::note
 Tilt servo setup is similar to that for control surfaces, as both of them uses servo hardware (in most cases).
+
+It depends on what kind of Servo you have, but generally for PWM Servos, you need to set the Output mode to `PWM 50Hz`, instead of default `PWM 400 Hz`.
 :::
 
-1. **Set the 'Disarmed' value for the outputs**. The value depends on the vehicle.
-2. **Set the Output mode to 'PWM 50Hz'**, instead of default PWM 400 Hz when using a PWM output for Control Surfaces using Servos
-   - If your Servo is creating weird noise, it is most likely because of the "PWM 400Hz" output, which is usually not accepted by commercial Servos!
-   - In case your Servo supports 100, 200 or 400 Hz command, you can then set the output mode to the maximum PWM frequency it supports!
-3. Position the Slider of the Tilt Servo in the lowest position, and **verify that the angle where motor thrust will point towards matches the 'Angle at Min Tilt'** position in Geometry section.
+- If your servo is creating **weird noise**, it is most likely because of the "PWM 400Hz" output, which is usually not accepted by commercial Servos.
+- In case your Servo supports 100, 200 or 400 Hz command, you can of course set the output mode to the maximum PWM frequency it supports!
+
+1. Set the `Disarmed` value (e.g. `1000` or `2000` for PWM Servos) so that the servo will be positioned in expected direction when disarmed.
+2. Position the Slider of the Tilt Servo in the lowest position, and verify that positive motor thrust will point towards the `Angle at Min Tilt` defined in the Geometry section.
 
    ![Tilt Servo Geometry Setup](../../assets/config/actuators/tilt_servo_geometry_config.png)
-
-4. Position the Slider of the Tilt Servo in the highest position and **verify that the angle where motor thrust will point towards matches the 'Angle at Max Tilt' angle set in Geometry.**
+3. Position the Slider of the Tilt Servo in the highest position, and verify that positive motor thrust will point towards the `Angle at Max Tilt` defined in the Geometry section.
 
 ### Other Notes
 
