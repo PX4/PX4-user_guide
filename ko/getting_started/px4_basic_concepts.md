@@ -2,7 +2,7 @@
 
 무인 항공기의 기본 개념과 PX4 사용법에 대하여 설명합니다. 초보자뿐만 아니라 전문가에게도 유익한 자료들이 많이 있습니다. 
 
-기본 개념에 익숙하시면, [기본 조립](../assembly/README.md)편에서 자동비행장치의 배선방법을 바로 공부할 수 있습니다. *QGroundControl*를 이용한 펌웨어 설치 방법은 [기본 설정](../config/README.md)편을 참고하십시오.
+기본 개념에 익숙하시면, [기본 조립](../assembly/README.md)편에서 자동비행장치의 배선 방법을 공부할 수 있습니다. *QGroundControl*를 이용한 펌웨어 설치 방법은 [기본 설정](../config/README.md)편을 참고하십시오.
 
 ## 드론의 정의
 
@@ -14,7 +14,7 @@
 항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 :::
 
-자동비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. 자동비행장치는 여러 가지 비행 모듈들로 구성됩니다.
+자동비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. 자동비행장치는 여러 가지 비행 모듈들로 구성되어집니다.
 
 ## PX4 자동비행장치
 
