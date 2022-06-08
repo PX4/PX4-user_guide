@@ -30,7 +30,7 @@ The view has three sections:
 
 A quadcopter might have an setup screen similar to the one shown below.
 This defines a 4 motor copter with X-geometry, and maps each of the motors to DShot ESC.
-It also maps PWM400 AUX outputs for controlling a parachute and landing gear as well.
+It also maps PWM400 AUX outputs for controlling a parachute and landing gear.
 
 ![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
