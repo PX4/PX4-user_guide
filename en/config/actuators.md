@@ -46,7 +46,9 @@ This includes the number and position of [motors](#motor-geometry), and the numb
 For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
 
 :::note
-The UI shows the configured motor positions, customized to your vehicle (Currently only for Multicopter)
+The UI is customised for the selected airframe:
+- Only configurable fields for the selected airframe type are displayed (i.e. if motor geometry isn't configurable, the fields won't be visible).
+- The motor position diagram is currently only displayed for multicopter frames.
 :::
 
 ### Motor Geometry
@@ -167,9 +169,10 @@ The fields are:
 - `Pitch scale`: : Effectiveness of actuator around pitch axis (normalised: -1 to 1).  [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Yaw scale`: Effectiveness of actuator around yaw axis (normalised: -1 to 1).  [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Trim`: An offset added to the actuator so that it is centered without input. This might be determined by trial and error.
-- `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range.
-   - It is intended for actuators that may be damaged if they move too fast — like the tilting actuators on a tiltrotor VTOL vehicle. It can be used to limit the rate of change of an actuator (if this is not specified then no rate limit is applied).
-   - For example, a setting of 2.0 means that the motor/servo signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1).
+- `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
+   - It is intended for actuators that may be damaged if they move too fast — like the tilting actuators on a tiltrotor VTOL vehicle.
+     The setting limits the rate of change of an actuator (if not specified then no rate limit is applied).
+   - For example, a setting of 2.0 means that the motor/servo should not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
 - `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
  - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
