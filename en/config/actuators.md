@@ -329,10 +329,9 @@ Sliders can be used to verify the following:
 
 ## Output Assignment and Configuration
 
-In the _Actuator Outputs_ section on the right panel, you can assign and configure outputs, optionally using the [Actuator Testing](#actuator-testing) sliders:
+Outputs are assigned to functions and configured in the [Actuator Outputs](#actuator-outputs) section, while the  [Actuator Testing](#actuator-testing) sliders are commonly used to determine appropriate configuration values to enter.
 - MC vehicles that have connected motors to PWM outputs can use the [Identify & Assign Motors](#multicopter-pwm-identify-assign-motors) button to perform motor assignment "semi-automatically".
-- Motor output assignment can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)).
-- Actuator output assignment can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)). 
+- Output assignment of both motors and actuators can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)).
 - Disarmed, minimum, and maximum settings, for all outputs can also be also determined using sliders.
   This is shown as part of [Motor Assignment & Configuration](#motor-assignment-configuration), [Control Surface Setup](#control-surface-setup), [Tilt servo setup](#tilt-servo-setup)
 
@@ -361,7 +360,7 @@ Instructions:
 1. Click the **Identify & Assign Motors** button.
 1. One motor will start spinning (click **Spin Motor Again** if it stops spinning too quickly to note.)
 
-   Click on the corresponding motor in the geometry section.
+   Select the corresponding motor in the geometry section.
    
    ![](../../assets/config/actuators/identify_motors_in_progress.png)
 1. After assigning all motors, the tool will set the correct motor mapping for the outputs and then exit.
