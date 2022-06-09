@@ -372,20 +372,22 @@ Instructions:
 Remove the propellers from motors before assigning outputs or any testing.
 :::
 
-Motor and actuator outputs can be manually assigned using sliders in the [Actuator Testing](#actuator-testing) section.
+Actuator outputs for both motors and servos can be _manually_ assigned using sliders in the [Actuator Testing](#actuator-testing) section.
 
-To assign actuators (assuming you have/can not use the [Identify & Assign Motors](#multicopter-pwm-identify-assign-motors) tool):
-1. First assign actuator function to the output that you think are _likely_ to be correct in Actuator Outputs section.
-1. Toggle the **Enable sliders** switch in Actuator Testing section.
-1. Move the slider for the actuator you want to test: to the minimum thrust position for Motors, or around the middle position for Servos.
+To assign an actuator:
+1. First assign functions to the outputs that you think are _likely_ to be correct in the _Actuator Outputs_ section.
+1. Toggle the **Enable sliders** switch in _Actuator Testing_ section.
+1. Move the slider for the actuator you want to test:
+   - Motors should be moved to the minimum thrust position.
+   - Servos should be moved near the middle position.
 1. Check which actuator moves on the vehicle.
-   This should match the actuator in your motor geometry (you can refer to the position in the [airframe reference](../airframes/airframe_reference.md) for your frame, if you are using a standard geometry configuration).
+   This should match the actuator positions for your geometry (the [airframe reference](../airframes/airframe_reference.md) shows motor positions for a number of standard airframes).
    - If the correct actuator moves, then proceed to the next step.
    - If a wrong actuator moves, swap the output assignment over.
    - If nothing moves then increase the slider mid-way though the range, then higher if needed. 
      If nothing moves after that the output might not be connected, the motor might not be powered, or the output might be misconfigured.
-	 You will need to troubleshoot (perhaps try other actuator outputs to see if "anything" moves.
-1. Return the slider to the minimal position (the disarmed command will continue to be sent to that actuator)
+	 You will need to troubleshoot (perhaps try other actuator outputs to see if "anything" moves).
+1. Return the slider to the "disarmed" position (bottom of slider for motors, centre of slider for servos).
 1. Repeat for all actuators
 
 
@@ -412,7 +414,8 @@ For each motor:
      For DShot output, this is not required <!-- any, or just the minimum check? -->
      :::
 3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
-   - The expected thrust direction can vary by vehicle type, for example in multicopters the thrust should always point upwards, while in a fixed wing vehicle the thrust will push the vehicle forwards.
+   - The expected thrust direction can vary by vehicle type.
+     For example in multicopters the thrust should always point upwards, while in a fixed wing vehicle the thrust will push the vehicle forwards.
    - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#motor-tilt-servos-conceptual).
      Testing of the [Tilt Servo](#tilt-servo-testing) is covered below as well.
    - If thrust is in the wrong direction, you may need to [reverse the motors](#reversing-motors).
@@ -420,52 +423,59 @@ For each motor:
 
 ### Control Surface Setup
 
+First set the _frame rate_ for the servos used in each group of outputs.
+This would normally be set to the maximum value supported by your servo.
+Below we show how you would set it to PWM50 (the most common value).
+
 ![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_disarmed_1500.png)
 
 :::note
-It depends on what kind of Servo you have, but generally for PWM Servos, you need to set the Output mode to `PWM 50Hz`, instead of default `PWM 400 Hz`.
+You will almost certainly need to change the pulse rate from the default of 400Hz because support is rare (if not supported the servo will usually make an "odd" noise).
+If you're using PWM servos, PWM50 is far more common.
+If a high rate servo is _really_ needed, DShot offers better value.
 :::
 
-- If your servo is creating **weird noise**, it is most likely because of the "PWM 400Hz" output, which is usually not accepted by commercial Servos.
-- In case your Servo supports 100, 200 or 400 Hz command, you can of course set the output mode to the maximum PWM frequency it supports!
+For each of the control surfaces:
 
-We will be configuring `Trim` setting of the Geometry panel in addition, as we need to test the outputs on actual hardware to figure out the correct value.
-
-For each control surfaces:
-
-1. Set the `Disarmed` value (e.g. `1500` for PWM Servos) so that the surfaces will stay at neutral position when disarmed.
-2. Move Control Surface slider upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-direction-conceptual).
-   1. If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range
+1. Set the `Disarmed` value so that the surfaces will stay at neutral position when disarmed.
+   This is usually around `1500` for PWM servos.
+2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-direction-conceptual).
+   - If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
 3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
-
-    ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
-   1. If it is not aligned, you can set the **Trim** value for each control surface.
-   2. After setting a new trim, manually click and place the slider for the control surface you are testing in the middle position, to check if it is in the neutral position.
-   3. Note that as mentioned above as a safety feature of slider, unless you actually touch the slider, the actuator command doesn't get sent.
-      Therefore **you must manually click and put the slider in the middle position to test the trim**
-   4. Or, an easier way to test without using the slider would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`.
-      1. Which will enable the control of Servos even when the vehicle is disarmed, and will constantly be applying the Trim setting to the Control Surfaces
-      2. Here you can try setting different values for the Trim and check the alignment, and then settle on the value you are happy with.
-
+   - If it is not aligned, you can set the **Trim** value for the control surface.
+     :::note
+	 This is done in the `Trim` setting of the Geometry panel, usually by "trial and error".
+	 ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
+	 :::
+	  
+   - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position.
+     Confirm that surface is in the neutral position.
+	 
+	 Note that you **must** move the slider _even if it is already in the middle position_ (it doesn't start getting commands until it has been moved).
+	 
+   
+:::note   
+Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`.
+- This will enable the control of servos even when the vehicle is disarmed, and will constantly be applying the Trim setting to the Control Surfaces
+- You can try setting different values for the Trim and check the alignment, and then settle on the value you are happy with.
+:::
 
 ### Tilt Servo Setup
 
+First set the _frame rate_ for the servos used in each group of outputs.
+This would normally be set to the maximum value supported by your servo.
+Below it is set to PWM50 (the most common value).
+Note, this part of the setup is the same as for control surfaces above.
+
 ![Tilt Servo Setup](../../assets/config/actuators/tilt_servo_setup.png)
 
-:::note
-Tilt servo setup is similar to that for control surfaces, as both of them uses servo hardware (in most cases).
+For each of the tilt servos:
 
-It depends on what kind of Servo you have, but generally for PWM Servos, you need to set the Output mode to `PWM 50Hz`, instead of default `PWM 400 Hz`.
-:::
-
-- If your servo is creating **weird noise**, it is most likely because of the "PWM 400Hz" output, which is usually not accepted by commercial Servos.
-- In case your Servo supports 100, 200 or 400 Hz command, you can of course set the output mode to the maximum PWM frequency it supports!
-
-1. Set the `Disarmed` value (e.g. `1000` or `2000` for PWM Servos) so that the servo will be positioned in expected direction when disarmed.
-2. Position the Slider of the Tilt Servo in the lowest position, and verify that positive motor thrust will point towards the `Angle at Min Tilt` defined in the Geometry section.
+1. Set the `Disarmed` value (e.g. `1000` or `2000` for PWM Servos) so that the servo will be positioned in expected direction when _disarmed_.
+2. Position the slider for the servo in the lowest position, and verify that a positive value increase will point towards the `Angle at Min Tilt` (defined in the Geometry section).
 
    ![Tilt Servo Geometry Setup](../../assets/config/actuators/tilt_servo_geometry_config.png)
-3. Position the Slider of the Tilt Servo in the highest position, and verify that positive motor thrust will point towards the `Angle at Max Tilt` defined in the Geometry section.
+3. Position the slider for the servo in the highest position, and verify that positive motor thrust will point towards the `Angle at Max Tilt` (as defined in the Geometry section).
 
 ### Other Notes
 
