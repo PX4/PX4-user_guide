@@ -446,7 +446,7 @@ For each of the control surfaces:
      :::note
 	 This is done in the `Trim` setting of the Geometry panel, usually by "trial and error".
 	 ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
-	 :::
+     :::
 	  
    - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position.
      Confirm that surface is in the neutral position.
