@@ -38,7 +38,7 @@ PX4는 비행전에 센서들의 품질과 추정기를 체크하여 시동과 �
 - 기본값 0.5는 내비게이션 편 요각과 자기 편 요각 (자 기계 또는 외부 비전) 간의 차이가 EKF에서 허용하는 최대치의 50 %를 넘지 않도록 허용하고, 비행 시작시 오류 증가에 대한 약간의 여유를 제공합니다.
 - 요 자이로의 오프셋이 크거나 자기 간섭 또는 자력계 보정이 불량한 상태에서 차량을 이동하거나 회전하면 실패할 수 있습니다.
 
-#### PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS
+#### 사전 확인 실패 : EKF 높은 IMU 액셀 바이어스 :
 
 <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/commander/Arming/PreFlightCheck/checks/ekf2Check.cpp#L267 -->
 
@@ -46,7 +46,7 @@ PX4는 비행전에 센서들의 품질과 추정기를 체크하여 시동과 �
 
 <!-- Mathieu Bresciani is expert -->
 
-The EKF IMU acceleration bias is the difference between the measured acceleration reported by the IMU sensor and the expected acceleration reported by the EKF2 estimator (which fuses position and/or velocity data from a number of sources, including the IMU, GNSS, flow sensors etc.). This bias may change when the sensor is turned on (“turn-on bias”) and over time due to noise and temperature differences (“in-run bias”). The number should generally be very small (near zero), indicating that measurements from different sources all agree on the acceleration.
+EKF IMU 가속 바이어스는 IMU 센서에서 보고한 측정된 가속도와 EKF2 추정기에서 보고한 예상 가속도 간의 차이입니다(IMU, GNSS, 유량 센서 등을 포함한 여러 소스의 위치 및/또는 속도 데이터를 융합합니다). 이 바이어스는 센서가 켜져 있을 때("켜기 바이어스") 그리고 시간이 지남에 따라 노이즈 및 온도 차이("실행 바이어스")로 인해 변경될 수 있습니다. The number should generally be very small (near zero), indicating that measurements from different sources all agree on the acceleration.
 
 The warning indicates that the bias is higher than some arbitrary threshold (the vehicle will not be allowed to take off). It is most likely a sign that accelerometer or thermal calibration are required:
 
