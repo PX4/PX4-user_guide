@@ -9809,7 +9809,7 @@ table {
  <td><strong id="ASPD_WIND_NSD">ASPD_WIND_NSD</strong> (FLOAT)</td>
  <td>Airspeed Selector: Wind estimator wind process noise noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>0 > 1 </td>
- <td>0.1</td>
+ <td>1.e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
