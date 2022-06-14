@@ -1,16 +1,12 @@
 # ULog File Format
 
-ULog is the file format used for logging system data. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
+ULog (Universal-Log) is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
+This document is meant to be the ULog File Format Spec Documentation, especially for anyone who is interested in developing a ULog Parser / Application and needs to decode ULog file.
 
-::: note
-The [system logger](../modules/modules_system.md#logger) allows the default set of logged topics to be replaced with a custom set that is defined on an SD Card.
-See [Logging > SD Card Configuration](../dev_log/logging#sd-card-configuration) for more information.
-:::
-
-ULog commonly logs uORB topics related to (but not limited to) the following sources:
+PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
 - **Device inputs:** Sensors, RC input, etc.
 - **Internal states:** CPU load, attitude, EKF state, etc.
-- **Messages:** MAVLink communications, `PX4_INFO()`, Custom `printf` statements, and so on.
+- **String messages:** `printf` statements, including `PX4_INFO()` and `PX4_ERR()`.
 
 The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory layout for all binary types (the least significant byte (LSB) of data type is placed at the lowest memory address).
 
@@ -30,10 +26,10 @@ The following binary types are used for logging. They all correspond to the type
 
 Additionally the types can be used as an array: e.g. `float[5]`.
 
-Strings (`char[length]`) do not usually contain the termination NULL character `'\0'` at the end.
+Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
 :::note
-String comparisons are case sensitive, which should be taken into account when comparing the uORB topic names when [adding subscriptions](#a-subscription-message).
+String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
 :::
 
 ## ULog File Structure
@@ -80,18 +76,16 @@ struct message_header_s {
 ```
 
 - `msg_size` is the size of the message in bytes without the header.
-- `msg_type` defines the content, and is a single alphabet character.
-
-In practice, we include the `msg_size` and `msg_type` in each message definitions as the first 2 members of different message definitions.
+- `msg_type` defines the content, and is a single character.
 
 :::note
-Message sections below are prefixed with the character that corresponds to it's `msg_type`!
+Message sections below are prefixed with the character that corresponds to it's `msg_type`.
 :::
 
 
 ### Definitions Section
 
-The definitions section contains basic information such as software version, uORB Topic format, initial parameter values, and so on.
+The definitions section contains basic information such as software version, message format, initial parameter values, and so on.
 
 The message types in this section are:
 1. [Flag Bits](#b-flag-bits-message)
@@ -108,6 +102,8 @@ The message types in this section are:
 This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
 :::
 
+This message provides an information to the log parser whether the log is parsable or not.
+
 ```c
 struct ulog_message_flag_bits_s {
   struct message_header_s header; // msg_type = 'B'
@@ -118,34 +114,34 @@ struct ulog_message_flag_bits_s {
 ```
 
 - `compat_flags`: compatible flag bits
-  - These flags indicate any information that is compatible with the existing ULog is in the log.
+  - These flags indicate whether any information that is compatible with the ULog file format is in the log.
   - `compat_flags[0]`: *DEFAULT_PARAMETERS* (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
   The rest of the bits are currently not defined and must be set to 0.
-  These bits can be used for future ULog changes that are compatible with existing parsers.
+  These bits can be used for future ULog changes that are compatible with existing parsers. For example, adding a new message types, which can be indicated by setting one of the Bits, and the existing parsers can just ignore the new message type in the log.
   It means parsers can just ignore the bits if one of the unknown bits is set.
 - `incompat_flags`: incompatible flag bits.
   - `incompat_flags[0]`: *DATA_APPENDED* (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
   
-  All other bits are undefined and must be set to 0.
-  If a parser finds one of these bits set, it must refuse to parse the log.
-  This can be used to introduce breaking changes that existing parsers cannot handle.
-- `appended_offsets`: File offsets (0-based) for appended data.
+  The rest of the bits are currently not defined and must be set to 0.
+  This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog Parser that didn't have the concept of *DATA_APPENDED* reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
+  If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+- `appended_offsets`: File offset for appended data.
   If no data is appended, all offsets must be zero.
-  This can be used to reliably append data for logs that may stop in the middle of a message.
+  This can be used to reliably append data for logs that may stop in the middle of a message. For example, hardfault dumps in PX4.
 
   A process appending data should do:
-  - set the relevant `incompat_flags` bit,
-  - set the first `appended_offsets` that is 0 to the length of the log file,
-  - then append any type of messages that are valid for the Data section.
+  - set the relevant `incompat_flags` bit
+  - set the first `appended_offsets` as the length of the log file without the appended data, as that is where the data would start
+  - append any type of messages that are valid for the Data section.
 
 It is possible that there are more fields appended at the end of this message in future ULog specifications.
 This means a parser must not assume a fixed length of this message.
-If the message is longer than expected (currently 40 bytes), any additional bytes must be ignored/discarded.
+If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
 
 #### 'F': Format Message
 
-Format message defines a single uORB topic's name and it's inner fields in a single string.
+Format message defines a singe message name and it's inner fields in a single string.
 
 ```c
 struct message_format_s {
@@ -169,12 +165,12 @@ Some field names are special:
 - `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
   - Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`.
   - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
-  - A log writer must make sure to log messages often enough to be able to detect **wrap-arounds** (when the timestamp overflows the data type and goes back to 0)
-  - Also, the log reader must handle wrap-arounds (and take into account dropouts).
   - The timestamp must always be monotonic increasing for a message series with the same `msg_id`.
+  - Optionally, when using a small timestamp datatype such as `uint8_t`, the log writer must make sure to log messages often enough to be able to detect **wrap-arounds** (when the timestamp overflows the data type and goes back to 0)
+  - In that case, the log reader must handle wrap-arounds as well, and take into account dropouts.
 - `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
   - These fields can be inserted by a writer to ensure correct alignment.
-  - If the padding field is the last field, then this field will not be logged, to avoid writing unnecessary data.
+  - If the padding field is the last field, then this field may not be logged, to avoid writing unnecessary data.
   - This means the `message_data_s.data` will be shorter by the size of the padding.
   - However the padding is still needed when the message is used in a nested definition.
 
@@ -187,13 +183,13 @@ struct ulog_message_info_header_s {
   struct message_header_s header; // msg_type = 'I'
   uint8_t key_len;
   char key[key_len];
-  char value[header.msg_size-2-key_len]
+  char value[header.msg_size-1-key_len]
 };
 ```
 
 - `key_len`: Length of the key value
-- `key`: Contains the key string. eg. `char[5] sys_toolchain_ver`
-- `value`: Contains the data corresponding to the `key` e.g. `9.4.0`.
+- `key`: Contains the key string. eg. `char[value_len] sys_toolchain_ver`
+- `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
 :::note
 A key : value pair defined in the Information message should be unique. Meaning there shouldn't be more than one definition with the same key value!
@@ -205,29 +201,28 @@ Predefined information messages are:
 
 key | Description | Example for value
 --- | ---  | ---
-`char[3] sys_name` | Name of the system |  "PX4"
-`char[9] ver_hw` | Hardware version (board) |  "PX4FMU_V4"
-`char[2] ver_hw_subtype` | Board subversion (variation)|  "V2"
-`char[7] ver_sw` | Software version (git tag)|  "7f65e01"
-`char[6] ver_sw_branch` | git branch |  "master"
+`char[value_len] sys_name` | Name of the system |  "PX4"
+`char[value_len] ver_hw` | Hardware version (board) |  "PX4FMU_V4"
+`char[value_len] ver_hw_subtype` | Board subversion (variation)|  "V2"
+`char[value_len] ver_sw` | Software version (git tag)|  "7f65e01"
+`char[value_len] ver_sw_branch` | git branch |  "master"
 `uint32_t ver_sw_release` | Software version (see below)|  0x010401ff
-`char[5] sys_os_name` | Operating System Name |  "Linux"
-`char[7] sys_os_ve`r | OS version (git tag) |  "9f82919"
+`char[value_len] sys_os_name` | Operating System Name |  "Linux"
+`char[value_len] sys_os_ve`r | OS version (git tag) |  "9f82919"
 `uint32_t ver_os_release` | OS version (see below) |  0x010401ff
-`char[7] sys_toolchain` | Toolchain Name |  "GNU GCC"
-`char[5] sys_toolchain_ver` | Toolchain Version |  "6.2.1"
-`char[16] sys_mcu` | Chip name and revision |  "STM32F42x, rev A"
-`char[12] sys_uuid` | Unique identifier for vehicle (eg. MCU ID) |  "392a93e32fa3"...
-`char[7] log_type` | Type of the log (full log if not specified) | "mission"
-`char[10] replay` | File name of replayed log if in replay mode | "log001.ulg"
+`char[value_len] sys_toolchain` | Toolchain Name |  "GNU GCC"
+`char[value_len] sys_toolchain_ver` | Toolchain Version |  "6.2.1"
+`char[value_len] sys_mcu` | Chip name and revision |  "STM32F42x, rev A"
+`char[value_len] sys_uuid` | Unique identifier for vehicle (eg. MCU ID) |  "392a93e32fa3"...
+`char[value_len] log_type` | Type of the log (full log if not specified) | "mission"
+`char[value_len] replay` | File name of replayed log if in replay mode | "log001.ulg"
 `int32_t time_ref_utc` | UTC Time offset in seconds | -3600 |
 
 :::note
-The `key_len` value in `char key[key_len]` has no fixed value.
-Therefore the key lengths in the example above (3, 9, 2, 7, ...) may not be exactly same with your ULog's information message.
+`value_len` represents the data size of the `value`. This is described in the `key`.
 :::
 
-- The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
+- For PX4, the format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
   - **Type** is defined as following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta version, `>= 192`: RC version, `== 255`: release version.
   - For example, `0x010402FF` translates into the release version v1.4.2.
 
@@ -243,7 +238,7 @@ struct ulog_message_info_multiple_header_s {
   uint8_t is_continued; // can be used for arrays
   uint8_t key_len;
   char key[key_len];
-  char value[header.msg_size-2-key_len]
+  char value[header.msg_size-key_len]
 };
 ```
 
@@ -253,7 +248,7 @@ Parsers can store all information multi messages as a 2D list, using the same or
 
 #### 'P': Parameter Message
 
-Parameter message in the _Definitions_ section defines the parameter values of the vehicle when the logger started. It uses the same format as the [Information Message](#i-information-message).
+Parameter message in the _Definitions_ section defines the parameter values of the vehicle when logging is started. It uses the same format as the [Information Message](#i-information-message).
 
 ```c
 struct message_info_s {
@@ -327,7 +322,7 @@ struct message_add_logged_s {
 
 - `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. The default and first instance must be 0.
 - `msg_id`: unique id to match [Logged data Message](#d-logged-data-message) data. The first use must set this to 0, then increase it.
-  - The same `msg_id` must not be used twice for different subscriptions, not even after unsubscribing.
+  - The same `msg_id` must not be used twice for different subscriptions.
 - `message_name`: message name to subscribe to.
 Must match one of the [Format Message](#f-format-message) definitions.
 
@@ -399,20 +394,20 @@ struct message_logging_tagged_s {
 * `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
   * For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
 
-```c
-enum class ulog_tag : uint16_t {
-  unassigned,
-  mavlink_handler,
-  ppk_handler,
-  camera_handler,
-  ptp_handler,
-  serial_handler,
-  watchdog,
-  io_service,
-  cbuf,
-  ulg
-};
-```
+  ```c
+  enum class ulog_tag : uint16_t {
+    unassigned,
+    mavlink_handler,
+    ppk_handler,
+    camera_handler,
+    ptp_handler,
+    serial_handler,
+    watchdog,
+    io_service,
+    cbuf,
+    ulg
+  };
+  ```
 
 * `timestamp`: in microseconds
 * `log_level`: same as in the Linux kernel:
