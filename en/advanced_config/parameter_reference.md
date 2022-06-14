@@ -9785,11 +9785,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="ASPD_SC_P_NOISE">ASPD_SC_P_NOISE</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator true airspeed scale process noise <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td><strong id="ASPD_SCALE_NSD">ASPD_SCALE_NSD</strong> (FLOAT)</td>
+ <td>Airspeed Selector: Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
  <td>0 > 0.1 </td>
  <td>0.0001</td>
- <td>Hz</td>
+ <td>1/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
@@ -9806,11 +9806,11 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
- <td><strong id="ASPD_W_P_NOISE">ASPD_W_P_NOISE</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator wind process noise <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td><strong id="ASPD_WIND_NSD">ASPD_WIND_NSD</strong> (FLOAT)</td>
+ <td>Airspeed Selector: Wind estimator wind process noise noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>0 > 1 </td>
  <td>0.1</td>
- <td>m/s^2</td>
+ <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
 
@@ -12727,11 +12727,11 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
- <td><strong id="EKF2_WIND_NOISE">EKF2_WIND_NOISE</strong> (FLOAT)</td>
- <td>Process noise for wind velocity prediction    </td>
+ <td><strong id="EKF2_WIND_NSD">EKF2_WIND_NSD</strong> (FLOAT)</td>
+ <td>Process noise spectral density for wind velocity prediction <p><strong>Comment:</strong> When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>0.0 > 1.0 </td>
- <td>1.0e-1</td>
- <td>m/s^2</td>
+ <td>1.0e-2</td>
+ <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
 
