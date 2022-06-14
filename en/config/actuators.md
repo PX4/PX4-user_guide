@@ -283,18 +283,24 @@ The _Actuator Outputs_ section is used to assign motors, control surface servos,
 
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX, PWM MAIN, UAVCAN.
+Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN.
 Motors and actuators (which are referred to as "functions") can be assigned to any physical output on any of the available busses.
 
 :::note
 PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
 :::
 
-PWM outputs are grouped based on the protocols that they support.
-In other words, the outputs that support DShot/Oneshot/PWM would be grouped together, separate from those that don't support Dshot (say).
+PWM outputs are grouped based on the hardware timer groups.
+Meaning all the outputs in one group must operate under the same protocol at the same rate (e.g. PWM signal at 400Hz for all the outputs in one group).
+Therefore it is not possible to map Servo and a Motor in the same output group, as they usually operate under a different rate.
 
-The AUX tab also has "CAP" options for camera capture/triggering.
-Selecting these requires a reboot before they are applied.
+On PWM AUX tab there are optionally CAP outputs that are generally used as the [camera capture/trigger input](../peripherals/camera.md#trigger-configuration). However you can map the CAP outputs as an output just like all the other output configurations.
+
+Likewise, other AUX outputs can be mapped to be used as camera capture/triggering input.
+
+:::note
+Configuring the Camera Capture / Trigger input requires a reboot to take effect
+:::
 
 You should assign functions to the outputs that match your physical wiring of motors and servos, and use the [Actuator Testing](#actuator-testing) section described below to determine appropriate output parameter values.
 These steps are covered in [Output Assignment and Configuration](#output-assignment-and-configuration).
