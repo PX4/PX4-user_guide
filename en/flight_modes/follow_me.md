@@ -58,6 +58,8 @@ The following flight precautions should be observed:
 
 ## How to use Follow Me using QGroundControl
 
+![Follow-me QGC Example](../../assets/flight_modes/followme_qgc_example.jpg)
+
 *Follow Me* mode is supported by *QGroundControl* on ground station hardware that has a GPS module.
 The recommended configuration is a USB OTG-capable Android device with two telemetry radios.
 
@@ -83,27 +85,19 @@ The mode has been tested on the following Android devices:
 ## Using MAVSDK to use Follow Me
 MAVSDK supports [Follow Me](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html). However it currently has a bug where a same message is getting sent twice occasionally, which can mess with the target position and velocity estimator.
 
-Therefore using MAVSDK for a Follow Me isn't covered here for now.
+However, you can try the MAVSDK following the [Follow Me class](https://mavsdk.mavlink.io/main/en/cpp/guide/follow_me.html) documentation as well as the [Follow Me Example](https://mavsdk.mavlink.io/main/en/cpp/examples/follow_me.html).
+
+:::note
+Using MAVSDK is not advised due to the reason stated above!
+:::
 
 ## Configuration
-
-### Tips on how to make your Follow-Me behave much better!
-1. Set the [follow distance](#NAV_FT_DST) to minimum 8 meters, but preferably higher than 12 meters.
-
-There is an inherent position bias (3 ~ 5 meters) between the target and the drone's GPS sensor.
-Which makes the drone follow a 'ghost target' that is certain distance away from you. You will notice this significantly if you set the follow distance to 1 ~ 2 meters.
-Therefore, it is preferred to set the distance long enough so that the GPS bias won't be so significant.
-
-2. If the drone is moving around you in the arc too slow, increase the [maximum tangential velocity](#FLW_TGT_MAX_VEL) setting.
-
-By experimenting, it showed that around `5 m/s` achieves a relaxed, slow movement around the target and around `10 m/s` achieves a more dynamic movement around the target.
-
 
 ### Altitude Control Mode
 
 ![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.png)
 
-The default [altitude mode](#FLW_TGT_ALT_M), `2D tracking`, keeps drone's altitude constant unless user adjusts them via parameter or RC stick input. This means that if you are going up on a hill, drone wouldn't know about this and would assume that you are at a constant altitude.
+The default [altitude mode](#FLW_TGT_ALT_M), `2D tracking`, keeps drone follow height above the home position (takeoff altitude) unless user adjusts them via parameter or RC stick input. This means that if you are going up on a hill, drone wouldn't know about this and would assume that you are at a constant altitude.
 
 The `2D + Terrain` mode can compensate for the terrain's altitude change using a distance sensor. However if your drone doesn't have the distance sensor, it would behave exactly the same as 2D tracking mode. However this can make drone very jumpy as distance sensors aren't always accurate. Also since it's assuming that the ground under the drone is at the same level as you (the target), if the field isn't flat enough it can lead to drone flying at the wrong altitude.
 
@@ -128,6 +122,17 @@ Parameter | Description
 <a id="FLW_TGT_ALT_M"></a>[FLW_TGT_ALT_M](../advanced_config/parameter_reference.md#FLW_TGT_ALT_M) | Altitude control mode. <br>- `0` = 2D Tracking (Altitude Fixed) <br>- `1` = 2D Tracking + Terrain Following <br>- `2` = 3D Tracking of the target's GPS altitude
 <a id="FLW_TGT_MAX_VEL"></a>[FLW_TGT_MAX_VEL](../advanced_config/parameter_reference.md#FLW_TGT_MAX_VEL) | [m/s] Maximum relative velocity for orbital motion around the target.<br>- 10 m/s has proven to be a sweet spot for aggressiveness vs smoothness.<br>- Setting it to higher value means the orbit trajectory around the target will move faster, but if the drone is physically not capable of achieving that speed, it leads to an aggressive behavior.
 <a id="FLW_TGT_RS"></a>[FLW_TGT_RS](../advanced_config/parameter_reference.md#FLW_TGT_RS) | Dynamic filtering algorithm responsiveness that filters incoming target location.<br>- `0.0` = Very sensitive to movements and noisy estimates of position, velocity and acceleration.<br>- `1.0` = Very stable but not responsive filter
+
+### Tips on improving the behavior of Follow Me
+1. Set the [follow distance](#NAV_FT_DST) to minimum 8 meters, but preferably longer than 12 meters.
+
+There is an inherent position bias (3 ~ 5 meters) between the target and the drone's GPS sensor.
+Which makes the drone follow a 'ghost target' that is certain distance away from you. You will notice this significantly if you set the follow distance to 1 ~ 2 meters.
+Therefore, it is preferred to set the distance long enough so that the GPS bias won't be so significant.
+
+2. If the drone is moving around you in an arc too slow, increase the [maximum tangential velocity](#FLW_TGT_MAX_VEL) setting.
+
+By experimenting, it showed that around `5 m/s` achieves a relaxed, slow movement around the target and around `10 m/s` achieves a more dynamic movement around the target.
 
 ## Known Issues
 
