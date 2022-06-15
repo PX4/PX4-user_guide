@@ -153,7 +153,7 @@ The fields are:
 - `Trim`: An offset added to the actuator so that it is centered without input. This might be determined by trial and error.
 - `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
    - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied). It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
-   - For example, a setting of 2.0 means that the motor/servo should not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
+   - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
 - `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
   - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
@@ -244,15 +244,19 @@ The _Actuator Outputs_ section is used to assign motors, control surface servos,
 
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX, PWM MAIN, UAVCAN. Motors and actuators (which are referred to as "functions") can be assigned to any physical output on any of the available busses.
+Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN. Motors and actuators (which are referred to as "functions") can be assigned to any physical output on any of the available busses.
 
 :::note
 PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
 :::
 
-PWM outputs are grouped based on the protocols that they support. In other words, the outputs that support DShot/Oneshot/PWM would be grouped together, separate from those that don't support Dshot (say).
+PWM outputs are grouped based on the hardware timer groups. Meaning all the outputs in one group must operate under the same protocol at the same rate (e.g. PWM signal at 400Hz for all the outputs in one group). Therefore it is not possible to map Servo and a Motor in the same output group, as they usually operate at a different rate.
 
-The AUX tab also has "CAP" options for camera capture/triggering. Selecting these requires a reboot before they are applied.
+The PWM AUX tab has CAP outputs that are generally used as the [camera capture/trigger input](../peripherals/camera.md#trigger-configuration). However you can map the CAP outputs to other output functions, and other AUX outputs can be used as camera capture/triggering input.
+
+:::note
+Configuring the Camera Capture / Trigger input requires a reboot to take effect
+:::
 
 You should assign functions to the outputs that match your physical wiring of motors and servos, and use the [Actuator Testing](#actuator-testing) section described below to determine appropriate output parameter values. These steps are covered in [Output Assignment and Configuration](#output-assignment-and-configuration).
 
