@@ -46,13 +46,12 @@ The roll axis is safer as an incorrect tuning leads only to motion, but not a lo
 
 ### Tuning the Feedforward Gain
 
-To tune this gain, set the other gains to zero.
+To tune this gain, first set the other gains to their minimum values (nominally 0.005, but check the parameter documentation).
 
+#### Gains to set to minimum values
 
-#### Gains to set to zero
-
-- FW_RR_I = 0
-- FW_RR_P = 0
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
 
 
 #### Gains to tune
@@ -63,7 +62,8 @@ To tune this gain, set the other gains to zero.
 
 ### Tuning the Rate Gain
 
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - start with a value of 0.06. Increase this value (doubling each time) until the system starts to wobble / twitch.
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - start with a value of 0.06.
+  Increase this value (doubling each time) until the system starts to wobble / twitch.
   Then reduce gain by 50%.
 
 ### Tuning the Trim Offsets with the Integrator Gain
@@ -77,13 +77,12 @@ The pitch axis might need more integrator gain and a correctly set pitch offset.
 
 ### Tuning the Feedforward Gain
 
-To tune this gain, set the other gains to zero.
+To tune this gain, set the other gains to their minimum values.
 
+#### Gains to set to minimum values
 
-#### Gains to set to zero
-
-- FW_PR_I = 0
-- FW_PR_P = 0
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
 
 #### Gains to tune
 
