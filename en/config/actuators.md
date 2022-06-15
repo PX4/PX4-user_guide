@@ -180,7 +180,7 @@ The fields are:
 - `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
    - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied).
      It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
-   - For example, a setting of 2.0 means that the motor/servo should not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
+   - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
 - `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
   - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
