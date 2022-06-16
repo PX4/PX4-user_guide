@@ -60,6 +60,8 @@ scale errors, in-run bias and thermal drift (if thermal compensation is enabled 
 - [event](event.md) — Events interface
 - [failure_detector_status](failure_detector_status.md)
 - [follow_target](follow_target.md)
+- [follow_target_estimator](follow_target_estimator.md)
+- [follow_target_status](follow_target_status.md)
 - [generator_status](generator_status.md)
 - [geofence_result](geofence_result.md)
 - [gimbal_device_attitude_status](gimbal_device_attitude_status.md)

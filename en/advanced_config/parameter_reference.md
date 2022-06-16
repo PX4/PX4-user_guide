@@ -13795,32 +13795,53 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="NAV_FT_DST">NAV_FT_DST</strong> (FLOAT)</td>
+ <td><strong id="FLW_TGT_ALT_M">FLW_TGT_ALT_M</strong> (INT32)</td>
+ <td>Altitude control mode <p><strong>Comment:</strong> Maintain altitude or track target's altitude. When maintaining the altitude, the drone can crash into terrain when the target moves uphill. When tracking the target's altitude, the follow altitude NAV_MIN_FT_HT should be high enough to prevent terrain collisions due to GPS inaccuracies of the target.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> 2D Tracking: Maintain constant altitude relative to home and track XY position only</li> 
+
+<li><strong>1:</strong> 2D + Terrain: Mantain constant altitude relative to terrain below and track XY position</li> 
+
+<li><strong>2:</strong> 3D Tracking: Track target's altitude (be aware that GPS altitude bias usually makes this useless)</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FLW_TGT_DST">FLW_TGT_DST</strong> (FLOAT)</td>
  <td>Distance to follow target from <p><strong>Comment:</strong> The distance in meters to follow the target at</p>   </td>
  <td>1.0 > ? </td>
  <td>8.0</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="NAV_FT_FS">NAV_FT_FS</strong> (INT32)</td>
- <td>Side to follow target from <p><strong>Comment:</strong> The side to follow the target from (front right = 0, behind = 1, front = 2, front left = 3)</p>   </td>
- <td>0 > 3 </td>
- <td>1</td>
+ <td><strong id="FLW_TGT_FA">FLW_TGT_FA</strong> (FLOAT)</td>
+ <td>Follow Angle setting in degrees <p><strong>Comment:</strong> Angle to follow the target from. 0.0 Equals straight in front of the target's course (direction of motion) and the angle increases in clockwise direction, meaning Right-side would be 90.0 degrees while Left-side is -90.0 degrees Note: When the user force sets the angle out of the min/max range, it will be wrapped (e.g. 480 -> 120) in the range to gracefully handle the out of range.</p>   </td>
+ <td>-180.0 > 180.0 </td>
+ <td>180.0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="NAV_FT_RS">NAV_FT_RS</strong> (FLOAT)</td>
- <td>Dynamic filtering algorithm responsiveness to target movement <p><strong>Comment:</strong> lower numbers increase the responsiveness to changing long lat but also ignore less noise</p>   </td>
- <td>0.0 > 1.0 </td>
- <td>0.5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="NAV_MIN_FT_HT">NAV_MIN_FT_HT</strong> (FLOAT)</td>
- <td>Minimum follow target altitude <p><strong>Comment:</strong> The minimum height in meters relative to home for following a target</p>   </td>
+ <td><strong id="FLW_TGT_HT">FLW_TGT_HT</strong> (FLOAT)</td>
+ <td>Follow target height <p><strong>Comment:</strong> Following height above the target</p>   </td>
  <td>8.0 > ? </td>
  <td>8.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="FLW_TGT_MAX_VEL">FLW_TGT_MAX_VEL</strong> (FLOAT)</td>
+ <td>Maximum tangential velocity setting for generating the follow orbit trajectory <p><strong>Comment:</strong> This is the maximum tangential velocity the drone will circle around the target whenever an orbit angle setpoint changes. Higher value means more aggressive follow behavior.</p>   </td>
+ <td>0.0 > 20.0 </td>
+ <td>5.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FLW_TGT_RS">FLW_TGT_RS</strong> (FLOAT)</td>
+ <td>Responsiveness to target movement in Target Estimator <p><strong>Comment:</strong> lower values increase the responsiveness to changing position, but also ignore less noise</p>   </td>
+ <td>0.0 > 1.0 </td>
+ <td>0.1</td>
+ <td></td>
 </tr>
 </tbody></table>
 
