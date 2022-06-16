@@ -35,12 +35,12 @@ Tune first the roll axis, then pitch. The roll axis is safer as an incorrect tun
 
 ### Tuning the Feedforward Gain
 
-To tune this gain, set the other gains to zero.
+To tune this gain, first set the other gains to their minimum values (nominally 0.005, but check the parameter documentation).
 
-#### Gains to set to zero
+#### Gains to set to minimum values
 
-- FW_RR_I = 0
-- FW_RR_P = 0
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
 
 #### Gains to tune
 
@@ -60,12 +60,12 @@ The pitch axis might need more integrator gain and a correctly set pitch offset.
 
 ### Tuning the Feedforward Gain
 
-To tune this gain, set the other gains to zero.
+To tune this gain, set the other gains to their minimum values.
 
-#### Gains to set to zero
+#### Gains to set to minimum values
 
-- FW_PR_I = 0
-- FW_PR_P = 0
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
 
 #### Gains to tune
 
