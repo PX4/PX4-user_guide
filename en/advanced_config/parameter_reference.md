@@ -12969,7 +12969,7 @@ table {
 <tr>
  <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
  <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.005 > 0.5 (0.005)</td>
+ <td>0.0 > 0.5 (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -12983,7 +12983,7 @@ table {
 <tr>
  <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
  <td>Pitch rate proportional gain <p><strong>Comment:</strong> This defines how much the elevator input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.08</td>
  <td>%/rad/s</td>
 </tr>
@@ -13032,7 +13032,7 @@ table {
 <tr>
  <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
  <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.005 > 0.2 (0.005)</td>
+ <td>0.0 > 0.2 (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -13046,7 +13046,7 @@ table {
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
  <td>Roll rate proportional Gain <p><strong>Comment:</strong> This defines how much the aileron input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
@@ -13102,7 +13102,7 @@ table {
 <tr>
  <td><strong id="FW_WR_I">FW_WR_I</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.005 > 0.5 (0.005)</td>
+ <td>0.0 > 0.5 (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -13116,7 +13116,7 @@ table {
 <tr>
  <td><strong id="FW_WR_P">FW_WR_P</strong> (FLOAT)</td>
  <td>Wheel steering rate proportional gain <p><strong>Comment:</strong> This defines how much the wheel steering input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
@@ -13158,7 +13158,7 @@ table {
 <tr>
  <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
  <td>Yaw rate proportional gain <p><strong>Comment:</strong> This defines how much the rudder input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
