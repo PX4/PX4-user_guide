@@ -1,48 +1,48 @@
 # 정밀 착륙
 
-PX4 supports precision landing for *multicopters* on either stationary or moving targets. The target may be provided by an onboard IR sensor and a landing beacon, or by an offboard positioning system.
+PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 지원합니다. 표적은 온보드 IR 센서와 착륙 표지 또는 오프보드 포지셔닝 시스템에 의해 제공될 수 있습니다.
 
-Precision landing can be [started/initiated](#initiating-a-precision-landing) as part of a [mission](#mission), in a [Return mode](#return-mode-precision-landing) landing, or by entering the [*Precision Land* flight mode](#precision-landing-flight-mode).
-
-:::note
-Precision landing is only possible with a valid global position (due to a limitation in the current implementation of the position controller).
-:::
-
-## Overview
-
-### Land Modes
-
-A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
-
-#### Required Mode
-
-In *Required Mode* the vehicle will search for a target if none is visible when landing is initiated. The vehicle will perform a precision landing if a target is located.
-
-The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
+정밀 착륙은 [미션](#mission)의 일부로, [복귀 모드](#return-mode-precision-landing) 착륙 또는 [* Precision Land* 비행 모드](#precision-landing-flight-mode)로 시작할 수 있습니다.
 
 :::note
-If using an offboard positioning system PX4 assumes that the target is visible when it is recieving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
+정밀 착륙은 유효한 전역 위치에서만 가능합니다(현재 위치 컨트롤러 구현의 제한으로 인해).
 :::
 
-#### Opportunistic Mode
+## 개요
 
-In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the target is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
+### 착륙 모드
 
-### Landing Phases
+정밀 착륙은 "필수" 또는 "가능성 탐색"으로 설정 가능합니다. 선택한 모드에 따라 정밀착륙 매커니즘은 달라집니다.
 
-A precision landing has three phases:
+#### 필수 모드
 
-1. **Horizontal approach:** The vehicle approaches the target horizontally while keeping its current altitude. Once the position of the target relative to the vehicle is below a threshold ([PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD)), the next phase is entered. If the target is lost during this phase (not visible for longer than [PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)), a search procedure is initiated (during a required precision landing) or the vehicle does a normal landing (during an opportunistic precision landing).
+*필수 모드*에서 착륙을 시작할 때 아무런 신호를 찾을 수 없으면 기체는 목표물을 찾기 시작합니다. 목표물을 찾은 경우에는 기체는 정밀 착륙을 실행합니다.
 
-2. **Descent over target:** The vehicle descends, while remaining centered over the target. If the target is lost during this phase (not visible for longer than `PLD_BTOUT`), a search procedure is initiated (during a required precision landing) or the vehicle does a normal landing (during an opportunistic precision landing).
+이런 탐색 과정은 탐색 고도까지 상승을 포함합니다([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 기체가 목표물을 탐색 고도에서 찾을 수 없고, 탐색시간 초과 ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT))이후에는 현재 위치에서 일반 착륙을 시작합니다.
 
-3. **Final approach:** When the vehicle is close to the ground (closer than [PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)), it descends while remaining centered over the target. If the target is lost during this phase, the descent is continued independent of the kind of precision landing.
+:::note
+오프보드 포지셔닝 시스템을 사용하는 경우 PX4는 MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) 메시지를 수신할 때 대상이 보인다고 가정합니다.
+:::
 
-Search procedures are initiated in the first and second steps, and will run at most [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) times. Landing Phases Flow Diagram
+#### 가능성 탐색 모드
 
-A flow diagram showing the phases can be found in [landing phases flow Diagram](#landing-phases-flow-diagram) below.
+*가능성 탐색 모드*에서는 기체가 착륙이 시행될 때 목표물이 가시적이면 정밀 착륙을 시작합니다. 목표물이 보이지 않으면, 기체는 즉시 현재 위치에서 *일반* 착륙을 수행합니다.
 
-## Initiating a Precision Landing
+### 착륙 과정
+
+정밀 착륙에는 세 단계가 있습니다.
+
+1. **수평 접근 방식:** 기체는 현재 고도를 유지하면서 목표물에 수평으로 접근합니다. 기체에 대한 목표물 위치가 임계값([PLD_HACC_RAD ](../advanced_config/parameter_reference.md#PLD_HACC_RAD)) 미만인 경우 다음 단계가 입력됩니다. 이 단계에서 목표물이 일정 시간([PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT) 이상의 시간) 동안 잡히지 않으면, 탐색 과정이 시작되거나 (정밀 착륙이 "필수" 모드일 때,) 기체는 일반 착륙을 수행합니다 ( "가능성 탐색" 정밀 착륙 모드일 때).
+
+2. **목표물 위로 하강:** 기체는 목표물의 중앙에 위치하여 하강합니다. 이 단계에서 목표물이 일정 시간(`PLD_BTOUT` 이상의 시간) 동안 잡히지 않으면, 탐색 과정이 시작되거나 (정밀 착륙이 "필수" 모드일 때,) 기체는 일반 착륙을 수행합니다 ( "가능성 탐색" 정밀 착륙 모드일 때).
+
+3. **최종 접근 방식:** 기체가 지면과 가까울 때 ([PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)), 기체는 목표물의 중앙에 위치하여 하강합니다. 만약 목표물이 이 단계에서 잡히지 않는다면, 기체는 정밀 착륙의 모드와 무관하게 계속 하강합니다.
+
+검색 절차는 첫 번째 및 두 번째 단계에서 시작되며, 최대 [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)회 실행됩니다. 착륙 단계 흐름도
+
+단계를 보여주는 [착륙 단계 흐름도](#landing-phases-flow-diagram)는 아래와 같습니다.
+
+## 정밀 착륙 수행
 
 Precision landing can be used in missions, during the landing phase in *Return mode*, or by entering the *Precision Land* mode.
 
