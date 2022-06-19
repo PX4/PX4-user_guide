@@ -25589,7 +25589,7 @@ table {
  <td><strong id="SENS_MAG_AUTOCAL">SENS_MAG_AUTOCAL</strong> (INT32)</td>
  <td>Magnetometer auto calibration <p><strong>Comment:</strong> Automatically initialize magnetometer calibration from bias estimate if available.</p>   </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
