@@ -125,55 +125,55 @@ IR-Lock 센서는 기본적으로 비활성화되어 있습니다. [SENS_EN_IRLO
 
 매개변수 [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)는 목표물이 정지할 것인 지 또는 움직일 것인 지를 결정합니다. `LTEST_MODE `이 이동으로 설정된 경우(예: 착륙할 멀티콥터에 설치된 경우), 목표물 측정은 정밀 랜딩 컨트롤러에서 목표 좌표 생성에만 사용됩니다. `LTEST_MODE`가 고정으로 설정되면 목표물 측정은 기체 위치 추정기 (EKF2 또는 LPE)에서도 사용됩니다.
 
-Other relevant parameters are listed in the parameter reference under [Landing_target estimator](../advanced_config/parameter_reference.md#landing-target-estimator) and [Precision land](../advanced_config/parameter_reference.md#precision-land) parameters. Some of the most useful ones are listed below.
+다른 관련 매개변수는 [Landing_target estimator](../advanced_config/parameter_reference.md#landing-target-estimator) 및 [Precision land](../advanced_config/parameter_reference.md#precision-land) 매개변수 아래 매개변수 참조에서 설명되어 있습니다. 가장 유용한 몇 가지가 아래에 나열되어 있습니다.
 
-| Parameter                                                                                             | Description                                                                                                         |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <a id="SENS_EN_IRLOCK"></a>[SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) | IR-LOCK Sensor (external I2C). Disable: `0` (default): Enable: `1`).                                                |
-| <a id="LTEST_MODE"></a>[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)           | Landing target is moving (`0`) or stationary (`1`). Default is moving.                                              |
-| <a id="PLD_HACC_RAD"></a>[PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD)     | Horizontal acceptance radius, within which the vehicle will start descending. Default is 0.2m.                      |
-| <a id="PLD_BTOUT"></a>[PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)             | Landing Target Timeout, after which the target is assumed lost. Default is 5 seconds.                               |
-| <a id="PLD_FAPPR_ALT"></a>[PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)   | Final approach altitude. Default is 0.1 metres.                                                                     |
-| <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | Maximum number of search attempts in an required landing.                                                           |
-| <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | RTL precision land mode. `0`: disabled, `1`: [Opportunistic](#opportunistic-mode), `2`: [Required](#required-mode). |
+| 매개변수                                                                                                  | 설명                                                                                    |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| <a id="SENS_EN_IRLOCK"></a>[SENS_EN_IRLOCK](../advanced_config/parameter_reference.md#SENS_EN_IRLOCK) | IR-LOCK 센서(외부 I2C). 비활성화: `0`(기본값): 활성화: `1`).                                        |
+| <a id="LTEST_MODE"></a>[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)           | 착륙 대상이 이동 중(`0`) 또는 정지해 있습니다(`1`). 기본값은 이동입니다.                                        |
+| <a id="PLD_HACC_RAD"></a>[PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD)     | 차량이 하강을 시작할 수평 허용 반경입니다. 기본값은 0.2m입니다.                                                |
+| <a id="PLD_BTOUT"></a>[PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)             | 착륙 목표 시간 초과 후 목표물이 손실된 것으로 간주됩니다. 기본값은 5초 입니다.                                        |
+| <a id="PLD_FAPPR_ALT"></a>[PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)   | 최종 접근 고도. 기본값은 0.1 미터 입니다.                                                            |
+| <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | 착륙시 최대 검색 시도 횟수입니다.                                                                   |
+| <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | RTL 정밀 지상 모드. `0`: 비활성화됨, `1`: [기회적](#opportunistic-mode), `2`: [필수](#required-mode). |
 
-### IR Beacon Scaling
+### IR 비콘 스케일링
 
-Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor.
+IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입니다.
 
-[LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) and [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) can be used to scale beacon measurements before they are used to estimate the beacon's position and velocity relative to the vehicle. Note that `LTEST_SCALE_X` and `LTEST_SCALE_Y` are considered in the sensor frame, not the vehicle frame.
+기체에 대한 비컨의 상대 위치와 속도를 추정하기 전에, 매개변수 [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X)와 [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y)로 비컨 측정의 스케일을 조정할 수 있습니다. `LTEST_SCALE_X`와 `LTEST_SCALE_Y`은 기체 프레임이 아니라 센서 프레임을 기준이어야 합니다.
 
-To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](../dev_log/logging.md#configuration) `landing_target_pose` and `vehicle_local_position`. Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `vehicle_local_position.vx` and `vehicle_local_position.vy`, respectively (both measurements are in NED frame). If the estimated beacon velocities are consistently smaller or larger than the vehicle velocities, adjust the scale parameters to compensate.
+이러한 스케일 매개변수를 보정에는 `LTEST_MODE`를 moving으로 설정하고, `landing_target_pose`와 `vehicle_local_position` 을 [로깅](../dev_log/logging.md#configuration)하는 동안 비컨 위로 멀티콥터를 날려 전후좌우로 기체를 움직이십시오. 그런 다음, `landing_target_pose.vx_rel`와 `landing_target_pose.vy_rel`를 각각 `vehicle_local_position.vx`와 `vehicle_local_position.vy`와 비교하십시오 (각각의 측정은 NED 프레임에서 이루어집니다). 추정된 비컨 속도가 기체 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 보정합니다.
 
-If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
+`LTEST_MODE`를 정지로 설정하고 정밀착륙 도중 기체의 측면에 진동이 나타나면, 비콘 측정 값이 너무 높게 조정되었을 가능성이 있으므로 관련 방향에서 스케일 매개변수를 줄여야합니다.
 
-## Simulation
+## 시뮬레이션
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
+IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo](../simulation/gazebo.md)에서 시뮬레이션할 수 있습니다.
 
-To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
+IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 
     make px4_sitl gazebo_iris_irlock
     
 
-You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
+비컨은 Gazebo GUI에서 이동시키거나, [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42)에서 비컨을 이동하여 위치를 변경할 수 있습니다.
 
-## Operating Principles
+## 작동 원리
 
-### Landing Target Estimator
+### 착륙 목표 추정기
 
-The `landing_target_estimator` takes measurements from the `irlock` driver as well as the estimated terrain height to estimate the beacon's position relative to the vehicle.
+`landing_target_estimator`는 `irlock` 드라이버로부터 측정값을 받을 뿐 아니라, 기체로부터의 비컨의 상대 위치를 추정하기 위한 예상 지형 고도를 받아옵니다.
 
-The measurements in `irlock_report` contain the tangent of the angles from the image center to the beacon. In other words, the measurements are the x and y components of the vector pointing towards the beacon, where the z component has length "1". This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
+`irock_report`의 측정에는 영상 중심에서 비컨으로 각도의 접선이 포함됩니다. 다른 말로, 측정은 z 성분의 크기가 1이고, 측정은 비컨을 나타내는 벡터의 x와 y성분입니다. 비컨에서 카메라부터의 거리의 측정을 스케일링하는것은 비컨에서 카메라까지의 벡터를 반환합니다. 이것으로 상대 위치는 북쪽으로 정렬되게 회전하고, 기체 자세 추정치를 사용해 기체 프레임을 수평으로 만듭니다. 상대 위치 측정의 x, y 성분은 별도의 칼만 필터로 필터링됩니다. 이 필터는 속도 추정치를 생성하고 일시적으로 생긴 이상값을 거부하는 단순 저대역 필터입니다.
 
-The `landing_target_estimator` publishes the estimated relative position and velocity whenever a new `irlock_report` is fused into the estimate. Nothing is published if the beacon is not seen or beacon measurements are rejected. The landing target estimate is published in the `landing_target_pose` uORB message.
+`landing_target_estimator`는 새로운 `irlock-report`가 추정치에 결합시 마다 매번 추정 상대 위치와 속도를 보고합니다. 비컨이 보이지 않거나, 신호 측정이 거부되면 아무 것도 보고하지 않습니다. 착륙 목표 추정치는 `landing_targett_pose` uORB 메시지에 게재됩니다.
 
-### Enhanced Vehicle Position Estimation
+### 고급 기체 위치 추정 
 
-If the target is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the target measurements. This is done by fusing the target's velocity as a measurement of the negative velocity of the vehicle.
+타겟이 매개변수 `LTEST_MODE`를 사용하여 정지 상태로 지정되면, 타겟 측정을 통하여 기체의 위치/속도 추정치를 개선할 수 있습니다. 기체의 음의 속도를 측정을 목표물의 속도와 결합하여 추정합니다.
 
-### Landing Phases Flow Diagram
+### 착륙 단계 흐름도
 
-This image shows the [landing phases](#landing-phases) as a flow diagram.
+아래의 이미지는 [착륙 단계](#landing-phases)를 흐름도로 나타냅니다.
 
-![Precision Landing Flow Diagram](../../assets/precision_land/precland-flow-diagram.png)
+![정밀 착륙 흐름도](../../assets/precision_land/precland-flow-diagram.png)
