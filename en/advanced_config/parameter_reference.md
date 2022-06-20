@@ -26608,6 +26608,37 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SER_MXS_BAUD">SER_MXS_BAUD</strong> (INT32)</td>
+ <td>MXS Serial Communication Baud rate <p><strong>Comment:</strong> Baudrate for the Serial Port connected to the MXS Transponder</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> 38400</li> 
+
+<li><strong>1:</strong> 600</li> 
+
+<li><strong>2:</strong> 4800</li> 
+
+<li><strong>3:</strong> 9600</li> 
+
+<li><strong>4:</strong> RESERVED</li> 
+
+<li><strong>5:</strong> 57600</li> 
+
+<li><strong>6:</strong> 115200</li> 
+
+<li><strong>7:</strong> 230400</li> 
+
+<li><strong>8:</strong> 19200</li> 
+
+<li><strong>9:</strong> 460800</li> 
+
+<li><strong>10:</strong> 921600</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 10 </td>
+ <td>5</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SER_PPB_BAUD">SER_PPB_BAUD</strong> (INT32)</td>
  <td>Baudrate for the Pixhawk Payload Bus Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the Pixhawk Payload Bus Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
@@ -29004,6 +29035,265 @@ table {
 </td>
  <td></td>
  <td>Disabled (0)</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## Transponder
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="ADSB_EMERGC">ADSB_EMERGC</strong> (INT32)</td>
+ <td>ADSB-Out Emergency State <p><strong>Comment:</strong> Sets the vehicle emergency state</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> NoEmergency</li> 
+
+<li><strong>1:</strong> General</li> 
+
+<li><strong>2:</strong> Medical</li> 
+
+<li><strong>3:</strong> LowFuel</li> 
+
+<li><strong>4:</strong> NoCommunications</li> 
+
+<li><strong>5:</strong> Interference</li> 
+
+<li><strong>6:</strong> Downed</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 6 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_EMIT_TYPE">ADSB_EMIT_TYPE</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Emitter Type <p><strong>Comment:</strong> Configure the emitter type of the vehicle.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li> 
+
+<li><strong>1:</strong> Light</li> 
+
+<li><strong>2:</strong> Small</li> 
+
+<li><strong>3:</strong> Large</li> 
+
+<li><strong>4:</strong> HighVortex</li> 
+
+<li><strong>5:</strong> Heavy</li> 
+
+<li><strong>6:</strong> Performance</li> 
+
+<li><strong>7:</strong> Rotorcraft</li> 
+
+<li><strong>8:</strong> RESERVED</li> 
+
+<li><strong>9:</strong> Glider</li> 
+
+<li><strong>10:</strong> LightAir</li> 
+
+<li><strong>11:</strong> Parachute</li> 
+
+<li><strong>12:</strong> UltraLight</li> 
+
+<li><strong>13:</strong> RESERVED</li> 
+
+<li><strong>14:</strong> UAV</li> 
+
+<li><strong>15:</strong> Space</li> 
+
+<li><strong>16:</strong> RESERVED</li> 
+
+<li><strong>17:</strong> EmergencySurf</li> 
+
+<li><strong>18:</strong> ServiceSurf</li> 
+
+<li><strong>19:</strong> PointObstacle</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 15 </td>
+ <td>14</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_ID">ADSB_ICAO_ID</strong> (INT32)</td>
+ <td>ADSB-Out ICAO configuration <p><strong>Comment:</strong> Defines the ICAO ID of the vehicle</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>-1 > 16777215 </td>
+ <td>1194684</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_SPECL">ADSB_ICAO_SPECL</strong> (INT32)</td>
+ <td>ADSB-In Special ICAO configuration <p><strong>Comment:</strong> This vehicle is always tracked. Use 0 to disable.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 16777215 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_IDENT">ADSB_IDENT</strong> (INT32)</td>
+ <td>ADSB-Out Ident Configuration <p><strong>Comment:</strong> Enable Identification of Position feature</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LEN_WIDTH">ADSB_LEN_WIDTH</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Size Configuration <p><strong>Comment:</strong> Report the length and width of the vehicle in meters. In most cases, use '1' for the smallest vehicle size.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> SizeUnknown</li> 
+
+<li><strong>1:</strong> Len15_Wid23</li> 
+
+<li><strong>2:</strong> Len25_Wid28</li> 
+
+<li><strong>3:</strong> Len25_Wid34</li> 
+
+<li><strong>4:</strong> Len35_Wid33</li> 
+
+<li><strong>5:</strong> Len35_Wid38</li> 
+
+<li><strong>6:</strong> Len45_Wid39</li> 
+
+<li><strong>7:</strong> Len45_Wid45</li> 
+
+<li><strong>8:</strong> Len55_Wid45</li> 
+
+<li><strong>9:</strong> Len55_Wid52</li> 
+
+<li><strong>10:</strong> Len65_Wid59</li> 
+
+<li><strong>11:</strong> Len65_Wid67</li> 
+
+<li><strong>12:</strong> Len75_Wid72</li> 
+
+<li><strong>13:</strong> Len75_Wid80</li> 
+
+<li><strong>14:</strong> Len85_Wid80</li> 
+
+<li><strong>15:</strong> Len85_Wid90</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 15 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LIST_MAX">ADSB_LIST_MAX</strong> (INT32)</td>
+ <td>ADSB-In Vehicle List Size <p><strong>Comment:</strong> Change number of targets to track</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 50 </td>
+ <td>25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_MAX_SPEED">ADSB_MAX_SPEED</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Max Speed <p><strong>Comment:</strong> Informs ADSB vehicles of this vehicle's max speed capability</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> UnknownMaxSpeed</li> 
+
+<li><strong>1:</strong> 75Kts</li> 
+
+<li><strong>2:</strong> 150Kts</li> 
+
+<li><strong>3:</strong> 300Kts</li> 
+
+<li><strong>4:</strong> 600Kts</li> 
+
+<li><strong>5:</strong> 1200Kts</li> 
+
+<li><strong>6:</strong> Over1200Kts</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 6 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_SQUAWK">ADSB_SQUAWK</strong> (INT32)</td>
+ <td>ADSB-Out squawk code configuration <p><strong>Comment:</strong> This parameter defines the squawk code. Value should be between 0000 and 7777.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 7777 </td>
+ <td>1200</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_EXT_CFG">MXS_EXT_CFG</strong> (INT32)</td>
+ <td>Sagetech External Configuration Mode <p><strong>Comment:</strong> Disables auto-configuration mode enabling MXS config through external software.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_OP_MODE">MXS_OP_MODE</strong> (INT32)</td>
+ <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Off</li> 
+
+<li><strong>1:</strong> On</li> 
+
+<li><strong>2:</strong> Standby</li> 
+
+<li><strong>3:</strong> Alt</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 3 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_SER_CFG">MXS_SER_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>102</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_TARG_PORT">MXS_TARG_PORT</strong> (INT32)</td>
+ <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>1:</strong> COM0</li> 
+
+<li><strong>2:</strong> COM1</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 2 </td>
+ <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
