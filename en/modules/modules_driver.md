@@ -864,8 +864,6 @@ px4flow <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 66
-     [-R <val>]  Rotation (default=downwards)
-                 default: 25
 
    stop
 

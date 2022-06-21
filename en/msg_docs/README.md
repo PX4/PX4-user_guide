@@ -50,7 +50,6 @@ It can be used for reproducible replay.
 - [estimator_event_flags](estimator_event_flags.md)
 - [estimator_gps_status](estimator_gps_status.md)
 - [estimator_innovations](estimator_innovations.md)
-- [estimator_optical_flow_vel](estimator_optical_flow_vel.md)
 - [estimator_selector_status](estimator_selector_status.md)
 - [estimator_sensor_bias](estimator_sensor_bias.md) — Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets,
 scale errors, in-run bias and thermal drift (if thermal compensation is enabled and available).
@@ -102,8 +101,6 @@ These are the externally visible LED's, not the board LED's
 - [obstacle_distance](obstacle_distance.md) — Obstacle distances in front of the sensor.
 - [offboard_control_mode](offboard_control_mode.md) — Off-board control mode
 - [onboard_computer_status](onboard_computer_status.md) — ONBOARD_COMPUTER_STATUS message data
-- [optical_flow](optical_flow.md) — Optical flow in XYZ body frame in SI units.
-http://en.wikipedia.org/wiki/International_System_of_Units
 - [orb_test](orb_test.md)
 - [orb_test_large](orb_test_large.md)
 - [orb_test_medium](orb_test_medium.md)
@@ -142,6 +139,7 @@ the field 'timestamp' is for the position & velocity (microseconds)
 - [sensor_gyro_fifo](sensor_gyro_fifo.md)
 - [sensor_hygrometer](sensor_hygrometer.md)
 - [sensor_mag](sensor_mag.md)
+- [sensor_optical_flow](sensor_optical_flow.md)
 - [sensor_preflight_mag](sensor_preflight_mag.md) — Pre-flight sensor check metrics.
 The topic will not be updated when the vehicle is armed
 - [sensor_selection](sensor_selection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic.
@@ -206,6 +204,8 @@ Telemetry of PID position controller to monitor tracking.
 NaN means the state was not controlled
 - [vehicle_magnetometer](vehicle_magnetometer.md)
 - [vehicle_odometry](vehicle_odometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
+- [vehicle_optical_flow](vehicle_optical_flow.md) — Optical flow in XYZ body frame in SI units.
+- [vehicle_optical_flow_vel](vehicle_optical_flow_vel.md)
 - [vehicle_rates_setpoint](vehicle_rates_setpoint.md)
 - [vehicle_roi](vehicle_roi.md) — Vehicle Region Of Interest (ROI)
 - [vehicle_status](vehicle_status.md)

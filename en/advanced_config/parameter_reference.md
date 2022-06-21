@@ -24577,22 +24577,22 @@ table {
 <tr>
  <td><strong id="SENS_FLOW_MAXHGT">SENS_FLOW_MAXHGT</strong> (FLOAT)</td>
  <td>Maximum height above ground when reliant on optical flow <p><strong>Comment:</strong> This parameter defines the maximum distance from ground at which the optical flow sensor operates reliably. The height setpoint will be limited to be no greater than this value when the navigation system is completely reliant on optical flow data and the height above ground estimate is valid. The sensor may be usable above this height, but accuracy will progressively degrade.</p>   </td>
- <td>1.0 > 25.0 (0.1)</td>
- <td>3.0</td>
+ <td>1.0 > 100.0 (0.1)</td>
+ <td>100.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_MAXR">SENS_FLOW_MAXR</strong> (FLOAT)</td>
  <td>Magnitude of maximum angular flow rate reliably measurable by the optical flow sensor <p><strong>Comment:</strong> Optical flow data will not fused by the estimators if the magnitude of the flow rate exceeds this value and control loops will be instructed to limit ground speed such that the flow rate produced by movement over ground is less than 50% of this value.</p>   </td>
  <td>1.0 > ? </td>
- <td>2.5</td>
+ <td>8.</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_MINHGT">SENS_FLOW_MINHGT</strong> (FLOAT)</td>
  <td>Minimum height above ground when reliant on optical flow <p><strong>Comment:</strong> This parameter defines the minimum distance from ground at which the optical flow sensor operates reliably. The sensor may be usable below this height, but accuracy will progressively reduce to loss of focus.</p>   </td>
  <td>0.0 > 1.0 (0.1)</td>
- <td>0.7</td>
+ <td>0.08</td>
  <td>m</td>
 </tr>
 </tbody></table>
@@ -25265,7 +25265,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_EN_PAA3905">SENS_EN_PAA3905</strong> (INT32)</td>
- <td>paa3905 Optical Flow    <p><b>Reboot required:</b> true</p>
+ <td>PAA3905 Optical Flow    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -25273,7 +25273,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
- <td>PAW3902 & PAW3903 Optical Flow    <p><b>Reboot required:</b> true</p>
+ <td>PAW3902/PAW3903 Optical Flow    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -25447,8 +25447,16 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_FLOW_RATE">SENS_FLOW_RATE</strong> (FLOAT)</td>
+ <td>Optical flow max rate <p><strong>Comment:</strong> Optical flow data maximum publication rate. This is an upper bound, actual optical flow data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>1 > 200 </td>
+ <td>70.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
  <td><strong id="SENS_FLOW_ROT">SENS_FLOW_ROT</strong> (INT32)</td>
- <td>PX4Flow board rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).</p> <strong>Values:</strong><ul>
+ <td>Optical flow rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the optical flow relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -25465,10 +25473,9 @@ table {
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td></td>
- <td>6</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -29311,31 +29318,6 @@ table {
  <td>UAVCAN CAN bus bitrate    </td>
  <td>20000 > 1000000 </td>
  <td>1000000</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="CANNODE_FLOW_ROT">CANNODE_FLOW_ROT</strong> (INT32)</td>
- <td>Cannode flow board rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the Cannode flow board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> No rotation</li> 
-
-<li><strong>1:</strong> Yaw 45°</li> 
-
-<li><strong>2:</strong> Yaw 90°</li> 
-
-<li><strong>3:</strong> Yaw 135°</li> 
-
-<li><strong>4:</strong> Yaw 180°</li> 
-
-<li><strong>5:</strong> Yaw 225°</li> 
-
-<li><strong>6:</strong> Yaw 270°</li> 
-
-<li><strong>7:</strong> Yaw 315°</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
  <td></td>
 </tr>
 <tr>
