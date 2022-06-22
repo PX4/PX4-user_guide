@@ -1,6 +1,6 @@
 # Holybro Kopis 2
 
-[Holybro Kopis 2](https://shop.holybro.com/c/kopis_0480l)는 FPV 또는 가시선 비행을 위한 즉시 비행 가능한 레이서 쿼드입니다.
+The [Holybro Kopis 2](https://shop.holybro.com/kopis2-6s-v2free-shipping_p1169.html) is a ready-to-fly race quad for flying FPV or line-of-sight.
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
@@ -42,6 +42,6 @@ PX4 펌웨어를 업로드 하기 위하여 PX4 부트 로더를 먼저 설치�
 
 PX4를 설치 및 설정:
 
-- [PX4 펌웨어 로드](../config/firmware.md). 
+- [PX4 펌웨어 로드](../config/firmware.md).
 - [Airframe](../config/airframe.md)을 *Holybro Kopis 2*로 설정합니다.
 - 센서 보정과 무선 설정을 포함하여 [기본 설정](../config/README.md)을 진행합니다.
