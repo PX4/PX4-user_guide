@@ -11488,6 +11488,13 @@ table {
  <td>%</td>
 </tr>
 <tr>
+ <td><strong id="COM_SPOOLUP_TIME">COM_SPOOLUP_TIME</strong> (FLOAT)</td>
+ <td>Enforced delay between arming and further navigation <p><strong>Comment:</strong> The minimal time from arming the motors until moving the vehicle is possible is COM_SPOOLUP_TIME seconds. Goal: - Motors and propellers spool up to idle speed before getting commanded to spin faster - Timeout for ESCs and smart batteries to successfulyy do failure checks e.g. for stuck rotors before the vehicle is off the ground</p>   </td>
+ <td>0 > 5 </td>
+ <td>1.0</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
  <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Hold</li> 
@@ -18038,13 +18045,6 @@ table {
  <td></td>
  <td>4</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="MPC_SPOOLUP_TIME">MPC_SPOOLUP_TIME</strong> (FLOAT)</td>
- <td>Enforced delay between arming and takeoff <p><strong>Comment:</strong> For altitude controlled modes the time from arming the motors until a takeoff is possible gets forced to be at least MPC_SPOOLUP_TIME seconds to ensure the motors and propellers can sppol up and reach idle speed before getting commanded to spin faster. This delay is particularly useful for vehicles with slow motor spin-up e.g. because of large propellers.</p>   </td>
- <td>0 > 10 </td>
- <td>1.0</td>
- <td>s</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
