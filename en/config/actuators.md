@@ -6,7 +6,7 @@ The displayed elements depend on the [selected frame](../config/airframe.md), wi
 
 :::note
 The *Actuators* view is only displayed if _dynamic control allocation_ is enabled, which replaces geometry and mixer configuration files with parameters.
-This is expected to be enabled by default in PX4 v1.13 (currently disabled in `master`).
+This is currently disabled by default.
 
 To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
 You may need to restart *QGroundControl*. <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/systemlib/system_params.c#L298 -->
