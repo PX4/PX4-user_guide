@@ -1,6 +1,6 @@
 # Holybro Kopis 2
 
-The [Holybro Kopis 2](https://shop.holybro.com/kopis2-6s-v2free-shipping_p1169.html) is a ready-to-fly racer quad for flying FPV or line-of-sight.
+The [Holybro Kopis 2](https://shop.holybro.com/kopis2-6s-v2free-shipping_p1169.html) is a ready-to-fly race quad for flying FPV or line-of-sight.
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
@@ -42,6 +42,6 @@ At time of writing *Kopis 2* is supported on the QGroundControl *Daily Build*, a
 
 To install and configure PX4:
 
-- [首先更新PX4 固件目录](../config/firmware.md)。 
+- [首先更新PX4 固件目录](../config/firmware.md)。
 - [Set the Airframe](../config/airframe.md) to *Holybro Kopis 2*.
 - 再继续进行一些[基本配置](../config/README.md)，包括传感器校准和电台设置。
