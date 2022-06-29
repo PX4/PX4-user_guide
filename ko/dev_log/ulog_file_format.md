@@ -66,7 +66,7 @@ struct message_header_s {
 `msg_size`는 헤더가 없는 바이트 단위의 메시지 크기입니다(`hdr_size`= 3바이트). `msg_type`은 콘텐츠를 정의하며 다음 중 하나입니다.
 
 - 'B': 비트 집합 메시지에 플래그를 지정합니다.
-  ```
+  ```c
   struct ulog_message_flag_bits_s {
     struct message_header_s;
     uint8_t compat_flags[8];
@@ -92,7 +92,7 @@ struct message_header_s {
 
 
 - 'F': 다른 정의에서 중첩 유형으로 기록되거나 사용될 수 있는 단일(복합) 유형에 대한 형식 정의입니다.
-  ```
+  ```c
   struct message_format_s {
     struct message_header_s header;
     char format[header.msg_size];
@@ -200,7 +200,7 @@ struct message_header_s {
   ```
 
 - 'D': 기록된 데이터를 포함합니다.
-  ```
+  ```c
   struct message_data_s {
     struct message_header_s header;
     uint16_t msg_id;
@@ -210,7 +210,7 @@ struct message_header_s {
   `msg_id`: `message_add_logged_s` 메시지로 정의됩니다. `data`에는 `message_format_s`에 정의된 대로 기록된 바이너리 메시지가 포함됩니다. 패딩 필드의 특수 처리에 대해서는 위를 참고하십시오.
 
 - 'L': 로깅 문자열 메시지, 즉 printf 출력.
-  ```
+  ```c
   struct message_logging_s {
     struct message_header_s header;
     uint8_t log_level;
@@ -232,7 +232,7 @@ struct message_header_s {
 | DEBUG   | '7' | 디버그 수준 메시지    |
 
 - 'C': 태그가 지정된 로깅된 문자열 메시지
-  ```
+  ```c
   struct message_logging_tagged_s {
     struct message_header_s header;
     uint8_t log_level;
@@ -243,7 +243,7 @@ struct message_header_s {
   ```
   `tag`: 기록된 메시지 문자열의 소스를 나타내는 ID입니다. 시스템 아키텍처에 따라 프로세스, 스레드 또는 클래스를 나타낼 수 있습니다. 예를 들어, 다양한 페이로드, 외부 디스크, 직렬 장치 등을 제어하기 위해 여러 프로세스를 실행하는 온보드 컴퓨터에 대한 참조 구현은 `uint16_t 열거형`을 사용하여 이러한 프로세스 식별자를 `message_logging_tagged_s`의 태그 속성으로 인코딩할 수 있습니다. 구조체는 다음과 같습니다.
 
-  ```
+  ```c
   enum class ulog_tag : uint16_t {
     unassigned,
     mavlink_handler,
@@ -272,7 +272,7 @@ struct message_header_s {
 | DEBUG   | '7' | 디버그 수준 메시지    |
 
 - 'S': 독자가 다음 동기화 메시지를 검색하여 손상된 메시지에서 복구할 수 있도록 동기화하는 메시지입니다.
-  ```
+  ```c
   struct message_sync_s {
     struct message_header_s header;
     uint8_t sync_magic[8];
@@ -281,7 +281,7 @@ struct message_header_s {
   `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
 - 'O': 주어진 기간(ms 단위)의 드롭아웃(로깅 메시지 손실)을 표시합니다. 장치가 충분히 빠르지 않은 경우에는 손실이 발생할 수 있습니다.
-  ```
+  ```c
   struct message_dropout_s {
     struct message_header_s header;
     uint16_t duration;
