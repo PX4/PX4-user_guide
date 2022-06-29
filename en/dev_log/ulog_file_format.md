@@ -72,7 +72,7 @@ struct message_header_s {
 `msg_type` defines the content and is one of the following:
 
 - 'B': Flag bitset message.
-  ```
+  ```c
   struct ulog_message_flag_bits_s {
   	struct message_header_s;
   	uint8_t compat_flags[8];
@@ -108,7 +108,7 @@ struct message_header_s {
 
 
 - 'F': format definition for a single (composite) type that can be logged or used in another definition as a nested type.
-  ```
+  ```c
   struct message_format_s {
   	struct message_header_s header;
   	char format[header.msg_size];
@@ -247,7 +247,7 @@ The following messages belong to this section:
   ```
 
 - 'D': contains logged data.
-  ```
+  ```c
   struct message_data_s {
   	struct message_header_s header;
   	uint16_t msg_id;
@@ -259,7 +259,7 @@ The following messages belong to this section:
   See above for special treatment of padding fields.
 
 - 'L': Logged string message, i.e. printf output.
-  ```
+  ```c
   struct message_logging_s {
   	struct message_header_s header;
   	uint8_t log_level;
@@ -281,7 +281,7 @@ The following messages belong to this section:
 | DEBUG      |      '7'     | Debug-level messages                 |
 
 - 'C': Tagged Logged string message
-  ```
+  ```c
   struct message_logging_tagged_s {
     struct message_header_s header;
     uint8_t log_level;
@@ -293,7 +293,7 @@ The following messages belong to this section:
   `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
   For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the tag attribute of `message_logging_tagged_s` struct as follows:
 
-  ```
+  ```c
   enum class ulog_tag : uint16_t {
     unassigned,
     mavlink_handler,
@@ -323,7 +323,7 @@ The following messages belong to this section:
 | DEBUG      |      '7'     | Debug-level messages                 |
 
 - 'S': synchronization message so that a reader can recover from a corrupt message by searching for the next sync message.
-  ```
+  ```c
   struct message_sync_s {
   	struct message_header_s header;
   	uint8_t sync_magic[8];
@@ -333,7 +333,7 @@ The following messages belong to this section:
 
 - 'O': mark a dropout (lost logging messages) of a given duration in ms.
   Dropouts can occur e.g. if the device is not fast enough.
-  ```
+  ```c
   struct message_dropout_s {
   	struct message_header_s header;
   	uint16_t duration;
