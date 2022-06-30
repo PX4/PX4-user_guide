@@ -83,6 +83,7 @@
 
 [Holybro](https://shop.holybro.com/durandalbeta_p1189.html)에서 주문 가능 합니다.
 
+
 <span id="connections"></span>
 ## 연결
 
@@ -166,7 +167,7 @@ make holybro_durandal-v1_default
 | UART8  | /dev/ttyS6 | PX4IO       |
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
 ## 디버그 포트
@@ -258,7 +259,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 9 (흑)  | BUZZER              | +5V   |
 | 10 (흑) | GND                 | GND   |
 
-
 <span id="telem4_i2cb"></span>
 #### TELEM4 I2CB 포트
 
@@ -271,7 +271,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 5 (흑) | SDA2     | +3.3V |
 | 6 (흑) | GND      | GND   |
 
-
 <span id="telem1_2_3"></span>
 #### TELEM3, TELEM2, TELEM1 포트
 
@@ -283,7 +282,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 4 (흑) | CTS (입력) | +3.3V |
 | 5 (흑) | RTS (출력) | +3.3V |
 | 6 (흑) | GND      | GND   |
-
 
 <span id="power"></span>
 #### POWER 포트
@@ -363,7 +361,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 8 (흑)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
 | 9 (흑)  | ADC1_SPARE_2 | +6.6V[++](#warn_sensor)  |
 | 10 (흑) | GND            | GND                      |
-
 
 <span id="warn_sensor"></span>
 
