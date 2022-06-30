@@ -14,17 +14,15 @@ Key information:
 
 ## 配件列表
 
-- Autopilot: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
-- Frame: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
-- Motors: 3DR Iris Plus 950kv rebranded T-Motors MN2213
-- ESCs: Hobbywing XRotor 35A Micro 3-6S BLHeli
-- Blades: Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view) to be M6 compatible) <!--TODO-->
-
-- Distance sensor: Lidar-Lite V3
-
-- GPS: Here+ RTK GPS
-- Telemetry: 3DR Telemetry
-- Battery: Roxxy LiPo - 4S, 4000mAh
+* Autopilot:        [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
+* Frame:            [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
+* Motors:           3DR Iris Plus 950kv rebranded T-Motors MN2213
+* ESCs:             Hobbywing XRotor 35A Micro 3-6S BLHeli
+* Blades:           Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view) to be M6 compatible) <!--TODO-->
+* Distance sensor:  Lidar-Lite V3
+* GPS:              Here+ RTK GPS
+* Telemetry:        3DR Telemetry
+* Battery:          Roxxy LiPo - 4S, 4000mAh
 
 In addition we use a FrSky X4R-SB 3/16ch 2.4Ghz receiver and a FrSky Taranis controller. You will also need zip ties, double sided tape, a soldering iron and a 3D printer in case you use the same Blades, for this build. The GPS mast was reused from an Intel Aero.
 
@@ -33,6 +31,7 @@ In addition we use a FrSky X4R-SB 3/16ch 2.4Ghz receiver and a FrSky Taranis con
 The *Pixhawk 3 Pro* can be attached using the double sided tape because the IMU inside is already dampened.
 
 In this setup the autopilot is rotated by 180 degrees so that it's easier to access the SD card. But if you rotate the base plate by 180 degrees instead, the flight controller board can be mounted facing forward. Either way works, just make sure to set the board rotation correctly in *QGroundControl* afterwards.
+
 
 ## 接线和连接
 
@@ -64,6 +63,7 @@ The pinout for the *Lidar Lite V3* and the *Pixhawk 3 Pro* I2C 1 port is as foll
 | 5  | -                   | SDA              |
 | 6  | -                   | GND              |
 
+
 ### Here+ RTK GPS
 
 The Here+ GPS comes with an 8 pin connector suited for the Pixhawk 2. In order to use it with the *Pixhawk 3 Pro* (or a Pixracer), a 6 pin connector has to be used and pin 6 and 7 are not needed (see below). The additional pins are for the safety button and can be attached as well if needed. More information on the pinout can be found in [this document](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf), page 17.
@@ -81,6 +81,7 @@ The Here+ GPS comes with an 8 pin connector suited for the Pixhawk 2. In order t
 | 7  | BUTTON_LED | -  | -                 |
 | 8  | GND        | 6  | GND               |
 
+
 ## 配置
 
 General documentation on how to setup your quad in *QGroundControl* can be found in [Basic Configuration](../config/README.md). Specific setup instructions are provided below.
@@ -90,6 +91,7 @@ General documentation on how to setup your quad in *QGroundControl* can be found
 Select the airframe **DJI Flame Wheel 450** in **QGC > Airframe > Quadrotor x**.
 
 ![Select airframe QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
+
 
 ### RTK GPS
 
@@ -110,7 +112,6 @@ After setting the `SENS_EN_LL40LS` you will need to restart the flight controlle
 ### Others
 
 Set the following parameters as well:
-
 - `EKF2_HGT_MODE=2`: this makes sure the Lidar-Lite is used as height source
 - `MAV_PROTO_VER=2`: use MAVLink protocol version 2
 - `CBRK_IO_SAFETY=22027`: disable the safety button
