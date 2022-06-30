@@ -5,7 +5,7 @@ PX4 behaviour can be configured/tuned using [parameters](../advanced_config/para
 The *QGroundControl Parameters* screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the top menu *Gear* icon and then *Parameters* in the sidebar.
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. :::note Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section.
 :::
 
 :::warning
@@ -43,9 +43,9 @@ You can usually find out what parameters are conditional by searching the [full 
 
 A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can also search for the parameter in the source tree and in the release notes.
 
-The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
+The other reason that a parameter might not be in firmware is if its associated module has not been included. The other reason that a parameter might not be in firmware is if its associated module has not been included. There are two options to solve this problem:
 - Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
 - If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules ``` :::note
 You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash.
@@ -70,12 +70,12 @@ You can select additional options from the **Tools** menu on the top right hand 
 ![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
 
-**Refresh** <br>Refresh the parameter values by re-requesting all of them from the vehicle.
+**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
 
-**Reset all to defaults** <br>Reset all parameters to their original default values.
+**Reset all to defaults** <br />Reset all parameters to their original default values.
 
-**Load from file / Save to file** <br>Load parameters from an existing file or save your current parameter settings to a file.
+**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
 
-**Clear RC to Param** <br>This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+**Clear RC to Param** <br />This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
 
-**Reboot Vehicle** <br>Reboot the vehicle (required after changing some parameters).
+**Reboot Vehicle** <br />Reboot the vehicle (required after changing some parameters).
