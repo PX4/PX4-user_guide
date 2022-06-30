@@ -112,8 +112,8 @@ FMU 디버깅 [SWD 포트](../debug/swd_debug.md)(JTAG)는 아래와 같은 TC20
 | UART8  | /dev/ttyS5 | 직렬 포트 여분(일반적으로 FrSky 원격 측정용)               |
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
 
 
 
