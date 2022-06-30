@@ -42,7 +42,7 @@ To add these yourself:
 
 The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
-1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
+1. 도구 모음 설치 디렉터리로 이동합니다(기본값 **C:\\PX4\\**).
 1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
 1. Clone the PX4 PX4-Autopilot repository from within the console:
 
@@ -75,6 +75,7 @@ Once you have finished setting up the command-line toolchain:
 
 - [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)를 설치합니다.
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
+
 
 <a id="usage_instructions"></a>
 
