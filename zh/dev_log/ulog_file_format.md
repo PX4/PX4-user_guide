@@ -255,7 +255,7 @@ struct message_header_s {
 
   `timestamp`: every logged message (`message_add_logged_s`) must include a timestamp field (does not need to be the first field). Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`. The unit is always microseconds, except for `uint8_t` it's milliseconds. A log writer must make sure to log messages often enough to be able to detect wrap-arounds and a log reader must handle wrap-arounds (and take into account dropouts). The timestamp must always be monotonic increasing for a message serie with the same `msg_id`.
 
-| 参数名     | 对应值 | 含义       |
+| 名称      | 对应值 | 含义       |
 | ------- | --- | -------- |
 | EMERG   | '0' | 系统无法使用   |
 | ALERT   | '1' | 操作必须立即执行 |
@@ -306,9 +306,9 @@ struct message_header_s {
 ## 已知的实现
 
 - PX4 Firmware: C++
-  - [日志模块](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
-  - [回放模块](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
-  - [hardfault_log module](https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log): append hardfault crash data.
+  - [日志模块](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
+  - [回放模块](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
+  - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): append hardfault crash data.
 - [pyulog](https://github.com/PX4/pyulog)：Python，使用 CLI 脚本的 Ulog 解析库。
 - [FlightPlot](https://github.com/PX4/FlightPlot): Java，日志绘图仪。
 - [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis)：Python，日志绘图仪和基于 pyulog 的三维可视化工具。
