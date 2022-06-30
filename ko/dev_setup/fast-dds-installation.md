@@ -127,7 +127,7 @@ Although the binaries are available, we recommend to build and install the code 
 - [PX4-ROS 2 bridge](../ros/ros2_comm.md)
 
 - Additional installation information can be found in the official [*eProsima Fast DDS* documentation](https://fast-dds.docs.eprosima.com/en/latest/) (from which this topic is derived):
-  - Installation from Sources
+  - 소스 코드로 설치하기
     - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_linux.html)
     - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_windows.html)
   - Installation from Binaries
