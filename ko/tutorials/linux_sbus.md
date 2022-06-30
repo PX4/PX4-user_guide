@@ -10,6 +10,7 @@ S.Bus 수신기(또는 인코더 - 예: Futaba, RadioLink 등)의 경우에는 �
 
 그런 다음, 아래와 같이 기기에서 [PX4 RC 드라이버를 시작](#start_driver)합니다.
 
+
 <a id="start_driver"></a>
 
 ## 드라이버 시작
@@ -20,6 +21,7 @@ rc_input start -d /dev/ttyS2
 ```
 
 기타 드라이버 사용 정보는 [rc_input](../modules/modules_driver.md#rc-input)을 참고하십시오.
+
 
 <a id="signal_inverter_circuit"></a>
 
