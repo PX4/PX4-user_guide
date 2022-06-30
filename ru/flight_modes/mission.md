@@ -71,7 +71,7 @@ Mission behaviour is affected by a number of parameters, most of which are docum
 <span id="mission_commands"></span>
 ## Supported Mission Commands
 
-PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list). Unless otherwise noted, the implementation is as defined in the MAVLink specification.
+PX4 "accepts" the following MAVLink mission commands in Mission mode (with some *caveats*, given after the list). Unless otherwise noted, the implementation is as defined in the MAVLink specification.
 
 * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)
   *  *Param3* (flythrough) is ignored. Flythrough is always enabled if *param 1* (time_inside) > 0.
@@ -124,7 +124,7 @@ Note:
 - PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle-type specific.
 - PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
 - Not all messages/commands are exposed via *QGroundControl*.
-- The list may become out of date as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp).
+- The list may become out of date as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp).
 
   :::note
 Please add an issue report or PR if you find a missing/incorrect message.
@@ -143,5 +143,5 @@ Vehicles switch to the next waypoint as soon as they enter the acceptance radius
 - For FW the acceptance radius is defined by the "L1 distance".
   - The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
   - By default, it's about 70 meters.
-  - The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$
+  - The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
 
