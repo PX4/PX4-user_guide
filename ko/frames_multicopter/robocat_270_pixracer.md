@@ -56,13 +56,16 @@ PX4 스택이있는 Pixracer는 Auto Missions, Loiter, Position Control 및 Retu
 
 Robocat 프레임의 접이식 상단 부분은 Pixracer 및 기타 외부 구성 요소에 쉽게 접근할 수 있도록 합니다. Pixracer 키트와 함께 제공되는 배선의 길이는 넉넉합니다. 다른 경우에는 JST-GH 커넥터로 새 것을 압착하는 것보다 더 쉽게 늘려야 할 수도 있습니다.
 
-:::note AUAV.CO는 여러 애플리케이션에 대한 다양한 대체품을 제공합니다.
+:::note
+AUAV.CO는 여러 애플리케이션에 대한 다양한 대체품을 제공합니다.
 :::
 
 모든 것이 준비되면 QGroundControl로 설정과 보정 작업을 하여야 합니다.
+
 
 ## 기체 설정
 
 아래와 같이 QAV250 구성을 선택합니다. 이것은 PX4를 쿼드 로터 모드로 전환 할뿐만 아니라 적절한 기본 튜닝 게인을로드합니다.
 
 ![QGC - QAV240 펌웨어 선택](../../assets/airframes/multicopter/robocat_270_pixracer/qav250_qgc_firmware.png)
+
