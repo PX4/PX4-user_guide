@@ -8,15 +8,14 @@
 
 @[유투브](https://youtu.be/E61P2f2WPNU)
 
+
 ## 구매
 
 차량 프레임 옵션:
-
 - **WL Tech XK X450** - [뱅굿](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [알리익스프레스](https://www.aliexpress.com/item/1005001946025611.html)
 - **JJRC M02** - [뱅굿(AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [알리익스프레스](https://www.aliexpress.com/item/4001031497018.html)
 
 비행 컨트롤러 옵션():
-
 - [픽스호크 4 미니](../flight_controller/pixhawk4_mini.md)
 - [홀리브로 픽스호크 미니](../flight_controller/pixhawk_mini.md).
 - 충분히 작은 폼 팩터를 가진 다른 호환 가능한 비행 콘트롤러.
@@ -58,15 +57,15 @@ GPS 장착을 위하여 "조종실" 내부의 발포 재질 부분을 잘라냈�
 
 ![GPS 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
+
 ## PX4 설정
 
 *QGroundControl*의 [표준 설정](config/README.md)(무선, 센서, 비행 모드 등)을 따릅니다.
 
 이 기체와 관련된 특정 설정은 다음과 같습니다.
-
-- [기체](../config/airframe.md) 
+- [기체](../config/airframe.md)
   - **VTOL Tiltrotor**에서 기체 구성 **E-flite Convergence**를 선택하고 *QGroundControl*을 다시 시작합니다. ![QGroundControl 차량 설정 - 기체 선택 E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
-- [비행 모드/스위치](../config/flight_mode.md) 
+- [비행 모드/스위치](../config/flight_mode.md)
   - VTOL은 멀티콥터와 고정익을 전환하려면 [RC 컨트롤러 스위치를 할당](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set)하여야 합니다.
 
 :::note
