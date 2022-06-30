@@ -145,6 +145,7 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 
 mix</strong> AUX 출력을 믹스하는 경우에는 MAIN 출력 또는 **XXXX._aux_의 믹싱을 담당하는 경우 믹서 파일의 이름은 **XXXX._main_.mix**이어야 합니다. </p>
 
+
 <a id="loading_mixer"></a>
 
 ### 믹서 로딩
@@ -266,6 +267,7 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 
 일반적인 믹서 파일의 예는 [여기](../dev_airframes/adding_a_new_frame.md#mixer-file)에 설명되어 있습니다.
 
+
 <a id="null_mixer"></a>
 
 #### 널 믹서
@@ -278,6 +280,7 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 ```
 Z:
 ```
+
 
 <a id="multirotor_mixer"></a>
 
