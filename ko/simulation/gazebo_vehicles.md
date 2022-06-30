@@ -13,7 +13,6 @@ PX4 [Gazebo](../simulation/gazebo.md) 시뮬레이션과 이를 실행하는 데
 :::
 
 ## 멀티콥터
-
 <a id="quadrotor"></a>
 
 ### 쿼드콥터 (기본)
@@ -39,6 +38,7 @@ make px4_sitl gazebo_solo
 ```
 
 ![가제보 3DR 솔로](../../assets/simulation/gazebo/vehicles/solo.png)
+
 
 <a id="typhoon_h480"></a>
 
@@ -67,6 +67,7 @@ make px4_sitl gazebo_plane
 ```
 
 ![가제보 비행기](../../assets/simulation/gazebo/vehicles/plane.png)
+
 
 <a id="standard_plane_catapult"></a>
 
@@ -103,6 +104,7 @@ make px4_sitl gazebo_tailsitter
 
 ![가제보 테일시터 VTOL](../../assets/simulation/gazebo/vehicles/tailsitter.png)
 
+
 <a id="ugv"></a>
 
 ## 무인 지상 차량(UGV/탐사선/자동차)
@@ -126,6 +128,7 @@ make px4_sitl gazebo_r1_rover
 ```
 
 ![가제보 탐사선](../../assets/simulation/gazebo/vehicles/r1_rover.png)
+
 
 <a id="uuv"></a>
 
