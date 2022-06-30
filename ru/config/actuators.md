@@ -358,7 +358,7 @@ For each motor:
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
      ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::note
-  For DShot output, this is not required <!-- any, or just the minimum check? -->
+If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs). <!-- any, or just the minimum check? -->
 
 :::
 3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
