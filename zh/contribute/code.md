@@ -4,7 +4,7 @@
 
 PX4 项目使用三分支 Git 模型：
 
-* [master](https://github.com/PX4/PX4-Autopilot/tree/master) 默认是不稳定版本， 用于快速开发。
+* [master](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) 经过全面测试。 它是供飞行测试人员使用的。
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) 是最新发行版本。
 
@@ -33,7 +33,7 @@ PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有�
 - Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
 - Test files must have a `Test` suffix as shown: `FooThingTest.cpp`.
 
-- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
 
 ## 提交和提交消息
 
@@ -56,7 +56,7 @@ Developers should name C++ entities (classes, functions, variables etc.) such th
 
   - Do not add documentation that can trivially be assumed from C++ entity names.
   - Commonly you may want to add information about corner cases and error handling.
-  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h).
+  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
 
 ## Commits and Commit Messages
 
