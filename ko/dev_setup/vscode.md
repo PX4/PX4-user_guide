@@ -10,7 +10,9 @@ PX4 개발에 VSCode를 사용하는 데에는 많은 이유가 있습니다.
 IDE를 설정과 개발 방법에 대하여 설명합니다.
 
 :::note
-다른 강력한 IDE가 있지만, 일반적으로 PX4와 통합에는 많은 어려움이 있습니다. *VScode*를 사용하면 설정이 PX4/PX4-Autopilot 트리([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode))에 저장되므로, 설정 프로세스는 프로젝트 폴더를 추가하는 것만큼 간단합니다.
+다른 강력한 IDE가 있지만, 일반적으로 PX4와 통합에는 많은 어려움이 있습니다.
+:::note
+다른 강력한 IDE가 있지만, 일반적으로 PX4와 통합에는 많은 어려움이 있습니다.
 :::
 
 ## 선행 조건
@@ -92,6 +94,7 @@ SWD 인터페이스에 연결한 후 VSCode의 하드웨어 디버깅은 디버�
 :::
 
 ![다양한 프로브에 대한 옵션이 있는 하드웨어 대상을 보여주는 이미지](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
+
 
 <a id="code completion"></a>
 
