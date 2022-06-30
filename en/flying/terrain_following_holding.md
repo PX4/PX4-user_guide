@@ -72,7 +72,7 @@ When using a distance sensor as the primary source of height, fliers should be a
   If the checks fail the rangefinder data will be rejected, and the altitude will be estimated from the accelerometer.
   After 5 seconds of inconsistent data the estimator resets the state (in this case height) to match the current distance sensor data.
   The measurements might also become consistent again, for example, if the vehicle descends, or if the estimated height drifts to match the measured rangefinder height.
-    <!-- see discussion https://github.com/PX4/px4_user_guide/pull/457#pullrequestreview-221010392 -->
+    <!-- see discussion https://github.com/PX4/PX4-user_guide/pull/457#pullrequestreview-221010392 -->
   :::
 - The local NED origin will move up and down with ground level.
 - Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data.

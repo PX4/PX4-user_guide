@@ -38,7 +38,7 @@ Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
 
 If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins.
 <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
-Discussion of that here: https://github.com/PX4/px4_user_guide/pull/755#pullrequestreview-464046128 -->
+Discussion of that here: https://github.com/PX4/PX4-user_guide/pull/755#pullrequestreview-464046128 -->
 
 Then [configure PX4](#configure).
 
@@ -130,8 +130,8 @@ The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A
 
 <!-- FYI: 
 Values of FRSKY_ID_TEMP1 and FRSKY_ID_TEMP1 set: 
-- https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
-- https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237 
+- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
+- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237 
 Lua map of flight modes:
 - https://github.com/ilihack/LuaPilot_Taranis_Telemetry/blob/master/SCRIPTS/TELEMETRY/LuaPil.lua#L790
 -->

@@ -16,7 +16,7 @@ Key information
 
 ## Quickstart Guide
 
-[Pixhawk 4 Mini QAV250 Kit Quickstart Guide](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
+[Pixhawk 4 Mini QAV250 Kit Quickstart Guide](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
 
 ## Bill of materials
 

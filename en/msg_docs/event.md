@@ -2,7 +2,7 @@
 
 Events interface
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/event.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/event.msg)
 
 ```c
 # Events interface

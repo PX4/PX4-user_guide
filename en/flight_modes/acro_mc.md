@@ -8,7 +8,7 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 ![MC Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_MC.png)
 
-<!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
+<!-- image above incorrect: https://github.com/PX4/PX4-user_guide/issues/182 -->
 
 ## Technical Description
 

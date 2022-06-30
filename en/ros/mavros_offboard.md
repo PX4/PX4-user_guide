@@ -8,7 +8,7 @@ At the end of the tutorial, you should see the same behaviour as in the video be
 :::
 
 :::tip
-This example uses C++. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros).
+This example uses C++. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
 <video width="100%" autoplay="true" controls="true">

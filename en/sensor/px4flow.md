@@ -165,19 +165,19 @@ No GPS, only PX4FLOW integration of position.
 
 ### Manual and Schematics
 
-* [PX4FLOW v1.3 User Manual](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_manual_v1.3.pdf)
-* [PX4FLOW v1.3 Schematic and Layout](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_schematic_v1.3.pdf) 
+* [PX4FLOW v1.3 User Manual](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/sensors/px4flow/px4flow_manual_v1.3.pdf)
+* [PX4FLOW v1.3 Schematic and Layout](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/sensors/px4flow/px4flow_schematic_v1.3.pdf) 
 * Documentation in hardware repo: [PX4/Hardware/FLOWv1](https://github.com/PX4/Hardware/tree/master/FLOWv1)
 
 ### USB Driver
 
-Linux and MacOS come with the required drivers. Windows drivers can be downloaded from: [px4flow_win_drivers.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_win_drivers.zip)
+Linux and MacOS come with the required drivers. Windows drivers can be downloaded from: [px4flow_win_drivers.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/sensors/px4flow/px4flow_win_drivers.zip)
 
 ### Papers
 
 The flow module as been accepted as paper to the International Conference on Robotics and Automation (ICRA 2013) in Karlsruhe, Germany. 
 
-* Dominik Honegger, Lorenz Meier, Petri Tanskanen and Marc Pollefeys: [An Open Source and Open Hardware Embedded Metric Optical Flow CMOS Camera for Indoor and Outdoor Applications](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_paper.pdf)
+* Dominik Honegger, Lorenz Meier, Petri Tanskanen and Marc Pollefeys: [An Open Source and Open Hardware Embedded Metric Optical Flow CMOS Camera for Indoor and Outdoor Applications](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/sensors/px4flow/px4flow_paper.pdf)
 
 
 ### Libraries
@@ -297,7 +297,7 @@ You can configure the image quality and output (the image output is only intende
 * PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
 :::note
-PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/px4flow)
 :::
 
 ## Build
