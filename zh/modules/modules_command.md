@@ -1,7 +1,7 @@
 # 模块参考：命令（Command）
 
 ## actuator_test
-源码: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/actuator_test)
+Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/actuator_test)
 
 
 用于测试执行器的实用程序
@@ -31,9 +31,10 @@ actuator_test <command> [arguments...]
    iterate-servos 使所有舵机依次开始和停止
 ```
 ## bl_update
-源码: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
+Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bl_update)
 
-用于从文件刷新引导加载程序的实用程序<a id="bl_update_usage"></a>
+用于从文件刷新引导加载程序的实用程序
+<a id="bl_update_usage"></a>
 
 ### 用法
 ```
@@ -43,7 +44,7 @@ bl_update [arguments...]
    <file>        Bootloader bin 文件                
 ```
 ## dumpfile
-源码: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
+Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
 
 转储文件实用程序。 以二进制模式（不要用 CR LF 替换 LF）将文件大小和内容打印到标准输出。
 <a id="dumpfile_usage"></a>
@@ -54,7 +55,7 @@ dumpfile [arguments...]
      <file>      被转储的文件
 ```
 ## dyn
-来源: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
+Source: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dyn)
 
 
 ### 描述
@@ -65,6 +66,7 @@ dumpfile [arguments...]
 dyn ./hello.px4mod start
 ```
 
+
 <a id="dyn_usage"></a>
 
 ### 用法
@@ -74,7 +76,7 @@ dyn [arguments...]
      [arguments...] 输入模块的参数
 ```
 ## failure
-源码: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
+Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/failure)
 
 
 ### 描述
@@ -102,7 +104,7 @@ failure [arguments...]
                  默认: 0
 ```
 ## gpio
-源码: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
+Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/gpio)
 
 
 ### 描述
@@ -129,6 +131,7 @@ gpio write E7 1 --force
 gpio write /dev/gpin1 1
 ```
 
+
 <a id="gpio_usage"></a>
 
 ### 用法
@@ -146,7 +149,7 @@ gpio [arguments...]
      [--force]  强制 (忽略板gpio列表)
 ```
 ## hardfault_log
-源码: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
+Source: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log)
 
 Hardfault 实用程序
 
@@ -174,9 +177,10 @@ hardfault_log <command> [arguments...]
    reset         重置重启计数器
 ```
 ## i2cdetect
-源码: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
+Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2cdetect)
 
-用于扫描特定总线上的 I2C 设备的实用程序。<a id="i2cdetect_usage"></a>
+用于扫描特定总线上的 I2C 设备的实用程序。
+<a id="i2cdetect_usage"></a>
 
 ### 用法
 ```
@@ -185,7 +189,7 @@ i2cdetect [arguments...]
                  default: 1
 ```
 ## led_control
-源码: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
+Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/led_control)
 
 
 ### 描述
@@ -200,6 +204,7 @@ i2cdetect [arguments...]
 ```
 led_control blink -c blue -l 0 -n 5
 ```
+
 
 <a id="led_control_usage"></a>
 
@@ -234,7 +239,7 @@ led_control <command> [arguments...]
                  默认: 2
 ```
 ## listener
-源码: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
+Source: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/topic_listener)
 
 
 监听 uORB 主题并将数据打印到控制台的实用程序。
@@ -256,9 +261,10 @@ listener <command> [arguments...]
                   默认: 0
 ```
 ## mfd
-源码: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
+Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mft)
 
-交互显示的实用程序<a id="mfd_usage"></a>
+交互显示的实用程序
+<a id="mfd_usage"></a>
 
 ### 用法
 ```
@@ -267,7 +273,7 @@ mfd <command> [arguments...]
    query         如果不存在返回 ture
 ```
 ## mixer
-源码: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)
+Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mixer)
 
 
 ### 描述
@@ -288,7 +294,7 @@ mixer <command> [arguments...]
      <file:dev> <file> 输出设备 (eg. /dev/pwm_output0) 和混控器文件
 ```
 ## motor_test
-源码: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
+Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/motor_test)
 
 
 用于测试执行器的实用程序
@@ -315,9 +321,10 @@ motor_test <command> [arguments...]
    iterate       依次开始所有的电机启动和停止
 ```
 ## mtd
-源码: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
+Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
 
-挂载和测试分区的实用程序（基于板定义的 FRAM/EEPROM 存储）<a id="mtd_usage"></a>
+挂载和测试分区的实用程序（基于板定义的 FRAM/EEPROM 存储）
+<a id="mtd_usage"></a>
 
 ### 用法
 ```
@@ -340,7 +347,7 @@ mtd <command> [arguments...]
                  /fs/mtd_params), 未提供时使用系统默认值
 ```
 ## nshterm
-源码: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
+Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/nshterm)
 
 在指定端口启动一个 NSH shell。
 
@@ -354,7 +361,7 @@ nshterm [arguments...]
      <file:dev>  启动 shell 的设备 (eg. /dev/ttyACM0)
 ```
 ## param
-源码: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
+Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/param)
 
 
 ### 描述
@@ -448,9 +455,10 @@ param <command> [arguments...]
      <param>     参数名
 ```
 ## perf
-源码: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
+Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
 
-性能计数器打印工具<a id="perf_usage"></a>
+性能计数器打印工具
+<a id="perf_usage"></a>
 
 ### 用法
 ```
@@ -462,7 +470,7 @@ perf [arguments...]
  如果未给出参数则打印所有性能计数器
 ```
 ## pwm
-源码: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
+Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/pwm)
 
 
 ### 描述
@@ -491,6 +499,7 @@ Arm and set the outputs of channels 1 and 3 to a PWM value to 1200 us:
 ```
 pwm min -c 13 -p 1200
 ```
+
 
 <a id="pwm_usage"></a>
 
@@ -531,7 +540,7 @@ pwm <command> [arguments...]
      [-e]        退出时用1代替0表示错误
 ```
 ## reboot
-源码: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
+Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/reboot)
 
 重启系统
 <a id="reboot_usage"></a>
@@ -543,7 +552,7 @@ reboot [arguments...]
      [lock|unlock] 使用/释放关机锁 (用于测试)
 ```
 ## sd_bench
-源码: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
+Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_bench)
 
 测试SD卡速度
 <a id="sd_bench_usage"></a>
@@ -563,9 +572,10 @@ sd_bench [arguments...]
      [-v]        校验数据和块序号
 ```
 ## sd_stress
-源码: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_stress)
+Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_stress)
 
-在 SD 卡上测试操作<a id="sd_stress_usage"></a>
+在 SD 卡上测试操作
+<a id="sd_stress_usage"></a>
 
 ### 用法
 ```
@@ -576,7 +586,7 @@ sd_stress [arguments...]
                  默认100: 100
 ```
 ## serial_passthru
-源码: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/serial_passthru)
+Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/serial_passthru)
 
 把数据从一个设备传输到另一个设备。
 
@@ -596,7 +606,7 @@ serial_passthru [arguments...]
      [-t]        Track the External devices baudrate on internal device
 ```
 ## 系统时间
-源码: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
+Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/system_time)
 
 
 ### 描述
@@ -622,7 +632,7 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-源码
+Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/top)
 
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
@@ -633,7 +643,7 @@ top [arguments...]
    once          print load only once
 ```
 ## usb_connected
-Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
+Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/usb_connected)
 
 Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
@@ -643,7 +653,7 @@ Utility to check if USB is connected. Was previously used in startup scripts. A 
 usb_connected [arguments...]
 ```
 ## ver
-源码: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/ver)
 
 Tool to print various version information
 <a id="ver_usage"></a>
