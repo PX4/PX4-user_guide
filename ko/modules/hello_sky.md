@@ -60,7 +60,7 @@
       ****************************************************************************/
      ```
 
-   * 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 있어야 합니다!
+   * 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
 
      ```c
      /**
@@ -137,7 +137,7 @@
    - `MAIN` 블록은 PX4 셸 또는 SITL 콘솔에서 호출할 수 있도록 NuttX에 명령을 등록하는 모듈의 진입점을 나열합니다.
 
 :::tip
-`px4_add_module()` 형식은 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)에 설명되어 있습니다. <!-- NEED px4_version -->
+기본 함수의 이름은 `<module_name>_main`이어야 하며 표시된 대로 모듈에서 출력하여야 합니다. <!-- NEED px4_version -->
 
 :::
 
@@ -368,7 +368,8 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## 전체 예제 코드
 
-[전체 예제 코드](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c)는 다음과 같습니다:
+:::tip
+`px4_add_module()` 형식은 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)에 설명되어 있습니다.
 
 ```c
 /****************************************************************************
