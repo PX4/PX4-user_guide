@@ -26,6 +26,7 @@ The System Console UART pinouts/debug ports are typically documented in [autopil
 - [Pixhawk 3](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 
+
 <a id="pixhawk_debug_port"></a>
 
 ### Pixhawk Debug Port
