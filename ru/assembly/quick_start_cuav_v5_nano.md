@@ -88,7 +88,9 @@ The V5 nano has a dedicated DSM cable. If using a Spektrum satellite receiver, t
 The *v5 nano* kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
 
 :::warning
-The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+The supplied power module is unfused.
+:::warning
+The supplied power module is unfused.
 :::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
