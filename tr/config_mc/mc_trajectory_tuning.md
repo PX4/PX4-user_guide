@@ -42,18 +42,18 @@ No other modes support trajectory tuning.
 
 The following list provides an *overview* of the different implementations of how the stick input is interpreted and turned into trajectory setpoints:
 
-- Acceleration based (Default) 
+- Acceleration based (Default)
   - Horizontal stick input mapped to acceleration setpoints.
   - Intuitive stick feel because it's like pushing the vehicle around.
   - No unexpected tilt changes upon reaching travel speed velocity.
   - Vertical stick input mapped with jerk-limited trajectory.
   - Set in position mode using `MPC_POS_MODE=4`.
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md)
   - Used when smooth motion is required (e.g.: filming, mapping, cargo).
   - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
   - May not be suitable for vehicles/use-cases that require a faster response - e.g. race quads.
   - Set in position mode using `MPC_POS_MODE=3`.
-- **Simple position control** 
+- **Simple position control**
   - Sticks map directly to velocity setpoints without smoothing.
   - Useful for velocity control tuning.
   - Set in position mode using `MPC_POS_MODE=0`.
@@ -62,9 +62,9 @@ The following list provides an *overview* of the different implementations of ho
 
 Analogously to [position mode implementations](#position-mode-implementations) these are the implementations for interpreting vertical stick input:
 
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md)
   - Smoothed vertical input.
   - Set in altitude mode with `MPC_POS_MODE` 3 or 4.
-- **Simple altitude control** 
+- **Simple altitude control**
   - Unsmoothed vertical input.
   - Set in altitude mode only when using `MPC_POS_MODE=0`.
