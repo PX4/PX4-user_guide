@@ -1,4 +1,4 @@
-## NanoMind 110 
+## NanoMind 110
 
 ![nanomind 11
 ](../../assets/hardware/hardware-nanomind110.png)
@@ -30,4 +30,4 @@ NanoMind 110은 [AirMind<sup>&reg;</sup> Store](http://drupal.xitronet.com/?q=ca
 
 ### 지원
 
-자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 <support@mindpx.net>에 이메일을 보내십시오.
+자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 [support@mindpx.net](mailto:support@mindpx.net)에 이메일을 보내십시오.
