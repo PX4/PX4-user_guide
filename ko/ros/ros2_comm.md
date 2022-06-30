@@ -352,7 +352,7 @@ This section describes the process to *manually* setup your workspace and build 
 
 To build both ROS 2 and ROS (1) workspaces (replacing the previous steps):
 
-1. `cd` into `px4_ros_com_ros2` dir and source the ROS 2 environment. Don't mind if it tells you that a previous workspace was set before:
+1. `cd`를 `px4_ros_com_ros2` 디렉토리에 넣고 ROS 2 환경을 소싱합니다. 이전 작업 공간이 이전에 설정되었다는 메시지가 표시되더라도 신경 쓰지 마십시오.
 
    ```sh
    source /opt/ros/foxy/setup.bash

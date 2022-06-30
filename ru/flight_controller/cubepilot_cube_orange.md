@@ -34,6 +34,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 * High-power, multi-tone piezo audio indicator
 * microSD card for high-rate logging over extended periods of time
 
+
 <span id="stores"></span>
 ## Where to Buy
 
@@ -112,9 +113,9 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 | UART7  | /dev/ttyS5 | CONSOLE                                  |
 | UART8  | /dev/ttyS6 | GPS2                                     |
   
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/default.px4board -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/default.px4board -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
 
 
 ### Debug Ports

@@ -13,7 +13,6 @@ The [Gazebo](../simulation/gazebo.md) page shows how to install Gazebo, how to e
 :::
 
 ## 多旋翼
-
 <a id="quadrotor"></a>
 
 ### 四旋翼（默认）
@@ -39,6 +38,7 @@ make px4_sitl gazebo_solo
 ```
 
 ![固定翼的 Gazebo 仿真](../../assets/simulation/gazebo/vehicles/solo.png)
+
 
 <a id="typhoon_h480"></a>
 
@@ -67,6 +67,7 @@ make px4_sitl gazebo_plane
 ```
 
 ![标准构型的 VTOL](../../assets/simulation/gazebo/vehicles/plane.png)
+
 
 <a id="standard_plane_catapult"></a>
 
@@ -103,6 +104,7 @@ make px4_sitl gazebo_tailsitter
 
 ![潜艇 /UUV](../../assets/simulation/gazebo/vehicles/tailsitter.png)
 
+
 <a id="ugv"></a>
 
 ## Unmmanned Ground Vehicle (UGV/Rover/Car)
@@ -126,6 +128,7 @@ make px4_sitl gazebo_r1_rover
 ```
 
 ![旋翼机](../../assets/simulation/gazebo/vehicles/r1_rover.png)
+
 
 <a id="uuv"></a>
 

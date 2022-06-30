@@ -4,7 +4,7 @@ NuttX의 PX4를 포팅하려면, 하드웨어가 NuttX를 지원하여야 합니
 
 다음 가이드에서는 기존 지원 하드웨어를 사용하거나, NuttX([PX4 기본 레이어](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/px4) 포함)를 이미 포팅하였다고 가정합니다.
 
-링커 스크립트와 기타 필수 설정을 포함한 모든 보드의 설정 파일은 공급업체의 보드별 디렉토리의 [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards/) 아래에 있습니다(예: **boards/_VENDOR</2 >/_MODEL_</strong>)).</p>
+링커 스크립트와 기타 필수 설정을 포함한 모든 보드의 설정 파일은 공급업체의 보드별 디렉토리의 [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards/) 아래에 있습니다(예: **boards/_VENDOR</2>/_MODEL_</strong>)).
 
 다음 예는 NuttX 비행 콘트롤러에 대한 최근 [참조 설정](../hardware/reference_design.md)인 FMUv5를 사용합니다.
 * **PX4-Autopilot** 디렉토리에서 `make px4_fmu-v5_default`를 실행하면, FMUv5 설정이 빌드됩니다.
@@ -22,7 +22,7 @@ make px4_fmu-v5_default menuconfig
 make px4_fmu-v5_default qconfig
 ```
 
-[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)을 사용하여 Ubuntu에 PX4를 설치하려면, [NuttX 도구](https://bitbucket.org/nuttx/tools/src/master/)에서 *kconfig* 도구를 설치하여야 합니다.
+[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)을 사용하여 Ubuntu에 PX4를 설치하려면, [NuttX 도구](https://bitbucket.org/nuttx/tools/src/master/)에서 *kconfig* 도구를 설치하여야 합니다. <!-- NEED px4_version --> you will also need to install *kconfig* tools from [NuttX tools](https://bitbucket.org/nuttx/tools/src/master/).
 
 :::note
 [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) 도커 컨테이너를 사용하거나 일반 지침(`kconfig-mconf` 포함)을 사용하여 MacOS에 설치한 경우에는 다음 단계가 필요하지 않습니다.

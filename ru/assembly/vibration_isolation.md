@@ -8,14 +8,15 @@ Flight Control boards with in-built accelerometers or gyros are sensitive to vib
 
 Well-designed airframes damp/reduce the amplitude of specific structural resonances at the autopilot mounting location. Further isolation may be needed in order to reduce vibration to the level that sensitive components can handle (e.g. some flight controllers must be attached to the airframe using some form of anti-vibration foam/mount - while others are internally isolated).
 
+
 ## Vibration Analysis
 
 [Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to use logs to confirm whether vibration is a probable cause of flight problems.
 
+
 ## Basic Vibration Fixes
 
 A few of simple steps that may reduce vibrations are:
-
 - Make sure everything is firmly attached on the vehicle (landing gear, GPS mast, etc.).
 - Use balanced propellers.
 - Make sure to use high-quality components for the propellers, motors, ESC and airframe. Each of these components can make a big difference.
@@ -25,6 +26,6 @@ A few of simple steps that may reduce vibrations are:
 ## References
 
 Some references that you may find useful are:
-
 - [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (free paper)
 - [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (preview).
+

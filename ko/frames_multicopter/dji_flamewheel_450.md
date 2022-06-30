@@ -14,17 +14,15 @@
 
 ## 부품 목록
 
-- 비행 컨트롤러: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
-- 프레임: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
-- 모토: 3DR Iris Plus 950kv rebranded T-Motors MN2213
-- 전기변속기: Hobbywing XRotor 35A Micro 3-6S BLHeli
-- 블레이드: Graupner 10"x5" (M6와 호환되도록 [이 어댑터](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view)를 인쇄해야합니다.) <!--TODO-->
-
-- 거리 센서: Lidar-Lite V3
-
-- GPS: Here+ RTK GPS
-- 텔레메트리: 3DR 텔레메트리
-- 배터리: Roxxy LiPo - 4S, 4000mAh
+* 비행 컨트롤러: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
+* 프레임: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
+* 모토: 3DR Iris Plus 950kv rebranded T-Motors MN2213
+* 전기변속기: Hobbywing XRotor 35A Micro 3-6S BLHeli
+* 블레이드: Graupner 10"x5" (M6와 호환되도록 [이 어댑터](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view)를 인쇄해야합니다.) <!--TODO-->
+* 거리 센서:  Lidar-Lite V3
+* GPS: Here+ RTK GPS
+* 텔레메트리: 3DR 텔레메트리
+* 배터리: Roxxy LiPo - 4S, 4000mAh
 
 또한, FrSky X4R-SB 3/16ch 2.4Ghz 수신기와 FrSky Taranis 컨트롤러를 사용합니다. 이번 조립에는 동일한 블레이드를 사용하는 경우 지퍼 타이, 양면 테이프, 납땜 인두 및 3D 프린터도 필요합니다. GPS 마스트는 Intel Aero에서 재사용되었습니다.
 
@@ -33,6 +31,7 @@
 *Pixhawk 3 Pro*는 내부 IMU가 이미 축축되어 있기 때문에 양면 테이프를 사용하여 부착 할 수 있습니다.
 
 이 설정에서는 자동 조종 장치가 180도 회전되어 SD 카드에 접근이 더욱 용이합니다. 그러나, 베이스 플레이트를 180도 돌리면, 비행 컨트롤러 보드를 전면에 장착할 수 있습니다. 두 방법 모두 가능하나, *QGroundControl*에서 보드 회전의 설정을 확인하여야 합니다.
+
 
 ## 배선
 
@@ -64,9 +63,10 @@ Pixhawk 3 Pro의 일반 핀아웃은 [여기](https://drotek.gitbook.io/pixhawk-
 | 5 | -                   | SDA              |
 | 6 | -                   | GND              |
 
+
 ### Here+ RTK GPS
 
-Here + GPS는 Pixhawk 2에 적합한 8 핀 커넥터와 함께 제공됩니다. *Pixhawk 3 Pro* (또는 Pixracer)와 함께 사용하려면 6 핀 커넥터를 사용해야하며 핀 6과 7은 필요하지 않습니다 (아래 참조). 추가 핀은 안전 버튼용이며 필요한 경우 부착 할 수 있습니다. 핀아웃에 대한 상세한 내용은 17 페이지의 [이 문서](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf)에서 확인하십시오.
+Here + GPS는 Pixhawk 2에 적합한 8 핀 커넥터와 함께 제공됩니다. Here + GPS는 Pixhawk 2에 적합한 8 핀 커넥터와 함께 제공됩니다. 추가 핀은 안전 버튼용이며 필요한 경우 부착 할 수 있습니다. 핀아웃에 대한 상세한 내용은 17 페이지의 [이 문서](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf)에서 확인하십시오.
 
 ![GPS 설정하기](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.jpg)
 
@@ -81,6 +81,7 @@ Here + GPS는 Pixhawk 2에 적합한 8 핀 커넥터와 함께 제공됩니다. 
 | 7 | BUTTON_LED | - | -                 |
 | 8 | GND        | 6 | GND               |
 
+
 ## 설정
 
 *QGroundControl*에서 쿼드콥터를 설정법에 대한 일반 문서는 [기본 구성](../config/README.md)을 참고하십시오. 특정한 설정에 관련된 지침이 아래에서 제공됩니다.
@@ -90,6 +91,7 @@ Here + GPS는 Pixhawk 2에 적합한 8 핀 커넥터와 함께 제공됩니다. 
 **QGC &gt; Airframe &gt; Quadrotor x**에서 기체 **DJI Flame Wheel 450**을 선택합니다.
 
 ![기체 QGC 선택](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
+
 
 ### RTK GPS
 
@@ -110,7 +112,6 @@ RTK GPS는 플러그 앤 플레이입니다. 자세한 내용은 [여기](../adv
 ### 기타
 
 아래의 매개 변수도 설정하십시오.
-
 - `EKF2_HGT_MODE = 2` : Lidar-Lite가 고도값의 소스로 사용되는 지 확인합니다.
 - `MAV_PROTO_VER = 2` : MAVLink 프로토콜 버전 2 사용
 - `CBRK_IO_SAFETY = 22027` : 안전 버튼 비활성화

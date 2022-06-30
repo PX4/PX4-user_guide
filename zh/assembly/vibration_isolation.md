@@ -8,23 +8,24 @@
 
 设计很好的机身会在自驾仪安装的位置处减少特定结构共振的幅度。 为了将振动降低到敏感元器件能够处理的程度，进一步的隔离是需要的。（例如 ，一些飞控必须使用某种防震泡沫安装固定在机身上，其他的是一些内部隔离）。
 
+
 ## 振动分析
 
-[使用 Flight Review 进行日志分析 > 振动](../log/flight_review.md#vibration) 解释了如何使用日志来定位震动是否是引发飞行问题的原因。
+[Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to use logs to confirm whether vibration is a probable cause of flight problems.
+
 
 ## 基本振动修复
 
 可以减少振动的一些简单步骤：
-
 - 确保所有的东西都可靠的固定在机身上（起落架，GPS 天线等）。
 - 使用平衡螺旋桨。
 - 确保使用高质量的螺旋桨、发动机、电调和机架。 这些组成部分中的每一个都有很大的不同。
-- 使用隔振方法安装自动驾驶仪。 你可以使用许多飞控都使用的 *安装泡沫*来减振， 其他的一些飞控会有内部振动隔离机制。
-- *最后*一个措施，调整软件过滤器（见[这里](../config_mc/racer_setup.md#filters)）。 最好是减少振动源，而不是在软件中过滤。
+- 使用隔振方法安装自动驾驶仪。 Many flight controllers come with *mounting foam* that you can use for this purpose, while others have inbuilt vibration-isolation mechanisms.
+- As a *last* measure, adjust the [software filters](../config_mc/filter_tuning.md). 最好是减少振动源，而不是在软件中过滤。
 
 ## 参考
 
 一些可能对您有用的参考资料：
-
 - [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (免费文档)
 - [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover)（预览）
+

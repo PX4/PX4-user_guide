@@ -4,7 +4,7 @@
 
 * [空中交通避障：ADSB/FLARM](../advanced_features/traffic_avoidance_adsb.md)
 * [空中交通避障：UTM](../advanced_features/traffic_avoidance_utm.md)
-* [机器视觉](../computer_vision/README.md) 
+* [机器视觉](../computer_vision/README.md)
   * [自主避障](../computer_vision/obstacle_avoidance.md)（需要机载计算机）
   * [安全降落](../computer_vision/safe_landing.md)（需要机载计算机）
   * [碰撞避免](../computer_vision/collision_prevention.md) （通过机载计算机或飞控的传感器）

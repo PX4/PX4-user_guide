@@ -11,7 +11,7 @@ Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulati
 
 The SIH can be used by new PX4 users to get familiar with PX4 and the different modes and features, and of course to learn to fly a quadrotor or an airplane with the real RC controller.
 
-The quadrotor dynamic model is described in this [pdf report](https://github.com/PX4/PX4-user_guide/raw/master/assets/simulation/SIH_dynamic_model.pdf).
+The quadrotor dynamic model is described in this [pdf report](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
 
 The aerodynamic model for the fixed-wing airplane is inspired from the PhD thesis:
 > "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.

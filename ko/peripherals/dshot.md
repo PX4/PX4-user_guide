@@ -10,6 +10,7 @@ DShot은 PWM 또는 OneShot에 비해 여러 가지 장점을 가진 ESC 대체 
 
 이 항목에서는 DShot ESC 연결과 설정 방법을 설명합니다.
 
+
 <span id="wiring"></span>
 ## 배선
 
@@ -49,6 +50,7 @@ DShot에는 *DShot150*, *DShot300*, *DShot600* 및 *DShot1200*과 같은 다양�
 그런 다음 배터리를 연결하고 기체의 시동을 켭니다. ESC가 초기화되고 모터가 올바른 방향으로 회전하여야 합니다.
 - 모터가 올바른 방향으로 회전하지 않으면 ([선택한 기체](../airframes/airframe_reference.md)에 대해) [ESC 명령](#commands)을 전송하여 역 회전하십시오.
 - 모터가 최저 스로틀에서 회전하도록 [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN)을 조정합니다 (그러나 기체는 이륙하지 않음).
+
 
 <span id="commands"></span>
 ## ESC 명령어

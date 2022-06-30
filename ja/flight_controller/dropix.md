@@ -1,7 +1,6 @@
 # DroPix Flight Controller
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues.
-:::
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues. :::
 
 The Drotek<sup>&reg;</sup> *DroPix autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](https://nuttx.apache.org/) OS.
 
@@ -10,8 +9,8 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
-:::
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md). :::
+
 
 ## Key Features
 
@@ -25,19 +24,20 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Multicolor LED indicator
 * High-power, multi-tone piezo audio indicator
 * microSD card for long-time high-rate logging
-* Sensors 
+* Sensors
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
   * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
   * MEAS MS5611 barometer
 * Standard MK style mounting holes 45 mm x 45 mm (M3 holes)
-* Dimensions 
+* Dimensions
   * Size: 67*50*6 mm
   * Weight: 15g (without connectors)
 
 ## Where to buy
 
 [DroPix Autopilots & Accessories](https://store.drotek.com/dropix-autopilots)
+
 
 ## Documentation
 
@@ -51,16 +51,16 @@ The following diagrams show the Dropix connector information (for more informati
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" alt="front connectors" width="500px" />
 
+
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
-:::
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected. :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
-
-    make px4_fmu-v2_default
-    
+```
+make px4_fmu-v2_default
+```
 
 ## Serial Port Mapping
 
@@ -73,4 +73,4 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->

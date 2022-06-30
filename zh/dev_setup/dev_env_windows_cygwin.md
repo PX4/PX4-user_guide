@@ -42,7 +42,7 @@ To add these yourself:
 
 The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
-1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
+1. 进入到工具链的安装目录(默认**C:\PX4**)
 1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
 1. Clone the PX4 PX4-Autopilot repository from within the console:
 
@@ -75,6 +75,7 @@ Once you have finished setting up the command-line toolchain:
 
 - 使用 jMAVSim 编译和运行 SITL, 其性能明显优于虚拟机 (Cygwin会生成一个本机 windows 二进制文件 ** px4.exe **)。
 - 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）。
+
 
 <a id="usage_instructions"></a>
 

@@ -2,7 +2,7 @@
 
 PX4 定义了一些用于为系统状态和问题提供音频通知的 [标准音符/提示音](../getting_started/tunes.md)（比如系统启动，解锁成功，电池警告等）
 
-提示音使用字符串来指定（[ANSI 音乐通知](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)），并使用 [tunes](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/tunes) 库播放这些编码。 乐曲库也包含默认系统调节列表 - 见 [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)。
+Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/tunes) library. The tunes library also contains the list of default system tunes - see [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
 
 PX4 还有一个模块可以用于播放（测试）默认或用户自定义音乐。
 
@@ -14,7 +14,7 @@ PX4 还有一个模块可以用于播放（测试）默认或用户自定义音�
 提示音字符串使用 [ANSI 音乐提示](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt) 定义。
 
 :::tip
-有关格式的更多信息可以在 [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) 中查找，并已在 [tune_definition.esc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)复制。 这允许您编辑乐曲并在您的电脑上播放， 然后导出为 PX4 可以播放的格式。
+More information about the format can be found in [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) and has been reproduced in [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc). 这允许您编辑乐曲并在您的电脑上播放， 然后导出为 PX4 可以播放的格式。
 
 创建新调节的最简单方式是使用音乐编辑器。 这允许您编辑音乐并在您的电脑上播放， 然后导出为 PX4 可以播放的格式。
 
@@ -60,7 +60,7 @@ tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 
 ## 正在替换已存在的乐曲
 
-乐曲定义在 [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)。
+Tunes are defined within [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc).
 
 如果你只需要替换现有的乐曲，可以在自己的 fork 中替换文件， 并更新 `PX4_DEFINE_TUNE` 中定义的乐曲字符串。
 

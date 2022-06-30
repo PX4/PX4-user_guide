@@ -13,8 +13,7 @@ Key information
 ## Bill of materials
 
 The components needed for this build are:
-
-- Flight controller: [CUAV V5 nano](https://store.cuav.net/index.php?id_product=98&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-nano-small-flight-controller-for-ardupilot-px4-drone-parts-free-shipping-whole-sale-&controller=product&id_lang=1): 
+- Flight controller: [CUAV V5 nano](https://store.cuav.net/index.php?id_product=98&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-nano-small-flight-controller-for-ardupilot-px4-drone-parts-free-shipping-whole-sale-&controller=product&id_lang=1):
   - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
   - Power Module
 - Frame: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
@@ -25,11 +24,13 @@ The components needed for this build are:
 - Motors: [DJI E305 2312E Motor (800kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 - ESC: [Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 
+
 In addition, we used an FrSky Taranis controller. You will also need zip ties, double-sided tape, a soldering iron.
 
 The image below shows both frame and electronic components.
 
 ![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
+
 
 ## Hardware
 
@@ -47,8 +48,8 @@ This section lists all hardware for the frame.
 | Velcro Battery Strap                              | 1        |
 | DJI Phantom Built-in Nut Upgrade Propellers 9.4x5 | 1        |
 
-
 ![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_frame_components.jpg)
+
 
 ### CUAV v5 nano Package
 
@@ -100,6 +101,7 @@ The following tools are used in this assembly:
 - Precision tweezers
 - Soldering iron
 
+
 ![Required tools](../../assets/airframes/multicopter/dji_f450_cuav_5nano/required_tools.jpg)
 
 ## Assembly
@@ -107,47 +109,47 @@ The following tools are used in this assembly:
 Estimated time to assemble is approximately 90 minutes (about 45 minutes for the frame and 45 minutes installing the autopilot and configuring the airframe.
 
 1. Attach the 4 arms to the bottom plate using the provided screws.
-  
-    ![Arms to bottom plate](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
 
-2. Solder ESC (Electronic Speed Controller) to the board, positive (red) and negative (black).
-  
-    ![Solder ESCs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/2_solder_esc.jpg)
+   ![Arms to bottom plate](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
 
-3. Solder the Power Module, positive (red) and negative (black).
-  
-    ![Solder power module](../../assets/airframes/multicopter/dji_f450_cuav_5nano/3_solder_power_module.jpg)
+1. Solder ESC (Electronic Speed Controller) to the board, positive (red) and negative (black).
 
-4. Plug in the motors to the ESCs according to their positions.
-  
-    ![Plug in motors](../../assets/airframes/multicopter/dji_f450_cuav_5nano/4_plug_in_motors.jpg)
+   ![Solder ESCs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/2_solder_esc.jpg)
 
-5. Attach the motors to the corresponding arms.
-  
-    ![Attach motors to arms (white)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5a_attach_motors_to_arms.jpg) ![Attach motors to arms (red)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5b_attach_motors_to_arms.jpg)
+1. Solder the Power Module, positive (red) and negative (black).
 
-6. Add the top board (screw into the top of the legs).
-  
-    ![Add top board](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
+   ![Solder power module](../../assets/airframes/multicopter/dji_f450_cuav_5nano/3_solder_power_module.jpg)
 
-7. Add damping foam to the *CUAV V5 nano* flight controller.
-  
-    ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7a_attach_cuav5nano.jpg) ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7b_attach_cuav5nano.jpg)
+1. Plug in the motors to the ESCs according to their positions.
 
-8. Attach the FrSky receiver to the bottom board with double-sided tape.
-  
-    ![Attach FrSky receiver with double-sided tape](../../assets/airframes/multicopter/dji_f450_cuav_5nano/8_attach_frsky.jpg)
+   ![Plug in motors](../../assets/airframes/multicopter/dji_f450_cuav_5nano/4_plug_in_motors.jpg)
 
-9. Attach the telemetry module to the vehicle’s bottom board using double-sided tape.
-  
-    ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9a_telemtry_radio.jpg) ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9b_telemtry_radio.jpg)
+1. Attach the motors to the corresponding arms.
 
-10. Put the aluminium standoffs on the button plate and attach GPS.
-  
-    ![Aluminium standoffs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/10_aluminium_standoffs.jpg)
+   ![Attach motors to arms (white)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5a_attach_motors_to_arms.jpg) ![Attach motors to arms (red)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5b_attach_motors_to_arms.jpg)
 
-11. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
-  
+1. Add the top board (screw into the top of the legs).
+
+   ![Add top board](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
+
+1. Add damping foam to the *CUAV V5 nano* flight controller.
+
+   ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7a_attach_cuav5nano.jpg) ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7b_attach_cuav5nano.jpg)
+
+1. Attach the FrSky receiver to the bottom board with double-sided tape.
+
+   ![Attach FrSky receiver with double-sided tape](../../assets/airframes/multicopter/dji_f450_cuav_5nano/8_attach_frsky.jpg)
+
+1. Attach the telemetry module to the vehicle’s bottom board using double-sided tape.
+
+   ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9a_telemtry_radio.jpg) ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9b_telemtry_radio.jpg)
+
+1. Put the aluminium standoffs on the button plate and attach GPS.
+
+   ![Aluminium standoffs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/10_aluminium_standoffs.jpg)
+
+1. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
+
 :::note
 The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
 :::
@@ -156,8 +158,8 @@ That's it! The final build is shown below:
 
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
-<span id="configure"></span>
 
+<span id="configure"></span>
 ## Vehicle Configuration/Calibration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
@@ -167,35 +169,34 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 :::
 
 First update the firmware and airframe:
-
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
-  
-    ![QGroundControl - Select Generic Quadrotor X airframe](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_select_airframe.jpg)
+
+  ![QGroundControl - Select Generic Quadrotor X airframe](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_select_airframe.jpg)
 :::
 
 Then perform the mandatory setup/calibration:
-
 * [Sensor Orientation](../config/flight_controller_orientation.md)
 * [Compass](../config/compass.md)
 * [Accelerometer](../config/accelerometer.md)
 * [Level Horizon Calibration](../config/level_horizon_calibration.md)
 * [Radio Setup](../config/radio.md)
 * [Flight Modes](../config/flight_mode.md)
-  
+
 :::note
 For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
 :::
 
 Ideally you should also do:
-
 * [ESC Calibration](../advanced_config/esc_calibration.md)
 * [Battery](../config/battery.md)
 * [Safety](../config/safety.md)
 
+
 ## Tuning
 
 Firmware installation sets *default* autopilot parameters that have been configured for the selected frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+
 
 <!--
 
@@ -204,9 +205,11 @@ These were generated by flight testing.
 
 -->
 
+
 ## Video
 
 @[youtube](https://youtu.be/b0bKNdDqVHw)
+
 
 ## Acknowledgments
 

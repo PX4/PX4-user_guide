@@ -14,11 +14,8 @@ PX4는 호스트 OS(NuttX, Linux 또는 Mac OS와 같은 기타 POSIX 플랫폼)
 
 예 FMUv5 :
 * (전체) 보드별 파일: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4/fmu-v5).<!-- NEED px4_version -->
-
 * 빌드 설정: [/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake).<!-- NEED px4_version -->
-
 * 보드 초기화 파일: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
-
   - 보드 초기화 파일은 **init/rc.board**의 보드 디렉토리 아래에 있는 경우에는 시작 스크립트에 자동으로 포함됩니다.
   - 이 파일은 특정 보드에만 존재하는 센서(및 기타 항목)를 시작하는 데 사용됩니다. 또한 보드의 기본 매개변수, UART 매핑 및 기타 특수한 경우를 설정하는 데 사용할 수 있습니다.
   - FMUv5은 시작되는 모든 Pixhawk 4 센서를 볼 수 있으며, 더 큰 LOGGER_BUF도 설정합니다.
@@ -44,9 +41,8 @@ Linux 보드에는 OS와 커널 설정이 포함되어 있지 않습니다. Linu
 ### QuRT / Hexagon
 
 * 시작 스크립트는 [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/master/posix-configs)에 있습니다. <!-- NEED px4_version -->
-
 * OS 구성은 기본 Linux 이미지의 일부입니다(TODO: LINUX IMAGE 및 플래시 지침의 위치 제공).
-* PX4 미들웨어 구성은 [src/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에 있습니다. TODO: ADD BUS CONFIG
+* PX4 미들웨어 구성은 [src/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에 있습니다. <!-- NEED px4_version --> TODO: ADD BUS CONFIG
 
 
 ## RC UART 배선 권장 사항

@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/failure_detector_status.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/failure_detector_status.msg)
 
 ```c
 uint64 timestamp                    # time since system start (microseconds)

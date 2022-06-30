@@ -29,4 +29,4 @@ NanoMind 110 is available at [AirMind<sup>&reg;</sup> Store](http://drupal.xitro
 
 ### Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.

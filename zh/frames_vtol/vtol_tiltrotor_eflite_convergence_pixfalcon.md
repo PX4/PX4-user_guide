@@ -8,15 +8,14 @@ The original [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.a
 
 @[youtube](https://youtu.be/E61P2f2WPNU)
 
+
 ## Purchase
 
 Vehicle frame options:
-
 - **WL Tech XK X450** - [Banggood](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
 - **JJRC M02** - [Banggood (AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [AliExpress](https://www.aliexpress.com/item/4001031497018.html)
 
 Flight controller options ():
-
 - [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md).
 - Any other compatible flight controller with small enough form-factor.
@@ -58,15 +57,15 @@ For the GPS we cut out a section of foam inside the "cockpit". That way the GPS 
 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
+
 ## PX4 Configuration
 
 Follow the [Standard Configuration](config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 The particular settings that are relevant to this vehicle are:
-
-- [Airframe](../config/airframe.md) 
+- [Airframe](../config/airframe.md)
   - Select the airframe configuration **E-flite Convergence** under **VTOL Tiltrotor** and restart *QGroundControl*. ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
-- [Flight Modes/Switches](../config/flight_mode.md) 
+- [Flight Modes/Switches](../config/flight_mode.md)
   - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.
 
 :::note

@@ -1,7 +1,8 @@
 # VTOL Without an Airspeed Sensor
 
 :::warning
-The use of an airspeed sensor is advised. Support for VTOL's without an airspeed sensor is considered experimental and should only be attempted by experienced pilots.
+The use of an airspeed sensor is advised.
+Support for VTOL's without an airspeed sensor is considered experimental and should only be attempted by experienced pilots.
 :::
 
 Fixed wings use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor. The settings should also be applicable to non-VTOL fixed wings but this is currently untested.
@@ -34,8 +35,7 @@ Finally take note of the groundspeed during cruise flight. This can be used to 
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
 :::note
-Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
-:::
+Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks). :::
 
 To tell the flight controller that it is fling without an airspeed sensor you need to set the airspeed mode to 'Airspeed disabled' ([FW_ARSP_MODE=1](../advanced_config/parameter_reference.md#FW_ARSP_MODE)).
 

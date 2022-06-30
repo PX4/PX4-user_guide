@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/safety.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/safety.msg)
 
 ```c
 uint64 timestamp        # time since system start (microseconds)

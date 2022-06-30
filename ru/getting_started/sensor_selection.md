@@ -8,21 +8,21 @@ The minimal set of sensors is incorporated into [Pixhawk Series](../flight_contr
 
 Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
 
-<span id="gps_compass"></span>
 
+<span id="gps_compass"></span>
 ## GPS & Compass
 
 PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
 :::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
-:::
+[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required. :::
 
 We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
 
 Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
+
 
 ## Airspeed
 
@@ -42,6 +42,7 @@ Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachomet
 
 For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
 
+
 ## Distance
 
 Distance sensors are used for precision landing, object avoidance and terrain following.
@@ -57,18 +58,16 @@ PX4 supports many affordable distance sensors, using different technologies, and
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
 Some options include:
+- [PX4Flow](../sensor/px4flow.md) based flow sensors, which have an integrated sonar sensor.
+- [PMW3901](../sensor/pmw3901.md)  based flow sensors, which have a sensor much like in an optical mouse trackpad.
 
-* [PX4Flow](../sensor/px4flow.md) based flow sensors, which have an integrated sonar sensor.
-* [PMW3901](../sensor/pmw3901.md) based flow sensors, which have a sensor much like in an optical mouse trackpad.
 
 <span id="wiring"></span>
-
 ## Sensor Wiring
 
 Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
 
 In addition, see:
-
 * [Basic Assembly](../assembly/README.md) contains flight controller quick start guides. These cover wiring of the core sensors to specific flight controller hardware.
 * [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
 * [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.

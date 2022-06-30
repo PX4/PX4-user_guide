@@ -3,14 +3,13 @@
 [Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250)는 크기는 소형이지만, 모든 기능이 제공되는 FPV 멀티 콥터 프레임입니다. *Pixhawk* 및 AUAV-X2 비행 컨트롤러와 함께 프레임을 사용하기위한 조립 방법을 제공합니다.
 
 :::note
-[HolyBro QAV250 Pixhawk4-Mini 빌드](holybro_qav250_pixhawk4_mini.md)에는 QAV250 작업을위한보다 완전한 조립 방법이 포함되어 있습니다.
-:::
+[HolyBro QAV250 Pixhawk4-Mini 빌드](holybro_qav250_pixhawk4_mini.md)에는 QAV250 작업을위한보다 완전한 조립 방법이 포함되어 있습니다. :::
 
 주요 정보:
 
-- **프레임:** Lumenier QAV250 CF
-- **비행 컨트롤러:** Pixhawk 또는 AUAV-X2
-- ** 조립 시간 (대략) : ** -
+-   **프레임:** Lumenier QAV250 CF
+-   **비행 컨트롤러:** Pixhawk 또는 AUAV-X2
+-   ** 조립 시간 (대략) : ** -
 
 ## 프레임 조립
 
@@ -37,7 +36,8 @@ PDB 및 ESC에 의해 생성 된 EMI의 영향을 적게 받도록 상단 플레
 X2는 바람과 난기류로 인한 압력 영향에 대한 기압계 고도의 민감도를 감소시키는 "기압 챔버"가있는 소결 나일론 케이스에 장착됩니다.
 
 :::note
-원래 이 케이스는 Phil Kocmoud의 Shapeways 매장에서 "auav x2 r4 나사없는 나일론 케이스 나일론"을 주문할 수 있었습니다. 이제는 더 이상 구매할 수 없습니다( "필수"는 아님).
+원래 이 케이스는 Phil Kocmoud의 Shapeways 매장에서 "auav x2 r4 나사없는 나일론 케이스 나일론"을 주문할 수 있었습니다.
+이제는 더 이상 구매할 수 없습니다( "필수"는 아님).
 :::
 
 또한 상단 및 하단 케이스 절반을 별도로 주문해야합니다.

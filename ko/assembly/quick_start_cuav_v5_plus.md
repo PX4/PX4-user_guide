@@ -7,11 +7,13 @@
 
 ![V5 + AutoPilot-영웅 이미지](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
+
 ## 배선 개요
 
 아래의 이미지는 중요한 센서와 주변 장치(모터와 서보 출력 제외) 연결 방법을 보여줍니다. 다음 섹션에서 각 장치에 대하여 자세히 설명합니다.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
+
 
 | 인터페이스           | 기능                                                                                                                  |
 |:--------------- |:------------------------------------------------------------------------------------------------------------------- |
@@ -29,7 +31,6 @@
 | TELEM1/TELEM2   | 텔레메트리에 연결합니다.                                                                                                       |
 | DSM/SBUS/RSSI   | DSM, SBUS, RSSI 신호 입력 인터페이스, DSM 인터페이스는 DSM 위성 수신기에 연결 가능, SBUS 인터페이스는 SBUS 원격 제어 수신기에 연결 가능, 신호 강도 반환 모듈용 RSSI 포함. |
 
-
 :::note
 자세한 인터페이스 정보는 [V5 + 매뉴얼](http://manual.cuav.net/V5-Plus.pdf)을 참고하십시오.
 :::
@@ -39,6 +40,7 @@
 :::note
 콘트롤러를 권장 기본 방향으로 장착 할 수 없는 경우(예 : 공간 제약으로 인해) 실 장착 방향을 자동항법장치 프로그램에서 설정하여야합니다. [비행 콘트롤러 방향](../advanced_features/rtk-gps.md)
 :::
+
 
 ## GPS + 나침반 + 안전 스위치 + LED
 
@@ -56,11 +58,11 @@ The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_co
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
-## 안전 스위치 
+## 안전 스위치
 
 V5+에 제공되는 전용 안전 스위치는 권장 *Neo V2 GPS* (안전 스위치 내장)를 사용하지 않는 경우에만 필요합니다.
 
-GPS 없이 비행하는 경우 차량을 시동 스위치를 `GPS1` 포트에 직접 연결하여야합니다 (이전 6 핀 GPS를 사용하는 경우에는, 라인 변경에 관련된 하단 인터페이스 매뉴얼을 참고하십시오).
+GPS 없이 비행하는 경우 차량을 시동 스위치를 `GPS1` 포트에 직접 연결하여야합니다 (이전 6 핀 GPS를 사용하는 경우에는,  라인 변경에 관련된 하단 인터페이스 매뉴얼을 참고하십시오).
 
 ## 부저
 
@@ -89,7 +91,8 @@ V5+ 키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포함
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
 :::note
-전원 모듈은 PWM 출력에 연결된 주변 장치의 전원이 아닙니다. 서보/액추에이터를 연결하는 경우에는 BEC를 사용하여 별도로 전원을 공급하여야 합니다.
+전원 모듈은 PWM 출력에 연결된 주변 장치의 전원이 아닙니다.
+서보/액추에이터를 연결하는 경우에는 BEC를 사용하여 별도로 전원을 공급하여야 합니다.
 :::
 
 ## 텔레메트리(선택 사항)
@@ -101,7 +104,6 @@ V5+ 키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포함
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <span id="sd_card"></span>
-
 ## SD 카드(선택 사항)
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
@@ -112,9 +114,11 @@ An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory)
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
+
 ## 핀배열
 
 [여기](http://manual.cuav.net/V5-Plus.pdf)에서 **V5 +** 핀배열을 다운로드하십시오.
+
 
 ## 추가 정보
 

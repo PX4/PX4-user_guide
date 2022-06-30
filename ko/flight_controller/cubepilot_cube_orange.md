@@ -33,6 +33,7 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 * 고전력 멀티톤 피에조 오디오 표시기
 * 장기간 고속 로깅용 microSD 카드
 
+
 <span id="stores"></span>
 ## 구매처
 
@@ -111,9 +112,9 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 | UART7  | /dev/ttyS5 | 콘솔                                       |
 | UART8  | /dev/ttyS6 | GPS2                                     |
   
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/default.px4board -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/default.px4board -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
 
 
 ### 디버그 포트

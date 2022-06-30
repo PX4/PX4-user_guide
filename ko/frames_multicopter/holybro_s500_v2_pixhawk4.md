@@ -243,6 +243,7 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 설명합�
 
 ![완전 조립](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
+
 <span id="configure"></span>
 ## PX4 설치 및 설정
 

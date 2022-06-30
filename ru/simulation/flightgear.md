@@ -53,7 +53,8 @@ For some models (e.g. those with electric engines) the daily build with the newe
    ```
    Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
 
-Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).   
+Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).
+
 
 <a id="running"></a>
 
@@ -180,6 +181,7 @@ FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
 
 The example above starts the simulation on the [Honolulu international airport](http://wiki.flightgear.org/Suggested_airports)
+
 
 <a id="joystick"></a>
 

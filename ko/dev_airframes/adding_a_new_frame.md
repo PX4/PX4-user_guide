@@ -2,7 +2,7 @@
 
 PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. 구성은 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 저장된 [구성 파일](#config-file)에 정의됩니다. 구성 파일은 시스템의 물리적 구성을 설명하고 [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/mixers) 폴더에 저장되는 [믹서 파일](#mixer-file)을 참조합니다.
 
-구성을 추가하는 것은 간단합니다. [init.d/airframes 폴더](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d/airframes)에 새 구성 파일을 만들고(파일 이름 앞에 사용하지 않은 자동 시작 ID 추가), 새 기체 구성 파일의 이름을 <1 관련 섹션에서 >CMakeLists.txt</a>를 찾은 다음 소프트웨어를 [빌드 및 업로드](../dev_setup/building_px4.md)합니다.
+https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/srcparser.py
 
 자체 구성을 만들고 싶지 않은 개발자는 [맞춤 시스템 시작](../concept/system_startup.md) 페이지에 설명된 대로 microSD 카드의 텍스트 파일을 사용하여 기존 구성을 맞춤 설정할 수 있습니다.
 

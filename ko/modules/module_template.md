@@ -12,7 +12,7 @@ An application can be written to run as either a *task* (a module with its own s
 
 ## 작업 대기열 작업
 
-PX4-Autopilot에는 *작업 대기열 작업*으로 실행되는 애플리케이션(모듈)을 작성하기 위한 템플릿이 포함되어 있습니다. [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item).
+`ModuleBase` 외에도 작업은 `ScheduledWorkItem`([ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp)에 포함)에서 파생되어야 합니다.
 
 작업 대기열 작업 응용 프로그램은 작업 대기열 작업임을 지정하고 초기화중에 실행되도록 예약해야 한다는 점을 제외하고 일반(작업) 응용 프로그램과 동일합니다.
 
@@ -23,7 +23,7 @@ PX4-Autopilot에는 *작업 대기열 작업*으로 실행되는 애플리케이
    DEPENDS
       px4_work_queue
    ```
-1. `ModuleBase` 외에도 작업은 `ScheduledWorkItem`([ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp)에 포함)에서 파생되어야 합니다.
+1. `ScheduledWorkItem::Run()` 메서드를 구현하여 "작업"을 수행합니다.
 1. 생성자 초기화에서 작업을 추가할 대기열을 지정합니다. [work_item](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/WorkItemExample.cpp#L42) 예제는 아래와 같이 `wq_configurations::test1` 작업 대기열에 추가됩니다.
    ```cpp
    WorkItemExample::WorkItemExample() :
@@ -45,7 +45,7 @@ PX4-Autopilot에는 *작업 대기열 작업*으로 실행되는 애플리케이
 
 ## 작업
 
-PX4/PX4-Autopilot에는 자체 스택에서 작업으로 실행되는 애플리케이션(모듈)을 작성하기 위한 템플릿이 포함되어 있습니다. [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/master/src/templates/template_module).
+문서: `PRINT_MODULE_*` 메서드는 두 가지 용도로 사용됩니다(API는 [소스 코드](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)에 문서화됨):
 
 템플릿은 전체 애플리케이션에 필요하거나 유용한 다음과 같은 추가 기능/측면을 보여줍니다.
 

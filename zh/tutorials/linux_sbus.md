@@ -10,6 +10,7 @@ For an S.Bus reciever (or encoder - e.g. from Futaba, RadioLink, etc.) you will 
 
 Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
 
+
 <a id="start_driver"></a>
 
 ## Signal inverter circuit
@@ -20,6 +21,7 @@ linux_sbus start|stop|status -d <device> -c <channel>
 ```
 
 S.Bus 是 *inverted* UART 通信信号。
+
 
 <a id="signal_inverter_circuit"></a>
 

@@ -139,6 +139,7 @@ VIO와 MoCap 시스템은 포즈 데이터를 얻는 방법이 다르며, 자체
 
 특정 시스템에 대한 설정은 [아래](#setup_specific_systems)에서 설명합니다. 다른 시스템의 경우에는 공급업체의 설정 문서를 참고하십시오.
 
+
 <a id="relaying_pose_data_to_px4"></a>
 
 ### 포즈 데이터를 PX4로 중계

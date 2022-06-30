@@ -29,7 +29,8 @@
 
 | 스크립트                                                                                                                             | 설명                                                                                                                                                                                                                                                              |
 | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**                                          | [Gazebo 9](../simulation/gazebo.md) 및 [jMAVSim](../simulation/jmavsim.md) 시뮬레이터과 [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 도구를 설치합니다. [Fast DDS](#fast-dds-installation)에 대한 종속성을 포함하지 않습니다. <!-- NEED px4_version --> |
+| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)**                                            | [Gazebo 9](../simulation/gazebo.md) 및 [jMAVSim](../simulation/jmavsim.md) 시뮬레이터과 [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 도구를 설치합니다. [Fast DDS](#fast-dds-installation)에 대한 종속성을 포함하지 않습니다. <!-- NEED px4_version -->
+|
 | **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Ubuntu 18.04 LTS **에만** [ROS "Melodic"](#rosgazebo) 및 PX4를 설치합니다.<br>Ubuntu 20.04</2> 이상에서는 사용하지 마십시오!                                                                                                                                                    |
 
 :::note
@@ -38,7 +39,7 @@
 
 ## Gazebo, JMAVSim 및 NuttX(Pixhawk) 타겟
 
-[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) 스크립트를 사용하여 [Gazebo 9](../simulation/gazebo.md) 및 [jMAVSim](../simulation/jmavsim.md) 시뮬레이터와 [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 도구 모음의 개발 환경을 설정합니다.
+[Fast DDS](#fast-dds-installation)에 대한 종속성을 포함하지 않습니다. <!-- NEED px4_version --> [Gazebo 9](../simulation/gazebo.md) 및 [jMAVSim](../simulation/jmavsim.md) 시뮬레이터과 [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 도구를 설치합니다.
 
 :::warning ROS
 사용자는 [ROS/Gazebo](#rosgazebo)에 대한 지침을 따라야 합니다. <!-- ROS installs Gazebo automatically, as part of the ROS installation). -->
@@ -76,16 +77,14 @@
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    bash ubuntu.sh
    ```
-:::
-
-
-<!-- Do we need to add to our scripts or can we assume correct version installs over?
+:::<!-- Do we need to add to our scripts or can we assume correct version installs over?
 Remove any old versions of the arm-none-eabi toolchain.
 ```sh
 sudo apt-get remove gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi gcc-arm-embedded
 sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 ```
 -->
+
 
 <a id="raspberry-pi-hardware"></a>
 
@@ -99,7 +98,7 @@ Ubuntu 20.04(focal)용으로 빌드하려면 docker를 사용하여야 합니다
 
 라즈베리파이에 대한 공통 종속성을 얻으려면:
 
-1. [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)와 <!-- NEED px4_version --> PX4 소스 저장소의 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) (**/Tools/setup/**)를 다운로드합니다.  <!-- NEED px4_version -->
+1. PX4 소스 저장소의 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) (**/Tools/setup/**)를 다운로드합니다. <!-- NEED px4_version --> [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)와  <!-- NEED px4_version -->
    ```
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
@@ -167,6 +166,7 @@ make
 - [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
 
+
 <a id="rosgazebo"></a>
 
 ## ROS/Gazebo
@@ -194,6 +194,7 @@ make
 * catkin(ROS 빌드 시스템) 작업 공간은 **~/catkin_ws/**에 생성됩니다.
 * 스크립트는 ROS Wiki "Melodic" [Ubuntu 페이지](http://wiki.ros.org/melodic/Installation/Ubuntu)의 지침을 사용합니다.
 :::
+
 
 <a id="fast_dds"></a>
 <a id="fast_rtps"></a>

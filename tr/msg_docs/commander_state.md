@@ -2,7 +2,7 @@
 
 Main state, i.e. what user wants. Controlled by RC or from ground station via telemetry link.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/commander_state.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/commander_state.msg)
 
 ```c
 # Main state, i.e. what user wants. Controlled by RC or from ground station via telemetry link.

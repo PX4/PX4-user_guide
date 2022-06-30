@@ -30,6 +30,7 @@
 * [MC_04 - 故障安全测试](../test_cards/mc_04_failsafe_testing.md)
 * [MC_05 - 室内飞行（手动模式）](../test_cards/mc_05_indoor_flight_manual_modes.md)
 
+
 <a id="fleet"></a>
 
 ## 测试设备/自动驾驶仪
@@ -52,14 +53,14 @@ http://px4.io/portfolio/multicopter-portfolio/
 
 固定翼
 
-| 框架                                                                                                                    | 飞控                                              | UUID                                           |
+| 机型                                                                                                                    | 飞控                                              | UUID                                           |
 | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------- |
 | [Booole Phantom FPV Flying Wing](https://hobbyking.com/en_us/phantom-fpv-flying-wing-epo-airplane-1550mm-v2-kit.html) | [Phantom Wing](../flight_controller/pixhawk.md) | 0001000000003035333330365104003c0020 (f450-v2) |
 
 
 融合 VTOL
 
-| 框架                                                                                   | 飞控                                                      | UUID                                             |
+| 机型                                                                                   | 飞控                                                      | UUID                                             |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------ |
 | [Convergence VTOL](https://www.horizonhobby.com/convergence-vtol-bnf-basic-efl11050) | [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) | 000200000000343233383038511500350039 (vtol-v5-m) |
 | [Delta Quad Pro](https://px4.io/portfolio/deltaquad-vtol/)                           | [Dropix](../flight_controller/dropix.md)                | 0001000000003437393931375114004c0042 (delta-v2)  |

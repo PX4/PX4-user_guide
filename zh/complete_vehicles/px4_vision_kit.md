@@ -62,7 +62,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
     - 兼容的操作系统: Microsoft Windows 10 完整版本, Linux (ubilinux, Ubuntu, Yocto), Android
     - FTDI UART 连接到飞控
     - `USB1`：USB3-A 接口被用来从 USB2.0 储存器启动 PX4 避障环境（连接到 USB3.0 外设可能会导致GPS无法使用）。
-    - `USB2`：USB 2.0 接口，用于连接 JST-GH 插接件。 可以用于第二个相机，LTE模块等。 （或开发期间使用的键盘/鼠标）。
+    - `USB2`：USB 2.0 接口，用于连接 JST-GH 插接件。 Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
     - `USB3`：USB 2.0 JST-GH 端口连接到深度摄像头
     - `HDMI`：HDMI 输出
     - SD 卡插槽

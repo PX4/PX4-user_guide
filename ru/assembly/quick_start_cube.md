@@ -21,6 +21,7 @@ Cube comes with most (or all) of the accessories you will need when [purchased](
 
 The exception is that some kits do not include a GPS, which will have to be purchased separately ([see below](#gps)).
 
+
 ## Wiring Overview
 
 The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
@@ -31,8 +32,8 @@ The image below shows how to connect the most important sensors and peripherals.
 2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
 3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
 4. (Dedicated) [Safety switch](#safety-switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
-5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch. 
-6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level). 
+5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch.
+6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level).
 
 :::note
 The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`).
@@ -55,6 +56,7 @@ If the controller cannot be mounted in the recommended/default orientation (e.g
 The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. The mounting screws in the Cube accessories are designed for a 1.8mm thick frameboard. Customized screws are supposed to be M2.5 with thread length inside Cube in range 6mm~7.55mm.
 
 ![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
+
 
 <a id="gps"></a>
 
@@ -80,6 +82,7 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety-switch).
 :::
 
+
 ## Safety Switch
 
 The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
@@ -94,6 +97,7 @@ The buzzer should be connected to the USB port as shown (no further configuratio
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
+
 <a id="rc_control"></a>
 
 ## Radio Control
@@ -104,11 +108,13 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers.
 
+
 ### PPM-SUM / Futaba S.Bus receivers
 
 Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
+
 
 ### Spektrum Satellite Receivers
 
@@ -119,6 +125,7 @@ Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM**
 ### PWM Receivers
 
 The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
+
 
 ## Power
 
@@ -143,6 +150,8 @@ The communication channel is via [Telemetry Radios](../telemetry/README.md). The
 
 ![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
+
+
 ## SD Card (Optional)
 
 SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the Micro-SD card into Cube as shown (if not already present).
@@ -160,7 +169,7 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 ![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 :::note
-This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type). 
 :::
 
 :::caution
@@ -175,6 +184,7 @@ The wiring and configuration of optional/less common components is covered withi
 If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 :::
 
+
 ## Configuration
 
 Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
@@ -187,7 +197,7 @@ Basic/common configuration information is covered in: [Autopilot Configuration](
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
-<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? --> 
 
 ### Bootloader Updates
 
@@ -195,12 +205,13 @@ If you get the [Program PX4IO(../getting_started/tunes.md#program-px4io) warning
 
 The safety switch can be used to force bootloader updates. To use this feature de-power the Cube, hold down the safety switch, then power the Cube over USB.
 
+
 ## Further information
 
-- [Cube Black](../flight_controller/pixhawk-2.md) 
+- [Cube Black](../flight_controller/pixhawk-2.md)
 - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)
 - [Cube Orange](../flight_controller/cubepilot_cube_orange.md)
-- Cube Docs (Manufacturer): 
+- Cube Docs (Manufacturer):
   - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
   - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)

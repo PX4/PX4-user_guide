@@ -11,6 +11,7 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 
 수정되지 않은 Fun Cub는 비교적 저렴하고 비행방법이 비교적 쉽습니다. 조립후에는 비행기는 비교적 무겁고 비행이 간단하지 않습니다. 비행은 우수하지만, 전진 비행시에는 약 75 %의 추진력이 필요합니다.
 
+
 ## 부품 명세서
 
 실제 평면도는 위의 이미지와 비슷합니다 (다른 유사한 모델도 잘 작동합니다. 이것은 Multiplex Fun Cub입니다). 필요한 최소한의 장비는 다음과 같습니다.
@@ -24,7 +25,8 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 - GPS 모듈
 - 4S 배터리
 - 쿼드 모터 장착 용 알루미늄 프레임 (10x10mm 사각 튜브, 벽 두께 1mm)
-- TOW는 4200mAh 4S 배터리로 중량은 약 2.3kg입니다.
+- TOW는 4200mAh 4S 배터리로 중량은 약  2.3kg입니다.
+
 
 ## 구조
 
@@ -37,8 +39,7 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉아 있는" 방향과 같음).
 
 :::tip
-서보 방향은 *QGroundControl*의 PWM_OUTPUT 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 반전될 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목).
-:::
+서보 방향은 *QGroundControl*의 PWM_OUTPUT 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 반전될 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목). :::
 
 | 포트     | 연결               |
 | ------ | ---------------- |
@@ -64,6 +65,8 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉�
 
 @[유투브](https://youtu.be/4K8yaa6A0ks)
 
+
 ## 지원
 
 VTOL 변환 또는 구성에 대한 질문이 있으시면 <https://discuss.px4.io/c/px4/vtol>을 방문하십시오.
+

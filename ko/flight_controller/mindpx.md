@@ -20,27 +20,26 @@ AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) 시리즈는 Pixhawk<sup>&re
 
 MindPX는 Pixhawk<sup>&reg;</sup>에서 분기된 차세대 자동조종장치로, 회로도와 구조가 수정되었으며, 무인기체를 보다 스마트하고 사용하기 용이하도록 새로운 기능으로 더욱 강화되었습니다.
 
-MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 증가시킵니다. MindPX는보다 복잡한 VTOL 구성과보다 정밀한 제어를 지원할 수 있습니다. MindPX는 하나의 단일 FMU에서 메인과 AUX 출력을 구현하여, FMU-V4 기반 비행 컨트롤러에 특히 유용합니다. 
+MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 증가시킵니다. MindPX는보다 복잡한 VTOL 구성과보다 정밀한 제어를 지원할 수 있습니다. MindPX는 하나의 단일 FMU에서 메인과 AUX 출력을 구현하여,  FMU-V4 기반 비행 컨트롤러에 특히 유용합니다.
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
 
 * 메인시스템 온칩 : STM32F427
-  
   * CPU : 32 비트, 168 MHz ARM 코어 텍스<sup>&reg;</sup> FPU 포함 M4
   * RAM : 256KB SRAM
   * 2MB 플래시
   * ST 마이크로 LSM303D 14 비트 가속도계/자력계
   * MEAS MS5611 기압계
-  * InvenSense<sup>&reg;</sup> MPU6500 통합 6축 센서 
+  * InvenSense<sup>&reg;</sup> MPU6500 통합 6축 센서
+
 
 * 주요 기능 :
-  
   * CNC 가공 가볍고 견고한 알루미늄 합금 케이스
   * 내장 IMU 이중화 내장
   * 총 16개의 PWM 출력 채널 (8 메인 + 8 보조)
   * 플로우 연결을 위한 여분의 I2C 포트 1 개.
   * 보조 컴퓨터 연결 용 추가 USB 포트 1 개(내장 UART-USB 변환기)
-  * 개발용 공개 디버그 포트 
+  * 개발용 공개 디버그 포트
 
 ## 빠른 시작
 
@@ -70,6 +69,7 @@ MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 �
 | 7  |     TF 카드 슬롯     | 15 |                   삼색등                   |
 | 8  |  NRF/SPI(원격 제어)  | 16 |                 Looper                  |
 
+
 ### 라디오 수신기
 
 MindPX는 PPM/SBUS/DSM/DSM2/DSMX를 포함한 다양한 무선 수신기를 V2.6부터 지원합니다. MindPX는 FrSky<sup>&reg;</sup> 양방향 텔레메트리 D와 S.Port도 지원합니다.
@@ -82,13 +82,13 @@ MindPX는 PPM/SBUS/DSM/DSM2/DSMX를 포함한 다양한 무선 수신기를 V2.6
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
-
-    make airmind_mindpx-v2_default
-    
+```
+make airmind_mindpx-v2_default
+```
 
 ### 보조 컴퓨터 PC 연결
 
-MindPX에는 보드에는 USB-TO-UART 브리지 IC가 있습니다. 마이크로 USB-USB A형 케이블로 연결합니다. 마이크로 USB 끝을 MindPX의 'OBC'포트에 연결하고, USB 유형 A 끝을 보조 컴퓨터에 연결합니다.
+MindPX에는 보드에는 USB-TO-UART 브리지 IC가 있습니다. 마이크로 USB-USB  A형 케이블로 연결합니다. 마이크로 USB 끝을 MindPX의 'OBC'포트에 연결하고, USB 유형 A 끝을 보조 컴퓨터에 연결합니다.
 
 그리고, 최대 BAUD 속도는 px4 제품군과 동일하며 최대 921600입니다.
 
@@ -114,8 +114,8 @@ MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에
 | UART7  | /dev/ttyS5 | 디버깅 콘솔 |
 | UART8  | /dev/ttyS6 | ?      |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## 지원
 
-자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 <support@mindpx.net>에 이메일을 보내십시오.
+자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 [support@mindpx.net](mailto:support@mindpx.net)에 이메일을 보내십시오.

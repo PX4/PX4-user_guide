@@ -4,10 +4,8 @@ The orientation and horizon level may be fine-tuned manually with parameters to 
 
 :::note
 These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
-
-- [Flight Controller Orientation](../config/flight_controller_orientation.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md)
-:::
+* [Flight Controller Orientation](../config/flight_controller_orientation.md)
+* [Level Horizon Calibration](../config/level_horizon_calibration.md) :::
 
 If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming.
 
@@ -17,6 +15,7 @@ To change the orientation parameters:
 
 1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
 2. Change the parameters as shown below: ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
+
 
 ## Parameter information
 
@@ -52,6 +51,7 @@ This parameter defines the rotation of the FMU board relative to the platform. P
 - 23 = Roll 270°, Yaw 135°
 - 24 = Pitch 90°
 - 25 = Pitch 270°
+
 
 **SENS_BOARD_X_OFF**
 

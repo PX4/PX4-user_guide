@@ -53,7 +53,8 @@ graph LR;
    ```
    이 폴더에 PX4-FlightGear-Bridge 통신 정의 파일을 저장하기 때문에, 권한 설정이 필요합니다.
 
-추가 설치 방법은 [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA)를 참고하십시오.   
+추가 설치 방법은 [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA)를 참고하십시오.
+
 
 <a id="running"></a>
 
@@ -180,6 +181,7 @@ FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
 
 위의 예는 [호놀룰루 국제공항](http://wiki.flightgear.org/Suggested_airports) 시뮬레이션입니다.
+
 
 <a id="joystick"></a>
 

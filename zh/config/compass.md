@@ -1,11 +1,11 @@
 # 罗盘校准
 
-罗盘校准过程配置了所有连接的外部和内部 [magnetometers](../gps_compass/README.md)。 *QGroundControl* 将指定您把飞行器定位在一系列方向并在指定轴上旋转飞行器。
+罗盘校准过程配置了所有连接的外部和内部 [magnetometers](../gps_compass/README.md)。 *QGroundControl* will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
 You will need to calibrate your compass on first use, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics.
 
 :::note
-If you are using an external magnetometer/compass (or a compass integrated into a GPS module) make sure it is [mounted](../assembly/mount_gps_compass.md) as far as possible from other electronics and in a *supported orientation*. Instructions for *connecting* your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware. Once connected, *QGroundControl* will automatically detect the external magnetometer.
+If you are using an external magnetometer/compass (or a compass integrated into a GPS module) make sure it is [mounted](../assembly/mount_gps_compass.md) as far as possible from other electronics and in a _supported orientation_. Instructions for _connecting_ your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware. Once connected, *QGroundControl* will automatically detect the external magnetometer.
 :::
 
 :::tip
@@ -16,27 +16,28 @@ Indications of a poor compass calibration include multicopter circling during ho
 
 The calibration steps are:
 
-1. Choose a location away from large metal objects or magnetic fields. :::tip Metal is not always obvious! Avoid calibrating on top of an office table (often contain metal bars) or next to a vehicle. Calibration can even be affected if you're standing on a slab of concrete with uneven distribution of re-bar.
+1. Choose a location away from large metal objects or magnetic fields. :::tip
+Metal is not always obvious! Avoid calibrating on top of an office table (often contain metal bars) or next to a vehicle. 
+Calibration can even be affected if you're standing on a slab of concrete with uneven distribution of re-bar.
 :::
-2. 打开 *QGroundControl* 并连接上飞机。
-3. 在工具栏选择 **齿轮** 图标（机体设置），然后在侧边栏选择 **传感器**。
-4. 点击 **Compass** 传感器按钮。
-    
-    ![选择 Compass 校准 PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
-    
+1. Start *QGroundControl* and connect the vehicle.
+1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+1. Click the **Compass** sensor button.
+
+   ![选择 Compass 校准 PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
+
 :::note
 You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
 :::
+1. Click **OK** to start the calibration.
+1. 把你的飞机放置在下面显示的某一个方向，并保持静止。 随后提示（方向图像变为黄色）在指定方向旋转飞行器。 该位置标定完成后，屏幕上的相应图示将变成绿色。
 
-5. 点击**确定**开始校准。
+   ![PX4 上的罗盘校准步骤](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.jpg)
 
-6. 把你的飞机放置在下面显示的某一个方向，并保持静止。 随后提示（方向图像变为黄色）在指定方向旋转飞行器。 该位置标定完成后，屏幕上的相应图示将变成绿色。
-    
-    ![PX4 上的罗盘校准步骤](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.jpg)
-
-7. 在机体的所有方向上重复校准步骤。
+1. 在机体的所有方向上重复校准步骤。
 
 Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
+
 
 ## 更多信息：
 

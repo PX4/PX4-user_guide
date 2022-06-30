@@ -137,6 +137,7 @@ VIO and MoCap systems have different ways of obtaining pose data, and have their
 
 The setup for specific systems is covered [below](#setup_specific_systems). When using external heading estimation, magnetic North is ignored and faked with a vector corresponding to world *x* axis (which can be placed freely during Vision/MoCap calibration). Yaw angle is therefore given with respect to local *x*.
 
+
 <a id="relaying_pose_data_to_px4"></a>
 
 ### 将数据回传给 PX4

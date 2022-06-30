@@ -10,6 +10,7 @@ DShot is an alternative ESC protocol that has several advantages over [PWM](../p
 
 This topic shows how to connect and configure DShot ESCs.
 
+
 <span id="wiring"></span>
 ## Wiring/Connections
 
@@ -51,6 +52,7 @@ DShot comes with different speed options: *DShot150*, *DShot300*, *DShot600* and
 Then connect the battery and arm the vehicle. The ESCs should initialize and the motors turn in the correct directions.
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)), reverse them by sending an [ESC Command](#commands).
 - Adjust [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) so that the motors spin at lowest throttle (but the vehicle does not take off).
+
 
 <span id="commands"></span>
 ## ESC Commands

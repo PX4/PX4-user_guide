@@ -243,6 +243,7 @@ Fully assembled, the kit looks as shown below:
 
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
+
 <span id="configure"></span>
 ## Install/Configure PX4
 

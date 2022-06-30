@@ -10,11 +10,12 @@
 - [Magnetometer](modules_driver_magnetometer.md)
 
 ## adc
-源码: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
+Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
 
 
 ### 描述
 ADC 驱动。
+
 
 <a id="adc_usage"></a>
 
@@ -31,7 +32,7 @@ adc <command> [arguments...]
    status        打印状态信息
 ```
 ## ads1115
-源码: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
+Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
 
 <a id="ads1115_usage"></a>
 
@@ -54,7 +55,7 @@ ads1115 <command> [arguments...]
    status        打印状态信息
 ```
 ## atxxxx
-源码: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
+Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/atxxxx)
 
 
 ### 描述
@@ -83,7 +84,7 @@ atxxxx <command> [arguments...]
    status        打印状态信息
 ```
 ## batmon
-源码: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
+Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/smart_battery/batmon)
 
 
 ### 描述
@@ -93,6 +94,7 @@ To start at address 0x0B, on bus 4
 ```
 batt_smbus -X write_flash 19069 2 27 0
 ```
+
 
 <a id="batmon_usage"></a>
 
@@ -119,7 +121,7 @@ batmon <command> [arguments...]
    suspend       从调度循环中挂起该设备
 ```
 ## batt_smbus
-Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
+Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/batt_smbus)
 
 
 ### 用法
@@ -130,6 +132,7 @@ To write to flash to set parameters. address, number_of_bytes, byte0, ... , byte
 ```
 batt_smbus -X write_flash 19069 2 27 0
 ```
+
 
 <a id="batt_smbus_usage"></a>
 
@@ -169,7 +172,7 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
+Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
@@ -192,7 +195,7 @@ bst <command> [arguments...]
    status        print status info
 ```
 ## sf1xx
-GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
+Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
 
 
 ### 用法
@@ -227,10 +230,11 @@ dshot <command> [arguments...]
    status        打印状态信息
 ```
 ## fmu mode_pwm
-Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
+Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
 
 
 ### 描述
+
 
 <a id="fake_gps_usage"></a>
 
@@ -246,10 +250,11 @@ fake_gps <command> [arguments...]
    status        打印状态信息
 ```
 ## fake_imu
-Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
+Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
 
 
 ### 描述
+
 
 <a id="fake_imu_usage"></a>
 
@@ -264,7 +269,7 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
+Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_magnetometer)
 
 
 ### 示例
@@ -283,7 +288,7 @@ fake_magnetometer <command> [arguments...]
    status        print status info
 ```
 ## gimbal
-Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gimbal)
+Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
 
 
 ### 描述
@@ -314,7 +319,7 @@ gimbal <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
+Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
 
 
 ### Description
@@ -367,7 +372,7 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
+Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
 
 
 ### Description
@@ -378,6 +383,7 @@ Multiple instances of this driver can run simultaneously, if each instance has a
 For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
 
 If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
 
 <a id="ina226_usage"></a>
 
@@ -403,7 +409,7 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## ina228
-Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina228)
+Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
 
 
 ### Description
@@ -414,6 +420,7 @@ Multiple instances of this driver can run simultaneously, if each instance has a
 For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
 
 If the INA228 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
 
 <a id="ina228_usage"></a>
 
@@ -439,7 +446,7 @@ ina228 <command> [arguments...]
    status        print status info
 ```
 ## ina238
-Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina238)
+Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
 
 
 ### Description
@@ -450,6 +457,7 @@ Multiple instances of this driver can run simultaneously, if each instance has a
 For example, one instance can run on Bus 2, address 0x45, and one can run on Bus 2, address 0x45.
 
 If the INA238 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
 
 <a id="ina238_usage"></a>
 
@@ -475,7 +483,7 @@ ina238 <command> [arguments...]
    status        print status info
 ```
 ## iridiumsbd
-Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/iridiumsbd)
 
 
 ### 实现
@@ -502,7 +510,7 @@ iridiumsbd <command> [arguments...]
    status        print status info
 ```
 ## irlock
-Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
+Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
@@ -525,7 +533,7 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
+Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/linux_pwm_out)
 
 
 ### 描述
@@ -544,7 +552,7 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
@@ -569,7 +577,7 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
+Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/neopixel)
 
 
 ### Description
@@ -593,7 +601,7 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paa3905
-Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paa3905)
+Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paa3905)
 
 <a id="paa3905_usage"></a>
 
@@ -618,7 +626,7 @@ paa3905 <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
+Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
@@ -643,7 +651,7 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
+Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 
@@ -670,7 +678,7 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685_pwm_out)
 
 
 ### Description
@@ -708,7 +716,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
@@ -733,11 +741,12 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pps_capture
-Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pps_capture)
+Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pps_capture)
 
 
 ### Description
 This implements capturing PPS information from the GNSS module and calculates the drift between PPS and Real-time clock.
+
 
 <a id="pps_capture_usage"></a>
 
@@ -752,7 +761,7 @@ pps_capture <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
+Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out)
 
 
 ### Description
@@ -778,7 +787,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
+Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out_sim)
 
 
 ### Description
@@ -787,6 +796,7 @@ Driver for simulated PWM outputs.
 Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
 
 It is used in SITL and HITL.
+
 
 <a id="pwm_out_sim_usage"></a>
 
@@ -803,7 +813,7 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## px4flow
-Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
@@ -826,7 +836,7 @@ px4flow <command> [arguments...]
    status        print status info
 ```
 ## px4io
-Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/px4io)
+Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/px4io)
 
 
 ### Description
@@ -865,7 +875,7 @@ px4io <command> [arguments...]
    status        print status info
 ```
 ## rc_input
-Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc_input)
 
 
 ### Description
@@ -876,6 +886,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 - SUMD
 - ST24
 - TBS Crossfire (CRSF)
+
 
 <a id="rc_input_usage"></a>
 
@@ -894,7 +905,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
+Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
@@ -919,7 +930,7 @@ rgbled <command> [arguments...]
    status        print status info
 ```
 ## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
 
 
 ### Description
@@ -958,17 +969,18 @@ All available commands are:
 
 <a id="roboclaw_usage"></a>
 
-### Usage
+### 描述
 ```
 roboclaw <command> [arguments...]
  Commands:
 ```
 ## safety_button
-Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
+Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
 
 ### Description
 This module is responsible for the safety button. Pressing the safety button 3 times quickly will trigger a GCS pairing request.
+
 
 <a id="safety_button_usage"></a>
 
@@ -983,7 +995,7 @@ safety_button <command> [arguments...]
    status        print status info
 ```
 ## sht3x
-Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/hygrometer/sht3x)
+Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
 
 
 ### Description
@@ -1011,6 +1023,7 @@ sht3x reset
 ```
   Reinitialize senzor, reset flags
 
+
 <a id="sht3x_usage"></a>
 
 ### Usage
@@ -1037,7 +1050,7 @@ sht3x <command> [arguments...]
    reset         Reinitialize sensor
 ```
 ## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tap_esc)
+Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
 
 
 ### Description
@@ -1048,6 +1061,7 @@ Currently the module is implementd as a threaded version only, meaning that it r
 
 ### Example
 The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
+
 
 <a id="tap_esc_usage"></a>
 
@@ -1062,11 +1076,12 @@ tap_esc <command> [arguments...]
                  default: 4
 ```
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
+Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
 
 
 ### Description
 This module is responsible for the tone alarm.
+
 
 <a id="tone_alarm_usage"></a>
 
@@ -1081,7 +1096,7 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## uwb
-Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/uwb/uwb_sr150)
+Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
 
 ### Description
@@ -1115,7 +1130,7 @@ uwb <command> [arguments...]
    status
 ```
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
+Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 

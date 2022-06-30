@@ -19,8 +19,8 @@
 위의 매개 변수를 설정하는 올바른 순서는 다음과 같습니다.
 
 1. 가능한 경우 연결 길이를 물리적으로 조정하여 서보를 트리밍하고 ,벤치에서 PWM 채널을 트리밍 (`PWM_MAIN/AUX_TRIMx` 사용)하여 제어 표면을 이론적 위치로 적절하게 설정하여 미세 조정합니다.
-2. 순항 속도로 안정화 모드로 비행하고 피치 설정 점 오프셋 (`FW_PSP_OFF`)을 원하는 공격 각도로 설정합니다. 순항 속도에서 필요한 공격 각도는 날개 높이 비행 중에 일정한 고도를 유지하기 위해 비행기가 비행해야 하는 피치 각도에 해당합니다. 대기 속도 센서를 사용하는 경우 올바른 순항 대기 속도 (`FW_AIRSPD_TRIM`)를 설정하십시오.
-3. 로그 파일에서 액추에이터 컨트롤을 보고 (예를 들어 [비행 검토](https://logs.px4.io)에 업로드하고 *액추에이터 컨트롤* 플롯을 확인) 피치 트림 (`TRIM_PITCH`)을 설정합니다. 이 값을 수평 비행 중의 피치 신호의 평균 오프셋으로 설정합니다.
+1. 순항 속도로 안정화 모드로 비행하고 피치 설정 점 오프셋 (`FW_PSP_OFF`)을 원하는 공격 각도로 설정합니다. 순항 속도에서 필요한 공격 각도는 날개 높이 비행 중에 일정한 고도를 유지하기 위해 비행기가 비행해야 하는 피치 각도에 해당합니다. 대기 속도 센서를 사용하는 경우 올바른 순항 대기 속도 (`FW_AIRSPD_TRIM`)를 설정하십시오.
+1. 로그 파일에서 액추에이터 컨트롤을 보고 (예를 들어 [비행 검토](https://logs.px4.io)에 업로드하고 *액추에이터 컨트롤* 플롯을 확인) 피치 트림 (`TRIM_PITCH`)을 설정합니다. 이 값을 수평 비행 중의 피치 신호의 평균 오프셋으로 설정합니다.
 
 로그 조회가 필요가 없거나 수동 모드에서 편안하게 비행 할 수있는 경우 2 단계 전에 3 단계를 수행할 수 있습니다. 그런 다음 리모컨을 트림 (트림 스위치 사용)하고 값을 `TRIM_PITCH`에 보고하거나 (그리고 송신기에서 트림을 제거) 텔레메트리나 QGC.를 통하여 비행 중에 직접 `TRIM_PITCH`를 업데이트 할 수 있습니다.
 
@@ -28,7 +28,7 @@
 
 비대칭 익형에 의해 유도된 하향 피치 모멘트는 대기 속도에 따라 증가하고 플랩이 전개 될 때 현재 측정된 대기 속도와 플랩 위치에 따라 항공기를 다시 트리밍하여야 합니다. 이를 위해 대기속도의 쌍 선형 곡선 (아래 그림 참조) 함수와 플랩 상태의 피치 트림 증분 함수를 다음 매개변수를 사용하여 정의할 수 있습니다.
 
-- [FW*DTRIM*\[R/P/Y\]_\[VMIN/VMAX\]](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN)는 최소/최대 대기속도([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) 및 [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)로 정의 됨)에서 `TRIM_ROLL/PITCH/YAW`에 추가된 롤/피치/요 트림값입니다. 
+- [FW*DTRIM*\[R/P/Y\]_\[VMIN/VMAX\]](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN)는 최소/최대 대기속도([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) 및 [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)로 정의 됨)에서 `TRIM_ROLL/PITCH/YAW`에 추가된 롤/피치/요 트림값입니다.
 - [FW_DTRIM_P_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_R_FLPS) 및 [FW_DTRIM_P_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_P_FLPS)는 플랩이 배치될 때 `TRIM_ROLL/PITCH/YAW`에 추가되는 롤/피치 트림값입니다.
 
 ![Dtrim 곡선](../../assets/config/fw/fixedwing_dtrim.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/15AbscUF1kRdWMh8ONcCRu6QBwGbqVGfl/view?usp=sharing

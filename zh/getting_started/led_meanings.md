@@ -1,47 +1,46 @@
 # LED 含义（Pixhawk系列）
 
 [Pixhawk系列飞行控制器](../flight_controller/pixhawk_series.md) 使用LED来显示当前飞行器的状态。
-
-* [UI LED](#ui_led) 提供了与 *起飞准备*相关的面向用户的状态信息。
-* [LEDs状态](#status_led) 提供PX4IO 和 FMU SoC的状态。 它们表示电量、驱动模式和活动以及错误。
+- The [UI LED](#ui_led) provides user-facing status information related to *readiness for flight*.
+- [LEDs状态](#status_led) 提供PX4IO 和 FMU SoC的状态。 它们表示电量、驱动模式和活动以及错误。
 
 <span id="ui_led"></span>
-
 ## LED 界面
 
-RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个超亮的I2C外设，可能安装在飞控板上（例如，FMUv4飞控板上没有，通常使用安装在GPS上的LED）。
+The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
 
 下图显示LED和飞行器状态的关系。
 
 :::warning
-有可能出现GPS锁定 (绿色LED) 但仍然无法解锁的情况，这是因为PX4还没有[通过起飞前检查](../flying/pre_flight_checks.md). **起飞需要有效的全球位置估计!**
+有可能出现GPS锁定 (绿色LED) 但仍然无法解锁的情况，这是因为PX4还没有[通过起飞前检查](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
 :::
 
 :::tip
-在遇到错误 (红色LED闪烁), 或者飞行器GPS无法锁定 (LED从蓝色变为绿色) 时， 在*QGroundControl*中查看详细的状态信息，包括校准状态，[飞行前检查(内部)](../flying/pre_flight_checks.md)报告的错误信息。 还要检查GPS模块是否正确连接，Pixhawk是否正确读取GPS信息，GPS是否发送正确的GPS位置。
+In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green),   check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). 还要检查GPS模块是否正确连接，Pixhawk是否正确读取GPS信息，GPS是否发送正确的GPS位置。
 :::
 
 ![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
 
-* **[蓝色LED常亮] 解锁， GPS未锁定：** 表上飞行器已经解锁并且GPS模块没有位置锁。 当飞行器已经解锁，PX4会解锁对电机的控制，允许你操纵无人机飞行。 像往常一样，在解锁时要小心，因为大型螺旋桨在高速旋转时可能很危险。 飞行器在这种模式下无法执行引导任务。
 
-* **[蓝色LED闪烁] 未解锁, 没有GPS锁：** 与之前类似，但是你的飞行器没有解锁。 这意味着你将不能控制电机，但是其他子系统正在工作。
+* **[Solid Blue] Armed, No GPS Lock:** Indicates vehicle has been armed and has no position lock from a GPS unit. 当飞行器已经解锁，PX4会解锁对电机的控制，允许你操纵无人机飞行。 像往常一样，在解锁时要小心，因为大型螺旋桨在高速旋转时可能很危险。 飞行器在这种模式下无法执行引导任务。
 
-* **[绿色LED常亮] 解锁，GPS锁定：** 表示飞行器已经解锁，但是GPS模块有位置锁。 当飞行器解锁，PX4将会解锁对电机的控制，允许你操纵无人机飞行。 像往常一样，在解锁时要小心，因为大型螺旋桨在高速旋转时可能很危险。 在这种模式下，飞行器可以执行引导任务。
+* **[Pulsing Blue] Disarmed, No GPS Lock:** Similar to above, but your vehicle is disarmed. 这意味着你将不能控制电机，但是其他子系统正在工作。
 
-* **[绿色LED闪烁] 未解锁，GPS锁定：** 与之前类似，但是你的飞行器没有解锁。 这意味着你讲无法控制电机，但是其他子系统包括GPS位置锁正在工作。
+* **[Solid Green] Armed, GPS Lock:** Indicates vehicle has been armed and has a valid position lock from a GPS unit. 当飞行器已经解锁，PX4会解锁对电机的控制，允许你操纵无人机飞行。 像往常一样，在解锁时要小心，因为大型螺旋桨在高速旋转时可能很危险。 在这种模式下，飞行器可以执行引导任务。
 
-* **[紫色LED闪烁] 故障保护模式：** 当你的飞行器在飞行时遇到问题，此模式将激活，比如飞行器失去手动控制、电量过低或内部错误。 在故障保护模式时，飞行器将试图返回起飞位置，或者降落在当前位置。
+* **[Pulsing Green] Disarmed, GPS Lock:** Similar to above, but your vehicle is disarmed. 这意味着你讲无法控制电机，但是其他子系统包括GPS位置锁正在工作。
 
-* **[黄褐色LED常亮] 低电量警告：** 表示飞行器电量极低。 在某一点之后，飞行器将进入故障保护模式。 但是，此模式警告此次飞行应该结束。
+* **[Solid Purple] Failsafe Mode:** This mode will activate whenever vehicle encounters an issue during flight, such as losing manual control, a critically low battery, or an internal error. 在故障保护模式时，飞行器将试图返回起飞位置，或者降落在当前位置。
 
-* **[红色LED闪烁] 错误/设置需要：** 表示飞行器在飞行前需要配置或校准。 将飞行器连接到地面站以找出问题所在。 如果您已经完成设置过程，飞行器仍然闪烁红色，这表明还有其他错误。
+* **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. 在某一点之后，飞行器将进入故障保护模式。 但是，此模式警告此次飞行应该结束。
+
+* **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. 将飞行器连接到地面站以找出问题所在。 如果您已经完成设置过程，飞行器仍然闪烁红色，这表明还有其他错误。
+
 
 <span id="status_led"></span>
-
 ## LED 状态
 
-三种*LED 状态* 指示FMU SoC状态，另外三个指示 PX4IO 的状态(如果存在)。 它们表示电源、引导模式和激活以及错误状态。
+Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). 它们表示电量、驱动模式和活动以及错误。
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
@@ -59,11 +58,11 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 
 下面给出了LED更详细的信息(“x”表示任意状态)
 
-| 红色/琥珀色 | 蓝色 | 绿色    | 含义                                    |
-| ------ | -- | ----- | ------------------------------------- |
-| 10Hz   | x  | x     | 过载 CPU 负载 > 80%，或者内存使用率 > 98%         |
-| 关闭     | x  | x     | 过载 CPU 负载 <= 80%, or RAM usage <= 98% |
-| 不可用    | 关闭 | 4 赫兹  | 电机解锁并且故障保护                            |
-| 不可用    | 打开 | 4 赫兹  | 电机解锁并且未故障保护                           |
-| 不可用    | 关闭 | 1 赫兹  | 电机未解锁并且电机准备解锁                         |
-| 不可用    | 关闭 | 10 赫兹 | 电机未解锁并且电机未准备解锁                        |
+| 红色/琥珀色 | 蓝色 | 绿色    | 含义                                                           |
+| ------ | -- | ----- | ------------------------------------------------------------ |
+| 10Hz   | x  | x     | Overload CPU load > 80%, or RAM usage > 98%                  |
+| 关闭     | x  | x     | Overload CPU load <= 80%, or RAM usage <= 98%                |
+| 不可用    | 关闭 | 4 赫兹  | actuator_armed->armed && failsafe                            |
+| 不可用    | 打开 | 4 赫兹  | actuator_armed->armed && !failsafe                           |
+| 不可用    | 关闭 | 1 赫兹  | !actuator_armed-> armed && actuator_armed->ready_to_arm  |
+| 不可用    | 关闭 | 10 赫兹 | !actuator_armed->armed  && !actuator_armed->ready_to_arm | 

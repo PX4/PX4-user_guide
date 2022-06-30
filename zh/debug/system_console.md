@@ -26,6 +26,7 @@ The system console can be accessed through the Dronecode probe or an FTDI cable.
 - [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 
+
 <a id="pixhawk_debug_port"></a>
 
 ### Connecting via FTDI 3.3V Cable
@@ -34,14 +35,14 @@ The system console can be accessed through the Dronecode probe or an FTDI cable.
 
 在 Ubuntu 上安装 screen （mac os 已经安装了它）：
 
-| Pixracer / Pixhawk v3 | -         | FTDI | -             |
-| --------------------- | --------- | ---- | ------------- |
-| 2                     | + 5v (红色) |      | N/C           |
-| 2                     | UART7 Tx  | 5    | FTDI RX （黄色）  |
-| 3                     | UART7 Rx  | 4    | FTDI TX （橙色）  |
-| 4（黑）                  | SWDIO     |      | N/C           |
-| 6                     | SWCLK     |      | N/C           |
-| 6                     | GND       | 1    | FTDI GND (黑色) |
+| Connecting via FTDI 3.3V Cable | -         | FTDI | -             |
+| ------------------------------ | --------- | ---- | ------------- |
+| 2                              | + 5v (红色) |      | N/C           |
+| 2                              | UART7 Tx  | 5    | FTDI RX （黄色）  |
+| 3                              | UART7 Rx  | 4    | FTDI TX （橙色）  |
+| 4（黑）                           | SWDIO     |      | N/C           |
+| 6                              | SWCLK     |      | N/C           |
+| 6                              | GND       | 1    | FTDI GND (黑色) |
 
 ## 打开控制台
 

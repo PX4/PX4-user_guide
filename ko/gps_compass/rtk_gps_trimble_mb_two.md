@@ -6,21 +6,20 @@
 
 ![MB-Two 대표 이미지](../../assets/hardware/gps/rtk_trimble_two_gnss_hero.jpg)
 
+
 ## 필수 펌웨어 옵션
 
 장치 구매시 다음 펌웨어 옵션을 선택하여야 합니다.
-
-- \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\] : 20Hz 위치 업데이트 및 RTK 지원, 수평 1cm 및 수직 2cm 위치 정확도
+- \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\]  : 20Hz 위치 업데이트 및 RTK 지원, 수평 1cm 및 수직 2cm 위치 정확도
 - \[L\] LBAND
 - \[D\] DUO - 이중 안테나 방향각
 - \[B\] BEIDOU + \[O\] GALILEO, 필요시
 
 ## 안테나 케이블
 
-Trimble MB-Two에는 2개의 이중 주파수(L1/L2) 안테나가 필요합니다. 좋은 예는 [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) 입니다. [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)에서 구매 가능합니다.
+Trimble MB-Two에는 2개의 이중 주파수(L1/L2) 안테나가 필요합니다. 좋은 예는 [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) 입니다.  [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)에서 구매 가능합니다.
 
 장치의 안테나 커넥터 유형은 MMCX입니다. 위의 안테나(SMA 커넥터)에 적합한 케이블은 아래에서 참고하십시오.
-
 - [30 cm version](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
 - [45 cm version](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 

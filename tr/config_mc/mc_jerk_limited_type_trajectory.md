@@ -11,9 +11,8 @@ The jerk-limited type is not used *by default* in position mode. It may not be s
 ## Trajectory Generator
 
 The graph below shows a typical jerk-limited profile with the following constraints:
-
 - `jMax`: maximum jerk
-- `a0`: initial acceleration 
+- `a0`: initial acceleration
 - `aMax`: maximum acceleration
 - `a3`: final acceleration (always 0)
 - `v0`: initial velocity
@@ -32,12 +31,10 @@ In manual position mode, the sticks are mapped to velocity where a full XY-stick
 ### Constraints
 
 XY-plane:
-
 - `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax`: [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)
 
 Z-axis:
-
 - `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
 - `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
@@ -49,18 +46,15 @@ In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/paramet
 ### Constraints
 
 XY-plane:
-
 - `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax`: [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR)
 
 Z-axis:
-
 - `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax` (upward motion): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
 - `aMax` (downward motion): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
 Distance to velocity gains when close to a waypoint:
-
 - [MPC_XY_TRAJ_P](../advanced_config/parameter_reference.md#MPC_XY_TRAJ_P)
 
 ### Related Parameters
