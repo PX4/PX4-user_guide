@@ -130,7 +130,8 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files
 ## Connectors
 
 :::tip
-The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+The RC IN port is for RC receivers only and provides power. :::tip
+The RC IN port is for RC receivers only and provides power.
 :::
 
 ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
