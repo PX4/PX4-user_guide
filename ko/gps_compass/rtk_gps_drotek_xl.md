@@ -6,7 +6,7 @@
 
 ## 구매처
 
-[Drotek XL RTK](https://store-drotek.com/881-DP0503.html) (drotek.com) 
+[Drotek XL RTK](https://store-drotek.com/881-DP0503.html) (drotek.com)
 
 ## 설정
 
