@@ -4,6 +4,7 @@
 
 这里将说明它们的主要区别，以及如何使用。
 
+
 <a id="console_vs_shell"></a>
 
 ## System Console vs. Shells
@@ -26,6 +27,7 @@ Shell 提供对系统的上层访问能力：
 [系统控制台（System Console）](../debug/system_console.md)在调试系统无法启动时十分必要，它会在飞控板上电后输出启动日志。 但是 [MAVLink Shell](../debug/mavlink_shell.md) 则更加易于配置使用，因此通常都推荐用它调试。
 
 The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board). The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
+
 
 <a id="using_the_console"></a>
 
