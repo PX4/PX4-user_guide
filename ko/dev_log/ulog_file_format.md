@@ -311,8 +311,8 @@ struct message_header_s {
 ## 알려진 구현
 
 - PX4-오토파일럿: C++
-  - [로거 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
-  - [재생 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
+  - [로거 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
+  - [재생 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
   - [hardfault_log 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log): hardfault 충돌 데이터를 추가합니다.
 - [pyulog](https://github.com/PX4/pyulog): python, CLI 스크립트가 있는 ULog 파서 라이브러리
 - [FlightPlot](https://github.com/PX4/FlightPlot): 자바, 로그 플로터
