@@ -31,5 +31,4 @@ The UAV should always be manually flown within a safe zone where there are no ob
 If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
 
 :::note
-It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). This allows you to immediately return or crash your drone if necessary.
-:::
+It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). This allows you to immediately return or crash your drone if necessary. :::
