@@ -19,7 +19,6 @@
 [임무 모드](../flight_modes/mission.md)에서는 매개변수가 활성화되면, 풍향계 기능이 항상 활성화됩니다. 임무에서 명령된 모든 요 각도는 무시됩니다.
 
 <span id="configuration"></span>
-
 ## 설정
 
 이 기능은 [WV_* 매개 변수](../advanced_config/parameter_reference.md#WV_EN)를 사용하여 설정합니다.
@@ -29,6 +28,7 @@
 | [WV_EN](../advanced_config/parameter_reference.md#WV_EN)                 | 풍향계 활성화                         |
 | [WV_ROLL_MIN](../advanced_config/parameter_reference.md#WV_ROLL_MIN)   | 요율을 요구하는 풍향계 컨트롤러의 최소 롤 각도 설정점. |
 | [WV_YRATE_MAX](../advanced_config/parameter_reference.md#WV_YRATE_MAX) | 풍향계 컨트롤러가 요구할 수 있는 최대 요 레이트.    |
+
 
 ## 어떻게 작동합니까?
 
