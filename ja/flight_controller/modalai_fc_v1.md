@@ -23,7 +23,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | Memory           | 256Kb FRAM                                                                                                                                                      |
 |                  | 2Mbit Flash                                                                                                                                                     |
 |                  | 512Kbit SRAM                                                                                                                                                    |
-| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1)                                                                                    |
+| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1)                                                                                      |
 | IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
 |                  | ICM-42688 (SPI2)                                                                                                                                                |
 |                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
@@ -131,7 +131,7 @@ make modalai_fc-v1
 | UART7  | /dev/ttyS6 | TELEM1 (J5)                              |
 | UART8  | /dev/ttyS7 | N/A                                      |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 
