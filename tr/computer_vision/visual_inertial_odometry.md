@@ -77,6 +77,8 @@ You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol
 :::
 - [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
 
+
+
 <a id="ekf2_tuning"></a>
 
 ### PX4 Tuning
@@ -93,6 +95,8 @@ The following parameters must be set to use external position information with E
 These can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
 
 For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
+
+
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
@@ -111,6 +115,7 @@ A plot of external data vs. onboard estimate (as above) can be generated using [
 :::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
+
 
 <a id="verify_estimate"></a>
 
