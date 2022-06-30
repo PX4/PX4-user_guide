@@ -6,7 +6,7 @@
 *Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
-`mavros_msgs` 功能包中包含操作 MAVROS 包中服务和主题所需的自定义消息文件。 所有服务和主题及其相应的消息类型都可以在 [ mavros wiki ](http://wiki.ros.org/mavros) 中找到。
+`mavros_msgs` 功能包中包含操作 MAVROS 包中服务和主题所需的自定义消息文件。 Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
 <video width="100%" autoplay="true" controls="true">
