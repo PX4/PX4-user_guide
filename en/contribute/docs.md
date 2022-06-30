@@ -46,23 +46,23 @@ The instructions below explain how to get git and use it on your local computer.
 
 1. Download git for your computer from [https://git-scm.com/downloads](https://git-scm.com/downloads)
 1. [Sign up](https://github.com/join) for Github if you haven't already
-1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/px4_user_guide) on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
+1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
 1. Clone (copy) your forked repository to your local computer:
    ```sh
    cd ~/wherever/
-   git clone https://github.com/<your git name>/px4_user_guide.git
+   git clone https://github.com/<your git name>/PX4-user_guide.git
    ```
    For example, to clone the PX4 userguide fork for a user with Github account "john_citizen":
    ```sh
-   git clone https://github.com/john_citizen/px4_user_guide.git
+   git clone https://github.com/john_citizen/PX4-user_guide.git
    ```
 1. Navigate to your local repository:
    ```sh
-   cd ~/wherever/px4_user_guide   
+   cd ~/wherever/PX4-user_guide   
    ```
 1. Add a *remote* called "upstream" to point to the PX4 version of the library:
    ```sh
-   git remote add upstream https://github.com/PX4/px4_user_guide.git
+   git remote add upstream https://github.com/PX4/PX4-user_guide.git
    ```
    
    :::tip
@@ -86,14 +86,14 @@ The instructions below explain how to get git and use it on your local computer.
    ```sh
    git push origin your_feature_branch_name
    ```
-1. Go to your forked repository on Github in a web browser, e.g.: `https://github.com/<your git name>/px4_user_guide.git`.
+1. Go to your forked repository on Github in a web browser, e.g.: `https://github.com/<your git name>/PX4-user_guide.git`.
   There you should see the message that a new branch has been pushed to your forked repository.
 1. Create a pull request (PR):
    - On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request".
      Press it.
    - A pull request template will be created.
      It will list your commits and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>.
-	 Check [other pull requests](https://github.com/PX4/px4_user_guide/pulls) for comparison)
+	 Check [other pull requests](https://github.com/PX4/PX4-user_guide/pulls) for comparison)
 1. You're done!
    Maintainers for the PX4 User Guide will now have a look at your contribution and decide if they want to integrate it.
    Check if they have questions on your changes every once in a while.
@@ -107,7 +107,7 @@ Build the library locally to test that any changes you have made have rendered p
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
 1. Navigate to your local repository:
    ```sh
-   cd ~/wherever/px4_user_guide
+   cd ~/wherever/PX4-user_guide
    ```
 1. Install dependencies (including Vuepress):
    ```sh

@@ -2,7 +2,7 @@
 
 Obstacle distances in front of the sensor.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/obstacle_distance.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/obstacle_distance.msg)
 
 ```c
 # Obstacle distances in front of the sensor.

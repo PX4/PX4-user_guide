@@ -46,4 +46,4 @@ Airspeed calibration information can be found in: [Basic Configuration > Airspee
 
 ## Developer Information
 
-- [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)
+- [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure) (source code)

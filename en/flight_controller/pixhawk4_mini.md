@@ -50,7 +50,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 * Other Characteristics:
   * Operating temperature: -40 ~ 85°c
 
-Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
+Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
 ## Purchase
 
@@ -67,7 +67,7 @@ The **RC IN** and **PPM** ports are for RC receivers only. These are powered! NE
 
 ## Pinouts
 
-Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
+Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
 
 ## Dimensions
 
@@ -134,7 +134,7 @@ UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 
 ## Peripherals
@@ -156,5 +156,5 @@ It can be used for airframes that use AUX for non-essential peripherals (e.g. "f
 
 ## Further info
 
-- [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)
+- [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

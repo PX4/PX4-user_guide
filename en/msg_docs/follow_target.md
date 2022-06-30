@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/follow_target.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/follow_target.msg)
 
 ```c
 uint64 timestamp  # time since system start (microseconds)

@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_mag.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_mag.msg)
 
 ```c
 uint64 timestamp          # time since system start (microseconds)

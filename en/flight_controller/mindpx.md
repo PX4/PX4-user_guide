@@ -122,7 +122,7 @@ USART6 | /dev/ttyS4 | ?
 UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | ?
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 
