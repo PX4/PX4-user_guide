@@ -191,6 +191,8 @@ That's it. The fully assembled kit is shown below:
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
+
+
 <a id="configure"></a>
 
 ## Install/Configure PX4
