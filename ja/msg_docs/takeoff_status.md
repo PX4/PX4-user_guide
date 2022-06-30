@@ -2,7 +2,7 @@
 
 Status of the takeoff state machine currently just availble for multicopters
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/takeoff_status.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/takeoff_status.msg)
 
 ```c
 # Status of the takeoff state machine currently just availble for multicopters
