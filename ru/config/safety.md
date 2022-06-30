@@ -21,7 +21,9 @@ Each failsafe defines its own set of actions. Some of the more common failsafe a
 | <a id="action_lockdown"></a>Lockdown                                                       | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill-switch).                                                                                                                                                                                                                                                                                                                          |
 
 :::note
-It is possible to recover from a failsafe action (if the cause is fixed) by switching modes. For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
+It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
+:::note
+It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
 :::
 
 :::note
