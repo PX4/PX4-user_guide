@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/esc_report.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/esc_report.msg)
 
 ```c
 uint64 timestamp                    # time since system start (microseconds)
