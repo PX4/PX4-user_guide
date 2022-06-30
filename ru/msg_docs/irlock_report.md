@@ -2,7 +2,7 @@
 
 IRLOCK_REPORT message data
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/irlock_report.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/irlock_report.msg)
 
 ```c
 # IRLOCK_REPORT message data
