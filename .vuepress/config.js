@@ -176,8 +176,6 @@ module.exports = {
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/en/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
-              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
-              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
@@ -260,8 +258,6 @@ module.exports = {
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/ko/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
-              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
-              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
@@ -336,8 +332,6 @@ module.exports = {
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/zh/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/zh/' },
-              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
-              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
