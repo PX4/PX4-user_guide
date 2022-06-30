@@ -6,7 +6,7 @@ The *Return* flight mode is used to *fly a vehicle to safety* on an unobstructed
 
 PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, rally ("safe") points, mission paths, and mission landing sequences.
 
-The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
+The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival).
 
 :::note
 * This mode requires GPS.
@@ -141,7 +141,7 @@ The vehicle will the loiter for a specified time ([RTL_LAND_DELAY](#RTL_LAND_DEL
 <span id="default_configuration"></span>
 ## Vehicle Default Behaviour
 
-The mode is _implemented_ in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
+The mode is *implemented* in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
 
 However the *default configuration* is tailored to suit the vehicle type, as described below.
 
