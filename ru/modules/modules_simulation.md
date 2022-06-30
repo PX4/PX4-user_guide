@@ -1,7 +1,7 @@
 # Modules Reference: Simulation
 
 ## sih
-Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih)
+Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih)
 
 
 ### Description
@@ -13,6 +13,8 @@ This simulator publishes the sensors signals corrupted with realistic noise in o
 
 ### Implementation
 The simulator implements the equations of motion using matrix algebra. Quaternion representation is used for the attitude. Forward Euler is used for integration. Most of the variables are declared global in the .hpp file to avoid stack overflow.
+
+
 
 <a id="sih_usage"></a>
 
