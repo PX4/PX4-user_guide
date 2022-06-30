@@ -24,14 +24,14 @@ A few "turnkey" options are listed below:
 
 You can also use an off-the-shelf FTDI cable [like this one](https://www.sparkfun.com/products/9717) and connect it to flight controller using the appropriate header adaptor (JST-GH connectors are specified in the Pixhawk standard, but you should confirm the connectors for your flight controller).
 
+
 ### Logic Level Shifters
 
 On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
 
 Options include:
-
-- [SparkFun Logic Level Converter - Bi-Directional](https://www.sparkfun.com/products/12009)
-- [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
+* [SparkFun Logic Level Converter - Bi-Directional](https://www.sparkfun.com/products/12009)
+* [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
 
 ## Cameras
 
@@ -42,11 +42,10 @@ Cameras are used image and video capture, and more generally to provide data for
 Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
 
 Popular stereo cameras include:
-
-- [Intel® RealSense™ Depth Camera D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
-- [Intel® RealSense™ Depth Camera D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
-- [Ironsides](https://www.perceptin.io/products)
-- [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
+* [Intel® RealSense™ Depth Camera D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
+* [Intel® RealSense™ Depth Camera D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
+* [Ironsides](https://www.perceptin.io/products)
+* [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
 
 ### VIO Cameras/Sensors
 
@@ -54,8 +53,8 @@ The following sensors can be used for [Visual Inertial Odometry (VIO)](../comput
 
 - [T265 Realsense Tracking Camera](../peripherals/camera_t265_vio.md)
 
-<span id="data_telephony"></span>
 
+<span id="data_telephony"></span>
 ## Data Telephony (LTE)
 
 An LTE USB module can be attached to a companion computer and used to route MAVLink traffic between the flight controller and the Internet.
@@ -75,6 +74,5 @@ You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550
 :::
 
 Some USB modules that are known to work include:
-
-- [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
+- [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/)
   - The *E8372* includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The *E3372* lacks WiFi, so you have to configure it by plugging the stick into a laptop.
