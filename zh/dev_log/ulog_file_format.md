@@ -66,7 +66,7 @@ struct message_header_s {
 `msg_size` is the size of the message in bytes without the header (`hdr_size`= 3 bytes). `msg_type` defines the content and is one of the following: `msg_type` 定义内容类型，是以下的一种：
 
 - 'B' ：标记 bitset 报文。
-  ```
+  ```c
   struct ulog_message_flag_bits_s {
       uint8_t compat_flags[8];
       uint8_t incompat_flags[8];
@@ -91,7 +91,7 @@ struct message_header_s {
 
 
 - 'F': 可以在另一个定义中作为嵌套类型记录或使用的单个 (组合) 类型的格式定义。
-  ```
+  ```c
   struct message_format_s {
   struct message_header_s header;
   char format[header.msg_size-hdr_size];
@@ -198,7 +198,7 @@ struct message_header_s {
   ```
 
 - 'D'：包含日志数据。
-  ```
+  ```c
   struct message_data_s {
       struct message_header_s header;
       uint16_t msg_id;
@@ -208,7 +208,7 @@ struct message_header_s {
   `msg_id`：由 `message_add_logged_s` 报文定义。 `msg_id`: as defined by a `message_add_logged_s` message. `data` contains the logged binary message as defined by `message_format_s`. See above for special treatment of padding fields. 有关填充字段的特殊处理，请参见上文。
 
 - 'L'：字符串日志报文，比如打印输出。
-  ```
+  ```c
   struct message_logging_s {
       struct message_header_s header;
       uint8_t log_level;
@@ -230,7 +230,7 @@ struct message_header_s {
 | DEBUG   | '7' | 调试级别的消息  |
 
 - 'C': Tagged Logged string message
-  ```
+  ```c
   struct message_dropout_s {
       struct message_header_s header;
       uint16_t duration;
@@ -238,7 +238,7 @@ struct message_header_s {
   ```
   `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture. For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the tag attribute of `message_logging_tagged_s` struct as follows:
 
-  ```
+  ```c
   enum class ulog_tag : uint16_t {
     unassigned,
     mavlink_handler,
@@ -267,7 +267,7 @@ struct message_header_s {
 | DEBUG   | '7' | 调试级别的消息  |
 
 - 'S': synchronization message so that a reader can recover from a corrupt message by searching for the next sync message (not used currently).
-  ```
+  ```c
   struct message_sync_s {
       struct message_header_s header;
       uint8_t sync_magic[8];
@@ -276,7 +276,7 @@ struct message_header_s {
   `sync_magic`: to be defined.
 
 - 'O': mark a dropout (lost logging messages) of a given duration in ms. Dropouts can occur e.g. if the device is not fast enough. 例如当设备不够快的情况下会出现丢包。
-  ```
+  ```c
   struct message_dropout_s {
     struct message_header_s header;
     uint16_t duration;
