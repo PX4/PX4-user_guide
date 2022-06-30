@@ -4,7 +4,7 @@ PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS,
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI). Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
 
-The system automatically chooses the best available compass based on their *priority* (external magnetometers have a higher priority than internal magnetometers). If the primary compass fails in-flight, it will failover to the next one. If it fails before flight, arming will be denied.
+The system automatically chooses the best available compass based on their _priority_ (external magnetometers have a higher priority than internal magnetometers). If the primary compass fails in-flight, it will failover to the next one. If it fails before flight, arming will be denied.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
@@ -31,7 +31,7 @@ PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or E
 | [Drotek DP0804](https://store-drotek.com/920-DP0804.html) (and other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass))                                                                   |     M9N      |     LIS3MDL      |                                  |                                                          |                                                              |         |
 | [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer)                                                                                                          |     F9P      |      RM3100      |             &check;              |                                                          |                           &check;                            |         |
 | [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                                                                                                                                    |     M8U      |     LIS3MDL      |             &check;              |                                                          |                                                              |         |
-| [Emlid Reach M+](https://emlid.com/reach/) - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future.                                                                                                 |   &check;    |     &cross;      |                                  |                                                          |                                                              |         |
+| [Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future.                                                                                                |   &check;    |     &cross;      |                                  |                                                          |                                                              |         |
 | [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                                                                                                                                              | FB672, FB6A0 |     &check;      |             &check;              |                                                          |                                                              |         |
 | [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md)                                                                                                                                                                                        |     F9P      |     IST8310      |             &check;              |                                                          |                                                              |         |
 | [Holybro Micro M8N GPS](https://shop.holybro.com/micro-m8n-gps_p1009.html)                                                                                                                                                                  |     M8N      |     IST8310      |                                  |                                                          |                                                              |         |
@@ -50,7 +50,6 @@ PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or E
 | [Zubax GNSS 2](https://zubax.com/products/gnss_2)                                                                                                                                                                                           |   MAX-M8Q    |     LIS3MDL      |                                  |                                                          |                                                              |         |
 
 :::note
-
 - &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported. "?" indicates "unknown".
 - Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
 - [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) is a compass (not a GPS).
@@ -66,9 +65,12 @@ Instructions for connecting the GPS (and compass, if present) are usually provid
 
 The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
 
+
 :::warning
-Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
+Pay attention to pinout when connecting the GPS module.
+While these are all software-compatible, there are several different pin orderings.
 :::
+
 
 ## GNSS Configuration
 
@@ -94,14 +96,13 @@ To use a secondary GPS, attach it to any free port, and then perform a [Serial P
 
 The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
 
-1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**. 
-  - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
-  - 选择 **GPS** 选项卡(1)，然后打开 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 参数(2)，并从下拉列表(3) 中选择 *TELEM 2*。 ![QGC 串口实例](../../assets/peripherals/qgc_serial_config_example.png)
-2. Reboot the vehicle in order to make the other parameters visible.
-3. 选择 **串口** 选项卡，并打开 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 参数 (`TELEM 2`端口波特率)：将其设置为 *Auto*。 ![QGC 串口波特率实例](../../assets/peripherals/qgc_serial_baudrate_example.png)
+1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**.
+   - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
+   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3). ![QGC 串口实例](../../assets/peripherals/qgc_serial_config_example.png)
+1. Reboot the vehicle in order to make the other parameters visible.
+1. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*. ![QGC 串口波特率实例](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
 After setting up the second GPS port:
-
 1. Configure the ECL/EKF2 estimator to blend data from both GPS systems. For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
 
 ### Configuring GPS as Yaw/Heading Source
@@ -115,9 +116,11 @@ When using GPS for yaw fusion you will need to configure the following parameter
 | [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)). |
 | [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)   | Set bit position 7 "GPS yaw fusion" to `1` (i.e. add 128 to the parameter value).                                                                                                                               |
 
+
 :::tip
 If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
+
 
 ## Compass Configuration
 
@@ -133,18 +136,18 @@ All external compasses are given the same priority by default, which is higher t
 
 As stated above, generally no further configuration should be required.
 
-That said, developers can disable internal compasses if desired using the compass parameters. These are prefixed with [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
+That said, developers can disable internal compasses if desired using the compass parameters. These are prefixed with [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
 
 To disable an internal compass:
-
 - Use [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to determine which compasses are internal. A compass is internal if `CAL_MAGn_ROT==1`.
 - Then use [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) to disable the compass. This can also be used to change the relative priority of a compass.
 
+
 ## Developer Information
 
-- GPS/RTK-GPS 
+- GPS/RTK-GPS
   - [RTK-GPS](../advanced/rtk_gps.md)
   - [GPS driver](../modules/modules_driver.md#gps)
   - [UAVCAN Example](../uavcan/README.md)
-- Compass 
-  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (Compasses)
+- Compass
+  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Compasses)
