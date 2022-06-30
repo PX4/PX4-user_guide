@@ -1,6 +1,6 @@
 # Preflight Sensor/Estimator Checks
 
-PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM\_ARM\_](../advanced_config/parameter_reference.md#commander) parameters).
+PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM*ARM*](../advanced_config/parameter_reference.md#commander) parameters).
 
 :::tip
 Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. The `estimator_status.gps_check_fail_flags` message [in the logs](../getting_started/flight_reporting.md) also shows which GPS quality checks are failing.
@@ -48,8 +48,8 @@ The EKF IMU acceleration bias is the difference between the measured acceleratio
 
 The warning indicates that the bias is higher than some arbitrary threshold (the vehicle will not be allowed to take off). It is most likely a sign that accelerometer or thermal calibration are required:
 
-- If you _sometimes_ get the warning: [re-calibrate the accelerometer](../config/accelerometer.md).
-- If you get _regularly_ get the warning: Perform a [thermal calibration](../advanced_config/sensor_thermal_calibration.md).
+- If you *sometimes* get the warning: [re-calibrate the accelerometer](../config/accelerometer.md).
+- If you get *regularly* get the warning: Perform a [thermal calibration](../advanced_config/sensor_thermal_calibration.md).
 - If you still get the warning after thermal calibration (or you can't perform thermal calibration):
   - Verify that the issues do not come from the sensor or autopilot hardware:
     - The easiest way to do this is to test the same frame/sensors with another autopilot.
