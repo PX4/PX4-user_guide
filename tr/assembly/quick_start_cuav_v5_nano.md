@@ -7,6 +7,7 @@ This quick start guide shows how to power the [CUAV V5 nano](../flight_controlle
 
 ![Nano Hero Image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
+
 ## Wiring Chart Overview
 
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
@@ -28,7 +29,6 @@ The image below shows how to connect the most important sensors and peripherals 
 | GPS&SAFETY      | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
 | TELEM1/TELEM2   | Connect to the Telemetry System.                                                                                                                                                                   |
 | DSM/SBUS/RSSI   | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
-
 
 :::note
 For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
@@ -56,15 +56,18 @@ If you use CAN GPS, please use the cable to connect to the flight control CAN in
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
 
+
 ## Safety Switch
 
 The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended *Neo v2 GPS* (which has an inbuilt safety switch).
 
 If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
 
+
 ## Buzzer
 
 If you do not use the recommended *Neo v2 GPS* the buzzer may not work.
+
 
 ## Radio Control
 
@@ -74,9 +77,11 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
+
 ## Spektrum Satellite Receivers
 
 The V5 nano has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller `DSM/SBUS/RSSI` interface.
+
 
 ## Power
 
@@ -89,7 +94,8 @@ The supplied power module is unfused. Power **must** be turned off while connect
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
 :::note
-The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+The power module is not a power source for peripherals connected to the PWM outputs.
+If you're connecting servos/actuators you will need to separately power them using a BEC. 
 :::
 
 ## Telemetry System (Optional)
@@ -100,11 +106,12 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
-<span id="sd_card"></span>
 
+<span id="sd_card"></span>
 ## SD Card (Optional)
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
+
 
 ## Motors
 
@@ -112,9 +119,11 @@ Motors/servos are connected to the MAIN ports in the order specified for your ve
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
+
 ## Pinouts
 
 ![V5 nano pinouts](../../assets/flight_controller/cuav_v5_nano/v5_nano_pinouts.png)
+
 
 ## Further Information
 
@@ -122,4 +131,4 @@ Motors/servos are connected to the MAIN ports in the order specified for your ve
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
 - [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
-- [CUAV Github](https://github.com/cuav) (CUAV)
+- [CUAV Github](https://github.com/cuav)  (CUAV)
