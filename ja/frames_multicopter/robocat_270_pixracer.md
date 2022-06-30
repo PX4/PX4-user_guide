@@ -56,13 +56,16 @@ The Pixracer with PX4 stack is providing several GPS dependent flight modes, suc
 
 The foldable upper part of the Robocat frame allows easy access to the Pixracer and other external components. The wiring provided with the Pixracer kit will be long enough for this application. For others it might be required to enlongate them, which is easier than to crimp new ones with JST-GH connectors.
 
-:::note AUAV.CO supplies a large variety of replacements for several applications.
+:::note
+AUAV.CO supplies a large variety of replacements for several applications.
 :::
 
 When everything is ready, its time for configuration and calibration with QGroundControl.
+
 
 ## Airframe Configuration
 
 Select the QAV250 configuration as shown below. This will not only put PX4 into quadrotor mode, but also load decent default tuning gains.
 
 ![QGC - select QAV240 firmware](../../assets/airframes/multicopter/robocat_270_pixracer/qav250_qgc_firmware.png)
+
