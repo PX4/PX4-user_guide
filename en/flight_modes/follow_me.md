@@ -14,7 +14,7 @@ The vehicle will automatically yaw to face and follow the target from a specifie
 
 By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position.
 
-Users can configure the follow angle, height and distance using a manual controller:
+Users can adjust the follow angle, height and distance using a RC controller as shown above:
 - _Follow Height_ is controlled with the `up-down` input ("Throttle").
   Center the stick to keep follow the target at a constant hight. Raise or lower the stick to adjust height.
 - _Follow Distance_ is controlled with the `forward-back` input ("Pitch").
@@ -29,12 +29,12 @@ Users can configure the follow angle, height and distance using a manual control
 
 
 :::note
-If you want to reset the RC-adjusted behavior, you need to either switch off from Follow-Me mode and activate again, or change the according [parameter](#parameters) to a different value.
+If you want to reset the RC-adjustment on angle, height and distance, you need to either exit Follow-Me mode and activate it again
 :::
 
 Demo video:
 
-@[youtube](https://www.youtube.com/watch?v=myPFVJJkm04)
+@[youtube](https://youtu.be/csuMtU6seXI?t=155)
 
 
 ## How to Use Follow Me
@@ -49,7 +49,7 @@ Follow-me mode is supported by *QGroundControl* on Android devices with a GPS mo
 :::
 
 
-## Safety Precautions
+### Safety Precautions
 
 :::warning
 **Follow-me mode** does not implement any type of obstacle avoidance.
@@ -148,7 +148,7 @@ Parameter | Description
 <a id="FLW_TGT_RS"></a>[FLW_TGT_RS](../advanced_config/parameter_reference.md#FLW_TGT_RS) | Dynamic filtering algorithm responsiveness that filters incoming target location.<br>- `0.0` = Very sensitive to movements and noisy estimates of position, velocity and acceleration.<br>- `1.0` = Very stable but not responsive filter
 
 
-### Tips for improving performance
+### Tips and tricks of Follow Me mode
 
 1. Set the [follow distance](#FLW_TGT_DST) to more than 12 meters (8 meters is a "recommended minimum").
 
@@ -159,6 +159,11 @@ Parameter | Description
 2. The speed at which you can change the follow angle depends on the [maximum tangential velocity](#FLW_TGT_MAX_VEL) setting.
 
    Experimentation shows that values between `5 m/s` are `10 m/s` are usually suitable.
+
+3. Using the RC Adjustment for height, distance and angle, you can get some creative shots (using a drone with a camera)!
+
+   @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E)
+   This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
 
 ## Known Issues
 
