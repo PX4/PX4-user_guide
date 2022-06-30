@@ -34,9 +34,9 @@ PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 
 
 1. **수평 접근 방식:** 기체는 현재 고도를 유지하면서 목표물에 수평으로 접근합니다. 기체에 대한 목표물 위치가 임계값([PLD_HACC_RAD ](../advanced_config/parameter_reference.md#PLD_HACC_RAD)) 미만인 경우 다음 단계가 입력됩니다. 이 단계에서 목표물이 일정 시간([PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT) 이상의 시간) 동안 잡히지 않으면, 탐색 과정이 시작되거나 (정밀 착륙이 "필수" 모드일 때,) 기체는 일반 착륙을 수행합니다 ( "가능성 탐색" 정밀 착륙 모드일 때).
 
-2. **목표물 위로 하강:** 기체는 목표물의 중앙에 위치하여 하강합니다. 이 단계에서 목표물이 일정 시간(`PLD_BTOUT` 이상의 시간) 동안 잡히지 않으면, 탐색 과정이 시작되거나 (정밀 착륙이 "필수" 모드일 때,) 기체는 일반 착륙을 수행합니다 ( "가능성 탐색" 정밀 착륙 모드일 때).
+1. **목표물 위로 하강:** 기체는 목표물의 중앙에 위치하여 하강합니다. 이 단계에서 목표물이 일정 시간(`PLD_BTOUT` 이상의 시간) 동안 잡히지 않으면, 탐색 과정이 시작되거나 (정밀 착륙이 "필수" 모드일 때,) 기체는 일반 착륙을 수행합니다 ( "가능성 탐색" 정밀 착륙 모드일 때).
 
-3. **최종 접근 방식:** 기체가 지면과 가까울 때 ([PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)), 기체는 목표물의 중앙에 위치하여 하강합니다. 만약 목표물이 이 단계에서 잡히지 않는다면, 기체는 정밀 착륙의 모드와 무관하게 계속 하강합니다.
+1. **최종 접근 방식:** 기체가 지면과 가까울 때 ([PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)), 기체는 목표물의 중앙에 위치하여 하강합니다. 만약 목표물이 이 단계에서 잡히지 않는다면, 기체는 정밀 착륙의 모드와 무관하게 계속 하강합니다.
 
 검색 절차는 첫 번째 및 두 번째 단계에서 시작되며, 최대 [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)회 실행됩니다. 착륙 단계 흐름도
 
@@ -47,7 +47,6 @@ PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 
 정밀 착륙은 임무, *귀환 모드*의 착륙 단계 또는 *정밀 착륙* 모드로 진입하여 사용할 수 있습니다.
 
 <span id="mission"></span>
-
 ### 미션 모드 정밀 착륙
 
 정밀 착륙은 `param2`을 적절히 설정하여 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)를 사용하여 [임무](../flying/missions.md)의 일부로 시작됩니다.
@@ -66,14 +65,15 @@ PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 
 - `1`: [가능성 탐색](#opportunistic-mode) 정밀 착륙
 - `2`: [필수](#required-mode) 정밀 착륙
 
+
 ### 정밀 착륙 비행 모드
 
 정밀 착륙은 *정밀 착륙* 비행 모드로 전환하여 활성화됩니다.
 
 [*QGroundControl* MAVLink 콘솔](../debug/mavlink_shell.md#qgroundcontrol-mavlink-console)을 사용하여 다음 명령을 입력하여 이를 확인할 수 있습니다.
-
-    commander mode auto:precland
-    
+```
+commander mode auto:precland
+```
 
 :::note
 이런 방법으로 모드를 전환하는 경우에는 정밀 착륙은 항상 "필수"입니다. 착륙 유형을 지정할 수 있는 방법은 없습니다.
@@ -81,33 +81,40 @@ PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 
 
 :::note
 작성 시점에 정밀 착륙을 직접 호출하는 *편리한* 방법은 없습니다(리턴 모드 명령 제외).
-
 - *QGroundControl*은 이를 UI 옵션으로 제공하지 않습니다.
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)는 임무에서만 작동합니다.
 - [MAV_CMD_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MODE)가 작동해야 하지만, 정밀 착륙 모드를 표시가하기 위하여 PX4에서 사용하는 적절한 기본 모드와 사용자 정의 모드를 결정하여야 합니다.
 :::
 
+
 ## 하드웨어 설정
 
 ### IR 센서/비콘 설정
 
-IR 센서/착륙 비콘 솔루션에는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit)와 비행 컨트롤러에 연결된 하향식 [거리 센서](../sensor/rangefinders.md), 그리고 표적으로 IR 비콘이 필요합니다(예: IR-LOCK MarkOne</2 >). 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다. GPS 착륙은 수 미터의 오차가 발생할 수 있습니다.</p> 
+IR 센서/착륙 비콘 솔루션에는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit)와 비행 컨트롤러에 연결된 하향식 [거리 센서](../sensor/rangefinders.md), 그리고 표적으로 IR 비콘이 필요합니다(예:
+
+IR-LOCK MarkOne</2 >). 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다. GPS 착륙은 수 미터의 오차가 발생할 수 있습니다.</p> 
 
 [공식 매뉴얼](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 기체의 y축과 정렬되어 있는지, 센서의 y축이 기체의 -x 방향과 정렬되어 있는지 확인하십시오 (카메라에서 전방으로 90도 기울인 경우).
 
 [ 범위거리 센서 ](../getting_started/sensor_selection.md#distance)(*LidarLite v3*)를 설치에도 문제가 없습니다.
 
 :::note
-대부분의 적외선 범위 센서는 IR-LOCK 비콘이 있는 경우에는 제대로 작동하지 않습니다. 호환 가능한 다른 센서는 IR-LOCK 설명서를 참조하십시오.
+대부분의 적외선 범위 센서는 IR-LOCK 비콘이 있는 경우에는 제대로 작동하지 않습니다.
+호환 가능한 다른 센서는 IR-LOCK 설명서를 참조하십시오.
 :::
+
+
 
 ## 오프보드 포지셔닝
 
 오프보드 솔루션에는 MAVLink [Landing Target Protocol](https://mavlink.io/en/services/landing_target.html)을 구현하는 포지셔닝 시스템이 필요합니다. 이것은 착륙 목표를 결정하기 위해 모든 위치 지정 메커니즘을 사용할 수 있습니다(예: 컴퓨터 비전 및 시각적 표시).
 
-시스템은 [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) 메시지에 대상의 좌표를 게시하여야 합니다. PX4는 `LANDING_TARGET.frame`이 [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) *값이어야 하며*, `x`, `y` 및 `z` 필드만 채웁니다. 로컬 NED 프레임 [0,0]의 원점은 홈 위치입니다([GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#GPS_GLOBAL_ORIGIN)을 사용하여 이 홈 위치를 전역 좌표에 매핑할 수 있음).
+시스템은 [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) 메시지에 대상의 좌표를 게시하여야 합니다. 시스템은 [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) 메시지에 대상의 좌표를 게시하여야 합니다. 로컬 NED 프레임 [0,0]의 원점은 홈 위치입니다([GPS_GLOBAL_ORIGIN](https://mavlink.io/en/messages/common.html#GPS_GLOBAL_ORIGIN)을 사용하여 이 홈 위치를 전역 좌표에 매핑할 수 있음).
 
 PX4는 [거리 센서](../sensor/rangefinders.md) 또는 기타 센서를 명시적으로 필요로 하지 않지만, 자체 위치를 더 정확하게 결정할 수 있다면 더 나은 성능을 나타낼 수 있습니다.
+
+
 
 ## 펌웨어 설정
 
@@ -115,9 +122,15 @@ PX4는 [거리 센서](../sensor/rangefinders.md) 또는 기타 센서를 명시
 
 FMUv2 기반 컨트롤러에는 기본적으로 포함되지 않습니다. 이러한 보드 및 포함되지 않은 기타 보드에서는 비행 컨트롤러에 대한 관련 구성 파일에서 다음 키를 'y'로 설정하여 보드를 추가할 수 있습니다. (예: FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)):
 
-    CONFIG_DRIVERS_IRLOCK=y
-    CONFIG_MODULES_LANDING_TARGET_ESTIMATOR=y
-    
+
+
+```
+CONFIG_DRIVERS_IRLOCK=y
+CONFIG_MODULES_LANDING_TARGET_ESTIMATOR=y
+```
+
+
+
 
 ## PX4 매개변수 설정
 
@@ -137,6 +150,10 @@ IR-Lock 센서는 기본적으로 비활성화되어 있습니다. [SENS_EN_IRLO
 | <a id="PLD_MAX_SRCH"></a>[PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)     | 착륙시 최대 검색 시도 횟수입니다.                                                                   |
 | <a id="RTL_PLD_MD"></a>[RTL_PLD_MD](../advanced_config/parameter_reference.md#RTL_PLD_MD)         | RTL 정밀 지상 모드. `0`: 비활성화됨, `1`: [기회적](#opportunistic-mode), `2`: [필수](#required-mode). |
 
+
+
+
+
 ### IR 비콘 스케일링
 
 IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입니다.
@@ -147,18 +164,28 @@ IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입
 
 `LTEST_MODE`를 정지로 설정하고 정밀착륙 도중 기체의 측면에 진동이 나타나면, 비콘 측정 값이 너무 높게 조정되었을 가능성이 있으므로 관련 방향에서 스케일 매개변수를 줄여야합니다.
 
+
+
 ## 시뮬레이션
 
 IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo](../simulation/gazebo.md)에서 시뮬레이션할 수 있습니다.
 
 IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 
-    make px4_sitl gazebo_iris_irlock
-    
+
+```
+make px4_sitl gazebo_iris_irlock
+```
+
 
 비컨은 Gazebo GUI에서 이동시키거나, [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42)에서 비컨을 이동하여 위치를 변경할 수 있습니다.
 
+
+
+
 ## 작동 원리
+
+
 
 ### 착륙 목표 추정기
 
@@ -168,9 +195,14 @@ IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사�
 
 `landing_target_estimator`는 새로운 `irlock-report`가 추정치에 결합시 마다 매번 추정 상대 위치와 속도를 보고합니다. 비컨이 보이지 않거나, 신호 측정이 거부되면 아무 것도 보고하지 않습니다. 착륙 목표 추정치는 `landing_targett_pose` uORB 메시지에 게재됩니다.
 
+
+
 ### 고급 기체 위치 추정 
 
 타겟이 매개변수 `LTEST_MODE`를 사용하여 정지 상태로 지정되면, 타겟 측정을 통하여 기체의 위치/속도 추정치를 개선할 수 있습니다. 기체의 음의 속도를 측정을 목표물의 속도와 결합하여 추정합니다.
+
+
+
 
 ### 착륙 단계 흐름도
 
