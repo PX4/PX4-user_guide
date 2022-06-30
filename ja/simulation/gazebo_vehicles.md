@@ -13,7 +13,6 @@ The [Gazebo](../simulation/gazebo.md) page shows how to install Gazebo, how to e
 :::
 
 ## Multicopter
-
 <a id="quadrotor"></a>
 
 ### Quadrotor (Default)
@@ -39,6 +38,7 @@ make px4_sitl gazebo_solo
 ```
 
 ![3DR Solo in Gazebo](../../assets/simulation/gazebo/vehicles/solo.png)
+
 
 <a id="typhoon_h480"></a>
 
@@ -67,6 +67,7 @@ make px4_sitl gazebo_plane
 ```
 
 ![Plane in Gazebo](../../assets/simulation/gazebo/vehicles/plane.png)
+
 
 <a id="standard_plane_catapult"></a>
 
@@ -103,6 +104,7 @@ make px4_sitl gazebo_tailsitter
 
 ![Tailsitter VTOL in Gazebo](../../assets/simulation/gazebo/vehicles/tailsitter.png)
 
+
 <a id="ugv"></a>
 
 ## Unmmanned Ground Vehicle (UGV/Rover/Car)
@@ -126,6 +128,7 @@ make px4_sitl gazebo_r1_rover
 ```
 
 ![Rover in Gazebo](../../assets/simulation/gazebo/vehicles/r1_rover.png)
+
 
 <a id="uuv"></a>
 
