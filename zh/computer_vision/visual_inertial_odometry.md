@@ -108,6 +108,8 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 - 在第一次飞行前 [确认 VIO 设置正确](#verify_estimate)！
 
+
+
 <a id="ekf2_tuning"></a>
 
 ### PX4 调试
@@ -126,6 +128,8 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 更多详情/附加信息，见： [ECL/EKF 概述 & 调试 > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)。
 
+
+
 <a id="tuning-EKF2_EV_DELAY"></a>
 
 #### EKF2_EV_DELAY 调参
@@ -143,6 +147,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 :::
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的 EKF 更新值。
+
 
 <a id="verify_estimate"></a>
 
