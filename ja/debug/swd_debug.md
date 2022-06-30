@@ -93,6 +93,8 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 | [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
 | [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: *mRo Pixhawk*, *HobbyKing HKPilot32*).                                                                                                                                     |
 
+
+
 <a id="pixhawk_standard_debug_ports"></a>
 
 ## Pixhawk Connector Standard Debug Ports
@@ -151,6 +153,7 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 ![6-pin JST SH Cable](../../assets/debug/cable_6pin_jst_sh.jpg)
 
+
 <a id="pixhawk_debug_port_10_pin_sh"></a>
 
 ### Pixhawk Debug Full (10-Pin SH Debug Port)
@@ -187,6 +190,7 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 The following section outlines some popular debug probes and adaptors for connecting them to autopilots running PX4.
 
+
 <a id="segger_jlink_edu_mini"></a>
 
 ### Segger JLink EDU Mini Debug Probe
@@ -210,7 +214,7 @@ The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](#pixhawk_
 From the table above you can infer the connections for autopilots that do not use the standard port.
 :::
 
-<!-- Image of SWD cable and connector to debug port? --> 
+<!-- Image of SWD cable and connector to debug port? -->
 
 
 <a id="dronecode_probe"></a>
@@ -239,6 +243,7 @@ The [Black Magic Probe](https://github.com/blacksphere/blackmagic/wiki) is much 
 
 Adapters can be purchased separately:
 - [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
+
 
 <a id="debugging_topics"></a>
 
