@@ -10,6 +10,7 @@ For an S.Bus reciever (or encoder - e.g. from Futaba, RadioLink, etc.) you will 
 
 Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
 
+
 <a id="start_driver"></a>
 
 ## Starting the Driver
@@ -20,6 +21,7 @@ rc_input start -d /dev/ttyS2
 ```
 
 For other driver usage information see: [rc_input](../modules/modules_driver.md#rc-input).
+
 
 <a id="signal_inverter_circuit"></a>
 
