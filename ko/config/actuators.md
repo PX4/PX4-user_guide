@@ -7,7 +7,7 @@ The displayed elements depend on the [selected frame](../config/airframe.md), wi
 :::note
 The *Actuators* view is only displayed if _dynamic control allocation_ is enabled, which replaces geometry and mixer configuration files with parameters. This is currently disabled by default.
 
-To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME). You may need to restart *QGroundControl*. <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/systemlib/system_params.c#L298 -->
+To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME). You may need to restart *QGroundControl*. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/systemlib/system_params.c#L298 -->
 
 The easiest way to try this out in simulation is to use any of the following gazebo `make` targets, which have control allocation pre-enabled:
 ```
@@ -358,7 +358,7 @@ For each motor:
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
      ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::note
-  For DShot output, this is not required <!-- any, or just the minimum check? -->
+If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs). <!-- any, or just the minimum check? -->
 
 :::
 3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
