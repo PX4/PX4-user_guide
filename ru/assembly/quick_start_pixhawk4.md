@@ -39,7 +39,7 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 
 ## Power
 
-Connect the output of the *Power Management Board* (PM board) that comes with the kit to one of the **POWER** bricks of *Pixhawk 4* using a 6-wire cable. The PM input **2~12S** will be connected to your LiPo battery. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below. Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
+Connect the output of the *Power Management Board* (PM board) that comes with the kit to one of the **POWER** bricks of *Pixhawk 4* using a 6-wire cable. The PM input **2~12S** will be connected to your LiPo battery. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below.
 
 The image below shows the power management board provided with *Pixhawk 4*.
 
