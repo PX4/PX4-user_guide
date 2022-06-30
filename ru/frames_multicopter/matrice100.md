@@ -4,15 +4,14 @@ The DJI<sup>&reg;</sup> Matrice quadcopter is a fully customizable and programma
 
 Key information:
 
-* **Frame:** DJI Matrice 100
-* **Flight controller:** [Pixhawk 1](../flight_controller/pixhawk.md)
+- **Frame:** DJI Matrice 100
+- **Flight controller:** [Pixhawk 1](../flight_controller/pixhawk.md)
 
 ![DJI Matrice 100](../../assets/airframes/multicopter/matrice100/Matrice100.jpg)
 
 ## Parts List
 
-    * [DJI Matrice 100](http://store.dji.com/product/matrice-100) Just ESCs motors, and frame.
-    
+  * [DJI Matrice 100](http://store.dji.com/product/matrice-100) Just ESCs motors, and frame.
 
 ## Motor Connections
 
@@ -20,7 +19,7 @@ See the [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md) for auto
 
 ### Wiring Diagram
 
-![Connections](../../assets/airframes/multicopter/matrice100/Wiring Diagram.jpg)
+!\[Connections\](../../assets/airframes/multicopter/matrice100/Wiring Diagram.jpg)
 
 ### Wiring Harness
 
@@ -42,6 +41,7 @@ See the [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md) for auto
 
 ### Autopilot Outputs
 
+
 <!-- 
 The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](../airframes/airframe_reference.md#copter_quadrotor_x_dji_matrice_100)) (or more specifically, in the [quadrotor-x configuration section](../airframes/airframe_reference.md#quadrotor-x). 
 -->
@@ -56,12 +56,13 @@ The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](..
 | AUX2   | 50 Hz  | RC AUX2          |
 | AUX3   | 50 Hz  | RC AUX3          |
 
+
 ## Parameters
 
-* At high throttle the inner loop causes oscillations with default x quad gains. At low throttle, higher gains give a better response, this suggests that some gain scheduling based on the throttle may improve the overall response and this could be implemented in mc_att_control. For now we will just tune it so that there are no oscillations at low or high throttle, and take the bandwidth hit at low throttle. 
+* At high throttle the inner loop causes oscillations with default x quad gains. At low throttle, higher gains give a better response, this suggests that some gain scheduling based on the throttle may improve the overall response and this could be implemented in mc_att_control. For now we will just tune it so that there are no oscillations at low or high throttle, and take the bandwidth hit at low throttle.
   * MC_PITCHRATE_P: 0.05
   * MC_PITCHRATE_D: 0.001
-* The battery has 6 cells instead of the default 3 
+* The battery has 6 cells instead of the default 3
   * BAT_N_CELLS: 6
 
 ## Video
