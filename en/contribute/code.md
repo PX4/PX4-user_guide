@@ -50,7 +50,7 @@ class MyClass {
 public:
 
     /**
-     * @breif Description of what this function does.
+     * @brief Description of what this function does.
      *
      * @param[in] input_param Clear description of the input [units]
      * @return Whatever we are returning [units]
