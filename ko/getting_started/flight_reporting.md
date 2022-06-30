@@ -12,6 +12,7 @@ PX4는 성능 분석을 위하여 상세한 항공기 상태 데이터와 센서
 
 ![비행 로그 다운로드](../../assets/qgc/analyze/log_download.jpg)
 
+
 ## 로그 분석
 
 온라인 [Flight Review](http://logs.px4.io) 프로그램에 로그 파일을 먼저 업로드합니다. 업로드 후 로그 분석 페이지 링크를 이메일로 전송됩니다.
@@ -28,6 +29,7 @@ PX4는 성능 분석을 위하여 상세한 항공기 상태 데이터와 센서
 ## PX4 개발자가 검토할 로그 파일 공유
 
 [Flight Review](http://logs.px4.io) 로그 파일 링크는 [지원 포럼](../contribute/support.md#forums-and-chat) 또는 [Github 문제](../README.md#reporting-bugs-issues)에서 공유하여 토론할 수 있습니다.
+
 
 ## 로그 설정
 
