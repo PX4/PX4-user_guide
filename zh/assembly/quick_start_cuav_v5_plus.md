@@ -7,28 +7,29 @@ This quick start guide shows how to power the [CUAV V5+](../flight_controller/cu
 
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
+
 ## 接线图概述
 
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-| 主要接口          | 功能                                                                                  |
-|:------------- |:----------------------------------------------------------------------------------- |
-| Power1        | 连接到电源模块（电流计）。 带有模拟电压和电流检测的电源输入。 请不要连接数字电源模块（比如UAVCAN电流计）！                           |
-| Power2        | 连接I2C总线的智能电池                                                                        |
-| TF CARD       | 用于日志存储的SD卡（出厂时SD已经装配好）。                                                             |
-| M1~M8         | PWM输出接口 可以使用它控制电机或舵机。                                                               |
-| A1~A6         | PWM 输出接口。 可以使用它控制电机或舵机。                                                             |
-| DSU7          | 用于FMU调试，读取调试信息。                                                                     |
-| I2C1/I2C2     | 连接I2C总线设备；比如外部指南针。                                                                  |
-| CAN1/CAN2     | 用于连接UAVCAN设备,比如CAN GPS。                                                             |
-| TYPE-C(USB)   | 用于连接计算机，建立飞行控制器和计算机之间的通信；比如刷写固件。                                                    |
-| SBUS OUT      | 连接SBUS总线控制的相机和云台                                                                    |
-| GPS&SAFETY    | 连接到Neo GPS，其中包括GPS、安全开关、蜂鸣器接口。                                                      |
-| TELEM1/TELEM2 | 连接到数传电台                                                                             |
-| DSM/SBUS/RSSI | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
 
+| 主要接口          | 功能                                                                                               |
+|:------------- |:------------------------------------------------------------------------------------------------ |
+| Power1        | 连接到电源模块（电流计）。 Power input with *analog* voltage and current detection. 请不要连接数字电源模块（比如UAVCAN电流计）！ |
+| Power2        | 连接I2C总线的智能电池                                                                                     |
+| TF CARD       | 用于日志存储的SD卡（出厂时SD已经装配好）。                                                                          |
+| M1~M8         | PWM输出接口 可以使用它控制电机或舵机。                                                                            |
+| A1~A6         | PWM 输出接口。 可以使用它控制电机或舵机。                                                                          |
+| DSU7          | 用于FMU调试，读取调试信息。                                                                                  |
+| I2C1/I2C2     | 连接I2C总线设备；比如外部指南针。                                                                               |
+| CAN1/CAN2     | 用于连接UAVCAN设备,比如CAN GPS。                                                                          |
+| TYPE-C(USB)   | 用于连接计算机，建立飞行控制器和计算机之间的通信；比如刷写固件。                                                                 |
+| SBUS OUT      | 连接SBUS总线控制的相机和云台                                                                                 |
+| GPS&SAFETY    | 连接到Neo GPS，其中包括GPS、安全开关、蜂鸣器接口。                                                                   |
+| TELEM1/TELEM2 | 连接到数传电台                                                                                          |
+| DSM/SBUS/RSSI | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。              |
 
 :::note
 For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
@@ -39,6 +40,7 @@ For more interface information, please read [V5+ Manual](http://manual.cuav.net/
 :::note
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
 :::
+
 
 ## GPS + 罗盘 + 安全开关 + LED
 
@@ -89,7 +91,8 @@ The supplied power module is unfused. Power **must** be turned off while connect
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
 :::note
-The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+The power module is not a power source for peripherals connected to the PWM outputs.
+If you're connecting servos/actuators you will need to separately power them using a BEC.
 :::
 
 ## Telemetry System (Optional)
@@ -101,7 +104,6 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <span id="sd_card"></span>
-
 ## SD 卡
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
@@ -112,15 +114,17 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
+
 ## 针脚定义
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
+
 ## 更多信息
 
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
-- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf) (CUAV)
+- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)  (CUAV)
 - [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html) (CUAV)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
-- [CUAV Github](https://github.com/cuav) (CUAV)
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)  (CUAV)
+- [CUAV Github](https://github.com/cuav)  (CUAV)
 - [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE) (CUAV)
