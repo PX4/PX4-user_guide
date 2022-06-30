@@ -38,8 +38,7 @@ I2C 버스 신호 혼선 및 전자기 호환성은 케이블 와이어를 적�
 적절한 트위스트 페어 케이블을 사용할 때 I²C 버스는 일반적으로 서브미터 규모 기체에 적합합니다. 대형 항공기의 경우 CAN 또는 기타 차동 신호 기반 인터페이스를 사용하는 것이 일반적으로 더 안정적입니다.
 
 :::note
-이 권수/케이블 길이 권장 사항은 [ThunderFly TFSLOT 속도 센서](../sensor/airspeed_tfslot.md) 및 [TFRPM01 회전 카운터](../sensor/thunderfly_tachometer.md)를 포함한 I2C 센서에 성공적으로 사용되었습니다.
-:::
+이 권수/케이블 길이 권장 사항은 [ThunderFly TFSLOT 속도 센서](../sensor/airspeed_tfslot.md) 및 [TFRPM01 회전 카운터](../sensor/thunderfly_tachometer.md)를 포함한 I2C 센서에 성공적으로 사용되었습니다. :::
 
 
 #### 풀업 저항
