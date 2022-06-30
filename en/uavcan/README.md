@@ -33,7 +33,8 @@ It supports hardware like:
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
 - Optical Flow
   - [Ark Flow](ark_flow.md)
-
+- Generic CAN Node
+  - [ARK CANnode](../uavcan/ark_cannode.md)
 
 :::note
 PX4 does not support UAVCAN servos (at time of writing).
