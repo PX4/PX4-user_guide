@@ -14,7 +14,7 @@
 
 ## 부품 명세서
 
-이 조립에 사용된 부품들은 아래에 구매 링크와 함께 설명되어 있습니다. 일반적으로 제조업체에서 권장하는 비행 컨트롤러와 기체의 하드웨어를 사용하였습니다.
+이 조립에 사용된 부품들은 아래에  구매 링크와 함께 설명되어 있습니다. 일반적으로 제조업체에서 권장하는 비행 컨트롤러와 기체의 하드웨어를 사용하였습니다.
 
 - **비행 컨트롤러:** [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md)
 - **전원 모듈 :** 3DR 10s 전원 모듈 (단종)
@@ -52,11 +52,12 @@
 | 배터리용 폼          | 1  |
 | LED 스트립         | 2  |
 
+
 ![QAV250 프레임용 하드웨어](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_framehardware_displayall.jpg)
 
 ### 전자부품
 
-| 품목                             | 수량 |
+| 설명                             | 수량 |
 | ------------------------------ | -- |
 | 모터 lumenier Rx2204-14 2300KV   | 4  |
 | ESC lumenier 30A               | 4  |
@@ -69,6 +70,7 @@
 | 마이크로 SD 카드                     | 1  |
 | 배터리 lumenier 1300 mAh 4S 14.8V | 1  |
 
+
 ![조립 전 QAV250/PixhawkMini 전자 부품](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_pixhawk_mini_electronics_unassembled.jpg)
 
 ### 무선 텔레메트리(선택 사항)
@@ -78,7 +80,9 @@
 PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조립에 사용되는 라디오(적극 권장) *3DR Telemetry Radio (915MHz)*입니다 (단종 됨).
 
 :::note
-무선 텔레메트리는 현지 규정을 적합한 적절한 주파수 대역을 사용하여야 합니다. 해당 지역에 적합한 버전을 선택하십시오 : 미국 - 915MHz, 유럽/호주 - 433MHz
+무선 텔레메트리는 현지 규정을 적합한 적절한 주파수 대역을 사용하여야 합니다. 
+해당 지역에 적합한 버전을 선택하십시오 : 
+미국 - 915MHz, 유럽/호주 - 433MHz
 :::
 
 텔레메트리 키트에는 다음과 같은 항목들이 포함되어 있습니다.
@@ -104,14 +108,15 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 
 ## 오프-프레임 조립
 
-이 섹션에서는 전자 장치의 배선 방법과 전자 장치없이 프레임 조립 방법을 설명합니다. 이 정보는 프레임내 스크린 샷이 명확하지 않은 경우 참고용으로 사용할 수 있습니다.
+이 섹션에서는 전자 장치의 배선 방법과 전자 장치없이 프레임  조립 방법을 설명합니다. 이 정보는 프레임내 스크린 샷이 명확하지 않은 경우 참고용으로 사용할 수 있습니다.
 
 ### 전자 장비 배선 / 연결 (오프 프레임)
 
-아래의 이미지는 *Pixhawk Mini*의 *표준* 멀티 콥터 배선을 보여줍니다. *쿼드 전력 분배 보드*를 사용하여 ESC, Pixhawk 및 Pixhawk 전원 레일에 전원을 공급합니다 (보드에는 최대 4S의 배터리를 지원하는 통합 전원 모듈이 포함되어 있습니다).
+아래의 이미지는 *Pixhawk Mini*의 *표준* 멀티 콥터 배선을 보여줍니다. *쿼드 전력 분배 보드*를 사용하여 ESC, Pixhawk 및 Pixhawk 전원 레일에 전원을 공급합니다 (보드에는 최대 4S의 배터리를 지원하는 통합 전원 모듈이 포함되어 있습니다).
 
 :::note
-이 QAV250 빌드의 경우 대신 별도의 10S 전원 모듈을 사용하여 ESC 및 Pixhawk에 전원을 공급하고 옵션 외부 스위치를 사용하지 않습니다. 그렇지 않은 경우에도 배선 방법은 유사합니다!
+이 QAV250 빌드의 경우 대신 별도의 10S 전원 모듈을 사용하여 ESC 및 Pixhawk에 전원을 공급하고 옵션 외부 스위치를 사용하지 않습니다.
+그렇지 않은 경우에도 배선 방법은 유사합니다!
 :::
 
 ![QAV250 용 Pixhawk Mini 전자 배선 (오프프레임)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
@@ -119,7 +124,8 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 ### 프레임 조립
 
 :::note
-이 섹션에서는 복잡한 전자 장치를 제외한 프레임을 조립 방법을 설명합니다. 아래의 조립 문서에서 참조됩니다.
+이 섹션에서는 복잡한 전자 장치를 제외한 프레임을 조립 방법을 설명합니다.
+아래의 조립 문서에서 참조됩니다.
 :::
 
 프레임 조립 방법 :
@@ -133,8 +139,7 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 ![스탠드오프 상단 (PDB 상단)에 프레임 배치](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_frame_with_pdb_no_standoffs.jpg)
 
 :::note
-프레임 플레이트가 정확하게 장착되었는 지 확인하십시오. 아래 표시된 컷은 프레임 하단을 보여줍니다. ![Diagram indicating which side is bottom of QAV250 frame plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_indicate_bottom_of_frame.jpg)
-:::
+프레임 플레이트가 정확하게 장착되었는 지 확인하십시오. 아래 표시된 컷은 프레임 하단을 보여줍니다. ![Diagram indicating which side is bottom of QAV250 frame plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_indicate_bottom_of_frame.jpg) :::
 
 **3 단계 :** 나사에 35mm 스탠드오프를 끼 웁니다 (2.0mm 육각 드라이버가 필요함).
 
@@ -185,8 +190,7 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 ![모터를 ESC에 납땜](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_solder_motors_to_esc.jpg)
 
 :::note
-케이블이 올바른 순서로 납땜되면 전기 테이프 또는 튜브로 패드를 덮으십시오. ![Cover ESC in tape for safety](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_esc_covered_in_tape_for_safety.jpg)
-:::
+케이블이 올바른 순서로 납땜되면 전기 테이프 또는 튜브로 패드를 덮으십시오. ![Cover ESC in tape for safety](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_esc_covered_in_tape_for_safety.jpg) :::
 
 **6 단계 :** 프레임에 PDB 연결
 
@@ -199,8 +203,7 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 ![프레임에 LED 부착](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_attach_LEDs_to_frame.jpg)
 
 :::warning
-탄소 섬유는 프레임의 용접과의 접촉을 피하기 위해 사용되는 전도성 실리콘입니다. ![Use silicon to isolate LEDs from frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_use_silicon_with_leds.jpg)
-:::
+탄소 섬유는 프레임의 용접과의 접촉을 피하기 위해 사용되는 전도성 실리콘입니다. ![Use silicon to isolate LEDs from frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_use_silicon_with_leds.jpg) :::
 
 **8 단계 :** 그림과 같이 진동 감쇠 폼을 프레임에 부착합니다 (폼은 *Pixhawk Mini* 키트에 포함되어 있음).
 
@@ -232,13 +235,12 @@ Pixhawk는 화살표가 프레임 전면을 향하도록 방향을 맞추어야�
 
 ![FRSKY 연결](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_frsky_rc_reciever.jpg)
 
+
 :::note
 수신기에 대한 참고 사항 :
-
 - *Pixhawk Mini* **RCIN** 포트는 PPM 입력(예 : 멀티 플렉스 채널)을 수용합니다. PWM 수신기 (각 채널에 대한 개별 케이블 포함)를 사용할 수 있지만, [이와 같은](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPM 인코더를 통해 연결해야합니다.
 - Spektrum 수신기를 사용할 수 있습니다. *Pixhawk Mini*의 **RCIN** 옆에있는 **SPKT/DSM** 입력에 연결됩니다.
-- 자세한 내용은 [Pixhawk Mini 수신기 호환성](../flight_controller/pixhawk_mini.md#rc-radio)을 참조하십시오.
-:::
+- 자세한 내용은 [Pixhawk Mini 수신기 호환성](../flight_controller/pixhawk_mini.md#rc-radio)을 참조하십시오. :::
 
 **13 단계 :** GPS/콤파스 모듈 연결
 
@@ -274,13 +276,13 @@ Pixhawk는 화살표가 프레임 전면을 향하도록 방향을 맞추어야�
 
 ![QAV250 - pixhawk mini로 조립](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build_with_pixhawk_mini.jpg)
 
+
 ## PX4 설치 및 구성
 
 이 섹션에서는 [QGroundControl](http://qgroundcontrol.com/)을 사용하여 PX4 자동 조종 장치를 설치하고 QAV250 프레임에 맞게 구성/조정하는 방법을 설명합니다.
 
 :::note
-*QGroundControl*을 사용하여 자동조종 장치를 설치 및 구성하고 임무를 계획하고 기체를 원격으로 제어할 수 있습니다.
-:::
+*QGroundControl*을 사용하여 자동조종 장치를 설치 및 구성하고 임무를 계획하고 기체를 원격으로 제어할 수 있습니다. :::
 
 *QGroundControl*을 [다운로드후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
@@ -300,10 +302,8 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 
 :::note
 추가 정보는 다음을 참조하십시오.
-
 - [자동조종장치 설정](../config/README.md)
-- [펌웨어 설정](../config/firmware.md)
-:::
+- [펌웨어 설정](../config/firmware.md) :::
 
 ### 기체 보정/설정
 
@@ -348,18 +348,16 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 **6 단계 :** ESC 보정
 
 1. 프로펠러 제거.
-    
-:::warning ESC
-보정을 수행하기 전에 프로펠러를 기체에서 제거하여야 합니다!
+
+   :::warning
+ESC 보정을 수행하기 전에 프로펠러를 기체에서 제거하여야 합니다!
 :::
-
 2. 왼쪽 사이드 바에서 **전원**을 선택합니다.
-
 3. **보정** 버튼을 선택한 다음 화면의 지침을 따릅니다. 배터리를 연결합니다. 신호음이 멈추면 확인을 누르고 배터리를 분리합니다.
-    
-    ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
-    
-    ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
+
+   ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
+
+   ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
 
 ### 튜닝
 
@@ -376,6 +374,7 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 아래 비디오는 QAV250 테스트 비행을 보여줍니다.
 
 @[유투브](https://youtu.be/MZzo4DMNkug)
+
 
 ## 감사의 글
 
