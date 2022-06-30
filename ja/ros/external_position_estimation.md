@@ -139,6 +139,7 @@ VIO and MoCap systems have different ways of obtaining pose data, and have their
 
 The setup for specific systems is covered [below](#setup_specific_systems). For other systems consult the vendor setup documentation.
 
+
 <a id="relaying_pose_data_to_px4"></a>
 
 ### Relaying Pose Data to PX4
