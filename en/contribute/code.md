@@ -45,35 +45,35 @@ PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppgui
 
 ### Example Code Snippet
 
-```
+```cpp
 class MyClass {
 public:
 
-    /**
-     * @brief Description of what this function does.
-     *
-     * @param[in] input_param Clear description of the input [units]
-     * @return Whatever we are returning [units]
-     */
-    float doSomething(const float input_param) const {
-        const float in_scope_variable = input_param + kConstantFloat;
-        return in_scope_variable * private_member_variable_;
-    }
+        /**
+         * @brief Description of what this function does.
+         *
+         * @param[in] input_param Clear description of the input [units]
+         * @return Whatever we are returning [units]
+         */
+        float doSomething(const float input_param) const {
+                const float in_scope_variable = input_param + kConstantFloat;
+                return in_scope_variable * private_member_variable_;
+        }
 
-    void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
+        void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
 
-    /**
-     * @return Whatever we are "getting" [units]
-     */
-    float getPrivateMember() const { return private_member_variable_; }
+        /**
+         * @return Whatever we are "getting" [units]
+         */
+        float getPrivateMember() const { return private_member_variable_; }
 
 private:
     
-    // Clear description of the constant if not completely obvious from the name [units]
-    static constexpr float kConstantFloat = ...;  
+        // Clear description of the constant if not completely obvious from the name [units]
+        static constexpr float kConstantFloat = ...;  
 
-    // Clear description of the variable if not completely obvious from the name [units]
-    float private_member_variable_{...};
+        // Clear description of the variable if not completely obvious from the name [units]
+        float private_member_variable_{...};
 };
 ```
 
