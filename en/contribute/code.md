@@ -101,6 +101,33 @@ Currently we have two types of source-based documentation:
   - Commonly you may want to add information about corner cases and error handling.
   - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
 
+Please avoid "magic numbers", for example, where does this number in the conditional come from? What about the multiplier on yaw stick input?
+  ```cpp
+  if (fabsf(yaw_stick_normalized_input) < 0.1f) {
+          yaw_rate_setpoint = 0.0f;
+  }
+  else {
+          yaw_rate_setpoint = 0.52f * yaw_stick_normalized_input;
+  }
+  ``` 
+  Instead, define the numbers as named constants with appropriate context in the header
+  ```cpp
+  // Deadzone threshold for normalized yaw stick input
+  static constexpr float kYawStickDeadzone = 0.1f;
+
+  // [rad/s] Deadzone threshold for normalized yaw stick input
+  static constexpr float kMaxYawRate = math::radians(30.0f);
+  ```
+  and update the source implementation.
+  ```cpp
+  if (fabsf(yaw_stick_normalized_input) < kYawStickDeadzone) {
+          yaw_rate_setpoint = 0.0f;
+  }
+  else {
+          yaw_rate_setpoint = kMaxYawRate * yaw_stick_normalized_input;
+  }
+  ```
+
 ## Commits and Commit Messages
 
 Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
