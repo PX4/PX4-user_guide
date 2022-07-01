@@ -105,8 +105,8 @@ module.exports = {
     docsRepo: 'PX4/px4_user_guide',
     // if your docs are not at the root of the repo:
     //docsDir: 'docs',
-    // if your docs are in a specific branch (defaults to 'master'):
-    docsBranch: 'master',
+    // if your docs are in a specific branch (defaults to 'main'):
+    docsBranch: 'main',
     // defaults to false, set to true to enable
     editLinks: true,
     // custom text for edit link. Defaults to "Edit this page"
@@ -146,7 +146,7 @@ module.exports = {
             ariaLabel: 'PX4 Menu',
             items: [
               { text: 'Website', link: 'https://px4.io/', ariaLabel: 'PX4 website link'  },
-              { text: 'Support', link: 'https://docs.px4.io/master/en/contribute/support.html', rel:false, target:'_self', ariaLabel: 'Support information' },
+              { text: 'Support', link: 'https://docs.px4.io/main/en/contribute/support.html', rel:false, target:'_self', ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
@@ -167,17 +167,15 @@ module.exports = {
             ]
           },
       
-          { text: 'Support', link: 'https://docs.px4.io/master/en/contribute/support.html', rel:false, target:'_self', ariaLabel: 'Support information' },
+          { text: 'Support', link: 'https://docs.px4.io/main/en/contribute/support.html', rel:false, target:'_self', ariaLabel: 'Support information' },
           {
             text: 'Version',
             ariaLabel: 'Versions Menu',
             items: [
-              { text: 'master', link: 'https://docs.px4.io/master/en/' },
+              { text: 'main', link: 'https://docs.px4.io/main/en/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/en/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
-              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
-              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
@@ -221,7 +219,7 @@ module.exports = {
           indexName: 'px4',
 		  algoliaOptions: {
             hitsPerPage: 10,
-		    facetFilters: [`version:master`],
+		    facetFilters: [`version:v1.12`],
 		  }
         } : {}, 
         nav: [
@@ -256,12 +254,10 @@ module.exports = {
             text: 'Version',
             ariaLabel: 'Versions Menu',
             items: [
-              { text: 'master', link: 'https://docs.px4.io/master/ko/' },
+              { text: 'main', link: 'https://docs.px4.io/main/ko/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/ko/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
-              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
-              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
@@ -298,7 +294,7 @@ module.exports = {
           indexName: 'px4',
 		  algoliaOptions: {
             hitsPerPage: 10,
-		    facetFilters: [`version:master`],
+		    facetFilters: [`version:v1.12`],
 		  }
         } : {}, 
         nav: [
@@ -332,12 +328,10 @@ module.exports = {
             text: 'Version',
             ariaLabel: 'Versions Menu',
             items: [
-              { text: 'master', link: 'https://docs.px4.io/master/zh/' },
+              { text: 'main', link: 'https://docs.px4.io/main/zh/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/zh/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/zh/' },
-              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
-              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               {
                 text: 'DevGuide (Old/Merged)',
                 ariaLabel: 'Old Devguide',
