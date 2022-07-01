@@ -31,9 +31,7 @@ PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppgui
 
 ### File Extensions
 
-- Source files use extension `*.cpp` instead of `*.cc`
-
-- An exception to the rule above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+- Source files use extension `*.cpp` instead of `*.cc`.
 
 ### Function and Method Names
 
