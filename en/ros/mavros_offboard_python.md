@@ -253,3 +253,5 @@ In the same loop, we continue sending the requested pose at the rate previously 
 This code has been simplified to the bare minimum for illustration purposes.
 In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
 :::
+
+
