@@ -604,7 +604,7 @@
     * [ROS (1) with MAVROS](ros/ros1.md)
       * [ROS/MAVROS Installation Guide](ros/mavros_installation.md)
       * [ROS/MAVROS Offboard Example (C++)](ros/mavros_offboard_cpp.md)
-      * [ROS/MAVROS Offboard Example (Python)](ros/mavros_offboard_py.md)
+      * [ROS/MAVROS Offboard Example (Python)](ros/mavros_offboard_python.md)
       * [ROS/MAVROS Sending Custom Messages](ros/mavros_custom_messages.md)
       * [ROS/MAVROS with Gazebo Simulation](simulation/ros_interface.md)
       * [Gazebo OctoMap Models with ROS (1)](simulation/gazebo_octomap.md)
