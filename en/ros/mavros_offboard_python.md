@@ -254,4 +254,42 @@ This code has been simplified to the bare minimum for illustration purposes.
 In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
 :::
 
+## Creating the ROS launch file
 
+In your `offboard_py` package, create another folder inside the `~/catkin_ws/src/offboard_py/src` directory named `launch`. This is where your launch files for the package will be stored. After that, create your first launch file, in this case we will call it `start_offb.launch`.
+
+```sh
+roscd offboard_py
+mkdir launch
+cd launch 
+touch start_offb.launch
+```
+
+For the `start_offb.launch` copy the following code:
+
+```xml
+<?xml version="1.0"?>
+<launch>
+	<!-- Include the MAVROS node with SITL and Gazebo -->
+	<include file="$(find px4)/launch/mavros_posix_sitl.launch">
+	</include>
+
+	<!-- Our node to control the drone -->
+	<node pkg="offboard_py" type="offb_node.py" name="offb_node_py" required="true" output="screen" />
+</launch>
+```
+
+As you can see, the `mavros_posix_sitl.launch` file is included. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+
+:::tip
+The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
+
+You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the *include* tags. As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
+
+```xml
+	<!-- Include the MAVROS node with SITL and Gazebo -->
+	<include file="$(find px4)/launch/mavros_posix_sitl.launch">
+        <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/warehouse.world"/>
+	</include>
+```
+:::
