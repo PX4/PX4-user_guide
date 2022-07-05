@@ -308,11 +308,12 @@ Now you are ready to build all your work!
 1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards). 
 
     For example:
-    -to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
+    
+    - to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
     ```sh
     make px4_fmu-v5_default upload
     ```
-    -to build for SITL execute the following command in the root of the PX4-Autopilot directory (using jmavsim simulation):
+    - to build for SITL execute the following command in the root of the PX4-Autopilot directory (using jmavsim simulation):
     ```sh
     make px4_sitl jmavsim
     ```
