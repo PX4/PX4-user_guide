@@ -14,7 +14,8 @@ The vehicle will automatically yaw to face and follow the target from a specifie
 
 By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home (arming) position.
 
-Users can adjust the follow angle, height and distance using a RC controller as shown above:
+Users can adjust the follow angle, height and distance using an RC controller as shown above:
+
 - _Follow Height_ is controlled with the `up-down` input ("Throttle").
   Center the stick to keep follow the target at a constant hight. Raise or lower the stick to adjust height.
 - _Follow Distance_ is controlled with the `forward-back` input ("Pitch").
