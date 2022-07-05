@@ -162,7 +162,8 @@ Parameter | Description
 
    Experimentation shows that values between `5 m/s` are `10 m/s` are usually suitable.
 
-3. Using the RC Adjustment for height, distance and angle, you can get some creative shots (using a drone with a camera)!
+3. Using the RC Adjustment for height, distance and angle, you can get some creative camera shots.
+
 
    @[youtube](https://www.youtube.com/watch?v=o3DhvCL_M1E)
    This video demonstrates a Google-Earth view perspective, by adjusting the height to around 50 meters (high), distance to 1 meter (close). Which allows a perspective as shot from a satellite.
