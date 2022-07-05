@@ -30,7 +30,9 @@ Users can adjust the follow angle, height and distance using an RC controller as
 
 
 :::note
-If you want to reset the RC-adjustment on angle, height and distance, you need to either exit Follow-Me mode and activate it again
+Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode.
+If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
+
 :::
 
 Demo video:
