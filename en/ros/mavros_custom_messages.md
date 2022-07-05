@@ -101,19 +101,22 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
       </message>
    ...
    ```
-:::warning
-You want to make sure that both **common.xml** files in both directories
-    **PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0** and in
-    **workspace/src/mavlink/message_definitions/v1.0**
-are exactly the same.
-:::
+
+   :::warning
+   Make sure that the **common.xml** files in the following directories are exactly the same:
+   - `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0`
+   - `workspace/src/mavlink/message_definitions/v1.0`
+   are exactly the same.
+   :::
 
 1. Make your own uORB message file **key_command.msg** in (PX4-Autopilot/msg). For this example the "key_command.msg" has only the code:
    ```
    uint64 timestamp # time since system start (microseconds)
    char cmd
    ```
-   Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include
+
+   Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include:
+
    ```cmake
    set(
    ...
