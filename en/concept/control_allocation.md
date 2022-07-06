@@ -47,6 +47,9 @@ The QGC UI will then automatically show the right configuration UI when `CA_AIRF
 [This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function.
 Any uORB topic can be subscribed and assigned to a function.
 
+Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml)
+The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
+
 ## Setting the Default Airframe Geometry
 
 When [adding a new airframe configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and and other default values for the mixer.
