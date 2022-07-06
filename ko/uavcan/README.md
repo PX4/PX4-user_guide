@@ -28,10 +28,10 @@ It supports hardware like:
   - [Pomegranate 시스템 전원 모듈](../power_module/pomegranate_systems_pm.md)
   - [CUAV CAN PMU 전원 모듈](../power_module/cuav_can_pmu.md)
 - 거리 센서
-  - [Ark Flow](ark_flow.md)
+  - [ARK Flow](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN 인터페이스](../uavcan/avanon_laser_interface.md)
 - 광류
-  - [Ark Flow](ark_flow.md)
+  - [ARK Flow](ark_flow.md)
 
 
 :::note

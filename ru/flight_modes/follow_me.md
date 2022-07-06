@@ -19,9 +19,9 @@ The mode is supported by *QGroundControl* on Android tablets that have a GPS mod
 
 :::note
 * This mode requires GPS.
-* This mode is currently only supported on multicopter.
+* * This mode is currently only supported on multicopter.
 * The follow target must also be able to supply position information.
-* *QGroundControl* only supports this mode on Android devices that have GPS. :::
+* * *QGroundControl* only supports this mode on Android devices that have GPS. :::
 
 @[youtube](https://youtu.be/RxDL4CtkzAQ)
 
@@ -31,30 +31,30 @@ The mode is supported by *QGroundControl* on Android tablets that have a GPS mod
 **Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used. :::
 
 The following flight precautions should be observed:
-- Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.
-  - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres/26 feet above the home (arming) position.
-- It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off).
-- Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate.
-- Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
+- The following flight precautions should be observed: - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.
+  - - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres/26 feet above the home (arming) position.
+- `1` = Follow from behind or trail the user (Default).
+- - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate.
+- - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
 
 ## Using Follow Me with QGroundControl
 
 *Follow Me* mode is supported by *QGroundControl* on ground station hardware that has a GPS module. The recommended configuration is a USB OTG-capable Android device with two telemetry radios.
 
 To setup *Follow Me* mode:
-- Connect a telemetry radio to your Android device and another to the vehicle (this allows positioning information to be relayed between the two radios).
+- To setup *Follow Me* mode: - Connect a telemetry radio to your Android device and another to the vehicle (this allows positioning information to be relayed between the two radios).
 - Disable sleep-mode on your Android device:
   - This setting can usually be found under: **Settings \> Display**.
-  - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals.
+  - - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals.
 - Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported).
   - Set the vehicle on the ground, press the safety switch and step back at least 10 meters.
   - Arm the vehicle and takeoff.
 - Switch into follow me mode.
-  - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
+  - - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
 
 At this point you should be able to start moving and the copter should follow your movements.
 
-The mode has been tested on the following Android devices:
+The mode has been tested on the following Android devices: - Nexus 5 - Nexus 7 Tablet
 - Nexus 5
 - Nexus 7 Tablet
 

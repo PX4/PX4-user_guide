@@ -85,7 +85,9 @@ The V5+ has a dedicated DSM cable. If using a Spektrum satellite receiver, this 
 The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
 :::warning
-The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+The supplied power module is unfused.
+:::warning
+The supplied power module is unfused.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)

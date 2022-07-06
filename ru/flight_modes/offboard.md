@@ -36,17 +36,16 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
     * Acceleration setpoint  (only `afx`, `afy`, `afz`)
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
     * Position setpoint **and** velocity setpoint **and** acceleration (the velocity and the acceleration setpoints are used as feedforwards; the velocity setpoint is added to the output of the position controller and the result is used as the input to the velocity controller; the acceleration setpoint is added to the output of the velocity controller and the result used to compute the thrust vector).
-  - - PX4 supports the following  `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+  - * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
     * Velocity setpoint (only `vx`, `yy`, `vz`)
-    * *Thrust* setpoint  (only `afx`, `afy`, `afz`)
+    * *Thrust* setpoint (only `afx`, `afy`, `afz`)
 
-      :::note
-Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
-:::
+:::note
+The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. :::
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
   - PX4 supports the following  `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
@@ -96,8 +95,7 @@ The *setpoint type* values below are not part of the MAVLink standard for the `t
     * Position setpoint (only `x`, `y`, `z`)
       * Specify the *type* of the setpoint in `type_mask`:
 
-:::note
-The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. ::
+        Not all co-ordinate frames and field values allowed by MAVLink are supported. ::
 
         The values are:
         - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).

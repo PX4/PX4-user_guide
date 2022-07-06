@@ -37,7 +37,7 @@ The video below shows the calibration process in detail (this uses an older vers
 
 ## Advanced Configuration
 
-If your [selected airframe configuration](../config/airframe.md) is a _specific vehicle model_ (e.g. [Holybro s500](../frames_multicopter/holybro_s500_v2_pixhawk4.md#install-configure-px4)) then it may benefit from fine tuning, but this is not generally required.
+If your [selected airframe configuration](../config/airframe.md) is a *specific vehicle model* (e.g. [Holybro s500](../frames_multicopter/holybro_s500_v2_pixhawk4.md#install-configure-px4)) then it may benefit from fine tuning, but this is not generally required.
 
 If you're using a new airframe, a "generic" airframe, significantly modifying an airframe, or using less common sensors then see:
 * [Advanced Configuration](../advanced_config/README.md): Vehicle-specific tuning, fine tuning, factory-level configuration.

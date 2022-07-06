@@ -74,11 +74,11 @@ To perform an offboard calibration:
 1. Cold soak the board to the minimum temperature it will be required to operate in.
 1. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
 1. Remove power and extract the .ulog file.
-1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
+1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script: sh python process_sensor_caldata.py
    ```sh
    python process_sensor_caldata.py <full path name to .ulog file>
    ```
-   This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
+   **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
 1. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
 1. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
 1. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.

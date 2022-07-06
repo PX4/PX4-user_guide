@@ -51,7 +51,7 @@ They allow you to use parts that are known to work, and to fly a vehicle that is
 
 ## Fully Assembled (Custom PX4)
 
-This section contains consumer vehicles that run a _custom_ version of PX4 (supported by their vendors). These may or may not be updatable to run "vanilla" PX4.
+This section contains consumer vehicles that run a *custom* version of PX4 (supported by their vendors). These may or may not be updatable to run "vanilla" PX4.
 
 * Multicopter
   * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)

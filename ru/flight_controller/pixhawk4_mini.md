@@ -45,7 +45,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 * Other Characteristics:
   * Operating temperature: -40 ~ 85°c
 
-Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
+Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
 ## Purchase
 
@@ -62,7 +62,7 @@ The **RC IN** and **PPM** ports are for RC receivers only. These are powered! NE
 
 ## Pinouts
 
-Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
+Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
 
 ## Dimensions
 

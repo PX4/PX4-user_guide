@@ -93,14 +93,16 @@ The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
    ```
 1. Configure the broker's credentials (change PWD to your preferred password):
    ```bash
-   sudo rabbitmqctl add_user iridiumsbd PWD
-   sudo rabbitmqctl set_permissions iridiumsbd ".*" ".*" ".*"
+   Configure the broker's credentials (change PWD to your preferred password): 
+   bash
+    sudo rabbitmqctl add_user iridiumsbd PWD
+    sudo rabbitmqctl set_permissions iridiumsbd ".<em x-id="3">" ".</em>" ".*"
    ```
 1. Clone the [SatComInfrastructure](https://github.com/acfloria/SatComInfrastructure.git) repository:
    ```
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
-1. Go to the location of the *SatComInfrastructure* repo and configure the broker's queues:
+1. Go to the location of the *SatComInfrastructure* repo and configure the broker's queues: `./setup_rabbit.py localhost iridiumsbd PWD`
    ```
    ./setup_rabbit.py localhost iridiumsbd PWD
    ```
@@ -155,7 +157,7 @@ To setup the ground station:
 
 ### Verification
 
-1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script:
+1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script: `./udp2rabbit.py`
    ```
    ./udp2rabbit.py
    ```
@@ -172,7 +174,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 1. Start *QGroundControl*. Manually connect the high latency link first, then the regular telemetry link:
 
    ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
-1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script:
+1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script: `./udp2rabbit.py`
    ```
    ./udp2rabbit.py
    ```
@@ -194,7 +196,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 * Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react)
   * Check the settings of the relay server and make sure that they are correct, especially the IMEI.
 * No satellite communication messages from the airplane arrive on the ground station:
-  * Check using the system console if the *iridiumsbd* driver started and if it did that a signal from any satellite is received by the module:
+  * Check using the system console if the *iridiumsbd* driver started and if it did that a signal from any satellite is received by the module: `iridiumsbd status`
     ```
     iridiumsbd status
     ```
