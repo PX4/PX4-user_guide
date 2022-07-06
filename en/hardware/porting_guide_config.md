@@ -30,6 +30,10 @@ if DRIVERS_UAVCAN_V1
 endif #DRIVERS_UAVCAN_V1
 ```
 
+:::note
+Builds will silently ignore any missing or miss-spelled modules in the  `*.px4board` configuration file.
+:::
+
 ## PX4 Kconfig Label Inheritance
 
 Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`.
