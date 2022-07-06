@@ -22,7 +22,7 @@ How to setup mixing and outputs is documented [here](../config/actuators.md).
 
 Overview of the mixing pipeline in terms of modules and uORB topics:
 <!-- https://drive.google.com/file/d/1L2IoxsyB4GAWE-s82R_x42mVXW_IDlHP/view?usp=sharing -->
-<img alt="Pipeline Overview" src="../../assets/concepts/control_allocation_pipeline.png" width="1200" style="text-align: center; margin-left: -230px; margin-right: -230px; max-width: 200%"></img>
+![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
 
 Notes:
 - The rate controller outputs torque and thrust setpoints
