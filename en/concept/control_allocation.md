@@ -29,7 +29,7 @@ Notes:
   - does the mixing
   - handles motor failures
   - publishes the motor and servo control signals
-  - publishes the servo trims separately so they can be added to the actuator testing
+  - publishes the servo trims separately so they can be added as an offset when [testing actuators](../config/actuators.md#actuator-testing) (using the test sliders).
 - the output drivers:
   - handle the hardware initialization and update
   - use a shared library [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/).
