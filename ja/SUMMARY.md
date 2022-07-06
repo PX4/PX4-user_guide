@@ -308,6 +308,7 @@
     * [フライトモード](concept/flight_modes.md)
     * [Flight Tasks](concept/flight_tasks.md)
     * [Mixing and Actuators](concept/mixing.md)
+    * [Control Allocation](concept/control_allocation.md)
     * [Geometry Files](concept/geometry_files.md)
     * [PWM limit state machine](concept/pwm_limit.md)
     * [System Startup](concept/system_startup.md)
