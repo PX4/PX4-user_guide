@@ -1,12 +1,17 @@
 # Control Allocation (Mixing)
 
-The PX4 architecture ensures that the airframe layout does not require special case handling in the core controllers.
+PX4 takes desired torque and thrust commands from the core controllers and translates them to actuator commands which control motors or servos.
 
-Mixing means to take force commands (e.g. `turn right`) and translate them to actuator commands which control motors or servos.
-For a plane with one servo per aileron this means to command one of them high and the other low.
-The same applies for multicopters: pitching forward requires changing the speed of all motors.
+The translation depends on the physical geometry of the airframe.
+For example, given a torque command to "turn right" (say):
+- A plane with one servo per aileron will command one of servo high and the other low.
+- A multicopter will yaw right by changing the speed of all motors.
 
-Separating the mixer logic from the actual attitude/rate controller greatly improves reusability.
+PX4 separates this translation logic, which is referred to as "mixing" from the attitude/rate controller.
+This ensures that the core controllers do not require special handling for each airframe geometry, and greatly improves reusability.
+
+In addition, PX4 abstracts the mapping of output functions to specific hardware outputs.
+This means that any motor or servo can be assigned to almost any physical output. 
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
 ![Mixing Overview](../../assets/diagrams/mixing_overview.png)
