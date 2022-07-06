@@ -1,6 +1,6 @@
 # ULog File Format
 
-ULog (Universal-Log) is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
+ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
 This document is meant to be the ULog File Format Spec Documentation.
 It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
@@ -126,9 +126,9 @@ struct ulog_message_flag_bits_s {
   - `incompat_flags[0]`: *DATA_APPENDED* (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
   
   The rest of the bits are currently not defined and must be set to 0.
-  This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog Parser that didn't have the concept of *DATA_APPENDED* reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
+  This can be used to introduce breaking changes that existing parsers cannot handle. For example, when an old ULog parser that didn't have the concept of *DATA_APPENDED* reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts.
   If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
-- `appended_offsets`: File offset for appended data.
+- `appended_offsets`: File offset (0-based) for appended data.
   If no data is appended, all offsets must be zero.
   This can be used to reliably append data for logs that may stop in the middle of a message.
   For example, crash dumps.
@@ -233,7 +233,7 @@ This message can also be used in the Data section (this is however the preferred
 
 #### 'M': Multi Information Message
 
-Multi information message serves the same purpose as the information message, but for cases where the `value` length exceeds  (parsers store them as a list).
+Multi information message serves the same purpose as the information message, but for long messages or multiple messages with the same key.
 
 ```c
 struct ulog_message_info_multiple_header_s {
@@ -441,7 +441,7 @@ struct message_sync_s {
 
 #### 'O': Dropout message
 
-Mark a dropout (lost logging messages) of a given duration in ms
+Mark a dropout (lost logging messages) of a given duration in ms.
 
 Dropouts can occur e.g. if the device is not fast enough.
 
