@@ -33,7 +33,6 @@ Run the following commands from any directory:
 ```sh
 git clone https://bitbucket.org/nuttx/tools.git
 cd tools/kconfig-frontends
-autoreconf --force --install
 sudo apt install gperf
 ./configure --enable-mconf --disable-nconf --disable-gconf --enable-qconf --prefix=/usr
 make
