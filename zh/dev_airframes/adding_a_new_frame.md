@@ -1,6 +1,6 @@
 # 添加一个新的机型
 
-PX4使用存储的配置作为机型的起始点>。 The configurations are defined in [config files](#config-file) that are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder. The config files reference [mixer files](#mixer-file) that describe the physical configuration of the system, and which are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/mixers) folder.
+PX4使用存储的配置作为机型的起始点>。 The configurations are defined in [config files](#config-file) that are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder.
 
 Adding a configuration is straightforward: create a new config file in the [init.d/airframes folder](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) (prepend the filename with an unused autostart ID), add the name of your new airframe config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section, then [build and upload](../dev_setup/building_px4.md) the software.
 
@@ -12,12 +12,12 @@ Adding a configuration is straightforward: create a new config file in the [init
 
 ## 配置文件概述
 
-在配置文件和混控器文件下的配置由几个主要代码块组成:
+The configuration file consists of several main blocks:
 
 * 机架说明文档(被[Airframes Reference](../airframes/airframe_reference.md)和*QGroundControl*) 使用。
-* 飞机特定的参数设置，包括[tuning gains](#tuning-gains)。
+* Airframe-specific parameter settings, including [tuning gains](#tuning-gains)
 * 应该启动的控制器和应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
-* 系统（固定翼，飞翼或者多旋翼）的物理配置。 这叫[混控器](../concept/mixing.md)。
+* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry. Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](concept/control_allocation.md) parameters (from PX4 v1.13).
 
 一个典型的配置文件如下所示 ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
@@ -84,7 +84,7 @@ param set-default PWM_MAIN_DISARM 1000
 set MAV_TYPE 1
 ```
 
-设定使用的 [混控器](#mixer-file) :
+Set the [mixer](#mixer-file) to use (if [control allocation](../concept/control_allocation.md) is not enabled):
 ```bash
 # 设定混控
 set MIXER wingwing
@@ -105,16 +105,21 @@ set PWM_DISARMED 1000
 ### 混控器文件
 
 :::note
-First read [Concepts > Mixing](../concept/mixing.md). This provides background information required to interpret this mixer file.
-:::
+Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13).
+
+You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC). If enabled, the geometry may then be defined using `CA_*` parameters in the airframe configuration file, as shown in [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter#L28). [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
+
+:::note
+First read [Concepts > Mixing](../concept/mixing.md). This provides background information required to interpret this mixer file. [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
+
+[mixer files](#mixer-file) describe the physical configuration of the system, and are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/mixers) folder.
 
 A typical mixer file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`).
 
 The mixer file contains several blocks of code, each of which refers to one actuator or ESC. So if you have e.g. two servos and one ESC, the mixer file will contain three blocks of code.
 
 :::note
-The plugs of the servos / motors go in the order of the mixers in this file.
-:::
+The plugs of the servos / motors go in the order of the mixers in this file. [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 
 So MAIN1 would be the left aileron, MAIN2 the right aileron, MAIN3 is empty (note the Z: zero mixer) and MAIN4 is throttle (to keep throttle on output 4 for common fixed wing configurations).
 
