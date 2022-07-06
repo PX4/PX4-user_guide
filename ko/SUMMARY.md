@@ -308,6 +308,7 @@
     * [비행 모드 ](concept/flight_modes.md)
     * [비행 과업](concept/flight_tasks.md)
     * [믹싱과 액추에이터](concept/mixing.md)
+    * [Control Allocation](concept/control_allocation.md)
     * [지오메트리 파일](concept/geometry_files.md)
     * [PWM 제한 상태 기계](concept/pwm_limit.md)
     * [시스템 시작](concept/system_startup.md)
