@@ -1,7 +1,8 @@
 # ULog File Format
 
 ULog (Universal-Log) is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged.
-This document is meant to be the ULog File Format Spec Documentation, especially for anyone who is interested in developing a ULog Parser / Application and needs to decode ULog file.
+This document is meant to be the ULog File Format Spec Documentation.
+It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
 PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
 - **Device inputs:** Sensors, RC input, etc.
@@ -102,7 +103,7 @@ The message types in this section are:
 This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
 :::
 
-This message provides an information to the log parser whether the log is parsable or not.
+This message provides information to the log parser whether the log is parsable or not.
 
 ```c
 struct ulog_message_flag_bits_s {
@@ -114,11 +115,12 @@ struct ulog_message_flag_bits_s {
 ```
 
 - `compat_flags`: compatible flag bits
-  - These flags indicate whether any information that is compatible with the ULog file format is in the log.
+  - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
   - `compat_flags[0]`: *DEFAULT_PARAMETERS* (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
   The rest of the bits are currently not defined and must be set to 0.
-  These bits can be used for future ULog changes that are compatible with existing parsers. For example, adding a new message types, which can be indicated by setting one of the Bits, and the existing parsers can just ignore the new message type in the log.
+  These bits can be used for future ULog changes that are compatible with existing parsers.
+  For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type.
   It means parsers can just ignore the bits if one of the unknown bits is set.
 - `incompat_flags`: incompatible flag bits.
   - `incompat_flags[0]`: *DATA_APPENDED* (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
@@ -128,11 +130,12 @@ struct ulog_message_flag_bits_s {
   If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
 - `appended_offsets`: File offset for appended data.
   If no data is appended, all offsets must be zero.
-  This can be used to reliably append data for logs that may stop in the middle of a message. For example, hardfault dumps in PX4.
+  This can be used to reliably append data for logs that may stop in the middle of a message.
+  For example, crash dumps.
 
   A process appending data should do:
   - set the relevant `incompat_flags` bit
-  - set the first `appended_offsets` as the length of the log file without the appended data, as that is where the data would start
+  - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
   - append any type of messages that are valid for the Data section.
 
 It is possible that there are more fields appended at the end of this message in future ULog specifications.
@@ -141,7 +144,7 @@ If the `msg_size` is bigger than expected (currently 40), any additional bytes m
 
 #### 'F': Format Message
 
-Format message defines a singe message name and it's inner fields in a single string.
+Format message defines a single message name and it's inner fields in a single string.
 
 ```c
 struct message_format_s {
@@ -222,7 +225,7 @@ key | Description | Example for value
 `value_len` represents the data size of the `value`. This is described in the `key`.
 :::
 
-- For PX4, the format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
+- The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
   - **Type** is defined as following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta version, `>= 192`: RC version, `== 255`: release version.
   - For example, `0x010402FF` translates into the release version v1.4.2.
 
@@ -238,7 +241,7 @@ struct ulog_message_info_multiple_header_s {
   uint8_t is_continued; // can be used for arrays
   uint8_t key_len;
   char key[key_len];
-  char value[header.msg_size-key_len]
+  char value[header.msg_size-2-key_len]
 };
 ```
 
