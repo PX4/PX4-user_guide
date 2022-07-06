@@ -287,6 +287,7 @@
       * [I2C bus accelerators](sensor_bus/i2c_general.md#i2c-bus-accelerators)
       * [TFI2CADT01 I2C address translator](sensor_bus/translator_tfi2cadt.md)
     * [UAVCAN Peripherals](uavcan/README.md)
+      * [ARK CANnode](uavcan/ark_cannode.md)
   * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
 * [Development](development/development.md)
   * [Getting Started](dev_setup/getting_started.md)

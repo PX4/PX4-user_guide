@@ -33,7 +33,7 @@ It supports hardware like:
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
 - Optical Flow
   - [Ark Flow](ark_flow.md)
-- Generic CAN Node
+- Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
   - [ARK CANnode](../uavcan/ark_cannode.md)
 
 :::note
