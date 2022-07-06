@@ -16,26 +16,64 @@ Changes will be merged when they pass our [continuous integration](https://en.wi
 
 All code contributions have to be under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and all code must not impose any further constraints on the use.
 
-## Code Style Formatting
+## Code Style
 
-PX4 uses [astyle](http://astyle.sourceforge.net/) for code formatting. Valid versions are
-* [astyle 2.06](https://sourceforge.net/projects/astyle/files/astyle/astyle%202.06/) (deprecated)
-* [astyle 3.0](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0/)
-* [astyle 3.01](https://sourceforge.net/projects/astyle/files/) (recommended)
+PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
-Once installed, formatting can be checked with `./Tools/astyle/check_code_style_all.sh`. The output should be `Format checks passed` on a clean master. If that worked, `make format` can be used in the future to check and format all files automatically.
+### Tabs
 
-## File name conventions
+- Tabs are used for indentation (equivalent to 8 spaces).
+- Spaces are used for alignment.
 
-Going forward we aim to follow these file naming conventions:
+### Line Length
 
-- C++ source files should be named in CamelCase and match the class name. E.g. A C++ file containing a class named `FooThing` should be named `FooThing.cpp`.
-- C++ header files should be named the same as source files except have the suffix `.hpp`.
-- C++ header files that are required to be C compatible, should have the suffix `.h`.
-- Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
-- Test files must have a `Test` suffix as shown: `FooThingTest.cpp`.
+- Maximum line length is 120 characters.
 
-- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+### File Extensions
+
+- Source files use extension `*.cpp` instead of `*.cc`.
+
+### Function and Method Names
+
+- `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
+
+### Class Privacy Keywords
+
+- *zero* spaces before `public:`, `private:`, or `protected:` keywords.
+
+### Example Code Snippet
+
+```cpp
+class MyClass {
+public:
+
+        /**
+         * @brief Description of what this function does.
+         *
+         * @param[in] input_param Clear description of the input [units]
+         * @return Whatever we are returning [units]
+         */
+        float doSomething(const float input_param) const {
+                const float in_scope_variable = input_param + kConstantFloat;
+                return in_scope_variable * private_member_variable_;
+        }
+
+        void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
+
+        /**
+         * @return Whatever we are "getting" [units]
+         */
+        float getPrivateMember() const { return private_member_variable_; }
+
+private:
+    
+        // Clear description of the constant if not completely obvious from the name [units]
+        static constexpr float kConstantFloat = ...;  
+
+        // Clear description of the variable if not completely obvious from the name [units]
+        float private_member_variable_{...};
+};
+```
 
 ## In-Source Documentation
 
@@ -50,19 +88,53 @@ Currently we have two types of source-based documentation:
 - `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
   - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381). 
   - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
-* We encourage other in-source documentation *where it adds value/is not redundant*. 
+- We encourage other in-source documentation *where it adds value/is not redundant*. 
 
   :::tip
   Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
   :::
   
-  - Do not add documentation that can trivially be assumed from C++ entity names.
+  - Do not add documentation that can trivially be inferred from C++ entity names.
+  - ALWAYS specify units of variables, constants, and input/return parameters where they are defined.
   - Commonly you may want to add information about corner cases and error handling.
-  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
+  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`.
+    A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
+
+Please avoid "magic numbers", for example, where does this number in the conditional come from? What about the multiplier on yaw stick input?
+
+```cpp
+if (fabsf(yaw_stick_normalized_input) < 0.1f) {
+        yaw_rate_setpoint = 0.0f;
+}
+else {
+        yaw_rate_setpoint = 0.52f * yaw_stick_normalized_input;
+}
+``` 
+
+Instead, define the numbers as named constants with appropriate context in the header:
+
+```cpp
+// Deadzone threshold for normalized yaw stick input
+static constexpr float kYawStickDeadzone = 0.1f;
+
+// [rad/s] Deadzone threshold for normalized yaw stick input
+static constexpr float kMaxYawRate = math::radians(30.0f);
+```
+
+and update the source implementation.
+```cpp
+if (fabsf(yaw_stick_normalized_input) < kYawStickDeadzone) {
+        yaw_rate_setpoint = 0.0f;
+}
+else {
+        yaw_rate_setpoint = kMaxYawRate * yaw_stick_normalized_input;
+}
+```
 
 ## Commits and Commit Messages
 
-Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
+Please use descriptive, multi-paragraph commit messages for all non-trivial changes.
+Structure them well so they make sense in the one-line summary but also provide full detail.
 
 ```
 Component: Explain the change in one sentence. Fixes #1234
