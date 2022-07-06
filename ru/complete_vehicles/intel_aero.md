@@ -6,7 +6,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 PX4 v1.11 is the last release that supports this platform.
 :::
 
-The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
+The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX.
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
@@ -81,7 +81,7 @@ Next install ROS, by following the [instructions here](https://github.com/intel-
    Install the udev rules using:
    ```
    sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
-   sudo udevadm control --reload-rules && udevadm trigger
+ sudo udevadm control --reload-rules && udevadm trigger
    ```
 
    Now the RealSense can be started over a ROS node using:
@@ -124,10 +124,10 @@ After setting up the PX4 development environment, follow these steps update the 
 
    ```
    # WiFi IP
-   export AERO_HOSTNAME=192.168.8.1
+ export AERO_HOSTNAME=192.168.8.1
 
-   # Ethernet-over-USB IP
-   export AERO_HOSTNAME=192.168.7.2
+ # Ethernet-over-USB IP
+ export AERO_HOSTNAME=192.168.7.2
    ```
 
 1. Upload with: `make intel_aerofc-v1_default upload`
@@ -141,7 +141,7 @@ After setting up the PX4 development environment, follow these steps update the 
    systemctl start mavlink-router
    ```
 1. Start *QGroundControl* and it should automatically connect.
-1. Instead of starting *QGroundControl*, you can open a [MAVLink shell](../debug/mavlink_shell.md) using the script:
+1. Instead of starting *QGroundControl*, you can open a [MAVLink shell](../debug/mavlink_shell.md) using the script: `./Tools/mavlink_shell.py 0.0.0.0:14550`
    ```
    ./Tools/mavlink_shell.py 0.0.0.0:14550
    ```

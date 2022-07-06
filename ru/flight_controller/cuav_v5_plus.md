@@ -51,7 +51,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   * USB Input: 4.75~5.25V
 * Weight and Dimensions:
   * Weight: 90g
-  * Dimensions: 85.5\*42\*33mm
+  * Dimensions: 85.5*42*33mm
 * Other Characteristics:
   * Operating temperature: -20 ~ 80°c（Measured value）
 
@@ -77,7 +77,7 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 *V5+ AutoPilot* supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`. You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
 :::note
-On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. It is neither powered by, nor provides power to the FMU.
 :::
 
 **Normal Operation Maximum Ratings**

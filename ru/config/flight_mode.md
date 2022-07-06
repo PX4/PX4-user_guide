@@ -5,7 +5,7 @@ This topic explains how to map [flight modes](../getting_started/flight_modes.md
 :::tip
 In order to set up flight modes you must already have:
 - [Configured your radio](../config/radio.md)
-- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. We provide examples for the popular *Taranis* transmitter [below](#taranis-setup-3-way-switch-configuration-for-single-channel-mode) (check your documentation if you use a different transmitter). :::
+- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. :::
 
 
 ## What Flight Modes and Switches Should I Set?
@@ -36,7 +36,7 @@ To configure single-channel flight mode selection:
 
 1. Specify *Flight Mode Settings*:
    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
-   * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. The mode slot matching your current switch position will be highlighted (above this is *Flight Mode 1*). :::note
+   * Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. Move the transmitter switch (or switches) that you have set up for mode selection through the available positions. :::note
 While you can set flight modes in any of the 6 slots, only the channels that are mapped to switch positions will be highlighted/used.
 :::
    * Select the flight mode that you want triggered for each switch position.
@@ -51,7 +51,7 @@ All values are automatically saved as they are changed.
 
 ## RC Transmitter Setup
 
-This section contains a small number of possible setup configurations for taranis. QGroundControl _may_ have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup).
+This section contains a small number of possible setup configurations for taranis. QGroundControl *may* have [setup information for other transmitters here](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup).
 
 
 <span id="taranis_setup"></span>
@@ -81,7 +81,7 @@ Most transmitters do not have 6-way switches, so if you need to be able to suppo
 
 On the FrSky Taranis this process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
 
-The video below shows how this is done with the *FrSky Taranis* transmitter.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@[youtube](https://youtu.be/TFEjEQZqdVA)
+The video below shows how this is done with the *FrSky Taranis* transmitter.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@https://youtu.be/TFEjEQZqdVA
 
 The *QGroundControl* configuration is then as [described above](#single-channel-flight-mode-selection).
 

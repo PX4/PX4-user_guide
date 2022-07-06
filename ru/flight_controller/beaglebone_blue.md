@@ -54,6 +54,10 @@ connmanctl>agent on
 connmanctl>connect <SSID>
     Enter Passphrase
 connmanctl>quit
+connmanctl>agent on
+connmanctl>connect <SSID>
+    Enter Passphrase
+connmanctl>quit
 ```
 
 :::note
@@ -95,8 +99,8 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 
          ```sh
          mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
-         chmod -R 777 /opt/bbblue_toolchain
-         cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+            chmod -R 777 /opt/bbblue_toolchain
+            cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
          ```
          The ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](https://www.linaro.org/downloads/#gnu_and_llvm).
 
@@ -106,11 +110,11 @@ in the toolchain should be compatible with kernel in *BeagleBone Blue*. General 
 
          Download and unpack [gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz](https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
 
-         Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
+         Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at \[Linaro Toolchain Binaries site\](http://www.linaro.org/downloads/).
 
          ```sh
          wget https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
-         tar -xf gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
+            tar -xf gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz
          ```
 :::tip
 The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
@@ -129,15 +133,20 @@ Logout and Login to apply the change, or execute the same line on your current s
 
       1. Setup other dependencies by downloading the PX4 source code and then running the setup scripts:
          ```
-         git clone https://github.com/PX4/PX4-Autopilot.git --recursive
-     bash ./Tools/setup/ubuntu.sh --no-nuttx --no-sim-tools
+         Setup other dependencies by downloading the PX4 source code and then running the setup scripts:
+
+            git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+            bash ./Tools/setup/ubuntu.sh --no-nuttx --no-sim-tools
+
+
+        You may have to edit the upload target to match with your setup:
      ```
 
          You may have to edit the upload target to match with your setup:
          ```sh
          nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
 
-         # in row 37 change debian@beaglebone.lan TO root@beaglebone (or root@<IP>)
+            # in row 37 change debian@beaglebone.lan TO root@beaglebone (or root@<IP>)
          ```
 
          See the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions for additional information.
@@ -172,14 +181,16 @@ You can also natively build PX4 builds directly on the BeagleBone Blue.
 After acquiring the pre-built library,
 
 1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
-1. Install **robotcontrol.h** and __rc/\*__ into `$LIBROBOTCONTROL_INSTALL_DIR/include`
+1. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
 1. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
 
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 1. Install dependencies:
    ```sh
-   sudo apt-get update
-   sudo apt-get install cmake python-empy
+   Install dependencies: 
+     sh
+     sudo apt-get update
+     sudo apt-get install cmake python-empy
    ```
 2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
 3. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).

@@ -59,7 +59,9 @@ At time of writing *QGroundControl* only allows you to set values for battery 1 
 This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
 :::note
-The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same *nominal* cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*. The battery voltage at the terminals is then a multiple of the cell voltage.
+The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
+:::note
+The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same *nominal* cell voltage of 3.7V. The battery voltage at the terminals is then a multiple of the cell voltage.
 :::
 
 If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for these batteries:
@@ -136,8 +138,8 @@ This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/paramete
 <span id="current_divider"></span>
 ### Amps per volt
 
-:::tip
-This setting is not needed if you are using the basic configuration (without load compensation etc.)
+:::note
+This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 :::
 
 If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
@@ -158,7 +160,7 @@ With well configured load compensation the voltage used for battery capacity est
 Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the *unloaded* battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
 
 :::note
-To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+To use the load compensation you will still need to set the [basic configuration](#basic_settings). :::note To use the load compensation you will still need to set the [basic configuration](#basic_settings).
 :::
 
 PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
@@ -229,7 +231,8 @@ At system startup PX4 first uses a voltage-based estimate to determine the initi
 If you always start with a healthy full battery, this approach is similar to that used by a smart battery.
 
 :::note
-Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
+This is the most accurate way to measure relative battery consumption.
+Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
 :::
 
 

@@ -3,7 +3,7 @@
 This topic provides detailed information about PX4 controllers, and how they are tuned.
 
 :::tip
-[Autotune](../config/autotune.md) is recommended for tuning the vehicles _around the hover thrust point_, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
+[Autotune](../config/autotune.md) is recommended for tuning the vehicles *around the hover thrust point*, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
 :::
 
 Use this topic when tuning around the hover thrust point is not sufficient (e.g. on vehicles where there are non-linearities and oscillations at higher thrusts). It is also useful for a deeper understanding of how the basic tuning works, and to understand how to use the [airmode](#airmode-mixer-saturation) setting.
@@ -41,11 +41,11 @@ Users can select the form that is used by setting the proportional gain for the 
 
 ![PID_Mixed](../../assets/mc_pid_tuning/PID_algorithm_Mixed.png)
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
-- _G(s)_ represents the angular rates dynamics of a vehicle
-- _r_ is the rate setpoint
-- _y_ is the body angular rate (measured by a gyro)
-- _e_ is the error between the rate setpoint and the measured rate
-- _u_ is the output of the PID controller
+- *G(s)* represents the angular rates dynamics of a vehicle
+- *r* is the rate setpoint
+- *y* is the body angular rate (measured by a gyro)
+- *e* is the error between the rate setpoint and the measured rate
+- *u* is the output of the PID controller
 
 
 The two forms are described below.
@@ -169,7 +169,7 @@ The rate controller might need to be re-tuned if you change this parameter.
 
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
-If you have a [thrust stand](https://www.tytorobotics.com/pages/series-1580-1585) <!-- RCbenchmark Series 1580/1585 Test Stand --> (or can otherwise _measure_ thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in use. [This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data. The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s). In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
+If you have a [thrust stand](https://www.tytorobotics.com/pages/series-1580-1585) <!-- RCbenchmark Series 1580/1585 Test Stand --> *measure* thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in use. [This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data. The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s). In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 

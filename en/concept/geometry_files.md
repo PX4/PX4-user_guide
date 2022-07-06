@@ -1,5 +1,10 @@
 # Multicopter Geometry Files
 
+:::note
+Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13).
+You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC).
+:::
+
 Geometry files are used by PX4 to generate mixer definitions that map the outputs of PX4 rate controllers to specific motors.
 The files describe the positions, direction of thrust, rotation direction, thrust and drag coefficients of each of the rotors.
 

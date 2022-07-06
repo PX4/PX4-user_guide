@@ -61,20 +61,20 @@ The following steps explain how you can "manually" update the bootloader using t
    ```bash
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
-1. The *gdb terminal* appears and it should display the following output:
+1. The *gdb terminal* appears and it should display the following output: bash GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git Copyright (C) 2017 Free Software Foundation, Inc.
    ```bash
    GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
    Copyright (C) 2017 Free Software Foundation, Inc.
    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
    This is free software: you are free to change and redistribute it.
    There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
-   and "show warranty" for details.
+     and "show warranty" for details.
    This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
    Type "show configuration" for configuration details.
    For bug reporting instructions, please see:
-   <http://www.gnu.org/software/gdb/bugs/>.
+     <a href="http://www.gnu.org/software/gdb/bugs/" x-nc="1">http://www.gnu.org/software/gdb/bugs/</a>.
    Find the GDB manual and other documentation resources online at:
-   <http://www.gnu.org/software/gdb/documentation/>.
+     <a href="http://www.gnu.org/software/gdb/documentation/" x-nc="1">http://www.gnu.org/software/gdb/documentation/</a>.
    For help, type "help".
    Type "apropos word" to search for commands related to "word"...
    Reading symbols from px4fmuv5_bl.elf...done.
@@ -93,7 +93,7 @@ To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to
 1. Use the following command to scan for the Pixhawk’s swd and connect to it:
    ```
    (gdb) mon swdp_scan
-   (gdb) attach 1
+ (gdb) attach 1
    ```
 1. Load the binary into the Pixhawk:
    ```

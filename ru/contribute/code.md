@@ -4,7 +4,7 @@
 
 The PX4 project uses a three-branch Git branching model:
 
-* [master](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
+* [master](https://github.com/PX4/PX4-Autopilot/tree/master) is by default unstable and sees rapid development.
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) has been thoroughly tested. It's intended for flight testers.
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) points to the last release.
 
@@ -33,7 +33,7 @@ Going forward we aim to follow these file naming conventions:
 - Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
 - Test files must have a `Test` suffix as shown: `FooThingTest.cpp`.
 
-- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
 
 ## In-Source Documentation
 
@@ -56,7 +56,7 @@ Developers should name C++ entities (classes, functions, variables etc.) such th
 
   - Do not add documentation that can trivially be assumed from C++ entity names.
   - Commonly you may want to add information about corner cases and error handling.
-  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
+  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h).
 
 ## Commits and Commit Messages
 
