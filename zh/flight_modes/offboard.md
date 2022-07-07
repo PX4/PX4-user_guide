@@ -101,7 +101,7 @@ The *setpoint type* values below are not part of the MAVLink standard for the `t
 
         值为：
         - 12288：悬停设定值（无人机足够接近设定值时会停止）。
-    * 速度设定值（仅 `vx`，`yy`，`vz`）
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
   - PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
