@@ -23,7 +23,7 @@ MoCap은 일반적으로 GPS가 없는 상황(예: 실내)에서 차량을 탐�
 
 MoCap 기술에 대해 더 알아보려면 다음을 참고하십시오:
 - [외부 위치 추정](../ros/external_position_estimation.md)
-- [움직임 감지(Motion Capture)기술을 활용한 비행 (VICON, Optitrack)](../tutorials/motion-capture-vicon-optitrack.md)
+- [움직임 감지(Motion Capture)기술을 활용한 비행 (VICON, Optitrack)](../tutorials/motion-capture.md)
 - [EKF > 외부 비전 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 
