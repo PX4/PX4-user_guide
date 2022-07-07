@@ -21,7 +21,7 @@ MoCap 通常用于在没有 GPS 的情况下导航无人机（例如室内），
 
 有关 MoCap 的信息，请参阅：
 - [外部位置的估计](../ros/external_position_estimation.md)
-- [使用 Motion Capture 飞行（VICON，Optitrack）](../tutorials/motion-capture-vicon-optitrack.md)
+- [使用 Motion Capture 飞行（VICON，Optitrack）](../tutorials/motion-capture.md)
 - [EKF > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 
