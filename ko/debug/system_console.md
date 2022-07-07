@@ -31,7 +31,7 @@ Pixhawk 콘트롤러 제조업체는 [Pixhawk 커넥터 표준](#pixhawk_debug_p
 
 ### Pixhawk 디버그 포트
 
-Pixhawk 커넥터 표준을 준수하는 비행 콘트롤러는 [Pixhawk 표준 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)를 사용합니다.
+Flight controllers that adhere to the Pixhawk Connector standard use the [Pixhawk Standard Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 포트/FTDI 매핑은 아래와 같습니다.
 
