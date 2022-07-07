@@ -52,7 +52,8 @@ sudo bash ./install_geographiclib_datasets.sh
 
 ### Source Installation
 
-This installation assumes you have a catkin workspace located at `~/catkin_ws` If you don't create one with: 
+This installation assumes you have a catkin workspace located at `~/catkin_ws` If you don't create one with:
+
 ```sh
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
@@ -61,6 +62,7 @@ wstool init src
 ```
 
 You will be using the ROS Python tools: *wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. While they may have been installed during your installation of ROS you can also install them with:
+
 ```sh
 sudo apt-get install python-catkin-tools python-rosinstall-generator -y
 ```
@@ -74,7 +76,8 @@ If this is your first time using wstool you will need to initialize your source 
 $ wstool init ~/catkin_ws/src
 ```
 
-Now you are ready to do the build
+Now you are ready to do the build:
+
 1. Install MAVLink:
    ```
    # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
@@ -82,13 +85,14 @@ Now you are ready to do the build
    ```
 1. Install MAVROS from source using either released or latest version: 
    * Released/stable
-     ```
+     ```sh
      rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall
      ```
    * Latest source
      ```sh
      rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
      ```
+
      ```sh
      # For fetching all the dependencies into your catkin_ws, 
      # just add '--deps' to the above scripts, E.g.:
@@ -96,24 +100,26 @@ Now you are ready to do the build
      ```
 
 1. Create workspace & deps
-   ```
+
+   ```sh
    wstool merge -t src /tmp/mavros.rosinstall
    wstool update -t src -j4
    rosdep install --from-paths src --ignore-src -y
    ```
 
 1. Install [GeographicLib](https://geographiclib.sourceforge.io/) datasets:
-   ```
+   ```sh
    ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
    ```
 
 1. Build source
-   ```
+   ```sh
    catkin build
    ```
 
 1. Make sure that you use setup.bash or setup.zsh from workspace.
-   ```
+ 
+   ```sh
    #Needed or rosrun can't find nodes from this workspace.
    source devel/setup.bash
    ```
@@ -122,7 +128,7 @@ In the case of error, there are addition installation and troubleshooting notes 
 
 ## MAVROS Examples
 
-The MAVROS [Offboard Control example](../ros/mavros_offboard.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
+The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
 
 :::note
 If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
