@@ -9,7 +9,7 @@
 
 주요 주제는 다음과 같습니다.
 - [ROS/MAVROS 설치 가이드](../ros/mavros_installation.md): ROS(1)와 MAVROS로 PX4 개발 환경을 설정합니다.
-- [MAVROS를 사용한 오프보드 제어](../ros/mavros_offboard.md): C++ MAVROS/ROS 노드 작성과 관련된 주요 개념을 보여주는 자습서입니다.
+- [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS/MAVROS 사용자 지정 메시지 전송](../ros/mavros_custom_messages.md)
 - [ROS Gazebo 시뮬레이션](../simulation/ros_interface.md)
 - [ROS Gazebo OctoMap 모델](../simulation/gazebo_octomap.md)
