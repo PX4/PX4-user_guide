@@ -75,5 +75,5 @@ The particular settings that are relevant to this vehicle are:
 
 :::note
 By default permanent stabilization is enabled.
-To fly "fully manual" in fixed-wing mode, set [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB) to `0`.
+To fly "fully manual" in fixed-wing mode, set [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB) to `0`. 
 :::

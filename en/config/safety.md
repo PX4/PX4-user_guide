@@ -196,10 +196,10 @@ Parameters that only affect Fixed Wing vehicles:
 
 Parameter | Description
 --- | ---
-[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable.
-[NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P) | Fixed pitch angle while circling.
-[NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R) | Fixed roll/bank angle while circling.
-[NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | Thrust while circling.
+[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)  | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable.
+[NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)  | Fixed pitch angle while circling.
+[NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)  | Fixed roll/bank angle while circling.
+[NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR)  | Thrust while circling.
 
 
 ### Offboard Loss Failsafe

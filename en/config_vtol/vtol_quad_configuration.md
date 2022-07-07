@@ -91,7 +91,7 @@ It is also important that you pick an airspeed that is comfortably above your ai
 
 #### Fixed Wing Permanent Stabilisation
 
-Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
+Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB) 
 
 Activating permanent stabilisation will result in fixed wing flight being stabilised by the autopilot at all times.
 As soon as a transition to fixed wing occurs it will be stabilised.
