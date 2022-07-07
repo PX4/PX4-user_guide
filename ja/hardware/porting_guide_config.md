@@ -26,6 +26,10 @@ if DRIVERS_UAVCAN_V1
 endif #DRIVERS_UAVCAN_V1
 ```
 
+:::note
+Builds will silently ignore any missing or miss-spelled modules in the  `*.px4board` configuration file.
+:::
+
 ## PX4 Kconfig Label Inheritance
 
 Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`. However you can add also seperate configurations under a different label e.g. `rtps.px4board`. Note that by default the configuration of `rtps.px4board` inherits all settings set in `default.px4board`. When changing the `rtps.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
