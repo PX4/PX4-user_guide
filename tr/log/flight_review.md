@@ -157,7 +157,8 @@ DJI F450 frame (good vibration). ![Low vibration DJI F450 - raw accel. plot](../
 
 #### Examples: Bad Vibration
 
-<span id="raw_acc_s500"></span> S500 frame. Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
+<a id="raw_acc_s500"></a>
+S500 frame. Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
 
 ![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
