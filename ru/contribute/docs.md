@@ -44,7 +44,7 @@ To get the library(s) sources onto your local computer you will need to use the 
 
 1. Download git for your computer from [https://git-scm.com/downloads](https://git-scm.com/downloads)
 1. [Sign up](https://github.com/join) for Github if you haven't already
-1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/px4_user_guide) on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
+1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. Clone (copy) your forked repository to your local computer:
    ```sh
    cd ~/wherever/
