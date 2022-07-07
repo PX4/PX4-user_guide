@@ -10,7 +10,7 @@ This section contains topics related to using the "original version of ROS" and 
 
 The main topics covered are:
 - [ROS/MAVROS Installation Guide](../ros/mavros_installation.md): Setup a PX4 development environment with ROS (1) and MAVROS.
-- [Offboard control with MAVROS](../ros/mavros_offboard.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
+- [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS MAVROS Sending Custom Messages](../ros/mavros_custom_messages.md)
 - [ROS with Gazebo Simulation](../simulation/ros_interface.md)
 - [Gazebo OctoMap Models with ROS](../simulation/gazebo_octomap.md)
