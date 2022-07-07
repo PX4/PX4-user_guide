@@ -120,13 +120,13 @@ yaw 설정만 실제로 사용/추출됩니다.
 
 *오프보드 모드*는 아래의 매개 변수의 영향을받습니다.
 
-| 매개변수                                                                                                             | 설명                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)       | 오프보드 손실 안전 장치 (`COM_OBL_ACT` 및 `COM_OBL_RC_ACT`) 동작 전에 오프 보드 연결이 손실되었을 때 대기하는 시간 제한 (초)                                    |
-| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)             | RC에 연결되지 *않았을 때* 오프 보드 제어가 손실된 경우 전환할 모드                                                                                   |
-| <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)    | RC 제어에 연결되어 있는 동안 오프보드 제어가 손실된 경우 전환할 모드.                                                                                  |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터 (또는 MC 모드의 VTOL)에서 스틱 이동으로 인해 모드가 [위치 모드](../flight_modes/position_mc.md)로 변경 여부를 제어합니다. 기본적으로 오프보드 모드에서는 활성화되지 않습니다. |
-| <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                     |
+| 매개변수                                                                                                    | 설명                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_OF_LOSS_T"></a>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | 오프보드 손실 안전 장치 (`COM_OBL_ACT` 및 `COM_OBL_RC_ACT`) 동작 전에 오프 보드 연결이 손실되었을 때 대기하는 시간 제한 (초)                                    |
+| <a id="COM_OBL_ACT"></a>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)         | RC에 연결되지 *않았을 때* 오프 보드 제어가 손실된 경우 전환할 모드                                                                                   |
+| <a id="COM_OBL_RC_ACT"></a>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | RC 제어에 연결되어 있는 동안 오프보드 제어가 손실된 경우 전환할 모드.                                                                                  |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터 (또는 MC 모드의 VTOL)에서 스틱 이동으로 인해 모드가 [위치 모드](../flight_modes/position_mc.md)로 변경 여부를 제어합니다. 기본적으로 오프보드 모드에서는 활성화되지 않습니다. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                     |
 
 ## 개발자 리소스
 
@@ -134,5 +134,7 @@ yaw 설정만 실제로 사용/추출됩니다.
 
 다음의 리소스는 개발자에게 유용합니다.
 
-* [Linux 오프보드 제어](../ros/offboard_control.md) (PX4 개발 가이드)
-* [MAVROS 오프보드 제어 예제](../ros/mavros_offboard.md) (PX4 개발 가이드)
+* [Offboard Control from Linux](../ros/offboard_control.md)
+* [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md)
+* [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md)
+
