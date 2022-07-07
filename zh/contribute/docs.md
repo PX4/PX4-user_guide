@@ -44,7 +44,7 @@ The following explain how to get the source code, build locally (to test), and m
 
 1. git add &lt;file name&gt; git commit -m "&lt;your commit message&gt;"
 1. 如果您还没有注册Github，请先[注册](https://github.com/join) Github 账户
-1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
+1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. Clone (copy) your forked repository to your local computer:
    ```sh
    cd ~/wherever/
