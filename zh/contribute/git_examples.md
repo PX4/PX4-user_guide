@@ -7,7 +7,7 @@
 Adding a feature to PX4 follows a defined workflow. In order to share your contributions on PX4, you can follow this example. 为了在 px4 上分享您的贡献, 您可以遵循此示例。
 
 * 如果您还没有注册，请先[Sign up](https://github.com/join) Github 账户
-* Fork the Firmware (see [here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository))
+* Fork the PX4-Autopilot re[p (see [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
 * 将分支克隆到本地计算机<br>
   ```sh
   cd ~/wherever/
