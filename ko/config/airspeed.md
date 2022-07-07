@@ -9,8 +9,8 @@
 :::warning
 대부분의 다른 센서 드라이버와 달리 항속 센서 드라이버는 자동으로 시작되지 않습니다. 보정하기전에 [해당 매개변수를 활성화](../advanced_config/parameters.md)하여야 합니다.
 - Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
-- TE MS4525 ([SENS_EN_MS4525](../advanced_config/parameter_reference.md#SENS_EN_MS4525))
-- TE MS5525 ([SENS_EN_MS5525](../advanced_config/parameter_reference.md#SENS_EN_MS5525))
+- TE MS4525 ([SENS_EN_MS4525DO](../advanced_config/parameter_reference.md#SENS_EN_MS4525DO))
+- TE MS5525 ([SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS))
 - 이글 트리 항속 센서 ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
 :::
 
