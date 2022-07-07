@@ -1,15 +1,18 @@
 # MAVROS *Offboard* control example (Python)
 
-This tutorial shows the basics of *OFFBOARD* control with MAVROS, using an Iris quadcopter simulated in Gazebo/SITL.
-It showcases, with step-by-step instructions, how to start developing programs to control a vehicle and simulate it.
+This tutorial shows the basics of *OFFBOARD* control with MAVROS Python, using an Iris quadcopter simulated in Gazebo/SITL.
+It provides step-by-step instructions demonstrating how to start developing programs to control a vehicle and running the code in simulation.
+
 At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
 
 :::warning
-*OFFBOARD* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*OFFBOARD* control is dangerous.
+If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
 :::tip
-This example uses Python. Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
+This example uses Python.
+Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
 <video width="100%" autoplay="true" controls="true" id = "offb_video">
@@ -19,13 +22,14 @@ This example uses Python. Other examples in Python can be found here: [integrati
 ## Creating the ROS Package
 
 1. Open the terminal and go to `~/catkin_ws/src` directory
+
     ```sh
     roscd  # Should cd into ~/catkin_ws/devel
     cd .. 
     cd src
     ```
 
-2. In the `~/catkin_ws/src` directory create a new package, in this example it will have the name `offboard_py` with the `rospy` dependency:
+2. In the `~/catkin_ws/src` directory create a new package named `offboard_py` (in this case) with the `rospy` dependency:
 
     ```sh
     catkin_create_pkg offboard_py rospy
@@ -45,7 +49,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
     roscd offboard_py
     ```
 
-5. To store your python files, create a new folder called `/scripts` on the package:
+5. To store your Python files, create a new folder called `/scripts` on the package:
 
     ```sh
     mkdir scripts
@@ -54,7 +58,7 @@ This example uses Python. Other examples in Python can be found here: [integrati
 
 ## Code
 
-After creating the ROS package and scripts folder you are ready to start your python script.
+After creating the ROS package and scripts folder you are ready to start your Python script.
 Inside the scripts folder create the `offb_node.py` file and give it executable permissions:
 
 ```sh
@@ -148,13 +152,18 @@ if __name__ == "__main__":
 
 ## Code explanation
 
+The `mavros_msgs` package contains all of the custom messages required to operate services and topics provided by the MAVROS package.
+All services and topics as well as their corresponding message types are documented in the [mavros wiki](http://wiki.ros.org/mavros).
+
 ```py
 import rospy
 from geometry_msgs.msg import PoseStamped
 from mavros_msgs.msg import State
 from mavros_msgs.srv import CommandBool, CommandBoolRequest, SetMode, SetModeRequest
 ```
-The `mavros_msgs` package contains all of the custom messages required to operate services and topics provided by the MAVROS package. All services and topics as well as their corresponding message types are documented in the [mavros wiki](http://wiki.ros.org/mavros).
+
+We create a simple callback which will save the current state of the autopilot.
+This will allow us to check connection, arming and *OFFBOARD* flags.:
 
 ```py
 current_state = State()
@@ -163,9 +172,9 @@ def state_cb(msg):
     global current_state
     current_state = msg
 ```
-We create a simple callback which will save the current state of the autopilot.
-This will allow us to check connection, arming and *OFFBOARD* flags. 
 
+We instantiate a publisher to publish the commanded local position and the appropriate clients to request arming and mode change.
+Note that for your own system, the "mavros" prefix might be different as it will depend on the name given to the node in it's launch file.
 
 ```py
 state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
@@ -178,24 +187,31 @@ arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 rospy.wait_for_service("/mavros/set_mode")
 set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
 ```
-We instantiate a publisher to publish the commanded local position and the appropriate clients to request arming and mode change.
-Note that for your own system, the "mavros" prefix might be different as it will depend on the name given to the node in it's launch file.
-```py
-# Setpoint publishing MUST be faster than 2Hz
-rate = rospy.Rate(20)
-```
+
 PX4 has a timeout of 500ms between two *OFFBOARD* commands.
 If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering *OFFBOARD* mode.
 This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies.
 This is also the same reason why it is **recommended to enter *OFFBOARD* mode from *Position* mode**, this way if the vehicle drops out of *OFFBOARD* mode it will stop in its tracks and hover.
+
+Here we set the publishing rate appropriately:
+
+```py
+# Setpoint publishing MUST be faster than 2Hz
+rate = rospy.Rate(20)
+```
+
+Before publishing anything, we wait for the connection to be established between MAVROS and the autopilot.
+This loop should exit as soon as a heartbeat message is received.
 
 ```py
 # Wait for Flight Controller connection
 while(not rospy.is_shutdown() and not current_state.connected):
     rate.sleep()
 ```
-Before publishing anything, we wait for the connection to be established between MAVROS and the autopilot.
-This loop should exit as soon as a heartbeat message is received.
+
+Even though PX4 operates in the aerospace NED coordinate frame, MAVROS translates these coordinates to the standard ENU frame and vice-versa.
+This is why we set `z` to positive 2:
+
 ```py
 pose = PoseStamped()
 
@@ -203,8 +219,11 @@ pose.pose.position.x = 0
 pose.pose.position.y = 0
 pose.pose.position.z = 2
 ```
-Even though the PX4 Pro Flight Stack operates in the aerospace NED coordinate frame, MAVROS translates these coordinates to the standard ENU frame and vice-versa.
-This is why we set `z` to positive 2.
+
+Before entering *OFFBOARD* mode, you must have already started streaming setpoints.
+Otherwise the mode switch will be rejected.
+Below, `100` was chosen as an arbitrary amount.
+
 ```py
 # Send a few setpoints before starting
 for i in range(100):   
@@ -214,15 +233,20 @@ for i in range(100):
     local_pos_pub.publish(pose)
     rate.sleep()
 ```
-Before entering *OFFBOARD* mode, you must have already started streaming setpoints.
-Otherwise the mode switch will be rejected. Here, `100` was chosen as an arbitrary amount.
+
+We prepare the message request used to set the custom mode to `OFFBOARD`.
+A list of [supported modes](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) is available for reference.
+
 ```py
 offb_set_mode = SetModeRequest()
 offb_set_mode.custom_mode = 'OFFBOARD'
 ```
 
-We prepare the message request used to set the custom mode to `OFFBOARD`.
-A list of [supported modes](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) is available for reference.
+The rest of the code is largely self explanatory.
+We attempt to switch to *Offboard* mode, after which we arm the quad to allow it to fly.
+We space out the service calls by 5 seconds so to not flood the autopilot with the requests.
+In the same loop, we continue sending the requested pose at the rate previously defined.
+
 ```py
 arm_cmd = CommandBoolRequest()
 arm_cmd.value = True
@@ -246,10 +270,6 @@ while(not rospy.is_shutdown()):
 
     rate.sleep()
 ```
-The rest of the code is pretty self explanatory.
-We attempt to switch to *Offboard* mode, after which we arm the quad to allow it to fly.
-We space out the service calls by 5 seconds so to not flood the autopilot with the requests.
-In the same loop, we continue sending the requested pose at the rate previously defined.
 
 :::tip
 This code has been simplified to the bare minimum for illustration purposes.
@@ -258,7 +278,9 @@ In larger systems, it is often useful to create a new thread which will be in ch
 
 ## Creating the ROS launch file
 
-In your `offboard_py` package, create another folder inside the `~/catkin_ws/src/offboard_py/src` directory named `launch`. This is where your launch files for the package will be stored. After that, create your first launch file, in this case we will call it `start_offb.launch`.
+In your `offboard_py` package, create another folder inside the `~/catkin_ws/src/offboard_py/src` directory named `launch`.
+This is where your launch files for the package will be stored.
+After that, create your first launch file, in this case we will call it `start_offb.launch`.
 
 ```sh
 roscd offboard_py
@@ -281,12 +303,14 @@ For the `start_offb.launch` copy the following code:
 </launch>
 ```
 
-As you can see, the `mavros_posix_sitl.launch` file is included. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+As you can see, the `mavros_posix_sitl.launch` file is included.
+This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
 
 :::tip
 The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
 
-You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the *include* tags. As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
+You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the *include* tags.
+As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
 
 ```xml
 <!-- Include the MAVROS node with SITL and Gazebo -->
@@ -306,15 +330,18 @@ In the terminal write:
 roslaunch offboard_py start_offb.launch
 ```
 
-You should now see the PX4 firmware initiating and the Gazebo application running. After the *OFFBOARD* mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
+You should now see the PX4 firmware initiating and the Gazebo application running.
+After the *OFFBOARD* mode is set and the vehicle is armed, the behavior shown in the [video](#offb_video) should be observed.
 
 :::warning
 It is possible that when running the script an error appears saying:
+
 > Resource not found: px4
 > ROS path [0] = ...
 > ...
 
-In this case, it means that the PX4 SITL were not included in the path. To solve this add these lines at the end of the `.bashrc` file:
+This means that PX4 SITL was not included in the path.
+To solve this add these lines at the end of the `.bashrc` file:
 
 ```sh
 source ~/PX4-Autopilot/Tools/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
@@ -323,10 +350,13 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/sitl_gazebo
 export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
 ```
 
-Now in the terminal, go to the home directory and run:
+Now in the terminal, go to the home directory and run the following command to apply the changes above to the current terminal:
 
 ```sh 
 source .bashrc
-``` 
-so that the changes made to the file are applied in the current terminal. After this step, everytime you open a new terminal window you should not have to worry about this error anymore. If it appears again, a simple `source .bashrc` should fix it. This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem. 
+```
+
+After this step, everytime you open a new terminal window you should not have to worry about this error anymore.
+If it appears again, a simple `source .bashrc` should fix it.
+This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem. 
 :::
