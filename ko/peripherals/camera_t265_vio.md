@@ -11,7 +11,7 @@
 
 ## 구매 링크
 
-[Intel® RealSense™ 추적 카메라 T265](https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html) (store.intelrealsense.com)
+[Intel® RealSense™ Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) (store.intelrealsense.com)
 
 
 ## 설정 방법
