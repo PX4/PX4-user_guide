@@ -38,7 +38,7 @@
 
 비행 콘트롤러는 일반 PX4 비행 스택을 실행하고, 보조 컴퓨터는 [물체 회피](../computer_vision/obstacle_avoidance.md) 및 [충돌 방지](../computer_vision/collision_prevention.md)와 같은 고급 기능을 제공합니다. 두 시스템은 고속 직렬 또는 IP 링크로 연결되며, 일반적으로 [MAVLink 프로토콜](https://mavlink.io/en/)로 통신합니다. 지상국 및 클라우드와의 통신은 일반적으로 보조 컴퓨터를 통해 라우팅됩니다(예: Intel의 [MAVLink 라우터](https://github.com/mavlink-router/mavlink-router) 사용).
 
-PX4 시스템은 일반적으로 보조 컴퓨터에서 Linux OS를 실행합니다([PX4/Avoidance](https://github.com/PX4/PX4-Avoidance) 프로젝트가 Linux용으로 설계된 ROS 기반 회피 라이브러리를 제공하기 때문). Linux는 NuttX보다 "일반" 소프트웨어 개발을 위한 플랫폼입니다. 많은 Linux 개발자와 유용한 소프트웨어가 이미 개발되어 있습니다(예: 컴퓨터 비전, 통신, 클라우드 통합, 하드웨어 드라이버용). 보조 컴퓨터는 때때로 같은 이유로 Android를 사용합니다.
+PX4 systems typically run a Linux OS on the companion computer (because the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux). Linux는 NuttX보다 "일반" 소프트웨어 개발을 위한 플랫폼입니다. 많은 Linux 개발자와 유용한 소프트웨어가 이미 개발되어 있습니다(예: 컴퓨터 비전, 통신, 클라우드 통합, 하드웨어 드라이버용). 보조 컴퓨터는 때때로 같은 이유로 Android를 사용합니다.
 
 :::note
 다이어그램은 여러 PX4 기반 시스템에서 사용된 접근 방식인 LTE를 통한 클라우드 또는 지상국 연결 방법을 나타냅니다.
