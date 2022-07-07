@@ -171,7 +171,7 @@ To connect QGroundControl to PX4 over Ethernet:
 1. QGroundControl should then connect if you select this link.
 
 :::note
-[PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) should not be needed (the default are appropriate for a GCS).
+[PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) should not be needed (the default are appropriate for a GCS).
 :::
 
 ## MAVSDK-Python Setup Example
@@ -179,7 +179,7 @@ To connect QGroundControl to PX4 over Ethernet:
 To setup MAVSDK-Python running on a companion computer:
 
 1. [Set up the Ethernet Network](#setting-up-the-ethernet-network) so your companion computer and PX4 run on the same network.
-1. Modify the [PX4 Ethernet Port Configuration](#px4-ethernet-port-configuration) to connect to a companion computer.
+1. Modify the [PX4 Ethernet Port Configuration](#px4-ethernet-network-setup) to connect to a companion computer.
    You might change the parameters [MAV_2_REMOTE_PRT](../advanced_config/parameter_reference.md#MAV_2_REMOTE_PRT) and [MAV_2_UDP_PRT](../advanced_config/parameter_reference.md#MAV_2_UDP_PRT) to `14540`, and [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) to `2` (Onboard).
 1. Follow the instructions in [MAVSDK-python](https://github.com/mavlink/MAVSDK-Python) to install and use MAVSDK.
 

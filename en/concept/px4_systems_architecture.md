@@ -42,7 +42,7 @@ The flight controller runs the normal PX4 flight stack, while a companion comput
 The two systems are connected using a fast serial or IP link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/).
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router) (from Intel)).
 
-PX4 systems typically run a Linux OS on the companion computer (because the [PX4/Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux).
+PX4 systems typically run a Linux OS on the companion computer (because the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux).
 Linux is a much better platform for "general" software development than NuttX; there are many more Linux developers and a lot of useful software has already been written (e.g. for computer vision, communications, cloud integrations, hardware drivers).
 Companion computers sometimes run Android for the same reason.
 

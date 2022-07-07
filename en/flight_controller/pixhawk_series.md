@@ -99,7 +99,7 @@ At very high level, the main differences are:
   More RAM.
   More CAN busses.
   Much more configurable & customizable
-  .([Pixhawk 5X](../flight_controller/pixhawk5X.md), Skynode)
+  .([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
 
 <span id="licensing-and-trademarks"></span>
 ### Licensing and Trademarks
