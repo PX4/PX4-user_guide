@@ -9,13 +9,14 @@ PX4는 보조 컴퓨터의 경로 계획 서비스 통합을 위하여 여러 �
 
 [COM_OBS_AVOID = 1](../advanced_config/parameter_reference.md#COM_OBS_AVOID)인 경우 PX4에서 자동 모드 (착륙, 이륙, 보류, 임무, 복귀)에서 경로 계획이 활성화됩니다. 이러한 모드에서 경로 계획 소프트웨어는 PX4에 설정값을 제공할 것으로 예상됩니다. 소프트웨어가 특정 비행 모드를 지원할 수없는 경우 기체의 설정값을 미러링하여야 합니다.
 
-:::tip MAVLink를 통해 PX4 UORB 토픽에서 ROS 로의 메시지 흐름은 모두 [PX4 장애물 회피 > 메시지 흐름](https://github.com/PX4/avoidance#message-flows)에 문서화되어 있습니다.
+:::tip
+The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
 :::
 
 이 인터페이스를 사용하는 모든 서비스는 동일한 유형과 형식의 메시지를 송수신합니다. 따라서 개발자는 이 인터페이스를 사용하여 새로운 보조 컴퓨터의 경로 계획 서비스를 만들거나 기존 플래너 소프트웨어를 조정할 수 있습니다.
 
 :::note
-[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)는 경로계획 소프트웨어 개발에 권장됩니다. [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 소프트웨어는 사전 설치되어 제공되며, 자체 알고리즘으로 사용할 수 있습니다.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)는 경로계획 소프트웨어 개발에 권장됩니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
 :::
 
 ## PX4 설정
@@ -24,7 +25,7 @@ PX4는 보조 컴퓨터의 경로 계획 서비스 통합을 위하여 여러 �
 
 ## 보조 컴퓨터 설정
 
-보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
 
 필요한 실제 구성과 설정은 사용하는 플래너에 따라 달라집니다.
 
@@ -146,7 +147,7 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
 
 ## 지원 하드웨어
 
-시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4 회피](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 
 <!-- ## Further Information -->
