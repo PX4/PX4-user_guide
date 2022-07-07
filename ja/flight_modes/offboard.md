@@ -99,7 +99,7 @@ The *setpoint type* values below are not part of the MAVLink standard for the `t
 
         The values are:
         - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
   - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)

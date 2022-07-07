@@ -99,7 +99,7 @@
 
         값들은 다음과 같습니다:
         - -12288 : Loiter 설정점 (설정점에 매우 가까워지면 기체는 멈춤).
-    * 속도 설정점 (`vx`, `vy`, `vz` 만 해당)
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
   - PX4는 좌표 프레임 (`coordinate_frame` 필드)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
