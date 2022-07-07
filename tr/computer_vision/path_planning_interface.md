@@ -10,13 +10,13 @@ PX4 uses a number of MAVLink interfaces for integrating path planning services f
 Path planning is enabled on PX4 in automatic modes (landing, takeoff, hold, mission, return) if [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID). In these modes planning software is expected to supply setpoints to PX4; if the software cannot support a particular flight mode it must mirror back setpoints from the vehicle.
 
 :::tip
-The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/avoidance > Message Flows](https://github.com/PX4/avoidance#message-flows).
+The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/PX4-Avoidance > Message Flows](https://github.com/PX4/PX4-Avoidance#message-flows).
 :::
 
 All services that use this interface send and receive messages of the same type/format. Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
 
 :::note
-The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
 :::
 
 ## PX4 Configuration
@@ -25,7 +25,7 @@ Path planning is activated in PX4 by [setting](../advanced_config/parameters.md)
 
 ## Companion Computer Setup
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
 
 The actual setup/configuration required depends on the planner being used.
 
@@ -147,7 +147,7 @@ In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 
 ## Supported Hardware
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 
 <!-- ## Further Information -->
