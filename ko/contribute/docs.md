@@ -44,7 +44,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 
 1. [https://git-scm.com/downloads](https://git-scm.com/downloads)에서 git 프로그램을 다운로드합니다.
 1. 아직 Github에 [가입](https://github.com/join)하지 않은 경우에는 가입합니다.
-1. Github에서 [PX4 사용자 가이드 저장소](https://github.com/PX4/px4_user_guide)의 복사본(포크)을 만듭니다([지침 참고](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
+1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. 복사된 저장소를 로컬 컴퓨터에 복제합니다.
    ```sh
    cd ~/wherever/
