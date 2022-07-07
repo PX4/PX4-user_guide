@@ -7,7 +7,7 @@
 PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4에 기여 결과를 공유할 수 있습니다.
 
 * 아직 Github에 계정이 없으면, 먼저 [가입](https://github.com/join)합니다.
-* PX4-Autopilot 저장소를 포크합니다([이곳](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)을 참고).
+* Fork the PX4-Autopilot re[p (see [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
 * 포크된 저장소를 로컬 컴퓨터에 복제합니다.<br>
   ```sh
   cd ~/wherever/
