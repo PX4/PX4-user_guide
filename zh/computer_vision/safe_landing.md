@@ -27,11 +27,11 @@ PX4通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../a
 
 ## 机载计算机设置
 
-这涵盖了用于避障和防撞的通用设置，包括使用*安全着陆规划*的特定部分（此功能提供了机载计算机侧的支持）：
+Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
 
 This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the *safe landing planner* (which provides companion-side support for this feature):
-* [仿真模拟安装配置](https://github.com/PX4/avoidance#safe-landing-planner)
-* [硬件安装配置](https://github.com/PX4/avoidance#safe-landing-planner-1)
+* [仿真模拟安装配置](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+* [硬件安装配置](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 配置信息除了其他外，还包括使用不同的相机怎样设置安全着陆，无人机大小和决定是否降落的高度。
 
@@ -46,11 +46,11 @@ PX4 和机载设备之间的（消息发送）接口与任何其他路径规划�
 
 ## 支持的硬件
 
-测试过的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 ## 更多信息
 
 * [视觉和外部控制接口](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 开发者峰会2019: Martina Rivizzigno, Auterion Computer Vision Engineerer)
-* [PX4/avoidance](https://github.com/PX4/avoidance)
-  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+* [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
+  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
