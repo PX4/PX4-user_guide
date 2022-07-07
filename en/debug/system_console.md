@@ -35,7 +35,7 @@ The System Console UART pinouts/debug ports are typically documented in [autopil
 <a id="pixhawk_debug_port"></a>
 ### Pixhawk Debug Port
 
-Flight controllers that adhere to the Pixhawk Connector standard use the [Pixhawk Standard Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
+Flight controllers that adhere to the Pixhawk Connector standard use the [Pixhawk Standard Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 The port/FTDI mapping is shown below.
 

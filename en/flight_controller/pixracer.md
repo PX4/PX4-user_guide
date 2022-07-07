@@ -172,7 +172,7 @@ Pin | Signal | Volt
 
 #### Debug Port
 
-This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
+This is a [Pixhawk Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
 Pin | Signal | Volt
 --- | --- | ---

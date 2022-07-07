@@ -30,7 +30,7 @@ With this environment developers can:
 _QGroundControl for Windows_ is additionally required if you need to:
 - [Update firmware](#flash-a-flight-control-board) on a real vehicle.
 - Monitor a real vehicle.
-  Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#connect-qgroundcontrol-on-windows-to-wsl-simulation).
+  Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#qgroundcontrol-on-windows).
 
 
 :::note

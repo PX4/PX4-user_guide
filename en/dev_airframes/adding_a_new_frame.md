@@ -19,7 +19,7 @@ The configuration file consists of several main blocks:
 * Airframe-specific parameter settings, including [tuning gains](#tuning-gains)
 * The controllers and apps it should start, e.g. multicopter or fixed wing controllers, land detectors etc.
 * The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry.
-  Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](concept/control_allocation.md) parameters (from PX4 v1.13).
+  Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](../concept/control_allocation.md) parameters (from PX4 v1.13).
 
 These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
 

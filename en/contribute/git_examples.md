@@ -6,7 +6,7 @@
 Adding a feature to PX4 follows a defined workflow. In order to share your contributions on PX4, you can follow this example.
 
 * [Sign up](https://github.com/join) for github if you haven't already
-* Fork the PX4-Autopilot re[p (see [here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository))
+* Fork the PX4-Autopilot re[p (see [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
 * Clone your forked repository to your local computer<br>
   ```sh
   cd ~/wherever/
