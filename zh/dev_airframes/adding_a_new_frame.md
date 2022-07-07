@@ -17,7 +17,7 @@ The configuration file consists of several main blocks:
 * 机架说明文档(被[Airframes Reference](../airframes/airframe_reference.md)和*QGroundControl*) 使用。
 * Airframe-specific parameter settings, including [tuning gains](#tuning-gains)
 * 应该启动的控制器和应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
-* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry. Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](concept/control_allocation.md) parameters (from PX4 v1.13).
+* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry. Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](../concept/control_allocation.md) parameters (from PX4 v1.13).
 
 一个典型的配置文件如下所示 ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
