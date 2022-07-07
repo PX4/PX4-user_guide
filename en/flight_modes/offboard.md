@@ -155,5 +155,6 @@ Typically developers do not directly work at the MAVLink layer, but instead use 
 The following resources may be useful for a developer audience:
 
 * [Offboard Control from Linux](../ros/offboard_control.md)
-* [ROS/MAVROS Offboard Example (C++)](ros/mavros_offboard_cpp.md)
-* [ROS/MAVROS Offboard Example (Python)](ros/mavros_offboard_python.md)
+* [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md)
+* [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md)
+
