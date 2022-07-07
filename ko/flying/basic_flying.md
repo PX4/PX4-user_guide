@@ -13,7 +13,7 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 드론 시동을 거는 방법
 - First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
 - 기체에 arm 명령을 사용하십시오. 스로틀 스틱을 오른쪽 하단에 놓으면 시동 명령이 실행됩니다.
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming-switch).
+  - Alternatively configure an [arm/disarm switch](../config/safety.md#arm-disarm-switch).
   - *QGroundControl*에서 시동을 걸 수도 있습니다. PX4는 자율 비행을 위해서 무선 조종기가 반드시 필요하지 않습니다.
 
 :::tip

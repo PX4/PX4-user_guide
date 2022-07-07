@@ -12,5 +12,5 @@ Note *MoCap* 在概念上类似于  [视觉惯性测距 （VIO）](../computer_v
 
 有关 MoCap 的信息，请参阅：
 - [使用视觉或运动捕捉系统进行位置估计](../ros/external_position_estimation.md)。 <!-- bring across info into user guide? -->
-- [使用运动捕捉飞行 （VICON，Optitrack）](../tutorials/motion-capture-vicon-optitrack.md)。  <!-- bring across info into user guide? -->
+- [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture.md).  <!-- bring across info into user guide? -->
 - [EKF > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)

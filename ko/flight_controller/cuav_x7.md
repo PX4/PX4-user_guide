@@ -26,7 +26,7 @@
 * 고성능 프로세서
 
 :::tip
-제조업체 [CUAV 문서](https://doc.cuav.net/x7/en/x7.html)는 X7의 표준입니다. 가장 정확한 최신 정보를 포함하고 있습니다.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are the canonical reference for the X7. 가장 정확한 최신 정보를 포함하고 있습니다.
 :::
 
 

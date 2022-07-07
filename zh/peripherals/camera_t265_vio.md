@@ -11,7 +11,7 @@ This camera is recommended, and is used in the [Visual Inertial Odometry (VIO) >
 
 ## Purchase Link
 
-[Intel® RealSense™ Tracking Camera T265](https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html) (store.intelrealsense.com)
+[Intel® RealSense™ Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) (store.intelrealsense.com)
 
 
 ## Setup Instructions

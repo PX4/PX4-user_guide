@@ -83,7 +83,7 @@ To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#S
 
 Configure [RC loss and low battery failsafe](../config/safety.md). Configure [RC loss and low battery failsafe](../config/safety.md). Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
 
-Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arming-switch). Test it and train to use it!
+Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arm-disarm-switch). Test it and train to use it!
 
 
 ### PID Tuning

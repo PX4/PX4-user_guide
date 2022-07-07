@@ -31,7 +31,7 @@ The system console can be accessed through the Dronecode probe or an FTDI cable.
 
 ### Connecting via FTDI 3.3V Cable
 
-连接控制台连接后，请使用您选择的默认串口工具或下面描述的默认工具：
+Flight controllers that adhere to the Pixhawk Connector standard use the [Pixhawk Standard Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 在 Ubuntu 上安装 screen （mac os 已经安装了它）：
 

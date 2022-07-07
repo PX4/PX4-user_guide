@@ -27,11 +27,11 @@
 
 ## 보조 컴퓨터 설정
 
-보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
+Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
 
 여기에는 장애물 회피 및 충돌 방지를위한 일반적인 설정이 포함되며 *안전 착륙 플래너* (이 기능은 보조컴퓨터에서 제공)를 사용하기위한 특정 섹션이 포함됩니다.
-* [시뮬레이션 설정](https://github.com/PX4/avoidance#safe-landing-planner)
-* [하드웨어 설정](https://github.com/PX4/avoidance#safe-landing-planner-1)
+* [시뮬레이션 설정](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+* [하드웨어 설정](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 구성 정보에는 다양한 카메라, 차량 크기 및 착륙 여부를 결정하는 높이에 대한 안전 착륙을 설정 방법이 포함하고 있습니다.
 
@@ -46,11 +46,11 @@ PX4와 보조 컴퓨터간의 인터페이스(전송된 메시지)는 다른 경
 
 ## 지원 하드웨어
 
-시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4 회피](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 ## 추가 정보
 
 * [비전 및 보드 외부 제어 인터페이스](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 개발자 서밋 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
-* [PX4 회피 기능](https://github.com/PX4/avoidance)
-  * [시뮬레이션 설정 > 안전 착륙 플래너](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [하드웨어 설정 > 안전 착륙 플래너](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+* [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
+  * [시뮬레이션 설정 > 안전 착륙 플래너](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+  * [하드웨어 설정 > 안전 착륙 플래너](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)

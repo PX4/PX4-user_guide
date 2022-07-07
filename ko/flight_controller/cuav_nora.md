@@ -3,7 +3,7 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.cuav.net)에 문의하십시오.
 :::
 
-[Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> 비행 컨트롤러는 고성능 자동조종장치입니다. 산업용 드론과 대형 대형 드론에 적합합니다. 주로 상용 제조업체에 공급됩니다.
+The [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. 산업용 드론과 대형 대형 드론에 적합합니다. 주로 상용 제조업체에 공급됩니다.
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora.png)
 
@@ -26,7 +26,7 @@ Nora는 CUAV X7의 변종입니다. 통합 마더 보드(소프트와 하드 보
 * 고성능 프로세서
 
 :::tip
-제조업체 [CUAV 문서](https://doc.cuav.net/x7/en/nora.html)는 Nora의 표준입니다. 가장 정확한 최신 정보를 포함하고 있습니다.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora. 가장 정확한 최신 정보를 포함하고 있습니다.
 :::
 
 
@@ -75,7 +75,7 @@ PX4 펌웨어를 실행하면, 8개의 PWM 출력만 작동합니다.
 
 ## 배선
 
-[CUAV Nora 배선 개요](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+[CUAV Nora 배선 개요](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
 ## 크기와 핀배열
 
@@ -151,6 +151,6 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 
 ## 추가 정보
 
-* [빠른 시작](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+* [빠른 시작](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 * [CUAV 문서](http://doc.cuav.net)
 * [nora 회로도](https://github.com/cuav/hardware/tree/master/X7_Autopilot)

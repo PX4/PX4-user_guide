@@ -82,7 +82,7 @@ PX4 *developers* need to know the FMU version of their board, as this is require
 - **FMUv4:** RAM 증가. 더 빨라진 CPU. 더 많은 직렬 포트. IO 프로세서 없음 ([Pixracer](../flight_controller/pixracer.md))
 - **FMUv4-PRO:** 약간 증가된 RAM. 더 많은 직렬 포트. IO 프로세서 ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 - **FMUv5:** 새 프로세서 (F7). 훨씬 더 빨라짐. 더 많은 RAM. 더 많은 CAN 버스. Much more configurable. ([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
-- **FMUv5X:** New processor (F7). Much faster, Modular design. More reliable. More Redundancy. 더 많은 RAM. 더 많은 CAN 버스. Much more configurable & customizable .([Pixhawk 5X](../flight_controller/pixhawk5X.md), Skynode)
+- **FMUv5X:** New processor (F7). Much faster, Modular design. More reliable. More Redundancy. 더 많은 RAM. 더 많은 CAN 버스. Much more configurable & customizable .([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
 
 <span id="licensing-and-trademarks"></span>
 ### 라이선스와 상표

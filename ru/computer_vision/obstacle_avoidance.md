@@ -29,7 +29,7 @@ The desired route comes from a [ROS](../ros/README.md) node running on a compani
 
 The only required PX4-side setup is to put PX4 into *Offboard mode*.
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
 
 
 <span id="mission_mode"></span>
@@ -65,7 +65,7 @@ Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/paramet
 
 ## Companion Computer Setup
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
 
 Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
 
@@ -79,7 +79,7 @@ The interface (messages sent) between PX4 and the companion are *exactly* the sa
 
 ## Supported Hardware
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 
 <!-- ## Further Information -->

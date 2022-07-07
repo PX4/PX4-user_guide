@@ -131,7 +131,7 @@ make px4_fmu-v5_default
 
 ![픽스호크4 디버그 포트](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
-핀배열은 표준 [Pixhawk 디버그 커넥터 핀배열](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)을 사용합니다. 배선 정보는 다음을 참조하십시오.
+The pinout uses the standard [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). 배선 정보는 다음을 참조하십시오.
 - [시스템 콘솔 &gt; Pixhawk 디버그 포트](../debug/system_console.md#pixhawk_debug_port)
 
 

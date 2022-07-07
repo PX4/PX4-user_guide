@@ -12,5 +12,5 @@ Motion Capture (MoCap) is a [computer vision](https://en.wikipedia.org/wiki/Comp
 
 For information about MoCap see:
 - [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md). <!-- bring across info into user guide? -->
-- [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture-vicon-optitrack.md).  <!-- bring across info into user guide? -->
+- [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture.md).  <!-- bring across info into user guide? -->
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)

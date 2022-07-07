@@ -132,7 +132,7 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 ![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
-The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug). For wiring information see:
+The pinout uses the standard [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). For wiring information see:
 - [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
 
 

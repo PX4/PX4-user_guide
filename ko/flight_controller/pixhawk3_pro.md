@@ -56,7 +56,7 @@ make px4_fmu-v4pro_default
 
 ![디버그 포트](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
 
-핀배열과 커넥터는 [Pixhawk 표준 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)(JST SM06B 커넥터)를 준수합니다.
+The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
 | 핀     | 신호               | 전압    |
 | ----- | ---------------- | ----- |

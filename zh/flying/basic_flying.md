@@ -13,7 +13,7 @@ Before you can fly the vehicle it must first be [armed](../getting_started/px4_b
 解锁无人机
 - First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety-switch).
 - 对您的机体使用解锁命令 - 将油门杆放在右下角。
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming-switch).
+  - Alternatively configure an [arm/disarm switch](../config/safety.md#arm-disarm-switch).
   - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
 
 :::tip
