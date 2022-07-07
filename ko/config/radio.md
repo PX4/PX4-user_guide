@@ -2,6 +2,9 @@
 
 *무선 조종기 설정* 화면은 송신기의 기본 자세 제어 스틱(롤, 피치, 요, 스로틀)을 채널에 매핑하고 최소, 최대, 트림 및 리버스 설정을 보정합니다.
 
+:::note RC
+Control is enabled by default, but a [joystick](../config/joystick.md) may be enabled instead (or as a fallback) using the [parameter](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE). :::
+
 ## 수신기 바인딩
 
 무선 시스템을 보정을 하기 위하여 우선 수신기와 송신기를 바인딩하여야 합니다. 송신기와 수신기를 바인딩 프로세스는 하드웨어에 따라 조금씩 차이가 날 수 있습니다 (자세한 지침은 설명서 참조).
