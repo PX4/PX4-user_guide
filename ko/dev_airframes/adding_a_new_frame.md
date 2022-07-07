@@ -17,7 +17,7 @@ The configuration file consists of several main blocks:
 * 기체 문서([기체 정의서](../airframes/airframe_reference.md) 및 *QGroundControl*에서 사용됨).
 * Airframe-specific parameter settings, including [tuning gains](#tuning-gains)
 * 시작해야 하는 컨트롤러 및 앱(예: 멀티콥터 또는 고정익 컨트롤러, 지면 탐지기 등)
-* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry. Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](concept/control_allocation.md) parameters (from PX4 v1.13).
+* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry. Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](../concept/control_allocation.md) parameters (from PX4 v1.13).
 
 이러한 측면은 대부분 독립적이므로, 많은 구성이 기체의 동일한 물리적 레이아웃을 공유하고 동일한 응용 프로그램을 시작하며 튜닝 이득이 가장 차이가 납니다.
 
