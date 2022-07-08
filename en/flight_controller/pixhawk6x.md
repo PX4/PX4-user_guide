@@ -11,7 +11,7 @@ It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.co
 
 Equipped with a high performance H7 Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
-<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="250px" title="Pixhawk6X Upright Image" /> <img src="../../assets/flight_controller/pixhawk6X/pixhawk6x_exploded_diagram.png" width="300px" title="Pixhawk6X Exploded Image" />
+<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="250px" title="Pixhawk6X Upright Image" /> <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_exploded_diagram.png" width="300px" title="Pixhawk6X Exploded Image" />
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
