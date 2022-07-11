@@ -171,7 +171,7 @@
 </audio>
 <!-- 10, ARMING_FAILURE -->
 
-- Arming failed
+- 시동 실패
 
 #### 배터리 경고음
 
@@ -181,7 +181,7 @@
 </audio>
 <!-- 7,  BATTERY_WARNING_SLOW -->
 
-- Low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- 배터리 부족 경고 ([사고 방지](../config/safety.md#low-battery-failsafe)).
 
 #### 배터리 심각 경고음
 
@@ -191,7 +191,7 @@
 </audio>
 <!-- 8, BATTERY_WARNING_FAST -->
 
-- Critical low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- 배터리가 매우 부족([사고 방지](../config/safety.md#low-battery-failsafe)).
 
 
 #### 느린 GPS 경고
@@ -210,10 +210,10 @@
 </audio>
 <!-- 11, PARACHUTE_RELEASE -->
 
-- Parachute release triggered.
+- 낙하산이 펼쳤졌음.
 
 
-#### Single Beep
+#### 단일 경고음
 
 <audio controls>
   <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg">
@@ -221,9 +221,9 @@
 </audio>
 <!-- 12, SINGLE_BEEP (previously was id 14 -->
 
-- Magnetometer/Compass calibration: Notify user to start rotating vehicle.
+- 자력계/나침반 보정 : 차량 회전을 시작하도록 사용자에게 알립니다.
 
-#### Home Set Tune
+#### 홈 지정 음
 
 <audio controls>
   <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg">
@@ -231,15 +231,15 @@
 </audio>
 <!-- 13, HOME_SET (previously id 15) -->
 
-- Home position initialised (first time only).
+- 홈 위치가 초기화되었습니다 (처음에만).
 
-#### Power Off Tune
+#### 전원 꺼짐 음
 
 <audio controls>
   <source src="../../assets/tunes/power_off_tune.mp3" type="audio/mpeg">
 브라우저가 오디오 기능을 지원하지 않습니다. 
 </audio>
 
-- Vehicle powering off.
+- 차량 전원 꺼짐.
 
 <!--19, POWER_OFF -->
