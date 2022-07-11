@@ -108,16 +108,17 @@ Sample Wiring Diagram
 
 * [Holybro Pixhawk 6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
-<!---
 ## Serial Port Mapping
 
-SERIAL_GPS1 /dev/ttyS0
-SERIAL_GPS2 /dev/ttyS6
-SERIAL_TEL1 /dev/ttyS5
-SERIAL_TEL2 /dev/ttyS3
-SERIAL_TEL3 /dev/ttyS1
-
---->
+UART | Device | Port
+--- | --- | ---
+USART1 | /dev/ttyS0 | GPS1
+USART2 | /dev/ttyS1 | TELEM3
+USART3 | /dev/ttyS2 | Debug Console
+UART4 | /dev/ttyS3 | TELEM2
+USART5 | /dev/ttyS4 | PX4IO/RC
+UART6 | /dev/ttyS5 | TELEM1
+UART7 | /dev/ttyS6 | GPS2
 
 ## Dimensions
 
