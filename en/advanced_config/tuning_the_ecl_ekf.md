@@ -278,6 +278,15 @@ Range finder distance to ground is used by a single state filter to estimate the
 
 If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter to 2.
 
+#### Range finder blockage detection
+When not used as the primary height source, blockage is detected using a kinematic consistency check between the vertical velocity estimate and the numerical derivative of the range finder data. If the range finder is statistically inconsistent with EKF2, the sensor is rejected for the rest of the flight unless the statistical test passes again for at least 1 second at a vertical speed of 0.5m/s or more.
+Note that the check is only active while the vehicle is hovering as it assumes a static ground height.
+In order to obtain a good detection, the range finder noise parameter needs to be tightly tuned using flight data. Then, the kinematic consistency gate parameter can be adjusted to obtain the desired fault detection sensitivity.
+
+Tuning parameters:
+- [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE)
+- [EKF2_RNG_K_GATE](../advanced_config/parameter_reference.md#EKF2_RNG_K_GATE)
+
 ### Airspeed
 
 Equivalent Airspeed (EAS) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) to a positive value.
