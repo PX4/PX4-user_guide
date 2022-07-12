@@ -178,6 +178,11 @@ Tuning parameters:
 - [EKF2_PCOEF_YN](../advanced_config/parameter_reference.md#EKF2_PCOEF_YN)
 - [EKF2_PCOEF_Z](../advanced_config/parameter_reference.md#EKF2_PCOEF_Z)
 
+#### Barometer bias compensation
+
+A barometer at a constant altitude is subject to drift in its measurements due to changes of the ambient pressure environment and variation of the sensor temperature.
+To compensate for this measurement error, EKF2 estimates the bias using GNSS height (if available) a "non drifting" reference. No tuning is required.
+
 ### GPS
 
 #### Position and Velocity Measurements
