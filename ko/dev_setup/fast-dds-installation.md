@@ -39,15 +39,6 @@ Remember (again) you only need to install Fast DDS if you are not using ROS 2 an
 
 Java is required to build and use eProsima's RTPS/DDS from IDL code generation tool - *Fast-RTPS-Gen*. [Java JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is recommended, and it is installed through the setup scripts made available in [Ubuntu Development Environment](../dev_setup/dev_env_linux.md).
 
-### Gradle
-
-*eProsima Fast DDS*를 사용하려면 설치 또는 컴파일 중에 선택한 Visual Studio 버전용 Visual C++ 재배포 가능 패키지가 필요합니다. 설치 프로그램은 다운로드 및 설치 옵션을 제공합니다.
-
-:::warning
-Do not install Gradle version 7 or higher.
-The recommended version is 6.3.
-:::
-
 ### Foonathan 메모리
 
 Linux에서는 다음 명령어들을 실행하십시오.
@@ -60,7 +51,8 @@ cmake ..
 cmake --build . --target install
 ```
 
-이렇게 하면 보안 통신 지원과 함께 Fast DDS가 `/usr/local`에 설치됩니다. 사용자 지정 위치에 설치해야 하는 경우 `-DCMAKE_INSTALL_PREFIX=<path>`을 사용할 수 있습니다.
+이렇게 하면 보안 통신 지원과 함께 Fast DDS가 `/usr/local`에 설치됩니다.
+:::
 
 
 ## 소스 코드로 설치하기
@@ -98,12 +90,23 @@ $ sudo make install
 :::note
 바이너리를 사용할 수 있지만, 바이너리가 필수 구성 요소 및 종속성과 함께 제공되지 않을 수 있으므로, 소스를 빌드하고 설치하는 것이 좋습니다. It should be installed after Fast RTPS (DDS) and made sure the `fastrtpsgen` application is in your `PATH`. You can check with `which fastrtpsgen`.
 
-*eProsima Fast DDS*의 최신 바이너리 릴리스는 [회사 웹사이트](http://www.eprosima.com/)에서 다운로드할 수 있습니다.
+Then clone Fast-RTPS-Gen 1.0.4:
 ```
 git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
-    && cd ~/Fast-RTPS-Gen \
-    && gradle assemble \
-    && sudo env "PATH=$PATH" gradle install
+
+&& cd ~/Fast-RTPS-Gen/gradle/wrapper
+```
+
+After that, modify the distribution version  of gradle inside the gradle-wrapper.properties file to gradle-6.8.3 such that the distributionUrl file becomes as follows:
+
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.8.3-bin.zip
+```
+Now you should run the following commands:
+
+```
+    cd ~/Fast-RTPS-Gen 
+    ./gradlew assemble && sudo env "PATH=$PATH" ./gradlew install
 ```
 
 ## 바이너리로 설치
