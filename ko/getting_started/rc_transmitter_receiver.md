@@ -110,7 +110,7 @@ If you are using a *Spektrum* receiver, you can put it into bind mode using *QGr
 
 RC 수신기에는 신호 손실을 나타내는 여러가지 방법이 있습니다.
 - 아무것도 출력하지 않음 (PX4에서 자동으로 감지됨)
-- Output a low throttle value (you can [configure PX4 to detect this](../config/radio.md#rc-loss-detection)).
+- 낮은 스로틀 값을 출력합니다. [이를 감지하도록 PX4에서 설정](../config/radio.md#rc-loss-detection)할 수 있습니다.
 - 마지막으로 수신된 신호를 출력합니다. 이 경우는 PX4에서 처리할 수 없습니다.
 
 RC 손실이 발생하면 대부분 아무 신호도 전송하지 않는 수신기를 선택하지만, 낮은 스로틀 값을 전송하는 수신기를 선택할 수도 있습니다. 이 동작은 수신기의 설정이 필요할 수 있습니다(설명서 확인).
