@@ -5,12 +5,13 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
-This quick start guide shows how to power the [Pixhawk<sup>&reg;</sup> 6C](../flight_controller/pixhawk6c.md) flight controller and connect its most important peripherals.
+This quick start guide shows how to power the [Pixhawk 6C<sup>&reg;</sup>](../flight_controller/pixhawk6c.md) flight controller and connect its most important peripherals.
 
-
-<img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_standard_set.jpg" width="320px" title="Pixhawk6c standard set" />
+## Kit Contents
 
 Pixhawk 6C + PM02 + M8N GPS.
+
+![Pixhawk6c standard set](../../assets/flight_controller/pixhawk6c/pixhawk6c_standard_set.jpg)
 
 <!--
 ## Wiring Chart Overview
@@ -25,7 +26,8 @@ The image below is sample wiring diagram that shows how to connect the most impo
 *Pixhawk 6C* can be mounted on the frame using double side tape included in the kit.
 It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-<img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_vehicle_front1.jpg" width="200px" title="Pixhawk6c" />
+<img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_vehicle_front1.jpg" width="300px" title="Pixhawk6c - mounting orientation" />
+
 
 :::note
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
@@ -124,7 +126,7 @@ Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT*
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 
-:::caution
+:::warning
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 :::
 

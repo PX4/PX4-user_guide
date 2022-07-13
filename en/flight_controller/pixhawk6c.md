@@ -7,8 +7,8 @@ Contact the [manufacturer](https://shop.holybro.com/) for hardware support or co
 
 *Pixhawk 6C*<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
 
-It is
-Equipped with a high performance H7 Processor, based on the [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf), IMU redundancy, temperature-controlled IMU board, cost effective design, delivering incredible performance and reliability.
+It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability.
+It complies with the [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). 
 
 <img src="../../assets/flight_controller/pixhawk6c/pixhawk6c_hero_upright.png" width="250px" title="Pixhawk6c Upright Image" />
 
@@ -57,7 +57,7 @@ The Pixhawk® 6C is perfect for developers at corporate research labs, startups,
   * USB Power Input: 4.75\~5.25V
   * Servo Rail Input: 0\~36V
 * Current Ratings:
-  * Telem1 Max output current limiter: 1.5A
+  * TELEM1 Max output current limiter: 1.5A
   * All other port combined output current limiter: 1.5A
 
 ### **Mechanical data**
@@ -69,9 +69,9 @@ The Pixhawk® 6C is perfect for developers at corporate research labs, startups,
 
 * 16- PWM servo outputs (8 from IO, 8 from FMU)
 * 3 general purpose serial ports
-  * Telem1 - Full flow control, separate 1.5A current limit
-  * Telem2 - Full flow control
-  * Telem3
+  * TELEM1 - Full flow control, separate 1.5A current limit
+  * TELEM2 - Full flow control
+  * TELEM3
 * 2 GPS ports
   * GPS1 - Full GPS port (GPS plus safety switch)
   * GPS2 - Basic GPS port
@@ -79,7 +79,7 @@ The Pixhawk® 6C is perfect for developers at corporate research labs, startups,
   * Supports dedicated I2C calibration EEPROM located on sensor module
 * 2 CAN Buses
   * CAN Bus has individual silent controls or ESC RX-MUX control
-* 2 Debug port
+* 2 Debug ports:
   * FMU Debug
   * I/O Debug
 * Dedicated R/C input for Spektrum / DSM and S.BUS, CPPM, analog / PWM RSSI
