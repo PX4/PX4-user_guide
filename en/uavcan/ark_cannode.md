@@ -87,7 +87,7 @@ On the ARK CANnode, you may need to configure the following parameters:
 
 Parameter | Description
 --- | ---
-<a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | CAN built-in bus termination.
+<a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination.
 
 
 ## LED Meanings
