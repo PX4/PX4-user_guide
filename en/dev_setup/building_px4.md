@@ -86,23 +86,27 @@ A successful run will end with similar output to:
 
 The first part of the build target `px4_fmu-v4` indicates the firmware for a particular flight controller hardware.
 The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
-* [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
-* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
-* [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
-* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
-* [Pixracer](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
-* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
-* [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
-* [Pixhawk 2 (Cube Black)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
-* [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
-* [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
-* [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
+
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md): `make px4_fmu-v6c_default`
+- [Holybro Pixhawk 5X (FMUv5X)](../flight_controller/pixhawk5x.md): `make px4_fmu-v5x_default`
+- [Pixhawk 4 (FMUv5)](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
+- [Pixhawk 4 Mini (FMUv5)](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+- [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+- [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+- [Pixracer (FMUv4)](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
+- [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
+- [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
+- [Pixhawk 2 (Cube Black) (FMUv3)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
+- [mRo Pixhawk (FMUv3)](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
+- [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
+- [Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
+- [Dropix (FMUv2)](../flight_controller/dropix.md): `make px4_fmu-v2_default`
+- [Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
   :::warning
   You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
   :::
-* Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
+- Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
 Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
 
