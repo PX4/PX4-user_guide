@@ -72,8 +72,3 @@ The particular settings that are relevant to this vehicle are:
     ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
 - [Flight Modes/Switches](../config/flight_mode.md)
   - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.
-
-:::note
-By default permanent stabilization is enabled.
-To fly "fully manual" in fixed-wing mode, set [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB) to `0`.
-:::
