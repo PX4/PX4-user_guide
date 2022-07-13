@@ -75,6 +75,7 @@ Once enabled, the module will be detected on boot. Flow data should arrive at 10
 ### PX4 Configuration
 
 You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [UAVCAN](README.md) parameters, and define offsets if the sensor is not centred within the vehicle.
+
 - In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow. To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save.
 - Set [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) to `10`.
 - Set [EKF2_RNG_QLTY_T](../advanced_config/parameter_reference.md#EKF2_RNG_QLTY_T) to `0.2`.
@@ -89,10 +90,9 @@ You need to set the EKF optical flow parameters to enable fusing optical flow me
 
 On the ARK Flow, you may need to configure the following parameters:
 
-| Parameter                                                                                                 | Description                                                   |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| <a id="CANNODE_FLOW_ROT"></a>[CANNODE_FLOW_ROT](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame. |
-| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT)       | CAN built-in bus termination.                                 |
+| Parameter                                                                                       | Description                   |
+| ----------------------------------------------------------------------------------------------- | ----------------------------- |
+| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
 
 ## Building Ark Flow Firmware
