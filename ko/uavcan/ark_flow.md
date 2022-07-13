@@ -75,6 +75,7 @@ ARK Flow 보드를 사용하려면 Pixhawk CAN 버스에 연결하고 동적 노
 ### PX4 설정
 
 [Optical Flow > 추정기 > EKF2 ](../sensor/optical_flow.md#ekf2) 에서 EKF 광류 매개변수를 설정합니다.
+
 - In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow. To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save.
 - Set [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) to `10`.
 - [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)을 `0.08`로, [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)를 `30`으로 설정합니다.
@@ -89,10 +90,9 @@ ARK Flow 보드를 사용하려면 Pixhawk CAN 버스에 연결하고 동적 노
 
 또한 다음의 매개변수들을 설정할 수 있습니다.
 
-| 매개변수                                                                                                      | 설명                   |
-| --------------------------------------------------------------------------------------------------------- | -------------------- |
-| <a id="CANNODE_FLOW_ROT"></a>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | 광학 흐름에 의존시 지상 최대 높이. |
-| <a id="CANNODE_TERM"></a>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | 광학 흐름에 의존시 지상 최소 높이. |
+| 매개변수                                                                                            | 설명                   |
+| ----------------------------------------------------------------------------------------------- | -------------------- |
+| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | 광학 흐름에 의존시 지상 최소 높이. |
 
 
 ## Ark Flow 펌웨어 빌드
