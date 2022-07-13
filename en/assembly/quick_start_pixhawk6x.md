@@ -5,14 +5,19 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
-This quick start guide shows how to power the [Pixhawk<sup>&reg;</sup> 6X](../flight_controller/pixhawk6x.md) flight controller and connect its most important peripherals.
+This quick start guide shows how to power the [Pixhawk 6X<sup>&reg;</sup>](../flight_controller/pixhawk6x.md) flight controller and connect its most important peripherals.
+
+## Kit Contents
+
+### Pixhawk 6X Standard Set
+
+![Pixhawk 6x standard set](../../assets/flight_controller/pixhawk6x/pixhawk6x_standard_set.jpg)
+
+### Pixhawk 6X Mini Set
+
+![Pixhawk 6x mini standard set](../../assets/flight_controller/pixhawk6x/pixhawk6x_mini_set.jpg)
 
 
-<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_standard_set.jpg" width="320px" title="Pixhawk6x standard set" />
-
-<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_mini_set.jpg" width="320px" title="Pixhawk6x standard set" />
-
-Pixhawk 6X Standard Set & Pixhawk 6X Mini Set
 ## Wiring Chart Overview
 
 The image below is sample wiring diagram that shows how to connect the most important sensors and peripherals.
@@ -131,7 +136,7 @@ Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT*
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 
-:::caution
+:::warning
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 :::
 
