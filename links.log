@@ -1,0 +1,2286 @@
+Crawling...
+
+Access to these URLs denied by robots.txt, so we couldn't check them:
+- http://store.rfdesign.com.au/rfd-868-modem/
+- http://store.rfdesign.com.au/rfd-900p-modem/
+- http://store.rfdesign.com.au/rfd-900u-radio-modem/
+- https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana
+- https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney
+- https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich
+- https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&mode=WEEK&height=600&wkst=1&bgcolor=%23FFFFFF&src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&color=%23691426&ctz=Europe%2FZurich
+- https://crowdin.com/join
+- https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz
+- https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit
+- https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit
+- https://docs.google.com/spreadsheets/d/1raRRouNsveQz8cj-EneWG6iW0dqGfRAifI91I2Sr5E0/edit
+- https://downloads.raspberrypi.org/raspios_lite_armhf_latest
+- https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view
+- https://fccid.io/PPD-QCNFA324
+- https://logs.px4.io/plot_app?log=6de8b8cd-74f9-4eae-ad2f-76867e916f4f
+- https://logs.px4.io/plot_app?log=9c311942-bc7c-4b0c-8be8-eeb64fa8192c
+- https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45
+- https://meet.jit.si/PX4DeveloperCallWeekly
+- https://rcn-ee.net/rootfs/bb.org/testing/
+- https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf
+- https://store.drotek.com/
+- https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html
+- https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html
+- https://store.drotek.com/dropix-autopilots
+- https://teamorion.com/en/batteries-en/lipo/soft-case/team-orion-lipo-1800-2s-7-4v-50c-xt60-en/
+- https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600
+- https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670
+- https://youtu.be/91VGmdSlbo4
+- https://youtu.be/91VGmdSlbo4?t=1m14s
+- https://youtu.be/91VGmdSlbo4?t=1m46s
+- https://youtu.be/91VGmdSlbo4?t=2m38s
+- https://youtu.be/91VGmdSlbo4?t=35s
+- https://youtu.be/91VGmdSlbo4?t=4m30s
+- https://youtu.be/91VGmdSlbo4?t=6m53s
+- https://youtu.be/CxIsJWtVaTA?t=963
+- https://youtu.be/HNedXQ_jhYo
+- https://youtu.be/HkYRJJoyBwQ
+- https://youtu.be/sNV_SDDxuWk
+
+https://docs.px4.io/main/en/advanced/
+- (107:6992) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced/computer_vision
+- (110:14) 'PX4 avoi..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/advanced/computer_vision.html
+- (110:14) 'PX4 avoi..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/advanced/parameters_and_configurations.html
+- (233:992) 'px4board..' => https://github.com/PX4/PX4-Autopilot/blob/release/1.12/boards/omnibus/f4sd/default.pxboard (HTTP 404)
+
+https://docs.px4.io/main/en/advanced/system_tunes.html
+- (107:7232) 'ANSI Mus..' => http://artscene.textfiles.com/ansimusic/information/ansimtech.txt (connection failed)
+- (108:1132) 'ANSI Mus..' => http://artscene.textfiles.com/ansimusic/information/ansimtech.txt (connection failed)
+
+https://docs.px4.io/main/en/advanced_config/
+- (108:444) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/advanced_flight_controller_orientation_leveling.html
+- (113:128) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/advanced_flight_controller_orientation_leveling.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/bootloader_update.html
+- (107:5865) 'PX4 boot..' => https://github.com/PX4/Bootloader (HTTP 429)
+- (108:490) 'PX4 boot..' => https://github.com/PX4/Bootloader (HTTP 429)
+- (132:707) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/bootloader_update.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/bootloader_update_from_betaflight.html
+- (107:6785) 'Betaflig..' => https://github.com/betaflight/betaflight-configurator/releases (HTTP 429)
+- (108:582) 'Bootload..' => https://github.com/PX4/Bootloader (HTTP 429)
+- (115:969) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/bootloader_update_from_betaflight.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/compass_power_compensation.html
+- (109:697) 'mag_comp..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py (HTTP 429)
+- (114:573) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/compass_power_compensation.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/esc_calibration.html
+- (112:179) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/esc_calibration.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/ethernet_setup.html
+- (108:971) 'Pixhawk ..' => https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf (HTTP 429)
+- (148:411) 'MAVSDK-p..' => https://github.com/mavlink/MAVSDK-Python (HTTP 429)
+- (174:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/ethernet_setup.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/flight_termination.html
+- (113:1556) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/flight_termination.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/land_detector.html
+- (122:330) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/land_detector.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/parameters.html
+- (124:293) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/parameters.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/prearm_arm_disarm.html
+- (108:149) 'safety s..' => https://docs.px4.io/main/en/getting_started/px4_basic_concepts.html#safety_switch (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/advanced_config/sensor_thermal_calibration.html
+- (125:219) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/sensor_thermal_calibration.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/static_pressure_buildup.html
+- (113:144) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/static_pressure_buildup.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html
+- (114:160) 'Matlab S..' => https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m (HTTP 429)
+- (144:2042) 'baro_sta..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation (HTTP 429)
+- (173:1507) 'mc_wind_..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator (HTTP 429)
+- (181:746) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP 429)
+- (181:1425) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (181:2232) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/process_logdata_ekf.py (HTTP 429)
+- (183:227) 'batch_pr..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_logdata_ekf.py (HTTP 429)
+- (184:178) 'batch_pr..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_metadata_ekf.py (HTTP 429)
+- (184:1021) 'vehicle_..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_attitude.msg (HTTP 429)
+- (184:1747) 'vehicle_..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_local_position.msg (HTTP 429)
+- (184:2486) 'vehicle_..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_global_position.msg (HTTP 429)
+- (184:3225) 'wind_est..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/wind_estimate.msg (HTTP 429)
+- (184:4003) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (185:582) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (186:843) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP 429)
+- (188:46) 'the file..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP 429)
+- (221:35) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (225:169) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (225:1640) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (227:55) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (229:143) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (231:170) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (232:89) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP 429)
+- (232:786) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP 429)
+- (232:1517) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (241:381) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (241:1123) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (241:1852) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (241:2587) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (241:3324) 'vehicle_..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_gps_position.msg (HTTP 429)
+- (241:4064) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (242:39) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (242:760) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (242:1484) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (254:12) 'estimato..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (261:1161) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/tuning_the_ecl_ekf.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_features/
+- (107:5602) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_features/precland.html
+- (118:1207) 'MAV_CMD_..' => https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MODE (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/advanced_features/satcom_roadblock.html
+- (108:255) 'RockBloc..' => https://www.rock7.com/products/rockblock-9603-compact-plug-play-satellite-transmitter (HTTP 301 -> 302 => 404)
+  - redirect path:
+    - https://www.rock7.com/products/rockblock-9603-compact-plug-play-satellite-transmitter (301)
+    - https://www.groundcontrol.com/products/rockblock-9603-compact-plug-play-satellite-transmitter?refer=rock7 (302)
+    - /en/products/rockblock-9603-compact-plug-play-satellite-transmitter (404)
+- (108:1627) 'RockBloc..' => https://www.rock7.com/products/rockblock-iridium-9602-satellite-modem (HTTP 301 -> 302 => 404)
+  - redirect path:
+    - https://www.rock7.com/products/rockblock-iridium-9602-satellite-modem (301)
+    - https://www.groundcontrol.com/products/rockblock-iridium-9602-satellite-modem?refer=rock7 (302)
+    - /en/products/rockblock-iridium-9602-satellite-modem (404)
+- (115:309) 'AT comma..' => https://www.rock7.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf (HTTP 301 -> 302 => 404)
+  - redirect path:
+    - https://www.rock7.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf (301)
+    - https://www.groundcontrol.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf?refer=rock7 (302)
+    - /en/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf (404)
+
+https://docs.px4.io/main/en/advanced_features/traffic_avoidance_adsb.html
+- (108:1239) 'PingRX A..' => https://uavionix.com/product/pingrx/ (connection failed)
+- (108:1894) 'FLARM  (..' => https://flarm.com/products/powerflarm/uav/ (connection failed)
+- (114:157) '/src/mod..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp (HTTP 429)
+- (115:435) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/traffic_avoidance_adsb.md (HTTP 429)
+
+https://docs.px4.io/main/en/advanced_features/traffic_avoidance_utm.html
+- (111:418) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/traffic_avoidance_utm.md (HTTP 429)
+
+https://docs.px4.io/main/en/airframes/
+- (107:5193) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/airframes/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/airframes/airframe_reference.html
+- (107:4738) 'auto-gen..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py (HTTP 429)
+- (109:1358) 'ThunderF..' => https://github.com/ThunderFly-aerospace/Auto-G2/ (HTTP 429)
+- (109:2036) 'ThunderF..' => https://github.com/ThunderFly-aerospace/TF-G2/ (HTTP 429)
+- (109:2797) 'ThunderF..' => https://github.com/ThunderFly-aerospace/TF-B1/ (HTTP 429)
+- (109:43831) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/airframes/airframe_reference.md (HTTP 429)
+
+https://docs.px4.io/main/en/assembly/
+- (108:695) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/assembly/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/assembly/quick_start_cube.html
+- (108:12) 'manufact..' => https://cubepilot.org/#/home (HTTP 200 but missing anchor)
+- (109:52) 'Cube Use..' => https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual (connection failed)
+- (113:391) 'Here3  (..' => https://www.cubepilot.org/#/here/here3 (HTTP 200 but missing anchor)
+- (127:688) 'Cube Use..' => https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual (connection failed)
+
+https://docs.px4.io/main/en/assembly/quick_start_pixhawk4.html
+- (126:3719) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_pixhawk4.md (HTTP 429)
+
+https://docs.px4.io/main/en/assembly/quick_start_pixhawk5x.html
+- (118:505) 'here' => https://docs.px4.io/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf (HTTP 404)
+- (118:4595) 'Pixhawk ..' => https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf (HTTP 429)
+- (118:5322) 'Pixhawk ..' => https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf (HTTP 429)
+
+https://docs.px4.io/main/en/assembly/vibration_isolation.html
+- (112:1781) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/assembly/vibration_isolation.md (HTTP 429)
+
+https://docs.px4.io/main/en/complete_vehicles/
+- (119:1942) 'Airlango..' => http://airlango.com/products/ (HTTP 500)
+- (120:8) 'Sentera ..' => https://sentera.shop/products/sentera-phx-complete-system (HTTP 404)
+- (121:1379) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/complete_vehicles/betafpv_beta75x.html
+- (108:61) 'Fatshark..' => https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/ (HTTP 404)
+
+https://docs.px4.io/main/en/complete_vehicles/crazyflie2.html
+- (128:863) 'here  (o..' => https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions (HTTP 200 but missing anchor)
+- (136:17) 'multiple..' => https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming (HTTP 429)
+- (148:447) 'MAVROS  ..' => https://github.com/mavlink/mavros/tree/master/mavros#installation (HTTP 429)
+
+https://docs.px4.io/main/en/complete_vehicles/crazyflie21.html
+- (123:149) 'this  (o..' => https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#latest-fw (HTTP 200 but missing anchor)
+- (125:863) 'here  (o..' => https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions (HTTP 200 but missing anchor)
+- (134:17) 'multiple..' => https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming (HTTP 429)
+- (138:447) 'MAVROS  ..' => https://github.com/mavlink/mavros/tree/master/mavros#installation (HTTP 429)
+- (139:537) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/crazyflie21.md (HTTP 429)
+
+https://docs.px4.io/main/en/complete_vehicles/holybro_kopis2.html
+- (108:61) 'Fatshark..' => https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/ (HTTP 404)
+
+https://docs.px4.io/main/en/complete_vehicles/intel_aero.html
+- (118:486) 'Intel Ae..' => https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#installing-ubuntu-on-intel-aero (HTTP 200 but missing anchor)
+- (118:1252) 'Upgrade ..' => https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#upgrade-yocto-first (HTTP 200 but missing anchor)
+- (118:1980) 'OS  (ope..' => https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#os (HTTP 200 but missing anchor)
+- (118:2663) 'Intel Ae..' => https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-aero-repository (HTTP 200 but missing anchor)
+- (125:1077) 'aero wik..' => https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-realsense-sdk (HTTP 200 but missing anchor)
+- (127:202) 'Install ..' => https://github.com/intel-ros/realsense#step-3-install-intel-realsense-ros-from-sources (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://github.com/intel-ros/realsense (301)
+    - https://github.com/IntelRealSense/realsense-ros (200)
+
+https://docs.px4.io/main/en/complete_vehicles/px4_vision_kit.html
+- (110:69) 'PX4 Avoi..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (116:1487) 'PX4 Avoi..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (124:925) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (149:4414) 'PX4 disc..' => https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance (HTTP 404)
+
+https://docs.px4.io/main/en/computer_vision/
+- (113:14) 'PX4 avoi..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/computer_vision/collision_prevention.html
+- (135:563) 'feature ..' => https://github.com/PX4/PX4-Autopilot/pull/12179 (HTTP 429)
+- (137:176) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (138:57) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP 200 but missing anchor)
+- (139:71) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (141:4) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (141:751) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/collision_prevention.md (HTTP 429)
+
+https://docs.px4.io/main/en/computer_vision/obstacle_avoidance.html
+- (110:309) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (114:1253) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (114:2973) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP 200 but missing anchor)
+- (114:3680) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/obstacle_avoidance.md (HTTP 429)
+
+https://docs.px4.io/main/en/computer_vision/path_planning_interface.html
+- (111:354) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#message-flows (HTTP 200 but missing anchor)
+- (113:14) 'PX4 avoi..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (113:1293) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (131:333) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP 200 but missing anchor)
+- (131:1040) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/path_planning_interface.md (HTTP 429)
+
+https://docs.px4.io/main/en/computer_vision/safe_landing.html
+- (111:1110) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP 200 but missing anchor)
+- (111:2017) 'Simulati..' => https://github.com/PX4/PX4-Avoidance#safe-landing-planner (HTTP 200 but missing anchor)
+- (111:2677) 'Harware ..' => https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1 (HTTP 200 but missing anchor)
+- (112:332) 'PX4/PX4-..' => https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP 200 but missing anchor)
+- (112:2486) 'Simulati..' => https://github.com/PX4/PX4-Avoidance#safe-landing-planner (HTTP 200 but missing anchor)
+- (112:3172) 'Hardware..' => https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1 (HTTP 200 but missing anchor)
+- (112:3924) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/safe_landing.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/control_allocation.html
+- (113:84) 'src/libs..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/ (HTTP 429)
+- (116:197) 'src/lib/..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml (HTTP 429)
+- (116:1946) 'this com..' => https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7 (HTTP 429)
+- (117:132) 'This com..' => https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370 (HTTP 429)
+- (118:127) 'src/modu..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml (HTTP 429)
+- (119:28) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440= (HTTP 200 but missing anchor)
+- (126:786) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/control_allocation.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/events_interface.html
+- (108:43) 'both app..' => https://docs.px4.io/main/en/concept/events_interface.html#Backward-compatibility (HTTP 200 but missing anchor)
+- (151:859) 'src/lib/..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/events/enums.json (HTTP 429)
+- (151:1716) 'mavlink/..' => https://github.com/mavlink/libevents/blob/master/events/common.json (HTTP 429)
+- (154:310) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/events_interface.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/flight_modes.html
+- (135:662) 'MAVROS  ..' => https://github.com/mavlink/mavros (HTTP 429)
+- (135:1602) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/flight_modes.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/flight_tasks.html
+- (107:7044) 'FlightTa..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp (HTTP 429)
+- (109:406) 'PX4-Auto..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks (HTTP 429)
+- (109:1646) 'PX4-Auto..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks (HTTP 429)
+- (111:438) 'Orbit/CM..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt (HTTP 429)
+- (154:85) 'PX4-Auto..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40 (HTTP 429)
+- (159:218) 'mc_pos_c..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_pos_control/mc_pos_control_params.c#L706-L721 (HTTP 429)
+- (165:92) 'FlightMo..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285 (HTTP 429)
+- (184:884) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/flight_tasks.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/geometry_files.html
+- (109:331) '/src/lib..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/mixer/MultirotorMixer/geometries (HTTP 429)
+- (111:135) '/src/lib..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/CMakeLists.txt (HTTP 429)
+- (113:475) 'px_gener..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/tools/px_generate_mixers.py (HTTP 429)
+- (125:238) '/src/lib..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/ (HTTP 429)
+- (125:977) 'tri_y.to..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml (HTTP 429)
+- (148:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/geometry_files.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/mixing.html
+- (115:2428) 'quad_x.m..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/quad_x.main.mix#L7 (HTTP 429)
+- (118:287) 'rc.inter..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.interface (HTTP 429)
+- (123:615) 'px4fmu_c..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/ (HTTP 429)
+- (125:284) 'airframe..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/10015_tbs_discovery (HTTP 429)
+- (125:1479) 'pass.aux..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/pass.aux.mix (HTTP 429)
+- (125:3035) 'ROMFS/px..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.interface (HTTP 429)
+- (125:4452) 'pass.aux..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/pass.aux.mix (HTTP 429)
+- (175:112) 'blade 13..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/blade130.main.mix (HTTP 429)
+- (188:253) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/mixing.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/pwm_limit.html
+- (110:336) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/pwm_limit.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/px4_systems_architecture.html
+- (111:116) 'MAVLink ..' => https://github.com/mavlink-router/mavlink-router (HTTP 429)
+- (114:177) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/px4_systems_architecture.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/sd_card_layout.html
+- (108:1251) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/sd_card_layout.md (HTTP 429)
+
+https://docs.px4.io/main/en/concept/system_startup.html
+- (109:55) 'ROMFS/px..' => https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix (HTTP 429)
+- (112:31) 'init.d/r..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS (HTTP 429)
+- (148:85) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/concept/system_startup.md (HTTP 429)
+
+https://docs.px4.io/main/en/config/
+- (107:10420) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/config/accelerometer.html
+- (113:166) 'QGroundC..' => https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#accelerometer (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/actuators.html
+- (159:630) 'Control ..' => https://docs.px4.io/main/en/config/actuators.html#control-surface-direction-conceptual (HTTP 200 but missing anchor)
+- (159:875) 'Tilt Ser..' => https://docs.px4.io/main/en/config/actuators.html#motor-tilt-servos-conceptual (HTTP 200 but missing anchor)
+- (159:1449) 'Identify..' => https://docs.px4.io/main/en/config/actuators.html#multicopter-pwm-identify-assign-motors (HTTP 200 but missing anchor)
+- (160:25) 'Motor As..' => https://docs.px4.io/main/en/config/actuators.html#motor-assignment-configuration (HTTP 200 but missing anchor)
+- (174:239) 'Tilt Ser..' => https://docs.px4.io/main/en/config/actuators.html#motor-tilt-servos-conceptual (HTTP 200 but missing anchor)
+- (175:15) 'Tilt Servo' => https://docs.px4.io/main/en/config/actuators.html#tilt-servo-testing (HTTP 200 but missing anchor)
+- (180:182) 'Control ..' => https://docs.px4.io/main/en/config/actuators.html#control-surface-direction-conceptual (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/airspeed.html
+- (111:422) 'QGroundC..' => https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/autotune.html
+- (128:446) 'FW_Y_TC' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#FW_Y_TC (HTTP 200 but missing anchor)
+- (129:150) 'FW_RR_R' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#FW_RR_R (HTTP 200 but missing anchor)
+- (129:312) 'FW_RR_Y' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#FW_RR_Y (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/battery.html
+- (149:273) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config/battery.md (HTTP 429)
+
+https://docs.px4.io/main/en/config/compass.html
+- (111:1875) 'QGroundC..' => https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/flight_controller_orientation.html
+- (112:1124) 'QGroundC..' => https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/flight_mode.html
+- (118:557) 'describe..' => https://docs.px4.io/main/en/config/flight_mode.html#single-channel-flight-mode-selection (HTTP 200 but missing anchor)
+- (118:819) 'QGroundC..' => https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/gyroscope.html
+- (107:5923) 'QGroundC..' => https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#gyroscope (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/joystick.html
+- (107:5564) 'MicroNav..' => https://www.uavcomp.com/command-control/micronav/ (connection failed)
+- (109:2273) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config/joystick.md (HTTP 301 => 429)
+  - redirect path:
+    - https://github.com/PX4/px4_user_guide/edit/main/en/config/joystick.md (301)
+    - https://github.com/PX4/PX4-user_guide/edit/main/en/config/joystick.md (429)
+
+https://docs.px4.io/main/en/config/level_horizon_calibration.html
+- (109:1359) 'QGroundC..' => https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config/radio.html
+- (114:2932) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config/radio.md (HTTP 429)
+
+https://docs.px4.io/main/en/config/safety.html
+- (124:164) 'NAV_GPSF..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_GPSF_LT (HTTP 200 but missing anchor)
+- (124:420) 'GPS Fail..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#gps-failure-navigation (HTTP 200 but missing anchor)
+- (124:1400) 'NAV_GPSF..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_GPSF_LT (HTTP 200 but missing anchor)
+- (124:1615) 'NAV_GPSF_P' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_GPSF_P (HTTP 200 but missing anchor)
+- (124:1762) 'NAV_GPSF_R' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_GPSF_R (HTTP 200 but missing anchor)
+- (124:1913) 'NAV_GPSF..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_GPSF_TR (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config_fw/
+- (107:6493) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_fw/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_fw/pid_tuning_guide_fixedwing.html
+- (129:195) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_fw/pid_tuning_guide_fixedwing.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_fw/trimming_guide_fixedwing.html
+- (121:1337) 'FW_FLAPS..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#FW_FLAPS_SCL (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/config_mc/
+- (107:7485) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_mc/filter_tuning.html
+- (114:36) 'IMU_GYRO..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#IMU_GYRO_NF_BW (HTTP 200 but missing anchor)
+- (114:134) 'IMU_GYRO..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#IMU_GYRO_NF_FREQ (HTTP 200 but missing anchor)
+- (134:41) 'IMU_GYRO..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#IMU_GYRO_NF_FREQ (HTTP 200 but missing anchor)
+- (134:146) 'IMU_GYRO..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#IMU_GYRO_NF_BW (HTTP 200 but missing anchor)
+- (138:319) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/filter_tuning.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_mc/mc_jerk_limited_type_trajectory.html
+- (111:2116) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/mc_jerk_limited_type_trajectory.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_mc/mc_trajectory_tuning
+- (114:1805) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/mc_trajectory_tuning.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_mc/mc_trajectory_tuning.html
+- (114:1805) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/mc_trajectory_tuning.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_mc/pid_tuning_guide_multicopter.html
+- (113:3044) 'PID cont..' => https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form (HTTP 200 but missing anchor)
+- (139:0) 'This Not..' => https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb (HTTP 429)
+- (141:184) '(opens n..' => https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb (HTTP 429)
+- (160:326) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/pid_tuning_guide_multicopter.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_mc/pid_tuning_guide_multicopter_basic.html
+- (129:115) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/pid_tuning_guide_multicopter_basic.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_mc/racer_setup.html
+- (136:190) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/racer_setup.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_vtol/
+- (108:798) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/config_vtol/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/config_vtol/vtol_back_transition_tuning.html
+- (108:4796) 'Hobbywin..' => https://www.hobbywing.com/category.php?id=76&filter_attr=.0 (connection failed)
+
+https://docs.px4.io/main/en/config_vtol/vtol_quad_configuration.html
+- (121:345) 'VT_FW_PE..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#VT_FW_PERM_STAB (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/contribute/
+- (107:4309) 'PX4 code..' => https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md (HTTP 429)
+- (108:1134) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/contribute/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/contribute/code
+- (179:291) 'projects..' => https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115 (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README (301)
+    - https://github.com/torvalds/subsurface-for-dirk/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README (200)
+
+https://docs.px4.io/main/en/contribute/code.html
+- (179:291) 'projects..' => https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115 (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README (301)
+    - https://github.com/torvalds/subsurface-for-dirk/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README (200)
+
+https://docs.px4.io/main/en/contribute/docs.html
+- (108:145) 'Github  ..' => http://github.com (HTTP 301 => 429)
+  - redirect path:
+    - http://github.com (301)
+    - https://github.com/ (429)
+- (126:6) 'other pu..' => https://github.com/PX4/PX4-user_guide/pulls (HTTP 429)
+- (144:455) '.vuepres..' => https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js (HTTP 429)
+- (155:699) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/contribute/docs.md (HTTP 429)
+
+https://docs.px4.io/main/en/contribute/support.html
+- (108:1774) 'open a G..' => https://github.com/PX4/Devguide/issues (HTTP 429)
+- (108:3185) 'Open a G..' => https://github.com/PX4/Devguide/issues (HTTP 429)
+- (108:6393) 'Open Git..' => https://github.com/PX4/Devguide/issues (HTTP 429)
+- (108:7091) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/contribute/support.md (HTTP 429)
+
+https://docs.px4.io/main/en/data_links/sik_radio.html
+- (107:7313) 'SiK radi..' => https://github.com/LorenzMeier/SiK (HTTP 429)
+- (119:229) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/data_links/sik_radio.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/
+- (107:7244) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/binary_size_profiling.html
+- (108:147) 'bloaty  ..' => https://github.com/google/bloaty (HTTP 429)
+- (109:8) 'docker f..' => https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic (HTTP 429)
+- (141:135) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/binary_size_profiling.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/consoles
+- (114:136) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/consoles.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/consoles.html
+- (114:136) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/consoles.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/debug_values.html
+- (110:718) 'Debug Tu..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp (HTTP 429)
+- (154:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/debug_values.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/eclipse_jlink.html
+- (107:9691) 'Eclipse ..' => https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/ (HTTP 429)
+- (107:10768) 'J-Link S..' => https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack (HTTP 200 but missing anchor)
+- (116:588) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/eclipse_jlink.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/failure_injection.html
+- (121:149) 'PX4-Auto..' => https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.cpp (HTTP 429)
+- (121:1066) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/failure_injection.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/faq.html
+- (115:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/faq.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/gdb_debugging.html
+- (169:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/gdb_debugging.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/mavlink_shell.html
+- (114:440) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/mavlink_shell.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/profiling.html
+- (107:7246) 'Poor Man..' => https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh (HTTP 429)
+- (138:235) '/platfor..' => https://github.com/PX4/PX4-Autopilot/blob/main/platforms/nuttx/Debug/poor-mans-profiler.sh (HTTP 429)
+- (149:326) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/profiling.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/sensor_uorb_topic_debugging.html
+- (108:1436) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/sensor_uorb_topic_debugging.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/simulation_debugging.html
+- (147:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/simulation_debugging.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/swd_debug.html
+- (115:9023) 'SM06B-SR..' => https://www.digikey.com/products/en?keywords=455-1806-1-ND (connection failed)
+- (115:9743) 'cable li..' => https://www.digikey.com/products/en?keywords=A06SR06SR30K152A (connection failed)
+- (117:8414) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/swd_debug.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/swd_gdb.html
+- (109:31) 'blackmag..' => https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware (HTTP 429)
+- (117:196) 'install ..' => https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack (HTTP 200 but missing anchor)
+- (127:982) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/swd_gdb.md (HTTP 429)
+
+https://docs.px4.io/main/en/debug/system_wide_replay.html
+- (156:412) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/debug/system_wide_replay.md (HTTP 429)
+
+https://docs.px4.io/main/en/dev_airframes/
+- (108:364) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/dev_airframes/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/dev_airframes/adding_a_new_frame.html
+- (162:929) 'original..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/wingwing.main.mix (HTTP 404)
+
+https://docs.px4.io/main/en/dev_log/flight_log_analysis.html
+- (107:8372) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/dev_log/flight_log_analysis.md (HTTP 429)
+
+https://docs.px4.io/main/en/dev_log/ulog_file_format.html
+- (231:8) 'logger m..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger (HTTP 429)
+- (231:673) 'replay m..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay (HTTP 429)
+- (231:4088) 'MAVLink ..' => https://github.com/mavlink/mavlink (HTTP 429)
+- (231:5548) 'mavlink-..' => https://github.com/01org/mavlink-router (HTTP 429)
+- (231:7652) 'ulogread..' => https://github.com/maxsun/ulogreader (HTTP 429)
+- (232:361) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/dev_log/ulog_file_format.md (HTTP 429)
+
+https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html
+- (110:167) 'ubuntu.s..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh (HTTP 429)
+- (110:2476) 'ubuntu.s..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh (HTTP 429)
+- (120:129) 'ubuntu.s..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh (HTTP 429)
+- (120:788) 'requirem..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt (HTTP 429)
+- (124:314) 'ubuntu.s..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh (HTTP 429)
+- (124:974) 'requirem..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt (HTTP 429)
+- (152:264) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/dev_setup/dev_env_linux_ubuntu.md (HTTP 429)
+
+https://docs.px4.io/main/en/dev_setup/dev_env_mac.html
+- (130:17) 'Java 15 ..' => https://www.oracle.com/java/technologies/javase-downloads.html#JDK15 (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://www.oracle.com/java/technologies/javase-downloads.html (301)
+    - downloads/ (200)
+
+https://docs.px4.io/main/en/dev_setup/dev_env_windows_vm.html
+- (110:128) 'VMWare P..' => https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html (HTTP 403)
+
+https://docs.px4.io/main/en/dev_setup/qtcreator.html
+- (107:9322) 'project ..' => https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information (301)
+    - https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information (200)
+- (111:809) 'project ..' => https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information (301)
+    - https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information (200)
+
+https://docs.px4.io/main/en/development/development
+- (110:2414) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/development/development.md (HTTP 429)
+
+https://docs.px4.io/main/en/development/development.html
+- (110:2414) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/development/development.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/
+- (108:4691) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/auav_x2.html
+- (112:164) 'User Man..' => http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/beaglebone_blue.html
+- (135:194) 'gcc-lina..' => https://snapshots.linaro.org/gnu-toolchain/12.0-2022.02-1/arm-linux-gnueabihf/gcc-linaro-12.0.1-2022.02-x86_64_arm-linux-gnueabihf.tar.xz (HTTP 404)
+
+https://docs.px4.io/main/en/flight_controller/cuav_v5.html
+- (111:1539) 'CUAV  (o..' => https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz (connection failed)
+- (117:2046) 'Telemetr..' => https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8 (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/cuav_v5_nano.html
+- (108:2161) 'Pixhawk ..' => https://pixhawk.org/pixhawk-connector-standard/ (HTTP 301 => 429)
+  - redirect path:
+    - https://pixhawk.org/pixhawk-connector-standard/ (301)
+    - https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (429)
+- (108:5245) 'CUAV Tao..' => https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail (HTTP 200 but missing anchor)
+- (115:1195) 'Telemetr..' => https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8 (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/cuav_v5_plus.html
+- (109:1042) 'Pixhawk ..' => https://pixhawk.org/pixhawk-connector-standard/ (HTTP 301 => 429)
+  - redirect path:
+    - https://pixhawk.org/pixhawk-connector-standard/ (301)
+    - https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (429)
+- (119:1934) 'Telemetr..' => https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8 (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/cubepilot_cube_orange.html
+- (108:12) 'manufact..' => https://cubepilot.org/#/home (HTTP 200 but missing anchor)
+- (114:688) 'Cube Use..' => https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/cubepilot_cube_yellow.html
+- (108:12) 'manufact..' => https://cubepilot.org/#/home (HTTP 200 but missing anchor)
+- (113:688) 'Cube Use..' => https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/dropix.html
+- (110:946) 'DroPix U..' => https://drotek.gitbook.io/dropix-user-guide/ (connection failed)
+- (110:1780) 'drotek d..' => https://drotek.gitbook.io/dropix-user-guide/ (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/durandal.html
+- (121:12203) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/durandal.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/holybro_pix32.html
+- (115:3158) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/holybro_pix32.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/holybro_pix32_v5.html
+- (129:3819) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/holybro_pix32_v5.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/kakutef7.html
+- (113:2417) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/kakutef7.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/kakuteh7.html
+- (114:2517) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/kakuteh7.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/mro_control_zero_f7.html
+- (112:2845) 'Infineon..' => https://www.infineon.com/cms/en/product/sensor/pressure-sensors/pressure-sensors-for-iot/dps310/ (connection failed)
+- (115:6623) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/mro_control_zero_f7.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/mro_pixhawk.html
+- (111:3313) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/mro_pixhawk.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/mro_x2.1.html
+- (118:158) 'x21_V2_s..' => https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf (HTTP 429)
+- (118:1546) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/mro_x2.1.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/nxp_rddrone_fmuk66.html
+- (115:2546) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/nxp_rddrone_fmuk66.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/omnibus_f4_sd.html
+- (109:3184) 'Hobbywin..' => http://www.hobbywing.com/goods.php?id=636 (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/pixhack_v3.html
+- (117:1454) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhack_v3.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk-2.html
+- (108:12) 'manufact..' => https://cubepilot.org/#/home (HTTP 200 but missing anchor)
+- (116:688) 'Cube Use..' => https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk.html
+- (116:2452) 'Mouser  ..' => http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2Fha2pyFadujTt%2FIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3D%3D (connection failed)
+- (119:1771) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk3_pro.html
+- (111:2415) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk3_pro.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk4.html
+- (124:3193) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk4.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk4_mini.html
+- (124:1762) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk4_mini.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk5x.html
+- (108:896) 'Pixhawk​..' => https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf (HTTP 429)
+- (108:1617) 'Autopilo..' => https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf (HTTP 429)
+- (129:2456) 'here' => https://docs.px4.io/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf (HTTP 404)
+- (132:372) 'Pixhawk ..' => https://docs.px4.io/main/en/debug/swd_debug.md,d#pixhawk-debug-full-10-pin-sh-debug-port (HTTP 404)
+- (132:494) 'Pixhawk ..' => https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug (HTTP 301 => 429)
+  - redirect path:
+    - https://pixhawk.org/pixhawk-connector-standard/ (301)
+    - https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (429)
+- (133:3126) 'Pixhawk ..' => https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf (HTTP 429)
+- (133:3853) 'Pixhawk ..' => https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf (HTTP 429)
+- (133:5347) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk5x.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk_mini.html
+- (115:673) 'hardware..' => https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917 (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk_series
+- (108:3616) 'Pixhawk ..' => https://pixhawk.org/pixhawk-connector-standard/ (HTTP 301 => 429)
+  - redirect path:
+    - https://pixhawk.org/pixhawk-connector-standard/ (301)
+    - https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (429)
+
+https://docs.px4.io/main/en/flight_controller/pixhawk_series.html
+- (108:3616) 'Pixhawk ..' => https://pixhawk.org/pixhawk-connector-standard/ (HTTP 301 => 429)
+  - redirect path:
+    - https://pixhawk.org/pixhawk-connector-standard/ (301)
+    - https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (429)
+
+https://docs.px4.io/main/en/flight_controller/pixracer.html
+- (112:793) 'Pixhawk ..' => https://pixhawk.org/pixhawk-connector-standard/ (HTTP 301 => 429)
+  - redirect path:
+    - https://pixhawk.org/pixhawk-connector-standard/ (301)
+    - https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (429)
+- (113:6146) 'Altium D..' => https://github.com/AUAV-OpenSource/FMUv4-PixRacer (HTTP 429)
+- (115:281) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixracer.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_controller/raspberry_pi_navio2.html
+- (109:249) 'Emlid RT..' => https://docs.emlid.com/navio2/configuring-raspberry-pi (connection failed)
+
+https://docs.px4.io/main/en/flight_controller/raspberry_pi_pilotpi_ubuntu_server.html
+- (108:1147) 'Ubuntu S..' => https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz.zsync (HTTP 404)
+
+https://docs.px4.io/main/en/flight_controller/spracingh7extreme.html
+- (108:12) 'manufact..' => https://shop.seriouslypro.com (HTTP 503)
+- (108:691) 'SPRacing..' => https://shop.seriouslypro.com/sp-racing-h7-extreme (HTTP 503)
+- (116:265) 'Seriousl..' => https://shop.seriouslypro.com/sp-racing-h7-extreme (HTTP 503)
+- (117:8) 'SPRacing..' => http://seriouslypro.com/spracingh7extreme (connection failed)
+
+https://docs.px4.io/main/en/flight_modes/
+- (121:21063) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/acro_fw.html
+- (108:1197) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/acro_fw.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/acro_mc.html
+- (109:16753) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/acro_mc.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/altitude_fw.html
+- (112:1713) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/altitude_fw.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/altitude_mc.html
+- (113:1572) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/altitude_mc.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/follow_me.html
+- (121:608) 'NAV_FT_DST' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_FT_DST (HTTP 200 but missing anchor)
+- (121:910) 'NAV_MIN_..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_MIN_FT_HT (HTTP 200 but missing anchor)
+- (121:1240) 'NAV_FT_FS' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#NAV_FT_FS (HTTP 200 but missing anchor)
+- (122:181) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/follow_me.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/hold.html
+- (109:997) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/hold.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/land.html
+- (113:241) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/land.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/manual_fw.html
+- (108:1866) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/manual_fw.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/mission.html
+- (113:1214) 'Remove m..' => https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands (HTTP 200 but missing anchor)
+- (113:1935) 'Resume m..' => https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#resume-mission (HTTP 200 but missing anchor)
+- (116:23983) 'MAV_CMD_..' => https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_ZOOM (HTTP 200 but missing anchor)
+- (116:24665) 'MAV_CMD_..' => https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAMERA_FOCUS (HTTP 200 but missing anchor)
+- (118:77) '/src/mod..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_mission.cpp (HTTP 429)
+- (122:25768) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/mission.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/offboard.html
+- (108:665) 'MAVROS  ..' => https://github.com/mavlink/mavros (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/orbit.html
+- (108:254) 'FlyView ..' => https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit (HTTP 200 but missing anchor)
+- (112:3499) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/orbit.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/position_fw.html
+- (107:10726) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/position_fw.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/position_mc.html
+- (118:1457) 'MPC_LAND..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#MPC_LAND_VEL_XY (HTTP 200 but missing anchor)
+- (120:244) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/position_mc.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/return.html
+- (121:7540) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/return.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/stabilized_fw.html
+- (107:11117) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/stabilized_fw.md (HTTP 429)
+
+https://docs.px4.io/main/en/flight_modes/takeoff.html
+- (113:2943) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/takeoff.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/
+- (108:1278) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/basic_flying
+- (116:844) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/basic_flying.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/basic_flying.html
+- (116:844) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/basic_flying.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/first_flight_guidelines.html
+- (113:137) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/first_flight_guidelines.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/fixed_wing_landing.html
+- (107:8474) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/fixed_wing_landing.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/fixed_wing_takeoff.html
+- (114:665) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/fixed_wing_takeoff.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/geofence.html
+- (114:1464) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/geofence.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/plan_safety_points.html
+- (109:1919) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/plan_safety_points.md (HTTP 429)
+
+https://docs.px4.io/main/en/flying/terrain_following_holding.html
+- (124:1169) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/flying/terrain_following_holding.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_autogyro/
+- (113:165) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_autogyro/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_autogyro/thunderfly_auto_g2.html
+- (108:926) 'GitHub  ..' => https://github.com/ThunderFly-aerospace/TF-G2/ (HTTP 429)
+- (133:3753) 'Pylon en..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1001.stl (HTTP 429)
+- (133:4429) 'Pitch pa..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1002.stl (HTTP 429)
+- (133:5106) 'Roll par..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1003.stl (HTTP 429)
+- (133:5814) 'center p..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1008.stl (HTTP 429)
+- (133:6503) 'center p..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1004.stl (HTTP 429)
+- (133:7195) 'center p..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1001.stl (HTTP 429)
+- (133:7897) 'washers ..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1005.stl (HTTP 429)
+- (133:8597) 'Rotor nu..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1002.stl (HTTP 429)
+- (133:9359) 'Release ..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1010.stl (HTTP 429)
+- (133:10047) 'Front wh..' => https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1011.stl (HTTP 429)
+- (133:13890) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_autogyro/thunderfly_auto_g2.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_multicopter/
+- (107:8723) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_multicopter/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_multicopter/dji_f450_cuav_5nano.html
+- (108:4607) 'DJI E305..' => https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN (HTTP 404)
+- (108:5293) 'Hobbywin..' => https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN (HTTP 404)
+
+https://docs.px4.io/main/en/frames_multicopter/dji_f450_cuav_5plus.html
+- (108:4607) 'DJI E305..' => https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN (HTTP 404)
+- (108:5293) 'Hobbywin..' => https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN (HTTP 404)
+
+https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html
+- (110:39) 'FR SKY D..' => http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (301)
+    - https://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (404)
+
+https://docs.px4.io/main/en/frames_multicopter/lumenier_qav250_pixhawk_mini.html
+- (109:360) 'getfpv.c..' => http://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html (301)
+    - https://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html (404)
+- (109:1150) 'getfpv.c..' => http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html (301)
+    - https://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html (404)
+- (109:2589) 'getfpv.c..' => http://www.getfpv.com/multi-rotor-frames/qav250-mini-fpv-quad/qav250-mini-fpv-quadcopter-carbon-fiber-edition.html (HTTP 301 -> 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/multi-rotor-frames/qav250-mini-fpv-quad/qav250-mini-fpv-quadcopter-carbon-fiber-edition.html (301)
+    - https://www.getfpv.com/multi-rotor-frames/qav250-mini-fpv-quad/qav250-mini-fpv-quadcopter-carbon-fiber-edition.html (301)
+    - https://www.getfpv.com/multi-rotor-frames/lumenier-frames/legacy-lumenier-frames/qav250-mini-fpv-quad/qav250-mini-fpv-quadcopter-carbon-fiber-edition.html (404)
+- (109:3343) 'getfpv.c..' => http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (301)
+    - https://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (404)
+
+https://docs.px4.io/main/en/frames_multicopter/qav_r_5_kiss_esc_racer.html
+- (109:10254) 'Immersio..' => http://www.getfpv.com/fpv/video-transmitters/immersionrc-tramp-hv-5-8ghz-video-tx.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/fpv/video-transmitters/immersionrc-tramp-hv-5-8ghz-video-tx.html (301)
+    - https://www.getfpv.com/fpv/video-transmitters/immersionrc-tramp-hv-5-8ghz-video-tx.html (404)
+- (143:2023) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_multicopter/qav_r_5_kiss_esc_racer.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_plane/
+- (107:5660) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_plane/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_plane/wing_wing_z84.html
+- (110:1533) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_plane/wing_wing_z84.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_rover/
+- (107:5676) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_rover/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_sub/
+- (108:1571) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_sub/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_sub/bluerov2.html
+- (107:4766) 'BlueROV2..' => https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2 (connection failed)
+- (107:5912) 'BlueROV2..' => https://bluerobotics.com/store/rov/bluerov2/ (connection failed)
+
+https://docs.px4.io/main/en/frames_vtol/
+- (122:4806) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_vtol/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_vtol/standardvtol
+- (107:7827) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_vtol/standardvtol.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_vtol/standardvtol.html
+- (107:7827) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_vtol/standardvtol.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_vtol/tailsitter
+- (117:2796) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_vtol/tailsitter.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_vtol/tailsitter.html
+- (117:2796) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_vtol/tailsitter.md (HTTP 429)
+
+https://docs.px4.io/main/en/frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.html
+- (109:1358) 'Quad pow..' => http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html (301)
+    - https://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html (404)
+- (109:4452) 'Receiver..' => http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (301)
+    - https://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html (404)
+- (109:5154) 'Telemetr..' => http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html (HTTP 301 => 404)
+  - redirect path:
+    - http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html (301)
+    - https://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html (404)
+
+https://docs.px4.io/main/en/frames_vtol/vtol_tailsitter_caipiroshka_pixracer.html
+- (110:8) 'ePower 2..' => https://www.galaxus.ch/en/s5/product/epower-22081400-fuer-2-3-lipo-imax-rc-electric-motors-8355913 (connection failed)
+
+https://docs.px4.io/main/en/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.html
+- (111:338) 'Standard..' => https://docs.px4.io/main/en/frames_vtol/config/ (HTTP 404)
+- (113:56) 'VT_FW_PE..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#VT_FW_PERM_STAB (HTTP 200 but missing anchor)
+- (113:236) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md (HTTP 429)
+
+https://docs.px4.io/main/en/getting_started/
+- (107:5657) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/getting_started/flight_controller_selection.html
+- (107:4626) 'here on ..' => https://github.com/PX4/PX4-Autopilot/#supported-hardware (HTTP 429)
+- (109:4165) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/flight_controller_selection.md (HTTP 429)
+
+https://docs.px4.io/main/en/getting_started/flight_modes.html
+- (156:563) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/flight_modes.md (HTTP 429)
+
+https://docs.px4.io/main/en/getting_started/flight_reporting.html
+- (111:25) 'Settings..' => https://docs.qgroundcontrol.com/en/SettingsView/MAVLink.html#logging (HTTP 200 but missing anchor)
+- (112:1082) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/flight_reporting.md (HTTP 429)
+
+https://docs.px4.io/main/en/getting_started/frame_selection.html
+- (113:564) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/frame_selection.md (HTTP 429)
+
+https://docs.px4.io/main/en/getting_started/px4_basic_concepts.html
+- (120:358) 'flight c..' => https://docs.px4.io/main/en/getting_started/px4_basic_concepts.html#vehicle_controller (HTTP 200 but missing anchor)
+- (134:762) 'MicroNav..' => https://www.uavcomp.com/command-control/micronav/ (connection failed)
+
+https://docs.px4.io/main/en/getting_started/rc_transmitter_receiver.html
+- (125:602) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/rc_transmitter_receiver.md (HTTP 429)
+
+https://docs.px4.io/main/en/getting_started/sensor_selection.html
+- (113:1204) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/sensor_selection.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/
+- (114:6198) 'CubePilo..' => https://www.cubepilot.org/#/here/here3 (HTTP 200 but missing anchor)
+- (114:8720) 'Drotek S..' => https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html (301)
+    - https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html (200)
+- (114:21189) 'Zubax GN..' => https://zubax.com/products/gnss_2 (connection failed)
+- (118:750) 'Zubax GN..' => https://zubax.com/products/gnss_2 (connection failed)
+- (118:1446) 'CubePilo..' => https://www.cubepilot.org/#/here/here3 (HTTP 200 but missing anchor)
+- (132:8) 'Driver s..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer (HTTP 429)
+- (132:762) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/gps_hex_here2.html
+- (108:2831) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/gps_hex_here2.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/gps_locosys_hawk_a1.html
+- (109:3036) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/gps_locosys_hawk_a1.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps
+- (109:2366) 'CubePilo..' => https://www.cubepilot.org/#/here/here3 (HTTP 200 but missing anchor)
+- (109:4889) 'SIRIUS R..' => https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html (301)
+    - https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html (200)
+- (119:603) 'General ..' => https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps.html
+- (109:2366) 'CubePilo..' => https://www.cubepilot.org/#/here/here3 (HTTP 200 but missing anchor)
+- (109:4889) 'SIRIUS R..' => https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html (301)
+    - https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html (200)
+- (119:603) 'General ..' => https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps_cuav_c-rtk-9ps.html
+- (111:1985) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/rtk_gps_cuav_c-rtk-9ps.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps_cuav_c-rtk.html
+- (110:1433) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/rtk_gps_cuav_c-rtk.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps_cuav_c-rtk2.html
+- (135:1875) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/rtk_gps_cuav_c-rtk2.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps_drotek_xl.html
+- (108:1659) 'shown he..' => https://drotek.gitbooks.io/doc-rtk/content/rtkmodules/schematics.html#xl-rtk-module (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://drotek.gitbooks.io/doc-rtk/content/rtkmodules/schematics.html (302)
+    - https://drotek.gitbook.io/doc-rtk/rtkmodules/schematics.html (302)
+    - https://app.gitbook.com/o/-LU5o-8nbhH5IAkmHCpm/s/-LU5o-AXhIoRZaV8E_ja/rtkmodules/schematics.html (200)
+- (108:2404) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/rtk_gps_drotek_xl.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps_fem_mini2.html
+- (111:3227) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/rtk_gps_fem_mini2.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps_freefly.html
+- (116:1025) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/rtk_gps_freefly.md (HTTP 429)
+
+https://docs.px4.io/main/en/gps_compass/rtk_gps_trimble_mb_two.html
+- (109:41) 'Farnell ..' => https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959 (connection failed)
+
+https://docs.px4.io/main/en/gps_compass/u-blox_f9p_heading.html
+- (108:1690) 'SIRIUS R..' => https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html (301)
+    - https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html (200)
+- (108:4808) 'GPS/Comp..' => https://docs.px4.io/main/en/gps_compass/#supported-gps-and-or-compass (HTTP 200 but missing anchor)
+- (114:1392) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/gps_compass/u-blox_f9p_heading.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/
+- (107:8613) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/board_support_guide.html
+- (110:284) 'PX4 boot..' => https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader (HTTP 429)
+- (120:1189) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/board_support_guide.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/drone_parts
+- (108:327) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/drone_parts.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/drone_parts.html
+- (108:327) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/drone_parts.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/porting_guide
+- (107:7925) 'src/modu..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules (HTTP 429)
+- (107:9069) '/boards ..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/ (HTTP 429)
+- (107:9886) '/boards/..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5 (HTTP 429)
+- (107:11317) '/boards/..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/init/rc.board_defaults (HTTP 429)
+- (109:144) 'boards/p..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/raspberrypi/default.px4board (HTTP 429)
+- (109:1344) 'posix-co..' => https://github.com/PX4/PX4-Autopilot/tree/main/posix-configs (HTTP 429)
+- (112:15) 'px4fmu-v..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/manifest.c (HTTP 429)
+- (114:590) 'Code of ..' => https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md (HTTP 429)
+- (115:78) 'Supporte..' => https://github.com/PX4/PX4-Autopilot/#supported-hardware (HTTP 429)
+- (115:935) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/porting_guide.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/porting_guide.html
+- (107:7925) 'src/modu..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules (HTTP 429)
+- (107:9069) '/boards ..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/ (HTTP 429)
+- (107:9886) '/boards/..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5 (HTTP 429)
+- (107:11317) '/boards/..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/init/rc.board_defaults (HTTP 429)
+- (109:144) 'boards/p..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/raspberrypi/default.px4board (HTTP 429)
+- (109:1344) 'posix-co..' => https://github.com/PX4/PX4-Autopilot/tree/main/posix-configs (HTTP 429)
+- (112:15) 'px4fmu-v..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/manifest.c (HTTP 429)
+- (114:590) 'Code of ..' => https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md (HTTP 429)
+- (115:78) 'Supporte..' => https://github.com/PX4/PX4-Autopilot/#supported-hardware (HTTP 429)
+- (115:935) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/porting_guide.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/porting_guide_config.html
+- (128:377) 'ubuntu.s..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/porting_guide_nuttx.html
+- (108:864) 'PX4 base..' => https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/px4 (HTTP 429)
+- (108:1655) '/boards ..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/ (HTTP 429)
+- (108:2768) '/boards/..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4/fmu-v5 (HTTP 429)
+- (109:68) '/boards/..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/include/board.h (HTTP 429)
+- (109:839) '/boards/..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/board_config.h (HTTP 429)
+- (109:1596) '/boards/..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig (HTTP 429)
+- (111:66) 'ubuntu.s..' => https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh (HTTP 429)
+- (119:4) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/holybro/durandal-v1/nuttx-config/bootloader (HTTP 429)
+- (119:778) 'here  (o..' => https://github.com/PX4/Bootloader/pull/155/files (HTTP 429)
+- (129:70) 'stm32f74..' => https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h (HTTP 429)
+- (129:1099) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/porting_guide_nuttx.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/reference_design.html
+- (107:8465) 'schemati..' => https://github.com/PX4/Hardware/tree/master/FMUv1 (HTTP 429)
+- (107:9200) 'schemati..' => https://github.com/PX4/Hardware/tree/master/FMUv2 (HTTP 429)
+- (107:10007) 'schemati..' => https://github.com/PX4/Hardware/tree/master/FMUv3_REV_D (HTTP 429)
+- (112:311) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/reference_design.md (HTTP 429)
+
+https://docs.px4.io/main/en/hardware/serial_port_mapping.html
+- (125:174) '/boards/..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L191-L197 (HTTP 429)
+- (141:69) 'defconfi..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212 (HTTP 429)
+- (143:305) '/boards/..' => https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/src/board_config.h#L59 (HTTP 429)
+- (154:984) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/hardware/serial_port_mapping.md (HTTP 429)
+
+https://docs.px4.io/main/en/log/flight_log_analysis
+- (107:5406) 'STM32 se..' => http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169 (connection failed)
+
+https://docs.px4.io/main/en/log/flight_log_analysis.html
+- (107:5406) 'STM32 se..' => http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169 (connection failed)
+
+https://docs.px4.io/main/en/log/flight_review.html
+- (177:529) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/log/flight_review.md (HTTP 429)
+
+https://docs.px4.io/main/en/middleware/
+- (107:6876) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/middleware/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/middleware/mavlink.html
+- (107:9264) 'mavlink/..' => https://github.com/mavlink/mavlink (HTTP 429)
+- (107:9917) '/src/mod..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink (HTTP 429)
+- (107:10692) '/mavlink..' => https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/ (HTTP 429)
+- (108:90) '/src/mod..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/CMakeLists.txt#L34 (HTTP 429)
+- (108:808) 'developm..' => https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml (HTTP 429)
+- (114:0) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp (HTTP 429)
+- (116:44) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193 (HTTP 429)
+- (177:0) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp (HTTP 429)
+- (184:0) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77 (HTTP 429)
+- (187:0) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L140 (HTTP 429)
+- (189:0) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L195 (HTTP 429)
+- (190:94) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp (HTTP 429)
+- (207:60) 'MavlinkR..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228 (HTTP 429)
+- (224:63) '/qground..' => https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink (HTTP 429)
+- (227:184) 'MAVLINK_..' => https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52 (HTTP 429)
+- (231:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/middleware/mavlink.md (HTTP 429)
+
+https://docs.px4.io/main/en/middleware/uorb.html
+- (166:0) 'platform..' => https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp (HTTP 429)
+- (166:942) 'Flight R..' => https://github.com/PX4/flight_review (HTTP 429)
+- (168:94) 'msg/CMak..' => https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189 (HTTP 429)
+- (170:328) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/middleware/uorb.md (HTTP 429)
+
+https://docs.px4.io/main/en/middleware/uorb_graph.html
+- (113:335) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/middleware/uorb_graph.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/hello_sky.html
+- (205:295) 'Kconfig ..' => https://docs.px4.io/main/en/hardware/porting_guide_config.html#px4_kconfig_symbol_naming_convention (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/modules/module_template.html
+- (109:0) 'src/exam..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item (HTTP 429)
+- (120:0) 'src/temp..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_autotune.html
+- (107:3306) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_autotune_attitude_control (HTTP 429)
+- (115:170) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_autotune_attitude_control (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_communication.html
+- (107:6512) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry (HTTP 429)
+- (122:107) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink (HTTP 429)
+- (182:134) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/micrortps_bridge/micrortps_client (HTTP 429)
+- (213:98) 'systemcm..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/uorb (HTTP 429)
+- (225:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_communication.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_controller.html
+- (107:6485) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator (HTTP 429)
+- (115:143) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control (HTTP 429)
+- (124:143) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager (HTTP 429)
+- (132:128) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_att_control (HTTP 429)
+- (140:137) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control_l1 (HTTP 429)
+- (148:128) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_att_control (HTTP 429)
+- (160:128) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control (HTTP 429)
+- (171:131) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_rate_control (HTTP 429)
+- (180:113) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator (HTTP 429)
+- (195:137) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control (HTTP 429)
+- (205:131) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control (HTTP 429)
+- (215:131) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control (HTTP 429)
+- (226:134) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control (HTTP 429)
+- (232:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_controller.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_driver_airspeed_sensor.html
+- (107:7088) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ets (HTTP 429)
+- (122:104) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4515 (HTTP 429)
+- (137:110) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms4525do (HTTP 429)
+- (152:113) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/ms5525dso (HTTP 429)
+- (167:101) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure/sdp3x (HTTP 429)
+- (183:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_driver_airspeed_sensor.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_driver_baro.html
+- (361:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_driver_baro.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_estimator.html
+- (107:6509) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/attitude_estimator_q (HTTP 429)
+- (114:140) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airspeed_selector (HTTP 429)
+- (127:98) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2 (HTTP 429)
+- (139:158) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/local_position_estimator (HTTP 429)
+- (146:161) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_hover_thrust_estimator (HTTP 429)
+- (153:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_estimator.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_main
+- (116:900) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_main.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_main.html
+- (116:900) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_main.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_simulation.html
+- (107:6467) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih (HTTP 429)
+- (120:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_simulation.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_system.html
+- (107:6497) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulator/battery_simulator (HTTP 429)
+- (114:128) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status (HTTP 429)
+- (121:131) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback (HTTP 429)
+- (128:113) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander (HTTP 429)
+- (170:107) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/dataman (HTTP 429)
+- (189:101) 'systemcm..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dmesg (HTTP 429)
+- (194:119) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/esc_battery (HTTP 429)
+- (201:134) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_calibration (HTTP 429)
+- (208:110) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_fft (HTTP 429)
+- (215:104) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater (HTTP 429)
+- (222:125) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector (HTTP 429)
+- (238:110) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/load_mon (HTTP 429)
+- (247:104) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger (HTTP 429)
+- (283:140) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator (HTTP 429)
+- (290:128) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control (HTTP 429)
+- (297:131) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/microdds_client (HTTP 429)
+- (318:104) 'systemcm..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman (HTTP 429)
+- (337:113) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_input (HTTP 429)
+- (344:113) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update (HTTP 429)
+- (353:104) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay (HTTP 429)
+- (370:116) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events (HTTP 429)
+- (378:131) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulator/sensor_baro_sim (HTTP 429)
+- (385:128) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulator/sensor_gps_sim (HTTP 429)
+- (392:128) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulator/sensor_mag_sim (HTTP 429)
+- (399:107) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors (HTTP 429)
+- (413:113) 'drivers/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tattu_can (HTTP 429)
+- (420:158) 'modules/..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation (HTTP 429)
+- (438:122) 'systemcm..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control (HTTP 429)
+- (457:116) 'systemcm..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue (HTTP 429)
+- (464:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_system.md (HTTP 429)
+
+https://docs.px4.io/main/en/modules/modules_template.html
+- (107:6470) 'template..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module (HTTP 429)
+- (118:137) 'examples..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item (HTTP 429)
+- (125:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_template.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/
+- (107:23718) 'auto-gen..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/tools/generate_msg_docs.py (HTTP 429)
+- (142:588) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/action_request.html
+- (127:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/action_request.md (HTTP 301 => 429)
+  - redirect path:
+    - https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/action_request.md (301)
+    - https://github.com/PX4/PX4-user_guide/edit/main/en/msg_docs/action_request.md (429)
+
+https://docs.px4.io/main/en/msg_docs/actuator_armed.html
+- (107:23627) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/actuator_armed.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/actuator_armed.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/button_event.html
+- (107:3156) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/button_event.msg (HTTP 429)
+- (113:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/button_event.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/camera_capture.html
+- (107:23627) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/camera_capture.msg (HTTP 429)
+- (117:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/camera_capture.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/camera_status.html
+- (107:23624) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/camera_status.msg (HTTP 429)
+- (112:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/camera_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/camera_trigger.html
+- (107:23627) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/camera_trigger.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/camera_trigger.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/cellular_status.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/cellular_status.msg (HTTP 429)
+- (136:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/cellular_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/collision_constraints.html
+- (108:64) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/collision_constraints.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/collision_constraints.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/collision_report.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/collision_report.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/collision_report.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/commander_state.html
+- (107:23731) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/commander_state.msg (HTTP 429)
+- (132:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/commander_state.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/control_allocator_status.html
+- (107:23657) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/control_allocator_status.msg (HTTP 429)
+- (131:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/control_allocator_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/cpuload.html
+- (107:23606) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/cpuload.msg (HTTP 429)
+- (111:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/cpuload.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/debug_array.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/debug_array.msg (HTTP 429)
+- (112:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/debug_array.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/debug_key_value.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/debug_key_value.msg (HTTP 429)
+- (111:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/debug_key_value.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/debug_value.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/debug_value.msg (HTTP 429)
+- (111:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/debug_value.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/debug_vect.html
+- (107:23615) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/debug_vect.msg (HTTP 429)
+- (113:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/debug_vect.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/differential_pressure.html
+- (107:23648) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/differential_pressure.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/differential_pressure.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/distance_sensor.html
+- (107:23666) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/distance_sensor.msg (HTTP 429)
+- (150:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/distance_sensor.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/ekf2_timestamps.html
+- (109:34) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/ekf2_timestamps.msg (HTTP 429)
+- (133:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/ekf2_timestamps.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/ekf_gps_drift.html
+- (107:23624) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/ekf_gps_drift.msg (HTTP 429)
+- (114:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/ekf_gps_drift.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/esc_report.html
+- (107:23615) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/esc_report.msg (HTTP 429)
+- (133:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/esc_report.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/esc_status.html
+- (107:23615) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/esc_status.msg (HTTP 429)
+- (136:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/esc_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_aid_source_1d.html
+- (107:3189) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_aid_source_1d.msg (HTTP 429)
+- (130:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_aid_source_1d.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_aid_source_2d.html
+- (107:3189) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_aid_source_2d.msg (HTTP 429)
+- (130:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_aid_source_2d.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_aid_source_3d.html
+- (107:3189) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_aid_source_3d.msg (HTTP 429)
+- (130:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_aid_source_3d.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_baro_bias.html
+- (107:23642) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_baro_bias.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_baro_bias.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_event_flags.html
+- (107:23648) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_event_flags.msg (HTTP 429)
+- (145:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_event_flags.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_gps_status.html
+- (107:3180) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_gps_status.msg (HTTP 429)
+- (127:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_gps_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_innovations.html
+- (107:23648) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP 429)
+- (147:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_innovations.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_optical_flow_vel.html
+- (107:23663) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_optical_flow_vel.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_optical_flow_vel.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_selector_status.html
+- (107:23660) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_selector_status.msg (HTTP 429)
+- (130:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_selector_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_sensor_bias.html
+- (108:103) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_sensor_bias.msg (HTTP 429)
+- (139:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_sensor_bias.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_states.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_states.msg (HTTP 429)
+- (115:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_states.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_status.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP 429)
+- (237:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/estimator_status_flags.html
+- (107:23651) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status_flags.msg (HTTP 429)
+- (184:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/estimator_status_flags.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/event.html
+- (107:23624) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/event.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/event.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/failure_detector_status.html
+- (107:23654) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/failure_detector_status.msg (HTTP 429)
+- (122:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/failure_detector_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/follow_target.html
+- (107:23624) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/follow_target.msg (HTTP 429)
+- (119:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/follow_target.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/follow_target_estimator.html
+- (107:3189) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/follow_target_estimator.msg (HTTP 429)
+- (124:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/follow_target_estimator.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/follow_target_status.html
+- (107:3180) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/follow_target_status.msg (HTTP 429)
+- (120:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/follow_target_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/generator_status.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/generator_status.msg (HTTP 429)
+- (152:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/generator_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/geofence_result.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/geofence_result.msg (HTTP 429)
+- (120:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/geofence_result.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gimbal_device_attitude_status.html
+- (107:23672) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gimbal_device_attitude_status.msg (HTTP 429)
+- (128:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gimbal_device_attitude_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gimbal_device_information.html
+- (107:23660) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gimbal_device_information.msg (HTTP 429)
+- (144:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gimbal_device_information.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gimbal_device_set_attitude.html
+- (107:23663) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gimbal_device_set_attitude.msg (HTTP 429)
+- (125:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gimbal_device_set_attitude.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gimbal_manager_information.html
+- (107:23663) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gimbal_manager_information.msg (HTTP 429)
+- (137:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gimbal_manager_information.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gimbal_manager_set_attitude.html
+- (107:23666) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gimbal_manager_set_attitude.msg (HTTP 429)
+- (130:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gimbal_manager_set_attitude.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gimbal_manager_set_manual_control.html
+- (107:23684) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gimbal_manager_set_manual_control.msg (HTTP 429)
+- (129:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gimbal_manager_set_manual_control.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gimbal_manager_status.html
+- (107:23648) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gimbal_manager_status.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gimbal_manager_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gps_dump.html
+- (108:57) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gps_dump.msg (HTTP 429)
+- (121:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gps_dump.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/gps_inject_data.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/gps_inject_data.msg (HTTP 429)
+- (117:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/gps_inject_data.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/heater_status.html
+- (107:23624) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/heater_status.msg (HTTP 429)
+- (128:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/heater_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/home_position.html
+- (107:23671) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/home_position.msg (HTTP 429)
+- (127:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/home_position.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/hover_thrust_estimate.html
+- (107:23648) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/hover_thrust_estimate.msg (HTTP 429)
+- (121:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/hover_thrust_estimate.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/input_rc.html
+- (107:23609) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/input_rc.msg (HTTP 429)
+- (145:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/input_rc.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/internal_combustion_engine_status.html
+- (107:23684) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/internal_combustion_engine_status.msg (HTTP 429)
+- (172:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/internal_combustion_engine_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/iridiumsbd_status.html
+- (107:23636) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/iridiumsbd_status.msg (HTTP 429)
+- (123:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/iridiumsbd_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/irlock_report.html
+- (107:23658) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/irlock_report.msg (HTTP 429)
+- (119:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/irlock_report.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/landing_gear.html
+- (107:23621) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/landing_gear.msg (HTTP 429)
+- (115:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/landing_gear.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/landing_target_innovations.html
+- (107:23663) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/landing_target_innovations.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/landing_target_innovations.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/landing_target_pose.html
+- (107:23793) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/landing_target_pose.msg (HTTP 429)
+- (134:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/landing_target_pose.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/led_control.html
+- (108:67) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/led_control.msg (HTTP 429)
+- (146:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/led_control.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/log_message.html
+- (107:23676) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/log_message.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/log_message.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/logger_status.html
+- (107:23624) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/logger_status.msg (HTTP 429)
+- (129:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/logger_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/mag_worker_data.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/mag_worker_data.msg (HTTP 429)
+- (121:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/mag_worker_data.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/magnetometer_bias_estimate.html
+- (107:23663) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/magnetometer_bias_estimate.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/magnetometer_bias_estimate.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/manual_control_setpoint.html
+- (107:23654) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/manual_control_setpoint.msg (HTTP 429)
+- (164:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/manual_control_setpoint.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/manual_control_switches.html
+- (107:23654) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/manual_control_switches.msg (HTTP 429)
+- (140:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/manual_control_switches.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/mavlink_log.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/mavlink_log.msg (HTTP 429)
+- (114:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/mavlink_log.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/mavlink_tunnel.html
+- (107:23663) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/mavlink_tunnel.msg (HTTP 429)
+- (128:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/mavlink_tunnel.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/mission.html
+- (107:23606) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/mission.msg (HTTP 429)
+- (113:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/mission.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/mission_result.html
+- (107:23627) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/mission_result.msg (HTTP 429)
+- (132:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/mission_result.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/mount_orientation.html
+- (107:23636) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/mount_orientation.msg (HTTP 429)
+- (110:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/mount_orientation.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/navigator_mission_item.html
+- (107:23651) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/navigator_mission_item.msg (HTTP 429)
+- (133:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/navigator_mission_item.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/npfg_status.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/npfg_status.msg (HTTP 429)
+- (124:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/npfg_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/obstacle_distance.html
+- (107:23686) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/obstacle_distance.msg (HTTP 429)
+- (132:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/obstacle_distance.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/offboard_control_mode.html
+- (107:23678) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/offboard_control_mode.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/offboard_control_mode.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/onboard_computer_status.html
+- (107:23698) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/onboard_computer_status.msg (HTTP 429)
+- (131:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/onboard_computer_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/optical_flow.html
+- (108:66) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/optical_flow.msg (HTTP 429)
+- (138:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/optical_flow.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/orb_test.html
+- (107:23609) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/orb_test.msg (HTTP 429)
+- (113:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/orb_test.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/orb_test_large.html
+- (107:23627) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/orb_test_large.msg (HTTP 429)
+- (113:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/orb_test_large.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/orb_test_medium.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/orb_test_medium.msg (HTTP 429)
+- (115:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/orb_test_medium.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/orbit_status.html
+- (107:23648) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/orbit_status.msg (HTTP 429)
+- (122:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/orbit_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/parameter_update.html
+- (107:23718) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/parameter_update.msg (HTTP 429)
+- (122:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/parameter_update.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/ping.html
+- (107:23597) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/ping.msg (HTTP 429)
+- (115:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/ping.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/position_controller_landing_status.html
+- (107:23687) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/position_controller_landing_status.msg (HTTP 429)
+- (117:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/position_controller_landing_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/position_controller_status.html
+- (107:23663) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/position_controller_status.msg (HTTP 429)
+- (126:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/position_controller_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/position_setpoint.html
+- (107:23714) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/position_setpoint.msg (HTTP 429)
+- (153:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/position_setpoint.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/position_setpoint_triplet.html
+- (108:72) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/position_setpoint_triplet.msg (HTTP 429)
+- (117:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/position_setpoint_triplet.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/power_button_state.html
+- (107:23686) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/power_button_state.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/power_button_state.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/power_monitor.html
+- (107:23653) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/power_monitor.msg (HTTP 429)
+- (123:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/power_monitor.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/pps_capture.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/pps_capture.msg (HTTP 429)
+- (109:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/pps_capture.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/pwm_input.html
+- (107:23612) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/pwm_input.msg (HTTP 429)
+- (112:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/pwm_input.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/px4io_status.html
+- (107:23621) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/px4io_status.msg (HTTP 429)
+- (151:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/px4io_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/radio_status.html
+- (107:23621) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/radio_status.msg (HTTP 429)
+- (121:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/radio_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/rate_ctrl_status.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/rate_ctrl_status.msg (HTTP 429)
+- (115:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/rate_ctrl_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/rc_channels.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/rc_channels.msg (HTTP 429)
+- (147:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/rc_channels.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/rc_parameter_map.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/rc_parameter_map.msg (HTTP 429)
+- (119:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/rc_parameter_map.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/rpm.html
+- (107:23594) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/rpm.msg (HTTP 429)
+- (112:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/rpm.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/rtl_time_estimate.html
+- (107:23636) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/rtl_time_estimate.msg (HTTP 429)
+- (113:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/rtl_time_estimate.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/safety.html
+- (107:23603) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/safety.msg (HTTP 429)
+- (111:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/safety.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/satellite_info.html
+- (107:23627) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/satellite_info.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/satellite_info.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_accel.html
+- (107:23621) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_accel.msg (HTTP 429)
+- (126:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_accel.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_accel_fifo.html
+- (107:23636) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_accel_fifo.msg (HTTP 429)
+- (121:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_accel_fifo.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_baro.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_baro.msg (HTTP 429)
+- (120:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_baro.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_combined.html
+- (135:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_combined.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_correction.html
+- (107:23699) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_correction.msg (HTTP 429)
+- (140:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_correction.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_gnss_relative.html
+- (107:3322) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gnss_relative.msg (HTTP 429)
+- (138:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_gnss_relative.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_gps.html
+- (108:79) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gps.msg (HTTP 429)
+- (150:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_gps.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_gyro.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gyro.msg (HTTP 429)
+- (126:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_gyro.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_gyro_fft.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gyro_fft.msg (HTTP 429)
+- (123:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_gyro_fft.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_gyro_fifo.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gyro_fifo.msg (HTTP 429)
+- (123:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_gyro_fifo.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_hygrometer.html
+- (107:23636) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_hygrometer.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_hygrometer.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_mag.html
+- (107:23615) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_mag.msg (HTTP 429)
+- (122:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_mag.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_optical_flow.html
+- (107:3177) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_optical_flow.msg (HTTP 429)
+- (138:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_optical_flow.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_preflight_mag.html
+- (108:63) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_preflight_mag.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_preflight_mag.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensor_selection.html
+- (108:89) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_selection.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensor_selection.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensors_status.html
+- (107:3253) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensors_status.msg (HTTP 429)
+- (123:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensors_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/sensors_status_imu.html
+- (107:23730) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensors_status_imu.msg (HTTP 429)
+- (126:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/sensors_status_imu.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/system_power.html
+- (107:23621) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/system_power.msg (HTTP 429)
+- (129:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/system_power.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/takeoff_status.html
+- (107:23711) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/takeoff_status.msg (HTTP 429)
+- (122:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/takeoff_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/task_stack_info.html
+- (107:23684) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/task_stack_info.msg (HTTP 429)
+- (116:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/task_stack_info.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/tecs_status.html
+- (107:23618) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/tecs_status.msg (HTTP 429)
+- (152:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/tecs_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/telemetry_status.html
+- (107:23633) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/telemetry_status.msg (HTTP 429)
+- (169:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/telemetry_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/test_motor.html
+- (107:23615) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/test_motor.msg (HTTP 429)
+- (122:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/test_motor.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/timesync.html
+- (107:23609) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/timesync.msg (HTTP 429)
+- (112:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/timesync.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/timesync_status.html
+- (107:23630) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/timesync_status.msg (HTTP 429)
+- (118:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/timesync_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/trajectory_bezier.html
+- (108:95) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/trajectory_bezier.msg (HTTP 429)
+- (117:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/trajectory_bezier.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/trajectory_setpoint.html
+- (110:71) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/trajectory_setpoint.msg (HTTP 429)
+- (126:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/trajectory_setpoint.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/trajectory_waypoint.html
+- (108:99) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/trajectory_waypoint.msg (HTTP 429)
+- (122:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/trajectory_waypoint.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/transponder_report.html
+- (158:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/transponder_report.md (HTTP 301 => 429)
+  - redirect path:
+    - https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/transponder_report.md (301)
+    - https://github.com/PX4/PX4-user_guide/edit/main/en/msg_docs/transponder_report.md (429)
+
+https://docs.px4.io/main/en/msg_docs/ulog_stream_ack.html
+- (108:29) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/ulog_stream_ack.msg (HTTP 429)
+- (117:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/ulog_stream_ack.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/uwb_distance.html
+- (108:37) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/uwb_distance.msg (HTTP 429)
+- (124:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/uwb_distance.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/uwb_grid.html
+- (108:37) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/uwb_grid.msg (HTTP 429)
+- (134:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/uwb_grid.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_attitude.html
+- (107:23720) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_attitude.msg (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_global_position.html
+- (111:77) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_global_position.msg (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_gps_position.html
+- (108:79) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_gps_position.msg (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_local_position.html
+- (108:106) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_local_position.msg (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_optical_flow.html
+- (107:3231) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_optical_flow.msg (HTTP 429)
+- (129:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/vehicle_optical_flow.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_optical_flow_vel.html
+- (107:3192) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_optical_flow_vel.msg (HTTP 429)
+- (121:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/vehicle_optical_flow_vel.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_trajectory_bezier.html
+- (109:73) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_trajectory_bezier.msg (HTTP 429)
+- (128:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/vehicle_trajectory_bezier.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vehicle_trajectory_waypoint.html
+- (109:159) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_trajectory_waypoint.msg (HTTP 429)
+- (131:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/vehicle_trajectory_waypoint.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/vtol_vehicle_status.html
+- (107:23712) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/vtol_vehicle_status.msg (HTTP 429)
+- (120:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/vtol_vehicle_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/wheel_encoders.html
+- (107:23627) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/wheel_encoders.msg (HTTP 429)
+- (113:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/wheel_encoders.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/wind.html
+- (107:23597) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/wind.msg (HTTP 429)
+- (124:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/wind.md (HTTP 429)
+
+https://docs.px4.io/main/en/msg_docs/yaw_estimator_status.html
+- (107:23645) 'source f..' => https://github.com/PX4/PX4-Autopilot/blob/main/msg/yaw_estimator_status.msg (HTTP 429)
+- (119:75) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/msg_docs/yaw_estimator_status.md (HTTP 429)
+
+https://docs.px4.io/main/en/payloads/
+- (114:61) 'pass.aux..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/pass.aux.mix (HTTP 429)
+- (118:1010) 'example ..' => https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp (HTTP 429)
+- (202:168) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/payloads/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/
+- (107:7796) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/adsb_flarm.html
+- (107:9939) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/adsb_flarm.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/camera.html
+- (109:328) 'Vehicle ..' => https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/peripherals/camera_t265_vio.html
+- (116:2507) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/camera_t265_vio.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/companion_computer_peripherals.html
+- (113:158) 'SparkFun..' => https://www.sparkfun.com/products/12009 (connection failed)
+- (114:2094) 'DUO MLX ..' => https://duo3d.com/product/duo-minilx-lv1 (connection failed)
+- (120:1904) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/companion_computer_peripherals.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/dshot.html
+- (134:146) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/dshot.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/esc_motors
+- (113:38) 'UAVCAN ESC' => https://docs.px4.io/main/en/peripherals/esc_motors#UAVCAN (HTTP 200 but missing anchor)
+- (119:736) 'OneShot' => https://docs.px4.io/main/en/peripherals/esc_motors#oneshot (HTTP 200 but missing anchor)
+- (123:483) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/esc_motors.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/esc_motors.html
+- (113:38) 'UAVCAN ESC' => https://docs.px4.io/main/en/peripherals/esc_motors.html#UAVCAN (HTTP 200 but missing anchor)
+- (119:736) 'OneShot' => https://docs.px4.io/main/en/peripherals/esc_motors.html#oneshot (HTTP 200 but missing anchor)
+- (123:483) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/esc_motors.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/frsky_telemetry.html
+- (115:280) 'here  (o..' => https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors (HTTP 429)
+- (115:2555) 'here  (o..' => https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md (HTTP 429)
+- (122:491) 'FrSky Ta..' => https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry (HTTP 429)
+- (122:2661) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/frsky_telemetry.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/mavlink_peripherals.html
+- (111:860) '/src/mod..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp (HTTP 429)
+- (114:3622) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/mavlink_peripherals.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/parachute.html
+- (116:791) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/parachute.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/serial_configuration.html
+- (111:275) 'board  (..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4 (HTTP 429)
+- (114:562) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/serial_configuration.md (HTTP 429)
+
+https://docs.px4.io/main/en/peripherals/uavcan_escs.html
+- (107:3087) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/uavcan_escs.md (HTTP 429)
+
+https://docs.px4.io/main/en/power_module/
+- (114:244) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/power_module/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/releases/
+- (107:4441) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/releases/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/releases/1.12.html
+- (108:3903) 'Read mor..' => http://seriouslypro.com/spracingh7extreme (connection failed)
+
+https://docs.px4.io/main/en/robotics/
+- (115:132) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/robotics/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/robotics/dronekit.html
+- (107:5162) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/robotics/dronekit.md (HTTP 429)
+
+https://docs.px4.io/main/en/ros/
+- (111:2999) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/ros/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/ros/external_position_estimation.html
+- (108:7546) 'MAV_FRAM..' => https://mavlink.io/en/messages/common.html#MAV_FRAME_MOCAP_NED (HTTP 200 but missing anchor)
+- (147:19) 'tf packa..' => http://wiki.ros.org/tf#static_transform_publisher (connection failed)
+
+https://docs.px4.io/main/en/ros/mavros_installation.html
+- (107:5254) 'mavros  ..' => http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status (HTTP 200 but missing anchor)
+- (109:159) 'mavros R..' => http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status (HTTP 200 but missing anchor)
+- (110:184) 'official..' => https://github.com/mavlink/mavros/tree/master/mavros#installation (HTTP 429)
+- (135:120) 'mavros r..' => https://github.com/mavlink/mavros/tree/master/mavros#installation (HTTP 429)
+
+https://docs.px4.io/main/en/ros/offboard_control.html
+- (111:2144) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGduZFtHcm91bmQgU3RhdGlvbl0gLS1NQVZMaW5rLS0-IHJhZDFbR3JvdW5kIFJhZGlvXTtcbiAgcmFkMSAtLVJhZGlvUHJvdG9jb2wtLT4gcmFkMltWZWhpY2xlIFJhZGlvXTtcbiAgcmFkMiAtLU1BVkxpbmstLT4gYVtBdXRvcGlsb3RdOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 (HTTP 200 but missing anchor)
+- (112:4779) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 (HTTP 200 but missing anchor)
+- (114:100) 'Intel Wi..' => http://www.intel.com/products/wireless/adapters/5000/ (connection failed)
+- (114:767) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbiAgc3ViZ3JhcGggR3JvdW5kICBTdGF0aW9uXG4gIGduZFtST1MgRW5hYmxlZCBDb21wdXRlcl0gLS0tIHFnY1txR3JvdW5kQ29udHJvbF1cbiAgZW5kXG4gIGduZCAtLU1BVkxpbmsvVURQLS0-IHdbV2lGaV07XG4gIHFnYyAtLU1BVkxpbmstLT4gdztcbiAgc3ViZ3JhcGggVmVoaWNsZVxuICBjb21wW0NvbXBhbmlvbiBDb21wdXRlcl0gLS1NQVZMaW5rLS0-IHVhcnRbVUFSVCBBZGFwdGVyXVxuICB1YXJ0IC0tLSBBdXRvcGlsb3RcbiAgZW5kXG4gIHcgLS0tIGNvbXAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ (HTTP 200 but missing anchor)
+- (114:2421) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/ros/offboard_control.md (HTTP 429)
+
+https://docs.px4.io/main/en/ros/ros1_via_ros2.html
+- (145:827) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/ros/ros1_via_ros2.md (HTTP 429)
+
+https://docs.px4.io/main/en/ros/ros2_offboard_control.html
+- (140:348) 'offboard..' => https://github.com/PX4/px4_ros_com/blob/master/src/examples/offboard/offboard_control.cpp (HTTP 429)
+- (203:208) 'frame_tr..' => https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp (HTTP 429)
+- (226:540) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/ros/ros2_offboard_control.md (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/airspeed
+- (109:1020) 'MS4525DO..' => https://www.te.com/usa-en/product-CAT-BLPS0002.html (connection failed)
+- (109:1658) 'MS5525  ..' => https://www.te.com/usa-en/product-CAT-BLPS0003.html (connection failed)
+- (110:6687) 'Airspeed..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure (HTTP 429)
+- (110:7440) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/sensor/airspeed.md (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/airspeed.html
+- (109:1020) 'MS4525DO..' => https://www.te.com/usa-en/product-CAT-BLPS0002.html (connection failed)
+- (109:1658) 'MS5525  ..' => https://www.te.com/usa-en/product-CAT-BLPS0003.html (connection failed)
+- (110:6687) 'Airspeed..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/differential_pressure (HTTP 429)
+- (110:7440) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/sensor/airspeed.md (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/airspeed_tfslot.html
+- (107:7442) 'TFSLOT  ..' => https://github.com/ThunderFly-aerospace/TFSLOT01 (HTTP 429)
+- (107:8897) 'TFSLOT  ..' => https://github.com/ThunderFly-aerospace/TFSLOT01 (HTTP 429)
+- (108:60) 'TFASPDIM..' => https://github.com/ThunderFly-aerospace/TFASPDIMU02 (HTTP 429)
+- (108:761) 'Sensirio..' => https://www.sensirion.com/sdp3x/ (HTTP 302 => 404)
+  - redirect path:
+    - https://www.sensirion.com/sdp3x/ (302)
+    - https://sensirion.com/sdp3x/ (404)
+- (112:265) 'TF-G2  (..' => https://github.com/ThunderFly-aerospace/TF-G2/ (HTTP 429)
+- (112:1037) 'GitHub  ..' => https://github.com/ThunderFly-aerospace/TFSLOT01 (HTTP 429)
+- (112:2632) 'TFASPDIM..' => https://github.com/ThunderFly-aerospace/TFASPDIMU02 (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/leddar_one.html
+- (110:147) 'LeddarOn..' => https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf (HTTP 404)
+
+https://docs.px4.io/main/en/sensor/px4flow.html
+- (134:1589) 'Mouser  ..' => http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2Fha2pyFadujTt%2FIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3D%3D (connection failed)
+
+https://docs.px4.io/main/en/sensor/rangefinders
+- (132:84) 'iris_opt..' => https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf (HTTP 429)
+- (147:29) 'typhoon_..' => https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145 (HTTP 429)
+- (161:85) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/sensor/rangefinders.md (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/rangefinders.html
+- (132:84) 'iris_opt..' => https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf (HTTP 429)
+- (147:29) 'typhoon_..' => https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145 (HTTP 429)
+- (161:85) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/sensor/rangefinders.md (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/sfxx_lidar.html
+- (108:735) 'SF11/C  ..' => https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m (HTTP 301 => 404)
+  - redirect path:
+    - https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m (301)
+    - https://lightwarelidar.com/collections/lidar-rangefinders/products/sf11-c-120-m (404)
+- (113:675) 'Modules ..' => https://docs.px4.io/main/en/modules/modules_driver_distance_sensor.html#sf1xx (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/sensor/tachometers
+- (108:462) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/sensor/tachometers.md (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/tachometers.html
+- (108:462) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/sensor/tachometers.md (HTTP 429)
+
+https://docs.px4.io/main/en/sensor/thunderfly_tachometer.html
+- (122:220) 'PCF8583_..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#PCF8583_ADDR (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/sensor_bus/i2c_development.html
+- (110:1989) 'drv_airs..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/drv_airspeed.h (HTTP 404)
+
+https://docs.px4.io/main/en/sensor_bus/translator_tfi2cadt.html
+- (107:7550) 'TFI2CADT..' => https://github.com/ThunderFly-aerospace/TFI2CADT01 (HTTP 429)
+- (111:284) 'TFI2CADT..' => https://github.com/ThunderFly-aerospace/TFI2CADT01 (HTTP 429)
+- (119:86) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNptkd9rwjAQx_-VcE8dtJB2ukEfBLEWfJCJy8CHvgRznQH7gzSBDfF_33VZB2oCyf3I576XcBc4dgohh08j-xMTRdUyWuX2I6LNErY7zJh0tuv1ubNP_7csSRZsudlHS22GHlGxAduhM3fEfrdNI1GS4emK8a85fwSyGyC9A0S5yVbrg_DZKfLtCxH9JsjhaU7VvI7pfK3_NCg_NXmO3pwl5uYt9D0yAXoWoFNP4yM9H-kspJ0FtF8CdObpURtiaNA0UisaymWsrsCesMEKcnIV1tKdbQVVeyXU9UpaXCttOwO5NQ5jGKf1_t0ep9gzhZY04sYnrz9BI4mU (HTTP 200 but missing anchor)
+- (120:868) 'LTC4317 ..' => https://www.analog.com/media/en/technical-documentation/data-sheets/4317fa.pdf (connection failed)
+- (120:1596) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/sensor_bus/translator_tfi2cadt.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/
+- (110:3405) 'code  (o..' => https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih (HTTP 429)
+- (113:242) 'simulato..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulator/simulator_mavlink.cpp (HTTP 429)
+- (113:996) 'mavlink_..' => https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp (HTTP 429)
+- (154:338) 'the mode..' => https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449 (HTTP 429)
+- (154:1182) 'jmavsim_..' => https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75 (HTTP 429)
+- (155:24) 'ROMFS/px..' => https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix (HTTP 429)
+- (166:297) 'mavlink-..' => https://github.com/mavlink-router/mavlink-router (HTTP 429)
+- (176:177) 'here  (o..' => https://github.com/mavlink-router/mavlink-router#running (HTTP 429)
+- (189:166) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/airsim.html
+- (108:559) 'PX4 Setu..' => https://microsoft.github.io/AirSim/px4_setup.html (HTTP 404)
+- (108:1254) 'SITL  (o..' => https://microsoft.github.io/AirSim/px4_sitl.html (HTTP 404)
+- (108:1888) 'HITL  (o..' => https://microsoft.github.io/AirSim/px4_setup.html#setting-up-px4-hardware-in-loop (HTTP 404)
+- (109:2134) 'Using Ai..' => https://github.com/generalized-intelligence/GAAS/tree/master/demo/case_study_1?fbclid=IwAR2JO0LPesA5z313sA2QGm1t01bb4wn0Xpz_JkD7Z1s3nombJWHyTZdLuMA (HTTP 302 => 404)
+  - redirect path:
+    - https://github.com/generalized-intelligence/GAAS/tree/master/demo/case_study_1?fbclid=IwAR2JO0LPesA5z313sA2QGm1t01bb4wn0Xpz_JkD7Z1s3nombJWHyTZdLuMA (302)
+    - https://github.com/generalized-intelligence/GAAS/tree/main/demo/case_study_1 (404)
+
+https://docs.px4.io/main/en/simulation/failsafes.html
+- (120:231) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/failsafes.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/flightgear
+- (109:549) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 (HTTP 200 but missing anchor)
+- (167:29) 'PX4-Flig..' => https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge (HTTP 429)
+- (167:836) 'PX4-Flig..' => https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge (HTTP 429)
+- (167:1568) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/flightgear.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/flightgear.html
+- (109:549) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 (HTTP 200 but missing anchor)
+- (167:29) 'PX4-Flig..' => https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge (HTTP 429)
+- (167:836) 'PX4-Flig..' => https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge (HTTP 429)
+- (167:1568) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/flightgear.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/flightgear_vehicles.html
+- (109:59) 'Rascal R..' => https://github.com/ThunderFly-aerospace/FlightGear-Rascal (HTTP 429)
+- (114:394) 'PX4-Flig..' => https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge (HTTP 429)
+- (115:79) 'this fil..' => https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/blob/master/models/rascal.json#L2 (HTTP 429)
+- (115:933) 'TF-G1 Au..' => https://github.com/ThunderFly-aerospace/TF-G1 (HTTP 429)
+- (117:246) 'incomple..' => https://github.com/ThunderFly-aerospace/FlightGear-TF-Mx1 (HTTP 429)
+- (118:270) 'PX4-Flig..' => https://github.com/PX4/PX4-FlightGear-Bridge/tree/master/models (HTTP 429)
+- (119:54) 'JSON fil..' => https://github.com/PX4/PX4-FlightGear-Bridge/blob/master/models/rascal.json (HTTP 429)
+- (130:386) '/platfor..' => https://github.com/PX4/PX4-Autopilot/blob/c5341da8137f460c84f47f0e38293667ea69a6cb/platforms/posix/cmake/sitl_target.cmake#L164-L171 (HTTP 429)
+- (131:116) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/flightgear_vehicles.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/gazebo
+- (110:552) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 (HTTP 200 but missing anchor)
+- (165:257) 'PX4/PX4-..' => https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/windy.world#L15-L31 (HTTP 429)
+- (183:121) 'sonoma_r..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world (HTTP 429)
+- (197:8471) 'PX4/PX4-..' => https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp (HTTP 429)
+- (214:29) 'sitl_gaz..' => https://github.com/px4/sitl_gazebo (HTTP 429)
+- (215:411) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/gazebo.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/gazebo.html
+- (110:552) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 (HTTP 200 but missing anchor)
+- (165:257) 'PX4/PX4-..' => https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/windy.world#L15-L31 (HTTP 429)
+- (183:121) 'sonoma_r..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world (HTTP 429)
+- (197:8471) 'PX4/PX4-..' => https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp (HTTP 429)
+- (214:29) 'sitl_gaz..' => https://github.com/px4/sitl_gazebo (HTTP 429)
+- (215:411) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/gazebo.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/gazebo_vehicles.html
+- (120:145) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/gazebo_vehicles.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/gazebo_worlds.html
+- (108:1855) 'PX4/sitl..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/baylands.world (HTTP 429)
+- (108:2716) 'PX4/sitl..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/ksql_airport.world (HTTP 429)
+- (108:3608) 'PX4/sitl..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/mcmillan_airfield.world (HTTP 429)
+- (108:4511) 'PX4/sitl..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world (HTTP 429)
+- (108:5374) 'PX4/sitl..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/warehouse.world (HTTP 429)
+- (108:6221) 'PX4/sitl..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/yosemite.world (HTTP 429)
+- (109:214) 'boat.wor..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/boat.world (HTTP 429)
+- (109:988) 'uuv_hipp..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/uuv_hippocampus.world (HTTP 429)
+- (109:1814) 'typhoon_..' => https://github.com/PX4/sitl_gazebo/blob/master/worlds/typhoon_h480.world (HTTP 429)
+- (110:907) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/gazebo_worlds.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/hitl.html
+- (108:1233) 'DJI Flam..' => https://docs.px4.io/main/en/airframes/airframe_reference.html#copter_quadrotor_x_dji_f450_w/_dji_escs (HTTP 200 but missing anchor)
+- (111:206) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/main/posix-configs/rpi/px4_hil.config (HTTP 429)
+- (125:1196) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/hitl.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/ignition_gazebo.html
+- (107:7275) 'Ignition..' => https://ignitionrobotics.org/libs/gazebo (HTTP 301 => 404)
+  - redirect path:
+    - https://ignitionrobotics.org/libs/gazebo (301)
+    - https://gazebosim.org/libs/gazebo (404)
+- (107:7954) 'Ignition..' => https://ignitionrobotics.org/home (HTTP 301 => 404)
+  - redirect path:
+    - https://ignitionrobotics.org/home (301)
+    - https://gazebosim.org/home (404)
+- (108:1299) 'installa..' => https://github.com/Auterion/px4-simulation-ignition#readme (HTTP 429)
+- (117:140) 'px4-simu..' => https://github.com/Auterion/px4-simulation-ignition (HTTP 429)
+- (117:857) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/ignition_gazebo.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/jmavsim
+- (107:8287) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/simulation/jmavsim.html
+- (107:8287) '(opens n..' => https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/simulation/jsbsim.html
+- (109:1224) 'release ..' => https://github.com/JSBSim-Team/jsbsim/releases/tag/Linux (HTTP 429)
+- (119:151) 'px4-jsbs..' => https://github.com/Auterion/px4-jsbsim-bridge (HTTP 429)
+- (119:863) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/jsbsim.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/multi-vehicle-simulation.html
+- (111:177) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/multi-vehicle-simulation.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/multi_vehicle_flightgear.html
+- (109:1188) 'PX4 bran..' => https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi (HTTP 429)
+- (112:154) 'predefin..' => https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts (HTTP 429)
+- (118:1077) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/multi_vehicle_flightgear.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/multi_vehicle_jmavsim.html
+- (117:521) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/multi_vehicle_jmavsim.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/multi_vehicle_simulation_gazebo.html
+- (113:81) 'init.d-p..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112 (HTTP 200 but missing anchor)
+- (136:1125) 'here  (o..' => https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf (HTTP 429)
+- (140:103) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37 (HTTP 429)
+- (141:191) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46 (HTTP 429)
+- (142:130) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36 (HTTP 429)
+- (143:70) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4 (HTTP 429)
+- (143:843) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25 (HTTP 429)
+- (144:225) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41 (HTTP 429)
+- (145:85) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68 (HTTP 429)
+- (146:90) 'here  (o..' => https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26 (HTTP 429)
+- (186:39) 'startup ..' => https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/airframes/1030_plane (HTTP 429)
+- (188:440) 'URDF in ..' => http://gazebosim.org/tutorials/?tut=ros_urdf (HTTP 301 => 404)
+  - redirect path:
+    - http://gazebosim.org/tutorials/?tut=ros_urdf (301)
+    - https://gazebosim.org/tutorials/?tut=ros_urdf (404)
+- (188:1147) 'RotorS  ..' => https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf (HTTP 429)
+- (188:1899) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/multi_vehicle_simulation_gazebo.md (HTTP 429)
+
+https://docs.px4.io/main/en/simulation/simulation-in-hardware.html
+- (122:168) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/simulation/simulation-in-hardware.md (HTTP 429)
+
+https://docs.px4.io/main/en/smart_batteries/
+- (109:1402) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/smart_batteries/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/smart_batteries/rotoye_batmon.html
+- (117:844) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/smart_batteries/rotoye_batmon.md (HTTP 429)
+
+https://docs.px4.io/main/en/telemetry/
+- (113:229) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/telemetry/README.md (HTTP 301 => 429)
+  - redirect path:
+    - https://github.com/PX4/px4_user_guide/edit/main/en/telemetry/README.md (301)
+    - https://github.com/PX4/PX4-user_guide/edit/main/en/telemetry/README.md (429)
+
+https://docs.px4.io/main/en/telemetry/cuav_p8_radio.html
+- (107:9559) 'CUAV sto..' => https://store.cuav.net/shop/cuav-p8-radio-uav-telemetry/ (HTTP 404)
+- (109:1748) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/telemetry/cuav_p8_radio.md (HTTP 429)
+
+https://docs.px4.io/main/en/telemetry/esp32_wifi_module.html
+- (112:4423) 'follow t..' => https://github.com/DroneBridge/ESP32#installationflashing-using-precompiled-binaries (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/telemetry/esp8266_wifi_module.html
+- (113:1412) 'QGC Inst..' => https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection (HTTP 200 but missing anchor)
+
+https://docs.px4.io/main/en/telemetry/holybro_microhard_p900_radio.html
+- (128:995) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/telemetry/holybro_microhard_p900_radio.md (HTTP 429)
+
+https://docs.px4.io/main/en/telemetry/holybro_xbp9x_radio.html
+- (108:2027) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/telemetry/holybro_xbp9x_radio.md (HTTP 429)
+
+https://docs.px4.io/main/en/telemetry/rfd900_telemetry.html
+- (107:8536) 'jDrones ..' => http://store.jdrones.com (connection failed)
+- (109:596) 'jD-RF900..' => http://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm (HTTP 301 => 500)
+  - redirect path:
+    - http://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm (301)
+    - https://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm (500)
+- (109:1291) 'jD-RF868..' => http://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm (HTTP 301 => 500)
+  - redirect path:
+    - http://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm (301)
+    - https://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm (500)
+
+https://docs.px4.io/main/en/telemetry/sik_radio
+- (107:8462) 'SiK radi..' => https://github.com/LorenzMeier/SiK (HTTP 429)
+- (112:106) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/telemetry/sik_radio.md (HTTP 429)
+
+https://docs.px4.io/main/en/telemetry/sik_radio.html
+- (107:8462) 'SiK radi..' => https://github.com/LorenzMeier/SiK (HTTP 429)
+- (112:106) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/telemetry/sik_radio.md (HTTP 429)
+
+https://docs.px4.io/main/en/test_and_ci/
+- (108:677) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/test_and_ci/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/test_and_ci/docker.html
+- (108:2083) 'convenie..' => https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script (HTTP 200 but missing anchor)
+- (110:190) 'use dock..' => https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user (HTTP 200 but missing anchor)
+- (115:202) 'Github h..' => https://github.com/PX4/containers/blob/master/README.md#container-hierarchy (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://github.com/PX4/containers/blob/master/README.md (301)
+    - https://github.com/PX4/PX4-containers/blob/master/README.md (200)
+
+https://docs.px4.io/main/en/test_and_ci/integration_testing_mavsdk.html
+- (112:347) 'MAVSDK >..' => https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp (HTTP 200 but missing anchor)
+- (112:1109) 'MAVSDK >..' => https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp (HTTP 200 but missing anchor)
+- (182:141) 'the case..' => https://github.com/google/googletest/blob/master/docs/advanced.md#assertion-placement (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://github.com/google/googletest/blob/master/docs/advanced.md (302)
+    - https://github.com/google/googletest/blob/main/docs/advanced.md (200)
+- (182:971) 'tags  (o..' => https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md (302)
+    - https://github.com/catchorg/Catch2/blob/devel/docs/test-cases-and-sections.md (200)
+
+https://docs.px4.io/main/en/test_and_ci/test_flights
+- (108:482) 'add your..' => https://github.com/PX4/PX4-Autopilot/projects/18 (HTTP 429)
+- (108:9315) 'UAVCAN  ..' => https://zubax.com/technologies/uavcan (connection failed)
+- (108:15385) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/test_and_ci/test_flights.md (HTTP 429)
+
+https://docs.px4.io/main/en/test_and_ci/test_flights.html
+- (108:482) 'add your..' => https://github.com/PX4/PX4-Autopilot/projects/18 (HTTP 429)
+- (108:9315) 'UAVCAN  ..' => https://zubax.com/technologies/uavcan (connection failed)
+- (108:15385) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/test_and_ci/test_flights.md (HTTP 429)
+
+https://docs.px4.io/main/en/test_and_ci/unit_tests.html
+- (114:114) '--gtest_..' => https://github.com/google/googletest/blob/master/docs/advanced.md#running-a-subset-of-the-tests (HTTP 200 but missing anchor)
+  - redirect path:
+    - https://github.com/google/googletest/blob/master/docs/advanced.md (302)
+    - https://github.com/google/googletest/blob/main/docs/advanced.md (200)
+
+https://docs.px4.io/main/en/tutorials/tutorials
+- (107:5927) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/tutorials/tutorials.md (HTTP 429)
+
+https://docs.px4.io/main/en/tutorials/tutorials.html
+- (107:5927) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/tutorials/tutorials.md (HTTP 429)
+
+https://docs.px4.io/main/en/uavcan/
+- (110:8) 'Thiemar ..' => https://github.com/thiemar/airspeed (HTTP 429)
+- (111:136) 'CubePilo..' => https://www.cubepilot.org/#/here/here3 (HTTP 200 but missing anchor)
+- (111:776) 'Zubax GN..' => https://zubax.com/products/gnss_2 (connection failed)
+- (117:197) 'UAVCAN D..' => https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection (HTTP 404)
+- (123:1128) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/uavcan/README.md (HTTP 429)
+
+https://docs.px4.io/main/en/uavcan/ark_cannode.html
+- (109:1069) 'Open Sou..' => https://github.com/ARK-Electronics/ARK_CANNODE (HTTP 429)
+- (109:1736) 'PX4 Open..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/ark/cannode (HTTP 429)
+- (122:2162) 'CANNODE_..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#CANNODE_FLOW_ROT (HTTP 200 but missing anchor)
+- (132:406) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/uavcan/ark_cannode.md (HTTP 429)
+
+https://docs.px4.io/main/en/uavcan/ark_flow.html
+- (107:8709) 'Open Sou..' => https://github.com/ARK-Electronics/ARK_Flow (HTTP 429)
+- (107:9373) 'PX4 Open..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/ark/can-flow (HTTP 429)
+- (117:1917) 'CANNODE_..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#CANNODE_FLOW_ROT (HTTP 200 but missing anchor)
+- (117:2129) 'CANNODE_..' => https://docs.px4.io/main/en/advanced_config/parameter_reference.html#CANNODE_FLOW_ROT (HTTP 200 but missing anchor)
+- (122:2454) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/uavcan/ark_flow.md (HTTP 429)
+
+https://docs.px4.io/main/en/uavcan/ark_gps.html
+- (107:8699) 'Open Sou..' => https://github.com/ARK-Electronics/ARK_GPS (HTTP 429)
+- (107:9362) 'PX4 Open..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/ark/can-gps (HTTP 429)
+- (124:953) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/uavcan/ark_gps.md (HTTP 429)
+
+https://docs.px4.io/main/en/uavcan/ark_rtk_gps.html
+- (107:10398) 'Open Sou..' => https://github.com/ARK-Electronics/ARK_RTK_GPS (HTTP 429)
+- (107:11065) 'PX4 Open..' => https://github.com/PX4/PX4-Autopilot/tree/main/boards/ark/can-rtk-gps (HTTP 429)
+- (130:1305) 'u-blox Z..' => https://www.u-blox.com/en/product/zed-f9p-module#tab-documentation-resources (HTTP 200 but missing anchor)
+- (134:927) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/uavcan/ark_rtk_gps.md (HTTP 429)
+
+https://docs.px4.io/main/en/uavcan/cuav_can_pmu.html
+- (108:5561) 'UAVCAN  ..' => https://new.uavcan.org/ (connection failed)
+
+https://docs.px4.io/main/en/uavcan/developer
+- (108:326) 'Zubax Ba..' => https://zubax.com/products/babel (connection failed)
+- (108:3931) 'UAVCAN D..' => https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection (HTTP 404)
+
+https://docs.px4.io/main/en/uavcan/developer.html
+- (108:326) 'Zubax Ba..' => https://zubax.com/products/babel (connection failed)
+- (108:3931) 'UAVCAN D..' => https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection (HTTP 404)
+
+https://docs.px4.io/main/en/uavcan/escs.html
+- (109:851) 'Zubax Or..' => https://zubax.com/products/orel_20 (connection failed)
+- (111:256) 'Sapog  (..' => https://github.com/PX4/sapog#px4-sapog (HTTP 429)
+- (112:8) 'Zubax Or..' => https://zubax.com/products/orel_20 (connection failed)
+- (112:1301) 'Zubax My..' => https://zubax.com/products/myxa (connection failed)
+- (112:2397) 'purchase..' => https://zubax.com/products/uav_propulsion_kits (connection failed)
+- (113:126) 'Zubax Mi..' => https://zubax.com/products/mitochondrik (connection failed)
+- (115:178) 'Zubax Or..' => https://zubax.com/products/orel_20 (connection failed)
+- (120:287) 'Sapog-ba..' => https://github.com/PX4/sapog#px4-sapog (HTTP 429)
+- (122:1091) 'Telega-b..' => https://zubax.com/products/telega (connection failed)
+- (128:185) 'PX4/Sapo..' => https://github.com/PX4/sapog#px4-sapog (HTTP 429)
+- (128:1515) 'UAVCAN D..' => https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection (HTTP 404)
+
+https://docs.px4.io/main/en/uavcan/node_firmware.html
+- (111:951) 'project ..' => https://github.com/PX4/sapog (HTTP 429)
+- (111:1729) 'project ..' => https://github.com/Zubax/zubax_gnss (HTTP 429)
+- (116:320) 'Edit thi..' => https://github.com/PX4/px4_user_guide/edit/main/en/uavcan/node_firmware.md (HTTP 429)
+
+
+Stats:
+ 1496357 links
+    7641 destination URLs
+      77 URLs ignored
+     202 warnings
+     822 errors
+

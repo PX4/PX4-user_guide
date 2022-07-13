@@ -1,0 +1,2994 @@
+Getting links from: http://docs.px4.io/master/en/
+├───OK─── http://docs.px4.io/main/en/index.html
+Finished! 3 links found. 2 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/index.html
+├───OK─── http://docs.px4.io/main/px4-logo.svg
+├───OK─── https://px4.io/
+├───OK─── https://docs.px4.io/main/en/contribute/support.html
+├───OK─── https://github.com/PX4/PX4-Autopilot
+├───OK─── https://github.com/PX4/PX4-user_guide
+├───OK─── http://qgroundcontrol.com/
+├───OK─── https://mavsdk.mavlink.io/
+├───OK─── https://mavlink.io/en/
+├───OK─── https://docs.qgroundcontrol.com/en/
+├───OK─── https://dev.qgroundcontrol.com/en/
+├───OK─── https://camera-manager.dronecode.org/en/
+├───OK─── https://docs.px4.io/main/en/
+├───OK─── https://docs.px4.io/v1.12/en/
+├───OK─── https://docs.px4.io/v1.11/en/
+├───OK─── https://docs.px4.io/v1.10/en/
+├───OK─── https://dev.px4.io/v1.11_noredirect/en/
+├───OK─── https://dev.px4.io/v1.10_noredirect/en/
+├───OK─── http://docs.px4.io/main/en/getting_started/
+├───OK─── http://docs.px4.io/main/en/assembly/
+├───OK─── http://docs.px4.io/main/en/config/
+├───OK─── http://docs.px4.io/main/en/airframes/
+├───OK─── http://docs.px4.io/main/en/flying/
+├───OK─── http://docs.px4.io/main/en/log/flight_log_analysis
+├───OK─── http://docs.px4.io/main/en/advanced_features/
+├───OK─── http://docs.px4.io/main/en/advanced_config/
+├───OK─── http://docs.px4.io/main/en/hardware/drone_parts
+├───OK─── http://docs.px4.io/main/en/development/development
+├───OK─── http://docs.px4.io/main/en/robotics/
+├───OK─── http://docs.px4.io/main/en/contribute/
+├───OK─── http://docs.px4.io/main/en/releases/
+├───OK─── http://docs.px4.io/main/assets/img/logo_pro_small.e0fa34bd.png
+├───OK─── https://github.com/PX4/PX4-Autopilot/releases
+├───OK─── https://img.shields.io/badge/release-master-blue.svg
+├───OK─── https://discuss.px4.io/
+├───OK─── https://img.shields.io/badge/discuss-px4-ff69b4.svg
+├───OK─── https://join.slack.com/t/px4/shared_invite/zt-si4xo5qs-R4baYFmMjlrT4rQK5yUnaA
+├───OK─── http://docs.px4.io/main/assets/img/slack.b152a7b4.svg
+├───OK─── http://docs.px4.io/main/en/development/development.html
+├───OK─── http://docs.px4.io/main/en/airframes/airframe_reference.html
+├───OK─── http://docs.px4.io/main/en/getting_started/flight_controller_selection.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/
+├───OK─── http://docs.px4.io/main/en/payloads/
+├───OK─── http://docs.px4.io/main/en/peripherals/
+├───OK─── http://docs.px4.io/main/en/contribute/support.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/issues
+├───OK─── http://docs.px4.io/main/en/getting_started/flight_reporting.html
+├───OK─── http://docs.px4.io/main/en/contribute/docs.html
+├───OK─── http://docs.px4.io/main/en/contribute/translation.html
+├───OK─── https://opensource.org/licenses/BSD-3-Clause
+├───OK─── https://creativecommons.org/licenses/by/4.0/
+├───OK─── http://docs.px4.io/main/en/contribute/licenses.html
+├───OK─── https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich
+├───OK─── https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana
+├───OK─── https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney
+├───OK─── https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&mode=WEEK&height=600&wkst=1&bgcolor=%23FFFFFF&src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&color=%23691426&ctz=Europe%2FZurich
+├───OK─── http://docs.px4.io/main/assets/img/position_fixed.c1403cf0.svg
+├───OK─── https://www.flaticon.com/authors/smashicons
+├───OK─── https://www.flaticon.com/
+├───OK─── https://creativecommons.org/licenses/by/3.0/
+├───OK─── http://docs.px4.io/main/assets/img/automatic_mode.ee3ebc1d.svg
+├───OK─── https://www.freepik.com/
+├───OK─── http://creativecommons.org/licenses/by/3.0/
+├───OK─── https://www.dronecode.org/
+├───OK─── https://mavlink.io/assets/site/logo_dronecode.png
+├───OK─── https://www.linuxfoundation.org/projects
+├───OK─── https://mavlink.io/assets/site/logo_linux_foundation.png
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/README.md
+├───OK─── http://docs.px4.io/main/en/getting_started/px4_basic_concepts.html
+Finished! 2148 links found. 2080 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/
+Finished! 2148 links found. 2148 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/
+├───OK─── http://docs.px4.io/main/en/getting_started/frame_selection.html
+├───OK─── http://docs.px4.io/main/en/getting_started/sensor_selection.html
+├───OK─── http://docs.px4.io/main/en/getting_started/rc_transmitter_receiver.html
+├───OK─── http://docs.px4.io/main/en/getting_started/flight_modes.html
+├───OK─── http://docs.px4.io/main/en/getting_started/vehicle_status
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/README.md
+Finished! 2097 links found. 2091 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/
+├───OK─── http://docs.px4.io/main/en/assembly/mount_and_orient_controller.html
+├───OK─── http://docs.px4.io/main/en/assembly/mount_gps_compass.html
+├───OK─── http://docs.px4.io/main/en/assembly/vibration_isolation.html
+├───OK─── http://docs.px4.io/main/en/assembly/cable_wiring.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_cuav_v5_plus.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_cuav_v5_nano.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_durandal.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_holybro_pix32_v5.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_pixhawk4.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_pixhawk4_mini.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_pixhawk5x.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_cube.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_pixracer.html
+├───OK─── http://docs.px4.io/main/en/assembly/quick_start_pixhawk.html
+├───OK─── http://docs.px4.io/main/en/config_mc/racer_setup.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/assembly/README.md
+Finished! 2099 links found. 2083 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/
+├───OK─── http://docs.px4.io/main/en/config/firmware.html
+├───OK─── http://docs.px4.io/main/en/config/airframe.html
+├───OK─── http://docs.px4.io/main/en/config/flight_controller_orientation.html
+├───OK─── http://docs.px4.io/main/en/config/compass.html
+├───OK─── http://docs.px4.io/main/en/config/gyroscope.html
+├───OK─── http://docs.px4.io/main/en/config/accelerometer.html
+├───OK─── http://docs.px4.io/main/en/config/airspeed.html
+├───OK─── http://docs.px4.io/main/en/config/level_horizon_calibration.html
+├───OK─── http://docs.px4.io/main/en/config/radio.html
+├───OK─── http://docs.px4.io/main/en/config/joystick.html
+├───OK─── http://docs.px4.io/main/en/config/flight_mode.html
+├───OK─── http://docs.px4.io/main/en/config/battery.html
+├───OK─── http://docs.px4.io/main/en/config/safety.html
+├───OK─── http://docs.px4.io/main/en/config/motors.html
+├───OK─── http://docs.px4.io/main/en/config/actuators.html
+├───OK─── http://docs.px4.io/main/en/config/autotune.html
+├───OK─── http://qgroundcontrol.com/downloads/
+├───OK─── http://docs.px4.io/main/assets/img/menu_setup.234393b2.png
+├───OK─── https://www.youtube.com/embed/91VGmdSlbo4
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/holybro_s500_v2_pixhawk4.html#install-configure-px4
+├───OK─── https://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/SetupView.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/README.md
+Finished! 2125 links found. 2102 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/airframes/
+├───OK─── http://docs.px4.io/main/en/frames_autogyro/
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/
+├───OK─── http://docs.px4.io/main/en/frames_plane/
+├───OK─── http://docs.px4.io/main/en/frames_vtol/
+├───OK─── http://docs.px4.io/main/en/frames_rover/
+├───OK─── http://docs.px4.io/main/en/frames_sub/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/airframes/README.md
+Finished! 2089 links found. 2082 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/
+├───OK─── http://docs.px4.io/main/en/flying/first_flight_guidelines.html
+├───OK─── http://docs.px4.io/main/en/flying/basic_flying
+├───OK─── http://docs.px4.io/main/en/flying/missions.html
+├───OK─── http://docs.px4.io/main/en/flying/geofence.html
+├───OK─── http://docs.px4.io/main/en/flying/plan_safety_points.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/
+├───OK─── http://docs.px4.io/main/en/flying/terrain_following_holding.html
+├───OK─── http://docs.px4.io/main/en/flying/basic_flying.html
+├───OK─── http://docs.px4.io/main/en/getting_started/vehicle_status.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flying/README.md
+Finished! 2095 links found. 2085 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/log/flight_log_analysis
+├───OK─── http://docs.px4.io/main/en/log/flight_log_analysis.html
+├───OK─── http://docs.px4.io/main/en/log/flight_review.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/issues/new
+├───OK─── http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169
+├───OK─── http://logs.px4.io/
+├───OK─── http://docs.px4.io/main/en/dev_log/ulog_file_format.html
+├───OK─── http://docs.px4.io/main/assets/img/flight-review-example.fe13792d.png
+├───OK─── https://github.com/PX4/pyulog
+├───OK─── https://github.com/Marxlp/pyFlightAnalysis
+├───OK─── http://docs.px4.io/main/assets/img/pyflightanalysis.9b49333e.png
+├───OK─── https://github.com/PX4/FlightPlot
+├───OK─── https://github.com/PX4/FlightPlot/releases
+├───OK─── http://docs.px4.io/main/assets/img/flightplot_0.2.16.47e04e2d.png
+├───OK─── https://github.com/dronecrew/px4tools
+├───OK─── https://conda.io/docs/index.html
+├───OK─── https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb
+├───OK─── http://docs.px4.io/main/assets/img/px4tools.14f88879.png
+├───OK─── https://github.com/ecmnet/MAVGCL
+├───OK─── http://docs.px4.io/main/assets/img/time_series.3ae56801.png
+├───OK─── https://github.com/facontidavide/PlotJuggler
+├───OK─── http://docs.px4.io/main/assets/img/plotjuggler.34dfa05a.png
+├───OK─── https://github.com/dsaffo/DataComets
+├───OK─── http://docs.px4.io/main/assets/img/data_comets_overview.6b3e3597.gif
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/log/flight_log_analysis.md
+Finished! 2119 links found. 2095 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_features/
+├───OK─── http://docs.px4.io/main/en/advanced_features/traffic_avoidance_adsb.html
+├───OK─── http://docs.px4.io/main/en/advanced_features/traffic_avoidance_utm.html
+├───OK─── http://docs.px4.io/main/en/computer_vision/
+├───OK─── http://docs.px4.io/main/en/advanced_features/precland.html
+├───OK─── http://docs.px4.io/main/en/advanced_features/rtk-gps.html
+├───OK─── http://docs.px4.io/main/en/advanced_features/satcom_roadblock.html
+├───OK─── http://docs.px4.io/main/en/companion_computer/video_streaming.html
+├───OK─── http://docs.px4.io/main/en/computer_vision/obstacle_avoidance.html
+├───OK─── http://docs.px4.io/main/en/computer_vision/safe_landing.html
+├───OK─── http://docs.px4.io/main/en/computer_vision/collision_prevention.html
+├───OK─── http://docs.px4.io/main/en/computer_vision/path_planning_interface.html
+├───OK─── http://docs.px4.io/main/en/computer_vision/motion_capture.html
+├───OK─── http://docs.px4.io/main/en/computer_vision/visual_inertial_odometry.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/README.md
+Finished! 2099 links found. 2085 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/
+├───OK─── http://docs.px4.io/main/en/advanced_config/parameters.html
+├───OK─── http://docs.px4.io/main/en/config_mc/
+├───OK─── http://docs.px4.io/main/en/config_fw/
+├───OK─── http://docs.px4.io/main/en/config_vtol/
+├───OK─── http://docs.px4.io/main/en/advanced_config/esc_calibration.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/flight_termination.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/bootloader_update.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/bootloader_update_from_betaflight.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/land_detector.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/sensor_thermal_calibration.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/compass_power_compensation.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/advanced_flight_controller_orientation_leveling.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/static_pressure_buildup.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/prearm_arm_disarm.html
+├───OK─── http://docs.px4.io/main/en/peripherals/serial_configuration.html
+├───OK─── http://docs.px4.io/main/en/peripherals/mavlink_peripherals.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/ethernet_setup.html
+├───OK─── http://docs.px4.io/main/en/advanced_config/parameter_reference.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/README.md
+Finished! 2102 links found. 2082 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/hardware/drone_parts
+├───OK─── http://docs.px4.io/main/en/hardware/drone_parts.html
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/px4_vision_kit.html
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/mindracer_BNF_RTF
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/betafpv_beta75x.html
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/holybro_kopis2.html
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/crazyflie21.html
+├───OK─── http://docs.px4.io/main/en/peripherals/companion_computer_peripherals.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk_series.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/hardware/drone_parts.md
+Finished! 2094 links found. 2084 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/development/development
+├───OK─── http://docs.px4.io/main/en/dev_setup/getting_started
+├───OK─── http://docs.px4.io/main/en/dev_setup/config_initial.html
+├───OK─── http://docs.px4.io/main/en/dev_setup/dev_env
+├───OK─── http://docs.px4.io/main/en/dev_setup/building_px4.html
+├───OK─── http://docs.px4.io/main/en/modules/hello_sky.html
+├───OK─── http://docs.px4.io/main/en/modules/module_template.html
+├───OK─── http://docs.px4.io/main/en/concept/
+├───OK─── http://docs.px4.io/main/en/simulation/
+├───OK─── http://docs.px4.io/main/en/hardware/
+├───OK─── http://docs.px4.io/main/en/middleware/
+├───OK─── http://docs.px4.io/main/en/modules/modules_main
+├───OK─── http://docs.px4.io/main/en/debug/
+├───OK─── http://docs.px4.io/main/en/tutorials/tutorials
+├───OK─── http://docs.px4.io/main/en/advanced/
+├───OK─── http://docs.px4.io/main/en/test_and_ci/
+├───OK─── http://docs.px4.io/main/en/concept/architecture.html
+├───OK─── http://docs.px4.io/main/en/concept/flight_modes.html
+├───OK─── http://docs.px4.io/main/en/dev_airframes/
+├───OK─── http://docs.px4.io/main/en/contribute/dev_call.html
+├───OK─── http://docs.px4.io/main/en/contribute/code.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/development/development.md
+Finished! 2112 links found. 2091 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/robotics/
+├───OK─── http://docs.px4.io/main/en/ros/offboard_control.html
+├───OK─── http://docs.px4.io/main/en/ros/
+├───OK─── http://docs.px4.io/main/en/robotics/dronekit.html
+├───OK─── http://docs.px4.io/main/en/companion_computer/pixhawk_companion.html
+├───OK─── http://docs.px4.io/main/en/middleware/mavlink.html
+├───OK─── http://docs.px4.io/main/en/middleware/micrortps.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/robotics/README.md (HTTP_429)
+Finished! 2090 links found. 2083 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/
+├───OK─── http://docs.px4.io/main/en/contribute/code
+├───OK─── http://docs.px4.io/main/en/contribute/notation.html
+├───OK─── https://docs.px4.io/master/en/contribute/
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md
+├───OK─── http://docs.px4.io/main/en/test_and_ci/test_flights.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/README.md
+Finished! 2097 links found. 2091 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/releases/
+├───OK─── http://docs.px4.io/main/en/releases/1.13.html
+├───OK─── http://docs.px4.io/main/en/releases/1.12.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/releases/README.md
+Finished! 2085 links found. 2082 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/development/development.html
+Finished! 2112 links found. 2112 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/airframes/airframe_reference.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py
+├───OK─── http://docs.px4.io/main/assets/img/Airship.3885e2c4.svg
+├───OK─── http://docs.px4.io/main/assets/img/Autogyro.af349cff.svg
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/
+├───OK─── https://github.com/ThunderFly-aerospace/TF-G2/
+├───OK─── http://docs.px4.io/main/assets/img/Balloon.c29c5179.svg
+├───OK─── https://github.com/ThunderFly-aerospace/TF-B1/
+├───OK─── http://docs.px4.io/main/assets/img/HelicopterCoaxial.6e2d1e16.svg
+├───OK─── http://docs.px4.io/main/assets/img/DodecaRotorXCoaxial.8d9fe74c.svg
+├───OK─── http://docs.px4.io/main/assets/img/Helicopter.47cf1f21.svg
+├───OK─── http://docs.px4.io/main/assets/img/HexaRotorPlus.050f111b.svg
+├───OK─── http://docs.px4.io/main/assets/img/Y6B.e9204978.svg
+├───OK─── http://docs.px4.io/main/assets/img/HexaRotorX.bc406d7b.svg
+├───OK─── http://docs.px4.io/main/assets/img/OctoRotorPlus.9d6e2748.svg
+├───OK─── http://docs.px4.io/main/assets/img/OctoRotorXCoaxial.8b17ef1e.svg
+├───OK─── http://docs.px4.io/main/assets/img/OctoRotorX.8bc0f3cc.svg
+├───OK─── http://docs.px4.io/main/assets/img/QuadRotorPlus.2b6c9636.svg
+├───OK─── http://docs.px4.io/main/assets/img/QuadRotorH.cad8ece6.svg
+├───OK─── http://docs.px4.io/main/assets/img/QuadRotorWide.06dc2852.svg
+├───OK─── http://docs.px4.io/main/assets/img/AirframeUnknown.6bd4e304.svg
+├───OK─── https://docs.px4.io/master/en/frames_multicopter/spedix_s250_pixracer.html
+├───OK─── http://docs.px4.io/main/assets/img/QuadRotorX.8e9a5495.svg
+├───OK─── https://docs.px4.io/master/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html
+├─BROKEN─ http://www.alivaero.com/the-project.html (HTTP_404)
+├───OK─── http://docs.px4.io/main/assets/img/YPlus.a73f7d79.svg
+├───OK─── http://docs.px4.io/main/assets/img/YMinus.30dc3bf9.svg
+├───OK─── http://docs.px4.io/main/assets/img/FlyingWing.9dba7ba0.svg
+├───OK─── https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html
+├───OK─── http://www.sparkletech.hk/
+├───OK─── http://docs.px4.io/main/assets/img/PlaneATail.982c856e.svg
+├───OK─── http://docs.px4.io/main/assets/img/PlaneVTail.4bb22355.svg
+├───OK─── http://docs.px4.io/main/assets/img/Plane.17754744.svg
+├───OK─── http://docs.px4.io/main/assets/img/Rover.e699d1e3.svg
+├───OK─── https://www.aionrobotics.com/r1
+├───OK─── http://docs.px4.io/main/assets/img/Vectored6DofUUV.dee49215.svg
+├───OK─── http://docs.px4.io/main/assets/img/VTOLPlane.2ffc44a4.svg
+├───OK─── http://docs.px4.io/main/assets/img/VTOLDuoRotorTailSitter.3b12df2c.svg
+├───OK─── http://docs.px4.io/main/assets/img/VTOLPlaneOcto.8733c163.svg
+├───OK─── http://docs.px4.io/main/assets/img/VTOLQuadRotorTailSitter.ebb0e0ab.svg
+├───OK─── http://docs.px4.io/main/assets/img/VTOLTiltRotor.61358391.svg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/airframes/airframe_reference.md
+├───OK─── http://docs.px4.io/main/en/frames_autogyro/thunderfly_auto_g2.html
+Finished! 2178 links found. 2136 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/flight_controller_selection.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/#supported-hardware
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_pixhawk_standard.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_manufacturer_supported.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk4.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk4_mini.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk3_pro.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixracer.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/mindracer.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk-2.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhack_v3.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/mro_pixhawk.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/raspberry_pi_navio2.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/raspberry_pi_pilotpi.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/flight_controller_selection.md
+Finished! 2112 links found. 2097 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk_series
+├───OK─── http://docs.px4.io/main/en/flight_controller/silicon_errata.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_pixhawk_standard
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_manufacturer_supported
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_experimental
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_discontinued
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk5x.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixhawk_mini.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/holybro_pix32.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/mindpx.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/cuav_x7.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/cuav_nora.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/cuav_v5_plus.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/cuav_v5_nano.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/cubepilot_cube_orange.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/cubepilot_cube_yellow.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/dropix.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/kakutef7.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/durandal.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/holybro_pix32_v5.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/modalai_fc_v1.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/modalai_voxl_flight.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/mro_x2.1.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/mro_control_zero_f7.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/nxp_rddrone_fmuk66.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/omnibus_f4_sd.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/spracingh7extreme.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_experimental.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/beaglebone_blue.html
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/crazyflie2.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/autopilot_discontinued.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/ocpoc_zynq.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/cuav_v5.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/pixfalcon.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/auav_x2.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/snapdragon_flight.html
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/intel_aero.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/README.md
+Finished! 2138 links found. 2100 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/payloads/
+├───OK─── https://mavlink.io/en/services/camera.html
+├───OK─── https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html
+├───OK─── https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4
+├───OK─── https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL
+├───OK─── http://docs.px4.io/main/en/peripherals/camera.html
+├───OK─── http://docs.px4.io/main/en/concept/mixing.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/pass.aux.mix
+├───OK─── https://mavsdk.mavlink.io/main/en/index.html
+├───OK─── https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp
+├───OK─── https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/payloads/README.md
+├───OK─── http://docs.px4.io/main/en/flying/pre_flight_checks.html
+Finished! 2133 links found. 2121 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/peripherals/
+├───OK─── http://docs.px4.io/main/en/gps_compass/
+├───OK─── http://docs.px4.io/main/en/uavcan/ark_gps.html
+├───OK─── http://docs.px4.io/main/en/gps_compass/gps_locosys_hawk_a1.html
+├───OK─── http://docs.px4.io/main/en/gps_compass/gps_hex_here2.html
+├───OK─── http://docs.px4.io/main/en/gps_compass/rtk_gps
+├───OK─── http://docs.px4.io/main/en/telemetry/
+├───OK─── http://docs.px4.io/main/en/peripherals/frsky_telemetry.html
+├───OK─── http://docs.px4.io/main/en/power_module/
+├───OK─── http://docs.px4.io/main/en/sensor/rangefinders
+├───OK─── http://docs.px4.io/main/en/sensor/tachometers
+├───OK─── http://docs.px4.io/main/en/sensor/airspeed
+├───OK─── http://docs.px4.io/main/en/sensor/optical_flow
+├───OK─── http://docs.px4.io/main/en/peripherals/esc_motors
+├───OK─── http://docs.px4.io/main/en/peripherals/parachute.html
+├───OK─── http://docs.px4.io/main/en/peripherals/adsb_flarm.html
+├───OK─── http://docs.px4.io/main/en/smart_batteries/
+├───OK─── http://docs.px4.io/main/en/sensor_bus/i2c_general
+├───OK─── http://docs.px4.io/main/en/uavcan/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/README.md
+Finished! 2103 links found. 2084 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/support.html
+├───OK─── https://docs.px4.io/master/en/contribute/support.html
+├───OK─── https://px4.slack.com/
+├───OK─── https://github.com/PX4/Devguide/issues
+├───OK─── https://slack.px4.io/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/support.md
+├───OK─── http://docs.px4.io/main/en/contribute/git_examples.html
+Finished! 2112 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/flight_reporting.html
+├───OK─── https://docs.qgroundcontrol.com/en/analyze_view/log_download.html
+├───OK─── http://docs.px4.io/main/assets/img/log_download.68d62ffd.jpg
+├───OK─── http://docs.px4.io/main/en/dev_log/flight_log_analysis.html
+├───OK─── https://docs.qgroundcontrol.com/en/SettingsView/MAVLink.html#logging
+├───OK─── http://docs.px4.io/main/en/dev_log/logging.html#configuration
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/flight_reporting.md
+Finished! 2112 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/docs.html
+├───OK─── http://github.com/
+├───OK─── http://docs.px4.io/main/assets/img/vuepress_edit_page_on_github_link.222dacdc.png
+├───OK─── https://git-scm.com/downloads
+├───OK─── https://github.com/join
+├─BROKEN─ https://docs.github.com/en/get-started/quickstart/fork-a-repo (HTTP_403)
+├───OK─── https://github.com/PX4/PX4-user_guide/pulls
+├───OK─── https://vuepress.vuejs.org/guide/getting-started.html#prerequisites
+├───OK─── https://nodejs.org/en/
+├───OK─── https://classic.yarnpkg.com/en/docs/install
+├───OK─── https://vuepress.vuejs.org/
+├───OK─── https://vuepress.vuejs.org/guide/markdown.html
+├───OK─── https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config
+├───OK─── https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/docs.md
+Finished! 2118 links found. 2104 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/translation.html
+├───OK─── https://crowdin.com/
+├───OK─── https://crowdin.com/join
+├───OK─── https://crowdin.com/project/qgroundcontrol
+├───OK─── https://crowdin.com/project/px4-user-guide
+├───OK─── https://crowdin.com/project/qgroundcontrol-developer-guide
+├───OK─── https://crowdin.com/project/qgroundcontrol-user-guide
+├───OK─── https://crowdin.com/project/mavlink
+├───OK─── https://support.crowdin.com/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/translation.md
+Finished! 2104 links found. 2095 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/licenses.html
+├───OK─── https://github.com/PX4/Hardware
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/licenses.md
+Finished! 2095 links found. 2093 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/px4_basic_concepts.html
+├───OK─── https://px4.io/ecosystem/commercial-systems/
+├───OK─── https://pixhawk.org/
+├───OK─── http://mavsdk.mavlink.io/
+├───OK─── http://docs.px4.io/main/assets/img/qgc_main_screen.e562d4c1.jpg
+├───OK─── http://docs.px4.io/main/en/peripherals/uavcan_escs.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_main_aux_ports.ab72e7e9.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_pwm.3818131b.png
+├───OK─── http://docs.px4.io/main/en/peripherals/dshot.html
+├───OK─── http://docs.px4.io/main/en/peripherals/esc_motors.html
+├───OK─── https://oscarliang.com/esc-firmware-protocols/
+├───OK─── http://docs.px4.io/main/assets/img/frsky_taranis_x9d_transmitter.a26963aa.jpg
+├───OK─── https://auterion-gs.com/skynav/
+├─BROKEN─ https://www.uavcomp.com/command-control/micronav/ (BLC_UNKNOWN)
+├───OK─── http://docs.px4.io/main/assets/img/micronav.8cbd07b4.jpg
+├───OK─── http://docs.px4.io/main/en/flight_modes/offboard.html
+├───OK─── http://docs.px4.io/main/en/getting_started/tunes.html#format-failed
+├───OK─── http://docs.px4.io/main/assets/img/frame_heading.f02fbdcf.png
+├───OK─── http://docs.px4.io/main/assets/img/frame_heading_top.e8e4ffe3.png
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/px4_basic_concepts.md
+Finished! 2176 links found. 2157 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/frame_selection.html
+├───OK─── http://docs.px4.io/main/assets/img/airframe_px4.b494d1e2.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/frame_selection.md
+Finished! 2094 links found. 2092 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/sensor_selection.html
+├───OK─── http://docs.px4.io/main/en/gps_compass/rtk_gps.html
+├───OK─── http://docs.px4.io/main/assets/img/gps_compass.34866df8.jpg
+├───OK─── http://docs.px4.io/main/assets/img/digital_airspeed_sensor.43319a0e.jpg
+├───OK─── http://docs.px4.io/main/en/sensor/airspeed.html
+├───OK─── https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft
+├───OK─── http://docs.px4.io/main/assets/img/tfrpm01_electronics.8e8882e1.jpg
+├───OK─── http://docs.px4.io/main/en/sensor/tachometers.html
+├───OK─── http://docs.px4.io/main/en/sensor/rangefinders.html
+├───OK─── http://docs.px4.io/main/assets/img/lidar_lite_1.7a79e944.png
+├───OK─── http://docs.px4.io/main/en/sensor/optical_flow.html
+├───OK─── http://docs.px4.io/main/assets/img/px4flow_bottom.915780e0.jpg
+├───OK─── http://docs.px4.io/main/en/sensor/px4flow.html
+├───OK─── http://docs.px4.io/main/en/sensor/pmw3901.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/sensor_selection.md
+Finished! 2118 links found. 2104 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/rc_transmitter_receiver.html
+├───OK─── http://docs.px4.io/main/assets/img/rc_basic_commands.3311bd90.png
+├───OK─── http://docs.px4.io/main/assets/img/mode1_mode2.ad4a1ca7.png
+├───OK─── https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us
+├───OK─── http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/rc_transmitter_receiver.md
+Finished! 2121 links found. 2116 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/flight_modes.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/position_mc.html
+├───OK─── http://docs.px4.io/main/assets/img/remote_control.e49232a6.svg
+├───OK─── http://docs.px4.io/main/assets/img/altitude_icon.ca9310b8.svg
+├───OK─── http://docs.px4.io/main/assets/img/position_MC.c6191ec9.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/altitude_mc.html
+├───OK─── http://docs.px4.io/main/assets/img/altitude_MC.b798442a.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/manual_stabilized_mc.html
+├───OK─── http://docs.px4.io/main/assets/img/manual_stabilized_MC.857b681e.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/acro_mc.html
+├───OK─── http://docs.px4.io/main/assets/img/manual_acrobatic_MC.50e4aa5e.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/orbit.html
+├───OK─── http://docs.px4.io/main/assets/img/orbit_MC.c125ea7b.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/hold.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/return.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/mission.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/takeoff.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/land.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/follow_me.html
+├───OK─── http://docs.px4.io/main/en/flight_modes/position_fw.html
+├───OK─── http://docs.px4.io/main/assets/img/position_FW.226d8df6.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/altitude_fw.html
+├───OK─── http://docs.px4.io/main/assets/img/altitude_FW.1bbbfe76.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/stabilized_fw.html
+├───OK─── http://docs.px4.io/main/assets/img/manual_stabilized_FW.e34f9fc0.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/acro_fw.html
+├───OK─── http://docs.px4.io/main/assets/img/manual_acrobatic_FW.948997a1.png
+├───OK─── http://docs.px4.io/main/en/flight_modes/manual_fw.html
+├───OK─── http://docs.px4.io/main/en/flying/fixed_wing_landing.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/flight_modes.md
+├───OK─── http://docs.px4.io/main/en/getting_started/led_meanings.html
+Finished! 2330 links found. 2300 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/vehicle_status
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/getting_started/vehicle_status.md
+Finished! 2095 links found. 2094 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/mount_and_orient_controller.html
+├───OK─── http://docs.px4.io/main/assets/img/fc_heading_mark_1.e03afbda.png
+├───OK─── http://docs.px4.io/main/assets/img/fc_orientation_1.648b5eb0.png
+├───OK─── http://docs.px4.io/main/assets/img/3dr_anti_vibration_mounting_foam.f8125023.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/mount_and_orient_controller.md (HTTP_429)
+Finished! 2104 links found. 2100 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/mount_gps_compass.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_compass_gps.65c774b7.jpg
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/mount_gps_compass.md (HTTP_429)
+Finished! 2102 links found. 2100 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/vibration_isolation.html
+├───OK─── http://docs.px4.io/main/en/config_mc/filter_tuning.html
+├───OK─── http://www.vibrationdata.com/tutorials2/srs_intr.pdf
+├───OK─── https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/vibration_isolation.md (HTTP_429)
+Finished! 2104 links found. 2100 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/cable_wiring.html
+├───OK─── https://en.wikipedia.org/wiki/Electromagnetic_interference
+├───OK─── https://en.wikipedia.org/wiki/I%C2%B2C
+├─BROKEN─ https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (HTTP_429)
+├───OK─── https://en.wikipedia.org/wiki/Twisted_pair
+├───OK─── http://docs.px4.io/main/assets/img/i2c_jst-gh_cable.24f25e77.jpg
+├───OK─── http://docs.px4.io/main/assets/img/i2c_jst-gh_connector.d1d4e5d7.jpg
+├───OK─── http://docs.px4.io/main/en/sensor/airspeed_tfslot.html
+├───OK─── http://docs.px4.io/main/en/sensor/thunderfly_tachometer.html
+├───OK─── https://en.wikipedia.org/wiki/Electrical_termination
+├───OK─── http://docs.px4.io/main/assets/img/can_jst-gh_cable.21d7e217.jpg
+├───OK─── https://en.wikipedia.org/wiki/Serial_Peripheral_Interface
+├─BROKEN─ https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/cable_wiring.md (HTTP_429)
+Finished! 2248 links found. 2235 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_cuav_v5_plus.html
+├───OK─── https://store.cuav.net/
+├───OK─── http://docs.px4.io/main/assets/img/v5+_01.e440c966.png
+├───OK─── http://docs.px4.io/main/assets/img/v5+_quickstart_01.709e00df.png
+├───OK─── http://manual.cuav.net/V5-Plus.pdf
+├───OK─── http://docs.px4.io/main/assets/img/v5+_quickstart_02.bf70c46a.png
+├───OK─── http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html
+├───OK─── http://docs.px4.io/main/assets/img/v5+_quickstart_03.0e9a2e9f.png
+├───OK─── http://docs.px4.io/main/assets/img/v5+_quickstart_04.b866bc60.png
+├───OK─── http://docs.px4.io/main/assets/img/v5+_quickstart_06.cc819a92.png
+├───OK─── http://docs.px4.io/main/assets/img/v5+_quickstart_07.f496a32c.png
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/dji_f450_cuav_5plus.html
+├───OK─── http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html
+├───OK─── https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165
+├─BROKEN─ https://github.com/cuav (HTTP_429)
+├─BROKEN─ https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_cuav_v5_plus.md (HTTP_429)
+Finished! 2132 links found. 2116 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_cuav_v5_nano.html
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_01.2740caf1.png
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_quickstart_02.d140e43d.png
+├───OK─── http://manual.cuav.net/V5-nano.pdf
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_quickstart_03.fe3368b3.png
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_quickstart_04.9fea41bc.png
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_quickstart_05.b3b133f3.png
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_quickstart_06.34392241.png
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_quickstart_07.26bbea38.png
+├───OK─── http://docs.px4.io/main/assets/img/v5_nano_pinouts.adb5edc0.png
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/dji_f450_cuav_5nano.html
+├─BROKEN─ https://github.com/cuav (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_cuav_v5_nano.md (HTTP_429)
+Finished! 2131 links found. 2119 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_durandal.html
+├───OK─── https://shop.holybro.com/
+├───OK─── http://docs.px4.io/main/assets/img/durandal_hero.894ff4ed.jpg
+├───OK─── http://docs.px4.io/main/assets/img/durandal_unboxing_schematics.3ac81ade.jpg
+├───OK─── http://docs.px4.io/main/assets/img/durandal_wiring_overview.d8af79ba.jpg
+├───OK─── http://docs.px4.io/main/assets/img/orientation.473954df.jpg
+├───OK─── http://docs.px4.io/main/assets/img/connection_gps_compass.4f72878c.jpg
+├───OK─── https://shop.holybro.com/power-modulepm02-v3_p1185.html
+├───OK─── http://docs.px4.io/main/assets/img/connection_power.8b7cd0e1.jpg
+├───OK─── http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf
+├───OK─── https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html
+├───OK─── http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf
+├───OK─── http://docs.px4.io/main/assets/img/dsm.545b61c1.jpg
+├───OK─── http://docs.px4.io/main/assets/img/durandal_pinouts_back.7776b664.jpg
+├───OK─── http://docs.px4.io/main/assets/img/holybro_telemetry_radio.fdcf0fd0.jpg
+├───OK─── http://docs.px4.io/main/assets/img/durandal_sd_slot.ff85446b.jpg
+├───OK─── http://docs.px4.io/main/en/config_vtol/vtol_quad_configuration.html
+├───OK─── http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf
+├───OK─── http://www.holybro.com/manual/Durandal-Pinouts.pdf
+├───OK─── https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf
+├───OK─── https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_durandal.md (HTTP_429)
+Finished! 2155 links found. 2134 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_holybro_pix32_v5.html
+├───OK─── http://docs.px4.io/main/assets/img/IMG_3165.a6339369.jpg
+├───OK─── https://shop.holybro.com/pixhawk-4-gps-module_p1094.html
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_unboxing_schematics.97b9fd76.png
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_wiring_overview.f3dd7d9b.jpg
+├───OK─── http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_orientation.2084932b.png
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_connection_gps_compass.7d003a7d.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_connection_power.8cf4fe1b.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_receivers_connection.6f56b601.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_pinouts_back_label.da04161d.png
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_telemetry_radio.24c9fa4a.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pix32_v5_sd_card.3fbc7d7a.jpg
+├───OK─── http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf
+├───OK─── http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf
+├───OK─── http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_holybro_pix32_v5.md (HTTP_429)
+Finished! 2148 links found. 2132 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_pixhawk4.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_logo_view.20a45ddd.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_wiring_overview.8cf16bfa.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_mounting_and_foam.c0677b4d.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_power_management_board.c1d457c8.png
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Power.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_receiver_sbus.a7ef14a8.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_4_receiver_ppm.339a43fb.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_telemetry_radio.b84ee849.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_sd_card.34b0281a.png
+├───OK─── http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf
+├───OK─── https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf
+├───OK─── http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_pixhawk4.md (HTTP_429)
+Finished! 2138 links found. 2125 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_pixhawk4_mini.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_iso_1.6e880e69.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_wiring_overview.de8fbdca.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_power_management.b02a0bcc.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_rc_dsmsbus.9c478caf.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_rc_ppm.ad559a56.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_telemetry.dee79b4c.png
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_sdcard.728e5a81.png
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_pixhawk4_mini.md
+Finished! 2133 links found. 2125 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_pixhawk5x.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk5x_standard_set.42d792b0.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk5x_wiring_diagram.f6a17506.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk5x_vehicle_front1.7a93fe93.jpg
+├───OK─── https://shop.holybro.com/c/gps-systems_0428
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk5x_gps_front.66bad167.jpg
+├───OK─── https://www.molex.com/molex/products/part-detail/pcb_receptacles/5024430670
+├───OK─── https://www.molex.com/molex/products/part-detail/crimp_housings/5024390600
+├───OK─── http://www.holybro.com/product-category/radio/
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk5x_sd_slot.a132a8b3.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk5x_pinout.c9bfba19.png
+├─BROKEN─ http://docs.px4.io/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf (HTTP_404)
+├───OK─── http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf
+├───OK─── http://www.holybro.com/manual/Holybro_Pixhawk5X_Spec_Overview.pdf
+├───OK─── http://www.holybro.com/manual/Holybro_PM02D_Power_Module_Manual.pdf
+├───OK─── https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340
+├───OK─── https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf
+├───OK─── https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf
+├─BROKEN─ https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (HTTP_429)
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_pixhawk5x.md
+Finished! 2143 links found. 2124 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_cube.html
+├───OK─── https://cubepilot.org/#/home
+├───OK─── http://docs.px4.io/main/assets/img/cube_orange_hero.944ff463.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_black_hero.6173ab1f.png
+├───OK─── http://docs.px4.io/main/assets/img/cube_yellow_hero.77cbe270.jpg
+├───OK─── https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual
+├───OK─── http://docs.px4.io/main/assets/img/cube_accessories.0be610f8.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_wiring_overview.5b844fee.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_mount_front.1a37ae44.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_mount_plate_screws.def62b56.jpg
+├───OK─── http://docs.px4.io/main/en/gps_compass/rtk_gps_hex_hereplus.html
+├───OK─── https://www.cubepilot.org/#/here/here3
+├───OK─── http://docs.px4.io/main/assets/img/here_plus_connector.e4b10b83.png
+├───OK─── http://docs.px4.io/main/assets/img/cube_buzzer.b528b592.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_rc_in.868e004f.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_rc_spektrum.7c514293.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_wiring_power_mc.16cfc115.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_schematic_telemetry.d2afffe2.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_sdcard.193e2b07.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_main_aux_outputs.c67bd070.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_usb_connection.dc108f09.jpg
+├───OK─── https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview
+├───OK─── https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_cube.md
+Finished! 2180 links found. 2157 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_pixracer.html
+├───OK─── https://store.mrobotics.io/
+├───OK─── http://docs.px4.io/main/assets/img/pixracer_hero_grey.020bbce2.jpg
+├───OK─── http://docs.px4.io/main/assets/img/grau_pixracer_double.989b7fb8.jpg
+├───OK─── http://docs.px4.io/main/assets/img/grau_setup_pixracer_top.140c229c.jpg
+├───OK─── http://docs.px4.io/main/assets/img/grau_setup_pixracer_bottom.18025449.jpg
+├───OK─── http://docs.px4.io/main/assets/img/grau_b_pixracer_frskys.port_connection.4f4548a6.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixracer_FrSkyTelemetry.e4e73cd1.jpg
+├───OK─── http://docs.px4.io/main/assets/img/grau_setup_pixracer_radio.19406d8f.jpg
+├───OK─── http://docs.px4.io/main/assets/img/grau_acsp4_2_roh.9afb7797.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixracer_top_telemetry.43cf317b.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_pixracer.md
+Finished! 2117 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/assembly/quick_start_pixhawk.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_logo_view.431588e6.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_wiring_overview.1e85ae6f.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_3dr_mounting_and_foam.d1a1aa4c.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_3dr_buzzer_and_safety_switch.3702efed.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_3dr_compass_gps.2eaea17a.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_3dr_power_module.84f59322.jpg
+├───OK─── https://en.wikipedia.org/wiki/Battery_eliminator_circuit
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_3dr_receiver_spektrum.3cdfc07a.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_3dr_receiver_ppm_sbus.d22f5a93.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_3dr_telemetry_radio.b99e47a6.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_infographic2.b276a862.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/assembly/quick_start_pixhawk.md
+Finished! 2134 links found. 2122 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config_mc/racer_setup.html
+├───OK─── http://docs.px4.io/main/en/config_mc/pid_tuning_guide_multicopter_basic.html
+├───OK─── http://docs.px4.io/main/en/config_mc/pid_tuning_guide_multicopter.html
+├───OK─── http://docs.px4.io/main/en/config_mc/mc_trajectory_tuning
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/qav_r_5_kiss_esc_racer.html
+├───OK─── http://www.hobbywing.com/goods.php?id=588
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/racer_setup.md
+├───OK─── http://docs.px4.io/main/en/config_mc/mc_jerk_limited_type_trajectory.html
+├───OK─── http://docs.px4.io/main/en/config_fw/pid_tuning_guide_fixedwing.html
+Finished! 2157 links found. 2149 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/firmware.html
+├───OK─── http://docs.px4.io/main/assets/img/firmware_disconnected.f89315a0.jpg
+├───OK─── http://docs.px4.io/main/assets/img/firmware_connected_default_px4.5f8d94f6.jpg
+├───OK─── http://docs.px4.io/main/assets/img/firmware_upgrade_complete.2b0acb92.jpg
+├───OK─── http://docs.px4.io/main/assets/img/qgc_choose_firmware.25e5ccac.jpg
+├───OK─── http://docs.px4.io/main/assets/img/bootloader_update.8826d78f.jpg
+├───OK─── http://docs.px4.io/main/assets/img/bootloader_fmu_v3_update.ae388788.jpg
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Firmware.html
+├───OK─── https://youtu.be/91VGmdSlbo4
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/firmware.md
+Finished! 2120 links found. 2111 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/airframe.html
+├───OK─── http://docs.px4.io/main/assets/img/airframe_px4_apply_prompt.37f9d196.jpg
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Airframe.html
+├───OK─── https://youtu.be/91VGmdSlbo4?t=35s
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/airframe.md
+Finished! 2105 links found. 2101 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/flight_controller_orientation.html
+├───OK─── http://docs.px4.io/main/assets/img/yaw_rotation.1e9d2568.png
+├───OK─── http://docs.px4.io/main/assets/img/sensor_orientation_set_orientations.98aa6a72.jpg
+├───OK─── http://docs.px4.io/main/assets/img/sensor_orientation_selector_values.6538d207.jpg
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/flight_controller_orientation.md
+Finished! 2112 links found. 2107 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/compass.html
+├───OK─── http://docs.px4.io/main/assets/img/sensor_compass_select_px4.406db909.jpg
+├───OK─── http://docs.px4.io/main/assets/img/sensor_compass_calibrate_px4.7942cdf1.jpg
+├───OK─── https://youtu.be/91VGmdSlbo4?t=2m38s
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/compass.md
+Finished! 2110 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/gyroscope.html
+├───OK─── http://docs.px4.io/main/assets/img/gyroscope_calibrate_px4.303a99d7.jpg
+├───OK─── http://docs.px4.io/main/assets/img/gyroscope_calibrate_progress_px4.d36b6003.jpg
+├───OK─── http://docs.px4.io/main/assets/img/gyroscope_calibrate_complete_px4.5fdb3b92.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/gyroscope.md
+Finished! 2104 links found. 2100 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/accelerometer.html
+├───OK─── http://docs.px4.io/main/assets/img/accelerometer.22ce14a1.jpg
+├───OK─── http://docs.px4.io/main/assets/img/accelerometer_positions_px4.1219f02a.jpg
+├───OK─── https://youtu.be/91VGmdSlbo4?t=1m46s
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/accelerometer.md
+Finished! 2107 links found. 2103 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/airspeed.html
+├───OK─── http://docs.px4.io/main/assets/img/sensor_airspeed.f6803c33.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/airspeed.md
+Finished! 2108 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/level_horizon_calibration.html
+├───OK─── http://docs.px4.io/main/assets/img/sensor_level_horizon.75640da9.jpg
+├───OK─── https://youtu.be/91VGmdSlbo4?t=1m14s
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/level_horizon_calibration.md
+Finished! 2106 links found. 2103 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/radio.html
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Parameters.html
+├───OK─── https://www.youtube.com/watch?v=1IYg5mQdLVI
+├───OK─── http://docs.px4.io/main/assets/img/radio_start_setup.a0fa4f53.jpg
+├───OK─── http://docs.px4.io/main/assets/img/radio_sticks_throttle.139795e9.jpg
+├───OK─── https://youtu.be/91VGmdSlbo4?t=4m30s
+├───OK─── http://docs.px4.io/main/assets/img/radio_additional_radio_setup.ecd4363a.jpg
+├───OK─── http://docs.px4.io/main/assets/img/radio_additional_setup_spectrum_bind_select_channels.6b7ff256.jpg
+├───OK─── http://docs.px4.io/main/assets/img/radio_additional_radio_setup_copy_trims.ab0f7d3f.jpg
+├───OK─── http://docs.px4.io/main/assets/img/radio_additional_setup_aux_passthrough_channels.be0edc70.jpg
+├───OK─── http://docs.px4.io/main/assets/img/radio_additional_radio_setup_param_tuning.49f5b6d3.jpg
+├───OK─── http://docs.px4.io/main/assets/img/parameters_radio_channel_mapping.c1adf31c.jpg
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Radio.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/config/radio.md (HTTP_429)
+Finished! 2129 links found. 2116 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/joystick.html
+├───OK─── https://en.wikipedia.org/wiki/Joystick
+├─BROKEN─ https://www.uavcomp.com/command-control/micronav/ (HTTP_undefined)
+├───OK─── http://www.libsdl.org/index.php
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Joystick.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/config/joystick.md (HTTP_429)
+Finished! 2109 links found. 2104 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/flight_mode.html
+├───OK─── http://docs.px4.io/main/assets/img/flight_modes_single_channel.fed4f78e.jpg
+├───OK─── https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#transmitter-setup
+├───OK─── http://docs.px4.io/main/assets/img/single_channel_mode_selection_1.af4cb2ea.png
+├───OK─── http://docs.px4.io/main/assets/img/single_channel_mode_selection_2.1b6ed056.png
+├───OK─── https://www.youtube.com/embed/TFEjEQZqdVA
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup
+├───OK─── https://youtu.be/91VGmdSlbo4?t=6m53s
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/config/flight_mode.md (HTTP_429)
+Finished! 2124 links found. 2116 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/battery.html
+├───OK─── http://docs.px4.io/main/assets/img/qgc_setup_power_px4.f2dcb564.jpg
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/config/battery.md (HTTP_429)
+Finished! 2156 links found. 2154 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/safety.html
+├───OK─── http://docs.px4.io/main/assets/img/safety_setup.13d1efc7.png
+├───OK─── http://docs.px4.io/main/assets/img/safety_battery.3ca07fa4.png
+├───OK─── http://docs.px4.io/main/assets/img/safety_rc_loss.af75bf02.png
+├───OK─── http://docs.px4.io/main/assets/img/safety_data_link_loss.bd31108e.png
+├───OK─── http://docs.px4.io/main/assets/img/safety_geofence.e3412dca.png
+├───OK─── http://docs.px4.io/main/assets/img/safety_return_home.ad409241.png
+├───OK─── http://docs.px4.io/main/assets/img/safety_land_mode.abb91378.png
+├───OK─── https://webstore.ansi.org/Standards/ASTM/ASTMF332218
+├───OK─── https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Safety.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/config/safety.md (HTTP_429)
+Finished! 2231 links found. 2220 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/motors.html
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Motors.html
+├───OK─── http://docs.px4.io/main/en/modules/modules_command.html#motor-test
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/config/motors.md (HTTP_429)
+Finished! 2107 links found. 2104 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/actuators.html
+├───OK─── http://docs.px4.io/main/assets/img/qgc_actuators_mc_aux.1a859041.png
+├───OK─── http://docs.px4.io/main/assets/img/qgc_actuators_mc_geometry_marked.cb6e0fe8.png
+├───OK─── http://docs.px4.io/main/assets/img/qgc_geometry_tailsitter_motors.4c44ac21.png
+├───OK─── http://docs.px4.io/main/assets/img/qgc_geometry_tiltrotor_motors.2f455a8b.png
+├───OK─── http://docs.px4.io/main/assets/img/qgc_geometry_standard_vtol_motors.0a2836be.png
+├───OK─── http://docs.px4.io/main/assets/img/quadcopter_actuators_cg_reference.50d7a678.png
+├───OK─── http://docs.px4.io/main/assets/img/qgc_geometry_reversible_marked.e3ea502e.png
+├───OK─── http://docs.px4.io/main/assets/img/control_surfaces_geometry.7e83538d.png
+├───OK─── http://docs.px4.io/main/assets/img/plane_control_surface_convention.19574c3b.png
+├───OK─── http://docs.px4.io/main/en/frames_vtol/tiltrotor.html
+├───OK─── http://docs.px4.io/main/assets/img/tilt_servo_geometry_config.a75dfe5c.png
+├───OK─── http://docs.px4.io/main/assets/img/tilt_axis.f69c809d.png
+├───OK─── https://www.youtube.com/watch?v=hfss7nCN40A
+├───OK─── http://docs.px4.io/main/assets/img/qgc_actuators_mc_outputs.12ae014c.png
+├───OK─── http://docs.px4.io/main/assets/img/vtol_tiltrotor_sliders_example.0077bf70.png
+├───OK─── http://docs.px4.io/main/assets/img/identify_motors_button.e92537bf.png
+├───OK─── http://docs.px4.io/main/assets/img/identify_motors_in_progress.759742e6.png
+├───OK─── http://docs.px4.io/main/assets/img/pwm_minimum_output.18a7d8ef.png
+├───OK─── http://docs.px4.io/main/assets/img/control_surface_disarmed_1500.c3e9fbe8.png
+├───OK─── http://docs.px4.io/main/assets/img/control_surface_trim.7461bc37.png
+├───OK─── http://docs.px4.io/main/assets/img/tilt_servo_setup.4efa8d40.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/config/actuators.md (HTTP_429)
+Finished! 2212 links found. 2190 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/config/autotune.html
+├───OK─── https://github.com/mavlink/qgroundcontrol/issues/10194
+├───OK─── https://www.youtube.com/embed/5xswOhhqrIQ
+├───OK─── http://docs.px4.io/main/assets/img/autotune.be556482.png
+├───OK─── https://mavlink.io/en/services/command.html#long_running_commands
+├───OK─── http://docs.px4.io/main/en/flight_stack/controller_diagrams.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config/autotune.md
+Finished! 2164 links found. 2158 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/holybro_s500_v2_pixhawk4.html#install-configure-px4
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/holybro_x500V2_pixhawk5x.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/holybro_x500_pixhawk4.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/dji_flamewheel_450.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/lumenier_qav250_pixhawk_mini.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/lumenier_qav250_pixhawk_auav_x2.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/spedix_s250_pixracer.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/robocat_270_pixracer.html
+├───OK─── http://docs.px4.io/main/en/frames_multicopter/matrice100.html
+├───OK─── http://docs.px4.io/main/assets/img/s500_hero.3b82ca9a.png
+├───OK─── https://shop.holybro.com/s500-v2-kitmotor2216-880kv-propeller1045_p1153.html
+├───OK─── http://docs.px4.io/main/assets/img/s500_hardware.088b1077.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_package.b2818c83.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_electronics.d8261114.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_tools2.643e3d50.png
+├───OK─── http://docs.px4.io/main/assets/img/s500_tools.b6f5f6ac.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig1.515a4e4c.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig2.2a3d42e7.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig3.3f31db30.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig4.81966b4c.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig7.0e756f77.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig8.79f17552.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig9.194bc647.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig91.cd73ee55.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig10.98268639.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig11.b7ecf835.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig12.c6c27be2.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig13.98e4a15a.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig14.688e64f9.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig15.9315a9a7.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig16.5607636a.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig17.2b8bf78f.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_gpskit.13779d48.png
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig18.a81fab99.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig19.fb93ee97.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig20.77af8ca4.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig21.1131f42b.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig22.467e5013.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig23.23c4ab74.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig24.9a8f97b2.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig25.f81fc5a4.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig26.9c426add.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig27.7065c9f8.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig28.e4a8425d.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig29.0eff3291.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig30.661eacfc.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig31.25f0cd1d.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig32.98fd686d.png
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig33.84c94652.png
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig34.e8c464b4.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig35.f39ecedd.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig36.232e5d11.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_fig37.34326319.png
+├───OK─── http://docs.px4.io/main/assets/img/s500_pixhawk.6cf743f1.jpg
+├───OK─── http://docs.px4.io/main/assets/img/s500_assembled.32b66ddc.jpg
+├───OK─── http://docs.px4.io/main/assets/img/S500_airframe.e6e9f1fe.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_multicopter/holybro_s500_v2_pixhawk4.md
+Finished! 2174 links found. 2117 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_autogyro/
+├───OK─── https://en.wikipedia.org/wiki/Autogyro
+├───OK─── https://en.wikipedia.org/wiki/Rotorcraft
+├───OK─── https://en.wikipedia.org/wiki/Downwash
+├───OK─── https://en.wikipedia.org/wiki/Lift-to-drag_ratio
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_autogyro/README.md
+Finished! 2093 links found. 2088 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/
+├───OK─── https://www.youtube.com/embed/LnUmYgAINBc
+├───OK─── https://www.youtube.com/embed/JovSwzoTepU
+├───OK─── https://www.youtube.com/embed/MZzo4DMNkug
+├───OK─── https://www.youtube.com/embed/3OGs0ONemGc
+├───OK─── https://www.youtube.com/embed/wMYgqvsNEwQ
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_multicopter/README.md
+Finished! 2107 links found. 2101 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_plane/
+├───OK─── http://docs.px4.io/main/en/frames_plane/wing_wing_z84.html
+├───OK─── https://www.youtube.com/embed/8m4_NpTQn0E
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_plane/README.md
+Finished! 2091 links found. 2088 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/
+├───OK─── http://docs.px4.io/main/en/frames_vtol/standardvtol
+├───OK─── http://docs.px4.io/main/en/frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.html
+├───OK─── http://docs.px4.io/main/en/frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.html
+├───OK─── http://docs.px4.io/main/en/frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.html
+├───OK─── http://docs.px4.io/main/en/frames_vtol/tailsitter
+├───OK─── http://docs.px4.io/main/en/frames_vtol/tiltrotor
+├───OK─── http://docs.px4.io/main/assets/img/hero.4ab5c348.jpg
+├───OK─── http://docs.px4.io/main/en/frames_vtol/tailsitter.html
+├───OK─── http://docs.px4.io/main/assets/img/hero.b7fc0e33.jpg
+├───OK─── http://docs.px4.io/main/assets/img/hero.de23ca41.jpg
+├───OK─── http://docs.px4.io/main/en/frames_vtol/standardvtol.html
+├───OK─── http://docs.px4.io/main/assets/img/hero_small.d4732a64.png
+├───OK─── http://docs.px4.io/main/en/dev_airframes/adding_a_new_frame.html
+├───OK─── https://www.youtube.com/embed/37BIBAzD6fE
+├───OK─── https://www.valaqpatrol.com/tech-data/
+├───OK─── https://www.youtube.com/embed/pWt6uoqpPIw
+├───OK─── http://docs.px4.io/main/en/frames_vtol/vtol_tailsitter_caipiroshka_pixracer.html
+├───OK─── https://www.youtube.com/embed/acG0aTuf3f8
+├───OK─── http://docs.px4.io/main/en/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.html
+├───OK─── https://www.youtube.com/embed/E61P2f2WPNU
+├───OK─── https://www.youtube.com/embed/4K8yaa6A0ks
+├───OK─── https://www.youtube.com/embed/h7OHTigtU0s
+├───OK─── https://www.youtube.com/embed/7tGXkW6d3sA
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_vtol/README.md
+Finished! 2139 links found. 2115 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_rover/
+├───OK─── http://docs.px4.io/main/en/frames_rover/traxxas_stampede.html
+├───OK─── https://www.youtube.com/embed/N3HvSKS3nCw
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_rover/README.md
+Finished! 2092 links found. 2089 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_sub/
+├───OK─── http://docs.px4.io/main/en/frames_sub/bluerov2.html
+├───OK─── http://docs.px4.io/main/en/simulation/gazebo_vehicles.html#hippocampus-tuhh-uuv
+├───OK─── https://www.youtube.com/embed/1sUaURmlmT8
+├───OK─── https://www.youtube.com/embed/xSXSoUK-iBM
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_sub/README.md
+Finished! 2095 links found. 2090 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/first_flight_guidelines.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flying/first_flight_guidelines.md
+Finished! 2095 links found. 2094 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/basic_flying
+├───OK─── http://docs.px4.io/main/en/flying/fixed_wing_takeoff.html
+├───OK─── http://docs.px4.io/main/assets/img/basic_movements_multicopter.a34373d7.png
+├───OK─── http://docs.px4.io/main/assets/img/basic_movements_forward.1fa3a12d.png
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flying/basic_flying.md
+Finished! 2123 links found. 2119 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/missions.html
+├───OK─── https://docs.qgroundcontrol.com/en/PlanView/PlanView.html
+├───OK─── http://docs.px4.io/main/assets/img/planning_mission.05ce0920.jpg
+├───OK─── http://docs.px4.io/main/assets/img/acceptance_radius_comparison.b183ada4.jpg
+├───OK─── http://docs.px4.io/main/assets/img/flying_mission.8dfc3df0.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flying/missions.md
+Finished! 2102 links found. 2097 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/geofence.html
+├───OK─── http://docs.px4.io/main/assets/img/geofence_overview.15716237.jpg
+├───OK─── https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html
+├───OK─── http://docs.px4.io/main/assets/img/geofence_editor.8103f26e.jpg
+├───OK─── https://mavlink.io/en/services/mission.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flying/geofence.md
+Finished! 2099 links found. 2094 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/plan_safety_points.html
+├───OK─── http://docs.px4.io/main/assets/img/rally_points.8a7683be.jpg
+├───OK─── https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/flying/plan_safety_points.md (HTTP_429)
+Finished! 2099 links found. 2096 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/
+├───OK─── https://en.wikipedia.org/wiki/Coordinated_flight
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/flight_modes/README.md (HTTP_429)
+Finished! 2210 links found. 2208 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/terrain_following_holding.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/flying/terrain_following_holding.md (HTTP_429)
+Finished! 2119 links found. 2118 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/flying/basic_flying.html
+Finished! 2123 links found. 2123 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/getting_started/vehicle_status.html
+Finished! 2095 links found. 2095 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/log/flight_log_analysis.html
+Finished! 2119 links found. 2119 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/log/flight_review.html
+├───OK─── http://docs.px4.io/main/assets/img/flight_modes.0e6a26db.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_good_actuator_controls_fft.f4b7bd54.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_f450_actuator_controls_fft.a94a44a4.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_s500_actuator_controls_fft.c44cfaae.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_landing_gear_actuator_controls_fft.7c9dcbe6.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_good_spectral.3e44e71b.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_f450_spectral.de63eabf.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_s500_spectral.80ec474a.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_too_high_spectral.ecb2e37a.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_landing_gear_spectral.42c9cf0c.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_exceedingly_high_spectral.0b7280d8.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_good_accel.4b8327d5.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_f450_accel.46d6ddc2.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_s500_accel.8df61160.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_landing_gear_accel.27e6d44d.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_too_high_accel.04fe64fa.png
+├───OK─── http://docs.px4.io/main/assets/img/vibrations_exceedingly_high_accel.5472bcf5.png
+├───OK─── http://docs.px4.io/main/assets/img/accel_spectral_density_fifo.8158660d.png
+├───OK─── http://docs.px4.io/main/assets/img/actuator_outputs_good.f68401af.png
+├───OK─── http://docs.px4.io/main/assets/img/actuator_outputs_hex_imbalanced.6ffe88e9.png
+├───OK─── http://docs.px4.io/main/assets/img/actuator_outputs_noisy.8fced0d9.png
+├─BROKEN─ https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html (HTTP_404)
+├───OK─── http://docs.px4.io/main/assets/img/gps_jamming_good.2c664859.png
+├───OK─── http://docs.px4.io/main/assets/img/thrust_and_mag_good.8ea3b24e.png
+├───OK─── http://docs.px4.io/main/assets/img/thrust_and_mag_correlated.6472573d.png
+├───OK─── http://docs.px4.io/main/assets/img/thrust_and_mag_uncorrelated_problem.6f382dd1.png
+├───OK─── http://docs.px4.io/main/assets/img/estimator_watchdog_good.a4f87df3.png
+├───OK─── http://docs.px4.io/main/assets/img/estimator_watchdog_mag_problem.e918d6ee.png
+├───OK─── http://docs.px4.io/main/assets/img/sampling_regularity_good.3029a3cb.png
+├───OK─── http://docs.px4.io/main/assets/img/sampling_regularity_many_drops.64ce5462.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/log/flight_review.md (HTTP_429)
+Finished! 2163 links found. 2132 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/dev_log/ulog_file_format.html
+├───OK─── http://docs.px4.io/main/en/debug/faq.html
+├───OK─── http://docs.px4.io/main/en/debug/consoles
+├───OK─── http://docs.px4.io/main/en/debug/gdb_debugging.html
+├───OK─── http://docs.px4.io/main/en/debug/swd_debug.html
+├───OK─── http://docs.px4.io/main/en/debug/swd_gdb.html
+├───OK─── http://docs.px4.io/main/en/debug/eclipse_jlink.html
+├───OK─── http://docs.px4.io/main/en/debug/failure_injection.html
+├───OK─── http://docs.px4.io/main/en/debug/sensor_uorb_topic_debugging.html
+├───OK─── http://docs.px4.io/main/en/debug/simulation_debugging.html
+├───OK─── http://docs.px4.io/main/en/debug/debug_values.html
+├───OK─── http://docs.px4.io/main/en/debug/system_wide_replay.html
+├───OK─── http://docs.px4.io/main/en/debug/profiling.html
+├───OK─── http://docs.px4.io/main/en/debug/binary_size_profiling.html
+├───OK─── http://docs.px4.io/main/en/middleware/uorb.html
+├───OK─── https://en.wikipedia.org/wiki/Endianness
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log
+├───OK─── https://github.com/mavlink/mavlink
+├───OK─── https://github.com/mavlink/qgroundcontrol
+├───OK─── https://github.com/01org/mavlink-router
+├───OK─── https://github.com/maxsun/ulogreader
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/dev_log/ulog_file_format.md
+├───OK─── http://docs.px4.io/main/en/tutorials/video_streaming_wifi_broadcast.html
+Finished! 2184 links found. 2160 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_features/traffic_avoidance_adsb.html
+├───OK─── https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast
+├───OK─── https://en.wikipedia.org/wiki/FLARM
+├───OK─── https://uavionix.com/product/pingrx/
+├─BROKEN─ https://flarm.com/products/powerflarm/uav/ (BLC_UNKNOWN)
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/traffic_avoidance_adsb.md
+Finished! 2123 links found. 2117 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_features/traffic_avoidance_utm.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/traffic_avoidance_utm.md (HTTP_429)
+Finished! 2106 links found. 2105 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/
+├───OK─── http://docs.px4.io/main/en/computer_vision/visual_inertial_odometry
+├───OK─── https://en.wikipedia.org/wiki/Computer_vision
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/robin-shaun/XTDrone/blob/master/README.en.md (HTTP_429)
+├───OK─── https://www.yuque.com/xtdrone/manual_en
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/README.md (HTTP_429)
+Finished! 2107 links found. 2100 excluded. 4 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_features/precland.html
+├───OK─── http://docs.px4.io/main/en/debug/mavlink_shell.html#qgroundcontrol-mavlink-console
+├───OK─── https://irlock.com/products/ir-lock-sensor-precision-landing-kit
+├───OK─── https://irlock.com/collections/markone
+├───OK─── https://irlock.readme.io/v2.0/docs
+├───OK─── https://mavlink.io/en/services/landing_target.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/simulation/gazebo.html
+├─BROKEN─ https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42 (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/precland-flow-diagram.88e4e6cb.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/precland.md (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/peripherals/camera_t265_vio.html
+Finished! 2163 links found. 2152 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_features/rtk-gps.html
+├───OK─── https://en.wikipedia.org/wiki/Real_Time_Kinematic
+├───OK─── http://docs.px4.io/main/en/gps_compass/u-blox_f9p_heading.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/rtk-gps.md (HTTP_429)
+Finished! 2092 links found. 2089 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_features/satcom_roadblock.html
+├─BROKEN─ https://www.rock7.com/products/rockblock-9603-compact-plug-play-satellite-transmitter (HTTP_404)
+├───OK─── http://docs.px4.io/main/assets/img/architecture.b6a18ffd.jpg
+├─BROKEN─ https://www.rock7.com/products/rockblock-iridium-9602-satellite-modem (HTTP_404)
+├───OK─── https://docs.rockblock.rock7.com/docs
+├───OK─── https://docs.rockblock.rock7.com/docs/connectors
+├───OK─── https://docs.rockblock.rock7.com/docs/power-supply
+├───OK─── https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode
+├─BROKEN─ https://www.rock7.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf (HTTP_404)
+├───OK─── https://rockblock.rock7.com/Operations
+├───OK─── http://docs.px4.io/main/assets/img/deliverygroup.dbcd30c3.png
+├─BROKEN─ https://github.com/acfloria/SatComInfrastructure.git (HTTP_429)
+├───OK─── https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html
+├───OK─── http://docs.px4.io/main/assets/img/linksettings.a9148990.png
+├───OK─── http://docs.px4.io/main/assets/img/verification.8fd74e1a.png
+├───OK─── http://docs.px4.io/main/assets/img/linkconnect.37d200e0.png
+├───OK─── http://docs.px4.io/main/assets/img/linkindicator.20c22640.jpg
+├───OK─── http://docs.px4.io/main/assets/img/linkselection.3b904861.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_features/satcom_roadblock.md (HTTP_429)
+Finished! 2122 links found. 2104 excluded. 5 broken.
+
+Getting links from: http://docs.px4.io/main/en/companion_computer/video_streaming.html
+├─BROKEN─ https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md (HTTP_429)
+├─BROKEN─ https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md (HTTP_429)
+├───OK─── https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#video
+├───OK─── http://docs.px4.io/main/assets/img/qgc-screenshot.b181c617.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/companion_computer/video_streaming.md (HTTP_429)
+Finished! 2097 links found. 2092 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/obstacle_avoidance.html
+├───OK─── https://www.youtube.com/embed/PrGt7pKj3tI
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/obstacle_avoidance.md (HTTP_429)
+Finished! 2120 links found. 2115 excluded. 4 broken.
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/safe_landing.html
+├───OK─── https://www.youtube.com/embed/9SuJYcT0Mgc
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#safe-landing-planner (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP_429)
+├───OK─── https://youtu.be/CxIsJWtVaTA?t=963
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#safe-landing-planner (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/safe_landing.md (HTTP_429)
+Finished! 2119 links found. 2109 excluded. 8 broken.
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/collision_prevention.html
+├───OK─── http://docs.px4.io/main/en/sensor/cm8jl65_ir_distance_sensor.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/pull/12179 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/collision_prevention.md (HTTP_429)
+Finished! 2145 links found. 2138 excluded. 6 broken.
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/path_planning_interface.html
+├───OK─── https://mavlink.io/en/services/trajectory.html
+├───OK─── https://mavlink.io/en/services/heartbeat.html
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#message-flows (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#run-on-hardware (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/path_planning_interface.md (HTTP_429)
+Finished! 2136 links found. 2129 excluded. 5 broken.
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/motion_capture.html
+├───OK─── http://docs.px4.io/main/en/ros/external_position_estimation.html
+├───OK─── http://docs.px4.io/main/en/tutorials/motion-capture.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/motion_capture.md (HTTP_429)
+Finished! 2101 links found. 2098 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/visual_inertial_odometry.html
+├───OK─── https://en.wikipedia.org/wiki/Visual_odometry
+├───OK─── https://www.youtube.com/embed/gWtrka2mK7U
+├───OK─── https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/
+├─BROKEN─ https://github.com/Auterion/VIO_bridge (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/ros/mavros_installation.html
+├─BROKEN─ https://github.com/Auterion/VIO_bridge (HTTP_429)
+├─BROKEN─ https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch (HTTP_429)
+├─BROKEN─ https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch (HTTP_429)
+├─BROKEN─ https://github.com/Auterion/VIO/blob/master/launch/bridge.launch (HTTP_429)
+├─BROKEN─ https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch (HTTP_429)
+├───OK─── https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html
+├───OK─── http://docs.px4.io/main/assets/img/ekf2_ev_delay_tuning.e77364d5.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/computer_vision/visual_inertial_odometry.md (HTTP_429)
+Finished! 2138 links found. 2125 excluded. 7 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/parameters.html
+├───OK─── http://docs.px4.io/main/assets/img/parameters_search.2e60193b.jpg
+├───OK─── http://docs.px4.io/main/assets/img/parameters_px4.38575abe.jpg
+├───OK─── http://docs.px4.io/main/assets/img/parameters_changing.5e0d3746.png
+├───OK─── http://docs.px4.io/main/assets/img/parameters_tools_menu.c4a7442b.png
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/parameters.md
+Finished! 2121 links found. 2116 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config_mc/
+├───OK─── http://docs.px4.io/main/en/config_mc/mc_trajectory_tuning.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config_mc/README.md
+Finished! 2110 links found. 2108 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config_fw/
+├───OK─── http://docs.px4.io/main/en/config_fw/advanced_tuning_guide_fixedwing.html
+├───OK─── http://docs.px4.io/main/en/config_fw/trimming_guide_fixedwing.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config_fw/README.md
+Finished! 2102 links found. 2099 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/config_vtol/
+├───OK─── http://docs.px4.io/main/en/config_vtol/vtol_back_transition_tuning.html
+├───OK─── http://docs.px4.io/main/en/config_vtol/vtol_without_airspeed_sensor.html
+├───OK─── http://docs.px4.io/main/en/config_vtol/vtol_weathervane.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/config_vtol/README.md
+Finished! 2110 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/esc_calibration.html
+├───OK─── http://docs.px4.io/main/en/peripherals/pwm_escs_and_servo.html
+├───OK─── http://docs.px4.io/main/en/peripherals/oneshot.html
+├───OK─── http://docs.px4.io/main/en/uavcan/escs.html
+├───OK─── http://docs.px4.io/main/assets/img/qgc_esc_calibration.efb64b91.png
+├───OK─── http://docs.px4.io/main/assets/img/esc_calibration_step_2.a4748456.png
+├───OK─── http://docs.px4.io/main/assets/img/esc_calibration_step_3.f0838782.png
+├───OK─── http://docs.px4.io/main/assets/img/esc_calibration_step_4.21cea0f6.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/esc_calibration.md (HTTP_429)
+Finished! 2115 links found. 2107 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html
+├───OK─── https://youtu.be/HkYRJJoyBwQ
+├─BROKEN─ https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation (HTTP_429)
+├───OK─── https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/process_logdata_ekf.py (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_logdata_ekf.py (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/Tools/ecl_ekf/batch_process_metadata_ekf.py (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_attitude.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_local_position.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_global_position.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/wind_estimate.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_gps_position.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/test_ratios_-_successful.38528960.png
+├───OK─── http://docs.px4.io/main/assets/img/vibration_metrics_-_successful.3c7eb27c.png
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/gps_glitch_-_test_ratios.895621ad.png
+├───OK─── http://docs.px4.io/main/assets/img/gps_glitch_-_reported_receiver_accuracy.cfeb6bc6.png
+├───OK─── http://docs.px4.io/main/assets/img/gps_glitch_-_velocity_innovations.92f99a14.png
+├───OK─── http://docs.px4.io/main/assets/img/gps_data_loss_-_velocity_innovations.383dafa8.png
+├───OK─── http://docs.px4.io/main/assets/img/gnd_effect.46bc06d8.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/tuning_the_ecl_ekf.md (HTTP_429)
+Finished! 2287 links found. 2242 excluded. 36 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/flight_termination.html
+├───OK─── http://docs.px4.io/main/assets/img/flight_termination_logic_diagram.094a47f0.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/flight_termination.md (HTTP_429)
+Finished! 2122 links found. 2120 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/bootloader_update.html
+├─BROKEN─ https://github.com/PX4/Bootloader (HTTP_429)
+├─BROKEN─ https://github.com/PX4/Bootloader (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/bootloader_update.md (HTTP_429)
+Finished! 2119 links found. 2116 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/bootloader_update_from_betaflight.html
+├─BROKEN─ https://github.com/betaflight/betaflight-configurator/releases (HTTP_429)
+├───OK─── https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao
+├───OK─── http://docs.px4.io/main/assets/img/betaflight_configurator.bc7763bb.jpg
+├─BROKEN─ https://github.com/PX4/Bootloader (HTTP_429)
+├───OK─── http://dfu-util.sourceforge.net/
+├───OK─── https://www.st.com/en/development-tools/stsw-stm32080.html
+├───OK─── http://docs.px4.io/main/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/bootloader_update_from_betaflight.md (HTTP_429)
+Finished! 2118 links found. 2110 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/land_detector.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/land_detector.md (HTTP_429)
+Finished! 2128 links found. 2127 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/sensor_thermal_calibration.html
+├───OK─── http://docs.px4.io/main/assets/img/thermal_calibration_gyro.5ba3ae9d.png
+├───OK─── http://docs.px4.io/main/assets/img/thermal_calibration_accel.a95a532a.png
+├───OK─── http://docs.px4.io/main/assets/img/thermal_calibration_baro.31fa917b.png
+├───OK─── http://docs.px4.io/main/en/modules/modules_system.html#sensors
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/sensor_thermal_calibration.md (HTTP_429)
+Finished! 2140 links found. 2135 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/compass_power_compensation.html
+├───OK─── http://docs.px4.io/main/assets/img/corrupted_mag.3142e358.png
+├───OK─── http://docs.px4.io/main/assets/img/strap.5d8b1475.png
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/line_fit.5e701615.png
+├───OK─── http://docs.px4.io/main/assets/img/comp_params.7b7a8729.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/compass_power_compensation.md (HTTP_429)
+Finished! 2113 links found. 2107 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/advanced_flight_controller_orientation_leveling.html
+├───OK─── http://docs.px4.io/main/assets/img/fc_orientation_qgc_v2.25c30665.png
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/advanced_flight_controller_orientation_leveling.md (HTTP_429)
+Finished! 2106 links found. 2104 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/static_pressure_buildup.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/static_pressure_buildup.md (HTTP_429)
+Finished! 2108 links found. 2107 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/prearm_arm_disarm.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/prearm_arm_disarm.md (HTTP_429)
+Finished! 2145 links found. 2144 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/peripherals/serial_configuration.html
+├───OK─── http://docs.px4.io/main/en/modules/modules_driver.html#gps
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/serial_configuration.md (HTTP_429)
+Finished! 2132 links found. 2129 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/peripherals/mavlink_peripherals.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/mavlink_peripherals.md (HTTP_429)
+Finished! 2137 links found. 2135 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/ethernet_setup.html
+├───OK─── https://netplan.io/
+├───OK─── https://netplan.io/examples/
+├───OK─── https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html
+├───OK─── http://docs.px4.io/main/assets/img/px4_ethernet_link_config.1fe3efb1.png
+├─BROKEN─ https://github.com/mavlink/MAVSDK-Python (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/ros/ros2_comm.html#sanity-check-the-installation
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/ethernet_setup.md (HTTP_429)
+Finished! 2148 links found. 2141 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced_config/parameter_reference.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/advanced_config/parameter_reference.md
+Finished! 2179 links found. 2178 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/hardware/drone_parts.html
+Finished! 2094 links found. 2094 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/
+├───OK─── https://www.thunderfly.cz/tf-g2.html
+├───OK─── https://tealdrones.com/teal-one/
+├───OK─── https://modalai.com/products/voxl-m500
+├───OK─── https://px4.io/portfolio/deltaquad-vtol/
+├───OK─── https://www.nxp.com/KIT-HGDRONEK66
+├───OK─── https://www.hovergames.com/
+├───OK─── https://us.yuneec.com/typhoon-h-plus/
+├───OK─── https://px4.io/portfolio/yuneec-mantis-q/
+├───OK─── https://px4.io/portfolio/yuneec-h520-hexacopter/
+├─BROKEN─ http://airlango.com/products/ (HTTP_403)
+├───OK─── https://px4.io/portfolio/aerosense-aerobo/
+├─BROKEN─ https://sentera.shop/products/sentera-phx-complete-system (HTTP_404)
+├───OK─── https://px4.io/portfolio/wingtraone-tailsitter-vtol/
+├───OK─── https://px4.io/portfolio/flywave-edge/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/README.md
+Finished! 2117 links found. 2102 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/px4_vision_kit.html
+├───OK─── http://www.holybro.com/product/px4-vision/
+├───OK─── http://docs.px4.io/main/assets/img/px4_vision_kit_hero.8eef78c9.jpg
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├───OK─── https://shop.holybro.com/px4-vision_p1225.html
+├───OK─── http://docs.px4.io/main/assets/img/rc.6b6872a5.png
+├───OK─── http://docs.px4.io/main/assets/img/warning_power_port_update.f5881e9e.png
+├───OK─── http://docs.px4.io/main/assets/img/holybro_px4_vision_whats_inside_top.c3189220.jpg
+├───OK─── http://docs.px4.io/main/assets/img/holybro_px4_vision_whats_inside.2a837d93.jpg
+├───OK─── http://docs.px4.io/main/assets/img/Explode-view.c3cc7d66.png
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/raise_gps_mast.5081b5cf.jpg
+├───OK─── http://docs.px4.io/main/assets/img/upcore_port_usb1.7d4feac6.png
+├───OK─── http://docs.px4.io/main/assets/img/motor_order_diagram.64560394.png
+├───OK─── http://docs.px4.io/main/assets/img/propeller_directions.4bfa5377.jpg
+├───OK─── http://docs.px4.io/main/assets/img/propeller_nuts.2ad4cf8c.jpg
+├───OK─── http://docs.px4.io/main/assets/img/qgc_console_vision_system_started.254399c4.jpg
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/upcore_port_usb2.8efb3345.png
+├───OK─── http://docs.px4.io/main/assets/img/usb_jst_cable.77e81012.jpg
+├───OK─── http://docs.px4.io/main/assets/img/upcore_port_hdmi.8ab92b22.png
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance (HTTP_429)
+├───OK─── http://wiki.ros.org/catkin/Tutorials
+├───OK─── http://docs.px4.io/main/assets/img/qgc_airframe_px4_vision_devkit_platform.77e43013.jpg
+├───OK─── http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf
+├─BROKEN─ https://wiki.up-community.org/Ubuntu (HTTP_429)
+├───OK─── https://structure.io/developers
+├─BROKEN─ https://github.com/PX4/PX4-Avoidance (HTTP_429)
+├─BROKEN─ https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance (HTTP_404)
+├───OK─── https://wikifactory.com/+holybro/px4-vision
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/px4_vision_kit.md (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/mindracer210.html
+Finished! 2180 links found. 2149 excluded. 8 broken.
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/mindracer_BNF_RTF
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/mindracer_BNF_RTF.html
+├───OK─── http://docs.px4.io/main/en/complete_vehicles/nanomind110.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/mindracer_BNF_RTF.md
+Finished! 2093 links found. 2090 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/betafpv_beta75x.html
+├───OK─── https://betafpv.com/products/beta75x-2s-whoop-quadcopter
+├───OK─── http://docs.px4.io/main/assets/img/betafpv_beta75x.faa1e8e5.jpg
+├───OK─── https://www.getfpv.com/beta75x-2s-brushless-whoop-micro-quadcopter-xt30-frsky.html
+├───OK─── https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW
+├─BROKEN─ https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/ (HTTP_404)
+├───OK─── https://www.youtube.com/embed/_-O0kv0Qsh4
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/betafpv_beta75x.md
+Finished! 2106 links found. 2099 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/holybro_kopis2.html
+├───OK─── https://shop.holybro.com/kopis2-6s-v2free-shipping_p1169.html
+├───OK─── http://docs.px4.io/main/assets/img/holybro_kopis2.0e9261e1.jpg
+├───OK─── https://shop.holybro.com/c/kopis_0480
+├───OK─── https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html
+├─BROKEN─ https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/ (HTTP_404)
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/holybro_kopis2.md
+Finished! 2104 links found. 2098 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/crazyflie21.html
+├───OK─── https://www.bitcraze.io/
+├───OK─── https://www.bitcraze.io/products/crazyflie-2-1/
+├───OK─── http://docs.px4.io/main/assets/img/crazyflie_2.1.c1f4cb8b.jpg
+├───OK─── https://wiki.bitcraze.io/projects:crazyflie2:index
+├───OK─── https://store.bitcraze.io/products/crazyflie-2-1
+├───OK─── https://store.bitcraze.io/collections/kits/products/crazyradio-pa
+├───OK─── https://store.bitcraze.io/collections/decks/products/breakout-deck
+├───OK─── https://store.bitcraze.io/collections/decks/products/flow-deck-v2
+├───OK─── https://store.bitcraze.io/collections/decks/products/z-ranger-deck-v2
+├───OK─── https://store.bitcraze.io/collections/decks/products/multi-ranger-deck
+├───OK─── https://store.bitcraze.io/collections/decks/products/buzzer-deck
+├───OK─── https://store.bitcraze.io/collections/decks/products/sd-card-deck
+├───OK─── https://www.logitechg.com/en-ch/product/f310-gamepad
+├───OK─── https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/
+├───OK─── http://docs.px4.io/main/assets/img/crazyflie_reset_button.9cfe1cdf.jpg
+├───OK─── https://docs.qgroundcontrol.com/en/SetupView/Sensors.html
+├───OK─── https://github.com/bitcraze/crazyflie2-stm-bootloader/releases
+├───OK─── https://www.bitcraze.io/crazyradio-pa/
+├───OK─── https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py
+├───OK─── https://github.com/dennisss/cfbridge
+├───OK─── https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions
+├───OK─── https://virtualenv.pypa.io/en/latest/
+├───OK─── https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming
+├───OK─── http://docs.px4.io/main/assets/img/joystick_menu_qgc.59c48167.png
+├───OK─── http://docs.px4.io/main/assets/img/crazyflie21_sd.477ff739.jpeg
+├───OK─── http://docs.px4.io/main/assets/img/taranis_model.6d662e29.jpg
+├───OK─── http://docs.px4.io/main/assets/img/taranis_model_setup.176ea7e3.jpg
+├───OK─── http://docs.px4.io/main/assets/img/taranis_outputs.eb6d50c0.jpg
+├───OK─── http://docs.px4.io/main/assets/img/taranis_switch_setup.58cae4b8.jpg
+├───OK─── http://docs.px4.io/main/assets/img/crazyflie_QGCjoystick_setup.308b2294.png
+├───OK─── https://github.com/mavlink/mavros/tree/master/mavros#installation
+├───OK─── https://www.youtube.com/embed/0qy7O3fVN2c
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/complete_vehicles/crazyflie21.md
+Finished! 2139 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/peripherals/companion_computer_peripherals.html
+├───OK─── https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm
+├───OK─── https://www.sparkfun.com/products/9873
+├───OK─── https://www.sparkfun.com/products/9717
+├───OK─── https://www.sparkfun.com/products/12009
+├───OK─── https://www.adafruit.com/product/757
+├───OK─── https://www.intelrealsense.com/depth-camera-d435/
+├───OK─── https://www.intelrealsense.com/depth-camera-d415/
+├───OK─── https://www.perceptin.io/
+├─BROKEN─ https://duo3d.com/product/duo-minilx-lv1 (BLC_UNKNOWN)
+├───OK─── https://www.zerotier.com/
+├─BROKEN─ https://github.com/intel/mavlink-router (HTTP_429)
+├───OK─── https://consumer.huawei.com/en/mobile-broadband/e8372/
+├───OK─── https://consumer.huawei.com/en/mobile-broadband/e3372/
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/peripherals/companion_computer_peripherals.md (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/uavcan/ark_cannode.html
+Finished! 2118 links found. 2103 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk_series.html
+├───OK─── https://nuttx.apache.org/
+├─BROKEN─ https://pixhawk.org/pixhawk-connector-standard/ (HTTP_429)
+├───OK─── https://creativecommons.org/licenses/by-sa/3.0/legalcode
+├───OK─── https://creativecommons.org/licenses/by-sa/3.0/
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk_series.md (HTTP_429)
+Finished! 2137 links found. 2132 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/getting_started
+├───OK─── http://docs.px4.io/main/en/dev_setup/getting_started.html
+├───OK─── http://docs.px4.io/main/en/dev_setup/dev_env.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/dev_setup/getting_started.md (HTTP_429)
+Finished! 2100 links found. 2097 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/config_initial.html
+├───OK─── https://docs.qgroundcontrol.com/en/releases/daily_builds.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/dev_setup/config_initial.md (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/dev_setup/dev_env_mac.html
+Finished! 2107 links found. 2104 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/dev_env
+├───OK─── http://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html
+├───OK─── http://docs.px4.io/main/en/dev_setup/dev_env_windows_cygwin.html
+├───OK─── http://docs.px4.io/main/en/dev_setup/vscode.html
+├───OK─── http://docs.px4.io/main/en/dev_setup/fast-dds-installation.html
+├───OK─── http://docs.px4.io/main/en/simulation/jmavsim.html
+├───OK─── http://docs.px4.io/main/en/simulation/ros_interface.html
+├───OK─── http://docs.px4.io/main/en/test_and_ci/docker.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/dev_setup/dev_env.md (HTTP_429)
+Finished! 2116 links found. 2108 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/building_px4.html
+├───OK─── http://docs.px4.io/main/assets/img/console_jmavsim.d6326a19.png
+├───OK─── https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html
+├───OK─── http://docs.px4.io/main/assets/img/jmavsim_first_takeoff.65799ab0.png
+├───OK─── http://docs.px4.io/main/assets/img/qgc_goto.f64994ed.jpg
+├───OK─── http://docs.px4.io/main/en/simulation/airsim.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/Tools/mac_set_ulimit.sh (HTTP_429)
+├───OK─── https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa
+├─BROKEN─ https://github.com/PX4/sitl_gazebo/tree/master/worlds (HTTP_429)
+├─BROKEN─ https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/boards (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/qgc_setup_summary_airframe_firmware.ec44e092.jpg
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/dev_setup/building_px4.md (HTTP_429)
+Finished! 2159 links found. 2146 excluded. 6 broken.
+
+Getting links from: http://docs.px4.io/main/en/modules/hello_sky.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake
+├───OK─── http://docs.px4.io/main/en/hardware/porting_guide_config.html#px4_kconfig_symbol_naming_convention
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/boards (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/debug/system_console.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_combined.msg (HTTP_429)
+├───OK─── http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/msg/ (HTTP_429)
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/modules/hello_sky.md (HTTP_429)
+Finished! 2135 links found. 2122 excluded. 6 broken.
+
+Getting links from: http://docs.px4.io/main/en/modules/module_template.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/CMakeLists.txt (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/WorkItemExample.cpp#L42 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/concept/system_startup.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381 (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/modules/modules_main.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/modules/module_template.md (HTTP_429)
+├───OK─── http://docs.px4.io/main/en/concept/px4_systems_architecture.html
+Finished! 2110 links found. 2099 excluded. 8 broken.
+
+Getting links from: http://docs.px4.io/main/en/concept/
+├───OK─── http://docs.px4.io/main/en/concept/architecture
+├───OK─── http://docs.px4.io/main/en/concept/events_interface.html
+├───OK─── http://docs.px4.io/main/en/concept/flight_tasks.html
+├───OK─── http://docs.px4.io/main/en/concept/control_allocation.html
+├───OK─── http://docs.px4.io/main/en/concept/geometry_files.html
+├───OK─── http://docs.px4.io/main/en/concept/pwm_limit.html
+├───OK─── http://docs.px4.io/main/en/concept/sd_card_layout.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/concept/README.md (HTTP_429)
+Finished! 2102 links found. 2094 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/simulation/
+├───OK─── http://docs.px4.io/main/en/simulation/jmavsim
+├───OK─── http://docs.px4.io/main/en/simulation/multi_vehicle_jmavsim.html
+├───OK─── http://docs.px4.io/main/en/simulation/gazebo
+├───OK─── http://docs.px4.io/main/en/simulation/ignition_gazebo.html
+├───OK─── http://docs.px4.io/main/en/simulation/flightgear
+├───OK─── http://docs.px4.io/main/en/simulation/jsbsim.html
+├───OK─── http://docs.px4.io/main/en/simulation/multi-vehicle-simulation.html
+├───OK─── http://docs.px4.io/main/en/simulation/failsafes.html
+├───OK─── http://docs.px4.io/main/en/simulation/hitl.html
+├───OK─── http://docs.px4.io/main/en/simulation/simulation-in-hardware.html
+├───OK─── http://docs.px4.io/main/en/simulation/flightgear.html
+├───OK─── http://docs.px4.io/main/en/simulation/multi_vehicle_flightgear.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/px4_simulator_messages.e08a4130.png
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulator/simulator_mavlink.cpp (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/px4_sitl_overview.d5d197f2.svg
+├───OK─── http://docs.px4.io/main/en/simulation/multi_vehicle_simulation_gazebo.html#build-and-test-rtps-dds
+├─BROKEN─ https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75 (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix (HTTP_429)
+├───OK─── https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html
+├───OK─── https://mavlink.io/en/protocol/camera.html
+├───OK─── http://docs.px4.io/main/en/modules/modules_communication.html#mavlink
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS (HTTP_429)
+├───OK─── https://en.wikipedia.org/wiki/Netcat
+├───OK─── https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/simulation/README.md (HTTP_429)
+Finished! 2183 links found. 2154 excluded. 9 broken.
+
+Getting links from: http://docs.px4.io/main/en/hardware/
+├───OK─── http://docs.px4.io/main/en/hardware/reference_design.html
+├───OK─── http://docs.px4.io/main/en/hardware/board_support_guide.html
+├───OK─── http://docs.px4.io/main/en/hardware/porting_guide
+├───OK─── http://docs.px4.io/main/en/hardware/serial_port_mapping.html
+├───OK─── http://docs.px4.io/main/en/middleware/drivers.html
+├───OK─── http://docs.px4.io/main/en/data_links/telemetry
+├───OK─── http://docs.px4.io/main/en/sensor_bus/
+├───OK─── http://docs.px4.io/main/en/advanced/rtk_gps.html
+├───OK─── http://docs.px4.io/main/en/advanced/gimbal_control.html
+├───OK─── http://docs.px4.io/main/en/hardware/porting_guide.html
+├───OK─── http://docs.px4.io/main/en/data_links/telemetry.html
+├─BROKEN─ https://github.com/PX4/px4_user_guide/edit/main/en/hardware/README.md (HTTP_429)
+Finished! 2114 links found. 2102 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/middleware/
+├───OK─── http://docs.px4.io/main/en/middleware/uorb_graph.html
+├───OK─── http://docs.px4.io/main/en/msg_docs/
+├───OK─── http://docs.px4.io/main/en/middleware/micrortps
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/middleware/README.md
+Finished! 2099 links found. 2095 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_main
+├───OK─── http://docs.px4.io/main/en/modules/modules_controller.html
+├───OK─── http://docs.px4.io/main/en/modules/modules_driver
+├───OK─── http://docs.px4.io/main/en/modules/modules_estimator.html
+├───OK─── http://docs.px4.io/main/en/modules/modules_simulation.html
+├───OK─── http://docs.px4.io/main/en/modules/modules_template.html
+├───OK─── http://docs.px4.io/main/en/modules/modules_autotune.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/modules/modules_main.md
+Finished! 2109 links found. 2102 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/debug/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/debug/README.md
+Finished! 2106 links found. 2105 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/tutorials/tutorials
+├───OK─── http://docs.px4.io/main/en/tutorials/tutorials.html
+├───OK─── http://docs.px4.io/main/en/tutorials/linux_sbus.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/tutorials/tutorials.md
+Finished! 2092 links found. 2089 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/advanced/
+├───OK─── http://docs.px4.io/main/en/advanced/computer_vision
+├───OK─── http://docs.px4.io/main/en/advanced/realsense_intel_driver.html
+├───OK─── http://docs.px4.io/main/en/advanced/switching_state_estimators.html
+├───OK─── http://docs.px4.io/main/en/advanced/out_of_tree_modules.html
+├───OK─── http://docs.px4.io/main/en/software_update/stm32_bootloader.html
+├───OK─── http://docs.px4.io/main/en/advanced/system_tunes.html
+├───OK─── http://docs.px4.io/main/en/dev_setup/dev_env_advanced_linux.html
+├───OK─── http://docs.px4.io/main/en/advanced/windows_cygwin_toolchain_setup.html
+├───OK─── http://docs.px4.io/main/en/advanced/dev_env_unsupported
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/advanced/README.md
+Finished! 2100 links found. 2090 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/
+├───OK─── http://docs.px4.io/main/en/test_and_ci/test_flights
+├───OK─── http://docs.px4.io/main/en/test_cards/mc_01_manual_modes.html
+├───OK─── http://docs.px4.io/main/en/test_cards/mc_02_full_autonomous.html
+├───OK─── http://docs.px4.io/main/en/test_cards/mc_03_auto_manual_mix.html
+├───OK─── http://docs.px4.io/main/en/test_cards/mc_04_failsafe_testing.html
+├───OK─── http://docs.px4.io/main/en/test_cards/mc_05_indoor_flight_manual_modes.html
+├───OK─── http://docs.px4.io/main/en/test_and_ci/unit_tests.html
+├───OK─── http://docs.px4.io/main/en/test_and_ci/continous_integration.html
+├───OK─── http://docs.px4.io/main/en/test_and_ci/integration_testing_mavsdk.html
+├───OK─── http://docs.px4.io/main/en/test_and_ci/integration_testing.html
+├───OK─── http://docs.px4.io/main/en/test_and_ci/maintenance.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/test_and_ci/README.md
+Finished! 2109 links found. 2097 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/concept/architecture.html
+├───OK─── http://www.reactivemanifesto.org/
+├───OK─── http://docs.px4.io/main/assets/img/PX4_Architecture.0f0c052b.svg
+├───OK─── http://docs.px4.io/main/assets/img/PX4_High-Level_Flight-Stack.18829d0a.svg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/concept/architecture.md
+Finished! 2126 links found. 2122 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/concept/flight_modes.html
+├───OK─── https://github.com/mavlink/mavros
+├───OK─── http://docs.px4.io/main/assets/img/commander-flow-diagram.61057c95.png
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/concept/flight_modes.md
+Finished! 2117 links found. 2114 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/dev_airframes/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/dev_airframes/README.md
+Finished! 2105 links found. 2104 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/dev_call.html
+├───OK─── https://docs.px4.io/master/en/contribute/dev_call.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/labels/devcall5
+├───OK─── https://www.dronecode.org/calendar/
+├───OK─── https://meet.jit.si/PX4DeveloperCallWeekly
+├───OK─── https://discuss.px4.io/c/weekly-dev-call
+├───OK─── https://github.com/PX4/PX4-Autopilot/labels/devcall
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/dev_call.md
+Finished! 2098 links found. 2091 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/code.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/main
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/beta
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/stable
+├───OK─── https://www.atlassian.com/git/tutorials/rewriting-history
+├─BROKEN─ https://guides.github.com/introduction/flow/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/signing-up-for-a-new-github-account/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/fork-a-repo/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/using-pull-requests/ (HTTP_403)
+├───OK─── https://en.wikipedia.org/wiki/Continuous_integration
+├───OK─── https://google.github.io/styleguide/cppguide.html
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381 (HTTP_429)
+├───OK─── http://www.doxygen.nl/
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h
+├───OK─── https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/code.md
+Finished! 2116 links found. 2100 excluded. 6 broken.
+
+Getting links from: http://docs.px4.io/main/en/ros/offboard_control.html
+├───OK─── http://www.lairdtech.com/products/rm024
+├───OK─── http://www.digi.com/products/xbee-rf-solutions/modules
+├───OK─── https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGduZFtHcm91bmQgU3RhdGlvbl0gLS1NQVZMaW5rLS0-IHJhZDFbR3JvdW5kIFJhZGlvXTtcbiAgcmFkMSAtLVJhZGlvUHJvdG9jb2wtLT4gcmFkMltWZWhpY2xlIFJhZGlvXTtcbiAgcmFkMiAtLU1BVkxpbmstLT4gYVtBdXRvcGlsb3RdOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9
+├───OK─── https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGduZFtHcm91bmQgU3RhdGlvbl0gLS1NQVZMaW5rLS0-IHJhZDFbR3JvdW5kIFJhZGlvXTtcbiAgcmFkMSAtLVJhZGlvUHJvdG9jb2wtLT4gcmFkMltWZWhpY2xlIFJhZGlvXTtcbiAgcmFkMiAtLU1BVkxpbmstLT4gYVtBdXRvcGlsb3RdOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9
+├───OK─── https://www.hardkernel.com/shop/odroid-c1/
+├───OK─── https://magazine.odroid.com/odroid-xu4
+├───OK─── https://www.raspberrypi.org/
+├─BROKEN─ http://www.intel.com/content/www/us/en/do-it-yourself/edison.html (HTTP_404)
+├─BROKEN─ http://www.intel.com/content/www/us/en/nuc/overview.html (HTTP_404)
+├───OK─── http://www.gigabyte.com/products/list.aspx?s=47&ck=104
+├───OK─── https://developer.nvidia.com/embedded/jetson-tx2
+├───OK─── https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGNvbXBbQ29tcGFuaW9uIENvbXB1dGVyXSAtLU1BVkxpbmstLT4gdWFydFtVQVJUIEFkYXB0ZXJdO1xuICB1YXJ0IC0tTUFWTGluay0tPiBBdXRvcGlsb3Q7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0
+├─BROKEN─ http://www.intel.com/products/wireless/adapters/5000/ (HTTP_404)
+├───OK─── https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgc3ViZ3JhcGggR3JvdW5kICBTdGF0aW9uXG4gIGduZFtST1MgRW5hYmxlZCBDb21wdXRlcl0gLS0tIHFnY1txR3JvdW5kQ29udHJvbF1cbiAgZW5kXG4gIGduZCAtLU1BVkxpbmsvVURQLS0-IHdbV2lGaV07XG4gIHFnYyAtLU1BVkxpbmstLT4gdztcbiAgc3ViZ3JhcGggVmVoaWNsZVxuICBjb21wW0NvbXBhbmlvbiBDb21wdXRlcl0gLS1NQVZMaW5rLS0-IHVhcnRbVUFSVCBBZGFwdGVyXVxuICB1YXJ0IC0tLSBBdXRvcGlsb3RcbiAgZW5kXG4gIHcgLS0tIGNvbXAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/ros/offboard_control.md
+Finished! 2112 links found. 2097 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/ros/
+├───OK─── http://docs.px4.io/main/en/ros/ros2
+├───OK─── http://docs.px4.io/main/en/ros/ros2_offboard_control.html
+├───OK─── http://docs.px4.io/main/en/ros/ros1_via_ros2.html
+├───OK─── http://docs.px4.io/main/en/ros/ros1
+├───OK─── http://www.ros.org/
+├───OK─── http://docs.px4.io/main/en/ros/ros2.html
+├───OK─── https://github.com/ros2/ros1_bridge
+├───OK─── http://docs.px4.io/main/en/ros/ros1.html
+├───OK─── https://www.youtube.com/watch?v=lZ8crGI16qA
+├───OK─── https://www.youtube.com/watch?v=8XRkzHqQSf0
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/ros/README.md
+Finished! 2106 links found. 2095 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/robotics/dronekit.html
+├───OK─── https://docs.px4.io/v1.12/en/robotics/dronekit.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/robotics/dronekit.md
+Finished! 2087 links found. 2085 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/companion_computer/pixhawk_companion.html
+├───OK─── https://github.com/mavlink/c_uart_interface_example
+├─BROKEN─ https://github.com/intel/mavlink-router (HTTP_429)
+├───OK─── https://ardupilot.org/mavproxy/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/companion_computer/pixhawk_companion.md
+Finished! 2114 links found. 2110 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/middleware/mavlink.html
+├───OK─── https://mavlink.io/en/messages/
+├───OK─── https://mavlink.io/en/services/
+├───OK─── https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink
+├───OK─── https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/CMakeLists.txt#L34
+├───OK─── https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml
+├───OK─── https://mavlink.io/en/guide/define_xml_element.html
+├───OK─── https://mavlink.io/en/getting_started/
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS (HTTP_429)
+├───OK─── https://dev.qgroundcontrol.com/en/getting_started/
+├───OK─── https://docs.qgroundcontrol.com/en/app_menu/mavlink_inspector.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp (HTTP_429)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228 (HTTP_429)
+├───OK─── https://mavlink.io/en/guide/wireshark.html
+├───OK─── https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html
+├───OK─── https://dev.qgroundcontrol.com/master/en/getting_started/
+├───OK─── https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink
+├───OK─── https://mavlink.io/en/getting_started/generate_libraries.html
+├───OK─── https://github.com/mavlink/qgroundcontrol/blob/master/QGCExternalLibs.pri#L52
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/middleware/mavlink.md
+├───OK─── http://docs.px4.io/main/en/msg_docs/yaw_estimator_status.html
+├───OK─── http://docs.px4.io/main/en/middleware/micrortps_manual_code_generation.html
+Finished! 2137 links found. 2112 excluded. 4 broken.
+
+Getting links from: http://docs.px4.io/main/en/middleware/micrortps.html
+├───OK─── http://docs.px4.io/main/assets/img/architecture.94eff761.png
+├───OK─── https://en.wikipedia.org/wiki/Common_Data_Representation
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/middleware/micrortps.md
+Finished! 2127 links found. 2124 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/code
+├─BROKEN─ https://guides.github.com/introduction/flow/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/signing-up-for-a-new-github-account/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/fork-a-repo/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/ (HTTP_403)
+├─BROKEN─ https://help.github.com/articles/using-pull-requests/ (HTTP_403)
+├─BROKEN─ https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381 (HTTP_429)
+Finished! 2116 links found. 2110 excluded. 6 broken.
+
+Getting links from: http://docs.px4.io/main/en/contribute/notation.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/contribute/notation.md
+Finished! 2096 links found. 2095 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/test_flights.html
+├───OK─── https://docs.px4.io/master/en/test_and_ci/test_flights.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/projects/18
+├───OK─── https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html
+├─BROKEN─ https://zubax.com/technologies/uavcan (BLC_UNKNOWN)
+├───OK─── https://www.nxp.com/applications/solutions/industrial/unmanned-aerial-vehicles-uavs/uavs-drones-and-rovers/rddrone-fmuk66-px4-robotic-drone-fmu-reference-design:RDDRONE-FMUK66
+├───OK─── https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/kinetis-cortex-m-mcus/k-seriesperformancem4/k6x-ethernet/rddrone-fmuk66-px4-robotic-drone-fmu-reference-design:RDDRONE-FMUK66?tid=vanRDDRONE-FMUK66
+├───OK─── https://hobbyking.com/en_us/phantom-fpv-flying-wing-epo-airplane-1550mm-v2-kit.html
+├───OK─── https://www.horizonhobby.com/convergence-vtol-bnf-basic-efl11050
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/test_and_ci/test_flights.md
+Finished! 2143 links found. 2134 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/releases/1.13.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/releases/tag/v1.13.0-rc1
+├───OK─── https://github.com/PX4/PX4-Autopilot/releases/tag/v1.13.0-beta1
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17404
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17828
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18646
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19429
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19700
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19126
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18988
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19362
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19367
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19229
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18451
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17910
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19183
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18910
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18141
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17467
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19461
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17994
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18260
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18849
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/14474
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18402
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19019
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19061
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18544
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19593
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19544
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18083
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/19529
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18589
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/18776
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/releases/1.13.md
+Finished! 2148 links found. 2114 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/releases/1.12.html
+├───OK─── https://github.com/PX4/PX4-Autopilot/releases/tag/v1.12.0-beta4
+├───OK─── https://github.com/PX4/PX4-Autopilot/releases/tag/v1.12.0-beta3
+├───OK─── https://github.com/PX4/PX4-Autopilot/releases/tag/v1.12.0-beta2
+├───OK─── https://github.com/PX4/PX4-Autopilot/releases/tag/v1.12.0-beta1
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16399
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16400
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16796/files#diff-dcf2f5536f47f260e5e0ff3b3fd22eaef6b6c510126463d70affa0eb7bd4d3ddL20
+├───OK─── https://github.com/pixhawk/Pixhawk-Standards
+├───OK─── http://www.cuav.net/en/x7en/
+├───OK─── http://www.cuav.net/en/nora/
+├───OK─── http://www.cuav.net/en/neo-3-2/
+├───OK─── http://seriouslypro.com/spracingh7extreme
+├───OK─── https://arkelectron.com/product/ark-flow/
+├───OK─── https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/14460
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16039
+├───OK─── https://github.com/mavlink/mavlink/issues/1339
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16266
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16878
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/12072
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16052
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16320
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16786
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16791
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17078
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17437
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/14823#issuecomment-791357646
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/14749
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16376
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/17019
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16377
+├───OK─── https://github.com/PX4/PX4-Autopilot/pull/16385
+├───OK─── https://github.com/apache/incubator-nuttx/compare/nuttx-8.2..nuttx-10.0.1
+├───OK─── https://github.com/apache/incubator-nuttx/commit/904a602c74dc08a100b5c2bd490807de19e73e10
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/releases/1.12.md
+Finished! 2157 links found. 2122 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/frames_autogyro/thunderfly_auto_g2.html
+├───OK─── https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html
+├───OK─── http://docs.px4.io/main/assets/img/autog2_title.50a07d84.jpg
+├───OK─── https://www.openscad.org/
+├───OK─── https://www.thingiverse.com/thing:160655
+├───OK─── http://docs.px4.io/main/assets/img/modif_rh.4b99db3d.png
+├───OK─── https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html
+├───OK─── http://docs.px4.io/main/assets/img/modif_blade.96a71923.png
+├───OK─── http://docs.px4.io/main/assets/img/modif_release.290ae2d6.png
+├───OK─── https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/
+├───OK─── https://www.blue-bird-model.com/products_detail/411.htm
+├───OK─── https://www.apcprop.com/product/10x7e/
+├───OK─── https://mpjet.com/shop/gb/prop-adapters/184-collet-prop-adapter-19-mm-4-mm-shaft-m629-standard.html
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1001.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1002.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1003.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1008.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1004.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1001.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1005.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1002.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1010.stl
+├───OK─── https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1011.stl
+├───OK─── https://www.youtube.com/embed/YhXXSWz5wWs
+├───OK─── http://docs.px4.io/main/assets/img/autog2_1.8dcf3302.jpg
+├───OK─── http://docs.px4.io/main/assets/img/autog2_2.41041b33.jpg
+├───OK─── http://docs.px4.io/main/assets/img/autog2_3.cd50c827.jpg
+├───OK─── http://docs.px4.io/main/assets/img/autog2_4.85c97174.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/frames_autogyro/thunderfly_auto_g2.md
+Finished! 2140 links found. 2112 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_pixhawk_standard.html
+├───OK─── https://px4.io/autopilots/
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/autopilot_pixhawk_standard.md
+Finished! 2108 links found. 2106 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_manufacturer_supported.html
+├───OK─── http://docs.px4.io/main/en/flight_controller/kakuteh7.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/autopilot_manufacturer_supported.md
+Finished! 2130 links found. 2128 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk4.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_hero_upright.74e8a52a.jpg
+├───OK─── https://shop.holybro.com/pixhawk-4beta-launch_p1089.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4-connectors.6ec2ef1d.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_dimensions.72c44179.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4_debug_port.0bd2cd21.jpg
+├─BROKEN─ https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (HTTP_429)
+├───OK─── https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk4.md
+Finished! 2140 links found. 2132 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk4_mini.html
+├───OK─── https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf
+├───OK─── https://shop.holybro.com/pixhawk4-mini_p1120.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_interfaces.b1a7a364.png
+├───OK─── https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk4mini_dimensions.ca839323.png
+├───OK─── https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation
+├─BROKEN─ https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (HTTP_429)
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk4_mini.md
+Finished! 2136 links found. 2128 excluded. 1 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk3_pro.html
+├───OK─── https://store-drotek.com/
+├───OK─── https://drotek.com/
+├───OK─── http://docs.px4.io/main/assets/img/hardware-pixhawk3_pro.80ff4b0e.jpg
+├───OK─── https://store.drotek.com/
+├─BROKEN─ https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html (HTTP_503)
+├─BROKEN─ https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html (HTTP_503)
+├───OK─── https://www.readymaderc.com/
+├───OK─── https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk3_pro_debug_ports.10df4411.jpg
+├─BROKEN─ https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (HTTP_429)
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk3_pro.md
+Finished! 2118 links found. 2107 excluded. 3 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixracer.html
+├───OK─── http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789
+├───OK─── https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm
+├───OK─── https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html
+├───OK─── https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html
+├───OK─── http://docs.px4.io/main/en/telemetry/esp8266_wifi_module.html
+├───OK─── https://github.com/dogmaphobic/mavesp8266
+├───OK─── http://docs.px4.io/main/assets/img/grau_setup_pixracer_gps.2543876c.jpg
+├───OK─── http://docs.px4.io/main/assets/img/grau_acsp5_roh.7301ce8c.jpg
+├─BROKEN─ https://pixhawk.org/pixhawk-connector-standard/ (HTTP_429)
+├───OK─── http://docs.px4.io/main/assets/img/pixracer_r09_top_pinouts.61c29237.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixracer_r09_bot_pinouts.556b4e14.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixracer_r09_esp_01.7320a561.jpg
+├─BROKEN─ https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf (HTTP_429)
+├───OK─── https://github.com/AUAV-OpenSource/FMUv4-PixRacer
+├───OK─── https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf
+├───OK─── https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixracer.md
+Finished! 2149 links found. 2132 excluded. 2 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/mindracer.html
+├───OK─── http://mindpx.net/
+├───OK─── http://docs.px4.io/main/assets/img/hardware-mindracer.af9af556.png
+├───OK─── http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf
+├───OK─── http://docs.px4.io/main/assets/img/hardware-mindracer-pinout.a9883657.png
+├───OK─── http://docs.px4.io/main/assets/img/hardware-mindracer-conn.5e0303fe.png
+├───OK─── http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf
+├───OK─── http://drupal.xitronet.com/?q=catalog
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/mindracer.md
+Finished! 2133 links found. 2125 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk-2.html
+├───OK─── http://www.proficnc.com/61-system-kits2
+├───OK─── http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4
+├───OK─── http://www.proficnc.com/61-system-kits
+├───OK─── https://github.com/proficnc/The-Cube
+├───OK─── http://docs.px4.io/main/assets/img/cube_ports_top_main.65403784.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_ports_debug.504fc152.jpg
+├───OK─── http://docs.px4.io/main/assets/img/cube_ports_usb_sdcard.76e375b1.jpg
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk-2.md
+Finished! 2142 links found. 2134 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhack_v3.html
+├───OK─── http://docs.px4.io/main/assets/img/pixhack_v3_157_large_default.0e6804a9.jpg
+├───OK─── http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3
+├───OK─── https://leixun.aliexpress.com/store
+├───OK─── http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhack_v3.md
+Finished! 2125 links found. 2120 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/mro_pixhawk.html
+├───OK─── http://docs.px4.io/main/assets/img/mro_pixhawk.037fd8d6.jpg
+├───OK─── https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm
+├───OK─── https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm
+├───OK─── https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm
+├───OK─── https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/mro_pixhawk.md
+Finished! 2123 links found. 2117 excluded. 0 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk.html
+├───OK─── http://docs.px4.io/main/assets/img/hardware-pixhawk.06e032bf.png
+├───OK─── https://www.youtube.com/embed/gCCC5A-Bvv4
+├───OK─── https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_connectors.85df793a.png
+├───OK─── http://docs.px4.io/main/assets/img/dronecode_probe.faf5435f.jpg
+├─BROKEN─ https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393 (HTTP_403)
+├───OK─── http://docs.px4.io/main/assets/img/console_connector.711a897a.jpg
+├───OK─── http://docs.px4.io/main/assets/img/console_debug.a86c2eb3.jpg
+├───OK─── http://docs.px4.io/main/assets/img/pixhawk_swd.7b8e982f.jpg
+├───OK─── http://docs.px4.io/main/assets/img/arm_10pin_jtag_connector_pinout.c193a85a.jpg
+├─BROKEN─ http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4 (HTTP_403)
+├─BROKEN─ https://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951 (HTTP_403)
+├─BROKEN─ https://www.digikey.com/products/en?keywords=M50-3600542 (HTTP_403)
+├─BROKEN─ http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d (ERRNO_ECONNRESET)
+├───OK─── https://1bitsquared.com/products/black-magic-probe
+├─BROKEN─ http://www.samtec.com/suddenservice/samples/samples.aspx (HTTP_404)
+├─BROKEN─ http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N (HTTP_403)
+├───OK─── http://www.tag-connect.com/CORTEXRIBBON10
+├─BROKEN─ https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND (HTTP_403)
+├───OK─── http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf
+├─BROKEN─ https://www.digikey.com/products/en?keywords=MDL-ADA2 (HTTP_403)
+├───OK─── http://www.sparkfun.com/products/8278
+├─BROKEN─ https://www.digikey.com/products/en?keywords=MDL-ADA2 (HTTP_403)
+├─BROKEN─ https://www.digikey.com/products/en?keywords=H3371-ND (HTTP_403)
+├─BROKEN─ https://www.digikey.com/products/en?keywords=H2182-ND (HTTP_403)
+├─BROKEN─ https://www.digikey.com/products/en?keywords=H3369-ND (HTTP_403)
+├───OK─── https://github.com/PX4/px4_user_guide/edit/main/en/flight_controller/pixhawk.md
+Finished! 2175 links found. 2148 excluded. 13 broken.
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/raspberry_pi_navio2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/raspberry_pi_pilotpi.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk_series
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/silicon_errata.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_pixhawk_standard
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_manufacturer_supported
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_experimental
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_discontinued
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk5x.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixhawk_mini.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/holybro_pix32.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/mindpx.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/cuav_x7.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/cuav_nora.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/cuav_v5_plus.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/cuav_v5_nano.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/cubepilot_cube_orange.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/cubepilot_cube_yellow.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/dropix.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/kakutef7.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/durandal.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/holybro_pix32_v5.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/modalai_fc_v1.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/modalai_voxl_flight.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/mro_x2.1.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/mro_control_zero_f7.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/nxp_rddrone_fmuk66.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/omnibus_f4_sd.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/spracingh7extreme.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_experimental.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/beaglebone_blue.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/crazyflie2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/autopilot_discontinued.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/ocpoc_zynq.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/cuav_v5.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/pixfalcon.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/auav_x2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/snapdragon_flight.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/intel_aero.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/camera.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/mixing.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flying/pre_flight_checks.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/gps_compass/
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/uavcan/ark_gps.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/gps_compass/gps_locosys_hawk_a1.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/gps_compass/gps_hex_here2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/gps_compass/rtk_gps
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/telemetry/
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/frsky_telemetry.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/power_module/
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/rangefinders
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/tachometers
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/airspeed
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/optical_flow
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/esc_motors
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/parachute.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/adsb_flarm.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/smart_batteries/
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor_bus/i2c_general
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/uavcan/
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/contribute/git_examples.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_log/flight_log_analysis.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_log/logging.html#configuration
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/uavcan_escs.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/dshot.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/esc_motors.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/offboard.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/getting_started/tunes.html#format-failed
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/gps_compass/rtk_gps.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/airspeed.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/tachometers.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/rangefinders.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/optical_flow.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/px4flow.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/pmw3901.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/position_mc.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/altitude_mc.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/manual_stabilized_mc.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/acro_mc.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/orbit.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/hold.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/return.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/mission.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/takeoff.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/land.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/follow_me.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/position_fw.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/altitude_fw.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/stabilized_fw.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/acro_fw.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_modes/manual_fw.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flying/fixed_wing_landing.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/getting_started/led_meanings.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_mc/filter_tuning.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/airspeed_tfslot.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/thunderfly_tachometer.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/dji_f450_cuav_5plus.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/dji_f450_cuav_5nano.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_vtol/vtol_quad_configuration.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/gps_compass/rtk_gps_hex_hereplus.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_mc/pid_tuning_guide_multicopter_basic.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_mc/pid_tuning_guide_multicopter.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_mc/mc_trajectory_tuning
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/qav_r_5_kiss_esc_racer.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_mc/mc_jerk_limited_type_trajectory.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_fw/pid_tuning_guide_fixedwing.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_command.html#motor-test
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/tiltrotor.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_stack/controller_diagrams.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/holybro_x500V2_pixhawk5x.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/holybro_x500_pixhawk4.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/dji_flamewheel_450.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/lumenier_qav250_pixhawk_mini.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/lumenier_qav250_pixhawk_auav_x2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/spedix_s250_pixracer.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/robocat_270_pixracer.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_multicopter/matrice100.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_plane/wing_wing_z84.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/standardvtol
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/tailsitter
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/tiltrotor
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/tailsitter.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/standardvtol.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_airframes/adding_a_new_frame.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/vtol_tailsitter_caipiroshka_pixracer.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_rover/traxxas_stampede.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/frames_sub/bluerov2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/gazebo_vehicles.html#hippocampus-tuhh-uuv
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flying/fixed_wing_takeoff.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/faq.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/consoles
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/gdb_debugging.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/swd_debug.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/swd_gdb.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/eclipse_jlink.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/failure_injection.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/sensor_uorb_topic_debugging.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/simulation_debugging.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/debug_values.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/system_wide_replay.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/profiling.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/binary_size_profiling.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/middleware/uorb.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/tutorials/video_streaming_wifi_broadcast.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/computer_vision/visual_inertial_odometry
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/mavlink_shell.html#qgroundcontrol-mavlink-console
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/gazebo.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/camera_t265_vio.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/gps_compass/u-blox_f9p_heading.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor/cm8jl65_ir_distance_sensor.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/external_position_estimation.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/tutorials/motion-capture.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/mavros_installation.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_mc/mc_trajectory_tuning.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_fw/advanced_tuning_guide_fixedwing.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_fw/trimming_guide_fixedwing.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_vtol/vtol_back_transition_tuning.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_vtol/vtol_without_airspeed_sensor.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/config_vtol/vtol_weathervane.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/pwm_escs_and_servo.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/peripherals/oneshot.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/uavcan/escs.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_system.html#sensors
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_driver.html#gps
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/ros2_comm.html#sanity-check-the-installation
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/mindracer210.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/mindracer_BNF_RTF.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/complete_vehicles/nanomind110.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/uavcan/ark_cannode.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/getting_started.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/dev_env.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/dev_env_mac.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/dev_env_windows_cygwin.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/vscode.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/fast-dds-installation.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/jmavsim.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/ros_interface.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/docker.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/airsim.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/hardware/porting_guide_config.html#px4_kconfig_symbol_naming_convention
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/debug/system_console.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/system_startup.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_main.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/px4_systems_architecture.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/architecture
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/events_interface.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/flight_tasks.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/control_allocation.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/geometry_files.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/pwm_limit.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/concept/sd_card_layout.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/jmavsim
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/multi_vehicle_jmavsim.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/gazebo
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/ignition_gazebo.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/flightgear
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/jsbsim.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/multi-vehicle-simulation.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/failsafes.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/hitl.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/simulation-in-hardware.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/flightgear.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/multi_vehicle_flightgear.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/simulation/multi_vehicle_simulation_gazebo.html#build-and-test-rtps-dds
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_communication.html#mavlink
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/hardware/reference_design.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/hardware/board_support_guide.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/hardware/porting_guide
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/hardware/serial_port_mapping.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/middleware/drivers.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/data_links/telemetry
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/sensor_bus/
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/rtk_gps.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/gimbal_control.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/hardware/porting_guide.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/data_links/telemetry.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/middleware/uorb_graph.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/msg_docs/
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/middleware/micrortps
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_controller.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_driver
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_estimator.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_simulation.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_template.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/modules/modules_autotune.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/tutorials/tutorials.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/tutorials/linux_sbus.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/computer_vision
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/realsense_intel_driver.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/switching_state_estimators.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/out_of_tree_modules.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/software_update/stm32_bootloader.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/system_tunes.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/dev_setup/dev_env_advanced_linux.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/windows_cygwin_toolchain_setup.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/advanced/dev_env_unsupported
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/test_flights
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_cards/mc_01_manual_modes.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_cards/mc_02_full_autonomous.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_cards/mc_03_auto_manual_mix.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_cards/mc_04_failsafe_testing.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_cards/mc_05_indoor_flight_manual_modes.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/unit_tests.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/continous_integration.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/integration_testing_mavsdk.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/integration_testing.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/test_and_ci/maintenance.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/ros2
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/ros2_offboard_control.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/ros1_via_ros2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/ros1
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/ros2.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/ros/ros1.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/msg_docs/yaw_estimator_status.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/middleware/micrortps_manual_code_generation.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/flight_controller/kakuteh7.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Getting links from: http://docs.px4.io/main/en/telemetry/esp8266_wifi_module.html
+Error: getaddrinfo ENOTFOUND docs.px4.io
+
+Finished! 352867 links found. 351168 excluded. 231 broken.
+Elapsed time: 48 minutes, 50 seconds
