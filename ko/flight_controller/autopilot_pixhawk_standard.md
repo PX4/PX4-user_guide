@@ -9,6 +9,8 @@
 
 이 카테고리의 보드는 다음과 같습니다.
 
+- [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md) (FMUv6C)
+- [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) (FMUv6X)
 - [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 - [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
 - [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4pro)
