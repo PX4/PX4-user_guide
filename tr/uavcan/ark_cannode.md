@@ -82,9 +82,9 @@ Depending on the sensors that are connected to the ARK CANnode, you will need to
 
 On the ARK CANnode, you may need to configure the following parameters:
 
-| Parameter                                                                                           | Description                   |
-| --------------------------------------------------------------------------------------------------- | ----------------------------- |
-| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_FLOW_ROT) | CAN built-in bus termination. |
+| Parameter                                                                                       | Description                   |
+| ----------------------------------------------------------------------------------------------- | ----------------------------- |
+| <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination. |
 
 
 ## LED Meanings
