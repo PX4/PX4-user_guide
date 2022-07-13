@@ -30,8 +30,8 @@ Below we look at the impact of the low pass filters.
 
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor. This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
-- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. This filter can be configured using [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) and [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ).
-- Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter. :::note
+- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. This filter can be configured using [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) and [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
+- Low-pass filter on the gyro sensor data. It can be configured with the  [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter. :::note
 Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
 :::
 - A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
@@ -82,9 +82,9 @@ The plot cannot be compared between different vehicles, as the y axis scale can 
 On the same vehicle it is consistent and independent of the flight duration.
 :::
 
-If the flight plots shows significant low frequency spikes, like the one shown in the diagram below, you can remove it using a notch filter. In this case you might use the settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) (note, this spike is narrower than usual). The low pass filters and the notch filter can be tuned independently (i.e. you don't need to set the notch filter before collecting the data for tuning the low pass filter).
+If the flight plots shows significant low frequency spikes, like the one shown in the diagram below, you can remove it using a notch filter. In this case you might use the settings: [IMU_GYRO_NF0_FRQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ) and [IMU_GYRO_NF0_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) (note, this spike is narrower than usual). The low pass filters and the notch filter can be tuned independently (i.e. you don't need to set the notch filter before collecting the data for tuning the low pass filter).
 
-![IMU_GYRO_NF_FREQ=32 IMU_GYRO_NF_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
+![IMU_GYRO_NF0_FRQ=32 IMU_GYRO_NF0_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
 
 ## Additional Tips
 
