@@ -39,7 +39,7 @@ If it is your first time enabling the camera trigger app, remember to reboot aft
 
 ## Trigger Hardware Configuration
 
-The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
+The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. 
 The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 :::note
@@ -48,11 +48,13 @@ On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. 
 At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 :::
 
+
 :::warning
 With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs).
 With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs.
 Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
 :::
+
 
 ## Trigger Interface Backends
 

@@ -24,55 +24,65 @@ PX4 supports the following set of MAVLink commands/mission items for cameras tha
 * [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - start/stop capturing (using distance or time, as defined using above messages).
 
 The following topics show how to *connect* your camera configure PX4:
-* [Camera triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
+
+* [Camera triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink. 
 * [Camera timing feedback](../peripherals/camera.md#camera-capture) via hotshoe input.
 
 
 ## Cargo Drones ("Actuator" Payloads)
 
 Cargo drones commonly use servos/actuators to trigger cargo release, control winches, etc.
-PX4 supports servo and GPIO triggering via both RC and MAVLink commands.
+PX4 supports actuator triggering via both RC and MAVLink commands.
 
-### RC Triggering
+### Payload Outputs: Control Allocation
 
-You can map up to three RC channels to control servos/actuators attached to the flight controller using the parameters [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to [RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3).
+If control allocation is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)) you can specify up to 6 outputs to be controlled from either RC channels or MAVLink.
 
-The RC channels are *usually* mapped to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller (using a [mixer file](../concept/mixing.md) defined in your airfame).
+:::note
+Control allocation is supported from PX4 v1.13 but disabled by default.
+:::
+
+This is done in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `Offboard Actuator Set 1` to `Offboard Actuator Set 6` functions to any desired payload outputs (in the [actuator outputs](../config/actuators.md#actuator-outputs) section).
+
+### Payload Outputs: Mixer Allocation
+
+The [mixer file](../concept/mixing.md) for the current airframe is used to specify the payload outputs for RC and MAVLink passthrough when control allocation is disabled.
+
+Usually just three outputs are mapped to the `AUX1`, `AUX2`, `AUX3` outputs of the flight controller.
 You can confirm which outputs are used for RC AUX passthrough on your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
-For example, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x) has the normal mapping: "**AUX1:** feed-through of RC AUX1 channel", "**AUX2:** feed-through of RC AUX2 channel", "**AUX3:** feed-through of RC AUX3 channel".
+For example, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x) has the normal mapping: 
+- "**AUX1:** feed-through of RC AUX1 channel"
+- "**AUX2:** feed-through of RC AUX2 channel"
+- "**AUX3:** feed-through of RC AUX3 channel"
 
 If your vehicle doesn't specify RC AUX feed-through outputs, then you can add them using using a custom [Mixer File](../concept/mixing.md) that maps [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) outputs 5-7 to your desired port(s).
 An example of such a mixer is the default passthrough mixer: [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/pass.aux.mix).
 
-:::note
-The same outputs used for "feed-through of RC AUX" may also be set using a MAVLink command (see [below](#mission-triggering)).
-PX4 will use the last value set through either mechanism.
-:::
 
+### RC Triggering
+
+The available passthrough (payload) outputs are mapped to RC channels using the [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) parameters.
+
+If control allocation is used then `RC_MAP_AUXn` maps to the output that has an offboard acutator function with the same `n` index (e.g. `RC_MAP_AUX2` maps specified channel to the output with function `Offboard Actuator Set 2`).
+
+If a mixer is used, the index is the number of the passthrough output (e.g. `RC_MAP_AUX2` maps the specified channel to the output defined by `AUX2` in the mixer file).
 
 ### Mission Triggering
 
-You can use the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command to set (up to) three actuators values at a time, either in a mission or as a command.
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used in a command or mission to set the value of an offboard actuator.
 
-Command parameters `param1`, `param2`, and `param3` are _usually_ mapped to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller, while command parameters `param4` to `param7` are unused/ignored by PX4.
-The parameters take normalised values in the range `[-1, 1]` (resulting in PWM outputs in the range `[PWM_AUX_MINx, PWM_AUX_MAXx]`, where X is the output number).
-All params/actuators that are not being controlled should be set to `NaN`.
-
-:::note
-MAVLink uses the same outputs as are configured for [RC AUX passthrough](#rc-triggering) (see previous section).
-You can check which outputs are used in the [Airframe Reference](../airframes/airframe_reference.md) for your vehicle, and change them if needed using a [custom mixer file](../concept/mixing.md).
-:::
+If control allocation is used then the param index maps to the output that has an offboard acutator function with the same `n` index (e.g. `param 5` sets the output with function `Offboard Actuator Set 5`).
+If a mixer file is used, then the param index maps to the corresponding passthrough `AUXn` value in the mixer file.
 
 
 ### MAVSDK (Example script)
 
 The following [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) [example code](https://github.com/mavlink/MAVSDK/blob/main/examples/set_actuator/set_actuator.cpp) shows how to trigger payload release using the MAVSDK Action plugin's [`set_actuator()`](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_action.html#classmavsdk_1_1_action_1ad30beac27f05c62dcf6a3d0928b86e4c) method.
 
-The `set_actuator()` index values of 1 to 3 *normally* map to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller.
+The `set_actuator()` index values map to the payload outputs defined for your airframe.
 
 :::note
-MAVSDK sends the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command under the hood, and hence uses the same outputs as are configured for [Mission Triggering](#mission-triggering) and [RC Triggering](#rc-triggering) (see previous sections).
-You can check which outputs are used in the [Airframe Reference](../airframes/airframe_reference.md) for your vehicle, and change them if needed using a [custom mixer file](../concept/mixing.md).
+MAVSDK sends the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command under the hood.
 :::
 
 ```cpp
