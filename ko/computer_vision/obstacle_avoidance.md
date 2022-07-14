@@ -29,7 +29,7 @@ PX4는 [오프 보드 모드](../flight_modes/offboard.md)에서 장애물 회�
 
 PX4는 [오프 보드 모드](../flight_modes/offboard.md)에서 장애물 회피를 지원합니다.
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 
 <span id="mission_mode"></span>
@@ -65,7 +65,7 @@ PX4가 0.5 초 이상 설정 값 업데이트 수신을 중지하면 [보류 모
 
 ## 보조 컴퓨터 설정
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
