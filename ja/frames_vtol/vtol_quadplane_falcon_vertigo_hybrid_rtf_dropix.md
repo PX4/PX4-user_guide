@@ -41,8 +41,8 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 
 The kit does not come with a radio receiver or (optional) telemetry modules. For this build we used the following components:
 
-* [Receiver FR-SKY d4rII](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* [Telemetry 915 MHz modules](http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html)
+- Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
+- Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
 
 
 ## Tools needed
