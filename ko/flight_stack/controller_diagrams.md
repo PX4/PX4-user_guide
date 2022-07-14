@@ -61,11 +61,13 @@ The IMU pipeline is: gyro data > apply calibration parameters > remove estimated
 
 #### 결합된 위치 및 속도 컨트롤러 다이어그램
 
-![멀티콥터 위치  콘트롤 다이어그램](../../assets/diagrams/px4_mc_position_controller_diagram.png)
+![멀티콥터 위치  콘트롤 다이어그램](../../assets/diagrams/mc_combined_position_velocity_controller_diagram.png)
+
+* Mode dependent feedforwards (ff) - e.g. Mission mode trajectory generator (jerk-limited trajectory) computes position, velocity and acceleration setpoints.
+* Acceleration setpoints (inertial frame) will be transformed (with yaw setpoint) into attitude setpoints (quaternion) and collective thrust setpoint.
 
 <!-- The drawing is on draw.io: https://drive.google.com/open?id=13Mzjks1KqBiZZQs15nDN0r0Y9gM_EjtX
 Request access from dev team. -->
-
 ## 고정익 위치 콘트롤러
 
 ### 총 에너지 제어 시스템(TECS)
