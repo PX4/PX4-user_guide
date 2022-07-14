@@ -60,7 +60,7 @@ GPS 장착을 위하여 "조종실" 내부의 발포 재질 부분을 잘라냈�
 
 ## PX4 설정
 
-*QGroundControl*의 [표준 설정](config/README.md)(무선, 센서, 비행 모드 등)을 따릅니다.
+Follow the [Standard Configuration](../config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 이 기체와 관련된 특정 설정은 다음과 같습니다.
 - [기체](../config/airframe.md)
