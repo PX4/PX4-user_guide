@@ -41,8 +41,8 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고 시스템에 �
 
 이 키트는 라디오 수신기 또는 텔레메트리(선택 사항)는 제공하지 않습니다. 이 조립 방법에서는 다음의 부품을 사용하였습니다.
 
-* [수신기 FR-SKY d4rII](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* [Telemetry 915MHz 모듈](http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html)
+- Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
+- Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
 
 
 ## 필요 공구
