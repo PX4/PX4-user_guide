@@ -145,7 +145,7 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 ![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-[여기](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) 또는 [여기](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf)에서 *Pixhawk 5X* 핀배열을 다운로드할 수 있습니다.
+You can also download *Pixhawk 5X* pinouts from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
 
 
 
