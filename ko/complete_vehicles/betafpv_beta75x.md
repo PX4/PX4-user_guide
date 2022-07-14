@@ -13,7 +13,7 @@
 추가로 다음과 같은 것들이 필요합니다.
 - RC 송신기. *Beta75X*는 수신기와 함께 배송될 수 있습니다. PX4는 이들과 호환되지만 송신기와 일치하는 버전을 선택하는 것이 좋습니다.
 - LiPo 배터리 충전기(배터리 1개와 함께 배송되지만 여분이 필요할 수 있습니다).
-- FPV를 비행하고 싶다면 FPV 고글을 사용하십시오. [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/)의 포함하여 많은 호환 옵션이 있습니다.
+- FPV를 비행하고 싶다면 FPV 고글을 사용하십시오. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
 
   :::note
 FPV 지원은 PX4와 비행 컨트롤러와는 관련이 없습니다.
