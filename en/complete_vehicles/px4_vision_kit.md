@@ -10,7 +10,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 This vehicle comes with no pre-installed software.
 A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*.
 This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit.
-Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
 :::
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
@@ -93,7 +93,7 @@ The PX4 Vision DevKit contains following components:
   - ROS Melodic
   - Occipital Structure Core ROS driver
   - MAVROS
-  - [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance)
+  - [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance)
 
 
 - Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
@@ -218,7 +218,7 @@ The following sections explain how to use the kit as an environment for developi
 
 The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance).
+Documentation about the companion computer vision/planning software can be found on github here: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance).
 The project provides a number of different planner implementations (packaged as ROS nodes):
 - The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
 - The *globalplanner* has not been tested with this kit.
@@ -371,6 +371,6 @@ The Carrier board pinouts can be download from [Holybro's website](http://www.ho
 For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following community support channels:
-- [PX4 discuss: Computer Vision category.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 discuss](https://discuss.px4.io/)
 - [PX4 slack](https://slack.px4.io/) channel: #avoidance
 - [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
