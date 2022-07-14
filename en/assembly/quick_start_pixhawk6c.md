@@ -136,8 +136,7 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## Pinouts
 
-* [Holybro Pixhawk Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-baseboard-pinout)
-* [Holybro Pixhawk Mini-Baseboard Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-mini-baseboard-pinout)
+* [Holybro Pixhawk -6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
 
 ## Configuration
 
