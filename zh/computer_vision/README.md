@@ -13,7 +13,7 @@ PX4 使用计算机视觉系统（主要在机载计算机上运行）以支持�
   - [安全着陆](../computer_vision/safe_landing.md) 引导无人机找到（并着陆）没有固定障碍物的平坦地形。
 
 :::tip
-[PX4 视觉开发套件](../complete_vehicles/px4_vision_kit.md) （Holybro）是一款功能强大且价格便宜的套件，适用于在 PX4 上使用计算机视觉的开发人员。 It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 视觉开发套件](../complete_vehicles/px4_vision_kit.md) （Holybro）是一款功能强大且价格便宜的套件，适用于在 PX4 上使用计算机视觉的开发人员。 It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
 :::
 
 ## 外部资源

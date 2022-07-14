@@ -123,15 +123,15 @@ The minimum rate at which messages *must* be sent depends on vehicle speed - at 
 Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system). The system may work well at significantly higher speeds and lower frequency distance updates.
 :::
 
-The tested companion software is the *local_planner* from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) repo. For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+The tested companion software is the *local_planner* from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 <!-- hardware platform used for testing not readily available, so have removed -->
 
-The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
+The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
 
 
 ## Gazebo Setup
 
-*Collision Prevention* can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) for setup instructions.
+*Collision Prevention* can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->

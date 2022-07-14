@@ -130,17 +130,17 @@ The minimum rate at which messages *must* be sent depends on vehicle speed - at 
 系统在初始测试时，无人机以 4m/s的速度移动，并且以 10Hz（视觉系统支持的最大速率）的频率发送`OBSTACLE_DISTANCE` 消息。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
 :::
 
-The tested companion software is the *local_planner* from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) repo. For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+The tested companion software is the *local_planner* from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 <!-- hardware platform used for testing not readily available, so have removed -->
 
-The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
+The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
 
 
 
 
 ## Gazebo设置
 
-*Collision Prevention* can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) for setup instructions.
+*Collision Prevention* can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->

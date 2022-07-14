@@ -126,7 +126,7 @@ Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 
 Notes:
 - The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
-- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
+- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
 
 
 ## Serial Port Mapping

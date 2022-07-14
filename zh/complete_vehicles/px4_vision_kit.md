@@ -7,7 +7,7 @@
 这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4飞控* ， *UP Core* 机载计算机（4GB 内存和64GB eMMC），以及*Structure Core* 深度相机。
 
 :::note
-该无人机发货时没有预先安装软件。 A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+该无人机发货时没有预先安装软件。 A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
 :::
 
 该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
@@ -86,7 +86,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
   - ROS Melodic
   - Occipital Structure Core 相机 ROS 驱动
   - MAVROS
-  - [PX4 Avoidance 避障库](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance)
+  - [PX4 Avoidance 避障库](https://github.com/PX4/PX4-Avoidance)
 
 
 - 各种导线、8个螺旋桨、2个电池带（已安装）和其他附件（可用于连接其他外围设备）。
@@ -204,7 +204,7 @@ The following sections explain how to use the kit as an environment for developi
 
 您可以在 *UP Core* 上安装镜像，并从内部内存启动(而不是U盘)。
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
+Documentation about the companion computer vision/planning software can be found on github here: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
 - 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
 - 加载新固件后选择 *PX4 Vision DevKit* 机架：
 - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
@@ -383,6 +383,6 @@ For hardware issues, please contact Holybro at: [productservice@holybro.com](mai
 
 For software issues, use the following community support channels:
 
-- [PX4讨论：Computer Vision（计算机视觉）目录。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 discuss](https://discuss.px4.io/)
 - [PX4 slack](https://slack.px4.io/) 频道：#avoidance
 - [Holybro PX4 Vision Wikifactory 资料库](https://wikifactory.com/+holybro/px4-vision)

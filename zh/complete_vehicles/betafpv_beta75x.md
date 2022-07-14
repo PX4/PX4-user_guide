@@ -13,7 +13,7 @@ The *Beta75X* can be bought from a number of vendors, including:
 另外你还需要一些其它的配件：
 - 一个遥控器以及接收机。 *Beta75X* can ship with a number of receivers. PX4 能够兼容这些版本的接收机, 但请务必选择与您的遥控器 匹配的版本。
 - 锂电池充电器 (飞机发货时包含一块电池, 但你可能想要额外备用的)。
-- FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
+- FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
 
   :::note
 FPV support is completely independent of PX4/flight controller.

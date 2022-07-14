@@ -253,7 +253,7 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파를 확인할 수 있습니다. GPS 신호는 매우 약하므로 GPS에서 사용하는 주파수를 사용하는 (케이블을 통해) 부품으로 인하여  방해를 받기 쉽습니다.
 
 :::tip USB
-3은 최대의 GPS 전파 방해 소스로 [알려져 있습니다](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html).
+3 is [known to be](https://www.usb.org/sites/default/files/327216.pdf) an effective GPS jamming source.
 :::
 
 **방해 표시기**는 약 40 이하이어야 합니다. 약 80 이상의 값은 너무 높으므로 설정을 검사하여야 합니다. 신호 간섭은 정확도가 떨어지고 GPS 수정이 불가능한 지점까지 위성 수가 적기 때문에 현저하게 나타납니다.

@@ -29,7 +29,7 @@ PX4 在 [Offboard 模式](../flight_modes/offboard.md)中支持自主避障功�
 
 The only required PX4-side setup is to put PX4 into *Offboard mode*.
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 
 <span id="mission_mode"></span>
@@ -65,7 +65,7 @@ PX4 通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../
 
 ## 机载计算机设置
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
 

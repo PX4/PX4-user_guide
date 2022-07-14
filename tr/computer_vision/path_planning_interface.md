@@ -16,7 +16,7 @@ The message flows from PX4 UORB topics, through MAVLink, to ROS and back again a
 All services that use this interface send and receive messages of the same type/format. Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
 
 :::note
-The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
 :::
 
 ## PX4 Configuration
@@ -25,7 +25,7 @@ Path planning is activated in PX4 by [setting](../advanced_config/parameters.md)
 
 ## Companion Computer Setup
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 The actual setup/configuration required depends on the planner being used.
 

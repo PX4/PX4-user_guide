@@ -16,7 +16,7 @@ The message flows from PX4 UORB topics, through MAVLink, to ROS and back again a
 이 인터페이스를 사용하는 모든 서비스는 동일한 유형과 형식의 메시지를 송수신합니다. 따라서 개발자는 이 인터페이스를 사용하여 새로운 보조 컴퓨터의 경로 계획 서비스를 만들거나 기존 플래너 소프트웨어를 조정할 수 있습니다.
 
 :::note
-[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)는 경로계획 소프트웨어 개발에 권장됩니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)는 경로계획 소프트웨어 개발에 권장됩니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
 :::
 
 ## PX4 설정
@@ -25,7 +25,7 @@ The message flows from PX4 UORB topics, through MAVLink, to ROS and back again a
 
 ## 보조 컴퓨터 설정
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 필요한 실제 구성과 설정은 사용하는 플래너에 따라 달라집니다.
 

@@ -252,7 +252,7 @@ The *GPS Uncertainty* plot shows information from the GPS device:
 The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming. The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
 
 :::tip USB
-3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
+3 is [known to be](https://www.usb.org/sites/default/files/327216.pdf) an effective GPS jamming source.
 :::
 
 The **jamming indicator** should be around or below 40. Values around 80 or higher are too high and the setup must be inspected. Signal interference is also noticeable as reduced accuracy and lower number of satellites up to the point where no GPS fix is possible.
