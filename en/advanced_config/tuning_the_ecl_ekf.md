@@ -284,7 +284,7 @@ If operating over a flat surface that can be used as a zero height datum, the ra
 The EKF can detect whether the rangefinder path-to-ground is obstructed (perhaps by a payload) using a kinematic consistency check between the vertical velocity estimate and the numerical derivative of the range finder data.
 If the range finder is statistically inconsistent with EKF2, the sensor is rejected for the rest of the flight unless the statistical test passes again for at least 1 second at a vertical speed of 0.5m/s or more.
 
-The check is only enabled when the rangefinder is not used as the primary height source, and is only active while the vehicle is hovering (as it assumes a static ground height).
+The check is only enabled when the rangefinder is not used as the primary height source, and is only active while the vehicle is not moving horizontally (as it assumes a static ground height).
 
 For effective obstruction detection, the range finder noise parameter needs to be tightly tuned using flight data.
 The kinematic consistency gate parameter can then be adjusted to obtain the desired fault detection sensitivity.
