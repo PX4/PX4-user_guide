@@ -27,7 +27,7 @@
 
 ## 보조 컴퓨터 설정
 
-Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 여기에는 장애물 회피 및 충돌 방지를위한 일반적인 설정이 포함되며 *안전 착륙 플래너* (이 기능은 보조컴퓨터에서 제공)를 사용하기위한 특정 섹션이 포함됩니다.
 * [시뮬레이션 설정](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
