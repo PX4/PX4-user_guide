@@ -10,8 +10,8 @@ PX4는 [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E
 PX4 사고방지는 MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) 메시지를 사용하여 트랜스폰더 데이터를 제공하는 ADS-B 또는 FLARM 제품에서 작동합니다.
 
 다음 장치들로 테스트되었습니다:
-- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx/) (uAvionix)
-- [FLARM](https://flarm.com/products/powerflarm/uav/)
+- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
+- [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
 
 ## 하드웨어 설정
