@@ -116,7 +116,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-6x_p1333.html).
 
 ## Assembly/Setup
 
-The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6X.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+The [Pixhawk 6X Wiring Quick Start](../assembly/quick_start_pixhawk6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
 ## Connections
 
