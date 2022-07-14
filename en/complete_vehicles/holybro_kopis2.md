@@ -14,7 +14,7 @@ In addition you will need:
 - An RC transmitter. The *Kopis 2* can ship with an FrSky receiver or no receiver at all.
 - LiPo battery and charger.
 - FPV goggles if you want to fly FPV.
-  There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
+  There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
   You can also use DJI FPV goggles if you have the HDV verison of the Kopis 2.
 
   :::note

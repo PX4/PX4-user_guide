@@ -10,8 +10,8 @@ If a potential collision is detected, PX4 can *warn*, immediately [land](../flig
 PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message.
 
 It has been tested with the following devices:
-- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx/) (uAvionix)
-- [FLARM](https://flarm.com/products/powerflarm/uav/) 
+- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
+- [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
 
 ## Hardware Setup

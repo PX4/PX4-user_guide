@@ -14,7 +14,7 @@ In addition you will need:
 - An RC transmitter. *Beta75X* can ship with a number of receivers. PX4 is compatible with all of them, but make sure to select the version that matches your transmitter.
 - LiPo battery charger (vehicle ships with one battery, but you may want spares).
 - FPV goggles if you want to fly FPV.
-  There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
+  There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
   
   :::note
   FPV support is completely independent of PX4/flight controller.
