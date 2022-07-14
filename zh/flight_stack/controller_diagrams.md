@@ -61,7 +61,7 @@ The IMU pipeline is: gyro data > apply calibration parameters > remove estimated
 
 #### 静态力矩 (PI) 缩放补偿
 
-![多旋翼位置控制器图解](../../assets/diagrams/mc_combined_position_velocity_controller_diagram.png)
+![多旋翼位置控制器图解](../../assets/diagrams/px4_mc_position_controller_diagram.png)
 
 * Mode dependent feedforwards (ff) - e.g. Mission mode trajectory generator (jerk-limited trajectory) computes position, velocity and acceleration setpoints.
 * Acceleration setpoints (inertial frame) will be transformed (with yaw setpoint) into attitude setpoints (quaternion) and collective thrust setpoint.
