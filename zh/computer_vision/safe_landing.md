@@ -27,7 +27,7 @@ PX4通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../a
 
 ## 机载计算机设置
 
-Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the *safe landing planner* (which provides companion-side support for this feature):
 * [仿真模拟安装配置](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
