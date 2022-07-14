@@ -67,7 +67,3 @@ GPS 장착을 위하여 "조종실" 내부의 발포 재질 부분을 잘라냈�
   - **VTOL Tiltrotor**에서 기체 구성 **E-flite Convergence**를 선택하고 *QGroundControl*을 다시 시작합니다. ![QGroundControl 차량 설정 - 기체 선택 E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
 - [비행 모드/스위치](../config/flight_mode.md)
   - VTOL은 멀티콥터와 고정익을 전환하려면 [RC 컨트롤러 스위치를 할당](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set)하여야 합니다.
-
-:::note
-기본적으로 영구 안정화가 활성화되어 있습니다. 고정익 모드에서 "완전 수동" 비행을 하려면 [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)를 `0`으로 설정하십시오.
-:::

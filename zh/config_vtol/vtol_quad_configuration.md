@@ -75,15 +75,6 @@ Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRA
 This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
 
 
-#### 固定翼永久稳定模式
-
-Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
-
-Activating permanent stabilisation will result in fixed wing flight being stabilised by the autopilot at all times. As soon as a transition to fixed wing occurs it will be stabilised.
-
-Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
-
-
 <span id="transitioning_tips"></span>
 ### 过渡模式小提示
 
