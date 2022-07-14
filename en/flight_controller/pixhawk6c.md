@@ -168,7 +168,7 @@ make px4_fmu-v6c_default
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md,d#pixhawk-debug-full-10-pin-sh-debug-port) interface defined in the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) interface (JST SM10B connector).
+The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full-10-pin-sh-debug-port) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
 Pin | Signal | Volt
 --- | --- | ---
