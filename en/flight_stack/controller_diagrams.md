@@ -63,11 +63,13 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 
 #### Combined Position and Velocity Controller Diagram
 
-![MC Position Controller Diagram](../../assets/diagrams/px4_mc_position_controller_diagram.png)
+![MC Position Controller Diagram](../../assets/diagrams/mc_combined_position_velocity_controller_diagram.png)
+
+* Mode dependent feedforwards (ff) - e.g. Mission mode trajectory generator (jerk-limited trajectory) computes position, velocity and acceleration setpoints.
+* Acceleration setpoints (inertial frame) will be transformed (with yaw setpoint) into attitude setpoints (quaternion) and collective thrust setpoint.
 
 <!-- The drawing is on draw.io: https://drive.google.com/open?id=13Mzjks1KqBiZZQs15nDN0r0Y9gM_EjtX
 Request access from dev team. -->
-
 ## Fixed-Wing Position Controller
 
 ### Total Energy Control System (TECS)
