@@ -65,7 +65,6 @@ This board supported in QGroundControl 4.0 and later.
 ## 访问链接
 
 - [Flight Core Complete Kit](https://modalai.com/flight-core)
-- [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (only)
 - [Flight Core integrated with VOXL Companion Computer on a single PCB](https://modalai.com/flight-core)
 - [Flight Core integrated with VOXL Companion Computer and Obstacle Avoidance Cameras (VOXL Flight Deck)](https://modalai.com/flight-deck) ([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
 - [Flight Core assembled with VOXL and cameras](https://shop.modalai.com/products/voxl-flight-deck-r1)
