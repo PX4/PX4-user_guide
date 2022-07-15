@@ -65,7 +65,6 @@ ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmw
 ## 구매처
 
 - [Flight Core Complete Kit](https://modalai.com/flight-core)
-- [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (전용)
 - [단일 PCB에서 VOXL Companion Computer와 통합 Flight Core](https://modalai.com/flight-core)
 - [VOXL 보조 컴퓨터 및 장애물 회피 카메라(VOXL Flight Deck)와 통합 플라이트 코어](https://modalai.com/flight-deck) ([데이터시트](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
 - [VOXL와 카메라로 조립된 Flight Core](https://shop.modalai.com/products/voxl-flight-deck-r1)

@@ -22,7 +22,7 @@
 - **모터:** Lumenier RX2204 -14 2300KV ([getfpv.com](http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html))
 - **프로펠러:** Lumenier 5x4.5 2 블레이드([getfpv.com](http://www.getfpv.com/propellers/lumenier-5x3-5-2-blade-propeller-set-of-4-black.html))
 - **프레임:** Lumenier QAV250 - CF ([getfpv.com](http://www.getfpv.com/multi-rotor-frames/qav250-mini-fpv-quad/qav250-mini-fpv-quadcopter-carbon-fiber-edition.html))
-- **수신기:** FR SKY D4R-II ([getfpv.com](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html))
+- **Receiver:** [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
 - **배터리:** Lumenier 4S 1300 mAh ([getfpv.com](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html))
 
 참고:

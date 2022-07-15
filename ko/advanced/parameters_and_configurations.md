@@ -323,7 +323,7 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 메모리가 제한된 비행 콘트롤러 대상의 바이너리는 매개변수 메타데이터를 바이너리에 저장하지 않고, `px4-travis.s3.amazonaws.com`에 저장된 동일한 데이터를 참조합니다. 이는 예를 들어 [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)에 적용됩니다. The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
 
 :::note
-메모리가 제한된 보드는 [cmake 정의 파일](https://github.com/PX4/PX4-Autopilot/blob/release/1.12/boards/omnibus/f4sd/default.cmake#L11)에 `CONSTRAINED_MEMORY`를 지정하기 때문에 식별할 수 있습니다.
+You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 :::
 
 :::note

@@ -165,7 +165,6 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [vehicle_constraints](vehicle_constraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 - [vehicle_control_mode](vehicle_control_mode.md)
 - [vehicle_global_position](vehicle_global_position.md) — Fused global position in WGS84. This struct contains global position estimation. It is not the raw GPS measurement (@see vehicle_gps_position). This topic is usually published by the position estimator, which will take more sources of information into account than just GPS, e.g. control inputs of the vehicle in a Kalman-filter implementation.
-- [vehicle_gps_position](vehicle_gps_position.md) — GPS position in WGS84 coordinates. the field 'timestamp' is for the position & velocity (microseconds)
 - [vehicle_imu](vehicle_imu.md) — IMU readings in SI-unit form.
 - [vehicle_imu_status](vehicle_imu_status.md)
 - [vehicle_land_detected](vehicle_land_detected.md)

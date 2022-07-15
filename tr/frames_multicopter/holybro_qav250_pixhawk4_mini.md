@@ -30,8 +30,8 @@ The Holybro [Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-
 * Vtx 5.8ghz
 
 Additionally you will need a battery and receiver (+compatible transmitter). This build uses:
-* Receiver: [FR SKY D4R-II](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
+- Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
+- Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
 
 ## Hardware

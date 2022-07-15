@@ -511,7 +511,6 @@
       * [vehicle_constraints](msg_docs/vehicle_constraints.md)
       * [vehicle_control_mode](msg_docs/vehicle_control_mode.md)
       * [vehicle_global_position](msg_docs/vehicle_global_position.md)
-      * [vehicle_gps_position](msg_docs/vehicle_gps_position.md)
       * [vehicle_imu](msg_docs/vehicle_imu.md)
       * [vehicle_imu_status](msg_docs/vehicle_imu_status.md)
       * [vehicle_land_detected](msg_docs/vehicle_land_detected.md)

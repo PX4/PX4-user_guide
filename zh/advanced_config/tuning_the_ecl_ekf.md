@@ -318,7 +318,7 @@ Multiple log files in a directory can be analysed using the [batch\_process\_log
 * Attitude output data is found in the [vehicle\_attitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_attitude.msg) message.
 * Local position output data is found in the [vehicle\_local\_position](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_local_position.msg) message.
 * Global \(WGS-84\) output data is found in the [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_global_position.msg) message.
-* Wind velocity output data is found in the [wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/main/msg/wind_estimate.msg) message.
+* Wind velocity output data is found in the [wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/wind.msg) message.
 
 
 ### 状态
@@ -496,7 +496,7 @@ Determining which of these is the primary cause requires a methodical approach t
 * Plot the horizontal position innovation test ratio - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg).pos\_test\_ratio
 * Plot the height innovation test ratio - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg).hgt\_test\_ratio
 * Plot the magnetometer innovation test ratio - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg).mag\_test\_ratio
-* Plot the GPS receiver reported speed accuracy - [vehicle\_gps\_position](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_gps_position.msg).s\_variance\_m\_s
+* Plot the GPS receiver reported speed accuracy - [sensor_gps](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gps.msg).s\_variance\_m\_s
 * Plot the IMU delta angle state estimates - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg).states\[10\], states\[11\] and states\[12\]
 * 绘制 EKF 内部高频振动指标：
   * Delta angle coning vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg).vibe\[0\]
