@@ -49,7 +49,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 
 ## 구매처
 
-더 이상 생산되지 않습니다. 이 제품은 [mRo X2.1](mro_x2.1.md)으로 대체되었습니다. mRobotics는 2017년 8월부터 AUAV 유통 업체입니다.
+더 이상 생산되지 않습니다. This has been superseded by the [mRo X2.1](mro_x2.1.md). mRobotics는 2017년 8월부터 AUAV 유통 업체입니다.
 
 ## 주요 링크
 
