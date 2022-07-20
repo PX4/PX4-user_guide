@@ -35,7 +35,7 @@ Windows 개발자는 Linux를 게스트 운영 체제로 사용하는 가상 머
 1. 마법사가 종료시 새 가상 머신을 실행하고, 설정 지침에 따라 Ubuntu를 설치합니다. 모든 설정은 호스트 운영 체제에서 사용하기 위한 것이므로, 네트워크 공격의 위험을 증가시키지 않는 화면 보호기 및 로컬 워크스테이션 보안 기능을 비활성화할 수 있습니다.
 1. 새 가상 머신이 부팅되면, 게스트 운영체제에 *VMWare 도구 드라이버 및 도구 확장*을 설치하여야 합니다. 이렇게 하면 다음과 같은 VM 사용의 성능과 유용성들이 향상됩니다.
     * 크게 향상된 그래픽 성능
-    * USB 포트 할당(대상 업로드에 중요), 적절한 마우스 휠 스크롤, 사운드 지원과 같은 하드웨어 장치 사용에 대한 적절한 지원
+    * Proper support for hardware device usage like USB port allocation (important for target upload), proper mouse wheel scrolling, sound support
     * 창 크기에 따른 게스트 디스플레이 해상도 조정
     * 호스트 시스템 클립보드 공유
     * 호스트 시스템 파일 공유
