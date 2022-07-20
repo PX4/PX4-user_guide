@@ -13,7 +13,7 @@ PX4를 처음 사용하거나, 비행 콘트롤러의 방향이 변경된 경우
 :::
 
 :::note
-보정은 "완벽한" 90도 방향을 필요 하지 않는 최소 제곱 '적합' 알고리즘을 사용합니다.
+The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
 각 축이 보정 단계별로 어느 시점에 대부분 위아래를 가리키고, 차량이 고정되어 있으면 정확한 방향은 중요하지 않습니다.
 :::
 
