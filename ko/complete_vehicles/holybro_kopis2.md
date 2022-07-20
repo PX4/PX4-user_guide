@@ -13,7 +13,7 @@ The [Holybro Kopis 2](https://shop.holybro.com/kopis2-6s-v2free-shipping_p1169.h
 추가로 다음과 같은 것들이 필요합니다.
 - RC 송신기. *Kopis 2*에는 FrSky 수신기가 포함되지 않은 체로 배송될 수도 있습니다.
 - LiPo 배터리 및 충전기.
-- FPV를 비행하고 싶다면 FPV 고글을 사용하십시오. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3). Kopis 2의 HD 버전이있는 경우 DJI FPV 고글을 사용할 수도 있습니다.
+- FPV를 비행하고 싶다면 FPV 고글을 사용하십시오. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3). You can also use DJI FPV goggles if you have the HDV version of the Kopis 2.
 
   :::note
 FPV 지원은 PX4와 비행 컨트롤러와는 관련이 없습니다.
