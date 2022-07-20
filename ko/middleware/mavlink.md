@@ -201,10 +201,10 @@ It should be used for development only!
 
 ## Testing
 
-Ultimately you'll want to test your new MAVLink interface is working by providing the corresponding ground station or MAVSDK implemention. As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/recieved as you expect.
+Ultimately you'll want to test your new MAVLink interface is working by providing the corresponding ground station or MAVSDK implementation. As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/received as you expect.
 
 There are several approaches you can use to view traffic:
-- Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect. This allows you to inspect MAVLink traffic on an IP interface - for example between *QGroundControl* or MAVSDK and your real or simulated verson of PX4.
+- Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect. This allows you to inspect MAVLink traffic on an IP interface - for example between *QGroundControl* or MAVSDK and your real or simulated version of PX4.
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
 - View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html). For the messages to appear you will need to [Build QGroundControl](https://dev.qgroundcontrol.com/master/en/getting_started/) including a pre-built C library that contains your custom messages.
   - QGC uses a pre-built C library that must be located at [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) in the QGC source. By default this is pre-included as a submodule from https://github.com/mavlink/c_library_v2 but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html)
