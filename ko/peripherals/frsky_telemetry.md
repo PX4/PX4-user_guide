@@ -14,7 +14,7 @@ FrSky 텔레메트리의 요구사항은 다음과 같습니다.
 * XSR와 X8R과 같은 [FrSky 텔레메트리 수신기](#receivers).
 * FrSky 수신기 스마트 포트(SPort)는 비행 콘트롤러 UART에 연결 케이블입니다.
 
-먼저 [RC 채널용 수신기를 연결](../getting_started/rc_transmitter_receiver.md#connecting-receivers)합니다. 수신기와 비행 컨트롤러 S.Bus 포트를 연결합니다.
+First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the receiver and the flight controller.
 
 그런 다음, 수신기의 SPort를 비행 콘트롤러의 무료 UART에 별도로 연결하여 FrSky 텔레메트리를 설정후, [해당 UART에서 FrSky 원격 측정을 실행하도록 PX4를 설정](#configure)합니다.
 
