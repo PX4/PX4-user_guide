@@ -23,7 +23,7 @@
 - 지상국 컴퓨터/소프트웨어에 연결하기 위한 [텔레메트리 라디오](../telemetry/README.md).
 - 수동 제어를 위한 [RC 제어 시스템](../getting_started/rc_transmitter_receiver.md)
 
-다이어그램의 왼쪽은 다이어그램의 하드웨어 부분과 수평으로 정렬된(대략적으로) 소프트웨어 스택을 나타냅니다.
+The left hand side of the diagram shows the software stack, which is horizontally aligned (approximately) with the hardware parts of the diagram.
 - 지상국 컴퓨터는 일반적으로 [QGroundControl](../getting_started/px4_basic_concepts.md#qgroundcontrol)(또는 일부 다른 지상국 소프트웨어)을 실행합니다. 또한 [MAVSDK](https://mavsdk.mavlink.io/) 또는 [ROS](../ros/README.md)와 같은 로봇 소프트웨어를 실행할 수 있습니다.
 - 비행 컨트롤러에서 실행되는 PX4 비행 스택에는 [드라이버](../modules/modules_driver.md), [통신 모듈](../modules/modules_communication.md), [컨트롤러](../modules/modules_controller.md), [추정기](../modules/modules_controller.md) 및 기타 <3 >미들웨어 및 시스템 모듈</a> 등이 포함됩니다.
 
