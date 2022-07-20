@@ -99,8 +99,8 @@ make px4_sitl gazebo_tailsitter
 <a id="ugv"></a>
 ## Unmmanned Ground Vehicle (UGV/Rover/Car)
 
-<a id="ugv_ackerman"></a>
-### Ackerman UGV
+<a id="ugv_ackermann"></a>
+### Ackermann UGV
 
 ```sh
 make px4_sitl gazebo_rover
