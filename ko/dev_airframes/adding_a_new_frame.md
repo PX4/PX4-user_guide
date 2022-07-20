@@ -199,7 +199,7 @@ S: 0 0  -6000  -6000      0 -10000  10000
 S: 0 1  -6500  -6500      0 -10000  10000
 
 Note that in principle, you could implement left/right wing asymmetric mixing, but in general the two blocks of code will be numerically equal, and just differ by the sign of the third line (S: 0 1), since to roll the plane, the two ailerons must move in OPPOSITE directions.
-The signs of the second lines (S: 0 0) are indentical, since to pitch the plane, both servos need to move in the SAME direction.
+The signs of the second lines (S: 0 0) are identical, since to pitch the plane, both servos need to move in the SAME direction.
 
 Output 2
 --------
