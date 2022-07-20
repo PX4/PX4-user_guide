@@ -261,7 +261,7 @@ make scumaker_pilotpi_default upload
 
 #### 备选armhf构建方法 (使用 docker)
 
-然后上传：
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
 
@@ -304,7 +304,7 @@ make scumaker_pilotpi_arm64 upload
 
 #### 备选 arm64 构建方法 (使用 docker)
 
-在执行下一步之前，先清除现有构建目录：
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 然后回到上面相应的章节。
 
@@ -313,7 +313,7 @@ make scumaker_pilotpi_arm64 upload
 ```
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
 :::note
