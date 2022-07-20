@@ -50,7 +50,7 @@ Flight Core는 VOXL Companion Computer와 Flight Core를 단일 PCB에 통합하
 ![FlightCoreV1 크기](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
 
-## PX4 펌웨어 호환성
+## PX4 Firmware Compatibility
 
 *Flight Core v1*은 PX4 v1.11의 펌웨어와 완벽하게 호환됩니다.
 
