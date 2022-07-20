@@ -123,7 +123,7 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 출력에 사용되는 물리적 버스가 항상 같지 않기 때문에 이 접근 방식이 필요합니다. 비행 컨트롤러에 IO 보드가 있는지([PX4 참조 비행 컨트롤러 설계 > 주/IO 기능 분석](../hardware/reference_design.md#main-io-function-breakdown) 참조) 또는 모터 제어를 위해 UAVCAN을 사용 여부에 따라 달라집니다. 시작 스크립트는 "장치"의 추상화를 사용하여 믹서 파일을 보드에 적합한 장치 드라이버로 로드합니다. 메인 믹서는 UAVCAN이 활성화된 경우 장치 `/dev/uavcan/esc`(uavcan)에 로드되고, 그렇지 않으면 `/dev/pwm_output0`(이 장치는 IO 드라이버에 매핑됩니다. I/O 보드가 있는 컨트롤러와 그렇지 않은 보드의 FMU 드라이버)에 로드됩니다. 보조 믹서 파일은 I/O 보드가 있는 Pixhawk 컨트롤러의 FMU 드라이버에 매핑되는 `/dev/pwm_output1` 장치에 로드됩니다.
 :::
 
-여러 제어 그룹(비행 제어, 페이로드 등)과 여러 출력 그룹(버스)이 있기 때문에 하나의 제어 그룹이 여러 출력 그룹에 명령을 전송할 수 있습니다.
+Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (buses), one control group can send commands to multiple output groups.
 
 ![믹서 입출력 매핑](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
 <!--- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 -->
