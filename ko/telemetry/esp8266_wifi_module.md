@@ -32,7 +32,7 @@ ESP8266 모듈은 여러 곳에서 쉽게 구매할 수 있습니다. 몇 군데
 USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완전히 설정되지 않았으므로).
 
 *QGroundControl* 사용법:
-- [최신 PX4 펌웨어를 비행 컨트롤러에 로드합니다](../config/firmware.md).
+- [Load recent PX4 firmware onto the flight controller](../config/firmware.md).
 - ESP8266 연결용 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. ESP8266에 설정된 값과 일치하려면 전송 속도를 921600으로 설정하여야 합니다.
 - [Configure MAVLink](../peripherals/mavlink_peripherals.md) on the corresponding serial port in order to receive telemetry and transmit commands over the ESP8266.
 
