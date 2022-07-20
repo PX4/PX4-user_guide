@@ -30,7 +30,7 @@
 ## 경고와 알림
 
 1. 이 키트는 전방 카메라를 사용하는 컴퓨터 비전 프로젝트용입니다. 하향 또는 후방 깊이 카메라가 없습니다. 따라서, 추가 수정없이는 [안전 착륙](../computer_vision/safe_landing.md) 또는 하방향 카메라가 필요한 다른 기능들을 테스트할 수 없습니다.
-1. 임무에서 장애물 회피는 GPS를 사용시에 테스트 가능합니다. 임무 수행시에는 GPS 좌표를 사용합니다. 충돌 방지는 GPS와 광학 흐름에서 위치 잠금시에 위치 모드에서 테스트할 수 있습니다.
+1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates). 충돌 방지는 GPS와 광학 흐름에서 위치 잠금시에 위치 모드에서 테스트할 수 있습니다.
 1. `USB1`로 표시된 포트는 *USB3* 주변 장치와  동시에 사용하는 경우에는 GPS를 방해할 수 있습니다(임무를 포함한 GPS 종속 기능 비활성화). 이로 인하여, 부팅 이미지가 *USB2.0* 메모리 스틱으로 제공됩니다.
 1. ECN 010 이상의 PX4 Vision(캐리어 보드 RC05 이상), *UP Core*는 DC 플러그 또는 배터리로 전원을 공급할 수 있습니다. ![RC 번호](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN 번호](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
 
@@ -40,7 +40,7 @@
 :::
 
 ## 내부 내용
-![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![What's inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
@@ -106,7 +106,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
 ## 최초 설정
 
-1. 기체에 [RC 호환 수신기](../getting_started/rc_transmitter_receiver.md#connecting-receivers)를 부착합니다 (키트와 함께 제공되지 않음).
+1. Attach a [compatible RC receiver](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
    - H2.0 육각 도구를 사용하여 상단 플레이트 (배터리가가는 곳)를 분리합니다.
    - [수신기를 비행 컨트롤러에 연결합니다](../assembly/quick_start_pixhawk4.md#radio-control).
    - 상단 플레이트를 다시 부착합니다.
