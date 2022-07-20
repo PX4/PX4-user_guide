@@ -30,7 +30,7 @@
 ## 开始了解你的开发套件
 
 1. 不要直接使用电源为 *UP Core* 计算机供电（可能会摧毁计算机）。 *UP Core* 只能使用电池供电。
-1. 该开发包使用前置摄像头，（它没有向下或后置深照相机）。 因此，它不能用于测试 [安全着陆](../computer_vision/safe_landing.md) 或其他需要下方摄像头的功能。
+1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates). 因此，它不能用于测试 [安全着陆](../computer_vision/safe_landing.md) 或其他需要下方摄像头的功能。
 1. 只有在 GPS 工作正常时才能测试任务模式中的自主避障（飞行任务需要使用 GPS 配合）。 防撞功能需要在可获得位置的模式下进行测试，比如GPS或光流有比较好的定位。
 1. *UP Core* 只能使用电池供电(请勿卸下 *UP Core* 电源安全盖)。 ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
 
@@ -41,7 +41,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 :::
 
 ## 包装内容
-![Whats inside](../../assets/hardware/px4_vision_devkit/Explode-view.png)
+![What's inside](../../assets/hardware/px4_vision_devkit/Explode-view.png)
 
 ![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
@@ -107,7 +107,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 
 ## 首次使用
 
-1. 将一个 [兼容的遥控接收器](../getting_started/rc_transmitter_receiver.md#connecting-receivers) 连接到无人机上（未随套件提供）：
+1. Attach a [compatible RC receiver](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
    - 使用 H2.0 头的内六角螺丝刀移除/取消顶部板块(在电池进入的地方)。
    - [将接收器连接到飞控](../assembly/quick_start_pixhawk4.md#radio-control)。
    - 重新安装上面的外壳。
