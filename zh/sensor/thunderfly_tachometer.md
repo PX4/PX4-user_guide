@@ -69,7 +69,7 @@ You can verify the counter is working using several methods
 
 #### PX4 (NuttX) MAVLink Console
 
-The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputing.
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
 
 To check the status of the TFRPM01 driver run the command:
 ```
