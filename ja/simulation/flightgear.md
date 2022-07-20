@@ -109,7 +109,7 @@ px4 starting.
 INFO  [px4] Calling startup script: /bin/sh etc/init.d-posix/rcS 0
 INFO  [param] selected parameter default file eeprom/parameters_1034
 I'm Mavlink to FlightGear Bridge
-Targed Bridge Freq: 200, send data every step: 1
+Target Bridge Freq: 200, send data every step: 1
 4
   5   -1
   7   -1
