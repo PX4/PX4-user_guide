@@ -24,7 +24,7 @@ PWM ESCs communicate using a periodic pulse, where the _width_ of the pulse indi
 
 ![duty cycle for PWM](../../assets/peripherals/esc_pwm_duty_cycle.png)
 
-In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary signficantly. Unlike [dshot](#dshot) and [UAVCAN ESC](#UAVCAN) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
+In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary significantly. Unlike [dshot](#dshot) and [UAVCAN ESC](#UAVCAN) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
 
 Setup:
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md)
