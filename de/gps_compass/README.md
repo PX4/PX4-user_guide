@@ -129,7 +129,7 @@ Compass calibration is covered in: [Compass Configuration](../config/compass.md)
 Further compass configuration should generally not be required.
 
 :::note
-All external compasses are given the same priority by default, which is higher than the prority shared by all internal compasses.
+All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
 :::
 
 ### Disable a Compass
