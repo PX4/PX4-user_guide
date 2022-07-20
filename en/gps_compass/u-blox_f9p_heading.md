@@ -58,7 +58,7 @@ If using RTK with a fixed base station the secondary GPS will show the RTK state
 
 
 
-## Further Informaiton
+## Further Information
 
 - [ZED-F9P Moving base applications (Application note)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf) - General setup/instructions.
 - [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)

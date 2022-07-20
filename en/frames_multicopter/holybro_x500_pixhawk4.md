@@ -109,7 +109,7 @@ Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for a
 
 1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out".
    Make sure you connect the motor ESC PWM wires in the correct order.
-   Refer to Figure 7 for airframe motor number and connect to the corrsponding number on the PM07 board.
+   Refer to Figure 7 for airframe motor number and connect to the corresponding number on the PM07 board.
 
    ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg)
    _Figure 7_: ESC power module and signal wiring

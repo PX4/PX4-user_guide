@@ -39,7 +39,7 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
 1. Run your new VM at the end of the wizard and let it install Ubuntu following the setup instructions. Remember all settings are only for within your host operating system usage and hence you can disable any screen saver and local workstation security features which do not increase risk of a network attack.
 1. Once the new VM is booted up make sure you install *VMWare tools drivers and tools extension* inside your guest system. This will enhance performance and usability of your VM usage:
     * Significantly enhanced graphics performance
-    * Proper support for hardware device usage like USB port allocation (important for target upload), proper mouse wheel scrolling, sound suppport
+    * Proper support for hardware device usage like USB port allocation (important for target upload), proper mouse wheel scrolling, sound support
     * Guest display resolution adaption to the window size
     * Clipboard sharing to host system
     * File sharing to host system

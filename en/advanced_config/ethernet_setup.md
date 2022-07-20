@@ -58,7 +58,7 @@ Where the values are:
 - `BOOTPROTO`: Protocol for getting PX4 IP address. Valid values for proto are: `dhcp`, `static`, `fallback` (use DHCP but fall back to static address after time, if that fails)
 - `IPADDR`: Static IP address (used if BOOTPROTO is `static` or `fallback`)
 - `NETMASK`: Network mask
-- `ROUTER`: The addess of the default route.
+- `ROUTER`: The address of the default route.
 - `DNS`: The address of the DNS server.
 
 To set the above "example" configuration using the *QGroundControl*:

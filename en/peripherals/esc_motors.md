@@ -29,7 +29,7 @@ For PWM servos 50Hz is usually sufficient, and many don't support higher rates.
 
 ![duty cycle for PWM](../../assets/peripherals/esc_pwm_duty_cycle.png)
 
-In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary signficantly.
+In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary significantly.
 Unlike [dshot](#dshot) and [UAVCAN ESC](#UAVCAN) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
 
 Setup:

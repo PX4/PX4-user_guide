@@ -97,7 +97,7 @@ Upload the logs to [Flight Review](https://logs.px4.io) and compare the *Actuato
 Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
 
 Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
-Note that there can be negative impacts on preformance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
+Note that there can be negative impacts on performance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
 
 Below is an example for three different `IMU_DGYRO_CUTOFF` filter values (40Hz, 70Hz, 90Hz).
 At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting.

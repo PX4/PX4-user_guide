@@ -86,7 +86,7 @@ The capture pin used depends on the hardware:
 - Other board use FMU PWM pin 6 (hardcoded) for camera capture.
 
 PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V).
-If the camera isn't outputing an appropriate voltage, then additional circuitry will be required to make the signal compatible.
+If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
 
 Cameras that have a hotshoe connector (for connecting a flash) can usually be connected via a hotshoe-adaptor.
 For example, the [Seagull #SYNC2 Universal Camera Hot Shoe Adapter](https://www.seagulluav.com/product/seagull-sync2/) is an optocoupler that decouples and shifts the flash voltage to the Pixhawk voltage.

@@ -146,7 +146,7 @@ Loiter Altitude | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RT
 Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | If return with loiter then land is selected you can also specify how long the vehicle will hold.
 
 :::note
-The return behavour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY).
+The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY).
 If negative the vehicle will land immediately.
 Additional information can be found in [Return mode](../flight_modes/return.md).
 :::

@@ -6,7 +6,7 @@ The vehicle obeys a position, velocity or attitude setpoint provided over MAVLin
 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
 :::tip
-Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. 
+Not all coordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. 
 Read the sections below *carefully* to ensure only supported values are used.
 Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
 :::
@@ -17,7 +17,7 @@ Note also that setpoints must be streamed at > 2Hz before entering the mode and 
 * The vehicle must be armed before this mode can be engaged.
 * The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged.
 * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
-* Not all co-ordinate frames and field values allowed by MAVLink are supported.
+* Not all coordinate frames and field values allowed by MAVLink are supported.
 :::
 
 ## Description

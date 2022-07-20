@@ -34,7 +34,7 @@ Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](ht
 
 This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the *safe landing planner* (which provides companion-side support for this feature):
 * [Simulation setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
-* [Harware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
+* [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
 
