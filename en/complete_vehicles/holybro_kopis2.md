@@ -15,7 +15,7 @@ In addition you will need:
 - LiPo battery and charger.
 - FPV goggles if you want to fly FPV.
   There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product-page/dominator-v3).
-  You can also use DJI FPV goggles if you have the HDV verison of the Kopis 2.
+  You can also use DJI FPV goggles if you have the HDV version of the Kopis 2.
 
   :::note
   FPV support is completely independent of PX4/flight controller.

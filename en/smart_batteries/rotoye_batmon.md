@@ -44,7 +44,7 @@ More details can be found [here](https://github.com/rotoye/batmon_reader)
    ```
 1. [Build and upload the firmware](../dev_setup/building_px4.md) for your target board
 
-### Configure Parmeters
+### Configure Parameters
 
 In *QGroundControl*:
 1. Set the following [parameters](../advanced_config/parameters.md):

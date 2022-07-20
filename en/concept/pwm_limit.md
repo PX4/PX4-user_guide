@@ -14,7 +14,7 @@
   * INIT and OFF
     * pwm outputs set to disarmed values.
   * RAMP
-    * pwm ouputs ramp from disarmed values to min values.
+    * pwm outputs ramp from disarmed values to min values.
   * ON
     * pwm outputs set according to control values.
 

@@ -16,7 +16,7 @@ To launch in this mode:
 - Launch/throw the vehicle (firmly) directly into the wind.
 
 The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff-flight-mode).
-It will then continue in *Postion mode*.
+It will then continue in *Position mode*.
 
 ## Takeoff Flight Mode
 

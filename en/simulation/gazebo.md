@@ -284,7 +284,7 @@ The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a sli
 :::
 
 If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map.
-To overcome this problem you can set the location of the world origin to the GPS co-ordinates where it would be in "real life".
+To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
 :::note
 You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing.
@@ -324,7 +324,7 @@ This thin wrapper simply embeds app arguments like current working directories a
 
 To start Gazebo and PX4 separately:
 
-* Run gazebo (or any other sim) server and client viewers via the terminal specifing an `_ide` variant:
+* Run gazebo (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
   ```sh
   make px4_sitl gazebo___ide
   ```
