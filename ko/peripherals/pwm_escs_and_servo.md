@@ -58,7 +58,7 @@ BEC가 **없는** 광절연 ESC에서 +5V 라인을 연결하고 전원을 공�
 
 ## PX4 Configuration
 
-Configure the outputs using the following paramters:
+Configure the outputs using the following parameters:
 - [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) (IO) and/or [PWM_AUX_RATE](../advanced_config/parameter_reference.md#PWM_AUX_RATE) (FMU): Set to the highest frame rate supported by the connected ESC, in Hz.
 - [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MIN](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAX](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAX](../advanced_config/parameter_reference.md#PWM_AUX_MAX): Set to the normal PWM range, nominally `1000` to `2000`.
 - [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG): Set to `0` in order to disable DShot.
