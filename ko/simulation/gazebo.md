@@ -263,7 +263,7 @@ The vehicle gets spawned very close to the origin of the world model at some sim
 실제 위치(예: 특정 공항)를 재현하는 세계를 사용하는 경우에는 시뮬레이션된 세계에 표시되는 것과 지상국 지도에 표시되는 것에 불일치가 발생할 수 있습니다. 이 문제를 극복하기 위해 세계 원점의 위치를 "실제" GPS 좌표로 설정할 수 있습니다.
 
 :::note
-동일한 작업을 수행하는 [맞춤 이륙 위치](#custom_takeoff_location)를 설정할 수 있습니다. 그러나, 지도에 위치를 추가하는 것이 더 편리합니다(필요한 경우 사용자 지정 위치를 설정할 수 있음).
+동일한 작업을 수행하는 [맞춤 이륙 위치](#custom_takeoff_location)를 설정할 수 있습니다. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
 세계의 위치는 `spherical_coordinates` 태그를 사용하여, 원점의 위치를 지정하여 **.world** 파일에 정의합니다. 위도, 경도, 고도가 모두 지정되어야 합니다(이것이 유효하려면).
 :::
@@ -300,7 +300,7 @@ In addition to the existing cmake targets that run `sitl_run.sh` with parameters
 
 이 접근 방식은 시뮬레이터(예: Gazebo)가 항상 백그라운드에서 실행되고 매우 가벼운 px4 프로세스만 다시 실행하기 때문에 디버그 주기 시간을 크게 줄여줍니다.
 
-* `_ide` 변형을 지정하는 터미널을 통해 가제보(또는 다른 시뮬레이션) 서버 및 클라이언트 뷰어를 실행합니다.
+* Run gazebo (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
   ```sh
   make px4_sitl gazebo___ide
   ```
