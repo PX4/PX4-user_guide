@@ -105,7 +105,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    _그림 5_: 모터 연결
 
-1. ESC 전원선을 전원 모듈 PM07에 연결하고, 검정-검정 및 빨강-빨간색, ESC PWM 신호선을 "FMU-PWM-Out"으로 연결합니다. 모터 ESC PWM 와이어를 올바른 순서로 연결하였는 지 확인하십시오. 기체 모터 번호는 그림 7을 참조하고 PM07 보드의 해당 번호에 연결합니다.
+1. ESC 전원선을 전원 모듈 PM07에 연결하고, 검정-검정 및 빨강-빨간색, ESC PWM 신호선을 "FMU-PWM-Out"으로 연결합니다. 모터 ESC PWM 와이어를 올바른 순서로 연결하였는 지 확인하십시오. Refer to Figure 7 for airframe motor number and connect to the corresponding number on the PM07 board.
 
    ![ESC 전원 모듈 및 신호 배선](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _그림 7_: ESC 전원 모듈 및 신호 배선
 
