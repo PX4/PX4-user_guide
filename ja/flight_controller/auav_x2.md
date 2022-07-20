@@ -49,7 +49,7 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on
 
 ## Availability
 
-No longer in production. This has been superceded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
+No longer in production. This has been superseded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
 
 ## Key Links
 
