@@ -31,7 +31,7 @@ Attach the camera to the companion computer and mount it to the frame:
 
 - Connect the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) using the supplied cable.
 - Mount the camera with lenses pointing down if at all possible (default).
-- The camera is very senstive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+- The camera is very sensitive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
 
 
 ### ROS/VIO Setup
@@ -87,7 +87,7 @@ The following parameters must be set to use external position information with E
 
 | Parameter                                                                                                                                                                                                                          | Setting for External Position Estimation                                                                                                               |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* accoring to your desired fusion model.      |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* according to your desired fusion model.     |
 | [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                                         | Set to *Vision* to use the vision a primary source for altitude estimation.                                                                            |
 | [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
 | [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor with respect to the vehicles body frame.                                                                         |
@@ -104,7 +104,7 @@ For more detailed/additional information, see: [ECL/EKF Overview & Tuning > Exte
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
 
-Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
+Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning because delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
 
 A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates:
 

@@ -55,7 +55,7 @@ There are several ways to reduce the problem:
 
 ### Excessive Wiring Capacitance
 
-The electrical capacity of bus wiring increases as more devices/wires are added. The exact decrease depends on total lenght of bus wiring and wiring secific capacitance. The problem can be analyzed using an oscilloscope, where we see that the edges of SDA/SCL signals are no longer sharp.
+The electrical capacity of bus wiring increases as more devices/wires are added. The exact decrease depends on total length of bus wiring and wiring specific capacitance. The problem can be analyzed using an oscilloscope, where we see that the edges of SDA/SCL signals are no longer sharp.
 
 There are several ways to reduce the problem:
 * Dividing the devices into groups, each with approximately the same number of devices and connecting each group to one autopilot port

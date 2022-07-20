@@ -211,7 +211,7 @@ You may need to install it using:
 
 You should be able to fix this by explicitly installing the dependencies as shown:
 ```
-pip3 install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+pip3 install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
 

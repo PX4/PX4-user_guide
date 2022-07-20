@@ -4,7 +4,8 @@
 
 기체는 MAVLink를 태워 전달한 위치, 속도, 고도 지점 설정을 따릅니다. 셋포인트 명령은 보조 컴퓨터에서 MAVLink API (예, [MAVSDK](https://mavsdk.mavlink.io/) 또는 [MAVROS](https://github.com/mavlink/mavros))를 통해 전달할 수 있습니다. 일반적으로 시리얼 케이블 또는 와이파이를 사용하여  보조 컴퓨터를 연결합니다.
 
-:::tip MAVLink에서 허용하는 모든 좌표 프레임과 필드 값이 모든 설정 점 메시지와 기체에  지원되는 것은 아닙니다. 지원되는 값을 확인하시려면, 아래 섹션을 *주의 하여* 읽으십시오. 모드에 작동 전과 모드가 작동하는 동안 설정 값은 2Hz이상에서 스트리밍되어야합니다. :::
+:::tip
+Not all coordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. 지원되는 값을 확인하시려면, 아래 섹션을 *주의 하여* 읽으십시오. 모드에 작동 전과 모드가 작동하는 동안 설정 값은 2Hz이상에서 스트리밍되어야합니다. :::
 
 :::note
 * 이 모드에는 위치 또는 자세/태도 정보(GPS, 광학 흐름, 시각-관성 주행 거리 측정, 모캡 등)가 필요합니다.
@@ -12,7 +13,7 @@
 * 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
 * 이 모드를 사용하려면 차량이 이미 **목표 설정 값 (> 2Hz) 스트림**을 수신하고 있어야합니다.
 * 목표 설정 값이 2Hz 이상의 속도로 수신되지 않으면 기체의 모드를 종료합니다.
-* MAVLink에서 허용하는 모든 좌표 프레임 및 필드 값이 지원되는 것은 아닙니다. :::
+* Not all coordinate frames and field values allowed by MAVLink are supported. :::
 
 ## 설명
 

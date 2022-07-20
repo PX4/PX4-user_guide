@@ -3,7 +3,7 @@
 The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is an update to the Here GPS module from HEX.
 
 Main features include:
-- Concurrent reception of upto 3 GNSS (GPS, Galileo, GLOSNASS, BeiDou)
+- Concurrent reception of up to 3 GNSS (GPS, Galileo, GLOSNASS, BeiDou)
 - Industry Leading -167 dBm navigation sensitivity
 - Security and integrity protection
 - Supports all satellite augmentation systems

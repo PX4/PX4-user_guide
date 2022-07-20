@@ -31,7 +31,7 @@ VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체
 
 - 제공된 케이블을 사용하여 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md)를 연결합니다.
 - 가능하면 렌즈가 아래쪽을 향하도록 카메라를 장착하십시오 (기본값).
-- 카메라는 진동에 매우 민감합니다. 부드러운 장착이 권장됩니다 (예 : 방진폼 사용).
+- The camera is very sensitive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
 
 
 ### ROS/VIO 설정
@@ -85,12 +85,12 @@ catkin build px4_realsense_bridge
 
 EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설정하여야 합니다.
 
-| 매개변수                                                                                                                                                                                                                               | 외부 위치 추정 설정                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | 원하는 융합 모델에 따라 *시력 위치 융합*, *시력 속도 융합*, *시력 요 융합* 및 *외부 시력 회전*을 설정합니다.           |
-| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                                         | 비전을 고도 추정의 기본 소스로 사용하려면 *비전*으로 설정합니다.                                          |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | 측정 타임 스탬프와 "실제" 캡처 시간의 차이로 설정합니다. 자세한 정보는 [아래](#tuning-EKF2_EV_DELAY)를 참고하십시오. |
-| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | 차체 프레임에 대한 비전 센서의 위치를 설정합니다.                                                   |
+| 매개변수                                                                                                                                                                                                                               | 외부 위치 추정 설정                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* according to your desired fusion model. |
+| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                                         | 비전을 고도 추정의 기본 소스로 사용하려면 *비전*으로 설정합니다.                                                                                                              |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | 측정 타임 스탬프와 "실제" 캡처 시간의 차이로 설정합니다. 자세한 정보는 [아래](#tuning-EKF2_EV_DELAY)를 참고하십시오.                                                                     |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | 차체 프레임에 대한 비전 센서의 위치를 설정합니다.                                                                                                                       |
 
 *QGroundControl* > **기체 설정 > 매개변수 > EKF2**에서 설정할 수 있습니다.  (매개변수 변경 사항을 적용하려면 비행 컨트롤러를 재부팅하여야 합니다).
 
@@ -104,7 +104,7 @@ EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설�
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)는 *IMU 측정에 대한 비전 위치 추정기 지연*입니다. 즉, 비전 시스템 타임스탬프와 IMU 클록 (EKF2의 "기본 클록")에 의해 기록된 "실제" 캡처 시간 간의 차이입니다.
 
-기술적으로 이것은 MoCap과 (예를 들어) ROS 컴퓨터 사이에 정확한 타임스탬프 (도착 시간이 아님)와 시간 동기화 (예 : NTP)가있는 경우 0으로 설정할 수 있습니다. 실제로는 통신 체인의 지연이 설정에 따라 달라지기 때문에 약간의 경험적인 튜닝이 필요할 수 있습니다. 시스템이 완전히 동기화된 체인으로 설정되는 경우는 드뭅니다!
+기술적으로 이것은 MoCap과 (예를 들어) ROS 컴퓨터 사이에 정확한 타임스탬프 (도착 시간이 아님)와 시간 동기화 (예 : NTP)가있는 경우 0으로 설정할 수 있습니다. In reality, this may need some empirical tuning because delays in the communication chain are very setup-specific. 시스템이 완전히 동기화된 체인으로 설정되는 경우는 드뭅니다!
 
 IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략적인 지연 추정치를 얻을 수 있습니다.
 

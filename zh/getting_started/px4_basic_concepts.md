@@ -142,7 +142,7 @@ It is common for vehicles to have a *safety switch* that must be engaged before 
 
 PX4可以通过串行电缆或wifi由一个独立的记载计算机控制。 机载计算机通常使用MAVLink API（如MAVSDK或MAVROS）进行通讯。
 
-相关的主题包括：
+Relevant topics include:
 * [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。
 * [机器人（Robotics) APIs](../robotics/README.md)
 

@@ -10,7 +10,7 @@ Main features include:
 - Fast TTFF at low signal level
 - Free hybrid ephemeris prediction to achieve faster cold start
 - Default 5Hz, up to 10 Hz update rate (SBAS at 5Hz update rate only)
-- Build-in super capacitor to reserve system data for rapid satellite acquisition
+- Built-in super capacitor to reserve system data for rapid satellite acquisition
 - Three LED indicator for Power, PPS and Data transmit
 
 ![Hawk A1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
@@ -35,7 +35,7 @@ To use the Hawk A1 your main GPS device:
 
 ### Secondary GNSS
 
-To use the Hawk A1 as an auxillary GPS device (in addition to the main GPS):
+To use the Hawk A1 as an auxiliary GPS device (in addition to the main GPS):
 
 | Parameter                                                                    | Value                                          | Description                                                                           |
 | ---------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------- |

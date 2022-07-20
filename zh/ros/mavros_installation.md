@@ -7,7 +7,7 @@ While MAVROS can be used to communicate with any MAVLink-enabled autopilot, this
 :::tip
 The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo).
 
-ROS 代码库有针对 Ubuntu x86、amd64 (x86\_64) 和 armhf (ARMv7) 的二进制安装包。 Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
+The script automates the installation instructions covered in this topic, installing everything you need: PX4, ROS, the Gazebo simulator, and [MAVROS](../ros/mavros_installation.md). Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
 
 :::warning
 Note The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md). This documentation reflects the "old approach".

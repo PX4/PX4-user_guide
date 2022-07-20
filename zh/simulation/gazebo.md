@@ -269,7 +269,7 @@ The vehicle gets spawned very close to the origin of the world model at some sim
 The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues. 
 :::
 
-If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS co-ordinates where it would be in "real life".
+If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
 :::note
 You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
@@ -307,7 +307,7 @@ In addition to the existing cmake targets that run `sitl_run.sh` with parameters
 
 To start Gazebo and PX4 separately:
 
-* Run gazebo (or any other sim) server and client viewers via the terminal specifing an `_ide` variant:
+* Run gazebo (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
   ```sh
   make px4_sitl gazebo___ide
   ```

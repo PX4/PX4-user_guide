@@ -48,7 +48,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are 
    * 4 i2c buses(Two i2c dedicated ports)
    * 2 CAN bus ports
    * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
-   * 2  ADC intput
+   * 2  ADC input
    * 1 USB ports
 * Power System:
   * Power: 4.3~5.4V

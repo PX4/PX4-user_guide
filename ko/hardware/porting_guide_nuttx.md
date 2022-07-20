@@ -46,7 +46,7 @@ sudo make install
 
 먼저 하드웨어 대상에 적합한 부트로더가 필요합니다.
 - STM32H7: 부트로더는 NuttX를 기반으로 하며, PX4 펌웨어에 포함되어 있습니다. 예를 보려면 [여기](https://github.com/PX4/PX4-Autopilot/tree/master/boards/holybro/durandal-v1/nuttx-config/bootloader)를 참고하십시오.
-- 다른 대상의 경우 https://github.com/PX4/Bootloader가 사용됩니다. 대상 추가 방법 예는 [여기](https://github.com/PX4/Bootloader/pull/155/files)를 참고하십시오. 그런 다음, [설정 및 플래시 방법](../software_update/stm32_bootloader.md)을 확인하십시오.
+- 다른 대상의 경우 https://github.com/PX4/Bootloader가 사용됩니다. 대상 추가 방법 예는 [여기](https://github.com/PX4/Bootloader/pull/155/files)를 참고하십시오. Then checkout the [building and flashing instructions](../software_update/stm32_bootloader.md).
 
 ### 펌웨어 포팅 단계
 

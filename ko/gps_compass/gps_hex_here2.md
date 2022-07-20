@@ -3,7 +3,7 @@
 [Here2 GPS 수신기](http://www.proficnc.com/all-products/152-gps-module.html)는 HEX의 Here GPS 모듈에 대한 업데이트입니다.
 
 주요 특징은 다음과 같습니다.
-- 최대 3 개의 GNSS(GPS, Galileo, GLOSNASS, BeiDou) 동시 수신
+- Concurrent reception of up to 3 GNSS (GPS, Galileo, GLOSNASS, BeiDou)
 - 업계 최고의 - 167dBm 탐색 감도
 - 보안 및 무결성 보호
 - 모든 위성 증강 시스템 지원

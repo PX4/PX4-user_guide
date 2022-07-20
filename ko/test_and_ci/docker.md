@@ -22,7 +22,7 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-기본 설치에서는 루트 사용자로 *Docker*를 호출하여야 합니다(예: `sudo` 사용). 그러나 PX4 펌웨어를 빌드하려면 [도커를 루트가 아닌 일반 사용자 계정을 사용](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user)하는 것이 좋습니다. 그렇게하면, docker를 사용한 후 빌드 폴더를 관리자가 소유하지 않습니다.
+기본 설치에서는 루트 사용자로 *Docker*를 호출하여야 합니다(예: `sudo` 사용). However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). 그렇게하면, docker를 사용한 후 빌드 폴더를 관리자가 소유하지 않습니다.
 
 ```sh
 # Create docker group (may not be required)

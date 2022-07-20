@@ -241,7 +241,7 @@ Make sure that the **common.xml** files in the following directories are exactly
                {
                    struct key_command_s input;
                    orb_copy(ORB_ID(key_command), key_sub_fd, &input);
-                   PX4_INFO("Recieved Char : %c", input.cmd);
+                   PX4_INFO("Received Char : %c", input.cmd);
                 }
            }
        }

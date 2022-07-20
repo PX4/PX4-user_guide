@@ -231,7 +231,7 @@ If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were
 
 Similarly, a servo that moves:
 
-- between the upright and forward postions would have `min=0` and `max=90`.
+- between the upright and forward positions would have `min=0` and `max=90`.
 - symmetrically 45 degrees around the upright position would have `min=-45` and `max=45`
 - between the upright and backward positions would have `min=-90` and `max=0`.
 :::
@@ -253,7 +253,7 @@ The _Actuator Outputs_ section is used to assign motors, control surface servos,
 
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN. Motors and actuators (which are referred to as "functions") can be assigned to any physical output on any of the available busses.
+Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN. Motors and actuators (which are referred to as "functions") can be assigned to any physical output on any of the available buses.
 
 :::note
 PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).

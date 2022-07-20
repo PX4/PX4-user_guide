@@ -30,7 +30,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 ## Warnings and Notifications
 
 1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras). Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
-1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates). Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
+1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates). Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
 1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions). This is why the boot image is supplied on a *USB2.0* memory stick.
 1. PX4 Vision with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery. ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
 
@@ -41,7 +41,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 :::
 
 ## What is Inside
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![What's inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
@@ -107,7 +107,7 @@ In addition, users will need ground station hardware/software:
 
 ## First-time Setup
 
-1. Attach a [compatible RC reciever](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
+1. Attach a [compatible RC receiver](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
    - Remove/unscrew the top plate (where the battery goes) using an H2.0 hex key tool.
    - [Connect the receiver to the flight controller](../assembly/quick_start_pixhawk4.md#radio-control).
    - Re-attach the top plate.

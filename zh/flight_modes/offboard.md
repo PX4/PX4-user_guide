@@ -5,7 +5,7 @@
 飞机遵守 MAVLink 提供的位置，速度或姿态设定值。 设定值可以由机载计算机上运行的 MAVLink API（例如 [MAVSDK](https://mavsdk.mavlink.io/) 或 [MAVROS](https://github.com/mavlink/mavros)）提供（通常通过串口或 wifi 连接）。
 
 :::tip
-并非所有设定值消息和无人机都支持 MAVLink 允许的所有坐标系和字段值。 Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational. :::
+Not all coordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational. :::
 
 :::note
 * 此模式需要位置或位/姿信息 - 例如 GPS、光流、视觉惯性里程计、mocap 等。
@@ -13,7 +13,7 @@
 * 使用此模式前必须先解锁。
 * The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged.
 * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
-* 并非所有坐标帧和字段值 MAVLink都支持。 :::
+* Not all coordinate frames and field values allowed by MAVLink are supported. :::
 
 ## 描述
 

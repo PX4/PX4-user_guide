@@ -75,7 +75,7 @@ Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../adva
 - Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
 - Other board use FMU PWM pin 6 (hardcoded) for camera capture.
 
-PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V). If the camera isn't outputing an appropriate voltage, then additional circuitry will be required to make the signal compatible.
+PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V). If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
 
 Cameras that have a hotshoe connector (for connecting a flash) can usually be connected via a hotshoe-adaptor. For example, the [Seagull #SYNC2 Universal Camera Hot Shoe Adapter](https://www.seagulluav.com/product/seagull-sync2/) is an optocoupler that decouples and shifts the flash voltage to the Pixhawk voltage. This slides into the flash slot on the top of the camera. The red and black ouptputs are connected to the servo rail/ground and the white wire is connected to the input capture pin.
 

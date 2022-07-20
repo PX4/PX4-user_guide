@@ -83,7 +83,7 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_Pub
     });
 ```
 
-`offboard_control_mode`와 `trajectory_setpoint` 메시지와 함께 설정되고 전송될 동기화된 타임스탬프를 얻으려면 위의 작업이 필요합니다.
+The above is required in order to obtain a synchronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
 
 ```cpp
 auto timer_callback = [this]() -> void {
