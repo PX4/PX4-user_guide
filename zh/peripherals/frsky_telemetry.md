@@ -14,7 +14,7 @@ FrSky telemetry requires:
 * 一个[睿思凯遥测接收机](#receivers)，比如XSR和X8R；
 * A cable to connect the FrSky receiver Smart Port (SPort) to a flight controller UART.
 
-First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the reciever and the flight controller.
+First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the receiver and the flight controller.
 
 Then set up FrSky telemetry by separately connecting the SPort on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
 
