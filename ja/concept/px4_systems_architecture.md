@@ -23,7 +23,7 @@ The hardware consists of
 - [Telemetry radios](../telemetry/README.md) for connecting to a ground station computer/software.
 - [RC Control System](../getting_started/rc_transmitter_receiver.md) for manual control
 
-The left hand side of the diagram shows the software stack, which is horizontally aligned (aproximately) with the hardware parts of the diagram.
+The left hand side of the diagram shows the software stack, which is horizontally aligned (approximately) with the hardware parts of the diagram.
 - The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#qgroundcontrol) (or some other ground station software). It may also run robotics software like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](../ros/README.md).
 - The PX4 flight stack running on the flight controller includes [drivers](../modules/modules_driver.md), [comms modules](../modules/modules_communication.md), [controllers](../modules/modules_controller.md), [estimators](../modules/modules_controller.md) and other [middleware and system modules](../modules/modules_main.md).
 
