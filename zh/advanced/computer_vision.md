@@ -17,7 +17,7 @@ Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and
 运动捕捉（MoCap）是一种使用无人机*外部的*定位机制来估算 3D <0>姿态* （位置和方向）的技术。 MoCap 系统最常使用红外摄像机检测运动，但也可以使用其他类型的摄像机，激光雷达或超宽带（UWB）。</p>
 
 :::note
-MoCap 通常用于在没有 GPS 的情况下导航无人机（例如室内），并提供相对于 *本地* 坐标系的位置。 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
+MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a *local* coordinate system. 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
 
 有关 MoCap 的信息，请参阅：
 - [外部位置的估计](../ros/external_position_estimation.md)
