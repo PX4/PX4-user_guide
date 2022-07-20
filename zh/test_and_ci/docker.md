@@ -21,7 +21,7 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-可以使用 `latest` 标记访问最新版本：`px4io/px4-dev-ros:latest`（为 *hub.docker.com* 上的每个容器列出可用标记。 例如，*px4-dev-ros* 标签可以在 [here](https://hub.docker.com/r/px4io/px4-dev-ros/tags/)）。 That way, your build folder won't be owned by root after using docker.
+可以使用 `latest` 标记访问最新版本：`px4io/px4-dev-ros:latest`（为 *hub.docker.com* 上的每个容器列出可用标记。 However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
 
 ```sh
 ＃创建 docker 组（可能不是必需的）
