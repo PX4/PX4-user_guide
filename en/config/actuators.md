@@ -293,7 +293,7 @@ The _Actuator Outputs_ section is used to assign motors, control surface servos,
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
 Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN.
-Motors and actuators (which are referred to as "functions") can be assigned to any physical output on any of the available busses.
+Motors and actuators (which are referred to as "[functions](#output-functions)") can be assigned to any physical output on any of the available busses.
 
 :::note
 PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
@@ -312,6 +312,51 @@ Configuring the Camera Capture / Trigger input requires a reboot to take effect
 
 You should assign functions to the outputs that match your physical wiring of motors and servos, and use the [Actuator Testing](#actuator-testing) section described below to determine appropriate output parameter values.
 These steps are covered in [Output Assignment and Configuration](#output-assignment-and-configuration).
+
+### Output Functions
+
+Output functions are used to map the "logical functions" of an airframe, such as `Motor 1` or `Landing gear`, to physical outputs like FMU output pin 2.
+This makes it easy to use a particular output pin for almost any purpose.
+
+Some functions are only relevant to particular frames or output types, and will not be offered on others.
+
+Functions include: 
+
+- `Disabled`: Output has no assigned function.
+- `Constant_Min`: Output set to constant minimum value.
+- `Constant_Max`: Output is set to constant maximum value.
+- `Motor 1` to `Motor 12`: Output is indicated motor.
+  Only motors allowed for airframe are displayed.
+- `Servo 1` to `Servo 8`: Servo output.
+   These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
+- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: MAVLink Payload output.
+- `Landing Gear`: Output is landing gear.
+- `Parachute`: Output is parachute.
+- `RC Roll`: Output is roll from RC.
+- `RC Pitch`: Output is pitch from RC.
+- `RC Throttle`: Output is throttle from RC.
+- `RC Yaw`: Output is yaw from RC
+- `RC Flaps`: Output is flaps from RC
+- `RC AUXn` to `RC AUX1`: Outputs used for RC-passthrough.
+- `Gimbal Roll`: Output controls gimbal roll.
+- `Gimbal Pitch`: Output controls Gimbal pitch.
+- `Gimbal Yaw`: Output controls Gimbal pitch.
+
+The following functions can only be applied to FMU outputs:
+
+- `Camera_Trigger`: Output to trigger camera.
+  Enabled when [`TRIG_MODE==0`](../advanced_config/parameter_reference.md#TRIG_MODE).
+  Configured via `TRIG_*` parameters.
+- `Camera_Capture`: Input to get image capture notification.
+  Enabled when [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
+  Configured via `CAM_CAP_*` parameters.
+- `PPS_Input`: PPS Capture.
+  Enabled when [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
+
+:::note
+This list is correct at PX4 v1.13.
+The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+:::
 
 ## Actuator Testing
 
@@ -404,7 +449,7 @@ To assign an actuator:
    - If a wrong actuator moves, swap the output assignment over.
    - If nothing moves then increase the slider mid-way though the range, then higher if needed.
      If nothing moves after that the output might not be connected, the motor might not be powered, or the output might be misconfigured.
-	   You will need to troubleshoot (perhaps try other actuator outputs to see if "anything" moves).
+     You will need to troubleshoot (perhaps try other actuator outputs to see if "anything" moves).
 1. Return the slider to the "disarmed" position (bottom of slider for motors, centre of slider for servos).
 1. Repeat for all actuators
 
