@@ -51,7 +51,7 @@
 
 ## 대기속도 센서가 없는 첫 비행
 
-값은 위치 제어 비행에 적용됩니다 (예: [유지 모드](../flight_modes/hold.md) 또는 [임무 모드](../flight_modes/mission.md)). 따라서 임무는 QuadChute 임계치보다 약 10m 높은 안전한 고도로 설정하는 것이 좋습니다. 기준 비행과 같이, 이 비행은 풍속이 매우 작은 조건에서 수행되어야 합니다. 첫 비행의 경우 다음 사항들을 권장합니다.
+값은 위치 제어 비행에 적용됩니다 (예: [유지 모드](../flight_modes/hold.md) 또는 [임무 모드](../flight_modes/mission.md)). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the QuadChute threshold. 기준 비행과 같이, 이 비행은 풍속이 매우 작은 조건에서 수행되어야 합니다. 첫 비행의 경우 다음 사항들을 권장합니다.
 
 - 같은 고도 유지
 - 웨이포인트를 충분히 넓고 급회전이 필요하지 않도록 설정하십시오.
