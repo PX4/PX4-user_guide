@@ -142,7 +142,7 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 
 차량에 장착된 보조 컴퓨터는 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로, 보조 컴퓨터는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
 
-관련 주제는 다음과 같습니다:
+Relevant topics include:
 * [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드
 * [로보틱스 API](../robotics/README.md)
 
