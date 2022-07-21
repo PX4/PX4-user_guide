@@ -8,16 +8,10 @@ All of this is achieved by arranging the motor positions and thrust axis in spec
 
 This build follows the original design from [Brescianini, Dario, and Raffaello D'Andrea](https://www.youtube.com/watch?v=sIi80LMLJSY).
 
+## Bill of Materials
 
-## Simulation
-There is an omnicopter gazebo simulation target:
-```sh
-make px4_sitl gazebo_omnicopter
-```
-![Gazebo Sim](../../assets/airframes/multicopter/omnicopter/gazebo.png)
-
-## Bill of materials
 The components needed for this build are:
+
 - Electronics:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
   - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://shop.holybro.com/tekko32-f4-4in1-50a-esc_p1283.html)
@@ -47,61 +41,75 @@ The components needed for this build are:
     - Motors and standoffs: 40x M3x12mm
 	- FC mount: 4x M3x35mm, 4x M3 nuts
   - Standoffs: 4x 40mm
-- 3D model: https://cad.onshape.com/documents/eaff30985f1298dc6ce8ce13/w/2f662e604240c4082682e5e3/e/ad2b2245b73393cf369132f7
+- [3D model](https://cad.onshape.com/documents/eaff30985f1298dc6ce8ce13/w/2f662e604240c4082682e5e3/e/ad2b2245b73393cf369132f7)
 
 ![Parts List](../../assets/airframes/multicopter/omnicopter/parts_list.jpg)
 
 ## Assembly
 
 ### Frame
+
 - Print the 3D parts
   :::note
-  The orientation of the corner pieces matters. You will notice if it's wrong when the angles of the rods are not correct.
+  The orientation of the corner pieces matters.
+  You will notice if it's wrong when the angles of the rods are not correct.
   :::
 - Cut the rods
 - Test that it all works by connecting the frame pieces together:
-![Frame](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
+
+  ![Frame](../../assets/airframes/multicopter/omnicopter/frame_only.jpg)
 - Place the motors as far out as possible, without the propellers touching the rods.
 
 ### Electronics
+
 Solder the peripherals to the flight controller. We used the following assignments:
-- ESCs: the 2 ESCs can be connected directly to the two connectors of the KakuteH7. To avoid conflicts we removed the power pin (right-most pin) from one of the connectors.
+- ESCs: the 2 ESCs can be connected directly to the two connectors of the KakuteH7.
+  To avoid conflicts we removed the power pin (right-most pin) from one of the connectors.
 - Telemetry to UART1
 - GPS to UART4
 - RC to UART6
 ![FC closeup](../../assets/airframes/multicopter/omnicopter/fc_closeup.jpg)
 
 Remarks:
-- Make sure the magnetometer is placed away from power. We ended up placing it to the bottom of the center-piece with a 4cm padding styrofoam.
+
+- Make sure the magnetometer is placed away from power.
+  We ended up placing it to the bottom of the center-piece with a 4cm padding styrofoam.
 - Put some tape on the barometer (without taping the opening!) to avoid any influence from light.
-- We did not glue the frame. It is certainly advisible to do so after initial test flights, but it might work without.
+- We did not glue the frame.
+  It is certainly advisible to do so after initial test flights, but it might work without.
 
 
 ## Software Configuration
 
 ### ESC
+
 First, configure the ESCs to 3D mode (bidirectional).
 We had issues with the stock ESC settings in 3D mode: when trying to switch direction, a motor sometimes did not start anymore until the ESC was rebooted.
 So we had to change ESC settings.
+
 To do so, you can use Betaflight on the flight controller and then use pass-through mode and the BL Heli suite (make sure there is an airframe with 8 motors configured in Betaflight).
 These are the settings:
+
 ![ESC settings](../../assets/airframes/multicopter/omnicopter/esc_settings.png)
+
 In particular:
-  - set the Motor Direction to **Bidirectional Soft**
-  - increase the Rampup Power to **100%** (this is conservative and might reduce efficiency)
+- set the Motor Direction to **Bidirectional Soft**
+- increase the Rampup Power to **100%** (this is conservative and might reduce efficiency)
 
 :::note
 Make sure the motors do not overheat with the changed settings.
 :::
 
 ### PX4
+
 - Select a generic multicopter airframe
 - Enable [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)
 - Use an [arming switch](../advanced_config/prearm_arm_disarm#arming-button-switch), do not use stick arming
 - [Select DShot](../config/actuators.md) as output protocol on all eight outputs
 - Configure the motors according to this:
-![Motor Config](../../assets/airframes/multicopter/omnicopter/motors_configuration.png)
-  We used the following convention: the motors are facing the direction of where the axis points to. The spinning direction matches the direction of positive thrust (moving the motor slider up).
+  ![Motor Config](../../assets/airframes/multicopter/omnicopter/motors_configuration.png)
+  We used the following convention: the motors are facing the direction of where the axis points to.
+  The spinning direction matches the direction of positive thrust (moving the motor slider up).
   Make sure to use the right props, as there is a CCW and a CW version.
 - Parameters:
   - Change the desaturation logic for better attitude tracking: set [CA_METHOD](../advanced_config/parameter_reference.md#CA_METHOD) to 0.
@@ -110,11 +118,18 @@ Make sure the motors do not overheat with the changed settings.
 
 <!-- TODO: video -->
 
+## Simulation
+
+There is an omnicopter gazebo simulation target:
+
+```sh
+make px4_sitl gazebo_omnicopter
+```
+![Gazebo Sim](../../assets/airframes/multicopter/omnicopter/gazebo.png)
 
 ## Remarks
+
 Some general remarks:
+
 - The hover throttle is about 30%.
 - The flight time is around 4-5min. This could probably be improved a bit by using larger propellers.
-
-
-
