@@ -62,7 +62,7 @@ Any other combination of pins can be selected, but this will disable use of the 
 When _dynamic control allocation_ is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)) camera trigger pins can be set on any FMU outputs.
 This is done on the *QGroundControl* [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Trigger` function on any FMU output.
 
-If using a PWM output that requires two pins (e.g. Seagull MAP2) you can assign to any two outputs.
+If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign to any two outputs.
 
 Note however that once an output has been used for camera triggering, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator or motor, say).
 
@@ -120,7 +120,7 @@ If mixers are used, then the capture pin used depends on the hardware:
 - Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
 - Other board use FMU PWM pin 6 (hardcoded) for camera capture.
 
-If _dynamic control allocation_ is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)) the camera capture pin can be set on any FMU output.
+If _dynamic control allocation_ is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)) the camera capture pin can be set on any FMU output pin.
 This is done on the *QGroundControl* [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function to the desired output.
 
 :::note
