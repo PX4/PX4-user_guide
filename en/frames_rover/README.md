@@ -32,7 +32,7 @@ For vehicles with Differential steering:
 
 1. In the [Airframe](../config/airframe.md) configuration, select either the _Aion Robotics R1 UGV_ or _NXP Cup car: DF Robot GPX_
 1. Set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter to **Rover (Differential)** (6).
-1. Follow the [Actuators document](../config/actuators.md) to map the left and right motor and throttle outputs.
+1. Follow the [Actuators document](../config/actuators.md) to map the left and right motors and throttle outputs.
 
 
 ## Simulation
