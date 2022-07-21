@@ -14,6 +14,7 @@ For more information see [Flight Termination Configuration](../advanced_config/f
 ## Using Parachutes
 
 Below are a few considerations when using parachutes:
+
 - A parachute does not guarantee that the vehicle will not be destroyed or cause harm!
   You must always fly with safety in mind.
 - Parachutes require careful usage to be effective.
@@ -32,10 +33,12 @@ During flight termination PX4 sets PWM outputs to their "failsafe" values (fails
 If a MAVLink parachute is connected and healthy, a command will be sent to activate it.
 
 Parachute setup therefore involves:
-- Configuring [flight termination](../advanced_config/flight_termination.md) as the appropriate action for those safety and failure cases where the parachute should be deployed.
-- Configure PX4 output levels to disable motors on failsafe.
-- Configure PX4 to deploy the parachute (set PWM output levels or send MAVLink parachute deploy command).
 
+- Configuring [flight termination](../advanced_config/flight_termination.md) as the appropriate action for those safety and failure cases where the parachute should be deployed.
+- Configure PX4 to deploy the parachute during flight termination (set PWM output levels appropriately or send the MAVLink parachute deploy command).
+- Configure PX4 output levels to disable motors on failsafe.
+  This is the default so usually nothing is required (for servos it's the center value).
+  
 ### Enable Flight Termination
 
 To enable flight termination:
@@ -45,38 +48,33 @@ To enable flight termination:
 :::note
 You can also configure an [external Automatic Trigger System (ATS)](../config/safety.md#external-automatic-trigger-system-ats) for failure detection.
 :::
-  
-### Motor Failsafe Settings
 
-The motors must be set to failsafe/disarmed values.
+### Parachute Output Bus Setup
 
-Assuming a quad setup with motors on PWM outputs MAIN1 to MAIN4 you would set [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) to 900ms, where n is 1 - 4.
-This ensures that during failsafe the motors are set to disarmed values.
+If the parachute is triggered by a PWM or CAN output then it must first be connected to an unused output (for the purpose of this example, below we assume AUX PWM output 6 is used).
+You will probably also need to separately power the parachute servo.
+This is might be done by connecting a 5V BEC to the Flight Controller servo rail, and powering the parachute from it.
 
-If using [Actuators](../config/actuators.md) configuration the failsafe values for motor outputs will be set appropriately as part of normal setup.
+You then need to ensure that the parachute pin will be set to a value that will trigger the parachute when a failsafe occurs.
 
-### PWM Parachute Setup
+In PX4 v1.13 (by default) and earlier:
 
-The parachute must be connected to an unused output, and the associated failsafe parameter set to a value that will trigger the parachute.
-Commonly you will also need to separately power the parachute servo.
-
-Assuming parachute on MAIN PWM port 7 you might:
-- Connect the parachute to the IO port (MAIN), channel 7 (starting from 1).
-- Power the servo rail - i.e. connect a 5V BEC to the servo rail.
-
-To configure the failsafe values for this output in PX4:
-- Set [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS7) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
-- Set [PWM_MAIN_FAIL7](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL7) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
+- Set [PWM_AUX_DIS6](../advanced_config/parameter_reference.md#PWM_AUX_DIS6) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
+- Set [PWM_AUX_DIS6](../advanced_config/parameter_reference.md#PWM_AUX_DIS6) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
 
 :::note
-The above values were tested using a spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/).
+The above values would be suitable for this spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/).
 You will need to use values appropriate for your parachute.
 :::
 
-<!-- 
-The parachute can also be configured using the [Actuators](../config/actuators.md) screen.
-In this case ....
--->
+If dynamic control allocation is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)):
+- Open [Actuators](../config/actuators.md) in QGroundControl
+- Assign the _Parachute_ function to the `AUX6` output:
+
+  ![Actuators - Parachute (QGC)](../../assets/config/actuators/qgc_actuators_parachute.png)
+- Set appropriate PWM values.
+  The output is automatically set to the maximum PWM value when a failsafe is triggered.
+
 
 
 ### MAVLink Parachute Setup
@@ -93,7 +91,6 @@ A MAVLink parachute is required to emit a [HEARTBEAT](https://mavlink.io/en/mess
  
 <!-- PX4 v1.13 support added here: https://github.com/PX4/PX4-Autopilot/pull/18589 -->
 
-<span id="testing"></span>
 ## Parachute Testing
 
 :::warning
