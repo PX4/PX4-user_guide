@@ -60,7 +60,8 @@ make px4_sitl gazebo
 | [표준 비행기 (투석기 발사 포함)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
 | [표준 VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                       | `make px4_sitl gazebo_standard_vtol`   |
 | [테일시터 VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                   | `make px4_sitl gazebo_tailsitter`      |
-| [Ackerman 차량 (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                 | `make px4_sitl gazebo_rover`           |
+| [Ackerman UGV (Rover)](../simulation/gazebo_vehicles.md#ackermann-ugv)                                          | `make px4_sitl gazebo_rover`           |
+| [Differential UGV (Rover)](../simulation/gazebo_vehicles.md#differential-ugv)                                   | `make px4_sitl gazebo_r1_rover`        |
 | [HippoCampus TUHH (UUV: 무인 수중 차량)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
 | [보트 (USV: 무인 수상 차량)](../simulation/gazebo_vehicles.md#usv)                                                      | `make px4_sitl gazebo_boat`            |
 | [클라우드쉽 (비행선)](../simulation/gazebo_vehicles.md#airship)                                                         | `make px4_sitl gazebo_cloudship`       |
