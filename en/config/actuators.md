@@ -323,21 +323,23 @@ Some functions are only relevant to particular frames or output types, and will 
 Functions include: 
 
 - `Disabled`: Output has no assigned function.
-- `Constant_Min`: Output set to constant minimum value.
-- `Constant_Max`: Output is set to constant maximum value.
+- `Constant_Min`: Output set to constant minimum value (-1).
+- `Constant_Max`: Output is set to constant maximum value (+1).
 - `Motor 1` to `Motor 12`: Output is indicated motor.
   Only motors allowed for airframe are displayed.
 - `Servo 1` to `Servo 8`: Servo output.
    These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
-- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: MAVLink Payload output.
+- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: [MAVLink Payload output](../payloads/README.md#cargo-drones-actuator-payloads).
 - `Landing Gear`: Output is landing gear.
 - `Parachute`: Output is parachute.
-- `RC Roll`: Output is roll from RC.
-- `RC Pitch`: Output is pitch from RC.
-- `RC Throttle`: Output is throttle from RC.
-- `RC Yaw`: Output is yaw from RC
-- `RC Flaps`: Output is flaps from RC
-- `RC AUXn` to `RC AUX1`: Outputs used for RC-passthrough.
+  The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
+- `RC Roll`: Output is passthrough roll from RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) maps an RC channel to this output).
+  An RC channel is mapped to the output using .
+- `RC Pitch`: Output is passthrough pitch from RC ([RC_MAP_PITCH](../advanced_config/parameter_reference.md#RC_MAP_PITCH) maps an RC channel to this output).
+- `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
+- `RC Yaw`: Output is yaw from RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) maps an RC channel to this output).
+- `RC Flaps`: Output is flaps from RC ([RC_MAP_FLAPS](../advanced_config/parameter_reference.md#RC_MAP_FLAPS) maps an RC channel to this output).
+- `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/README.md#cargo-drones-actuator-payloads)
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
 - `Gimbal Yaw`: Output controls Gimbal pitch.
@@ -350,7 +352,8 @@ The following functions can only be applied to FMU outputs:
 - `Camera_Capture`: Input to get image capture notification.
   Enabled when [CAM_CAP_FBACK==0](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
   Configured via `CAM_CAP_*` parameters.
-- `PPS_Input`: PPS Capture.
+- `PPS_Input`: Pulse-per-second input capture.
+  Used for GPS synchronisation.
   Enabled when [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
 :::note
