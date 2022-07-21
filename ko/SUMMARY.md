@@ -66,6 +66,7 @@
     * [Robocat 270 \(Pixracer\)](frames_multicopter/robocat_270_pixracer.md)
     * [Matrice 100 (Pixhawk 1)](frames_multicopter/matrice100.md)
     * [QAV-R 5" Racer (Pixracer)](frames_multicopter/qav_r_5_kiss_esc_racer.md)
+    * [Omnicopter](frames_multicopter/omnicopter.md)
   * [고정익](frames_plane/README.md)
     * [Wing Wing Z84 \(픽스레이서\)](frames_plane/wing_wing_z84.md)
   * [수직이착륙기(VTOL)](frames_vtol/README.md)
