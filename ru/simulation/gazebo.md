@@ -60,7 +60,8 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 | [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
 | [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                    | `make px4_sitl gazebo_standard_vtol`   |
 | [Tailsitter VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                | `make px4_sitl gazebo_tailsitter`      |
-| [Ackerman vehicle (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                               | `make px4_sitl gazebo_rover`           |
+| [Ackerman UGV (Rover)](../simulation/gazebo_vehicles.md#ackermann-ugv)                                                             | `make px4_sitl gazebo_rover`           |
+| [Differential UGV (Rover)](../simulation/gazebo_vehicles.md#differential-ugv)                                                      | `make px4_sitl gazebo_r1_rover`        |
 | [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
 | [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                       | `make px4_sitl gazebo_boat`            |
 | [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                    | `make px4_sitl gazebo_cloudship`       |
