@@ -268,7 +268,7 @@ make scumaker_pilotpi_default upload
 
 #### Alternative build method for armhf (using docker)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in firmware folder:
 
@@ -312,7 +312,7 @@ make scumaker_pilotpi_arm64 upload
 
 #### Alternative build method for arm64 (using docker)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in `PX4-Autopilot` folder:
 
@@ -321,7 +321,7 @@ Execute the command in `PX4-Autopilot` folder:
 ```
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
 :::note

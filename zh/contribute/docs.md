@@ -185,7 +185,7 @@ Some of the main categories are:
   - "Experimental" work that requires developer expertise to reproduce.
 - Flying: content related to flying a standard vehicle (flight modes, arming, taking off, landing)
 - Basic configuration: Configuration that every vehicle will need to do
-- 不要在标题中添加任何样式。
+- Advanced configuration: Configuration that is specific to a vehicle type, or some segment of users.
 - Peripherals: Documentation on different hardware that can be used.
   - This also includes setup and configuration information for hardware that isn't covered in Basic configuration.
 - Basic Assembly: Assembly of an autopilot and its main peripherals

@@ -48,7 +48,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.h
    * i2c 버스 4 개(i2c 전용 포트 2 개)
    * CAN 버스 포트 2 개
    * 2개의 전원 포트(전원 A는 일반적인 adc 인터페이스, 전원 C는 uavcan 배터리 인터페이스)
-   * 2개의 ADC 입력
+   * 2  ADC input
    * USB 포트 1 개
 * 전원시스템
   * 전원: 4.3~5.4V

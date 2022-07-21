@@ -14,7 +14,7 @@ This is similar to [compass calibration](../config/compass.md) except that you h
 :::
 
 :::note
-The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations.
+The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
 Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
 :::
 

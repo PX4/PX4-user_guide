@@ -21,7 +21,7 @@ PX4는 고정 또는 이동 표적에 대한 *멀티콥터*의 정밀 착륙을 
 이런 탐색 과정은 탐색 고도까지 상승을 포함합니다([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 기체가 목표물을 탐색 고도에서 찾을 수 없고, 탐색시간 초과 ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT))이후에는 현재 위치에서 일반 착륙을 시작합니다.
 
 :::note
-오프보드 포지셔닝 시스템을 사용하는 경우 PX4는 MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) 메시지를 수신할 때 대상이 보인다고 가정합니다.
+If using an offboard positioning system PX4 assumes that the target is visible when it is receiving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
 :::
 
 #### 가능성 탐색 모드

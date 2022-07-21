@@ -53,7 +53,7 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
 
-## PX4 Firwmare Compatibility
+## PX4 Firmware Compatibility
 
 *Flight Core v1* is fully compatible with the official PX4 Firmware from PX4 v1.11.
 

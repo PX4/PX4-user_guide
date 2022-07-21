@@ -1,6 +1,6 @@
 # Robocat 270
 
-Robocat 270은 경주용이 아닌 순항용으로 설계된 소형 쿼드 콥터로 [Pixracer](../flight_controller/pixracer.md) 자동조종장치를위한 최적의 시험용 제품입니다. 일반적인 250 레이서보다 무겁지만, 추가 기능과 최대 3S/2200mAh의 더 큰 배터리를 위한 많은 공간을 제공합니다. 초보자를위한 견고한 소형 쿼드 콥터로, 노년층 전문가에게도 적당합니다. 매우 쉽습니다 : Robocat, PX4 소프트웨어가 포함된 Pixracer 및 QGroundControl Groundstation : 조립, 보정 및 비행!
+Robocat 270은 경주용이 아닌 순항용으로 설계된 소형 쿼드 콥터로 [Pixracer](../flight_controller/pixracer.md) 자동조종장치를위한 최적의 시험용 제품입니다. It is heavier than a typical 250 racer, but offers a lot of space for add owns and bigger batteries up to 3S/2200mAh. 초보자를위한 견고한 소형 쿼드 콥터로, 노년층 전문가에게도 적당합니다. 매우 쉽습니다 : Robocat, PX4 소프트웨어가 포함된 Pixracer 및 QGroundControl Groundstation : 조립, 보정 및 비행!
 
 ## 조립 및 배선
 
@@ -50,7 +50,7 @@ PX4 스택은 이러한 영향도 로깅하므로 분석하기 쉽습니다. 예
 
 ![적색 fat 로보](../../assets/airframes/multicopter/robocat_270_pixracer/red_fat_robo.jpg)
 
-PX4 스택이있는 Pixracer는 Auto Missions, Loiter, Position Control 및 Return to Land와 같은 여러 GPS 종속 비행 모드를 제공합니다. GPS가 후자에만 사용되는 것이 아니라면 동시 GPS/GLONASS 기능이있는 더 나은 GNSS 장치 중 하나를 설치하는 것이 좋습니다. 35x35mm 보드에 u-blox M8N이있는 모든 유형은 2 층에 맞으며 마스트 대체물 역할을 합니다. 비행 컨트롤러의 내부 MAG는 항상 EMI 영향을 미치고 관련 오프셋을 구축하기 때문에 MAG 센서가 내장 된 GNSS 보드를 사용하는 것이 좋습니다. 이로 인해 TBE(변기) 효과가 발생하여 GPS 모드에 영향을 미칠 수 있습니다. 좋은 녹음. Pixhawk는 Pixracer에서도 작동합니다.
+PX4 스택이있는 Pixracer는 Auto Missions, Loiter, Position Control 및 Return to Land와 같은 여러 GPS 종속 비행 모드를 제공합니다. GPS가 후자에만 사용되는 것이 아니라면 동시 GPS/GLONASS 기능이있는 더 나은 GNSS 장치 중 하나를 설치하는 것이 좋습니다. 35x35mm 보드에 u-blox M8N이있는 모든 유형은 2 층에 맞으며 마스트 대체물 역할을 합니다. It is better to use a GNSS board with a MAG sensor onboard, since the internal MAG of a flight Controller is always prone to EMI impacts and build related offsets. These might cause THE (Toilet bowl) effects, impacting GPS modes. 좋은 녹음. Pixhawk는 Pixracer에서도 작동합니다.
 
 ![red robo aufgeklappt](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_aufgeklappt.jpg)
 

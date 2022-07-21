@@ -195,7 +195,7 @@ rm -rf build/scumaker_pilotpi_default
 
 只是为了编译代码，则可以执行：
 
-您需要检查这些额外项目才能使您机体正常工作。
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 混控器在 `pilotpi_xx.conf` 文件中启用：
 

@@ -210,7 +210,7 @@ If you have already installed these dependencies this may be because there is mo
 
 You should be able to fix this by explicitly installing the dependencies as shown:
 ```
-pip3 install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+pip3 install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
 

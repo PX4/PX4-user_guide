@@ -5,7 +5,7 @@ The *S.Bus Driver for Linux* allows a Linux-based autopilot to access up to 16 c
 A signal inverter circuit is required (described below) to enable the device serial port to read data from the receiver.
 
 :::note
-For an S.Bus reciever (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
+For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
 :::
 
 Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.

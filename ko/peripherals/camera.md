@@ -75,7 +75,7 @@ PX4에서 [CAM_CAP_FBACK=1](../advanced_config/parameter_reference.md#CAM_CAP_FB
 - Pixhawk FMUv5x 보드는 보드별 카메라 캡처 핀 (PI0)을 사용합니다.
 - 다른 보드는 카메라 캡처를 위하여 FMU PWM 핀 6(하드 코딩 됨)을 사용합니다.
 
-PX4는 카메라 캡처 핀에서 적절한 전압 레벨로 상승 에지를 감지합니다 (Pixhawk 비행 콘트롤러의 경우 일반적으로 3.3V). 카메라가 적절한 전압을 출력하지 않는 경우에는, 신호 호환을 위한 추가 회로가 필요합니다.
+PX4는 카메라 캡처 핀에서 적절한 전압 레벨로 상승 에지를 감지합니다 (Pixhawk 비행 콘트롤러의 경우 일반적으로 3.3V). If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
 
 핫슈 커넥터 (플래시 연결 용)가 있는 카메라는 일반적으로 핫슈 어댑터를 통하여 연결할 수 있습니다. 예를 들어, [Seagull # SYNC2 범용 카메라 핫슈 어댑터](https://www.seagulluav.com/product/seagull-sync2/)는 플래시 전압을 Pixhawk 전압으로 분리하고 이동하는 옵토 커플러입니다. 이것은 카메라 상단의 플래시 슬롯에 삽입됩니다. 빨간색 및 검은 색 출력은 서보 레일/접지에 연결되고, 흰색 와이어는 입력 캡처 핀에 연결됩니다.
 

@@ -128,7 +128,7 @@ GPS는 *yaw 출력이 장치에서 지원되는* 모듈 (예 : [Trimble MB-Two](
 일반적으로 추가 나침반 설정은 필요하지 않습니다.
 
 :::note
-모든 외부 나침반에는 기본적으로 동일한 우선 순위가 부여되며, 이는 모든 내부 나침반이 공유하는 우선순위 보다 높습니다.
+All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
 :::
 
 ### 이중 나침반

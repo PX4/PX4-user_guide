@@ -199,7 +199,7 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 - [Generic 250 Racer 구성](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) 기체 선택
 - 센서 보정
 - 충전된 셀 전압 4.15V 및 빈 셀 전압 3.5V로 배터리를 4S(4 셀 LiPo)로 설정합니다.
-- 정확한 전류 전압계 측정을 입력하여 전압 분배기를 보정합니다.
+- Calibrate the voltage divider through typing in the current accurate voltmeter measurement
 - 2 개의 추가 스위치 입력에 대해 이미 설정된 Taranis를 사용하여 RC 채널을 보정합니다. 모드 스위치용 Taranis 전면 플레이트의 오른쪽 상단 모서리에있는 하나의 스위치와 암 스위치로 사용되는 전면 플레이트의 왼쪽 상단 모서리에있는 다른 스위치.
 - 시동 스위치를 설정할 수 있습니다.
 

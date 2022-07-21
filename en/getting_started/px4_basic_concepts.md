@@ -172,7 +172,7 @@ This makes it possible to tune parameters while a vehicle is in flight, inspect 
 PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi.
 The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
-Relevent topics include:
+Relevant topics include:
 * [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
 * [Robotics APIs](../robotics/README.md)
 

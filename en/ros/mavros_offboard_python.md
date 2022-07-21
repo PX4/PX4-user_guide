@@ -356,7 +356,7 @@ Now in the terminal, go to the home directory and run the following command to a
 source .bashrc
 ```
 
-After this step, everytime you open a new terminal window you should not have to worry about this error anymore.
+After this step, every time you open a new terminal window you should not have to worry about this error anymore.
 If it appears again, a simple `source .bashrc` should fix it.
 This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem. 
 :::

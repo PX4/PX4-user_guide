@@ -185,7 +185,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
   - 재현하기 위해 개발자 전문 지식이 필요한 "실험적" 작업
 - 비행: 표준 차량 비행과 관련된 콘텐츠(비행 모드, 무장, 이륙, 착륙)
 - 기본 설정: 모든 차량이 수행해야 하는 설정
-- 고급 설정: 차량 유형 또는 일부 사용자 세그먼트에 적용되는 특별한 설정입니다.
+- Advanced configuration: Configuration that is specific to a vehicle type, or some segment of users.
 - 주변 장치: 사용할 수 있는 다양한 하드웨어에 관련된 문서입니다.
   - 여기에는 기본 설정에서 다루지 않는 하드웨어에 대한 설정 및 구성 정보를 포함합니다.
 - 기본 조립: 자동 조종 장치 및 주요 주변 장치의 조립

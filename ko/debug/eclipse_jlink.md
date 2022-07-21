@@ -14,7 +14,7 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 ### PX4
 
 일반 지침에 따라 PX4를 설정합니다.
-- 플랫폼에 대한 [PX4 개발자 환경/도구 체인 설정](../dev_setup/dev_env.md)(예: Linux의 경우 [Ubuntu LTS/Debian Linux의 개발 환경](../dev_setup/dev_env_linux_ubuntu.md) 참조).
+- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [PX4를 다운로드](../dev_setup/building_px4.md)하고, 선택적으로 명령줄에서 빌드합니다.
 
 ### Eclipse

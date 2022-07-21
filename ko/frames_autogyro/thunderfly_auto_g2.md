@@ -78,7 +78,7 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 ### 전바 부품
 
 * 자동 조종 장치 ([Holybro pix32](../flight_controller/holybro_pix32.md), [CUAV nano](../flight_controller/cuav_v5_nano.md))
-* GPS (GPS 모듈 NEO-6M, 패치 안테나 포함)
+* GPS (GPS Module NEO-6M, with patch antenna)
 * 대기 속도 센서 ([SDP3x](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/))
 * 원본을 대체하는 강력한 서보 (옵션), ([BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm))
 * 릴리스 장치용 추가 서보 (옵션)
@@ -111,7 +111,7 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 
 ### 권장 예비 부품
 
-* 품질이 향상된 서보 ([BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm) 권장, 원래 서보는 내구성이 낮음))
+* Servos with improved quality (recommended [BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm), original servos are not very durable))
 * 프로펠러 ([APC 10x7](https://www.apcprop.com/product/10x7e/))
 * 변형 영역이있는 로터 중앙 플레이트 (3D 인쇄)
 * 로터 블레이드 ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) 또는 3D 프린팅)

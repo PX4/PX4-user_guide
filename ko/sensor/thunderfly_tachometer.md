@@ -68,7 +68,7 @@ pcf8583 start -X -b <bus number>
 
 #### PX4 (NuttX) MAVLink 콘솔
 
-[QGroundControl MAVLink 콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)을 사용하여 드라이버가 실행 여부와 출력되는 UORB 토픽을 확인할 수 있습니다.
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
 
 TFRPM01 드라이버의 상태를 확인하려면 다음 명령을 실행하십시오.
 ```

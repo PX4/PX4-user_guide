@@ -14,7 +14,7 @@
   * INIT 和 OFF
     * pwm 输出设置为锁定状态的值。
   * RAMP
-    * pwm 输出从锁定状态的值上升到解锁状态的最小值。
+    * pwm outputs ramp from disarmed values to min values.
   * ON
     * 根据实际控制量设定 pwm 的输出值。
 

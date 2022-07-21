@@ -127,7 +127,7 @@ Name (multi id, message size in bytes)    number of data points, total bytes
 
 主要特性：
 * Easy to share, users can view notebooks on Github (e.g. [15-09-30 Kabir Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb))
-* 基于Python的，跨平台的，与 anaconda2 和 anaconda3 一起使用。
+* Python based, cross platform, works with anaconda 2 and anaconda3
 * 使用 iPython/jupyter notebooks 可以方便地共享分析
 * 高级绘图功能，允许进行详细分析
 

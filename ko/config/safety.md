@@ -138,7 +138,7 @@ RC 손실 안전장치는 RC 송신기 링크가 수동 모드에서 무선 조�
 | <nobr>정지비행 시간</nobr> | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 배회후 착륙이 선택하면 기체의 정지 비행 시간을 설정합니다.         |
 
 :::note
-귀환 동작은 [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)에 의해 정의됩니다. 음수이면 즉시 착륙합니다. 더 자세한 정보는 [귀환 모드](../flight_modes/return.md)를 참고하십시오.
+The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). 음수이면 즉시 착륙합니다. 더 자세한 정보는 [귀환 모드](../flight_modes/return.md)를 참고하십시오.
 :::
 
 ### 착륙모드 설정

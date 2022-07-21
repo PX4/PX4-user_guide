@@ -362,7 +362,7 @@ make scumaker_pilotpi_default upload
 
 #### armhf용 대체 빌드 방법 (도커 사용)
 
-docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 firmware 폴더에서 다음 명령을 실행합니다.
 
@@ -420,7 +420,7 @@ make scumaker_pilotpi_arm64 upload
 
 #### arm64용 대체 빌드 방법 (도커 사용)
 
-docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 `PX4-Autopilot` 폴더에서 다음 명령을 실행합니다.
 
@@ -432,7 +432,7 @@ docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/doc
 
 
 :::note
-mDNS는 docker에서 지원하지 않습니다. 업로드시 마다 IP 주소를 설정하여야 합니다.
+mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주소를 설정하여야합니다.
 :::
 
 :::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. `upload` 대상을 제거하면, 업로드하지 않고도 컴파일할 수 있습니다.

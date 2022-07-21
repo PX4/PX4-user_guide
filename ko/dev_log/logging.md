@@ -31,7 +31,7 @@ logger help
 
 ### 진단SD 카드 설정
 
-별도로 기록된 주제 목록은 SD 카드의 파일로 사용자가 정의할 수 있습니다. 주제 목록이 있는 카드에 `etc/logging/logger_topics.txt` 파일을 생성합니다(SITL의 경우 `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics).</p>
+Separately, the list of logged topics can also be customized with a file on the SD card. 주제 목록이 있는 카드에 `etc/logging/logger_topics.txt` 파일을 생성합니다(SITL의 경우 `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics).</p>
 
 <pre><code><topic_name> <interval> <instance>
 `</pre>
