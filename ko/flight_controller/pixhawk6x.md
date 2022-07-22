@@ -9,7 +9,7 @@ It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.co
 
 Equipped with a high performance H7 Processor, modular design, triple redundancy, temperature-controlled IMU board, isolated sensor domains, delivering incredible performance, reliability, and flexibility.
 
-<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="250px" title="Pixhawk6X Upright Image" /> <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_exploded_diagram.png" width="300px" title="Pixhawk6X Exploded Image" />
+<img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_hero_upright.png" width="230px" title="Pixhawk6X Upright Image" /> <img src="../../assets/flight_controller/pixhawk6x/pixhawk6x_exploded_diagram.png" width="400px" title="Pixhawk6X Exploded Image" />
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
@@ -223,9 +223,9 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 ## Further info
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6c.md)
+- [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
 - [PM02D Power Module](../power_module/holybro_pm02d.md)
-- [PM02D Power Module](../power_module/holybro_pm03d.md)
+- [PM03D Power Module](../power_module/holybro_pm03d.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
 - [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).

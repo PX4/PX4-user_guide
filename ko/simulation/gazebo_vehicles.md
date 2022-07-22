@@ -109,17 +109,13 @@ make px4_sitl gazebo_tailsitter
 
 ## 무인 지상 차량(UGV/탐사선/자동차)
 
-<a id="ugv_ackerman"></a>
-
-### Ackerman UGV
+### Ackermann UGV
 
 ```sh
 make px4_sitl gazebo_rover
 ```
 
 ![가제보 탐사선](../../assets/simulation/gazebo/vehicles/rover.png)
-
-<a id="ugv_differential"></a>
 
 ### 차동 UGV
 
