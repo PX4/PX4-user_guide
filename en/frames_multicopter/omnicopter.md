@@ -117,6 +117,7 @@ Make sure the motors do not overheat with the changed settings.
 - [This file](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/multicopter/omnicopter/omnicopter.params) contains all the relevant parameters.
 
 ## Video
+
 @[youtube](https://www.youtube.com/watch?v=nsPkQYugfzs)
 
 ## Simulation
