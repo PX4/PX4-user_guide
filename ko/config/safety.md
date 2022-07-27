@@ -34,10 +34,9 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 ## QGroundControl 안전 설정
 
-*QGroundControl*의 안전 설정 페이지는 *QGroundControl* **기어** 아이콘 (차량 설정 - 상단 도구 모음)을 클릭한 다음 사이드바의 **안전**을 클릭하여 오픈합니다.). 여기에는 가장 중요한 안전장치 설정 (배터리, RC 손실 등)과 귀환 작업(*귀환* 및 *착륙 *)에 관한 설정이 포함됩니다.
+The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* icon, **Vehicle Setup**, and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions *Return* and *Land*.
 
-![안전 설정(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
-
+![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
 ### 배터리 부족 안전장치
 
@@ -61,20 +60,26 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 ### RC 손실 안전장치
 
-RC 손실 안전장치는 RC 송신기 링크가 수동 모드에서 무선 조종기의 신호 연결이 약할 경우에 동작합니다.(기본적으로, RC 손실 안전장치는 자동 모드 (예 : 임무 중)에는 동작하지 않습니다.).
+The RC Loss failsafe may be triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions, hold mode, or offboard mode).
 
 ![안전 - RC 손실 (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
+
+Generally you will only want to set the _Failsafe_ action:
+
+- The _RC Lost Timeout_ is the time after data stops updating before the link is considered lost. This must be kept short because the vehicle will continue to fly using the old RC data until the timeout triggers.
+- You may need to modify the [COM_RCL_ACT_T](#COM_RCL_ACT_T) parameter. This is a delay after the link is lost and before the failsafe action is triggered in which the vehicle waits in hold mode for the RC system to reconnect. This might be longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. It can be to zero so that the failsafe triggers immediately.
 
 :::tip PX4는 여러 임의의 다각형 및 원형 포함 및 제외 영역 ([Flying > GeoFence](../flying/geofence.md))이 있는 GeoFence를 지원합니다.
 :::
 
-설정에 관련된 기본 매개 변수는 다음과 같습니다.
+Additional (and underlying) parameter settings are shown below.
 
-| 설정            | 매개변수                                                                         | 설명                                                   |
-| ------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------- |
-| RC 연결불량 시간 초과 | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | RC 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다.                 |
-| 안전장치 기능       | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 비활성화, 배회, 귀환, 착륙, 종료, 봉쇄.                            |
-| RC 손실 예외      | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC 손실이 무시되는 모드를 설정합니다: Mission(기본값), Hold, Offboard. |
+| 설정                                              | 매개변수                                                                         | 설명                                                                                                                                   |
+| ----------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="COM_RC_LOSS_T"></a> RC 연결불량 시간 초과          | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | Time after RC stops updating supplied data that the RC link is considered lost.                                                      |
+| <a id="COM_RCL_ACT_T"></a>RC Loss Action Timeout | [COM_RCL_ACT_T](../advanced_config/parameter_reference.md#COM_RCL_ACT_T)   | Timeout after RC link loss waiting to recover RC before the failsafe action is triggered. In this stage the vehicle is in hold mode. |
+| <a id="NAV_RCL_ACT"></a>안전장치 기능                | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 비활성화, 배회, 귀환, 착륙, 종료, 봉쇄.                                                                                                            |
+| <a id="COM_RCL_EXCEPT"></a>RC 손실 예외              | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC 손실이 무시되는 모드를 설정합니다: Mission(기본값), Hold, Offboard.                                                                                 |
 
 ### 데이터 연결불량 안전장치
 
@@ -264,9 +269,9 @@ VTOL 차량이 고정익 모드에서 더 이상 비행할 수 없는 경우를 
 
 | 매개변수                                                                                                   | 설명                                                                       |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| <a id="CBRK_FLIGHTTERM"></a>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)  | 비행 종료 회로 차단기. 실패감지기 또는 FMU 손실로 인한 비행 종료를 활성화하려면 121212 (기본값)에서 설정 해제합니다. |
-| <a id="FD_FAIL_P"></a>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)            | 최대 허용 피치 (도 단위).                                                         |
-| <a id="FD_FAIL_R"></a>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)            | 최대 허용 롤 (도 단위).                                                          |
+| <a id="CBRK_FLIGHTTERM"></a>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 비행 종료 회로 차단기. 실패감지기 또는 FMU 손실로 인한 비행 종료를 활성화하려면 121212 (기본값)에서 설정 해제합니다. |
+| <a id="FD_FAIL_P"></a>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)           | 최대 허용 피치 (도 단위).                                                         |
+| <a id="FD_FAIL_R"></a>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)           | 최대 허용 롤 (도 단위).                                                          |
 | <a id="FD_FAIL_P_TTRI"></a>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | 실패 감지를 위해 [FD_FAIL_P](#FD_FAIL_P)를 초과하는 시간 (기본값 0.3 초).                |
 | <a id="FD_FAIL_R_TTRI"></a>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | 실패 감지를 위해 [FD_FAIL_R](#FD_FAIL_R)을 초과하는 시간 (기본값 0.3 초).                |
 

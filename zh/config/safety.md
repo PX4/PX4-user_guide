@@ -32,10 +32,9 @@ This might result in the vehicle being changed to a manual mode so the user can 
 
 ## QGroundControl 安全设置
 
-The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
+The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* icon, **Vehicle Setup**, and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions *Return* and *Land*.
 
-![Safety Setup (QGC)](../../assets/qgc/setup/safety/safety_setup.png)
-
+![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
 ### 低电量故障保护
 
@@ -59,20 +58,26 @@ The settings and underlying parameters are shown below.
 
 ### 遥控信号丢失故障保护
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions).
+The RC Loss failsafe may be triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions, hold mode, or offboard mode).
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
+
+Generally you will only want to set the _Failsafe_ action:
+
+- The _RC Lost Timeout_ is the time after data stops updating before the link is considered lost. This must be kept short because the vehicle will continue to fly using the old RC data until the timeout triggers.
+- You may need to modify the [COM_RCL_ACT_T](#COM_RCL_ACT_T) parameter. This is a delay after the link is lost and before the failsafe action is triggered in which the vehicle waits in hold mode for the RC system to reconnect. This might be longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. It can be to zero so that the failsafe triggers immediately.
 
 :::note PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
 :::
 
-The settings and underlying parameters are shown below.
+Additional (and underlying) parameter settings are shown below.
 
-| 设置                 | 参数                                                                           | 描述                                                                            |
-| ------------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| 遥控信号丢失超时           | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | 遥控信号失联后到故障保险触发前的时间。                                                           |
-| 故障保护动作             | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 禁用，悬停，返航，降落，终止，锁定。                                                            |
-| RC Loss Exceptions | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard. |
+| 设置                                              | 参数                                                                           | 描述                                                                                                                                   |
+| ----------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="COM_RC_LOSS_T"></a> 遥控信号丢失超时               | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | Time after RC stops updating supplied data that the RC link is considered lost.                                                      |
+| <a id="COM_RCL_ACT_T"></a>RC Loss Action Timeout | [COM_RCL_ACT_T](../advanced_config/parameter_reference.md#COM_RCL_ACT_T)   | Timeout after RC link loss waiting to recover RC before the failsafe action is triggered. In this stage the vehicle is in hold mode. |
+| <a id="NAV_RCL_ACT"></a>故障保护动作                 | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 禁用，悬停，返航，降落，终止，锁定。                                                                                                                   |
+| <a id="COM_RCL_EXCEPT"></a>RC Loss Exceptions    | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard.                                                        |
 
 ### 数据链路丢失故障保护
 
@@ -261,9 +266,9 @@ The relevant parameters are shown below:
 
 | 参数                                                                                                     | 描述                                                    |
 | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| <a id="CBRK_FLIGHTTERM"></a>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)  | 飞行终止断路器。 从 121212（默认）取消设置，以启用由于故障检测器或 FMU 丢失而导致的飞行终止。 |
-| <a id="FD_FAIL_P"></a>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)            | 最大允许俯仰角（角度制）。                                         |
-| <a id="FD_FAIL_R"></a>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)            | 最大允许横滚角（角度制）。                                         |
+| <a id="CBRK_FLIGHTTERM"></a>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 飞行终止断路器。 从 121212（默认）取消设置，以启用由于故障检测器或 FMU 丢失而导致的飞行终止。 |
+| <a id="FD_FAIL_P"></a>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)           | 最大允许俯仰角（角度制）。                                         |
+| <a id="FD_FAIL_R"></a>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)           | 最大允许横滚角（角度制）。                                         |
 | <a id="FD_FAIL_P_TTRI"></a>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | 超过故障检测的 [FD_FAIL_P](#FD_FAIL_P) 时间（默认为 0.3s）。       |
 | <a id="FD_FAIL_R_TTRI"></a>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | 超过故障检测的 [FD_FAIL_R](#FD_FAIL_R) 时间（默认为 0.3s）。       |
 
