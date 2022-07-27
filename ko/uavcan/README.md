@@ -50,7 +50,7 @@ The following diagram shows this for a flight controller connected to [UAVCAN mo
 
 The diagram does not show any power wiring. Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
 
-For more information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
+For more information about proper bus connections see [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (Zubax KB)) (Zubax KB).
 
 :::note
 - 연결은 동일하지만 _커넥터_는 기기마다 다를 수 있습니다.
