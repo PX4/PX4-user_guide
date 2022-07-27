@@ -7,7 +7,7 @@ AirSim 是一款开源、跨平台的无人机仿真器，基于虚幻引擎开�
 
 ## 更多信息
 
-使用 PX4 的文档主要切入点为 [PX4 Setup for AirSim](https://github.com/Microsoft/AirSim/blob/master/docs/px4_setup.md)（涵盖 HITL 与 SITL）。
+[PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup/) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl/) and [HITL](https://microsoft.github.io/AirSim/px4_setup/#setting-up-px4-hardware-in-loop).
 
 
 ## Videos
@@ -33,4 +33,4 @@ AirSim 是一款开源、跨平台的无人机仿真器，基于虚幻引擎开�
 ## Further Information
 
 * [AirSim Documentation](https://microsoft.github.io/AirSim/)
-* [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://github.com/generalized-intelligence/GAAS/tree/master/demo/case_study_1?fbclid=IwAR2JO0LPesA5z313sA2QGm1t01bb4wn0Xpz_JkD7Z1s3nombJWHyTZdLuMA) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
+* [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://gaas.gitbook.io/guide/case-study/using-airsim-to-simulate-aircraft-inspection-by-autonomous-drones) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
