@@ -28,7 +28,7 @@ Almost everything you need is provided in the RTF kit (the links next to compone
   * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
   * Power Sensor  
   * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-* [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
+* Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
 * 4 x propeller 10”x 5” (quad motors)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
 * 1 x propeller 10” x 5” (pusher motor)
