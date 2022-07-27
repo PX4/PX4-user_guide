@@ -28,7 +28,7 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고 시스템에 �
   * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
   * 전원 센서:
   * [풍속 센서](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-* [쿼드 파워 세트 T-모터](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
+* Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
 * 4 x 프로펠러 10”x 5”(쿼드 모터)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
 * 프로펠러 10”x 5”1 개 (푸셔 모터)

@@ -78,7 +78,7 @@ VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 �
 
 ---
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
 @[Skypull](https://www.skypull.technology/) Tethered 쿼드 테일시터 (홍보용 비디오) @[유투브](https://youtu.be/6s-Izqb_GVs)
 
@@ -111,7 +111,7 @@ VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 �
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/tech-data/">UAV Works VALAQ 순찰 테일 시터</a></big></div>
+    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/valaq_patrol_technical_data/">UAV Works VALAQ 순찰 테일 시터</a></big></div>
     <div class="grid_text">
       <img title="UAV Works VALAQ 순찰 테일 시터" src="../../assets/airframes/vtol/uav_works_valaq_patrol/hero.jpg" />
     </div>

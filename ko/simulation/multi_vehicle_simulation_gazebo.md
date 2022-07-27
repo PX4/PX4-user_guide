@@ -264,5 +264,5 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
 ## 추가 자료
 
 * UDP 포트 설정은 [시뮬레이션](../simulation/README.md)을 참고하십시오.
-* xacro로 모델 생성에 대한 자세한 내용은 [Gazebo의 URDF](http://gazebosim.org/tutorials/?tut=ros_urdf)를 참고하십시오.
+* See [URDF in Gazebo](http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo) for more information about spawning the model with xacro.
 * 더 많은 xacro 모델은 [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf)를 참고하십시오.

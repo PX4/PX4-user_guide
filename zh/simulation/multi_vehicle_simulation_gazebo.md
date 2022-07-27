@@ -261,5 +261,5 @@ $(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf ``` :::no
 ## 其他资源
 
 * 更多UDP端口配置请参考 [Simulation](../simulation/README.md)。
-* 更多关于xacro多模型的信息请参考 [URDF in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
+* See [URDF in Gazebo](http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo) for more information about spawning the model with xacro.
 * 更过xacro模型请参考[RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf)。
