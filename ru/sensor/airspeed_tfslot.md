@@ -4,7 +4,7 @@
 
 ![TFSLOT and TFSLOT WITH TFASPDIMU02 board](../../assets/hardware/sensors/airspeed/tsflot_compose.jpg)
 
-[TFSLOT](https://github.com/ThunderFly-aerospace/TFSLOT01) is an airspeed sensor based on venturi effects. In the basic configuration, the TFSLOT is equipped with the [TFASPDIMU02](https://github.com/ThunderFly-aerospace/TFASPDIMU02) sensor board, which contains a differential pressure sensor ([Sensirion SDP3x](https://www.sensirion.com/sdp3x/)) and a 9-axis motion tracking sensor ([ICM-20948](https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948/)). The IMU unit can be used as an external compass.
+[TFSLOT](https://github.com/ThunderFly-aerospace/TFSLOT01) is an airspeed sensor based on venturi effects. In the basic configuration, the TFSLOT is equipped with the [TFASPDIMU02](https://github.com/ThunderFly-aerospace/TFASPDIMU02) sensor board, which contains a differential pressure sensor ([Sensirion SDP3x series](https://sensirion.com/products/catalog/?filter_series=d1816d53-f5c8-47e3-ab47-818c3fd54259)) and a 9-axis motion tracking sensor ([ICM-20948](https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948/)). The IMU unit can be used as an external compass.
 
 * This design brings several advantages when used on small-scale and slow-flying UAV’s.
 * Better resolution at low airspeeds (below 10 m/s).
