@@ -4,7 +4,7 @@
 연소 가제보 시뮬레이션은 단일 프레임(쿼드콥터)을 지원하며, 헤드리스 모드(2021년 7월)에서는 실행할 수 없습니다.
 :::
 
-[연소 가제보](https://ignitionrobotics.org/libs/gazebo)는 [Ignition Robotics Project](https://ignitionrobotics.org/home)의 오픈 소스 로봇 시뮬레이터입니다. 인기 있는 로봇 시뮬레이터 [Gazebo](./gazebo.md)에서 파생되었으며, 고급 렌더링, 물리학 및 센서 모델이 특징입니다.
+[Ignition Gazebo](https://gazebosim.org/libs/gazebo) is an open source robotics simulator from the _Ignition Robotics Project_. 인기 있는 로봇 시뮬레이터 [Gazebo](./gazebo.md)에서 파생되었으며, 고급 렌더링, 물리학 및 센서 모델이 특징입니다.
 
 **지원 차량:** 쿼드콥터
 
