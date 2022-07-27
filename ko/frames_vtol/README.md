@@ -114,7 +114,7 @@ VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 ### 테일시터
 
 
-[UAV Works VALAQ 순찰 테일 시터](https://www.valaqpatrol.com/tech-data/)
+[UAV Works VALAQ 순찰 테일 시터](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
 
 @[유투브](https://youtu.be/pWt6uoqpPIw)
 
