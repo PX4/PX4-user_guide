@@ -8,7 +8,7 @@ It provides physically and visually realistic simulations of Pixhawk/PX4 using e
 
 ## PX4 Setup
 
-[PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup.html) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl.html) and [HITL](https://microsoft.github.io/AirSim/px4_setup.html#setting-up-px4-hardware-in-loop).
+[PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup/) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl/) and [HITL](https://microsoft.github.io/AirSim/px4_setup/#setting-up-px4-hardware-in-loop).
 
 
 ## Videos
@@ -35,4 +35,4 @@ This limitation does not apply for AirSim because its UI is run natively in Wind
 ## Further Information
 
 * [AirSim Documentation](https://microsoft.github.io/AirSim/)
-* [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://github.com/generalized-intelligence/GAAS/tree/master/demo/case_study_1?fbclid=IwAR2JO0LPesA5z313sA2QGm1t01bb4wn0Xpz_JkD7Z1s3nombJWHyTZdLuMA) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
+* [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://gaas.gitbook.io/guide/case-study/using-airsim-to-simulate-aircraft-inspection-by-autonomous-drones) (Case Study from Generalized Autonomy Aviation System (GAAS) project).

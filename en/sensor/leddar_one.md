@@ -36,4 +36,4 @@ CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y
 
 ## Further Information
 
-* [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf)
+* [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2021/04/Spec-Sheet_LeddarOne_V10.0_EN-1.pdf)
