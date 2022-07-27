@@ -78,7 +78,7 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 ---
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
 @[youtube](https://youtu.be/pWt6uoqpPIw)
 
@@ -111,7 +111,7 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/tech-data/">UAV Works VALAQ Patrol Tailsitter</a></big></div>
+    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/valaq_patrol_technical_data/">UAV Works VALAQ Patrol Tailsitter</a></big></div>
     <div class="grid_text">
       <img title="UAV Works VALAQ Patrol Tailsitter" src="../../assets/airframes/vtol/uav_works_valaq_patrol/hero.jpg" />
     </div>
