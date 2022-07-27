@@ -1,7 +1,7 @@
 # Contributing
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/">can be found here</a>.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/">can be found here</a>.</p>
   </div>
 </div>
 
