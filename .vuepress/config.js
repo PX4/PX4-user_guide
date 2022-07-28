@@ -87,7 +87,7 @@ module.exports = {
     }
   },
   themeConfig: {
-    px4_version: 'main',
+    px4_version: 'v1.13',
     sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
     logo: '/px4-logo.svg',
     searchMaxSuggestions: 10,
@@ -102,7 +102,7 @@ module.exports = {
     // Optional options for generating "Edit this page" link
 
     // if your docs are in a different repo from your main project:
-    docsRepo: 'PX4/px4_user_guide',
+    docsRepo: 'PX4/PX4-user_guide',
     // if your docs are not at the root of the repo:
     //docsDir: 'docs',
     // if your docs are in a specific branch (defaults to 'main'):
@@ -174,6 +174,7 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/en/' },
+              { text: 'v1.13', link: 'https://docs.px4.io/v1.13/en/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/en/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
@@ -257,6 +258,7 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/ko/' },
+              { text: 'v1.13', link: 'https://docs.px4.io/v1.13/ko/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/ko/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
@@ -332,6 +334,7 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'main', link: 'https://docs.px4.io/main/zh/' },
+              { text: 'v1.13', link: 'https://docs.px4.io/v1.13/zh/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/zh/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/zh/' },
