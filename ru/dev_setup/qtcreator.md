@@ -20,7 +20,7 @@ The video below shows how it is used.
 
 ### Qt Creator on Linux
 
-Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
+Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
 
 ```sh
 cd ~/src/PX4-Autopilot
@@ -41,7 +41,7 @@ Windows has not been tested for PX4 development with Qt Creator.
 
 ### Qt Creator on Mac OS
 
-Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
+Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
 
 ```sh
 cd ~/src/PX4-Autopilot
