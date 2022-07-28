@@ -15,7 +15,7 @@ PX4 currently ignores the altitude of/from the target and follows at a constant 
 This limitation is because altitude sources from GPS on ground stations are often inaccurate.
 :::
 
-The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html).
+The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_follow_me.html).
 
 :::note
 * This mode requires GPS.
