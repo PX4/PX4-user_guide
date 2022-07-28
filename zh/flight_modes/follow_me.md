@@ -15,7 +15,7 @@ PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始�
 这一限制是因为来自地面站 GPS 的高度源通常不准确。
 :::
 
-The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html).
+The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_follow_me.html).
 
 :::note
 * This mode requires GPS.
