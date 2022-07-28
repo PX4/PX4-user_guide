@@ -38,7 +38,7 @@ sudo usermod -aG docker $USER
 <a id="px4_containers"></a>
 ## Container Hierarchy
 
-The available containers are on [Github here](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
 These allow testing of various build targets and configurations (the included tools can be inferred from their names).
 The containers are hierarchial, such that containers have the functionality of their parents.

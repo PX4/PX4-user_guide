@@ -4,7 +4,7 @@ Developers are encouraged to write unit tests during all parts of development, i
 
 PX4 provides several methods for writing unit tests:
 
-1. Unit tests with [Google Test](https://github.com/google/googletest/blob/master/docs/primer.md) ("GTest") - tests that have minimal, internal-only dependencies
+1. Unit tests with [Google Test](https://github.com/google/googletest/blob/main/docs/primer.md) ("GTest") - tests that have minimal, internal-only dependencies
 1. Functional tests with GTest - tests that depend on parameters and uORB messages
 1. SITL unit tests. This is for tests that need to run in full SITL. These tests are much slower to run and harder to debug, so it is recommended to use GTest instead when possible.
 
@@ -42,7 +42,7 @@ The steps to creating new functional tests are as follows:
 1. If additional library dependencies are required, they should also be added to the CMakeLists after the `LINKLIBS` as shown above.
 
 Tests can be run via `make tests`, after which you will find the binary in `build/px4_sitl_test/functional-MyNewFunctional`.
-It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
+It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/main/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
 
 ## Writing a SITL Unit Test
 

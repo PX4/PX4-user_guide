@@ -4,7 +4,7 @@ The sections below provide high-level overview of the PX4 hardware and software 
 
 :::note
 The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware.
-Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html).
+Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/main/en/).
 :::
 
 
