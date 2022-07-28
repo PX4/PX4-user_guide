@@ -45,14 +45,15 @@ Key features:
 
 * Intuitive drag&drop interface.
 * Arrange your data in multiple plots, tabs or windows.
-* Every single uORB topics are shown and can be graphed.
+* Every uORB topics are shown and can be graphed.
 * Once you arranged your data, save it into a "Layout" file and reload it multiple times.
-* You can also save only the layout (without data) and use it multiple times with different logs.
 * Process your data inside PlotJuggler itself, using custom "data transformations".
 
 Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
 
-![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
+![PlotJuggler](../../assets/flight_log_analysis/plot_juggler/plotjuggler_example_view.png)
+
+See [Log Analysis using Plot Juggler](./plotjuggler_log_analysis.md) for an introduction.
 
 ### pyulog
 
