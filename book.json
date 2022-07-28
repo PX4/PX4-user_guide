@@ -81,7 +81,11 @@
                 },
                 {
                     "value": "https://docs.px4.io/v1.12/en/",
-                    "text": "v1.12 - stable"
+                    "text": "v1.13 - stable"
+                },
+                {
+                    "value": "https://docs.px4.io/v1.12/en/",
+                    "text": "v1.12"
                 },				 
                 {
                     "value": "https://docs.px4.io/v1.11/en/",
