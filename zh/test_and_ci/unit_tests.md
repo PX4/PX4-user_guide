@@ -4,7 +4,7 @@
 
 或者，也可以直接从 bash 运行完整的单元测试：
 
-1. 在 [tests](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tests) 中创建名为 **test_ [description] .cpp** 的新 .cpp 文件。
+1. Unit tests with [Google Test](https://github.com/google/googletest/blob/main/docs/primer.md) ("GTest") - tests that have minimal, internal-only dependencies
 1. 在 **test_[description].cpp** 中包括基本 unittest-class`&lt;unit_test.h&gt;` 以及为新功能编写测试所需的所有文件。
 1. 软件在环(SITL)单元测试。 这些测试需要运行在完整的SITL环境中， 运行起来更慢，更难调试，所以建议尽可能使用GTest代替。
 
@@ -35,7 +35,7 @@
 1. 添加你想要的测试功能。 这包括了，添加特定的头文件、新测试（每个测试都应该使用不同的命名），并设置相关逻辑，运行测试代码并验证是否符合预期。
 1. 如果需要添加新的依赖库，只要在如上所说的CMakeLists文件中LINKLIBS后面加入库的名字。
 
-可以通用`make tests`命令来运行所有测试，然后在 `build/px4_sitl_test/functional-MyNewFunctional`目录中找到二进行制文件。 也可以直接通过调试器中运行。 It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
+可以通用`make tests`命令来运行所有测试，然后在 `build/px4_sitl_test/functional-MyNewFunctional`目录中找到二进行制文件。 也可以直接通过调试器中运行。 It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/main/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
 
 ## 写一个软件在环（SITL）单元测试
 
