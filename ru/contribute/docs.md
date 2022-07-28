@@ -5,7 +5,7 @@ Contributions to the PX4 User Guide are very welcome; from simple fixes to spell
 This topic explains how to make and test changes. Towards the end there is a basic style guide.
 
 ::: tip
-Note You will need a (free) [Github](http://github.com) account to contribute to the guides.
+Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
 <a id="github_changes" ></a>
@@ -137,7 +137,7 @@ In overview:
 * All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
   - This makes linking easier because other pages and images are always as the same relative levels
 * The _structure_ of the book is defined in **SUMMARY.md**
-  - If you add a new page to the guide you must also add an entry to this file! :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js)).
+  - If you add a new page to the guide you must also add an entry to this file! :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
 :::
 * Images must be stored in a sub folder of **/assets**. This is two folders down from content folders, so if you add an image you will reference it like:
   ```

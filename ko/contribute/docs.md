@@ -5,7 +5,7 @@ PX4 사용자 가이드에 대한 기여를 매우 환영합니다. 간단한 �
 이 항목에서는 변경 사항을 적용하고 테스트하는 방법을 설명합니다. 마지막에는 기본 스타일 가이드가 있습니다.
 
 ::: tip
-Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요합니다.
+Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
 <a id="github_changes" ></a>
@@ -137,7 +137,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 * 모든 페이지는 **/en**이라는 적절한 이름의 하위 폴더에 있어야 합니다(예: 이 페이지는 **en/contribute/** 폴더에 있음).
   - 이렇게 하면 다른 페이지와 이미지가 항상 동일한 상대 수준이므로 연결이 더 용이해집니다.
 * 책의 _구조_는 **SUMMARY.md**에 정의되어 있습니다.
-  - 가이드에 새 페이지를 추가하는 경우 이 파일에도 항목을 추가하여야 합니다. :::tip 이것은 사이드바를 정의하는 "표준 vuepress" 방식이 아닙니다(요약 파일은 [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js)에서 가져옴).
+  - 가이드에 새 페이지를 추가하는 경우 이 파일에도 항목을 추가하여야 합니다. :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
 :::
 * 이미지는 **/assets**의 하위 폴더에 저장하여야 합니다. 이것은 콘텐츠 폴더에서 두 개의 폴더 아래에 있으므로, 이미지를 추가하면 다음과 같이 참조하게 됩니다.
   ```

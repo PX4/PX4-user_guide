@@ -10,7 +10,7 @@ PX4 프로젝트는 3가지 Git 분기 모델을 사용합니다.
 
 [리베이스를 통한 기록](https://www.atlassian.com/git/tutorials/rewriting-history)을 유지하며 [Github 흐름](https://guides.github.com/introduction/flow/)을 배제합니다. 그러나, 전세계의 역동적인 개발팀과 수시로 병합 작업을 진행합니다.
 
-새로운 기능을 추가하려면, [Github에 가입](https://help.github.com/articles/signing-up-for-a-new-github-account/)한 다음 저장소를 [포크](https://help.github.com/articles/fork-a-repo/)하고, [새 브랜치를 생성](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/)하고, 변경 사항을 추가하고, 마지막으로 [ 풀 리퀘스트를 전송합니다](https://help.github.com/articles/using-pull-requests/). 변경사항은 [지속적 통합](https://en.wikipedia.org/wiki/Continuous_integration) 테스트를 통과한 다음에 병합됩니다.
+To contribute new functionality, [sign up for Github](https://help.github.com/articles/signing-up-for-a-new-github-account/), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your changes, and finally [send a pull request](https://help.github.com/articles/using-pull-requests/). 변경사항은 [지속적 통합](https://en.wikipedia.org/wiki/Continuous_integration) 테스트를 통과한 다음에 병합됩니다.
 
 코드 기여는 [BSD 3절 라이선스](https://opensource.org/licenses/BSD-3-Clause)를 준수하여여 하며, 코드에는 사용에 제약 사항을 부과하지 않아야 합니다.
 
