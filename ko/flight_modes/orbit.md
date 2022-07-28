@@ -8,7 +8,7 @@
 
 모드를 활성화하고 궤도의 중심 위치, 초기 반경 및 고도를 설정하려면 *QGroundControl* (또는 기타 호환 가능한 GCS 또는 MAVLink API)이 *필요*합니다. 활성화되면 기체는 명령된 원 궤적에서 가장 가까운 지점까지 최대한 빠르게 비행하고 계획된 원에서 시계 방향으로 천천히 (1m / s) 궤도를 돌면서 중앙을 향합니다.
 
-궤도를 시작하는 방법에 대한 지침은 [FlyView > 궤도 위치](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) (*QGroundControl* 가이드)에서 찾을 수 있습니다.
+Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#orbit) (*QGroundControl* guide).
 
 :::note RC
 무선 조종기 사용은 *선택 사항*입니다. RC 제어가 없는 경우 궤도는 위에서 설명한 대로 진행됩니다. RC 제어를 사용하여 모드를 시작할 수 없습니다 (RC를 통해 모드로 전환하면 유휴 상태가됩니다).
