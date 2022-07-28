@@ -1,10 +1,6 @@
 # Flight Log Analysis
 
-This topic outlines approaches and software packages that can be used to analyze PX4 flight logs.
-
-## Reporting Flights
-
-[Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
+This topic outlines approaches and software packages that can be used to analyze PX4 flight logs. [Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
 
 ## Structured Analysis
 
@@ -15,7 +11,7 @@ Before analyzing a flight log it is important to establish its context:
 * Does the sensor data look valid? Was there very strong vibration \(a reasonable threshold for strong vibration is anything with a peak-to-peak of more than 2-3 m/s/s\).
 * If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
 
-## Ruling Out Power Failures
+### Ruling Out Power Failures
 
 If a log file ends mid-air, two main causes are possible: a power failure *or* a hard fault of the operating system. 
 
@@ -37,6 +33,26 @@ Key features:
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
 
 See [Log Analysis using Flight Review](flight_review.md) for an introduction.
+
+### PlotJuggler
+
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a desktop application 
+that allows users to easily visualize and analyze data expressed in the form of time series. This is one of the best analysis tools for the ULog, as it exposes every information in the log (Flight Review for example only shows few selected data like 'Roll Angular Rate', etc.)
+
+It supports __ULog files__ (.ulg) since version 2.1.4.
+
+Key features:
+
+* Intuitive drag&drop interface.
+* Arrange your data in multiple plots, tabs or windows.
+* Every single uORB topics are shown and can be graphed.
+* Once you arranged your data, save it into a "Layout" file and reload it multiple times.
+* You can also save only the layout (without data) and use it multiple times with different logs.
+* Process your data inside PlotJuggler itself, using custom "data transformations".
+
+Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
+
+![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
 
 ### pyulog
 
@@ -153,26 +169,6 @@ Key features:
 * And many more ...
 
 ![MAVGCL](../../assets/flight_log_analysis/mavgcl/time_series.png)
-
-
-### PlotJuggler
-
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a Qt5 desktop application 
-that allows users to easily visualize and analyze data expressed in the form of time series.
-
-It supports __ULog files__ (.ulg) since version 2.1.4.
-
-Key features:
-
-* Intuitive drag&drop interface.
-* Arrange your data in multiple plots, tabs or windows.
-* Once you arranged your data, save it into a "Layout" file and reload it multiple times.
-* Process your data inside PlotJuggler itself, using custom "data transformations".
-
-Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
-
-![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
-
 
 ### Data Comets
 
