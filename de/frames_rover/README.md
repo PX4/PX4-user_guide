@@ -37,8 +37,8 @@ For vehicles with Differential steering:
 
 Gazebo provides simulations for both types of steering:
 
-- Ackermann: [gazebo rover](../simulation/gazebo.md#ackermann-ugv)
-- Differential: [r1 rover](../simulation/gazebo.md#differential-ugv)
+- Ackermann: [gazebo rover](../simulation/gazebo_vehicles.md#ackermann-ugv)
+- Differential: [r1 rover](../simulation/gazebo_vehicles.md#differential-ugv)
 
 ## Videos
 
