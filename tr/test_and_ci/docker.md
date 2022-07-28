@@ -37,7 +37,7 @@ sudo usermod -aG docker $USER
 
 ## Container Hierarchy
 
-The available containers are on [Github here](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
 These allow testing of various build targets and configurations (the included tools can be inferred from their names). The containers are hierarchial, such that containers have the functionality of their parents. For example, below you can see that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
