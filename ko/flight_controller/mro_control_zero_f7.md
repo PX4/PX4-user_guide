@@ -74,7 +74,7 @@ make mro_ctrl-zero-f7
 
 ### 콘솔 포트
 
-[PX4 시스템 콘솔](../debug/system_console.md)은 아래에 나열된 핀을 사용하여 `USART7`에서 실행됩니다. 이것은 [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) 케이블(5V 허용)에 연결하도록 설계된 표준 직렬 핀배열입니다.
+[PX4 시스템 콘솔](../debug/system_console.md)은 아래에 나열된 핀을 사용하여 `USART7`에서 실행됩니다. This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
 | mRo control zero f7 |             | FTDI              |
 | ------------------- | ----------- | ----------------- |
