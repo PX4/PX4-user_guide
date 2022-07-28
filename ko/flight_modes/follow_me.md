@@ -15,7 +15,7 @@ PX4는 현재 타겟의 고도를 무시하고 홈 위의 일정한 고도를 �
 이 제한은 지상국 GPS의 고도 소스가 종종 부정확하기 때문입니다.
 :::
 
-이 모드는 GPS 모듈이있는 Android 태블릿의 *QGroundControl* 및 <a href = "https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html">MAVSDK</a>에서 지원됩니다.
+The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_follow_me.html).
 
 :::note
 * 이 모드는 GPS가 필요합니다.
