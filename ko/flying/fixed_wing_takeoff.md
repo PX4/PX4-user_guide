@@ -14,7 +14,7 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 - 기체를 *위치 모드*로 설정합니다.
 - 기체를 공중에 던져서 발사합니다.
 
-기체는 [이륙 모드](#takeoff-flight-mode)와 동일한 상승 동작을 사용하여 `FW_CLMBOUT_DIFF`로 상승합니다. 그런 다음 *포지션 모드*에서 계속 동작합니다.
+기체는 [이륙 모드](#takeoff-flight-mode)와 동일한 상승 동작을 사용하여 `FW_CLMBOUT_DIFF`로 상승합니다. It will then continue in *Position mode*.
 
 ## 비행 모드에서 이륙
 
@@ -54,7 +54,7 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 미션 모드에서 발사하려면:
 1. 임무 **시작**에 고정 날개 이륙 항목을 추가합니다.
 
-:::tip
+   :::tip
 이륙 항목 최소 피치 매개 변수를 기체에 적합한 값으로 설정하십시오!
 :::
 1. 임무 모드로 전환합니다.

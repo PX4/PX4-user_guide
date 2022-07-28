@@ -1,7 +1,7 @@
 # 주간 온라인 개발자 회의
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/contribute/dev_call.html">여기</a>를 참고하십시오.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/dev_call.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -17,7 +17,8 @@ PX4 개발 팀은 플랫폼 기술 세부내역과 심층 분석 내역을 정�
 * 커뮤니티 회원
 
 :::tip
-유선 개발 미팅은 (핵심 개발 팀만이 아닌) 관심있는 모든 개발자를 대상으로 열려있습니다. 개발팀과 플랫폼 개발에 기여할 수 있는 좋은 기회입니다.
+유선 개발 미팅은 (핵심 개발 팀만이 아닌) 관심있는 모든 개발자를 대상으로 열려있습니다. 
+개발팀과 플랫폼 개발에 기여할 수 있는 좋은 기회입니다.
 :::
 
 ## 회의 목적

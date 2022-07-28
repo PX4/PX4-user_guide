@@ -23,7 +23,7 @@ Flight Core는 VOXL Companion Computer와 Flight Core를 단일 PCB에 통합하
 | 메모리        | 256Kb FRAM                                                                                                                                                      |
 |            | 2Mbit Flash                                                                                                                                                     |
 |            | 512Kbit SRAM                                                                                                                                                    |
-| 펌웨어        | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1)                                                                                    |
+| 펌웨어        | [PX4](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1)                                                                                      |
 | 관성계        | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
 |            | ICM-42688 (SPI2)                                                                                                                                                |
 |            | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
@@ -50,7 +50,7 @@ Flight Core는 VOXL Companion Computer와 Flight Core를 단일 PCB에 통합하
 ![FlightCoreV1 크기](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
 
-## PX4 펌웨어 호환성
+## PX4 Firmware Compatibility
 
 *Flight Core v1*은 PX4 v1.11의 펌웨어와 완벽하게 호환됩니다.
 
@@ -65,7 +65,6 @@ ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmw
 ## 구매처
 
 - [Flight Core Complete Kit](https://modalai.com/flight-core)
-- [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (전용)
 - [단일 PCB에서 VOXL Companion Computer와 통합 Flight Core](https://modalai.com/flight-core)
 - [VOXL 보조 컴퓨터 및 장애물 회피 카메라(VOXL Flight Deck)와 통합 플라이트 코어](https://modalai.com/flight-deck) ([데이터시트](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
 - [VOXL와 카메라로 조립된 Flight Core](https://shop.modalai.com/products/voxl-flight-deck-r1)
@@ -131,7 +130,7 @@ make modalai_fc-v1
 | UART7  | /dev/ttyS6 | TELEM1 (J5)             |
 | UART8  | /dev/ttyS7 | 해당없음                    |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## 지원
 

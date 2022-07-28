@@ -10,6 +10,7 @@ DShot is an alternative ESC protocol that has several advantages over [PWM](../p
 
 This topic shows how to connect and configure DShot ESCs.
 
+
 <span id="wiring"></span>
 ## Wiring/Connections
 
@@ -27,7 +28,10 @@ To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports la
 Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 :::
 
-:::note FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs. FMUv5x-based boards support DShot only on the first six FMU pins.
+:::note
+FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
+The other pins cannot be used as motor/servo outputs.
+FMUv5x-based boards support DShot only on the first six FMU pins.
 :::
 
 :::tip
@@ -48,6 +52,7 @@ DShot comes with different speed options: *DShot150*, *DShot300*, *DShot600* and
 Then connect the battery and arm the vehicle. The ESCs should initialize and the motors turn in the correct directions.
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)), reverse them by sending an [ESC Command](#commands).
 - Adjust [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) so that the motors spin at lowest throttle (but the vehicle does not take off).
+
 
 <span id="commands"></span>
 ## ESC Commands

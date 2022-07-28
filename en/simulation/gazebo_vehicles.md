@@ -99,8 +99,7 @@ make px4_sitl gazebo_tailsitter
 <a id="ugv"></a>
 ## Unmmanned Ground Vehicle (UGV/Rover/Car)
 
-<a id="ugv_ackerman"></a>
-### Ackerman UGV
+### Ackermann UGV
 
 ```sh
 make px4_sitl gazebo_rover
@@ -108,7 +107,6 @@ make px4_sitl gazebo_rover
 
 ![Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover.png)
 
-<a id="ugv_differential"></a>
 ### Differential UGV
 
 ```sh

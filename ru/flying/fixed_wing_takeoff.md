@@ -14,7 +14,7 @@ To launch in this mode:
 - Put the vehicle into *Position mode*.
 - Launch/throw the vehicle (firmly) directly into the wind.
 
-The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff-flight-mode). It will then continue in *Postion mode*.
+The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff-flight-mode). It will then continue in *Position mode*.
 
 ## Takeoff Flight Mode
 
@@ -54,7 +54,7 @@ You can also hand/catapult launch a fixed wing vehicle in a mission.
 To launch in a mission:
 1. Add a fixed wing takeoff item to the **start** of the mission.
 
-:::tip
+   :::tip
 Set the takeoff item minimum pitch parameter to an appropriate value for your airframe!
 :::
 1. Switch to mission mode.

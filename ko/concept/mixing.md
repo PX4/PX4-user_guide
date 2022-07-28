@@ -123,13 +123,14 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 출력에 사용되는 물리적 버스가 항상 같지 않기 때문에 이 접근 방식이 필요합니다. 비행 컨트롤러에 IO 보드가 있는지([PX4 참조 비행 컨트롤러 설계 > 주/IO 기능 분석](../hardware/reference_design.md#main-io-function-breakdown) 참조) 또는 모터 제어를 위해 UAVCAN을 사용 여부에 따라 달라집니다. 시작 스크립트는 "장치"의 추상화를 사용하여 믹서 파일을 보드에 적합한 장치 드라이버로 로드합니다. 메인 믹서는 UAVCAN이 활성화된 경우 장치 `/dev/uavcan/esc`(uavcan)에 로드되고, 그렇지 않으면 `/dev/pwm_output0`(이 장치는 IO 드라이버에 매핑됩니다. I/O 보드가 있는 컨트롤러와 그렇지 않은 보드의 FMU 드라이버)에 로드됩니다. 보조 믹서 파일은 I/O 보드가 있는 Pixhawk 컨트롤러의 FMU 드라이버에 매핑되는 `/dev/pwm_output1` 장치에 로드됩니다.
 :::
 
-여러 제어 그룹(비행 제어, 페이로드 등)과 여러 출력 그룹(버스)이 있기 때문에 하나의 제어 그룹이 여러 출력 그룹에 명령을 전송할 수 있습니다.
+Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (buses), one control group can send commands to multiple output groups.
 
 ![믹서 입출력 매핑](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
 <!--- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 -->
 
 :::note
-실제 시작 스크립트는 믹서를 단일 장치(출력 그룹)에만 로드합니다. 이것은 기술적 제한이 아니라 설정입니다. 메인 믹서를 여러 드라이버에 로드할 수 있습니다. 예를 들어 UAVCAN과 메인 핀 모두에서 동일한 신호를 가질 수 있습니다.
+실제 시작 스크립트는 믹서를 단일 장치(출력 그룹)에만 로드합니다.
+이것은 기술적 제한이 아니라 설정입니다. 메인 믹서를 여러 드라이버에 로드할 수 있습니다. 예를 들어 UAVCAN과 메인 핀 모두에서 동일한 신호를 가질 수 있습니다.
 :::
 
 ## PX4 믹서 정의
@@ -143,6 +144,7 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 ### 믹서 파일 이름
 
 mix</strong> AUX 출력을 믹스하는 경우에는 MAIN 출력 또는 **XXXX._aux_의 믹싱을 담당하는 경우 믹서 파일의 이름은 **XXXX._main_.mix**이어야 합니다. </p>
+
 
 <a id="loading_mixer"></a>
 
@@ -265,6 +267,7 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 
 일반적인 믹서 파일의 예는 [여기](../dev_airframes/adding_a_new_frame.md#mixer-file)에 설명되어 있습니다.
 
+
 <a id="null_mixer"></a>
 
 #### 널 믹서
@@ -277,6 +280,7 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 ```
 Z:
 ```
+
 
 <a id="multirotor_mixer"></a>
 

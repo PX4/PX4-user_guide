@@ -27,14 +27,14 @@ Many modern companion computers only support 1.8V levels on their hardware UART 
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-| TELEM2 |   | FTDI    | &nbsp;          |
-| ------ | - | ------- | --------------- |
-| 1      | 1 |         | DO NOT CONNECT! |
-| 2      | 2 | Tx (输出) | 5               |
-| 3      | 3 | Rx（输入）  | 4               |
-| 4      | 4 | CTS（输入） | 6               |
-| 5      | 5 | RTS（输出） | 2               |
-| 6      | 6 | GND     | 1               |
+| TELEM2  |   | FTDI    | &nbsp;          |
+| ------- | - | ------- | --------------- |
+| GND     | 1 |         | DO NOT CONNECT! |
+| RTS（输出） | 2 | Tx (输出) | 5               |
+| 3       | 3 | Rx（输入）  | 4               |
+| Rx（输入）  | 4 | CTS（输入） | 6               |
+| Tx (输出) | 5 | RTS（输出） | 2               |
+| CTS（输入） | 6 | GND     | 1               |
 
 ### Serial Port Software setup on Linux
 

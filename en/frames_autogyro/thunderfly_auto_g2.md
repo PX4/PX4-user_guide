@@ -104,7 +104,7 @@ It can be handled, for example, by nulling the engine’s output in the transmit
 ### Electronic
 
 * Autopilot ([Holybro pix32](../flight_controller/holybro_pix32.md), [CUAV nano](../flight_controller/cuav_v5_nano.md))
-* GPS (GPS Modul NEO-6M, with patch antenna)
+* GPS (GPS Module NEO-6M, with patch antenna)
 * Airspeed sensor ([SDP3x](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/))
 * Stronger servos as a substitution for the original ones (optional), ([BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm))
 * Additional servo for release device (optional)
@@ -137,7 +137,7 @@ It can be handled, for example, by nulling the engine’s output in the transmit
 
 ### Recommended spare parts
 
-* Servos with improved quality (recomended [BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm), original servos are not very durable))
+* Servos with improved quality (recommended [BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm), original servos are not very durable))
 * Propeller ([APC 10x7](https://www.apcprop.com/product/10x7e/))
 * Rotor centre plate with deformation zones (3D printed)
 * Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)

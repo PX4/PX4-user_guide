@@ -58,7 +58,8 @@ Direct accessible from RPi:
 ## 针脚定义
 
 :::warning
-It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+It still uses old GH1.25 connectors.
+Wiring is compatible with Pixhawk 2.4.8
 :::
 
 ### 连接器
@@ -121,7 +122,9 @@ RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 2  | VCC  | +5V    |
 | 3  | GND  | GND    |
 
-:::note ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::note
+ADC3 & 4 have an alternative VCC source
+When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 :::
 
 #### 拓展板顶部引出的未使用的GPIO

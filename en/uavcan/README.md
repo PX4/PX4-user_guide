@@ -29,11 +29,12 @@ It supports hardware like:
   - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
   - [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
 - Distance sensors
-  - [Ark Flow](ark_flow.md)
+  - [ARK Flow](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
 - Optical Flow
   - [Ark Flow](ark_flow.md)
-
+- Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
+  - [ARK CANnode](../uavcan/ark_cannode.md)
 
 :::note
 PX4 does not support UAVCAN servos (at time of writing).
@@ -52,7 +53,7 @@ The following diagram shows this for a flight controller connected to [UAVCAN mo
 The diagram does not show any power wiring.
 Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself. 
 
-For more information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
+For more information about proper bus connections see [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (Zubax KB)) (Zubax KB).
 
 :::note
 - While the connections are the same, the _connectors_ may differ across devices.

@@ -3,7 +3,7 @@
 The sections below provide high-level overview of the PX4 hardware and software stack for two "typical" PX4 systems; one that has just a flight controller, and another that has a flight controller and a companion computer (also known as a "mission computer").
 
 :::note
-The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html).
+The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/main/en/).
 :::
 
 
@@ -23,7 +23,7 @@ The hardware consists of
 - [Telemetry radios](../telemetry/README.md) for connecting to a ground station computer/software.
 - [RC Control System](../getting_started/rc_transmitter_receiver.md) for manual control
 
-The left hand side of the diagram shows the software stack, which is horizontally aligned (aproximately) with the hardware parts of the diagram.
+The left hand side of the diagram shows the software stack, which is horizontally aligned (approximately) with the hardware parts of the diagram.
 - The ground station computer typically runs [QGroundControl](../getting_started/px4_basic_concepts.md#qgroundcontrol) (or some other ground station software). It may also run robotics software like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](../ros/README.md).
 - The PX4 flight stack running on the flight controller includes [drivers](../modules/modules_driver.md), [comms modules](../modules/modules_communication.md), [controllers](../modules/modules_controller.md), [estimators](../modules/modules_controller.md) and other [middleware and system modules](../modules/modules_main.md).
 
@@ -38,9 +38,10 @@ The diagram below shows a PX4 system that includes both a flight controller and 
 
 The flight controller runs the normal PX4 flight stack, while a companion computer provides advanced features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md). The two systems are connected using a fast serial or IP link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/). Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router) (from Intel)).
 
-PX4 systems typically run a Linux OS on the companion computer (because the [PX4/Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux). Linux is a much better platform for "general" software development than NuttX; there are many more Linux developers and a lot of useful software has already been written (e.g. for computer vision, communications, cloud integrations, hardware drivers). Companion computers sometimes run Android for the same reason.
+PX4 systems typically run a Linux OS on the companion computer (because the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux). Linux is a much better platform for "general" software development than NuttX; there are many more Linux developers and a lot of useful software has already been written (e.g. for computer vision, communications, cloud integrations, hardware drivers). Companion computers sometimes run Android for the same reason.
 
 :::note
-The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems. PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development).
+The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems.
+PX4 does not deliver software specifically for LTE and/or cloud integration (this requires custom development). 
 :::
 

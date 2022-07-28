@@ -23,7 +23,7 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 | [jMAVSim](../simulation/jmavsim.md)                                     | *콥터* 유형의 차량을 비행할 수 있는 간단한 멀티콥터 시뮬레이터입니다. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md)에도 사용할 수 있습니다.</p><p><strong>지원 차량:</strong> 쿼드</p> |
 | [AirSim](../simulation/airsim.md)                                       | <p>물리적 및 시각적으로 사실적인 시뮬레이션을 제공하는 크로스 플랫폼 시뮬레이터입니다. 이 시뮬레이터는 리소스 집약적이며, 다른 시뮬레이터보다 강력한 컴퓨터가 필요합니다.</p><p><strong>지원 차량:</strong> Iris(MultiRotor 모델 및 X 구성의 PX4 QuadRotor 구성).</p>                                        |
 | [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>                                       |
-| [Ignition Gazebo](../simulation/ignition_gazebo.md)                     | <p>Ignition Gazebo는 인기 있는 로봇 공학 시뮬레이터 [Gazebo](./gazebo.md)에서 파생되었으며, 고급 렌더링, 물리학 및 센서 모델을 제공합니다.</p><p><strong>지원 차량:</strong> 쿼드콥터</p>                                       |
+| [Ignition Gazebo](../simulation/ignition_gazebo.md)                     | <p>Ignition Gazebo는 인기 있는 로봇 공학 시뮬레이터 [Gazebo](./gazebo.md)에서 파생되었으며, 고급 렌더링, 물리학 및 센서 모델을 제공합니다.</p><p><strong>지원 차량:</strong> 쿼드</p>                                       |
 
 시뮬레이터를 설정 사용 방법에 대한 지침은 위에 링크를 참고하십시오.
 
@@ -140,7 +140,8 @@ make px4_sitl jmavsim
 ```
 
 :::note
-어느 시점에서 IO 또는 CPU는 컴퓨터의 가능한 속도를 제한하고 "자동으로" 느려집니다. 강력한 데스크탑 컴퓨터는 일반적으로 약 6-10x에서 시뮬레이션할 수 있으며, 노트북의 경우의 최고 속도는 약 3-4x 입니다.
+어느 시점에서 IO 또는 CPU는 컴퓨터의 가능한 속도를 제한하고 "자동으로" 느려집니다.
+강력한 데스크탑 컴퓨터는 일반적으로 약 6-10x에서 시뮬레이션할 수 있으며, 노트북의 경우의 최고 속도는 약 3-4x 입니다.
 :::
 
 :::note PX4가 데이터 링크 시간 초과를 감지하지 않도록, 시뮬레이션 속도에 비례하여 매개변수 [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) 값을 증가시키십시오. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
@@ -201,7 +202,7 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 
 PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영상과 동영상 캡처를 할 수 있습니다. 설정 방법은 [Gazebo > 비디오 스트리밍](../simulation/gazebo.md#video)을 참고하십시오.
 
-시뮬레이션 카메라는 [MAVLink 카메라 프로토콜](https://mavlink.io/en/protocol/camera.html)을 구현하는 gazebo 플러그인입니다. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
+시뮬레이션 카메라는 [MAVLink 카메라 프로토콜](https://mavlink.io/en/protocol/camera.html)을 구현하는 gazebo 플러그인입니다.<!-- **PX4-Autopilot/Tools/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
 1. MAVLink 카메라와 함께 사용할 카메라 트리거 드라이버를 구성하려면 [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE)를 `3`으로 설정합니다. :::tip 이 모드에서 드라이버는 이미지 캡처가 요청시에 [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 자세한 내용은 [카메라](../peripherals/camera.md)를 참고하십시오.
 :::
 
@@ -209,7 +210,7 @@ PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
-:::note
+   :::note
 카메라 MAVLink 메시지 이상은 전달되지만, 카메라는 관련이 없는 것으로 간주되는 메시지들은 무시합니다.
 :::
 

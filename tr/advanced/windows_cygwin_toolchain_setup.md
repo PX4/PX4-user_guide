@@ -76,7 +76,7 @@ The toolchain gets maintained and hence these instructions might not cover every
    * Shells:bash-completion
    * Web:wget
 
-:::note
+   :::note
 Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
 :::
 
@@ -119,8 +119,9 @@ This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaE
 
 1. Download [**Apache Ant**](https://ant.apache.org/bindownload.cgi) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\apache-ant`.
 
-:::tip
-Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
+   :::tip
+ Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
+
 :::
 
 :::note

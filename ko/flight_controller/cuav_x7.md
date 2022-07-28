@@ -26,7 +26,7 @@
 * 고성능 프로세서
 
 :::tip
-제조업체 [CUAV 문서](https://doc.cuav.net/x7/en/x7.html)는 X7의 표준입니다. 가장 정확한 최신 정보를 포함하고 있습니다.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are the canonical reference for the X7. 가장 정확한 최신 정보를 포함하고 있습니다.
 :::
 
 
@@ -48,7 +48,7 @@
    * i2c 버스 4 개(i2c 전용 포트 2 개)
    * CAN 버스 포트 2 개
    * 2개의 전원 포트(전원 A는 일반적인 adc 인터페이스, 전원 C는 uavcan 배터리 인터페이스)
-   * 2개의 ADC 입력
+   * 2  ADC input
    * USB 포트 1 개
 * 전원시스템
   * 전원: 4.3~5.4V
@@ -62,7 +62,8 @@
   * 온도 보상 지원
   * 내부 충격 흡수
 
-:::note PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전히 조정중이므로 현재 VOLT와 호환되지 않습니다.
+:::note
+PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전히 조정중이므로 현재 VOLT와 호환되지 않습니다.
 :::
 
 ## 구매처

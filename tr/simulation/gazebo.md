@@ -60,7 +60,8 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 | [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
 | [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                    | `make px4_sitl gazebo_standard_vtol`   |
 | [Tailsitter VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                | `make px4_sitl gazebo_tailsitter`      |
-| [Ackerman vehicle (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                               | `make px4_sitl gazebo_rover`           |
+| [Ackerman UGV (Rover)](../simulation/gazebo_vehicles.md#ackermann-ugv)                                                             | `make px4_sitl gazebo_rover`           |
+| [Differential UGV (Rover)](../simulation/gazebo_vehicles.md#differential-ugv)                                                      | `make px4_sitl gazebo_r1_rover`        |
 | [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
 | [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                       | `make px4_sitl gazebo_boat`            |
 | [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                    | `make px4_sitl gazebo_cloudship`       |
@@ -191,7 +192,7 @@ To simulate wind speed, add this plugin to your world file and set `windVelocity
 ```
 Wind direction is passed as a direction vector (standard ENU convention), which will be normalized in the gazebo plugin. Additionally you can state wind velocity variance in (m/s)² and direction variance based on a normal distribution to add some random factor into the simulation. Gust is internally handled in the same way as wind, with the slight difference that you can state start time and duration with the following two parameters `windGustStart` and `windGustDuration`.
 
-You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/windy.world#L15-L31).
+You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/windy.world#L15-L31).
 
 ### Using a Joystick
 
@@ -218,7 +219,7 @@ To enable/disable GPS noise:
    ```
    make px4_sitl gazebo_iris
    ```
-:::tip
+   :::tip
 The SDF files are not overwritten on subsequent builds.
 :::
 
@@ -266,10 +267,10 @@ If the loaded world does not align with the map, you may need to [set the world 
 The vehicle gets spawned very close to the origin of the world model at some simulated GPS location.
 
 :::note
-The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues.
+The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues. 
 :::
 
-If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS co-ordinates where it would be in "real life".
+If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
 :::note
 You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
@@ -307,7 +308,7 @@ In addition to the existing cmake targets that run `sitl_run.sh` with parameters
 
 To start Gazebo and PX4 separately:
 
-* Run gazebo (or any other sim) server and client viewers via the terminal specifing an `_ide` variant:
+* Run gazebo (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
   ```sh
   make px4_sitl gazebo___ide
   ```
@@ -429,7 +430,8 @@ VERBOSE_SIM=1 make px4_sitl gazebo
 To extend or customize the simulation interface, edit the files in the `Tools/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/px4/sitl_gazebo) on Github.
 
 :::note
-The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+The build system enforces the correct GIT submodules, including the simulator.
+It will not overwrite changes in files in the directory.
 :::
 
 ## Further Information

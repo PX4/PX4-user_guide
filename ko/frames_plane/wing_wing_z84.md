@@ -14,13 +14,14 @@ Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pix
 ### Z-84 Plug n' Fly (PNF/PNP) 혹은 키트
 
 다음 중 하나 :
-
 - [Banggood](https://www.banggood.com/Wing-Wing-Z-84-Z84-EPO-845mm-Wingspan-Flying-Wing-PNP-p-973125.html)
 - [Hobbyking 미국 창고](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
 
-:::tip PNF
-(또는 "PNP") 버전에는 모터, 프로펠러 및 ESC가 포함됩니다. "키트"버전에는 이러한 구성 요소가 포함되어 있지 않아서 별도로 구매하여야 합니다.
+:::tip
+PNF (또는 "PNP") 버전에는 모터, 프로펠러 및 ESC가 포함됩니다.
+"키트"버전에는 이러한 구성 요소가 포함되어 있지 않아서 별도로 구매하여야 합니다.
 :::
+
 
 ### 전자 속도 컨트롤러 (ESC)
 
@@ -37,10 +38,12 @@ Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pix
 - Holybro pix32 / Pixfalcon용 [디지털 대기 속도 센서](../flight_controller/pixfalcon.md#availability)
 - 1800mAh 2S LiPo 배터리 - 예 : [팀 오리온 1800mAh 7.4V 50C 2S1P](https://teamorion.com/en/batteries-en/lipo/soft-case/team-orion-lipo-1800-2s-7-4v-50c-xt60-en/)
 
+
 ### 권장 예비 부품
 
 - 프로펠러 보호용 직경 1cm O - 링 ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
 - 125x110 mm 프로펠러 ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
+
 
 ## 배선
 
@@ -53,6 +56,7 @@ Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pix
 | MAIN 2 | 우측 보조익                      |
 | MAIN 3 | 비어있음                        |
 | MAIN 4 | 스로틀                         |
+
 
 ## 조립 방법
 

@@ -50,10 +50,10 @@ Stereo cameras are typically used for depth perception, path planning and SLAM.
 They are in no way guaranteed to be plug and play with your companion computer.
 
 Popular stereo cameras include:
-* [Intel® RealSense™ Depth Camera D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
-* [Intel® RealSense™ Depth Camera D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
-* [Ironsides](https://www.perceptin.io/products)
-* [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
+
+- [Intel® RealSense™ Depth Camera D435](https://www.intelrealsense.com/depth-camera-d435/)
+- [Intel® RealSense™ Depth Camera D415](https://www.intelrealsense.com/depth-camera-d415/)
+- [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) 
 
 ### VIO Cameras/Sensors
 

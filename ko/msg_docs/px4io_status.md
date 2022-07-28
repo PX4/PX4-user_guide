@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/px4io_status.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/px4io_status.msg)
 
 ```c
 uint64 timestamp        # time since system start (microseconds)
@@ -26,7 +26,7 @@ bool status_rc_ppm
 bool status_rc_sbus
 bool status_rc_st24
 bool status_rc_sumd
-bool status_safety_off
+bool status_safety_button_event # px4io safety button was pressed for longer than 1 second
 
 # PX4IO alarms (PX4IO_P_STATUS_ALARMS)
 bool alarm_pwm_error

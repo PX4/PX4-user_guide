@@ -5,7 +5,7 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 :::
 
-The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot.
+The [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot.
 It is an ideal choice for industrial drones and large-scale heavy-duty drones.
 It is mainly supplied to commercial manufacturers.
 
@@ -31,7 +31,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * High performance processor
 
 :::tip
-The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canonical reference for Nora.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora.
 They should be used by preference as they contain the most complete and up to date information.
 :::
 
@@ -54,7 +54,7 @@ They should be used by preference as they contain the most complete and up to da
    * 4 i2c buses(Two i2c dedicated ports)
    * 2 CAN bus ports
    * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
-   * 2  ADC intput
+   * 2  ADC input
    * 1 USB ports 
 * Power System:
   * Power: 4.3~5.4V
@@ -81,7 +81,7 @@ The remaining 6 PWM ports are still being adapted (so it is not compatible with 
 
 ## Connections (Wiring)
 
-[CUAV nora Wiring Quickstart](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+[CUAV nora Wiring Quickstart](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
 ## Size and Pinouts
 
@@ -167,6 +167,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Further info
 
-* [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+* [Quick start](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 * [CUAV docs](http://doc.cuav.net)
 * [nora schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)

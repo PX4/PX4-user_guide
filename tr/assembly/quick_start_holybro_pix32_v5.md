@@ -36,7 +36,8 @@ If the controller cannot be mounted in the recommended/default orientation (e.g.
 :::
 
 :::tip
-The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+The board has internal vibration-isolation.
+Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
 :::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED

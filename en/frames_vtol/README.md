@@ -122,7 +122,7 @@ VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 ### Tailsitter
 
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/)
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/)
 
 @[youtube](https://youtu.be/pWt6uoqpPIw)
 

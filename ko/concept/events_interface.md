@@ -112,7 +112,7 @@ Text format for event message description:
       - m_v: vertical distance in meters
       - m^2: area in m^2
       - m/s: speed in m/s
-      - C: temperature in degrees celcius
+      - C: temperature in degrees celsius
   - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
 
 ## Logging

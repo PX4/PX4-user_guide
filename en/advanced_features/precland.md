@@ -25,7 +25,7 @@ The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT]
 If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
 
 :::note
-If using an offboard positioning system PX4 assumes that the target is visible when it is recieving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
+If using an offboard positioning system PX4 assumes that the target is visible when it is receiving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
 :::
 
 #### Opportunistic Mode
@@ -131,7 +131,7 @@ Precision landing requires the modules `irlock` and `landing_target_estimator`.
 These are included in PX4 firmware by default, for most flight controllers.
 
 They are not included by default on FMUv2-based controllers.
-On these, and other boards where they are not included, you can add them by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. as done here for FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)):
+On these, and other boards where they are not included, you can add them by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. as done here for FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)):
 
 ```
 CONFIG_DRIVERS_IRLOCK=y

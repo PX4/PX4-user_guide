@@ -7,7 +7,7 @@ Gazebo/SITL에서 시뮬레이션된 Iris 쿼드콥터를 사용하여 MAVROS로
 :::
 
 :::tip
-이 예제는 C++ 언어를 사용합니다. Python의 유사한 예는 [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros)을 참고하십시오.
+이 예제는 C++ 언어를 사용합니다. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
 <video width="100%" autoplay="true" controls="true">
@@ -204,5 +204,6 @@ while(ros::ok()){
 나머지 코드는 꽤 자명합니다. *오프보드* 모드로 전환하려고 시도한 후 쿼드가 비행할 수 있도록 준비합니다. 자동조종장치가 요청으로 가득 차지 않도록, 서비스 호출에 5초 간격을 둡니다. 동일한 루프에서 요청된 포즈를 적절한 속도로 계속 전송합니다.
 
 :::tip
-이 코드는 설명을 위하여 최대한 단순화되었습니다. 더 큰 시스템에서는 주기적으로 설정값을 게시할, 새 스레드를 만드는 것이 유용합니다.
+이 코드는 설명을 위하여 최대한 단순화되었습니다.
+더 큰 시스템에서는 주기적으로 설정값을 게시할, 새 스레드를 만드는 것이 유용합니다.
 :::

@@ -6,6 +6,8 @@
 
 ### 설명
 
+
+
 <a id="battery_simulator_usage"></a>
 
 ### 사용법
@@ -31,6 +33,7 @@ battery_simulator <command> [arguments...]
 ### 구현
 자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
 
+
 <a id="battery_status_usage"></a>
 
 ### 사용법
@@ -48,6 +51,8 @@ battery_status <command> [arguments...]
 
 
 ### 설명
+
+
 
 <a id="camera_feedback_usage"></a>
 
@@ -78,7 +83,7 @@ commander <command> [arguments...]
      [-h]        Enable HIL mode
 
    calibrate     Run sensor calibration
-     mag|accel|gyro|level|esc|airspeed Calibration type
+     mag|baro|accel|gyro|level|esc|airspeed Calibration type
      quick       Quick calibration (accel only, not recommended)
 
    check         Run preflight checks
@@ -131,6 +136,7 @@ C API를 통해 간단한 데이터베이스 형태로 시스템에 영구 저�
 
 **DM_KEY_FENCE_POINTS** 및 **DM_KEY_SAFE_POINTS** 항목: 첫 번째 데이터 요소는 이러한 유형의 항목 수를 저장하는 `mission_stats_entry_s` 구조체입니다. 이러한 항목은 항상 하나의 트랜잭션에서 원자적으로 업데이트됩니다(mavlink Mission Manager에서). 그 시간 동안 내비게이터는 지오펜스 항목 잠금을 획득하려고 시도하지만, 실패하며 지오펜스 위반을 확인하지 않습니다.
 
+
 <a id="dataman_usage"></a>
 
 ### 사용법
@@ -179,6 +185,7 @@ dmesg <command> [arguments...]
 ### 설명
 ESC 상태의 정보를 사용하여 구현하고, 배터리 상태를 게시합니다.
 
+
 <a id="esc_battery_usage"></a>
 
 ### 사용법
@@ -198,6 +205,7 @@ esc_battery <command> [arguments...]
 ### 설명
 간단한 온라인 자이로스코프 교정.
 
+
 <a id="gyro_calibration_usage"></a>
 
 ### 사용법
@@ -215,6 +223,7 @@ gyro_calibration <command> [arguments...]
 
 
 ### 설명
+
 
 <a id="gyro_fft_usage"></a>
 
@@ -389,6 +398,7 @@ Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/maste
 ### 사용법
 Module consuming manual_control_inputs publishing one manual_control_setpoint.
 
+
 <a id="manual_control_usage"></a>
 
 ### 설명
@@ -399,7 +409,44 @@ pwm_input <command> [arguments...]
 
    test          prints PWM capture info.
 ```
-## rc_update
+## microdds_client
+Source: [modules/microdds_client](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/microdds_client)
+
+
+### Description
+MicroDDS Client used to communicate uORB topics with an Agent over serial or UDP.
+
+### Examples
+```
+microdds_client start -t serial -d /dev/ttyS3 -b 921600
+microdds_client start -t udp -h 127.0.0.1 -p 15555
+```
+
+<a id="microdds_client_usage"></a>
+
+### 설명
+```
+microdds_client <command> [arguments...]
+ Commands:
+   start
+     [-t <val>]  Transport protocol
+                 values: serial|udp, default: udp
+     [-d <val>]  serial device
+                 values: <file:dev>
+     [-b <val>]  Baudrate (can also be p:<param_name>)
+                 default: 0
+     [-h <val>]  Host IP
+                 values: <IP>, default: 127.0.0.1
+     [-p <val>]  Remote Port
+                 default: 15555
+     [-l]        Restrict to localhost (use in combination with
+                 ROS_LOCALHOST_ONLY=1)
+
+   stop
+
+   status        print status info
+```
+## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
@@ -411,15 +458,11 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src
 
 <a id="netman_usage"></a>
 
-### 구현
+### Usage
 ```
-rc_update <command> [arguments...]
+netman <command> [arguments...]
  Commands:
-   start
-
-   stop
-
-   status        print status info
+   show          Display the current persistent network settings to the console.
 
    update        Check SD card for net.cfg and update network persistent network
                  settings.
@@ -428,16 +471,67 @@ rc_update <command> [arguments...]
      [-i <val>]  Set the interface name
                  default: eth0
 ```
-## replay
-제어 대기 시간을 줄이기 위하여 모듈은 input_rc 게시에 예약됩니다.
+## pwm_input
+Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_input)
 
 
-### 사용법
-소스: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
+### Description
+Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
+
 
 <a id="pwm_input_usage"></a>
 
+### 사용법
+```
+pwm_input <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## rc_update
+Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
+
+
 ### 설명
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
+
+### Implementation
+To reduce control latency, the module is scheduled on input_rc publications.
+
+
+<a id="rc_update_usage"></a>
+
+### Usage
+```
+rc_update <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## replay
+Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
+
+
+### Description
+This module is used to replay ULog files.
+
+There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
+- `replay_mode=ekf2`: 특정 EKF2 재생 모드. ekf2 모듈과 함께만 사용할 수 있지만, 가능한 한 빨리 재생할 수 있습니다.
+- 일반 그렇지 않으면 이것은 모든 모듈을 재생하는 데 사용할 수 있지만 재생은 로그가 기록된 것과 동일한 속도로 수행됩니다.
+
+The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
+
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+
+<a id="replay_usage"></a>
+
+### Usage
 ```
 replay <command> [arguments...]
  Commands:
@@ -452,18 +546,17 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-이 모듈은 ULog 파일을 재생하는 데 사용됩니다.
+Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
 
 
-### 사용법
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
+### Description
+Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
 
-### 설명
-To reduce control latency, the module is scheduled on input_rc publications.
+The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
 
-<a id="rc_update_usage"></a>
+<a id="send_event_usage"></a>
 
-### 사용법
+### Usage
 ```
 send_event <command> [arguments...]
  Commands:
@@ -473,67 +566,13 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
-## sensors
-Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
-
-
-### 설명
-This module is used to replay ULog files.
-
-There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
-- `replay_mode=ekf2`: 특정 EKF2 재생 모드. ekf2 모듈과 함께만 사용할 수 있지만, 가능한 한 빨리 재생할 수 있습니다.
-- 일반 그렇지 않으면 이것은 모든 모듈을 재생하는 데 사용할 수 있지만 재생은 로그가 기록된 것과 동일한 속도로 수행됩니다.
-
-The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
-
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
-
-<a id="replay_usage"></a>
-
-### 구현
-```
-sensors <command> [arguments...]
- Commands:
-   start
-     [-h]        Start in HIL mode
-
-   stop
-
-   status        print status info
-```
-## temperature_compensation
-Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
-
-
-### 사용법
-Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
-
-The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
-
-<a id="send_event_usage"></a>
-
-### 설명
-```
-temperature_compensation <command> [arguments...]
- Commands:
-   start         Start the module, which monitors the sensors and updates the
-                 sensor_correction topic
-
-   calibrate     Run temperature calibration process
-     [-g]        calibrate the gyro
-     [-a]        calibrate the accel
-     [-b]        calibrate the baro (if none of these is given, all will be
-                 calibrated)
-
-   stop
-
-   status        print status info
-```
 ## sensor_baro_sim
 Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
 
 
-### 사용법
+### Description
+
+
 
 <a id="sensor_baro_sim_usage"></a>
 
@@ -553,6 +592,8 @@ Source: [modules/simulator/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/
 
 ### Description
 
+
+
 <a id="sensor_gps_sim_usage"></a>
 
 ### Usage
@@ -570,6 +611,8 @@ Source: [modules/simulator/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/
 
 
 ### Description
+
+
 
 <a id="sensor_mag_sim_usage"></a>
 
@@ -598,6 +641,7 @@ The provided functionality includes:
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
 
+
 <a id="sensors_usage"></a>
 
 ### Usage
@@ -618,6 +662,7 @@ Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src
 ### Description
 Driver for reading data from the Tattu 12S 16000mAh smart battery.
 
+
 <a id="tattu_can_usage"></a>
 
 ### Usage
@@ -636,6 +681,7 @@ Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/
 
 ### Description
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
+
 
 <a id="temperature_compensation_usage"></a>
 
@@ -703,6 +749,7 @@ Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master
 ### Description
 
 Command-line tool to show work queue status.
+
 
 <a id="work_queue_usage"></a>
 

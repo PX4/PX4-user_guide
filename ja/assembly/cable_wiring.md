@@ -38,8 +38,7 @@ I2C bus signal cross-talk and electromagnetic compatibility can be greatly impro
 When using appropriate twisted pair cables, the I²C bus is generally suitable for submeter-scale airframes. For larger aircraft the use of CAN or other differential signaling based interface is generally more reliable.
 
 :::note
-This turns/cable-length recommendation has been successfully used with I2C sensors including the [ThunderFly TFSLOT airspeed sensor](../../en/sensor/airspeed_tfslot.md) and [TFRPM01 Revolution Counter](../../en/sensor/thunderfly_tachometer.md).
-:::
+This turns/cable-length recommendation has been successfully used with I2C sensors including the [ThunderFly TFSLOT airspeed sensor](../sensor/airspeed_tfslot.md) and [TFRPM01 Revolution Counter](../sensor/thunderfly_tachometer.md). :::
 
 
 #### Pull-up resistors
@@ -68,7 +67,7 @@ CAN cables should also be twisted, for exactly the same reason as I2C cables. Fo
 
 ### SPI
 
-[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) is synchronous serial communication interface used for connecting faster sensors and devices. This protocol is commonly use is for connecting [optical flow](../../en/sensor/optical_flow.md) sensors or special telemetry modems.
+[SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) is synchronous serial communication interface used for connecting faster sensors and devices. This protocol is commonly use is for connecting [optical flow](../sensor/optical_flow.md) sensors or special telemetry modems.
 
 | Signal | Pixhawk Color                                          | ThunderFly color                                          |
 | ------ | ------------------------------------------------------ | --------------------------------------------------------- |
@@ -103,7 +102,7 @@ UART signals are common sources of low frequency EMI, therefore the length of th
 
 ### GPS(UART) & SAFETY
 
-[GPS receivers and magnetometers](en/gps_compass/README.md) are generally very sensitive to EMI. Therefore thse should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna). This may be insufficient if the cabling is badly designed.
+[GPS receivers and magnetometers](../gps_compass/README.md) are generally very sensitive to EMI. Therefore thse should be mounted far away from RF sources (high-power cabling, ESCs, radio modems and its antenna). This may be insufficient if the cabling is badly designed.
 
 
 | Signal          | Pixhawk Color                                          | ThunderFly color                                          |

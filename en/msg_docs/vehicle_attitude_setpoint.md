@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude_setpoint.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_attitude_setpoint.msg)
 
 ```c
 uint64 timestamp		# time since system start (microseconds)
@@ -30,6 +30,11 @@ uint8 apply_flaps       	# flap config specifier
 uint8 FLAPS_OFF = 0     	# no flaps
 uint8 FLAPS_LAND = 1    	# landing config flaps
 uint8 FLAPS_TAKEOFF = 2 	# take-off config flaps
+
+uint8 apply_spoilers		# spoiler config specifier
+uint8 SPOILERS_OFF = 0     	# no spoilers
+uint8 SPOILERS_LAND = 1    	# landing config spoiler
+uint8 SPOILERS_DESCEND = 2 	# descend config spoiler
 
 # TOPICS vehicle_attitude_setpoint mc_virtual_attitude_setpoint fw_virtual_attitude_setpoint
 

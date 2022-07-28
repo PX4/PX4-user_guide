@@ -4,6 +4,12 @@
 * 编译/上传 PX4到Nuttx目标(Pixhawk系列飞控)
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 
+
+:::warning
+The current version of this toolchain does not work with the master codeline (though it does with stable versions). The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) is a highly recommended Windows 11 (only) alternative, and is likely to become the supported Windows solution in the near future.
+:::
+
+
 :::tip
 This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
 :::
@@ -36,7 +42,7 @@ To add these yourself:
 
 The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
-1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
+1. 进入到工具链的安装目录(默认**C:\PX4**)
 1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
 1. Clone the PX4 PX4-Autopilot repository from within the console:
 
@@ -69,6 +75,7 @@ Once you have finished setting up the command-line toolchain:
 
 - 使用 jMAVSim 编译和运行 SITL, 其性能明显优于虚拟机 (Cygwin会生成一个本机 windows 二进制文件 ** px4.exe **)。
 - 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）。
+
 
 <a id="usage_instructions"></a>
 

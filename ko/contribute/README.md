@@ -1,7 +1,7 @@
 # 기여하는 방법
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/contribute/">여기</a>를 참고하십시오.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/">can be found here</a>.</p>
   </div>
 </div>
 

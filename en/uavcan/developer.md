@@ -25,5 +25,5 @@ They can also be used independently from Pixhawk hardware in order to test a nod
 - [Home page](http://uavcan.org) (uavcan.org)
 - [Specification](https://uavcan.org/specification/) (uavcan.org)
 - [Implementations and tutorials](http://uavcan.org/Implementations) (uavcan.org)
-- [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB)
+- [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (Zubax KB) (Zubax KB)
 

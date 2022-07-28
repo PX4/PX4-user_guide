@@ -4,6 +4,7 @@ HITL(Hardware-in-the-Loop)은 일반 PX4 펌웨어가 실제 비행 콘트롤러
 
 PX4는 멀티콥터(jMAVSim 또는 Gazebo 사용) 및 VTOL(Gazebo 사용)용 HITL을 지원합니다.
 
+
 <a id="compatible_airframe"></a>
 
 ## HITL 호환 기체
@@ -17,6 +18,7 @@ PX4는 멀티콥터(jMAVSim 또는 Gazebo 사용) 및 VTOL(Gazebo 사용)용 HIT
 | [HIL 표준 VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | 예      |         |
 | [일반 쿼드콥터 x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) 콥터                   | 4001            | 예      | 예       |
 | [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_f450_w/_dji_escs)         | 4011            | 예      | 예       |
+
 
 <a id="simulation_environment"></a>
 
@@ -61,7 +63,7 @@ SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에
    1. **설정 > 기체**를 오픈합니다.
    1. 테스트할 [호환 기체](#compatible_airframe)를 선택합니다. 그런 다음 *기체 설정* 페이지의 오른쪽 상단에 있는 **적용 및 재시작**을 클릭합니다.
 
-      ![기체 선택](../../assets/gcs/qgc_hil_config.png)
+      ![기체를 선택합니다.](../../assets/gcs/qgc_hil_config.png)
 1. 필요한 경우 RC 또는 조이스틱을 보정합니다.
 1. UDP를 설정합니다.
    1. 설정 메뉴의 *일반* 탭에서 **UDP**를 제외한 모든 *자동 연결* 상자의 선택을 취소합니다.

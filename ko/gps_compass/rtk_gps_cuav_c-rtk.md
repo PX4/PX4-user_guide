@@ -4,6 +4,7 @@
 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 
+
 ## 구매처
 
 * [cuav taobao](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
@@ -25,6 +26,7 @@ C-RTK GPS는 [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/c-rtk/hardware-connec
 
 다른 비행 콘트롤러 보드에 연결하려면 케이블/커넥터를 수정하여야 하는 경우도 있습니다. *Pixhawk 3 Pro*와 *Pixracer*의 핀 매핑은 다음과 같습니다.
 
+
 ### 핀배열
 
 C-RTK GPS 핀배열은 아래와 같습니다. 이것은 다른 자동조종보드용 커넥터를 수정할 수 있습니다.
@@ -37,3 +39,4 @@ C-RTK GPS 핀배열은 아래와 같습니다. 이것은 다른 자동조종보�
 | 4 | GPS_TX       | 4 | SCL               | GPS_TX       |
 | 5 | VCC_5V       | 5 | SDA               | VCC_5V       |
 | 6 | GND          | 6 | GND               | GND          |
+

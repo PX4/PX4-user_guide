@@ -1,6 +1,6 @@
 # 로깅
 
-로거는  ORB 주제의 모든 필드를 기록할 수 있습니다. 필요한 모든 것은 `.msg` 파일에서 생성되므로, 주제 이름만 지정하면 됩니다. 선택적 간격 매개변수는 특정 주제의 최대 로깅 속도를 지정합니다. 주제의 모든 기존 인스턴스가 기록됩니다.
+The [system logger](../modules/modules_system.md#logger) is able to log any ORB topic with all included fields. 필요한 모든 것은 `.msg` 파일에서 생성되므로, 주제 이름만 지정하면 됩니다. 선택적 간격 매개변수는 특정 주제의 최대 로깅 속도를 지정합니다. 주제의 모든 기존 인스턴스가 기록됩니다.
 
 출력 로그 형식은 [ULog](../dev_log/ulog_file_format.md) 입니다.
 
@@ -31,7 +31,7 @@ logger help
 
 ### 진단SD 카드 설정
 
-별도로 기록된 주제 목록은 SD 카드의 파일로 사용자가 정의할 수 있습니다. 주제 목록이 있는 카드에 `etc/logging/logger_topics.txt` 파일을 생성합니다(SITL의 경우 `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics).</p>
+Separately, the list of logged topics can also be customized with a file on the SD card. 주제 목록이 있는 카드에 `etc/logging/logger_topics.txt` 파일을 생성합니다(SITL의 경우 `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics).</p>
 
 <pre><code><topic_name> <interval> <instance>
 `</pre>

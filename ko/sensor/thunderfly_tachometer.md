@@ -68,7 +68,7 @@ pcf8583 start -X -b <bus number>
 
 #### PX4 (NuttX) MAVLink 콘솔
 
-[QGroundControl MAVLink 콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)을 사용하여 드라이버가 실행 여부와 출력되는 UORB 토픽을 확인할 수 있습니다.
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting.
 
 TFRPM01 드라이버의 상태를 확인하려면 다음 명령을 실행하십시오.
 ```
@@ -95,7 +95,6 @@ QGroundControl [Mavlink 검사기](https://docs.qgroundcontrol.com/master/en/ana
 일반적으로 센서는 설정 없이도 사용할 수 있지만, RPM 값은 실제 RPM의 배수이어야 합니다.  이는 `PCF8583_MAGNET` 매개변수가 감지된 로터의 단일 회전당 실제 펄스 수와 일치하여야하기 때문입니다. 필요시 다음의 매개 변수들을 조정하여야 합니다.
 
 * [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — 카운트 숫자 판독 사이의 풀링 간격
-* [PCF8583_ADDR](../advanced_config/parameter_reference.md#PCF8583_ADDR) — I2C 센서 주소
 * [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — 계수된 숫자를 0으로 재설정해야하는 카운터 값입니다.
 * [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — 회전당 펄스 수 (예 : 로터 디스크의 자석 수).
 

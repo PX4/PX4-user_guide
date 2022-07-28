@@ -126,7 +126,7 @@ Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 
 Notes:
 - The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
-- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
+- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
 
 
 ## Serial Port Mapping
@@ -186,10 +186,26 @@ make px4_fmu-v5x_default
 
 ## Debug Port
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
-The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug). For wiring information see:
-- [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
+The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full-10-pin-sh-debug-port) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+
+| Pin      | Signal           | Volt  |
+| -------- | ---------------- | ----- |
+| 1 (red)  | `Vtref`          | +3.3V |
+| 2 (blk)  | Console TX (OUT) | +3.3V |
+| 3 (blk)  | Console RX (IN)  | +3.3V |
+| 4 (blk)  | `SWDIO`          | +3.3V |
+| 5 (blk)  | `SWCLK`          | +3.3V |
+| 6 (blk)  | `SWO`            | +3.3V |
+| 7 (blk)  | NFC GPIO         | +3.3V |
+| 8 (blk)  | PH11             | +3.3V |
+| 9 (blk)  | nRST             | +3.3V |
+| 10 (blk) | `GND`            | GND   |
+
+For information about wiring and using this port see:
+- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to USART3).
+- [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md)
 
 
 ## Peripherals

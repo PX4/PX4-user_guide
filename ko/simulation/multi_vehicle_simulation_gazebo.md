@@ -2,6 +2,7 @@
 
 이 항목에서는 Gazebo와 SITL(Linux만 해당)을 사용하여 다중 UAV 차량 시뮬레이션 방법을 설명합니다. ROS 유무에 따라 시뮬레이션 접근 방식이 달라집니다.
 
+
 <a id="no_ros"></a>
 
 ## 다중 차량 Gazebo (ROS 없음)
@@ -11,7 +12,7 @@ Gazebo에서 다중 차량을 시뮬레이션하려면, 터미널에서 다음 �
 Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: 실행할 [차량 유형/모델](../simulation/gazebo_vehicles.md), 예: `iris`(기본값), `plane`, `standard_vtol`
+- `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
 - `<number_of_vehicles>`: 실행할 차량의 수입니다. 기본값은 3. 최대값은 255.
 - `<world>`: 차량이 생성되어야 하는 [세계](../simulation/gazebo_worlds.md), 예: `empty` (기본값)
 - `<script>`: 여러 유형의 다중 차량을 생성합니다(`-m` 및 `-n`의 값 무시). 예:
@@ -19,7 +20,7 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
    ```
    -s "iris:3,plane:2,standard_vtol:3"
    ```
-   - 지원되는 차량 유형은 `iris`, `plane`, `standard_vtol`입니다.
+   - Supported vehicle types are: `iris`, `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
    - 콜론 뒤의 숫자는 실행할 차량(해당 유형) 대수를 나타냅니다.
    - 최대 차량 대수는 255대입니다.
 
@@ -50,6 +51,7 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
 
 @[유투브](https://youtu.be/lAjjTFFZebI)
 
+
 <a id="with_dds"></a>
 
 ### 빌드 및 테스트(RTPS/DDS)
@@ -79,8 +81,9 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
    ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
    ```
 
-:::note
+   :::note
 각 차량 인스턴스에는 고유한 MAVLink 시스템 ID(1, 2, 3 등)가 할당되고, 고유한 원격 UDP 포트(2019, 2021, 2023 등)에서 데이터를 수신하고, UDP 포트(2020, 2022, 2024 등)에서 데이터를 전송합니다.
+
 :::
 
 1. `micrortps_agent`를 실행합니다. 예를 들어 4대의 차량을 연결하려면, 다음을 명령어를 실행하십시오.
@@ -232,34 +235,34 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
    ```
    sudo apt install xmlstarlet
    ```
-1. **multi_uav_mavros_sitl_sdf.launch** 실행 파일과 함께 *roslaunch*를 사용합니다.
-   ````
-   roslaunch multi_uav_mavros_sitl_sdf.launch vehicle:=<model_file_name>
-   ````
+1. **multi_uav_mavros_sitl_sdf.launch** 실행 파일과 함께 *roslaunch*를 사용합니다.<model_file_name>
+   ```
 
-:::note
-차량 모델 파일 이름 인수는 선택 사항입니다(`vehicle:=<model_file_name>`). 생략하면 기본적으로 [평면 모델](https://github.com/PX4/sitl_gazebo/tree/master/models/plane)이 사용됩니다.
-:::
-
-이 방법은 생성된 각 차량에 대해 SITL/Gazebo 포트 번호가 _xmstarlet_에 의해 자동으로 삽입되고 SDF 파일에 지정할 필요가 없다는 점을 제외하고 xacro를 사용하는 것과 유사합니다.
+   :::note
+차량 모델 파일 이름 인수는 선택 사항입니다(<code>vehicle:=<model_file_name></code>). 생략하면 기본적으로 <a href="https://github.com/PX4/sitl_gazebo/tree/master/models/plane">평면 모델</a>이 사용됩니다.
+   이 방법은 생성된 각 차량에 대해 SITL/Gazebo 포트 번호가 <em x-id="4">xmstarlet</em>에 의해 자동으로 삽입되고 SDF 파일에 지정할 필요가 없다는 점을 제외하고 xacro를 사용하는 것과 유사합니다.
 
 새 차량을 추가하려면 모델을 검색 여부를 확인하여야 하고(Gazebo에서 생성하기 위해), PX4에 적절한 시작 스크립트가 있어야 합니다.
 
-1. 다음 중 하나를 실행하도록 선택할 수 있습니다.
-   * 모델을 지정하도록 아래 줄을 변경하여 **single_vehicle_spawn_sdf.launch** 파일을 수정하여 모델의 위치를 가리키도록 합니다.
+1. 모델을 지정하도록 아래 줄을 변경하여 <strong x-id="1">single_vehicle_spawn_sdf.launch</strong> 파일을 수정하여 모델의 위치를 가리키도록 합니다.
      ```
-     $(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf
-     ```
+). 생략하면 기본적으로 [평면 모델](https://github.com/PX4/sitl_gazebo/tree/master/models/plane)이 사용됩니다.
+      이 방법은 생성된 각 차량에 대해 SITL/Gazebo 포트 번호가 _xmstarlet_에 의해 자동으로 삽입되고 SDF 파일에 지정할 필요가 없다는 점을 제외하고 xacro를 사용하는 것과 유사합니다.
+   
+   새 차량을 추가하려면 모델을 검색 여부를 확인하여야 하고(Gazebo에서 생성하기 위해), PX4에 적절한 시작 스크립트가 있어야 합니다.
+   
+   1. 모델을 지정하도록 아래 줄을 변경하여 **single_vehicle_spawn_sdf.launch** 파일을 수정하여 모델의 위치를 가리키도록 합니다.
+   </code>
 :::note
 모델 경로를 하드코딩한 경우에도, `차량` 인수를 설정하여야 합니다.
 :::
    * 모델을 위에 표시된 폴더에 복사합니다(동일한 경로 규칙에 따라).
 
-1. `vehicle` 인수는 `PX4_SIM_MODEL` 환경 변수를 설정에 사용되며, 기본 rcS(시작 스크립트)에서 모델에 해당하는 시작 설정 파일을 찾는 데 사용됩니다. PX4 내에서 이러한 시작 파일은 **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** 디렉토리에서 찾을 수 있습니다. 예를 들어 다음은 비행기 모델의 [시작 스크립트](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/airframes/1030_plane)입니다. 이것이 작동하려면 시작 파일의 PX4 노드에 *rcS* 파일(**etc/init.d/rcS**)과 rootfs 디렉토리(`$(find px4)/build_px4_sitl_default/etc`) 등의 위치를 지정하는 인수가 전달됩니다. 단순화를 위하여 모델의 시작 파일을 **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**에서 PX4와 함께 배치하는 것이 좋습니다.
+1. `vehicle` 인수는 `PX4_SIM_MODEL` 환경 변수를 설정에 사용되며, 기본 rcS(시작 스크립트)에서 모델에 해당하는 시작 설정 파일을 찾는 데 사용됩니다. PX4 내에서 이러한 시작 파일은 **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** 디렉토리에서 찾을 수 있습니다. `vehicle` 인수는 `PX4_SIM_MODEL` 환경 변수를 설정에 사용되며, 기본 rcS(시작 스크립트)에서 모델에 해당하는 시작 설정 파일을 찾는 데 사용됩니다. 이것이 작동하려면 시작 파일의 PX4 노드에 *rcS* 파일(**etc/init.d/rcS**)과 rootfs 디렉토리(`$(find px4)/build_px4_sitl_default/etc`) 등의 위치를 지정하는 인수가 전달됩니다. 단순화를 위하여 모델의 시작 파일을 **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**에서 PX4와 함께 배치하는 것이 좋습니다.
 
 
 ## 추가 자료
 
 * UDP 포트 설정은 [시뮬레이션](../simulation/README.md)을 참고하십시오.
-* xacro로 모델 생성에 대한 자세한 내용은 [Gazebo의 URDF](http://gazebosim.org/tutorials/?tut=ros_urdf)를 참고하십시오.
+* See [URDF in Gazebo](http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo) for more information about spawning the model with xacro.
 * 더 많은 xacro 모델은 [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf)를 참고하십시오.

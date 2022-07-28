@@ -1,7 +1,7 @@
 # uORB Message Reference
 
 :::note
-This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/msg/tools/generate_msg_docs.py) from the source code.
+This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/msg/tools/generate_msg_docs.py) from the source code.
 :::
 
 This topic lists the UORB messages available in PX4 (some of which may be may be shared by the [PX4-ROS 2 Bridge](../ros/ros2_comm.md)).
@@ -22,6 +22,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [airspeed_wind](airspeed_wind.md)
 - [autotune_attitude_control_status](autotune_attitude_control_status.md)
 - [battery_status](battery_status.md)
+- [button_event](button_event.md)
 - [camera_capture](camera_capture.md)
 - [camera_status](camera_status.md)
 - [camera_trigger](camera_trigger.md)
@@ -42,11 +43,13 @@ setting something to NaN means that no limit is provided
 It can be used for reproducible replay.
 - [esc_report](esc_report.md)
 - [esc_status](esc_status.md)
+- [estimator_aid_source_1d](estimator_aid_source_1d.md)
+- [estimator_aid_source_2d](estimator_aid_source_2d.md)
+- [estimator_aid_source_3d](estimator_aid_source_3d.md)
 - [estimator_baro_bias](estimator_baro_bias.md)
 - [estimator_event_flags](estimator_event_flags.md)
 - [estimator_gps_status](estimator_gps_status.md)
 - [estimator_innovations](estimator_innovations.md)
-- [estimator_optical_flow_vel](estimator_optical_flow_vel.md)
 - [estimator_selector_status](estimator_selector_status.md)
 - [estimator_sensor_bias](estimator_sensor_bias.md) — Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets,
 scale errors, in-run bias and thermal drift (if thermal compensation is enabled and available).
@@ -56,6 +59,8 @@ scale errors, in-run bias and thermal drift (if thermal compensation is enabled 
 - [event](event.md) — Events interface
 - [failure_detector_status](failure_detector_status.md)
 - [follow_target](follow_target.md)
+- [follow_target_estimator](follow_target_estimator.md)
+- [follow_target_status](follow_target_status.md)
 - [generator_status](generator_status.md)
 - [geofence_result](geofence_result.md)
 - [gimbal_device_attitude_status](gimbal_device_attitude_status.md)
@@ -96,8 +101,6 @@ These are the externally visible LED's, not the board LED's
 - [obstacle_distance](obstacle_distance.md) — Obstacle distances in front of the sensor.
 - [offboard_control_mode](offboard_control_mode.md) — Off-board control mode
 - [onboard_computer_status](onboard_computer_status.md) — ONBOARD_COMPUTER_STATUS message data
-- [optical_flow](optical_flow.md) — Optical flow in XYZ body frame in SI units.
-http://en.wikipedia.org/wiki/International_System_of_Units
 - [orb_test](orb_test.md)
 - [orb_test_large](orb_test_large.md)
 - [orb_test_medium](orb_test_medium.md)
@@ -120,7 +123,6 @@ This are the three next waypoints (or just the next two or one).
 - [rc_parameter_map](rc_parameter_map.md)
 - [rpm](rpm.md)
 - [rtl_time_estimate](rtl_time_estimate.md)
-- [safety](safety.md)
 - [satellite_info](satellite_info.md)
 - [sensor_accel](sensor_accel.md)
 - [sensor_accel_fifo](sensor_accel_fifo.md)
@@ -129,6 +131,7 @@ This are the three next waypoints (or just the next two or one).
 These fields are scaled and offset-compensated where possible and do not
 change with board revisions and sensor updates.
 - [sensor_correction](sensor_correction.md) — Sensor corrections in SI-unit form for the voted sensor
+- [sensor_gnss_relative](sensor_gnss_relative.md) — GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.
 - [sensor_gps](sensor_gps.md) — GPS position in WGS84 coordinates.
 the field 'timestamp' is for the position & velocity (microseconds)
 - [sensor_gyro](sensor_gyro.md)
@@ -136,10 +139,12 @@ the field 'timestamp' is for the position & velocity (microseconds)
 - [sensor_gyro_fifo](sensor_gyro_fifo.md)
 - [sensor_hygrometer](sensor_hygrometer.md)
 - [sensor_mag](sensor_mag.md)
+- [sensor_optical_flow](sensor_optical_flow.md)
 - [sensor_preflight_mag](sensor_preflight_mag.md) — Pre-flight sensor check metrics.
 The topic will not be updated when the vehicle is armed
 - [sensor_selection](sensor_selection.md) — Sensor ID's for the voted sensors output on the sensor_combined topic.
 Will be updated on startup of the sensor module and when sensor selection changes
+- [sensors_status](sensors_status.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [sensors_status_imu](sensors_status_imu.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [system_power](system_power.md)
 - [takeoff_status](takeoff_status.md) — Status of the takeoff state machine currently just availble for multicopters
@@ -151,6 +156,10 @@ Will be updated on startup of the sensor module and when sensor selection change
 - [timesync_status](timesync_status.md)
 - [trajectory_bezier](trajectory_bezier.md) — Bezier Trajectory description. See also Mavlink TRAJECTORY msg
 The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
+- [trajectory_setpoint](trajectory_setpoint.md) — Trajectory setpoint in NED frame
+Input to PID position controller.
+Needs to be kinematically consistent and feasible for smooth flight.
+setting a value to NaN means the state should not be controlled
 - [trajectory_waypoint](trajectory_waypoint.md) — Waypoint Trajectory description. See also Mavlink TRAJECTORY msg
 The topic trajectory_waypoint describe each waypoint defined in vehicle_trajectory_waypoint
 - [transponder_report](transponder_report.md)
@@ -162,6 +171,10 @@ then the frequency, duration are used otherwise those values are ignored.
 mavlink message
 - [ulog_stream_ack](ulog_stream_ack.md) — Ack a previously sent ulog_stream message that had
 the NEED_ACK flag set
+- [uwb_distance](uwb_distance.md) — UWB distance contains the distance information measured by an ultra-wideband positioning system,
+such as Pozyx or NXP Rddrone.
+- [uwb_grid](uwb_grid.md) — UWB report message contains the grid information measured by an ultra-wideband positioning system,
+such as Pozyx or NXP Rddrone.
 - [vehicle_acceleration](vehicle_acceleration.md)
 - [vehicle_air_data](vehicle_air_data.md)
 - [vehicle_angular_acceleration](vehicle_angular_acceleration.md)
@@ -179,21 +192,21 @@ This struct contains global position estimation. It is not the raw GPS
 measurement (@see vehicle_gps_position). This topic is usually published by the position
 estimator, which will take more sources of information into account than just GPS,
 e.g. control inputs of the vehicle in a Kalman-filter implementation.
-- [vehicle_gps_position](vehicle_gps_position.md) — GPS position in WGS84 coordinates.
-the field 'timestamp' is for the position & velocity (microseconds)
 - [vehicle_imu](vehicle_imu.md) — IMU readings in SI-unit form.
 - [vehicle_imu_status](vehicle_imu_status.md)
 - [vehicle_land_detected](vehicle_land_detected.md)
 - [vehicle_local_position](vehicle_local_position.md) — Fused local position in NED.
 The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 - [vehicle_local_position_setpoint](vehicle_local_position_setpoint.md) — Local position setpoint in NED frame
-setting something to NaN means the state should not be controlled
+Telemetry of PID position controller to monitor tracking.
+NaN means the state was not controlled
 - [vehicle_magnetometer](vehicle_magnetometer.md)
 - [vehicle_odometry](vehicle_odometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
+- [vehicle_optical_flow](vehicle_optical_flow.md) — Optical flow in XYZ body frame in SI units.
+- [vehicle_optical_flow_vel](vehicle_optical_flow_vel.md)
 - [vehicle_rates_setpoint](vehicle_rates_setpoint.md)
 - [vehicle_roi](vehicle_roi.md) — Vehicle Region Of Interest (ROI)
-- [vehicle_status](vehicle_status.md) — If you change the order, add or remove arming_state_t states make sure to update the arrays
-in state_machine_helper.cpp as well.
+- [vehicle_status](vehicle_status.md)
 - [vehicle_status_flags](vehicle_status_flags.md) — This is a struct used by the commander internally.
 - [vehicle_thrust_setpoint](vehicle_thrust_setpoint.md)
 - [vehicle_torque_setpoint](vehicle_torque_setpoint.md)

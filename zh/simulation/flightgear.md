@@ -53,7 +53,8 @@ For some models (e.g. those with electric engines) the daily build with the newe
    ```
    Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
 
-Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).   
+Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).
+
 
 <a id="running"></a>
 
@@ -107,7 +108,7 @@ px4 starting.
 INFO  [px4] Calling startup script: /bin/sh etc/init.d-posix/rcS 0
 INFO  [param] selected parameter default file eeprom/parameters_1034
 I'm Mavlink to FlightGear Bridge
-Targed Bridge Freq: 200, send data every step: 1
+Target Bridge Freq: 200, send data every step: 1
 4
   5   -1
   7   -1
@@ -179,6 +180,7 @@ FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
 
 The example above starts the simulation on the [Honolulu international airport](http://wiki.flightgear.org/Suggested_airports)
+
 
 <a id="joystick"></a>
 

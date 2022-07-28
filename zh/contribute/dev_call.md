@@ -1,7 +1,7 @@
 # 每周开发通讯
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/dev_call.html">can be found here</a>.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/dev_call.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -17,7 +17,8 @@ PX4开发团队会深入分析技术细节并同步到平台上。 在议程中�
 * 社区成员
 
 :::tip
-The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+The dev call is open to all interested developers (not just the core dev team). 
+This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
 :::
 
 ## 讨论什么内容?

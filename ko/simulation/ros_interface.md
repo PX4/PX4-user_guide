@@ -36,7 +36,7 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
 :::note
-누락에 대한 경고를 표시하기 위하여 `-w`(경고) 및/또는 `-v`(상세)와 함께 *roslaunch*를 호출하는 것이 유용할 수 있습니다. 예:
+It can be useful to call *roslaunch* with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. 예:
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```

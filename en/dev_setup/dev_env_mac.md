@@ -13,7 +13,7 @@ If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting
 3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
 4. Now select the renamed *x86 Terminal* app and right-click and choose **Get Info*
 5. Check the box for **Open using Rosetta**, then close the window
-6. Run the *x86 Terminal*` as usual, which will fully support the current PX4 toolchain
+6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
 :::
 
 :::tip
@@ -57,9 +57,9 @@ Install the required Python packages
 
 ```sh
 # install required packages using pip3
-python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
+python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 # if this fails with a permissions error, your Python install is in a system path - use this command instead:
-sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
+sudo -H python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 ```
 
 ## Gazebo Simulation
@@ -79,28 +79,39 @@ They can be removed once it is fixed (along with this note).
 To install SITL simulation with Gazebo:
 
 ```sh
+brew install --cask temurin
 brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
+Run this macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh`
+The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
+
+```sh
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+cd PX4-Autopilot/Tools/setup
+sh macos.sh
+```
 
 ## jMAVSim Simulation
 
 To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15).
-You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use [Termium](https://adoptium.net):
+You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
 
 ```sh
 brew install --cask temurin
 ```
+
+Then install jMAVSim:
 
 ```sh
 brew install px4-sim-jmavsim
 ```
 
 :::warning
-jMAVSim for PX4 v1.11 and beyond we require at least JDK 15.
+PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
+For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
 You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
 :::
 

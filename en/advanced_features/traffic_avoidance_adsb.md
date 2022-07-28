@@ -10,8 +10,8 @@ If a potential collision is detected, PX4 can *warn*, immediately [land](../flig
 PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message.
 
 It has been tested with the following devices:
-- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx/) (uAvionix)
-- [FLARM](https://flarm.com/products/powerflarm/uav/) 
+- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
+- [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
 
 ## Hardware Setup
@@ -90,7 +90,7 @@ If the crossing point is less than the configured distance for altitude and path
 The detection distance can be configured separately for manned and unmanned aviation.
 
 
-The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/navigator_main.cpp)).
+The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp)).
 
 PX4 will also forward the transponder data to a GCS if this has been configured for the MAVLink instance (this is recommended).
 The last 10 Digits of the GUID is displayed as Drone identification.

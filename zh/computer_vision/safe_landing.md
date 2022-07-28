@@ -1,6 +1,6 @@
 # 安全着陆
 
-*安全着陆* 功能确保车辆只能降落在平坦的地形上。
+The *Safe Landing* feature ensures that vehicles only land on flat terrain.
 
 这个功能可以在多旋翼的[降落模式](../flight_modes/land.md)和[任务模式](../flight_modes/mission.md)中使能，多旋翼可以连接运行计算机视觉软件的机载计算机。 也可以在VTOL(垂起无人机)的MC模式下使用。
 
@@ -13,8 +13,9 @@
 安全着陆是为了在崎岖的地势中找到平坦区域。
 
 - 允许在公路上降落；如果检测到汽车，它将在驶过是被"遗忘"。
-- 如果使用雷达或超声波传感器，就可以降落在水上，但是使用立体相机或LIDAR则不可以。 
+- 如果使用雷达或超声波传感器，就可以降落在水上，但是使用立体相机或LIDAR则不可以。
   - 系统只有在能够探测到地面的情况下才会降落。 对于立体相机，不能对水进行足够的特征分析，导致找不到平坦的区域进行降落。
+
 
 ## PX4配置
 
@@ -26,30 +27,30 @@ PX4通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../a
 
 ## 机载计算机设置
 
-这涵盖了用于避障和防撞的通用设置，包括使用*安全着陆规划*的特定部分（此功能提供了机载计算机侧的支持）：
+Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
+
+This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the *safe landing planner* (which provides companion-side support for this feature):
+* [仿真模拟安装配置](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+* [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 配置信息除了其他外，还包括使用不同的相机怎样设置安全着陆，无人机大小和决定是否降落的高度。
 
-* [仿真模拟安装配置](https://github.com/PX4/avoidance#safe-landing-planner)
-* [硬件安装配置](https://github.com/PX4/avoidance#safe-landing-planner-1)
-
-配置信息除了其他外，还包括使用不同的相机怎样设置安全着陆，无人机大小和决定是否降落的高度。
 
 <span id="interface"></span>
-
 ## 安全着陆接口
 
 PX4 使用 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) 集成机载计算机中的路径规划服务（包括 [任务中自主避障](../computer_vision/obstacle_avoidance.md#mission_mode)，[安全着陆](../computer_vision/safe_landing.md)以及更多的服务）。
 
 PX4 和机载设备之间的（消息发送）接口与任何其他路径规划服务完全一样。 但是请注意，安全着陆规划仅将` TRAJECTORY_REPRESENTATION_WAYPOINTS `消息的第0点中的信息用于所需路径。
 
+
 ## 支持的硬件
 
-测试过的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 ## 更多信息
 
 * [视觉和外部控制接口](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 开发者峰会2019: Martina Rivizzigno, Auterion Computer Vision Engineerer)
-* [PX4/avoidance](https://github.com/PX4/avoidance) 
-  * [仿真模拟安装配置 > 安全着陆规划](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [硬件安装配置 > 安全着陆规划](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+* [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
+  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)

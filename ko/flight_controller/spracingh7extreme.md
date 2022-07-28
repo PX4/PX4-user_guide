@@ -1,7 +1,6 @@
 # SPRacingH7EXTREME (PX4 판)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.seriouslypro.com)에 문의하십시오.
-:::
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.seriouslypro.com)에 문의하십시오. :::
 
 [SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme)는 DUAL ICM20602 자이로, H7 400/480Mhz (+) CPU, 고정밀 BMP388 기압계, SD 카드 소켓, 전류 센서, 쉽게 액세스 할 수있는 8 개의 모터 출력, OSD, 마이크, 오디오 출력 등이 포함된 FC/PDB입니다.
 
@@ -14,8 +13,7 @@
 ![SPRacingH7EXTREME PCB 하단](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
 :::note
-이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
-:::
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다. :::
 
 ## 주요 특징
 

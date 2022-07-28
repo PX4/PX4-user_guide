@@ -138,7 +138,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code.
+This is all you need to do just to build the latest code. 
 :::
 
 #### Cross build for Raspberry Pi OS
@@ -195,7 +195,7 @@ rm -rf build/scumaker_pilotpi_default
 
 The following method can provide the same tool-sets deployed in CI.
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in PX4-Autopilot folder:
 

@@ -2,7 +2,7 @@
 
 This message is used to control the tunes, when the tune_id is set to CUSTOM then the frequency, duration are used otherwise those values are ignored.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/tune_control.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/tune_control.msg)
 
 ```c
 # This message is used to control the tunes, when the tune_id is set to CUSTOM
@@ -40,7 +40,7 @@ uint32 silence       # in us
 uint8 volume         # value between 0-100 if supported by backend
 
 uint8 VOLUME_LEVEL_MIN = 0
-uint8 VOLUME_LEVEL_DEFAULT = 40
+uint8 VOLUME_LEVEL_DEFAULT = 20
 uint8 VOLUME_LEVEL_MAX = 100
 
 uint8 ORB_QUEUE_LENGTH = 4

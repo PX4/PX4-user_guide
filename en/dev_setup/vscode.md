@@ -11,7 +11,7 @@ This topic explains how to setup the IDE and start developing.
 
 :::note
 There are other powerful IDEs, but they typically take more effort to integrate with PX4.
-With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode)) so the setup process is as simple as adding the project folder.
+With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) so the setup process is as simple as adding the project folder.
 :::
 
 ## Preconditions

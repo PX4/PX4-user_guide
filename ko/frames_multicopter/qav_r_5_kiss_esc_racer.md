@@ -11,28 +11,28 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 
 ![QAV 레이서 완료](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV 레이서 완료 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
+
 ## 부품 목록
 
 ### 기체(비행에 필요)
-
-- Autopilot : ESP8266 WiFi 및 [ACSP5](https://store.mrobotics.io/product-p/auav-acsp5-mr.htm) 전원 모듈을 포함한 [AUAV](https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm)의 [ Pixracer](../flight_controller/pixracer.md)
-- [기체:](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html) Lumenier QAV-R 5"
-- 모터: [Lumenier RX2206 -11 2350KV](http://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
-- ESCs: [KISS 24A Race Edition](http://www.getfpv.com/kiss-24a-esc-race-edition-32bit-brushless-motor-ctrl.html)
-- 프로펠러: HQProp 5x4.5x3 [시계 방향](http://www.getfpv.com/hqprop-5x4-5x3rg-cw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html) [반시계 방향](http://www.getfpv.com/hqprop-5x4-5x3g-ccw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html)
-- GPS / (외장) Mag .: [Pixhawk Mini (판매 중단)](../flight_controller/pixhawk_mini.md) 세트에서 가져온 M8N 및 재배선
-- 배터리: [TATTU 1800mAh 4s 75c Lipo](http://www.getfpv.com/tattu-1800mah-4s-75c-lipo-battery.html)
-- 무선 수신기: [FrSky X4R-SB](http://www.getfpv.com/frsky-x4r-sb-3-16-channel-receiver-w-sbus.html)
-- 무선 송신기: [FrSky Taranis](http://www.getfpv.com/frsky-taranis-x9d-plus-2-4ghz-accst-radio-w-soft-case-mode-2.html)
-- FC 감쇠 : [O-링](http://www.getfpv.com/multipurpose-o-ring-set-of-8.html)
-- GPS 장착: [GPS mast](http://www.getfpv.com/folding-aluminum-gps-mast-for-dji.html)
+* Autopilot : ESP8266 WiFi 및 [ACSP5](https://store.mrobotics.io/product-p/auav-acsp5-mr.htm) 전원 모듈을 포함한 [AUAV](https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm)의 [ Pixracer](../flight_controller/pixracer.md)
+* [기체:](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html) Lumenier QAV-R 5"
+* 모터: [Lumenier RX2206 -11 2350KV](http://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
+* ESCs:  [KISS 24A Race Edition](http://www.getfpv.com/kiss-24a-esc-race-edition-32bit-brushless-motor-ctrl.html)
+* 프로펠러: HQProp 5x4.5x3 [시계 방향](http://www.getfpv.com/hqprop-5x4-5x3rg-cw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html) [반시계 방향](http://www.getfpv.com/hqprop-5x4-5x3g-ccw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html)
+* GPS / (외장) Mag .: [Pixhawk Mini (판매 중단)](../flight_controller/pixhawk_mini.md) 세트에서 가져온 M8N 및 재배선
+* 배터리: [TATTU 1800mAh 4s 75c Lipo](http://www.getfpv.com/tattu-1800mah-4s-75c-lipo-battery.html)
+* 무선 수신기: [FrSky X4R-SB](http://www.getfpv.com/frsky-x4r-sb-3-16-channel-receiver-w-sbus.html)
+* 무선 송신기: [FrSky Taranis](http://www.getfpv.com/frsky-taranis-x9d-plus-2-4ghz-accst-radio-w-soft-case-mode-2.html)
+* FC 감쇠 : [O-링](http://www.getfpv.com/multipurpose-o-ring-set-of-8.html)
+* GPS 장착: [GPS mast](http://www.getfpv.com/folding-aluminum-gps-mast-for-dji.html)
 
 ### FPV(선택 사항)
 
-- Camera: [RunCam Swift RR Edition](https://www.getfpv.com/runcam-swift-rotor-riot-special-edition-ir-block-black.html) **includes must-have high quality wide angle lens from GoPro!**
-- 비디오 Tx: [ImmersionRC Tramp HV 5.8GHz 600mW](http://www.getfpv.com/fpv/video-transmitters/immersionrc-tramp-hv-5-8ghz-video-tx.html)
-- Video 안테나: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
-- FPV 전압 소스 플러그: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html) 
+* Camera: [RunCam Swift RR Edition](https://www.getfpv.com/runcam-swift-rotor-riot-special-edition-ir-block-black.html) **includes must-have high quality wide angle lens from GoPro!**
+* Video Tx: [ImmersionRC Tramp HV 5.8GHz 600mW](https://www.getfpv.com/immersionrc-tramp-hv-5-8ghz-video-tx-us-version.html) (Discontinued).
+* Video 안테나: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
+* FPV 전압 소스 플러그: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html)
 
 :::note
 이 부분은 표준 FPV 5.8GHz 아날로그 FM 비디오 송신을 담당합니다. 라이브 비디오 스트림을 사용하려면 호환 수신기 및 디스플레이가 필요합니다.
@@ -41,7 +41,6 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 ## 기본 프레임 조립
 
 09:25에서 13:26 사이에이 비디오처럼 기본 센터 플레이트와 암을 조립했습니다.
-
 <p align="center">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7SIpJccXZjM?start=565&end=806" frameborder="0" allowfullscreen></iframe>
 </p>
@@ -51,32 +50,32 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 ## 동력 전달 장치 조립
 
 KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
-
-- BLHeli와 달리 사용하는 소프트웨어는 오픈 소스가 아닙니다 
+- BLHeli와 달리 사용하는 소프트웨어는 오픈 소스가 아닙니다
 - 미리 납땜된 전선 또는 플러그가 있는 하드웨어가 없습니다.
 
 즉, 모든 ESC에 최소 6 개의 조인트를 납땜해야 하지만 그만한 가치는 충분합니다.
 
 :::tip
-실제로 납땜하기 전에 항상 납땜으로 연결하려는 양면에 주석을 추가하십시오. 이렇게하면 훨씬 편리하게 납땜 할 수 있고, 콜드 솔더링 조인트가 생길 가능성이 줄어 듭니다.
+실제로 납땜하기 전에 항상 납땜으로 연결하려는 양면에 주석을 추가하십시오.
+이렇게하면 훨씬 편리하게 납땜 할 수 있고, 콜드 솔더링 조인트가 생길 가능성이 줄어 듭니다.
 :::
 
 :::tip
-배터리에서 모터까지 고전류를 전달하는 전원 연결에 적절한 케이블 게이지를 사용하는지 확인하십시오. 모든 신호 케이블은 타 케이블에 비하여 매우 얇을 수 있습니다.
+배터리에서 모터까지 고전류를 전달하는 전원 연결에 적절한 케이블 게이지를 사용하는지 확인하십시오.
+모든 신호 케이블은 타 케이블에 비하여 매우 얇을 수 있습니다.
 :::
 
 :::tip
-납땜을 시작하기 전에 케이블에 열 수축을 가하십시오! 성공적인 기능 테스트 후 ESC, 전원 모듈 및 자유 부동 비 절연 와이어 솔더링 조인트를 열수축을 하면 먼지, 습기 및 물리적 손상으로부터 보호됩니다.
+납땜을 시작하기 전에 케이블에 열 수축을 가하십시오!
+성공적인 기능 테스트 후 ESC, 전원 모듈 및 자유 부동 비 절연 와이어 솔더링 조인트를 열수축을 하면 먼지, 습기 및 물리적 손상으로부터 보호됩니다.
 :::
 
 ### 모터
-
 먼저 ESC가 중앙으로 이동 한 암에 장착 될 때 세 개의 모터 케이블을 모두 직접 절단했지만 ,부품을 쉽게 배치하고 케이블에 장력을 발생시키지 않도록 충분한 여유를 둡니다. 그런 다음 모터에서 나오는 순서대로 스위칭 MOS-FET가 위로 향한 ESC의 출력 접점에 납땜하여 비행 중에 공냉 기능이 좋아집니다. 이 케이블 순서를 선택하면 테스트에서 모든 모터가 시계 반대 방향으로 회전했습니다. 필요한 경우 [Quadrotor x 구성](../airframes/airframe_reference.md#quadrotor-x)을 따르도록 전용 [JP1 솔더 점퍼](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg)를 브리징하여 회전 방향을 전환합니다.
 
 ![모터 전원 연결](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
 
 ### 전원 모듈
-
 먼저 프레임과 함께 제공되는 XT60 커넥터를 Pixracer와 함께 배송 된 *ACSP5 전원 모듈*의 레이블이있는 배터리쪽에 납땜하였습니다. 전원 모듈과 함께 제공되는 elco 커패시터를 동일한쪽에 올바른 극성으로 추가하였습니다.
 
 ![ACSP5 전원 모듈](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
@@ -100,11 +99,11 @@ KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
 ![모터 테스트](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
 <span id="mounting"></span>
-
 ## 전자 부품 조립
 
 :::tip
-연결하는 모든 구성 요소의 핀 할당을 다시 확인하십시오. 모든 하드웨어 구성 요소가 눈에 보이는 것과는 달리, 플러그 앤 플레이가 가능하지 않습니다.
+연결하는 모든 구성 요소의 핀 할당을 다시 확인하십시오.
+모든 하드웨어 구성 요소가 눈에 보이는 것과는 달리, 플러그 앤 플레이가 가능하지 않습니다.
 :::
 
 이 단계에서 필요한 모든 커넥터를 찾으려면 [Pixracer의 하드웨어 문서](../flight_controller/pixracer.md)가 필요합니다. 나는 Pixracer 보드 아래의 모든 케이블을 깔끔하게 정리하여, 향후 FPV 카메라와 송신기를위한 공간을 확보하고자 하였습니다.
@@ -150,7 +149,6 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 사용한 GPS의 커넥터에 맞는 GPS 케이블을 가져와 Pixracer 세트와 함께 조립하였습니다. 안타깝게도 핀 할당이 완전히 잘못되어 [3DR Pixhawk Mini 사용자 설명서](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) GPS 포트에 따라 핀셋을 사용하여 커넥터를 다시 배선하였습니다.
 
 #### Pixracer GPS/I2C 포트
-
 | 핀 | 할당  |
 | - | --- |
 | 1 | GND |
@@ -161,7 +159,6 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 | 6 | +5V |
 
 #### M8N 3DR Pixhawk mini GPS 커넥터
-
 | 핀      | 할당     | Pixracer 연결 핀 |
 | ------ | ------ | ------------- |
 | 1(red) | SCL    | 3             |
@@ -192,19 +189,20 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 ## 소프트웨어 설정
 
 :::warning
-초기 설정시에는 배터리와 프로펠러를 기체에서 반드시 제거하십시오. 사고의 위험성이 있는 것은 초기에 확실하게 제거하는 것이 좋습니다.
+초기 설정시에는 배터리와 프로펠러를 기체에서 반드시 제거하십시오.
+사고의 위험성이 있는 것은 초기에 확실하게 제거하는 것이 좋습니다.
 :::
 
 일반적인 설정 방법은 [기본 설정](../config/README.md)을 참조하십시오.
 
 이 조립 방법에서는 "FMU as task"개선 (PX4 v1.7 이후 기본적으로 포함 및 활성화 됨)을 지원하기 때문에 최신 PX4 마스터를 가져와 Pixracer에 플래시하였습니다. [QGC](http://qgroundcontrol.com/) 일일 빌드를 사용하여 다음을 설정하였습니다.
-
 - [Generic 250 Racer 구성](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) 기체 선택
 - 센서 보정
 - 충전된 셀 전압 4.15V 및 빈 셀 전압 3.5V로 배터리를 4S(4 셀 LiPo)로 설정합니다.
-- 정확한 전류 전압계 측정을 입력하여 전압 분배기를 보정합니다.
+- Calibrate the voltage divider through typing in the current accurate voltmeter measurement
 - 2 개의 추가 스위치 입력에 대해 이미 설정된 Taranis를 사용하여 RC 채널을 보정합니다. 모드 스위치용 Taranis 전면 플레이트의 오른쪽 상단 모서리에있는 하나의 스위치와 암 스위치로 사용되는 전면 플레이트의 왼쪽 상단 모서리에있는 다른 스위치.
 - 시동 스위치를 설정할 수 있습니다.
+
 
 ### 튜닝
 

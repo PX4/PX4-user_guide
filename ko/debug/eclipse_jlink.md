@@ -14,7 +14,7 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 ### PX4
 
 일반 지침에 따라 PX4를 설정합니다.
-- 플랫폼에 대한 [PX4 개발자 환경/도구 체인 설정](../dev_setup/dev_env.md)(예: Linux의 경우 [Ubuntu LTS/Debian Linux의 개발 환경](../dev_setup/dev_env_linux_ubuntu.md) 참조).
+- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [PX4를 다운로드](../dev_setup/building_px4.md)하고, 선택적으로 명령줄에서 빌드합니다.
 
 ### Eclipse
@@ -44,8 +44,9 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
    - 우상단의 *Open Perspective*라는 작은 아이콘을 클릭하고, *Packs* Perspective를 엽니다. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - **모두 업데이트** 버튼을 클릭합니다.
 
-:::tip
-이것은 10분정도의 시간이 소요됩니다. 누락된 패키지에 대한 오류를 무시하십시오.
+     :::tip
+이것은 10분정도의 시간이 소요됩니다.
+누락된 패키지에 대한 오류를 무시하십시오.
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
@@ -60,7 +61,8 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 1. 그런 다음, *GDB SEGGER J-Link 디버깅*을 선택한 다음, 왼쪽 상단의 **새 구성** 버튼을 선택합니다. ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
 1. 빌드 구성을 설정합니다.
    - 이름을 지정하고 *C/C++ 애플리케이션*을 해당 **.elf** 파일로 설정합니다.
-   - *자동 빌드 비활성화* 선택합니다. :::note 디버그 세션을 시작하기 전에, 명령줄에서 대상을 빌드하여야 합니다.
+   - *자동 빌드 비활성화* 선택합니다. :::note
+디버그 세션을 시작하기 전에, 명령줄에서 대상을 빌드하여야 합니다.
 :::
 
    ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)

@@ -36,15 +36,15 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 | 항목              | 설명                           | 수량 |
 | --------------- | ---------------------------- | -- |
 | 소켓 캡 나사         | 모터 고정에 사용, 스테인레스 스틸 나사 M3*5  | 16 |
-| 탄소 섬유 튜브-암      | 직경 : 16mm, 길이 : 200mm        | 4  |
+| 탄소 섬유 튜브-암      | 직경 : 16mm, 길이 : 200mm        | 16 |
 | 모터 베이스          | 6 개의 부품과 4 개의 나사로 구성 4 개의 너트 | 4  |
 | 슬라이드 바          | 직경 : 10mm, 길이 : 250mm        | 2  |
-| 배터리 장착 보드       | 두께: 2mm                      | 1  |
-| 배터리 패드          | 3mm 실리콘 시트 검정                | 1  |
+| 배터리 장착 보드       | 두께: 2mm                      | 2  |
+| 배터리 패드          | 3mm 실리콘 시트 검정                | 4  |
 | 철탑              | 구리 너트가 내장된 엔지니어링 플라스틱        | 2  |
-| 십자 접시 머리 나사     | 스테인리스  M2.5*5mm              | 12 |
-| PAN/TILT 플랫폼 보드 | 두께: 2mm                      | 1  |
-| 행거 고무링 개스킷      | 내부 구멍 직경 : 10mm 검정           | 8  |
+| 십자 접시 머리 나사     | 스테인리스  M2.5*5mm              | 16 |
+| PAN/TILT 플랫폼 보드 | 두께: 2mm                      | 16 |
+| 행거 고무링 개스킷      | 스테인리스  M2.5*5mm              | 16 |
 | 헹거              | 구리 너트가 내장된 엔지니어링 플라스틱        | 8  |
 
 ![X500 프레임 부품](../../assets/airframes/multicopter/x500_holybro_pixhawk4/whats_inside_x500_labeled.jpg)
@@ -53,7 +53,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 | 항목                | 패키지 |
 | ----------------- | --- |
-| Pixhawk 4         | 1   |
+| Pixhawk 4         | 16  |
 | Pixhawk4 GPS 모듈   | 1   |
 | I2C 스플리터 보드       | 2   |
 | 6 ~ 6 핀 케이블 (전원)  | 3   |
@@ -105,7 +105,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    _그림 5_: 모터 연결
 
-1. ESC 전원선을 전원 모듈 PM07에 연결하고, 검정-검정 및 빨강-빨간색, ESC PWM 신호선을 "FMU-PWM-Out"으로 연결합니다. 모터 ESC PWM 와이어를 올바른 순서로 연결하였는 지 확인하십시오. 기체 모터 번호는 그림 7을 참조하고 PM07 보드의 해당 번호에 연결합니다.
+1. ESC 전원선을 전원 모듈 PM07에 연결하고, 검정-검정 및 빨강-빨간색, ESC PWM 신호선을 "FMU-PWM-Out"으로 연결합니다. 모터 ESC PWM 와이어를 올바른 순서로 연결하였는 지 확인하십시오. Refer to Figure 7 for airframe motor number and connect to the corresponding number on the PM07 board.
 
    ![ESC 전원 모듈 및 신호 배선](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _그림 7_: ESC 전원 모듈 및 신호 배선
 
@@ -190,6 +190,8 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 조립이 완료되었습니다. 완전히 조립된 키트는 다음과 같습니다.
 
 ![키트 조립](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
+
+
 
 <a id="configure"></a>
 

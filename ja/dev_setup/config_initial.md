@@ -4,7 +4,9 @@ We recommend that developers obtain the basic equipment and software described b
 
 ## Basic Equipment
 
-:::tip PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups. A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+:::tip
+PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
+A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
 :::
 
 The equipment below is highly recommended:

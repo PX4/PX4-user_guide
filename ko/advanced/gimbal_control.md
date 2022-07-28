@@ -20,7 +20,7 @@ MAVLink 짐벌을 활성화하려면, 매개변수 [MNT_MODE_IN](../advanced_con
 
 짐벌은 \[MAVLink 주변 기기 (GCS/OSD/보조)\](../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) 에서 다루는 방법과 같이 *어떤 여분의 직렬 포트*에든 연결할 수 있습니다([직렬 포트 구성](../peripherals/serial_configuration.md#serial-port-configuration)도 참고).
 
-일반적인 설정 방법은 비행 콘트롤러 TELEM2 포트에서 짐벌에 직렬 연결을 하는 것입니다(TELEM2가 사용 가능할 때). 이렇게 구성하려면, 다음과 같이 설정합니다:
+일반 구성은 비행 제어장치의 TELEM2 포트(TELEM2가 비어있다고 가정)에 짐벌을 직렬 연결하는 방식입니다. 이렇게 구성하려면, 다음과 같이 설정합니다:
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG)에서 **TELEM2**까지(`MAV_1_CONFIG`가 이미 보조 컴퓨터에 사용되고 있는 경우(예: `MAV_2_CONFIG` 사용))
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE)에서 **NORMAL**로
 - 제조업체 권장 전송 속도에 대한 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD).
@@ -32,7 +32,7 @@ MAVLink 짐벌을 활성화하려면, 매개변수 [MNT_MODE_IN](../advanced_con
 
 짐벌은 출력 모드를 `MNT_MODE_OUT=AUX`로 설정하여 비행 콘트롤러 AUX 포트에 연결할 수 있습니다.
 
-출력 핀을 매핑 정의하려면 믹서 파일이 필요하며, [마운트 믹서](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/mount.aux.mix)가 자동으로 선택됩니다(이는 기체 설정의 모든 AUX 믹서를 무시합니다).
+A mixer file is required to define the mapping for the output pins and the [mount mixer](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/mount.aux.mix) is automatically selected (this overrides any AUX mixer provided by the airframe configuration).
 
 출력 할당은 다음과 같습니다:
 - **AUX1**: 상하 회전각(Pitch)

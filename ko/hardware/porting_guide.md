@@ -42,12 +42,15 @@ Linux 보드에는 OS와 커널 설정이 포함되어 있지 않습니다. Linu
 
 * 시작 스크립트는 [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/master/posix-configs)에 있습니다. <!-- NEED px4_version -->
 * OS 구성은 기본 Linux 이미지의 일부입니다(TODO: LINUX IMAGE 및 플래시 지침의 위치 제공).
-* PX4 미들웨어 구성은 [src/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에 있습니다. TODO: ADD BUS CONFIG
+* PX4 미들웨어 구성은 [src/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에 있습니다. <!-- NEED px4_version --> TODO: ADD BUS CONFIG
 
 
 ## RC UART 배선 권장 사항
 
-일반적으로 별도의 RX 및 TX 핀을 통해 RC를 마이크로 콘트롤러에 연결하는 것이 좋습니다. 그러나 RX와 TX가 함께 연결된 경우에는 UART의 경합 방지를 위하여, 단일 와이어 모드로 전환되어야 합니다. 이것은 보드 설정과 매니페스트 파일을 통하여 수행됩니다. 한 가지 예는 [px4fmu-v5](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/manifest.c)입니다. <!-- NEED px4_version --> ## 공식 지원 하드웨어
+일반적으로 별도의 RX 및 TX 핀을 통해 RC를 마이크로 콘트롤러에 연결하는 것이 좋습니다. 그러나 RX와 TX가 함께 연결된 경우에는 UART의 경합 방지를 위하여, 단일 와이어 모드로 전환되어야 합니다. 이것은 보드 설정과 매니페스트 파일을 통하여 수행됩니다. 한 가지 예는 [px4fmu-v5](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/manifest.c)입니다. <!-- NEED px4_version -->
+
+
+## 공식 지원 하드웨어
 
 PX4 프로젝트는 [FMU 표준 참조 하드웨어](../hardware/reference_design.md)와 호환되는 모든 보드를 지원 및 유지 관리합니다. 여기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)가 포함됩니다([공식적으로 지원되는 하드웨어의 전체 목록](../flight_controller/README.md)은 사용자 가이드를 참조).
 

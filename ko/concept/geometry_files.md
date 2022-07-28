@@ -1,5 +1,9 @@
 # 멀티콥터 지오메트리 파일
 
+:::note
+Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13). You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC).
+:::
+
 지오메트리 파일은 PX4 속도 콘트롤러의 출력을 특정 모터에 매핑하는 믹서를 정의합니다. 파일은 각 로터의 위치, 추력 방향, 회전 방향, 추력 및 항력 계수를 기술합니다.
 
 ## 신규 지오메트리 추가 방법
@@ -53,7 +57,7 @@
 
 ## 예제 파일
 
-소스에는 [/src/lib/mixer/Multirotor Mixer/geometry/](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/)와 같은 다양한 예제가 있습니다.
+There are numerous examples in the source tree: [/src/lib/mixer/MultirotorMixer/geometries/](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/).
 
 트라이콥터 지오메트리([tri_y.toml](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml))는 다음과 같습니다.
 

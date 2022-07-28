@@ -24,5 +24,5 @@ UAVCAN 버스에서 전송을 디버그하는 좋은 도구는 [Zubax Babel](htt
 - [홈 페이지](http://uavcan.org) (uavcan.org)
 - 0>사양</a> (uavcan.org)
 - [구현 및 튜토리얼](http://uavcan.org/Implementations)(uavcan.org)
-- [UAVCAN 장치 상호 연결](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB)
+- [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (Zubax KB) (Zubax KB)
 

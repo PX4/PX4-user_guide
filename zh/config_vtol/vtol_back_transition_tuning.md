@@ -24,6 +24,7 @@ A typical fixed wing propeller is not optimized to spin in reverse, when the thr
 
 Generally there are 2 ways a reverse-capable ESC can implement reverse thrust.
 
+
 ### 用油门缩放功能
 
 Normally the throttle stick is used purely for forward thrust.
@@ -35,6 +36,7 @@ Support for 3D throttle scaling during back-transition requires *code support* i
 :::
 
 The amount of negative thrust during back transition can then be configured using the [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) parameter (set to a negative value between 0 and -1).
+
 
 ### 用一个通道来控制
 

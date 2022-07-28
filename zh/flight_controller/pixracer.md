@@ -13,7 +13,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## 主要特性
 
-* Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   * CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
   * RAM: 256 KB SRAM (L1)
 * Standard FPV form factor: 36x36 mm with standard 30.5 mm hole pattern
@@ -27,12 +27,12 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 * OneShot PWM out (configurable)
 * Optional: Safety switch and buzzer
 
+
 ## 在哪里买
 
 Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm).
 
 Accessories include:
-
 * [数字空速传感器](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
 * [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 
@@ -52,12 +52,14 @@ One of the main features of the board is its ability to use Wifi for flashing ne
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
 
 :::note
-Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled). Setup and telemetry are supported.
+Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
+Setup and telemetry are supported.
 :::
 
 ## Assembly
 
 See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
+
 
 ## Wiring Diagrams
 
@@ -77,6 +79,7 @@ If using `TELEM2` for an external telemetry module you will need to configure it
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
+
 ## Connectors
 
 All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
@@ -88,6 +91,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 ![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
 
 ![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
+
 
 #### TELEM1, TELEM2+OSD ports
 
@@ -104,8 +108,8 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 
 | 针脚   | 信号       | 电压    |
 | ---- | -------- | ----- |
-| 1（红） | VCC      | +5V   |
-| 2（黑） | TX (OUT) | +3.3V |
+| 2    | VCC      | +5V   |
+| 2    | TX (OUT) | +3.3V |
 | 3    | RX (IN)  | +3.3V |
 | 4（黑） | I2C1 SCL | +3.3V |
 | 6    | I2C1 SDA | +3.3V |
@@ -162,7 +166,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 
 #### Debug调试端口
 
-This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
+This is a [Pixhawk Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
 | 针脚   | 信号               | 电压    |
 | ---- | ---------------- | ----- |
@@ -174,9 +178,8 @@ This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#d
 | 6    | GND              | GND   |
 
 For information about wiring and using this port see:
-
-* [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
-* [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
+- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
+- [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
 
 ## Serial Port Mapping
 
@@ -189,16 +192,16 @@ For information about wiring and using this port see:
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Schematics
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
 The following PDF files are provided for *convenience only*:
+* [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
+* [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
-* [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
-* [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
 ## Building Firmware
 
@@ -207,9 +210,10 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+```
+make px4_fmu-v4_default
+```
 
-    make px4_fmu-v4_default
-    
 
 ## Credits
 

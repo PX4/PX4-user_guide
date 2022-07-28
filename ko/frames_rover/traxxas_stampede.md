@@ -7,12 +7,13 @@
 ## 부품 목록
 
 * [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm)의 부품들은 상단 플라스틱 덮개를 제외하고 모두 사용됩니다.
-* [Pixhawk Mini (단종)](../flight_controller/pixhawk_mini.md) 
+* [Pixhawk Mini (단종)](../flight_controller/pixhawk_mini.md)
   * 3DR 10S 전원 모듈
   * [3DR 433MHz 텔레메트리 모듈 (EU)
 * [Spektrum Dxe 컨트롤러](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) 또는 기타 PX4 호환 리모컨
 * [Spektrum 쿼드 레이스 직렬 수신기 w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 * [PX4Flow](../sensor/px4flow.md)
+
 
 ## 조립
 
@@ -52,13 +53,13 @@
 로버는 다른 기체와 같은 방법으로 *QGroundControl*을 사용하여 설정합니다.
 
 중요한 로버 설정은 올바른 프레임을 설정하는 것입니다.
-
 1. *QGroundControl*의 [기본 설정](../config/README.md) 섹션으로 전환합니다.
-2. [Airframe](../config/airframe.md) 탭을 선택합니다. 
-3. 목록을 아래로 스크롤하여 **Rover** 아이콘을 찾습니다. 
-4. 드롭다운 목록에서 **Traxxas stampede vxl 2wd**를 선택합니다.
+1. [Airframe](../config/airframe.md) 탭을 선택합니다.
+1. 목록을 아래로 스크롤하여 **Rover** 아이콘을 찾습니다.
+1. 드롭다운 목록에서 **Traxxas stampede vxl 2wd**를 선택합니다.
 
 ![기체 선택](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
+
 
 ## 사용법
 
@@ -72,4 +73,7 @@
 
 ![미션](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
 
-## 비디오 <iframe width="740" height="416" src="https://www.youtube.com/embed/N3HvSKS3nCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+
+## 비디오
+
+<iframe width="740" height="416" src="https://www.youtube.com/embed/N3HvSKS3nCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

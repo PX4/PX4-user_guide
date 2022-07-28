@@ -1,10 +1,9 @@
 # Adding a New Airframe Configuration
 
 PX4 uses canned airframe configurations as starting point for airframes.
-The configurations are defined in [config files](#config-file) that are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) folder.
-The config files reference [mixer files](#mixer-file) that describe the physical configuration of the system, and which are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/mixers) folder.
+The configurations are defined in [config files](#config-file) that are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder.
 
-Adding a configuration is straightforward: create a new config file in the [init.d/airframes folder](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d/airframes) (prepend the filename with an unused autostart ID), add the name of your new airframe config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section, then [build and upload](../dev_setup/building_px4.md) the software.
+Adding a configuration is straightforward: create a new config file in the [init.d/airframes folder](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) (prepend the filename with an unused autostart ID), add the name of your new airframe config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section, then [build and upload](../dev_setup/building_px4.md) the software.
 
 Developers who do not want to create their own configuration can instead customize existing configurations using text files on the microSD card, as detailed on the [custom system startup](../concept/system_startup.md) page.
 
@@ -14,12 +13,13 @@ To determine which parameters/values need to be set in the configuration file, y
 
 ## Configuration File Overview
 
-The configuration in the config and mixer files consists of several main blocks:
+The configuration file consists of several main blocks:
 
 * Airframe documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*).
-* Vehicle-specific parameter settings, including [tuning gains](#tuning-gains).
+* Airframe-specific parameter settings, including [tuning gains](#tuning-gains)
 * The controllers and apps it should start, e.g. multicopter or fixed wing controllers, land detectors etc.
-* The physical configuration of the system (e.g. a plane, wing or multicopter). This is called a [mixer](../concept/mixing.md).
+* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry.
+  Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](../concept/control_allocation.md) parameters (from PX4 v1.13).
 
 These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
 
@@ -30,7 +30,7 @@ New airframe files are only automatically added to the build system after a clea
 <a id="config-file"></a>
 ### Config File
 
-A typical configuration file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)).
+A typical configuration file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)).
 
 The first section is the airframe documentation.
 This is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
@@ -90,7 +90,7 @@ Set frame type ([MAV_TYPE](https://mavlink.io/en/messages/common.html#MAV_TYPE))
 set MAV_TYPE 1
 ```
 
-Set the [mixer](#mixer-file) to use:
+Set the [mixer](#mixer-file) to use (if [control allocation](../concept/control_allocation.md) is not enabled):
 ```bash
 # Set mixer
 set MIXER wingwing
@@ -111,11 +111,20 @@ Thus for a correct channel assignment change either your PWM signals with `PWM_M
 ### Mixer File
 
 :::note
+Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13).
+
+You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC).
+If enabled, the geometry may then be defined using `CA_*` parameters in the airframe configuration file, as shown in [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter#L28).
+:::
+
+:::note
 First read [Concepts > Mixing](../concept/mixing.md).
 This provides background information required to interpret this mixer file.
 :::
 
-A typical mixer file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)).
+[mixer files](#mixer-file) describe the physical configuration of the system, and are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/mixers) folder.
+
+A typical mixer file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/wingwing.main.mix)).
 A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`).
 
 The mixer file contains several blocks of code, each of which refers to one actuator or ESC.
@@ -203,7 +212,7 @@ S: 0 0  -6000  -6000      0 -10000  10000
 S: 0 1  -6500  -6500      0 -10000  10000
 
 Note that in principle, you could implement left/right wing asymmetric mixing, but in general the two blocks of code will be numerically equal, and just differ by the sign of the third line (S: 0 1), since to roll the plane, the two ailerons must move in OPPOSITE directions.
-The signs of the second lines (S: 0 0) are indentical, since to pitch the plane, both servos need to move in the SAME direction.
+The signs of the second lines (S: 0 0) are identical, since to pitch the plane, both servos need to move in the SAME direction.
 
 Output 2
 --------
@@ -232,11 +241,11 @@ Every group has a name, and an associated svg image which shows the common geome
 The airframe metadata files used by *QGroundControl* and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
 
 For a new airframe belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at
-[ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d).
+[ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
 
 If the airframe is for a **new group** you additionally need to:
-1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
-1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): 
+1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
+1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): 
    ```
    def GetImageName(self):
        """

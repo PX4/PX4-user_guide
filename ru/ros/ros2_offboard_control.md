@@ -63,7 +63,7 @@ For this example, PX4 SITL is being used, so it is assumed, first of all, that t
       receive: true
     ```
 
-:::note
+   :::note
 At time of writing, the above topic is already configured to be sent.
 :::
 
@@ -81,7 +81,7 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("/fmu/timesyn
     });
 ```
 
-The above is required in order to obtain a syncronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
+The above is required in order to obtain a synchronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
 
 ```cpp
 auto timer_callback = [this]() -> void {

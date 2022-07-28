@@ -14,7 +14,7 @@ When flying missions that make use of a [VTOL_LAND](https://mavlink.io/en/messag
 
 If your vehicle is equipped with airbrakes, and your selected airframe supports them (in code), you can set the airbrake position during back-transition in [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT). The values scale from 0 to 1, so a value of 0.7 equals 70% output.
 
-## 고정익 모터에 역 추력 적용 
+## 고정익 모터에 역 추력 적용
 
 To get the shortest possible back-transition, PX4 supports active breaking by reversing the fixed wing motor direction. To use this feature you will require an ESC that supports motor rotation reversing.
 
@@ -23,6 +23,7 @@ A typical fixed wing propeller is not optimized to spin in reverse, when the thr
 :::
 
 Generally there are 2 ways a reverse-capable ESC can implement reverse thrust.
+
 
 ### 스로틀 스케일링 (3D) 사용
 
@@ -35,6 +36,7 @@ Support for 3D throttle scaling during back-transition requires *code support* i
 :::
 
 The amount of negative thrust during back transition can then be configured using the [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) parameter (set to a negative value between 0 and -1).
+
 
 ### 제어 채널
 

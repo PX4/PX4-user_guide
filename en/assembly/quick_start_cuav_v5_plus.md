@@ -53,7 +53,7 @@ The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, saf
 Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
 :::
 
-The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow).
+The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow).
 Connect to the flight control GPS interface using a cable.
 
 :::note
@@ -116,7 +116,7 @@ The other radio is connected to your ground station computer or mobile device (u
 <span id="sd_card"></span>
 ## SD Card (Optional)
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
+An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
 
 ## Motors
 

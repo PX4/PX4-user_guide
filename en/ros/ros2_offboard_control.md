@@ -88,7 +88,7 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("/fmu/timesyn
     });
 ```
 
-The above is required in order to obtain a syncronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
+The above is required in order to obtain a synchronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
 
 ```cpp
 auto timer_callback = [this]() -> void {

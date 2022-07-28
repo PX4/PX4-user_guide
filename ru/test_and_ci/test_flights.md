@@ -1,7 +1,7 @@
 # Tests Flights
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/test_and_ci/test_flights.html">can be found here</a>.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/test_and_ci/test_flights.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -29,6 +29,7 @@ The tests performed for each platform are linked below:
 * [MC_03 - Auto Manual Mix](../test_cards/mc_03_auto_manual_mix.md)
 * [MC_04 - Failsafe Testing](../test_cards/mc_04_failsafe_testing.md)
 * [MC_05 - Indoor Flight (Manual Modes)](../test_cards/mc_05_indoor_flight_manual_modes.md)
+
 
 <a id="fleet"></a>
 

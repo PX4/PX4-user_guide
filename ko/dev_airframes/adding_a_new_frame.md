@@ -1,8 +1,8 @@
 # 신규 기체 구성 추가
 
-PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. 구성은 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 저장된 [구성 파일](#config-file)에 정의됩니다. 구성 파일은 시스템의 물리적 구성을 설명하고 [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/mixers) 폴더에 저장되는 [믹서 파일](#mixer-file)을 참조합니다.
+PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. 구성은 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 저장된 [구성 파일](#config-file)에 정의됩니다.
 
-구성을 추가하는 것은 간단합니다. [init.d/airframes 폴더](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d/airframes)에 새 구성 파일을 만들고(파일 이름 앞에 사용하지 않은 자동 시작 ID 추가), 새 기체 구성 파일의 이름을 <1 관련 섹션에서 >CMakeLists.txt</a>를 찾은 다음 소프트웨어를 [빌드 및 업로드](../dev_setup/building_px4.md)합니다.
+https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/srcparser.py
 
 자체 구성을 만들고 싶지 않은 개발자는 [맞춤 시스템 시작](../concept/system_startup.md) 페이지에 설명된 대로 microSD 카드의 텍스트 파일을 사용하여 기존 구성을 맞춤 설정할 수 있습니다.
 
@@ -12,12 +12,12 @@ PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. 구
 
 ## 구성 파일 개요
 
-구성 파일과 믹서 파일의 구성은 몇 가지 주요 블록으로 이루어집니다.
+The configuration file consists of several main blocks:
 
 * 기체 문서([기체 정의서](../airframes/airframe_reference.md) 및 *QGroundControl*에서 사용됨).
-* [튜닝 게인](#tuning-gains)을 포함한 차량 매개변수 설정.
+* Airframe-specific parameter settings, including [tuning gains](#tuning-gains)
 * 시작해야 하는 컨트롤러 및 앱(예: 멀티콥터 또는 고정익 컨트롤러, 지면 탐지기 등)
-* 시스템 물리적 구성(예: 비행기, 날개 또는 멀티콥터). 이것을 [믹서](../concept/mixing.md)라고 합니다.
+* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry. Geometry may be specified using a [mixer file](#mixer-file) or using [control allocation](../concept/control_allocation.md) parameters (from PX4 v1.13).
 
 이러한 측면은 대부분 독립적이므로, 많은 구성이 기체의 동일한 물리적 레이아웃을 공유하고 동일한 응용 프로그램을 시작하며 튜닝 이득이 가장 차이가 납니다.
 
@@ -88,7 +88,7 @@ param set-default PWM_MAIN_DISARM 1000
 set MAV_TYPE 1
 ```
 
-사용할 [믹서](#mixer-file) 설정:
+Set the [mixer](#mixer-file) to use (if [control allocation](../concept/control_allocation.md) is not enabled):
 ```bash
 # Set mixer
 set MIXER wingwing
@@ -108,8 +108,16 @@ set PWM_OUT 4
 ### 믹서 파일
 
 :::note
+Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13).
+
+You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC). If enabled, the geometry may then be defined using `CA_*` parameters in the airframe configuration file, as shown in [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter#L28).
+:::
+
+:::note
 [개념 > 믹싱](../concept/mixing.md)을 먼저 참고하십시오. 이것은 믹서 파일을 해석에 필요한 배경 정보를 제공합니다.
 :::
+
+[mixer files](#mixer-file) describe the physical configuration of the system, and are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/mixers) folder.
 
 일반적인 믹서 파일은 아래에 나와 있습니다([원본 파일은 여기](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). 믹서 파일 이름(이 경우 `wingwing.main.mix`)은 기체 유형(`wingwing`), 출력 유형(`.main` 또는 `.aux`), 그리고 믹서 파일(`.mix`)에 대한 중요한 정보를 제공합니다.
 
@@ -191,7 +199,7 @@ S: 0 0  -6000  -6000      0 -10000  10000
 S: 0 1  -6500  -6500      0 -10000  10000
 
 Note that in principle, you could implement left/right wing asymmetric mixing, but in general the two blocks of code will be numerically equal, and just differ by the sign of the third line (S: 0 1), since to roll the plane, the two ailerons must move in OPPOSITE directions.
-The signs of the second lines (S: 0 0) are indentical, since to pitch the plane, both servos need to move in the SAME direction.
+The signs of the second lines (S: 0 0) are identical, since to pitch the plane, both servos need to move in the SAME direction.
 
 Output 2
 --------

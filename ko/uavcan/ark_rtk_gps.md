@@ -82,6 +82,7 @@ General instructions for UAVCAN PX4 configuration can also be found in [UAVCAN >
 
 You need to set necessary [UAVCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle.
 - Enable GPS yaw fusion by setting bit 7 of [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to true.
+- Enable GPS blending to ensure the heading is always published by setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 7 (all three bits checked).
 - Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
 - Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
 - The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK RTK GPS from the vehicles centre of gravity.
@@ -133,8 +134,8 @@ The steps are:
    ```
 1. That will have created a binary in **build/ark_can-rtk-gps_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the ARK RTK GPS. Next time you power your flight controller with the SD card installed, ARK RTK GPS will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the *ufw* directory of the SD card.
 
-:::note ARK
-RTK GPS will not boot if there is no SD card in the flight controller when powered on.
+:::note
+ARK RTK GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 
 

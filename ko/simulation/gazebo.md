@@ -60,7 +60,8 @@ make px4_sitl gazebo
 | [표준 비행기 (투석기 발사 포함)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
 | [표준 VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                       | `make px4_sitl gazebo_standard_vtol`   |
 | [테일시터 VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                   | `make px4_sitl gazebo_tailsitter`      |
-| [Ackerman 차량 (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                 | `make px4_sitl gazebo_rover`           |
+| [Ackerman UGV (Rover)](../simulation/gazebo_vehicles.md#ackermann-ugv)                                          | `make px4_sitl gazebo_rover`           |
+| [Differential UGV (Rover)](../simulation/gazebo_vehicles.md#differential-ugv)                                   | `make px4_sitl gazebo_r1_rover`        |
 | [HippoCampus TUHH (UUV: 무인 수중 차량)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
 | [보트 (USV: 무인 수상 차량)](../simulation/gazebo_vehicles.md#usv)                                                      | `make px4_sitl gazebo_boat`            |
 | [클라우드쉽 (비행선)](../simulation/gazebo_vehicles.md#airship)                                                         | `make px4_sitl gazebo_cloudship`       |
@@ -186,7 +187,7 @@ To simulate wind speed, add this plugin to your world file and set `windVelocity
 ```
 Wind direction is passed as a direction vector (standard ENU convention), which will be normalized in the gazebo plugin. Additionally you can state wind velocity variance in (m/s)² and direction variance based on a normal distribution to add some random factor into the simulation. Gust is internally handled in the same way as wind, with the slight difference that you can state start time and duration with the following two parameters `windGustStart` and `windGustDuration`.
 
-You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/windy.world#L15-L31).
+You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/windy.world#L15-L31).
 
 ### 조이스틱 사용법
 
@@ -213,8 +214,8 @@ GPS noise is enabled if the target vehicle's SDF file contains a value for the `
    ```
    make px4_sitl gazebo_iris
    ```
-:::tip SDF
-파일은 후속 빌드에서 덮어 쓰지 않습니다.
+   :::tip
+SDF 파일은 후속 빌드에서 덮어 쓰지 않습니다.
 :::
 
 2. 대상 차량에 대한 SDF 파일을 엽니다(예: **./Tools/sitl_gazebo/models/iris/iris.sdf**).
@@ -263,7 +264,7 @@ The vehicle gets spawned very close to the origin of the world model at some sim
 실제 위치(예: 특정 공항)를 재현하는 세계를 사용하는 경우에는 시뮬레이션된 세계에 표시되는 것과 지상국 지도에 표시되는 것에 불일치가 발생할 수 있습니다. 이 문제를 극복하기 위해 세계 원점의 위치를 "실제" GPS 좌표로 설정할 수 있습니다.
 
 :::note
-동일한 작업을 수행하는 [맞춤 이륙 위치](#custom_takeoff_location)를 설정할 수 있습니다. 그러나, 지도에 위치를 추가하는 것이 더 편리합니다(필요한 경우 사용자 지정 위치를 설정할 수 있음).
+동일한 작업을 수행하는 [맞춤 이륙 위치](#custom_takeoff_location)를 설정할 수 있습니다. To overcome this problem you can set the location of the world origin to the GPS coordinates where it would be in "real life".
 
 세계의 위치는 `spherical_coordinates` 태그를 사용하여, 원점의 위치를 지정하여 **.world** 파일에 정의합니다. 위도, 경도, 고도가 모두 지정되어야 합니다(이것이 유효하려면).
 :::
@@ -300,7 +301,7 @@ In addition to the existing cmake targets that run `sitl_run.sh` with parameters
 
 이 접근 방식은 시뮬레이터(예: Gazebo)가 항상 백그라운드에서 실행되고 매우 가벼운 px4 프로세스만 다시 실행하기 때문에 디버그 주기 시간을 크게 줄여줍니다.
 
-* `_ide` 변형을 지정하는 터미널을 통해 가제보(또는 다른 시뮬레이션) 서버 및 클라이언트 뷰어를 실행합니다.
+* Run gazebo (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
   ```sh
   make px4_sitl gazebo___ide
   ```
@@ -420,7 +421,8 @@ VERBOSE_SIM=1 make px4_sitl gazebo
 빌드 시스템은 시뮬레이터를 포함하여 올바른 GIT 하위 모듈을 적용합니다. 디렉토리에 있는 파일의 변경 사항을 덮어쓰지 않습니다.
 
 :::note
-The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+The build system enforces the correct GIT submodules, including the simulator.
+It will not overwrite changes in files in the directory.
 :::
 
 ## 추가 정보

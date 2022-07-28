@@ -23,23 +23,26 @@ PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜 또는 UAVCAN 통신 장치
 | [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/)                                                                                                                            |   SAM-M8Q    |    MMC5983MA     |                                  |                                                      |                                                              |         |
 | [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/)                                                                                                                            |   &cross;    |     &check;      |                                  |                                                      |                                                              |         |
 | [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                                                                                                                                      |   M8P/M8N    |     &check;      |             &check;              |                                                      |                                                              |         |
+| [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md)                                                                                                                                                                              |     F9P      |      RM3100      |             &check;              |                                                      |                           &check;                            |         |
 | [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                                                                                                                            |     F9P      |      RM3100      |             &check;              |                                                      |                                                              | &check; |
 | [CubePilot Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md)                                                                                                                                                                           |     M8N      |     ICM20948     |                                  |                                                      |                                                              |         |
 | [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)                                                                                                                                                                           |     M8P      |     HMC5983      |             &check;              |                                                      |                                                              |         |
 | [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3)                                                                                                                                                                |     M8P      |     ICM20948     |             &check;              |                                                      |                                                              |         |
 | [Drotek DP0804](https://store-drotek.com/920-DP0804.html) (and other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass))                                                                   |     M9N      |     LIS3MDL      |                                  |                                                      |                                                              |         |
-| [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer)                                                                                                          |     F9P      |      RM3100      |             &check;              |                                                      |                           &check;                            |         |
+| [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html)                                                                                                                                           |     F9P      |      RM3100      |             &check;              |                                                      |                           &check;                            |         |
 | [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                                                                                                                                    |     M8U      |     LIS3MDL      |             &check;              |                                                      |                                                              |         |
-| [Emlid Reach M+](https://emlid.com/reach/) - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future.                                                                                                 |   &check;    |     &cross;      |                                  |                                                      |                                                              |         |
+| [Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future.                                                                                                |   &check;    |     &cross;      |                                  |                                                      |                                                              |         |
 | [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                                                                                                                                              | FB672, FB6A0 |     &check;      |             &check;              |                                                      |                                                              |         |
 | [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md)                                                                                                                                                                                        |     F9P      |     IST8310      |             &check;              |                                                      |                                                              |         |
 | [Holybro Micro M8N GPS](https://shop.holybro.com/micro-m8n-gps_p1009.html)                                                                                                                                                                  |     M8N      |     IST8310      |                                  |                                                      |                                                              |         |
 | [Holybro Nano Ublox M8 5883 GPS](https://shop.holybro.com/nano-ublox-m8-5883-gps-module_p1236.html)                                                                                                                                         |  UBX-M8030   |     QMC5883      |                                  |                                                      |                                                              |         |
 | [Holybro M8N GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)                                                                                                                                                                 |     M8N      |     IST8310      |                                  |                                                      |                                                              |         |
 | [Holybro M9N GPS](http://www.holybro.com/product/holybro-m9n-gps/)                                                                                                                                                                          |     M9N      |     IST8310      |                                  |                                                      |                                                              |         |
-| [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                                                                                                                                       |     F9P      |     IST8310      |             &check;              |                                                      |                                                              |         |
+| [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                                                                                                                            |     F9P      |     IST8310      |             &check;              |                                                      |                           &check;                            |         |
+| [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                                                                                                                                 |     F9P      |     IST8310      |             &check;              |                                                      |                                                              |         |
 | [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                                                                                                                                       |     M8P      |     IST8310      |             &check;              |                                                      |                                                              |         |
 | [Hobbyking u-blox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) |     M8N      |     &check;      |                                  |                                                      |                                                              |         |
+| [LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md)                                                                                                                                                                      | MC-1612-V2b  |     optional     |             &cross;              |                                                      |                                                              |         |
 | [mRo GPS u-blox Neo-M8N Dual Compass](https://store.mrobotics.io/product-p/m10034-8308.htm)                                                                                                                                                 |     M8N      | LIS3MDL, IST8308 |                                  |                                                      |                                                              |         |
 | [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)                                                                                                                                                         |     F9P      |     &cross;      |             &check;              |                                                      |                           &check;                            |         |
 | [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                                                                                                                                                                |     F9P      |     &cross;      |             &check;              |                                                      |                           &check;                            |         |
@@ -47,7 +50,6 @@ PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜 또는 UAVCAN 통신 장치
 | [Zubax GNSS 2](https://zubax.com/products/gnss_2)                                                                                                                                                                                           |   MAX-M8Q    |     LIS3MDL      |                                  |                                                      |                                                              |         |
 
 :::note
-
 - &check; 또는 특정 부품 번호는 기능이 지원되는 것을 나타내며, &cross; 또는 비어 있으면 해당 기능이 지원되지 않는 것을 나타냅니다. "?"는 "알 수 없음"을 나타냅니다.
 - 가능하고 관련성이있는 경우 부품 이름이 사용됩니다 (예 : GPS 열의 &check; GPS 모듈이 있지만 부품을 알 수 없음을 나타냄).
 - [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/)는 나침반 (GPS 아님)입니다.
@@ -63,9 +65,12 @@ GPS(및 나침반 있는 경우) 연결 방법은 일반적으로 제조업체�
 
 The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
 
-:::warning GPS
-모듈을 연결시 핀배열에 주의하십시오. 모두 소프트웨어와 호환되지만, 핀 순서를 주의하여 연결하여야 합니다.
+
+:::warning
+GPS 모듈을 연결시 핀배열에 주의하십시오.
+모두 소프트웨어와 호환되지만, 핀 순서를 주의하여 연결하여야 합니다.
 :::
+
 
 ## GNSS 설정
 
@@ -90,14 +95,13 @@ Pixhawk의 GPS 설정은 투명하게 처리됩니다. GPS 모듈을 **GPS**라�
 
 아래의 과정은 *QGroundControl*의 `TELEM 2` 포트에서 보조 GPS 설정 방법입니다.
 
-1. [찾기 및 설정](../advanced_config/parameters.md) 매개 변수 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)에서 **TELEM 2**까지. 
-  - *QGroundControl*에서 **기체 설정 &gt; 매개변수** 섹션으로 이동합니다.
-  - **GPS** 탭 (1)을 선택한 다음 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 매개변수 (2)를 열고 드롭 다운 목록 (3)에서 *TELEM 2*를 선택합니다. ![QGC Serial 예시](../../assets/peripherals/qgc_serial_config_example.png)
-2. 다른 매개변수를 표시하려면 기체를 재부팅하십시오.
-3. **Serial** 탭을 선택하고 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 매개변수 (`TELEM 2` 포트 전송 속도)를 열어서 *Auto*로 설정합니다. ![QGC Serial Baudrate 예시](../../assets/peripherals/qgc_serial_baudrate_example.png)
+1. [찾기 및 설정](../advanced_config/parameters.md) 매개 변수 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)에서 **TELEM 2**까지.
+   - *QGroundControl*에서 **기체 설정 &gt; 매개변수** 섹션으로 이동합니다.
+   - **GPS** 탭 (1)을 선택한 다음 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 매개변수 (2)를 열고 드롭 다운 목록 (3)에서 *TELEM 2*를 선택합니다. ![QGC Serial 예시](../../assets/peripherals/qgc_serial_config_example.png)
+1. 다른 매개변수를 표시하려면 기체를 재부팅하십시오.
+1. **Serial** 탭을 선택하고 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 매개변수 (`TELEM 2` 포트 전송 속도)를 열어서 *Auto*로 설정합니다. ![QGC Serial Baudrate 예시](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
 보조 GPS 포트를 설정 후 :
-
 1. 두 GPS 시스템의 데이터를 혼합하도록 ECL/EKF2 추정기를 설정합니다. 자세한 지침은 [ECL EKF 사용 &gt; 이중 수신기](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers)를 참고하십시오.
 
 ### GPS를 Yaw/Heading 소스로 설정
@@ -111,18 +115,20 @@ GPS는 *yaw 출력이 장치에서 지원되는* 모듈 (예 : [Trimble MB-Two](
 | [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | 기체 x 축 ([여기](../config/flight_controller_orientation.md#calculating-orientation)에 표시된 앞/뒤 축)을 기준으로 *기준선* (두 GPS 안테나 사이의 선)이 이루는 각도입니다. |
 | [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)   | 비트 위치 7 "GPS yaw fusion"을 `1`로 설정합니다 (즉, 매개변수 값에 128을 추가).                                                                             |
 
+
 :::tip
 이 기능을 사용하는 경우에는 다른 모든 설정이 정상적으로 완료되어야 합니다 (예 : [RTK 포지셔닝](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
 
+
 ## 나침반 설정
 
-나침반 보정은 [나침반 설정](../config/compass.md)을 참고하십시오. 이 프로세스는 간단하며 연결된 모든 자력계를 자동 감지, 보정하고 우선 순위를 지정합니다.
+나침반 보정은 [나침반 설정](../config/compass.md)을 참고하십시오. The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO), calibrate, and prioritise, all connected magnetometers.
 
 일반적으로 추가 나침반 설정은 필요하지 않습니다.
 
 :::note
-모든 외부 나침반에는 기본적으로 동일한 우선 순위가 부여되며, 이는 모든 내부 나침반이 공유하는 우선순위 보다 높습니다.
+All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
 :::
 
 ### 이중 나침반
@@ -132,15 +138,15 @@ GPS는 *yaw 출력이 장치에서 지원되는* 모듈 (예 : [Trimble MB-Two](
 개발자는 원하는 경우에는 나침반 매개변수를 사용하여 내부 나침반을 비활성화할 수 있습니다. 매개변수 이름은 [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_ID)로 시작합니다 (여기서 `x=0-3`).
 
 내부 나침반을 비활성화 하려면 :
-
-- 내부 나침반을 확인하려면 [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT)을 사용하십시오. `CAL_MAGn_ROT == 1` 나침반은 내장 나침반입니다.
+- 내부 나침반을 확인하려면 [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT)을 사용하십시오. `CAL_MAGn_ROT == 1`  나침반은 내장 나침반입니다.
 - 그런 다음 [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO)를 사용하여 나침반을 비활성화하십시오. 나침반의 상대적 우선 순위 변경시에도 사용할 수 있습니다.
+
 
 ## 개발자 정보
 
-- GPS/RTK-GPS 
+- GPS/RTK-GPS
   - [RTK-GPS](../advanced/rtk_gps.md)
   - [GPS 드라이버](../modules/modules_driver.md#gps)
   - [UAVCAN 예제](../uavcan/README.md)
-- 나침반 
+- 나침반
   - [드라이버 소스 코드](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (나침반)

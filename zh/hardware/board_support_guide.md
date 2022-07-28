@@ -22,7 +22,7 @@ The general requirements for all supported boards are:
    - Phone number
 
 1. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
-1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
+1. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader). For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
 1. Adequate documentation, which includes, but is not limited to:
 
     - A complete pinout made available publicly that maps PX4 pin definitions to:
@@ -70,7 +70,8 @@ These boards are supported by the manufacturer. To qualify for this category the
 - Manufacturer must supply at least 2 boards to the core-dev team (for use on test rack and by test team)
 
 :::tip
-While there is no commitment from the PX4 maintainers and the flight test team to support and test boards in this category, we strongly recommended PX4 and manufacturer teams build close working relationships. This will result in a better result for all parties.
+While there is no commitment from the PX4 maintainers and the flight test team to support and test boards in this category, we strongly recommended PX4 and manufacturer teams build close working relationships.
+This will result in a better result for all parties.
 :::
 
 :::note
@@ -84,7 +85,8 @@ These boards are all boards that don't fall in the above categories, or don't fa
 - The board must be working with at least one PX4 release for a defined vehicle type, but not necessarily the latest release.
 
 :::note
-Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. *New* experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards. :::  
+Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. *New* experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
+:::
 
 <a id="unsupported"></a>
 
@@ -116,7 +118,8 @@ Contact PX4 board maintainers at [boards@px4.io](mailto:boards@px4.io) and reque
 Integrate the board according to the board porting release process described in the [porting guide](../hardware/porting_guide.md)
 
 :::warning
-The board support process may be changed and improved over time. Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Slack.
+The board support process may be changed and improved over time.
+Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Slack.
 :::
 
 ## 技术支持

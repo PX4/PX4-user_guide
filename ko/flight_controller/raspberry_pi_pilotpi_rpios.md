@@ -138,7 +138,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-최신 코드를 빌드하는 과정입니다.
+최신 코드를 빌드하는 과정입니다. 
 :::
 
 #### Raspberry Pi OS용 크로스 빌드
@@ -195,7 +195,7 @@ rm -rf build/scumaker_pilotpi_default
 
 다음 방법은 CI에 배포된 동일한 도구 세트를 제공할 수 있습니다.
 
-docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 PX4-Autopilot 폴더에서 다음 명령을 실행합니다.
 

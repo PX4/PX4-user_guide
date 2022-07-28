@@ -8,21 +8,20 @@ The *Orbit* guided flight mode allows you to command a multicopter (or VTOL in m
 
 *QGroundControl* (or other compatible GCS or MAVLink API) is *required* to enable the mode, and to set the center position, initial radius and altitude of the orbit. Once enabled the vehicle will fly as fast as possible to the closest point on the commanded circle trajectory and do a slow (1m/s) clockwise orbit on the planned circle, facing the center.
 
-Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) (*QGroundControl* guide).
+Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#orbit) (*QGroundControl* guide).
 
 :::note
 The use of an RC control is *optional*. If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
 :::
 
 RC control can be used to change the orbit altitude, radius, speed, and orbit direction:
-
-- **Left stick:** 
+- **Left stick:**
   - *up/down:* controls speed of ascent/descent, as in [Position mode](../flight_modes/position_mc.md). When in center deadzone, altitude is locked.
   - *left/right:* no effect.
-- **Right stick:** 
-  - *left/right:* controls acceleration of orbit in clockwise/counter-clockwise directions. When centered the current speed is locked. 
-    - Maximum velocity is 10m/s and further limited to keep the centripetal acceleration below 2m/s^2. 
-  - *up/down:* controls orbit radius (smaller/bigger). When centered the current radius is locked. 
+- **Right stick:**
+  - *left/right:* controls acceleration of orbit in clockwise/counter-clockwise directions. When centered the current speed is locked.
+    - Maximum velocity is 10m/s and further limited to keep the centripetal acceleration below 2m/s^2.
+  - *up/down:* controls orbit radius (smaller/bigger).  When centered the current radius is locked.
     - Minimum radius is 1m. Maximum radius is 100m.
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
@@ -31,15 +30,16 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 The mode can be stopped by switching to any other flight mode (using RC or QGC).
 
+
 ## Parameters/Limits
 
 There are no orbit mode-specific parameters.
 
 The following limits are hard coded:
-
 - Initial/default rotation is 1 m/s in a clockwise direction.
 - The maximum acceleration is limited to 2 m/s^2, with priority on keeping the commanded circle trajectory rather than commanded ground speed (i.e. the vehicle will slow down in order to achieve the correct circle if the acceleration exceeds 2m/s^2).
 - Maximum radius is 100m.
+
 
 ## MAVLink Messages (Developers)
 

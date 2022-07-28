@@ -25,7 +25,9 @@ The steps to join our translation tream are:
    - [QGroundControl 开发人员指南](https://crowdin.com/project/qgroundcontrol-user-guide)
    - [QGroundControl 用户指南](https://crowdin.com/project/mavlink)
 1. Select the language you want to translate
-1. Click the **Join** button (next to the text *You must join the translators team to be able to participate in this project*) :::note You will be notified once your application to join is accepted.
+1. Click the **Join** button (next to the text *You must join the translators team to be able to participate in this project*)  :::note
+ You will be notified once your application to join is accepted.
+
 :::
 1. Start translating!
 
@@ -46,7 +48,8 @@ The text for `:::tip` or `:::warning` etc. should not be modified as it defines 
 If the language you want to translate is not available then you will need to request it by contacting the project owner (there is a contact link on each project's home page).
 
 :::warning
-Maintaining a translation is hard! Before you ask us to create a new language, please find a few other people to help you translate!
+Maintaining a translation is hard!
+Before you ask us to create a new language, please find a few other people to help you translate!
 :::
 
 

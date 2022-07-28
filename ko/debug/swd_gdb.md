@@ -2,7 +2,7 @@
 
 터미널에서 GDB를 사용하여 하드웨어 대상을 연결하는 방법을 설명합니다. IDE를 사용하려면 [Eclipse](../debug/eclipse_jlink.md) 또는 [VSCode](../dev_setup/vscode.md#hardware-debugging) 사용법을 참고하십시오.
 
-인터페이스 배선에 대해서는 [이 세부 정보](../debug/swd_debug.md)를 참조하십시오.
+For the wiring interface setup, please see this detailed information: [SWD/JTAG Debug Interface](../debug/swd_debug.md).
 
 ## Dronecode 프로브 / Blackmagic 프로브 사용
 

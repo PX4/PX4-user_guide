@@ -1,7 +1,7 @@
 # 지원 방법
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/contribute/support.html">여기</a>를 참고하십시오.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/support.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -34,6 +34,7 @@ Slck에서의 질문/답변은 기록으로 남기 때문에, 처음에는 토�
 
 * [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
 * 비행 보고서와 최대한 자세한 로그를 넣어 [Github에 새 이슈를 작성](https://github.com/PX4/Devguide/issues) 하십시오
+
 
 <a id="dev_call"></a>
 

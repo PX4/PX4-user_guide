@@ -36,15 +36,15 @@ This section lists all hardware for the frame and the autopilot installation.
 | Item                         | 描述                                               | Quantity |
 | ---------------------------- | ------------------------------------------------ | -------- |
 | Bottom plate                 | Carbon fiber (2mm thick)                         | 16       |
-| Top plate                    | Carbon fiber (1.5mm thick)                       | 4        |
+| Top plate                    | Carbon fiber (1.5mm thick)                       | 16       |
 | Arm                          | Carbon fiber tube (Diameter: 16mm length: 200mm) | 4        |
 | Landing gear - Vertical pole | Carbon fiber tube + engineering plastic          | 2        |
-| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam   | 1        |
-| Motor base                   | Consists of 6 parts and 4 screws 4 nuts          | 1        |
+| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam   | 2        |
+| Motor base                   | Consists of 6 parts and 4 screws 4 nuts          | 4        |
 | Slide bar                    | Diameter: 10mm length: 250mm                     | 2        |
-| Battery mounting board       | Thickness: 2mm                                   | 12       |
-| Battery pad                  | 3mm Silicone sheet black                         | 1        |
-| Platform board               | Thickness: 2mm                                   | 8        |
+| Battery mounting board       | Thickness: 2mm                                   | 16       |
+| Battery pad                  | 3mm Silicone sheet black                         | 16       |
+| Platform board               | Thickness: 2mm                                   | 16       |
 | Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                  | 8        |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/whats_inside_x500_labeled.jpg)
@@ -53,7 +53,7 @@ This section lists all hardware for the frame and the autopilot installation.
 
 | Items                                                      | Quantity |
 | ---------------------------------------------------------- | -------- |
-| Pixhawk 4                                                  | 1        |
+| Pixhawk 4                                                  | 16       |
 | Pixhawk4 GPS Module                                        | 1        |
 | Power Management PM07 (with pre-soldered ESC power cables) | 2        |
 | Motors 2216 KV880（V2 Update)                               | 3        |
@@ -105,7 +105,7 @@ Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for a
 
    _Figure 5_: Connect motors
 
-1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out". Make sure you connect the motor ESC PWM wires in the correct order. Refer to Figure 7 for airframe motor number and connect to the corrsponding number on the PM07 board.
+1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out". Make sure you connect the motor ESC PWM wires in the correct order. Refer to Figure 7 for airframe motor number and connect to the corresponding number on the PM07 board.
 
    ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _Figure 7_: ESC power module and signal wiring
 
@@ -190,6 +190,8 @@ Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for
 That's it. The fully assembled kit is shown below:
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
+
+
 
 <a id="configure"></a>
 

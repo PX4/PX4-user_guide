@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/navigator_mission_item.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/navigator_mission_item.msg)
 
 ```c
 uint64 timestamp                 # time since system start (microseconds)

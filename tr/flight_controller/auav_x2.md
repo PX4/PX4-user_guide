@@ -4,6 +4,7 @@
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 :::
 
+
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
@@ -11,16 +12,17 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on
 
 ![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
+
 ## Quick Summary
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   * CPU: STM32F427VIT6 ARM microcontroller - Revision 3
   * IO: STM32F100C8T6 ARM microcontroller
-* Sensors: 
+* Sensors:
   * Invensense MPU9250 9DOF
   * Invensense ICM-20608 6DOF
   * MEAS MS5611 barometer
-* Dimensions/Weight 
+* Dimensions/Weight
   * Size: 36mm x 50mm
   * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
   * Weight: 10.9g
@@ -47,12 +49,13 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on
 
 ## Availability
 
-No longer in production. This has been superceded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
+No longer in production. This has been superseded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
 
 ## Key Links
 
 * [User Manual](http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf)
 * [DIY Drones Post](http://diydrones.com/profiles/blogs/introducing-the-auav-x2-1-flight-controller)
+
 
 ## Wiring Guide
 
@@ -63,6 +66,8 @@ No longer in production. This has been superceded by the [mRo X2.1](mro_x2.1.md)
 ![AUAV-X2-basic-setup 1](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_1.png)
 
 ![AUAV-X2-airspeed-setup 3](../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png)
+
+
 
 ## Schematics
 

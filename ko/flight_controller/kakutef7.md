@@ -1,4 +1,4 @@
-# Kakute F7
+# Holybro  Kakute F7
 
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
@@ -7,13 +7,14 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
+
 :::note
 이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
 ## 주요 특징
 
-* 메인 시스템 온칩: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html) 
+* 메인 시스템 온칩: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html)
   * CPU : 단정밀도 FPU의 216MHz ARM Cortex M7
   * RAM : 320KB SRAM
   * FLASH: 1 MB
@@ -26,11 +27,11 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 * 6 PWM 출력
 * 내장 OSD 칩(SPI를 통한 AB7456)
 
+
 ## 구매처
 
 보드는 아래의 상점들에서 구매할 수 있습니다.
-
-- [Holybro](https://shop.holybro.com/kakute-f7_p1104.html) 
+- [Holybro](https://shop.holybro.com/kakute-f7_p1104.html)
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
 :::tip
@@ -42,6 +43,7 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 다음은 *Kakute F7*의 실크 스크린으로, 보드 상단을 보여줍니다.
 
 ![Kakute F7 실크스크린](../../assets/flight_controller/kakutef7/silk.png)
+
 
 | 핀        | 기능                                                | 기본값          |
 | -------- | ------------------------------------------------- | ------------ |
@@ -65,8 +67,8 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 | RSI      | 수신기에서 아날로그 RSSI(0-3.3V) 입력                        |              |
 | Boot     | 부트로더 버튼                                           |              |
 
-<span id="bootloader"></span>
 
+<span id="bootloader"></span>
 ## 부트로더 업데이트
 
 보드에는 [Betaflight](https://github.com/betaflight/betaflight/wiki)가 사전 설치되어 있습니다. PX4 펌웨어를 설치하기 전에 *PX4 부트 로더*를 플래시하여야 합니다. [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) 부트로더 바이너리를 다운로드하고 [이 페이지](../advanced_config/bootloader_update_from_betaflight.md)에서 플래시 방법을 참고하십시오.
@@ -74,16 +76,19 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 ## 펌웨어 빌드
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
-
-    make holybro_kakutef7_default
-    
+```
+make holybro_kakutef7_default
+```
 
 ## 펌웨어 설치
 
 펌웨어는 일반적인 방법으로 설치할 수 있습니다.
-
-- 소스 빌드 및 업로드 ```make holybro_kakutef7_default upload```
+- 소스 빌드 및 업로드
+  ```
+  make holybro_kakutef7_default upload
+  ```
 - *QGroundControl*을 사용하여 [펌웨어를 로드](../config/firmware.md)합니다. 미리 빌드된 펌웨어나 사용자 지정 펌웨어를 사용할 수 있습니다.
+
 
 ## 설정
 
@@ -106,8 +111,7 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 | USART6 | /dev/ttyS4 | RC SBUS          |
 | UART7  | /dev/ttyS5 | ESC 텔레메트리(DShot) |
 
-
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## 디버그 포트
 
@@ -118,7 +122,6 @@ UART3 RX와 TX는 [시스템 콘솔](../debug/system_console.md)을 사용하도
 ### SWD
 
 [SWD 인터페이스](../debug/swd_debug.md)(JTAG) 핀은 아래와 같습니다.
-
 - `SWCLK`: 테스트 포인트 2(CPU의 핀 72)
 - `SWDIO`: 테스트 포인트 3(CPU의 핀 76)
 - `GND`: 보드에 표시됨.
@@ -127,3 +130,4 @@ UART3 RX와 TX는 [시스템 콘솔](../debug/system_console.md)을 사용하도
 이 내용을 아래의 그림으로 정리하였습니다.
 
 ![Kakute F7의 SWD 핀 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![Kakute F7의 SWD 핀: GND 및 VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
+

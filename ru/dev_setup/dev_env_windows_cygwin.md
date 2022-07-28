@@ -4,6 +4,12 @@ The following instructions explain how to set up a (Cygwin-based) PX4 developmen
 * Pixhawk and other NuttX-based hardware
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 
+
+:::warning
+The current version of this toolchain does not work with the master codeline (though it does with stable versions). The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) is a highly recommended Windows 11 (only) alternative, and is likely to become the supported Windows solution in the near future.
+:::
+
+
 :::tip
 This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
 :::
@@ -69,6 +75,7 @@ Once you have finished setting up the command-line toolchain:
 
 - Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
 - Continue to the [build instructions](../dev_setup/building_px4.md).
+
 
 <a id="usage_instructions"></a>
 

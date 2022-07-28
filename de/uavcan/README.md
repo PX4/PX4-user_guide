@@ -4,7 +4,9 @@
 
 The [videos section](#videos) contains additional information and guides.
 
-:::note PX4 requires an SD card for UAVCAN node allocation and firmware upgrade. It is not used during flight by UAVCAN.
+:::note
+PX4 requires an SD card for UAVCAN node allocation and firmware upgrade.
+It is not used during flight by UAVCAN.
 :::
 
 ## Supported Hardware
@@ -26,13 +28,15 @@ It supports hardware like:
   - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
   - [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
 - Distance sensors
-  - [Ark Flow](ark_flow.md)
+  - [ARK Flow](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
 - Optical Flow
   - [Ark Flow](ark_flow.md)
+- Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
+  - [ARK CANnode](../uavcan/ark_cannode.md)
 
-
-:::note PX4 does not support UAVCAN servos (at time of writing).
+:::note
+PX4 does not support UAVCAN servos (at time of writing).
 :::
 
 
@@ -46,7 +50,7 @@ The following diagram shows this for a flight controller connected to [UAVCAN mo
 
 The diagram does not show any power wiring. Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
 
-For more information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
+For more information about proper bus connections see [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (Zubax KB)) (Zubax KB).
 
 :::note
 - While the connections are the same, the _connectors_ may differ across devices.
@@ -71,7 +75,8 @@ In order to use UAVCAN components with PX4 you will first need to enable the UAV
    Use `1` if _none_ of the connected UAVCAN devices support automatic configuration (check the manual!), `2` or `3` if _some_ of them support automatic configuration, and `3` if you're using UAVCAN ESCs (this assigns motor controls to the UAVCAN bus rather than PWM).
 
 :::note
-You will need to manually allocate static ids for any nodes that don't support automatic configuration. When using dynamic configuration, any manually allocated ids should be given a value greater than the number of UAVCAN devices (to avoid clashes).
+You will need to manually allocate static ids for any nodes that don't support automatic configuration.
+When using dynamic configuration, any manually allocated ids should be given a value greater than the number of UAVCAN devices (to avoid clashes).
 :::
 
 Most UAVCAN sensors require no further setup (they are plug'n'play, unless specifically noted in their documentation).

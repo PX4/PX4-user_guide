@@ -504,6 +504,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -593,6 +601,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -684,6 +700,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -773,6 +797,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -864,6 +896,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -953,6 +993,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1044,6 +1092,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1133,6 +1189,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1224,6 +1288,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1313,6 +1385,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1404,6 +1484,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1493,6 +1581,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1584,6 +1680,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1673,6 +1777,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -1764,6 +1876,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -1853,6 +1973,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2346,6 +2474,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -2441,6 +2577,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2538,6 +2682,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -2633,6 +2785,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2730,6 +2890,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -2825,6 +2993,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -2922,6 +3098,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3017,6 +3201,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -3114,6 +3306,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3210,6 +3410,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3305,6 +3513,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -3771,6 +3987,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -3860,6 +4084,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -3951,6 +4183,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4040,6 +4280,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4131,6 +4379,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4220,6 +4476,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4311,6 +4575,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4400,6 +4672,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4676,6 +4956,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4765,6 +5053,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -4856,6 +5152,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -4945,6 +5249,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5036,6 +5348,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5125,6 +5445,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5216,6 +5544,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5305,6 +5641,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5468,6 +5812,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5557,6 +5909,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5648,6 +6008,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5737,6 +6105,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -5828,6 +6204,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -5917,6 +6301,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6008,6 +6400,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6097,6 +6497,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6428,6 +6836,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6517,6 +6933,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6608,6 +7032,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6697,6 +7129,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6788,6 +7228,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -6877,6 +7325,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -6968,6 +7424,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7057,6 +7521,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7388,6 +7860,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7477,6 +7957,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7568,6 +8056,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7657,6 +8153,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7748,6 +8252,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -7837,6 +8349,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -7928,6 +8448,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8017,6 +8545,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8108,6 +8644,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8197,6 +8741,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8288,6 +8840,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8377,6 +8937,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8468,6 +9036,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8557,6 +9133,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -8648,6 +9232,14 @@ table {
 
 <li><strong>108:</strong> Motor 8</li> 
 
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
+
 <li><strong>201:</strong> Servo 1</li> 
 
 <li><strong>202:</strong> Servo 2</li> 
@@ -8737,6 +9329,14 @@ table {
 <li><strong>107:</strong> Motor 7</li> 
 
 <li><strong>108:</strong> Motor 8</li> 
+
+<li><strong>109:</strong> Motor 9</li> 
+
+<li><strong>110:</strong> Motor 10</li> 
+
+<li><strong>111:</strong> Motor 11</li> 
+
+<li><strong>112:</strong> Motor 12</li> 
 
 <li><strong>201:</strong> Servo 1</li> 
 
@@ -9181,15 +9781,15 @@ table {
 </ul>
   </td>
  <td></td>
- <td>1</td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="ASPD_SC_P_NOISE">ASPD_SC_P_NOISE</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator true airspeed scale process noise <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td><strong id="ASPD_SCALE_NSD">ASPD_SCALE_NSD</strong> (FLOAT)</td>
+ <td>Airspeed Selector: Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
  <td>0 > 0.1 </td>
  <td>0.0001</td>
- <td>Hz</td>
+ <td>1/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
@@ -9206,11 +9806,11 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
- <td><strong id="ASPD_W_P_NOISE">ASPD_W_P_NOISE</strong> (FLOAT)</td>
- <td>Airspeed Selector: Wind estimator wind process noise <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td><strong id="ASPD_WIND_NSD">ASPD_WIND_NSD</strong> (FLOAT)</td>
+ <td>Airspeed Selector: Wind estimator wind process noise noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>0 > 1 </td>
- <td>0.1</td>
- <td>m/s^2</td>
+ <td>1.e-2</td>
+ <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
 
@@ -9598,8 +10198,8 @@ table {
  <td><strong id="BAT1_R_INTERNAL">BAT1_R_INTERNAL</strong> (FLOAT)</td>
  <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT1_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>-1.0 > 0.2 (0.01)</td>
- <td>-1.0</td>
+ <td>-1.0 > 0.2 (0.0005)</td>
+ <td>0.005</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9648,7 +10248,7 @@ table {
  <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
- <td>3.5</td>
+ <td>3.6</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9656,7 +10256,7 @@ table {
  <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>0.07 > 0.5 (0.01)</td>
- <td>0.3</td>
+ <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9728,8 +10328,8 @@ table {
  <td><strong id="BAT2_R_INTERNAL">BAT2_R_INTERNAL</strong> (FLOAT)</td>
  <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT2_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>-1.0 > 0.2 (0.01)</td>
- <td>-1.0</td>
+ <td>-1.0 > 0.2 (0.0005)</td>
+ <td>0.005</td>
  <td>Ohm</td>
 </tr>
 <tr>
@@ -9778,7 +10378,7 @@ table {
  <td>Empty cell voltage (5C load) <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>(0.01)</td>
- <td>3.5</td>
+ <td>3.6</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9786,7 +10386,7 @@ table {
  <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td>0.07 > 0.5 (0.01)</td>
- <td>0.3</td>
+ <td>0.1</td>
  <td>V</td>
 </tr>
 <tr>
@@ -9795,6 +10395,13 @@ table {
  <td></td>
  <td>-1</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_AVRG_CURRENT">BAT_AVRG_CURRENT</strong> (FLOAT)</td>
+ <td>Expected battery current in flight <p><strong>Comment:</strong> This value is used to initialize the in-flight average current estimation, which in turn is used for estimating remaining flight time and RTL triggering.</p>   </td>
+ <td>0 > 500 (0.1)</td>
+ <td>15.0</td>
+ <td>A</td>
 </tr>
 <tr>
  <td><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
@@ -9835,7 +10442,7 @@ table {
  <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
  <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead    </td>
  <td></td>
- <td>3.5</td>
+ <td>3.6</td>
  <td></td>
 </tr>
 <tr>
@@ -10065,14 +10672,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CBRK_ENGINEFAIL">CBRK_ENGINEFAIL</strong> (INT32)</td>
- <td>Circuit breaker for engine failure detection <p><strong>Comment:</strong> Setting this parameter to 284953 will disable the engine failure detection. If the aircraft is in engine failure mode the engine failure flag will be set to healthy WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>0 > 284953 </td>
- <td>284953</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="CBRK_FLIGHTTERM">CBRK_FLIGHTTERM</strong> (INT32)</td>
  <td>Circuit breaker for flight termination <p><strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss, geofence, and takeoff failure detection safety logic.</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -10133,6 +10732,24 @@ table {
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td><strong id="COM_ACT_FAIL_ACT">COM_ACT_FAIL_ACT</strong> (INT32)</td>
+ <td>Set the actuator failure failsafe mode <p><strong>Comment:</strong> Note: actuator failure needs to be enabled and configured via FD_ACT_* parameters.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Hold mode</li> 
+
+<li><strong>2:</strong> Land mode</li> 
+
+<li><strong>3:</strong> Return mode</li> 
+
+<li><strong>4:</strong> Terminate</li> 
+</ul>
+  </td>
+ <td>0 > 3 </td>
+ <td>0</td>
+ <td></td>
+</tr>
 <tr>
  <td><strong id="COM_ARM_ARSP_EN">COM_ARM_ARSP_EN</strong> (INT32)</td>
  <td>Enable preflight check for maximal allowed airspeed when arming <p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the cruise airspeed (FW_AIRSPD_TRIM). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>Values:</strong><ul>
@@ -10292,7 +10909,7 @@ table {
  <td><strong id="COM_BAT_ACT_T">COM_BAT_ACT_T</strong> (FLOAT)</td>
  <td>Delay between battery state change and failsafe reaction <p><strong>Comment:</strong> Battery state requires action -> wait COM_BAT_ACT_T seconds in Hold mode for the user to realize and take a custom action -> React with failsafe action COM_LOW_BAT_ACT A zero value disables the delay.</p>   </td>
  <td>0.0 > 25.0 </td>
- <td>10.0</td>
+ <td>5.</td>
  <td>s</td>
 </tr>
 <tr>
@@ -10321,27 +10938,6 @@ table {
  <td>Datalink loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
  <td>5 > 300 (1)</td>
  <td>10</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="COM_EF_C2T">COM_EF_C2T</strong> (FLOAT)</td>
- <td>Engine Failure Current/Throttle Threshold <p><strong>Comment:</strong> Engine failure triggers only below this current value</p>   </td>
- <td>0.0 > 50.0 (1)</td>
- <td>5.0</td>
- <td>A/%</td>
-</tr>
-<tr>
- <td><strong id="COM_EF_THROT">COM_EF_THROT</strong> (FLOAT)</td>
- <td>Engine Failure Throttle Threshold <p><strong>Comment:</strong> Engine failure triggers only above this throttle value</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>0.5</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="COM_EF_TIME">COM_EF_TIME</strong> (FLOAT)</td>
- <td>Engine Failure Time Threshold <p><strong>Comment:</strong> Engine failure triggers only if the throttle threshold and the current to throttle threshold are violated for this time</p>   </td>
- <td>0.0 > 60.0 (1)</td>
- <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
@@ -10379,6 +10975,8 @@ table {
 <li><strong>11:</strong> Land</li> 
 
 <li><strong>12:</strong> Follow Me</li> 
+
+<li><strong>13:</strong> Precision Land</li> 
 </ul>
   </td>
  <td></td>
@@ -10413,6 +11011,8 @@ table {
 <li><strong>11:</strong> Land</li> 
 
 <li><strong>12:</strong> Follow Me</li> 
+
+<li><strong>13:</strong> Precision Land</li> 
 </ul>
   </td>
  <td></td>
@@ -10447,6 +11047,8 @@ table {
 <li><strong>11:</strong> Land</li> 
 
 <li><strong>12:</strong> Follow Me</li> 
+
+<li><strong>13:</strong> Precision Land</li> 
 </ul>
   </td>
  <td></td>
@@ -10481,6 +11083,8 @@ table {
 <li><strong>11:</strong> Land</li> 
 
 <li><strong>12:</strong> Follow Me</li> 
+
+<li><strong>13:</strong> Precision Land</li> 
 </ul>
   </td>
  <td></td>
@@ -10515,6 +11119,8 @@ table {
 <li><strong>11:</strong> Land</li> 
 
 <li><strong>12:</strong> Follow Me</li> 
+
+<li><strong>13:</strong> Precision Land</li> 
 </ul>
   </td>
  <td></td>
@@ -10549,6 +11155,8 @@ table {
 <li><strong>11:</strong> Land</li> 
 
 <li><strong>12:</strong> Follow Me</li> 
+
+<li><strong>13:</strong> Precision Land</li> 
 </ul>
   </td>
  <td></td>
@@ -10569,6 +11177,23 @@ table {
   </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_FLT_TIME_MAX">COM_FLT_TIME_MAX</strong> (INT32)</td>
+ <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any mode other than RTL or Land. Set a nagative value to disable.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable</li> 
+</ul>
+  </td>
+ <td>-1 > 10000 </td>
+ <td>-1</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="COM_FORCE_SAFETY">COM_FORCE_SAFETY</strong> (INT32)</td>
+ <td>Enable force safety <p><strong>Comment:</strong> Force safety when the vehicle disarms</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -10594,25 +11219,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_HOME_H_T">COM_HOME_H_T</strong> (FLOAT)</td>
- <td>Home set horizontal threshold <p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
- <td>2 > 15 (0.5)</td>
- <td>5.0</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="COM_HOME_IN_AIR">COM_HOME_IN_AIR</strong> (INT32)</td>
  <td>Allows setting the home position after takeoff <p><strong>Comment:</strong> If set to true, the autopilot is allowed to set its home position after takeoff The true home position is back-computed if a local position is estimate if available. If no local position is available, home is set to the current position.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="COM_HOME_V_T">COM_HOME_V_T</strong> (FLOAT)</td>
- <td>Home set vertical threshold <p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
- <td>5 > 25 (0.5)</td>
- <td>10.0</td>
- <td>m</td>
 </tr>
 <tr>
  <td><strong id="COM_IMB_PROP_ACT">COM_IMB_PROP_ACT</strong> (INT32)</td>
@@ -10773,21 +11384,6 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="COM_POS_FS_GAIN">COM_POS_FS_GAIN</strong> (INT32)</td>
- <td>Loss of position probation gain factor <p><strong>Comment:</strong> This sets the rate that the loss of position probation time grows when position checks are failing. The default value has been optimised for rotary wing applications. For fixed wing applications a value of 0 should be used.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>10</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_POS_FS_PROB">COM_POS_FS_PROB</strong> (INT32)</td>
- <td>Loss of position probation delay at takeoff <p><strong>Comment:</strong> The probation delay is the number of seconds that the EKF innovation checks need to pass for the position to be declared good after it has been declared bad. The probation delay will be reset to this parameter value when takeoff is detected. After takeoff, if position checks are passing, the probation delay will reduce by one second for every lapsed second of valid position down to a minimum of 1 second. If position checks are failing, the probation delay will increase by COM_POS_FS_GAIN seconds for every lapsed second up to a maximum of 100 seconds. The default value has been optimised for rotary wing applications. For fixed wing applications, a value of 1 should be used.</p>   </td>
- <td>1 > 100 </td>
- <td>30</td>
- <td>s</td>
-</tr>
-<tr>
  <td><strong id="COM_POWER_COUNT">COM_POWER_COUNT</strong> (INT32)</td>
  <td>Required number of redundant power modules <p><strong>Comment:</strong> This configures a check to verify the expected number of 5V rail power supplies are present. By default only one is expected. Note: CBRK_SUPPLY_CHK disables all power checks including this one.</p>   </td>
  <td>0 > 4 </td>
@@ -10802,6 +11398,22 @@ table {
 <li><strong>1:</strong> Safety button</li> 
 
 <li><strong>2:</strong> Always</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_QC_ACT">COM_QC_ACT</strong> (INT32)</td>
+ <td>Set command after a quadchute  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> No action: stay in current flight mode</li> 
+
+<li><strong>0:</strong> Return mode</li> 
+
+<li><strong>1:</strong> Land mode</li> 
+
+<li><strong>2:</strong> Hold mode</li> 
 </ul>
   </td>
  <td></td>
@@ -10876,6 +11488,13 @@ table {
  <td>%</td>
 </tr>
 <tr>
+ <td><strong id="COM_SPOOLUP_TIME">COM_SPOOLUP_TIME</strong> (FLOAT)</td>
+ <td>Enforced delay between arming and further navigation <p><strong>Comment:</strong> The minimal time from arming the motors until moving the vehicle is possible is COM_SPOOLUP_TIME seconds. Goal: - Motors and propellers spool up to idle speed before getting commanded to spin faster - Timeout for ESCs and smart batteries to successfulyy do failure checks e.g. for stuck rotors before the vehicle is off the ground</p>   </td>
+ <td>0 > 5 </td>
+ <td>1.0</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
  <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Hold</li> 
@@ -10892,6 +11511,13 @@ table {
  <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td></td>
  <td>1</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="COM_WIND_MAX">COM_WIND_MAX</strong> (FLOAT)</td>
+ <td>Wind speed RLT threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered and enforced as long as the threshold is exceeded. A negative value disables the feature.</p>   </td>
+ <td>-1 > 30 (0.1)</td>
+ <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -10937,6 +11563,131 @@ table {
   </td>
  <td>1 > 6 </td>
  <td>2</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## Cyphal
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="CYPHAL_BAUD">CYPHAL_BAUD</strong> (INT32)</td>
+ <td>UAVCAN/CAN v1 bus bitrate    <p><b>Reboot required:</b> true</p>
+</td>
+ <td>20000 > 1000000 </td>
+ <td>1000000</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="CYPHAL_ENABLE">CYPHAL_ENABLE</strong> (INT32)</td>
+ <td>Cyphal <p><strong>Comment:</strong> 0 - Cyphal disabled. 1 - Enables Cyphal</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CYPHAL_ID">CYPHAL_ID</strong> (INT32)</td>
+ <td>Cyphal Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>-1 > 125 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
+ <td>actuator_outputs uORB over Cyphal publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_BP_SUB">UCAN1_BMS_BP_SUB</strong> (INT32)</td>
+ <td>UDRAL battery parameters subscription  port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_BS_SUB">UCAN1_BMS_BS_SUB</strong> (INT32)</td>
+ <td>UDRAL battery status subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_ES_SUB">UCAN1_BMS_ES_SUB</strong> (INT32)</td>
+ <td>UDRAL battery energy source subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC0_SUB">UCAN1_ESC0_SUB</strong> (INT32)</td>
+ <td>ESC 0 subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
+ <td>Cyphal ESC publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
+ <td>GPS 0 subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS1_SUB">UCAN1_GPS1_SUB</strong> (INT32)</td>
+ <td>GPS 1 subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
+ <td>Cyphal GPS publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
+ <td>Cyphal leagcy battery port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
+ <td>Cyphal Servo publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
+ <td>sensor_gps uORB over Cyphal subscription port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_UORB_GPS_P">UCAN1_UORB_GPS_P</strong> (INT32)</td>
+ <td>sensor_gps uORB over Cyphal publication port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -11840,6 +12591,13 @@ table {
  <td>SD</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_RNG_K_GATE">EKF2_RNG_K_GATE</strong> (FLOAT)</td>
+ <td>Gate size used for range finder kinematic consistency check <p><strong>Comment:</strong> To be used, the time derivative of the distance sensor measurements projected on the vertical axis needs to be statistically consistent with the estimated vertical velocity of the drone. Decrease this value to make the filter more robust against range finder faulty data (stuck, reflections, ...). Note: tune the range finder noise parameters (EKF2_RNG_NOISE and EKF2_RNG_SFE) before tuning this gate.</p>   </td>
+ <td>0.1 > 5.0 </td>
+ <td>1.0</td>
+ <td>SD</td>
+</tr>
+<tr>
  <td><strong id="EKF2_RNG_NOISE">EKF2_RNG_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for range finder fusion    </td>
  <td>0.01 > ? </td>
@@ -11976,11 +12734,11 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
- <td><strong id="EKF2_WIND_NOISE">EKF2_WIND_NOISE</strong> (FLOAT)</td>
- <td>Process noise for wind velocity prediction    </td>
+ <td><strong id="EKF2_WIND_NSD">EKF2_WIND_NSD</strong> (FLOAT)</td>
+ <td>Process noise spectral density for wind velocity prediction <p><strong>Comment:</strong> When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
  <td>0.0 > 1.0 </td>
- <td>1.0e-1</td>
- <td>m/s^2</td>
+ <td>1.0e-2</td>
+ <td>m/s^2/sqrt(Hz)</td>
 </tr>
 </tbody></table>
 
@@ -12104,6 +12862,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="FW_DTRIM_P_SPOIL">FW_DTRIM_P_SPOIL</strong> (FLOAT)</td>
+ <td>Pitch trim increment for spoiler configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever spoilers are fully deployed.</p>   </td>
+ <td>-0.25 > 0.25 (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
  <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
  <td>-0.25 > 0.25 (0.01)</td>
@@ -12153,29 +12918,15 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_FLAPERON_SCL">FW_FLAPERON_SCL</strong> (FLOAT)</td>
- <td>Scale factor for flaperons    </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>0.0</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps (FW_FLAPS_SCL) during landing</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="FW_FLAPS_SCL">FW_FLAPS_SCL</strong> (FLOAT)</td>
- <td>Scale factor for flaps    </td>
+ <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
  <td>0.0 > 1.0 (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps (FW_FLAPS_SCL) during take-off</p>   </td>
+ <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
  <td>0.0 > 1.0 (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
@@ -12225,7 +12976,7 @@ table {
 <tr>
  <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
  <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.005 > 0.5 (0.005)</td>
+ <td>0.0 > 0.5 (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -12239,7 +12990,7 @@ table {
 <tr>
  <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
  <td>Pitch rate proportional gain <p><strong>Comment:</strong> This defines how much the elevator input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.08</td>
  <td>%/rad/s</td>
 </tr>
@@ -12288,7 +13039,7 @@ table {
 <tr>
  <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
  <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.005 > 0.2 (0.005)</td>
+ <td>0.0 > 0.2 (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -12302,7 +13053,7 @@ table {
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
  <td>Roll rate proportional Gain <p><strong>Comment:</strong> This defines how much the aileron input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
@@ -12321,6 +13072,34 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="FW_SPOILERS_DESC">FW_SPOILERS_DESC</strong> (FLOAT)</td>
+ <td>Spoiler descend setting    </td>
+ <td>0.0 > 1.0 (0.01)</td>
+ <td>0.</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_SPOILERS_LND">FW_SPOILERS_LND</strong> (FLOAT)</td>
+ <td>Spoiler landing setting    </td>
+ <td>0.0 > 1.0 (0.01)</td>
+ <td>0.</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_SPOILERS_MAN">FW_SPOILERS_MAN</strong> (INT32)</td>
+ <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Flaps channel</li> 
+
+<li><strong>2:</strong> Aux1</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
  <td>Wheel steering rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
  <td>0.0 > 10.0 (0.05)</td>
@@ -12330,7 +13109,7 @@ table {
 <tr>
  <td><strong id="FW_WR_I">FW_WR_I</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.005 > 0.5 (0.005)</td>
+ <td>0.0 > 0.5 (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -12344,7 +13123,7 @@ table {
 <tr>
  <td><strong id="FW_WR_P">FW_WR_P</strong> (FLOAT)</td>
  <td>Wheel steering rate proportional gain <p><strong>Comment:</strong> This defines how much the wheel steering input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
@@ -12386,7 +13165,7 @@ table {
 <tr>
  <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
  <td>Yaw rate proportional gain <p><strong>Comment:</strong> This defines how much the rudder input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.005 > 1.0 (0.005)</td>
+ <td>0.0 > 1.0 (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
@@ -12927,6 +13706,35 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="FD_ACT_EN">FD_ACT_EN</strong> (INT32)</td>
+ <td>Enable Actuator Failure check <p><strong>Comment:</strong> If enabled, failure detector will verify that for motors, a minimum amount of ESC current per throttle level is being consumed. Otherwise this indicates an motor failure.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FD_ACT_MOT_C2T">FD_ACT_MOT_C2T</strong> (FLOAT)</td>
+ <td>Motor Failure Current/Throttle Threshold <p><strong>Comment:</strong> Motor failure triggers only below this current value</p>   </td>
+ <td>0.0 > 50.0 (1)</td>
+ <td>2.0</td>
+ <td>A/%</td>
+</tr>
+<tr>
+ <td><strong id="FD_ACT_MOT_THR">FD_ACT_MOT_THR</strong> (FLOAT)</td>
+ <td>Motor Failure Throttle Threshold <p><strong>Comment:</strong> Motor failure triggers only above this throttle value.</p>   </td>
+ <td>0.0 > 1.0 (0.01)</td>
+ <td>0.2</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FD_ACT_MOT_TOUT">FD_ACT_MOT_TOUT</strong> (INT32)</td>
+ <td>Motor Failure Time Threshold <p><strong>Comment:</strong> Motor failure triggers only if the throttle threshold and the current to throttle threshold are violated for this time.</p>   </td>
+ <td>10 > 10000 (100)</td>
+ <td>100</td>
+ <td>ms</td>
+</tr>
+<tr>
  <td><strong id="FD_ESCS_EN">FD_ESCS_EN</strong> (INT32)</td>
  <td>Enable checks on ESCs that report their arming state <p><strong>Comment:</strong> If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state. Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle.</p>   </td>
  <td></td>
@@ -12951,7 +13759,7 @@ table {
 <tr>
  <td><strong id="FD_FAIL_P">FD_FAIL_P</strong> (INT32)</td>
  <td>FailureDetector Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
- <td>60 > 180 </td>
+ <td>0 > 180 </td>
  <td>60</td>
  <td>deg</td>
 </tr>
@@ -12965,7 +13773,7 @@ table {
 <tr>
  <td><strong id="FD_FAIL_R">FD_FAIL_R</strong> (INT32)</td>
  <td>FailureDetector Max Roll <p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
- <td>60 > 180 </td>
+ <td>0 > 180 </td>
  <td>60</td>
  <td>deg</td>
 </tr>
@@ -12994,32 +13802,53 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="NAV_FT_DST">NAV_FT_DST</strong> (FLOAT)</td>
+ <td><strong id="FLW_TGT_ALT_M">FLW_TGT_ALT_M</strong> (INT32)</td>
+ <td>Altitude control mode <p><strong>Comment:</strong> Maintain altitude or track target's altitude. When maintaining the altitude, the drone can crash into terrain when the target moves uphill. When tracking the target's altitude, the follow altitude NAV_MIN_FT_HT should be high enough to prevent terrain collisions due to GPS inaccuracies of the target.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> 2D Tracking: Maintain constant altitude relative to home and track XY position only</li> 
+
+<li><strong>1:</strong> 2D + Terrain: Mantain constant altitude relative to terrain below and track XY position</li> 
+
+<li><strong>2:</strong> 3D Tracking: Track target's altitude (be aware that GPS altitude bias usually makes this useless)</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FLW_TGT_DST">FLW_TGT_DST</strong> (FLOAT)</td>
  <td>Distance to follow target from <p><strong>Comment:</strong> The distance in meters to follow the target at</p>   </td>
  <td>1.0 > ? </td>
  <td>8.0</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="NAV_FT_FS">NAV_FT_FS</strong> (INT32)</td>
- <td>Side to follow target from <p><strong>Comment:</strong> The side to follow the target from (front right = 0, behind = 1, front = 2, front left = 3)</p>   </td>
- <td>0 > 3 </td>
- <td>1</td>
+ <td><strong id="FLW_TGT_FA">FLW_TGT_FA</strong> (FLOAT)</td>
+ <td>Follow Angle setting in degrees <p><strong>Comment:</strong> Angle to follow the target from. 0.0 Equals straight in front of the target's course (direction of motion) and the angle increases in clockwise direction, meaning Right-side would be 90.0 degrees while Left-side is -90.0 degrees Note: When the user force sets the angle out of the min/max range, it will be wrapped (e.g. 480 -> 120) in the range to gracefully handle the out of range.</p>   </td>
+ <td>-180.0 > 180.0 </td>
+ <td>180.0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="NAV_FT_RS">NAV_FT_RS</strong> (FLOAT)</td>
- <td>Dynamic filtering algorithm responsiveness to target movement <p><strong>Comment:</strong> lower numbers increase the responsiveness to changing long lat but also ignore less noise</p>   </td>
- <td>0.0 > 1.0 </td>
- <td>0.5</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="NAV_MIN_FT_HT">NAV_MIN_FT_HT</strong> (FLOAT)</td>
- <td>Minimum follow target altitude <p><strong>Comment:</strong> The minimum height in meters relative to home for following a target</p>   </td>
+ <td><strong id="FLW_TGT_HT">FLW_TGT_HT</strong> (FLOAT)</td>
+ <td>Follow target height <p><strong>Comment:</strong> Following height above the target</p>   </td>
  <td>8.0 > ? </td>
  <td>8.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="FLW_TGT_MAX_VEL">FLW_TGT_MAX_VEL</strong> (FLOAT)</td>
+ <td>Maximum tangential velocity setting for generating the follow orbit trajectory <p><strong>Comment:</strong> This is the maximum tangential velocity the drone will circle around the target whenever an orbit angle setpoint changes. Higher value means more aggressive follow behavior.</p>   </td>
+ <td>0.0 > 20.0 </td>
+ <td>5.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FLW_TGT_RS">FLW_TGT_RS</strong> (FLOAT)</td>
+ <td>Responsiveness to target movement in Target Estimator <p><strong>Comment:</strong> lower values increase the responsiveness to changing position, but also ignore less noise</p>   </td>
+ <td>0.0 > 1.0 </td>
+ <td>0.1</td>
+ <td></td>
 </tr>
 </tbody></table>
 
@@ -13259,7 +14088,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="GF_ACTION">GF_ACTION</strong> (INT32)</td>
- <td>Geofence violation action <p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system.</p> <strong>Values:</strong><ul>
+ <td>Geofence violation action <p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li> 
 
 <li><strong>1:</strong> Warning</li> 
@@ -13311,6 +14140,13 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="GF_PREDICT">GF_PREDICT</strong> (INT32)</td>
+ <td>Use Pre-emptive geofence triggering <p><strong>Comment:</strong> Predict the motion of the vehicle and trigger the breach if it is determined that the current trajectory would result in a breach happening before the vehicle can make evasive maneuvers. The vehicle is then re-routed to a safe hold position (stop for multirotor, loiter for fixed wing).</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="GF_SOURCE">GF_SOURCE</strong> (INT32)</td>
  <td>Geofence source <p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> GPOS</li> 
@@ -13354,10 +14190,94 @@ table {
 <li><strong>8:</strong> Multirotor with Tilt</li> 
 
 <li><strong>9:</strong> Custom</li> 
+
+<li><strong>10:</strong> Helicopter</li> 
 </ul>
   </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_FAILURE_MODE">CA_FAILURE_MODE</strong> (INT32)</td>
+ <td>Motor failure handling mode <p><strong>Comment:</strong> This is used to specify how to handle motor failures reported by failure detector.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Ignore</li> 
+
+<li><strong>1:</strong> Remove first failed motor from effectiveness</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C0">CA_HELI_PITCH_C0</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 0 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 0 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C1">CA_HELI_PITCH_C1</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 1 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 1 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.15</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C2">CA_HELI_PITCH_C2</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 2 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 2 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C3">CA_HELI_PITCH_C3</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 3 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 3 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.35</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_PITCH_C4">CA_HELI_PITCH_C4</strong> (FLOAT)</td>
+ <td>Collective pitch curve at position 4 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 4 for a given thrust setpoint.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.45</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C0">CA_HELI_THR_C0</strong> (FLOAT)</td>
+ <td>Throttle curve at position 0 <p><strong>Comment:</strong> Defines the output throttle at the interval position 0.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C1">CA_HELI_THR_C1</strong> (FLOAT)</td>
+ <td>Throttle curve at position 1 <p><strong>Comment:</strong> Defines the output throttle at the interval position 1.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C2">CA_HELI_THR_C2</strong> (FLOAT)</td>
+ <td>Throttle curve at position 2 <p><strong>Comment:</strong> Defines the output throttle at the interval position 2.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.6</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C3">CA_HELI_THR_C3</strong> (FLOAT)</td>
+ <td>Throttle curve at position 3 <p><strong>Comment:</strong> Defines the output throttle at the interval position 3.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>0.8</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_HELI_THR_C4">CA_HELI_THR_C4</strong> (FLOAT)</td>
+ <td>Throttle curve at position 4 <p><strong>Comment:</strong> Defines the output throttle at the interval position 4.</p>   </td>
+ <td>0 > 1 (0.1)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -13377,6 +14297,20 @@ table {
 <tr>
  <td><strong id="CA_R0_SLEW">CA_R0_SLEW</strong> (FLOAT)</td>
  <td>Motor 0 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R10_SLEW">CA_R10_SLEW</strong> (FLOAT)</td>
+ <td>Motor 10 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R11_SLEW">CA_R11_SLEW</strong> (FLOAT)</td>
+ <td>Motor 11 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
  <td>0 > 10 (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -13426,6 +14360,20 @@ table {
 <tr>
  <td><strong id="CA_R7_SLEW">CA_R7_SLEW</strong> (FLOAT)</td>
  <td>Motor 7 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R8_SLEW">CA_R8_SLEW</strong> (FLOAT)</td>
+ <td>Motor 8 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
+ <td>0 > 10 (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_R9_SLEW">CA_R9_SLEW</strong> (FLOAT)</td>
+ <td>Motor 9 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
  <td>0 > 10 (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -13489,6 +14437,154 @@ table {
 <tr>
  <td><strong id="CA_ROTOR0_TILT">CA_ROTOR0_TILT</strong> (INT32)</td>
  <td>Rotor 0 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_AX">CA_ROTOR10_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 10 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_AY">CA_ROTOR10_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 10 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_AZ">CA_ROTOR10_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 10 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_CT">CA_ROTOR10_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 10 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_KM">CA_ROTOR10_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 10 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_PX">CA_ROTOR10_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 10 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_PY">CA_ROTOR10_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 10 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_PZ">CA_ROTOR10_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 10 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR10_TILT">CA_ROTOR10_TILT</strong> (INT32)</td>
+ <td>Rotor 10 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_AX">CA_ROTOR11_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 11 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_AY">CA_ROTOR11_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 11 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_AZ">CA_ROTOR11_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 11 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_CT">CA_ROTOR11_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 11 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_KM">CA_ROTOR11_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 11 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_PX">CA_ROTOR11_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 11 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_PY">CA_ROTOR11_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 11 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_PZ">CA_ROTOR11_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 11 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR11_TILT">CA_ROTOR11_TILT</strong> (INT32)</td>
+ <td>Rotor 11 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li> 
 
 <li><strong>1:</strong> Tilt 1</li> 
@@ -14023,6 +15119,154 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CA_ROTOR8_AX">CA_ROTOR8_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 8 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_AY">CA_ROTOR8_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 8 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_AZ">CA_ROTOR8_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 8 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_CT">CA_ROTOR8_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 8 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_KM">CA_ROTOR8_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 8 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_PX">CA_ROTOR8_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 8 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_PY">CA_ROTOR8_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 8 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_PZ">CA_ROTOR8_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 8 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR8_TILT">CA_ROTOR8_TILT</strong> (INT32)</td>
+ <td>Rotor 8 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_AX">CA_ROTOR9_AX</strong> (FLOAT)</td>
+ <td>Axis of rotor 9 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_AY">CA_ROTOR9_AY</strong> (FLOAT)</td>
+ <td>Axis of rotor 9 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_AZ">CA_ROTOR9_AZ</strong> (FLOAT)</td>
+ <td>Axis of rotor 9 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_CT">CA_ROTOR9_CT</strong> (FLOAT)</td>
+ <td>Thrust coefficient of rotor 9 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
+ <td>0 > 100 (1)</td>
+ <td>6.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_KM">CA_ROTOR9_KM</strong> (FLOAT)</td>
+ <td>Moment coefficient of rotor 9 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td>-1 > 1 (0.01)</td>
+ <td>0.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_PX">CA_ROTOR9_PX</strong> (FLOAT)</td>
+ <td>Position of rotor 9 along X body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_PY">CA_ROTOR9_PY</strong> (FLOAT)</td>
+ <td>Position of rotor 9 along Y body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_PZ">CA_ROTOR9_PZ</strong> (FLOAT)</td>
+ <td>Position of rotor 9 along Z body axis    </td>
+ <td>-100 > 100 (0.1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="CA_ROTOR9_TILT">CA_ROTOR9_TILT</strong> (INT32)</td>
+ <td>Rotor 9 tilt assignment <p><strong>Comment:</strong> If not set to None, this motor is tilted by the configured tilt servo.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> Tilt 1</li> 
+
+<li><strong>2:</strong> Tilt 2</li> 
+
+<li><strong>3:</strong> Tilt 3</li> 
+
+<li><strong>4:</strong> Tilt 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CA_ROTOR_COUNT">CA_ROTOR_COUNT</strong> (INT32)</td>
  <td>Total number of rotors  <strong>Values:</strong><ul>
 <li><strong>0:</strong> 0</li> 
@@ -14042,6 +15286,14 @@ table {
 <li><strong>7:</strong> 7</li> 
 
 <li><strong>8:</strong> 8</li> 
+
+<li><strong>9:</strong> 9</li> 
+
+<li><strong>10:</strong> 10</li> 
+
+<li><strong>11:</strong> 11</li> 
+
+<li><strong>12:</strong> 12</li> 
 </ul>
   </td>
  <td></td>
@@ -14058,10 +15310,82 @@ table {
   <li><strong>5:</strong> Motor 6</li> 
   <li><strong>6:</strong> Motor 7</li> 
   <li><strong>7:</strong> Motor 8</li> 
+  <li><strong>8:</strong> Motor 9</li> 
+  <li><strong>9:</strong> Motor 10</li> 
+  <li><strong>10:</strong> Motor 11</li> 
+  <li><strong>11:</strong> Motor 12</li> 
 </ul>
  </td>
- <td>0 > 255 </td>
+ <td>0 > 4095 </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG0">CA_SP0_ANG0</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 0    </td>
+ <td>0 > 360 (10)</td>
+ <td>0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG1">CA_SP0_ANG1</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 1    </td>
+ <td>0 > 360 (10)</td>
+ <td>140</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG2">CA_SP0_ANG2</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 2    </td>
+ <td>0 > 360 (10)</td>
+ <td>220</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ANG3">CA_SP0_ANG3</strong> (FLOAT)</td>
+ <td>Angle for swash plate servo 3    </td>
+ <td>0 > 360 (10)</td>
+ <td>0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L0">CA_SP0_ARM_L0</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 0 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L1">CA_SP0_ARM_L1</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 1 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L2">CA_SP0_ARM_L2</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 2 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_ARM_L3">CA_SP0_ARM_L3</strong> (FLOAT)</td>
+ <td>Arm length for swash plate servo 3 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
+ <td>0 > 10 (0.1)</td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SP0_COUNT">CA_SP0_COUNT</strong> (INT32)</td>
+ <td>Number of swash plates servos  <strong>Values:</strong><ul>
+<li><strong>3:</strong> 3</li> 
+
+<li><strong>4:</strong> 4</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>3</td>
  <td></td>
 </tr>
 <tr>
@@ -15448,6 +16772,20 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="MAV_0_BROADCAST">MAV_0_BROADCAST</strong> (INT32)</td>
+ <td>Broadcast heartbeats on local network for MAVLink instance 0 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Never broadcast</li> 
+
+<li><strong>1:</strong> Always broadcast</li> 
+
+<li><strong>2:</strong> Only multicast</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for MAVLink (instance 0) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -15548,6 +16886,36 @@ table {
  <td>0 > ? </td>
  <td>1200</td>
  <td>B/s</td>
+</tr>
+<tr>
+ <td><strong id="MAV_0_REMOTE_PRT">MAV_0_REMOTE_PRT</strong> (INT32)</td>
+ <td>MAVLink Remote Port for instance 0 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 0, selected remote port will be set and used in MAVLink instance 0.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>14550</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_0_UDP_PRT">MAV_0_UDP_PRT</strong> (INT32)</td>
+ <td>MAVLink Network Port for instance 0 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 0, selected udp port will be set and used in MAVLink instance 0.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>14556</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_1_BROADCAST">MAV_1_BROADCAST</strong> (INT32)</td>
+ <td>Broadcast heartbeats on local network for MAVLink instance 1 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Never broadcast</li> 
+
+<li><strong>1:</strong> Always broadcast</li> 
+
+<li><strong>2:</strong> Only multicast</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
@@ -15652,6 +17020,36 @@ table {
  <td>B/s</td>
 </tr>
 <tr>
+ <td><strong id="MAV_1_REMOTE_PRT">MAV_1_REMOTE_PRT</strong> (INT32)</td>
+ <td>MAVLink Remote Port for instance 1 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 1, selected remote port will be set and used in MAVLink instance 1.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_1_UDP_PRT">MAV_1_UDP_PRT</strong> (INT32)</td>
+ <td>MAVLink Network Port for instance 1 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 1, selected udp port will be set and used in MAVLink instance 1.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_BROADCAST">MAV_2_BROADCAST</strong> (INT32)</td>
+ <td>Broadcast heartbeats on local network for MAVLink instance 2 <p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Never broadcast</li> 
+
+<li><strong>1:</strong> Always broadcast</li> 
+
+<li><strong>2:</strong> Only multicast</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for MAVLink (instance 2) <p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -15754,6 +17152,22 @@ table {
  <td>B/s</td>
 </tr>
 <tr>
+ <td><strong id="MAV_2_REMOTE_PRT">MAV_2_REMOTE_PRT</strong> (INT32)</td>
+ <td>MAVLink Remote Port for instance 2 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 2, selected remote port will be set and used in MAVLink instance 2.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MAV_2_UDP_PRT">MAV_2_UDP_PRT</strong> (INT32)</td>
+ <td>MAVLink Network Port for instance 2 <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for MAVLink instance 2, selected udp port will be set and used in MAVLink instance 2.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MAV_COMP_ID">MAV_COMP_ID</strong> (INT32)</td>
  <td>MAVLink component ID    <p><b>Reboot required:</b> true</p>
 </td>
@@ -15838,15 +17252,9 @@ table {
 
 <li><strong>4:</strong> Normal helicopter with tail rotor</li> 
 
-<li><strong>5:</strong> Ground installation</li> 
-
-<li><strong>6:</strong> Operator control unit / ground control station</li> 
-
 <li><strong>7:</strong> Airship, controlled</li> 
 
 <li><strong>8:</strong> Free balloon, uncontrolled</li> 
-
-<li><strong>9:</strong> Rocket</li> 
 
 <li><strong>10:</strong> Ground rover</li> 
 
@@ -15860,33 +17268,19 @@ table {
 
 <li><strong>15:</strong> Tricopter</li> 
 
-<li><strong>16:</strong> Flapping wing</li> 
+<li><strong>19:</strong> VTOL Two-rotor Tailsitter</li> 
 
-<li><strong>17:</strong> Kite</li> 
+<li><strong>20:</strong> VTOL Quad-rotor Tailsitter</li> 
 
-<li><strong>18:</strong> Onboard companion controller</li> 
+<li><strong>21:</strong> VTOL Tiltrotor</li> 
 
-<li><strong>19:</strong> Two-rotor VTOL using control surfaces in vertical operation in addition. Tailsitter.</li> 
+<li><strong>22:</strong> VTOL Standard (separate fixed rotors for hover and cruise flight)</li> 
 
-<li><strong>20:</strong> Quad-rotor VTOL using a V-shaped quad config in vertical operation. Tailsitter.</li> 
-
-<li><strong>21:</strong> Tiltrotor VTOL</li> 
-
-<li><strong>22:</strong> VTOL reserved 2</li> 
-
-<li><strong>23:</strong> VTOL reserved 3</li> 
-
-<li><strong>24:</strong> VTOL reserved 4</li> 
-
-<li><strong>25:</strong> VTOL reserved 5</li> 
-
-<li><strong>26:</strong> Onboard gimbal</li> 
-
-<li><strong>27:</strong> Onboard ADSB peripheral</li> 
+<li><strong>23:</strong> VTOL Tailsitter</li> 
 </ul>
   </td>
- <td>1 > 27 </td>
- <td>2</td>
+ <td>0 > 22 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -15933,8 +17327,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MAN_ARM_GESTURE">MAN_ARM_GESTURE</strong> (INT32)</td>
- <td>Enable arm/disarm stick gesture <p><strong>Comment:</strong> This determines if moving the left stick to the lower right arms and to the lower left disarms the vehicle.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Enable arm/disarm stick gesture <p><strong>Comment:</strong> This determines if moving the left stick to the lower right arms and to the lower left disarms the vehicle.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
@@ -16074,7 +17467,7 @@ table {
  <td><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>   </td>
  <td>25 > 1000 (0.5)</td>
- <td>50.0</td>
+ <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -16652,13 +18045,6 @@ table {
  <td></td>
  <td>4</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="MPC_SPOOLUP_TIME">MPC_SPOOLUP_TIME</strong> (FLOAT)</td>
- <td>Enforced delay between arming and takeoff <p><strong>Comment:</strong> For altitude controlled modes the time from arming the motors until a takeoff is possible gets forced to be at least MPC_SPOOLUP_TIME seconds to ensure the motors and propellers can sppol up and reach idle speed before getting commanded to spin faster. This delay is particularly useful for vehicles with slow motor spin-up e.g. because of large propellers.</p>   </td>
- <td>0 > 10 </td>
- <td>1.0</td>
- <td>s</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
@@ -17986,6 +19372,42 @@ table {
  <td>0.0 > 100 (0.1)</td>
  <td>10.0</td>
  <td>s</td>
+</tr>
+</tbody></table>
+
+## RC Input
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RC_INPUT_PROTO">RC_INPUT_PROTO</strong> (INT32)</td>
+ <td>RC input protocol <p><strong>Comment:</strong> Select your RC input protocol or auto to scan.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Auto</li> 
+
+<li><strong>0:</strong> None</li> 
+
+<li><strong>1:</strong> PPM</li> 
+
+<li><strong>2:</strong> SBUS</li> 
+
+<li><strong>3:</strong> DSM</li> 
+
+<li><strong>4:</strong> ST24</li> 
+
+<li><strong>5:</strong> SUMD</li> 
+
+<li><strong>6:</strong> CRSF</li> 
+
+<li><strong>7:</strong> GHST</li> 
+</ul>
+  </td>
+ <td>-1 > 7 </td>
+ <td>-1</td>
+ <td></td>
 </tr>
 </tbody></table>
 
@@ -20377,7 +21799,7 @@ table {
  <td><strong id="RTL_LOITER_RAD">RTL_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius for rtl descend <p><strong>Comment:</strong> Set the radius for loitering to a safe altitude for VTOL transition.</p>   </td>
  <td>25 > 1000 (0.5)</td>
- <td>50.0</td>
+ <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -21060,13 +22482,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_ACC0_TEMP">CAL_ACC0_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
  <td>Accelerometer 0 X-axis offset    </td>
  <td></td>
@@ -21228,13 +22643,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_ACC1_TEMP">CAL_ACC1_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_XOFF">CAL_ACC1_XOFF</strong> (FLOAT)</td>
@@ -21400,13 +22808,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_ACC2_TEMP">CAL_ACC2_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_ACC2_XOFF">CAL_ACC2_XOFF</strong> (FLOAT)</td>
  <td>Accelerometer 2 X-axis offset    </td>
  <td></td>
@@ -21570,13 +22971,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_ACC3_TEMP">CAL_ACC3_TEMP</strong> (FLOAT)</td>
- <td>Accelerometer 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_ACC3_XOFF">CAL_ACC3_XOFF</strong> (FLOAT)</td>
  <td>Accelerometer 3 X-axis offset    </td>
  <td></td>
@@ -21616,6 +23010,150 @@ table {
  <td>Accelerometer 3 Z-axis scaling factor    </td>
  <td>0.1 > 3.0 </td>
  <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO0_ID">CAL_BARO0_ID</strong> (INT32)</td>
+ <td>Barometer 0 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO0_OFF">CAL_BARO0_OFF</strong> (FLOAT)</td>
+ <td>Barometer 0 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO0_PRIO">CAL_BARO0_PRIO</strong> (INT32)</td>
+ <td>Barometer 0 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO1_ID">CAL_BARO1_ID</strong> (INT32)</td>
+ <td>Barometer 1 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO1_OFF">CAL_BARO1_OFF</strong> (FLOAT)</td>
+ <td>Barometer 1 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO1_PRIO">CAL_BARO1_PRIO</strong> (INT32)</td>
+ <td>Barometer 1 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO2_ID">CAL_BARO2_ID</strong> (INT32)</td>
+ <td>Barometer 2 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO2_OFF">CAL_BARO2_OFF</strong> (FLOAT)</td>
+ <td>Barometer 2 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO2_PRIO">CAL_BARO2_PRIO</strong> (INT32)</td>
+ <td>Barometer 2 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO3_ID">CAL_BARO3_ID</strong> (INT32)</td>
+ <td>Barometer 3 calibration device ID <p><strong>Comment:</strong> Device ID of the barometer this calibration applies to.</p>   </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO3_OFF">CAL_BARO3_OFF</strong> (FLOAT)</td>
+ <td>Barometer 3 offset    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CAL_BARO3_PRIO">CAL_BARO3_PRIO</strong> (INT32)</td>
+ <td>Barometer 3 priority  <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Uninitialized</li> 
+
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Min</li> 
+
+<li><strong>25:</strong> Low</li> 
+
+<li><strong>50:</strong> Medium (Default)</li> 
+
+<li><strong>75:</strong> High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>-1</td>
  <td></td>
 </tr>
 <tr>
@@ -21738,13 +23276,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_GYRO0_TEMP">CAL_GYRO0_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_XOFF">CAL_GYRO0_XOFF</strong> (FLOAT)</td>
@@ -21889,13 +23420,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_GYRO1_TEMP">CAL_GYRO1_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_GYRO1_XOFF">CAL_GYRO1_XOFF</strong> (FLOAT)</td>
  <td>Gyroscope 1 X-axis offset    </td>
  <td></td>
@@ -22036,13 +23560,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_GYRO2_TEMP">CAL_GYRO2_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_XOFF">CAL_GYRO2_XOFF</strong> (FLOAT)</td>
@@ -22187,13 +23704,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_GYRO3_TEMP">CAL_GYRO3_TEMP</strong> (FLOAT)</td>
- <td>Gyroscope 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_GYRO3_XOFF">CAL_GYRO3_XOFF</strong> (FLOAT)</td>
  <td>Gyroscope 3 X-axis offset    </td>
  <td></td>
@@ -22334,13 +23844,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG0_TEMP">CAL_MAG0_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 0 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XCOMP">CAL_MAG0_XCOMP</strong> (FLOAT)</td>
@@ -22548,13 +24051,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG1_TEMP">CAL_MAG1_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 1 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG1_XCOMP">CAL_MAG1_XCOMP</strong> (FLOAT)</td>
  <td>Magnetometer 1 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
@@ -22758,13 +24254,6 @@ table {
  <td>-1 > 40 </td>
  <td>-1</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="CAL_MAG2_TEMP">CAL_MAG2_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 2 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XCOMP">CAL_MAG2_XCOMP</strong> (FLOAT)</td>
@@ -22972,13 +24461,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG3_TEMP">CAL_MAG3_TEMP</strong> (FLOAT)</td>
- <td>Magnetometer 3 calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
- <td></td>
- <td>-1000.0</td>
- <td>celcius</td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG3_XCOMP">CAL_MAG3_XCOMP</strong> (FLOAT)</td>
  <td>Magnetometer 3 X Axis throttle compensation <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
@@ -23095,22 +24577,22 @@ table {
 <tr>
  <td><strong id="SENS_FLOW_MAXHGT">SENS_FLOW_MAXHGT</strong> (FLOAT)</td>
  <td>Maximum height above ground when reliant on optical flow <p><strong>Comment:</strong> This parameter defines the maximum distance from ground at which the optical flow sensor operates reliably. The height setpoint will be limited to be no greater than this value when the navigation system is completely reliant on optical flow data and the height above ground estimate is valid. The sensor may be usable above this height, but accuracy will progressively degrade.</p>   </td>
- <td>1.0 > 25.0 (0.1)</td>
- <td>3.0</td>
+ <td>1.0 > 100.0 (0.1)</td>
+ <td>100.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_MAXR">SENS_FLOW_MAXR</strong> (FLOAT)</td>
  <td>Magnitude of maximum angular flow rate reliably measurable by the optical flow sensor <p><strong>Comment:</strong> Optical flow data will not fused by the estimators if the magnitude of the flow rate exceeds this value and control loops will be instructed to limit ground speed such that the flow rate produced by movement over ground is less than 50% of this value.</p>   </td>
  <td>1.0 > ? </td>
- <td>2.5</td>
+ <td>8.</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_MINHGT">SENS_FLOW_MINHGT</strong> (FLOAT)</td>
  <td>Minimum height above ground when reliant on optical flow <p><strong>Comment:</strong> This parameter defines the minimum distance from ground at which the optical flow sensor operates reliably. The sensor may be usable below this height, but accuracy will progressively reduce to loss of focus.</p>   </td>
  <td>0.0 > 1.0 (0.1)</td>
- <td>0.7</td>
+ <td>0.08</td>
  <td>m</td>
 </tr>
 </tbody></table>
@@ -23331,16 +24813,32 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)</td>
- <td>Notch filter bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td><strong id="IMU_GYRO_NF0_BW">IMU_GYRO_NF0_BW</strong> (FLOAT)</td>
+ <td>Notch filter bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF0_FRQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 100 </td>
  <td>20.0</td>
  <td>Hz</td>
 </tr>
 <tr>
- <td><strong id="IMU_GYRO_NF_FREQ">IMU_GYRO_NF_FREQ</strong> (FLOAT)</td>
- <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td><strong id="IMU_GYRO_NF0_FRQ">IMU_GYRO_NF0_FRQ</strong> (FLOAT)</td>
+ <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF0_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 1000 </td>
+ <td>0.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="IMU_GYRO_NF1_BW">IMU_GYRO_NF1_BW</strong> (FLOAT)</td>
+ <td>Notch filter 1 bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF1_FRQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 100 </td>
+ <td>20.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="IMU_GYRO_NF1_FRQ">IMU_GYRO_NF1_FRQ</strong> (FLOAT)</td>
+ <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF1_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 1000 </td>
  <td>0.0</td>
@@ -23466,16 +24964,14 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
- <td>QNH for barometer    <p><b>Reboot required:</b> true</p>
-</td>
+ <td>QNH for barometer    </td>
  <td>500 > 1500 </td>
  <td>1013.25</td>
  <td>hPa</td>
 </tr>
 <tr>
  <td><strong id="SENS_BARO_RATE">SENS_BARO_RATE</strong> (FLOAT)</td>
- <td>Baro max rate <p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Baro max rate <p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   </td>
  <td>1 > 200 </td>
  <td>20.0</td>
  <td>Hz</td>
@@ -23744,16 +25240,32 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SENS_EN_MS4525">SENS_EN_MS4525</strong> (INT32)</td>
- <td>TE MS4525 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+ <td><strong id="SENS_EN_MS4515">SENS_EN_MS4515</strong> (INT32)</td>
+ <td>TE MS4515 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SENS_EN_MS5525">SENS_EN_MS5525</strong> (INT32)</td>
- <td>TE MS5525 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+ <td><strong id="SENS_EN_MS4525DO">SENS_EN_MS4525DO</strong> (INT32)</td>
+ <td>TE MS4525DO differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_MS5525DS">SENS_EN_MS5525DS</strong> (INT32)</td>
+ <td>TE MS5525DSO differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_PAA3905">SENS_EN_PAA3905</strong> (INT32)</td>
+ <td>PAA3905 Optical Flow    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -23761,7 +25273,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
- <td>PAW3902 & PAW3903 Optical Flow    <p><b>Reboot required:</b> true</p>
+ <td>PAW3902/PAW3903 Optical Flow    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -23869,6 +25381,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_SPL06">SENS_EN_SPL06</strong> (INT32)</td>
+ <td>Goertek SPL06 Barometer (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_SR05">SENS_EN_SR05</strong> (INT32)</td>
  <td>HY-SRF05 / HC-SR05    <p><b>Reboot required:</b> true</p>
 </td>
@@ -23927,8 +25447,16 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_FLOW_RATE">SENS_FLOW_RATE</strong> (FLOAT)</td>
+ <td>Optical flow max rate <p><strong>Comment:</strong> Optical flow data maximum publication rate. This is an upper bound, actual optical flow data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>1 > 200 </td>
+ <td>70.0</td>
+ <td>Hz</td>
+</tr>
+<tr>
  <td><strong id="SENS_FLOW_ROT">SENS_FLOW_ROT</strong> (INT32)</td>
- <td>PX4Flow board rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).</p> <strong>Values:</strong><ul>
+ <td>Optical flow rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the optical flow relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -23945,10 +25473,9 @@ table {
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td></td>
- <td>6</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -24069,7 +25596,7 @@ table {
  <td><strong id="SENS_MAG_AUTOCAL">SENS_MAG_AUTOCAL</strong> (INT32)</td>
  <td>Magnetometer auto calibration <p><strong>Comment:</strong> Automatically initialize magnetometer calibration from bias estimate if available.</p>   </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -25088,6 +26615,37 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SER_MXS_BAUD">SER_MXS_BAUD</strong> (INT32)</td>
+ <td>MXS Serial Communication Baud rate <p><strong>Comment:</strong> Baudrate for the Serial Port connected to the MXS Transponder</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> 38400</li> 
+
+<li><strong>1:</strong> 600</li> 
+
+<li><strong>2:</strong> 4800</li> 
+
+<li><strong>3:</strong> 9600</li> 
+
+<li><strong>4:</strong> RESERVED</li> 
+
+<li><strong>5:</strong> 57600</li> 
+
+<li><strong>6:</strong> 115200</li> 
+
+<li><strong>7:</strong> 230400</li> 
+
+<li><strong>8:</strong> 19200</li> 
+
+<li><strong>9:</strong> 460800</li> 
+
+<li><strong>10:</strong> 921600</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 10 </td>
+ <td>5</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SER_PPB_BAUD">SER_PPB_BAUD</strong> (INT32)</td>
  <td>Baudrate for the Pixhawk Payload Bus Serial Port <p><strong>Comment:</strong> Configure the Baudrate for the Pixhawk Payload Bus Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
@@ -25818,7 +27376,7 @@ table {
  <td>simulated barometer temperature offset    </td>
  <td></td>
  <td>0.0</td>
- <td></td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="SIM_GPS_USED">SIM_GPS_USED</strong> (INT32)</td>
@@ -25987,6 +27545,14 @@ table {
 </td>
  <td></td>
  <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
+ <td>Control the number of distance sensors on the vehicle <p><strong>Comment:</strong> If set to the number of distance sensors, the preflight check will check for their presence and valid data publication. Disable with 0 if no distance sensor present or to disbale the preflight check.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 4 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -27480,6 +29046,265 @@ table {
 </tr>
 </tbody></table>
 
+## Transponder
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="ADSB_EMERGC">ADSB_EMERGC</strong> (INT32)</td>
+ <td>ADSB-Out Emergency State <p><strong>Comment:</strong> Sets the vehicle emergency state</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> NoEmergency</li> 
+
+<li><strong>1:</strong> General</li> 
+
+<li><strong>2:</strong> Medical</li> 
+
+<li><strong>3:</strong> LowFuel</li> 
+
+<li><strong>4:</strong> NoCommunications</li> 
+
+<li><strong>5:</strong> Interference</li> 
+
+<li><strong>6:</strong> Downed</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 6 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_EMIT_TYPE">ADSB_EMIT_TYPE</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Emitter Type <p><strong>Comment:</strong> Configure the emitter type of the vehicle.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li> 
+
+<li><strong>1:</strong> Light</li> 
+
+<li><strong>2:</strong> Small</li> 
+
+<li><strong>3:</strong> Large</li> 
+
+<li><strong>4:</strong> HighVortex</li> 
+
+<li><strong>5:</strong> Heavy</li> 
+
+<li><strong>6:</strong> Performance</li> 
+
+<li><strong>7:</strong> Rotorcraft</li> 
+
+<li><strong>8:</strong> RESERVED</li> 
+
+<li><strong>9:</strong> Glider</li> 
+
+<li><strong>10:</strong> LightAir</li> 
+
+<li><strong>11:</strong> Parachute</li> 
+
+<li><strong>12:</strong> UltraLight</li> 
+
+<li><strong>13:</strong> RESERVED</li> 
+
+<li><strong>14:</strong> UAV</li> 
+
+<li><strong>15:</strong> Space</li> 
+
+<li><strong>16:</strong> RESERVED</li> 
+
+<li><strong>17:</strong> EmergencySurf</li> 
+
+<li><strong>18:</strong> ServiceSurf</li> 
+
+<li><strong>19:</strong> PointObstacle</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 15 </td>
+ <td>14</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_ID">ADSB_ICAO_ID</strong> (INT32)</td>
+ <td>ADSB-Out ICAO configuration <p><strong>Comment:</strong> Defines the ICAO ID of the vehicle</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>-1 > 16777215 </td>
+ <td>1194684</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_SPECL">ADSB_ICAO_SPECL</strong> (INT32)</td>
+ <td>ADSB-In Special ICAO configuration <p><strong>Comment:</strong> This vehicle is always tracked. Use 0 to disable.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 16777215 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_IDENT">ADSB_IDENT</strong> (INT32)</td>
+ <td>ADSB-Out Ident Configuration <p><strong>Comment:</strong> Enable Identification of Position feature</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LEN_WIDTH">ADSB_LEN_WIDTH</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Size Configuration <p><strong>Comment:</strong> Report the length and width of the vehicle in meters. In most cases, use '1' for the smallest vehicle size.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> SizeUnknown</li> 
+
+<li><strong>1:</strong> Len15_Wid23</li> 
+
+<li><strong>2:</strong> Len25_Wid28</li> 
+
+<li><strong>3:</strong> Len25_Wid34</li> 
+
+<li><strong>4:</strong> Len35_Wid33</li> 
+
+<li><strong>5:</strong> Len35_Wid38</li> 
+
+<li><strong>6:</strong> Len45_Wid39</li> 
+
+<li><strong>7:</strong> Len45_Wid45</li> 
+
+<li><strong>8:</strong> Len55_Wid45</li> 
+
+<li><strong>9:</strong> Len55_Wid52</li> 
+
+<li><strong>10:</strong> Len65_Wid59</li> 
+
+<li><strong>11:</strong> Len65_Wid67</li> 
+
+<li><strong>12:</strong> Len75_Wid72</li> 
+
+<li><strong>13:</strong> Len75_Wid80</li> 
+
+<li><strong>14:</strong> Len85_Wid80</li> 
+
+<li><strong>15:</strong> Len85_Wid90</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 15 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LIST_MAX">ADSB_LIST_MAX</strong> (INT32)</td>
+ <td>ADSB-In Vehicle List Size <p><strong>Comment:</strong> Change number of targets to track</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 50 </td>
+ <td>25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_MAX_SPEED">ADSB_MAX_SPEED</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Max Speed <p><strong>Comment:</strong> Informs ADSB vehicles of this vehicle's max speed capability</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> UnknownMaxSpeed</li> 
+
+<li><strong>1:</strong> 75Kts</li> 
+
+<li><strong>2:</strong> 150Kts</li> 
+
+<li><strong>3:</strong> 300Kts</li> 
+
+<li><strong>4:</strong> 600Kts</li> 
+
+<li><strong>5:</strong> 1200Kts</li> 
+
+<li><strong>6:</strong> Over1200Kts</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 6 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_SQUAWK">ADSB_SQUAWK</strong> (INT32)</td>
+ <td>ADSB-Out squawk code configuration <p><strong>Comment:</strong> This parameter defines the squawk code. Value should be between 0000 and 7777.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 7777 </td>
+ <td>1200</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_EXT_CFG">MXS_EXT_CFG</strong> (INT32)</td>
+ <td>Sagetech External Configuration Mode <p><strong>Comment:</strong> Disables auto-configuration mode enabling MXS config through external software.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_OP_MODE">MXS_OP_MODE</strong> (INT32)</td>
+ <td>Sagetech MXS mode configuration <p><strong>Comment:</strong> This parameter defines the operating mode of the MXS</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Off</li> 
+
+<li><strong>1:</strong> On</li> 
+
+<li><strong>2:</strong> Standby</li> 
+
+<li><strong>3:</strong> Alt</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 3 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_SER_CFG">MXS_SER_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Sagetech MXS Serial Port <p><strong>Comment:</strong> Configure on which serial port to run Sagetech MXS Serial Port.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>102</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MXS_TARG_PORT">MXS_TARG_PORT</strong> (INT32)</td>
+ <td>Sagetech MXS Participant Configuration <p><strong>Comment:</strong> The MXS communication port to receive Target data from</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>1:</strong> COM0</li> 
+
+<li><strong>2:</strong> COM1</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>0 > 2 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## UAVCAN
 
 <table>
@@ -27493,31 +29318,6 @@ table {
  <td>UAVCAN CAN bus bitrate    </td>
  <td>20000 > 1000000 </td>
  <td>1000000</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="CANNODE_FLOW_ROT">CANNODE_FLOW_ROT</strong> (INT32)</td>
- <td>Cannode flow board rotation <p><strong>Comment:</strong> This parameter defines the yaw rotation of the Cannode flow board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> No rotation</li> 
-
-<li><strong>1:</strong> Yaw 45°</li> 
-
-<li><strong>2:</strong> Yaw 90°</li> 
-
-<li><strong>3:</strong> Yaw 135°</li> 
-
-<li><strong>4:</strong> Yaw 180°</li> 
-
-<li><strong>5:</strong> Yaw 225°</li> 
-
-<li><strong>6:</strong> Yaw 270°</li> 
-
-<li><strong>7:</strong> Yaw 315°</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -27689,6 +29489,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_SUB_BTN">UAVCAN_SUB_BTN</strong> (INT32)</td>
+ <td>subscription button <p><strong>Comment:</strong> Enable UAVCAN button subscription. ardupilot::indication::Button</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_SUB_DPRES">UAVCAN_SUB_DPRES</strong> (INT32)</td>
  <td>subscription differential pressure <p><strong>Comment:</strong> Enable UAVCAN differential pressure subscription. uavcan::equipment::air_data::RawAirData</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -27738,7 +29546,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_MAG">UAVCAN_SUB_MAG</strong> (INT32)</td>
- <td>subscription magnetometer <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::ahrs::MagneticFieldStrength uavcan::equipment::ahrs::MagneticFieldStrength2</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription magnetometer <p><strong>Comment:</strong> Enable UAVCAN mag subscription. uavcan::equipment::ahrs::MagneticFieldStrength uavcan::equipment::ahrs::MagneticFieldStrength2</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Enabled (1)</td>
@@ -27746,145 +29554,10 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_RNG">UAVCAN_SUB_RNG</strong> (INT32)</td>
- <td>subscription range finder <p><strong>Comment:</strong> Enable UAVCAN GPS subscription. uavcan::equipment::range_sensor::Measurement</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription range finder <p><strong>Comment:</strong> Enable UAVCAN range finder subscription. uavcan::equipment::range_sensor::Measurement</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## UAVCAN v1
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="UAVCAN_V1_BAUD">UAVCAN_V1_BAUD</strong> (INT32)</td>
- <td>UAVCAN/CAN v1 bus bitrate    <p><b>Reboot required:</b> true</p>
-</td>
- <td>20000 > 1000000 </td>
- <td>1000000</td>
- <td>bit/s</td>
-</tr>
-<tr>
- <td><strong id="UAVCAN_V1_ENABLE">UAVCAN_V1_ENABLE</strong> (INT32)</td>
- <td>UAVCAN v1 <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables UAVCANv1</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
- <td>actuator_outputs uORB over UAVCAN v1 publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_BP_SUB">UCAN1_BMS_BP_SUB</strong> (INT32)</td>
- <td>DS-015 battery parameters subscription  port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_BS_SUB">UCAN1_BMS_BS_SUB</strong> (INT32)</td>
- <td>DS-015 battery status subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_ES_SUB">UCAN1_BMS_ES_SUB</strong> (INT32)</td>
- <td>DS-015 battery energy source subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ESC0_SUB">UCAN1_ESC0_SUB</strong> (INT32)</td>
- <td>ESC 0 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 ESC publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
- <td>GPS 0 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS1_SUB">UCAN1_GPS1_SUB</strong> (INT32)</td>
- <td>GPS 1 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 GPS publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
- <td>UAVCAN v1 leagcy battery port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 Servo publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
- <td>sensor_gps uORB over UAVCAN v1 subscription port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_UORB_GPS_P">UCAN1_UORB_GPS_P</strong> (INT32)</td>
- <td>sensor_gps uORB over UAVCAN v1 publication port ID    </td>
- <td>-1 > 6143 </td>
- <td>-1</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## UAVCANv1
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="UAVCAN_V1_ID">UAVCAN_V1_ID</strong> (INT32)</td>
- <td>UAVCAN v1 Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>-1 > 125 </td>
- <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -28045,6 +29718,77 @@ table {
 </tr>
 </tbody></table>
 
+## UWB
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UWB_INIT_OFF_X">UWB_INIT_OFF_X</strong> (FLOAT)</td>
+ <td>UWB sensor X offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. X offset. A Positiv offset results in a Position o</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_Y">UWB_INIT_OFF_Y</strong> (FLOAT)</td>
+ <td>UWB sensor Y offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Y offset.</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_YAW">UWB_INIT_OFF_YAW</strong> (FLOAT)</td>
+ <td>UWB sensor YAW offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Yaw rotation in relation to direction of FMU.</p>   </td>
+ <td>(0.1)</td>
+ <td>0.0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="UWB_INIT_OFF_Z">UWB_INIT_OFF_Z</strong> (FLOAT)</td>
+ <td>UWB sensor Y offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. Z offset.</p>   </td>
+ <td>(0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="UWB_PORT_CFG">UWB_PORT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Ultrawideband position sensor driver <p><strong>Comment:</strong> Configure on which serial port to run Ultrawideband position sensor driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## VTOL Attitude Control
 
 <table>
@@ -28105,7 +29849,7 @@ table {
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
  <td>Duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition</p>   </td>
- <td>0.00 > 20.00 (1)</td>
+ <td>0.1 > 20.00 (1)</td>
  <td>4.0</td>
  <td>s</td>
 </tr>
@@ -28195,13 +29939,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_FW_PERM_STAB">VT_FW_PERM_STAB</strong> (INT32)</td>
- <td>Permanent stabilization in fw mode <p><strong>Comment:</strong> If set to one this parameter will cause permanent attitude stabilization in fw mode. This parameter has been introduced for pure convenience sake.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
  <td>QuadChute Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
  <td>0 > 180 </td>
@@ -28218,7 +29955,7 @@ table {
 <tr>
  <td><strong id="VT_F_TRANS_DUR">VT_F_TRANS_DUR</strong> (FLOAT)</td>
  <td>Duration of a front transition <p><strong>Comment:</strong> Time in seconds used for a transition</p>   </td>
- <td>0.00 > 20.00 (1)</td>
+ <td>0.1 > 20.00 (1)</td>
  <td>5.0</td>
  <td>s</td>
 </tr>
@@ -28244,8 +29981,8 @@ table {
  <td>us</td>
 </tr>
 <tr>
- <td><strong id="VT_LND_PTCH_MIN">VT_LND_PTCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PTCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
+ <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
  <td>-10.0 > 45.0 </td>
  <td>-5.0</td>
  <td></td>
@@ -28265,6 +30002,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="VT_PITCH_MIN">VT_PITCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
+ <td>-10.0 > 45.0 </td>
+ <td>-5.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
  <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
  <td>? > 20 (0.01)</td>
@@ -28272,11 +30016,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_PTCH_MIN">VT_PTCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
- <td>-10.0 > 45.0 </td>
- <td>-5.0</td>
- <td></td>
+ <td><strong id="VT_SPOILER_MC_LD">VT_SPOILER_MC_LD</strong> (FLOAT)</td>
+ <td>Spoiler setting while landing (hover)    </td>
+ <td>-1 > 1 (0.05)</td>
+ <td>0.</td>
+ <td>norm</td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
@@ -28323,7 +30067,7 @@ table {
 <tr>
  <td><strong id="VT_TRANS_TIMEOUT">VT_TRANS_TIMEOUT</strong> (FLOAT)</td>
  <td>Front transition timeout <p><strong>Comment:</strong> Time in seconds after which transition will be cancelled. Disabled if set to 0.</p>   </td>
- <td>0.00 > 30.00 (1)</td>
+ <td>0.1 > 30.00 (1)</td>
  <td>15.0</td>
  <td>s</td>
 </tr>

@@ -2,6 +2,7 @@
 
 PX4 can use [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast) or [FLARM](https://en.wikipedia.org/wiki/FLARM) transponders to support simple air traffic avoidance in [missions](../flight_modes/mission.md). If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
+
 <a id="supported_hardware"></a>
 
 ## Supported Hardware
@@ -9,8 +10,8 @@ PX4 can use [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillan
 PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message.
 
 It has been tested with the following devices:
-- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx/) (uAvionix)
-- [FLARM](https://flarm.com/products/powerflarm/uav/)
+- [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx-pro/) (uAvionix)
+- [FLARM](https://flarm.com/products/uav/atom-uav-flarm-for-drones/) <!-- I think originally https://flarm.com/products/powerflarm/uav/ -->
 
 
 ## Hardware Setup

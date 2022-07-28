@@ -13,7 +13,8 @@ For *ROS2 Galactic and above*, one has to install the `rmw` implementation throu
 :::
 
 :::tip
-Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to interface the PX4 Autopilot with Fast RTPS/DDS participants. ROS 2 nodes are an example of these, though Fast DDS middleware and C++ implementations are installed by default on ROS 2 Foxy and below, as mentioned above.
+Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to interface the PX4 Autopilot with Fast RTPS/DDS participants.
+ROS 2 nodes are an example of these, though Fast DDS middleware and C++ implementations are installed by default on ROS 2 Foxy and below, as mentioned above.
 :::
 
 :::note
@@ -38,14 +39,6 @@ Remember (again) you only need to install Fast DDS if you are not using ROS 2 an
 ### Java
 
 Java is required to build and use eProsima's RTPS/DDS from IDL code generation tool - *Fast-RTPS-Gen*. [Java JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is recommended, and it is installed through the setup scripts made available in [Ubuntu Development Environment](../dev_setup/dev_env_linux.md).
-
-### Gradle
-
-You also need to [install Gradle](https://gradle.org/install/) to build *Fast-RTPS-Gen*. We recommend you install Gradle via [sdkman](https://sdkman.io).
-
-:::warning
-Do not install Gradle version 7 or higher. The recommended version is 6.3.
-:::
 
 ### Foonathan memory
 
@@ -98,12 +91,23 @@ The following additional arguments can be used when calling *CMake*:
 
 *Fast-RTPS-Gen* is the Fast RTPS (DDS) IDL code generator tool. It should be installed after Fast RTPS (DDS) and made sure the `fastrtpsgen` application is in your `PATH`. You can check with `which fastrtpsgen`.
 
-Then install Fast-RTPS-Gen 1.0.4 (Gradle is required for this):
+Then clone Fast-RTPS-Gen 1.0.4:
 ```
 git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
-    && cd ~/Fast-RTPS-Gen \
-    && gradle assemble \
-    && sudo env "PATH=$PATH" gradle install
+
+&& cd ~/Fast-RTPS-Gen/gradle/wrapper
+```
+
+After that, modify the distribution version  of gradle inside the gradle-wrapper.properties file to gradle-6.8.3 such that the distributionUrl file becomes as follows:
+
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.8.3-bin.zip
+```
+Now you should run the following commands:
+
+```
+    cd ~/Fast-RTPS-Gen 
+    ./gradlew assemble && sudo env "PATH=$PATH" ./gradlew install
 ```
 
 ## Installation from Binaries

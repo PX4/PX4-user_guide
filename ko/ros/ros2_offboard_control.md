@@ -65,7 +65,7 @@ PX4 내부 작동이 확실하지 않은 경우에는 MAVLink 마이크로서비
       receive: true
     ```
 
-:::note
+   :::note
 이 문서를 작성하는 시점에는 위의 주제는 이미 수신하도록 설정되어 있습니다.
 :::
 
@@ -83,7 +83,7 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_Pub
     });
 ```
 
-`offboard_control_mode`와 `trajectory_setpoint` 메시지와 함께 설정되고 전송될 동기화된 타임스탬프를 얻으려면 위의 작업이 필요합니다.
+The above is required in order to obtain a synchronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
 
 ```cpp
 auto timer_callback = [this]() -> void {

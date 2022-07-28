@@ -189,7 +189,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 This error should no longer occur once the jMAVSim submodule is [updated to newer jar libs](https://github.com/PX4/jMAVSim/pull/119) and Java 11 or Java 14 should work fine.
 
 
-### An illegal reflective access operation has occured
+### An illegal reflective access operation has occurred
 
 This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
 

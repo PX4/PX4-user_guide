@@ -12,7 +12,7 @@
 3. 복제된 터미널 앱의 이름을 변경합니다(예: *x86 터미널*으로)
 4. 이름이 변경된 *x86 Terminal* 앱을 선택하고 마우스 오른쪽 버튼을 클릭하고 **정보 입수*를 선택합니다.
 5. **Rosetta를 사용하여 열기** 확인란을 선택하고, 창을 닫습니다.
-6. 현재 PX4 도구 모음을 지원하는 *x86 터미널*을 실행합니다.
+6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
 :::
 
 :::tip
@@ -55,9 +55,9 @@ brew install px4-dev
 
 ```sh
 # install required packages using pip3
-python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 # if this fails with a permissions error, your Python install is in a system path - use this command instead:
-sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+sudo -H python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 ```
 
 ## 가제보 시뮬레이션
@@ -74,26 +74,36 @@ jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java
 :::warning PX4 v1.11 이상용 jMAVSim에는 JDK 15 이상의 버전이 필요합니다.
 
 ```sh
-brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk15
+brew install --cask temurin
+brew install --cask xquartz
+brew install px4-sim-gazebo
 ```
 
+Run this macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh` The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
+
+```sh
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+cd PX4-Autopilot/Tools/setup
+sh macos.sh
+```
 
 ## jMAVSim 시뮬레이션
 
-이전 버전의 경우 macOS 사용자는 `스레드 "main" java.lang.UnsupportedClassVersionError의 예외:` 오류가 발생할 수 있습니다. 여기에서 수정 방법을 참고하십시오: [SITL이 있는 jMAVSim > 문제 해결](../simulation/jmavsim.md#troubleshooting)).
+To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
+
+```sh
+brew install --cask temurin
+```
+
+Then install jMAVSim:
 
 ```sh
 brew install px4-sim-jmavsim
 ```
 
-```sh
-brew install px4-sim-jmavsim
-```
+:::warning PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-명령줄 도구 모음 설정후, 다음을 수행합니다.
-
-For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
+For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
 :::
 
 ## 다음 단계

@@ -12,6 +12,7 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[An
 
 ![Flight Log Download](../../assets/qgc/analyze/log_download.jpg)
 
+
 ## Analyzing the Logs
 
 Upload the log file to the online [Flight Review](http://logs.px4.io) tool. After upload you'll emailed a link to the analysis page for the log.
@@ -29,6 +30,7 @@ If you have a constant high-rate MAVLink connection to the vehicle (not just a t
 ## Sharing the Log Files for Review by PX4 Developers
 
 The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../contribute/support.md#forums-and-chat) or a [Github issue](../README.md#reporting-bugs-issues).
+
 
 ## Log Configuration
 

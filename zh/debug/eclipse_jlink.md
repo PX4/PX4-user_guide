@@ -14,7 +14,7 @@ This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.g
 ### PX4
 
 Setup PX4 by following the normal guidelines:
-- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platofrm (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
+- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [Download PX4](../dev_setup/building_px4.md) and optionally build it on the command line.
 
 ### Eclipse
@@ -44,8 +44,9 @@ For more information, see: [https://gnu-mcu-eclipse.github.io/debug/jlink/instal
    - Click the small icon on the top right called *Open Perspective* and open the *Packs* perspective. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - Click the **update all** button.
 
-:::tip
-This takes a VERY LONG TIME (10 minutes). Ignore all the errors about missing packages that pop up.
+     :::tip
+This takes a VERY LONG TIME (10 minutes).
+Ignore all the errors about missing packages that pop up.
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
@@ -60,7 +61,8 @@ This takes a VERY LONG TIME (10 minutes). Ignore all the errors about missing pa
 1. Then select *GDB SEGGER J-Link Debugging* and then the **New config** button on the top left. ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
 1. Setup build config:
    - Give it a name and set  the *C/C++ Application* to the corresponding **.elf** file.
-   - Choose *Disable Auto build* :::note Remember that you must build the target from the command line before starting a debug session.
+   - Choose *Disable Auto build* :::note
+Remember that you must build the target from the command line before starting a debug session.
 :::
 
    ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)

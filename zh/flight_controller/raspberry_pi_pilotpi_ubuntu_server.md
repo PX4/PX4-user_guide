@@ -1,7 +1,8 @@
 # PilotPi 使用 Ubuntu Server 操作系统
 
 :::warning
-Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. Design for better heat dissipation and high power consumption when using this hardware.
+Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat.
+Design for better heat dissipation and high power consumption when using this hardware.
 :::
 
 ## 开发者快速指南
@@ -13,7 +14,7 @@ Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. D
 #### armhf
 
 - [Ubuntu Server 18.04.5 for RPi2](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi2.img.xz)
-- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz.zsync)
+- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz)
 - [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi4.img.xz)
 - [Ubuntu Server 20.04.1 for RPi 2/3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.1-preinstalled-server-armhf+raspi.img.xz)
 
@@ -220,7 +221,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code.
+This is all you need to do just to build the latest code. 
 :::
 
 #### 配置上传
@@ -260,7 +261,7 @@ make scumaker_pilotpi_default upload
 
 #### 备选armhf构建方法 (使用 docker)
 
-然后上传：
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
 
@@ -303,7 +304,7 @@ make scumaker_pilotpi_arm64 upload
 
 #### 备选 arm64 构建方法 (使用 docker)
 
-在执行下一步之前，先清除现有构建目录：
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 然后回到上面相应的章节。
 
@@ -312,7 +313,7 @@ make scumaker_pilotpi_arm64 upload
 ```
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
 :::note

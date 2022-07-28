@@ -2,6 +2,7 @@
 
 Spedix S250은 [Pixracer](../flight_controller/pixracer.md) 자동조종장치에 최적인 비대칭 레이싱 쿼드 콥터입니다.
 
+
 ## 하드웨어
 
 이 조립에 필요한 하드웨어가 아래에 표시되어 있습니다.
@@ -15,18 +16,17 @@ Spedix S250은 [Pixracer](../flight_controller/pixracer.md) 자동조종장치�
 [기체 정의서](../airframes/airframe_reference.md#quadrotor-asymmetric)에 정의된 배치 방법과 순서대로 모터를 연결합니다.
 
 <div>
-  <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;" /> 
-  
-  <table style="float: right; width: 70%; font-size:1.5rem;">
-    <colgroup><col></colgroup> <tr>
-      <th>
-        공통 출력
-      </th>
-    </tr>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
+<table style="float: right; width: 70%; font-size:1.5rem;">
+ <colgroup><col></colgroup>
+ <thead>
+   <tr><th>공통 출력</th></tr>
+ </thead>
+<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1 (전면 우측: 반시계)</li><li><b>MAIN2</b>: 모터 2(후면 좌측: CCW)</li><li><b>MAIN3</b>: 모터3(전면 좌측: CW)</li><li><b>MAIN4</b>: 모터 4(후면 우측: CW)</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li></ul></td>
 </tr>
-  </table>
+</tbody></table>
 </div>
 
 ## 기체 설정

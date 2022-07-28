@@ -146,7 +146,7 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 
 ![MC Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_MC.png)
 
-<!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
+<!-- image above incorrect: https://github.com/PX4/PX4-user_guide/issues/182 -->
 
 
 <a id="orbit_mc"></a>

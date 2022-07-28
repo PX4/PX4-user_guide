@@ -2,8 +2,9 @@
 
 PX4 will automatically upgrade firmware on UAVCAN nodes if the appropriate firmware is supplied. The firmware build process is manufacturer dependent (instructions for different firmware linked below).
 
-:::warning UAVCAN
-devices typically ship with appropriate firmware preinstalled. These instructions are primarily needed when developing UAVCAN devices.
+:::warning
+UAVCAN devices typically ship with appropriate firmware preinstalled. 
+These instructions are primarily needed when developing UAVCAN devices.
 :::
 
 ## Flashing/Updating a UAVCAN Binary

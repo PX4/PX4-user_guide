@@ -1,7 +1,7 @@
 # Weekly Dev Call
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/dev_call.html">can be found here</a>.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/dev_call.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -17,7 +17,8 @@ The PX4 dev team syncs up on platform technical details and in-depth analysis. T
 * Community members
 
 :::tip
-The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+The dev call is open to all interested developers (not just the core dev team). 
+This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
 :::
 
 ## What gets discussed?

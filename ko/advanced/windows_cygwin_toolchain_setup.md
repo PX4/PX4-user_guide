@@ -76,7 +76,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
    * Shells:bash-completion
    * Web:wget
 
-:::note
+   :::note
 이 목록에 없는 패키지를 가능한 선택하지 마십시오. 일부 패키지는 충돌하고 빌드를 손상시킵니다.
 :::
 
@@ -119,8 +119,9 @@ git clone https://github.com/PX4/windows-toolchain PX4
 
 1. Windows용 바이너리의 zip 아카이브로 [**Apache Ant**](https://ant.apache.org/bindownload.cgi)를 다운로드하고, `C:\PX4\toolchain\apache-ant` 폴더에 압축을 해제합니다.
 
-:::tip
+   :::tip
 다운로드한 아카이브 내부에 있는 폴더에서 추가 폴더 레이어가 없는지 확인하십시오.
+
 :::
 
 :::note

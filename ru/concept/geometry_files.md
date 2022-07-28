@@ -1,5 +1,9 @@
 # Multicopter Geometry Files
 
+:::note
+Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13). You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC).
+:::
+
 Geometry files are used by PX4 to generate mixer definitions that map the outputs of PX4 rate controllers to specific motors. The files describe the positions, direction of thrust, rotation direction, thrust and drag coefficients of each of the rotors.
 
 ## How to add a New Geometry
@@ -53,7 +57,7 @@ The allowed keys are:
 
 ## Example File
 
-There are numerous exmaples in the source tree: [/src/lib/mixer/MultirotorMixer/geometries/](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/).
+There are numerous examples in the source tree: [/src/lib/mixer/MultirotorMixer/geometries/](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/).
 
 A tri-copter geometry ([tri_y.toml](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml)) is reproduced below.
 

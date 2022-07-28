@@ -19,7 +19,8 @@ The datalink should typically be able to handle an uplink rate of 300 bytes per 
 The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
 
 :::note
-Most devices come with two variants, a base and a rover. Make sure to select the correct variant.
+Most devices come with two variants, a base and a rover.
+Make sure to select the correct variant.
 :::
 
 ## Automatic Configuration
@@ -57,7 +58,8 @@ If *MAVLink 1* is used, a 182-byte `GPS_RTCM_DATA` message is sent for every RTC
 
 If *MAVLink 2* is used then any empty space in the `GPS_RTCM_DATA message` is removed. The resulting uplink requirement is about the same as the theoretical value (~300 bytes per second).
 
-:::tip PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
+:::tip
+PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
 :::
 
 MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console:

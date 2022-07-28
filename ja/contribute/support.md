@@ -1,7 +1,7 @@
 # Support
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/support.html">can be found here</a>.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/support.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -34,6 +34,7 @@ If you are unsure what the problem is and you need help diagnosing
 
 * Upload logs to [Flight Log Review](https://logs.px4.io/)
 * [Open a Github Issue](https://github.com/PX4/Devguide/issues) with a flight report with as much detail as possible and links to logs.
+
 
 <a id="dev_call"></a>
 

@@ -14,6 +14,7 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 ![FW Position Mode](../../assets/flight_modes/position_FW.png)
 
+
 ## Technical Description
 
 Centered RC RPY sticks – gives level flight that follows a straight line ground track in the current direction against any wind.
@@ -22,4 +23,5 @@ Centered RC RPY sticks – gives level flight that follows a straight line groun
 
 | Parameter | Description |
 | --------- | ----------- |
-| &nbsp;    |             |
+| &nbsp;    |             | 
+

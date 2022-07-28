@@ -32,7 +32,7 @@ PX4 包含了一个通用的挂载设备/云台的控制驱动，它含有多种
 
 可以通过设置输出模式`MNT_MODE_OUT=AUX`，这样云台可以连接到飞控的 AUX 端口。
 
-需要一个混控器文件来定义输出引脚的映射，并自动选择[ mount mixer](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/mount.aux.mix)（这会覆盖机架配置提供的任何 AUX 混控器）。
+A mixer file is required to define the mapping for the output pins and the [mount mixer](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/mount.aux.mix) is automatically selected (this overrides any AUX mixer provided by the airframe configuration).
 
 输出分配如下所示：
 - **AUX1**: Pitch

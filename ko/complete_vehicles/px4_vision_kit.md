@@ -7,7 +7,7 @@
 이 키트에는 *Pixhawk 4* 비행 컨트롤러, *UP Core* 보조 컴퓨터(4GB 메모리와 64GB eMMC), 후두부 *구조 코어* 깊이 카메라 센서가 장착된 거의 즉시 비행 가능한 탄소 섬유 쿼드 콥터가 포함되어 있습니다.
 
 :::note
-이 제품에는 사전 설치된 소프트웨어가 없습니다. [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) 로컬 플래너 소프트웨어의 참조 구현이 포함된 사전 이미지화 된 USB 스틱은 *Auterion*에서 제공합니다. 이 소프트웨어는 PX4 Vision Autonomy Kit로 수행 가능 작업에 대한 매우 기본적인 예제들을 제공합니다. 개발자는이 키트를 사용하여 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 프로젝트에서 제공하는 다른 기능을 시험해보고, 기존 코드를 수정하거나, 새로운 컴퓨터 비전 기능을 실험할 수 있습니다.
+이 제품에는 사전 설치된 소프트웨어가 없습니다. A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 이 소프트웨어는 PX4 Vision Autonomy Kit로 수행 가능 작업에 대한 매우 기본적인 예제들을 제공합니다. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
 :::
 
 이 가이드는 기체 비행 준비에 필요한 최소한의 추가 설정을 설명합니다(RC 시스템과 배터리 설치). 또한 처녀 비행과 컴퓨터 비전 코드 수정 방법을 설명합니다.
@@ -30,7 +30,7 @@
 ## 경고와 알림
 
 1. 이 키트는 전방 카메라를 사용하는 컴퓨터 비전 프로젝트용입니다. 하향 또는 후방 깊이 카메라가 없습니다. 따라서, 추가 수정없이는 [안전 착륙](../computer_vision/safe_landing.md) 또는 하방향 카메라가 필요한 다른 기능들을 테스트할 수 없습니다.
-1. 임무에서 장애물 회피는 GPS를 사용시에 테스트 가능합니다. 임무 수행시에는 GPS 좌표를 사용합니다. 충돌 방지는 GPS와 광학 흐름에서 위치 잠금시에 위치 모드에서 테스트할 수 있습니다.
+1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates). 충돌 방지는 GPS와 광학 흐름에서 위치 잠금시에 위치 모드에서 테스트할 수 있습니다.
 1. `USB1`로 표시된 포트는 *USB3* 주변 장치와  동시에 사용하는 경우에는 GPS를 방해할 수 있습니다(임무를 포함한 GPS 종속 기능 비활성화). 이로 인하여, 부팅 이미지가 *USB2.0* 메모리 스틱으로 제공됩니다.
 1. ECN 010 이상의 PX4 Vision(캐리어 보드 RC05 이상), *UP Core*는 DC 플러그 또는 배터리로 전원을 공급할 수 있습니다. ![RC 번호](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN 번호](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
 
@@ -40,7 +40,7 @@
 :::
 
 ## 내부 내용
-![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![What's inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
@@ -85,7 +85,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
   - ROS Melodic
   - 후두 구조 코어 ROS 드라이버
   - MAVROS
-  - [PX4 회피 기능](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
+  - [PX4 회피 기능](https://github.com/PX4/PX4-Avoidance)
 
 
 - 다양한 케이블, 8x 프로펠러, 2x 배터리 스트랩 (설치됨) 및 기타 액세서리 (추가 주변 장치 연결용으로 사용할 수 있음).
@@ -106,7 +106,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
 ## 최초 설정
 
-1. 기체에 [RC 호환 수신기](../getting_started/rc_transmitter_receiver.md#connecting-receivers)를 부착합니다 (키트와 함께 제공되지 않음).
+1. Attach a [compatible RC receiver](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
    - H2.0 육각 도구를 사용하여 상단 플레이트 (배터리가가는 곳)를 분리합니다.
    - [수신기를 비행 컨트롤러에 연결합니다](../assembly/quick_start_pixhawk4.md#radio-control).
    - 상단 플레이트를 다시 부착합니다.
@@ -121,7 +121,9 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 1. 키트에서 사전 이미징된 USB2.0 스틱을 `USB1` (아래 강조 표시됨)이라고 표시된 *UP Core* 포트에 삽입합니다.
 
    ![UP 코어 : USB1 포트 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. 완전히 충전된 배터리로 기체의 전원을 공급하십시오. :::note 배터리를 연결하기 전에 프로펠러가 제거되었는 지 확인하십시오.
+1. 완전히 충전된 배터리로 기체의 전원을 공급하십시오.  :::note
+배터리를 연결하기 전에 프로펠러가 제거되었는 지 확인하십시오.
+
 :::
 1. 아래의 로그인 정보를 사용하여 지상국을 기체 WiFi에 연결합니다 (몇 초 후).
    - **SSID:** pixhawk4
@@ -134,8 +136,9 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 1. 지상국에서 *QGroundControl*을 시작합니다.
 1. 차량 [설정 및 보정](../config/README.md) :
 
-:::note
-기체는 사전 보정된 상태로 수령하여야합니다 (예 : 펌웨어, 기체, 배터리 및 센서가 모두 설정됨). 그러나, 방금 연결한 무선 시스템을 보정하여야 하며, 나침반 보정을 다시 수행하여야 하는 경우가 많습니다.
+   :::note
+기체는 사전 보정된 상태로 수령하여야합니다 (예 : 펌웨어, 기체, 배터리 및 센서가 모두 설정됨).
+그러나, 방금 연결한 무선 시스템을 보정하여야 하며, 나침반 보정을 다시 수행하여야 하는 경우가 많습니다.
 :::
 
    - [라디오 시스템 보정](../config/radio.md)
@@ -202,7 +205,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
 *PX4 회피* 시스템은 *비행 컨트롤러*에서 실행되는 PX4 비행 스택에 장애물과 경로 정보를 제공하는 보조 컴퓨터 (연결된 깊이 카메라 포함)에서 실행되는 컴퓨터 비전 소프트웨어로 구성됩니다.
 
-동반 컴퓨터 비전/계획 소프트웨어에 대한 문서는 github에서 찾을 수 있습니다 : [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). 이 프로젝트는 다양한 플래너 구현 (ROS 노드로 패키징)을 제공합니다.
+Documentation about the companion computer vision/planning software can be found on github here: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance). 이 프로젝트는 다양한 플래너 구현 (ROS 노드로 패키징)을 제공합니다.
 - PX4 Vision Kit는 기본적으로 *localplanner*를 실행하며 이것은 소프트웨어에 권장되는 시작점입니다.
 - *globalplanner*는이 키트로 테스트되지 않았습니다.
 - *착륙 플래너*에는 아래쪽을 향한 카메라가 필요하며, 먼저 카메라 장착을 수정하지 않고는 사용할 수 없습니다.
@@ -276,7 +279,7 @@ USB 이미지를 *UP Core*로 플래시하려면 :
 
 ### PX4 회피 기능 추가 개발
 
-PX4 비전의 *UP Core* 컴퓨터는 PX4 회피 소프트웨어를 확장을 위한 최적의 개발 환경을 제공합니다 (일반적으로 ROS 2를 사용하여 새로운 컴퓨터 비전 알고리즘을 개발함). 기체에서 소프트웨어를 개발/테스트, 자체 git 저장소에 동기화 및 github [PX4/Avoidance](https://github.com/PX4/avoidance) 저장소에서 PX4 커뮤니티와 수정 및 개선 사항을 공유할 수 있습니다.
+PX4 비전의 *UP Core* 컴퓨터는 PX4 회피 소프트웨어를 확장을 위한 최적의 개발 환경을 제공합니다 (일반적으로 ROS 2를 사용하여 새로운 컴퓨터 비전 알고리즘을 개발함). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo.
 
 catkin 작업 공간은 `~/catkin_ws`에 있으며 PX4 회피 로컬 플래너를 실행하도록 사전에 설정되어 있습니다. 부팅에서 시작 파일(`avoidance.launch`)은 `px4vision_ros` 패키지에 있습니다. 실행되는 플래너를 변경하려면 이 파일을 수정하십시오.
 
@@ -300,7 +303,7 @@ systemctl disable avoidance.service
 systemctl enable avoidance.service  
    ```
 
-1. 장애물 회피 패키지의 소스 코드는 `~/catkin_ws/src/avoidance`에 있는 https://github.com/PX4/avoidance를 참고하십시오.
+1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
 
 1. 코드를 변경하십시오! 최신 회피 코드를 얻으려면 회피 저장소에서 코드를 가져 오십시오.
    ```sh
@@ -336,7 +339,7 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 - [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* 보조 컴퓨터 기술 정보
 - [후두 개발자 포럼](https://structure.io/developers) - *구조 코어* 카메라 정보
 - [Pixhawk  4 개요](../flight_controller/pixhawk4.md)
-- [PX4 회피 소프트웨어 / 문서](https://github.com/PX4/avoidance)
+- [PX4 회피 소프트웨어 / 문서](https://github.com/PX4/PX4-Avoidance)
 - [경로 계획 인터페이스](../computer_vision/path_planning_interface.md)
 - [Px4 비전 캐리어 보드 핀아웃](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
@@ -345,6 +348,6 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 하드웨어 문제는 Holybro([productservice@holybro.com](mailto:productservice@holybro.com))에 문의하십시오.
 
 소프트웨어 문제는 아래의 커뮤니티 지원 채널을 사용하십시오.
-- [PX4 토론 : 컴퓨터 비전 카테고리.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 discuss](https://discuss.px4.io/)
 - [PX4 슬랙](https://slack.px4.io/) 채널 : #avoidance
 - [Holybro PX4 비전 위키 팩토리](https://wikifactory.com/+holybro/px4-vision)

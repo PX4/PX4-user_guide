@@ -4,9 +4,11 @@ The [Benewake TFmini LiDAR](http://en.benewake.com/product/detail/5c345e26e5b3a8
 
 ![TFmini LiDAR](../../assets/hardware/sensors/tfmini/tfmini_hero.jpg)
 
+
 ## 硬件安装
 
 TFmini can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
+
 
 ## Parameter Setup
 
@@ -14,8 +16,7 @@ TFmini can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3
 
 :::note
 If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
-
-    drivers/distance_sensor/tfmini
-    
-
+```
+drivers/distance_sensor/tfmini
+```
 :::

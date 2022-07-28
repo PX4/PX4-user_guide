@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_gyro.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gyro.msg)
 
 ```c
 uint64 timestamp          # time since system start (microseconds)
@@ -17,6 +17,8 @@ float32 z                 # angular velocity in the FRD board frame Z-axis in ra
 float32 temperature       # temperature in degrees Celsius
 
 uint32 error_count
+
+uint8[3] clip_counter     # clip count per axis in the sample period
 
 uint8 samples             # number of raw samples that went into this message
 

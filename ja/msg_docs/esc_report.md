@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/esc_report.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/esc_report.msg)
 
 ```c
 uint64 timestamp                    # time since system start (microseconds)
@@ -14,6 +14,8 @@ float32 esc_temperature                 # Temperature measured from current ESC 
 uint8 esc_address                   # Address of current ESC (in most cases 1-8 / must be set by driver)
 
 uint8 esc_state                 # State of ESC - depend on Vendor
+
+uint8 actuator_function             # actuator output function (one of Motor1...MotorN)
 
 uint16 failures                 # Bitmask to indicate the internal ESC faults
 

@@ -88,7 +88,7 @@ make nxp_fmuk66-v3_default
 
 [PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 [DEC-LZ FMU 디버그](https://nxp.gitbook.io/hovergames/rddrone-fmuk66/connectors/debug-interface-dcd-lz) 포트에서 실행됩니다.
 
-NXP의 DCD-LZ는 7핀 JST-GH 커넥터이며 nRST/MCU_RESET 핀을 [Pixhawk 6 핀 표준 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)에 추가합니다.
+NXP's DCD-LZ is a 7 pin JST-GH connector and adds the nRST/MCU_RESET pin to the [Pixhawk 6-Pin standard debug port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 DCD-LZ 브레이크아웃 어댑터를 사용하면 표준 10핀 JTAG/SWD 인터페이스(예 : Segger Jlink 사용) 및 표준 5핀 FTDI USB-TTL-3V3 유형 케이블을 사용할 수 있습니다.
 

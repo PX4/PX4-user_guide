@@ -28,7 +28,8 @@ The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-pr
 * Wheelbase:480mm
 
 :::note
-No LiPo battery is included. In addition, we use a FrSky Taranis controller.
+No LiPo battery is included. 
+In addition, we use a FrSky Taranis controller.
 :::
 
 ## Hardware
@@ -241,6 +242,7 @@ Fully assembled, the kit looks as shown below:
 ![Pixhawk Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_pixhawk.jpg)
 
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
+
 
 <span id="configure"></span>
 ## Install/Configure PX4

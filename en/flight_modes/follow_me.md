@@ -32,8 +32,8 @@ Users can adjust the follow angle, height and distance using an RC controller as
 :::note
 Angle, height, and distance values set using the RC controller are discarded when you exit follow-me mode.
 If you exit Follow-Me mode and activate it again the values will be reset to their defaults.
-
 :::
+
 
 Demo video:
 
@@ -50,7 +50,6 @@ Follow-me mode is supported by *QGroundControl* on Android devices with a GPS mo
 * The follow target must also be able to supply position information.
 * *QGroundControl* only supports this mode on Android devices that have GPS.
 :::
-
 
 ### Safety Precautions
 

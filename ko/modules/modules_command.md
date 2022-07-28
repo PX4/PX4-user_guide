@@ -12,7 +12,7 @@ WARNING: remove all props before using this command.
 
 <a id="actuator_test_usage"></a>
 
-### 사용법
+### 설명
 ```
 bl_update [arguments...]
  setopt        옵션 비트를 설정하여 FLASH를 잠금 해제합니다(잠긴 상태인 경우에만 필요).
@@ -21,7 +21,8 @@ bl_update [arguments...]
 ## dumpfile
 소스: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
 
-PX4 바이너리로 컴파일되지 않은 동적 PX4 모듈을 로드하고 실행합니다.<a id="bl_update_usage"></a>
+PX4 바이너리로 컴파일되지 않은 동적 PX4 모듈을 로드하고 실행합니다.
+<a id="bl_update_usage"></a>
 
 ### 사용법
 ```
@@ -50,6 +51,7 @@ dumpfile [arguments...]
 ```
 dyn ./hello.px4mod start
 ```
+
 
 <a id="dyn_usage"></a>
 
@@ -123,6 +125,7 @@ Set the output value on device /dev/gpin1 to high
 gpio write /dev/gpin1 1
 ```
 
+
 <a id="gpio_usage"></a>
 
 ### Usage
@@ -195,6 +198,7 @@ Blink the first LED 5 times in blue:
 ```
 led_control blink -c blue -l 0 -n 5
 ```
+
 
 <a id="led_control_usage"></a>
 
@@ -480,16 +484,17 @@ The parameters `-p` and `-r` can be set to a parameter instead of specifying an 
 Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
 
 ### 사용법
+
 Set the PWM rate for all channels to 400 Hz:
 ```
 pwm rate -a -r 400
 ```
 
-Test the outputs of eg. channels 1 and 3, and set the PWM value to 1200 us:
+Arm and set the outputs of channels 1 and 3 to a PWM value to 1200 us:
 ```
-pwm arm
-pwm test -c 13 -p 1200
+pwm min -c 13 -p 1200
 ```
+
 
 <a id="pwm_usage"></a>
 

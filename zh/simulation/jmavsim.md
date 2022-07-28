@@ -201,7 +201,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 并注释下面所指示的一行：
 
 
-### java.awt.AWTError: Assistive Technology not found: org.GNOME.Accessibility.AtkWrapper
+### An illegal reflective access operation has occurred
 
 This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
 

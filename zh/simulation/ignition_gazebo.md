@@ -4,7 +4,7 @@
 Ignition Gazebo supports a single frame (quadcopter) and world (July 2021).
 :::
 
-[Ignition Gazebo](https://ignitionrobotics.org/libs/gazebo) is an open source robotics simulator from the [Ignition Robotics Project](https://ignitionrobotics.org/home). It is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
+[Ignition Gazebo](https://gazebosim.org/libs/gazebo) is an open source robotics simulator from the _Ignition Robotics Project_. It is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
 
 **Supported Vehicles:** Quadrotor
 

@@ -73,15 +73,19 @@
         },
         
         "versions": {
-            "gitbookConfigURL": "https://raw.githubusercontent.com/PX4/px4_user_guide/master/book.json",
+            "gitbookConfigURL": "https://raw.githubusercontent.com/PX4/px4_user_guide/main/book.json",
             "options": [
                 {
-                    "value": "https://docs.px4.io/master/en/",
-                    "text": "master"
+                    "value": "https://docs.px4.io/main/en/",
+                    "text": "main"
+                },
+                {
+                    "value": "https://docs.px4.io/v1.13/en/",
+                    "text": "v1.13 - stable"
                 },
                 {
                     "value": "https://docs.px4.io/v1.12/en/",
-                    "text": "v1.12 - stable"
+                    "text": "v1.12"
                 },				 
                 {
                     "value": "https://docs.px4.io/v1.11/en/",
@@ -90,21 +94,11 @@
                 {
                     "value": "https://docs.px4.io/v1.10/en/",
                     "text": "v1.10"
-                },
-                {
-                    "value": "https://docs.px4.io/v1.9.0/en/",
-                    "text": "v1.9"
-                },
-                {
-                    "value": "https://docs.px4.io/v1.8.2/en/",
-                    "text": "v1.8"
                 }
             ]
         }
 
-
     }
-
 
 }
 
