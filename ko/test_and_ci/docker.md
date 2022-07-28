@@ -37,7 +37,7 @@ sudo usermod -aG docker $USER
 
 ## 컨테이너 계층
 
-사용 가능한 컨테이너는 [Github](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy)에 있습니다.
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
 이를 통하여 다양한 빌드 대상 및 구성을 테스트할 수 있습니다(포함된 도구는 이름에서 유추할 수 있음). 컨테이너는 상위 컨테이너의 기능을 갖도록 계층적입니다. 예를 들어, 아래에서 nuttx 빌드 도구(`px4-dev-nuttx-focal`)가 있는 도커 컨테이너에는 ROS 2가 포함되어 있지 않지만, 시뮬레이션 컨테이너에는 포함되어 있습니다.
 
