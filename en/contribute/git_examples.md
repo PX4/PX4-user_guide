@@ -147,7 +147,7 @@ git push --force-with-lease origin <your feature branch name>
 
 ### Rebase merge conflicts
 
-If a conflict occurs during a `git rebase`, please refer to [this guide](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/).
+If a conflict occurs during a `git rebase`, please refer to [this guide](https://docs.github.com/en/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase).
 
 ### Pull merge conflicts
 
