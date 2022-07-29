@@ -27,7 +27,7 @@ MoCap is commonly used to navigate a vehicle in situations where GPS is absent (
 
 For information about MoCap see:
 - [External Position Estimation](../ros/external_position_estimation.md)
-- [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture.md)
+- [Flying with Motion Capture (VICON, Optitrack, Nokov)](../tutorials/motion-capture.md)
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 
