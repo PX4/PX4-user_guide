@@ -12,7 +12,7 @@ Mixer files will be replaced by [Control Allocation](../concept/control_allocati
 1. [/src/lib/mixer/MultirotorMixer/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/CMakeLists.txt)에 지오메트리 파일을 추가합니다.
 1. 새 지오메트리를 사용하는 새로운 [믹서 파일](../concept/mixing.md)을 생성합니다. 예를 들어 새로운 키(이 경우 `4fo`)가 포함된 행으로 **ROMFS/px4fmu_common/mixers/foo.main.mix**를 만들 수 있습니다.
    ```
-   R 4fo
+   R: 4fo
    ```
 1. [기체 설정](../dev_airframes/adding_a_new_frame.md#add-new-airframe-to-qgroundcontrol)에서 새 믹서를 설정합니다(예: **init.d/airframes/myconfig**).
    ```
