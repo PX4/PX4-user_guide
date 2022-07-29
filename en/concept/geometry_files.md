@@ -16,7 +16,7 @@ The files describe the positions, direction of thrust, rotation direction, thrus
 1. Add the geometry file to [/src/lib/mixer/MultirotorMixer/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/CMakeLists.txt).
 1. Create a new [mixer file](../concept/mixing.md) that uses the new geometry. For example you might create **ROMFS/px4fmu_common/mixers/foo.main.mix** with a line containing the new key (in this case `4fo`):
    ```
-   R 4fo
+   R: 4fo
    ```
 1. Set the new mixer in your [airframe configuration](../dev_airframes/adding_a_new_frame.md#add-new-airframe-to-qgroundcontrol) (e.g. **init.d/airframes/myconfig**)
    ```
