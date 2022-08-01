@@ -4,40 +4,40 @@
 
 [![Sürümler](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Tartışma](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Slack](../assets/site/slack.svg)](https://join.slack.com/t/px4/shared_invite/zt-si4xo5qs-R4baYFmMjlrT4rQK5yUnaA)
 
-PX4 is the *Professional Autopilot*. Akademi ve endüstriden birinci sınıf yazılım geliştiriciler tarafından geliştirilen ve dünyanın dört bir yanına uzanan aktif bir topluluk tarafından desteklenen PX4, yarış ve kargo dronlarından kara ve denizaltı araçlarına kadar birçok çeşit araca hayat vermektedir.
+PX4 profesyonel otopilot sistemidir. Akademi ve endüstriden birinci sınıf yazılım geliştiriciler tarafından geliştirilen ve dünyanın dört bir yanına uzanan aktif bir topluluk tarafından desteklenen PX4, yarış ve kargo dronlarından kara ve denizaltı araçlarına kadar birçok çeşit araca hayat vermektedir.
 
 :::tip
 Bu rehber, PX4 tabanlı bir aracı kurmak, yapılandırmak ve güvenli bir şekilde uçurmak için ihtiyacınız olan her şeyi içermektedir. Interested in contributing? Check out the [Development](development/development.md) section. :::
 
 ## Nasıl Başlayabilirim?
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[Başlangıç](getting_started/README.md) tüm kullanıcılar tarafından okunmalıdır! PX4 hakkında uçuş algoritmaları (uçuş modları ve güvenlik özellikleri) ve desteklenen donanımlar(uçuş kontrolcüsü, araçlar, uçak gövde yapıları, telemetri sistemleri, radya kontrol sistemleri) özelliklerinin olduğu genel bir bakış açısı sağlamaktadır.
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
-**I already have a drone and I just want to fly:**
+**Bir drone'num var ve uçmak istiyorum:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+PX4 sistemini destekleyen uçuşa hazır bir aracınız var ise:
 
 - [Temel kurulum](config/README.md) aygıt yazılımınızı en son sürüme nasıl güncelleyeceğinizi, pusula ve IMU gibi ana sensörleri nasıl kalibre edeceğinizi ve uzaktan kumanda ile güvenlik özelliklerini nasıl ayarlayacağınızı açıklar.
 - [Uçuş](flying/README.md) güvenli bir şekilde nerede ve nasıl aracın uçurulacağı, silahlanma ve uçuş sorunlarının nasıl giderileceği başta olmak üzere uçuşla ilgili temel bilgileri öğretir. Ayrıca bu bölümde uçuş modları da detaylıca açıklanmıştır.
 
 
-**I want to build a drone with PX4 from scratch:**
+**PX4 ile sıfırdan bir drone yapmak istiyorum:**
 
 :::tip
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. :::
+Desteknelen araçlar [Airframes Reference](airframes/airframe_reference.md)linkinde listelenmektedir. Bu araçlar *QGroundControl* kullanarak indirebileceğiniz ve test edilmiş araçlardır. :::
 
-If you want to build a vehicle from scratch:
+Sıfırdan bir araç yapmak istiyorsanız:
 
 - Bir gövde seçin - [Gövde Yapıları](airframes/README.md) bölümünde desteklenen gövdelerin listesini ve yapım aşaması için detaylı açıklamaları bulabilirsiniz.
-- Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
+- Uçuş kontrolcüsü seçin - göz at [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) ve [Autopilot Hardware](flight_controller/README.md).
 - [Montaj](assembly/README.md), önemli yanbirimleri otopilota nasıl bağlayacağınızı açıklar.
 - [Temel Kurulum](config/README.md) aygıt yazılımınızı nasıl güncelleyeceğinizi ve uçak gövdenize uygun ayarlarla nasıl yapılandıracağınızı gösterir. Ayrıca bu bölümde ana sensörlerin nasıl kalibre edileceği ve RC kumanda ile güvenlik özelliklerinin nasıl ayarlanacağı dair açıklamaları da bulabilirsiniz.
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+Aracınızı uçurmaya hazır olduğunuzda,[Flying](flying/README.md) bölümünü ziyaret edin.
 
-**I want to add payload or a camera:**
+**Faydalı yük ve kamera eklemek istiyorum**
 
 The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
 
