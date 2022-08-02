@@ -55,7 +55,7 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
    1. Saturate `thrust_z` with `MPC_THR_MAX`
    1. Saturate `thrust_xy` with `(MPC_THR_MAX^2 - thrust_z^2)^0.5`
    
-Implementation details can be found in `ControlMath.cpp`.   
+Implementation details can be found in `PositionControl.cpp` and `ControlMath.cpp`.   
 
 ### Multicopter Velocity Controller
 
