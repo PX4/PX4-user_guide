@@ -72,7 +72,7 @@ Implementation details can be found in `ControlMath.cpp`.
 ![MC Position Control Diagram](../../assets/diagrams/mc_position_diagram.png)
 
 * Simple P controller that commands a velocity. 
-* The commanded velocity is saturated to keep the velocity in certain limits. See parameter `MPC_XY_VEL_MAX`. This parameter sets the maximum possible horizontal velocity. This differs from `MPC_XY_CRUISE` in autonomous flight modes.
+* The commanded velocity is saturated to keep the velocity in certain limits. See parameter `MPC_XY_VEL_MAX`. This parameter sets the maximum possible horizontal velocity. This differs from the maximum **desired** speed `MPC_XY_CRUISE` (autonomous modes) and `MPC_VEL_MANUAL` (manual position control mode).
 * Horizontal P gain set via parameter `MPC_XY_P`.
 * Vertical P gain set via parameter `MPC_Z_P`.
   
