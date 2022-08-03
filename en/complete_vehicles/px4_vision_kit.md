@@ -110,7 +110,7 @@ The kit contains all the essential drone hardware except a battery and a radio c
 - An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
 
 In addition, users will need ground station hardware/software:
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (QGC).
+- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (QGC).
 
 ## First-time Setup
 
@@ -359,7 +359,7 @@ The Carrier board pinouts can be download from [Holybro's website](http://www.ho
 
 ## Other Development Resources
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* companion computer technical information
+- [*UP Core* Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - *Up Core* companion computer technical information
 - [Occipital Developer Forum](https://structure.io/developers) - *Structure Core* camera information
 - [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
 - [PX4 Avoidance software/documentation](https://github.com/PX4/PX4-Avoidance)

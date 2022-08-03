@@ -88,7 +88,7 @@ Ensure that you select a controller that has enough of the right types of ports/
 Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL).
 For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
 
-The actual ports/bus used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration.
+The actual ports/bus used for the outputs on the [flight controller](#vehicle-flight-controller-board) depends on the hardware and PX4 configuration.
 *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
 
 They might also be marked as `FMU PWM OUT` or `IO PWM Out` (or similar).
