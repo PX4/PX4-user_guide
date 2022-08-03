@@ -126,12 +126,16 @@ xhost +
 # Run docker and open bash shell
 docker run -it --privileged \
 --env=LOCAL_USER_ID="$(id -u)" \
--v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
+-v ~/Projects/PX4-Autopilot:/src/PX4-Autopilot/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
--e DISPLAY=:0 \
--p 14570:14570/udp \
---name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
+-e DISPLAY=$DISPLAY \
+--network host \
+--name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
+
+:::note
+We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+:::
 
 If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:
 
