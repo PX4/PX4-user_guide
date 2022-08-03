@@ -178,7 +178,8 @@
 
 [임무 모드](../flight_modes/mission.md)는 비행 콘트롤러에 업로드된 자율 [임무](../flying/missions.md)(비행 계획) 비행을 실행합니다. 지상관제국(GCS)에서 임루를 생성하고 업로드합니다.
 
-:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. :::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다.
+:::tip
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/). :::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다.
 :::
 
 <a id="takeoff_mc"></a>
@@ -337,7 +338,8 @@ FMU 펌웨어가 오작동하면 무선 조종기를 통하여 스로틀, 엘리
 [임무 모드](../flight_modes/mission.md)는 비행 콘트롤러에 업로드된 자율 [임무](../flying/missions.md)(비행 계획) 비행을 실행합니다. 지상관제국(GCS)에서 임루를 생성하고 업로드합니다.
 
 
-:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. :::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다.
+:::tip
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/). :::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다.
 :::
 
 <a id="takeoff_fw"></a>
@@ -413,7 +415,8 @@ When under manual control the roll and pitch sticks control the angle of the veh
 
 *Mission mode*<!-- \[Mission mode\](../flight_modes/mission.md) -->[임무 모드](../flight_modes/mission.md)는 비행 콘트롤러에 업로드된 자율 [임무](../flying/missions.md)(비행 계획) 비행을 실행합니다. 지상관제국(GCS)에서 임루를 생성하고 업로드합니다.
 
-:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. :::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다.
+:::tip
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/). :::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다.
 :::
 
 
