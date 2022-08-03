@@ -343,4 +343,4 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
 ## 更多信息
 
-* [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
+* [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html)
