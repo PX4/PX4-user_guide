@@ -24,4 +24,4 @@ If you move the vehicle *QGroundControl* will automatically restart the gyroscop
 
 ## 更多信息：
 
-* [QGroundControl User Guide > Gyroscope](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#gyroscope)
+* [QGroundControl User Guide > Gyroscope](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#gyroscope)
