@@ -14,7 +14,7 @@ The [QGroundControl MAVLink Console](#qgroundcontrol) is the easiest way to acce
 
 ### QGroundControl MAVLink Console
 
-您也可以使用 **mavlink_shell.py** 脚本从终端访问shell：
+The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
 
 ### mavlink_shell.py
 
