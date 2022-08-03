@@ -24,4 +24,4 @@
 
 ## 추가 정보
 
-* [QGroundControl 사용 설명서 > 자이로스코프](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#gyroscope)
+* [QGroundControl 사용 설명서 > 자이로스코프](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#gyroscope)
