@@ -111,6 +111,7 @@
   * [Terrain Following/Holding](flying/terrain_following_holding.md)
 * [Flight Log Analysis](log/flight_log_analysis.md)
   * [Log Analysis using Flight Review](log/flight_review.md)
+  * [Log Analysis using PlotJuggler](log/plotjuggler_log_analysis.md)
 * [Advanced Features](advanced_features/README.md)
   * [Air Traffic Avoidance: ADSB/FLARM](advanced_features/traffic_avoidance_adsb.md)
   * [Air Traffic Avoidance: UTM](advanced_features/traffic_avoidance_utm.md)
