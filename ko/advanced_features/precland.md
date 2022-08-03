@@ -83,7 +83,7 @@ commander mode auto:precland
 작성 시점에 정밀 착륙을 직접 호출하는 *편리한* 방법은 없습니다(리턴 모드 명령 제외).
 - *QGroundControl*은 이를 UI 옵션으로 제공하지 않습니다.
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)는 임무에서만 작동합니다.
-- [MAV_CMD_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MODE)가 작동해야 하지만, 정밀 착륙 모드를 표시가하기 위하여 PX4에서 사용하는 적절한 기본 모드와 사용자 정의 모드를 결정하여야 합니다.
+- [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) should work, but you will need to determine the appropriate base and custom modes used by PX4 to represent the precision landing mode.
 :::
 
 
