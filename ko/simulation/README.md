@@ -192,8 +192,8 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 *QGroundControl* 데스크톱 버전은 USB 조이스틱/게임패드에 연결하여 MAVLink로 PX4에 이동 명령과 버튼 누름을 전송합니다. 이것은 SITL 및 HITL 시뮬레이션 모두에서 작동하며, 시뮬레이션 차량을 직접 제어할 수 있습니다. 조이스틱이 없는 경우 QGroundControl의 화면 가상 썸스틱을 사용하여 차량을 제어할 수도 있습니다.
 
 설정 정보는 *QGroundControl 사용자 가이드*를 참고하십시오.
-* [조이스틱 설정](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
-* [가상 조이스틱](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
+* [조이스틱 설정](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html)
+* [가상 조이스틱](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html)
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 
