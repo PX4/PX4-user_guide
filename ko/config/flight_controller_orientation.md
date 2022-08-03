@@ -42,4 +42,4 @@ Tailsitter 기체의 경우 모든 센서 보정에 대한 멀티콥터 설정(�
 ## 추가 정보
 
 * [고급 방향 보정](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자)
-* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)
+* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#flight_controller_orientation)
