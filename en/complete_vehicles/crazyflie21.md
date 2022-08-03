@@ -124,7 +124,7 @@ After setting up the PX4 development environment, follow these steps to install 
    sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D cf2loader-1.0.bin
    ``` 
    When powering on the Crazyflie 2.1 the yellow LED should blink.
-1. Install the latest Bitcraze Crazyflie 2.1 Firmware using [this](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#latest-fw) tutorial.
+1. Install the latest Bitcraze Crazyflie 2.1 Firmware using [this](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#update-fw) tutorial.
 
 ## Wireless Setup Instructions
 

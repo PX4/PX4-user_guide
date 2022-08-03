@@ -359,7 +359,7 @@ The Carrier board pinouts can be download from [Holybro's website](http://www.ho
 
 ## Other Development Resources
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* companion computer technical information
+- [*UP Core* Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - *Up Core* companion computer technical information
 - [Occipital Developer Forum](https://structure.io/developers) - *Structure Core* camera information
 - [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
 - [PX4 Avoidance software/documentation](https://github.com/PX4/PX4-Avoidance)

@@ -385,19 +385,19 @@ Sliders can be used to verify the following:
 1. Motors barely spin at the `minimum` PWM output value.
 1. Motors give **positive thrust** in the expected direction
 1. Control Surfaces are in the correct idle position for `disarmed` output value
-1. Control Surfaces move in the direction as defined in the [Control Surface Convention](#control-surface-direction-conceptual)
+1. Control Surfaces move in the direction as defined in the [Control Surface Convention](#control-surface-deflection-convention)
 1. Motor Tilt Servos are in the correct idle position for `disarmed` output value
-1. Motor Tilt Servos move in the direction as defined in the [Tilt Servo Convention](#motor-tilt-servos-conceptual)
+1. Motor Tilt Servos move in the direction as defined in the [Tilt Servo Convention](#tilt-servo-coordinate-system)
 
 
 ## Output Assignment and Configuration
 
 Outputs are assigned to functions and configured in the [Actuator Outputs](#actuator-outputs) section, while the  [Actuator Testing](#actuator-testing) sliders are commonly used to determine appropriate configuration values to enter:
 
-- MC vehicles that have connected motors to PWM outputs can use the [Identify & Assign Motors](#multicopter-pwm-identify-assign-motors) button to perform motor assignment "semi-automatically".
+- MC vehicles that have connected motors to PWM outputs can use the [Identify & Assign Motors](#multicopter-pwm-motor-assignment) button to perform motor assignment "semi-automatically".
 - Output assignment of both motors and actuators can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)).
 - Disarmed, minimum, and maximum settings, for all outputs can also be also determined using sliders.
-  This is shown as part of [Motor Assignment & Configuration](#motor-assignment-configuration), [Control Surface Setup](#control-surface-setup), [Tilt servo setup](#tilt-servo-setup)
+  This is shown as part of [Motor Configuration](#motor-configuration), [Control Surface Setup](#control-surface-setup), [Tilt servo setup](#tilt-servo-setup)
 
 ### Multicopter PWM: Motor Assignment
 
@@ -484,8 +484,8 @@ For each motor:
 3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
    - The expected thrust direction can vary by vehicle type.
      For example in multicopters the thrust should always point upwards, while in a fixed wing vehicle the thrust will push the vehicle forwards.
-   - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#motor-tilt-servos-conceptual).
-     Testing of the [Tilt Servo](#tilt-servo-testing) is covered below as well.
+   - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system).
+     Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
    - If thrust is in the wrong direction, you may need to [reverse the motors](#reversing-motors).
 
 
@@ -507,7 +507,7 @@ For each of the control surfaces:
 
 1. Set the `Disarmed` value so that the surfaces will stay at neutral position when disarmed.
    This is usually around `1500` for PWM servos.
-2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-direction-conceptual).
+2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
    - If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
 3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
    - If it is not aligned, you can set the **Trim** value for the control surface.
