@@ -26,10 +26,11 @@ adc <command> [arguments...]
    start
 
    test
+     [-n]        Do not publish ADC report, only system power
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## ads1115
 Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
@@ -155,7 +156,7 @@ batt_smbus <command> [arguments...]
    unseal        Unseals the devices flash memory to enable write_flash
                  commands.
 
-   seal          Seals the devices flash memory to disbale write_flash commands.
+   seal          Seals the devices flash memory to disable write_flash commands.
 
    suspend       Suspends the driver from rescheduling the cycle.
 
@@ -294,7 +295,7 @@ Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modu
 ### 描述
 Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
 
-Documentation how to use it is on the [gimbal_control](https://docs.px4.io/master/en/advanced/gimbal_control.html) page.
+Documentation how to use it is on the [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html) page.
 
 ### Examples
 Test the output by setting a angles (all omitted axes are set to 0):
@@ -576,14 +577,74 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
+## modalai_esc
+Source: [drivers/actuators/modalai_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modalai_esc)
+
+
+### Description
+This module is responsible for...
+
+### Implementation
+By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
+
+### 示例
+It is typically started with:
+```
+todo
+```
+
+
+<a id="modalai_esc_usage"></a>
+
+### Usage
+```
+modalai_esc <command> [arguments...]
+ Commands:
+   start         Start the task
+
+   reset         Send reset request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version       Send version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version-ext   Send extended version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   rpm           Closed-Loop RPM test control request
+     -i <val>    ESC ID bitmask, 1-15
+     -r <val>    RPM, -32,768 to 32,768
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   pwm           Open-Loop PWM test control request
+     -i <val>    ESC ID bitmask, 1-15
+     -r <val>    Duty Cycle value, 0 to 800
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   tone          Send tone generation request to ESC
+     -i <val>    ESC ID bitmask, 1-15
+     -p <val>    Period of sound, inverse frequency, 0-255
+     -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
+     -v <val>    Power (volume) of sound, 0-100
+
+   led           Send LED control request
+     -l <val>    Bitmask 0x0FFF (12 bits) - ESC0 (RGB) ESC1 (RGB) ESC2 (RGB)
+                 ESC3 (RGB)
+
+   stop
+
+   status        print status info
+```
 ## newpixel
 Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/neopixel)
 
 
-### Description
+### 描述
 This module is responsible for driving interfasing to the Neopixel Serial LED
 
-### Examples
+### 示例
 It is typically started with:
 ```
 neopixel -n 8
@@ -592,7 +653,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### Usage
+### 描述
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -605,7 +666,7 @@ Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paa3905_usage"></a>
 
-### Usage
+### 描述
 ```
 paa3905 <command> [arguments...]
  Commands:
@@ -630,7 +691,7 @@ Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paw3902_usage"></a>
 
-### Usage
+### 描述
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -681,7 +742,7 @@ pca9685 <command> [arguments...]
 Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685_pwm_out)
 
 
-### Description
+### 描述
 This module is responsible for generate pwm pulse with PCA9685 chip.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
@@ -689,7 +750,7 @@ It listens on the actuator_controls topics, does the mixing and writes the PWM o
 ### Implementation
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
-### Examples
+### 示例
 It is typically started with:
 ```
 pca9685_pwm_out start -a 64 -b 1
@@ -699,7 +760,7 @@ Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mi
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### Usage
+### 描述
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -720,7 +781,7 @@ Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="pmw3901_usage"></a>
 
-### Usage
+### 描述
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -744,13 +805,13 @@ pmw3901 <command> [arguments...]
 Source: [drivers/pps_capture](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pps_capture)
 
 
-### Description
+### 描述
 This implements capturing PPS information from the GNSS module and calculates the drift between PPS and Real-time clock.
 
 
 <a id="pps_capture_usage"></a>
 
-### Usage
+### 描述
 ```
 pps_capture <command> [arguments...]
  Commands:
@@ -764,7 +825,7 @@ pps_capture <command> [arguments...]
 Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out)
 
 
-### Description
+### 描述
 This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
@@ -776,7 +837,7 @@ By default the module runs on a work queue with a callback on the uORB actuator_
 
 <a id="pwm_out_usage"></a>
 
-### Usage
+### 描述
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -790,7 +851,7 @@ pwm_out <command> [arguments...]
 Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out_sim)
 
 
-### Description
+### 描述
 Driver for simulated PWM outputs.
 
 Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
@@ -800,7 +861,7 @@ It is used in SITL and HITL.
 
 <a id="pwm_out_sim_usage"></a>
 
-### Usage
+### 描述
 ```
 pwm_out_sim <command> [arguments...]
  Commands:
@@ -839,12 +900,12 @@ px4flow <command> [arguments...]
 Source: [drivers/px4io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/px4io)
 
 
-### Description
+### 描述
 Output driver communicating with the IO co-processor.
 
 <a id="px4io_usage"></a>
 
-### Usage
+### 描述
 ```
 px4io <command> [arguments...]
  Commands:
@@ -878,7 +939,7 @@ px4io <command> [arguments...]
 Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc_input)
 
 
-### Description
+### 描述
 This module does the RC input parsing and auto-selecting the method. Supported methods are:
 - PPM
 - SBUS
@@ -890,7 +951,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 
 <a id="rc_input_usage"></a>
 
-### Usage
+### 描述
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -909,7 +970,7 @@ Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="rgbled_usage"></a>
 
-### Usage
+### 描述
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -933,12 +994,12 @@ rgbled <command> [arguments...]
 Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
 
 
-### Description
+### 描述
 
 This driver communicates over UART with the [Roboclaw motor driver](http://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf). It performs two tasks:
 
- - Control the motors based on the `actuator_controls_0` UOrb topic.
- - Read the wheel encoders and publish the raw data in the `wheel_encoders` UOrb topic
+- Control the motors based on the `actuator_controls_0` UOrb topic.
+- Read the wheel encoders and publish the raw data in the `wheel_encoders` UOrb topic
 
 In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. For Pixhawk 4, use the `UART & I2C B` port, which corresponds to `/dev/ttyS3`.
 
@@ -953,19 +1014,20 @@ Because of the latency of UART, this driver does not write every single `actuato
 
 On startup, this driver will attempt to read the status of the Roboclaw to verify that it is connected. If this fails, the driver terminates immediately.
 
-### Examples
+### 示例
 
 The command to start this driver is:
 
- $ roboclaw start <device> <baud>
+roboclaw start <device> <baud>
 
-`<device>` is the name of the UART port. On the Pixhawk 4, this is `/dev/ttyS3`. `<baud>` is te baud rate.
+- `<device>` is the name of the UART port. On the Pixhawk 4, this is `/dev/ttyS3`.
+- `<baud>` is the baud rate.
 
 All available commands are:
 
- - `$ roboclaw start <device> <baud>`
- - `$ roboclaw status`
- - `$ roboclaw stop`
+- `$ roboclaw start <device> <baud>`
+- `$ roboclaw status`
+- `$ roboclaw stop`
 
 <a id="roboclaw_usage"></a>
 
@@ -978,13 +1040,13 @@ roboclaw <command> [arguments...]
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
 
-### Description
+### 描述
 This module is responsible for the safety button. Pressing the safety button 3 times quickly will trigger a GCS pairing request.
 
 
 <a id="safety_button_usage"></a>
 
-### Usage
+### 描述
 ```
 safety_button <command> [arguments...]
  Commands:
@@ -998,10 +1060,10 @@ safety_button <command> [arguments...]
 Source: [drivers/hygrometer/sht3x](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/hygrometer/sht3x)
 
 
-### Description
+### 描述
 SHT3x Temperature and Humidity Sensor Driver by Senserion.
 
-### Examples
+### 示例
 CLI usage example:
 ```
 sht3x start -X
@@ -1026,7 +1088,7 @@ sht3x reset
 
 <a id="sht3x_usage"></a>
 
-### Usage
+### 描述
 ```
 sht3x <command> [arguments...]
  Commands:
@@ -1053,19 +1115,25 @@ sht3x <command> [arguments...]
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
 
 
-### Description
+### 描述
+
 This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 ### Implementation
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+
+Currently the module is implemented as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
 ### Example
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
 
+The module is typically started with:
+
+```
+tap_esc start -d /dev/ttyS2 -n <1-8>
+```
 
 <a id="tap_esc_usage"></a>
 
-### Usage
+### 描述
 ```
 tap_esc <command> [arguments...]
  Commands:
@@ -1079,13 +1147,13 @@ tap_esc <command> [arguments...]
 Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tone_alarm)
 
 
-### Description
+### 描述
 This module is responsible for the tone alarm.
 
 
 <a id="tone_alarm_usage"></a>
 
-### Usage
+### 描述
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -1099,7 +1167,7 @@ tone_alarm <command> [arguments...]
 Source: [drivers/uwb/uwb_sr150](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uwb/uwb_sr150)
 
 
-### Description
+### 描述
 
 Driver for NXP UWB_SR150 UWB positioning system. This driver publishes a `uwb_distance` message whenever the UWB_SR150 has a position measurement available.
 
@@ -1113,7 +1181,7 @@ uwb start -d /dev/ttyS2
 
 <a id="uwb_usage"></a>
 
-### Usage
+### 描述
 ```
 uwb <command> [arguments...]
  Commands:
@@ -1134,7 +1202,7 @@ Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="voxlpm_usage"></a>
 
-### Usage
+### 描述
 ```
 voxlpm [arguments...]
    start
