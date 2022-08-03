@@ -217,7 +217,7 @@ Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-install
 
 Once you have finished setting up the command-line toolchain:
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
   :::tip
   The *daily build* includes development tools that hidden in release builds. 
   It may also provide access to new PX4 features that are not yet supported in release builds.

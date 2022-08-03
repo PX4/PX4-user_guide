@@ -47,7 +47,7 @@ Frame | Flight Controller | UUID
 [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html) | [Pixhack V3](../flight_controller/pixhack_v3.md) | 003200293036511638363834 (f450-v5-m)
 [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html) | [Pixhawk 4](../flight_controller/pixhawk4.md) | 000200000000383339333038510700320016 (F450-v5)
 [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html) | [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) | 0002000000003432333830385115003a0033 (F450-v5-m)
-[DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html) [UAVCAN](https://zubax.com/technologies/uavcan) | [Pixhawk 4](../flight_controller/pixhawk4.md) | 000200000000323634353237511800200021 (F450-Pixhawk4)
+[DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html) [Cyphal](https://zubax.com/technologies/cyphal) | [Pixhawk 4](../flight_controller/pixhawk4.md) | 000200000000323634353237511800200021 (F450-Pixhawk4)
 Holybro [QAV250](../frames_multicopter/holybro_qav250_pixhawk4_mini.md) | [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) |000200000000343233383038511500420032 (f450-v5-m)
 NXP Semiconductor [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/unmanned-aerial-vehicles-uavs/uavs-drones-and-rovers/rddrone-fmuk66-px4-robotic-drone-fmu-reference-design:RDDRONE-FMUK66) ("[Hovergames](https://www.hovergames.com/)")| [RDDRONE-FMUK66](https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/kinetis-cortex-m-mcus/k-seriesperformancem4/k6x-ethernet/rddrone-fmuk66-px4-robotic-drone-fmu-reference-design:RDDRONE-FMUK66?tid=vanRDDRONE-FMUK66) | 00030016ffffffffffff4e45362050130029
 
