@@ -28,12 +28,12 @@ Discuss is better than slack in the first instance because questions and answers
 
 * Upload logs to [Flight Log Review](https://logs.px4.io/)
 * Open a discussion on [PX4 Discuss](https://discuss.px4.io//) with a flight report and links to logs.
-* If you find an issue or bug with PX4 [open a Github Issue](https://github.com/PX4/Devguide/issues)
+* The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
 
 ## Issue & Bug Reporting
 
 * Upload logs to [Flight Log Review](https://logs.px4.io/)
-* [Open a Github Issue](https://github.com/PX4/Devguide/issues) with a flight report with as much detail as possible and links to logs.
+* [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues) with a flight report with as much detail as possible and links to logs.
 
 
 <a id="dev_call"></a>
@@ -60,4 +60,3 @@ See [Test Flights](../test_and_ci/test_flights.md) for information about availab
 
 * [加入我们的 Slack 社区](https://slack.px4.io/)
 * [发布一条讨论](https://discuss.px4.io/)
-* [开启 Github Issue](https://github.com/PX4/Devguide/issues)
