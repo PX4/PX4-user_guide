@@ -3,7 +3,7 @@
 *무선 조종기 설정* 화면은 송신기의 기본 자세 제어 스틱(롤, 피치, 요, 스로틀)을 채널에 매핑하고 최소, 최대, 트림 및 리버스 설정을 보정합니다.
 
 :::note RC
-Control is enabled by default, but a [joystick](../config/joystick.md) may be enabled instead (or as a fallback) using the [parameter](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE). :::
+Control is enabled by default, but a [joystick](../config/joystick.md) may be enabled instead (or as a fallback) using the [parameter](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE). :::
 
 ## 수신기 바인딩
 
@@ -148,6 +148,6 @@ PARAM 튜닝 채널을 매개 변수에 매핑 절차
 
 ## 추가 정보
 
-* [QGroundControl > 무선 조종기](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
+* [QGroundControl > 무선 조종기](https://docs.qgroundcontrol.com/master/en/SetupView/Radio.html)
 * [PX4 설정 비디오 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (유튜브)
 * [RC 시스템 선택](../getting_started/rc_transmitter_receiver.md) -호환되는 RC 시스템을 선택합니다.
