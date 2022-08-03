@@ -28,7 +28,7 @@ Tavsiye edilen ekipmanlar:
 
 ## Araç Yapılandırması
 
-Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) for a **desktop OS**.
+Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 Aracı yapılandırmak için:
 1. Geliştirme platformunuz için [QGroundControl Günlük Sürüm](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)'ü indirin.
