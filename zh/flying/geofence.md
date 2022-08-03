@@ -25,7 +25,7 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 
 ![围栏规划](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
 
 总结：
 1. Open *QGroundControl > Plan View*.
