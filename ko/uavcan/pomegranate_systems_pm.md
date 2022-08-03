@@ -35,7 +35,7 @@
 ## 설정
 
  1. [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) 매개변수를 `2` (센서 자동 구성) 또는 `3`으로 설정하여 UAVCAN을 활성화합니다.
- 2. [Mavlink 콘솔](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html)을 사용하여 다음 모듈의 매개변수를 설정합니다.
+ 2. Set the following module parameters using the [Mavlink console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
     * 배터리 용량 (mAh): `battery_capacity_mAh`
     * *full* 일 때 배터리 전압: `battery_full_V`
     * *비어있을 때* 배터리 전압 : `battery_empty_V`
