@@ -96,7 +96,7 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 | 6(black) | GND | GND   |
 
 :::note
-키트의 전원모듈을 사용하면 [전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html)에서 *셀 수*를 설정하여하며, *전압 분배기* 보정은 필요 없습니다. 다른 전원모듈(예 : Pixracer의 모듈)을 사용하는 경우에는 *전압 분배기*를 업데이트하여야 합니다. :::
+Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) but you won't need to calibrate the *voltage divider*. 다른 전원모듈(예 : Pixracer의 모듈)을 사용하는 경우에는 *전압 분배기*를 업데이트하여야 합니다. :::
 
 ## 무선 조종
 
