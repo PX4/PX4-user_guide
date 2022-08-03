@@ -36,5 +36,5 @@
 ## 추가 정보
 
 * [고급 방향 보정](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자용).
-* [QGroundControl 사용자 안내서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon)
+* [QGroundControl 사용자 안내서 > 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#level-horizon)
 * [PX4 설치 동영상 "각가속 센서"- @ 1분 14초](https://youtu.be/91VGmdSlbo4?t=1m14s)(유튜브)
