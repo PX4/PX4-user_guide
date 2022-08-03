@@ -15,7 +15,7 @@ MAVLink Shell은 직렬(USB/Telemetry) 또는 Wi-Fi(UDP/TCP)를 통하여 MAVLin
 
 <h3 spaces-before="0">QGroundControl MAVLink 콘솔</h3>
 
-<p spaces-before="0">쉘에 접근하기 가장 편리한 방법은 <a href="https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html">QGroundControl MAVLink 콘솔</a>을 사용하는 것입니다(<strong x-id="1">Analyze View &#062; Mavlink 콘솔</strong> 참조).</p>
+<p spaces-before="0">The easiest way to access shell is to use the <a href="https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html">QGroundControl MAVLink Console</a> (see <strong x-id="1">Analyze View &#062; Mavlink Console</strong>).</p>
 
 <h3 spaces-before="0">mavlink_shell.py</h3>
 
