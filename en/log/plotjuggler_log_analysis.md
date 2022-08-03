@@ -47,7 +47,7 @@ It is often hard to troubleshoot a problem just by looking at one graph, but by 
 
 ### Displaying Data in 2D
 
-Another powerful feature that exists is the ability to display 2D data on a XY plane (each data on X, Y axis) in a scatter-plot manner.
+Another powerful feature is the ability to display 2D data on a XY plane (each data on X, Y axis) in a scatter-plot manner.
 This is done by selecting two data points by holding `Ctrl` key while selecting each of them (e.g. `vehicle_local_position` topic's `x` and `y` components), and drag & dropping it with the `Right mouse cursor` pressed.
 
 ![Plot Juggler 2D graphing](../../assets/flight_log_analysis/plot_juggler/plotjuggler_2d_graph.gif)
