@@ -25,7 +25,7 @@ Furthermore, the physical parameters representing the vehicle (such as mass, ine
 
 ## 요구 사항
 
-To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board). you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
+To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board). you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
 
 - `-q` - *QGroundControl*에 대한 통신 허용(선택 사항)
 - 쿼드로터용 SIH는 PX4 v1.9부터 지원됩니다.
