@@ -527,7 +527,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
 
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+The replay procedure is documented on the [System-wide Replay](https://docs.px4.io/main/en/debug/system_wide_replay.html) page.
 
 <a id="replay_usage"></a>
 
@@ -712,7 +712,7 @@ Command-line tool to control & test the (external) tunes.
 
 Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
 
-Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc
 
 ### Examples
 
