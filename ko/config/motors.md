@@ -4,7 +4,7 @@
 이 섹션은 [액추에이터](../config/actuators.md) 설정 화면으로 대체됩니다.
 :::
 
-기체를 설정후에는 모터 할당과 회전 방향, 서보 응답을 확인하여야 합니다. 이 작업은 * QGroundControl </>의 [차량 설정 > 모터](https://docs.qgroundcontrol.com/en/SetupView/Motors.html) 탭에서 수행할 수 있습니다.
+기체를 설정후에는 모터 할당과 회전 방향, 서보 응답을 확인하여야 합니다. This can be done in *QGroundControl*, under the [Vehicle Setup > Motors](https://docs.qgroundcontrol.com/master/en/SetupView/Motors.html) tab.
 
 다음 PX4 특정 동작에 유의하십시오.
 - 안전 버튼을 쿨러야 모터 테스트를 할 수 있습니다.

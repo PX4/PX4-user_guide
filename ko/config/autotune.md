@@ -78,11 +78,11 @@
 #### 자동 튜닝 전에 테스트 기동을 수행할 때 드론이 진동합니다.
 
 * 느린 진동(초당 1회 또는 더 느린 진동): 이는 종종 대형 플랫폼에서 발생하며 자세 루프가 속도 루프에 비해 너무 빠르다는 것을 의미합니다.
-   - **멀티콥터:** [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) 및 [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)를 1.0씩 감소
-   - **고정익:** 0.1단계씩 [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC), [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC), [FW_Y_TC](../advanced_config/parameter_reference.md#FW_Y_TC) 증가
+   - **Multicopter:** decrease [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P) and [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P) by steps of 1.0.
+   - **Fixed-wing:** increase [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC), [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC), [FW_Y_TC](../advanced_config/parameter_reference.md#FW_Y_TC) by steps of 0.1.
 * 빠른 진동(초당 1회 이상): 이는 속도 루프의 이득이 너무 높기 때문입니다.
    - **멀티콥터:** 0.02씩 `MC_[ROLL|PITCH|YAW]RATE_K` 감소
-   - **고정익:** 0.01 단계씩 [FW_RR_R](../advanced_config/parameter_reference.md#FW_RR_R), [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_RR_Y](../advanced_config/parameter_reference.md#FW_RR_Y) 감소
+   - **Fixed-wing:** decrease [FW_RR_R](../advanced_config/parameter_reference.md#FW_RR_R), [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P), [FW_RR_Y](../advanced_config/parameter_reference.md#FW_RR_Y) by steps of 0.01.
 
 #### 자동 튜닝 실패
 

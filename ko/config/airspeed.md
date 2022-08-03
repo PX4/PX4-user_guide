@@ -41,4 +41,4 @@
 
 ## 추가 정보
 
-* [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
+* [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#airspeed)

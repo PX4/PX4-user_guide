@@ -74,7 +74,7 @@ By contrast, HITL runs normal PX4 firmware in "HITL mode", on normal hardware. T
    * [NAV_DLL_ACT](../advanced/parameter_reference.md#NAV_DLL_ACT) 更改为 "Disabled"。 这可确保在没有无线遥控的情况下运行 HITL 时 RC 失控保护不会介入。
 
 :::tip
-The *QGroundControl User Guide* also has instructions on [Joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html) setup.
+The *QGroundControl User Guide* also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html) setup.
 :::
 
 遵循以下流程进行 X-Plane 模拟器的配置：

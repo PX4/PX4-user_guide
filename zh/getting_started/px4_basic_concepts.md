@@ -76,7 +76,7 @@ A flight controller may only have `MAIN` PWM outputs (like the *Pixhawk 4 Mini*)
 
 通常情况下，`MAIN`端口用于核心飞行控制，`AUX`用于非关键的执行器/有效载荷（但是，如果`MAIN`没有足够的接口，比如VTOL机型，`AUX`也可能用于飞行控制）。 例如，对于一架[通用四旋翼](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)，`MAIN`输出中的1-4用于控制电机，剩余的`MAIN`和一些`AUX`用来做遥控透传（透传：输入内容直接给到输出，中途不经过任何修改）。
 
-[飞行控制器](#vehicle_controller) 上的实际输出端口/总线取决于硬件和 PX4 配置。 *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
+The actual ports/bus used for the outputs on the [flight controller](#vehicle-flight-controller-board) depends on the hardware and PX4 configuration. *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
 
 它们也可能被标记为`FMU PWM OUT`或`IO PWM Out`（或类似的形式）。 Pixhawk controllers have a "main" FMU board and *may* have a separate IO board. 如果有IO 板, `AUX` 端口直接连接到 FMU 和 `MIAN` 端口连接到IO板。 否则， `MAIN` 端口连接到FMU，没有 `AUX` 端口。 The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour. 这对于竞速机和其他需要更好性能的机体来说是有用的。
 
@@ -119,7 +119,7 @@ PX4 在自主飞行模式中不需要遥控系统。
 
 ## 地面站游戏手柄控制器
 
-A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/). 游戏手柄也常被用于控制仿真中的无人机。
+A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/). 游戏手柄也常被用于控制仿真中的无人机。
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 

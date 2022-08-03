@@ -101,7 +101,7 @@ RTK GPS는 플러그 앤 플레이입니다. 자세한 내용은 [여기](../adv
 
 *Lidar-Lite V3* (I2C를 통해 연결됨)를 활성화하려면 [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) 매개 변수를 `I2C`로 설정해야합니다.
 
-이 작업은 아래와 같이 *QGroundControl* [매개 변수](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html)에서 수행할 수 있습니다.
+This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) as shown below:
 
 ![QGC에서 SENS_EN_LL40LS 매개 변수 설정](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
 

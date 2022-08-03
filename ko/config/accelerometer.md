@@ -43,5 +43,5 @@ The calibration uses a least squares 'fit' algorithm that doesn't require you to
 
 ## 추가 정보
 
-* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#accelerometer)
+* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#accelerometer)
 * [PX4 설치 비디오 - @1m46s](https://youtu.be/91VGmdSlbo4?t=1m46s) (Youtube)

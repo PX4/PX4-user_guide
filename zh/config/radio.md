@@ -3,7 +3,7 @@
 The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
 :::note RC
-Control is enabled by default, but a [joystick](../config/joystick.md) may be enabled instead (or as a fallback) using the [parameter](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE). :::
+Control is enabled by default, but a [joystick](../config/joystick.md) may be enabled instead (or as a fallback) using the [parameter](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE). :::
 
 ## 绑定接收机
 
@@ -148,6 +148,6 @@ You can clear all parameter/tuning channel mappings by selecting menu **Tools > 
 
 ## 更多信息
 
-* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
+* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/master/en/SetupView/Radio.html)
 * [PX4 设置视频 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
 * [遥控系统选择](../getting_started/rc_transmitter_receiver.md) - 选择一个兼容的遥控系统。

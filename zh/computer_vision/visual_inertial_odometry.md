@@ -103,7 +103,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 - 验证与飞控的连接。
   
 :::tip
-您可以使用*QGroundControl *  [ MAVLink检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)来验证是否收到` ODOMETRY `或` VISION_POSITION_ESTIMATE `消息（或检查是否存在 ` HEARTBEAT `消息，其组件ID为197（` MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY `）。
+You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
 :::
 
 - 在第一次飞行前 [确认 VIO 设置正确](#verify_estimate)！
@@ -155,7 +155,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
 
-* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息
+* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)
 
 * 偏航机身，直到` ODOMETRY `消息的四元数非常接近单位四元数（w = 1，x = y = z = 0）。
   
@@ -193,7 +193,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
     - 如果使用 [T265](../peripherals/camera_t265_vio.md)，请尝试将其软安装（soft-mounting，做好减震，此相机对高频振动非常敏感）。
 - **问题：** 启用 VIO 时产生了马桶效应。
   
-    - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl*  [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD 坐标系统一致。
+    - 确保相机的方向与启动文件中的变换匹配。 Use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
 - **问题：** 想使用视觉位置来做闭环，也想运行 GPS 。
   
     - 这确实很困难，因为当他们不同意时，就会混淆 EKF。 通过测试，仅使用视觉速度更为可靠（如果您想出一种使该配置可靠的方法，请告诉我们）。

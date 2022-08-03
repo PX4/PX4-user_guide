@@ -210,6 +210,6 @@ ROS2(또는 일부 다른 RTPS/DDS 시스템)와 함께 PX4를 사용하는 경�
 
 명령줄 도구 모음 설정후, 다음을 수행합니다.
 - [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
-- [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) 설치 :::tip *일일 빌드*에는 릴리스 빌드에 숨겨진 개발 도구가 포함됩니다. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that hidden in release builds. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
 :::
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.

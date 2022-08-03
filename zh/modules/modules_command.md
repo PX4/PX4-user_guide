@@ -161,20 +161,21 @@ Hardfault 实用程序
 ```
 hardfault_log <command> [arguments...]
  Commands:
-   check         检查是否存在未提交的 hardfault
+   check         Check if there's an uncommitted hardfault
 
-   rearm         丢弃一个未提的 hardfault
+   rearm         Drop an uncommitted hardfault
 
-   fault         生成一个 hardfault (此命令会使系统崩溃 :)
-     [0|1]       Hardfault 类型: 0=除以0, 1=断言(default=0)
+   fault         Generate a hardfault (this command crashes the system :)
+     [0|1]       Hardfault type: 0=divide by 0, 1=Assertion (default=0)
 
-   commit        将未提交的 hardfault 写入 /fs/microsd/fault_%i.txt (并
-                 rearm, 但不复位)
+   commit        Write uncommitted hardfault to /fs/microsd/fault_%i.txt (and
+                 rearm, but don't reset)
 
-   count         读取重启计数器, 统计未提交的 hardfault 的重启次数(返回
-                 程序的退出代码)
+   count         Read the reboot counter, counts the number of reboots of an
+                 uncommitted hardfault (returned as the exit code of the
+                 program)
 
-   reset         重置重启计数器
+   reset         Reset the reboot counter
 ```
 ## i2cdetect
 Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2cdetect)

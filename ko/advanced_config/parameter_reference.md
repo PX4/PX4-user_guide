@@ -27,83 +27,83 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="ctl_bw">ctl_bw</strong> (INT32)</td>
  <td>속도 조종 장치 대역폭 <p><strong>설명:</ 0> 속도 컨트롤러 대역폭 (Hz). 값이 높을수록 속도와 전류 상승 시간이 빨라지지만, 오버 슈트와 전류 소비가 많이 발생할 수 있습니다. 고정익의 값은 50Hz 미만이어야합니다. 멀티콥터는 100Hz까지는 응답성을 향상시킬 수 있습니다.</p>   </td>
- <td>10 &gt; 250 </td>
+ <td>[10, 250] </td>
  <td>75</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="ctl_dir">ctl_dir</strong> (INT32)</td>
  <td>역방향 <p><strong>설명:</strong> 초기 열거자중에서 감지된 모터 회전 방향. 방향을 바꾸려면 0 또는 1을 사용합니다.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ctl_gain">ctl_gain</strong> (FLOAT)</td>
  <td>속도 (RPM) 컨트롤러 게인 <p><strong>설명:</strong> 속도 (RPM) 컨트롤러 게인. 컨트롤러 공격성을 결정합니다. 단위는 amp-초/라다인당 입니다. 회전 관성이 높은 시스템 (대형 소품)은 게인 증가가 필요합니다. 회전 관성이 낮은 시스템 (작은 소품)은 게인 감소가 필요할 수 있습니다. 값이 높을수록 응답 속도가 빨라지지만 진동과 과도한 오버 슈트가 발생할 수 있습니다. 값이 낮을수록 반응이 느려지고 부드러워집니다.</p>   </td>
- <td>0.00 &gt; 1.00 </td>
+ <td>[0.00, 1.00] </td>
  <td>1</td>
  <td>C/rad</td>
 </tr>
 <tr>
  <td><strong id="ctl_hz_idle">ctl_hz_idle</strong> (FLOAT)</td>
  <td>유휴 속도 (e Hz) <p><strong>설명:</strong> 유휴 속도 (e Hz)</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>3.5</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="ctl_start_rate">ctl_start_rate</strong> (INT32)</td>
  <td>스핀업 속도 (e Hz / s) <p><strong>설명:</strong> 스핀업 속도 (e Hz / s)</p>   </td>
- <td>5 &gt; 1000 </td>
+ <td>[5, 1000] </td>
  <td>25</td>
  <td>1/s^2</td>
 </tr>
 <tr>
  <td><strong id="esc_index">esc_index</strong> (INT32)</td>
  <td>스로틀 명령 메시지의 ESC 색인입니다. <p><strong>설명:</strong> 스로틀 명령 메시지의 ESC 색인.</p>   </td>
- <td>0 &gt; 15 </td>
+ <td>[0, 15] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="id_ext_status">id_ext_status</strong> (INT32)</td>
  <td>확장 상태 ID <p><strong>설명:</strong> 확장 상태 ID</p>   </td>
- <td>1 &gt; 1000000 </td>
+ <td>[1, 1000000] </td>
  <td>20034</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="int_ext_status">int_ext_status</strong> (INT32)</td>
  <td>확장 상태 간격 (µs) <p><strong>설명:</strong> 확장 상태 간격 (µs)</p>   </td>
- <td>0 &gt; 1000000 </td>
+ <td>[0, 1000000] </td>
  <td>50000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="int_status">int_status</strong> (INT32)</td>
  <td>ESC 상태 간격 (µs) <p><strong>설명:</strong> ESC 상태 간격 (µs)</p>   </td>
- <td>? &gt; 1000000 </td>
+ <td>[?, 1000000] </td>
  <td>50000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="mot_i_max">mot_i_max</strong> (FLOAT)</td>
  <td>모터 전류 제한(암페어 단위) <p><strong>설명:</strong> 모터 전류 제한 (암페어 단위). 최대 전류 컨트롤러 설정값과 최대 허용 전류 설정값 슬루율을 결정합니다. 이 값은 일반적으로 모터 사양서에 나열된 연속 전류 정격으로 설정하거나, 모터의 지정된 연속 전력을 모터 전압 제한으로 나눈 값과 동일하게 설정하여야 합니다.</p>   </td>
- <td>1 &gt; 80 </td>
+ <td>[1, 80] </td>
  <td>12</td>
  <td>A</td>
 </tr>
 <tr>
  <td><strong id="mot_kv">mot_kv</strong> (INT32)</td>
  <td>모터 Kv (볼트당 RPM) <p><strong>설명:</strong> 모터 Kv (볼트당 RPM). 이것은 모터의 사양 시트에서 가져올 수 있습니다. 정확도는 성능 제어에 도움이 되지만 지정된 값에서 약간의 편차는 허용됩니다.</p>   </td>
- <td>0 &gt; 4000 </td>
+ <td>[0, 4000] </td>
  <td>2300</td>
  <td>rpm/V</td>
 </tr>
@@ -117,7 +117,7 @@ table {
 <tr>
  <td><strong id="mot_num_poles">mot_num_poles</strong> (INT32)</td>
  <td>모터 극 수. <p><strong>설명:</strong> 모터 극 수. 기계적 속도를 전기 속도로 변환에 사용됩니다. 이 번호는 모터 사양서를 참조하여야 합니다.</p>   </td>
- <td>2 &gt; 40 </td>
+ <td>[2, 40] </td>
  <td>14</td>
  <td></td>
 </tr>
@@ -131,14 +131,14 @@ table {
 <tr>
  <td><strong id="mot_v_accel">mot_v_accel</strong> (FLOAT)</td>
  <td>가속 한계 (V) <p><strong>설명:</strong> 가속 한계 (V)</p>   </td>
- <td>0.01 &gt; 1.00 </td>
+ <td>[0.01, 1.00] </td>
  <td>0.5</td>
  <td>V</td>
 </tr>
 <tr>
  <td><strong id="mot_v_max">mot_v_max</strong> (FLOAT)</td>
  <td>모터 전압 제한 (단위 볼트) <p><strong>설명:</strong> 모터 전압 제한 (볼트). 전류 컨트롤러의 명령 전압은 이 값을 초과하지 않습니다. 이것은 모터의 공칭 전압 이상일 수 있습니다. 실제 모터 전압 한계를 결정하려면 모터의 정격 전력을 모터 전류 한계로 나눕니다.</p>   </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>14.8</td>
  <td>V</td>
 </tr>
@@ -149,7 +149,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -163,7 +163,7 @@ table {
 <li><strong>2:</strong> 항공</li> 
 </ul>
   </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>2</td>
  <td></td>
 </tr>
@@ -176,7 +176,7 @@ table {
 <li><strong>1:</strong> Fix and Fix2</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -193,7 +193,7 @@ table {
 <li><strong>3:</strong> 전체 (3D) 솔루션</li> 
 </ul>
   </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -209,7 +209,7 @@ table {
  <td><strong id="uavcan.pubp-pres">uavcan.pubp-pres</strong> (INT32)</td>
  <td> <p><strong>설명:</strong> GNSS 솔루션에 사용되는 위성 수가 임계 값 미만인 경우 장치 상태를 경고로 설정합니다. 0은 기능을 비활성화합니다.
       </p>   </td>
- <td>0 &gt; 1000000 </td>
+ <td>[0, 1000000] </td>
  <td>0</td>
  <td>us</td>
 </tr>
@@ -220,230 +220,230 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="PCA9685_DIS1">PCA9685_DIS1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS10">PCA9685_DIS10</strong> (INT32)</td>
  <td>PCA9685 Output Channel 10 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS11">PCA9685_DIS11</strong> (INT32)</td>
  <td>PCA9685 Output Channel 11 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS12">PCA9685_DIS12</strong> (INT32)</td>
  <td>PCA9685 Output Channel 12 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS13">PCA9685_DIS13</strong> (INT32)</td>
  <td>PCA9685 Output Channel 13 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS14">PCA9685_DIS14</strong> (INT32)</td>
  <td>PCA9685 Output Channel 14 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS15">PCA9685_DIS15</strong> (INT32)</td>
  <td>PCA9685 Output Channel 15 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS16">PCA9685_DIS16</strong> (INT32)</td>
  <td>PCA9685 Output Channel 16 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS2">PCA9685_DIS2</strong> (INT32)</td>
  <td>PCA9685 Output Channel 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS3">PCA9685_DIS3</strong> (INT32)</td>
  <td>PCA9685 Output Channel 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS4">PCA9685_DIS4</strong> (INT32)</td>
  <td>PCA9685 Output Channel 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS5">PCA9685_DIS5</strong> (INT32)</td>
  <td>PCA9685 Output Channel 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS6">PCA9685_DIS6</strong> (INT32)</td>
  <td>PCA9685 Output Channel 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS7">PCA9685_DIS7</strong> (INT32)</td>
  <td>PCA9685 Output Channel 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS8">PCA9685_DIS8</strong> (INT32)</td>
  <td>PCA9685 Output Channel 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_DIS9">PCA9685_DIS9</strong> (INT32)</td>
  <td>PCA9685 Output Channel 9 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL1">PCA9685_FAIL1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC1).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL10">PCA9685_FAIL10</strong> (INT32)</td>
  <td>PCA9685 Output Channel 10 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC10).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL11">PCA9685_FAIL11</strong> (INT32)</td>
  <td>PCA9685 Output Channel 11 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC11).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL12">PCA9685_FAIL12</strong> (INT32)</td>
  <td>PCA9685 Output Channel 12 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC12).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL13">PCA9685_FAIL13</strong> (INT32)</td>
  <td>PCA9685 Output Channel 13 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC13).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL14">PCA9685_FAIL14</strong> (INT32)</td>
  <td>PCA9685 Output Channel 14 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC14).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL15">PCA9685_FAIL15</strong> (INT32)</td>
  <td>PCA9685 Output Channel 15 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC15).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL16">PCA9685_FAIL16</strong> (INT32)</td>
  <td>PCA9685 Output Channel 16 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC16).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL2">PCA9685_FAIL2</strong> (INT32)</td>
  <td>PCA9685 Output Channel 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC2).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL3">PCA9685_FAIL3</strong> (INT32)</td>
  <td>PCA9685 Output Channel 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC3).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL4">PCA9685_FAIL4</strong> (INT32)</td>
  <td>PCA9685 Output Channel 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC4).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL5">PCA9685_FAIL5</strong> (INT32)</td>
  <td>PCA9685 Output Channel 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC5).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL6">PCA9685_FAIL6</strong> (INT32)</td>
  <td>PCA9685 Output Channel 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC6).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL7">PCA9685_FAIL7</strong> (INT32)</td>
  <td>PCA9685 Output Channel 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC7).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL8">PCA9685_FAIL8</strong> (INT32)</td>
  <td>PCA9685 Output Channel 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC8).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_FAIL9">PCA9685_FAIL9</strong> (INT32)</td>
  <td>PCA9685 Output Channel 9 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PCA9685_FUNC9).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -2018,224 +2018,224 @@ table {
 <tr>
  <td><strong id="PCA9685_MAX1">PCA9685_MAX1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX10">PCA9685_MAX10</strong> (INT32)</td>
  <td>PCA9685 Output Channel 10 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX11">PCA9685_MAX11</strong> (INT32)</td>
  <td>PCA9685 Output Channel 11 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX12">PCA9685_MAX12</strong> (INT32)</td>
  <td>PCA9685 Output Channel 12 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX13">PCA9685_MAX13</strong> (INT32)</td>
  <td>PCA9685 Output Channel 13 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX14">PCA9685_MAX14</strong> (INT32)</td>
  <td>PCA9685 Output Channel 14 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX15">PCA9685_MAX15</strong> (INT32)</td>
  <td>PCA9685 Output Channel 15 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX16">PCA9685_MAX16</strong> (INT32)</td>
  <td>PCA9685 Output Channel 16 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX2">PCA9685_MAX2</strong> (INT32)</td>
  <td>PCA9685 Output Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX3">PCA9685_MAX3</strong> (INT32)</td>
  <td>PCA9685 Output Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX4">PCA9685_MAX4</strong> (INT32)</td>
  <td>PCA9685 Output Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX5">PCA9685_MAX5</strong> (INT32)</td>
  <td>PCA9685 Output Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX6">PCA9685_MAX6</strong> (INT32)</td>
  <td>PCA9685 Output Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX7">PCA9685_MAX7</strong> (INT32)</td>
  <td>PCA9685 Output Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX8">PCA9685_MAX8</strong> (INT32)</td>
  <td>PCA9685 Output Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MAX9">PCA9685_MAX9</strong> (INT32)</td>
  <td>PCA9685 Output Channel 9 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN1">PCA9685_MIN1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN10">PCA9685_MIN10</strong> (INT32)</td>
  <td>PCA9685 Output Channel 10 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN11">PCA9685_MIN11</strong> (INT32)</td>
  <td>PCA9685 Output Channel 11 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN12">PCA9685_MIN12</strong> (INT32)</td>
  <td>PCA9685 Output Channel 12 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN13">PCA9685_MIN13</strong> (INT32)</td>
  <td>PCA9685 Output Channel 13 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN14">PCA9685_MIN14</strong> (INT32)</td>
  <td>PCA9685 Output Channel 14 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN15">PCA9685_MIN15</strong> (INT32)</td>
  <td>PCA9685 Output Channel 15 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN16">PCA9685_MIN16</strong> (INT32)</td>
  <td>PCA9685 Output Channel 16 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN2">PCA9685_MIN2</strong> (INT32)</td>
  <td>PCA9685 Output Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN3">PCA9685_MIN3</strong> (INT32)</td>
  <td>PCA9685 Output Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN4">PCA9685_MIN4</strong> (INT32)</td>
  <td>PCA9685 Output Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN5">PCA9685_MIN5</strong> (INT32)</td>
  <td>PCA9685 Output Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN6">PCA9685_MIN6</strong> (INT32)</td>
  <td>PCA9685 Output Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN7">PCA9685_MIN7</strong> (INT32)</td>
  <td>PCA9685 Output Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN8">PCA9685_MIN8</strong> (INT32)</td>
  <td>PCA9685 Output Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PCA9685_MIN9">PCA9685_MIN9</strong> (INT32)</td>
  <td>PCA9685 Output Channel 9 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
@@ -2259,161 +2259,161 @@ table {
   <li><strong>15:</strong> PCA9685 Output Channel 16</li> 
 </ul>
  </td>
- <td>0 > 65535 </td>
+ <td>[0, 65535] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS1">PWM_AUX_DIS1</strong> (INT32)</td>
  <td>PWM Aux 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS10">PWM_AUX_DIS10</strong> (INT32)</td>
  <td>PWM Capture 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS11">PWM_AUX_DIS11</strong> (INT32)</td>
  <td>PWM Capture 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS2">PWM_AUX_DIS2</strong> (INT32)</td>
  <td>PWM Aux 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS3">PWM_AUX_DIS3</strong> (INT32)</td>
  <td>PWM Aux 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS4">PWM_AUX_DIS4</strong> (INT32)</td>
  <td>PWM Aux 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS5">PWM_AUX_DIS5</strong> (INT32)</td>
  <td>PWM Aux 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS6">PWM_AUX_DIS6</strong> (INT32)</td>
  <td>PWM Aux 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS7">PWM_AUX_DIS7</strong> (INT32)</td>
  <td>PWM Aux 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS8">PWM_AUX_DIS8</strong> (INT32)</td>
  <td>PWM Aux 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS9">PWM_AUX_DIS9</strong> (INT32)</td>
  <td>PWM Capture 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL1">PWM_AUX_FAIL1</strong> (INT32)</td>
  <td>PWM Aux 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC1).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL10">PWM_AUX_FAIL10</strong> (INT32)</td>
  <td>PWM Capture 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC2).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL11">PWM_AUX_FAIL11</strong> (INT32)</td>
  <td>PWM Capture 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC3).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL2">PWM_AUX_FAIL2</strong> (INT32)</td>
  <td>PWM Aux 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC2).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL3">PWM_AUX_FAIL3</strong> (INT32)</td>
  <td>PWM Aux 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC3).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL4">PWM_AUX_FAIL4</strong> (INT32)</td>
  <td>PWM Aux 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC4).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL5">PWM_AUX_FAIL5</strong> (INT32)</td>
  <td>PWM Aux 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC5).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL6">PWM_AUX_FAIL6</strong> (INT32)</td>
  <td>PWM Aux 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC6).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL7">PWM_AUX_FAIL7</strong> (INT32)</td>
  <td>PWM Aux 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC7).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL8">PWM_AUX_FAIL8</strong> (INT32)</td>
  <td>PWM Aux 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC8).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL9">PWM_AUX_FAIL9</strong> (INT32)</td>
  <td>PWM Capture 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_AUX_FUNC1).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -3564,154 +3564,154 @@ table {
 <tr>
  <td><strong id="PWM_AUX_MAX1">PWM_AUX_MAX1</strong> (INT32)</td>
  <td>PWM Aux 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX10">PWM_AUX_MAX10</strong> (INT32)</td>
  <td>PWM Capture 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX11">PWM_AUX_MAX11</strong> (INT32)</td>
  <td>PWM Capture 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX2">PWM_AUX_MAX2</strong> (INT32)</td>
  <td>PWM Aux 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX3">PWM_AUX_MAX3</strong> (INT32)</td>
  <td>PWM Aux 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX4">PWM_AUX_MAX4</strong> (INT32)</td>
  <td>PWM Aux 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX5">PWM_AUX_MAX5</strong> (INT32)</td>
  <td>PWM Aux 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX6">PWM_AUX_MAX6</strong> (INT32)</td>
  <td>PWM Aux 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX7">PWM_AUX_MAX7</strong> (INT32)</td>
  <td>PWM Aux 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX8">PWM_AUX_MAX8</strong> (INT32)</td>
  <td>PWM Aux 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX9">PWM_AUX_MAX9</strong> (INT32)</td>
  <td>PWM Capture 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN1">PWM_AUX_MIN1</strong> (INT32)</td>
  <td>PWM Aux 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN10">PWM_AUX_MIN10</strong> (INT32)</td>
  <td>PWM Capture 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN11">PWM_AUX_MIN11</strong> (INT32)</td>
  <td>PWM Capture 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN2">PWM_AUX_MIN2</strong> (INT32)</td>
  <td>PWM Aux 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN3">PWM_AUX_MIN3</strong> (INT32)</td>
  <td>PWM Aux 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN4">PWM_AUX_MIN4</strong> (INT32)</td>
  <td>PWM Aux 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN5">PWM_AUX_MIN5</strong> (INT32)</td>
  <td>PWM Aux 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN6">PWM_AUX_MIN6</strong> (INT32)</td>
  <td>PWM Aux 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN7">PWM_AUX_MIN7</strong> (INT32)</td>
  <td>PWM Aux 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN8">PWM_AUX_MIN8</strong> (INT32)</td>
  <td>PWM Aux 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN9">PWM_AUX_MIN9</strong> (INT32)</td>
  <td>PWM Capture 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
@@ -3730,7 +3730,7 @@ table {
   <li><strong>10:</strong> PWM Capture 3</li> 
 </ul>
  </td>
- <td>0 > 2047 </td>
+ <td>[0, 2047] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -3747,13 +3747,13 @@ table {
 
 <li><strong>-1:</strong> OneShot</li>
 
-<li><strong>50:</strong> PWM50</li>
+<li><strong>50:</strong> PWM 50 Hz</li>
 
-<li><strong>100:</strong> PWM100</li>
+<li><strong>100:</strong> PWM 100 Hz</li>
 
-<li><strong>200:</strong> PWM200</li>
+<li><strong>200:</strong> PWM 200 Hz</li>
 
-<li><strong>400:</strong> PWM400</li> 
+<li><strong>400:</strong> PWM 400 Hz</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -3766,13 +3766,13 @@ table {
  <td>Output Protocol Configuration for PWM Aux 5-6 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs PWM Aux 5-6. Custom PWM rates can be used by directly setting any value >0.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> OneShot</li>
 
-<li><strong>50:</strong> PWM50</li>
+<li><strong>50:</strong> PWM 50 Hz</li>
 
-<li><strong>100:</strong> PWM100</li>
+<li><strong>100:</strong> PWM 100 Hz</li>
 
-<li><strong>200:</strong> PWM200</li>
+<li><strong>200:</strong> PWM 200 Hz</li>
 
-<li><strong>400:</strong> PWM400</li> 
+<li><strong>400:</strong> PWM 400 Hz</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -3785,13 +3785,13 @@ table {
  <td>Output Protocol Configuration for PWM Aux 7-8 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs PWM Aux 7-8. Custom PWM rates can be used by directly setting any value >0.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> OneShot</li>
 
-<li><strong>50:</strong> PWM50</li>
+<li><strong>50:</strong> PWM 50 Hz</li>
 
-<li><strong>100:</strong> PWM100</li>
+<li><strong>100:</strong> PWM 100 Hz</li>
 
-<li><strong>200:</strong> PWM200</li>
+<li><strong>200:</strong> PWM 200 Hz</li>
 
-<li><strong>400:</strong> PWM400</li> 
+<li><strong>400:</strong> PWM 400 Hz</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -3804,13 +3804,13 @@ table {
  <td>Output Protocol Configuration for PWM Capture 1-3 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs PWM Capture 1-3. Custom PWM rates can be used by directly setting any value >0.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> OneShot</li>
 
-<li><strong>50:</strong> PWM50</li>
+<li><strong>50:</strong> PWM 50 Hz</li>
 
-<li><strong>100:</strong> PWM100</li>
+<li><strong>100:</strong> PWM 100 Hz</li>
 
-<li><strong>200:</strong> PWM200</li>
+<li><strong>200:</strong> PWM 200 Hz</li>
 
-<li><strong>400:</strong> PWM400</li> 
+<li><strong>400:</strong> PWM 400 Hz</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -3821,112 +3821,112 @@ table {
 <tr>
  <td><strong id="PWM_MAIN_DIS1">PWM_MAIN_DIS1</strong> (INT32)</td>
  <td>MAIN 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS2">PWM_MAIN_DIS2</strong> (INT32)</td>
  <td>MAIN 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS3">PWM_MAIN_DIS3</strong> (INT32)</td>
  <td>MAIN 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS4">PWM_MAIN_DIS4</strong> (INT32)</td>
  <td>MAIN 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS5">PWM_MAIN_DIS5</strong> (INT32)</td>
  <td>MAIN 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS6">PWM_MAIN_DIS6</strong> (INT32)</td>
  <td>MAIN 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS7">PWM_MAIN_DIS7</strong> (INT32)</td>
  <td>MAIN 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS8">PWM_MAIN_DIS8</strong> (INT32)</td>
  <td>MAIN 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>800 > 2200 </td>
+ <td>[800, 2200] </td>
  <td>900</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL1">PWM_MAIN_FAIL1</strong> (INT32)</td>
  <td>MAIN 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC1).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL2">PWM_MAIN_FAIL2</strong> (INT32)</td>
  <td>MAIN 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC2).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL3">PWM_MAIN_FAIL3</strong> (INT32)</td>
  <td>MAIN 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC3).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL4">PWM_MAIN_FAIL4</strong> (INT32)</td>
  <td>MAIN 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC4).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL5">PWM_MAIN_FAIL5</strong> (INT32)</td>
  <td>MAIN 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC5).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL6">PWM_MAIN_FAIL6</strong> (INT32)</td>
  <td>MAIN 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC6).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL7">PWM_MAIN_FAIL7</strong> (INT32)</td>
  <td>MAIN 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC7).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL8">PWM_MAIN_FAIL8</strong> (INT32)</td>
  <td>MAIN 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see PWM_MAIN_FUNC8).</p>   </td>
- <td>-1 > 2200 </td>
+ <td>[-1, 2200] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -4717,112 +4717,112 @@ table {
 <tr>
  <td><strong id="PWM_MAIN_MAX1">PWM_MAIN_MAX1</strong> (INT32)</td>
  <td>MAIN 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX2">PWM_MAIN_MAX2</strong> (INT32)</td>
  <td>MAIN 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX3">PWM_MAIN_MAX3</strong> (INT32)</td>
  <td>MAIN 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX4">PWM_MAIN_MAX4</strong> (INT32)</td>
  <td>MAIN 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX5">PWM_MAIN_MAX5</strong> (INT32)</td>
  <td>MAIN 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX6">PWM_MAIN_MAX6</strong> (INT32)</td>
  <td>MAIN 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX7">PWM_MAIN_MAX7</strong> (INT32)</td>
  <td>MAIN 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX8">PWM_MAIN_MAX8</strong> (INT32)</td>
  <td>MAIN 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN1">PWM_MAIN_MIN1</strong> (INT32)</td>
  <td>MAIN 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN2">PWM_MAIN_MIN2</strong> (INT32)</td>
  <td>MAIN 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN3">PWM_MAIN_MIN3</strong> (INT32)</td>
  <td>MAIN 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN4">PWM_MAIN_MIN4</strong> (INT32)</td>
  <td>MAIN 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN5">PWM_MAIN_MIN5</strong> (INT32)</td>
  <td>MAIN 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN6">PWM_MAIN_MIN6</strong> (INT32)</td>
  <td>MAIN 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN7">PWM_MAIN_MIN7</strong> (INT32)</td>
  <td>MAIN 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN8">PWM_MAIN_MIN8</strong> (INT32)</td>
  <td>MAIN 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td></td>
 </tr>
@@ -4838,7 +4838,7 @@ table {
   <li><strong>7:</strong> MAIN 8</li> 
 </ul>
  </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -4847,13 +4847,13 @@ table {
  <td>Output Protocol Configuration for MAIN 1-2 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs MAIN 1-2. Custom PWM rates can be used by directly setting any value >0.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> OneShot</li>
 
-<li><strong>50:</strong> PWM50</li>
+<li><strong>50:</strong> PWM 50 Hz</li>
 
-<li><strong>100:</strong> PWM100</li>
+<li><strong>100:</strong> PWM 100 Hz</li>
 
-<li><strong>200:</strong> PWM200</li>
+<li><strong>200:</strong> PWM 200 Hz</li>
 
-<li><strong>400:</strong> PWM400</li> 
+<li><strong>400:</strong> PWM 400 Hz</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -4866,13 +4866,13 @@ table {
  <td>Output Protocol Configuration for MAIN 3-4 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs MAIN 3-4. Custom PWM rates can be used by directly setting any value >0.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> OneShot</li>
 
-<li><strong>50:</strong> PWM50</li>
+<li><strong>50:</strong> PWM 50 Hz</li>
 
-<li><strong>100:</strong> PWM100</li>
+<li><strong>100:</strong> PWM 100 Hz</li>
 
-<li><strong>200:</strong> PWM200</li>
+<li><strong>200:</strong> PWM 200 Hz</li>
 
-<li><strong>400:</strong> PWM400</li> 
+<li><strong>400:</strong> PWM 400 Hz</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -4885,13 +4885,13 @@ table {
  <td>Output Protocol Configuration for MAIN 5-8 <p><strong>Comment:</strong> Select which Output Protocol to use for outputs MAIN 5-8. Custom PWM rates can be used by directly setting any value >0.</p> <strong>값:</strong><ul>
 <li><strong>-1:</strong> OneShot</li>
 
-<li><strong>50:</strong> PWM50</li>
+<li><strong>50:</strong> PWM 50 Hz</li>
 
-<li><strong>100:</strong> PWM100</li>
+<li><strong>100:</strong> PWM 100 Hz</li>
 
-<li><strong>200:</strong> PWM200</li>
+<li><strong>200:</strong> PWM 200 Hz</li>
 
-<li><strong>400:</strong> PWM400</li> 
+<li><strong>400:</strong> PWM 400 Hz</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5695,63 +5695,63 @@ table {
   <li><strong>7:</strong> TAP ESC Output ESC 8</li> 
 </ul>
  </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL1">UAVCAN_EC_FAIL1</strong> (INT32)</td>
  <td>UAVCAN ESC 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC1).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL2">UAVCAN_EC_FAIL2</strong> (INT32)</td>
  <td>UAVCAN ESC 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC2).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL3">UAVCAN_EC_FAIL3</strong> (INT32)</td>
  <td>UAVCAN ESC 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC3).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL4">UAVCAN_EC_FAIL4</strong> (INT32)</td>
  <td>UAVCAN ESC 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC4).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL5">UAVCAN_EC_FAIL5</strong> (INT32)</td>
  <td>UAVCAN ESC 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC5).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL6">UAVCAN_EC_FAIL6</strong> (INT32)</td>
  <td>UAVCAN ESC 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC6).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL7">UAVCAN_EC_FAIL7</strong> (INT32)</td>
  <td>UAVCAN ESC 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC7).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_FAIL8">UAVCAN_EC_FAIL8</strong> (INT32)</td>
  <td>UAVCAN ESC 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_EC_FUNC8).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -6542,112 +6542,112 @@ table {
 <tr>
  <td><strong id="UAVCAN_EC_MAX1">UAVCAN_EC_MAX1</strong> (INT32)</td>
  <td>UAVCAN ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX2">UAVCAN_EC_MAX2</strong> (INT32)</td>
  <td>UAVCAN ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX3">UAVCAN_EC_MAX3</strong> (INT32)</td>
  <td>UAVCAN ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX4">UAVCAN_EC_MAX4</strong> (INT32)</td>
  <td>UAVCAN ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX5">UAVCAN_EC_MAX5</strong> (INT32)</td>
  <td>UAVCAN ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX6">UAVCAN_EC_MAX6</strong> (INT32)</td>
  <td>UAVCAN ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX7">UAVCAN_EC_MAX7</strong> (INT32)</td>
  <td>UAVCAN ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MAX8">UAVCAN_EC_MAX8</strong> (INT32)</td>
  <td>UAVCAN ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN1">UAVCAN_EC_MIN1</strong> (INT32)</td>
  <td>UAVCAN ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN2">UAVCAN_EC_MIN2</strong> (INT32)</td>
  <td>UAVCAN ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN3">UAVCAN_EC_MIN3</strong> (INT32)</td>
  <td>UAVCAN ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN4">UAVCAN_EC_MIN4</strong> (INT32)</td>
  <td>UAVCAN ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN5">UAVCAN_EC_MIN5</strong> (INT32)</td>
  <td>UAVCAN ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN6">UAVCAN_EC_MIN6</strong> (INT32)</td>
  <td>UAVCAN ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN7">UAVCAN_EC_MIN7</strong> (INT32)</td>
  <td>UAVCAN ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_EC_MIN8">UAVCAN_EC_MIN8</strong> (INT32)</td>
  <td>UAVCAN ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -6663,119 +6663,119 @@ table {
   <li><strong>7:</strong> UAVCAN ESC 8</li> 
 </ul>
  </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS1">UAVCAN_SV_DIS1</strong> (INT32)</td>
  <td>UAVCAN Servo 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS2">UAVCAN_SV_DIS2</strong> (INT32)</td>
  <td>UAVCAN Servo 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS3">UAVCAN_SV_DIS3</strong> (INT32)</td>
  <td>UAVCAN Servo 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS4">UAVCAN_SV_DIS4</strong> (INT32)</td>
  <td>UAVCAN Servo 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS5">UAVCAN_SV_DIS5</strong> (INT32)</td>
  <td>UAVCAN Servo 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS6">UAVCAN_SV_DIS6</strong> (INT32)</td>
  <td>UAVCAN Servo 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS7">UAVCAN_SV_DIS7</strong> (INT32)</td>
  <td>UAVCAN Servo 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_DIS8">UAVCAN_SV_DIS8</strong> (INT32)</td>
  <td>UAVCAN Servo 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>500</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL1">UAVCAN_SV_FAIL1</strong> (INT32)</td>
  <td>UAVCAN Servo 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC1).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL2">UAVCAN_SV_FAIL2</strong> (INT32)</td>
  <td>UAVCAN Servo 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC2).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL3">UAVCAN_SV_FAIL3</strong> (INT32)</td>
  <td>UAVCAN Servo 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC3).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL4">UAVCAN_SV_FAIL4</strong> (INT32)</td>
  <td>UAVCAN Servo 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC4).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL5">UAVCAN_SV_FAIL5</strong> (INT32)</td>
  <td>UAVCAN Servo 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC5).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL6">UAVCAN_SV_FAIL6</strong> (INT32)</td>
  <td>UAVCAN Servo 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC6).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL7">UAVCAN_SV_FAIL7</strong> (INT32)</td>
  <td>UAVCAN Servo 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC7).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_FAIL8">UAVCAN_SV_FAIL8</strong> (INT32)</td>
  <td>UAVCAN Servo 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UAVCAN_SV_FUNC8).</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -7566,112 +7566,112 @@ table {
 <tr>
  <td><strong id="UAVCAN_SV_MAX1">UAVCAN_SV_MAX1</strong> (INT32)</td>
  <td>UAVCAN Servo 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX2">UAVCAN_SV_MAX2</strong> (INT32)</td>
  <td>UAVCAN Servo 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX3">UAVCAN_SV_MAX3</strong> (INT32)</td>
  <td>UAVCAN Servo 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX4">UAVCAN_SV_MAX4</strong> (INT32)</td>
  <td>UAVCAN Servo 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX5">UAVCAN_SV_MAX5</strong> (INT32)</td>
  <td>UAVCAN Servo 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX6">UAVCAN_SV_MAX6</strong> (INT32)</td>
  <td>UAVCAN Servo 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX7">UAVCAN_SV_MAX7</strong> (INT32)</td>
  <td>UAVCAN Servo 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MAX8">UAVCAN_SV_MAX8</strong> (INT32)</td>
  <td>UAVCAN Servo 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN1">UAVCAN_SV_MIN1</strong> (INT32)</td>
  <td>UAVCAN Servo 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN2">UAVCAN_SV_MIN2</strong> (INT32)</td>
  <td>UAVCAN Servo 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN3">UAVCAN_SV_MIN3</strong> (INT32)</td>
  <td>UAVCAN Servo 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN4">UAVCAN_SV_MIN4</strong> (INT32)</td>
  <td>UAVCAN Servo 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN5">UAVCAN_SV_MIN5</strong> (INT32)</td>
  <td>UAVCAN Servo 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN6">UAVCAN_SV_MIN6</strong> (INT32)</td>
  <td>UAVCAN Servo 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN7">UAVCAN_SV_MIN7</strong> (INT32)</td>
  <td>UAVCAN Servo 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UAVCAN_SV_MIN8">UAVCAN_SV_MIN8</strong> (INT32)</td>
  <td>UAVCAN Servo 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -7687,119 +7687,119 @@ table {
   <li><strong>7:</strong> UAVCAN Servo 8</li> 
 </ul>
  </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL1">UCAN1_ESC_FAIL1</strong> (INT32)</td>
  <td>UAVCANv1 ESC 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC1).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL10">UCAN1_ESC_FAIL10</strong> (INT32)</td>
  <td>UAVCANv1 ESC 10 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC10).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL11">UCAN1_ESC_FAIL11</strong> (INT32)</td>
  <td>UAVCANv1 ESC 11 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC11).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL12">UCAN1_ESC_FAIL12</strong> (INT32)</td>
  <td>UAVCANv1 ESC 12 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC12).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL13">UCAN1_ESC_FAIL13</strong> (INT32)</td>
  <td>UAVCANv1 ESC 13 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC13).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL14">UCAN1_ESC_FAIL14</strong> (INT32)</td>
  <td>UAVCANv1 ESC 14 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC14).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL15">UCAN1_ESC_FAIL15</strong> (INT32)</td>
  <td>UAVCANv1 ESC 15 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC15).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL16">UCAN1_ESC_FAIL16</strong> (INT32)</td>
  <td>UAVCANv1 ESC 16 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC16).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL2">UCAN1_ESC_FAIL2</strong> (INT32)</td>
  <td>UAVCANv1 ESC 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC2).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL3">UCAN1_ESC_FAIL3</strong> (INT32)</td>
  <td>UAVCANv1 ESC 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC3).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL4">UCAN1_ESC_FAIL4</strong> (INT32)</td>
  <td>UAVCANv1 ESC 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC4).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL5">UCAN1_ESC_FAIL5</strong> (INT32)</td>
  <td>UAVCANv1 ESC 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC5).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL6">UCAN1_ESC_FAIL6</strong> (INT32)</td>
  <td>UAVCANv1 ESC 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC6).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL7">UCAN1_ESC_FAIL7</strong> (INT32)</td>
  <td>UAVCANv1 ESC 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC7).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL8">UCAN1_ESC_FAIL8</strong> (INT32)</td>
  <td>UAVCANv1 ESC 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC8).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_FAIL9">UCAN1_ESC_FAIL9</strong> (INT32)</td>
  <td>UAVCANv1 ESC 9 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see UCAN1_ESC_FUNC9).</p>   </td>
- <td>-1 > 8191 </td>
+ <td>[-1, 8191] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -9374,224 +9374,224 @@ table {
 <tr>
  <td><strong id="UCAN1_ESC_MAX1">UCAN1_ESC_MAX1</strong> (INT32)</td>
  <td>UAVCANv1 ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX10">UCAN1_ESC_MAX10</strong> (INT32)</td>
  <td>UAVCANv1 ESC 10 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX11">UCAN1_ESC_MAX11</strong> (INT32)</td>
  <td>UAVCANv1 ESC 11 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX12">UCAN1_ESC_MAX12</strong> (INT32)</td>
  <td>UAVCANv1 ESC 12 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX13">UCAN1_ESC_MAX13</strong> (INT32)</td>
  <td>UAVCANv1 ESC 13 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX14">UCAN1_ESC_MAX14</strong> (INT32)</td>
  <td>UAVCANv1 ESC 14 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX15">UCAN1_ESC_MAX15</strong> (INT32)</td>
  <td>UAVCANv1 ESC 15 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX16">UCAN1_ESC_MAX16</strong> (INT32)</td>
  <td>UAVCANv1 ESC 16 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX2">UCAN1_ESC_MAX2</strong> (INT32)</td>
  <td>UAVCANv1 ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX3">UCAN1_ESC_MAX3</strong> (INT32)</td>
  <td>UAVCANv1 ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX4">UCAN1_ESC_MAX4</strong> (INT32)</td>
  <td>UAVCANv1 ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX5">UCAN1_ESC_MAX5</strong> (INT32)</td>
  <td>UAVCANv1 ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX6">UCAN1_ESC_MAX6</strong> (INT32)</td>
  <td>UAVCANv1 ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX7">UCAN1_ESC_MAX7</strong> (INT32)</td>
  <td>UAVCANv1 ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX8">UCAN1_ESC_MAX8</strong> (INT32)</td>
  <td>UAVCANv1 ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MAX9">UCAN1_ESC_MAX9</strong> (INT32)</td>
  <td>UAVCANv1 ESC 9 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>8191</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN1">UCAN1_ESC_MIN1</strong> (INT32)</td>
  <td>UAVCANv1 ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN10">UCAN1_ESC_MIN10</strong> (INT32)</td>
  <td>UAVCANv1 ESC 10 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN11">UCAN1_ESC_MIN11</strong> (INT32)</td>
  <td>UAVCANv1 ESC 11 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN12">UCAN1_ESC_MIN12</strong> (INT32)</td>
  <td>UAVCANv1 ESC 12 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN13">UCAN1_ESC_MIN13</strong> (INT32)</td>
  <td>UAVCANv1 ESC 13 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN14">UCAN1_ESC_MIN14</strong> (INT32)</td>
  <td>UAVCANv1 ESC 14 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN15">UCAN1_ESC_MIN15</strong> (INT32)</td>
  <td>UAVCANv1 ESC 15 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN16">UCAN1_ESC_MIN16</strong> (INT32)</td>
  <td>UAVCANv1 ESC 16 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN2">UCAN1_ESC_MIN2</strong> (INT32)</td>
  <td>UAVCANv1 ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN3">UCAN1_ESC_MIN3</strong> (INT32)</td>
  <td>UAVCANv1 ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN4">UCAN1_ESC_MIN4</strong> (INT32)</td>
  <td>UAVCANv1 ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN5">UCAN1_ESC_MIN5</strong> (INT32)</td>
  <td>UAVCANv1 ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN6">UCAN1_ESC_MIN6</strong> (INT32)</td>
  <td>UAVCANv1 ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN7">UCAN1_ESC_MIN7</strong> (INT32)</td>
  <td>UAVCANv1 ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN8">UCAN1_ESC_MIN8</strong> (INT32)</td>
  <td>UAVCANv1 ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_MIN9">UCAN1_ESC_MIN9</strong> (INT32)</td>
  <td>UAVCANv1 ESC 9 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
- <td>0 > 8191 </td>
+ <td>[0, 8191] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -9615,7 +9615,7 @@ table {
   <li><strong>15:</strong> UAVCANv1 ESC 16</li> 
 </ul>
  </td>
- <td>0 > 65535 </td>
+ <td>[0, 65535] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -9626,20 +9626,20 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="ASPD_BETA_GATE">ASPD_BETA_GATE</strong> (INT32)</td>
  <td>Airspeed Selector: Gate size for sideslip angle fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1 > 5 </td>
+ <td>[1, 5] </td>
  <td>1</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="ASPD_BETA_NOISE">ASPD_BETA_NOISE</strong> (FLOAT)</td>
  <td>Airspeed Selector: Wind estimator sideslip measurement noise <p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.3</td>
  <td>rad</td>
 </tr>
@@ -9651,7 +9651,7 @@ table {
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
 </ul>
  </td>
- <td>0 &gt; 15 </td>
+ <td>[0, 15] </td>
  <td>7</td>
  <td></td>
 </tr>
@@ -9670,28 +9670,28 @@ table {
 <tr>
  <td><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
  <td>Airspeed failure innovation threshold <p><strong>Comment:</strong> This specifies the minimum airspeed innovation required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Large innovations indicate an inconsistency between predicted (groundspeed - windspeeed) and measured airspeed. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
- <td>0.5 > 10.0 </td>
+ <td>[0.5, 10.0] </td>
  <td>5.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INTEG">ASPD_FS_INTEG</strong> (FLOAT)</td>
  <td>Airspeed failure innovation integral threshold <p><strong>Comment:</strong> This sets the time integral of airspeed innovation exceedance above ASPD_FS_INNOV required to trigger a failsafe. Larger values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
- <td>0.0 > 50.0 </td>
+ <td>[0.0, 50.0] </td>
  <td>10.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (INT32)</td>
  <td>Airspeed failsafe start delay <p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good. Set to a negative value to disable the re-enabling in flight.</p>   </td>
- <td>-1 > 1000 </td>
+ <td>[-1, 1000] </td>
  <td>-1</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (INT32)</td>
  <td>Airspeed failsafe stop delay <p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
- <td>1 > 10 </td>
+ <td>[1, 10] </td>
  <td>2</td>
  <td>s</td>
 </tr>
@@ -9718,7 +9718,7 @@ table {
  <td><strong id="ASPD_SCALE_1">ASPD_SCALE_1</strong> (FLOAT)</td>
  <td>Scale of airspeed sensor 1 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the first airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.5 > 2.0 </td>
+ <td>[0.5, 2.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -9726,7 +9726,7 @@ table {
  <td><strong id="ASPD_SCALE_2">ASPD_SCALE_2</strong> (FLOAT)</td>
  <td>Scale of airspeed sensor 2 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the second airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.5 > 2.0 </td>
+ <td>[0.5, 2.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -9734,7 +9734,7 @@ table {
  <td><strong id="ASPD_SCALE_3">ASPD_SCALE_3</strong> (FLOAT)</td>
  <td>Scale of airspeed sensor 3 <p><strong>Comment:</strong> This is the scale IAS --> CAS of the third airspeed sensor instance</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.5 > 2.0 </td>
+ <td>[0.5, 2.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -9755,28 +9755,35 @@ table {
 <tr>
  <td><strong id="ASPD_SCALE_NSD">ASPD_SCALE_NSD</strong> (FLOAT)</td>
  <td>Airspeed Selector: Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
- <td>0 > 0.1 </td>
+ <td>[0, 0.1] </td>
  <td>0.0001</td>
  <td>1/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
  <td>Airspeed Selector: Gate size for true airspeed fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1 > 5 </td>
+ <td>[1, 5] </td>
  <td>3</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="ASPD_TAS_NOISE">ASPD_TAS_NOISE</strong> (FLOAT)</td>
  <td>Airspeed Selector: Wind estimator true airspeed measurement noise <p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>1.4</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="ASPD_WERR_THR">ASPD_WERR_THR</strong> (FLOAT)</td>
+ <td>Horizontal wind uncertainty threshold for synthetic airspeed <p><strong>Comment:</strong> The synthetic airspeed estimate (from groundspeed and heading) will be declared valid as soon and as long the horizontal wind uncertainty drops below this value.</p>   </td>
+ <td>[0.001, 5] </td>
+ <td>0.55</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="ASPD_WIND_NSD">ASPD_WIND_NSD</strong> (FLOAT)</td>
  <td>Airspeed Selector: Wind estimator wind process noise noise spectral density <p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>1.e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
@@ -9787,132 +9794,132 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="AVC_X_D">AVC_X_D</strong> (FLOAT)</td>
  <td>Body X axis angular velocity D gain <p><strong>Comment:</strong> Body X axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>0.0 > 2.0 (0.01)</td>
+ <td>[0.0, 2.0] (0.01)</td>
  <td>0.36</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="AVC_X_FF">AVC_X_FF</strong> (FLOAT)</td>
  <td>Body X axis angular velocity feedforward gain <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>0.0 > ? </td>
+ <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>Nm/(rad/s)</td>
 </tr>
 <tr>
  <td><strong id="AVC_X_I">AVC_X_I</strong> (FLOAT)</td>
  <td>Body X axis angular velocity I gain <p><strong>Comment:</strong> Body X axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.2</td>
  <td>Nm/rad</td>
 </tr>
 <tr>
  <td><strong id="AVC_X_I_LIM">AVC_X_I_LIM</strong> (FLOAT)</td>
  <td>Body X axis angular velocity integrator limit <p><strong>Comment:</strong> Body X axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.3</td>
  <td>Nm</td>
 </tr>
 <tr>
  <td><strong id="AVC_X_K">AVC_X_K</strong> (FLOAT)</td>
  <td>Body X axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_X_K * (AVC_X_P * error + AVC_X_I * error_integral + AVC_X_D * error_derivative) Set AVC_X_P=1 to implement a PID in the ideal form. Set AVC_X_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>0.0 > 5.0 (0.0005)</td>
+ <td>[0.0, 5.0] (0.0005)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="AVC_X_P">AVC_X_P</strong> (FLOAT)</td>
  <td>Body X axis angular velocity P gain <p><strong>Comment:</strong> Body X axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>0.0 > 20.0 (0.01)</td>
+ <td>[0.0, 20.0] (0.01)</td>
  <td>18.</td>
  <td>1/s</td>
 </tr>
 <tr>
  <td><strong id="AVC_Y_D">AVC_Y_D</strong> (FLOAT)</td>
  <td>Body Y axis angular velocity D gain <p><strong>Comment:</strong> Body Y axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>0.0 > 2.0 (0.01)</td>
+ <td>[0.0, 2.0] (0.01)</td>
  <td>0.36</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="AVC_Y_FF">AVC_Y_FF</strong> (FLOAT)</td>
  <td>Body Y axis angular velocity feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>0.0 > ? </td>
+ <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>Nm/(rad/s)</td>
 </tr>
 <tr>
  <td><strong id="AVC_Y_I">AVC_Y_I</strong> (FLOAT)</td>
  <td>Body Y axis angular velocity I gain <p><strong>Comment:</strong> Body Y axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.2</td>
  <td>Nm/rad</td>
 </tr>
 <tr>
  <td><strong id="AVC_Y_I_LIM">AVC_Y_I_LIM</strong> (FLOAT)</td>
  <td>Body Y axis angular velocity integrator limit <p><strong>Comment:</strong> Body Y axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.3</td>
  <td>Nm</td>
 </tr>
 <tr>
  <td><strong id="AVC_Y_K">AVC_Y_K</strong> (FLOAT)</td>
  <td>Body Y axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Y_K * (AVC_Y_P * error + AVC_Y_I * error_integral + AVC_Y_D * error_derivative) Set AVC_Y_P=1 to implement a PID in the ideal form. Set AVC_Y_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>0.0 > 20.0 (0.0005)</td>
+ <td>[0.0, 20.0] (0.0005)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="AVC_Y_P">AVC_Y_P</strong> (FLOAT)</td>
  <td>Body Y axis angular velocity P gain <p><strong>Comment:</strong> Body Y axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>0.0 > 20.0 (0.01)</td>
+ <td>[0.0, 20.0] (0.01)</td>
  <td>18.</td>
  <td>1/s</td>
 </tr>
 <tr>
  <td><strong id="AVC_Z_D">AVC_Z_D</strong> (FLOAT)</td>
  <td>Body Z axis angular velocity D gain <p><strong>Comment:</strong> Body Z axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>0.0 > 2.0 (0.01)</td>
+ <td>[0.0, 2.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="AVC_Z_FF">AVC_Z_FF</strong> (FLOAT)</td>
  <td>Body Z axis angular velocity feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td>Nm/(rad/s)</td>
 </tr>
 <tr>
  <td><strong id="AVC_Z_I">AVC_Z_I</strong> (FLOAT)</td>
  <td>Body Z axis angular velocity I gain <p><strong>Comment:</strong> Body Z axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.1</td>
  <td>Nm/rad</td>
 </tr>
 <tr>
  <td><strong id="AVC_Z_I_LIM">AVC_Z_I_LIM</strong> (FLOAT)</td>
  <td>Body Z axis angular velocity integrator limit <p><strong>Comment:</strong> Body Z axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.30</td>
  <td>Nm</td>
 </tr>
 <tr>
  <td><strong id="AVC_Z_K">AVC_Z_K</strong> (FLOAT)</td>
  <td>Body Z axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Z_K * (AVC_Z_P * error + AVC_Z_I * error_integral + AVC_Z_D * error_derivative) Set AVC_Z_P=1 to implement a PID in the ideal form. Set AVC_Z_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>0.0 > 5.0 (0.0005)</td>
+ <td>[0.0, 5.0] (0.0005)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="AVC_Z_P">AVC_Z_P</strong> (FLOAT)</td>
  <td>Body Z axis angular velocity P gain <p><strong>Comment:</strong> Body Z axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>0.0 > 20.0 (0.01)</td>
+ <td>[0.0, 20.0] (0.01)</td>
  <td>7.</td>
  <td>1/s</td>
 </tr>
@@ -9923,7 +9930,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -9936,7 +9943,7 @@ table {
 <tr>
  <td><strong id="ATT_BIAS_MAX">ATT_BIAS_MAX</strong> (FLOAT)</td>
  <td>Gyro bias limit    </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0.05</td>
  <td>rad/s</td>
 </tr>
@@ -9950,7 +9957,7 @@ table {
 <li><strong>2:</strong> Motion Capture</li> 
 </ul>
   </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -9971,28 +9978,28 @@ table {
 <tr>
  <td><strong id="ATT_W_ACC">ATT_W_ACC</strong> (FLOAT)</td>
  <td>Complimentary filter accelerometer weight    </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ATT_W_EXT_HDG">ATT_W_EXT_HDG</strong> (FLOAT)</td>
  <td>Complimentary filter external heading weight    </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ATT_W_GYRO_BIAS">ATT_W_GYRO_BIAS</strong> (FLOAT)</td>
  <td>Complimentary filter gyroscope bias weight    </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ATT_W_MAG">ATT_W_MAG</strong> (FLOAT)</td>
  <td>Complimentary filter magnetometer weight <p><strong>Comment:</strong> Set to 0 to avoid using the magnetometer.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.1</td>
  <td></td>
 </tr>
@@ -10003,7 +10010,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -10027,13 +10034,13 @@ table {
   <li><strong>2:</strong> yaw</li> 
 </ul>
  </td>
- <td>1 > 7 </td>
+ <td>[1, 7] </td>
  <td>3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_AT_START">FW_AT_START</strong> (INT32)</td>
- <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abord the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using FW_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
+ <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abort the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using FW_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -10041,7 +10048,7 @@ table {
 <tr>
  <td><strong id="FW_AT_SYSID_AMP">FW_AT_SYSID_AMP</strong> (FLOAT)</td>
  <td>Amplitude of the injected signal <p><strong>Comment:</strong> This parameter scales the signal sent to the rate controller during system identification.</p>   </td>
- <td>0.1 > 6.0 </td>
+ <td>[0.1, 6.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -10069,13 +10076,13 @@ table {
 <tr>
  <td><strong id="MC_AT_RISE_TIME">MC_AT_RISE_TIME</strong> (FLOAT)</td>
  <td>Desired angular rate closed-loop rise time    </td>
- <td>0.01 > 0.5 </td>
+ <td>[0.01, 0.5] </td>
  <td>0.14</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="MC_AT_START">MC_AT_START</strong> (INT32)</td>
- <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abord the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using MC_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
+ <td>Start the autotuning sequence <p><strong>Comment:</strong> WARNING: this will inject steps to the rate controller and can be dangerous. Only activate if you know what you are doing, and in a safe environment. Any motion of the remote stick will abort the signal injection and reset this parameter Best is to perform the identification in position or hold mode. Increase the amplitude of the injected signal using MC_AT_SYSID_AMP for more signal/noise ratio</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -10083,7 +10090,7 @@ table {
 <tr>
  <td><strong id="MC_AT_SYSID_AMP">MC_AT_SYSID_AMP</strong> (FLOAT)</td>
  <td>Amplitude of the injected signal    </td>
- <td>0.1 > 6.0 </td>
+ <td>[0.1, 6.0] </td>
  <td>0.7</td>
  <td></td>
 </tr>
@@ -10094,7 +10101,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -10109,7 +10116,7 @@ table {
  <td><strong id="BAT1_CAPACITY">BAT1_CAPACITY</strong> (FLOAT)</td>
  <td>Battery 1 capacity <p><strong>Comment:</strong> Defines the capacity of battery 1 in mAh.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>-1.0 > 100000 (50)</td>
+ <td>[-1.0, 100000] (50)</td>
  <td>-1.0</td>
  <td>mAh</td>
 </tr>
@@ -10166,7 +10173,7 @@ table {
  <td><strong id="BAT1_R_INTERNAL">BAT1_R_INTERNAL</strong> (FLOAT)</td>
  <td>Explicitly defines the per cell internal resistance for battery 1 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT1_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>-1.0 > 0.2 (0.0005)</td>
+ <td>[-1.0, 0.2] (0.0005)</td>
  <td>0.005</td>
  <td>Ohm</td>
 </tr>
@@ -10221,9 +10228,9 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>0.07 > 0.5 (0.01)</td>
+ <td>[0.07, 0.5] (0.01)</td>
  <td>0.1</td>
  <td>V</td>
 </tr>
@@ -10239,7 +10246,7 @@ table {
  <td><strong id="BAT2_CAPACITY">BAT2_CAPACITY</strong> (FLOAT)</td>
  <td>Battery 2 capacity <p><strong>Comment:</strong> Defines the capacity of battery 2 in mAh.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>-1.0 > 100000 (50)</td>
+ <td>[-1.0, 100000] (50)</td>
  <td>-1.0</td>
  <td>mAh</td>
 </tr>
@@ -10296,7 +10303,7 @@ table {
  <td><strong id="BAT2_R_INTERNAL">BAT2_R_INTERNAL</strong> (FLOAT)</td>
  <td>Explicitly defines the per cell internal resistance for battery 2 <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT2_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>-1.0 > 0.2 (0.0005)</td>
+ <td>[-1.0, 0.2] (0.0005)</td>
  <td>0.005</td>
  <td>Ohm</td>
 </tr>
@@ -10351,9 +10358,9 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+ <td>Voltage drop per cell on full throttle <p><strong>Comment:</strong> This implicitly defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>0.07 > 0.5 (0.01)</td>
+ <td>[0.07, 0.5] (0.01)</td>
  <td>0.1</td>
  <td>V</td>
 </tr>
@@ -10367,28 +10374,28 @@ table {
 <tr>
  <td><strong id="BAT_AVRG_CURRENT">BAT_AVRG_CURRENT</strong> (FLOAT)</td>
  <td>Expected battery current in flight <p><strong>Comment:</strong> This value is used to initialize the in-flight average current estimation, which in turn is used for estimating remaining flight time and RTL triggering.</p>   </td>
- <td>0 > 500 (0.1)</td>
+ <td>[0, 500] (0.1)</td>
  <td>15.0</td>
  <td>A</td>
 </tr>
 <tr>
  <td><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
  <td>Critical threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   </td>
- <td>0.05 > 0.25 (0.01)</td>
+ <td>[0.05, 0.25] (0.01)</td>
  <td>0.07</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="BAT_EMERGEN_THR">BAT_EMERGEN_THR</strong> (FLOAT)</td>
  <td>Emergency threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.</p>   </td>
- <td>0.03 > 0.1 (0.01)</td>
+ <td>[0.03, 0.1] (0.01)</td>
  <td>0.05</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="BAT_LOW_THR">BAT_LOW_THR</strong> (FLOAT)</td>
  <td>Low threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.</p>   </td>
- <td>0.12 > 0.5 (0.01)</td>
+ <td>[0.12, 0.5] (0.01)</td>
  <td>0.15</td>
  <td>norm</td>
 </tr>
@@ -10434,13 +10441,13 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="CAM_CAP_DELAY">CAM_CAP_DELAY</strong> (FLOAT)</td>
  <td>Camera strobe delay <p><strong>Comment:</strong> This parameter sets the delay between image integration start and strobe firing</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td>ms</td>
 </tr>
@@ -10451,7 +10458,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -10497,14 +10504,14 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="TRIG_ACT_TIME">TRIG_ACT_TIME</strong> (FLOAT)</td>
  <td>Camera trigger activation time <p><strong>Comment:</strong> This parameter sets the time the trigger needs to pulled high or low.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.1 > 3000 </td>
+ <td>[0.1, 3000] </td>
  <td>40.0</td>
  <td>ms</td>
 </tr>
@@ -10512,7 +10519,7 @@ table {
  <td><strong id="TRIG_DISTANCE">TRIG_DISTANCE</strong> (FLOAT)</td>
  <td>Camera trigger distance <p><strong>Comment:</strong> Sets the distance at which to trigger the camera.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; ? (1)</td>
+ <td>[0, ?] (1)</td>
  <td>25.0</td>
  <td>m</td>
 </tr>
@@ -10537,7 +10544,7 @@ table {
  <td><strong id="TRIG_INTERVAL">TRIG_INTERVAL</strong> (FLOAT)</td>
  <td>Camera trigger interval <p><strong>Comment:</strong> This parameter sets the time between two consecutive trigger events</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>4.0 > 10000.0 </td>
+ <td>[4.0, 10000.0] </td>
  <td>40.0</td>
  <td>ms</td>
 </tr>
@@ -10545,7 +10552,7 @@ table {
  <td><strong id="TRIG_MIN_INTERVA">TRIG_MIN_INTERVA</strong> (FLOAT)</td>
  <td>Minimum camera trigger interval <p><strong>Comment:</strong> This parameter sets the minimum time between two consecutive trigger events the specific camera setup is supporting.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1.0 > 10000.0 </td>
+ <td>[1.0, 10000.0] </td>
  <td>1.0</td>
  <td>ms</td>
 </tr>
@@ -10564,7 +10571,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -10572,7 +10579,7 @@ table {
  <td><strong id="TRIG_PINS">TRIG_PINS</strong> (INT32)</td>
  <td>Camera trigger pin <p><strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX8 on Pixhawk controllers with an I/O board, MAIN1-MAIN8 on controllers without an I/O board). The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 12345678 </td>
+ <td>[1, 12345678] </td>
  <td>56</td>
  <td></td>
 </tr>
@@ -10580,7 +10587,7 @@ table {
  <td><strong id="TRIG_PINS_EX">TRIG_PINS_EX</strong> (INT32)</td>
  <td>Camera trigger pin extended <p><strong>Comment:</strong> This Bit mask selects which FMU pin is used (range: AUX9-AUX32) If the value is not 0 it takes precedence over TRIG_PINS. If bits above 8 are set that value is used as the selector for trigger pins. greater then 8. 0x00000300 Would be Pins 9,10. If the value is</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 2147483647 </td>
+ <td>[0, 2147483647] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -10593,7 +10600,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -10601,7 +10608,7 @@ table {
  <td><strong id="TRIG_PWM_NEUTRAL">TRIG_PWM_NEUTRAL</strong> (INT32)</td>
  <td>PWM neutral output on trigger pin    <p><b>Reboot required:</b> true</p>
 </td>
- <td>1000 > 2000 </td>
+ <td>[1000, 2000] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
@@ -10609,7 +10616,7 @@ table {
  <td><strong id="TRIG_PWM_SHOOT">TRIG_PWM_SHOOT</strong> (INT32)</td>
  <td>PWM output to trigger shot    <p><b>Reboot required:</b> true</p>
 </td>
- <td>1000 > 2000 </td>
+ <td>[1000, 2000] </td>
  <td>1900</td>
  <td>us</td>
 </tr>
@@ -10620,14 +10627,14 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="CBRK_AIRSPD_CHK">CBRK_AIRSPD_CHK</strong> (INT32)</td>
  <td>Circuit breaker for airspeed sensor <p><strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 162128 </td>
+ <td>[0, 162128] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -10635,7 +10642,7 @@ table {
  <td><strong id="CBRK_BUZZER">CBRK_BUZZER</strong> (INT32)</td>
  <td>Circuit breaker for disabling buzzer <p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 782097 </td>
+ <td>[0, 782097] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -10643,50 +10650,35 @@ table {
  <td><strong id="CBRK_FLIGHTTERM">CBRK_FLIGHTTERM</strong> (INT32)</td>
  <td>Circuit breaker for flight termination <p><strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss, geofence, and takeoff failure detection safety logic.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 121212 </td>
+ <td>[0, 121212] </td>
  <td>121212</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CBRK_IO_SAFETY">CBRK_IO_SAFETY</strong> (INT32)</td>
  <td>Circuit breaker for IO safety <p><strong>Comment:</strong> Setting this parameter to 22027 will disable IO safety. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
- <td>0 > 22027 </td>
+ <td>[0, 22027] </td>
  <td>22027</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="CBRK_RATE_CTRL">CBRK_RATE_CTRL</strong> (INT32)</td>
- <td>Circuit breaker for rate controller output <p><strong>Comment:</strong> Setting this parameter to 140253 will disable the rate controller uORB publication. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>0 > 140253 </td>
- <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CBRK_SUPPLY_CHK">CBRK_SUPPLY_CHK</strong> (INT32)</td>
  <td>Circuit breaker for power supply check <p><strong>Comment:</strong> Setting this parameter to 894281 will disable the power valid checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
- <td>0 > 894281 </td>
+ <td>[0, 894281] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CBRK_USB_CHK">CBRK_USB_CHK</strong> (INT32)</td>
  <td>Circuit breaker for USB link check <p><strong>Comment:</strong> Setting this parameter to 197848 will disable the USB connected checks in the commander, setting it to 0 keeps them enabled (recommended). We are generally recommending to not fly with the USB link connected and production vehicles should set this parameter to zero to prevent users from flying USB powered. However, for R&D purposes it has proven over the years to work just fine.</p>   </td>
- <td>0 > 197848 </td>
+ <td>[0, 197848] </td>
  <td>197848</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="CBRK_VELPOSERR">CBRK_VELPOSERR</strong> (INT32)</td>
- <td>Circuit breaker for position error check <p><strong>Comment:</strong> Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
- <td>0 > 201607 </td>
- <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CBRK_VTOLARMING">CBRK_VTOLARMING</strong> (INT32)</td>
  <td>Circuit breaker for arming in fixed-wing mode check <p><strong>Comment:</strong> Setting this parameter to 159753 will enable arming in fixed-wing mode for VTOLs. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
- <td>0 > 159753 </td>
+ <td>[0, 159753] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -10697,7 +10689,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -10714,7 +10706,7 @@ table {
 <li><strong>4:</strong> Terminate</li> 
 </ul>
   </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -10773,49 +10765,49 @@ table {
 <tr>
  <td><strong id="COM_ARM_EKF_HGT">COM_ARM_EKF_HGT</strong> (FLOAT)</td>
  <td>Maximum EKF height innovation test ratio that will allow arming    </td>
- <td>0.1 > 1.0 (0.05)</td>
+ <td>[0.1, 1.0] (0.05)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_EKF_POS">COM_ARM_EKF_POS</strong> (FLOAT)</td>
  <td>Maximum EKF position innovation test ratio that will allow arming    </td>
- <td>0.1 > 1.0 (0.05)</td>
+ <td>[0.1, 1.0] (0.05)</td>
  <td>0.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_EKF_VEL">COM_ARM_EKF_VEL</strong> (FLOAT)</td>
  <td>Maximum EKF velocity innovation test ratio that will allow arming    </td>
- <td>0.1 > 1.0 (0.05)</td>
+ <td>[0.1, 1.0] (0.05)</td>
  <td>0.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_EKF_YAW">COM_ARM_EKF_YAW</strong> (FLOAT)</td>
  <td>Maximum EKF yaw innovation test ratio that will allow arming    </td>
- <td>0.1 > 1.0 (0.05)</td>
+ <td>[0.1, 1.0] (0.05)</td>
  <td>0.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_IMU_ACC">COM_ARM_IMU_ACC</strong> (FLOAT)</td>
  <td>Maximum accelerometer inconsistency between IMU units that will allow arming    </td>
- <td>0.1 > 1.0 (0.05)</td>
+ <td>[0.1, 1.0] (0.05)</td>
  <td>0.7</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_IMU_GYR">COM_ARM_IMU_GYR</strong> (FLOAT)</td>
  <td>Maximum rate gyro inconsistency between IMU units that will allow arming    </td>
- <td>0.02 > 0.3 (0.01)</td>
+ <td>[0.02, 0.3] (0.01)</td>
  <td>0.25</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)</td>
  <td>Maximum magnetic field inconsistency between units that will allow arming <p><strong>Comment:</strong> Set -1 to disable the check.</p>   </td>
- <td>3 > 180 </td>
+ <td>[3, 180] </td>
  <td>45</td>
  <td>deg</td>
 </tr>
@@ -10876,14 +10868,14 @@ table {
 <tr>
  <td><strong id="COM_BAT_ACT_T">COM_BAT_ACT_T</strong> (FLOAT)</td>
  <td>Delay between battery state change and failsafe reaction <p><strong>Comment:</strong> Battery state requires action -> wait COM_BAT_ACT_T seconds in Hold mode for the user to realize and take a custom action -> React with failsafe action COM_LOW_BAT_ACT A zero value disables the delay.</p>   </td>
- <td>0.0 > 25.0 </td>
+ <td>[0.0, 25.0] </td>
  <td>5.</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_CPU_MAX">COM_CPU_MAX</strong> (FLOAT)</td>
  <td>Maximum allowed CPU load to still arm <p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
- <td>-1 > 100 (1)</td>
+ <td>[-1, 100] (1)</td>
  <td>90.0</td>
  <td>%</td>
 </tr>
@@ -10904,14 +10896,14 @@ table {
 <tr>
  <td><strong id="COM_DL_LOSS_T">COM_DL_LOSS_T</strong> (INT32)</td>
  <td>Datalink loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
- <td>5 > 300 (1)</td>
+ <td>[5, 300] (1)</td>
  <td>10</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_FLIGHT_UUID">COM_FLIGHT_UUID</strong> (INT32)</td>
  <td>Next flight UUID <p><strong>Comment:</strong> This number is incremented automatically after every flight on disarming in order to remember the next flight UUID. The first flight is 0.</p>   </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -11149,11 +11141,11 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLT_TIME_MAX">COM_FLT_TIME_MAX</strong> (INT32)</td>
- <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any mode other than RTL or Land. Set a nagative value to disable.</p> <strong>값:</strong><ul>
+ <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any mode other than RTL or Land. Set a negative value to disable.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disable</li> 
 </ul>
   </td>
- <td>-1 > 10000 </td>
+ <td>[-1, 10000] </td>
  <td>-1</td>
  <td>s</td>
 </tr>
@@ -11167,14 +11159,14 @@ table {
 <tr>
  <td><strong id="COM_HLDL_LOSS_T">COM_HLDL_LOSS_T</strong> (INT32)</td>
  <td>High Latency Datalink loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
- <td>60 > 3600 </td>
+ <td>[60, 3600] </td>
  <td>120</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_HLDL_REG_T">COM_HLDL_REG_T</strong> (INT32)</td>
  <td>High Latency Datalink regain time threshold <p><strong>Comment:</strong> After a data link loss: after this number of seconds with a healthy datalink the 'datalink loss' flag is set back to false</p>   </td>
- <td>0 > 60 </td>
+ <td>[0, 60] </td>
  <td>0</td>
  <td>s</td>
 </tr>
@@ -11212,14 +11204,14 @@ table {
 <tr>
  <td><strong id="COM_KILL_DISARM">COM_KILL_DISARM</strong> (FLOAT)</td>
  <td>Timeout value for disarming when kill switch is engaged    </td>
- <td>0.0 > 30.0 (0.1)</td>
+ <td>[0.0, 30.0] (0.1)</td>
  <td>5.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_LKDOWN_TKO">COM_LKDOWN_TKO</strong> (FLOAT)</td>
  <td>Timeout for detecting a failure after takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to put the vehicle into a lockdown state if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW) and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
- <td>-1.0 > 5.0 </td>
+ <td>[-1.0, 5.0] </td>
  <td>3.0</td>
  <td>s</td>
 </tr>
@@ -11247,7 +11239,7 @@ table {
 <tr>
  <td><strong id="COM_OBC_LOSS_T">COM_OBC_LOSS_T</strong> (FLOAT)</td>
  <td>Time-out to wait when onboard computer connection is lost before warning about loss connection    </td>
- <td>0 > 60 (0.01)</td>
+ <td>[0, 60] (0.01)</td>
  <td>5.0</td>
  <td>s</td>
 </tr>
@@ -11307,7 +11299,7 @@ table {
 <tr>
  <td><strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)</td>
  <td>Time-out to wait when offboard connection is lost before triggering offboard lost action <p><strong>Comment:</strong> See COM_OBL_ACT and COM_OBL_RC_ACT to configure action.</p>   </td>
- <td>0 > 60 (0.01)</td>
+ <td>[0, 60] (0.01)</td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -11320,7 +11312,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
- <td>Position control navigation loss response <p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>값:</strong><ul>
+ <td>Position control navigation loss response <p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Altitude/Manual. Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.</li>
 
 <li><strong>1:</strong> Land/Terminate. Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.</li> 
@@ -11333,7 +11325,7 @@ table {
 <tr>
  <td><strong id="COM_POS_FS_DELAY">COM_POS_FS_DELAY</strong> (INT32)</td>
  <td>Loss of position failsafe activation delay <p><strong>Comment:</strong> This sets number of seconds that the position checks need to be failed before the failsafe will activate. The default value has been optimised for rotary wing applications. For fixed wing applications, a larger value between 5 and 10 should be used.</p>   </td>
- <td>1 > 100 </td>
+ <td>[1, 100] </td>
  <td>1</td>
  <td>s</td>
 </tr>
@@ -11354,7 +11346,7 @@ table {
 <tr>
  <td><strong id="COM_POWER_COUNT">COM_POWER_COUNT</strong> (INT32)</td>
  <td>Required number of redundant power modules <p><strong>Comment:</strong> This configures a check to verify the expected number of 5V rail power supplies are present. By default only one is expected. Note: CBRK_SUPPLY_CHK disables all power checks including this one.</p>   </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -11391,7 +11383,7 @@ table {
 <tr>
  <td><strong id="COM_RCL_ACT_T">COM_RCL_ACT_T</strong> (FLOAT)</td>
  <td>Delay between RC loss and configured reaction <p><strong>Comment:</strong> RC signal not updated -> still use data for COM_RC_LOSS_T seconds Consider RC signal lost -> wait COM_RCL_ACT_T seconds in Hold mode to regain signal React with failsafe action NAV_RCL_ACT A zero value disables the delay.</p>   </td>
- <td>0.0 > 25.0 </td>
+ <td>[0.0, 25.0] </td>
  <td>15.0</td>
  <td>s</td>
 </tr>
@@ -11402,20 +11394,20 @@ table {
   <li><strong>2:</strong> Offboard</li> 
 </ul>
  </td>
- <td>0 > 31 </td>
+ <td>[0, 31] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_RC_ARM_HYST">COM_RC_ARM_HYST</strong> (INT32)</td>
  <td>RC input arm/disarm command duration <p><strong>Comment:</strong> The default value of 1000 requires the stick to be held in the arm or disarm position for 1 second.</p>   </td>
- <td>100 > 1500 </td>
+ <td>[100, 1500] </td>
  <td>1000</td>
  <td>ms</td>
 </tr>
 <tr>
  <td><strong id="COM_RC_IN_MODE">COM_RC_IN_MODE</strong> (INT32)</td>
- <td>RC control input mode <p><strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.</p> <strong>값:</strong><ul>
+ <td>RC control input mode <p><strong>Comment:</strong> A value of 0 enables RC transmitter control (only). A valid RC transmitter calibration is required. A value of 1 allows joystick control only. RC input handling and the associated checks are disabled. A value of 2 allows either RC Transmitter or Joystick input. The first valid input is used, will fallback to other sources if the input stream becomes invalid. A value of 3 allows either input from RC or joystick. The first available source is selected and used until reboot. A value of 4 ignores any stick input.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> RC Transmitter only</li>
 
 <li><strong>1:</strong> Joystick only</li>
@@ -11427,14 +11419,14 @@ table {
 <li><strong>4:</strong> Stick input disabled</li> 
 </ul>
   </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_RC_LOSS_T">COM_RC_LOSS_T</strong> (FLOAT)</td>
  <td>RC loss time threshold <p><strong>Comment:</strong> After this amount of seconds without RC connection it's considered lost and not used anymore</p>   </td>
- <td>0 > 35 (0.1)</td>
+ <td>[0, 35] (0.1)</td>
  <td>0.5</td>
  <td>s</td>
 </tr>
@@ -11444,21 +11436,21 @@ table {
   <li><strong>1:</strong> Enable override during offboard mode</li> 
 </ul>
  </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_RC_STICK_OV">COM_RC_STICK_OV</strong> (FLOAT)</td>
  <td>RC stick override threshold <p><strong>Comment:</strong> If COM_RC_OVERRIDE is enabled and the joystick input is moved more than this threshold the autopilot the pilot takes over control.</p>   </td>
- <td>5 > 80 (0.05)</td>
+ <td>[5, 80] (0.05)</td>
  <td>30.0</td>
  <td>%</td>
 </tr>
 <tr>
  <td><strong id="COM_SPOOLUP_TIME">COM_SPOOLUP_TIME</strong> (FLOAT)</td>
  <td>Enforced delay between arming and further navigation <p><strong>Comment:</strong> The minimal time from arming the motors until moving the vehicle is possible is COM_SPOOLUP_TIME seconds. Goal: - Motors and propellers spool up to idle speed before getting commanded to spin faster - Timeout for ESCs and smart batteries to successfulyy do failure checks e.g. for stuck rotors before the vehicle is off the ground</p>   </td>
- <td>0 > 5 </td>
+ <td>[0, 5] </td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -11484,14 +11476,14 @@ table {
 <tr>
  <td><strong id="COM_WIND_MAX">COM_WIND_MAX</strong> (FLOAT)</td>
  <td>Wind speed RLT threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered and enforced as long as the threshold is exceeded. A negative value disables the feature.</p>   </td>
- <td>-1 > 30 (0.1)</td>
+ <td>[-1, 30] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="COM_WIND_WARN">COM_WIND_WARN</strong> (FLOAT)</td>
  <td>Wind speed warning threshold <p><strong>Comment:</strong> A warning is triggered if the currently estimated wind speed is above this value. Warning is sent periodically (every 1min). A negative value disables the feature.</p>   </td>
- <td>-1 > 30 (0.1)</td>
+ <td>[-1, 30] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
 </tr>
@@ -11511,7 +11503,7 @@ table {
 <li><strong>6:</strong> Lockdown</li> 
 </ul>
   </td>
- <td>0 > 6 </td>
+ <td>[0, 6] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -11529,7 +11521,7 @@ table {
 <li><strong>6:</strong> Lockdown</li> 
 </ul>
   </td>
- <td>1 > 6 </td>
+ <td>[1, 6] </td>
  <td>2</td>
  <td></td>
 </tr>
@@ -11540,14 +11532,14 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="CYPHAL_BAUD">CYPHAL_BAUD</strong> (INT32)</td>
  <td>UAVCAN/CAN v1 bus bitrate    <p><b>Reboot required:</b> true</p>
 </td>
- <td>20000 > 1000000 </td>
+ <td>[20000, 1000000] </td>
  <td>1000000</td>
  <td>bit/s</td>
 </tr>
@@ -11556,105 +11548,105 @@ table {
  <td>Cyphal <p><strong>Comment:</strong> 0 - Cyphal disabled. 1 - Enables Cyphal</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CYPHAL_ID">CYPHAL_ID</strong> (INT32)</td>
  <td>Cyphal Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>-1 > 125 </td>
+ <td>[-1, 125] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
  <td>actuator_outputs uORB over Cyphal publication port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_BMS_BP_SUB">UCAN1_BMS_BP_SUB</strong> (INT32)</td>
  <td>UDRAL battery parameters subscription  port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_BMS_BS_SUB">UCAN1_BMS_BS_SUB</strong> (INT32)</td>
  <td>UDRAL battery status subscription port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_BMS_ES_SUB">UCAN1_BMS_ES_SUB</strong> (INT32)</td>
  <td>UDRAL battery energy source subscription port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC0_SUB">UCAN1_ESC0_SUB</strong> (INT32)</td>
  <td>ESC 0 subscription port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
  <td>Cyphal ESC publication port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
  <td>GPS 0 subscription port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_GPS1_SUB">UCAN1_GPS1_SUB</strong> (INT32)</td>
  <td>GPS 1 subscription port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
  <td>Cyphal GPS publication port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
- <td>Cyphal leagcy battery port ID    </td>
- <td>-1 > 6143 </td>
+ <td>Cyphal legacy battery port ID    </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
  <td>Cyphal Servo publication port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
  <td>sensor_gps uORB over Cyphal subscription port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_UORB_GPS_P">UCAN1_UORB_GPS_P</strong> (INT32)</td>
  <td>sensor_gps uORB over Cyphal publication port ID    </td>
- <td>-1 > 6143 </td>
+ <td>[-1, 6143] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -11665,20 +11657,20 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="DSHOT_3D_DEAD_H">DSHOT_3D_DEAD_H</strong> (INT32)</td>
  <td>DSHOT 3D deadband high <p><strong>Comment:</strong> When the actuator_output is between DSHOT_3D_DEAD_L and DSHOT_3D_DEAD_H, motor will not spin. This value is with respect to the mixer_module range (0-1999), not the DSHOT values.</p>   </td>
- <td>1000 > 1999 </td>
+ <td>[1000, 1999] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="DSHOT_3D_DEAD_L">DSHOT_3D_DEAD_L</strong> (INT32)</td>
  <td>DSHOT 3D deadband low <p><strong>Comment:</strong> When the actuator_output is between DSHOT_3D_DEAD_L and DSHOT_3D_DEAD_H, motor will not spin. This value is with respect to the mixer_module range (0-1999), not the DSHOT values.</p>   </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
@@ -11711,7 +11703,7 @@ table {
 <tr>
  <td><strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)</td>
  <td>Minimum DShot Motor Output <p><strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.</p>   </td>
- <td>0 > 1 (0.01)</td>
+ <td>[0, 1] (0.01)</td>
  <td>0.055</td>
  <td>%</td>
 </tr>
@@ -11762,27 +11754,27 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="NAV_AH_ALT">NAV_AH_ALT</strong> (FLOAT)</td>
  <td>Airfield home alt <p><strong>Comment:</strong> Altitude of airfield home waypoint</p>   </td>
- <td>-50 > ? (0.5)</td>
+ <td>[-50, ?] (0.5)</td>
  <td>600.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
  <td>Airfield home Lat <p><strong>Comment:</strong> Latitude of airfield home waypoint</p>   </td>
- <td>-900000000 > 900000000 </td>
+ <td>[-900000000, 900000000] </td>
  <td>-265847810</td>
  <td>deg*1e7</td>
 </tr>
 <tr>
  <td><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
  <td>Airfield home Lon <p><strong>Comment:</strong> Longitude of airfield home waypoint</p>   </td>
- <td>-1800000000 > 1800000000 </td>
+ <td>[-1800000000, 1800000000] </td>
  <td>1518423250</td>
  <td>deg*1e7</td>
 </tr>
@@ -11793,56 +11785,56 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="EKF2_ABIAS_INIT">EKF2_ABIAS_INIT</strong> (FLOAT)</td>
  <td>1-sigma IMU accelerometer switch-on bias    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.0 > 0.5 </td>
+ <td>[0.0, 0.5] </td>
  <td>0.2</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_ACCLIM">EKF2_ABL_ACCLIM</strong> (FLOAT)</td>
  <td>Maximum IMU accel magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU accelerometer vector exceeds this value, the EKF delta velocity state estimation will be inhibited. This reduces the adverse effect of high manoeuvre accelerations and IMU nonlinerity and scale factor errors on the delta velocity bias estimates.</p>   </td>
- <td>20.0 > 200.0 </td>
+ <td>[20.0, 200.0] </td>
  <td>25.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_GYRLIM">EKF2_ABL_GYRLIM</strong> (FLOAT)</td>
  <td>Maximum IMU gyro angular rate magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU angular rate vector exceeds this value, the EKF delta velocity state estimation will be inhibited. This reduces the adverse effect of rapid rotation rates and associated errors on the delta velocity bias estimates.</p>   </td>
- <td>2.0 > 20.0 </td>
+ <td>[2.0, 20.0] </td>
  <td>3.0</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_LIM">EKF2_ABL_LIM</strong> (FLOAT)</td>
  <td>Accelerometer bias learning limit <p><strong>Comment:</strong> The ekf delta velocity bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
- <td>0.0 > 0.8 </td>
+ <td>[0.0, 0.8] </td>
  <td>0.4</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_TAU">EKF2_ABL_TAU</strong> (FLOAT)</td>
  <td>Time constant used by acceleration and angular rate magnitude checks used to inhibit delta velocity bias learning <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
- <td>0.1 > 1.0 </td>
+ <td>[0.1, 1.0] </td>
  <td>0.5</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ACC_B_NOISE">EKF2_ACC_B_NOISE</strong> (FLOAT)</td>
  <td>Process noise for IMU accelerometer bias prediction    </td>
- <td>0.0 > 0.01 </td>
+ <td>[0.0, 0.01] </td>
  <td>3.0e-3</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ACC_NOISE">EKF2_ACC_NOISE</strong> (FLOAT)</td>
  <td>Accelerometer noise for covariance prediction    </td>
- <td>0.01 > 1.0 </td>
+ <td>[0.01, 1.0] </td>
  <td>3.5e-1</td>
  <td>m/s^2</td>
 </tr>
@@ -11860,7 +11852,7 @@ table {
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 511 </td>
+ <td>[0, 511] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -11868,21 +11860,21 @@ table {
  <td><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
  <td>1-sigma tilt angle uncertainty after gravity vector alignment    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.0 > 0.5 </td>
+ <td>[0.0, 0.5] </td>
  <td>0.1</td>
  <td>rad</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ARSP_THR">EKF2_ARSP_THR</strong> (FLOAT)</td>
  <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion.</p>   </td>
- <td>0.0 > ? </td>
+ <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ASPD_MAX">EKF2_ASPD_MAX</strong> (FLOAT)</td>
  <td>Upper limit on airspeed along individual axes used to correct baro for position error effects    </td>
- <td>5.0 > 50.0 </td>
+ <td>[5.0, 50.0] </td>
  <td>20.0</td>
  <td>m/s</td>
 </tr>
@@ -11890,15 +11882,15 @@ table {
  <td><strong id="EKF2_ASP_DELAY">EKF2_ASP_DELAY</strong> (FLOAT)</td>
  <td>Airspeed measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>100</td>
  <td>ms</td>
 </tr>
 <tr>
  <td><strong id="EKF2_AVEL_DELAY">EKF2_AVEL_DELAY</strong> (FLOAT)</td>
- <td>Auxillary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
+ <td>Auxiliary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>5</td>
  <td>ms</td>
 </tr>
@@ -11906,49 +11898,49 @@ table {
  <td><strong id="EKF2_BARO_DELAY">EKF2_BARO_DELAY</strong> (FLOAT)</td>
  <td>Barometer measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>0</td>
  <td>ms</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BARO_GATE">EKF2_BARO_GATE</strong> (FLOAT)</td>
  <td>Gate size for barometric and GPS height fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BARO_NOISE">EKF2_BARO_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for barometric altitude    </td>
- <td>0.01 > 15.0 </td>
+ <td>[0.01, 15.0] </td>
  <td>3.5</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_X">EKF2_BCOEF_X</strong> (FLOAT)</td>
  <td>X-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the forward/reverse axis when flying a multi-copter which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_X paraemter should be set initially to the ratio of mass / projected frontal area and adjusted together with EKF2_MCOEF to minimise variance of the X-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. Set this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
- <td>0.0 > 200.0 </td>
+ <td>[0.0, 200.0] </td>
  <td>100.0</td>
  <td>kg/m^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_Y">EKF2_BCOEF_Y</strong> (FLOAT)</td>
  <td>Y-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the right/left axis when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_Y paraemter should be set initially to the ratio of mass / projected side area and adjusted together with EKF2_MCOEF to minimise variance of the Y-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. et this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
- <td>0.0 > 200.0 </td>
+ <td>[0.0, 200.0] </td>
  <td>100.0</td>
  <td>kg/m^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BETA_GATE">EKF2_BETA_GATE</strong> (FLOAT)</td>
  <td>Gate size for synthetic sideslip fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BETA_NOISE">EKF2_BETA_NOISE</strong> (FLOAT)</td>
  <td>Noise for synthetic sideslip fusion    </td>
- <td>0.1 > 1.0 </td>
+ <td>[0.1, 1.0] </td>
  <td>0.3</td>
  <td>m/s</td>
 </tr>
@@ -11960,56 +11952,56 @@ table {
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>7</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_DRAG_NOISE">EKF2_DRAG_NOISE</strong> (FLOAT)</td>
  <td>Specific drag force observation noise variance used by the multi-rotor specific drag force model <p><strong>Comment:</strong> Increasing this makes the multi-rotor wind estimates adjust more slowly.</p>   </td>
- <td>0.5 > 10.0 </td>
+ <td>[0.5, 10.0] </td>
  <td>2.5</td>
  <td>(m/s^2)^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EAS_NOISE">EKF2_EAS_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for airspeed fusion    </td>
- <td>0.5 > 5.0 </td>
+ <td>[0.5, 5.0] </td>
  <td>1.4</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message    </td>
- <td>0.05 > ? </td>
+ <td>[0.05, ?] </td>
  <td>0.05</td>
  <td>rad</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVP_GATE">EKF2_EVP_GATE</strong> (FLOAT)</td>
  <td>Gate size for vision position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVP_NOISE">EKF2_EVP_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for vision position observations used to lower bound or replace the uncertainty included in the message    </td>
- <td>0.01 > ? </td>
+ <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVV_GATE">EKF2_EVV_GATE</strong> (FLOAT)</td>
  <td>Gate size for vision velocity estimate fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>3.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVV_NOISE">EKF2_EVV_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for vision velocity observations used to lower bound or replace the uncertainty included in the message    </td>
- <td>0.01 > ? </td>
+ <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m/s</td>
 </tr>
@@ -12017,8 +12009,8 @@ table {
  <td><strong id="EKF2_EV_DELAY">EKF2_EV_DELAY</strong> (FLOAT)</td>
  <td>Vision Position Estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
- <td>175</td>
+ <td>[0, 300] </td>
+ <td>0</td>
  <td>ms</td>
 </tr>
 <tr>
@@ -12060,21 +12052,21 @@ table {
  <td><strong id="EKF2_GBIAS_INIT">EKF2_GBIAS_INIT</strong> (FLOAT)</td>
  <td>1-sigma IMU gyro switch-on bias    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.0 > 0.2 </td>
+ <td>[0.0, 0.2] </td>
  <td>0.1</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GND_EFF_DZ">EKF2_GND_EFF_DZ</strong> (FLOAT)</td>
  <td>Baro deadzone range for height fusion <p><strong>Comment:</strong> Sets the value of deadzone applied to negative baro innovations. Deadzone is enabled when EKF2_GND_EFF_DZ > 0.</p>   </td>
- <td>0.0 > 10.0 </td>
+ <td>[0.0, 10.0] </td>
  <td>4.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GND_MAX_HGT">EKF2_GND_MAX_HGT</strong> (FLOAT)</td>
  <td>Height above ground level for ground effect zone <p><strong>Comment:</strong> Sets the maximum distance to the ground level where negative baro innovations are expected.</p>   </td>
- <td>0.0 > 5.0 </td>
+ <td>[0.0, 5.0] </td>
  <td>0.5</td>
  <td>m</td>
 </tr>
@@ -12091,7 +12083,7 @@ table {
   <li><strong>8:</strong> Max vertical velocity discrepancy (EKF2_REQ_VDRIFT)</li> 
 </ul>
  </td>
- <td>0 > 511 </td>
+ <td>[0, 511] </td>
  <td>245</td>
  <td></td>
 </tr>
@@ -12099,7 +12091,7 @@ table {
  <td><strong id="EKF2_GPS_DELAY">EKF2_GPS_DELAY</strong> (FLOAT)</td>
  <td>GPS measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>110</td>
  <td>ms</td>
 </tr>
@@ -12127,63 +12119,63 @@ table {
 <tr>
  <td><strong id="EKF2_GPS_P_GATE">EKF2_GPS_P_GATE</strong> (FLOAT)</td>
  <td>Gate size for GPS horizontal position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_P_NOISE">EKF2_GPS_P_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for gps position    </td>
- <td>0.01 > 10.0 </td>
+ <td>[0.01, 10.0] </td>
  <td>0.5</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_V_GATE">EKF2_GPS_V_GATE</strong> (FLOAT)</td>
  <td>Gate size for GPS velocity fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_V_NOISE">EKF2_GPS_V_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for gps horizontal velocity    </td>
- <td>0.01 > 5.0 </td>
+ <td>[0.01, 5.0] </td>
  <td>0.3</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
- <td>Default value of true airspeed used in EKF-GSF AHRS calculation <p><strong>Comment:</strong> If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>Default value of true airspeed used in EKF-GSF AHRS calculation <p><strong>Comment:</strong> If no airspeed measurements are available, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes.</p>   </td>
+ <td>[0.0, 100.0] </td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GYR_B_NOISE">EKF2_GYR_B_NOISE</strong> (FLOAT)</td>
  <td>Process noise for IMU rate gyro bias prediction    </td>
- <td>0.0 > 0.01 </td>
+ <td>[0.0, 0.01] </td>
  <td>1.0e-3</td>
  <td>rad/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_GYR_NOISE">EKF2_GYR_NOISE</strong> (FLOAT)</td>
  <td>Rate gyro noise for covariance prediction    </td>
- <td>0.0001 > 0.1 </td>
+ <td>[0.0001, 0.1] </td>
  <td>1.5e-2</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_HDG_GATE">EKF2_HDG_GATE</strong> (FLOAT)</td>
  <td>Gate size for magnetic heading fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>2.6</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_HEAD_NOISE">EKF2_HEAD_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for magnetic heading fusion    </td>
- <td>0.01 > 1.0 </td>
+ <td>[0.01, 1.0] </td>
  <td>0.3</td>
  <td>rad</td>
 </tr>
@@ -12228,14 +12220,14 @@ table {
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
  <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
- <td>0.0 > 5.0 </td>
+ <td>[0.0, 5.0] </td>
  <td>0.5</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_B_NOISE">EKF2_MAG_B_NOISE</strong> (FLOAT)</td>
  <td>Process noise for body magnetic field prediction    </td>
- <td>0.0 > 0.1 </td>
+ <td>[0.0, 0.1] </td>
  <td>1.0e-4</td>
  <td>gauss/s</td>
 </tr>
@@ -12257,28 +12249,28 @@ table {
  <td><strong id="EKF2_MAG_DELAY">EKF2_MAG_DELAY</strong> (FLOAT)</td>
  <td>Magnetometer measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>0</td>
  <td>ms</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_E_NOISE">EKF2_MAG_E_NOISE</strong> (FLOAT)</td>
  <td>Process noise for earth magnetic field prediction    </td>
- <td>0.0 > 0.1 </td>
+ <td>[0.0, 0.1] </td>
  <td>1.0e-3</td>
  <td>gauss/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_GATE">EKF2_MAG_GATE</strong> (FLOAT)</td>
  <td>Gate size for magnetometer XYZ component fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>3.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_NOISE">EKF2_MAG_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for magnetometer 3-axis fusion    </td>
- <td>0.001 > 1.0 </td>
+ <td>[0.001, 1.0] </td>
  <td>5.0e-2</td>
  <td>gauss</td>
 </tr>
@@ -12306,21 +12298,21 @@ table {
 <tr>
  <td><strong id="EKF2_MAG_YAWLIM">EKF2_MAG_YAWLIM</strong> (FLOAT)</td>
  <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
- <td>0.0 > 1.0 </td>
+ <td>[0.0, 1.0] </td>
  <td>0.25</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>
  <td>propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. For example, if flying at 10 m/s at sea level conditions produces a rotor induced drag deceleration of 1.5 m/s/s when the multi-copter levelled to zero roll/pitch, then EKF2_MCOEF would be set to 0.15 = (1.5/10.0). Set EKF2_MCOEF to a positive value to enable wind estimation using this drag effect. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. The EKF2_MCOEF parameter should be adjusted together with EKF2_BCOEF_X and EKF2_BCOEF_Y to minimise variance of the X and y axis drag specific force innovation sequences.</p>   </td>
- <td>0 > 1.0 </td>
+ <td>[0, 1.0] </td>
  <td>0.15</td>
  <td>1/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MIN_RNG">EKF2_MIN_RNG</strong> (FLOAT)</td>
- <td>Expected range finder reading when on ground <p><strong>Comment:</strong> If the vehicle is on ground, is not moving as determined by the motion test and the range finder is returning invalid or no data, then an assumed range value of EKF2_MIN_RNG will be used by the terrain estimator so that a terrain height estimate is avilable at the start of flight in situations where the range finder may be inside its minimum measurements distance when on ground.</p>   </td>
- <td>0.01 > ? </td>
+ <td>Expected range finder reading when on ground <p><strong>Comment:</strong> If the vehicle is on ground, is not moving as determined by the motion test and the range finder is returning invalid or no data, then an assumed range value of EKF2_MIN_RNG will be used by the terrain estimator so that a terrain height estimate is available at the start of flight in situations where the range finder may be inside its minimum measurements distance when on ground.</p>   </td>
+ <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m</td>
 </tr>
@@ -12328,7 +12320,7 @@ table {
  <td><strong id="EKF2_MULTI_IMU">EKF2_MULTI_IMU</strong> (INT32)</td>
  <td>Multi-EKF IMUs <p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -12336,21 +12328,21 @@ table {
  <td><strong id="EKF2_MULTI_MAG">EKF2_MULTI_MAG</strong> (INT32)</td>
  <td>Multi-EKF Magnetometers <p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Set 0 to disable. Requires SENS_MAG_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_NOAID_NOISE">EKF2_NOAID_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for non-aiding position hold    </td>
- <td>0.5 > 50.0 </td>
+ <td>[0.5, 50.0] </td>
  <td>10.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_NOAID_TOUT">EKF2_NOAID_TOUT</strong> (INT32)</td>
  <td>Maximum lapsed time from last fusion of measurements that constrain velocity drift before the EKF will report the horizontal nav solution as invalid    </td>
- <td>500000 > 10000000 </td>
+ <td>[500000, 10000000] </td>
  <td>5000000</td>
  <td>us</td>
 </tr>
@@ -12358,28 +12350,28 @@ table {
  <td><strong id="EKF2_OF_DELAY">EKF2_OF_DELAY</strong> (FLOAT)</td>
  <td>Optical flow measurement delay relative to IMU measurements <p><strong>Comment:</strong> Assumes measurement is timestamped at trailing edge of integration period</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>20</td>
  <td>ms</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_GATE">EKF2_OF_GATE</strong> (FLOAT)</td>
  <td>Gate size for optical flow fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>3.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_N_MAX">EKF2_OF_N_MAX</strong> (FLOAT)</td>
  <td>Measurement noise for the optical flow sensor <p><strong>Comment:</strong> (when it's reported quality metric is at the minimum set by EKF2_OF_QMIN). The following condition must be met: EKF2_OF_N_MAXN >= EKF2_OF_N_MIN</p>   </td>
- <td>0.05 > ? </td>
+ <td>[0.05, ?] </td>
  <td>0.5</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_OF_N_MIN">EKF2_OF_N_MIN</strong> (FLOAT)</td>
  <td>Measurement noise for the optical flow sensor when it's reported quality metric is at the maximum    </td>
- <td>0.05 > ? </td>
+ <td>[0.05, ?] </td>
  <td>0.15</td>
  <td>rad/s</td>
 </tr>
@@ -12407,63 +12399,63 @@ table {
 <tr>
  <td><strong id="EKF2_OF_QMIN">EKF2_OF_QMIN</strong> (INT32)</td>
  <td>Optical Flow data will only be used if the sensor reports a quality metric >= EKF2_OF_QMIN    </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_XN">EKF2_PCOEF_XN</strong> (FLOAT)</td>
  <td>Static pressure position error coefficient for the negative X axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a negative wind relative velocity along the X body axis. If the baro height estimate rises during backwards flight, then this will be a negative number.</p>   </td>
- <td>-0.5 > 0.5 </td>
+ <td>[-0.5, 0.5] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_XP">EKF2_PCOEF_XP</strong> (FLOAT)</td>
  <td>Static pressure position error coefficient for the positive X axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a positive wind relative velocity along the X body axis. If the baro height estimate rises during forward flight, then this will be a negative number.</p>   </td>
- <td>-0.5 > 0.5 </td>
+ <td>[-0.5, 0.5] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_YN">EKF2_PCOEF_YN</strong> (FLOAT)</td>
  <td>Pressure position error coefficient for the negative Y axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the negative Y (LH) body axis. If the baro height estimate rises during sideways flight to the left, then this will be a negative number.</p>   </td>
- <td>-0.5 > 0.5 </td>
+ <td>[-0.5, 0.5] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_YP">EKF2_PCOEF_YP</strong> (FLOAT)</td>
  <td>Pressure position error coefficient for the positive Y axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the positive Y (RH) body axis. If the baro height estimate rises during sideways flight to the right, then this will be a negative number.</p>   </td>
- <td>-0.5 > 0.5 </td>
+ <td>[-0.5, 0.5] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_Z">EKF2_PCOEF_Z</strong> (FLOAT)</td>
  <td>Static pressure position error coefficient for the Z axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the Z body axis.</p>   </td>
- <td>-0.5 > 0.5 </td>
+ <td>[-0.5, 0.5] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PREDICT_US">EKF2_PREDICT_US</strong> (INT32)</td>
  <td>EKF prediction period <p><strong>Comment:</strong> EKF prediction period in microseconds. This should ideally be an integer multiple of the IMU time delta. Actual filter update will be an integer multiple of IMU update.</p>   </td>
- <td>1000 > 20000 </td>
+ <td>[1000, 20000] </td>
  <td>10000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_EPH">EKF2_REQ_EPH</strong> (FLOAT)</td>
  <td>Required EPH to use GPS    </td>
- <td>2 > 100 </td>
+ <td>[2, 100] </td>
  <td>3.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_EPV">EKF2_REQ_EPV</strong> (FLOAT)</td>
  <td>Required EPV to use GPS    </td>
- <td>2 > 100 </td>
+ <td>[2, 100] </td>
  <td>5.0</td>
  <td>m</td>
 </tr>
@@ -12471,42 +12463,42 @@ table {
  <td><strong id="EKF2_REQ_GPS_H">EKF2_REQ_GPS_H</strong> (FLOAT)</td>
  <td>Required GPS health time on startup <p><strong>Comment:</strong> Minimum continuous period without GPS failure required to mark a healthy GPS status. It can be reduced to speed up initialization, but it's recommended to keep this unchanged for a vehicle.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.1 > ? </td>
+ <td>[0.1, ?] </td>
  <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_HDRIFT">EKF2_REQ_HDRIFT</strong> (FLOAT)</td>
  <td>Maximum horizontal drift speed to use GPS    </td>
- <td>0.1 > 1.0 </td>
+ <td>[0.1, 1.0] </td>
  <td>0.1</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_NSATS">EKF2_REQ_NSATS</strong> (INT32)</td>
  <td>Required satellite count to use GPS    </td>
- <td>4 > 12 </td>
+ <td>[4, 12] </td>
  <td>6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_PDOP">EKF2_REQ_PDOP</strong> (FLOAT)</td>
  <td>Maximum PDOP to use GPS    </td>
- <td>1.5 > 5.0 </td>
+ <td>[1.5, 5.0] </td>
  <td>2.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_SACC">EKF2_REQ_SACC</strong> (FLOAT)</td>
  <td>Required speed accuracy to use GPS    </td>
- <td>0.5 > 5.0 </td>
+ <td>[0.5, 5.0] </td>
  <td>0.5</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_VDRIFT">EKF2_REQ_VDRIFT</strong> (FLOAT)</td>
  <td>Maximum vertical drift speed to use GPS    </td>
- <td>0.1 > 1.5 </td>
+ <td>[0.1, 1.5] </td>
  <td>0.2</td>
  <td>m/s</td>
 </tr>
@@ -12525,21 +12517,21 @@ table {
 <tr>
  <td><strong id="EKF2_RNG_A_HMAX">EKF2_RNG_A_HMAX</strong> (FLOAT)</td>
  <td>Maximum absolute altitude (height above ground level) allowed for range aid mode <p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate it's height. This only applies when range aid mode is activated (EKF2_RNG_AID = enabled).</p>   </td>
- <td>1.0 > 10.0 </td>
+ <td>[1.0, 10.0] </td>
  <td>5.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_A_IGATE">EKF2_RNG_A_IGATE</strong> (FLOAT)</td>
  <td>Gate size used for innovation consistency checks for range aid fusion <p><strong>Comment:</strong> A lower value means HAGL needs to be more stable in order to use range finder for height estimation in range aid mode</p>   </td>
- <td>0.1 > 5.0 </td>
+ <td>[0.1, 5.0] </td>
  <td>1.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_A_VMAX">EKF2_RNG_A_VMAX</strong> (FLOAT)</td>
  <td>Maximum horizontal velocity allowed for range aid mode <p><strong>Comment:</strong> If the vehicle horizontal speed exceeds this value then the estimator will not fuse range measurements to estimate it's height. This only applies when range aid mode is activated (EKF2_RNG_AID = enabled).</p>   </td>
- <td>0.1 > 2 </td>
+ <td>[0.1, 2] </td>
  <td>1.0</td>
  <td>m/s</td>
 </tr>
@@ -12547,35 +12539,35 @@ table {
  <td><strong id="EKF2_RNG_DELAY">EKF2_RNG_DELAY</strong> (FLOAT)</td>
  <td>Range finder measurement delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>5</td>
  <td>ms</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_GATE">EKF2_RNG_GATE</strong> (FLOAT)</td>
  <td>Gate size for range finder fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>5.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_K_GATE">EKF2_RNG_K_GATE</strong> (FLOAT)</td>
  <td>Gate size used for range finder kinematic consistency check <p><strong>Comment:</strong> To be used, the time derivative of the distance sensor measurements projected on the vertical axis needs to be statistically consistent with the estimated vertical velocity of the drone. Decrease this value to make the filter more robust against range finder faulty data (stuck, reflections, ...). Note: tune the range finder noise parameters (EKF2_RNG_NOISE and EKF2_RNG_SFE) before tuning this gate.</p>   </td>
- <td>0.1 > 5.0 </td>
+ <td>[0.1, 5.0] </td>
  <td>1.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_NOISE">EKF2_RNG_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for range finder fusion    </td>
- <td>0.01 > ? </td>
+ <td>[0.01, ?] </td>
  <td>0.1</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_PITCH">EKF2_RNG_PITCH</strong> (FLOAT)</td>
  <td>Range sensor pitch offset    </td>
- <td>-0.75 > 0.75 </td>
+ <td>[-0.75, 0.75] </td>
  <td>0.0</td>
  <td>rad</td>
 </tr>
@@ -12603,14 +12595,14 @@ table {
 <tr>
  <td><strong id="EKF2_RNG_QLTY_T">EKF2_RNG_QLTY_T</strong> (FLOAT)</td>
  <td>Minimum duration during which the reported range finder signal quality needs to be non-zero in order to be declared valid (s)    </td>
- <td>0.1 > 5 </td>
+ <td>[0.1, 5] </td>
  <td>1.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_RNG_SFE">EKF2_RNG_SFE</strong> (FLOAT)</td>
- <td>Range finder range dependant noise scaler <p><strong>Comment:</strong> Specifies the increase in range finder noise with range.</p>   </td>
- <td>0.0 > 0.2 </td>
+ <td>Range finder range dependent noise scaler <p><strong>Comment:</strong> Specifies the increase in range finder noise with range.</p>   </td>
+ <td>[0.0, 0.2] </td>
  <td>0.05</td>
  <td>m/m</td>
 </tr>
@@ -12651,7 +12643,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_SYNT_MAG_Z">EKF2_SYNT_MAG_Z</strong> (INT32)</td>
- <td>Enable synthetic magnetometer Z component measurement <p><strong>Comment:</strong> Use for vehicles where the measured body Z magnetic field is subject to strong magnetic interference. For magnetic heading fusion the magnetometer Z measurement will be replaced by a synthetic value calculated using the knowledge of the 3D magnetic field vector at the location of the drone. Therefore, this parameter will only have an effect if the global position of the drone is known. For 3D mag fusion the magnetometer Z measurement will simply be ingored instead of fusing the synthetic value.</p>   </td>
+ <td>Enable synthetic magnetometer Z component measurement <p><strong>Comment:</strong> Use for vehicles where the measured body Z magnetic field is subject to strong magnetic interference. For magnetic heading fusion the magnetometer Z measurement will be replaced by a synthetic value calculated using the knowledge of the 3D magnetic field vector at the location of the drone. Therefore, this parameter will only have an effect if the global position of the drone is known. For 3D mag fusion the magnetometer Z measurement will simply be ignored instead of fusing the synthetic value.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -12659,28 +12651,28 @@ table {
 <tr>
  <td><strong id="EKF2_TAS_GATE">EKF2_TAS_GATE</strong> (FLOAT)</td>
  <td>Gate size for TAS fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>3.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="EKF2_TAU_POS">EKF2_TAU_POS</strong> (FLOAT)</td>
  <td>Time constant of the position output prediction and smoothing filter. Controls how tightly the output track the EKF states    </td>
- <td>0.1 > 1.0 </td>
+ <td>[0.1, 1.0] </td>
  <td>0.25</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_TAU_VEL">EKF2_TAU_VEL</strong> (FLOAT)</td>
  <td>Time constant of the velocity output prediction and smoothing filter    </td>
- <td>? > 1.0 </td>
+ <td>[?, 1.0] </td>
  <td>0.25</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_TERR_GRAD">EKF2_TERR_GRAD</strong> (FLOAT)</td>
  <td>Magnitude of terrain gradient    </td>
- <td>0.0 > ? </td>
+ <td>[0.0, ?] </td>
  <td>0.5</td>
  <td>m/m</td>
 </tr>
@@ -12690,21 +12682,21 @@ table {
   <li><strong>1:</strong> use optical flow</li> 
 </ul>
  </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_TERR_NOISE">EKF2_TERR_NOISE</strong> (FLOAT)</td>
  <td>Terrain altitude process noise - accounts for instability in vehicle height estimate    </td>
- <td>0.5 > ? </td>
+ <td>[0.5, ?] </td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_WIND_NSD">EKF2_WIND_NSD</strong> (FLOAT)</td>
  <td>Process noise spectral density for wind velocity prediction <p><strong>Comment:</strong> When unaided, the wind estimate uncertainty (1-sigma, in m/s) increases by this amount every second.</p>   </td>
- <td>0.0 > 1.0 </td>
+ <td>[0.0, 1.0] </td>
  <td>1.0e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
@@ -12715,27 +12707,27 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="ESC_BL_VER">ESC_BL_VER</strong> (INT32)</td>
  <td>Required esc bootloader version    </td>
- <td>0 > 65535 </td>
+ <td>[0, 65535] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ESC_FW_VER">ESC_FW_VER</strong> (INT32)</td>
  <td>Required esc firmware version    </td>
- <td>0 > 65535 </td>
+ <td>[0, 65535] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ESC_HW_VER">ESC_HW_VER</strong> (INT32)</td>
  <td>Required esc hardware version    </td>
- <td>0 > 65535 </td>
+ <td>[0, 65535] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -12746,7 +12738,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -12772,27 +12764,27 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
  <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
- <td>45 > 720 </td>
+ <td>[45, 720] </td>
  <td>90</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td>Acro body y max rate <p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
- <td>45 > 720 </td>
+ <td>[45, 720] </td>
  <td>90</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
  <td>Acro body z max rate <p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
- <td>10 > 180 </td>
+ <td>[10, 180] </td>
  <td>45</td>
  <td>deg</td>
 </tr>
@@ -12825,231 +12817,231 @@ table {
 <tr>
  <td><strong id="FW_DTRIM_P_FLPS">FW_DTRIM_P_FLPS</strong> (FLOAT)</td>
  <td>Pitch trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever flaps are fully deployed.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_P_SPOIL">FW_DTRIM_P_SPOIL</strong> (FLOAT)</td>
  <td>Pitch trim increment for spoiler configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever spoilers are fully deployed.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
  <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
  <td>Pitch trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_R_FLPS">FW_DTRIM_R_FLPS</strong> (FLOAT)</td>
  <td>Roll trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to TRIM_ROLL whenever flaps are fully deployed.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
  <td>Roll trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_R_VMIN">FW_DTRIM_R_VMIN</strong> (FLOAT)</td>
  <td>Roll trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
  <td>Yaw trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_Y_VMIN">FW_DTRIM_Y_VMIN</strong> (FLOAT)</td>
  <td>Yaw trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
  <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
  <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
  <td>Maximum manual pitch angle <p><strong>Comment:</strong> Maximum manual pitch angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
- <td>0.0 > 90.0 (0.5)</td>
+ <td>[0.0, 90.0] (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_P_SC">FW_MAN_P_SC</strong> (FLOAT)</td>
  <td>Manual pitch scale <p><strong>Comment:</strong> Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_MAX">FW_MAN_R_MAX</strong> (FLOAT)</td>
  <td>Maximum manual roll angle <p><strong>Comment:</strong> Maximum manual roll angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
- <td>0.0 > 90.0 (0.5)</td>
+ <td>[0.0, 90.0] (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_SC">FW_MAN_R_SC</strong> (FLOAT)</td>
  <td>Manual roll scale <p><strong>Comment:</strong> Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_Y_SC">FW_MAN_Y_SC</strong> (FLOAT)</td>
  <td>Manual yaw scale <p><strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_PR_FF">FW_PR_FF</strong> (FLOAT)</td>
  <td>Pitch rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>0.0 > 10.0 (0.05)</td>
+ <td>[0.0, 10.0] (0.05)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
  <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.0 > 0.5 (0.005)</td>
+ <td>[0.0, 0.5] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_PR_IMAX">FW_PR_IMAX</strong> (FLOAT)</td>
  <td>Pitch rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
- <td>0.0 > 1.0 (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
  <td>Pitch rate proportional gain <p><strong>Comment:</strong> This defines how much the elevator input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.0 > 1.0 (0.005)</td>
+ <td>[0.0, 1.0] (0.005)</td>
  <td>0.08</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_PSP_OFF">FW_PSP_OFF</strong> (FLOAT)</td>
  <td>Pitch setpoint offset (pitch at level flight) <p><strong>Comment:</strong> An airframe specific offset of the pitch setpoint in degrees, the value is added to the pitch setpoint and should correspond to the pitch at typical cruise speed of the airframe.</p>   </td>
- <td>-90.0 > 90.0 (0.5)</td>
+ <td>[-90.0, 90.0] (0.5)</td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_P_RMAX_NEG">FW_P_RMAX_NEG</strong> (FLOAT)</td>
  <td>Maximum negative / down pitch rate <p><strong>Comment:</strong> This limits the maximum pitch down up angular rate the controller will output (in degrees per second).</p>   </td>
- <td>0.0 > 90.0 (0.5)</td>
+ <td>[0.0, 90.0] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_P_RMAX_POS">FW_P_RMAX_POS</strong> (FLOAT)</td>
  <td>Maximum positive / up pitch rate <p><strong>Comment:</strong> This limits the maximum pitch up angular rate the controller will output (in degrees per second).</p>   </td>
- <td>0.0 > 90.0 (0.5)</td>
+ <td>[0.0, 90.0] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_P_TC">FW_P_TC</strong> (FLOAT)</td>
  <td>Attitude pitch time constant <p><strong>Comment:</strong> This defines the latency between a pitch step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
- <td>0.2 > 1.0 (0.05)</td>
+ <td>[0.2, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_RLL_TO_YAW_FF">FW_RLL_TO_YAW_FF</strong> (FLOAT)</td>
  <td>Roll control to yaw control feedforward gain <p><strong>Comment:</strong> This gain can be used to counteract the "adverse yaw" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator (rudder, airbrakes, ...) to counteract this effect.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
  <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
- <td>0.0 > 10.0 (0.05)</td>
+ <td>[0.0, 10.0] (0.05)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
  <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.0 > 0.2 (0.005)</td>
+ <td>[0.0, 0.2] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
  <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
- <td>0.0 > 1.0 (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
  <td>Roll rate proportional Gain <p><strong>Comment:</strong> This defines how much the aileron input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.0 > 1.0 (0.005)</td>
+ <td>[0.0, 1.0] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
  <td>Maximum roll rate <p><strong>Comment:</strong> This limits the maximum roll rate the controller will output (in degrees per second).</p>   </td>
- <td>0.0 > 90.0 (0.5)</td>
+ <td>[0.0, 90.0] (0.5)</td>
  <td>70.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_R_TC">FW_R_TC</strong> (FLOAT)</td>
  <td>Attitude Roll Time Constant <p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
- <td>0.4 > 1.0 (0.05)</td>
+ <td>[0.4, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_SPOILERS_DESC">FW_SPOILERS_DESC</strong> (FLOAT)</td>
  <td>Spoiler descend setting    </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_SPOILERS_LND">FW_SPOILERS_LND</strong> (FLOAT)</td>
  <td>Spoiler landing setting    </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.</td>
  <td>norm</td>
 </tr>
@@ -13070,28 +13062,28 @@ table {
 <tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
  <td>Wheel steering rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>0.0 > 10.0 (0.05)</td>
+ <td>[0.0, 10.0] (0.05)</td>
  <td>0.2</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_WR_I">FW_WR_I</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.0 > 0.5 (0.005)</td>
+ <td>[0.0, 0.5] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_WR_IMAX">FW_WR_IMAX</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
- <td>0.0 > 1.0 (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_WR_P">FW_WR_P</strong> (FLOAT)</td>
  <td>Wheel steering rate proportional gain <p><strong>Comment:</strong> This defines how much the wheel steering input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.0 > 1.0 (0.005)</td>
+ <td>[0.0, 1.0] (0.005)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
@@ -13105,44 +13097,68 @@ table {
 <tr>
  <td><strong id="FW_W_RMAX">FW_W_RMAX</strong> (FLOAT)</td>
  <td>Maximum wheel steering rate <p><strong>Comment:</strong> This limits the maximum wheel steering rate the controller will output (in degrees per second).</p>   </td>
- <td>0.0 > 90.0 (0.5)</td>
+ <td>[0.0, 90.0] (0.5)</td>
  <td>30.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_YR_FF">FW_YR_FF</strong> (FLOAT)</td>
  <td>Yaw rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>0.0 > 10.0 (0.05)</td>
+ <td>[0.0, 10.0] (0.05)</td>
  <td>0.3</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
  <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>0.0 > 50.0 (0.5)</td>
+ <td>[0.0, 50.0] (0.5)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
 <tr>
  <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
  <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
- <td>0.0 > 1.0 (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
  <td>Yaw rate proportional gain <p><strong>Comment:</strong> This defines how much the rudder input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>0.0 > 1.0 (0.005)</td>
+ <td>[0.0, 1.0] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_Y_RMAX">FW_Y_RMAX</strong> (FLOAT)</td>
  <td>Maximum yaw rate <p><strong>Comment:</strong> This limits the maximum yaw rate the controller will output (in degrees per second).</p>   </td>
- <td>0.0 > 90.0 (0.5)</td>
+ <td>[0.0, 90.0] (0.5)</td>
  <td>50.0</td>
  <td>deg/s</td>
+</tr>
+</tbody></table>
+
+## FW Geometry
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_WING_HEIGHT">FW_WING_HEIGHT</strong> (FLOAT)</td>
+ <td>Height (AGL) of the wings when the aircraft is on the ground <p><strong>Comment:</strong> This is used to constrain a minimum altitude below which we keep wings level to avoid wing tip strike. It's safer to give a slight margin here (> 0m)</p>   </td>
+ <td>[0.0, ?] (1)</td>
+ <td>0.5</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="FW_WING_SPAN">FW_WING_SPAN</strong> (FLOAT)</td>
+ <td>The aircraft's wing span (length from tip to tip) <p><strong>Comment:</strong> This is used for limiting the roll setpoint near the ground. (if multiple wings, take the longest span)</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>3.0</td>
+ <td>m</td>
 </tr>
 </tbody></table>
 
@@ -13151,48 +13167,58 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</strong> (FLOAT)</td>
  <td>Climbout Altitude difference <p><strong>Comment:</strong> If the altitude error exceeds this parameter, the system will climb out with maximum throttle and minimum airspeed until it is closer than this distance to the desired altitude. Mostly used for takeoff waypoints / modes. Set to 0 to disable climbout mode (not recommended).</p>   </td>
- <td>0.0 > 150.0 (0.5)</td>
+ <td>[0.0, 150.0] (0.5)</td>
  <td>10.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="FW_L1_DAMPING">FW_L1_DAMPING</strong> (FLOAT)</td>
  <td>L1 damping <p><strong>Comment:</strong> Damping factor for L1 control.</p>   </td>
- <td>0.6 > 0.9 (0.05)</td>
+ <td>[0.6, 0.9] (0.05)</td>
  <td>0.75</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_L1_PERIOD">FW_L1_PERIOD</strong> (FLOAT)</td>
  <td>L1 period <p><strong>Comment:</strong> Used to determine the L1 gain and controller time constant. This parameter is proportional to the L1 distance (which points ahead of the aircraft on the path it is following). A value of 18-25 seconds works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
- <td>7.0 > 50.0 (0.5)</td>
+ <td>[7.0, 50.0] (0.5)</td>
  <td>20.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_L1_R_SLEW_MAX">FW_L1_R_SLEW_MAX</strong> (FLOAT)</td>
- <td>L1 controller roll slew rate limit <p><strong>Comment:</strong> The maxium change in roll angle setpoint per second.</p>   </td>
- <td>0 &gt; ? (1)</td>
+ <td>L1 controller roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
+ <td>[0, ?] (1)</td>
  <td>90.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
+ <td><strong id="FW_LND_ABORT">FW_LND_ABORT</strong> (INT32)</td>
+ <td>Bit mask to set the automatic landing abort conditions <p><strong>Comment:</strong> Terrain estimation: bit 0: Abort if terrain is not found bit 1: Abort if terrain times out (after a first successful measurement) The last estimate is always used as ground, whether the last valid measurement or the land waypoint, depending on the selected abort criteria, until an abort condition is entered. If FW_LND_USETER == 0, these bits are ignored. TODO: Extend automatic abort conditions e.g. glide slope tracking error (horizontal and vertical)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Abort if terrain is not found</li> 
+  <li><strong>1:</strong> Abort if terrain times out (after a first successful measurement)</li> 
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_LND_AIRSPD_SC">FW_LND_AIRSPD_SC</strong> (FLOAT)</td>
  <td>Min. airspeed scaling factor for landing <p><strong>Comment:</strong> Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. FW_AIRSPD_MIN * FW_LND_AIRSPD_SC</p>   </td>
- <td>1.0 > 1.5 (0.01)</td>
+ <td>[1.0, 1.5] (0.01)</td>
  <td>1.3</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_ANG">FW_LND_ANG</strong> (FLOAT)</td>
- <td>Landing slope angle    </td>
- <td>1.0 > 15.0 (0.5)</td>
+ <td>Maximum landing slope angle <p><strong>Comment:</strong> Typically the desired landing slope angle when landing configuration (flaps, airspeed) is enabled. Set this value within the vehicle's performance limits.</p>   </td>
+ <td>[1.0, 15.0] (0.5)</td>
  <td>5.0</td>
  <td>deg</td>
 </tr>
@@ -13205,144 +13231,151 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_FLALT">FW_LND_FLALT</strong> (FLOAT)</td>
- <td>Landing flare altitude (relative to landing altitude)    </td>
- <td>0.0 > 25.0 (0.5)</td>
- <td>3.0</td>
+ <td>Landing flare altitude (relative to landing altitude) <p><strong>Comment:</strong> NOTE: max(FW_LND_FLALT, FW_LND_FL_TIME * |z-velocity|) is taken as the flare altitude</p>   </td>
+ <td>[0.0, ?] (0.5)</td>
+ <td>0.5</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_FL_PMAX">FW_LND_FL_PMAX</strong> (FLOAT)</td>
- <td>Flare, maximum pitch <p><strong>Comment:</strong> Maximum pitch during flare, a positive sign means nose up Applied once FW_LND_FLALT is reached</p>   </td>
- <td>0 > 45.0 (0.5)</td>
+ <td>Flare, maximum pitch <p><strong>Comment:</strong> Maximum pitch during flare, a positive sign means nose up Applied once flaring is triggered</p>   </td>
+ <td>[0, 45.0] (0.5)</td>
  <td>15.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_FL_PMIN">FW_LND_FL_PMIN</strong> (FLOAT)</td>
- <td>Flare, minimum pitch <p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once FW_LND_FLALT is reached</p>   </td>
- <td>0 > 15.0 (0.5)</td>
+ <td>Flare, minimum pitch <p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once flaring is triggered</p>   </td>
+ <td>[0, 15.0] (0.5)</td>
  <td>2.5</td>
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="FW_LND_HHDIST">FW_LND_HHDIST</strong> (FLOAT)</td>
- <td>Landing heading hold horizontal distance <p><strong>Comment:</strong> Set to 0 to disable heading hold.</p>   </td>
- <td>0 > 30.0 (0.5)</td>
- <td>15.0</td>
- <td>m</td>
+ <td><strong id="FW_LND_FL_SINK">FW_LND_FL_SINK</strong> (FLOAT)</td>
+ <td>Landing flare sink rate <p><strong>Comment:</strong> TECS will attempt to control the aircraft to this sink rate via pitch angle (throttle killed during flare)</p>   </td>
+ <td>[0.0, 1.0] (0.1)</td>
+ <td>0.25</td>
+ <td>m/s</td>
 </tr>
 <tr>
- <td><strong id="FW_LND_HVIRT">FW_LND_HVIRT</strong> (FLOAT)</td>
- <td>    </td>
- <td>1.0 > 15.0 (0.5)</td>
- <td>10.0</td>
+ <td><strong id="FW_LND_FL_TIME">FW_LND_FL_TIME</strong> (FLOAT)</td>
+ <td>Landing flare time <p><strong>Comment:</strong> Multiplied by the descent rate to calculate a dynamic altitude at which to trigger the flare. NOTE: max(FW_LND_FLALT, FW_LND_FL_TIME * descent rate) is taken as the flare altitude</p>   </td>
+ <td>[0.0, 5.0] (0.1)</td>
+ <td>1.0</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="FW_LND_NUDGE">FW_LND_NUDGE</strong> (INT32)</td>
+ <td>Landing touchdown nudging option <p><strong>Comment:</strong> Approach angle nudging: shifts the touchdown point laterally while keeping the approach entrance point constant Approach path nudging: shifts the touchdown point laterally along with the entire approach path This is useful for manually adjusting the landing point in real time when map or GNSS errors cause an offset from the desired landing vector. Nuding is done with yaw stick, constrained to FW_LND_TD_OFF (in meters) and the direction is relative to the vehicle heading (stick deflection to the right = land point moves to the right as seen by the vehicle).</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disable nudging</li>
+
+<li><strong>1:</strong> Nudge approach angle</li>
+
+<li><strong>2:</strong> Nudge approach path</li> 
+</ul>
+  </td>
+ <td>[0, 2] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_LND_TD_OFF">FW_LND_TD_OFF</strong> (FLOAT)</td>
+ <td>Maximum lateral position offset for the touchdown point    </td>
+ <td>[0.0, 10.0] (1)</td>
+ <td>3.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
  <td>Altitude time constant factor for landing <p><strong>Comment:</strong> Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
- <td>0.2 > 1.0 (0.1)</td>
+ <td>[0.2, 1.0] (0.1)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_LND_TLALT">FW_LND_TLALT</strong> (FLOAT)</td>
- <td>Landing throttle limit altitude (relative landing altitude) <p><strong>Comment:</strong> Default of -1.0 lets the system default to applying throttle limiting at 2/3 of the flare altitude.</p>   </td>
- <td>-1.0 > 30.0 (0.5)</td>
- <td>-1.0</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="FW_LND_USETER">FW_LND_USETER</strong> (INT32)</td>
- <td>Use terrain estimate during landing <p><strong>Comment:</strong> This is turned off by default and a waypoint or return altitude is normally used (or sea level for an arbitrary land position).</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
+ <td>Use terrain estimation during landing. This is critical for detecting when to flare, and should be enabled if possible <p><strong>Comment:</strong> NOTE: terrain estimate is currently solely derived from a distance sensor. If enabled and no measurement is found within a given timeout, the landing waypoint altitude will be used OR the landing will be aborted, depending on the criteria set in FW_LND_ABORT. If disabled, FW_LND_ABORT terrain based criteria are ignored.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disable the terrain estimate</li>
+
+<li><strong>1:</strong> Use the terrain estimate to trigger the flare (only)</li>
+
+<li><strong>2:</strong> Calculate landing glide slope relative to the terrain estimate</li> 
+</ul>
+  </td>
+ <td>[0, 2] </td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
- <td>RC stick configuraton fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
+ <td>RC stick configuration fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
   <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li> 
 </ul>
  </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MAX">FW_P_LIM_MAX</strong> (FLOAT)</td>
  <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
- <td>0.0 > 60.0 (0.5)</td>
+ <td>[0.0, 60.0] (0.5)</td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MIN">FW_P_LIM_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
- <td>-60.0 > 0.0 (0.5)</td>
+ <td>[-60.0, 0.0] (0.5)</td>
  <td>-45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
  <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for autonomous modes including altitude and position control.</p>   </td>
- <td>35.0 > 65.0 (0.5)</td>
+ <td>[35.0, 65.0] (0.5)</td>
  <td>50.0</td>
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="FW_THR_ALT_SCL">FW_THR_ALT_SCL</strong> (FLOAT)</td>
- <td>Scale throttle by pressure change <p><strong>Comment:</strong> Automatically adjust throttle to account for decreased air density at higher altitudes. Start with a scale factor of 1.0 and adjust for different propulsion systems. When flying without airspeed sensor this will help to keep a constant performance over large altitude ranges. The default value of 0 will disable scaling.</p>   </td>
- <td>0.0 > 10.0 (0.1)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_THR_CRUISE">FW_THR_CRUISE</strong> (FLOAT)</td>
- <td>Cruise throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve the desired cruise speed. Most airframes have a value of 0.5-0.7.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>0.6</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="FW_THR_IDLE">FW_THR_IDLE</strong> (FLOAT)</td>
- <td>Idle throttle <p><strong>Comment:</strong> This is the minimum throttle while on the ground For aircraft with internal combustion engine this parameter should be set above desired idle rpm.</p>   </td>
- <td>0.0 > 0.4 (0.01)</td>
- <td>0.15</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="FW_THR_LND_MAX">FW_THR_LND_MAX</strong> (FLOAT)</td>
- <td>Throttle limit during landing below throttle limit altitude <p><strong>Comment:</strong> During the flare of the autonomous landing process, this value will be set as throttle limit when the aircraft altitude is below FW_LND_TLALT.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
- <td>1.0</td>
+ <td>Idle throttle <p><strong>Comment:</strong> This is the minimum throttle while on the ground For aircraft with internal combustion engines, this parameter should be set above the desired idle rpm. For electric motors, idle should typically be set to zero. Note that in automatic modes, "landed" conditions will engage idle throttle.</p>   </td>
+ <td>[0.0, 0.4] (0.01)</td>
+ <td>0.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_MAX">FW_THR_MAX</strong> (FLOAT)</td>
  <td>Throttle limit max <p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For overpowered aircraft, this should be reduced to a value that provides sufficient thrust to climb at the maximum pitch angle PTCH_MAX.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_MIN">FW_THR_MIN</strong> (FLOAT)</td>
  <td>Throttle limit min <p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. For electric aircraft this will normally be set to zero, but can be set to a small non-zero value if a folding prop is fitted to prevent the prop from folding and unfolding repeatedly in-flight or to provide some aerodynamic drag from a turning prop to improve the descent rate. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_THR_SLEW_MAX">FW_THR_SLEW_MAX</strong> (FLOAT)</td>
  <td>Throttle max slew rate <p><strong>Comment:</strong> Maximum slew rate for the commanded throttle</p>   </td>
- <td>0.0 > 1.0 </td>
+ <td>[0.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
+ <td><strong id="FW_THR_TRIM">FW_THR_TRIM</strong> (FLOAT)</td>
+ <td>Trim throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight. Most airframes have a value of 0.5-0.7.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>0.6</td>
+ <td>norm</td>
+</tr>
+<tr>
  <td><strong id="FW_TKO_PITCH_MIN">FW_TKO_PITCH_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch during takeoff    </td>
- <td>-5.0 > 30.0 (0.5)</td>
+ <td>[-5.0, 30.0] (0.5)</td>
  <td>10.0</td>
  <td>deg</td>
 </tr>
@@ -13353,7 +13386,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -13366,28 +13399,28 @@ table {
 <tr>
  <td><strong id="LAUN_CAT_A">LAUN_CAT_A</strong> (FLOAT)</td>
  <td>Catapult accelerometer threshold <p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
- <td>0 &gt; ? (0.5)</td>
+ <td>[0, ?] (0.5)</td>
  <td>30.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="LAUN_CAT_MDEL">LAUN_CAT_MDEL</strong> (FLOAT)</td>
  <td>Motor delay <p><strong>Comment:</strong> Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate</p>   </td>
- <td>0.0 > 10.0 (0.5)</td>
+ <td>[0.0, 10.0] (0.5)</td>
  <td>0.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="LAUN_CAT_PMAX">LAUN_CAT_PMAX</strong> (FLOAT)</td>
  <td>Maximum pitch before the throttle is powered up (during motor delay phase) <p><strong>Comment:</strong> This is an extra limit for the maximum pitch which is imposed in the phase before the throttle turns on. This allows to limit the maximum pitch angle during a bungee launch (make the launch less steep).</p>   </td>
- <td>0.0 > 45.0 (0.5)</td>
+ <td>[0.0, 45.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="LAUN_CAT_T">LAUN_CAT_T</strong> (FLOAT)</td>
  <td>Catapult time threshold <p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
- <td>0.0 > 5.0 (0.05)</td>
+ <td>[0.0, 5.0] (0.05)</td>
  <td>0.05</td>
  <td>s</td>
 </tr>
@@ -13398,7 +13431,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -13411,7 +13444,7 @@ table {
 <tr>
  <td><strong id="NPFG_DAMPING">NPFG_DAMPING</strong> (FLOAT)</td>
  <td>NPFG damping ratio <p><strong>Comment:</strong> Damping ratio of the NPFG control law.</p>   </td>
- <td>0.10 > 1.00 (0.01)</td>
+ <td>[0.10, 1.00] (0.01)</td>
  <td>0.7</td>
  <td></td>
 </tr>
@@ -13425,7 +13458,7 @@ table {
 <tr>
  <td><strong id="NPFG_GSP_MAX_TK">NPFG_GSP_MAX_TK</strong> (FLOAT)</td>
  <td>Maximum, minimum forward ground speed for track keeping in excess wind <p><strong>Comment:</strong> The maximum value of the minimum forward ground speed that may be commanded by the track keeping excess wind handling logic. Commanded in full at the normalized track error fraction of the track error boundary and reduced to zero on track.</p>   </td>
- <td>0.0 > 10.0 (0.5)</td>
+ <td>[0.0, 10.0] (0.5)</td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
@@ -13439,28 +13472,28 @@ table {
 <tr>
  <td><strong id="NPFG_PERIOD">NPFG_PERIOD</strong> (FLOAT)</td>
  <td>NPFG period <p><strong>Comment:</strong> Period of the NPFG control law.</p>   </td>
- <td>1.0 > 100.0 (0.1)</td>
+ <td>[1.0, 100.0] (0.1)</td>
  <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="NPFG_PERIOD_SF">NPFG_PERIOD_SF</strong> (FLOAT)</td>
  <td>Period safety factor <p><strong>Comment:</strong> Multiplied by period for conservative minimum period bounding (when period lower bounding is enabled). 1.0 bounds at marginal stability.</p>   </td>
- <td>1.0 > 10.0 (0.1)</td>
+ <td>[1.0, 10.0] (0.1)</td>
  <td>1.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="NPFG_ROLL_TC">NPFG_ROLL_TC</strong> (FLOAT)</td>
  <td>Roll time constant <p><strong>Comment:</strong> Time constant of roll controller command / response, modeled as first order delay. Used to determine lower period bound. Setting zero disables automatic period bounding.</p>   </td>
- <td>0.00 > 2.00 (0.05)</td>
+ <td>[0.00, 2.00] (0.05)</td>
  <td>0.5</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="NPFG_SW_DST_MLT">NPFG_SW_DST_MLT</strong> (FLOAT)</td>
  <td>NPFG switch distance multiplier <p><strong>Comment:</strong> Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1. 1/pi (0.32) sets the switch distance equivalent to that of the L1 controller.</p>   </td>
- <td>0.1 > 1.0 (0.01)</td>
+ <td>[0.1, 1.0] (0.01)</td>
  <td>0.32</td>
  <td></td>
 </tr>
@@ -13492,174 +13525,174 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
  <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> If the CAS (calibrated airspeed) is above this value, the TECS controller will try to decrease airspeed more aggressively.</p>   </td>
- <td>0.5 > 40 (0.5)</td>
+ <td>[0.5, 40] (0.5)</td>
  <td>20.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
  <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively.</p>   </td>
- <td>0.5 > 40 (0.5)</td>
+ <td>[0.5, 40] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>0.5 > 40 (0.5)</td>
+ <td>[0.5, 40] (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
  <td>Cruise Airspeed (CAS) <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve if no other airspeed setpoint sources are present (e.g. through non-centered RC sticks).</p>   </td>
- <td>0.5 > 40 (0.5)</td>
+ <td>[0.5, 40] (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_GND_SPD_MIN">FW_GND_SPD_MIN</strong> (FLOAT)</td>
  <td>Minimum groundspeed <p><strong>Comment:</strong> The controller will increase the commanded airspeed to maintain this minimum groundspeed to the next waypoint.</p>   </td>
- <td>0.0 > 40 (0.5)</td>
+ <td>[0.0, 40] (0.5)</td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_ALT_TC">FW_T_ALT_TC</strong> (FLOAT)</td>
  <td>Altitude error time constant    </td>
- <td>2.0 > ? (0.5)</td>
+ <td>[2.0, ?] (0.5)</td>
  <td>5.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
  <td>Maximum climb rate <p><strong>Comment:</strong> This is the best climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the default value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced. The setting of this parameter can be checked by commanding a positive altitude change of 100m in loiter, RTL or guided mode. If the throttle required to climb is close to THR_MAX and the aircraft is maintaining airspeed, then this parameter is set correctly. If the airspeed starts to reduce, then the parameter is set to high, and if the throttle demand required to climb and maintain speed is noticeably less than FW_THR_MAX, then either FW_T_CLMB_MAX should be increased or FW_THR_MAX reduced.</p>   </td>
- <td>1.0 > 15.0 (0.5)</td>
+ <td>[1.0, 15.0] (0.5)</td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_CLMB_R_SP">FW_T_CLMB_R_SP</strong> (FLOAT)</td>
  <td>Default target climbrate <p><strong>Comment:</strong> The default rate at which the vehicle will climb in autonomous modes to achieve altitude setpoints. In manual modes this defines the maximum rate at which the altitude setpoint can be increased.</p>   </td>
- <td>0.5 > 15 (0.01)</td>
+ <td>[0.5, 15] (0.01)</td>
  <td>3.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
  <td>Height rate feed forward    </td>
- <td>0.0 > 1.0 (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>0.3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_I_GAIN_PIT">FW_T_I_GAIN_PIT</strong> (FLOAT)</td>
  <td>Integrator gain pitch <p><strong>Comment:</strong> This is the integrator gain on the pitch part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
- <td>0.0 > 2.0 (0.05)</td>
+ <td>[0.0, 2.0] (0.05)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_I_GAIN_THR">FW_T_I_GAIN_THR</strong> (FLOAT)</td>
  <td>Integrator gain throttle <p><strong>Comment:</strong> This is the integrator gain on the throttle part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
- <td>0.0 > 2.0 (0.05)</td>
+ <td>[0.0, 2.0] (0.05)</td>
  <td>0.3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_PTCH_DAMP">FW_T_PTCH_DAMP</strong> (FLOAT)</td>
  <td>Pitch damping factor <p><strong>Comment:</strong> This is the damping gain for the pitch demand loop. Increase to add damping to correct for oscillations in height. The default value of 0.0 will work well provided the pitch to servo controller has been tuned properly.</p>   </td>
- <td>0.0 > 2.0 (0.1)</td>
+ <td>[0.0, 2.0] (0.1)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_RLL2THR">FW_T_RLL2THR</strong> (FLOAT)</td>
  <td>Roll -> Throttle feedforward <p><strong>Comment:</strong> Increasing this gain turn increases the amount of throttle that will be used to compensate for the additional drag created by turning. Ideally this should be set to  approximately 10 x the extra sink rate in m/s created by a 45 degree bank turn. Increase this gain if the aircraft initially loses energy in turns and reduce if the aircraft initially gains energy in turns. Efficient high aspect-ratio aircraft (eg powered sailplanes) can use a lower value, whereas inefficient low aspect-ratio models (eg delta wings) can use a higher value.</p>   </td>
- <td>0.0 > 20.0 (0.5)</td>
+ <td>[0.0, 20.0] (0.5)</td>
  <td>15.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_SEB_R_FF">FW_T_SEB_R_FF</strong> (FLOAT)</td>
  <td>Specific total energy balance rate feedforward gain    </td>
- <td>0.5 > 3 (0.01)</td>
+ <td>[0.5, 3] (0.01)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_SINK_MAX">FW_T_SINK_MAX</strong> (FLOAT)</td>
  <td>Maximum descent rate <p><strong>Comment:</strong> This sets the maximum descent rate that the controller will use. If this value is too large, the aircraft can over-speed on descent. This should be set to a value that can be achieved without exceeding the lower pitch angle limit and without over-speeding the aircraft.</p>   </td>
- <td>1.0 > 15.0 (0.5)</td>
+ <td>[1.0, 15.0] (0.5)</td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_SINK_MIN">FW_T_SINK_MIN</strong> (FLOAT)</td>
  <td>Minimum descent rate <p><strong>Comment:</strong> This is the sink rate of the aircraft with the throttle set to THR_MIN and flown at the same airspeed as used to measure FW_T_CLMB_MAX.</p>   </td>
- <td>1.0 > 5.0 (0.5)</td>
+ <td>[1.0, 5.0] (0.5)</td>
  <td>2.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_SINK_R_SP">FW_T_SINK_R_SP</strong> (FLOAT)</td>
  <td>Default target sinkrate <p><strong>Comment:</strong> The default rate at which the vehicle will sink in autonomous modes to achieve altitude setpoints. In manual modes this defines the maximum rate at which the altitude setpoint can be decreased.</p>   </td>
- <td>0.5 > 15 (0.01)</td>
+ <td>[0.5, 15] (0.01)</td>
  <td>2.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_SPDWEIGHT">FW_T_SPDWEIGHT</strong> (FLOAT)</td>
  <td>Speed <--> Altitude priority <p><strong>Comment:</strong> This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Note to Glider Pilots - set this parameter to 2.0 (The glider will adjust its pitch angle to maintain airspeed, ignoring changes in height).</p>   </td>
- <td>0.0 > 2.0 (1.0)</td>
+ <td>[0.0, 2.0] (1.0)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_SPD_OMEGA">FW_T_SPD_OMEGA</strong> (FLOAT)</td>
  <td>Complementary filter "omega" parameter for speed <p><strong>Comment:</strong> This is the cross-over frequency (in radians/second) of the complementary filter used to fuse longitudinal acceleration and airspeed to obtain an improved airspeed estimate. Increasing this frequency weights the solution more towards use of the airspeed sensor, whilst reducing it weights the solution more towards use of the accelerometer data.</p>   </td>
- <td>1.0 > 10.0 (0.5)</td>
+ <td>[1.0, 10.0] (0.5)</td>
  <td>2.0</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_STE_R_TC">FW_T_STE_R_TC</strong> (FLOAT)</td>
  <td>Specific total energy rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the specific total energy rate used for throttle damping.</p>   </td>
- <td>0.0 > 2 (0.01)</td>
+ <td>[0.0, 2] (0.01)</td>
  <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_TAS_R_TC">FW_T_TAS_R_TC</strong> (FLOAT)</td>
  <td>True airspeed rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the true airspeed rate.</p>   </td>
- <td>0.0 > 2 (0.01)</td>
+ <td>[0.0, 2] (0.01)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_TAS_TC">FW_T_TAS_TC</strong> (FLOAT)</td>
  <td>True airspeed error time constant    </td>
- <td>2.0 > ? (0.5)</td>
+ <td>[2.0, ?] (0.5)</td>
  <td>5.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_THR_DAMP">FW_T_THR_DAMP</strong> (FLOAT)</td>
  <td>Throttle damping factor <p><strong>Comment:</strong> This is the damping gain for the throttle demand loop. Increase to add damping to correct for oscillations in speed and height.</p>   </td>
- <td>0.0 > 2.0 (0.1)</td>
+ <td>[0.0, 2.0] (0.1)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_T_VERT_ACC">FW_T_VERT_ACC</strong> (FLOAT)</td>
  <td>Maximum vertical acceleration <p><strong>Comment:</strong> This is the maximum vertical acceleration (in m/s/s) either up or down that the controller will use to correct speed or height errors. The default value of 7 m/s/s (equivalent to +- 0.7 g) allows for reasonably aggressive pitch changes if required to recover from under-speed conditions.</p>   </td>
- <td>1.0 > 10.0 (0.5)</td>
+ <td>[1.0, 10.0] (0.5)</td>
  <td>7.0</td>
  <td>m/s^2</td>
 </tr>
@@ -13670,7 +13703,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -13684,21 +13717,21 @@ table {
 <tr>
  <td><strong id="FD_ACT_MOT_C2T">FD_ACT_MOT_C2T</strong> (FLOAT)</td>
  <td>Motor Failure Current/Throttle Threshold <p><strong>Comment:</strong> Motor failure triggers only below this current value</p>   </td>
- <td>0.0 > 50.0 (1)</td>
+ <td>[0.0, 50.0] (1)</td>
  <td>2.0</td>
  <td>A/%</td>
 </tr>
 <tr>
  <td><strong id="FD_ACT_MOT_THR">FD_ACT_MOT_THR</strong> (FLOAT)</td>
  <td>Motor Failure Throttle Threshold <p><strong>Comment:</strong> Motor failure triggers only above this throttle value.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.2</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FD_ACT_MOT_TOUT">FD_ACT_MOT_TOUT</strong> (INT32)</td>
  <td>Motor Failure Time Threshold <p><strong>Comment:</strong> Motor failure triggers only if the throttle threshold and the current to throttle threshold are violated for this time.</p>   </td>
- <td>10 > 10000 (100)</td>
+ <td>[10, 10000] (100)</td>
  <td>100</td>
  <td>ms</td>
 </tr>
@@ -13727,35 +13760,35 @@ table {
 <tr>
  <td><strong id="FD_FAIL_P">FD_FAIL_P</strong> (INT32)</td>
  <td>FailureDetector Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
- <td>0 > 180 </td>
+ <td>[0, 180] </td>
  <td>60</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FD_FAIL_P_TTRI">FD_FAIL_P_TTRI</strong> (FLOAT)</td>
  <td>Pitch failure trigger time <p><strong>Comment:</strong> Seconds (decimal) that pitch has to exceed FD_FAIL_P before being considered as a failure.</p>   </td>
- <td>0.02 > 5 </td>
+ <td>[0.02, 5] </td>
  <td>0.3</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="FD_FAIL_R">FD_FAIL_R</strong> (INT32)</td>
  <td>FailureDetector Max Roll <p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
- <td>0 > 180 </td>
+ <td>[0, 180] </td>
  <td>60</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FD_FAIL_R_TTRI">FD_FAIL_R_TTRI</strong> (FLOAT)</td>
  <td>Roll failure trigger time <p><strong>Comment:</strong> Seconds (decimal) that roll has to exceed FD_FAIL_R before being considered as a failure.</p>   </td>
- <td>0.02 > 5 </td>
+ <td>[0.02, 5] </td>
  <td>0.3</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="FD_IMB_PROP_THR">FD_IMB_PROP_THR</strong> (INT32)</td>
  <td>Imbalanced propeller check threshold <p><strong>Comment:</strong> Value at which the imbalanced propeller metric (based on horizontal and vertical acceleration variance) triggers a failure Setting this value to 0 disables the feature.</p>   </td>
- <td>0 > 1000 (1)</td>
+ <td>[0, 1000] (1)</td>
  <td>30</td>
  <td></td>
 </tr>
@@ -13766,7 +13799,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -13774,7 +13807,7 @@ table {
  <td>Altitude control mode <p><strong>Comment:</strong> Maintain altitude or track target's altitude. When maintaining the altitude, the drone can crash into terrain when the target moves uphill. When tracking the target's altitude, the follow altitude NAV_MIN_FT_HT should be high enough to prevent terrain collisions due to GPS inaccuracies of the target.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> 2D Tracking: Maintain constant altitude relative to home and track XY position only</li>
 
-<li><strong>1:</strong> 2D + Terrain: Mantain constant altitude relative to terrain below and track XY position</li>
+<li><strong>1:</strong> 2D + Terrain: Maintain constant altitude relative to terrain below and track XY position</li>
 
 <li><strong>2:</strong> 3D Tracking: Track target's altitude (be aware that GPS altitude bias usually makes this useless)</li> 
 </ul>
@@ -13786,35 +13819,35 @@ table {
 <tr>
  <td><strong id="FLW_TGT_DST">FLW_TGT_DST</strong> (FLOAT)</td>
  <td>Distance to follow target from <p><strong>Comment:</strong> The distance in meters to follow the target at</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>8.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="FLW_TGT_FA">FLW_TGT_FA</strong> (FLOAT)</td>
  <td>Follow Angle setting in degrees <p><strong>Comment:</strong> Angle to follow the target from. 0.0 Equals straight in front of the target's course (direction of motion) and the angle increases in clockwise direction, meaning Right-side would be 90.0 degrees while Left-side is -90.0 degrees Note: When the user force sets the angle out of the min/max range, it will be wrapped (e.g. 480 -> 120) in the range to gracefully handle the out of range.</p>   </td>
- <td>-180.0 > 180.0 </td>
+ <td>[-180.0, 180.0] </td>
  <td>180.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FLW_TGT_HT">FLW_TGT_HT</strong> (FLOAT)</td>
  <td>Follow target height <p><strong>Comment:</strong> Following height above the target</p>   </td>
- <td>8.0 > ? </td>
+ <td>[8.0, ?] </td>
  <td>8.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="FLW_TGT_MAX_VEL">FLW_TGT_MAX_VEL</strong> (FLOAT)</td>
  <td>Maximum tangential velocity setting for generating the follow orbit trajectory <p><strong>Comment:</strong> This is the maximum tangential velocity the drone will circle around the target whenever an orbit angle setpoint changes. Higher value means more aggressive follow behavior.</p>   </td>
- <td>0.0 > 20.0 </td>
+ <td>[0.0, 20.0] </td>
  <td>5.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FLW_TGT_RS">FLW_TGT_RS</strong> (FLOAT)</td>
  <td>Responsiveness to target movement in Target Estimator <p><strong>Comment:</strong> lower values increase the responsiveness to changing position, but also ignore less noise</p>   </td>
- <td>0.0 > 1.0 </td>
+ <td>[0.0, 1.0] </td>
  <td>0.1</td>
  <td></td>
 </tr>
@@ -13825,7 +13858,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -13871,7 +13904,7 @@ table {
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 31 </td>
+ <td>[0, 31] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13894,7 +13927,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 5 </td>
+ <td>[0, 5] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -13941,7 +13974,7 @@ table {
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 31 </td>
+ <td>[0, 31] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -13964,7 +13997,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 5 </td>
+ <td>[0, 5] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -13978,7 +14011,7 @@ table {
 <li><strong>2:</strong> RTCM output (PPK)</li> 
 </ul>
   </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -14005,7 +14038,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 9 </td>
+ <td>[0, 9] </td>
  <td>7</td>
  <td></td>
 </tr>
@@ -14024,7 +14057,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -14032,7 +14065,7 @@ table {
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
  <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 360 </td>
+ <td>[0, 360] </td>
  <td>0.</td>
  <td>deg</td>
 </tr>
@@ -14051,7 +14084,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -14070,7 +14103,7 @@ table {
 <li><strong>5:</strong> Land mode</li> 
 </ul>
   </td>
- <td>0 > 5 </td>
+ <td>[0, 5] </td>
  <td>2</td>
  <td></td>
 </tr>
@@ -14082,28 +14115,28 @@ table {
 <li><strong>1:</strong> Raw barometer altitude (assuming standard atmospheric pressure)</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="GF_COUNT">GF_COUNT</strong> (INT32)</td>
  <td>Geofence counter limit <p><strong>Comment:</strong> Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered</p>   </td>
- <td>-1 > 10 (1)</td>
+ <td>[-1, 10] (1)</td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="GF_MAX_HOR_DIST">GF_MAX_HOR_DIST</strong> (FLOAT)</td>
  <td>Max horizontal distance in meters <p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
- <td>0 > 10000 (1)</td>
+ <td>[0, 10000] (1)</td>
  <td>0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GF_MAX_VER_DIST">GF_MAX_VER_DIST</strong> (FLOAT)</td>
  <td>Max vertical distance in meters <p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
- <td>0 > 10000 (1)</td>
+ <td>[0, 10000] (1)</td>
  <td>0</td>
  <td>m</td>
 </tr>
@@ -14122,7 +14155,7 @@ table {
 <li><strong>1:</strong> GPS</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -14133,7 +14166,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -14181,70 +14214,70 @@ table {
 <tr>
  <td><strong id="CA_HELI_PITCH_C0">CA_HELI_PITCH_C0</strong> (FLOAT)</td>
  <td>Collective pitch curve at position 0 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 0 for a given thrust setpoint.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_PITCH_C1">CA_HELI_PITCH_C1</strong> (FLOAT)</td>
  <td>Collective pitch curve at position 1 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 1 for a given thrust setpoint.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.15</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_PITCH_C2">CA_HELI_PITCH_C2</strong> (FLOAT)</td>
  <td>Collective pitch curve at position 2 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 2 for a given thrust setpoint.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.25</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_PITCH_C3">CA_HELI_PITCH_C3</strong> (FLOAT)</td>
  <td>Collective pitch curve at position 3 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 3 for a given thrust setpoint.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.35</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_PITCH_C4">CA_HELI_PITCH_C4</strong> (FLOAT)</td>
  <td>Collective pitch curve at position 4 <p><strong>Comment:</strong> Defines the collective pitch at the interval position 4 for a given thrust setpoint.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.45</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_THR_C0">CA_HELI_THR_C0</strong> (FLOAT)</td>
  <td>Throttle curve at position 0 <p><strong>Comment:</strong> Defines the output throttle at the interval position 0.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_THR_C1">CA_HELI_THR_C1</strong> (FLOAT)</td>
  <td>Throttle curve at position 1 <p><strong>Comment:</strong> Defines the output throttle at the interval position 1.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_THR_C2">CA_HELI_THR_C2</strong> (FLOAT)</td>
  <td>Throttle curve at position 2 <p><strong>Comment:</strong> Defines the output throttle at the interval position 2.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_THR_C3">CA_HELI_THR_C3</strong> (FLOAT)</td>
  <td>Throttle curve at position 3 <p><strong>Comment:</strong> Defines the output throttle at the interval position 3.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>0.8</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_HELI_THR_C4">CA_HELI_THR_C4</strong> (FLOAT)</td>
  <td>Throttle curve at position 4 <p><strong>Comment:</strong> Defines the output throttle at the interval position 4.</p>   </td>
- <td>0 > 1 (0.1)</td>
+ <td>[0, 1] (0.1)</td>
  <td>1</td>
  <td></td>
 </tr>
@@ -14265,140 +14298,140 @@ table {
 <tr>
  <td><strong id="CA_R0_SLEW">CA_R0_SLEW</strong> (FLOAT)</td>
  <td>Motor 0 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R10_SLEW">CA_R10_SLEW</strong> (FLOAT)</td>
  <td>Motor 10 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R11_SLEW">CA_R11_SLEW</strong> (FLOAT)</td>
  <td>Motor 11 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R1_SLEW">CA_R1_SLEW</strong> (FLOAT)</td>
  <td>Motor 1 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R2_SLEW">CA_R2_SLEW</strong> (FLOAT)</td>
  <td>Motor 2 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R3_SLEW">CA_R3_SLEW</strong> (FLOAT)</td>
  <td>Motor 3 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R4_SLEW">CA_R4_SLEW</strong> (FLOAT)</td>
  <td>Motor 4 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R5_SLEW">CA_R5_SLEW</strong> (FLOAT)</td>
  <td>Motor 5 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R6_SLEW">CA_R6_SLEW</strong> (FLOAT)</td>
  <td>Motor 6 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R7_SLEW">CA_R7_SLEW</strong> (FLOAT)</td>
  <td>Motor 7 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R8_SLEW">CA_R8_SLEW</strong> (FLOAT)</td>
  <td>Motor 8 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_R9_SLEW">CA_R9_SLEW</strong> (FLOAT)</td>
  <td>Motor 9 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through the full output range. A value x means that the motor signal can only go from 0 to 1 in minimum x seconds (in case of reversible motors, the range is -1 to 1). Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.01)</td>
+ <td>[0, 10] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_AX">CA_ROTOR0_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 0 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_AY">CA_ROTOR0_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 0 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_AZ">CA_ROTOR0_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 0 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_CT">CA_ROTOR0_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 0 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_KM">CA_ROTOR0_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 0 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PX">CA_ROTOR0_PX</strong> (FLOAT)</td>
  <td>Position of rotor 0 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PY">CA_ROTOR0_PY</strong> (FLOAT)</td>
  <td>Position of rotor 0 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR0_PZ">CA_ROTOR0_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 0 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14423,56 +14456,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR10_AX">CA_ROTOR10_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 10 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_AY">CA_ROTOR10_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 10 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_AZ">CA_ROTOR10_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 10 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_CT">CA_ROTOR10_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 10 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_KM">CA_ROTOR10_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 10 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PX">CA_ROTOR10_PX</strong> (FLOAT)</td>
  <td>Position of rotor 10 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PY">CA_ROTOR10_PY</strong> (FLOAT)</td>
  <td>Position of rotor 10 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR10_PZ">CA_ROTOR10_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 10 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14497,56 +14530,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR11_AX">CA_ROTOR11_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 11 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_AY">CA_ROTOR11_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 11 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_AZ">CA_ROTOR11_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 11 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_CT">CA_ROTOR11_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 11 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_KM">CA_ROTOR11_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 11 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PX">CA_ROTOR11_PX</strong> (FLOAT)</td>
  <td>Position of rotor 11 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PY">CA_ROTOR11_PY</strong> (FLOAT)</td>
  <td>Position of rotor 11 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR11_PZ">CA_ROTOR11_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 11 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14571,56 +14604,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR1_AX">CA_ROTOR1_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 1 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_AY">CA_ROTOR1_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 1 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_AZ">CA_ROTOR1_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 1 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_CT">CA_ROTOR1_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 1 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_KM">CA_ROTOR1_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 1 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PX">CA_ROTOR1_PX</strong> (FLOAT)</td>
  <td>Position of rotor 1 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PY">CA_ROTOR1_PY</strong> (FLOAT)</td>
  <td>Position of rotor 1 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR1_PZ">CA_ROTOR1_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 1 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14645,56 +14678,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR2_AX">CA_ROTOR2_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 2 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_AY">CA_ROTOR2_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 2 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_AZ">CA_ROTOR2_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 2 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_CT">CA_ROTOR2_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 2 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_KM">CA_ROTOR2_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 2 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PX">CA_ROTOR2_PX</strong> (FLOAT)</td>
  <td>Position of rotor 2 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PY">CA_ROTOR2_PY</strong> (FLOAT)</td>
  <td>Position of rotor 2 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR2_PZ">CA_ROTOR2_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 2 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14719,56 +14752,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR3_AX">CA_ROTOR3_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 3 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_AY">CA_ROTOR3_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 3 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_AZ">CA_ROTOR3_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 3 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_CT">CA_ROTOR3_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 3 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_KM">CA_ROTOR3_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 3 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PX">CA_ROTOR3_PX</strong> (FLOAT)</td>
  <td>Position of rotor 3 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PY">CA_ROTOR3_PY</strong> (FLOAT)</td>
  <td>Position of rotor 3 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR3_PZ">CA_ROTOR3_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 3 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14793,56 +14826,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR4_AX">CA_ROTOR4_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 4 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_AY">CA_ROTOR4_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 4 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_AZ">CA_ROTOR4_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 4 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_CT">CA_ROTOR4_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 4 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_KM">CA_ROTOR4_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 4 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PX">CA_ROTOR4_PX</strong> (FLOAT)</td>
  <td>Position of rotor 4 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PY">CA_ROTOR4_PY</strong> (FLOAT)</td>
  <td>Position of rotor 4 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR4_PZ">CA_ROTOR4_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 4 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14867,56 +14900,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR5_AX">CA_ROTOR5_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 5 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_AY">CA_ROTOR5_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 5 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_AZ">CA_ROTOR5_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 5 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_CT">CA_ROTOR5_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 5 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_KM">CA_ROTOR5_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 5 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PX">CA_ROTOR5_PX</strong> (FLOAT)</td>
  <td>Position of rotor 5 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PY">CA_ROTOR5_PY</strong> (FLOAT)</td>
  <td>Position of rotor 5 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR5_PZ">CA_ROTOR5_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 5 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -14941,56 +14974,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR6_AX">CA_ROTOR6_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 6 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_AY">CA_ROTOR6_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 6 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_AZ">CA_ROTOR6_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 6 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_CT">CA_ROTOR6_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 6 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_KM">CA_ROTOR6_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 6 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PX">CA_ROTOR6_PX</strong> (FLOAT)</td>
  <td>Position of rotor 6 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PY">CA_ROTOR6_PY</strong> (FLOAT)</td>
  <td>Position of rotor 6 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR6_PZ">CA_ROTOR6_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 6 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -15015,56 +15048,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR7_AX">CA_ROTOR7_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 7 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_AY">CA_ROTOR7_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 7 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_AZ">CA_ROTOR7_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 7 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_CT">CA_ROTOR7_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 7 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_KM">CA_ROTOR7_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 7 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PX">CA_ROTOR7_PX</strong> (FLOAT)</td>
  <td>Position of rotor 7 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PY">CA_ROTOR7_PY</strong> (FLOAT)</td>
  <td>Position of rotor 7 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR7_PZ">CA_ROTOR7_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 7 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -15089,56 +15122,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR8_AX">CA_ROTOR8_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 8 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_AY">CA_ROTOR8_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 8 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_AZ">CA_ROTOR8_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 8 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_CT">CA_ROTOR8_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 8 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_KM">CA_ROTOR8_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 8 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PX">CA_ROTOR8_PX</strong> (FLOAT)</td>
  <td>Position of rotor 8 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PY">CA_ROTOR8_PY</strong> (FLOAT)</td>
  <td>Position of rotor 8 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR8_PZ">CA_ROTOR8_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 8 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -15163,56 +15196,56 @@ table {
 <tr>
  <td><strong id="CA_ROTOR9_AX">CA_ROTOR9_AX</strong> (FLOAT)</td>
  <td>Axis of rotor 9 thrust vector, X body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_AY">CA_ROTOR9_AY</strong> (FLOAT)</td>
  <td>Axis of rotor 9 thrust vector, Y body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_AZ">CA_ROTOR9_AZ</strong> (FLOAT)</td>
  <td>Axis of rotor 9 thrust vector, Z body axis component <p><strong>Comment:</strong> Only the direction is considered (the vector is normalized).</p>   </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_CT">CA_ROTOR9_CT</strong> (FLOAT)</td>
  <td>Thrust coefficient of rotor 9 <p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between actuator minimum and maximum) is the output signal sent to the motor controller.</p>   </td>
- <td>0 > 100 (1)</td>
+ <td>[0, 100] (1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_KM">CA_ROTOR9_KM</strong> (FLOAT)</td>
  <td>Moment coefficient of rotor 9 <p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust. Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.05</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PX">CA_ROTOR9_PX</strong> (FLOAT)</td>
  <td>Position of rotor 9 along X body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PY">CA_ROTOR9_PY</strong> (FLOAT)</td>
  <td>Position of rotor 9 along Y body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="CA_ROTOR9_PZ">CA_ROTOR9_PZ</strong> (FLOAT)</td>
  <td>Position of rotor 9 along Z body axis    </td>
- <td>-100 > 100 (0.1)</td>
+ <td>[-100, 100] (0.1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
@@ -15284,63 +15317,63 @@ table {
   <li><strong>11:</strong> Motor 12</li> 
 </ul>
  </td>
- <td>0 > 4095 </td>
+ <td>[0, 4095] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ANG0">CA_SP0_ANG0</strong> (FLOAT)</td>
  <td>Angle for swash plate servo 0    </td>
- <td>0 > 360 (10)</td>
+ <td>[0, 360] (10)</td>
  <td>0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ANG1">CA_SP0_ANG1</strong> (FLOAT)</td>
  <td>Angle for swash plate servo 1    </td>
- <td>0 > 360 (10)</td>
+ <td>[0, 360] (10)</td>
  <td>140</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ANG2">CA_SP0_ANG2</strong> (FLOAT)</td>
  <td>Angle for swash plate servo 2    </td>
- <td>0 > 360 (10)</td>
+ <td>[0, 360] (10)</td>
  <td>220</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ANG3">CA_SP0_ANG3</strong> (FLOAT)</td>
  <td>Angle for swash plate servo 3    </td>
- <td>0 > 360 (10)</td>
+ <td>[0, 360] (10)</td>
  <td>0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ARM_L0">CA_SP0_ARM_L0</strong> (FLOAT)</td>
  <td>Arm length for swash plate servo 0 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
- <td>0 > 10 (0.1)</td>
+ <td>[0, 10] (0.1)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ARM_L1">CA_SP0_ARM_L1</strong> (FLOAT)</td>
  <td>Arm length for swash plate servo 1 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
- <td>0 > 10 (0.1)</td>
+ <td>[0, 10] (0.1)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ARM_L2">CA_SP0_ARM_L2</strong> (FLOAT)</td>
  <td>Arm length for swash plate servo 2 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
- <td>0 > 10 (0.1)</td>
+ <td>[0, 10] (0.1)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SP0_ARM_L3">CA_SP0_ARM_L3</strong> (FLOAT)</td>
  <td>Arm length for swash plate servo 3 <p><strong>Comment:</strong> This is relative to the other arm lengths.</p>   </td>
- <td>0 > 10 (0.1)</td>
+ <td>[0, 10] (0.1)</td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -15359,63 +15392,63 @@ table {
 <tr>
  <td><strong id="CA_SV0_SLEW">CA_SV0_SLEW</strong> (FLOAT)</td>
  <td>Servo 0 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV1_SLEW">CA_SV1_SLEW</strong> (FLOAT)</td>
  <td>Servo 1 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV2_SLEW">CA_SV2_SLEW</strong> (FLOAT)</td>
  <td>Servo 2 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV3_SLEW">CA_SV3_SLEW</strong> (FLOAT)</td>
  <td>Servo 3 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV4_SLEW">CA_SV4_SLEW</strong> (FLOAT)</td>
  <td>Servo 4 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV5_SLEW">CA_SV5_SLEW</strong> (FLOAT)</td>
  <td>Servo 5 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV6_SLEW">CA_SV6_SLEW</strong> (FLOAT)</td>
  <td>Servo 6 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV7_SLEW">CA_SV7_SLEW</strong> (FLOAT)</td>
  <td>Servo 7 slew rate limit <p><strong>Comment:</strong> Minimum time allowed for the servo input signal to pass through the full output range. A value x means that the servo signal can only go from -1 to 1 in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0 > 10 (0.05)</td>
+ <td>[0, 10] (0.05)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CA_SV_CS0_TRIM">CA_SV_CS0_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 0 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15475,7 +15508,7 @@ table {
 <tr>
  <td><strong id="CA_SV_CS1_TRIM">CA_SV_CS1_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 1 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15535,7 +15568,7 @@ table {
 <tr>
  <td><strong id="CA_SV_CS2_TRIM">CA_SV_CS2_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 2 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15595,7 +15628,7 @@ table {
 <tr>
  <td><strong id="CA_SV_CS3_TRIM">CA_SV_CS3_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 3 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15655,7 +15688,7 @@ table {
 <tr>
  <td><strong id="CA_SV_CS4_TRIM">CA_SV_CS4_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 4 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15715,7 +15748,7 @@ table {
 <tr>
  <td><strong id="CA_SV_CS5_TRIM">CA_SV_CS5_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 5 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15775,7 +15808,7 @@ table {
 <tr>
  <td><strong id="CA_SV_CS6_TRIM">CA_SV_CS6_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 6 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15835,7 +15868,7 @@ table {
 <tr>
  <td><strong id="CA_SV_CS7_TRIM">CA_SV_CS7_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 7 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -15937,14 +15970,14 @@ table {
 <tr>
  <td><strong id="CA_SV_TL0_MAXA">CA_SV_TL0_MAXA</strong> (FLOAT)</td>
  <td>Tilt Servo 0 Tilt Angle at Maximum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the maximum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>90.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SV_TL0_MINA">CA_SV_TL0_MINA</strong> (FLOAT)</td>
  <td>Tilt Servo 0 Tilt Angle at Minimum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the minimum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
@@ -15956,7 +15989,7 @@ table {
 <li><strong>90:</strong> Towards Right</li> 
 </ul>
   </td>
- <td>0 > 359 </td>
+ <td>[0, 359] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -15979,14 +16012,14 @@ table {
 <tr>
  <td><strong id="CA_SV_TL1_MAXA">CA_SV_TL1_MAXA</strong> (FLOAT)</td>
  <td>Tilt Servo 1 Tilt Angle at Maximum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the maximum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>90.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SV_TL1_MINA">CA_SV_TL1_MINA</strong> (FLOAT)</td>
  <td>Tilt Servo 1 Tilt Angle at Minimum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the minimum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
@@ -15998,7 +16031,7 @@ table {
 <li><strong>90:</strong> Towards Right</li> 
 </ul>
   </td>
- <td>0 > 359 </td>
+ <td>[0, 359] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -16021,14 +16054,14 @@ table {
 <tr>
  <td><strong id="CA_SV_TL2_MAXA">CA_SV_TL2_MAXA</strong> (FLOAT)</td>
  <td>Tilt Servo 2 Tilt Angle at Maximum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the maximum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>90.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SV_TL2_MINA">CA_SV_TL2_MINA</strong> (FLOAT)</td>
  <td>Tilt Servo 2 Tilt Angle at Minimum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the minimum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
@@ -16040,7 +16073,7 @@ table {
 <li><strong>90:</strong> Towards Right</li> 
 </ul>
   </td>
- <td>0 > 359 </td>
+ <td>[0, 359] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -16063,14 +16096,14 @@ table {
 <tr>
  <td><strong id="CA_SV_TL3_MAXA">CA_SV_TL3_MAXA</strong> (FLOAT)</td>
  <td>Tilt Servo 3 Tilt Angle at Maximum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the maximum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>90.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="CA_SV_TL3_MINA">CA_SV_TL3_MINA</strong> (FLOAT)</td>
  <td>Tilt Servo 3 Tilt Angle at Minimum <p><strong>Comment:</strong> Defines the tilt angle when the servo is at the minimum. An angle of zero means upwards.</p>   </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
@@ -16082,7 +16115,7 @@ table {
 <li><strong>90:</strong> Towards Right</li> 
 </ul>
   </td>
- <td>0 > 359 </td>
+ <td>[0, 359] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -16111,48 +16144,48 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="HTE_ACC_GATE">HTE_ACC_GATE</strong> (FLOAT)</td>
  <td>Gate size for acceleration fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>1.0 > 10.0 </td>
+ <td>[1.0, 10.0] </td>
  <td>3.0</td>
  <td>SD</td>
 </tr>
 <tr>
  <td><strong id="HTE_HT_ERR_INIT">HTE_HT_ERR_INIT</strong> (FLOAT)</td>
  <td>1-sigma initial hover thrust uncertainty <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td>0.0 > 1.0 </td>
+ <td>[0.0, 1.0] </td>
  <td>0.1</td>
  <td>normalized_thrust</td>
 </tr>
 <tr>
  <td><strong id="HTE_HT_NOISE">HTE_HT_NOISE</strong> (FLOAT)</td>
  <td>Hover thrust process noise <p><strong>Comment:</strong> Reduce to make the hover thrust estimate more stable, increase if the real hover thrust is expected to change quickly over time.</p>   </td>
- <td>0.0001 > 1.0 </td>
+ <td>[0.0001, 1.0] </td>
  <td>0.0036</td>
  <td>normalized_thrust/s</td>
 </tr>
 <tr>
  <td><strong id="HTE_THR_RANGE">HTE_THR_RANGE</strong> (FLOAT)</td>
  <td>Max deviation from MPC_THR_HOVER <p><strong>Comment:</strong> Defines the range of the hover thrust estimate around MPC_THR_HOVER. A value of 0.2 with MPC_THR_HOVER at 0.5 results in a range of [0.3, 0.7]. Set to a large value if the vehicle operates in varying physical conditions that affect the required hover thrust strongly (e.g. differently sized payloads).</p>   </td>
- <td>0.01 > 0.4 </td>
+ <td>[0.01, 0.4] </td>
  <td>0.2</td>
  <td>normalized_thrust</td>
 </tr>
 <tr>
  <td><strong id="HTE_VXY_THR">HTE_VXY_THR</strong> (FLOAT)</td>
  <td>Horizontal velocity threshold for sensitivity reduction <p><strong>Comment:</strong> Above this speed, the measurement noise is linearly increased to reduce the sensitivity of the estimator from biased measurement. Set to a low value on vehicles with large lifting surfaces.</p>   </td>
- <td>1.0 > 20.0 </td>
+ <td>[1.0, 20.0] </td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="HTE_VZ_THR">HTE_VZ_THR</strong> (FLOAT)</td>
  <td>Vertical velocity threshold for sensitivity reduction <p><strong>Comment:</strong> Above this speed, the measurement noise is linearly increased to reduce the sensitivity of the estimator from biased measurement. Set to a low value on vehicles affected by air drag when climbing or descending.</p>   </td>
- <td>1.0 > 10.0 </td>
+ <td>[1.0, 10.0] </td>
  <td>2.0</td>
  <td>m/s</td>
 </tr>
@@ -16163,7 +16196,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16202,21 +16235,21 @@ table {
 <tr>
  <td><strong id="ISBD_READ_INT">ISBD_READ_INT</strong> (INT32)</td>
  <td>Satellite radio read interval. Only required to be nonzero if data is not sent using a ring call    </td>
- <td>0 > 5000 </td>
+ <td>[0, 5000] </td>
  <td>0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="ISBD_SBD_TIMEOUT">ISBD_SBD_TIMEOUT</strong> (INT32)</td>
  <td>Iridium SBD session timeout    </td>
- <td>0 > 300 </td>
+ <td>[0, 300] </td>
  <td>60</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="ISBD_STACK_TIME">ISBD_STACK_TIME</strong> (INT32)</td>
  <td>Time the Iridium driver will wait for additional mavlink messages to combine them into one SBD message <p><strong>Comment:</strong> Value 0 turns the functionality off</p>   </td>
- <td>0 > 500 </td>
+ <td>[0, 500] </td>
  <td>0</td>
  <td>ms</td>
 </tr>
@@ -16227,48 +16260,48 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="LNDFW_AIRSPD_MAX">LNDFW_AIRSPD_MAX</strong> (FLOAT)</td>
  <td>Fixed-wing land detector: Max airspeed <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state</p>   </td>
- <td>2 > 20 </td>
+ <td>[2, 20] </td>
  <td>6.00</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
  <td>Fixed-wing land detector: Max horizontal velocity threshold <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
- <td>0.5 > 10 </td>
+ <td>[0.5, 10] </td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
  <td>Fixed-wing land detector: Max vertiacal velocity threshold <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
- <td>0.1 > 20 </td>
+ <td>[0.1, 20] </td>
  <td>2.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_XYACC_MAX">LNDFW_XYACC_MAX</strong> (FLOAT)</td>
  <td>Fixed-wing land detector: Max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state</p>   </td>
- <td>2 > 15 </td>
+ <td>[2, 15] </td>
  <td>8.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="LNDMC_ALT_GND">LNDMC_ALT_GND</strong> (FLOAT)</td>
  <td>Ground effect altitude for multicopters <p><strong>Comment:</strong> The height above ground below which ground effect creates barometric altitude errors. A negative value indicates no ground effect.</p>   </td>
- <td>-1 > ? </td>
+ <td>[-1, ?] </td>
  <td>2.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LNDMC_ALT_MAX">LNDMC_ALT_MAX</strong> (FLOAT)</td>
  <td>Maximum altitude for multicopters <p><strong>Comment:</strong> The system will obey this limit as a hard altitude limit. This setting will be consolidated with the GF_MAX_VER_DIST parameter. A negative value indicates no altitude limitation.</p>   </td>
- <td>-1 > 10000 </td>
+ <td>[-1, 10000] </td>
  <td>-1.0</td>
  <td>m</td>
 </tr>
@@ -16282,7 +16315,7 @@ table {
 <tr>
  <td><strong id="LNDMC_TRIG_TIME">LNDMC_TRIG_TIME</strong> (FLOAT)</td>
  <td>Multicopter land detection trigger time <p><strong>Comment:</strong> Total time it takes to go through all three land detection stages: ground contact, maybe landed, landed when all necessary conditions are constantly met.</p>   </td>
- <td>0.1 > 10.0 </td>
+ <td>[0.1, 10.0] </td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -16303,14 +16336,14 @@ table {
 <tr>
  <td><strong id="LND_FLIGHT_T_HI">LND_FLIGHT_T_HI</strong> (INT32)</td>
  <td>Total flight time in microseconds <p><strong>Comment:</strong> Total flight time of this autopilot. Higher 32 bits of the value. Flight time in microseconds = (LND_FLIGHT_T_HI << 32) | LND_FLIGHT_T_LO.</p>   </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="LND_FLIGHT_T_LO">LND_FLIGHT_T_LO</strong> (INT32)</td>
  <td>Total flight time in microseconds <p><strong>Comment:</strong> Total flight time of this autopilot. Lower 32 bits of the value. Flight time in microseconds = (LND_FLIGHT_T_HI << 32) | LND_FLIGHT_T_LO.</p>   </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -16321,7 +16354,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16369,7 +16402,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>2</td>
  <td></td>
 </tr>
@@ -16380,13 +16413,13 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
  <td>Acceleration uncertainty <p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>   </td>
- <td>0.01 > ? </td>
+ <td>[0.01, ?] </td>
  <td>10.0</td>
  <td>(m/s^2)^2</td>
 </tr>
@@ -16405,35 +16438,35 @@ table {
 <li><strong>1:</strong> Stationary</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
  <td>Initial landing target position uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>   </td>
- <td>0.001 > ? </td>
+ <td>[0.001, ?] </td>
  <td>0.1</td>
  <td>m^2</td>
 </tr>
 <tr>
  <td><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
  <td>Scale factor for sensor measurements in sensor x axis <p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>   </td>
- <td>0.01 > ? </td>
+ <td>[0.01, ?] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
  <td>Scale factor for sensor measurements in sensor y axis <p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>   </td>
- <td>0.01 > ? </td>
+ <td>[0.01, ?] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="LTEST_VEL_UNC_IN">LTEST_VEL_UNC_IN</strong> (FLOAT)</td>
  <td>Initial landing target velocity uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target velocity in x and y directions</p>   </td>
- <td>0.001 > ? </td>
+ <td>[0.001, ?] </td>
  <td>0.1</td>
  <td>(m/s)^2</td>
 </tr>
@@ -16444,90 +16477,90 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="LPE_ACC_XY">LPE_ACC_XY</strong> (FLOAT)</td>
  <td>Accelerometer xy noise density <p><strong>Comment:</strong> Data sheet noise density = 150ug/sqrt(Hz) = 0.0015 m/s^2/sqrt(Hz) Larger than data sheet to account for tilt error.</p>   </td>
- <td>0.00001 > 2 </td>
+ <td>[0.00001, 2] </td>
  <td>0.012</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="LPE_ACC_Z">LPE_ACC_Z</strong> (FLOAT)</td>
  <td>Accelerometer z noise density <p><strong>Comment:</strong> Data sheet noise density = 150ug/sqrt(Hz) = 0.0015 m/s^2/sqrt(Hz)</p>   </td>
- <td>0.00001 > 2 </td>
+ <td>[0.00001, 2] </td>
  <td>0.02</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="LPE_BAR_Z">LPE_BAR_Z</strong> (FLOAT)</td>
  <td>Barometric presssure altitude z standard deviation    </td>
- <td>0.01 > 100 </td>
+ <td>[0.01, 100] </td>
  <td>3.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_EPH_MAX">LPE_EPH_MAX</strong> (FLOAT)</td>
  <td>Max EPH allowed for GPS initialization    </td>
- <td>1.0 > 5.0 </td>
+ <td>[1.0, 5.0] </td>
  <td>3.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_EPV_MAX">LPE_EPV_MAX</strong> (FLOAT)</td>
  <td>Max EPV allowed for GPS initialization    </td>
- <td>1.0 > 5.0 </td>
+ <td>[1.0, 5.0] </td>
  <td>5.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_FAKE_ORIGIN">LPE_FAKE_ORIGIN</strong> (INT32)</td>
  <td>Enable publishing of a fake global position (e.g for AUTO missions using Optical Flow) <p><strong>Comment:</strong> By initializing the estimator to the LPE_LAT/LON parameters when global information is unavailable</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="LPE_FGYRO_HP">LPE_FGYRO_HP</strong> (FLOAT)</td>
  <td>Flow gyro high pass filter cut off frequency    </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0.001</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="LPE_FLW_OFF_Z">LPE_FLW_OFF_Z</strong> (FLOAT)</td>
  <td>Optical flow z offset from center    </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_FLW_QMIN">LPE_FLW_QMIN</strong> (INT32)</td>
  <td>Optical flow minimum quality threshold    </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>150</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="LPE_FLW_R">LPE_FLW_R</strong> (FLOAT)</td>
  <td>Optical flow rotation (roll/pitch) noise gain    </td>
- <td>0.1 > 10.0 </td>
+ <td>[0.1, 10.0] </td>
  <td>7.0</td>
  <td>m/s/rad</td>
 </tr>
 <tr>
  <td><strong id="LPE_FLW_RR">LPE_FLW_RR</strong> (FLOAT)</td>
  <td>Optical flow angular velocity noise gain    </td>
- <td>0.0 > 10.0 </td>
+ <td>[0.0, 10.0] </td>
  <td>7.0</td>
  <td>m/rad</td>
 </tr>
 <tr>
  <td><strong id="LPE_FLW_SCALE">LPE_FLW_SCALE</strong> (FLOAT)</td>
  <td>Optical flow scale    </td>
- <td>0.1 > 10.0 </td>
+ <td>[0.1, 10.0] </td>
  <td>1.3</td>
  <td>m</td>
 </tr>
@@ -16543,189 +16576,189 @@ table {
   <li><strong>7:</strong> fuse baro</li> 
 </ul>
  </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>145</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="LPE_GPS_DELAY">LPE_GPS_DELAY</strong> (FLOAT)</td>
  <td>GPS delay compensaton    </td>
- <td>0 > 0.4 </td>
+ <td>[0, 0.4] </td>
  <td>0.29</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="LPE_GPS_VXY">LPE_GPS_VXY</strong> (FLOAT)</td>
  <td>GPS xy velocity standard deviation <p><strong>Comment:</strong> EPV used if greater than this value.</p>   </td>
- <td>0.01 > 2 </td>
+ <td>[0.01, 2] </td>
  <td>0.25</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LPE_GPS_VZ">LPE_GPS_VZ</strong> (FLOAT)</td>
  <td>GPS z velocity standard deviation    </td>
- <td>0.01 > 2 </td>
+ <td>[0.01, 2] </td>
  <td>0.25</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LPE_GPS_XY">LPE_GPS_XY</strong> (FLOAT)</td>
  <td>Minimum GPS xy standard deviation, uses reported EPH if greater    </td>
- <td>0.01 > 5 </td>
+ <td>[0.01, 5] </td>
  <td>1.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_GPS_Z">LPE_GPS_Z</strong> (FLOAT)</td>
  <td>Minimum GPS z standard deviation, uses reported EPV if greater    </td>
- <td>0.01 > 200 </td>
+ <td>[0.01, 200] </td>
  <td>3.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_LAND_VXY">LPE_LAND_VXY</strong> (FLOAT)</td>
  <td>Land detector xy velocity standard deviation    </td>
- <td>0.01 > 10.0 </td>
+ <td>[0.01, 10.0] </td>
  <td>0.05</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LPE_LAND_Z">LPE_LAND_Z</strong> (FLOAT)</td>
  <td>Land detector z standard deviation    </td>
- <td>0.001 > 10.0 </td>
+ <td>[0.001, 10.0] </td>
  <td>0.03</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_LAT">LPE_LAT</strong> (FLOAT)</td>
  <td>Local origin latitude for nav w/o GPS    </td>
- <td>-90 > 90 </td>
+ <td>[-90, 90] </td>
  <td>47.397742</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="LPE_LDR_OFF_Z">LPE_LDR_OFF_Z</strong> (FLOAT)</td>
  <td>Lidar z offset from center of vehicle +down    </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.00</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_LDR_Z">LPE_LDR_Z</strong> (FLOAT)</td>
  <td>Lidar z standard deviation    </td>
- <td>0.01 > 1 </td>
+ <td>[0.01, 1] </td>
  <td>0.03</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_LON">LPE_LON</strong> (FLOAT)</td>
  <td>Local origin longitude for nav w/o GPS    </td>
- <td>-180 > 180 </td>
+ <td>[-180, 180] </td>
  <td>8.545594</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="LPE_LT_COV">LPE_LT_COV</strong> (FLOAT)</td>
  <td>Minimum landing target standard covariance, uses reported covariance if greater    </td>
- <td>0.0 > 10 </td>
+ <td>[0.0, 10] </td>
  <td>0.0001</td>
  <td>m^2</td>
 </tr>
 <tr>
  <td><strong id="LPE_PN_B">LPE_PN_B</strong> (FLOAT)</td>
  <td>Accel bias propagation noise density    </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>1e-3</td>
  <td>m/s^3/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="LPE_PN_P">LPE_PN_P</strong> (FLOAT)</td>
  <td>Position propagation noise density <p><strong>Comment:</strong> Increase to trust measurements more. Decrease to trust model more.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.1</td>
  <td>m/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="LPE_PN_T">LPE_PN_T</strong> (FLOAT)</td>
  <td>Terrain random walk noise density, hilly/outdoor (0.1), flat/Indoor (0.001)    </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.001</td>
  <td>m/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="LPE_PN_V">LPE_PN_V</strong> (FLOAT)</td>
  <td>Velocity propagation noise density <p><strong>Comment:</strong> Increase to trust measurements more. Decrease to trust model more.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.1</td>
  <td>m/s^2/sqrt(Hz)</td>
 </tr>
 <tr>
  <td><strong id="LPE_SNR_OFF_Z">LPE_SNR_OFF_Z</strong> (FLOAT)</td>
  <td>Sonar z offset from center of vehicle +down    </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.00</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_SNR_Z">LPE_SNR_Z</strong> (FLOAT)</td>
  <td>Sonar z standard deviation    </td>
- <td>0.01 > 1 </td>
+ <td>[0.01, 1] </td>
  <td>0.05</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_T_MAX_GRADE">LPE_T_MAX_GRADE</strong> (FLOAT)</td>
  <td>Terrain maximum percent grade, hilly/outdoor (100 = 45 deg), flat/Indoor (0 = 0 deg) <p><strong>Comment:</strong> Used to calculate increased terrain random walk nosie due to movement.</p>   </td>
- <td>0 > 100 </td>
+ <td>[0, 100] </td>
  <td>1.0</td>
  <td>%</td>
 </tr>
 <tr>
  <td><strong id="LPE_VIC_P">LPE_VIC_P</strong> (FLOAT)</td>
  <td>Vicon position standard deviation    </td>
- <td>0.0001 > 1 </td>
+ <td>[0.0001, 1] </td>
  <td>0.001</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_VIS_DELAY">LPE_VIS_DELAY</strong> (FLOAT)</td>
  <td>Vision delay compensation <p><strong>Comment:</strong> Set to zero to enable automatic compensation from measurement timestamps</p>   </td>
- <td>0 > 0.1 </td>
+ <td>[0, 0.1] </td>
  <td>0.1</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="LPE_VIS_XY">LPE_VIS_XY</strong> (FLOAT)</td>
  <td>Vision xy standard deviation    </td>
- <td>0.01 > 1 </td>
+ <td>[0.01, 1] </td>
  <td>0.1</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_VIS_Z">LPE_VIS_Z</strong> (FLOAT)</td>
  <td>Vision z standard deviation    </td>
- <td>0.01 > 100 </td>
+ <td>[0.01, 100] </td>
  <td>0.5</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="LPE_VXY_PUB">LPE_VXY_PUB</strong> (FLOAT)</td>
  <td>Required velocity xy standard deviation to publish position    </td>
- <td>0.01 > 1.0 </td>
+ <td>[0.01, 1.0] </td>
  <td>0.3</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LPE_X_LP">LPE_X_LP</strong> (FLOAT)</td>
  <td>Cut frequency for state publication    </td>
- <td>5 &gt; 1000 </td>
+ <td>[5, 1000] </td>
  <td>5.0</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="LPE_Z_PUB">LPE_Z_PUB</strong> (FLOAT)</td>
  <td>Required z standard deviation to publish altitude/ terrain    </td>
- <td>0.3 > 5.0 </td>
+ <td>[0.3, 5.0] </td>
  <td>1.0</td>
  <td>m</td>
 </tr>
@@ -16736,7 +16769,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16790,7 +16823,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_0_FLOW_CTRL">MAV_0_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 0 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detction fails.</p> <strong>값:</strong><ul>
+ <td>Enable serial flow control for instance 0 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 
 <li><strong>1:</strong> Force on</li>
@@ -16851,7 +16884,7 @@ table {
  <td><strong id="MAV_0_RATE">MAV_0_RATE</strong> (INT32)</td>
  <td>Maximum MAVLink sending rate for instance 0 <p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>1200</td>
  <td>B/s</td>
 </tr>
@@ -16922,7 +16955,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_1_FLOW_CTRL">MAV_1_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 1 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detction fails.</p> <strong>값:</strong><ul>
+ <td>Enable serial flow control for instance 1 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 
 <li><strong>1:</strong> Force on</li>
@@ -16983,7 +17016,7 @@ table {
  <td><strong id="MAV_1_RATE">MAV_1_RATE</strong> (INT32)</td>
  <td>Maximum MAVLink sending rate for instance 1 <p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>0</td>
  <td>B/s</td>
 </tr>
@@ -17054,7 +17087,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MAV_2_FLOW_CTRL">MAV_2_FLOW_CTRL</strong> (INT32)</td>
- <td>Enable serial flow control for instance 2 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detction fails.</p> <strong>값:</strong><ul>
+ <td>Enable serial flow control for instance 2 <p><strong>Comment:</strong> This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Force off</li>
 
 <li><strong>1:</strong> Force on</li>
@@ -17115,7 +17148,7 @@ table {
  <td><strong id="MAV_2_RATE">MAV_2_RATE</strong> (INT32)</td>
  <td>Maximum MAVLink sending rate for instance 2 <p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>0</td>
  <td>B/s</td>
 </tr>
@@ -17139,7 +17172,7 @@ table {
  <td><strong id="MAV_COMP_ID">MAV_COMP_ID</strong> (INT32)</td>
  <td>MAVLink component ID    <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 250 </td>
+ <td>[1, 250] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -17188,14 +17221,14 @@ table {
 <tr>
  <td><strong id="MAV_RADIO_TOUT">MAV_RADIO_TOUT</strong> (INT32)</td>
  <td>Timeout in seconds for the RADIO_STATUS reports coming in <p><strong>Comment:</strong> If the connected radio stops reporting RADIO_STATUS for a certain time, a warning is triggered and, if MAV_X_RADIO_CTL is enabled, the software-flow control is reset.</p>   </td>
- <td>1 > 250 </td>
+ <td>[1, 250] </td>
  <td>5</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="MAV_SIK_RADIO_ID">MAV_SIK_RADIO_ID</strong> (INT32)</td>
  <td>MAVLink SiK Radio ID <p><strong>Comment:</strong> When non-zero the MAVLink app will attempt to configure the SiK radio to this ID and re-set the parameter to 0. If the value is negative it will reset the complete radio config to factory defaults. Only applies if this mavlink instance is going through a SiK radio</p>   </td>
- <td>-1 > 240 </td>
+ <td>[-1, 240] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17203,7 +17236,7 @@ table {
  <td><strong id="MAV_SYS_ID">MAV_SYS_ID</strong> (INT32)</td>
  <td>MAVLink system ID    <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 250 </td>
+ <td>[1, 250] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -17247,7 +17280,7 @@ table {
 <li><strong>23:</strong> VTOL Tailsitter</li> 
 </ul>
   </td>
- <td>0 > 22 </td>
+ <td>[0, 22] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17265,7 +17298,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -17279,7 +17312,7 @@ table {
 <tr>
  <td><strong id="MBE_LEARN_GAIN">MBE_LEARN_GAIN</strong> (FLOAT)</td>
  <td>Mag bias estimator learning gain <p><strong>Comment:</strong> Increase to make the estimator more responsive Decrease to make the estimator more robust to noise</p>   </td>
- <td>0.1 > 100 (0.1)</td>
+ <td>[0.1, 100] (0.1)</td>
  <td>18.</td>
  <td></td>
 </tr>
@@ -17290,7 +17323,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -17307,41 +17340,41 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="FW_GPSF_LT">FW_GPSF_LT</strong> (INT32)</td>
  <td>GPS failure loiter time <p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it starts descending. Set to 0 to disable. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
- <td>0 > 3600 </td>
+ <td>[0, 3600] </td>
  <td>30</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_GPSF_R">FW_GPSF_R</strong> (FLOAT)</td>
  <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter). Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
- <td>0.0 > 30.0 (0.5)</td>
+ <td>[0.0, 30.0] (0.5)</td>
  <td>15.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
  <td>Maximal horizontal distance from home to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the home position.</p>   </td>
- <td>0 > 10000 (100)</td>
+ <td>[0, 10000] (100)</td>
  <td>900</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MIS_DIST_WPS">MIS_DIST_WPS</strong> (FLOAT)</td>
  <td>Maximal horizontal distance between waypoint <p><strong>Comment:</strong> Failsafe check to prevent running missions which are way too big. Set a value of zero or less to disable. The mission will not be started if any distance between two subsequent waypoints is greater than MIS_DIST_WPS.</p>   </td>
- <td>0 > 10000 (100)</td>
+ <td>[0, 10000] (100)</td>
  <td>900</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MIS_LTRMIN_ALT">MIS_LTRMIN_ALT</strong> (FLOAT)</td>
  <td>Minimum Loiter altitude <p><strong>Comment:</strong> This is the minimum altitude the system will always obey. The intent is to stay out of ground effect. set to -1, if there shouldn't be a minimum loiter altitude</p>   </td>
- <td>-1 > 80 (0.5)</td>
+ <td>[-1, 80] (0.5)</td>
  <td>-1.0</td>
  <td>m</td>
 </tr>
@@ -17353,14 +17386,14 @@ table {
 <li><strong>1:</strong> Enable</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
  <td>Take-off altitude <p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>   </td>
- <td>0 > 80 (0.5)</td>
+ <td>[0, 80] (0.5)</td>
  <td>2.5</td>
  <td>m</td>
 </tr>
@@ -17374,14 +17407,14 @@ table {
 <tr>
  <td><strong id="MIS_YAW_ERR">MIS_YAW_ERR</strong> (FLOAT)</td>
  <td>Max yaw error in degrees needed for waypoint heading acceptance    </td>
- <td>0 > 90 (1)</td>
+ <td>[0, 90] (1)</td>
  <td>12.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MIS_YAW_TMT">MIS_YAW_TMT</strong> (FLOAT)</td>
  <td>Time in seconds we wait on reaching target heading at a waypoint if it is forced <p><strong>Comment:</strong> If set > 0 it will ignore the target heading for normal waypoint acceptance. If the waypoint forces the heading the timeout will matter. For example on VTOL forwards transition. Mainly useful for VTOLs that have less yaw authority and might not reach target yaw in wind. Disabled by default.</p>   </td>
- <td>-1 > 20 (1)</td>
+ <td>[-1, 20] (1)</td>
  <td>-1.0</td>
  <td>s</td>
 </tr>
@@ -17399,14 +17432,14 @@ table {
 <li><strong>4:</strong> towards waypoint (yaw first)</li> 
 </ul>
   </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
  <td>Acceptance Radius <p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>   </td>
- <td>0.05 > 200.0 (0.5)</td>
+ <td>[0.05, 200.0] (0.5)</td>
  <td>10.0</td>
  <td>m</td>
 </tr>
@@ -17420,28 +17453,28 @@ table {
 <tr>
  <td><strong id="NAV_FW_ALTL_RAD">NAV_FW_ALTL_RAD</strong> (FLOAT)</td>
  <td>FW Altitude Acceptance Radius before a landing <p><strong>Comment:</strong> Altitude acceptance used for the last waypoint before a fixed-wing landing. This is usually smaller than the standard vertical acceptance because close to the ground higher accuracy is required.</p>   </td>
- <td>0.05 > 200.0 </td>
+ <td>[0.05, 200.0] </td>
  <td>5.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="NAV_FW_ALT_RAD">NAV_FW_ALT_RAD</strong> (FLOAT)</td>
  <td>FW Altitude Acceptance Radius <p><strong>Comment:</strong> Acceptance radius for fixedwing altitude.</p>   </td>
- <td>0.05 > 200.0 (0.5)</td>
+ <td>[0.05, 200.0] (0.5)</td>
  <td>10.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius (FW only) <p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>   </td>
- <td>25 > 1000 (0.5)</td>
+ <td>[25, 1000] (0.5)</td>
  <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="NAV_MC_ALT_RAD">NAV_MC_ALT_RAD</strong> (FLOAT)</td>
  <td>MC Altitude Acceptance Radius <p><strong>Comment:</strong> Acceptance radius for multicopter altitude.</p>   </td>
- <td>0.05 > 200.0 (0.5)</td>
+ <td>[0.05, 200.0] (0.5)</td>
  <td>0.8</td>
  <td>m</td>
 </tr>
@@ -17466,16 +17499,30 @@ table {
 <tr>
  <td><strong id="NAV_TRAFF_A_RADM">NAV_TRAFF_A_RADM</strong> (FLOAT)</td>
  <td>Set NAV TRAFFIC AVOID RADIUS MANNED <p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Manned Aviation</p>   </td>
- <td>500 > ? </td>
+ <td>[500, ?] </td>
  <td>500</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="NAV_TRAFF_A_RADU">NAV_TRAFF_A_RADU</strong> (FLOAT)</td>
  <td>Set NAV TRAFFIC AVOID RADIUS <p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Unmanned Aviation</p>   </td>
- <td>10 > 500 </td>
+ <td>[10, 500] </td>
  <td>10</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="WEIGHT_BASE">WEIGHT_BASE</strong> (FLOAT)</td>
+ <td>Vehicle base weight <p><strong>Comment:</strong> This is the weight of the vehicle at which it's performance limits were derived. A zero or negative value disables trim throttle and minimum airspeed compensation based on weight.</p>   </td>
+ <td>(0.5)</td>
+ <td>-1.0</td>
+ <td>kg</td>
+</tr>
+<tr>
+ <td><strong id="WEIGHT_GROSS">WEIGHT_GROSS</strong> (FLOAT)</td>
+ <td>Vehicle gross weight <p><strong>Comment:</strong> This is the actual weight of the vehicle at any time. This value will differ from WEIGHT_BASE in case weight was added or removed from the base weight. Examples are the addition of payloads or larger batteries. A zero or negative value disables trim throttle and minimum airspeed compensation based on weight.</p>   </td>
+ <td>(0.1)</td>
+ <td>-1.0</td>
+ <td>kg</td>
 </tr>
 </tbody></table>
 
@@ -17484,7 +17531,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -17520,7 +17567,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -17533,21 +17580,21 @@ table {
 <li><strong>2:</strong> Stabilize yaw for absolute/lock mode.</li> 
 </ul>
   </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_LND_P_MAX">MNT_LND_P_MAX</strong> (FLOAT)</td>
  <td>Pitch maximum when landed    </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>90.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_LND_P_MIN">MNT_LND_P_MIN</strong> (FLOAT)</td>
  <td>Pitch minimum when landed    </td>
- <td>-90.0 > 90.0 </td>
+ <td>[-90.0, 90.0] </td>
  <td>-90.0</td>
  <td>deg</td>
 </tr>
@@ -17569,7 +17616,7 @@ table {
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td>0 > 6 </td>
+ <td>[0, 6] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17591,7 +17638,7 @@ table {
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td>0 > 6 </td>
+ <td>[0, 6] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17613,7 +17660,7 @@ table {
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td>0 > 6 </td>
+ <td>[0, 6] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -17648,7 +17695,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>-1 > 4 </td>
+ <td>[-1, 4] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -17663,77 +17710,77 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_OB_LOCK_MODE">MNT_OB_LOCK_MODE</strong> (FLOAT)</td>
  <td>Mixer value for selecting a locking mode <p><strong>Comment:</strong> if required for the gimbal (only in AUX output mode)</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_OB_NORM_MODE">MNT_OB_NORM_MODE</strong> (FLOAT)</td>
  <td>Mixer value for selecting normal mode <p><strong>Comment:</strong> if required by the gimbal (only in AUX output mode)</p>   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>-1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_OFF_PITCH">MNT_OFF_PITCH</strong> (FLOAT)</td>
  <td>Offset for pitch channel output in degrees    </td>
- <td>-360.0 > 360.0 </td>
+ <td>[-360.0, 360.0] </td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_OFF_ROLL">MNT_OFF_ROLL</strong> (FLOAT)</td>
  <td>Offset for roll channel output in degrees    </td>
- <td>-360.0 > 360.0 </td>
+ <td>[-360.0, 360.0] </td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_OFF_YAW">MNT_OFF_YAW</strong> (FLOAT)</td>
  <td>Offset for yaw channel output in degrees    </td>
- <td>-360.0 > 360.0 </td>
+ <td>[-360.0, 360.0] </td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_PITCH">MNT_RANGE_PITCH</strong> (FLOAT)</td>
  <td>Range of pitch channel output in degrees (only in AUX output mode)    </td>
- <td>1.0 > 720.0 </td>
+ <td>[1.0, 720.0] </td>
  <td>90.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_ROLL">MNT_RANGE_ROLL</strong> (FLOAT)</td>
  <td>Range of roll channel output in degrees (only in AUX output mode)    </td>
- <td>1.0 > 720.0 </td>
+ <td>[1.0, 720.0] </td>
  <td>90.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RANGE_YAW">MNT_RANGE_YAW</strong> (FLOAT)</td>
  <td>Range of yaw channel output in degrees (only in AUX output mode)    </td>
- <td>1.0 > 720.0 </td>
+ <td>[1.0, 720.0] </td>
  <td>360.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_PITCH">MNT_RATE_PITCH</strong> (FLOAT)</td>
  <td>Angular pitch rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-pitch rate..pitch rate].</p>   </td>
- <td>1.0 > 90.0 </td>
+ <td>[1.0, 90.0] </td>
  <td>30.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_YAW">MNT_RATE_YAW</strong> (FLOAT)</td>
  <td>Angular yaw rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-yaw rate..yaw rate].</p>   </td>
- <td>1.0 > 90.0 </td>
+ <td>[1.0, 90.0] </td>
  <td>30.0</td>
  <td>deg/s</td>
 </tr>
@@ -17745,7 +17792,7 @@ table {
 <li><strong>1:</strong> Angular rate</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -17756,62 +17803,62 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="MC_PITCHRATE_MAX">MC_PITCHRATE_MAX</strong> (FLOAT)</td>
  <td>Max pitch rate <p><strong>Comment:</strong> Limit for pitch rate in manual and auto modes (except acro). Has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation. This is not only limited by the vehicle's properties, but also by the maximum measurement rate of the gyro.</p>   </td>
- <td>0.0 > 1800.0 (5)</td>
+ <td>[0.0, 1800.0] (5)</td>
  <td>220.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MC_PITCH_P">MC_PITCH_P</strong> (FLOAT)</td>
  <td>Pitch P gain <p><strong>Comment:</strong> Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
- <td>0.0 > 12 (0.1)</td>
+ <td>[0.0, 12] (0.1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ROLLRATE_MAX">MC_ROLLRATE_MAX</strong> (FLOAT)</td>
  <td>Max roll rate <p><strong>Comment:</strong> Limit for roll rate in manual and auto modes (except acro). Has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation. This is not only limited by the vehicle's properties, but also by the maximum measurement rate of the gyro.</p>   </td>
- <td>0.0 > 1800.0 (5)</td>
+ <td>[0.0, 1800.0] (5)</td>
  <td>220.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MC_ROLL_P">MC_ROLL_P</strong> (FLOAT)</td>
  <td>Roll P gain <p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
- <td>0.0 > 12 (0.1)</td>
+ <td>[0.0, 12] (0.1)</td>
  <td>6.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAWRATE_MAX">MC_YAWRATE_MAX</strong> (FLOAT)</td>
  <td>Max yaw rate    </td>
- <td>0.0 > 1800.0 (5)</td>
+ <td>[0.0, 1800.0] (5)</td>
  <td>200.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MC_YAW_P">MC_YAW_P</strong> (FLOAT)</td>
  <td>Yaw P gain <p><strong>Comment:</strong> Yaw proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
- <td>0.0 > 5 (0.1)</td>
+ <td>[0.0, 5] (0.1)</td>
  <td>2.8</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAW_WEIGHT">MC_YAW_WEIGHT</strong> (FLOAT)</td>
- <td>Yaw weight <p><strong>Comment:</strong> A fraction [0,1] deprioritizing yaw compared to roll and pitch in non-linear attitude control. Deprioritizing yaw is necessary because multicopters have much less control authority in yaw compared to the other axes and it makes sense because yaw is not critical for stable hovering or 3D navigation. For yaw control tuning use MC_YAW_P. This ratio has no inpact on the yaw gain.</p>   </td>
- <td>0.0 > 1.0 (0.1)</td>
+ <td>Yaw weight <p><strong>Comment:</strong> A fraction [0,1] deprioritizing yaw compared to roll and pitch in non-linear attitude control. Deprioritizing yaw is necessary because multicopters have much less control authority in yaw compared to the other axes and it makes sense because yaw is not critical for stable hovering or 3D navigation. For yaw control tuning use MC_YAW_P. This ratio has no impact on the yaw gain.</p>   </td>
+ <td>[0.0, 1.0] (0.1)</td>
  <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
  <td>Max yaw rate in auto mode <p><strong>Comment:</strong> Limit the rate of change of the yaw setpoint in autonomous mode to avoid large control output and mixer saturation.</p>   </td>
- <td>0.0 > 360.0 (5)</td>
+ <td>[0.0, 360.0] (5)</td>
  <td>45.0</td>
  <td>deg/s</td>
 </tr>
@@ -17822,20 +17869,20 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="CP_DELAY">CP_DELAY</strong> (FLOAT)</td>
  <td>Average delay of the range sensor message plus the tracking delay of the position controller in seconds <p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.4</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="CP_DIST">CP_DIST</strong> (FLOAT)</td>
  <td>Minimum distance the vehicle should keep to all obstacles <p><strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value</p>   </td>
- <td>-1 > 15 </td>
+ <td>[-1, 15] </td>
  <td>-1.0</td>
  <td>m</td>
 </tr>
@@ -17849,42 +17896,42 @@ table {
 <tr>
  <td><strong id="CP_GUIDE_ANG">CP_GUIDE_ANG</strong> (FLOAT)</td>
  <td>Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction <p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
- <td>0 > 90 </td>
+ <td>[0, 90] </td>
  <td>30.</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MC_MAN_TILT_TAU">MC_MAN_TILT_TAU</strong> (FLOAT)</td>
  <td>Manual tilt input filter time constant <p><strong>Comment:</strong> Setting this parameter to 0 disables the filter</p>   </td>
- <td>0.0 > 2.0 </td>
+ <td>[0.0, 2.0] </td>
  <td>0.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
  <td>Maximum vertical acceleration in velocity controlled modes down    </td>
- <td>2.0 > 15.0 (1)</td>
+ <td>[2.0, 15.0] (1)</td>
  <td>3.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_HOR">MPC_ACC_HOR</strong> (FLOAT)</td>
  <td>Acceleration for auto and for manual <p><strong>Comment:</strong> Note: In manual, this parameter is only used in MPC_POS_MODE 4.</p>   </td>
- <td>2.0 > 15.0 (1)</td>
+ <td>[2.0, 15.0] (1)</td>
  <td>3.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
  <td>Maximum horizontal acceleration for auto mode and for manual mode <p><strong>Comment:</strong> MPC_POS_MODE 1 just deceleration 3 acceleration and deceleration 4 just acceleration</p>   </td>
- <td>2.0 > 15.0 (1)</td>
+ <td>[2.0, 15.0] (1)</td>
  <td>5.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="MPC_ACC_UP_MAX">MPC_ACC_UP_MAX</strong> (FLOAT)</td>
  <td>Maximum vertical acceleration in velocity controlled modes upward    </td>
- <td>2.0 > 15.0 (1)</td>
+ <td>[2.0, 15.0] (1)</td>
  <td>4.0</td>
  <td>m/s^2</td>
 </tr>
@@ -17898,105 +17945,105 @@ table {
 <li><strong>2:</strong> Terrain hold</li> 
 </ul>
   </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
  <td>Deadzone of sticks where position hold is enabled    </td>
- <td>0.0 > 1.0 </td>
+ <td>[0.0, 1.0] </td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_MAX_XY">MPC_HOLD_MAX_XY</strong> (FLOAT)</td>
  <td>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)    </td>
- <td>0.0 > 3.0 </td>
+ <td>[0.0, 3.0] </td>
  <td>0.8</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_HOLD_MAX_Z">MPC_HOLD_MAX_Z</strong> (FLOAT)</td>
  <td>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)    </td>
- <td>0.0 > 3.0 </td>
+ <td>[0.0, 3.0] </td>
  <td>0.6</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_JERK_AUTO">MPC_JERK_AUTO</strong> (FLOAT)</td>
  <td>Jerk limit in auto mode <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.</p>   </td>
- <td>1.0 > 80.0 (1)</td>
+ <td>[1.0, 80.0] (1)</td>
  <td>4.0</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
  <td>Maximum jerk limit <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 3 or 4.</p>   </td>
- <td>0.5 > 500.0 (1)</td>
+ <td>[0.5, 500.0] (1)</td>
  <td>8.0</td>
  <td>m/s^3</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
  <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" (or "MPC_Z_V_AUTO_DN") and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
- <td>0 > 122 </td>
+ <td>[0, 122] </td>
  <td>10.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
  <td>Altitude for 2. step of slow landing (landing) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
- <td>0 > 122 </td>
+ <td>[0, 122] </td>
  <td>5.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT3">MPC_LAND_ALT3</strong> (FLOAT)</td>
  <td>Altitude for 3. step of slow landing <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_CRWL", if LIDAR available. No effect if LIDAR not available</p>   </td>
- <td>0 > 122 </td>
+ <td>[0, 122] </td>
  <td>1.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_CRWL">MPC_LAND_CRWL</strong> (FLOAT)</td>
  <td>Land crawl descend rate. Used below    </td>
- <td>0.3 > ? </td>
+ <td>[0.3, ?] </td>
  <td>0.3</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_SPEED">MPC_LAND_SPEED</strong> (FLOAT)</td>
  <td>Landing descend rate    </td>
- <td>0.6 > ? </td>
+ <td>[0.6, ?] </td>
  <td>0.7</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
  <td>Minimum manual thrust <p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust. With MC_AIRMODE set to 1, this can safely be set to 0.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.08</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_TILT_MAX">MPC_MAN_TILT_MAX</strong> (FLOAT)</td>
  <td>Maximal tilt angle in manual or altitude mode    </td>
- <td>0.0 > 90.0 </td>
+ <td>[0.0, 90.0] </td>
  <td>35.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_Y_MAX">MPC_MAN_Y_MAX</strong> (FLOAT)</td>
  <td>Max manual yaw rate    </td>
- <td>0.0 > 400 </td>
+ <td>[0.0, 400] </td>
  <td>150.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_MAN_Y_TAU">MPC_MAN_Y_TAU</strong> (FLOAT)</td>
  <td>Manual yaw rate input filter time constant <p><strong>Comment:</strong> Setting this parameter to 0 disables the filter</p>   </td>
- <td>0.0 > 5.0 </td>
+ <td>[0.0, 5.0] </td>
  <td>0.08</td>
  <td>s</td>
 </tr>
@@ -18029,56 +18076,56 @@ table {
 <tr>
  <td><strong id="MPC_THR_HOVER">MPC_THR_HOVER</strong> (FLOAT)</td>
  <td>Hover thrust <p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to Altitude or Position mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed. This parameter is also important for the landing detection to work correctly.</p>   </td>
- <td>0.1 > 0.8 (0.01)</td>
+ <td>[0.1, 0.8] (0.01)</td>
  <td>0.5</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_MAX">MPC_THR_MAX</strong> (FLOAT)</td>
  <td>Maximum thrust in auto thrust control <p><strong>Comment:</strong> Limit max allowed thrust</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_MIN">MPC_THR_MIN</strong> (FLOAT)</td>
  <td>Minimum collective thrust in auto thrust control <p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust. Note: Without airmode zero thrust leads to zero roll/pitch control authority. (see MC_AIRMODE)</p>   </td>
- <td>0.05 > 1.0 (0.01)</td>
+ <td>[0.05, 1.0] (0.01)</td>
  <td>0.12</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_THR_XY_MARG">MPC_THR_XY_MARG</strong> (FLOAT)</td>
  <td>Horizontal thrust margin <p><strong>Comment:</strong> Margin that is kept for horizontal control when prioritizing vertical thrust. To avoid completely starving horizontal control with high vertical error.</p>   </td>
- <td>0.0 > 0.5 (0.01)</td>
+ <td>[0.0, 0.5] (0.01)</td>
  <td>0.3</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="MPC_TILTMAX_AIR">MPC_TILTMAX_AIR</strong> (FLOAT)</td>
  <td>Maximum tilt angle in air <p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>   </td>
- <td>20.0 > 89.0 </td>
+ <td>[20.0, 89.0] </td>
  <td>45.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
  <td>Maximum tilt during landing <p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>   </td>
- <td>10.0 > 89.0 </td>
+ <td>[10.0, 89.0] </td>
  <td>12.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
  <td>Position control smooth takeoff ramp time constant <p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over. A time constant of 0 disables the ramp</p>   </td>
- <td>0 > 5 </td>
+ <td>[0, 5] </td>
  <td>3.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_TKO_SPEED">MPC_TKO_SPEED</strong> (FLOAT)</td>
  <td>Takeoff climb rate    </td>
- <td>1 > 5 </td>
+ <td>[1, 5] </td>
  <td>1.5</td>
  <td>m/s</td>
 </tr>
@@ -18092,168 +18139,182 @@ table {
 <tr>
  <td><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
  <td>Low pass filter cut freq. for numerical velocity derivative    </td>
- <td>0.0 > 10 </td>
+ <td>[0.0, 10] </td>
  <td>5.0</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MANUAL">MPC_VEL_MANUAL</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity setpoint for manual controlled mode <p><strong>Comment:</strong> If velocity setpoint larger than MPC_XY_VEL_MAX is set, then the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
- <td>3.0 > 20.0 (1)</td>
+ <td>Maximum horizontal velocity setpoint in Position mode <p><strong>Comment:</strong> If velocity setpoint larger than MPC_XY_VEL_MAX is set, then the setpoint will be capped to MPC_XY_VEL_MAX The maximum sideways and backward speed can be set differently using MPC_VEL_MAN_SIDE and MPC_VEL_MAN_BACK, respectively.</p>   </td>
+ <td>[3.0, 20.0] (1)</td>
  <td>10.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_MAN_BACK">MPC_VEL_MAN_BACK</strong> (FLOAT)</td>
+ <td>Maximum backward velocity in Position mode <p><strong>Comment:</strong> If set to a negative value or larger than MPC_VEL_MANUAL then MPC_VEL_MANUAL is used.</p>   </td>
+ <td>[-1.0, 20.0] (0.1)</td>
+ <td>-1.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_VEL_MAN_SIDE">MPC_VEL_MAN_SIDE</strong> (FLOAT)</td>
+ <td>Maximum sideways velocity in Position mode <p><strong>Comment:</strong> If set to a negative value or larger than MPC_VEL_MANUAL then MPC_VEL_MANUAL is used.</p>   </td>
+ <td>[-1.0, 20.0] (0.1)</td>
+ <td>-1.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
  <td>Default horizontal velocity in mission <p><strong>Comment:</strong> Horizontal velocity used when flying autonomously in e.g. Missions, RTL, Goto.</p>   </td>
- <td>3.0 > 20.0 (1)</td>
+ <td>[3.0, 20.0] (1)</td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_ERR_MAX">MPC_XY_ERR_MAX</strong> (FLOAT)</td>
  <td>Maximum horizontal error allowed by the trajectory generator <p><strong>Comment:</strong> The integration speed of the trajectory setpoint is linearly reduced with the horizontal position tracking error. When the error is above this parameter, the integration of the trajectory is stopped to wait for the drone. This value can be adjusted depending on the tracking capabilities of the vehicle.</p>   </td>
- <td>0.1 > 10.0 </td>
+ <td>[0.1, 10.0] </td>
  <td>2.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
  <td>Manual position control stick exponential curve sensitivity <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_P">MPC_XY_P</strong> (FLOAT)</td>
  <td>Proportional gain for horizontal position error    </td>
- <td>0.0 > 2.0 </td>
+ <td>[0.0, 2.0] </td>
  <td>0.95</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_TRAJ_P">MPC_XY_TRAJ_P</strong> (FLOAT)</td>
  <td>Proportional gain for horizontal trajectory position error    </td>
- <td>0.1 > 1.0 </td>
+ <td>[0.1, 1.0] </td>
  <td>0.5</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_ALL">MPC_XY_VEL_ALL</strong> (FLOAT)</td>
- <td>Overall Horizonal Velocity Limit <p><strong>Comment:</strong> If set to a value greater than zero, other parameters are automatically set (such as MPC_XY_VEL_MAX or MPC_VEL_MANUAL). If set to a negative value, the existing individual parameters are used.</p>   </td>
- <td>-20 > 20 (1)</td>
+ <td>Overall Horizontal Velocity Limit <p><strong>Comment:</strong> If set to a value greater than zero, other parameters are automatically set (such as MPC_XY_VEL_MAX or MPC_VEL_MANUAL). If set to a negative value, the existing individual parameters are used.</p>   </td>
+ <td>[-20, 20] (1)</td>
  <td>-10.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_D_ACC">MPC_XY_VEL_D_ACC</strong> (FLOAT)</td>
  <td>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
- <td>0.1 > 2.0 </td>
+ <td>[0.1, 2.0] </td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_I_ACC">MPC_XY_VEL_I_ACC</strong> (FLOAT)</td>
  <td>Integral gain for horizontal velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non-zero value allows to eliminate steady state errors in the presence of disturbances like wind.</p>   </td>
- <td>0.0 > 60.0 </td>
+ <td>[0.0, 60.0] </td>
  <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_MAX">MPC_XY_VEL_MAX</strong> (FLOAT)</td>
  <td>Maximum horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>   </td>
- <td>0.0 > 20.0 (1)</td>
+ <td>[0.0, 20.0] (1)</td>
  <td>12.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_VEL_P_ACC">MPC_XY_VEL_P_ACC</strong> (FLOAT)</td>
  <td>Proportional gain for horizontal velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
- <td>1.2 > 5.0 </td>
+ <td>[1.2, 5.0] </td>
  <td>1.8</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_YAW_EXPO">MPC_YAW_EXPO</strong> (FLOAT)</td>
  <td>Manual control stick yaw rotation exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_MAN_EXPO">MPC_Z_MAN_EXPO</strong> (FLOAT)</td>
  <td>Manual control stick vertical exponential curve <p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.6</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_P">MPC_Z_P</strong> (FLOAT)</td>
  <td>Proportional gain for vertical position error    </td>
- <td>0.0 > 1.5 </td>
+ <td>[0.0, 1.5] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_ALL">MPC_Z_VEL_ALL</strong> (FLOAT)</td>
  <td>Overall Vertical Velocity Limit <p><strong>Comment:</strong> If set to a value greater than zero, other parameters are automatically set (such as MPC_Z_VEL_MAX_UP or MPC_LAND_SPEED). If set to a negative value, the existing individual parameters are used.</p>   </td>
- <td>-3 > 8 (0.5)</td>
+ <td>[-3, 8] (0.5)</td>
  <td>-3.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_D_ACC">MPC_Z_VEL_D_ACC</strong> (FLOAT)</td>
  <td>Differential gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
- <td>0.0 > 2.0 </td>
+ <td>[0.0, 2.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_I_ACC">MPC_Z_VEL_I_ACC</strong> (FLOAT)</td>
  <td>Integral gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>   </td>
- <td>0.2 > 3.0 </td>
+ <td>[0.2, 3.0] </td>
  <td>2.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_DN">MPC_Z_VEL_MAX_DN</strong> (FLOAT)</td>
  <td>Maximum descent velocity <p><strong>Comment:</strong> Descent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_DN</p>   </td>
- <td>0.5 > 4.0 (0.1)</td>
+ <td>[0.5, 4.0] (0.1)</td>
  <td>1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
  <td>Maximum ascent velocity <p><strong>Comment:</strong> Ascent velocity in manual modes and offboard. For auto modes, see MPC_Z_V_AUTO_UP</p>   </td>
- <td>0.5 > 8.0 (0.1)</td>
+ <td>[0.5, 8.0] (0.1)</td>
  <td>3.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_VEL_P_ACC">MPC_Z_VEL_P_ACC</strong> (FLOAT)</td>
  <td>Proportional gain for vertical velocity error <p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
- <td>2.0 > 15.0 </td>
+ <td>[2.0, 15.0] </td>
  <td>4.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_V_AUTO_DN">MPC_Z_V_AUTO_DN</strong> (FLOAT)</td>
  <td>Automatic descent velocity <p><strong>Comment:</strong> Descent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_DN</p>   </td>
- <td>0.5 > 4.0 (0.1)</td>
+ <td>[0.5, 4.0] (0.1)</td>
  <td>1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_Z_V_AUTO_UP">MPC_Z_V_AUTO_UP</strong> (FLOAT)</td>
  <td>Automatic ascent velocity <p><strong>Comment:</strong> Ascent velocity in auto modes. For manual modes and offboard, see MPC_Z_VEL_MAX_UP</p>   </td>
- <td>0.5 > 8.0 (0.1)</td>
+ <td>[0.5, 8.0] (0.1)</td>
  <td>3.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="SYS_VEHICLE_RESP">SYS_VEHICLE_RESP</strong> (FLOAT)</td>
  <td>Responsiveness <p><strong>Comment:</strong> Changes the overall responsiveness of the vehicle. The higher the value, the faster the vehicle will react. If set to a value greater than zero, other parameters are automatically set (such as the acceleration or jerk limits). If set to a negative value, the existing individual parameters are used.</p>   </td>
- <td>-1 > 1 (0.05)</td>
+ <td>[-1, 1] (0.05)</td>
  <td>-0.4</td>
  <td></td>
 </tr>
@@ -18267,14 +18328,14 @@ table {
 <tr>
  <td><strong id="WV_ROLL_MIN">WV_ROLL_MIN</strong> (FLOAT)</td>
  <td>Minimum roll angle setpoint for weathervane controller to demand a yaw-rate    </td>
- <td>0 > 5 </td>
+ <td>[0, 5] </td>
  <td>1.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="WV_YRATE_MAX">WV_YRATE_MAX</strong> (FLOAT)</td>
  <td>Maximum yawrate the weathervane controller is allowed to demand    </td>
- <td>0 > 120 </td>
+ <td>[0, 120] </td>
  <td>90.0</td>
  <td>deg/s</td>
 </tr>
@@ -18285,55 +18346,55 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)</td>
  <td>Acro mode Expo factor for Roll and Pitch <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.69</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)</td>
  <td>Acro mode Expo factor for Yaw <p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0.69</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
  <td>Max acro pitch rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
- <td>0.0 > 1800.0 (5)</td>
+ <td>[0.0, 1800.0] (5)</td>
  <td>720.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
  <td>Max acro roll rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
- <td>0.0 > 1800.0 (5)</td>
+ <td>[0.0, 1800.0] (5)</td>
  <td>720.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
- <td>Acro mode SuperExpo factor for Roll and Pitch <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
- <td>0 > 0.95 </td>
+ <td>Acro mode SuperExpo factor for Roll and Pitch <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>[0, 0.95] </td>
  <td>0.7</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)</td>
- <td>Acro mode SuperExpo factor for Yaw <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
- <td>0 > 0.95 </td>
+ <td>Acro mode SuperExpo factor for Yaw <p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 reasonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>   </td>
+ <td>[0, 0.95] </td>
  <td>0.7</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td>Max acro yaw rate <p><strong>Comment:</strong> default 1.5 turns per second</p>   </td>
- <td>0.0 > 1800.0 (5)</td>
+ <td>[0.0, 1800.0] (5)</td>
  <td>540.0</td>
  <td>deg/s</td>
 </tr>
@@ -18347,126 +18408,126 @@ table {
 <tr>
  <td><strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)</td>
  <td>Pitch rate D gain <p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>0.0 > ? (0.0005)</td>
+ <td>[0.0, ?] (0.0005)</td>
  <td>0.003</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_PITCHRATE_FF">MC_PITCHRATE_FF</strong> (FLOAT)</td>
  <td>Pitch rate feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>0.0 > ? </td>
+ <td>[0.0, ?] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_PITCHRATE_I">MC_PITCHRATE_I</strong> (FLOAT)</td>
  <td>Pitch rate I gain <p><strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_PITCHRATE_K">MC_PITCHRATE_K</strong> (FLOAT)</td>
  <td>Pitch rate controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_PITCHRATE_K * (MC_PITCHRATE_P * error + MC_PITCHRATE_I * error_integral + MC_PITCHRATE_D * error_derivative) Set MC_PITCHRATE_P=1 to implement a PID in the ideal form. Set MC_PITCHRATE_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>0.01 > 5.0 (0.0005)</td>
+ <td>[0.01, 5.0] (0.0005)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_PITCHRATE_P">MC_PITCHRATE_P</strong> (FLOAT)</td>
  <td>Pitch rate P gain <p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>0.01 > 0.6 (0.01)</td>
+ <td>[0.01, 0.6] (0.01)</td>
  <td>0.15</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_PR_INT_LIM">MC_PR_INT_LIM</strong> (FLOAT)</td>
  <td>Pitch rate integrator limit <p><strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.30</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ROLLRATE_D">MC_ROLLRATE_D</strong> (FLOAT)</td>
  <td>Roll rate D gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>0.0 > 0.01 (0.0005)</td>
+ <td>[0.0, 0.01] (0.0005)</td>
  <td>0.003</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ROLLRATE_FF">MC_ROLLRATE_FF</strong> (FLOAT)</td>
  <td>Roll rate feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>0.0 > ? </td>
+ <td>[0.0, ?] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)</td>
  <td>Roll rate I gain <p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ROLLRATE_K">MC_ROLLRATE_K</strong> (FLOAT)</td>
  <td>Roll rate controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_ROLLRATE_K * (MC_ROLLRATE_P * error + MC_ROLLRATE_I * error_integral + MC_ROLLRATE_D * error_derivative) Set MC_ROLLRATE_P=1 to implement a PID in the ideal form. Set MC_ROLLRATE_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>0.01 > 5.0 (0.0005)</td>
+ <td>[0.01, 5.0] (0.0005)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_ROLLRATE_P">MC_ROLLRATE_P</strong> (FLOAT)</td>
  <td>Roll rate P gain <p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>0.01 > 0.5 (0.01)</td>
+ <td>[0.01, 0.5] (0.01)</td>
  <td>0.15</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_RR_INT_LIM">MC_RR_INT_LIM</strong> (FLOAT)</td>
  <td>Roll rate integrator limit <p><strong>Comment:</strong> Roll rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.30</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)</td>
  <td>Yaw rate D gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAWRATE_FF">MC_YAWRATE_FF</strong> (FLOAT)</td>
  <td>Yaw rate feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)</td>
  <td>Yaw rate I gain <p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAWRATE_K">MC_YAWRATE_K</strong> (FLOAT)</td>
  <td>Yaw rate controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_YAWRATE_K * (MC_YAWRATE_P * error + MC_YAWRATE_I * error_integral + MC_YAWRATE_D * error_derivative) Set MC_YAWRATE_P=1 to implement a PID in the ideal form. Set MC_YAWRATE_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>0.0 > 5.0 (0.0005)</td>
+ <td>[0.0, 5.0] (0.0005)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAWRATE_P">MC_YAWRATE_P</strong> (FLOAT)</td>
  <td>Yaw rate P gain <p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>0.0 > 0.6 (0.01)</td>
+ <td>[0.0, 0.6] (0.01)</td>
  <td>0.2</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YR_INT_LIM">MC_YR_INT_LIM</strong> (FLOAT)</td>
  <td>Yaw rate integrator limit <p><strong>Comment:</strong> Yaw rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.30</td>
  <td></td>
 </tr>
@@ -18477,7 +18538,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -18502,55 +18563,55 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
  <td>Minimum motor rise time (slew rate limit) <p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in minimum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
- <td>0.0 > ? </td>
+ <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>s/(1000*PWM)</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DISARM">PWM_AUX_DISARM</strong> (INT32)</td>
  <td>PWM aux disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>0 > 2200 </td>
+ <td>[0, 2200] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)</td>
  <td>PWM aux maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)</td>
  <td>PWM aux minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_OUT">PWM_AUX_OUT</strong> (INT32)</td>
  <td>PWM channels used as ESC outputs <p><strong>Comment:</strong> Number representing the channels e.g. 134 - Channel 1, 3 and 4. Global e.g. PWM_AUX_MIN/MAX/DISARM limits only apply to these channels.</p>   </td>
- <td>0 > 123456789 </td>
+ <td>[0, 123456789] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_RATE">PWM_AUX_RATE</strong> (INT32)</td>
  <td>PWM aux output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>-1 > 2000 </td>
+ <td>[-1, 2000] </td>
  <td>50</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_RATE1">PWM_AUX_RATE1</strong> (INT32)</td>
  <td>PWM aux 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the aux outputs</p>   </td>
- <td>0 > 400 </td>
+ <td>[0, 400] </td>
  <td>50</td>
  <td>Hz</td>
 </tr>
@@ -18613,315 +18674,315 @@ table {
 <tr>
  <td><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
  <td>PWM aux 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
  <td>PWM aux 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
  <td>PWM aux 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
  <td>PWM aux 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
  <td>PWM aux 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
  <td>PWM aux 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TRIM7">PWM_AUX_TRIM7</strong> (FLOAT)</td>
  <td>PWM aux 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_TRIM8">PWM_AUX_TRIM8</strong> (FLOAT)</td>
  <td>PWM aux 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS1">PWM_EXTRA_DIS1</strong> (INT32)</td>
  <td>PWM extra 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS2">PWM_EXTRA_DIS2</strong> (INT32)</td>
  <td>PWM extra 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS3">PWM_EXTRA_DIS3</strong> (INT32)</td>
  <td>PWM extra 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS4">PWM_EXTRA_DIS4</strong> (INT32)</td>
  <td>PWM extra 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS5">PWM_EXTRA_DIS5</strong> (INT32)</td>
  <td>PWM extra 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS6">PWM_EXTRA_DIS6</strong> (INT32)</td>
  <td>PWM extra 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS7">PWM_EXTRA_DIS7</strong> (INT32)</td>
  <td>PWM extra 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS8">PWM_EXTRA_DIS8</strong> (INT32)</td>
  <td>PWM extra 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DISARM">PWM_EXTRA_DISARM</strong> (INT32)</td>
  <td>PWM extra disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>0 > 2200 </td>
+ <td>[0, 2200] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL1">PWM_EXTRA_FAIL1</strong> (INT32)</td>
  <td>PWM extra 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL2">PWM_EXTRA_FAIL2</strong> (INT32)</td>
  <td>PWM extra 2 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL3">PWM_EXTRA_FAIL3</strong> (INT32)</td>
  <td>PWM extra 3 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL4">PWM_EXTRA_FAIL4</strong> (INT32)</td>
  <td>PWM extra 4 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL5">PWM_EXTRA_FAIL5</strong> (INT32)</td>
  <td>PWM extra 5 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL6">PWM_EXTRA_FAIL6</strong> (INT32)</td>
  <td>PWM extra 6 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL7">PWM_EXTRA_FAIL7</strong> (INT32)</td>
  <td>PWM extra 7 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_FAIL8">PWM_EXTRA_FAIL8</strong> (INT32)</td>
  <td>PWM extra 8 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
+ <td>[0, 2150] </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX">PWM_EXTRA_MAX</strong> (INT32)</td>
  <td>PWM extra maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX1">PWM_EXTRA_MAX1</strong> (INT32)</td>
  <td>PWM extra 1 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX2">PWM_EXTRA_MAX2</strong> (INT32)</td>
  <td>PWM extra 2 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX3">PWM_EXTRA_MAX3</strong> (INT32)</td>
  <td>PWM extra 3 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX4">PWM_EXTRA_MAX4</strong> (INT32)</td>
  <td>PWM extra 4 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX5">PWM_EXTRA_MAX5</strong> (INT32)</td>
  <td>PWM extra 5 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX6">PWM_EXTRA_MAX6</strong> (INT32)</td>
  <td>PWM extra 6 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX7">PWM_EXTRA_MAX7</strong> (INT32)</td>
  <td>PWM extra 7 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MAX8">PWM_EXTRA_MAX8</strong> (INT32)</td>
  <td>PWM extra 8 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>-1 > 2150 </td>
+ <td>[-1, 2150] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN">PWM_EXTRA_MIN</strong> (INT32)</td>
  <td>PWM extra minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN1">PWM_EXTRA_MIN1</strong> (INT32)</td>
  <td>PWM extra 1 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN2">PWM_EXTRA_MIN2</strong> (INT32)</td>
  <td>PWM extra 2 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN3">PWM_EXTRA_MIN3</strong> (INT32)</td>
  <td>PWM extra 3 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN4">PWM_EXTRA_MIN4</strong> (INT32)</td>
  <td>PWM extra 4 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN5">PWM_EXTRA_MIN5</strong> (INT32)</td>
  <td>PWM extra 5 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN6">PWM_EXTRA_MIN6</strong> (INT32)</td>
  <td>PWM extra 6 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN7">PWM_EXTRA_MIN7</strong> (INT32)</td>
  <td>PWM extra 7 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_MIN8">PWM_EXTRA_MIN8</strong> (INT32)</td>
  <td>PWM extra 8 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>-1 > 1600 </td>
+ <td>[-1, 1600] </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_RATE">PWM_EXTRA_RATE</strong> (INT32)</td>
  <td>PWM extra output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>-1 > 2000 </td>
+ <td>[-1, 2000] </td>
  <td>50</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_RATE1">PWM_EXTRA_RATE1</strong> (INT32)</td>
  <td>PWM extra 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the main outputs</p>   </td>
- <td>0 > 400 </td>
+ <td>[0, 400] </td>
  <td>50</td>
  <td>Hz</td>
 </tr>
@@ -18984,98 +19045,98 @@ table {
 <tr>
  <td><strong id="PWM_EXTRA_TRIM1">PWM_EXTRA_TRIM1</strong> (FLOAT)</td>
  <td>PWM extra 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_TRIM2">PWM_EXTRA_TRIM2</strong> (FLOAT)</td>
  <td>PWM extra 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_TRIM3">PWM_EXTRA_TRIM3</strong> (FLOAT)</td>
  <td>PWM extra 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_TRIM4">PWM_EXTRA_TRIM4</strong> (FLOAT)</td>
  <td>PWM extra 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_TRIM5">PWM_EXTRA_TRIM5</strong> (FLOAT)</td>
  <td>PWM extra 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_TRIM6">PWM_EXTRA_TRIM6</strong> (FLOAT)</td>
  <td>PWM extra 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_TRIM7">PWM_EXTRA_TRIM7</strong> (FLOAT)</td>
  <td>PWM extra 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_TRIM8">PWM_EXTRA_TRIM8</strong> (FLOAT)</td>
  <td>PWM extra 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DISARM">PWM_MAIN_DISARM</strong> (INT32)</td>
  <td>PWM main disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>0 > 2200 </td>
+ <td>[0, 2200] </td>
  <td>900</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX">PWM_MAIN_MAX</strong> (INT32)</td>
  <td>PWM main maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>1600 > 2200 </td>
+ <td>[1600, 2200] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN">PWM_MAIN_MIN</strong> (INT32)</td>
  <td>PWM main minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>800 > 1400 </td>
+ <td>[800, 1400] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_OUT">PWM_MAIN_OUT</strong> (INT32)</td>
  <td>PWM channels used as ESC outputs <p><strong>Comment:</strong> Number representing the channels e.g. 134 - Channel 1, 3 and 4. Global e.g. PWM_MAIN_MIN/MAX/DISARM limits only apply to these channels.</p>   </td>
- <td>0 > 123456789 </td>
+ <td>[0, 123456789] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_RATE">PWM_MAIN_RATE</strong> (INT32)</td>
  <td>PWM main output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>-1 > 2000 </td>
+ <td>[-1, 2000] </td>
  <td>400</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_RATE1">PWM_MAIN_RATE1</strong> (INT32)</td>
  <td>PWM main 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the main outputs</p>   </td>
- <td>0 > 400 </td>
+ <td>[0, 400] </td>
  <td>50</td>
  <td>Hz</td>
 </tr>
@@ -19180,98 +19241,98 @@ table {
 <tr>
  <td><strong id="PWM_MAIN_TRIM1">PWM_MAIN_TRIM1</strong> (FLOAT)</td>
  <td>PWM main 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM10">PWM_MAIN_TRIM10</strong> (FLOAT)</td>
  <td>PWM main 10 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM11">PWM_MAIN_TRIM11</strong> (FLOAT)</td>
  <td>PWM main 11 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM12">PWM_MAIN_TRIM12</strong> (FLOAT)</td>
  <td>PWM main 12 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM13">PWM_MAIN_TRIM13</strong> (FLOAT)</td>
  <td>PWM main 13 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM14">PWM_MAIN_TRIM14</strong> (FLOAT)</td>
  <td>PWM main 14 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM2">PWM_MAIN_TRIM2</strong> (FLOAT)</td>
  <td>PWM main 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM3">PWM_MAIN_TRIM3</strong> (FLOAT)</td>
  <td>PWM main 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM4">PWM_MAIN_TRIM4</strong> (FLOAT)</td>
  <td>PWM main 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM5">PWM_MAIN_TRIM5</strong> (FLOAT)</td>
  <td>PWM main 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM6">PWM_MAIN_TRIM6</strong> (FLOAT)</td>
  <td>PWM main 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM7">PWM_MAIN_TRIM7</strong> (FLOAT)</td>
  <td>PWM main 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM8">PWM_MAIN_TRIM8</strong> (FLOAT)</td>
  <td>PWM main 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_TRIM9">PWM_MAIN_TRIM9</strong> (FLOAT)</td>
  <td>PWM main 9 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>-0.2 > 0.2 </td>
+ <td>[-0.2, 0.2] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -19285,7 +19346,7 @@ table {
 <tr>
  <td><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
  <td>Thrust to motor control signal model parameter <p><strong>Comment:</strong> Parameter used to model the nonlinear relationship between motor control signal (e.g. PWM) and static thrust. The model is: rel_thrust = factor * rel_signal^2 + (1-factor) * rel_signal, where rel_thrust is the normalized thrust between 0 and 1, and rel_signal is the relative motor control signal between 0 and 1.</p>   </td>
- <td>0.0 > 1.0 (0.1)</td>
+ <td>[0.0, 1.0] (0.1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -19296,48 +19357,48 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="PLD_BTOUT">PLD_BTOUT</strong> (FLOAT)</td>
  <td>Landing Target Timeout <p><strong>Comment:</strong> Time after which the landing target is considered lost without any new measurements.</p>   </td>
- <td>0.0 > 50 (0.5)</td>
+ <td>[0.0, 50] (0.5)</td>
  <td>5.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="PLD_FAPPR_ALT">PLD_FAPPR_ALT</strong> (FLOAT)</td>
  <td>Final approach altitude <p><strong>Comment:</strong> Allow final approach (without horizontal positioning) if losing landing target closer than this to the ground.</p>   </td>
- <td>0.0 > 10 (0.1)</td>
+ <td>[0.0, 10] (0.1)</td>
  <td>0.1</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="PLD_HACC_RAD">PLD_HACC_RAD</strong> (FLOAT)</td>
  <td>Horizontal acceptance radius <p><strong>Comment:</strong> Start descending if closer above landing target than this.</p>   </td>
- <td>0.0 > 10 (0.1)</td>
+ <td>[0.0, 10] (0.1)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="PLD_MAX_SRCH">PLD_MAX_SRCH</strong> (INT32)</td>
  <td>Maximum number of search attempts <p><strong>Comment:</strong> Maximum number of times to search for the landing target if it is lost during the precision landing.</p>   </td>
- <td>0 > 100 </td>
+ <td>[0, 100] </td>
  <td>3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="PLD_SRCH_ALT">PLD_SRCH_ALT</strong> (FLOAT)</td>
  <td>Search altitude <p><strong>Comment:</strong> Altitude above home to which to climb when searching for the landing target.</p>   </td>
- <td>0.0 > 100 (0.1)</td>
+ <td>[0.0, 100] (0.1)</td>
  <td>10.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="PLD_SRCH_TOUT">PLD_SRCH_TOUT</strong> (FLOAT)</td>
  <td>Search timeout <p><strong>Comment:</strong> Time allowed to search for the landing target before falling back to normal landing.</p>   </td>
- <td>0.0 > 100 (0.1)</td>
+ <td>[0.0, 100] (0.1)</td>
  <td>10.0</td>
  <td>s</td>
 </tr>
@@ -19348,7 +19409,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -19373,7 +19434,7 @@ table {
 <li><strong>7:</strong> GHST</li> 
 </ul>
   </td>
- <td>-1 > 7 </td>
+ <td>[-1, 7] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -19384,7 +19445,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -19457,7 +19518,7 @@ table {
  <td><strong id="RTPS_RATE">RTPS_RATE</strong> (INT32)</td>
  <td>Maximum RTPS data rate <p><strong>Comment:</strong> Configure the maximum sending rate for the RTPS streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. 0 is unlimited. Note this can cause reliability issues if enough RTPS topics are selected that exceed the serial bus limit.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td>0 &gt; ? </td>
+ <td>[0, ?] </td>
  <td>0</td>
  <td>B/s</td>
 </tr>
@@ -19468,27 +19529,27 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="RC10_DZ">RC10_DZ</strong> (FLOAT)</td>
  <td>RC channel 10 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC10_MAX">RC10_MAX</strong> (FLOAT)</td>
  <td>RC channel 10 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC10_MIN">RC10_MIN</strong> (FLOAT)</td>
  <td>RC channel 10 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19500,35 +19561,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC10_TRIM">RC10_TRIM</strong> (FLOAT)</td>
  <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_DZ">RC11_DZ</strong> (FLOAT)</td>
  <td>RC channel 11 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC11_MAX">RC11_MAX</strong> (FLOAT)</td>
  <td>RC channel 11 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC11_MIN">RC11_MIN</strong> (FLOAT)</td>
  <td>RC channel 11 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19540,35 +19601,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC11_TRIM">RC11_TRIM</strong> (FLOAT)</td>
  <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_DZ">RC12_DZ</strong> (FLOAT)</td>
  <td>RC channel 12 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC12_MAX">RC12_MAX</strong> (FLOAT)</td>
  <td>RC channel 12 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC12_MIN">RC12_MIN</strong> (FLOAT)</td>
  <td>RC channel 12 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19580,35 +19641,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC12_TRIM">RC12_TRIM</strong> (FLOAT)</td>
  <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_DZ">RC13_DZ</strong> (FLOAT)</td>
  <td>RC channel 13 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC13_MAX">RC13_MAX</strong> (FLOAT)</td>
  <td>RC channel 13 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC13_MIN">RC13_MIN</strong> (FLOAT)</td>
  <td>RC channel 13 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19620,35 +19681,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC13_TRIM">RC13_TRIM</strong> (FLOAT)</td>
  <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_DZ">RC14_DZ</strong> (FLOAT)</td>
  <td>RC channel 14 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC14_MAX">RC14_MAX</strong> (FLOAT)</td>
  <td>RC channel 14 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC14_MIN">RC14_MIN</strong> (FLOAT)</td>
  <td>RC channel 14 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19660,35 +19721,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC14_TRIM">RC14_TRIM</strong> (FLOAT)</td>
  <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_DZ">RC15_DZ</strong> (FLOAT)</td>
  <td>RC channel 15 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC15_MAX">RC15_MAX</strong> (FLOAT)</td>
  <td>RC channel 15 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC15_MIN">RC15_MIN</strong> (FLOAT)</td>
  <td>RC channel 15 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19700,35 +19761,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC15_TRIM">RC15_TRIM</strong> (FLOAT)</td>
  <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_DZ">RC16_DZ</strong> (FLOAT)</td>
  <td>RC channel 16 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC16_MAX">RC16_MAX</strong> (FLOAT)</td>
  <td>RC channel 16 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC16_MIN">RC16_MIN</strong> (FLOAT)</td>
  <td>RC channel 16 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19740,35 +19801,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC16_TRIM">RC16_TRIM</strong> (FLOAT)</td>
  <td>RC channel 16 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC17_DZ">RC17_DZ</strong> (FLOAT)</td>
  <td>RC channel 17 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC17_MAX">RC17_MAX</strong> (FLOAT)</td>
  <td>RC channel 17 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC17_MIN">RC17_MIN</strong> (FLOAT)</td>
  <td>RC channel 17 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19780,35 +19841,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC17_TRIM">RC17_TRIM</strong> (FLOAT)</td>
  <td>RC channel 17 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC18_DZ">RC18_DZ</strong> (FLOAT)</td>
  <td>RC channel 18 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC18_MAX">RC18_MAX</strong> (FLOAT)</td>
  <td>RC channel 18 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC18_MIN">RC18_MIN</strong> (FLOAT)</td>
  <td>RC channel 18 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19820,35 +19881,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC18_TRIM">RC18_TRIM</strong> (FLOAT)</td>
  <td>RC channel 18 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC1_DZ">RC1_DZ</strong> (FLOAT)</td>
  <td>RC channel 1 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC1_MAX">RC1_MAX</strong> (FLOAT)</td>
  <td>RC channel 1 maximum <p><strong>Comment:</strong> Maximum value for RC channel 1</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC1_MIN">RC1_MIN</strong> (FLOAT)</td>
  <td>RC channel 1 minimum <p><strong>Comment:</strong> Minimum value for RC channel 1</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000.0</td>
  <td>us</td>
 </tr>
@@ -19860,35 +19921,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC1_TRIM">RC1_TRIM</strong> (FLOAT)</td>
  <td>RC channel 1 trim <p><strong>Comment:</strong> Mid point value (same as min for throttle)</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC2_DZ">RC2_DZ</strong> (FLOAT)</td>
  <td>RC channel 2 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC2_MAX">RC2_MAX</strong> (FLOAT)</td>
  <td>RC channel 2 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC2_MIN">RC2_MIN</strong> (FLOAT)</td>
  <td>RC channel 2 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000.0</td>
  <td>us</td>
 </tr>
@@ -19900,35 +19961,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC2_TRIM">RC2_TRIM</strong> (FLOAT)</td>
  <td>RC channel 2 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC3_DZ">RC3_DZ</strong> (FLOAT)</td>
  <td>RC channel 3 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC3_MAX">RC3_MAX</strong> (FLOAT)</td>
  <td>RC channel 3 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC3_MIN">RC3_MIN</strong> (FLOAT)</td>
  <td>RC channel 3 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19940,35 +20001,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC3_TRIM">RC3_TRIM</strong> (FLOAT)</td>
  <td>RC channel 3 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC4_DZ">RC4_DZ</strong> (FLOAT)</td>
  <td>RC channel 4 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC4_MAX">RC4_MAX</strong> (FLOAT)</td>
  <td>RC channel 4 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC4_MIN">RC4_MIN</strong> (FLOAT)</td>
  <td>RC channel 4 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -19980,35 +20041,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC4_TRIM">RC4_TRIM</strong> (FLOAT)</td>
  <td>RC channel 4 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC5_DZ">RC5_DZ</strong> (FLOAT)</td>
  <td>RC channel 5 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC5_MAX">RC5_MAX</strong> (FLOAT)</td>
  <td>RC channel 5 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC5_MIN">RC5_MIN</strong> (FLOAT)</td>
  <td>RC channel 5 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -20020,35 +20081,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC5_TRIM">RC5_TRIM</strong> (FLOAT)</td>
  <td>RC channel 5 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC6_DZ">RC6_DZ</strong> (FLOAT)</td>
  <td>RC channel 6 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC6_MAX">RC6_MAX</strong> (FLOAT)</td>
  <td>RC channel 6 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC6_MIN">RC6_MIN</strong> (FLOAT)</td>
  <td>RC channel 6 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -20060,35 +20121,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC6_TRIM">RC6_TRIM</strong> (FLOAT)</td>
  <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC7_DZ">RC7_DZ</strong> (FLOAT)</td>
  <td>RC channel 7 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC7_MAX">RC7_MAX</strong> (FLOAT)</td>
  <td>RC channel 7 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC7_MIN">RC7_MIN</strong> (FLOAT)</td>
  <td>RC channel 7 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -20100,35 +20161,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC7_TRIM">RC7_TRIM</strong> (FLOAT)</td>
  <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC8_DZ">RC8_DZ</strong> (FLOAT)</td>
  <td>RC channel 8 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>10.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC8_MAX">RC8_MAX</strong> (FLOAT)</td>
  <td>RC channel 8 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC8_MIN">RC8_MIN</strong> (FLOAT)</td>
  <td>RC channel 8 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -20140,35 +20201,35 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC8_TRIM">RC8_TRIM</strong> (FLOAT)</td>
  <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC9_DZ">RC9_DZ</strong> (FLOAT)</td>
  <td>RC channel 9 dead zone <p><strong>Comment:</strong> The +- range of this value around the trim value will be considered as zero.</p>   </td>
- <td>0.0 &gt; 100.0 </td>
+ <td>[0.0, 100.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC9_MAX">RC9_MAX</strong> (FLOAT)</td>
  <td>RC channel 9 maximum <p><strong>Comment:</strong> Maximum value for this channel.</p>   </td>
- <td>1500.0 > 2200.0 </td>
+ <td>[1500.0, 2200.0] </td>
  <td>2000</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC9_MIN">RC9_MIN</strong> (FLOAT)</td>
  <td>RC channel 9 minimum <p><strong>Comment:</strong> Minimum value for this channel.</p>   </td>
- <td>800.0 > 1500.0 </td>
+ <td>[800.0, 1500.0] </td>
  <td>1000</td>
  <td>us</td>
 </tr>
@@ -20180,28 +20241,28 @@ table {
 <li><strong>1.0:</strong> Normal</li> 
 </ul>
   </td>
- <td>-1.0 > 1.0 </td>
+ <td>[-1.0, 1.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC9_TRIM">RC9_TRIM</strong> (FLOAT)</td>
  <td>RC channel 9 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
- <td>800.0 > 2200.0 </td>
+ <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="RC_CHAN_CNT">RC_CHAN_CNT</strong> (INT32)</td>
  <td>RC channel count <p><strong>Comment:</strong> This parameter is used by Ground Station software to save the number of channels which were used during RC calibration. It is only meant for ground station use.</p>   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_FAILS_THR">RC_FAILS_THR</strong> (INT32)</td>
- <td>Failsafe channel PWM threshold <p><strong>Comment:</strong> Use RC_MAP_FAILSAFE to specify which channel is used to indicate RC loss via this theshold. By default this is the throttle channel. Set to a PWM value slightly above the PWM value for the channel (e.g. throttle) in a failsafe event, but below the minimum PWM value for the channel during normal operation. Note: The default value of 0 disables the feature (it is below the expected range).</p>   </td>
- <td>0 > 2200 </td>
+ <td>Failsafe channel PWM threshold <p><strong>Comment:</strong> Use RC_MAP_FAILSAFE to specify which channel is used to indicate RC loss via this threshold. By default this is the throttle channel. Set to a PWM value slightly above the PWM value for the channel (e.g. throttle) in a failsafe event, but below the minimum PWM value for the channel during normal operation. Note: The default value of 0 disables the feature (it is below the expected range).</p>   </td>
+ <td>[0, 2200] </td>
  <td>0</td>
  <td>us</td>
 </tr>
@@ -20247,7 +20308,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20293,7 +20354,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20339,7 +20400,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20385,7 +20446,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20431,7 +20492,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20477,7 +20538,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20523,7 +20584,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20569,7 +20630,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20615,7 +20676,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20661,7 +20722,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20707,7 +20768,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20753,7 +20814,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20799,7 +20860,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20845,7 +20906,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -20891,42 +20952,42 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_RSSI_PWM_MAX">RC_RSSI_PWM_MAX</strong> (INT32)</td>
  <td>Max input value for RSSI reading <p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>   </td>
- <td>0 > 2000 </td>
+ <td>[0, 2000] </td>
  <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_RSSI_PWM_MIN">RC_RSSI_PWM_MIN</strong> (INT32)</td>
  <td>Min input value for RSSI reading <p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>   </td>
- <td>0 > 2000 </td>
+ <td>[0, 2000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
  <td>Pitch trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
  <td>Roll trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
  <td>Yaw trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>-0.25 > 0.25 (0.01)</td>
+ <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -20937,34 +20998,34 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="RC_ARMSWITCH_TH">RC_ARMSWITCH_TH</strong> (FLOAT)</td>
  <td>Threshold for the arm switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.75</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_GEAR_TH">RC_GEAR_TH</strong> (FLOAT)</td>
  <td>Threshold for the landing gear switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.75</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_KILLSWITCH_TH">RC_KILLSWITCH_TH</strong> (FLOAT)</td>
  <td>Threshold for the kill switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.75</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_LOITER_TH">RC_LOITER_TH</strong> (FLOAT)</td>
  <td>Threshold for selecting loiter mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.75</td>
  <td></td>
 </tr>
@@ -21010,7 +21071,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21056,7 +21117,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21102,7 +21163,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21148,7 +21209,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21174,7 +21235,7 @@ table {
   <li><strong>17:</strong> Mask Channel 18 as a mode button</li> 
 </ul>
  </td>
- <td>0 > 258048 </td>
+ <td>[0, 258048] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21220,7 +21281,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21266,7 +21327,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21312,7 +21373,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21358,7 +21419,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21404,7 +21465,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21450,7 +21511,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21496,7 +21557,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21542,7 +21603,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21588,7 +21649,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21634,7 +21695,7 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -21680,28 +21741,28 @@ table {
 <li><strong>18:</strong> Channel 18</li> 
 </ul>
   </td>
- <td>0 > 18 </td>
+ <td>[0, 18] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_OFFB_TH">RC_OFFB_TH</strong> (FLOAT)</td>
  <td>Threshold for selecting offboard mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.75</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_RETURN_TH">RC_RETURN_TH</strong> (FLOAT)</td>
  <td>Threshold for selecting return to launch mode <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.75</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_TRANS_TH">RC_TRANS_TH</strong> (FLOAT)</td>
  <td>Threshold for the VTOL transition switch <p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0.75</td>
  <td></td>
 </tr>
@@ -21712,7 +21773,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -21731,14 +21792,14 @@ table {
 <li><strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above destination.</li> 
 </ul>
   </td>
- <td>0 > 90 </td>
+ <td>[0, 90] </td>
  <td>45</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
  <td>Return mode loiter altitude <p><strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
- <td>2 > 100 (0.5)</td>
+ <td>[2, 100] (0.5)</td>
  <td>30</td>
  <td>m</td>
 </tr>
@@ -21759,21 +21820,21 @@ table {
 <tr>
  <td><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
  <td>Return mode delay <p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
- <td>-1 > 300 (0.5)</td>
+ <td>[-1, 300] (0.5)</td>
  <td>0.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="RTL_LOITER_RAD">RTL_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius for rtl descend <p><strong>Comment:</strong> Set the radius for loitering to a safe altitude for VTOL transition.</p>   </td>
- <td>25 > 1000 (0.5)</td>
+ <td>[25, 1000] (0.5)</td>
  <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
  <td>Horizontal radius from return point within which special rules for return mode apply <p><strong>Comment:</strong> The return altitude will be calculated based on RTL_CONE_ANG parameter. The yaw setpoint will switch to the one defined by corresponding waypoint.</p>   </td>
- <td>0.5 > 100 (0.5)</td>
+ <td>[0.5, 100] (0.5)</td>
  <td>10.0</td>
  <td>m</td>
 </tr>
@@ -21794,7 +21855,7 @@ table {
 <tr>
  <td><strong id="RTL_RETURN_ALT">RTL_RETURN_ALT</strong> (FLOAT)</td>
  <td>Return mode return altitude <p><strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
- <td>0 > 150 (0.5)</td>
+ <td>[0, 150] (0.5)</td>
  <td>60</td>
  <td>m</td>
 </tr>
@@ -21821,20 +21882,20 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="RTL_TIME_FACTOR">RTL_TIME_FACTOR</strong> (FLOAT)</td>
  <td>RTL time estimate safety margin factor <p><strong>Comment:</strong> Safety factor that is used to scale the actual RTL time estiamte. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
- <td>1.0 > 2.0 (0.1)</td>
+ <td>[1.0, 2.0] (0.1)</td>
  <td>1.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RTL_TIME_MARGIN">RTL_TIME_MARGIN</strong> (INT32)</td>
  <td>RTL time estimate safety margin offset <p><strong>Comment:</strong> Margin that is added to the time estimate, after it has already been scaled Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
- <td>0 > 3600 (1)</td>
+ <td>[0, 3600] (1)</td>
  <td>100</td>
  <td>s</td>
 </tr>
@@ -21845,7 +21906,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -21888,7 +21949,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -21911,7 +21972,7 @@ table {
 <li><strong>135:</strong> 0x87</li> 
 </ul>
   </td>
- <td>128 > 135 </td>
+ <td>[128, 135] </td>
  <td>128</td>
  <td></td>
 </tr>
@@ -21936,28 +21997,28 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>2400 > 460800 </td>
+ <td>[2400, 460800] </td>
  <td>2400</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RBCLW_COUNTS_REV">RBCLW_COUNTS_REV</strong> (INT32)</td>
  <td>Encoder counts per revolution <p><strong>Comment:</strong> Number of encoder counts for one revolution. The roboclaw treats analog encoders (potentiometers) as having 2047 counts per rev. The default value of 1200 corresponds to the default configuration of the Aion R1 rover.</p>   </td>
- <td>1 > ? </td>
+ <td>[1, ?] </td>
  <td>1200</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RBCLW_READ_PER">RBCLW_READ_PER</strong> (INT32)</td>
  <td>Encoder read period <p><strong>Comment:</strong> How long to wait, in Milliseconds, between reading wheel encoder values over Uart from the Roboclaw</p>   </td>
- <td>1 > 1000 </td>
+ <td>[1, 1000] </td>
  <td>10</td>
  <td>ms</td>
 </tr>
 <tr>
  <td><strong id="RBCLW_WRITE_PER">RBCLW_WRITE_PER</strong> (INT32)</td>
  <td>Uart write period <p><strong>Comment:</strong> How long to wait, in Milliseconds, between writing actuator controls over Uart to the Roboclaw</p>   </td>
- <td>1 > 1000 </td>
+ <td>[1, 1000] </td>
  <td>10</td>
  <td>ms</td>
 </tr>
@@ -21968,90 +22029,90 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="GND_L1_DAMPING">GND_L1_DAMPING</strong> (FLOAT)</td>
  <td>L1 damping <p><strong>Comment:</strong> Damping factor for L1 control.</p>   </td>
- <td>0.6 > 0.9 (0.05)</td>
+ <td>[0.6, 0.9] (0.05)</td>
  <td>0.75</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="GND_L1_DIST">GND_L1_DIST</strong> (FLOAT)</td>
  <td>L1 distance <p><strong>Comment:</strong> This is the distance at which the next waypoint is activated. This should be set to about 2-4x of GND_WHEEL_BASE and not smaller than one meter (due to GPS accuracy).</p>   </td>
- <td>1.0 > 50.0 (0.1)</td>
+ <td>[1.0, 50.0] (0.1)</td>
  <td>1.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GND_L1_PERIOD">GND_L1_PERIOD</strong> (FLOAT)</td>
  <td>L1 period <p><strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the rover it's following. Use values around 2-5m for a 0.3m wheel base. Tuning instructions: Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
- <td>0.5 > 50.0 (0.5)</td>
+ <td>[0.5, 50.0] (0.5)</td>
  <td>5.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GND_MAN_Y_MAX">GND_MAN_Y_MAX</strong> (FLOAT)</td>
  <td>Max manual yaw rate    </td>
- <td>0.0 > 400 </td>
+ <td>[0.0, 400] </td>
  <td>150.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="GND_MAX_ANG">GND_MAX_ANG</strong> (FLOAT)</td>
  <td>Maximum turn angle for Ackerman steering <p><strong>Comment:</strong> At a control output of 0, the steering wheels are at 0 radians. At a control output of 1, the steering wheels are at GND_MAX_ANG radians.</p>   </td>
- <td>0.0 > 3.14159 (0.01)</td>
+ <td>[0.0, 3.14159] (0.01)</td>
  <td>0.7854</td>
  <td>rad</td>
 </tr>
 <tr>
  <td><strong id="GND_SPEED_D">GND_SPEED_D</strong> (FLOAT)</td>
  <td>Speed proportional gain <p><strong>Comment:</strong> This is the derivative gain for the speed closed loop controller</p>   </td>
- <td>0.00 > 50.0 (0.005)</td>
+ <td>[0.00, 50.0] (0.005)</td>
  <td>0.001</td>
  <td>%m/s</td>
 </tr>
 <tr>
  <td><strong id="GND_SPEED_I">GND_SPEED_I</strong> (FLOAT)</td>
  <td>Speed Integral gain <p><strong>Comment:</strong> This is the integral gain for the speed closed loop controller</p>   </td>
- <td>0.00 > 50.0 (0.005)</td>
+ <td>[0.00, 50.0] (0.005)</td>
  <td>3.0</td>
  <td>%m/s</td>
 </tr>
 <tr>
  <td><strong id="GND_SPEED_IMAX">GND_SPEED_IMAX</strong> (FLOAT)</td>
  <td>Speed integral maximum value <p><strong>Comment:</strong> This is the maxim value the integral can reach to prevent wind-up.</p>   </td>
- <td>0.005 > 50.0 (0.005)</td>
+ <td>[0.005, 50.0] (0.005)</td>
  <td>1.0</td>
  <td>%m/s</td>
 </tr>
 <tr>
  <td><strong id="GND_SPEED_MAX">GND_SPEED_MAX</strong> (FLOAT)</td>
  <td>Maximum ground speed    </td>
- <td>0.0 > 40 (0.5)</td>
+ <td>[0.0, 40] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="GND_SPEED_P">GND_SPEED_P</strong> (FLOAT)</td>
  <td>Speed proportional gain <p><strong>Comment:</strong> This is the proportional gain for the speed closed loop controller</p>   </td>
- <td>0.005 > 50.0 (0.005)</td>
+ <td>[0.005, 50.0] (0.005)</td>
  <td>2.0</td>
  <td>%m/s</td>
 </tr>
 <tr>
  <td><strong id="GND_SPEED_THR_SC">GND_SPEED_THR_SC</strong> (FLOAT)</td>
  <td>Speed to throttle scaler <p><strong>Comment:</strong> This is a gain to map the speed control output to the throttle linearly.</p>   </td>
- <td>0.005 > 50.0 (0.005)</td>
+ <td>[0.005, 50.0] (0.005)</td>
  <td>1.0</td>
  <td>%m/s</td>
 </tr>
 <tr>
  <td><strong id="GND_SPEED_TRIM">GND_SPEED_TRIM</strong> (FLOAT)</td>
  <td>Trim ground speed    </td>
- <td>0.0 > 40 (0.5)</td>
+ <td>[0.0, 40] (0.5)</td>
  <td>3.0</td>
  <td>m/s</td>
 </tr>
@@ -22063,35 +22124,35 @@ table {
 <li><strong>1:</strong> close the loop with gps speed</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="GND_THR_CRUISE">GND_THR_CRUISE</strong> (FLOAT)</td>
  <td>Cruise throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve the desired cruise speed. 10% is ok for a traxxas stampede vxl with ESC set to training mode</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.1</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="GND_THR_MAX">GND_THR_MAX</strong> (FLOAT)</td>
  <td>Throttle limit max <p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For a Traxxas stampede vxl with the ESC set to training, 30 % is enough</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.3</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="GND_THR_MIN">GND_THR_MIN</strong> (FLOAT)</td>
  <td>Throttle limit min <p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. Set to 0 for rover</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="GND_WHEEL_BASE">GND_WHEEL_BASE</strong> (FLOAT)</td>
  <td>Distance from front axle to rear axle <p><strong>Comment:</strong> A value of 0.31 is typical for 1/10 RC cars.</p>   </td>
- <td>0.0 > ? (0.01)</td>
+ <td>[0.0, ?] (0.01)</td>
  <td>0.31</td>
  <td>m</td>
 </tr>
@@ -22102,67 +22163,67 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="RWTO_AIRSPD_SCL">RWTO_AIRSPD_SCL</strong> (FLOAT)</td>
  <td>Min airspeed scaling factor for takeoff <p><strong>Comment:</strong> Pitch up will be commanded when the following airspeed is reached: FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>   </td>
- <td>0.0 > 2.0 (0.01)</td>
+ <td>[0.0, 2.0] (0.01)</td>
  <td>1.3</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="RWTO_HDG">RWTO_HDG</strong> (INT32)</td>
- <td>Specifies which heading should be held during runnway takeoff <p><strong>Comment:</strong> 0: airframe heading, 1: heading towards takeoff waypoint</p> <strong>값:</strong><ul>
+ <td>Specifies which heading should be held during the runway takeoff ground roll <p><strong>Comment:</strong> 0: airframe heading when takeoff is initiated 1: position control along runway direction (bearing defined from vehicle position on takeoff initiation to MAV_CMD_TAKEOFF position defined by operator)</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Airframe</li>
 
-<li><strong>1:</strong> Waypoint</li> 
+<li><strong>1:</strong> Runway</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="RWTO_MAX_PITCH">RWTO_MAX_PITCH</strong> (FLOAT)</td>
- <td>Max pitch during takeoff <p><strong>Comment:</strong> Fixed-wing settings are used if set to 0. Note that there is also a minimum pitch of 10 degrees during takeoff, so this must be larger if set.</p>   </td>
- <td>0.0 > 60.0 (0.5)</td>
- <td>20.0</td>
- <td>deg</td>
+ <td><strong id="RWTO_L1_PERIOD">RWTO_L1_PERIOD</strong> (FLOAT)</td>
+ <td>L1 period while steering on runway    </td>
+ <td>[1.0, 100.0] (0.1)</td>
+ <td>5.0</td>
+ <td>s</td>
 </tr>
 <tr>
- <td><strong id="RWTO_MAX_ROLL">RWTO_MAX_ROLL</strong> (FLOAT)</td>
- <td>Max roll during climbout <p><strong>Comment:</strong> Roll is limited during climbout to ensure enough lift and prevents aggressive navigation before we're on a safe height.</p>   </td>
- <td>0.0 > 60.0 (0.5)</td>
- <td>25.0</td>
+ <td><strong id="RWTO_MAX_PITCH">RWTO_MAX_PITCH</strong> (FLOAT)</td>
+ <td>Max pitch during takeoff <p><strong>Comment:</strong> Fixed-wing settings are used if set to 0. Note that there is also a minimum pitch of 10 degrees during takeoff, so this must be larger if set.</p>   </td>
+ <td>[0.0, 60.0] (0.5)</td>
+ <td>20.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="RWTO_MAX_THR">RWTO_MAX_THR</strong> (FLOAT)</td>
  <td>Max throttle during runway takeoff <p><strong>Comment:</strong> Can be used to test taxi on runway</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="RWTO_NAV_ALT">RWTO_NAV_ALT</strong> (FLOAT)</td>
- <td>Altitude AGL at which we have enough ground clearance to allow some roll <p><strong>Comment:</strong> Until RWTO_NAV_ALT is reached the plane is held level and only rudder is used to keep the heading (see RWTO_HDG). This should be below FW_CLMBOUT_DIFF if FW_CLMBOUT_DIFF > 0.</p>   </td>
- <td>0.0 > 100.0 (1)</td>
- <td>5.0</td>
- <td>m</td>
+ <td><strong id="RWTO_NUDGE">RWTO_NUDGE</strong> (INT32)</td>
+ <td>Enable use of yaw stick for nudging the wheel during runway ground roll <p><strong>Comment:</strong> This is useful when map, GNSS, or yaw errors on ground are misaligned with what the operator intends for takeoff course. Particularly useful for skinny runways or if the wheel servo is a bit off trim.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="RWTO_PSP">RWTO_PSP</strong> (FLOAT)</td>
  <td>Pitch setpoint during taxi / before takeoff airspeed is reached <p><strong>Comment:</strong> A taildragger with steerable wheel might need to pitch up a little to keep its wheel on the ground before airspeed to takeoff is reached.</p>   </td>
- <td>-10.0 > 20.0 (0.5)</td>
+ <td>[-10.0, 20.0] (0.5)</td>
  <td>0.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="RWTO_RAMP_TIME">RWTO_RAMP_TIME</strong> (FLOAT)</td>
  <td>Throttle ramp up time for runway takeoff    </td>
- <td>1.0 > 15.0 (0.1)</td>
+ <td>[1.0, 15.0] (0.1)</td>
  <td>2.0</td>
  <td>s</td>
 </tr>
@@ -22180,7 +22241,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -22208,21 +22269,21 @@ table {
  <td><strong id="SDLOG_DIRS_MAX">SDLOG_DIRS_MAX</strong> (INT32)</td>
  <td>Maximum number of log directories to keep <p><strong>Comment:</strong> If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum. Note: this does not apply to mission log files.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SDLOG_EXCH_KEY">SDLOG_EXCH_KEY</strong> (INT32)</td>
  <td>Logfile Encryption key exchange key <p><strong>Comment:</strong> If the logfile is encrypted using a symmetric key algorithm, the used encryption key is generated at logging start and stored on the sdcard RSA2048 encrypted using this key.</p>   </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SDLOG_KEY">SDLOG_KEY</strong> (INT32)</td>
  <td>Logfile Encryption key index <p><strong>Comment:</strong> Selects the key in keystore, used for encrypting the log. When using a symmetric encryption algorithm, the key is generated at logging start and kept stored in this index. For symmetric algorithms, the key is volatile and valid only for the duration of logging. The key is stored in encrypted format on the sdcard alongside the logfile, using an RSA2048 key defined by the SDLOG_EXCHANGE_KEY</p>   </td>
- <td>0 > 255 </td>
+ <td>[0, 255] </td>
  <td>2</td>
  <td></td>
 </tr>
@@ -22276,14 +22337,14 @@ table {
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 2047 </td>
+ <td>[0, 2047] </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SDLOG_UTC_OFFSET">SDLOG_UTC_OFFSET</strong> (INT32)</td>
  <td>UTC offset (unit: min) <p><strong>Comment:</strong> the difference in hours and minutes from Coordinated Universal Time (UTC) for a your place and date. for example, In case of South Korea(UTC+09:00), UTC offset is 540 min (9*60) refer to https://en.wikipedia.org/wiki/List_of_UTC_time_offsets</p>   </td>
- <td>-1000 > 1000 </td>
+ <td>[-1000, 1000] </td>
  <td>0</td>
  <td>min</td>
 </tr>
@@ -22301,20 +22362,20 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="SIM_BAT_DRAIN">SIM_BAT_DRAIN</strong> (FLOAT)</td>
  <td>Simulator Battery drain interval    </td>
- <td>1 > 86400 (1)</td>
+ <td>[1, 86400] (1)</td>
  <td>60</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="SIM_BAT_MIN_PCT">SIM_BAT_MIN_PCT</strong> (FLOAT)</td>
  <td>Simulator Battery minimal percentage <p><strong>Comment:</strong> Can be used to alter the battery level during SITL- or HITL-simulation on the fly. Particularly useful for testing different low-battery behaviour.</p>   </td>
- <td>0 > 100 (0.1)</td>
+ <td>[0, 100] (0.1)</td>
  <td>50.0</td>
  <td>%</td>
 </tr>
@@ -22325,7 +22386,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -22445,7 +22506,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -22459,7 +22520,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 0 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22473,7 +22534,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 0 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22487,7 +22548,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 0 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22608,7 +22669,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -22622,7 +22683,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC1_XSCALE">CAL_ACC1_XSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 1 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22636,7 +22697,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC1_YSCALE">CAL_ACC1_YSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 1 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22650,7 +22711,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC1_ZSCALE">CAL_ACC1_ZSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 1 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22771,7 +22832,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -22785,7 +22846,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC2_XSCALE">CAL_ACC2_XSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 2 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22799,7 +22860,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC2_YSCALE">CAL_ACC2_YSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 2 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22813,7 +22874,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC2_ZSCALE">CAL_ACC2_ZSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 2 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22934,7 +22995,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -22948,7 +23009,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC3_XSCALE">CAL_ACC3_XSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 3 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22962,7 +23023,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC3_YSCALE">CAL_ACC3_YSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 3 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -22976,7 +23037,7 @@ table {
 <tr>
  <td><strong id="CAL_ACC3_ZSCALE">CAL_ACC3_ZSCALE</strong> (FLOAT)</td>
  <td>Accelerometer 3 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -23241,7 +23302,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -23383,7 +23444,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -23525,7 +23586,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -23667,7 +23728,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -23809,7 +23870,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -23837,7 +23898,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG0_XSCALE">CAL_MAG0_XSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 0 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -23865,7 +23926,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG0_YSCALE">CAL_MAG0_YSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 0 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -23893,7 +23954,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG0_ZSCALE">CAL_MAG0_ZSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 0 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24014,7 +24075,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -24042,7 +24103,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG1_XSCALE">CAL_MAG1_XSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 1 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24070,7 +24131,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG1_YSCALE">CAL_MAG1_YSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 1 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24098,7 +24159,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG1_ZSCALE">CAL_MAG1_ZSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 1 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24219,7 +24280,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -24247,7 +24308,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG2_XSCALE">CAL_MAG2_XSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 2 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24275,7 +24336,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG2_YSCALE">CAL_MAG2_YSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 2 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24303,7 +24364,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG2_ZSCALE">CAL_MAG2_ZSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 2 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24424,7 +24485,7 @@ table {
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 </ul>
   </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>-1</td>
  <td></td>
 </tr>
@@ -24452,7 +24513,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG3_XSCALE">CAL_MAG3_XSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 3 X-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24480,7 +24541,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG3_YSCALE">CAL_MAG3_YSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 3 Y-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24508,7 +24569,7 @@ table {
 <tr>
  <td><strong id="CAL_MAG3_ZSCALE">CAL_MAG3_ZSCALE</strong> (FLOAT)</td>
  <td>Magnetometer 3 Z-axis scaling factor    </td>
- <td>0.1 > 3.0 </td>
+ <td>[0.1, 3.0] </td>
  <td>1.0</td>
  <td></td>
 </tr>
@@ -24545,21 +24606,21 @@ table {
 <tr>
  <td><strong id="SENS_FLOW_MAXHGT">SENS_FLOW_MAXHGT</strong> (FLOAT)</td>
  <td>Maximum height above ground when reliant on optical flow <p><strong>Comment:</strong> This parameter defines the maximum distance from ground at which the optical flow sensor operates reliably. The height setpoint will be limited to be no greater than this value when the navigation system is completely reliant on optical flow data and the height above ground estimate is valid. The sensor may be usable above this height, but accuracy will progressively degrade.</p>   </td>
- <td>1.0 > 100.0 (0.1)</td>
+ <td>[1.0, 100.0] (0.1)</td>
  <td>100.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_MAXR">SENS_FLOW_MAXR</strong> (FLOAT)</td>
  <td>Magnitude of maximum angular flow rate reliably measurable by the optical flow sensor <p><strong>Comment:</strong> Optical flow data will not fused by the estimators if the magnitude of the flow rate exceeds this value and control loops will be instructed to limit ground speed such that the flow rate produced by movement over ground is less than 50% of this value.</p>   </td>
- <td>1.0 > ? </td>
+ <td>[1.0, ?] </td>
  <td>8.</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_MINHGT">SENS_FLOW_MINHGT</strong> (FLOAT)</td>
  <td>Minimum height above ground when reliant on optical flow <p><strong>Comment:</strong> This parameter defines the minimum distance from ground at which the optical flow sensor operates reliably. The sensor may be usable below this height, but accuracy will progressively reduce to loss of focus.</p>   </td>
- <td>0.0 > 1.0 (0.1)</td>
+ <td>[0.0, 1.0] (0.1)</td>
  <td>0.08</td>
  <td>m</td>
 </tr>
@@ -24570,7 +24631,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -24600,7 +24661,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -24623,7 +24684,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -24644,14 +24705,14 @@ table {
 <tr>
  <td><strong id="CAL_AIR_TUBED_MM">CAL_AIR_TUBED_MM</strong> (FLOAT)</td>
  <td>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation    </td>
- <td>1.5 > 100 </td>
+ <td>[1.5, 100] </td>
  <td>1.5</td>
  <td>mm</td>
 </tr>
 <tr>
  <td><strong id="CAL_AIR_TUBELEN">CAL_AIR_TUBELEN</strong> (FLOAT)</td>
  <td>Airspeed sensor tube length <p><strong>Comment:</strong> See the CAL_AIR_CMODEL explanation on how this parameter should be set.</p>   </td>
- <td>0.01 > 2.00 </td>
+ <td>[0.01, 2.00] </td>
  <td>0.2</td>
  <td>m</td>
 </tr>
@@ -24672,7 +24733,7 @@ table {
 <li><strong>63:</strong> Six side calibration</li> 
 </ul>
   </td>
- <td>34 > 63 </td>
+ <td>[34, 63] </td>
  <td>63</td>
  <td></td>
 </tr>
@@ -24680,7 +24741,7 @@ table {
  <td><strong id="IMU_ACCEL_CUTOFF">IMU_ACCEL_CUTOFF</strong> (FLOAT)</td>
  <td>Low pass filter cutoff frequency for accel <p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary accelerometer. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>30.0</td>
  <td>Hz</td>
 </tr>
@@ -24688,7 +24749,7 @@ table {
  <td><strong id="IMU_DGYRO_CUTOFF">IMU_DGYRO_CUTOFF</strong> (FLOAT)</td>
  <td>Cutoff frequency for angular acceleration (D-Term filter) <p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity, also known as the D-term filter in the rate controller. The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to increase IMU_GYRO_CUTOFF, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>30.0</td>
  <td>Hz</td>
 </tr>
@@ -24704,14 +24765,14 @@ table {
  <td><strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)</td>
  <td>Low pass filter cutoff frequency for gyro <p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the angular velocity sent to the controllers, not the estimators. It applies also to the angular acceleration (D-Term filter), see IMU_DGYRO_CUTOFF. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>40.0</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_DNF_BW">IMU_GYRO_DNF_BW</strong> (FLOAT)</td>
  <td>IMU gyro ESC notch filter bandwidth <p><strong>Comment:</strong> Bandwidth per notch filter when using dynamic notch filtering with ESC RPM.</p>   </td>
- <td>5 > 30 </td>
+ <td>[5, 30] </td>
  <td>15.</td>
  <td></td>
 </tr>
@@ -24721,14 +24782,14 @@ table {
   <li><strong>1:</strong> FFT</li> 
 </ul>
  </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_DNF_HMC">IMU_GYRO_DNF_HMC</strong> (INT32)</td>
  <td>IMU gyro dynamic notch filter harmonics <p><strong>Comment:</strong> ESC RPM number of harmonics (multiples of RPM) for ESC RPM dynamic notch filtering.</p>   </td>
- <td>1 > 7 </td>
+ <td>[1, 7] </td>
  <td>3</td>
  <td></td>
 </tr>
@@ -24761,7 +24822,7 @@ table {
  <td><strong id="IMU_GYRO_FFT_MAX">IMU_GYRO_FFT_MAX</strong> (FLOAT)</td>
  <td>IMU gyro FFT maximum frequency    <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 1000 </td>
+ <td>[1, 1000] </td>
  <td>150.</td>
  <td>Hz</td>
 </tr>
@@ -24769,14 +24830,14 @@ table {
  <td><strong id="IMU_GYRO_FFT_MIN">IMU_GYRO_FFT_MIN</strong> (FLOAT)</td>
  <td>IMU gyro FFT minimum frequency    <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 1000 </td>
+ <td>[1, 1000] </td>
  <td>30.</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_FFT_SNR">IMU_GYRO_FFT_SNR</strong> (FLOAT)</td>
  <td>IMU gyro FFT SNR    </td>
- <td>1 > 30 </td>
+ <td>[1, 30] </td>
  <td>10.</td>
  <td></td>
 </tr>
@@ -24784,7 +24845,7 @@ table {
  <td><strong id="IMU_GYRO_NF0_BW">IMU_GYRO_NF0_BW</strong> (FLOAT)</td>
  <td>Notch filter bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF0_FRQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 100 </td>
+ <td>[0, 100] </td>
  <td>20.0</td>
  <td>Hz</td>
 </tr>
@@ -24792,7 +24853,7 @@ table {
  <td><strong id="IMU_GYRO_NF0_FRQ">IMU_GYRO_NF0_FRQ</strong> (FLOAT)</td>
  <td>Notch filter frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF0_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0.0</td>
  <td>Hz</td>
 </tr>
@@ -24800,7 +24861,7 @@ table {
  <td><strong id="IMU_GYRO_NF1_BW">IMU_GYRO_NF1_BW</strong> (FLOAT)</td>
  <td>Notch filter 1 bandwidth for gyro <p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF1_FRQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 100 </td>
+ <td>[0, 100] </td>
  <td>20.0</td>
  <td>Hz</td>
 </tr>
@@ -24808,7 +24869,7 @@ table {
  <td><strong id="IMU_GYRO_NF1_FRQ">IMU_GYRO_NF1_FRQ</strong> (FLOAT)</td>
  <td>Notch filter 2 frequency for gyro <p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF1_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 1000 </td>
+ <td>[0, 1000] </td>
  <td>0.0</td>
  <td>Hz</td>
 </tr>
@@ -24829,7 +24890,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>100 > 2000 </td>
+ <td>[100, 2000] </td>
  <td>400</td>
  <td>Hz</td>
 </tr>
@@ -24846,63 +24907,63 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>100 > 1000 </td>
+ <td>[100, 1000] </td>
  <td>200</td>
  <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="INA226_CONFIG">INA226_CONFIG</strong> (INT32)</td>
  <td>INA226 Power Monitor Config    </td>
- <td>0 > 65535 (1)</td>
+ <td>[0, 65535] (1)</td>
  <td>18139</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="INA226_CURRENT">INA226_CURRENT</strong> (FLOAT)</td>
  <td>INA226 Power Monitor Max Current    </td>
- <td>0.1 > 200.0 (0.1)</td>
+ <td>[0.1, 200.0] (0.1)</td>
  <td>164.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="INA226_SHUNT">INA226_SHUNT</strong> (FLOAT)</td>
  <td>INA226 Power Monitor Shunt    </td>
- <td>0.000000001 > 0.1 (.000000001)</td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
  <td>0.0005</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="INA228_CONFIG">INA228_CONFIG</strong> (INT32)</td>
  <td>INA228 Power Monitor Config    </td>
- <td>0 > 65535 (1)</td>
+ <td>[0, 65535] (1)</td>
  <td>63779</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="INA228_CURRENT">INA228_CURRENT</strong> (FLOAT)</td>
  <td>INA228 Power Monitor Max Current    </td>
- <td>0.1 > 327.68 (0.1)</td>
+ <td>[0.1, 327.68] (0.1)</td>
  <td>327.68</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="INA228_SHUNT">INA228_SHUNT</strong> (FLOAT)</td>
  <td>INA228 Power Monitor Shunt    </td>
- <td>0.000000001 > 0.1 (.000000001)</td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
  <td>0.0005</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="INA238_CURRENT">INA238_CURRENT</strong> (FLOAT)</td>
  <td>INA238 Power Monitor Max Current    </td>
- <td>0.1 > 327.68 (0.1)</td>
+ <td>[0.1, 327.68] (0.1)</td>
  <td>327.68</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="INA238_SHUNT">INA238_SHUNT</strong> (FLOAT)</td>
  <td>INA238 Power Monitor Shunt    </td>
- <td>0.000000001 > 0.1 (.000000001)</td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
  <td>0.0003</td>
  <td></td>
 </tr>
@@ -24910,7 +24971,7 @@ table {
  <td><strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)</td>
  <td>PCF8583 rotorfreq (i2c) pulse count <p><strong>Comment:</strong> Nmumber of signals per rotation of actuator</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > ? </td>
+ <td>[1, ?] </td>
  <td>2</td>
  <td></td>
 </tr>
@@ -24924,7 +24985,7 @@ table {
 </tr>
 <tr>
  <td><strong id="PCF8583_RESET">PCF8583_RESET</strong> (INT32)</td>
- <td>PCF8583 rotorfreq (i2c) pulse reset value <p><strong>Comment:</strong> Internal device counter is reset to 0 when overun this value, counter is able to store upto 6 digits reset of counter takes some time - measurement with reset has worse accurancy. 0 means reset counter after every measurement.</p>   <p><b>Reboot required:</b> true</p>
+ <td>PCF8583 rotorfreq (i2c) pulse reset value <p><strong>Comment:</strong> Internal device counter is reset to 0 when overrun this value, counter is able to store up to 6 digits reset of counter takes some time - measurement with reset has worse accuracy. 0 means reset counter after every measurement.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>500000</td>
@@ -24933,14 +24994,14 @@ table {
 <tr>
  <td><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
  <td>QNH for barometer    </td>
- <td>500 > 1500 </td>
+ <td>[500, 1500] </td>
  <td>1013.25</td>
  <td>hPa</td>
 </tr>
 <tr>
  <td><strong id="SENS_BARO_RATE">SENS_BARO_RATE</strong> (FLOAT)</td>
- <td>Baro max rate <p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   </td>
- <td>1 > 200 </td>
+ <td>Baro max rate <p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependent on the sensor.</p>   </td>
+ <td>[1, 200] </td>
  <td>20.0</td>
  <td>Hz</td>
 </tr>
@@ -25031,7 +25092,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>-1 > 40 </td>
+ <td>[-1, 40] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25119,7 +25180,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25182,7 +25243,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25203,7 +25264,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25256,7 +25317,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25336,7 +25397,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 6 </td>
+ <td>[0, 6] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25395,7 +25456,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25416,9 +25477,9 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_RATE">SENS_FLOW_RATE</strong> (FLOAT)</td>
- <td>Optical flow max rate <p><strong>Comment:</strong> Optical flow data maximum publication rate. This is an upper bound, actual optical flow data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Optical flow max rate <p><strong>Comment:</strong> Optical flow data maximum publication rate. This is an upper bound, actual optical flow data rate is still dependent on the sensor.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 200 </td>
+ <td>[1, 200] </td>
  <td>70.0</td>
  <td>Hz</td>
 </tr>
@@ -25453,21 +25514,21 @@ table {
   <li><strong>2:</strong> use vpos accuracy</li> 
 </ul>
  </td>
- <td>0 > 7 </td>
- <td>0</td>
+ <td>[0, 7] </td>
+ <td>7</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SENS_GPS_PRIME">SENS_GPS_PRIME</strong> (INT32)</td>
  <td>Multi GPS primary instance <p><strong>Comment:</strong> When no blending is active, this defines the preferred GPS receiver instance. The GPS selection logic waits until the primary receiver is available to send data to the EKF even if a secondary instance is already available. The secondary instance is then only used if the primary one times out. To have an equal priority of all the instances, set this parameter to -1 and the best receiver will be used. This parameter has no effect if blending is active.</p>   </td>
- <td>-1 > 1 </td>
+ <td>[-1, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SENS_GPS_TAU">SENS_GPS_TAU</strong> (FLOAT)</td>
  <td>Multi GPS Blending Time Constant <p><strong>Comment:</strong> Sets the longest time constant that will be applied to the calculation of GPS position and height offsets used to correct data from multiple GPS data for steady state position differences.</p>   </td>
- <td>1.0 > 100.0 </td>
+ <td>[1.0, 100.0] </td>
  <td>10.0</td>
  <td>s</td>
 </tr>
@@ -25494,28 +25555,28 @@ table {
 <tr>
  <td><strong id="SENS_IMU_TEMP">SENS_IMU_TEMP</strong> (FLOAT)</td>
  <td>Target IMU temperature    </td>
- <td>0 > 85.0 </td>
+ <td>[0, 85.0] </td>
  <td>55.0</td>
  <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="SENS_IMU_TEMP_FF">SENS_IMU_TEMP_FF</strong> (FLOAT)</td>
  <td>IMU heater controller feedforward value    </td>
- <td>0 > 1.0 </td>
+ <td>[0, 1.0] </td>
  <td>0.05</td>
  <td>%</td>
 </tr>
 <tr>
  <td><strong id="SENS_IMU_TEMP_I">SENS_IMU_TEMP_I</strong> (FLOAT)</td>
  <td>IMU heater controller integrator gain value    </td>
- <td>0 > 1.0 </td>
+ <td>[0, 1.0] </td>
  <td>0.025</td>
  <td>us/C</td>
 </tr>
 <tr>
  <td><strong id="SENS_IMU_TEMP_P">SENS_IMU_TEMP_P</strong> (FLOAT)</td>
  <td>IMU heater controller proportional gain value    </td>
- <td>0 > 2.0 </td>
+ <td>[0, 2.0] </td>
  <td>1.0</td>
  <td>us/C</td>
 </tr>
@@ -25582,9 +25643,9 @@ table {
 </tr>
 <tr>
  <td><strong id="SENS_MAG_RATE">SENS_MAG_RATE</strong> (FLOAT)</td>
- <td>Magnetometer max rate <p><strong>Comment:</strong> Magnetometer data maximum publication rate. This is an upper bound, actual magnetometer data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Magnetometer max rate <p><strong>Comment:</strong> Magnetometer data maximum publication rate. This is an upper bound, actual magnetometer data rate is still dependent on the sensor.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 200 </td>
+ <td>[1, 200] </td>
  <td>15.0</td>
  <td>Hz</td>
 </tr>
@@ -25609,7 +25670,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25634,7 +25695,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25659,7 +25720,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25684,7 +25745,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25709,7 +25770,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25734,7 +25795,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25759,7 +25820,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25784,7 +25845,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25809,7 +25870,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25834,7 +25895,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25859,7 +25920,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25884,7 +25945,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25909,7 +25970,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25934,7 +25995,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25959,7 +26020,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -25984,7 +26045,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26009,7 +26070,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26034,7 +26095,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26059,7 +26120,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26084,7 +26145,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26109,7 +26170,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26134,7 +26195,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26159,7 +26220,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26184,7 +26245,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 7 </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26197,7 +26258,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 101 </td>
+ <td>[0, 101] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -26344,7 +26405,7 @@ table {
  <td><strong id="VOXLPM_SHUNT_BAT">VOXLPM_SHUNT_BAT</strong> (FLOAT)</td>
  <td>VOXL Power Monitor Shunt, Battery    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.000000001 > 0.1 (.000000001)</td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
  <td>0.00063</td>
  <td></td>
 </tr>
@@ -26352,7 +26413,7 @@ table {
  <td><strong id="VOXLPM_SHUNT_REG">VOXLPM_SHUNT_REG</strong> (FLOAT)</td>
  <td>VOXL Power Monitor Shunt, Regulator    <p><b>Reboot required:</b> true</p>
 </td>
- <td>0.000000001 > 0.1 (.000000001)</td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
  <td>0.0056</td>
  <td></td>
 </tr>
@@ -26363,7 +26424,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -26609,7 +26670,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 10 </td>
+ <td>[0, 10] </td>
  <td>5</td>
  <td></td>
 </tr>
@@ -27108,7 +27169,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27120,21 +27181,21 @@ table {
 </tr>
 <tr>
  <td><strong id="SIH_DISTSNSR_MAX">SIH_DISTSNSR_MAX</strong> (FLOAT)</td>
- <td>distance sensor maximun range    </td>
- <td>0.0 > 1000.0 (0.01)</td>
+ <td>distance sensor maximum range    </td>
+ <td>[0.0, 1000.0] (0.01)</td>
  <td>100.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SIH_DISTSNSR_MIN">SIH_DISTSNSR_MIN</strong> (FLOAT)</td>
- <td>distance sensor minimun range    </td>
- <td>0.0 > 10.0 (0.01)</td>
+ <td>distance sensor minimum range    </td>
+ <td>[0.0, 10.0] (0.01)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SIH_DISTSNSR_OVR">SIH_DISTSNSR_OVR</strong> (FLOAT)</td>
- <td>if >= 0 the distance sensor measures will be overrided by this value <p><strong>Comment:</strong> Absolute value superior to 10000 will disable distance sensor</p>   </td>
+ <td>if >= 0 the distance sensor measures will be overridden by this value <p><strong>Comment:</strong> Absolute value superior to 10000 will disable distance sensor</p>   </td>
  <td></td>
  <td>-1.0</td>
  <td>m</td>
@@ -27142,119 +27203,119 @@ table {
 <tr>
  <td><strong id="SIH_GPS_USED">SIH_GPS_USED</strong> (INT32)</td>
  <td>Number of GPS satellites used    </td>
- <td>0 > 50 </td>
+ <td>[0, 50] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SIH_IXX">SIH_IXX</strong> (FLOAT)</td>
- <td>Vehicle inertia about X axis <p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>0.0 > ? (0.005)</td>
+ <td>Vehicle inertia about X axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IXY">SIH_IXY</strong> (FLOAT)</td>
- <td>Vehicle cross term inertia xy <p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
+ <td>Vehicle cross term inertia xy <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
  <td>(0.005)</td>
  <td>0.0</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IXZ">SIH_IXZ</strong> (FLOAT)</td>
- <td>Vehicle cross term inertia xz <p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
+ <td>Vehicle cross term inertia xz <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
  <td>(0.005)</td>
  <td>0.0</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IYY">SIH_IYY</strong> (FLOAT)</td>
- <td>Vehicle inertia about Y axis <p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>0.0 > ? (0.005)</td>
+ <td>Vehicle inertia about Y axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IYZ">SIH_IYZ</strong> (FLOAT)</td>
- <td>Vehicle cross term inertia yz <p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
+ <td>Vehicle cross term inertia yz <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
  <td>(0.005)</td>
  <td>0.0</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_IZZ">SIH_IZZ</strong> (FLOAT)</td>
- <td>Vehicle inertia about Z axis <p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
- <td>0.0 > ? (0.005)</td>
+ <td>Vehicle inertia about Z axis <p><strong>Comment:</strong> The inertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.030</td>
  <td>kg m^2</td>
 </tr>
 <tr>
  <td><strong id="SIH_KDV">SIH_KDV</strong> (FLOAT)</td>
  <td>First order drag coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules. The greater this value, the slower the quad will move. Drag force function of velocity: D=-KDV*V. The maximum freefall velocity can be computed as V=10*MASS/KDV [m/s]</p>   </td>
- <td>0.0 > ? (0.05)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>1.0</td>
  <td>N/(m/s)</td>
 </tr>
 <tr>
  <td><strong id="SIH_KDW">SIH_KDW</strong> (FLOAT)</td>
  <td>First order angular damper coefficient <p><strong>Comment:</strong> Physical coefficient representing the friction with air particules during rotations. The greater this value, the slower the quad will rotate. Aerodynamic moment function of body rate: Ma=-KDW*W_B. This value can be set to 0 if unknown.</p>   </td>
- <td>0.0 > ? (0.005)</td>
+ <td>[0.0, ?] (0.005)</td>
  <td>0.025</td>
  <td>Nm/(rad/s)</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_H0">SIH_LOC_H0</strong> (FLOAT)</td>
  <td>Initial AMSL ground altitude <p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>-420.0 > 8848.0 (0.01)</td>
+ <td>[-420.0, 8848.0] (0.01)</td>
  <td>32.34</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (INT32)</td>
  <td>Initial geodetic latitude <p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>-850000000 > 850000000 </td>
+ <td>[-850000000, 850000000] </td>
  <td>454671160</td>
  <td>deg*1e7</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (INT32)</td>
  <td>Initial geodetic longitude <p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>-1800000000 > 1800000000 </td>
+ <td>[-1800000000, 1800000000] </td>
  <td>-737578370</td>
  <td>deg*1e7</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_MU_X">SIH_LOC_MU_X</strong> (FLOAT)</td>
  <td>North magnetic field at the initial location <p><strong>Comment:</strong> This value represents the North magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>-1.0 > 1.0 (0.001)</td>
+ <td>[-1.0, 1.0] (0.001)</td>
  <td>0.179</td>
  <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_MU_Y">SIH_LOC_MU_Y</strong> (FLOAT)</td>
  <td>East magnetic field at the initial location <p><strong>Comment:</strong> This value represents the East magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>-1.0 > 1.0 (0.001)</td>
+ <td>[-1.0, 1.0] (0.001)</td>
  <td>-0.045</td>
  <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="SIH_LOC_MU_Z">SIH_LOC_MU_Z</strong> (FLOAT)</td>
  <td>Down magnetic field at the initial location <p><strong>Comment:</strong> This value represents the Down magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>-1.0 > 1.0 (0.001)</td>
+ <td>[-1.0, 1.0] (0.001)</td>
  <td>0.504</td>
  <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="SIH_L_PITCH">SIH_L_PITCH</strong> (FLOAT)</td>
  <td>Pitch arm length <p><strong>Comment:</strong> This is the arm length generating the pitching moment This value can be measured with a ruler. This corresponds to half the distance between the front and rear motors.</p>   </td>
- <td>0.0 > ? (0.05)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="SIH_L_ROLL">SIH_L_ROLL</strong> (FLOAT)</td>
  <td>Roll arm length <p><strong>Comment:</strong> This is the arm length generating the rolling moment This value can be measured with a ruler. This corresponds to half the distance between the left and right motors.</p>   </td>
- <td>0.0 > ? (0.05)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>0.2</td>
  <td>m</td>
 </tr>
@@ -27282,21 +27343,21 @@ table {
 <tr>
  <td><strong id="SIH_MASS">SIH_MASS</strong> (FLOAT)</td>
  <td>Vehicle mass <p><strong>Comment:</strong> This value can be measured by weighting the quad on a scale.</p>   </td>
- <td>0.0 > ? (0.1)</td>
+ <td>[0.0, ?] (0.1)</td>
  <td>1.0</td>
  <td>kg</td>
 </tr>
 <tr>
  <td><strong id="SIH_Q_MAX">SIH_Q_MAX</strong> (FLOAT)</td>
  <td>Max propeller torque <p><strong>Comment:</strong> This is the maximum torque delivered by one propeller when the motor is running at full speed. This value is usually about few percent of the maximum thrust force.</p>   </td>
- <td>0.0 > ? (0.05)</td>
+ <td>[0.0, ?] (0.05)</td>
  <td>0.1</td>
  <td>Nm</td>
 </tr>
 <tr>
  <td><strong id="SIH_T_MAX">SIH_T_MAX</strong> (FLOAT)</td>
  <td>Max propeller thrust force <p><strong>Comment:</strong> This is the maximum force delivered by one propeller when the motor is running at full speed. This value is usually about 5 times the mass of the quadrotor.</p>   </td>
- <td>0.0 > ? (0.5)</td>
+ <td>[0.0, ?] (0.5)</td>
  <td>5.0</td>
  <td>N</td>
 </tr>
@@ -27329,7 +27390,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27349,7 +27410,7 @@ table {
 <tr>
  <td><strong id="SIM_GPS_USED">SIM_GPS_USED</strong> (INT32)</td>
  <td>simulated GPS number of satellites used    </td>
- <td>0 > 50 </td>
+ <td>[0, 50] </td>
  <td>10</td>
  <td></td>
 </tr>
@@ -27381,7 +27442,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27400,7 +27461,7 @@ table {
  <td><strong id="SYS_AUTOSTART">SYS_AUTOSTART</strong> (INT32)</td>
  <td>Auto-start script index <p><strong>Comment:</strong> CHANGING THIS VALUE REQUIRES A RESTART. Defines the auto-start script used to bootstrap the system.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 9999999 </td>
+ <td>[0, 9999999] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -27415,28 +27476,28 @@ table {
 <tr>
  <td><strong id="SYS_CAL_ACCEL">SYS_CAL_ACCEL</strong> (INT32)</td>
  <td>Enable auto start of accelerometer thermal calibration at the next power up <p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the temperature calibration starts. default (0, no calibration)</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SYS_CAL_BARO">SYS_CAL_BARO</strong> (INT32)</td>
  <td>Enable auto start of barometer thermal calibration at the next power up <p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the temperature calibration starts. default (0, no calibration)</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SYS_CAL_GYRO">SYS_CAL_GYRO</strong> (INT32)</td>
  <td>Enable auto start of rate gyro thermal calibration at the next power up <p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the temperature calibration starts. default (0, no calibration)</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="SYS_CAL_TDEL">SYS_CAL_TDEL</strong> (INT32)</td>
- <td>Required temperature rise during thermal calibration <p><strong>Comment:</strong> A temperature increase greater than this value is required during calibration. Calibration will complete for each sensor when the temperature increase above the starting temeprature exceeds the value set by SYS_CAL_TDEL. If the temperature rise is insufficient, the calibration will continue indefinitely and the board will need to be repowered to exit.</p>   </td>
- <td>10 > ? </td>
+ <td>Required temperature rise during thermal calibration <p><strong>Comment:</strong> A temperature increase greater than this value is required during calibration. Calibration will complete for each sensor when the temperature increase above the starting temperature exceeds the value set by SYS_CAL_TDEL. If the temperature rise is insufficient, the calibration will continue indefinitely and the board will need to be repowered to exit.</p>   </td>
+ <td>[10, ?] </td>
  <td>24</td>
  <td>celcius</td>
 </tr>
@@ -27517,9 +27578,9 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HAS_NUM_DIST">SYS_HAS_NUM_DIST</strong> (INT32)</td>
- <td>Control the number of distance sensors on the vehicle <p><strong>Comment:</strong> If set to the number of distance sensors, the preflight check will check for their presence and valid data publication. Disable with 0 if no distance sensor present or to disbale the preflight check.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Control the number of distance sensors on the vehicle <p><strong>Comment:</strong> If set to the number of distance sensors, the preflight check will check for their presence and valid data publication. Disable with 0 if no distance sensor present or to disable the preflight check.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 4 </td>
+ <td>[0, 4] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -27589,7 +27650,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27673,7 +27734,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -27809,7 +27870,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -29019,7 +29080,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -29041,7 +29102,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> false</p>
 </td>
- <td>0 > 6 </td>
+ <td>[0, 6] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -29090,7 +29151,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 15 </td>
+ <td>[0, 15] </td>
  <td>14</td>
  <td></td>
 </tr>
@@ -29098,7 +29159,7 @@ table {
  <td><strong id="ADSB_ICAO_ID">ADSB_ICAO_ID</strong> (INT32)</td>
  <td>ADSB-Out ICAO configuration <p><strong>Comment:</strong> Defines the ICAO ID of the vehicle</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>-1 > 16777215 </td>
+ <td>[-1, 16777215] </td>
  <td>1194684</td>
  <td></td>
 </tr>
@@ -29106,7 +29167,7 @@ table {
  <td><strong id="ADSB_ICAO_SPECL">ADSB_ICAO_SPECL</strong> (INT32)</td>
  <td>ADSB-In Special ICAO configuration <p><strong>Comment:</strong> This vehicle is always tracked. Use 0 to disable.</p>   <p><b>Reboot required:</b> false</p>
 </td>
- <td>0 > 16777215 </td>
+ <td>[0, 16777215] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -29155,7 +29216,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 15 </td>
+ <td>[0, 15] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -29163,7 +29224,7 @@ table {
  <td><strong id="ADSB_LIST_MAX">ADSB_LIST_MAX</strong> (INT32)</td>
  <td>ADSB-In Vehicle List Size <p><strong>Comment:</strong> Change number of targets to track</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 50 </td>
+ <td>[0, 50] </td>
  <td>25</td>
  <td></td>
 </tr>
@@ -29186,7 +29247,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 6 </td>
+ <td>[0, 6] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -29194,7 +29255,7 @@ table {
  <td><strong id="ADSB_SQUAWK">ADSB_SQUAWK</strong> (INT32)</td>
  <td>ADSB-Out squawk code configuration <p><strong>Comment:</strong> This parameter defines the squawk code. Value should be between 0000 and 7777.</p>   <p><b>Reboot required:</b> false</p>
 </td>
- <td>0 > 7777 </td>
+ <td>[0, 7777] </td>
  <td>1200</td>
  <td></td>
 </tr>
@@ -29219,7 +29280,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> false</p>
 </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -29253,7 +29314,7 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>102</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -29267,8 +29328,129 @@ table {
 </ul>
   <p><b>Reboot required:</b> false</p>
 </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>1</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## UART ESC
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UART_ESC_BAUD">UART_ESC_BAUD</strong> (INT32)</td>
+ <td>UART ESC baud rate <p><strong>Comment:</strong> Default rate is 250Kbps, which is used in off-the-shelf MoadalAI ESC products.</p>   </td>
+ <td></td>
+ <td>250000</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_CONFIG">UART_ESC_CONFIG</strong> (INT32)</td>
+ <td>UART ESC configuration <p><strong>Comment:</strong> Selects what type of UART ESC, if any, is being used.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+
+<li><strong>1:</strong> - VOXL ESC</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_MODE">UART_ESC_MODE</strong> (INT32)</td>
+ <td>UART ESC Mode <p><strong>Comment:</strong> Selects what type of mode is enabled, if any</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> - None</li>
+
+<li><strong>1:</strong> - Turtle Mode enabled via AUX1</li>
+
+<li><strong>2:</strong> - Turtle Mode enabled via AUX2</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 2] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_MOTOR1">UART_ESC_MOTOR1</strong> (INT32)</td>
+ <td>UART ESC Motor 1 Mapping.  1-4 (negative for reversal)    </td>
+ <td>[-4, 4] </td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_MOTOR2">UART_ESC_MOTOR2</strong> (INT32)</td>
+ <td>UART ESC Motor 2 Mapping.  1-4 (negative for reversal)    </td>
+ <td>[-4, 4] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_MOTOR3">UART_ESC_MOTOR3</strong> (INT32)</td>
+ <td>UART ESC Motor 3 Mapping.  1-4 (negative for reversal)    </td>
+ <td>[-4, 4] </td>
+ <td>4</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_MOTOR4">UART_ESC_MOTOR4</strong> (INT32)</td>
+ <td>UART ESC Motor 4 Mapping.  1-4 (negative for reversal)    </td>
+ <td>[-4, 4] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_RPM_MAX">UART_ESC_RPM_MAX</strong> (INT32)</td>
+ <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
+ <td></td>
+ <td>15000</td>
+ <td>RPM</td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_RPM_MIN">UART_ESC_RPM_MIN</strong> (INT32)</td>
+ <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
+ <td></td>
+ <td>5500</td>
+ <td>RPM</td>
+</tr>
+</tbody></table>
+
+## UART ESC Mode Deadzone 1
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UART_ESC_DEAD1">UART_ESC_DEAD1</strong> (FLOAT)</td>
+ <td>UART ESC Mode Deadzone 1 <p><strong>Comment:</strong> Must be greater than Deadzone 2. Absolute value of stick position needed to activate a motor.</p>   </td>
+ <td>[0.01, 0.99] (0.01)</td>
+ <td>0.30</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## UART ESC Mode Deadzone 2
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UART_ESC_DEAD2">UART_ESC_DEAD2</strong> (FLOAT)</td>
+ <td>UART ESC Mode Deadzone 2 <p><strong>Comment:</strong> Must be less than Deadzone 1. Absolute value of stick position considered no longer on the X or Y axis, thus targetting a specific motor (single).</p>   </td>
+ <td>[0.01, 0.99] (0.01)</td>
+ <td>0.02</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -29278,34 +29460,34 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="CANNODE_BITRATE">CANNODE_BITRATE</strong> (INT32)</td>
  <td>UAVCAN CAN bus bitrate    </td>
- <td>20000 > 1000000 </td>
+ <td>[20000, 1000000] </td>
  <td>1000000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CANNODE_GPS_RTCM">CANNODE_GPS_RTCM</strong> (INT32)</td>
  <td>Enable RTCM pub/sub    </td>
- <td>? > 1 </td>
+ <td>[?, 1] </td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
  <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
- <td>1 > 125 </td>
+ <td>[1, 125] </td>
  <td>120</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CANNODE_TERM">CANNODE_TERM</strong> (INT32)</td>
  <td>CAN built-in bus termination    </td>
- <td>? > 1 </td>
+ <td>[?, 1] </td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
@@ -29313,7 +29495,7 @@ table {
  <td><strong id="UAVCAN_BITRATE">UAVCAN_BITRATE</strong> (INT32)</td>
  <td>UAVCAN CAN bus bitrate    <p><b>Reboot required:</b> true</p>
 </td>
- <td>20000 > 1000000 </td>
+ <td>[20000, 1000000] </td>
  <td>1000000</td>
  <td>bit/s</td>
 </tr>
@@ -29330,7 +29512,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -29355,7 +29537,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>2</td>
  <td></td>
 </tr>
@@ -29372,7 +29554,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -29389,7 +29571,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>3</td>
  <td></td>
 </tr>
@@ -29406,7 +29588,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 3 </td>
+ <td>[0, 3] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -29414,8 +29596,24 @@ table {
  <td><strong id="UAVCAN_NODE_ID">UAVCAN_NODE_ID</strong> (INT32)</td>
  <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>1 > 125 </td>
+ <td>[1, 125] </td>
  <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_PUB_MBD">UAVCAN_PUB_MBD</strong> (INT32)</td>
+ <td>publish moving baseline data RTCM stream <p><strong>Comment:</strong> Enable UAVCAN RTCM stream publication ardupilot::gnss::MovingBaselineData</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_PUB_RTCM">UAVCAN_PUB_RTCM</strong> (INT32)</td>
+ <td>publish RTCM stream <p><strong>Comment:</strong> Enable UAVCAN RTCM stream publication uavcan::equipment::gnss::RTCMStream</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -29450,10 +29648,17 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_BAT">UAVCAN_SUB_BAT</strong> (INT32)</td>
- <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription battery <p><strong>Comment:</strong> Enable UAVCAN battery subscription. uavcan::equipment::power::BatteryInfo ardupilot::equipment::power::BatteryInfoAux 0 - Disable 1 - Use raw data. Recommended for Smart battery 2 - Filter the data with internal battery library</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disable</li>
+
+<li><strong>1:</strong> Raw data</li>
+
+<li><strong>2:</strong> Filter data</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
 </td>
- <td></td>
- <td>Disabled (0)</td>
+ <td>[0, 2] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -29498,7 +29703,7 @@ table {
 </tr>
 <tr>
  <td><strong id="UAVCAN_SUB_ICE">UAVCAN_SUB_ICE</strong> (INT32)</td>
- <td>subscription ICE <p><strong>Comment:</strong> Enable UAVCAN internal combusion engine (ICE) subscription. uavcan::equipment::ice::reciprocating::Status</p>   <p><b>Reboot required:</b> true</p>
+ <td>subscription ICE <p><strong>Comment:</strong> Enable UAVCAN internal combustion engine (ICE) subscription. uavcan::equipment::ice::reciprocating::Status</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -29535,7 +29740,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -29627,7 +29832,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -29691,12 +29896,12 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="UWB_INIT_OFF_X">UWB_INIT_OFF_X</strong> (FLOAT)</td>
- <td>UWB sensor X offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. X offset. A Positiv offset results in a Position o</p>   </td>
+ <td>UWB sensor X offset in body frame <p><strong>Comment:</strong> UWB sensor positioning in relation to Drone in NED. X offset. A Positive offset results in a Position o</p>   </td>
  <td>(0.01)</td>
  <td>0.0</td>
  <td>m</td>
@@ -29762,76 +29967,76 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="VT_ARSP_BLEND">VT_ARSP_BLEND</strong> (FLOAT)</td>
  <td>Transition blending airspeed <p><strong>Comment:</strong> Airspeed at which we can start blending both fw and mc controls. Set to 0 to disable.</p>   </td>
- <td>0.00 > 30.00 (1)</td>
+ <td>[0.00, 30.00] (1)</td>
  <td>8.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="VT_ARSP_TRANS">VT_ARSP_TRANS</strong> (FLOAT)</td>
  <td>Transition airspeed <p><strong>Comment:</strong> Airspeed at which we can switch to fw mode</p>   </td>
- <td>0.00 > 30.00 (1)</td>
+ <td>[0.00, 30.00] (1)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
  <td>Backtransition deceleration setpoint to pitch feedforward gain    </td>
- <td>0 > 0.2 (0.01)</td>
+ <td>[0, 0.2] (0.01)</td>
  <td>0.</td>
  <td>rad s^2/m</td>
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_I">VT_B_DEC_I</strong> (FLOAT)</td>
  <td>Backtransition deceleration setpoint to pitch I gain    </td>
- <td>0 > 0.3 (0.05)</td>
+ <td>[0, 0.3] (0.05)</td>
  <td>0.1</td>
  <td>rad s/m</td>
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
  <td>Approximate deceleration during back transition <p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
- <td>0.5 > 10 (0.1)</td>
+ <td>[0.5, 10] (0.1)</td>
  <td>2.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
  <td>Delay in seconds before applying back transition throttle <p><strong>Comment:</strong> Set this to a value greater than 0 to give the motor time to spin down. unit s</p>   </td>
- <td>0 > 10 (1)</td>
+ <td>[0, 10] (1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
- <td>Output on airbrakes channel during back transition <p><strong>Comment:</strong> Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel Airbrakes need to be enables for your selected model/mixer</p>   </td>
- <td>0 > 1 (0.01)</td>
+ <td>Output on airbrakes channel during back transition <p><strong>Comment:</strong> Used for airbrakes or with ESCs that have reverse thrust enabled on a separate channel. Airbrakes need to be enabled for your selected model/mixer.</p>   </td>
+ <td>[0, 1] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
  <td>Duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition</p>   </td>
- <td>0.1 > 20.00 (1)</td>
+ <td>[0.1, 20.00] (1)</td>
  <td>4.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
  <td>Back transition MC motor ramp up time <p><strong>Comment:</strong> This sets the duration during which the MC motors ramp up to the commanded thrust during the back transition stage.</p>   </td>
- <td>0.0 > 20.0 </td>
+ <td>[0.0, 20.0] </td>
  <td>3.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
  <td>Target throttle value for the transition to hover flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>   </td>
- <td>-1 > 1 (0.01)</td>
+ <td>[-1, 1] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -29867,91 +30072,91 @@ table {
 <tr>
  <td><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
  <td>Fixed-wing actuator thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is below VT_PITCH_MIN. Enabled via VT_FWD_THRUST_EN.</p>   </td>
- <td>0.0 > 2.0 </td>
+ <td>[0.0, 2.0] </td>
  <td>0.7</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_ALT_ERR">VT_FW_ALT_ERR</strong> (FLOAT)</td>
  <td>Adaptive QuadChute <p><strong>Comment:</strong> Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.</p>   </td>
- <td>0.0 > 200.0 </td>
+ <td>[0.0, 200.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
  <td>Differential thrust in forwards flight <p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
  <td>Differential thrust scaling factor <p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>   </td>
- <td>0.0 > 1.0 (0.1)</td>
+ <td>[0.0, 1.0] (0.1)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_MIN_ALT">VT_FW_MIN_ALT</strong> (FLOAT)</td>
  <td>QuadChute Altitude <p><strong>Comment:</strong> Minimum altitude for fixed wing flight, when in fixed wing the altitude drops below this altitude the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
- <td>0.0 > 200.0 </td>
+ <td>[0.0, 200.0] </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
  <td>The channel number of motors that must be turned off in fixed wing mode    </td>
- <td>0 > 12345678 (1)</td>
+ <td>[0, 12345678] (1)</td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
  <td>QuadChute Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
- <td>0 > 180 </td>
+ <td>[0, 180] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_R">VT_FW_QC_R</strong> (INT32)</td>
  <td>QuadChute Max Roll <p><strong>Comment:</strong> Maximum roll angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
- <td>0 > 180 </td>
+ <td>[0, 180] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_DUR">VT_F_TRANS_DUR</strong> (FLOAT)</td>
  <td>Duration of a front transition <p><strong>Comment:</strong> Time in seconds used for a transition</p>   </td>
- <td>0.1 > 20.00 (1)</td>
+ <td>[0.1, 20.00] (1)</td>
  <td>5.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
  <td>Target throttle value for the transition to fixed wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_F_TR_OL_TM">VT_F_TR_OL_TM</strong> (FLOAT)</td>
  <td>Airspeed less front transition time (open loop) <p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
- <td>1.0 > 30.0 </td>
+ <td>[1.0, 30.0] </td>
  <td>6.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_IDLE_PWM_MC">VT_IDLE_PWM_MC</strong> (INT32)</td>
  <td>Idle speed of VTOL when in multicopter mode    </td>
- <td>900 > 2000 (1)</td>
+ <td>[900, 2000] (1)</td>
  <td>900</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
- <td>-10.0 > 45.0 </td>
+ <td>[-10.0, 45.0] </td>
  <td>-5.0</td>
  <td></td>
 </tr>
@@ -29965,77 +30170,77 @@ table {
 <tr>
  <td><strong id="VT_MOT_ID">VT_MOT_ID</strong> (INT32)</td>
  <td>The channel number of motors which provide lift during hover    </td>
- <td>0 > 12345678 (1)</td>
+ <td>[0, 12345678] (1)</td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_PITCH_MIN">VT_PITCH_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
- <td>-10.0 > 45.0 </td>
+ <td>[-10.0, 45.0] </td>
  <td>-5.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
  <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
- <td>? > 20 (0.01)</td>
+ <td>[?, 20] (0.01)</td>
  <td>3.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_SPOILER_MC_LD">VT_SPOILER_MC_LD</strong> (FLOAT)</td>
  <td>Spoiler setting while landing (hover)    </td>
- <td>-1 > 1 (0.05)</td>
+ <td>[-1, 1] (0.05)</td>
  <td>0.</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
  <td>Position of tilt servo in fw mode    </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
  <td>Position of tilt servo in mc mode    </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_SPINUP">VT_TILT_SPINUP</strong> (FLOAT)</td>
  <td>Tilt actuator control value commanded when disarmed and during the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
  <td>Position of tilt servo in transition mode    </td>
- <td>0.0 > 1.0 (0.01)</td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.3</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TRANS_MIN_TM">VT_TRANS_MIN_TM</strong> (FLOAT)</td>
  <td>Front transition minimum time <p><strong>Comment:</strong> Minimum time in seconds for front transition.</p>   </td>
- <td>0.0 > 20.0 </td>
+ <td>[0.0, 20.0] </td>
  <td>2.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
  <td>Duration of front transition phase 2 <p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>   </td>
- <td>0.1 > 5.0 (0.01)</td>
+ <td>[0.1, 5.0] (0.01)</td>
  <td>0.5</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_TRANS_TIMEOUT">VT_TRANS_TIMEOUT</strong> (FLOAT)</td>
  <td>Front transition timeout <p><strong>Comment:</strong> Time in seconds after which transition will be cancelled. Disabled if set to 0.</p>   </td>
- <td>0.1 > 30.00 (1)</td>
+ <td>[0.1, 30.00] (1)</td>
  <td>15.0</td>
  <td>s</td>
 </tr>
@@ -30050,14 +30255,14 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 &gt; 2 </td>
+ <td>[0, 2] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="WV_GAIN">WV_GAIN</strong> (FLOAT)</td>
  <td>Weather-vane roll angle to yawrate <p><strong>Comment:</strong> The desired gain to convert roll sp into yaw rate sp.</p>   </td>
- <td>0.0 > 3.0 (0.01)</td>
+ <td>[0.0, 3.0] (0.01)</td>
  <td>1.0</td>
  <td>Hz</td>
 </tr>
@@ -30068,13 +30273,13 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
  <td><strong id="VTO_LOITER_ALT">VTO_LOITER_ALT</strong> (FLOAT)</td>
  <td>VTOL Takeoff relative loiter altitude <p><strong>Comment:</strong> Altitude relative to home at which vehicle will loiter after front transition.</p>   </td>
- <td>20 > 300 (1)</td>
+ <td>[20, 300] (1)</td>
  <td>80</td>
  <td>m</td>
 </tr>
@@ -30085,7 +30290,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -30144,7 +30349,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>이름</th><th>설명 </th><th>최소 &gt; 최대(증가)</th><th>기본값</th><th>단위 </th></tr>
+   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
  </thead>
 <tbody>
 <tr>
@@ -30176,7 +30381,7 @@ table {
 <li><strong>1:</strong> User assisted descent speed</li> 
 </ul>
   </td>
- <td>0 &gt; 1 </td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>

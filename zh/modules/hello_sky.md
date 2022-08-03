@@ -506,7 +506,7 @@ int px4_simple_app_main(int argc, char *argv[])
 px4_simple_app
 ```
 
-如果您启动*QGroundControl*，您可以检查实时图中的传感器值（[Analyze> MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) ）。
+If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
 
 ## 总结
 

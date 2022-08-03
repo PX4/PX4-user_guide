@@ -73,7 +73,7 @@ Skip this step if you ticked the installer option to *clone the PX4 repository, 
 
 Once you have finished setting up the command-line toolchain:
 
-- 使用 jMAVSim 编译和运行 SITL, 其性能明显优于虚拟机 (Cygwin会生成一个本机 windows 二进制文件 ** px4.exe **)。
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 - 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）。
 
 

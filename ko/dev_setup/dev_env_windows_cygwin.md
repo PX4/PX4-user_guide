@@ -73,7 +73,7 @@ Skip this step if you ticked the installer option to *clone the PX4 repository, 
 
 Once you have finished setting up the command-line toolchain:
 
-- [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)를 설치합니다.
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
 
 

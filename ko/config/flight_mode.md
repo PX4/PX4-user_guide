@@ -89,7 +89,7 @@ The *QGroundControl* configuration is then as [described above](#single-channel-
 ## 추가 정보
 
 * [PX4 비행 모드 개요](../flight_modes/README.md)
-* [QGroundControl > 비행 모드](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+* [QGroundControl > 비행 모드](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
 * [PX4 설정 비디오 - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (유튜브)
 * [라디오 스위치 매개변수](../advanced_config/parameter_reference.md#radio-switches) - 매개변수를 통해 매핑을 설정하는 데 사용할 수 있습니다.
 

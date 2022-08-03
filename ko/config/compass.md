@@ -61,6 +61,6 @@ Notes:
 ## 추가 정보
 
 * [주변기기 > GPS & 나침반 > 나침반 설정](../gps_compass/README.md#compass-configuration)
-* [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
+* [QGroundControl 사용 설명서 &gt; 센서](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#compass)
 * [PX4 설정 비디오 - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (유튜브)
 * [나침반 전력 보정](../advanced_config/compass_power_compensation.md) (고급 설정)

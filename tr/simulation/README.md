@@ -194,8 +194,8 @@ With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on re
 *QGroundControl* desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink. This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
 
 For setup information see the *QGroundControl User Guide*:
-* [Joystick Setup](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
-* [Virtual Joystick](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
+* [Joystick Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html)
+* [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html)
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 

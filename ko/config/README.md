@@ -49,5 +49,5 @@ PX4 차량의 표준 소프트웨어 설정 방법과 보정 방법에 대하여
 
 ## 추가 정보
 
-* [QGroundControl &gt; 설정](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
+* [QGroundControl &gt; 설정](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
 

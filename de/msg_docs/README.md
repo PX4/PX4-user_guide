@@ -135,7 +135,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [sensors_status](sensors_status.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [sensors_status_imu](sensors_status_imu.md) — Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.
 - [system_power](system_power.md)
-- [takeoff_status](takeoff_status.md) — Status of the takeoff state machine currently just availble for multicopters
+- [takeoff_status](takeoff_status.md) — Status of the takeoff state machine currently just available for multicopters
 - [task_stack_info](task_stack_info.md) — stack information for a single running process
 - [tecs_status](tecs_status.md)
 - [telemetry_status](telemetry_status.md)
@@ -160,8 +160,8 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [vehicle_angular_velocity](vehicle_angular_velocity.md)
 - [vehicle_attitude](vehicle_attitude.md) — This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
 - [vehicle_attitude_setpoint](vehicle_attitude_setpoint.md)
-- [vehicle_command](vehicle_command.md)
-- [vehicle_command_ack](vehicle_command_ack.md)
+- [vehicle_command](vehicle_command.md) — Vehicle Command uORB message. Used for commanding a mission / action / etc. Follows the MAVLink COMMAND_INT / COMMAND_LONG definition
+- [vehicle_command_ack](vehicle_command_ack.md) — Vehicle Command Ackonwledgement uORB message. Used for acknowledging the vehicle command being received. Follows the MAVLink COMMAND_ACK message definition
 - [vehicle_constraints](vehicle_constraints.md) — Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 - [vehicle_control_mode](vehicle_control_mode.md)
 - [vehicle_global_position](vehicle_global_position.md) — Fused global position in WGS84. This struct contains global position estimation. It is not the raw GPS measurement (@see vehicle_gps_position). This topic is usually published by the position estimator, which will take more sources of information into account than just GPS, e.g. control inputs of the vehicle in a Kalman-filter implementation.
@@ -176,7 +176,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [vehicle_optical_flow_vel](vehicle_optical_flow_vel.md)
 - [vehicle_rates_setpoint](vehicle_rates_setpoint.md)
 - [vehicle_roi](vehicle_roi.md) — Vehicle Region Of Interest (ROI)
-- [vehicle_status](vehicle_status.md)
+- [vehicle_status](vehicle_status.md) — Encodes the system state of the vehicle published by commander
 - [vehicle_status_flags](vehicle_status_flags.md) — This is a struct used by the commander internally.
 - [vehicle_thrust_setpoint](vehicle_thrust_setpoint.md)
 - [vehicle_torque_setpoint](vehicle_torque_setpoint.md)

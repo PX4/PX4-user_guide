@@ -146,7 +146,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
 1. 설정을 반영하도록 **udp2rabbit.cfg** 설정 파일을 편집합니다.
-1. [*QGroundControl* 설치](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (데일리 빌드).
+1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (daily build).
 1. 다음 매개 변수를 사용하여 QGC에서 UDP 연결을 추가합니다.
 
    * 접속 포트: 10000

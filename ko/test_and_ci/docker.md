@@ -161,7 +161,7 @@ docker rm 45eeb98f1dd9
 
 시뮬레이션 인스턴스를 실행시에는 도커 컨테이너 내부의 SITL과 호스트에서 *QGroundControl*을 통해 제어하려면 네트워크를 수동으로 설정하여야 합니다. *QGroundControl*에 자동으로 연결되지 않습니다.
 
-*QGroundControl*에서 [설정](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html)으로 이동하여 네트워크를 선택합니다. ::: ::: 포트는 사용된 [구성](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)에 따라 다릅니다. IP 주소는 도커 컨테이너 중 하나이며, 기본 네트워크는 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 찾을 수 있습니다(컨테이너 이름이 `mycontainer`라고 가정).
+In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. ::: ::: 포트는 사용된 [구성](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)에 따라 다릅니다. IP 주소는 도커 컨테이너 중 하나이며, 기본 네트워크는 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 찾을 수 있습니다(컨테이너 이름이 `mycontainer`라고 가정).
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
