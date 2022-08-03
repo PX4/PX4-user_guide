@@ -346,4 +346,4 @@ VTOL 차량이 고정익 모드에서 더 이상 비행할 수 없는 경우를 
 
 ## 추가 정보
 
-* [QGroundControl 사용 설명서 > 안전 설정](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
+* [QGroundControl 사용 설명서 > 안전 설정](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html)
