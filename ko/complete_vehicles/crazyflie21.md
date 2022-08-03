@@ -101,7 +101,7 @@ PX4 개발환경 설정후 Crazyflie 2.1에 PX4를 설치합니다.
    ```
 1. 장치를 연결하라는 메시지가 나타나면, Crazyflie 2.1을 연결합니다. 노란색 LED가 깜박이기 시작하면 부트로더 모드를 나타냅니다. 그런 다음 빨간색 LED가 켜지면, 깜박이는 프로세스가 시작되었음을 나타냅니다.
 1. 완료될 때까지 기다리십시오.
-1. 완료되면,  [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html)을 사용하여 센서를 보정합니다.
+1. 완료되면,  Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Sensors.html).
 
 ## 원본 Bitcraze 펌웨어 플래싱
 
@@ -118,7 +118,7 @@ PX4 개발환경 설정후 Crazyflie 2.1에 PX4를 설치합니다.
    sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D cf2loader-1.0.bin
    ```
    Crazyflie 2.1의 전원을 키면, 노란색 LED가 깜박입니다.
-1. [이 튜토리얼](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#latest-fw)을 사용하여 최신 Bitcraze Crazyflie 2.1 펌웨어를 설치합니다.
+1. Install the latest Bitcraze Crazyflie 2.1 Firmware using [this](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#update-fw) tutorial.
 
 ## 무선 설정 방법
 
