@@ -12,7 +12,8 @@ They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
 ## Prerequisites
 
 :::note
-PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Do not use `boot2docker` with the default Linux image because it contains no X-Server.
+PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)).
+Do not use `boot2docker` with the default Linux image because it contains no X-Server.
 :::
 
 [Install Docker](https://docs.docker.com/installation/) for your Linux computer, preferably using one of the Docker-maintained package repositories to get the latest stable version. You can use either the *Enterprise Edition* or (free) *Community Edition*.
@@ -48,7 +49,9 @@ For example, below you can see that the docker container with nuttx build tools 
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
-    - px4io/px4-dev-ros2-foxy
+      - px4io/px4-dev-ros2-foxy
+  - px4io/px4-dev-ros2-rolling
+  - px4io/px4-dev-ros2-galactic
 
 
 The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-bionic:latest`
