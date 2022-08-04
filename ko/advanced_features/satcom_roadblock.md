@@ -7,7 +7,7 @@
 ## 개요
 
 위성 통신에는 다음의 요소들이 필요합니다.
-* A [RockBlock 9603 Iridium Satellite Modem](https://au.rs-online.com/web/p/rf-modules/2131335) module connected to a Pixhawk flashed with the PX4 Autopilot.
+* A [RockBlock 9603 Iridium Satellite Modem](https://www.iridium.com/products/rock-seven-rockblock-9603/) module connected to a Pixhawk flashed with the PX4 Autopilot.
 * Ubuntu Linux를 실행하는 메시지 릴레이 서버
 * *QGroundControl*을 실행하는 지상국 컴퓨터
 
