@@ -129,15 +129,19 @@ xhost +
 # Run docker and open bash shell
 docker run -it --privileged \
 --env=LOCAL_USER_ID="$(id -u)" \
--v ~/Projects/PX4-Autopilot:/src/PX4-Autopilot/:rw \
+-v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
--e DISPLAY=$DISPLAY \
+-e DISPLAY=:0 \
 --network host \
 --name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
 
 :::note
 We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+:::
+
+:::note
+In some situations, `DISPLAY` may need to be set to a different value such as `:1`. It may be possible to determine what that value is by using `echo $DISPLAY` or simply by changing `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. Note that making that change assumes that the environment variable `DISPLAY` has been set.
 :::
 
 If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:
