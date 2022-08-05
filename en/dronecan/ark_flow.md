@@ -1,6 +1,6 @@
 # ARK Flow
 
-ARK Flow is an open source [UAVCAN](README.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
+ARK Flow is an open source [DroneCAN](README.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
 
 ![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
@@ -10,12 +10,9 @@ Order this module from:
 
 * [ARK Electronics](https://arkelectron.com/product/ark-flow/) (US)
 
-## Specifications
+## Hardware Specifications
 
 * [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
-* Runs [PX4 Open Source Firmware](https://github.com/PX4/PX4-Autopilot/tree/main/boards/ark/can-flow)
-* Supports [UAVCAN](README.md) [Firmware Updating](node_firmware.md)
-* Dynamic [UAVCAN](README.md) node enumeration
 * Sensors
   * PixArt PAW3902 Optical Flow Sensor
     * Tracks under super low light condition of >9 lux
@@ -31,25 +28,21 @@ Order this module from:
     * Transmitter beam of 2° x 2° to illuminate between 1 and 3 pixels
   * Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 * STM32F412CEU6 MCU
-* Two Pixhawk Standard CAN Connectors
-  * 4 Pin JST GH
-* Pixhawk Standard Debug Connector
-  * 6 Pin JST SH
+* Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
+* Pixhawk Standard Debug Connector (6 Pin JST SH)
+* Software-toggleable built in CAN termination resistor
 * Small Form Factor
   * 3cm x 3cm x 1.4cm
 * LED Indicators
 * USA Built
 
+## Hardware Setup
 
-### Wiring/Connecting
+### Wiring
 
-The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
-Multiple sensors can be connected by plugging additional sensors into the ARK Flow's second CAN connector.
+The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
 
-General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](../uavcan/README.md#wiring).
-
-<a id="mounting"></a>
-### Mounting/Orientation
+### Mounting
 
 The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
 
@@ -60,12 +53,23 @@ Change the parameter appropriately if using a different orientation.
 
 The sensor can be mounted anywhere on the frame, but you will need to specify the focal point position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
+## Firmware Setup
+ARK Flow runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
 
-## PX4 Setup
+ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
 
-### Enabling UAVCAN
+Firmware target: `ark_can-flow_default`
+Bootloader target: `ark_can-flow_canbootloader`
 
-In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [UAVCAN ESCs](../uavcan/escs.md)).
+## Flight Controller Setup
+
+:::note
+The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
+:::
+
+### Enabling DroneCAN
+
+In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../uavcan/escs.md)).
 
 The steps are:
 - In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
@@ -76,7 +80,7 @@ Flow data should arrive at 10Hz.
 
 ### PX4 Configuration
 
-You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [UAVCAN](README.md) parameters, and define offsets if the sensor is not centred within the vehicle.
+You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](README.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
 - In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow.
   To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save. 
@@ -96,46 +100,6 @@ On the ARK Flow, you may need to configure the following parameters:
 Parameter | Description
 --- | ---
 <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination.
-
-
-## Building Ark Flow Firmware
-
-Ark Flow is sold with a recent firmware build.
-Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
-
-The steps are:
-1. Install the [PX4 toolchain](../dev_setup/dev_env.md). 
-1. Clone the PX4-Autopilot sources, including Ark Flow, using *git*:
-   ```
-   git clone https://github.com/PX4/PX4-Autopilot --recursive
-   cd PX4-Autopilot
-   ```
-1. Build the Ark Flow firmware:
-   ```
-   make ark_can-flow_default
-   ```
-1. That will have created a binary in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the Ark Flow. Next time you power your flight controller with the SD card installed, Ark Flow will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the ufw directory of the SD card.
-    :::note
-    The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
-    :::
-
-
-## Updating Ark Flow Bootloader
-
-The Ark Flow comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
-
-The steps are:
-1. Build the Ark Flow bootloader firmware:
-   ```
-   make ark_can-flow_canbootloader
-   ```
-   :::note
-   This will setup your `launch.json` file if you are in VS code. If using the Black Magic Probe and VS code, make sure to update `BMPGDBSerialPort` within this file to the correct port that your debugger is connected to. On MacOS, the port name should look something like `cu.usbmodemE4CCA0E11`.
-   :::
-1. Connect to your Ark Flow to any Serial Wire Debugging (SWD) device that supports use of GNU Project Debugger (GDB), such as the Black Magic Probe and then connect power to your Ark Flow via one of the CAN ports.
-1. Flash the Ark Flow with `ark_can-flow_canbootloader`. To do so in VS code, you should see `CMake: [ark_can-flow_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing. You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code and then selecting `Continue` after the first breakpoint.
-1. With the bootloader flashed, you are ready to build and flash the Ark Flow firmware `ark_can-flow_default` as outlined above.
-
 
 ## LED Meanings
 
