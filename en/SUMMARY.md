@@ -296,6 +296,7 @@
     * [CAN Peripherals](can/README.md)
       * [DroneCAN Setup and Configuration](dronecan/README.md)
       * [DroneCAN Support Table](dronecan/support.md)
+      * [PX4 DroneCAN Firmware](dronecan/px4_cannode_fw.md)
   * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
 * [Development](development/development.md)
   * [Getting Started](dev_setup/getting_started.md)
