@@ -43,6 +43,12 @@ Enable each type using its [corresponding parameter](../advanced_config/paramete
 
 Airspeed calibration information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
 
+### Enable Usage of Airspeed Sensors
+
+For fixed-wing vehicle,there is option to select airspeed calculation.
+
+Enable usage of airspeed sensor change [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY)
+
 
 ## Developer Information
 
