@@ -45,7 +45,7 @@ Airspeed calibration information can be found in: [Basic Configuration > Airspee
 
 ### Select Airspeed Sensors for Airspeed Calculation
 
-For fixed-wing vehicle,there is option to select airspeed calculation.
+For fixed-wing vehicles, there is the option to select airspeed calculation.
 
 Enable usage of airspeed sensor change [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY) as a first airspeed sensor.
 
