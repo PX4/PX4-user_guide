@@ -11,7 +11,7 @@
 시동 전 기체 상태를 지상제어국에서 *disarmed*로 표시됩니다. 시동전의 기체는 기술적으로 타당하지는 않지만, "안전"한 상태입니다.
 :::
 
-사용자는 기체(선택)의 [안전 스위치](../getting_started/px4_basic_concepts.md#safety_switch) *그리고* [시동 스위치/단추](#arm_disarm_switch), [시동 움직임](#arm_disarm_gestures) 또는 지상 통제 장치의 *MAVLink 명령*으로 상태 진행을 제어할 수 있습니다:
+Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures),  or *MAVLink command* on the ground controller:
 - *안전 스위치*는 *기체*의 제어 장치로, 기체에 시동을 걸 수 있기 전 가동해야 하며, 시동 전에 시동이 멋대로 켜지는 일을 (설정에 따라) 막을 수 있어야 합니다. 보통 안전 스위치는 GPS 장치에 붙어있으나, 별도의 부품으로 공급되기도 합니다.
 
   :::warning

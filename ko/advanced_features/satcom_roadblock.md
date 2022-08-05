@@ -7,7 +7,7 @@
 ## 개요
 
 위성 통신에는 다음의 요소들이 필요합니다.
-* A [RockBlock 9603 Iridium Satellite Modem](https://au.rs-online.com/web/p/rf-modules/2131335) module connected to a Pixhawk flashed with the PX4 Autopilot.
+* A [RockBlock 9603 Iridium Satellite Modem](https://www.iridium.com/products/rock-seven-rockblock-9603/) module connected to a Pixhawk flashed with the PX4 Autopilot.
 * Ubuntu Linux를 실행하는 메시지 릴레이 서버
 * *QGroundControl*을 실행하는 지상국 컴퓨터
 
@@ -146,7 +146,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
 1. 설정을 반영하도록 **udp2rabbit.cfg** 설정 파일을 편집합니다.
-1. [*QGroundControl* 설치](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (데일리 빌드).
+1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (daily build).
 1. 다음 매개 변수를 사용하여 QGC에서 UDP 연결을 추가합니다.
 
    * 접속 포트: 10000

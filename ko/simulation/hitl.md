@@ -74,7 +74,7 @@ SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에
    * [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)를 '사용 안 함'으로 설정합니다. 무선 제어로 HITL을 실행하지 않으면, RC 안전장치가 간섭하지 않습니다.
 
 :::tip
-*QGroundControl 사용 설명서*에는 [조이스틱](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)과 [가상 조이스틱](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html) 설정 방법을 설명합니다.
+The *QGroundControl User Guide* also has instructions on [Joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html) setup.
 :::
 
 설정 완료후에는 컴퓨터에서 비행 콘트롤러를 **닫고**, *QGroundControl*을 분리합니다.

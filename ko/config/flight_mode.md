@@ -1,25 +1,25 @@
 # 비행 모드 설정
 
-This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
+이 항목에서는 [비행 모드](../getting_started/flight_modes.md) 및 기타 기능을 무선 조종 송신기의 스위치에 매핑하는 방법을 설명합니다.
 
 :::tip
-In order to set up flight modes you must already have:
-- [Configured your radio](../config/radio.md)
-- [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. :::
+비행 모드를 설정하려면 아래 사항들이 준비되어야 합니다.
+- [라디오 설정](../config/radio.md)
+- [송신기를 설정](#rc-transmitter-setup)하여 모드 스위치의 물리적 위치를 단일 채널로 인코딩합니다. [Setup your transmitter](#rc-transmitter-setup) to encode the physical positions of your mode switch(es) into a single channel. :::
 
 
-## What Flight Modes and Switches Should I Set?
+## 어떤 비행 모드와 스위치를 설정하여야 합니까?
 
-*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
+*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. [여기에 설명된](../getting_started/flight_modes.md) 비행 모드를 설정하거나 설정하지 않을 수 있습니다. 대부분의 사용자는 다음 기능을 설정해야 차량이 더 쉽고 안전하게 비행할 수 있습니다.
 
 - **Position mode** ([multicopter](../getting_started/flight_modes.md#position-mode-mc), [fixed-wing](../getting_started/flight_modes.md#position-mode-fw)) - Easiest and safest mode for manual flight.
-- [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
+- [복귀 모드](../flight_modes/return.md) - 안전한 경로와 착륙을 통해 이륙 위치로 되돌아갑니다(기본값).
 - **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
-It is also common to map switches to:
+스위치를 아래와 같이 일반적으로 매핑합니다.
 
-- [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
-- <a id="kill_switch"></a> [Kill Switch](../config/safety.md#kill-switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
+- [미션](../flight_modes/mission.md) - 지상관제소에서 보낸 사전 프로그래밍된 미션을 실행합니다.
+- <a id="kill_switch"></a> [킬 스위치](../config/safety.md#kill-switch) - 모든 모터 출력을 즉시 중지합니다. 기체가 충돌하는 상황에서는 계속 비행하는 것보다 사고를 방지할 수 있습니다.
 
 
 ## 비행 모드 선택
@@ -89,7 +89,7 @@ The *QGroundControl* configuration is then as [described above](#single-channel-
 ## 추가 정보
 
 * [PX4 비행 모드 개요](../flight_modes/README.md)
-* [QGroundControl > 비행 모드](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+* [QGroundControl > 비행 모드](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
 * [PX4 설정 비디오 - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (유튜브)
 * [라디오 스위치 매개변수](../advanced_config/parameter_reference.md#radio-switches) - 매개변수를 통해 매핑을 설정하는 데 사용할 수 있습니다.
 

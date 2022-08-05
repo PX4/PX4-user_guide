@@ -138,7 +138,7 @@ git push --force-with-lease origin <your feature branch name>
 
 ### 리베이스 병합 충돌
 
-`git rebase` 실행 중 충돌이 발생하면 [이 가이드](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/)를 참고하십시오.
+If a conflict occurs during a `git rebase`, please refer to [this guide](https://docs.github.com/en/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase).
 
 ### 풀 병합 충돌
 

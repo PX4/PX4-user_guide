@@ -12,7 +12,7 @@
 *패턴* 도구를 사용하여 측량 그리드 생성을 자동화 할 수 있습니다.
 
 :::tip
-자세한 내용은 [QGroundControl 사용자 가이드](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)를 참조하십시오. :::
+For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![임무 계획](../../assets/flying/planning_mission.jpg)
 

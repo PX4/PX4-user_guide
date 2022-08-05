@@ -94,5 +94,5 @@ PX4 설치
 
 ## 추가 정보
 
-* https://docs.qgroundcontrol.com/en/SetupView/Firmware.html
+* [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
 * [PX4 설정 비디오](https://youtu.be/91VGmdSlbo4) (유튜브)

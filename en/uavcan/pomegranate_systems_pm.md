@@ -35,7 +35,7 @@ Detailed setup, configuration, and troubleshooting information can be found on t
 ## Configuration
 
  1. Enable UAVCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`.
- 2. Set the following module parameters using the [Mavlink console](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html):
+ 2. Set the following module parameters using the [Mavlink console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
     * Battery capacity in mAh: `battery_capacity_mAh`
     * Battery voltage when *full*: `battery_full_V`, 
     * Battery voltage when *empty*: `battery_empty_V`

@@ -573,7 +573,7 @@
   * [고급 주제](advanced/README.md)
     * [매개변수 & 설정](advanced/parameters_and_configurations.md)
     * [컴퓨터 비전](advanced/computer_vision.md)
-      * [모션 캡처](tutorials/motion-capture.md)
+      * [Motion Capture (VICON, Optitrack, NOKOV)](tutorials/motion-capture.md)
     * [Intel RealSense R200용 드라이버 설치](advanced/realsense_intel_driver.md)
     * [상태 추정기 전환](advanced/switching_state_estimators.md)
     * [트리 외부 모듈](advanced/out_of_tree_modules.md)

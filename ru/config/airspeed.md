@@ -41,4 +41,4 @@ If they are swapped then the sensor will read a large negative differential pres
 
 ## Further Information
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#airspeed)

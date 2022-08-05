@@ -110,7 +110,7 @@ The following settings may need to be changed (using *QGroundControl*).
 
 #### RTK GPS 설정
 
-다음 설정을 변경해야 할 수 있습니다 (*QGroundControl* 사용).
+The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
 ![RTK GPS 설정](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
@@ -125,8 +125,8 @@ The following settings may need to be changed (using *QGroundControl*).
 MAVLink2 프로토콜은 낮은 대역폭 채널을 보다 효율적으로 사용하기 때문에 사용하여야합니다. 이것은 최근 빌드에서 기본적으로 활성화되어야 합니다.
 
 MAVLink2가 사용되는 지 확인하려면 :
-* 텔레메트리 모듈 펌웨어를 최신 버전으로 업데이트합니다 ([ QGroundControl &gt; 설정&gt; 펌웨어](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html) 참조).
-* [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER)를 2로 설정합니다 ([QGroundControl 설정 &gt; 매개 변수](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) 참조).
+* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html)).
+* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html))
 
 
 #### 튜닝

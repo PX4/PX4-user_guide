@@ -3,7 +3,7 @@
 전원 설정 방법에 대하여 설명합니다.
 
 :::note
-PX4의 배터리 모니터링은 호환되는 하드웨어에서 사용할 수 있습니다.
+PX4의 배터리 모니터링 기능은 호환되는 하드웨어에서 사용할 수 있습니다.
 대부분의 경우 배터리 전압을 측정하는 전원 모듈을 의미하며, 배터리와 차량 사이의 전류도 측정 할 수 있습니다.
 :::
 
@@ -129,7 +129,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 전원 모듈과 비행 컨트롤러의 ADC를 통해 전압을 측정하는 차량이있는 경우 보드 당 한 번씩 측정을 확인하고 보정하여야 합니다. 보정 작업에는 멀티 미터가 필요합니다.
 
-분배기를 보정하는 가장 쉬운 방법은 *QGroundControl*을 사용하고 [설정 > 전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl 사용 설명서)에 대한 단계별 가이드를 따르는 것입니다.
+The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
 
 :::note
 이 설정은 [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) 및 [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV) 매개 변수에 해당합니다.
@@ -144,7 +144,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 [전류 기반 부하 보상](#current_based_load_compensation) 또는 [전류 통합](#current_integration)을 사용하는 경우 전압 분배기 당 암페어를 보정하여야 합니다.
 
-분배기를 보정하는 가장 쉬운 방법은 *QGroundControl*을 사용하고 [설정 > 전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl 사용 설명서)에 대한 단계별 가이드를 따르는 것입니다.
+The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
 
 :::note
 이 설정은 [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) 및 [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V) 매개 변수에 해당합니다.

@@ -109,7 +109,7 @@ RTK GPS is plug and play. For more instructions see [here](../advanced_features/
 
 To enable the *Lidar-Lite V3* (connected via I2C), the parameter [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) has to be set to `I2C`.
 
-This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) as shown below:
+This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) as shown below:
 
 ![Set SENS_EN_LL40LS parameter in QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
 

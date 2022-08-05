@@ -299,8 +299,6 @@ The ports are ARM 10-pin JTAG connectors, which you will probably have to solder
 
 ![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
 
-<!-- For more information on SWD debugging see devguide [link to follow] -->
-
 :::note
 All Pixhawk FMUv2 boards have a similar SWD port. 
 :::

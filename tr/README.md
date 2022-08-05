@@ -12,6 +12,8 @@ Bu rehber, PX4 tabanlı bir aracı kurmak, yapılandırmak ve güvenli bir şeki
 ## Nasıl Başlayabilirim?
 
 [Başlangıç](getting_started/README.md) tüm kullanıcılar tarafından okunmalıdır! PX4 hakkında uçuş algoritmaları (uçuş modları ve güvenlik özellikleri) ve desteklenen donanımlar(uçuş kontrolcüsü, araçlar, uçak gövde yapıları, telemetri sistemleri, radya kontrol sistemleri) özelliklerinin olduğu genel bir bakış açısı sağlamaktadır.
+features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 

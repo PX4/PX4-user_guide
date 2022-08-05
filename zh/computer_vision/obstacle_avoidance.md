@@ -81,8 +81,6 @@ The interface (messages sent) between PX4 and the companion are *exactly* the sa
 
 Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
-
 <!-- ## Further Information -->
 <!-- @mrivi is expert! -->
-<!-- Issue with discussion : https://github.com/PX4/Devguide/issues/530 -->
-<!-- PR for mavlink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->
+

@@ -251,7 +251,7 @@ MAVROS는 `/mavros/vision_pose/pose`에 게시된 포즈 데이터를 PX4로 릴
 첫 비행 전에 다음을 확인하십시오.
 
 * PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 포즈를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 다시 스트리밍합니다.
-* *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)로 이러한 MAVLink 메시지를 확인할 수 있습니다. 이를 위하여, `ODOMETRY` 메시지의 쿼터니언이 단위 쿼터니언에 매우 가까워질 때까지 차량을 요잉합니다. (w=1, x=y=z=0)
+* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
 * 이 시점에서 몸체 프레임은 외부 포즈 시스템의 기준 프레임과 정렬됩니다. 차량을 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 프레임에 여전히 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고, 좌표 프레임을 다시 확인하십시오.
 * 정렬되면 지면에서 차량을 들어올릴 수 있으며, 위치의 z 좌표가 감소하는 것을 볼 수 있습니다. 차량을 앞쪽으로 움직이면, 위치의 x 좌표가 증가합니다. 차량을 오른 쪽으로 이동하면, y 좌표는 증가합니다. 외부 포즈 시스템에서 선형 속도도 전송하는 경우에는, 선형 속도를 확인하여야 합니다. 선형 속도가 *FRD* 몸체 프레임 참조 프레임으로 표현되는 지 확인합니다.
 * PX4 매개변수 `MAV_ODOM_LP`를 0로 재설정합니다. PX4는 이 메시지의 스트리밍을 중지합니다.

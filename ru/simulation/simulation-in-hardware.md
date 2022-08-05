@@ -25,7 +25,7 @@ Furthermore, the physical parameters representing the vehicle (such as mass, ine
 
 ## Requirements
 
-To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board). you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
+To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board). you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
 
 - SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
 - SIH for quadrotor supported from PX4 v1.9.

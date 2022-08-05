@@ -102,7 +102,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - H2.0 Hex 키 (RC 수신기를 연결할 수 있도록 상단 플레이트 나사를 푸는 용도)
 
 또한, 사용자는 지상국 하드웨어와 소프트웨어가 필요합니다.
-- [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html)(QGC)을 실행 노트북 또는 태블릿.
+- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (QGC).
 
 ## 최초 설정
 
@@ -336,7 +336,7 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 
 ## 기타 개발 리소스
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* 보조 컴퓨터 기술 정보
+- [*UP Core* Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - *Up Core* companion computer technical information
 - [후두 개발자 포럼](https://structure.io/developers) - *구조 코어* 카메라 정보
 - [Pixhawk  4 개요](../flight_controller/pixhawk4.md)
 - [PX4 회피 소프트웨어 / 문서](https://github.com/PX4/PX4-Avoidance)

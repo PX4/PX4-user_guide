@@ -57,7 +57,7 @@ PX4는 단일 "혼합" 구현([병렬](#parallel-form) 및 [표준](#standard-fo
 :::tip
 자세한 내용은 아래의 내용을 참조하십시오.
 - [모든 PID 컨트롤러가 같지 않습니다.](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com)
-- [PID 컨트롤러 > 표준 대 병렬 (이상적인) PID 형식](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
+- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_form) (Wikipedia)
 :::
 
 ##### 병렬 형식

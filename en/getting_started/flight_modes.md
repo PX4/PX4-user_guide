@@ -194,7 +194,7 @@ By default a mulitcopter will simply ascend to a safe height, fly to its home po
 The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
 :::tip
-The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/).
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/).
 *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
 :::
 
@@ -357,7 +357,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 
 
 :::tip
-The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
 :::
 
 <a id="takeoff_fw"></a>
@@ -436,7 +436,7 @@ There is no active braking, so the vehicle may continue to move until its moment
 The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
 :::tip
-The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/).
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en/).
 *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
 :::
 

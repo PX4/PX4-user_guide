@@ -155,18 +155,19 @@ Used in startup scripts to handle hardfaults
 ```
 hardfault_log <command> [arguments...]
  Commands:
-   check         Check if there's an uncommited hardfault
+   check         Check if there's an uncommitted hardfault
 
-   rearm         Drop an uncommited hardfault
+   rearm         Drop an uncommitted hardfault
 
    fault         Generate a hardfault (this command crashes the system :)
      [0|1]       Hardfault type: 0=divide by 0, 1=Assertion (default=0)
 
-   commit        Write uncommited hardfault to /fs/microsd/fault_%i.txt (and
+   commit        Write uncommitted hardfault to /fs/microsd/fault_%i.txt (and
                  rearm, but don't reset)
 
    count         Read the reboot counter, counts the number of reboots of an
-                 uncommited hardfault (returned as the exit code of the program)
+                 uncommitted hardfault (returned as the exit code of the
+                 program)
 
    reset         Reset the reboot counter
 ```

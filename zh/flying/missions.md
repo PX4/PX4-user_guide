@@ -12,7 +12,7 @@
 You can also use the *Pattern* tool to automate creation of survey grids.
 
 :::tip
-有关更多信息，请参阅[QGroundControl 用户指南](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)。 :::
+For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![规划任务](../../assets/flying/planning_mission.jpg)
 

@@ -28,12 +28,12 @@ Slck에서의 질문/답변은 기록으로 남기 때문에, 처음에는 토�
 
 * [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
 * [PX4 토론](http://discuss.px4.io/)에 글을 올리시고, 비행 보고서와 로그 링크를 제출하십시오.
-* PX4 관련 문제나 버그를 찾으시면, [Github에 새 이슈를 작성](https://github.com/PX4/Devguide/issues)하십시오
+* The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
 
 ## 문제와 버그 보고
 
 * [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
-* 비행 보고서와 최대한 자세한 로그를 넣어 [Github에 새 이슈를 작성](https://github.com/PX4/Devguide/issues) 하십시오
+* [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues) with a flight report with as much detail as possible and links to logs.
 
 
 <a id="dev_call"></a>
@@ -60,4 +60,3 @@ Pull 요청, 주요 현안, Q&A를 의논하는 시간도 있습니다.
 
 * [Slack 커뮤니티 가입](https://slack.px4.io/)
 * [토론 개설](https://discuss.px4.io/)
-* [Github 이슈 작성 ](https://github.com/PX4/Devguide/issues)
