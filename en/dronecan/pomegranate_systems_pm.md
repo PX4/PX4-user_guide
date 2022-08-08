@@ -1,12 +1,16 @@
 # Pomegranate Systems Power Module
 
+:::note
+In 2022, UAVCAN (v0) was forked and is maintained as  `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
+:::
+
 ![Module Image](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)
 
-Digital Power Module with high resolution current integration, 5V/2A supply with power monitoring, single UAVCAN v0 CANbus interface, and an RGB status LED.
+Digital Power Module with high resolution current integration, 5V/2A supply with power monitoring, single DroneCAN CANbus interface, and an RGB status LED.
 
 Detailed setup, configuration, and troubleshooting information can be found on the [manufacturer's device home page](https://p-systems.io/product/power_module).
 
-## Specifications
+## Hardware Specifications
 
  - **Input Voltage:** 6-26V \(2-6S\)
  - **Max Continuous Current:**
@@ -18,8 +22,7 @@ Detailed setup, configuration, and troubleshooting information can be found on t
    - **Primary / Battery Bus:** 0.02 ΔA
    - **5V bus:** 0.001 ΔA
  - **CANbus Termination:** Electronic (on by default)
- - **MCU:** STM32 F302K8U
- - **Firmware:** [Open Source](https://bitbucket.org/p-systems/firmware/)
+ - **MCU:** STM32F302K8U
  - **Electrical Interface:**
    - **Power:** Solder pads or XT60PW (right angle, board-mounted connectors)
    - **CANbus** Dual JST GH-4 (standard UAVCAN micro-connector)
@@ -29,12 +32,14 @@ Detailed setup, configuration, and troubleshooting information can be found on t
    - **Without Connectors:** 9g
    - **With XT60PW Connectors:** 16g
  
- 
  ![Dimensions](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
 
-## Configuration
+## Firmware Setup
+The power module runs pomegranate systems' own custom (open source) firmware. Source code and build instructions can be found on [the bitbucket](https://bitbucket.org/p-systems/firmware/src/master).
 
- 1. Enable UAVCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`.
+## Flight Controller Setup
+
+ 1. Enable DroneCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`.
  2. Set the following module parameters using the [Mavlink console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
     * Battery capacity in mAh: `battery_capacity_mAh`
     * Battery voltage when *full*: `battery_full_V`, 
