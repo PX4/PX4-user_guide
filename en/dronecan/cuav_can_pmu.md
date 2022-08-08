@@ -1,13 +1,18 @@
 # CAUV CAN PMU
 
-CAN PMU<sup>&reg;</sup> is a high-precision [UAVCAN](../uavcan/README.md) power module developed by CUAV<sup>&reg;</sup>.
+CAN PMU<sup>&reg;</sup> is a high-precision [DroneCAN](README.md) power module developed by CUAV<sup>&reg;</sup>.
 It runs the CUAV ITT compensation algorithm, which enables drones to get the battery data more accurately.
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu.jpg)
 
 It is recommended for use in large commercial vehicles, but might also be used for research vehicles.
 
-## Specifications
+## Where to Buy
+
+- [CUAV store](https://store.cuav.net/index.php)
+- [CUAV aliexpress ](https://www.aliexpress.com/item/4000369700535.html)
+
+## Hardware Specifications
 
 - **Processor:** STM32F412
 - **Voltage input**: 6~62V\(2-15S\)
@@ -18,7 +23,6 @@ It is recommended for use in large commercial vehicles, but might also be used f
 - **Max output power:** 6000W/90S
 - **Max stable power:** 5000W
 - **Power port output:** 5.4V/5A
-- **Protocol:** UAVCAN
 - **Operating temp:** -20~+100
 - **Firmware upgrade:** Supported.
 * **Calibration:** Not needed.
@@ -30,18 +34,19 @@ It is recommended for use in large commercial vehicles, but might also be used f
   - **Size:** 46.5mm \* 38.5mm \* 22.5mm
   - **Weight:** 76g
 
-## Purchase
+## Hardware Setup
 
-- [CUAV store](https://store.cuav.net/index.php)
-- [CUAV aliexpress ](https://www.aliexpress.com/item/4000369700535.html)
+### Package Contents
 
-## Pinouts
+![CAN PMU list](../../assets/hardware/power_module/cuav_can/can_pmu_list.png)
+
+### Pinouts
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en.png)
  
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en2.png)
 
-## Connection
+## Wiring
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_connection_en.png)
 
@@ -49,7 +54,7 @@ The connection steps are:
 * Connect the flight control CAN1/2 and the module CAN interface.
 * Connect the V5 series power cable to the V5 Flight Control Power2 (if other flight controllers are connect to the Power interface) and the module Power interface.
 
-## Enable CAN PMU
+## Flight Controller Setup
 
 Set the following parameters in the *QGroundControl* [parameter list](../advanced_config/parameters.md) and then restart:
 
@@ -57,14 +62,9 @@ Set the following parameters in the *QGroundControl* [parameter list](../advance
 
   ![qgc set](../../assets/hardware/power_module/cuav_can/qgc_set_en.png)
 
-# Package Contents
-
-![CAN PMU list](../../assets/hardware/power_module/cuav_can/can_pmu_list.png)
 
 ## Further Information
 
 [CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
 
 [CAN PMU Power detection module > Enable CAN PMU > PX4 firmware](http://doc.cuav.net/power-module/can-pmu/en/) (CUAV docs)
-
-[UAVCAN](https://new.uavcan.org/)
