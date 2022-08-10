@@ -61,6 +61,6 @@ Notes:
 ## Further Information
 
 * [Peripherals > GPS & Compass > Compass Configuration](../gps_compass/README.md#compass-configuration)
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#compass)
 * [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
 * [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)

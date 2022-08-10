@@ -49,5 +49,5 @@ If you need help with the configuration you can ask for help on the [QGroundCont
 
 ## Further Information
 
-* [QGroundControl > Setup](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
+* [QGroundControl > Setup](https://docs.qgroundcontrol.com/master/en/SetupView/SetupView.html)
 

@@ -2,7 +2,7 @@
 
 *QGroundControl*에 연결된 [조이스틱](https://en.wikipedia.org/wiki/Joystick) 또는 게임 패드를 사용하여 [RC 송신기](../config/radio.md)를 *대체*하여 기체를 수동으로 제어할 수 있습니다.
 
-이 방법은 지상제어 프로그램이 있는 수동 제어 장치에서 사용할 수 있습니다 (아래 표시된 *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/)). 조이스틱은 일반적으로 비행 시뮬레이션용으로 많이 사용합니다.
+This approach may be used by manual control units that have an integrated ground control station (like the *UAVComponents* [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/) shown below). 조이스틱은 일반적으로 비행 시뮬레이션용으로 많이 사용합니다.
 
 ![Joystick MicroNav](../../assets/peripherals/joystick/micronav.jpg)
 
@@ -16,12 +16,12 @@
 
 ## PX4 조이스틱 지원 활성화
 
-조이스틱 설정 방법에 대한 정보는 [QGroundControl > 조이스틱 설정](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)을 참고하십시오.
+Information about how to set up a joystick is covered in: [QGroundControl > Joystick Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html).
 
 요약:
 * *QGroundControl*을 시작합니다.
 * Set the parameter [COM_RC_IN_MODE=1](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) - `Joystick`
-  - See [Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) for information about setting parameters
+  - See [Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) for information about setting parameters
   - Setting the parameter to `2` or `3` also enables Joystick under some circumstances.
 * 조이스틱을 연결합니다.
 * 연결된 조이스틱(**기체 설정 > 조이스틱**)을 설정하세요.

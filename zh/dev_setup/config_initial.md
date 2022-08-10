@@ -28,7 +28,7 @@ A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
 
 ## 飞机配置
 
-Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) for a **desktop OS**.
+Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 To configure the vehicle:
 1. 下载并安装 [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)。

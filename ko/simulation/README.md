@@ -192,8 +192,8 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 *QGroundControl* 데스크톱 버전은 USB 조이스틱/게임패드에 연결하여 MAVLink로 PX4에 이동 명령과 버튼 누름을 전송합니다. 이것은 SITL 및 HITL 시뮬레이션 모두에서 작동하며, 시뮬레이션 차량을 직접 제어할 수 있습니다. 조이스틱이 없는 경우 QGroundControl의 화면 가상 썸스틱을 사용하여 차량을 제어할 수도 있습니다.
 
 설정 정보는 *QGroundControl 사용자 가이드*를 참고하십시오.
-* [조이스틱 설정](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
-* [가상 조이스틱](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
+* [조이스틱 설정](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html)
+* [가상 조이스틱](https://docs.qgroundcontrol.com/master/en/SettingsView/VirtualJoystick.html)
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 
@@ -259,14 +259,14 @@ PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영
 브로드캐스팅은 네트워크에서 실행 중인 시뮬레이션이 하나만 있는 경우에 간단하게 연결되도록 합니다. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
-`mavlink start`가 호출되는 적절한 설정 파일에서 이 작업을 수행하여야 합니다. 예: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
+`mavlink start`가 호출되는 적절한 설정 파일에서 이 작업을 수행하여야 합니다. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
 
 ### 특정 주소로 스트리밍 활성화
 
 [mavlink 모듈](../modules/modules_communication.md#mavlink_usage)은 기본적으로 *localhost*로 라우팅되지만, `-t` 옵션을 사용하여 스트리밍 외부 IP 주소를 지정합니다. 지정된 원격 컴퓨터가 적절한 포트(예: *QGroundControl*의 경우 14550)를 수신하여 시뮬레이터에 연결할 수 있습니다.
 
-`mavlink start`가 호출되는 설정 파일에서 이 작업을 수행하여야 합니다. 예: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
+`mavlink start`가 호출되는 설정 파일에서 이 작업을 수행하여야 합니다. For example: [/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/px4-rc.mavlink).
 
 
 ### SSH 터널링

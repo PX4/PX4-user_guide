@@ -152,5 +152,3 @@ Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https:/
 
 <!-- ## Further Information -->
 <!-- @mrivi and @jkflying are the experts! -->
-<!-- Issue with discussion : https://github.com/PX4/Devguide/issues/530 -->
-<!-- PR for MAVLink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->

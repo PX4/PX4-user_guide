@@ -4,7 +4,7 @@
 
 ![综述](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4飞控* ， *UP Core* 机载计算机（4GB 内存和64GB eMMC），以及*Structure Core* 深度相机。
+The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (for V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
 :::note
 该无人机发货时没有预先安装软件。 A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
@@ -41,6 +41,9 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 :::
 
 ## 包装内容
+:::note PX4 Vision Dev Kit V1.5 comes with a [Pixhawk 6C](../flight_controller/pixhawk6c.md) flight controller instead of [Pixhawk 4](../flight_controller/pixhawk4.md)
+:::
+
 ![What's inside](../../assets/hardware/px4_vision_devkit/Explode-view.png)
 
 ![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
@@ -49,7 +52,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 
 当无人机按上述安装完成时：
 - 核心组件：
-  - 一个Pixhawk 4飞控（包含定制化的PX4固件）
+  - 1x Pixhawk 4 or Pixhawk 6C (for v1.5) flight controller
   - 一个 PMW3901 光流传感器
   - 一个 TOF 红外距离传感器(PSK‐CM8JL65‐CC5)
   - 一个 Structure Core 深度相机
@@ -71,10 +74,9 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 
 - 机械规格：
   - 框架：全 5mm 3k 碳纤纹
-  - 电机：T-MOTOR F60 PROⅢ KV1750
+  - Motors: T-MOTOR KV1750
   - 电调: BEHEli-S 20A ESC
-  - 桨：T6045
-  - GPS: Pixhawk4 GPS 模块
+  - GPS: M8N GPS module
   - 电源模块： Holybro PM07
   - 轴距：286毫米
   - 重量：854克（无电池和桨）
@@ -103,7 +105,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
 - 一个 H2.0 头的内六角螺丝刀（用来打开顶部的螺丝来安装接收机）
 
 *PX4 避障* 系统由计算机视觉软件组成，这种软件运行在一个配套的计算机上(附着的深度摄像头)，为运行在一个 *飞控上的 PX4 飞行堆栈提供障碍和/或航线信息*
-- 可运行 [QGC地面站（QGroundControl）](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) 的笔记本电脑或者平板。
+- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (QGC).
 
 ## 首次使用
 
@@ -115,7 +117,7 @@ For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should
    - 确保天线无障碍物阻挡并将天线和机架电隔离。例如，在减震板下方或机臂上。
 
 1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) 遥控和接收机配对(如果尚未完成)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
-1. GPS需要高于无人机，并固定到底板。
+1. GPS需要高于无人机，并固定到底板。 (not require for v1.5)
 
    ![提升GPS映射](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
@@ -351,7 +353,7 @@ The kit is designed for creating computer vision software that runs on the compa
 
 可从 [Holybro的网站](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf) 下载载板的引脚 。
 
-- 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
+- You will need to connect *QGroundControl* to the kit's *Pixhawk* **via USB** in order to update firmware.
 - 加载新固件后选择 *PX4 Vision DevKit* 机架： ![机身选择 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
@@ -368,9 +370,10 @@ Modification of PX4 code is not *needed* to meet most computer vision use cases.
 
 ## 如何获得技术支持？
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* 机载计算机技术信息
+- [*UP Core* Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - *Up Core* companion computer technical information
 - [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
 - [Pixhawk 4 概述](../flight_controller/pixhawk4.md)
+- [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
 - [PX4 避障软件/文档](https://github.com/PX4/PX4-Avoidance)
 - [路径规划接口](../computer_vision/path_planning_interface.md)
 - [Px4 Vision 载板引脚排列](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)

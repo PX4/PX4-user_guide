@@ -11,7 +11,7 @@
 Ground stations may display *disarmed* for pre-armed vehicles. 虽然技术上不适合预解锁的载具，但它是“安全的”。
 :::
 
-Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures),  or *MAVLink command* on the ground controller:
+Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety-switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures),  or *MAVLink command* on the ground controller:
 - A *safety switch* is a control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). 通常，安全开关被集成到 GPS 单元中，但也可能是一个单独的物理组件。
 
   :::warning

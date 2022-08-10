@@ -66,7 +66,7 @@ Serial bus driver for the LeddarOne LiDAR.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_LEDDAR1_CFG parameter.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/leddar_one.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/leddar_one.html
 
 ### Examples
 
@@ -100,7 +100,7 @@ Source: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4
 
 I2C bus driver for Lightware SFxx series LIDAR rangefinders: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 
 <a id="lightware_laser_i2c_usage"></a>
 
@@ -134,7 +134,7 @@ Serial bus driver for the LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c Laser
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_SF0X_CFG parameter.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 
 ### Examples
 
@@ -170,7 +170,7 @@ I2C bus driver for LidarLite rangefinders.
 
 The sensor/driver must be enabled using the parameter SENS_EN_LL40LS.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/lidar_lite.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
@@ -247,10 +247,12 @@ Source: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tr
 
 
 ### Description
+
 Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.
 
 ### Implementation
-This driver is implented as a NuttX task. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.
+
+This driver is implemented as a NuttX task. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.
 
 <a id="pga460_usage"></a>
 
@@ -331,7 +333,7 @@ I2C bus driver for TeraRanger rangefinders.
 
 The sensor/driver must be enabled using the parameter SENS_EN_TRANGER.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/rangefinders.html#teraranger-rangefinders
+Setup/usage information: https://docs.px4.io/main/en/sensor/rangefinders.html#teraranger-rangefinders
 
 <a id="teraranger_usage"></a>
 
@@ -365,7 +367,7 @@ Serial bus driver for the Benewake TFmini LiDAR.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_TFMINI_CFG parameter.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/tfmini.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
 
 ### Examples
 

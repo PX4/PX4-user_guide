@@ -87,7 +87,7 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 ![Wi-Fi 브리지 QGC 요약](../../assets/qgc/summary/wifi_bridge.png)
 
 :::tip
-연결 문제가 발생하면 [QGC 설치/설정 문제](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection)를 참고하십시오.
+If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/master/en/Support/troubleshooting_qgc.html#waiting_for_connection).
 :::
 
 

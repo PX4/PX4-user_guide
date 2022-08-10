@@ -27,5 +27,5 @@
 
 ## 추가 정보
 
-* [QGroundControl 사용자 설명서 > 기체 프레임](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
+* [QGroundControl 사용자 설명서 > 기체 프레임](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html)
 * [PX4 Setup Video - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)

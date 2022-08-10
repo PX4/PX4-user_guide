@@ -573,7 +573,7 @@
   * [Advanced Topics](advanced/README.md)
     * [Parameters & Configs](advanced/parameters_and_configurations.md)
     * [Computer Vision](advanced/computer_vision.md)
-      * [Motion Capture (VICON, Optitrack)](tutorials/motion-capture.md)
+      * [Motion Capture (VICON, Optitrack, NOKOV)](tutorials/motion-capture.md)
     * [Installing driver for Intel RealSense R200](advanced/realsense_intel_driver.md)
     * [Switching State Estimators](advanced/switching_state_estimators.md)
     * [Out-of-Tree Modules](advanced/out_of_tree_modules.md)

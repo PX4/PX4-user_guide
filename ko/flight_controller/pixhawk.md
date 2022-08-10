@@ -358,8 +358,6 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 
 ![ARM 10핀 커넥터 핀배열](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
 
-<!-- For more information on SWD debugging see devguide [link to follow] -->
-
 :::note
 모든 Pixhawk FMUv2 보드에는 유사한 SWD 포트가 있습니다. 
 :::

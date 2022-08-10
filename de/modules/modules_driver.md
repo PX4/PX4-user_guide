@@ -26,6 +26,7 @@ adc <command> [arguments...]
    start
 
    test
+     [-n]        Do not publish ADC report, only system power
 
    stop
 
@@ -157,7 +158,7 @@ batt_smbus <command> [arguments...]
    unseal        Unseals the devices flash memory to enable write_flash
                  commands.
 
-   seal          Seals the devices flash memory to disbale write_flash commands.
+   seal          Seals the devices flash memory to disable write_flash commands.
 
    suspend       Suspends the driver from rescheduling the cycle.
 
@@ -330,7 +331,7 @@ Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modu
 ### Description
 Mount/gimbal Gimbal control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
 
-Documentation how to use it is on the [gimbal_control](https://docs.px4.io/master/en/advanced/gimbal_control.html) page.
+Documentation how to use it is on the [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html) page.
 
 ### Examples
 Test the output by setting a angles (all omitted axes are set to 0):
@@ -607,6 +608,66 @@ lsm303agr <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
+
+   stop
+
+   status        print status info
+```
+## modalai_esc
+Source: [drivers/actuators/modalai_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modalai_esc)
+
+
+### Description
+This module is responsible for...
+
+### Implementation
+By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
+
+### Examples
+It is typically started with:
+```
+todo
+```
+
+
+<a id="modalai_esc_usage"></a>
+
+### Usage
+```
+modalai_esc <command> [arguments...]
+ Commands:
+   start         Start the task
+
+   reset         Send reset request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version       Send version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   version-ext   Send extended version request to ESC
+     -i <val>    ESC ID, 0-3
+
+   rpm           Closed-Loop RPM test control request
+     -i <val>    ESC ID bitmask, 1-15
+     -r <val>    RPM, -32,768 to 32,768
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   pwm           Open-Loop PWM test control request
+     -i <val>    ESC ID bitmask, 1-15
+     -r <val>    Duty Cycle value, 0 to 800
+     -n <val>    Command repeat count, 0 to INT_MAX
+     -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
+
+   tone          Send tone generation request to ESC
+     -i <val>    ESC ID bitmask, 1-15
+     -p <val>    Period of sound, inverse frequency, 0-255
+     -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
+     -v <val>    Power (volume) of sound, 0-100
+
+   led           Send LED control request
+     -l <val>    Bitmask 0x0FFF (12 bits) - ESC0 (RGB) ESC1 (RGB) ESC2 (RGB)
+                 ESC3 (RGB)
 
    stop
 
@@ -973,8 +1034,8 @@ Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/dr
 
 This driver communicates over UART with the [Roboclaw motor driver](http://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf). It performs two tasks:
 
- - Control the motors based on the `actuator_controls_0` UOrb topic.
- - Read the wheel encoders and publish the raw data in the `wheel_encoders` UOrb topic
+- Control the motors based on the `actuator_controls_0` UOrb topic.
+- Read the wheel encoders and publish the raw data in the `wheel_encoders` UOrb topic
 
 In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. For Pixhawk 4, use the `UART & I2C B` port, which corresponds to `/dev/ttyS3`.
 
@@ -993,15 +1054,16 @@ On startup, this driver will attempt to read the status of the Roboclaw to verif
 
 The command to start this driver is:
 
- $ roboclaw start <device> <baud>
+roboclaw start <device> <baud>
 
-`<device>` is the name of the UART port. On the Pixhawk 4, this is `/dev/ttyS3`. `<baud>` is te baud rate.
+- `<device>` is the name of the UART port. On the Pixhawk 4, this is `/dev/ttyS3`.
+- `<baud>` is the baud rate.
 
 All available commands are:
 
- - `$ roboclaw start <device> <baud>`
- - `$ roboclaw status`
- - `$ roboclaw stop`
+- `$ roboclaw start <device> <baud>`
+- `$ roboclaw status`
+- `$ roboclaw stop`
 
 <a id="roboclaw_usage"></a>
 
@@ -1090,14 +1152,20 @@ Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/dri
 
 
 ### Description
+
 This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 ### Implementation
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+
+Currently the module is implemented as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
 ### Example
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
 
+The module is typically started with:
+
+```
+tap_esc start -d /dev/ttyS2 -n <1-8>
+```
 
 <a id="tap_esc_usage"></a>
 

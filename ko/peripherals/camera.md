@@ -9,7 +9,7 @@ Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/
 
 ## 트리거 설정
 
-카메라 트리거는 일반적으로 *QGroundControl* [기체 설정 &gt; 카메라](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) 섹션에서 설정합니다.
+Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/SetupView/Camera.html#px4-camera-setup) section.
 
 ![트리거 핀](../../assets/camera/trigger_pins.png)
 

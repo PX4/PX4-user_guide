@@ -573,7 +573,7 @@
   * [高级主题](advanced/README.md)
     * [参数&配置](advanced/parameters_and_configurations.md)
     * [机器视觉](advanced/computer_vision.md)
-      * [运动捕获（VICON, Optitrack）](tutorials/motion-capture.md)
+      * [Motion Capture (VICON, Optitrack, NOKOV)](tutorials/motion-capture.md)
     * [安装英特尔 RealSense R200 的驱动程序](advanced/realsense_intel_driver.md)
     * [切换状态估计器](advanced/switching_state_estimators.md)
     * [外部模块](advanced/out_of_tree_modules.md)

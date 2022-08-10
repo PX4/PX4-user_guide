@@ -126,6 +126,33 @@ bmi055 <command> [arguments...]
 
    status        print status info
 ```
+## bmi085
+Source: [drivers/imu/bosch/bmi085](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi085)
+
+<a id="bmi085_usage"></a>
+
+### 用法
+```
+bmi085 <command> [arguments...]
+ Commands:
+   start
+     [-A]        Accel
+     [-G]        Gyro
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## bmi088
 Source: [drivers/imu/bosch/bmi088](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi088)
 
@@ -301,7 +328,7 @@ Source: [drivers/imu/invensense/icm20649](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="icm20649_usage"></a>
 
-### 用法
+### 描述
 ```
 icm20649 <command> [arguments...]
  Commands:
@@ -326,7 +353,7 @@ Source: [drivers/imu/invensense/icm20689](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="icm20689_usage"></a>
 
-### 描述
+### 用法
 ```
 icm20689 <command> [arguments...]
  Commands:
@@ -529,7 +556,7 @@ Source: [drivers/imu/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/main/src
 
 <a id="lsm303d_usage"></a>
 
-### 用法
+### Usage
 ```
 lsm303d <command> [arguments...]
  Commands:
@@ -629,7 +656,7 @@ Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu9520_i2c_usage"></a>
 
-### Usage
+### 使用
 ```
 mpu9520_i2c <command> [arguments...]
  Commands:

@@ -4,7 +4,7 @@
 This section is being replaced by an [Actuators](../config/actuators.md) configuration screen.
 :::
 
-After the airframe is setup and configured you should validate the motor assignment and spin direction, and the servo response. This can be done in *QGroundControl*, under the [Vehicle Setup > Motors](https://docs.qgroundcontrol.com/en/SetupView/Motors.html) tab.
+After the airframe is setup and configured you should validate the motor assignment and spin direction, and the servo response. This can be done in *QGroundControl*, under the [Vehicle Setup > Motors](https://docs.qgroundcontrol.com/master/en/SetupView/Motors.html) tab.
 
 Note the following PX4-specific behaviour:
 - 如果使用了安全按钮，在允许电机测试之前必须按下，保证其开启。

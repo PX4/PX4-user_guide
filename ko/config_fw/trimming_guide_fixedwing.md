@@ -29,7 +29,7 @@
 비대칭 익형에 의해 유도된 하향 피치 모멘트는 대기 속도에 따라 증가하고 플랩이 전개 될 때 현재 측정된 대기 속도와 플랩 위치에 따라 항공기를 다시 트리밍하여야 합니다. 이를 위해 대기속도의 쌍 선형 곡선 (아래 그림 참조) 함수와 플랩 상태의 피치 트림 증분 함수를 다음 매개변수를 사용하여 정의할 수 있습니다.
 
 - [FW*DTRIM*\[R/P/Y\]_\[VMIN/VMAX\]](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN)는 최소/최대 대기속도([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) 및 [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)로 정의 됨)에서 `TRIM_ROLL/PITCH/YAW`에 추가된 롤/피치/요 트림값입니다.
-- [FW_DTRIM_P_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_R_FLPS) 및 [FW_DTRIM_P_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_P_FLPS)는 플랩이 배치될 때 `TRIM_ROLL/PITCH/YAW`에 추가되는 롤/피치 트림값입니다.
+- [FW_DTRIM_R_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_R_FLPS) and [FW_DTRIM_P_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_P_FLPS) are the roll/pitch trim value added to `TRIM_ROLL/PITCH/YAW` when the flaps are deployed.
 
 ![Dtrim 곡선](../../assets/config/fw/fixedwing_dtrim.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/15AbscUF1kRdWMh8ONcCRu6QBwGbqVGfl/view?usp=sharing
 Request access from dev team. -->

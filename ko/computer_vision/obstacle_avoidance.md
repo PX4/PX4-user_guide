@@ -81,8 +81,6 @@ PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mis
 
 Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
-
 <!-- ## Further Information -->
 <!-- @mrivi is expert! -->
-<!-- Issue with discussion : https://github.com/PX4/Devguide/issues/530 -->
-<!-- PR for mavlink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->
+

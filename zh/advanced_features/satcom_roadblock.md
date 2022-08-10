@@ -7,7 +7,7 @@
 ## 综述
 
 卫星通信链接需要以下组成部件：
-* A [RockBlock 9603 Iridium Satellite Modem](https://au.rs-online.com/web/p/rf-modules/2131335) module connected to a Pixhawk flashed with the PX4 Autopilot.
+* A [RockBlock 9603 Iridium Satellite Modem](https://www.iridium.com/products/rock-seven-rockblock-9603/) module connected to a Pixhawk flashed with the PX4 Autopilot.
 * 运行 Ubuntu 系统的消息中继服务器。
 * A ground station computer running *QGroundControl* on Ubuntu Linux
 
@@ -144,7 +144,7 @@ To setup the ground station:
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
 1. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
-1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (daily build).
+1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (daily build).
 1. Add a UDP connection in QGC with the parameters:
 
    * Listening port: 10000
