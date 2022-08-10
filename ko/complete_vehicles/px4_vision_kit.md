@@ -4,7 +4,7 @@
 
 ![개요](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-이 키트에는 *Pixhawk 4* 비행 컨트롤러, *UP Core* 보조 컴퓨터(4GB 메모리와 64GB eMMC), 후두부 *구조 코어* 깊이 카메라 센서가 장착된 거의 즉시 비행 가능한 탄소 섬유 쿼드 콥터가 포함되어 있습니다.
+The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (for V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
 :::note
 이 제품에는 사전 설치된 소프트웨어가 없습니다. A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 이 소프트웨어는 PX4 Vision Autonomy Kit로 수행 가능 작업에 대한 매우 기본적인 예제들을 제공합니다. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
@@ -40,6 +40,9 @@
 :::
 
 ## 내부 내용
+:::note PX4 Vision Dev Kit V1.5 comes with a [Pixhawk 6C](../flight_controller/pixhawk6c.md) flight controller instead of [Pixhawk 4](../flight_controller/pixhawk4.md)
+:::
+
 ![What's inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
@@ -48,7 +51,7 @@
 
 PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - 핵심 구성 요소:
-  - 1x Pixhawk 4 비행 컨트롤러(사용자 지정 PX4 펌웨어 포함)
+  - 1x Pixhawk 4 or Pixhawk 6C (for v1.5) flight controller
   - 1x PMW3901 광학 유량 센서
   - 1x TOF 적외선 거리 센서 (PSK‐CM8JL65‐CC5)
   - 1x 구조 코어 깊이 카메라
@@ -70,10 +73,9 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
 - 기계적 사양 :
   - 프레임 : 전체 5mm 3k 탄소 섬유 능직
-  - 모터 : T-MOTOR F60 PROⅢ KV1750
+  - Motors: T-MOTOR KV1750
   - ESC : BEHEli-S 20A ESC
-  - 프로펠러 : T6045
-  - GPS : Pixhawk4 GPS 모듈
+  - GPS: M8N GPS module
   - 전원 모듈 : Holybro PM07
   - 축거 : 286mm
   - 중량 : 854g (배터리 또는 소품 제외)
@@ -114,7 +116,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
    - 안테나에 장애물이 없는 지, 프레임에서 전기적으로 절연되어 있는지 확인합니다 (예 : 캐리어 보드 아래 또는 기체 팔 또는 다리에 고정).
 
 1. RC 지상 및 공중 유닛을 [바인딩](../getting_started/rc_transmitter_receiver.md#binding)합니다 (아직 수행하지 않은 경우). 바인딩 절차는 사용된 무선 시스템에 따라 다릅니다 (수신기 설명서 참조).
-1. GPS 마스트를 수직 위치로 올리고 덮개를 베이스 플레이트의 홀더에 조입니다.
+1. GPS 마스트를 수직 위치로 올리고 덮개를 베이스 플레이트의 홀더에 조입니다. (not require for v1.5)
 
    ![GPS 마스트 올리기](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
@@ -323,7 +325,7 @@ ROS 작업 공간은 `~/catkin_ws`에 있습니다. ROS에서 개발하고 catki
 이 키트는 보조 컴퓨터에서 실행되고 PX4의 유연한 경로 계획 및 충돌 방지 인터페이스와 통합되는 컴퓨터 비전 소프트웨어를 만들기 위하여 설계되었습니다.
 
 PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firmware.md#custom) 할 수도 있습니다.
-- 펌웨어를 업데이트하려면 *QGroundControl*을 **USB를 사용하여** 키트 *Pixhawk 4*에 연결하여야 합니다.
+- You will need to connect *QGroundControl* to the kit's *Pixhawk* **via USB** in order to update firmware.
 - 새 펌웨어를 로드 한 후 *PX4 Vision DevKit* 기체를 선택합니다. ![기체 선택 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
@@ -339,6 +341,7 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 - [*UP Core* Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - *Up Core* companion computer technical information
 - [후두 개발자 포럼](https://structure.io/developers) - *구조 코어* 카메라 정보
 - [Pixhawk  4 개요](../flight_controller/pixhawk4.md)
+- [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
 - [PX4 회피 소프트웨어 / 문서](https://github.com/PX4/PX4-Avoidance)
 - [경로 계획 인터페이스](../computer_vision/path_planning_interface.md)
 - [Px4 비전 캐리어 보드 핀아웃](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
