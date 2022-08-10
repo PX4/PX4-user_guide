@@ -75,6 +75,7 @@ In order to use UAVCAN components with PX4 you will first need to enable the UAV
 1. [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) must be [set](../advanced_config/parameters.md) to one of the non-zero values.
 
    The values are:
+   
    - `0`: UAVCAN driver disabled.
    - `1`: Sensors Manual Config.
    - `2`: Sensors Automatic Config.
@@ -91,7 +92,6 @@ Most UAVCAN sensors require no further setup (they are plug'n'play, unless speci
 
 [UAVCAN motor controllers (ESCs)](../uavcan/escs.md) additionally require the motor order be set, and may require a few other parameters be set.
 Whether this can be done using the simple QGroundControl setup UI depends on the type of ESC (see link for information).
-
 
 ## Troubleshooting
 
