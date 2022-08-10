@@ -206,7 +206,7 @@ Parameters that only affect Fixed Wing vehicles:
 
 Parameter | Description
 --- | ---
-[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable.
+[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). Set to 0 to disable.
 [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P) | Fixed pitch angle while circling.
 [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R) | Fixed roll/bank angle while circling.
 [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | Thrust while circling.
@@ -355,11 +355,9 @@ This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.)
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 
-
 ### Return Switch
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
-
 
 ## Other Safety Settings
 
