@@ -45,10 +45,13 @@ Order this module from:
 
 ### Wiring
 
-The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+The ARK CANnode is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
 
 ## Firmware Setup
-ARK CANnode runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
+
+ARK CANnode runs the [PX4 cannode firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
 
 ARK CANnode boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
 
@@ -62,11 +65,11 @@ Bootloader target: `ark_cannode_canbootloader`
 In order to use the ARK CANnode board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../uavcan/escs.md)) (DroneCAN configuration is explained in more detail in [DroneCAN Setup](../dronecan/README.md#setup-configuration).
 
 The steps are:
+
 - In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK CANnode CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot.
-
 
 ### PX4 Configuration
 
@@ -78,12 +81,12 @@ Parameter | Description
 --- | ---
 <a id="CANNODE_TERM"></a>[CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) | CAN built-in bus termination.
 
-
 ## LED Meanings
 
 You will see both red and blue LEDs on the ARK CANnode when it is being flashed, and a solid blue LED if it is running properly.
 
 If you see a solid red LED there is an error and you should check the following:
+
 - Make sure the flight controller has an SD card installed.
 - Make sure the ARK CANnode has `ark_cannode_canbootloader` installed prior to flashing `ark_cannode_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.

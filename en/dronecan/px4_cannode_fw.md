@@ -20,6 +20,7 @@ make ark_can-flow_default
 This will create an output in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Follow the instructions at [DroneCAN firmware update](README.md#firmware-update) to flash the firmware.
 
 ## Developer Information
+
 This section has information that is relevant to developers who want to add support for new DroneCAN hardware to the PX4 Autopilot.
 
 ### DroneCAN Bootloader Installation
@@ -38,7 +39,9 @@ bus baud rate, acts as a [DroneCAN dynamic node ID client](README.md#node-id) to
 
 This process ensures that a DroneCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.
 
-Build the bootloader firmware by specifying the same peripheral target with the `canbootloader` build configuration instead of the `default` configuration. For example, to build for the [Ark Flow](ark_flow.md) target:
+Build the bootloader firmware by specifying the same peripheral target with the `canbootloader` build configuration instead of the `default` configuration.
+
+For example, to build for the [Ark Flow](ark_flow.md) target:
 
 ```
 git clone --recursive https://github.com/PX4/PX4-Autopilot
@@ -48,10 +51,13 @@ make ark_can-flow_canbootloader
 
 The binary can then be flashed to the microcontroller using your favorite SWD/JTAG debugger, such as the [Black Magic Probe](https://black-magic.org/index.html), [ST-Link](https://www.st.com/en/development-tools/st-link-v2.html), or [Segger JLink](https://www.segger.com/products/debug-probes/j-link/).
 
+
 ### Firmware Internals
 
-For the most part, peripheral firmware works the same way as flight controller firmware builds. However, most modules are disabled - only the sensor drivers, DroneCAN driver, and internal infrastructure (uORB, etc.) are enabled.
+For the most part, peripheral firmware works the same way as flight controller firmware builds.
+However, most modules are disabled - only the sensor drivers, DroneCAN driver, and internal infrastructure (uORB, etc.) are enabled.
 
-DroneCAN communication is handled by the [uavcannode](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uavcannode) module. This driver handles producer-side communication - it takes sensor/actuator data from uORB, serializes it using the DroneCAN libraries, and publishes it over CAN. In the future, this will likely be merged with the [uavcan](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uavcan) module which handles flight controller side (consumer side) drivers, which receive/deserialize data from the CAN bus and publish them over uORB.
+DroneCAN communication is handled by the [uavcannode](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uavcannode) module.
+This driver handles producer-side communication - it takes sensor/actuator data from uORB, serializes it using the DroneCAN libraries, and publishes it over CAN. In the future, this will likely be merged with the [uavcan](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/uavcan) module which handles flight controller side (consumer side) drivers, which receive/deserialize data from the CAN bus and publish them over uORB.
 
 The build system also produces firmware binaries designed to be flashed through a DroneCAN bootloader via [PX4's DroneCAN flashing support] or the DroneCAN GUI, in addition to the standard raw binary, ELF, and `.px4` firmware files.

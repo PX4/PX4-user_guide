@@ -42,7 +42,6 @@ Order this module from:
   * 170mA Average
   * 180mA Max
 
-
 ## Hardware Setup
 
 ### Wiring
@@ -56,6 +55,7 @@ The recommended mounting orientation is with the connectors on the board pointin
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
 ## Firmware Setup
+
 ARK RTK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id).
 
 ARK RTK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
@@ -95,6 +95,7 @@ The steps are:
 In order to use the ARK RTK GPS, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../uavcan/escs.md)).
 
 The steps are:
+
 - In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK RTK GPS CAN to the Pixhawk CAN.
 
@@ -103,7 +104,8 @@ GPS data should arrive at 10Hz.
 
 ### PX4 Configuration
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle.
+You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle:
+
 - Enable GPS yaw fusion by setting bit 7 of [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to true.
 - Enable GPS blending to ensure the heading is always published by setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 7 (all three bits checked).
 - Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
@@ -115,6 +117,7 @@ You need to set necessary [DroneCAN](README.md) parameters and define offsets if
 The simplest way to set up moving baseline and GPS heading with two ARK RTK GPS modules is via CAN, though it can be done via UART to reduce traffic on the CAN bus if desired.
 
 Setup via CAN:
+
 - Ensure the ARK RTK GPS modules are connected to the Pixhawk via CAN (one can connect to another's secondary CAN port).
 - Choose one ARK RTK GPS to be the *Rover* and one to be the *Moving Base*.
 - Reopen QGroundControl, go to parameters, and select `Standard` to hide that dropdown and select `Component ##` to view each of your ARK RTK GPS's CAN node parameters
@@ -145,6 +148,7 @@ Pin | Name
 You will see green, blue and red LEDs on the ARK RTK GPS when it is being flashed, a blinking green LED if it is running properly, and a blinking or solid blue LED on the *Rover* ARK RTK GPS when it is receiving RTCM corrections.
 
 If you see a red LED there is an error and you should check the following:
+
 - Make sure the flight controller has an SD card installed.
 - Make sure the ARK RTK GPS has `ark_can-rtk-gps_canbootloader` installed prior to flashing `ark_can-rtk-gps_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.

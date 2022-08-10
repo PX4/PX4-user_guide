@@ -47,11 +47,12 @@ The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH ca
 
 ### Mounting
 
-The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**. 
+The recommended mounting orientation is with the connectors on the board pointing towards the **back of vehicle**.
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
 ## Firmware Setup
+
 ARK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
 
 ARK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
@@ -70,6 +71,7 @@ The ARK GPS will not boot if there is no SD card in the flight controller when p
 In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../uavcan/escs.md)).
 
 The steps are:
+
 - In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK GPS CAN to the Pixhawk CAN.
 
@@ -78,25 +80,19 @@ GPS data should arrive at 10Hz.
 
 ### PX4 Configuration
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred 
-within the vehicle.
-- Enable GPS yaw fusion by setting bit 7 of [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF
-2_AID_MASK) to true.
-- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../
-advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/paramete
-r_reference.md#UAVCAN_SUB_BARO).
-- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last 
-node on the CAN bus.
-- The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_PO
-S_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/pa
-rameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK GPS from the vehicle
-s centre of gravity.
+You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle:
+
+- Enable GPS yaw fusion by setting bit 7 of [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to true.
+- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
+- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
+- The parameters [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z) can be set to account for the offset of the ARK GPS from the vehicles centre of gravity.
 
 ## LED Meanings
 
 You will see green, blue and red LEDs on the ARK GPS when it is being flashed, and a blinking green LED if it is running properly.
 
 If you see a red LED there is an error and you should check the following:
+
 - Make sure the flight controller has an SD card installed.
 - Make sure the ARK GPS has `ark_can-gps_canbootloader` installed prior to flashing `ark_can-gps_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
