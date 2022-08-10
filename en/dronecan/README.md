@@ -1,22 +1,23 @@
 # DroneCAN
 
-From the DroneCAN website:
-
-> DroneCAN is the primary CAN protocol used by the ArduPilot and PX4 projects for communication with CAN peripherals.
-> It is an open protocol with open communication, specification and multiple open implementations.
-
-DroneCAN is a software standard for the flight controller and other CAN devices on a vehicle to communicate with each other.
+[DroneCAN](https://dronecan.github.io/) is a open software communication protocol for flight controllers and other [CAN](../can/README.md) devices on a vehicle to communicate with each other.
 It supports many different sensors and actuators connected over CAN.
 Connecting peripherals over DroneCAN has many benefits, including simpler wiring, telemetry/feedback from servos and ESCs, wiring redundancy, and more reliable performance (especially over longer wires on large vehicles).
 Additionally, it allows the user to configure and update the firmware of all CAN-connected devices centrally through PX4.
 
 :::note
-PX4 requires an SD card to enable dynamic node allocation and for firmware update. The SD card is not used in flight.
+PX4 requires an SD card to enable dynamic node allocation and for firmware update.
+The SD card is not used in flight.
+:::
+
+:::note
+DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
+The name was changed in 2022.
 :::
 
 ## Support
 
-Most common types of peripherals (sensors, ESCs, and servos) that are DroneCAN/UAVCAN v0 compliant are supported.
+Most common types of peripherals (sensors, ESCs, and servos) that are DroneCAN or _UAVCAN v0_ compliant are supported.
 For more information, see [DroneCAN Support Table](dronecan/support.md).
 
 ## Hardware Setup
@@ -62,7 +63,7 @@ If successful, the firmware binary will be removed from the root directory and t
 
 ## Useful Links
 
-* [Home Page](https://dronecan.github.io) (dronecan.github.io)
-* [Protocol Specification](https://dronecan.github.io/Specification) (dronecan.github.io)
-* [Implementations](https://dronecan.github.io/Implementations/) (dronecan.github.io)
-* [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com)
+- [Home Page](https://dronecan.github.io) (dronecan.github.io)
+- [Protocol Specification](https://dronecan.github.io/Specification) (dronecan.github.io)
+- [Implementations](https://dronecan.github.io/Implementations/) (dronecan.github.io)
+- [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com)

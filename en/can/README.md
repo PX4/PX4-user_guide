@@ -1,26 +1,31 @@
 # CAN
 
-[CAN](https://en.wikipedia.org/CAN_bus), or Controller Area Network, is a robust network that allows vehicle devices, like a flight controller, ESCs, sensors, and other peripherals, to communicate with each other. Because it is designed to be democratic and uses differential signaling, it is very robust - especially over longer distances on large vehicles - and avoids a single point of failure (main bus controller). CAN also allows status feedback from peripherals and convenient firmware upgrades over the bus.
+[Controller Area Network (CAN)](https://en.wikipedia.org/CAN_bus) is a robust wired network that allows drone components such as flight controller, ESCs, sensors, and other peripherals, to communicate with each other.
+Because it is designed to be democratic and uses differential signaling, it is very robust even over longer cable lengths (on large vehicles), and avoids a single point of failure.
+CAN also allows status feedback from peripherals and convenient firmware upgrades over the bus.
 
-PX4 supports two software protocols for communicating with CAN devices: [DroneCAN](https://dronecan.github.io) and [Cyphal](https://opencyphal.org).
-DroneCAN is a more mature protocol with extensive peripheral support and years of testing, and is popular/recommended for most common setups.
-Cyphal is a much newer protocol which allows more flexibility and configuration, especially on larger and more complex vehicles.
-However, PX4 support is a work in progress and Cyphal hasn't seen as much adoption yet.
+PX4 supports two software protocols for communicating with CAN devices:
+
+- [DroneCAN](../dronecan/README.md): PX4 recommends this for most common setups.
+  It is well supported by PX4, is a mature product with extensive peripheral support, and has had years of testing.
+- [Cyphal](https://opencyphal.org): PX4 support is a "work in progress".
+  Cyphal is a much newer protocol which allows more flexibility and configuration, especially on larger and more complex vehicles.
+  It has not yet seen significant adoption.
 
 :::note
-Before 2022, DroneCAN was known as UAVCAN v0 (or just UAVCAN).
-The introduction of UAVCAN v1 caused disagreement in the community, leading UAVCAN v0 to be renamed to DroneCAN and UAVCAN v1 to continue development as Cyphal.
+Both DroneCAN and Cyphal originate from an earlier project named UAVCAN.
+In 2022 the project split into two: the original version of UAVCAN (UAVCAN v0) was renamed to DroneCan, and UAVCAN v1 was renamed Cyphal.
 :::
 
-:::note
-There are other CAN software protocols used on drones, such as KDECAN.
-At time of writing, these are NOT supported by PX4.
+:::warning
+PX4 does not support other CAN software protocols for drones such as KDECAN (at time of writing).
 :::
 
 ## Wiring
 
-No matter which software protocol is being used, the wiring for CAN is the same.
-Devices are connected in a chain (order does not matter).
+The wiring for CAN networks is the same for both DroneCAN and Cyphal (in fact, for all CAN networks).
+
+Devices are connected in a chain in any order.
 At either end of the chain, a 120Ω termination resistor should be connected between the two data lines.
 Flight controllers and some GNSS modules have built in termination resistors for convenience, thus should be placed at opposite ends of the chain.
 Otherwise, you can use a termination resistor such as [this one from Zubax Electronics](https://shop.zubax.com/products/uavcan-micro-termination-plug?variant=6007985111069), or solder one yourself if you have access to a JST-GH crimper.
@@ -32,7 +37,8 @@ The following diagram shows an example of a CAN bus connecting a flight controll
 The diagram does not show any power wiring.
 Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
 
-For more information, see [Cyphal/CAN device interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com). While the article is written with the Cyphal protocol in mind, it applies equally to DroneCAN hardware and any other CAN setup.
+For more information, see [Cyphal/CAN device interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com).
+While the article is written with the Cyphal protocol in mind, it applies equally to DroneCAN hardware and any other CAN setup.
 
 ### Connectors
 
