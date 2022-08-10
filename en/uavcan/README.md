@@ -1,6 +1,6 @@
 # UAVCAN
 
-<img style="float:right; width: 200px ; padding: 10px;" src="../../assets/uavcan/uavcan_logo_transparent.png" alt="UAVCAN Logo" /> [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics/peripherals.
+<img style="float:right; width: 200px ; padding: 10px;" src="../../assets/can/uavcan_logo_transparent.png" alt="UAVCAN Logo" /> [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics/peripherals.
 It uses rugged, differential signalling, and supports firmware upgrades over the bus and status feedback from peripherals.
 
 The [videos section](#videos) contains additional information and guides.
@@ -48,7 +48,7 @@ Connect all on-board UAVCAN devices into a chain and make sure the bus is termin
 
 The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.md) and a UAVCAN GNSS.
 
-![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
+![CAN Wiring](../../assets/can/uavcan_wiring.png)
 
 The diagram does not show any power wiring.
 Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself. 
