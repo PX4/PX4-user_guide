@@ -54,12 +54,14 @@ Change the parameter appropriately if using a different orientation.
 The sensor can be mounted anywhere on the frame, but you will need to specify the focal point position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
 ## Firmware Setup
-ARK Flow runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
+
+ARK Flow runs the [PX4 cannode firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id).
 
 ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
 
-Firmware target: `ark_can-flow_default`
-Bootloader target: `ark_can-flow_canbootloader`
+- Firmware target: `ark_can-flow_default`
+- Bootloader target: `ark_can-flow_canbootloader`
 
 ## Flight Controller Setup
 
@@ -72,6 +74,7 @@ The Ark Flow will not boot if there is no SD card in the flight controller when 
 In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../uavcan/escs.md)).
 
 The steps are:
+
 - In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
 - Connect ARK Flow CAN to the Pixhawk CAN.
 
@@ -106,6 +109,7 @@ Parameter | Description
 You will see both red and blue LEDs on the ARK Flow when it is being flashed, and a solid blue LED if it is running properly.
 
 If you see a solid red LED there is an error and you should check the following:
+
 - Make sure the flight controller has an SD card installed.
 - Make sure the Ark Flow has `ark_can-flow_canbootloader` installed prior to flashing `ark_can-flow_default`.
 - Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
