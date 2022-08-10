@@ -1,3 +1,7 @@
+<Redirect to="../can/" />
+
+<!-- Everything deleted below here - redirects to /can/ -->
+
 # UAVCAN
 
 <img style="float:right; width: 200px ; padding: 10px;" src="../../assets/can/uavcan_logo_transparent.png" alt="UAVCAN Logo" /> [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics/peripherals.

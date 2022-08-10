@@ -10,36 +10,36 @@ It also has PWM outputs to expand a vehicle's control outputs in quantity and ph
 
 Order this module from:
 
-* [ARK Electronics](https://arkelectron.com/product/ark-cannode/) (US)
+- [ARK Electronics](https://arkelectron.com/product/ark-cannode/) (US)
 
 ## Hardware Specifications
 
-* [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
-* Sensors
-  * Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
-* STM32F412CGU6 MCU
-  * 1MB Flash
-* Two Pixhawk Standard CAN Connectors
-  * 4 Pin JST GH
-* Pixhawk Standard I2C Connector
-  * 4 Pin JST GH
-* Pixhawk Standard UART/I2C Connector (Basic GPS Port)
-  * 6 Pin JST GH
-* Pixhawk Standard SPI Connector
-  * 7 Pin JST GH
-* PWM Connector
-  * 10 Pin JST JST
-  * 8 PWM Outputs
-  * Matches Pixhawk 4 PWM Connector Pinout
-* Pixhawk Standard Debug Connector
-  * 6 Pin JST SH
-* Small Form Factor
-  * 3cm x 3cm x 1.3cm
-* LED Indicators
-* USA Built
-* Power Requirements
-  * 5V
-  * Current dependent on connected peripherals
+- [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
+- Sensors
+  - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
+- STM32F412CGU6 MCU
+  - 1MB Flash
+- Two Pixhawk Standard CAN Connectors
+  - 4 Pin JST GH
+- Pixhawk Standard I2C Connector
+  - 4 Pin JST GH
+- Pixhawk Standard UART/I2C Connector (Basic GPS Port)
+  - 6 Pin JST GH
+- Pixhawk Standard SPI Connector
+  - 7 Pin JST GH
+- PWM Connector
+  - 10 Pin JST JST
+  - 8 PWM Outputs
+  - Matches Pixhawk 4 PWM Connector Pinout
+- Pixhawk Standard Debug Connector
+  - 6 Pin JST SH
+- Small Form Factor
+  - 3cm x 3cm x 1.3cm
+- LED Indicators
+- USA Built
+- Power Requirements
+  - 5V
+  - Current dependent on connected peripherals
 
 ## Hardware Setup
 
