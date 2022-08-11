@@ -4,7 +4,7 @@
 
 :::note
 PX4의 배터리 모니터링 기능은 호환되는 하드웨어에서 사용할 수 있습니다.
-대부분의 경우 배터리 전압을 측정하는 전원 모듈을 의미하며, 배터리와 차량 사이의 전류도 측정 할 수 있습니다.
+보통은 배터리 전압을 측정하는 전원 모듈을 의미하며, 배터리와 차량 사이의 전류도 측정할 수 있습니다.
 :::
 
 ## 개요
@@ -17,15 +17,15 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 1. [부하 보상을 통한 전압 기반 추정](#load_compensation) : 부하가 용량 계산에 미치는 영향을 고려합니다.
 1. [전류 통합을 사용한 전압 기반 추정](#current_integration) : 사용 가능한 용량에 대한 부하 보상 전압 기반 추정값을 소비된 충전의 전류 기반 추정과 융합합니다. 그 결과 스마트 배터리와 비슷한 용량 추정치를 얻을 수 있습니다.
 
-기타 다른 방법들은 이 방법들을 응용한 것입니다. 사용하는 접근 방식은 차량의 전원 모듈이 전류를 측정 가능 여부에 따라 다릅니다.
+기타 다른 방법들은 이러한 방법들을 응용한 것입니다. 사용하는 접근 방식은 차량의 전원 모듈이 전류를 측정 가능 여부에 따라 다릅니다.
 
 :::note
-아래 지침은 배터리 1 보정 매개 변수를 참조합니다 : `BAT1 _*`. 다른 배터리는 `BATx_*` 매개 변수를 사용합니다. 여기서 `x`는 배터리 번호입니다. 모든 배터리 보정 매개 변수가 [여기에](../advanced_config/parameter_reference.md#battery-calibration) 나열됩니다.
+아래 지침은 배터리 1 보정 매개 변수를 참조합니다 : `BAT1 _*`. 다른 배터리는 `BATx_*` 매개 변수를 사용합니다. 여기서 `x`는 배터리 번호입니다. 배터리 보정 매개변수의 전체 목록은 [여기](../advanced_config/parameter_reference.md#battery-calibration)를 참고하십시오.
 :::
 
 :::tip
-여기에서 설명하는 PX4 구성 외에도 ESC의 저전압 차단이 비활성화되거나 예상 최소 전압 아래로 설정되어 있는지 확인하여야 합니다.
-이렇게하면 PX4에서 배터리 오류 안전 동작을 관리하고 배터리가 충전되어있는 동안 ESC가 차단되지 않도록합니다 (선택한 "빈 배터리"설정에 따라).
+여기에서 설명하는 PX4 설정 뿐만 아니라, ESC의 저전압 차단이 비활성화되거나 예상 최소 전압 아래로 설정되어 있는 지도 확인하여야 합니다.
+이렇게 하면 PX4에서 배터리 오류 안전 동작을 관리하고 배터리가 충전되어있는 동안 ESC가 차단되지 않도록합니다 (선택한 "빈 배터리"설정에 따라).
 :::
 
 :::tip
@@ -35,7 +35,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 <span id="basic_settings"></span>
 ## 기본 배터리 설정 (기본값)
 
-기본 배터리 설정은 용량 추정 기본 방법을 사용하도록 PX4를 구성합니다. 이 방법은 측정 된 원시 배터리 전압을 "빈"셀과 "충전"셀 (셀 수에 따라 조정 됨)에 대한 셀 전압 범위와 비교합니다.
+기본 배터리 설정은 용량 추정 기본 방법을 사용하도록 PX4를 설정합니다. 이 방법은 측정된 원시 배터리 전압을 "빈"셀과 "충전"셀 (셀 수에 따라 조정 됨)에 대한 셀 전압 범위와 비교합니다.
 
 :::note
 이 접근 방식은 측정 전압이 부하 상태에서 변함에 따라 추정된 전하의 변동으로 인하여 상대적으로 대략적인 추정치를 계산합니다.
@@ -83,14 +83,14 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 이렇게하면 각 셀의 *공칭* 최대 전압(셀이 "최대"로 간주되는 최저 전압)이 설정됩니다.
 
-이 값은 배터리의 공칭 최대 셀 전압보다 약간 낮게 설정해야하지만, 비행 몇 분 후에도 예상 용량이 100 %가 될 정도로 낮지 않아야 합니다.
+이 값은 배터리의 공칭 최대 셀 전압보다 약간 낮게 설정하여야하지만, 몇 분간의 비행후에도 예상 용량이 100%가 될 정도로 낮지 않아야 합니다.
 
 사용할 적절한 값은 다음과 같습니다.
 - **LiPo:** 4.05V (*QGroundControl*의 기본값)
 - **LiIon:** 4.05V
 
 :::note
-전체 배터리의 전압은 충전 후 시간이 지남에 따라 약간 떨어질 수 있습니다.
+전체 배터리의 전압은 충전후, 시간이 경과함에 따라 약간 떨어질 수 있습니다.
 최대 값보다 약간 낮게 설정하여 이 하락값을 보정합니다.
 :::
 
@@ -100,12 +100,12 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 ### 방전 전압 (셀 당)
 
-이는 각 셀의 공칭 최소 안전 전압을 설정합니다(이 전압 미만을 사용하면 배터리가 손상 될 수 있음).
+이는 각 셀의 공칭 최소 안전 전압을 설정합니다. 이 전압 미만을 사용하면 배터리가 손상될 수 있습니다.
 
 :::note
-배터리가 비어있을을 설정하는 단일 값은 없습니다.
+배터리 소진을 설정하는 단일 값은 없습니다.
 너무 낮은 값을 선택하면 과방전으로 인해 배터리가 손상될 수 있습니다 (그리고, 기체 충돌이 발생할 수 있습니다).
-너무 높은 값을 선택하면 비행 시간이 줄어들게 됩니다.
+너무 높은 값을 선택하면 비행 시간이 줄어듭니다.
 :::
 
 최소 셀당 전압에 대한 경험 규칙
@@ -117,22 +117,22 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 | 배터리 손상 (부하 전압)       | 3.0      | 2.5       |
 
 :::tip
-안전을 위하여 배터리를 빨리 재충전할수록 더 좋습니다. 배터리를 오랜 기간 사용할 수 있습니다.
+안전을 위하여 배터리를 즉시 재충전할수록 더 좋습니다. 배터리를  장기간 사용할 수 있습니다.
 :::
 
 :::note
-이 설정은 [매개 변수](../advanced_config/parameters.md) : [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) 및 [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY)에 해당합니다.
+이 설정은 [매개변수](../advanced_config/parameters.md) : [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) 및 [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY)에 해당합니다.
 :::
 
 
 ### 전압 분배기
 
-전원 모듈과 비행 컨트롤러의 ADC를 통해 전압을 측정하는 차량이있는 경우 보드 당 한 번씩 측정을 확인하고 보정하여야 합니다. 보정 작업에는 멀티 미터가 필요합니다.
+전원 모듈과 비행 컨트롤러의 ADC를 통해 전압을 측정하는 차량이 있는 경우 보드 당 한 번씩 측정을 확인하고 보정하여야 합니다. 보정 작업에는 멀티미터가 필요합니다.
 
 The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
 
 :::note
-이 설정은 [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) 및 [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV) 매개 변수에 해당합니다.
+이 설정은 [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) 및 [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV) 매개변수에 해당합니다.
 :::
 
 <span id="current_divider"></span>
@@ -147,11 +147,11 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) (QGroundControl User Guide).
 
 :::note
-이 설정은 [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) 및 [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V) 매개 변수에 해당합니다.
+이 설정은 [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) 및 [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V) 매개변수에 해당합니다.
 :::
 
 <span id="load_compensation"></span>
-## 부하 보상을 통한 전압 기반 추정
+## __부하 보상을 통한 전압 기반 추정
 
 :::note
 부하 보상값을 적절하게 설정하면 배터리 용량 추정의 전압이 훨씬 더 안정적이며 상하강 비행시 값의 변화가 적습니다.

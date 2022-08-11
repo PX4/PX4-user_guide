@@ -4,7 +4,7 @@
 
 ![综述](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (for V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
+The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (on V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
 :::note
 该无人机发货时没有预先安装软件。 A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
@@ -14,7 +14,8 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 ## PX4 Vision 自主无人机开发套件（先行者版）
 
-- [购买链接（中国大陆地区及港澳地区由淘宝店“地面售货站”提供销售）](https://item.taobao.com/item.htm?id=609418685176)
+- [PX4 Vision Dev Kit (Discontinued)](https://item.taobao.com/item.htm?id=609418685176)
+- [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
 
 ## 警告&通知
 - [警告&通知](#warnings-and-notifications)

@@ -38,7 +38,7 @@ Other parts in this build(**Not included in the ARF kit**):
 * [Power Module - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
 * [433/915 MHz Telemetry Radio](http://shop.holybro.com/sik-telemetry-radio-v3_p1103.html)
 
-Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
+Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
 ## Kit Hardware
 

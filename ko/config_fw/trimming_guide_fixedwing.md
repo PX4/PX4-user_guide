@@ -35,7 +35,3 @@
 Request access from dev team. -->
 
 완벽하게 대칭인 기체는 피치 트림 증분만 필요하지만, 실제 기체는 완벽하게 대칭이 아니기 때문에 롤과 요 트림 증분이 필요한 경우도 있습니다.
-
-:::note
-1.0과 다른 축척 계수가 플랩에 사용되는 경우 (매개변수 [FW_FLAPS_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_SCL)), `FW_DTRIM_R/P_FLPS`에 의해 추가된 트림 증분도 동일한 계수로 축척됩니다.
-:::
