@@ -172,7 +172,7 @@ The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter
 * `0` : 원격 제어 가능. 고도 추정치를 사용할 수 있으면 *고도 모드*로 전환하고, 그렇지 않으면 *안정 모드*로 전환됩니다.
 * `1` : 원격 제어 *불가*. 고도값을 사용할 수있는 경우 *착륙 모드*로 전환하고, 그렇지 않으면 비행 종료를 입력합니다.
 
-고정익에는 위치 손실시 착륙이전의 선회 비행 시간을 정의하는 매개 변수가 [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) 있습니다.
+Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter ([FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT)) that defines how long they will loiter (circle with a constant roll angle ([FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)) at the current altitude) after losing position before attempting to land. If VTOLs have are configured to switch to hover for landing ([NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)) then they will first transition and then descend.
 
 아래 표시된 모든 차량에 대한 관련 매개 변수 ([GPS 장애 내비게이션 매개 변수](../advanced_config/parameter_reference.md#gps-failure-navigation) 참조) :
 
@@ -185,12 +185,12 @@ The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter
 
 고정익 전용 매개 변수:
 
-| 매개변수                                                                   | 설명                                                            |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------- |
-| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | 선회 비행 시간 (비행 종료 전 GPS 복구 대기).<br/> 비활성화 하려면 0으로 설정하십시오. |
-| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | 선회 비행시 고정 피치 각도.                                              |
-| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 선회 비행시 고정 롤/뱅크 각도.                                            |
-| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 선회 비행 추력                                                      |
+| 매개변수                                                                   | 설명                                                                                                          |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 비활성화 하려면 0으로 설정하십시오. |
+| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | 선회 비행시 고정 피치 각도.                                                                                            |
+| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 선회 비행시 고정 롤/뱅크 각도.                                                                                          |
+| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 선회 비행 추력                                                                                                    |
 
 
 ### 오프 보드 안전장치
@@ -325,11 +325,9 @@ VTOL 차량이 고정익 모드에서 더 이상 비행할 수 없는 경우를 
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 
-
 ### 귀환 스위치
 
 귀환 스위치를 사용하여 즉시 [귀환 모드](../flight_modes/return.md)를 활성화할 수 있습니다.
-
 
 ## 기타 안전 설정
 
