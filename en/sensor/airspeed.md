@@ -43,6 +43,14 @@ Enable each type using its [corresponding parameter](../advanced_config/paramete
 
 Airspeed calibration information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
 
+### Parameters
+
+To use more efficiently airspeed sensor, set following parameters;
+
+- ([CAL_AIR_CMODEL](../advanced_config/parameter_reference.md#CAL_AIR_CMODEL))
+- ([CAL_AIR_TUBED_MM](../advanced_config/parameter_reference.md#CAL_AIR_TUBED_MM))
+- ([CAL_AIR_TUBELEN](../advanced_config/parameter_reference.md#CAL_AIR_TUBELEN))
+
 
 ## Developer Information
 
