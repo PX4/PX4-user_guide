@@ -17,8 +17,33 @@ The name was changed in 2022.
 
 ## Support
 
-Most common types of peripherals (sensors, ESCs, and servos) that are DroneCAN or _UAVCAN v0_ compliant are supported.
-For more information, see [DroneCAN Support Table](dronecan/support.md).
+### Supported Hardware
+
+Most common types of peripherals (sensors, ESCs, and servos) that are DroneCAN/UAVCAN v0 compliant are supported.
+
+Supported hardware includes (this is not an exhaustive list):
+
+- [ESC/Motor controllers](../uavcan/escs.md)
+- Airspeed sensors
+  - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
+- GNSS receivers for GPS and GLONASS
+  - [ARK GPS](../uavcan/ark_gps.md)
+  - [ARK RTK GPS](../uavcan/ark_rtk_gps.md)
+  - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
+  - [Zubax GNSS](https://zubax.com/products/gnss_2)
+  - [CUAV NEO v2 Pro GNSS](https://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)
+  - [CUAV NEO 3 Pro GNSS](https://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)
+  - [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk2.md)
+- Power monitors
+  - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
+  - [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
+- Distance sensors
+  - [ARK Flow](ark_flow.md)
+  - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
+- Optical Flow
+  - [Ark Flow](ark_flow.md)
+- Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
+  - [ARK CANnode](../uavcan/ark_cannode.md)
 
 ## Hardware Setup
 
@@ -46,6 +71,15 @@ This means that if you have a device that is *only* connected to CAN2 (not redun
 
 ## Setup & Configuration
 
+### Enabling DroneCAN
+To enable the DroneCAN driver, set the UAVCAN_ENABLE parameter:
+
+* `0`: DroneCAN driver disabled
+* `1`: DroneCAN driver enabled for sensors, DNA server disabled
+* `2`: DroneCAN driver enabled for sensors, DNA server enabled
+* `3`: DroneCAN driver enabled for sensors and ESCs, DNA server enabled
+
+### Further Setup
 Most DroneCAN sensors require no further setup, unless specifically noted in their documentation.
 
 [DroneCAN ESCs and servos](../dronecan/actuators.md) require the motor order to be set, and may require a few other parameters be set.
@@ -58,12 +92,23 @@ To upgrade the device, all you need to do is copy the firmware binary into the r
 Upon boot the flight controller will automatically transfer the firmware onto the device and upgrade it.
 If successful, the firmware binary will be removed from the root directory and there will be a file named **XX.bin** in the **/ufw** directory of the SD card.
 
-## Developer Information
+## Troubleshooting
+
+**Q**: My DroneCAN devices aren't working.
+**A**: Check that the `UAVCAN_ENABLE` parameter is set correctly. To see a list of devices/nodes that PX4 has detected on the CAN bus, open NSH (i.e. go to the QGroundControl MAVLink Console) and type `uavcan status`.
+
+**Q**: The DNA server isn't giving out node IDs.
+**A**: PX4 requires an SD card to perform dynamic node allocation. Make sure you have (a working) one inserted and reboot.
+
+**Q**: The motors aren't spinning when armed.
+**A**: Make sure `UAVCAN_ENABLE` is set to `3` to enable DroneCAN ESC output.
+
+**Q**: The motors don't spin until throttle is increased.
+**A**: Check that the `UAVCAN_ESC_IDLT` is set to `1`.
 
 
 ## Useful Links
-
-- [Home Page](https://dronecan.github.io) (dronecan.github.io)
-- [Protocol Specification](https://dronecan.github.io/Specification) (dronecan.github.io)
-- [Implementations](https://dronecan.github.io/Implementations/) (dronecan.github.io)
-- [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com)
+* [Home Page](https://dronecan.github.io) (dronecan.github.io)
+* [Protocol Specification](https://dronecan.github.io/Specification) (dronecan.github.io)
+* [Implementations](https://dronecan.github.io/Implementations/) (dronecan.github.io)
+* [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com)
