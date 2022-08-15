@@ -14,7 +14,7 @@ PX4 supports two software protocols for communicating with CAN devices:
 
 :::note
 Both DroneCAN and Cyphal originate from an earlier project named UAVCAN.
-In 2022 the project split into two: the original version of UAVCAN (UAVCAN v0) was renamed to DroneCan, and UAVCAN v1 was renamed Cyphal.
+In 2022 the project split into two: the original version of UAVCAN (UAVCAN v0) was renamed to DroneCAN, and the newer UAVCAN v1 was renamed Cyphal.
 :::
 
 :::warning
@@ -58,31 +58,31 @@ All Pixhawk flight controllers come with 2 CAN interfaces; if your peripherals s
 
 Some CAN peripherals come with custom firmware written by the manufacturer.
 However, in addition to firmware for flight controllers, PX4 can be run as peripheral firmware itself on supported devices.
-See the [DroneCAN Support Table](../dronecan/support.md) for more information.
+See [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md.md) for more information.
 
 ## Support and Configuration
 
 [DroneCAN Setup and Configuration](../dronecan/README.md)
 
-[DroneCAN Support Table](../dronecan/support.md)
+[PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md)
 
 ## Videos
 
-Intro to UAVCAN and practical example with setup in QGroundControl:
+Intro to UAVCAN (now DroneCAN) and practical example with setup in QGroundControl:
 
 @[youtube](https://youtu.be/IZMTq9fTiOM)
 
 ----
-UAVCAN for drones — PX4 Developer Summit Virtual 2020
+UAVCAN (now Cyphal) for drones — PX4 Developer Summit Virtual 2020
 
 @[youtube](https://youtu.be/6Bvtn_g8liU)
 
 ----
 
-Getting started using UAVCAN v1 with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020
+Getting started using UAVCAN v1 (now Cyphal) with PX4 on the NXP UAVCAN Board — PX4 Developer Summit Virtual 2020
 @[youtube](https://youtu.be/MwdHwjaXYKs)
 
 ----
-UAVCAN: a highly dependable publish-subscribe protocol for hard real-time intra-vehicular networking  — PX4 Developer Summit Virtual 2019
+UAVCAN (Cyphal): a highly dependable publish-subscribe protocol for hard real-time intra-vehicular networking  — PX4 Developer Summit Virtual 2019
 
 @[youtube](https://youtu.be/MBtROivYPik)
