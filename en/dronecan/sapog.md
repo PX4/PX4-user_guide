@@ -107,7 +107,7 @@ The following video demonstrates the process:
 We recommend automated [Sapog ESC Enumeration using QGroundControl](#sapog-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
 :::
 
-You can manually configure the ESC index and direction using the [UAVCAN GUI Tool](https://uavcan.org/GUI_Tool/Overview/).
+You can manually configure the ESC index and direction using the [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/).
 This assigns the following Sapog configuration parameters for each enumerated ESC:
 - `esc_index`
 - `ctl_dir`

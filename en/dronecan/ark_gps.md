@@ -68,7 +68,7 @@ The ARK GPS will not boot if there is no SD card in the flight controller when p
 
 ### Enabling DroneCAN
 
-In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../uavcan/escs.md)).
+In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
 The steps are:
 

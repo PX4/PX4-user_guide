@@ -17,9 +17,9 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) | PPK
+GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [DroneCAN](../dronecan/README.md) | PPK
 :--- | :---: | :---: | :---: | :---:
-[ARK RTK GPS](../uavcan/ark_rtk_gps.md) | | &check; | &check; |
+[ARK RTK GPS](../dronecan/ark_rtk_gps.md) | | &check; | &check; |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | | |
 [CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md) | | | | &check;
 [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | | &check; | | 
@@ -60,9 +60,9 @@ At time of writing this use case has not been tested.
 The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
 
 Most are connected via the flight controller's GPS port, in the same way as any other GPS module.
-Some are connected to the [UAVCAN](../uavcan/README.md) bus.
+Some are connected to the [CAN](../can/README.md) bus (i.e. using [DroneCAN](../dronecan/README.md)).
 
-See [documentation for the selected device](#supported-rtk-devices) and [UAVCAN](../uavcan/README.md) for more information on wiring and configuration.
+See [documentation for the selected device](#supported-rtk-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
 
 #### Base RTK Module (Ground)
 

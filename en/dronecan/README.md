@@ -23,27 +23,27 @@ Most common types of peripherals (sensors, ESCs, and servos) that are DroneCAN/U
 
 Supported hardware includes (this is not an exhaustive list):
 
-- [ESC/Motor controllers](../uavcan/escs.md)
+- [ESC/Motor controllers](../dronecan/escs.md)
 - Airspeed sensors
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - GNSS receivers for GPS and GLONASS
-  - [ARK GPS](../uavcan/ark_gps.md)
-  - [ARK RTK GPS](../uavcan/ark_rtk_gps.md)
+  - [ARK GPS](../dronecan/ark_gps.md)
+  - [ARK RTK GPS](../dronecan/ark_rtk_gps.md)
   - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
   - [CUAV NEO v2 Pro GNSS](https://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)
   - [CUAV NEO 3 Pro GNSS](https://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)
   - [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk2.md)
 - Power monitors
-  - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
-  - [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
+  - [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)
+  - [CUAV CAN PMU Power Module](../dronecan/cuav_can_pmu.md)
 - Distance sensors
   - [ARK Flow](ark_flow.md)
-  - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
+  - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
 - Optical Flow
   - [Ark Flow](ark_flow.md)
 - Generic CAN Node (enables use of I2C, SPI, UART sensors on the CAN bus).
-  - [ARK CANnode](../uavcan/ark_cannode.md)
+  - [ARK CANnode](../dronecan/ark_cannode.md)
 
 ## Hardware Setup
 
