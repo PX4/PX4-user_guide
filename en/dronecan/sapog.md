@@ -118,15 +118,7 @@ See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog
 
 ## Troubleshooting
 
-### Motors not spinning when armed
-
-If PX4 arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use DroneCAN ESCs.
-If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
-
-### DroneCAN devices dont get node ID/Firmware Update Fails
-
-PX4 requires an SD card for DroneCAN dynamic node ID allocation and during firmware update (which happen during boot).
-Check that there is a (working) SD card present and reboot.
+See [DroneCAN Troubleshooting](README.md#troubleshooting)
 
 ## Further Information
 * [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
