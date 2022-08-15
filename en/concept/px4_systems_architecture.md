@@ -18,8 +18,8 @@ The diagram below provides a high level overview of a typical "simple" PX4 syste
 
 The hardware consists of 
 - [Flight controller](../flight_controller/README.md) (running the PX4 flight stack). This often includes internal IMUs, compass and barometer.
-- [Motor ESCs](../peripherals/esc_motors.md) connected to [PWM outputs](../peripherals/pwm_escs_and_servo.md), [UAVCAN](../peripherals/uavcan_escs.md) (UAVCAN allows two-way communication, not single direction as shown) or some other bus.
-- Sensors ([GPS](../gps_compass/README.md), [compass](../gps_compass/README.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, UAVCAN, UART etc.
+- [Motor ESCs](../peripherals/esc_motors.md) connected to [PWM outputs](../peripherals/pwm_escs_and_servo.md), [DroneCAN](../dronecan/escs.md) (DroneCAN allows two-way communication, not single direction as shown) or some other bus.
+- Sensors ([GPS](../gps_compass/README.md), [compass](../gps_compass/README.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, CAN, UART etc.
 - [Camera](../peripherals/camera.md) or other payload. Cameras can be connected to PWM outputs or via MAVLink.
 - [Telemetry radios](../telemetry/README.md) for connecting to a ground station computer/software.
 - [RC Control System](../getting_started/rc_transmitter_receiver.md) for manual control 

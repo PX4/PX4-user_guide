@@ -15,8 +15,8 @@ Directory/File(s) | Description
 `/etc/mixers/` | [Mixers](../concept/mixing.md)
 `/log/` | Full [flight logs](../dev_log/logging.md)
 `/mission_log/` | Reduced flight logs
-`/fw/` | [UAVCAN](../uavcan/README.md) firmware
-`/uavcan.db/` | UAVCAN DB + logs
+`/fw/` | [DroneCAN](../dronecan/README.md) firmware
+`/uavcan.db/` | DroneCAN DNA server DB + logs
 `/params` | Parameters (if not in FRAM/FLASH)
 `/dataman` | Mission storage file
 `/fault_<datetime>.txt` | Hardfault files

@@ -13,7 +13,7 @@ Separating the mixer logic from the actual attitude controller greatly improves 
 ## Control Pipeline
 
 A particular controller sends a particular normalized force or torque demand (scaled from -1..+1) to the mixer, which then sets individual actuators accordingly.
-The output driver (e.g. UART, UAVCAN or PWM) then scales it to the actuators native units, e.g. a PWM value of 1300.
+The output driver (e.g. UART, CAN or PWM) then scales it to the actuators native units, e.g. a PWM value of 1300.
 
 ![Mixer Control Pipeline](../../assets/concepts/mermaid_mixer_control_pipeline.png)
 
@@ -124,15 +124,15 @@ These groups are NOT mixer inputs, but serve as meta-channels to feed fixed wing
 
 ## Output Groups/Mapping
 
-An output group is one physical bus (e.g. FMU PWM outputs, IO PWM outputs, UAVCAN etc.) that has N (usually 8) normalized (-1..+1) command ports that can be mapped and scaled through the mixer.
+An output group is one physical bus (e.g. FMU PWM outputs, IO PWM outputs, CAN etc.) that has N (usually 8) normalized (-1..+1) command ports that can be mapped and scaled through the mixer.
 
 The mixer file does not explicitly define the actual *output group* (physical bus) where the outputs are applied.
 Instead, the purpose of the mixer (e.g. to control MAIN or AUX outputs) is inferred from the mixer [filename](#mixer_file_names), and mapped to the appropriate physical bus in the system [startup scripts](../concept/system_startup.md) (and in particular in [rc.interface](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.interface)).
 
 :::note
-This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#main-io-function-breakdown)) or uses UAVCAN for motor control.
+This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#main-io-function-breakdown)) or uses CAN for motor control.
 The startup scripts load the mixer files into the appropriate device driver for the board, using the abstraction of a "device".
-The main mixer is loaded into device `/dev/uavcan/esc` (uavcan) if UAVCAN is enabled, and otherwise `/dev/pwm_output0` (this device is mapped to the IO driver on controllers with an I/O board, and the FMU driver on boards that don't).
+The main mixer is loaded into device `/dev/uavcan/esc` (uavcan) if DroneCAN is enabled, and otherwise `/dev/pwm_output0` (this device is mapped to the IO driver on controllers with an I/O board, and the FMU driver on boards that don't).
 The aux mixer file is loaded into device `/dev/pwm_output1`, which maps to the FMU driver on Pixhawk controllers that have an I/O board.
 :::
 

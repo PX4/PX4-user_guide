@@ -22,6 +22,6 @@ This section provides links/information about supported power modules and power 
 * Digital (I2C) voltage and current power modules (for Pixhawk FMUv6X and FMUv5X derived controllers):
   * [Holybro PM02D](../power_module/holybro_pm02d.md)
   * [Holybro PM03D](../power_module/holybro_pm03d.md)
-* [UAVCAN](../uavcan/README.md) power modules
-  * [CUAV CAN PMU](../uavcan/cuav_can_pmu.md)
-  * [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
+* [DroneCAN](../dronecan/README.md) power modules
+  * [CUAV CAN PMU](../dronecan/cuav_can_pmu.md)
+  * [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)

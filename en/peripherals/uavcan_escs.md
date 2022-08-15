@@ -1,1 +1,1 @@
-<Redirect to="../uavcan/escs" />
+<Redirect to="../dronecan/escs" />

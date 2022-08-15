@@ -26,7 +26,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Support USB_HS, download logs faster (PX4 not yet supported)
 * Support more dshot output
 * Support IMU heating, make the sensor work better
-* Dedicated uavcan battery port
+* Dedicated CAN battery port
 * 3 sets of IMU sensors
 * Car-grade RM3100 compass
 * High performance processor
@@ -54,7 +54,7 @@ They should be used by preference as they contain the most complete and up to da
    * 2 GPS ports(GPS and UART4 ports)
    * 4 i2c buses(Two i2c dedicated ports)
    * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
+   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
    * 2  ADC input
    * 1 USB ports 
 * Power System:
