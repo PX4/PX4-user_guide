@@ -45,7 +45,7 @@ While the article is written with the Cyphal protocol in mind, it applies equall
 Pixhawk standard compatible CAN devices use 4 pin JST-GH connectors for CAN.
 Two connectors are used for input and output when wiring in a chain (except for flight controllers and some GNSS devices with builtin termination, which only have a single JST-GH connector).
 
-Other (non-Pixhawk compatible) devices may not use these connectors.
+Other (non-Pixhawk compatible) devices may use different connectors.
 However, as long as the device firmware supports DroneCAN or Cyphal, it can be used.
 
 ### Redundancy
@@ -56,8 +56,9 @@ All Pixhawk flight controllers come with 2 CAN interfaces; if your peripherals s
 
 ## Firmware
 
-Some CAN peripherals come with custom firmware written by the manufacturer.
-However, in addition to firmware for flight controllers, PX4 can be run as peripheral firmware itself on supported devices.
+CAN peripherals may run proprietary or open source firmware (check manufacturer guides to confirm the required setup).
+
+PX4 can be built to run as open-source DroneCAN firmware on supported CAN hardware.
 See [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md) for more information.
 
 ## Support and Configuration
