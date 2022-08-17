@@ -2,9 +2,6 @@
 
 [DroneCAN](https://dronecan.github.io/) is a open software communication protocol for flight controllers and other [CAN](../can/README.md) devices on a vehicle to communicate with each other.
 
-Connecting peripherals over DroneCAN has many benefits, including: support for many different sensors and actuators, simple wiring, telemetry/feedback from servos and ESCs, wiring redundancy, and more reliable performance (especially over longer wires on large vehicles).
-Additionally, it allows the user to configure and update the firmware of all CAN-connected devices centrally through PX4.
-
 :::note
 PX4 requires an SD card to enable dynamic node allocation and for firmware update.
 The SD card is not used in flight.
@@ -14,6 +11,19 @@ The SD card is not used in flight.
 DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
 The name was changed in 2022.
 :::
+
+## Benefits of DroneCAN
+
+Connecting peripherals over DroneCAN has many benefits:
+
+- Many different sensors and actuators are already supported.
+- CAN has been specifically designed to deliver robust and reliable connectivity over relatively large distances.
+  It enables safe use of ESCs on bigger vehicles and communication redundancy.
+- The bus is bi-directional, enabling health monitoring, diagnostics, and RPM telemetry.
+- Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN peripherals.
+- Setup is easier as you configure ESC numbering by manually spinning each motor.
+- It allows users to configure and update the firmware of all CAN-connected devices centrally through PX4.
+
 
 ## Supported Hardware
 
