@@ -4,12 +4,6 @@ Zubax Telega is a high end, proprietary sensorless FOC motor control technology.
 It is used in multiple products, including the [Zubax Myxa](https://zubax.com/products/myxa) ESC, [Zubax Mitochondrik](https://zubax.com/products/mitochondrik) motor controller module, and Zubax Sadulli integrated drive.
 
 While Telega can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](README.md).
-This has multiple benefits:
-
-- CAN has been specifically designed to deliver robust and reliable connectivity over relatively large distances.
-  It enables safe use of ESCs on bigger vehicles and communication redundancy.
-- The bus is bi-directional, enabling health monitoring, diagnostics, and RPM telemetry.
-- Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN peripherals.
 
 :::note
 ESCs based on Zubax Telega  require non-trivial tuning of the propulsion system in order to deliver adequate performance and ensure robust operation.
