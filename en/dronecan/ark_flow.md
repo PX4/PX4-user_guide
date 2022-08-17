@@ -12,35 +12,36 @@ Order this module from:
 
 ## Hardware Specifications
 
-* [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
-* Sensors
-  * PixArt PAW3902 Optical Flow Sensor
-    * Tracks under super low light condition of >9 lux
-    * Wide working range from 80mm up to 30m
-    * Up to 7.4 rad/s
-  * 40mW IR LED built onto board for improved low light operation
-  * Broadcom AFBR-S50LV85D Time-of-Flight Distance Sensor
-    * Integrated 850 nm laser light source
-    * Field-of-View (FoV) of 12.4° x 6.2° with 32 pixels
-    * Typical distance range up to 30m
-    * Operation of up to 200k Lux ambient light
-    * Works well on all surface conditions
-    * Transmitter beam of 2° x 2° to illuminate between 1 and 3 pixels
-  * Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
-* STM32F412CEU6 MCU
-* Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
-* Pixhawk Standard Debug Connector (6 Pin JST SH)
-* Software-toggleable built in CAN termination resistor
-* Small Form Factor
-  * 3cm x 3cm x 1.4cm
-* LED Indicators
-* USA Built
+- [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
+- Sensors
+  - PixArt PAW3902 Optical Flow Sensor
+    - Tracks under super low light condition of >9 lux
+    - Wide working range from 80mm up to 30m
+    - Up to 7.4 rad/s
+  - 40mW IR LED built onto board for improved low light operation
+  - Broadcom AFBR-S50LV85D Time-of-Flight Distance Sensor
+    - Integrated 850 nm laser light source
+    - Field-of-View (FoV) of 12.4° x 6.2° with 32 pixels
+    - Typical distance range up to 30m
+    - Operation of up to 200k Lux ambient light
+    - Works well on all surface conditions
+    - Transmitter beam of 2° x 2° to illuminate between 1 and 3 pixels
+  - Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
+- STM32F412CEU6 MCU
+- Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
+- Pixhawk Standard Debug Connector (6 Pin JST SH)
+- Software-toggleable built in CAN termination resistor
+- Small Form Factor
+  - 3cm x 3cm x 1.4cm
+- LED Indicators
+- USA Built
 
 ## Hardware Setup
 
 ### Wiring
 
-The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
 
 ### Mounting
 
@@ -55,10 +56,10 @@ The sensor can be mounted anywhere on the frame, but you will need to specify th
 
 ## Firmware Setup
 
-ARK Flow runs the [PX4 cannode firmware](px4_cannode_fw.md).
+ARK Flow runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
 As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id).
 
-ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
+ARK Flow boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
 - Firmware target: `ark_can-flow_default`
 - Bootloader target: `ark_can-flow_canbootloader`
@@ -69,7 +70,7 @@ ARK Flow boards ship with recent firmware pre-installed, but if you want to buil
 The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
 :::
 
-### Enabling DroneCAN
+### Enable DroneCAN
 
 In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
@@ -80,6 +81,8 @@ The steps are:
 
 Once enabled, the module will be detected on boot.
 Flow data should arrive at 10Hz.
+
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
 
 ### PX4 Configuration
 
@@ -97,6 +100,8 @@ You need to set the EKF optical flow parameters to enable fusing optical flow me
 - Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW).
 - Enable [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG).
 - The parameters [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) can be set to account for the offset of the Ark Flow from the vehicle centre of gravity.
+
+## Ark Flow Configuration
 
 On the ARK Flow, you may need to configure the following parameters:
 

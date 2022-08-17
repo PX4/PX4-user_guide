@@ -50,19 +50,19 @@ For more information, refer to the [CAN Wiring](../can/README.md#wiring) instruc
 
 ## Firmware Setup
 
-ARK CANnode runs the [PX4 cannode firmware](px4_cannode_fw.md).
-As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
+ARK CANnode runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id).
 
-ARK CANnode boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
+ARK CANnode boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
-Firmware target: `ark_cannode_default`
-Bootloader target: `ark_cannode_canbootloader`
+- Firmware target: `ark_cannode_default`
+- Bootloader target: `ark_cannode_canbootloader`
 
-## Flight Controller Setup
+## Flight Controller Configuration
 
-### Enabling DroneCAN
+### Enable DroneCAN
 
-In order to use the ARK CANnode board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)) (DroneCAN configuration is explained in more detail in [DroneCAN Setup](../dronecan/README.md#setup-configuration).
+In order to use the ARK CANnode board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
 The steps are:
 
@@ -71,9 +71,15 @@ The steps are:
 
 Once enabled, the module will be detected on boot.
 
-### PX4 Configuration
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
 
-Depending on the sensors that are connected to the ARK CANnode, you will need to enable each subscriber on the flight controller under the parameters `UAVCAN_SUB_*` (such as [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD), [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO) etc.).
+### Enable Sensors
+
+You will need to enable the subscriber appropriate for each of the sensors that are connected to the ARK CANnode.
+
+This is done using the the parameters named like `UAVCAN_SUB_*` in the parameter reference (such as [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD), [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO) etc.).
+
+## Ark CANNode Configuration
 
 On the ARK CANnode, you may need to configure the following parameters:
 
