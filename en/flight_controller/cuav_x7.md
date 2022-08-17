@@ -73,7 +73,7 @@ They should be used by preference as they contain the most complete and up to da
 When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
 :::
 
-## Purchase
+## Where to Buy
 
 [CUAV Store](https://store.cuav.net)
 

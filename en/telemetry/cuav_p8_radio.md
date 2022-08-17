@@ -17,7 +17,7 @@ It supports multiple modes such as point-to-point, point-to-multipoint, and rela
 - Independent power supply for more stable operation
 - USB Type-C port, integrated USB to UART converter
 
-## Purchase
+## Where to Buy
 
 * [CUAV store](https://www.cuav.net/en/p8-2/)
 * [CUAV alibaba](https://www.alibaba.com/product-detail/Free-shipping-CUAV-UAV-P8-Radio_1600324379418.html?spm=a2747.manage.0.0.2dca71d2bY4B0M)

@@ -29,7 +29,7 @@ Vehicles must have different MAVLINK IDs.
 * Separate diagnostics port, transparent remote diagnostics and online network control
 
 
-## Purchase:
+## Where to Buy
 
 * [Holybro Microhard P900 Telemetry Radio (100mW - 1W)](http://www.holybro.com/product/microhard-p900-radio/)
 

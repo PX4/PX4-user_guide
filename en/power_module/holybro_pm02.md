@@ -29,7 +29,7 @@ Voltage and current measurement configured for 3.3V ADC
 - Molex 6 Position Connector 15 cm
 - GH 6 Position Connector 15 cm
 
-## Purchase
+## Where to Buy
 
 [Order from Holybro Store](https://shop.holybro.com/power-modulepm02-v3_p1185.html)
 

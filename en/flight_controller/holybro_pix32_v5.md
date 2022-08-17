@@ -71,7 +71,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 Additional information can be found in the [Pix32 V5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-## Purchase
+## Where to Buy
 
 Order from [Holybro website](https://shop.holybro.com/pix32-v5_p1218.html).
 

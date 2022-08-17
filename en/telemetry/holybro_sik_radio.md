@@ -11,7 +11,7 @@ They typically allow ranges of better than 300m "out of the box" (the range can 
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
-### Purchase:
+### Where to Buy
 
 * [Holybro SiK Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-set-v3_p1103.html?)
 

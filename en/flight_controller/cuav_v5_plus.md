@@ -58,7 +58,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Other Characteristics:
   * Operating temperature: -20 ~ 80°c（Measured value）
   
-## Purchase
+## Where to Buy
 
 <!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
