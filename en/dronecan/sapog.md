@@ -2,12 +2,15 @@
 
 [Sapog](https://github.com/PX4/sapog#px4-sapog) firmware is an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
 
-While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](README.md). This has multiple benefits:
-* CAN has been specifically designed to deliver robust and reliable connectivity over relatively large distances.
+While it can be controlled using traditional PWM input, it is designed to operate over CAN bus using [DroneCAN](README.md).
+
+This has multiple benefits:
+
+- CAN has been specifically designed to deliver robust and reliable connectivity over relatively large distances.
   It enables safe use of ESCs on bigger vehicles and communication redundancy.
-* The bus is bi-directional, enabling health monitoring, diagnostics, and RPM telemetry.
-* Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN peripherals.
-* Setup is easier as you configure ESC numbering by manually spinning each motor.
+- The bus is bi-directional, enabling health monitoring, diagnostics, and RPM telemetry.
+- Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN peripherals.
+- Setup is easier as you configure ESC numbering by manually spinning each motor.
 
 ## Where to Buy
 
@@ -42,20 +45,25 @@ Multiple vendors sell ESC hardware that runs sapog firmware:
 
 ## Hardware Setup
 
-ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
+ESCs are connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+ESC order does not matter.
 
 ## Firmware Setup
 
 ESCs come with an existing build of Sapog installed. If you want to update:
 
 To build the firmware:
+
 ```
 git clone --recursive https://github.com/PX4/sapog
 cd sapog/firmware
 make RELEASE=1
 ```
 
-This will create a file `*.application.bin`. in `build/`. This binary can be flashed through the autopilot over DroneCAN via the sapog bootloader. See [DroneCAN Firmware Update](README.md#firmware-update).
+This will create a file `*.application.bin`. in `build/`.
+This binary can be flashed through the autopilot over DroneCAN via the sapog bootloader.
+See [DroneCAN Firmware Update](README.md#firmware-update).
 
 Refer to the [project page](https://github.com/PX4/sapog) to learn more, including how to flash without using the DroneCAN bootloader (i.e. on a not-yet-programmed device) or for development.
 
@@ -66,6 +74,7 @@ Refer to the [project page](https://github.com/PX4/sapog) to learn more, includi
 Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to '3' to enable both dynamic node ID allocation and DroneCAN ESC output.
 
 ### PX4 Configuration
+
 (Optional) Set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed.
 :::note
 Some systems will not benefit from this behavior, e.g. glider drones).
@@ -124,4 +133,3 @@ See [DroneCAN Troubleshooting](README.md#troubleshooting)
 * [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
 * [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
 * [Using Sapog based ESC with PX4](https://kb.zubax.com/display/MAINKB/Using+Sapog-based+ESC+with+PX4) (Zubax KB)
-

@@ -1,3 +1,3 @@
-<Redirect to="../dronecan/developer.md" />
+<Redirect to="../dronecan/development.md" />
 
 <!-- Everything deleted below here - redirects to /dronecan/ -->
