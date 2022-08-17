@@ -58,7 +58,7 @@ All Pixhawk flight controllers come with 2 CAN interfaces; if your peripherals s
 
 Some CAN peripherals come with custom firmware written by the manufacturer.
 However, in addition to firmware for flight controllers, PX4 can be run as peripheral firmware itself on supported devices.
-See [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md.md) for more information.
+See [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md) for more information.
 
 ## Support and Configuration
 
