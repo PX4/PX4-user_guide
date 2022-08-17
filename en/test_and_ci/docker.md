@@ -141,7 +141,9 @@ We use the host network mode to avoid conflicts between the UDP port access cont
 :::
 
 :::note
-In some situations, `DISPLAY` may need to be set to a different value such as `:1`. It may be possible to determine what that value is by using `echo $DISPLAY` or simply by changing `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. Note that making that change assumes that the environment variable `DISPLAY` has been set.
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value.
+On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`.
+On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
 :::
 
 If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:
