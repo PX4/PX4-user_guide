@@ -236,7 +236,7 @@ You will have to update the WSL comm link in QGC every time WSL restarts (becaus
 
 ## Flash a Flight Control Board
 
-Flashing a custom built PX4 binary has to be done using QGroundControl for Windows since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
+Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows) since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
 
 Do the following steps to flash your custom binary built in WSL:
 
