@@ -1,11 +1,15 @@
 # VESC ESCs (DroneCAN)
 
-The VESC project is a fully open source hardware and software design for advanced FOC motor controllers. While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/README.md). This has multiple benefits:
-* CAN has been specifically designed to deliver robust and reliable connectivity over relatively large di
+The VESC project is a fully open source hardware and software design for advanced FOC motor controllers.
+While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/README.md).
+
+This has multiple benefits:
+
+- CAN has been specifically designed to deliver robust and reliable connectivity over relatively large di
 stances.
   It enables safe use of ESCs on bigger vehicles and communication redundancy.
-* The bus is bi-directional, enabling health monitoring, diagnostics, and RPM telemetry.
-* Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN
+- The bus is bi-directional, enabling health monitoring, diagnostics, and RPM telemetry.
+- Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN
  peripherals.
 
 
@@ -58,7 +62,6 @@ CAN Baud Rate | `CAN_BAUD_500K`
 CAN Mode | `UAVCAN`
 UAVCAN ESC Index | `0,1,...`
 
-
 VESC ID should have the same motor numbering as in PX4 convention, starting at `1` for top-right motor, `2` for bottom-left motor etc.
 However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`.
 For example, in a quadcopter the bottom left motor will have `VESC ID = 2` and `UAVCAN ESC Index = 1`.
@@ -67,12 +70,14 @@ Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../adva
 
 ## Flight Controller Setup
 
-### Enabling DroneCAN
+### Enable DroneCAN
 
 Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to '3' to enable both dynamic node ID allocation and DroneCAN ESC output.
 
 ### PX4 Configuration
+
 (Optional) Set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed.
+
 :::note
 Some systems will not benefit from this behavior, e.g. glider drones).
 :::

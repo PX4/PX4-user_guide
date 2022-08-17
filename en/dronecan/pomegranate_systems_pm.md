@@ -35,7 +35,9 @@ Detailed setup, configuration, and troubleshooting information can be found on t
  ![Dimensions](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
 
 ## Firmware Setup
-The power module runs pomegranate systems' own custom (open source) firmware. Source code and build instructions can be found on [the bitbucket](https://bitbucket.org/p-systems/firmware/src/master).
+
+The power module runs pomegranate systems' own custom (open source) firmware.
+Source code and build instructions can be found on [the bitbucket](https://bitbucket.org/p-systems/firmware/src/master).
 
 ## Flight Controller Setup
 
