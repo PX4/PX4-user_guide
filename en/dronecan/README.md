@@ -1,8 +1,8 @@
 # DroneCAN
 
 [DroneCAN](https://dronecan.github.io/) is a open software communication protocol for flight controllers and other [CAN](../can/README.md) devices on a vehicle to communicate with each other.
-It supports many different sensors and actuators connected over CAN.
-Connecting peripherals over DroneCAN has many benefits, including simpler wiring, telemetry/feedback from servos and ESCs, wiring redundancy, and more reliable performance (especially over longer wires on large vehicles).
+
+Connecting peripherals over DroneCAN has many benefits, including: support for many different sensors and actuators, simple wiring, telemetry/feedback from servos and ESCs, wiring redundancy, and more reliable performance (especially over longer wires on large vehicles).
 Additionally, it allows the user to configure and update the firmware of all CAN-connected devices centrally through PX4.
 
 :::note
@@ -15,9 +15,7 @@ DroneCAN was previously known as UAVCAN v0 (or just UAVCAN).
 The name was changed in 2022.
 :::
 
-## Support
-
-### Supported Hardware
+## Supported Hardware
 
 Most common types of peripherals (sensors, ESCs, and servos) that are DroneCAN/UAVCAN v0 compliant are supported.
 
@@ -54,15 +52,18 @@ DroneCAN hardware should be connected as described in [CAN > Wiring](../can/READ
 
 Every DroneCAN device must be configured with a *node id* that is unique on the vehicle.
 
-Most devices support dynamic node allocation (DNA) which allows PX4 to automatically configure the node ID of each detected peripheral on system startup. Consult the manufacturer documentation for details on whether your device supports DNA and how to enable it. Many devices will automatically switch to DNA if the node id is set to 0. PX4 will enable the built in allocation server if the `UAVCAN_ENABLE` parameter is > 1 (set to 2 or 3).
+Most devices support dynamic node allocation (DNA) which allows PX4 to automatically configure the node ID of each detected peripheral on system startup.
+Consult the manufacturer documentation for details on whether your device supports DNA and how to enable it. Many devices will automatically switch to DNA if the node id is set to 0.
+PX4 will enable the built in allocation server if the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter is > 1 (set to 2 or 3).
 
 :::note
-PX4 has a node ID, which can be configured using the `UAVCAN_NODE_ID` parameter. The parameter is set to 1 by default.
+PX4 has a node ID, which can be configured using the [UAVCAN_NODE_ID](../advanced_config/parameter_reference.md#UAVCAN_NODE_ID) parameter.
+The parameter is set to 1 by default.
 :::
 
 Some devices don't support DNA.
 Additionally, in certain mission-critical scenarios, you might prefer to manually configure node IDs beforehand instead of relying on the dynamic allocation server.
-If you wish to disable the DNA completely, set `UAVCAN_ENABLE` to 1 and manually set each node ID to a unique value.
+If you wish to disable the DNA completely, set `UAVCAN_ENABLE` to `1` and manually set each node ID to a unique value.
 If the DNA is still running and certain devices need to be manually configured, give these devices a value greater than the total number of DroneCAN devices to avoid clashes.
 
 :::warning
@@ -70,20 +71,23 @@ At time of writing, PX4 does not run the node allocation server on the CAN2 port
 This means that if you have a device that is *only* connected to CAN2 (not redundantly to CAN1 and CAN2), you will need to manually configure its node ID.
 :::
 
-## Setup & Configuration
+## PX4 Configuration
 
 ### Enabling DroneCAN
-To enable the DroneCAN driver, set the UAVCAN_ENABLE parameter:
 
-* `0`: DroneCAN driver disabled
-* `1`: DroneCAN driver enabled for sensors, DNA server disabled
-* `2`: DroneCAN driver enabled for sensors, DNA server enabled
-* `3`: DroneCAN driver enabled for sensors and ESCs, DNA server enabled
+To enable the DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter:
+
+- `0`: DroneCAN driver disabled
+- `1`: DroneCAN driver enabled for sensors, DNA server disabled
+- `2`: DroneCAN driver enabled for sensors, DNA server enabled
+- `3`: DroneCAN driver enabled for sensors and ESCs, DNA server enabled
 
 ### Further Setup
+
 Most DroneCAN sensors require no further setup, unless specifically noted in their documentation.
 
-[DroneCAN ESCs and servos](../dronecan/actuators.md) require the motor order to be set, and may require a few other parameters be set.
+[DroneCAN ESCs and servos](../dronecan/escs.md) require the [motor order and servo outputs](../config/actuators.md) to be configured.
+If any other parameters must be set, these will be covered in device-specific documentation.
 
 ## Firmware Update
 
@@ -96,20 +100,30 @@ If successful, the firmware binary will be removed from the root directory and t
 ## Troubleshooting
 
 **Q**: My DroneCAN devices aren't working.
+
 **A**: Check that the `UAVCAN_ENABLE` parameter is set correctly. To see a list of devices/nodes that PX4 has detected on the CAN bus, open NSH (i.e. go to the QGroundControl MAVLink Console) and type `uavcan status`.
 
+---
+
 **Q**: The DNA server isn't giving out node IDs.
+
 **A**: PX4 requires an SD card to perform dynamic node allocation. Make sure you have (a working) one inserted and reboot.
 
+---
+
 **Q**: The motors aren't spinning when armed.
+
 **A**: Make sure `UAVCAN_ENABLE` is set to `3` to enable DroneCAN ESC output.
 
+---
+
 **Q**: The motors don't spin until throttle is increased.
+
 **A**: Check that the `UAVCAN_ESC_IDLT` is set to `1`.
 
-
 ## Useful Links
-* [Home Page](https://dronecan.github.io) (dronecan.github.io)
-* [Protocol Specification](https://dronecan.github.io/Specification) (dronecan.github.io)
-* [Implementations](https://dronecan.github.io/Implementations/) (dronecan.github.io)
-* [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com)
+
+- [Home Page](https://dronecan.github.io) (dronecan.github.io)
+- [Protocol Specification](https://dronecan.github.io/Specification) (dronecan.github.io)
+- [Implementations](https://dronecan.github.io/Implementations/) (dronecan.github.io)
+- [Cyphal/CAN Device Interconnection](https://kb.zubax.com/pages/viewpage.action?pageId=2195476) (kb.zubax.com)
