@@ -47,7 +47,8 @@ Supported hardware includes (this is not an exhaustive list):
 
 ## Hardware Setup
 
-DroneCAN operates over CAN. Refer to the [CAN setup documentation](../can/README.md) before continuing with this article.
+DroneCAN operates over a CAN network.
+DroneCAN hardware should be connected as described in [CAN > Wiring](../can/README.md#wiring).
 
 ## Node ID
 
