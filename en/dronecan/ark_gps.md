@@ -12,38 +12,39 @@ Order this module from:
 
 ## Hardware Specifications
 
-* [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_GPS)
-* Sensors
-  * Ublox M9N GPS
-    * Ultra-robust meter-level GNSS positioning
-    * Maximum position availability with concurrent reception of 4 GNSS
-    * Advanced spoofing and jamming detection
-    * Excellent RF interference mitigation
-  * Bosch BMM150 Magnetometer
-  * Bosch BMP388 Barometer
-  * Invensense ICM-42688-P 6-Axis IMU
-* STM32F412CEU6 MCU
-* Safety Button
-* Buzzer
-* Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
-* Pixhawk Standard Debug Connector (6 Pin JST SH)
-* Small Form Factor
-  * 5cm x 5cm x 1cm
-* LED Indicators
-  * Safety LED
-  * GPS Fix
-  * RGB System Status
-* USA Built
-* Power Requirements
-  * 5V
-  * 110mA Average
-  * 117mA Max
+- [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_GPS)
+- Sensors
+  - Ublox M9N GPS
+    - Ultra-robust meter-level GNSS positioning
+    - Maximum position availability with concurrent reception of 4 GNSS
+    - Advanced spoofing and jamming detection
+    - Excellent RF interference mitigation
+  - Bosch BMM150 Magnetometer
+  - Bosch BMP388 Barometer
+  - Invensense ICM-42688-P 6-Axis IMU
+- STM32F412CEU6 MCU
+- Safety Button
+- Buzzer
+- Two Pixhawk Standard CAN Connectors (4 Pin JST GH)
+- Pixhawk Standard Debug Connector (6 Pin JST SH)
+- Small Form Factor
+  - 5cm x 5cm x 1cm
+- LED Indicators
+  - Safety LED
+  - GPS Fix
+  - RGB System Status
+- USA Built
+- Power Requirements
+  - 5V
+  - 110mA Average
+  - 117mA Max
 
 ## Hardware Setup
 
 ### Wiring
 
-The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+The ARK GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
 
 ### Mounting
 
@@ -53,12 +54,13 @@ The sensor can be mounted anywhere on the frame, but you will need to specify it
 
 ## Firmware Setup
 
-ARK GPS runs the [PX4 cannode firmware](px4_cannode_fw.md). As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
+ARK GPS runs the [PX4 DroneCAN Firmware](px4_cannode_fw.md).
+As such, it supports firmware update over the CAN bus and [dynamic node allocation](README.md#node-id). 
 
-ARK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself, refer to the [cannode firmware build instructions](px4_cannode_fw.md#building-the-firmware).
+ARK GPS boards ship with recent firmware pre-installed, but if you want to build and flash the latest firmware yourself see [PX4 DroneCAN Firmware > Building the Firmware](px4_cannode_fw.md#building-the-firmware).
 
-Firmware target: `ark_can-gps_default`
-Bootloader target: `ark_can-gps_canbootloader`
+- Firmware target: `ark_can-gps_default`
+- Bootloader target: `ark_can-gps_canbootloader`
 
 ## Flight Controller Setup
 
@@ -66,7 +68,7 @@ Bootloader target: `ark_can-gps_canbootloader`
 The ARK GPS will not boot if there is no SD card in the flight controller when powered on.
 :::
 
-### Enabling DroneCAN
+### Enable DroneCAN
 
 In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
@@ -77,6 +79,8 @@ The steps are:
 
 Once enabled, the module will be detected on boot.
 GPS data should arrive at 10Hz.
+
+DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
 
 ### PX4 Configuration
 
