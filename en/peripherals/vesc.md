@@ -3,16 +3,6 @@
 The VESC project is a fully open source hardware and software design for advanced FOC motor controllers.
 While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/README.md).
 
-This has multiple benefits:
-
-- CAN has been specifically designed to deliver robust and reliable connectivity over relatively large di
-stances.
-  It enables safe use of ESCs on bigger vehicles and communication redundancy.
-- The bus is bi-directional, enabling health monitoring, diagnostics, and RPM telemetry.
-- Wiring is less complicated as you can have a single bus for connecting all your ESCs and other DroneCAN
- peripherals.
-
-
 ## PX4 Supported ESC
 
 PX4 is compatible with any/all UAVCAN v0 ESCs.
