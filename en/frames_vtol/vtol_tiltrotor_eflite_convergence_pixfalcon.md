@@ -11,7 +11,7 @@ Alternatives are provided in the [Purchase](#purchase) section.
 @[youtube](https://youtu.be/E61P2f2WPNU)
 
 
-## Purchase
+## Where to Buy
 
 Vehicle frame options:
 - **WL Tech XK X450** - [Banggood](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)

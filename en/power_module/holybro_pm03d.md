@@ -53,7 +53,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 <img src="../../assets/hardware/power_module/holybro_pm03d/pm03d_contents.jpg" width="650px" title="Pixhawk5x Upright Image" />
 
-## Purchase
+## Where to Buy
 
 [Order from Holybro Store](https://shop.holybro.com/pm03d-power-module_p1315.html)
 

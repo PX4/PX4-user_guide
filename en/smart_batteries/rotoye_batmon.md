@@ -14,7 +14,7 @@ Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Auto
 ![Pre-assembled Rotoye smart battery](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## Purchase
+## Where to Buy
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon kits, custom smart-batteries, and accessories
 

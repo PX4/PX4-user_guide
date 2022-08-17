@@ -7,7 +7,7 @@ PX4 provides [experimental support](README.md) for an 8-thrust vectored configur
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
 
-## Purchase
+## Where to Buy
 
 [BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [BlueROV2 Heavy Configuration Retrofit Kit](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
 

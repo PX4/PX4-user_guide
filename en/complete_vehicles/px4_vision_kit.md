@@ -15,7 +15,7 @@ Developers can use the kit to try out other features provided by the [PX4 Avoida
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
-## Purchase
+## Where to Buy
 
 - [Holybro Website](https://shop.holybro.com/px4-vision_p1225.html?)
 

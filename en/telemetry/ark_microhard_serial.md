@@ -12,7 +12,7 @@ Vehicles must have different MAVLINK IDs.
 
 ![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
 
-## Purchase:
+## Where to Buy
 
 * [1W 900MHz Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (vehicle)
 * [1W 900MHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (ground station)

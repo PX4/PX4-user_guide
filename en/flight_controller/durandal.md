@@ -83,7 +83,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
 
 <span id="purchase"></span>
-## Purchase
+## Where to Buy
 
 Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
 

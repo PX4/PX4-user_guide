@@ -1,12 +1,13 @@
 # Avionics Anonymous Laser Altimeter UAVCAN Interface
 
 :::note
-In 2022, UAVCAN (v0) was forked and is maintained as  `DroneCAN`. While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
+In 2022, UAVCAN (v0) was forked and is maintained as `DroneCAN`.
+While this product still mentions "UAVCAN", it is fully compatible with PX4's DroneCAN support.
 :::
 
 The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/) allows a [number of common rangefinders](#supported_rangefinders) to be connected via the CAN bus (this is a more robust interface than I2C).
 
-![Avionics Anonymous Laser Altimeter UAVCAN Interface](../../assets/hardware/sensors/avionics_anon_uavcan_alt_interface/avionics_anon_altimeter_uavcan_interface.jpg)
+![Avionics Anonymous Laser Altimeter DroneCAN Interface](../../assets/hardware/sensors/avionics_anon_uavcan_alt_interface/avionics_anon_altimeter_uavcan_interface.jpg)
 
 ## Where to Buy
 
@@ -15,7 +16,7 @@ The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/produc
 <span id="supported_rangefinders"></span>
 ## Supported Rangefinders
 
-A full list of supported rangefinders can be found on the link above. 
+A full list of supported rangefinders can be found on the link above.
 
 At time of writing the following rangefinders are supported:
 
@@ -41,6 +42,7 @@ Therefore the laser must be compatible with whatever voltage is supplied to the 
 ### Pinouts
 
 ### CAN Connector
+
 Pin | Name | Description
 --- | ---   | ---
 1   | POWER_IN | Power Supply. 4.0-5.5V supported, but must also be compatible with connected laser.
@@ -49,6 +51,7 @@ Pin | Name | Description
 4   | GND | Signal/power ground.
 
 ### Laser Connector
+
 Pin | Name | Description
 --- | ---   | ---
 1   | POWER_OUT | Filtered power at the supply voltage.

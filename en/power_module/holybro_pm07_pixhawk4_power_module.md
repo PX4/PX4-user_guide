@@ -29,7 +29,7 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 - JST GH 8P Cable
 - 2x JST GH 6P Cable
 
-## Purchase
+## Where to Buy
 
 [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
 

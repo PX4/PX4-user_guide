@@ -6,7 +6,7 @@ A complete RTK system consists of at least two C-RTK modules \(one for the base 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 
 
-## Purchase
+## Where to Buy
 
 * [cuav taobao](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
 * [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn)
