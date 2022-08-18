@@ -26,7 +26,6 @@ All the above sensors are connected via the I2C bus/port.
 Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 :::
 
-
 ## Configuration
 
 ### Enable Airspeed Sensors
@@ -39,7 +38,11 @@ Enable each type using its [corresponding parameter](../advanced_config/paramete
 - **TE MS5525:** [SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS)
 - **Eagle Tree airspeed sensor:** [SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD)
 
-### Sensor-specific configuration
+### Set Primary Source
+
+If you have enabled multiple airspeed sensors enabled, you can select which one is the primary source for measurements using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY).
+
+### Sensor-specific Configuration
 
 Other than enabling the sensor, sensor-specific configuration is often not required.
 If it is needed, it should be covered in the appropriate sensor page (for example [TFSLOT > Configuration](./airspeed_tfslot.md\#configuration)).
