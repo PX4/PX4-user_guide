@@ -31,6 +31,7 @@ Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/
 
 ### Enable Airspeed Sensors
 
+Airspeed sensor drivers are not started automatically.
 Enable each type using its [corresponding parameter](../advanced_config/parameters.md):
 
 - **Sensirion SDP3X:** [SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X)
