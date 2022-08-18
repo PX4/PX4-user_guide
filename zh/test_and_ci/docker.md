@@ -44,7 +44,9 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
-    - px4io/px4-dev-ros2-foxy
+      - px4io/px4-dev-ros2-foxy
+  - px4io/px4-dev-ros2-rolling
+  - px4io/px4-dev-ros2-galactic
 
 
 The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-bionic:latest` (available tags are listed for each container on *hub.docker.com*. For example, the `px4io/px4-dev-nuttx-bionic` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-bionic/tags?page=1&ordering=last_updated)).
@@ -113,14 +115,22 @@ The concrete example below shows how to open a bash shell and share the director
 xhost +
 
 # Run docker and open bash shell
-sudo docker run -it --privileged \
+docker run -it --privileged \
 --env=LOCAL_USER_ID="$(id -u)" \
--v ~/src/Firmware:/src/firmware/:rw \
+-v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -e DISPLAY=:0 \
--p 14556:14556/udp \
---name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
+--network host \
+--name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
+
+:::note
+We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+:::
+
+:::note
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+:::
 
 运行模拟实例时，例如在 docker 容器内的 SITL 并通过 *QGroundControl* 从主机控制它，必须手动设置通信链接。 *QGroundControl* 的自动连接功能在此处不起作用。
 

@@ -45,7 +45,9 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
-    - px4io/px4-dev-ros2-foxy
+      - px4io/px4-dev-ros2-foxy
+  - px4io/px4-dev-ros2-rolling
+  - px4io/px4-dev-ros2-galactic
 
 
 가장 최신 버전은 `latest` 태그를 사용하여 액세스할 수 있습니다. `px4io/px4-dev-nuttx-bionic:latest` (사용 가능한 태그는 *hub.docker.com*의 각 컨테이너에 나열되어 있습니다.)
@@ -119,9 +121,17 @@ docker run -it --privileged \
 -v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -e DISPLAY=:0 \
--p 14570:14570/udp \
---name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
+--network host \
+--name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
+
+:::note
+We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+:::
+
+:::note
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+:::
 
 모든 것이 잘 실행되면, 새로운 bash 쉘이 실행됩니다. 예를 들어 SITL을 실행하여 모든 것이 작동하는 지 확인하십시오.
 
@@ -168,7 +178,8 @@ $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}
 ```
 
 :::note
-위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함). 이렇게 하면 호스트 컴퓨터의 사용자가 컨테이너에서 만든 파일에 접근할 수 없는 권한 오류가 나타납니다.
+위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함). 
+:::
 
 ### 문제 해결
 
