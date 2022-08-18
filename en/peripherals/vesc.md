@@ -3,40 +3,10 @@
 The VESC project is a fully open source hardware and software design for advanced FOC motor controllers.
 While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/README.md).
 
-## PX4 Supported ESC
-
-PX4 is compatible with any/all UAVCAN v0 ESCs.
-At time of writing PX4 does not yet support UAVCAN v1.0.
-
-UAVCAN is generally speaking a plug'n'play protocol.
-The main difference between UAVCAN ESCs from a setup perspective is that the physical connectors and the software tools used to configure the motor order and direction may be different.
-
-Some popular UAVCAN ESC firmware/products include:
-- [Sapog](https://github.com/PX4/sapog#px4-sapog) firmware; an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
-  - [Zubax Orel 20](https://zubax.com/products/orel_20)
-  - [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
-- [Zubax Myxa](https://zubax.com/products/myxa) - High-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft.
-  :::note
-  ESC based on the Zubax Telega sensorless FOC motor control technology (e.g., Zubax Myxa, Mitochondrik, Komar, etc.) require non-trivial tuning of the propulsion system in order to deliver adequate performance and ensure robust operation.
-
-  Users who lack the necessary tuning expertise are advised to either [purchase pre-tuned UAV propulsion kits](https://zubax.com/products/uav_propulsion_kits) or to use Zubax Robotic's professional tuning service.
-  Questions on this matter should be addressed to: [support@zubax.com](mailto:support@zubax.com).
-  :::
-- [Zubax Mitochondrik](https://zubax.com/products/mitochondrik) - integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
-  - [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
-- [OlliW’s UC4H ESC-Actuator Node](http://www.olliw.eu/2017/uavcan-for-hobbyists/#chapterescactuator)
-- A number of others are [listed here](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)
-
-:::note
-This list is *not exhaustive/complete*.
-If you know of another ESC, please add it to the list!
-:::
-
 ## Hardware Setup
+### Wiring
 
-Connect all of the on-board CAN bus devices into a chain and make sure the bus is terminated at the end nodes. The order in which the ESCs are connected/chained does not matter.
-
-VESCs do NOT use the Pixhawk standard JST GH 4 pin connectors. See [CAN Bus Wiring](../can/README.md#wiring) for more information.
+ESCs are connected to the CAN bus using the VESC CAN connector. Note that this is *not* the Pixhawk standard 4 pin JST GH connector. For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions. ESC order does not matter.
 
 ## Firmware Setup
 
@@ -74,15 +44,7 @@ Some systems will not benefit from this behavior, e.g. glider drones).
 
 ## Troubleshooting
 
-### Motors not spinning when armed
-
-If PX4 arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use DroneCAN ESCs.
-If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
-
-### DroneCAN devices dont get node ID/Firmware Update Fails
-
-PX4 requires an SD card for DroneCAN dynamic node ID allocation and during firmware update (which happen during boot).
-Check that there is a (working) SD card present and reboot.
+See [DroneCAN Troubleshooting](README.md#troubleshooting)
 
 ## Further Information
 * [VESC Project ESCs](https://vesc-project.com/)
