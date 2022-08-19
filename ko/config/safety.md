@@ -1,6 +1,6 @@
-# 안전장치 설정(사고 방지)
+# 안전 설정(사고 방지)
 
-PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 안전 기능들이 있습니다.
+PX4에는 문제 발생시에 기체를 보호하고 복구하는 다양한 안전장치들을 제공합니다.
 
 * *안전장치* 기능을 통하여 안전 비행 지역, 사고 방지 조건 및 사고방지 기능 작동시 수행할 [작업](#failsafe-actions)(예: 착륙, 현 위치 유지)을 지정할 수 있습니다. 가장 중요한 안전장치는 *QGroundControl*의 [안전 설정](#qgroundcontrol-safety-setup) 화면에서 설정합니다. 기타는 [매개 변수](#other-safety-settings)를 통하여 설정합니다.
 * 리모콘의 [안전 스위치](#emergency-switches)를 사용하여 문제 발생시 즉시 모터를 중지하거나 기체를 원위치로 복귀시킬 수 있습니다.
@@ -10,18 +10,18 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 안전장치 기능들은 여러가지 동작들로 조합됩니다. 일반적인 안전장치 기능들은 아래와 같습니다.
 
-| 동작                                                                         | 설명                                                                                                                                                                                                                                                                               |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="action_none"></a>없음/비활성화                                           | 조치 없음(안전 장치는 무시됩니다).                                                                                                                                                                                                                                                             |
-| <a id="action_warning"></a>경고                                                | 경고 메시지가 *QGroundControl*으로 전송됩니다.                                                                                                                                                                                                                                                |
-| <a id="action_hold"></a>[대기 모드](../flight_modes/hold.md)                  | 기체는 *대기 모드*로 들어갑니다. 멀티콥터는 제자리에서 호버링을 하고, 고정익은 원주 선회 비행을 하게 됩니다.                                                                                                                                                                                                                  |
-| <a id="action_return"></a>[복귀 모드](../flight_modes/return.md)                | 기체는 *복귀 모드*로 들어갑니다. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).                                                                                                                                                                    |
-| <a id="action_land"></a>[착륙 모드](../flight_modes/land.md)                  | 차량은 *착륙 모드*로 전환하여 즉시 착륙합니다.                                                                                                                                                                                                                                                      |
-| <a id="action_flight_termination"></a>[비행 종료](../advanced_config/flight_termination.md) | 모든 컨트롤러를 끄고 모든 PWM 출력을 안전 장치 값(예 : [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1))으로 설정합니다. 안전장치 출력은 낙하산, 랜딩 기어를 배치하거나 다른 작업을 수행하는 데 사용할 수 있습니다. 고정익은 안전하게 활공할 수 있습니다. |
-| <a id="action_lockdown"></a>봉쇄                                                | 모터를 정지합니다(시동을 껍니다). 이것은 [킬 스위치](#kill-switch)를 사용하는 것과 같습니다.                                                                                                                                                                                                                     |
+| 동작                                                                         | 설명                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="action_none"></a>없음/비활성화                                           | 조치 없음(안전 장치는 무시됩니다).                                                                                                                                                                                                                                                      |
+| <a id="action_warning"></a>경고                                                | 경고 메시지가 *QGroundControl*으로 전송됩니다.                                                                                                                                                                                                                                         |
+| <a id="action_hold"></a>[대기 모드](../flight_modes/hold.md)                  | 기체는 *대기 모드*로 들어갑니다. 멀티콥터는 제자리에서 호버링을 하고, 고정익은 원주 선회 비행을 합니다.                                                                                                                                                                                                              |
+| <a id="action_return"></a>[복귀 모드](../flight_modes/return.md)                | 기체는 *복귀 모드*로 들어갑니다. 복귀 경로는 [복귀 설정](#return-mode-settings)에서 자세히 설정할 수 있습니다.                                                                                                                                                                                               |
+| <a id="action_land"></a>[착륙 모드](../flight_modes/land.md)                  | 차량은 *착륙 모드*로 전환하여 즉시 착륙합니다.                                                                                                                                                                                                                                               |
+| <a id="action_flight_termination"></a>[비행 종료](../advanced_config/flight_termination.md) | 모든 컨트롤러를 끄고 모든 PWM 출력을 안전 장치 값(예 : [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1))으로 설정합니다. 안전장치 출력은 낙하산, 랜딩 기어를 배치하거나 다른 작업을 수행할 수 있습니다. 고정익은 안전하게 활공할 수 있습니다. |
+| <a id="action_lockdown"></a>봉쇄                                                | 모터를 정지합니다(시동을 껍니다). 이것은 [킬 스위치](#kill-switch)를 사용하는 것과  동일합니다.                                                                                                                                                                                                            |
 
 :::note
-모드를 전환하여 오류 방지 조치 (원인이 수정 된 경우)에서 복구 할 수 있습니다.
+모드를 전환하여 오류 방지 조치 (원인이 수정 된 경우)에서 복구할 수 있습니다.
 :::note
 모드를 전환하여 오류 방지 조치 (원인이 수정 된 경우)에서 복구 할 수 있습니다.
 :::
@@ -29,10 +29,10 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 :::note
 차량이 다른 안전 장치에 응답하는 동안 안전 장치가 발생하면 (예 : RC 손실로 인해 반환 모드에있는 동안 배터리 부족), 두 번째 트리거에 대해 지정된 안전 장치 동작이 무시됩니다.
 대신 작업은 별도의 시스템 수준과 기체별 코드에 의해 결정됩니다.
-이로 인하여 기체 비행은 수동 모드로 변경되어 사용자가 직접 복구할 수 있습니다.
+이로 인하여, 기체 비행은 수동 모드로 변경되어 사용자가 직접 복구할 수 있습니다.
 :::
 
-## QGroundControl 안전 설정
+## __QGroundControl 안전 설정
 
 The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* icon, **Vehicle Setup**, and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions *Return* and *Land*.
 
