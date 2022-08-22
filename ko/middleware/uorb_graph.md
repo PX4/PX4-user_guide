@@ -14,7 +14,7 @@
 그래프는 다음과 같은 특성을 갖고 있습니다.
 
 - 모듈은 모서리가 둥근 회색으로 표시되는 반면 주제는 색상이 지정된 직사각형 상자로 표시됩니다.
-- 연관있는 모듈과 토픽들은 선으로 연결됩니다. 점선은 모듈이 주제를 게시함을 나타내고 실선은 모듈이 주제를 구독함을 나타냅니다.
+- 연관있는 모듈과 토픽들은 선으로 연결됩니다. Dashed lines indicate that the module publishes the topic, solid lines indicate that the module subscribes to the topic, while dot-dashed lines indicate that the module both publishes and subscribes to the topic.
 - 몇개의 모듈과 토픽들은 제외합니다.
   - 많은 모듈에서 구독/게시한 주제: `parameter_update`, `mavlink_log` 및 `log_message`.
   - 기록되는 토픽들의 집합.
