@@ -46,7 +46,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
-## 采购
+## Where to Buy
 
 [在此下载](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf) *Pixhawk 4 Mini* 的 pinout。
 
