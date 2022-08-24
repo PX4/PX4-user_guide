@@ -12,7 +12,7 @@
 ![사전 조립된 Rotoye 스마트 배터리](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## 구매
+## Where to Buy
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon 키트, 맞춤형 스마트 배터리 및 액세서리
 
