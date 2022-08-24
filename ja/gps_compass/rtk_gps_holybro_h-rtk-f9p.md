@@ -8,7 +8,7 @@ Using RTK allows PX4 to get its position with centimeter-level accuracy, which i
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_all_label.jpg)
 
-## Purchase
+## Where to Buy
 
 * [H-RTK F9P (Holybro Website)](https://shop.holybro.com/h-rtk-f9p_p1226.html?)
 * [H-RTK Accessories (Holybro Website)](https://shop.holybro.com/c/h-rtk_0512)
