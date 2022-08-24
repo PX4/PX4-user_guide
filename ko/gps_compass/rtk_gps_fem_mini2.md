@@ -20,7 +20,7 @@
 - RTK
 - BASE
 
-## 구매처
+## Where to Buy
 
 판매 견적은 [Femtones](http://www.femtomes.com)에 문의하십시오.
 - **전자메일:** [sales@femtomes.com](mailto:sales@femtomes.com)
