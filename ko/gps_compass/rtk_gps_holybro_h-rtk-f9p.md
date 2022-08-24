@@ -8,7 +8,7 @@ RTK를 사용하여 PX4는 일반 GPS 보다 훨씬 더 정확한 센티미터 �
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_all_label.jpg)
 
-## 구매
+## Where to Buy
 
 * [H-RTK F9P (Holybro 웹사이트)](https://shop.holybro.com/h-rtk-f9p_p1226.html?)
 * [H-RTK Accessories (Holybro 웹사이트)](https://shop.holybro.com/c/h-rtk_0512)
