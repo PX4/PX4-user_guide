@@ -46,7 +46,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
   * 工作温度：-20 ~ 80°C （实测值）
 
 
-## 采购
+## Where to Buy
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
