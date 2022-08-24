@@ -50,7 +50,7 @@ Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되�
 * 외부 microUSB 포트
 * Molex PicoBlade 커넥터
 
-## 구매처
+## Where to Buy
 
 [shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
 
