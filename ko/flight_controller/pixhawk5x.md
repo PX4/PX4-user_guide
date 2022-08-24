@@ -103,7 +103,7 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
 * Other Characteristics:
   * Operating & storage temperature: -40 ~ 85°c
 
-## Purchase
+## Where to Buy
 
 Order from [Holybro](https://shop.holybro.com/pixhawk-5x_p1279.html).
 
