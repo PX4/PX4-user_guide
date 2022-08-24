@@ -20,7 +20,7 @@
 * USB_HS 지원, 로그 다운로드 속도 향상(PX4는 아직 지원되지 않음)
 * 더 많은 dshot 출력 지원
 * IMU 가열 지원, 센서 작동 개선
-* 전용 uavcan 배터리 포트
+* Dedicated CAN battery port
 * IMU 센서 3 세트
 * 자동차 등급 RM3100 나침반
 * 고성능 프로세서
@@ -47,7 +47,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are 
    * 2 개의 GPS 포트(GPS 및 UART4 포트)
    * i2c 버스 4 개(i2c 전용 포트 2 개)
    * CAN 버스 포트 2 개
-   * 2개의 전원 포트(전원 A는 일반적인 adc 인터페이스, 전원 C는 uavcan 배터리 인터페이스)
+   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
    * 2  ADC input
    * USB 포트 1 개
 * 전원시스템
@@ -66,7 +66,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are 
 PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전히 조정중이므로 현재 VOLT와 호환되지 않습니다.
 :::
 
-## 구매처
+## Where to Buy
 
 [CUAV 상점](https://store.cuav.net)
 
