@@ -12,7 +12,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
 
-## PX4 Vision 自主无人机开发套件（先行者版）
+## Where to Buy
 
 - [PX4 Vision Dev Kit (Discontinued)](https://item.taobao.com/item.htm?id=609418685176)
 - [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
