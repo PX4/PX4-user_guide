@@ -49,7 +49,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
 
-## Purchase
+## Where to Buy
 
 Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
