@@ -47,7 +47,7 @@
 
 추가 정보는 [*Pixhawk 4 미니* 기술 데이터 시트](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)를 참고하십시오.
 
-## 구매처
+## Where to Buy
 
 [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html)에서 주문 가능 합니다.
 
