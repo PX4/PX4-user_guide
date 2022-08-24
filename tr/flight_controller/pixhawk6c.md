@@ -86,7 +86,7 @@ The Pixhawk® 6C is perfect for developers at corporate research labs, startups,
 * Other Characteristics:
   * Operating & storage temperature: -40 ~ 85°c
 
-## Purchase
+## Where to Buy
 
 Order from [Holybro](https://shop.holybro.com/pixhawk-6c_p1333.html).
 
