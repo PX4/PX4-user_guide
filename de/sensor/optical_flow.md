@@ -39,7 +39,7 @@ Sensor data from the optical flow device is fused with other velocity data sourc
 
 ### ARK Flow
 
-[ARK Flow](../uavcan/ark_flow.md) is a [UAVCAN](../uavcan/README.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
+[ARK Flow](../dronecan/ark_flow.md) is a [DroneCAN](../dronecan/README.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
 
 ### PMW3901-Based Sensors
 
