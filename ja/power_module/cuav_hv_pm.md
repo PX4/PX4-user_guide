@@ -13,7 +13,7 @@ The CUAV<sup>&reg;</sup> *HV_PM* power module is a "high voltage" power module i
 - **Max (detection) current:** 60A
 - **Max output current (ESC/MOTOR PORT):** 60A
 
-## Purchase
+## Where to Buy
 
 [CUAV aliexpress store](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
