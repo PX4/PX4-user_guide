@@ -12,7 +12,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 이 가이드는 기체 비행 준비에 필요한 최소한의 추가 설정을 설명합니다(RC 시스템과 배터리 설치). 또한 처녀 비행과 컴퓨터 비전 코드 수정 방법을 설명합니다.
 
-## 구매처
+## Where to Buy
 
 - [PX4 Vision Dev Kit (Discontinued)](https://shop.holybro.com/px4-vision_p1225.html?)
 - [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
