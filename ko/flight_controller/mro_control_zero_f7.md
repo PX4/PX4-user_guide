@@ -53,7 +53,7 @@
 
 
 
-## 구매처
+## Where to Buy
 
 * [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
