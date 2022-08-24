@@ -47,7 +47,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
-## Purchase
+## Where to Buy
 
 Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
 
