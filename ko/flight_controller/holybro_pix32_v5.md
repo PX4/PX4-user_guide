@@ -64,7 +64,7 @@ Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시�
 
 추가적인 정보는 [Pix32 V5  기술 데이트시트](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)를 참고하십시오.
 
-## 구매처
+## Where to Buy
 
 [Holybro](https://shop.holybro.com/pix32-v5_p1218.html)에서 주문 가능 합니다.
 
