@@ -7,7 +7,7 @@ PX4는 *BlueROV2 Heavy Configuration*으로 알려진 8 추력 벡터 설정에 
 ![영웅](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
 
-## 구매처
+## Where to Buy
 
 [BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [BlueROV2 Heavy Configuration Retrofit Kit](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
 
