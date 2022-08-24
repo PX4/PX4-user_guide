@@ -108,7 +108,7 @@ The Pixhawk®​ 6X is perfect for developers at corporate research labs, startu
 * Other Characteristics:
   * Operating & storage temperature: -40 ~ 85°c
 
-## Purchase
+## Where to Buy
 
 Order from [Holybro](https://shop.holybro.com/pixhawk-6x_p1333.html).
 
