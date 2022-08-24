@@ -9,7 +9,7 @@
 @[유투브](https://youtu.be/E61P2f2WPNU)
 
 
-## 구매
+## Where to Buy
 
 차량 프레임 옵션:
 - **WL Tech XK X450** - [뱅굿](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [알리익스프레스](https://www.aliexpress.com/item/1005001946025611.html)
