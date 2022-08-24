@@ -38,9 +38,19 @@ Enable each type using its [corresponding parameter](../advanced_config/paramete
 - **TE MS5525:** [SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS)
 - **Eagle Tree airspeed sensor:** [SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD)
 
-### Set Primary Source
+You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY) is `1` (the default).
 
-If you have enabled multiple airspeed sensors enabled, you can select which one is the primary source for measurements using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY).
+### Multiple Airspeed Sensors
+
+If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
+- `-1`: Disabled (no airspeed information used). 
+- `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
+- `1`: First airspeed sensor started (default)
+- `2`: Second airspeed sensor started
+- `3`: Third airspeed sensor started
+
+The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails the checks.
+The selected sensor is then used to supply data to the estimator (EKF2).
 
 ### Sensor-specific Configuration
 
