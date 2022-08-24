@@ -42,7 +42,7 @@ NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니�
 추가적인 정보는 [기술 데이트시트](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66)를 참고하십시오. <!-- www.nxp.com/rddrone-fmuk66 -->
 
 
-## 구매처
+## Where to Buy
 
 **RDDRONE-FMUK66** 참조 설계 키트는 NXP에서 직접 구매하거나 NXP의 공인 전세계 [전자 유통 업체](https://www.nxp.com/support/sample-and-buy/distributor-network:DISTRIBUTORS) 네트워크에서 구매할 수 있습니다.
 
