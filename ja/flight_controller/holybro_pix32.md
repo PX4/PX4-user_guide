@@ -50,7 +50,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * External microUSB port
 * Molex PicoBlade connectors
 
-## Purchase
+## Where to Buy
 
 [shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
 
