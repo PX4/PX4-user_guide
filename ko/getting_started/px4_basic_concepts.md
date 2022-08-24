@@ -11,8 +11,8 @@
 드론은  [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
 
 :::tip
-항공용, 지상용, 해양 및 수중 드론이 있습니다. 
-드론의 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
+항공용, 지상용, 해양용 및 잠수용 드론이 있습니다. 
+드론을 가르키는 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 :::
 
 자동비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
@@ -58,7 +58,7 @@ PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는
 
 PX4는 모터 속도(예 : [ ESC](#escs-motors)를 통하여), 에일러론과 플랩 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 적재 장비 등을 *출력*을 통하여 제어합니다.
 
-출력 포트는 PWM 포트를 이거나, UAVCAN 노드에 연결할 수 있습니다(예: UAVCAN [모터 제어 장치](../peripherals/uavcan_escs.md)). 노드에 대한 동일한 출력 기체 매핑이 두 경우 모두에서 사용됩니다.
+The outputs may be PWM ports or be mapped to DroneCAN nodes (e.g. DroneCAN [motor controllers](../dronecan/escs.md)). 노드에 대한 동일한 출력 기체 매핑이 두 경우 모두에서 사용됩니다.
 
 아래 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 설명합니다.
 
