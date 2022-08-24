@@ -21,7 +21,6 @@
 
 예외적으로 GPS 별도 구매가 필요한 키트가 있을 수 있습니다 ([아래를 참고하십시오](#gps)).
 
-
 ## 배선 개요
 
 아래 그림은 주요 센서와 주변기기 연결 방법을 설명합니다. 다음 섹션에서 각 장치에 대해 자세히 설명합니다.
@@ -57,7 +56,6 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 
 ![Cube 마운트 - 장착 플레이트](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
-
 <a id="gps"></a>
 
 ## GPS + 나침반 + 안전 스위치 + LED
@@ -65,7 +63,7 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 권장되는 GPS 모듈은 *Here* 및 [Here+](../gps_compass/rtk_gps_hex_hereplus.md)이며, 둘 다 GPS 모듈, 나침반, 안전 스위치 및 [LED](../getting_started/led_meanings.md)를 통합합니다. 모듈 간의 차이점은 *Here+*가 [RTK](../advanced_features/rtk-gps.md)를 통하여 센티미터 수준의 위치 지정을 지원하는 점입니다. RTK 지원을 제외하면, 두 모듈의 연결 방법은 같습니다.
 
 :::warning
-[Here+](../gps_compass/rtk_gps_hex_hereplus.md)는 나침반과 [LED](../getting_started/led_meanings.md)를 통합한 [Here3](https://www.cubepilot.org/#/here/here3) [UAVCAN](../uavcan/README.md) RTK-GNSS로 대체되었습니다 (그러나, 안전 스위치는 없습니다). 연결 방법에 대한 문서는 [UAVCAN](../uavcan/README.md)을 참고하십시오.
+The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [DroneCAN](../dronecan/README.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [DroneCAN](../dronecan/README.md) for _Here3_ wiring and PX4 configuration information.
 :::
 
 GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치들에서 멀리 떨어진 프레임에 장착하는 것이 좋습니다. 나침반은 다른 전자 장치와 떨어지면 간섭이 줄어듦니다. 제공된 8핀 케이블을 사용하여 `GPS1` 포트에 연결합니다..
@@ -82,7 +80,6 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 구형 6핀 GPS 모듈을 사용하려면, GPS와 [안전 스위치](#safety-switch)를 모두 연결하는 데 사용할 수 있는 케이블이 키트에 함께 제공됩니다.
 :::
 
-
 ## 안전 스위치
 
 Cube와 함께 구성된 *전용* 안전 스위치는 (내장 안전 스위치를 포함한) 권장 [GPS](#gps)를 사용하지 않을 경우에만 사용합니다.
@@ -97,7 +94,6 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 ![Cube 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
-
 <a id="rc_control"></a>
 
 ## 라디오 콘트롤
@@ -108,13 +104,11 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 아래의 지침은 다양한 유형의 수신기를 연결하는 방법을 설명합니다.
 
-
 ### PPM-SUM / Futaba S.Bus 수신기
 
 제공된 3선식 서보 케이블을 사용하여 접지(-), 전원(+) 및 신호(S) 선을 RC 핀에 연결합니다.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
-
 
 ### Spektrum 위성 수신기
 
@@ -125,7 +119,6 @@ Spektrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 **SPKT/DSM** 포트에 �
 ### PWM 수신기
 
 Cube는 *각 채널에 개별 배선*이 있는 PPM 또는 PWM 수신기에 직접 연결할 수 없습니다. 그러므로, PWM 수신기는 hex.aero 또는 proficnc.com에서 판매하는 PPM 인코더 모듈을 *사용하여* **RCIN** 포트에 연결하여야 합니다.
-
 
 ## 전원
 
@@ -150,8 +143,6 @@ Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 �
 
 ![무선 텔레메트리](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
-
-
 ## SD 카드 (선택 사항)
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. Micro-SD 카드를 그림과 같이 Cube에 삽입합니다(아직 없는 경우).
@@ -169,7 +160,7 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 ![Cube - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 :::note
-이 참고사항은 모든 지원되는 기체 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오). 
+이 참고사항은 모든 지원되는 기체 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
 :::
 
 :::caution
@@ -184,7 +175,6 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 주변 장치를 `GPS2`로 표시된 포트에 연결하는 경우 하드웨어의 PX4 [직렬 포트 구성 매개 변수](../peripherals/serial_configuration.md)를 `TEL4` (GPS2 아님)에 할당합니다.
 :::
 
-
 ## 설정
 
 [QGroundContro](http://qgroundcontrol.com/)를 사용하여 설정합니다.
@@ -197,14 +187,13 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
-<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? --> 
+<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
 ### 부트로더 업데이트
 
 PX4 펌웨어를 플래시한 후 [Program PX4IO(../getting_started/tunes.md#program-px4io) 경고음이 발생하면, 부트로더를 업데이트해야 할 수 있습니다.
 
 안전 스위치를 사용하여 강제로 부트로더를 업데이트할 수 있습니다. 이 기능을 사용하려면 Cube의 전원을 차단하려면, 안전 스위치를 누른 상태에서 USB를 통해 Cube에 전원을 공급하십시오.
-
 
 ## 추가 정보
 
