@@ -13,7 +13,7 @@
 <img src="../../assets/hardware/gps/here2_gps_module.jpg" />
 
 
-## 구매처
+## Where to Buy
 
 * [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (오스트레일리아)
 * [기타 리셀러](http://www.proficnc.com/stores)
