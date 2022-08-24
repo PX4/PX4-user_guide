@@ -8,7 +8,7 @@ Using the C-RTK 9Ps gives PX4 centimeter-level positioning precision. This is id
 
 ![C-RTK 9Ps](../../assets/hardware/gps/cuav_9ps/c-rtk9s.jpg)
 
-## Purchase
+## Where to Buy
 
 [cuav Store](https://store.cuav.net/shop/c-rtk-9ps/)
 
