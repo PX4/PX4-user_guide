@@ -10,7 +10,7 @@
 
 ### ARK Flow
 
-[ARK Flow](../uavcan/ark_flow.md) 是一个开源的飞行时间 (ToF) 和光流模块, 能够测量从 8cm 到 30m 的距离. 它可以通过CAN1接口连接至飞控，允许通过CAN2接口添加传感器。 它运行 PX4 固件，支持U[AVCAN](../uavcan/README.md) [固件更新](../uavcan/node_firmware.md)，并被打包成一个小尺寸。
+[ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. 它可以通过CAN1接口连接至飞控，允许通过CAN2接口添加传感器。 It supports [DroneCAN](../dronecan/README.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
 
 
 ### Holybro ST VL53L1X 激光雷达
@@ -63,7 +63,7 @@ The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm
 
 ### Avionics Anonymous UAVCAN 激光高度计接口
 
-[Avionics Anonymous UAVCAN 激光高度计接口](../uavcan/avanon_laser_interface.md) 允许几种常见的测距仪 (例如 [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), 等) 连接到 [UAVCAN](../uavcan/README.md) 总线, 这是一个比 I2C 更强大的接口.
+The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [CAN](../can/README.md) bus via [DroneCAN](../dronecan/README.md), a more robust interface than I2C.
 
 <span id="configuration"></span>
 ## 配置/设置
