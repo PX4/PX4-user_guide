@@ -9,7 +9,7 @@
 ![Intel Realsense 추적 카메라 T265 - 각진 이미지](../../assets/peripherals/camera_vio/t265_intel_realsense_tracking_camera_photo_angle.jpg)
 
 
-## 구매 링크
+## Where to Buy
 
 [Intel® RealSense™ Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) (store.intelrealsense.com)
 
