@@ -20,7 +20,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Support USB_HS, download logs faster (PX4 not yet supported)
 * Support more dshot output
 * Support IMU heating, make the sensor work better
-* Dedicated uavcan battery port
+* Dedicated CAN battery port
 * 3 sets of IMU sensors
 * Car-grade RM3100 compass
 * High performance processor
@@ -47,7 +47,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.h
    * 2 GPS ports(GPS and UART4 ports)
    * 4 i2c buses(Two i2c dedicated ports)
    * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
+   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
    * 2  ADC input
    * 1 USB ports
 * Power System:
@@ -67,7 +67,7 @@ When it runs PX4 firmware, only 8 PWM outputs work.
 The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 :::
 
-## Purchase
+## Where to Buy
 
 - [CUAV Store](https://store.cuav.net)<\br>
 - [CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
