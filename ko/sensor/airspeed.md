@@ -24,7 +24,6 @@
 Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the CAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 :::
 
-
 ## 설정
 
 ### Enable Airspeed Sensors
@@ -36,7 +35,20 @@ Airspeed sensor drivers are not started automatically. Enable each type using it
 - **TE MS5525:** [SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS)
 - **Eagle Tree airspeed sensor:** [SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD)
 
-### Sensor-specific configuration
+You should also check [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY) is `1` (see next section - this is the default).
+
+### Multiple Airspeed Sensors
+
+If you have multiple airspeed sensors then you can select which sensor is _preferred_ as the primary source using [ASPD_PRIMARY](../advanced_config/parameter_reference.md#ASPD_PRIMARY), where `1`, `2` and `3` reflect the order in which the airspeed sensors were started:
+- `-1`: Disabled (no airspeed information used).
+- `0`: Synthetic airspeed estimation (groundspeed minus windspeed)
+- `1`: First airspeed sensor started (default)
+- `2`: Second airspeed sensor started
+- `3`: Third airspeed sensor started
+
+The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails the checks. The selected sensor is then used to supply data to the estimator (EKF2).
+
+### Sensor-specific Configuration
 
 Other than enabling the sensor, sensor-specific configuration is often not required. If it is needed, it should be covered in the appropriate sensor page (for example [TFSLOT > Configuration](./airspeed_tfslot.md\#configuration)).
 
