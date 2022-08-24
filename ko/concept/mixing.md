@@ -10,7 +10,7 @@ PX4 아키텍처는 기체 레이아웃이 코어 콘트롤러에서 특별한 �
 
 ## 파이프라인 콘트롤
 
-특정 콘트롤러는 정규화된 힘 또는 토크 요구(-1..+1에서 조정됨)를 믹서로 보내고, 이에 따라 개별 액추에이터를 설정합니다. 그런 다음 출력 드라이버(예: UART, UAVCAN 또는 PWM)를 액츄에이터 기본 단위로 확장합니다. PWM 값은 1300입니다.
+특정 콘트롤러는 정규화된 힘 또는 토크 요구(-1..+1에서 조정됨)를 믹서로 보내고, 이에 따라 개별 액추에이터를 설정합니다. The output driver (e.g. UART, CAN or PWM) then scales it to the actuators native units, e.g. a PWM value of 1300.
 
 ![믹서 콘트롤 파이프라인](../../assets/concepts/mermaid_mixer_control_pipeline.png)
 
@@ -115,12 +115,12 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 
 ## 출력 그룹 / 매핑
 
-출력 그룹은 믹서를 통해 매핑/확장 가능한 N(보통 8) 정규화된(-1..+1) 명령 포트가 있는 물리적 버스(예: FMU PWM 출력, IO PWM 출력, UAVCAN 등)입니다.
+An output group is one physical bus (e.g. FMU PWM outputs, IO PWM outputs, CAN etc.) that has N (usually 8) normalized (-1..+1) command ports that can be mapped and scaled through the mixer.
 
 믹서 파일은 출력이 적용되는 실제 *출력 그룹*(물리적 버스)을 명시적으로 정의하지 않습니다. 대신 믹서의 목적(예: MAIN 또는 AUX 출력 제어)이 믹서 [파일 이름](#mixer_file_names)에서 유추되고, 시스템 [시작 스크립트](../concept/system_startup.md)(특히 [rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface))의 적절한 물리적 버스에 매핑됩니다.
 
-:::note MAIN
-출력에 사용되는 물리적 버스가 항상 같지 않기 때문에 이 접근 방식이 필요합니다. 비행 컨트롤러에 IO 보드가 있는지([PX4 참조 비행 컨트롤러 설계 > 주/IO 기능 분석](../hardware/reference_design.md#main-io-function-breakdown) 참조) 또는 모터 제어를 위해 UAVCAN을 사용 여부에 따라 달라집니다. 시작 스크립트는 "장치"의 추상화를 사용하여 믹서 파일을 보드에 적합한 장치 드라이버로 로드합니다. 메인 믹서는 UAVCAN이 활성화된 경우 장치 `/dev/uavcan/esc`(uavcan)에 로드되고, 그렇지 않으면 `/dev/pwm_output0`(이 장치는 IO 드라이버에 매핑됩니다. I/O 보드가 있는 컨트롤러와 그렇지 않은 보드의 FMU 드라이버)에 로드됩니다. 보조 믹서 파일은 I/O 보드가 있는 Pixhawk 컨트롤러의 FMU 드라이버에 매핑되는 `/dev/pwm_output1` 장치에 로드됩니다.
+:::note
+This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#main-io-function-breakdown)) or uses CAN for motor control. 시작 스크립트는 "장치"의 추상화를 사용하여 믹서 파일을 보드에 적합한 장치 드라이버로 로드합니다. The main mixer is loaded into device `/dev/uavcan/esc` (uavcan) if DroneCAN is enabled, and otherwise `/dev/pwm_output0` (this device is mapped to the IO driver on controllers with an I/O board, and the FMU driver on boards that don't). 보조 믹서 파일은 I/O 보드가 있는 Pixhawk 컨트롤러의 FMU 드라이버에 매핑되는 `/dev/pwm_output1` 장치에 로드됩니다.
 :::
 
 Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (buses), one control group can send commands to multiple output groups.
