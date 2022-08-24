@@ -79,7 +79,7 @@
 자세한 내용은 [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)를 참조하십시오.
 
 <span id="purchase"></span>
-## 구매처
+## Where to Buy
 
 [Holybro](https://shop.holybro.com/durandalbeta_p1189.html)에서 주문 가능 합니다.
 
