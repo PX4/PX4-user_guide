@@ -63,7 +63,7 @@ Instructions for connecting the GPS (and compass, if present) are usually provid
 
 [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers typically have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device).
 
-The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
+The [ARK GPS](../dronecan/ark_gps.md), [ARK RTK GPS](../dronecan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [DroneCAN](../dronecan/README.md).
 
 
 :::warning
@@ -148,6 +148,6 @@ To disable an internal compass:
 - GPS/RTK-GPS
   - [RTK-GPS](../advanced/rtk_gps.md)
   - [GPS driver](../modules/modules_driver.md#gps)
-  - [UAVCAN Example](../uavcan/README.md)
+  - [DroneCAN Example](../dronecan/README.md)
 - Compass
   - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Compasses)
