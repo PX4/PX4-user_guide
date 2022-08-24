@@ -13,7 +13,7 @@ Main features include:
 <img src="../../assets/hardware/gps/here2_gps_module.jpg" />
 
 
-## Purchase
+## Where to Buy
 
 * [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (Australia)
 * [Other resellers](http://www.proficnc.com/stores)
