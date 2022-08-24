@@ -24,7 +24,7 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 * Separate diagnostics port, transparent remote diagnostics and online network control
 
 
-## Purchase:
+## Where to Buy
 
 * [Holybro Microhard P900 Telemetry Radio (100mW - 1W)](http://www.holybro.com/product/microhard-p900-radio/)
 
