@@ -21,7 +21,7 @@
 위의 센서들은 I2C 버스/포트를 통해 연결됩니다.
 
 :::note
-또한, [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/)를 UAVCAN 버스에 연결하여 고정밀 대기 속도뿐만 아니라 온보드 기압계와 OAT 프로브를 통해 실제 정압 및 대기 온도를 확인할 수 있습니다.
+Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the CAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 :::
 
 
