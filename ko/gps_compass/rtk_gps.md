@@ -14,23 +14,23 @@ PX4는 [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](htt
 
 PX4에서 작동하는 RTK 호환 장치(단종 된 장치 제외)는 아래와 같습니다. 표는 편요각를 출력하는 장치를 나타내며 두 개의 장치를 사용하여 편요각를 제공할 수 있습니다. It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-| GPS                                                                                        | 편요각 출력  | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) |   PPK   |
-|:------------------------------------------------------------------------------------------ |:-------:|:------------------------------------------------------------:|:--------------------------:|:-------:|
-| [ARK RTK GPS](../uavcan/ark_rtk_gps.md)                                                    |         |                           &check;                            |          &check;           |         |
-| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                     |         |                                                              |                            |         |
-| [CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md)                                      |         |                                                              |                            | &check; |
-| [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md)                             |         |                           &check;                            |                            |         |
-| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                   |         |                                                              |                            |         |
-| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                             |         |                                                              |                            |         |
-| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                 |         |                                                              |                            |         |
-| [CubePilot Here3](https://www.cubepilot.org/#/here/here3)                                  |         |                                                              |          &check;           |         |
-| [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)           |         |                           &check;                            |                            |         |
-| [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                |         |                                                              |                            |         |
-| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                      |         |                                                              |                            |         |
-| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)               |         |                           &check;                            |                            |         |
-| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) |         |                           &check;                            |                            |         |
-| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)        |         |                           &check;                            |                            |         |
-| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                 | &check; |                                                              |                            |         |
+| GPS                                                                                        | 편요각 출력  | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [DroneCAN](../dronecan/README.md) |   PPK   |
+|:------------------------------------------------------------------------------------------ |:-------:|:------------------------------------------------------------:|:---------------------------------:|:-------:|
+| [ARK RTK GPS](../dronecan/ark_rtk_gps.md)                                                  |         |                           &check;                            |              &check;              |         |
+| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                     |         |                                                              |                                   |         |
+| [CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md)                                      |         |                                                              |                                   | &check; |
+| [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md)                             |         |                           &check;                            |                                   |         |
+| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                   |         |                                                              |                                   |         |
+| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                             |         |                                                              |                                   |         |
+| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                 |         |                                                              |                                   |         |
+| [CubePilot Here3](https://www.cubepilot.org/#/here/here3)                                  |         |                                                              |              &check;              |         |
+| [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)           |         |                           &check;                            |                                   |         |
+| [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                |         |                                                              |                                   |         |
+| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                      |         |                                                              |                                   |         |
+| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)               |         |                           &check;                            |                                   |         |
+| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) |         |                           &check;                            |                                   |         |
+| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)        |         |                           &check;                            |                                   |         |
+| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                 | &check; |                                                              |                                   |         |
 
 :::note
 일부 RTK 모듈은 특정 기능(베이스 또는 로버)으로만 사용할 수 있는 반면, 다른 모듈은 서로 교환하여 사용할 수 있습니다.
@@ -55,9 +55,9 @@ RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.c
 
 필요한 연결 방법과 케이블/커넥터는 선택한 RTK 모듈과 [비행 콘트롤러](../flight_controller/README.md)에 따라 달라집니다.
 
-대부분은 다른 GPS 모듈과 같은 방식으로 비행 콘트롤러의 GPS 포트를 통해 연결됩니다. 일부는 [UAVCAN](../uavcan/README.md) 버스에 연결됩니다.
+대부분은 다른 GPS 모듈과 같은 방식으로 비행 콘트롤러의 GPS 포트를 통해 연결됩니다. Some are connected to the [CAN](../can/README.md) bus (i.e. using [DroneCAN](../dronecan/README.md)).
 
-배선과 설정 방법에 대한 자세한 내용은 [선택한 장치에 대한 문서](#supported-rtk-devices)와 [UAVCAN](../uavcan/README.md)을 참고하십시오.
+See [documentation for the selected device](#supported-rtk-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
 
 #### 기본 RTK 모듈 (접지)
 
