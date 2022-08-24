@@ -1,7 +1,11 @@
 # VESC ESCs (DroneCAN)
 
-The VESC project is a fully open source hardware and software design for advanced FOC motor controllers.
+The [VESC project](https://vesc-project.com/) is a fully open source hardware and software design for advanced FOC motor controllers.
 While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/README.md).
+
+## Where to Buy
+
+[Vesc Project > Hardware](https://vesc-project.com/Hardware)
 
 ## Hardware Setup
 ### Wiring
@@ -10,7 +14,8 @@ ESCs are connected to the CAN bus using the VESC CAN connector. Note that this i
 
 ## Firmware Setup
 
-The preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool). In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration.
+The preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool).
+In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration.
 The recommended app setup is as follows:
 
 Parameter | Option
@@ -32,7 +37,7 @@ Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../adva
 
 ### Enable DroneCAN
 
-Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to '3' to enable both dynamic node ID allocation and DroneCAN ESC output.
+Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a battery or power supply (not just the flight controller over USB) and enable the DroneCAN driver by setting the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `3` to enable both dynamic node ID allocation and DroneCAN ESC output.
 
 ### PX4 Configuration
 
@@ -44,7 +49,7 @@ Some systems will not benefit from this behavior, e.g. glider drones).
 
 ## Troubleshooting
 
-See [DroneCAN Troubleshooting](README.md#troubleshooting)
+See [DroneCAN Troubleshooting](README.md#troubleshooting).
 
 ## Further Information
 * [VESC Project ESCs](https://vesc-project.com/)
