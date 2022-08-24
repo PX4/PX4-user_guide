@@ -53,7 +53,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 
 
-## Purchase
+## Where to Buy
 
 * [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
