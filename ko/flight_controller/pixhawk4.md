@@ -49,7 +49,7 @@
 추가적인 정보는 [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)을 참고하십시오.
 
 
-## 구매처
+## Where to Buy
 
 [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html)에서 주문 가능합니다.
 
