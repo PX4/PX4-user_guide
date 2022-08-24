@@ -46,7 +46,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
   * 작동 온도: -20 ~ 80°c (측정치)
 
 
-## 구매처
+## Where to Buy
 
 [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz)에서 주문하십시오.
 
