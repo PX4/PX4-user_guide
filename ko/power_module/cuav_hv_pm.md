@@ -13,7 +13,7 @@ CUAV<sup>&reg;</sup> *HV_PM* 전원 모듈은 CUAV에서 개발한 "고전압" �
 - **최대 (감지) 전류:** 60A
 - **최대 출력 전류 (ESC/MOTOR PORT):** 60A
 
-## 구매
+## Where to Buy
 
 [CUAV aliexpress 상점](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
