@@ -12,7 +12,7 @@ At time of writing you can only use Batmon by [building a custom branch of PX4](
 ![Pre-assembled Rotoye smart battery](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## Purchase
+## Where to Buy
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon kits, custom smart-batteries, and accessories
 
