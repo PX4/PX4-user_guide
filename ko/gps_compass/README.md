@@ -63,7 +63,7 @@ GPS(및 나침반 있는 경우) 연결 방법은 일반적으로 제조업체�
 
 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에는 GPS 연결용으로 표시된 포트가 있으며, 나침반은 I2C 또는 SPI 포트/버스(장치에 따라 다름)에 연결됩니다.
 
-The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
+The [ARK GPS](../dronecan/ark_gps.md), [ARK RTK GPS](../dronecan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [DroneCAN](../dronecan/README.md).
 
 
 :::warning
@@ -147,6 +147,6 @@ All external compasses are given the same priority by default, which is higher t
 - GPS/RTK-GPS
   - [RTK-GPS](../advanced/rtk_gps.md)
   - [GPS 드라이버](../modules/modules_driver.md#gps)
-  - [UAVCAN 예제](../uavcan/README.md)
+  - [DroneCAN Example](../dronecan/README.md)
 - 나침반
   - [드라이버 소스 코드](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (나침반)
