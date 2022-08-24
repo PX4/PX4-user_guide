@@ -60,7 +60,7 @@ Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4
 - **중량:** 22.4g
 - **크기:** 37x37x12mm
 
-## 구매처
+## Where to Buy
 
 [shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
 
