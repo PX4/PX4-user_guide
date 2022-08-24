@@ -1,1 +1,1 @@
-<Redirect to="../uavcan/cuav_can_pmu" />
+<Redirect to="../dronecan/cuav_can_pmu" />
