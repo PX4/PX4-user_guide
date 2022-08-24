@@ -26,7 +26,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 - PM02D board with XT60 connectors
 - 6pin 2.00mm pitch CLIK-Mate cable to power flight controller
 
-## Purchase
+## Where to Buy
 
 [Order from Holybro Store](https://shop.holybro.com/pm02d-power-module_p1285.html)
 
