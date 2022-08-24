@@ -60,7 +60,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
-## Purchase
+## Where to Buy
 
 [shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
 
