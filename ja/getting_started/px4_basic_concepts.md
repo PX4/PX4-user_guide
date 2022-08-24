@@ -58,7 +58,7 @@ For more information see:
 
 PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#escs-motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
-The outputs may be PWM ports or be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The same airframe mapping of outputs to nodes is used in both cases case.
+The outputs may be PWM ports or be mapped to DroneCAN nodes (e.g. DroneCAN [motor controllers](../dronecan/escs.md)). The same airframe mapping of outputs to nodes is used in both cases case.
 
 The images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
 
