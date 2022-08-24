@@ -4,7 +4,7 @@ The [Drotek XL RTK GPS receiver](https://store-drotek.com/881-DP0503.html) is a 
 
 <img src="../../assets/hardware/gps/rtk_base_drotek_xl_rtk_gps.jpg" width="300px" /> <img src="../../assets/hardware/gps/rtk_rover_drotek_xl_rtk_gps.jpg" width="300px" />
 
-## Purchase
+## Where to Buy
 
 [Drotek XL RTK](https://store-drotek.com/881-DP0503.html) (drotek.com)
 
