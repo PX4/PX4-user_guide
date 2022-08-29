@@ -21,7 +21,7 @@ The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) al
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU.
 Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time.
-The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
+The delay compensation for each sensor is controlled by the [EKF2_\*\_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
 
 A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data.
 The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
@@ -141,11 +141,14 @@ The option is available to operate without a magnetometer, either by replacing i
 
 ### Height
 
-A source of height data - either GPS, barometric pressure, range finder or external vision at a minimum rate of 5Hz is required.
+A source of height data - GPS, barometric pressure, range finder, external vision or a combination of those at a minimum rate of 5Hz is required.
 
-:::note
-The primary source of height data is controlled by the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
-:::
+Each height source can be en-/disabled using its dedicated control parameter:
+- GNSS [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
+- Barometer [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
+- Range finder [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
+
+And the reference source of height data (i.e.: in the long term, the height estimate follows the reference) is controlled by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
 
 If these measurements are not present, the EKF will not start.
 When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment.
@@ -190,17 +193,16 @@ No tuning is required.
 
 GPS measurements will be used for position and velocity if the following conditions are met:
 
-* GPS use is enabled via setting of the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
+* GPS use is enabled via setting of the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
 * GPS quality checks have passed.
   These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
-* GPS height can be used directly by the EKF via setting of the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
 
 <span id="yaw_measurements"></span>
 #### Yaw Measurements
 
 Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data.
 This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination.
-Use of GPS yaw measurements is enabled by setting bit position 7 to 1 (adding 128) in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
+Use of GPS yaw measurements is enabled by setting bit position 3 to 1 (adding 8) in the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
 
 <span id="yaw_from_gps_velocity"></span>
 #### Yaw From GPS Velocity
@@ -241,7 +243,7 @@ The following items should be checked during setup:
 * Check the `s_variance_m_s`, `eph` and `epv` data from each receiver and decide which accuracy metrics can be used.
   If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 3 is recommended.
   Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 2.
-  Bit position 2 would only be set if the GPS had been selected as a primary height source with the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter and both receivers output sensible `epv` data.
+  Bit position 2 would only be set if the GPS had been selected as the reference height source with the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter and both receivers output sensible `epv` data.
 * The output from the blended receiver data is logged as `ekf_gps_position`, and can be checked whilst connect via the nsh terminal using the command `listener ekf_gps_position`.
 * Where receivers output at different rates, the blended output will be at the rate of slower receiver.
   Where possible receivers should be configured to output at the same rate.
@@ -251,7 +253,7 @@ The following items should be checked during setup:
 
 For the ECL to accept GNSS data for navigation, certain minimum requirements need to be satisfied over a period of time, defined by [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (10 seconds by default).
 
-Minima are defined in the [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be en-/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
+Minima are defined in the [EKF2_REQ_\*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be en-/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
 
 The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL.
 In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g.  u-blox M8 series) - i.e. values that are considered good/acceptable.
@@ -277,7 +279,7 @@ The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period
 
 Range finder distance to ground is used by a single state filter to estimate the vertical position of the terrain relative to the height datum.
 
-If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter to 2.
+If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter to "Range sensor" (2) and forcing the constant use of its data by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) to "Enabled" (2).
 
 #### Range Finder Obstruction Detection
 
@@ -335,7 +337,7 @@ A good tuning is obtained as follows:
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
 * External vision system horizontal position data will be used if bit position 3 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* External vision system vertical position data will be used if the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter is set to 3.
+* External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3.
 * External vision system velocity data will be used if bit position 8 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * External vision system orientation data will be used for yaw estimation if bit position 4 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * External vision reference frame offset will be estimated and used to rotate the external vision system data if bit position 6 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
@@ -345,14 +347,16 @@ Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MAS
 
 EKF_AID_MASK value | Set bits | Description
 --- | --- | ---
-321 | GPS + EV_VEL + ROTATE_EV | Heading w.r.t. North (**Recommended**)
-73 | GPS + EV_POS + ROTATE_EV | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead)
+320 | EV_VEL + ROTATE_EV | Heading w.r.t. North
 24 | EV_POS + EV_YAW | Heading w.r.t. external vision frame
 72 | EV_POS + ROTATE_EV | Heading w.r.t. North
 272 | EV_VEL + EV_YAW | Heading w.r.t. external vision frame
-320 | EV_VEL + ROTATE_EV | Heading w.r.t. North
 280 | EV_POS + EV_VEL + EV_YAW | Heading w.r.t. external vision frame
 328 | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North
+
+:::tip
+When using external vision in combination with [GNSS fusion](#gps), it is recommended to use `EV_VEL` and not `EV_POS` in order to prevent the two position-fixing sources from fignting against each other.
+:::
 
 The EKF considers uncertainty in the visual pose estimate.
 This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE).
