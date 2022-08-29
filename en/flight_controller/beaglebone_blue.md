@@ -131,7 +131,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
       1. Add it to the PATH in ~/.profile as shown below
   
          ```sh
-         export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/ gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf/bin
+         export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf/bin
          ```
          :::note
          Logout and Login to apply the change, or execute the same line on your current shell.
