@@ -145,7 +145,7 @@ The PX4 Autopilot firmware initialization code may in future automatically start
 For example, in order to run the *Client* daemon with SITL connecting to the Agent via UDP:
 
 ```sh
-micrortps_client start -t UDP
+micrortps_agent start -t UDP
 ```
 
 ## Agent in an Offboard Fast DDS interface (ROS-independent)
