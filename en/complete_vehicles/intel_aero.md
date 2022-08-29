@@ -237,4 +237,6 @@ In addition, the following parameter values should be set in the flight controll
 Parameter | Value
 --- | ---
 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2
-[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2
+[EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) | 2
+[EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) | 2
+[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | 0
