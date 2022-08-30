@@ -143,16 +143,25 @@ The option is available to operate without a magnetometer, either by replacing i
 
 A source of height data - GPS, barometric pressure, range finder, external vision or a combination of those at a minimum rate of 5Hz is required.
 
+If none of the selected measurements are present, the EKF will not start.
+When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment.
+When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation enabling use of additional sensor data:
+
 Each height source can be en-/disabled using its dedicated control parameter:
-- GNSS [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
-- Barometer [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
-- Range finder [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
+- GNSS: [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
+- Barometer: [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
+- Range finder: [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
+- External vision: Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
 
 And the reference source of height data (i.e.: in the long term, the height estimate follows the reference) is controlled by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
 
-If these measurements are not present, the EKF will not start.
-When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment.
-When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation enabling use of additional sensor data:
+#### Typical configurations:
+|                   | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)       | [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) | [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)      | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) |
+|---------------------------|---------------------|----------------|--------------------|--------------|
+| Outdoor (default)         | 7 (Lon/lat/alt/vel) | 1 (enabled)    | 1 (conditional)    | 1 (GNSS)     |
+| Indoor (non-flat terrain) | 0 (disabled)        | 1 (enabled)    | 1 (conditional)    | 2 (range)    |
+| Indoor (flat terrain)     | 0 (disabled)        | 1 (enabled)    | 2 (always enabled) | 2 (range)    |
+| External vision           | As required         | As required    | As required        | 3 (vision)   |
 
 #### Correction for Static Pressure Position Error
 
