@@ -25,7 +25,7 @@ MR210은 MindRacer를 비행 컨트롤러로 사용합니다.  MR210은 모듈�
 
 ### 구매처
 
-MindRacer 210은 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에서 구입할 수 있습니다. Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
+MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78). Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
 ### 지원
 
