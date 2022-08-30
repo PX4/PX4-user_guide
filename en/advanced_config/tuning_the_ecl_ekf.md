@@ -296,7 +296,65 @@ The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period
 
 Range finder distance to ground is used by a single state filter to estimate the vertical position of the terrain relative to the height datum.
 
-If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter to "Range sensor" (2) and forcing the constant use of its data by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) to "Enabled" (2).
+The fusion modes of operation are controlled by [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
+1. [Conditional range aiding](#conditional_range_aid)
+1. [Range height fusion](#range_fusion)
+
+For more details about the configuration of height sources, [click here](#height).
+
+<span id="conditional_range_aid"></span>
+#### Conditional range aiding
+
+Conditional range finder fusion (a.k.a. *Conditional range aid*) activates the range finder fusion for height estimation during low speed/low altitude operation (in addition to the other active height sources).
+If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement over time to match the readings of the range finder and when the conditions are not met to start range aiding, a secondary reference is automatically selected.
+
+:::note
+Switching between height references causes the absolute altitude estimate to drift over time. If this is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
+:::
+
+It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
+
+Range aid may also be used to improve altitude hold when the vehicle is stationary.
+
+:::tip
+[Terrain Hold](../flying/terrain_following_holding.md#terrain_hold) is recommended over *Range Aid* for terrain holding.
+This is because terrain hold uses the normal ECL/EKF estimator for determining height, and this is generally more reliable than a distance sensor in most conditions.
+:::
+
+*Conditional range aid* is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) = "Enabled (conditional mode)" (1).
+
+It is further configured using the `EKF2_RNG_A_` parameters:
+- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizontal speed, above which range aid is disabled.
+- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
+
+<span id="range_fusion"></span>
+#### Range height fusion
+
+PX4 allows you to continuously fuse the range finder as a source of height (in any flight mode/vehicle type).
+This may be useful for applications when the vehicle is *guaranteed* to only fly over a near-flat surface (e.g. indoors).
+
+When using a distance sensor as a height source, fliers should be aware:
+- Flying over obstacles can lead to the estimator rejecting rangefinder data (due to internal data consistency checks), which can result in poor altitude holding while the estimator 
+  is relying purely on accelerometer estimates.
+
+  :::note
+  This scenario might occur when a vehicle ascends a slope at a near-constant height above ground, because the rangefinder altitude does not change while that estimated from the accelerometer does.<br>
+  The EKF performs innovation consistency checks that take into account the error between measurement and current state as well as the estimated variance of the state and the variance of the measurement itself.
+  If the checks fail the rangefinder data will be rejected, and the altitude will be estimated from the accelerometer and the other selected height sources (GNSS, baro, vision), if enabled and available
+  After 5 seconds of inconsistent data if the distance sensor is the active source oh height data, the estimator resets the height state to match the current distance sensor data. If one or more other sources of height are active, the range finder is declared faulty and the estimator continues to estimate its height using the other sensors.
+  The measurements might also become consistent again, for example, if the vehicle descends, or if the estimated height drifts to match the measured rangefinder height.
+  :::
+- The local NED origin will move up and down with ground level.
+- Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data.
+  This again leads to poor altitude hold.
+
+The feature is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) to  "Enabled" (2).
+To make the range finder the height reference when active, set: [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) to "Range sensor".
+
+:::tip
+To enable the range finder fusion only when the drone is stationary in order to benefit from a better altitude estimate during takeoff and landing but not fuse the range finder the rest of the time, use the [conditional mode](#conditional_range_aid) (1) of [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
+:::
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
 
 #### Range Finder Obstruction Detection
 
