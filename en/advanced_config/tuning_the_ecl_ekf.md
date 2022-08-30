@@ -147,13 +147,15 @@ If none of the selected measurements are present, the EKF will not start.
 When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment.
 When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation enabling use of additional sensor data:
 
-Each height source can be en-/disabled using its dedicated control parameter:
+Each height source can be enabled/disabled using its dedicated control parameter:
+
 - [GNSS/GPS](#gnss-gps): [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
 - [Barometer](#barometer): [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
 - [Range finder](#range-finder): [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
 - [External vision](#external-vision-system): Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
 
-And the reference source of height data (i.e.: in the long term, the height estimate follows the reference) is controlled by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
+Over the long term the height estimate follows the "reference source" of height data. 
+This reference is defined by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
 
 #### Typical configurations:
 |                   | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)       | [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) | [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)      | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) |
@@ -306,10 +308,12 @@ For more details about the configuration of height sources, [click here](#height
 #### Conditional range aiding
 
 Conditional range finder fusion (a.k.a. *Conditional range aid*) activates the range finder fusion for height estimation during low speed/low altitude operation (in addition to the other active height sources).
-If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement over time to match the readings of the range finder and when the conditions are not met to start range aiding, a secondary reference is automatically selected.
+If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement to match the readings of the range finder over time. 
+When the conditions are not met to start range aiding, a secondary reference is automatically selected.
 
 :::note
-Switching between height references causes the absolute altitude estimate to drift over time. If this is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
+Switching between height references causes the absolute altitude estimate to drift over time.
+If this is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
 :::
 
 It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
