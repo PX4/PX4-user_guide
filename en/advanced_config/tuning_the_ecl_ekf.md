@@ -148,20 +148,26 @@ When these measurements have been detected, the EKF will initialise the states a
 When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation enabling use of additional sensor data:
 
 Each height source can be en-/disabled using its dedicated control parameter:
-- GNSS: [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
-- Barometer: [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
-- Range finder: [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
-- External vision: Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
+- [GNSS/GPS](#gnss-gps): [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
+- [Barometer](#barometer): [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
+- [Range finder](#range-finder): [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
+- [External vision](#external-vision-system): Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
 
 And the reference source of height data (i.e.: in the long term, the height estimate follows the reference) is controlled by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
 
 #### Typical configurations:
 |                   | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)       | [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) | [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)      | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) |
 |---------------------------|---------------------|----------------|--------------------|--------------|
-| Outdoor (default)         | 7 (Lon/lat/alt/vel) | 1 (enabled)    | 1 (conditional)    | 1 (GNSS)     |
-| Indoor (non-flat terrain) | 0 (disabled)        | 1 (enabled)    | 1 (conditional)    | 2 (range)    |
-| Indoor (flat terrain)     | 0 (disabled)        | 1 (enabled)    | 2 (always enabled) | 2 (range)    |
+| Outdoor (default)         | 7 (Lon/lat/alt/vel) | 1 (enabled)    | 1 ([conditional](#conditional_range_aid))    | 1 (GNSS)     |
+| Indoor (non-flat terrain) | 0 (disabled)        | 1 (enabled)    | 1 ([conditional](#conditional_range_aid))    | 2 (range)    |
+| Indoor (flat terrain)     | 0 (disabled)        | 1 (enabled)    | 2 ([always enabled](#range_fusion)) | 2 (range)    |
 | External vision           | As required         | As required    | As required        | 3 (vision)   |
+
+### Barometer
+
+En-/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL).
+
+For more details about the configuration of height sources, [click here](#height).
 
 #### Correction for Static Pressure Position Error
 
@@ -196,7 +202,7 @@ A barometer at a constant altitude is subject to drift in its measurements due t
 To compensate for this measurement error, EKF2 estimates the bias using GNSS height (if available) a "non drifting" reference.
 No tuning is required.
 
-### GPS
+### GNSS/GPS
 
 #### Position and Velocity Measurements
 
@@ -205,6 +211,8 @@ GPS measurements will be used for position and velocity if the following conditi
 * GPS use is enabled via setting of the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
 * GPS quality checks have passed.
   These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
+
+For more details about the configuration of height sources, [click here](#height).
 
 <span id="yaw_measurements"></span>
 #### Yaw Measurements
@@ -346,7 +354,7 @@ A good tuning is obtained as follows:
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
 * External vision system horizontal position data will be used if bit position 3 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3.
+* External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3. For more details about the configuration of height sources, [click here](#height).
 * External vision system velocity data will be used if bit position 8 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * External vision system orientation data will be used for yaw estimation if bit position 4 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * External vision reference frame offset will be estimated and used to rotate the external vision system data if bit position 6 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
