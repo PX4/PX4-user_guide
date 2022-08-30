@@ -356,7 +356,7 @@ The feature is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_r
 To make the range finder the height reference when active, set: [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) to "Range sensor".
 
 :::tip
-To enable the range finder fusion only when the drone is stationary in order to benefit from a better altitude estimate during takeoff and landing but not fuse the range finder the rest of the time, use the [conditional mode](#conditional_range_aid) (1) of [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
+To enable the range finder fusion only when the drone is stationary (in order to benefit from a better altitude estimate during takeoff and landing) but not fuse the range finder the rest of the time, use the [conditional mode](#conditional_range_aid) (1) of [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
 :::
 - [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
 
