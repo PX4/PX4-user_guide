@@ -26,7 +26,7 @@
 
 ### 구매처
 
-NanoMind 110은 [AirMind<sup>&reg;</sup> Store](http://drupal.xitronet.com/?q=catalog)에서 구입할 수 있습니다. Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
+NanoMind 110 is available at [AirMind<sup>&reg;</sup> Store](https://airmind.mindpx.net/node/92). Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
 ### 지원
 
