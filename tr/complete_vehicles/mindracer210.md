@@ -25,7 +25,7 @@ The user guide is [here](http://mindpx.net/assets/accessories/MR210usermanual_pd
 
 ### Where to buy
 
-MindRacer 210 is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ### Support
 
