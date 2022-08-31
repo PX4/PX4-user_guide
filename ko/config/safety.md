@@ -127,60 +127,60 @@ Additional (and underlying) parameter settings are shown below.
 | <span id="CBRK_FLIGHTTERM"></span>비행 종료용 회로 차단기 | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 비행 종료 작업을 활성화/비활성화합니다 (기본적으로 비활성화 됨).            |
 
 
-### __귀환 설정
+### 복귀 설정
 
-*귀환*는 [귀환 모드](../flight_modes/return.md)를 사용하여 차량을 홈 위치로 돌아오게하는 [안전장치](#failsafe-actions)입니다. 이 섹션에서는 귀환 후 착륙/배회 동작을 설정법을 설명합니다.
+*귀환*는 [귀환 모드](../flight_modes/return.md)를 사용하여 차량을 홈 위치로 돌아오게하는 [안전장치](#failsafe-actions)입니다. 이 섹션에서는 귀환 후 착륙/배회 동작을 설정 방법에 대하여 설명합니다.
 
 ![안전 - 귀한 설정 (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
 
-설정과 기본 매개 변수는 다음과 같습니다:
+설정 기본 매개변수는 다음과 같습니다:
 
 | 설정                   | 매개변수                                                                           | 설명                                        |
 | -------------------- | ------------------------------------------------------------------------------ | ----------------------------------------- |
 | 고도 상승                | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 기체은 귀환을 위해이 최소 높이 (아래에있는 경우)까지 상승합니다.     |
 | 기본 동작                |                                                                                | *귀환*의 선택 목록 : 착륙, 배회, 미착륙 또는 배회, 일정시간후 착륙 |
-| <nobr>정지비행 고도</nobr> | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 귀환시 배회를 선택하면 차량이 유지하는 고도를 지정할 수 있습니다.     |
+| <nobr>정지비행 고도</nobr> | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 귀환시 배회를 선택하면 기체의 유지 고도를 설정할 수 있습니다.       |
 | <nobr>정지비행 시간</nobr> | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 배회후 착륙이 선택하면 기체의 정지 비행 시간을 설정합니다.         |
 
 :::note
-The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). 음수이면 즉시 착륙합니다. 더 자세한 정보는 [귀환 모드](../flight_modes/return.md)를 참고하십시오.
+The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). 음수이면 기체는 즉시 착륙합니다. 더 자세한 정보는 [복귀 모드](../flight_modes/return.md)를 참고하십시오.
 :::
 
-### 착륙모드 설정
+### 착륙 모드 설정
 
-*현재 위치의 착륙*는 [착륙 모드](../flight_modes/land.md)를 실행하는 일반적인 [안전 조치](#failsafe-actions)입니다. 이 섹션에서는 착륙 후 차량이 자동으로 시동을 꺼는 방법과 시점을 설정법을 설명합니다. Multicopters에서만 하강 속도를 추가로 설정 가능합니다.
+*현재 위치의 착륙*는 [착륙 모드](../flight_modes/land.md)를 실행하는 일반적인 [안전 조치](#failsafe-actions)입니다. 이 섹션에서는 착륙후 기체의 자동 시동 방법과 시간 설정 방법을 설명합니다. 멀티콥터에서만 하강 속도를 추가로 설정할 수 있습니다.
 
 ![안전 - 착륙 모드 설정(QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
 
-설정과 기본 매개 변수는 다음과 같습니다:
+설정 기본 매개변수는 다음과 같습니다:
 
-| 설정                     | 매개변수                                                                           | 설명                                                       |
-| ---------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------- |
-| <nobr>착륙후 시동 꺼기</nobr> | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 착륙 후 시동을 끄려면 확인란을 선택합니다. 값은 0 이상으로 1초 미만의 값도 설정할 수 있습니다. |
-| 착륙 하강률                 | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 착륙 하강율(멀티콥더에만 적용됨).                                      |
+| 설정                     | 매개변수                                                                           | 설명                                                      |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| <nobr>착륙후 시동 꺼기</nobr> | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 착륙후 시동을 끄려면 확인란을 선택합니다. 값은 0 이상으로 1초 미만의 값도 설정할 수 있습니다. |
+| 착륙 하강률                 | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 착륙 하강율(멀티콥더에만 적용됨).                                     |
 
 
-## 기타 안전장치 설정
+## 기타 안전 장치 설정
 
 이 섹션에는 *QGroundControl*의 [안전 설정](#qgroundcontrol-safety-setup) 페이지에서 설정할 수 없는 안전장치 설정에 관하여 설명합니다.
 
-### 위치(GPS) 손실 안전장치
+### 위치(GPS) 손실 안전 장치
 
 *위치 손실 안전장치*는 위치 추정이 필요한 모드에서 PX4 위치 추정 품질이 일정 수준(GPS 손실로 인해 발생할 수 있음) 이하가 되면 작동합니다.
 
-실패 동작은 RC 제어가 사용 가능한지 여부 (및 고도 정보)에 따라 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)에 의해 제어됩니다.
+실패 동작은 RC 제어 여부 (및 고도 정보)에 따라 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)에 의해 결정됩니다.
 * `0` : 원격 제어 가능. 고도 추정치를 사용할 수 있으면 *고도 모드*로 전환하고, 그렇지 않으면 *안정 모드*로 전환됩니다.
 * `1` : 원격 제어 *불가*. 고도값을 사용할 수있는 경우 *착륙 모드*로 전환하고, 그렇지 않으면 비행 종료를 입력합니다.
 
 Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter ([FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT)) that defines how long they will loiter (circle with a constant roll angle ([FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)) at the current altitude) after losing position before attempting to land. If VTOLs have are configured to switch to hover for landing ([NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)) then they will first transition and then descend.
 
-아래 표시된 모든 차량에 대한 관련 매개 변수 ([GPS 장애 내비게이션 매개 변수](../advanced_config/parameter_reference.md#gps-failure-navigation) 참조) :
+아래 표시된 모든 기체에 대한 관련 매개변수 ([GPS 장애 내비게이션 매개 변수](../advanced_config/parameter_reference.md#gps-failure-navigation) 참조) :
 
 | 매개변수                                                                             | 설명                                                   |
 | -------------------------------------------------------------------------------- | ---------------------------------------------------- |
 | [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 위치 손실 후 안전 장치 동작 지연 여부 설정                            |
 | [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 임무 중 위치 제어 탐색 손실 응답. 값 : 0 - RC 사용 가정, 1 - RC 없음 가정. |
-| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | 위치 오류 검사를위한 회로 차단기 (모든 모드에서 오류 검사 비활성화).             |
+| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | 위치 오류 검사를 위한 회로 차단기 (모든 모드에서 오류 검사 비활성화).            |
 
 
 고정익 전용 매개 변수:
@@ -193,11 +193,11 @@ Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter
 | [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 선회 비행 추력                                                                                                    |
 
 
-### 오프 보드 안전장치
+### 오프 보드 안전 장치
 
-오프 보드 제어시에 오프 보드 링크가 손실되면 *오프 보드 안전장치*가 동작합니다. RC 연결을 사용할 수 있는지 여부에 따라 다른 안전장치 동작을 지정할 수 있습니다.
+오프 보드 제어시에 오프 보드 링크가 손실되면 *오프 보드 안전장치*가 동작합니다. RC 연결을 사용 여부에 따라 다른 안전 장치의 작동을 지정할 수 있습니다.
 
-관련 매개 변수는 다음과 같습니다.
+관련된 매개 변수는 다음과 같습니다.
 
 | 매개변수                                                                         | 설명                                                                 |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
@@ -206,47 +206,47 @@ Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | RC를 사용할 수있는 경우 비상 안전조치 : 위치 모드, 고도 모드, 수동 모드, 귀환 모드, 착륙 모드, 대기 모드. |
 
 
-### 임수 실패 안전 장치
+### 임무 실패 안전 장치
 
-임무 실패 안전 장치는 설정된 미션이 새로운 이륙 위치에서 시작되거나 웨이포인트 거리가 너무 큰 경우를 방지합니다. 안전조치는 임무가 실행되지 않는 것입니다.
+임무 실패 안전 장치는 설정된 임무가 새로운 이륙 위치에서 시작되거나, 웨이포인트 거리가 너무 떨어지는 것을 방지합니다. 안전 장치는 임무가 실행되지 않도록 합니다.
 
-관련 매개 변수는 다음과 같습니다.
+관련된 매개 변수는 다음과 같습니다.
 
 | 매개변수                                                                     | 설명                                                            |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| [MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | 현재 웨이포인트가 홈 위치에서 멀리 떨어진 경우 임무가 시작되지 않습니다. 값이 0 이하이면 비활성화 됩니다. |
-| [MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | 두 개의 웨이포인트 사이의 거리가 크면 임무가 시작되지 않습니다.                          |
+| [MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | 현재 웨이포인트가 홈 위치에서 멀리 떨어진 경우 임무가 시작되지 않습니다.  값이 0 이하이면 비활성화됩니다. |
+| [MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | 두 웨이포인트 사이의 거리가 너무 크면, 임무가 시작되지 않습니다.                         |
 
 
-### 교통 회피 안전장치
+### 교통 회피 안전 장치
 
-교통 회피 안전장치를 사용하면 PX4가 미션 중에 transponders 데이터 (예 : [ADSB transponder](../advanced_features/traffic_avoidance_adsb.md)에서)에 응답할 수 있습니다.
+교통 회피 안전 장치를 사용하면 PX4가 미션 중에 transponders 데이터(예 : [ADSB transponder](../advanced_features/traffic_avoidance_adsb.md)에서)에 응답할 수 있습니다.
 
-관련 매개 변수는 다음과 같습니다.
+관련된 매개 변수는 다음과 같습니다.
 
-| 매개변수                                                                           | 설명                                       |
-| ------------------------------------------------------------------------------ | ---------------------------------------- |
-| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | 비상 안전조치를 설정합니다 : 비활성화, 경고, 귀환 모드, 착륙 모드. |
+| 매개변수                                                                           | 설명                                        |
+| ------------------------------------------------------------------------------ | ----------------------------------------- |
+| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | 비상 안전 장치를 설정합니다 : 비활성화, 경고, 귀환 모드, 착륙 모드. |
 
 ### QuadChute 안전 장치
 
-VTOL 차량이 고정익 모드에서 더 이상 비행할 수 없는 경우를 위한 안전 장치입니다. 아마도 푸셔 모터, 속도 센서 또는 제어 표면이 고장났기 때문일 수 있습니다. 트리거되면 차량이 즉시 멀티콥터 모드로 전환됩니다. 차량이 [미션 모드](../flight_modes/mission.md)인 경우 안전 장치 [복귀 모드](../flight_modes/return.md)로 들어갑니다.
+VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 장치입니다. 푸셔 모터, 속도 센서 또는 제어 표면이 고장났을 가능성이 높습니다. 동작시 기체는 즉시 멀티콥터 모드로 전환됩니다. 차량이 [미션 모드](../flight_modes/mission.md)인 경우 안전 장치 [복귀 모드](../flight_modes/return.md)로 전환합니다.
 
 :::note
 쿼드슈트는 `param2`가 `1`로 설정된 MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) 메시지를 전송하여 실행할 수 있습니다.
 :::
 
-쿼드슈트가 트리거되는 시기를 제어하는 매개변수는 아래 표에 나열되어 있습니다.
+아래의 표에서 쿼드슈트가 작동하는 시기를 제어하는 매개변수를 설명합니다.
 
-| 매개변수                                                                       | 설명                                                                               |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | 고정익 비행에 대한 고도 오류 음수의 최대 절대값 고도가 설정치 이하가 되면, 기체는 MC 모드로 다시 전환되고 안전 장치 RTL로 전환됩니다. |
-| [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | 고정익 비행을 위한 최소 고도. 고정익 비행에서 고도가 이 값 아래로 떨어지면 차량은 MC 모드로 다시 전환되고 안전 장치 RTL로 들어갑니다. |
-| [VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P)       | QuadChute가 작동하기 전의 최대 피치 각도. 이 이상에서 차량은 MC 모드로 다시 전환되고 안전 장치 RTL로 들어갑니다.         |
-| [VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R)       | QuadChute가 맞물리기 전의 최대 롤 각도. 이 이상에서 차량은 MC 모드로 다시 전환되고 안전 장치 RTL로 들어갑니다.          |
+| 매개변수                                                                       | 설명                                                                                  |
+| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | 고정익 비행에 대한 고도 오류 음수의 최대 절대값 고도가 설정치 이하가 되면, 기체는 멀티콥터 모드로 다시 전환되고 원위치복귀 안전장치가 작동합니다. |
+| [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | 고정익 비행 최소 고도. 고정익 비행에서 고도가 이 값 아래로 떨어지면 차량은 멀티콥터 모드로 다시 전환되고 원위치 복귀 안전장치가 작동합니다.    |
+| [VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P)       | QuadChute가 작동하기 전의 최대 피치 각도. 이 이상에서 차량은 멀티콥터 모드로 다시 전환되고 원위치 복귀 안전장치가 작동합니다.        |
+| [VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R)       | QuadChute가 맞물리기 전의 최대 롤 각도. 이 이상에서 차량은 멀티콥터 모드로 다시 전환되고 원위치 복귀 안전장치가 작동합니다.         |
 
 
-## 고장 감지기
+## __고장 감지기
 
 고장 감지기를 사용하면 차량이 예기치 않게 뒤집히거나 외부 고장 감지 시스템에서 알림을받은 경우 보호 조치를 취할 수 있습니다.
 
@@ -265,7 +265,7 @@ VTOL 차량이 고정익 모드에서 더 이상 비행할 수 없는 경우를 
 
 차량 자세가 지정된 시간보다 오랫동안 사전 정의 된 피치 및 롤 값을 초과하는 경우 동작하도록 고장 감지기를 구성할 수 있습니다.
 
-관련 매개 변수는 다음과 같습니다.
+관련된 매개 변수는 다음과 같습니다.
 
 | 매개변수                                                                                                   | 설명                                                                       |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
