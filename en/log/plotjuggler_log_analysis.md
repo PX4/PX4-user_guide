@@ -84,24 +84,38 @@ Each can be used for a specific purpose (Multicopter tuning, VTOL tuning, Boat d
 ### Creating custom time series using LUA script
 
 Plot Juggler supports having LUA scripts to process and display data.
-This is a powerful feature that can do things like: integrating the curve, averaging two curves, removing offsets, and so much more.
+This is a powerful feature that can do things like integrating the curve, averaging two curves, removing offsets, etc.
 
 #### Calculating Roll/Pitch/Yaw from Quaternion
 
-To know vehicle's attitude, PX4 logs the estimated attitude's quaternion in the `vehicle_attitude` topic in a 4 separate floating point values.
-The problem arises when you want to graph the 'pitch' or 'roll', which needs a non-intuitive transformation equation involving trigonometric functions.
-This can be done by doing the following:
+![Quaternion to Roll using Lua script](../../assets/flight_log_analysis/plot_juggler/plotjuggler_quaternion_to_roll_lua_script.png)
 
+To know vehicle's attitude, PX4 logs the estimated attitude's quaternion in the `vehicle_attitude` topic in an array of floating point values (q[4]).
+Since these values don't give contextual information (e.g. `roll`), it needs a transformation involving trigonometric functions.
+
+1. Search for `vehicle_attitude` topic in Timeseries List panel on the left
+2. Select 4 quaternion members (`q.00, q.01, q.02, q.03`) by clicking `q.00` first, then holding Shift + clicking `q.03`. They should all be selected
+3. Click the '+' symbol in the lower-left 'Custom Series' section to create new series
+4. Select 4 quaternion members again, and drag them to 'Input timeseries + Additional source timeseries' tab on upper-left corner
+5. Double click on the `quat_to_roll` from the Function Library. Now you should have the plot on upper section
+6. Assign the name for the plot (e.g. `roll`) in the text box in upper-right corner
+7. Click 'Create New Timeseries'. You should now have the plot in 'Custom Series'
+
+Here the custom series `Roll` is displayed along with other timeseries, including it's original form in Quaternion on the right, which is not human-readable (using PlotJuggler 3.5.0):
+
+![Quaternion Roll plotted](../../assets/flight_log_analysis/plot_juggler/plotjuggler_quaternion_roll_plotted.png)
+
+The `quat_to_roll` function looks like this:
 ```lua
-function calc(time, value, v1, v2, v3)
-    w = value
-    x = v1
-    y = v2
-    z = v3
-    
-    dcm20 = 2 * (x * z - w * y)
-    pitch = math.asin(-dcm20)
-    
-    return pitch
-end
+w = value
+x = v1
+y = v2
+z = v3
+
+dcm21 = 2 * (w * x + y * z)
+dcm22 = w*w - x*x - y*y + z*z
+
+roll = math.atan(dcm21, dcm22)
+
+return roll
 ```
