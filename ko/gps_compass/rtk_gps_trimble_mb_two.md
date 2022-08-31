@@ -55,7 +55,7 @@ Trimble MB-Two는 비행 콘트롤러(GPS 포트)의 UART에 연결됩니다.
 
 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)를 사용하여 Trimple이 실행될 [직렬 포트를 설정](../peripherals/serial_configuration.md)하고 [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)에서 전송 속도를 115200로 설정합니다.
 
-자세 추정을위한 방향 융합을 활성화하려면 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수를 *GPS 요 융합*을 활성화하도록 설정합니다.
+To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable *Dual antenna heading*.
 
 :::note
 참조 : [GPS &gt; 구성 &gt; 요/방향 소스로서의 GPS](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)
