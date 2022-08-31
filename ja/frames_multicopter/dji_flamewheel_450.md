@@ -112,7 +112,6 @@ After setting the `SENS_EN_LL40LS` you will need to restart the flight controlle
 ### Others
 
 Set the following parameters as well:
-- `EKF2_HGT_MODE=2`: this makes sure the Lidar-Lite is used as height source
 - `MAV_PROTO_VER=2`: use MAVLink protocol version 2
 - `CBRK_IO_SAFETY=22027`: disable the safety button
 - `EKF2_GPS_POS_X`, `EKF2_GPS_POS_Y`, `EKF2_GPS_POS_Z`: set the GPS device offset with respect to the board (NED coordinates).
