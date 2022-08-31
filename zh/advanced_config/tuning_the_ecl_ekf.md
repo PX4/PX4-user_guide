@@ -19,7 +19,7 @@ The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the
 * 飞行器机体坐标系磁场偏差 - X, Y, Z \(gauss\)
 * 风速-北, 东\(m/s\)
 
-EKF 在延迟的“融合时间范围”上运行，以允许相对于 IMU 的每次测量的不同时间延迟。 为了保证所有传感器数据都能在正确的时间内使用，每个传感器的数据都是按照先入先出（FIFO）队列进行缓存，并由EKF从缓存区中读取。 每个传感器的延迟补偿由 [EKF2 _*_ DELAY](../advanced_config/parameter_reference.md#ekf2) 参数控制。
+EKF 在延迟的“融合时间范围”上运行，以允许相对于 IMU 的每次测量的不同时间延迟。 为了保证所有传感器数据都能在正确的时间内使用，每个传感器的数据都是按照先入先出（FIFO）队列进行缓存，并由EKF从缓存区中读取。 The delay compensation for each sensor is controlled by the [EKF2_\*\_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
 
 互补滤波器用于使用缓冲的 IMU 数据将状态从“融合时间范围”向前传播到当前时间。 该滤波器的时间常数由 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 和 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 参数控制。
 
@@ -31,12 +31,12 @@ EKF 在延迟的“融合时间范围”上运行，以允许相对于 IMU 的�
 
 EKF仅将IMU数据用于状态预测。 在EKF推导中，IMU数据不作为观测值使用。 使用Matlab符号工具箱导出了协方差预测、状态更新和协方差更新的代数方程，该工具箱可在这里找到：[Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m)。
 
-
 ## 运行单个EKF实例
 
 The _default behaviour_ is to run a single instance of the EKF. 在这种情况下，在EKF收到数据之前执行传感器选择和故障切换。 这为防止有限数量的传感器故障，如数据丢失等，提供了保护。 但不能防止传感器提供的不准确数据超过EKF和控制循环的补偿能力。
 
 运行单个EKF实例的参数设置为：
+
 * [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) = 0
 * [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) = 0
 * [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1
@@ -71,14 +71,13 @@ If [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) >=
 
   当设置为 1 (单个EKF 操作默认值)时，传感器模块选择EKF使用的IMU 数据。 这种保护可防止来自传感器的数据丢失，但并不能防止不良的传感器数据。 当设置为 0 时，传感器模块不进行选择。
 
-
 * [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE): Set to 0 if running multiple EKF instances with magnetometer sensor diversity, ie [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) > 1.
 
   当设置为 1 (单个EKF 操作默认值)时，传感器模块选择EKF使用的磁强计数据。 这种保护可防止来自传感器的数据丢失，但并不能防止不良的传感器数据。 当设置为 0 时，传感器模块不进行选择。
 
 * [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU): 此参数指定了多个EKF实例使用的 IMU 传感器数量。 如果 `EKF2_MULTI_IMU` <= 1, 那么只会使用第一个IMU 传感器。 当 [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1, 这将是传感器模块选择的传感器。 如果 `EKF2_MULTI_IMU` >= 2 ，则一个单独的EKF实例将运行于指定数量的IMU传感器，最多不超过 4 个或目前的IMU数量。
 
-* [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG): 此参数指定了多个EKF实例使用的磁强计传感器数量。 如果 `EKF2_MULTI_MAG` <= 1 ，则只会使用第一个磁强计传感器。 当 [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1 ，这将是传感器模块选择的传感器。 如果 `EKF2_MULTI_MAG` >= 2 ，则一个单独的EKF实例将运行于指定数量的磁强计传感器，最多不超过 4 个或目前的磁强计数量。
+* [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG): This parameter specifies the number of magnetometer sensors used by the multiple EKF's If `EKF2_MULTI_MAG` <= 1, then only the first magnetometer sensor will be used. 当 [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1 ，这将是传感器模块选择的传感器。 如果 `EKF2_MULTI_MAG` >= 2 ，则一个单独的EKF实例将运行于指定数量的磁强计传感器，最多不超过 4 个或目前的磁强计数量。
 
 ::: 注释 不支持多个EKF实例的飞行日志的录制和 [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) 。 若要启用 EKF 重播记录，你必须设置参数以启用  [single EKF instance](#running-a-single-ekf-instance) 。
 :::
@@ -102,17 +101,37 @@ EKF 具有不同的操作模式，以允许不同的传感器测量组合。 滤
 
 用于选择这些模式的逻辑由 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 参数设置。
 
-该选项可以在没有磁力计的情况下运行。 或者使用 [yaw from a dual antenna GPS](#yaw_measurements) 来替换磁力计，或者使用IMU测量数据和GPS速度数据从飞行器运动中估计偏航 [estimate yaw from vehicle movement](#yaw_from_gps_velocity)。
-
+The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
 
 ### 高度
 
-高度数据源 - 来自 GPS，气压计，测距仪或外部视觉设备，需要最小频率为 5Hz。
+A source of height data - GPS, barometric pressure, range finder, external vision or a combination of those at a minimum rate of 5Hz is required.
 
-:::注释 高度数据的主要来源由 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 参数控制。
-:::
+If none of the selected measurements are present, the EKF will not start. 当检测到这些测量值时，EKF 将初始化状态并完成倾角和偏航对准。 当倾角和偏航对齐完成后，EKF 可以转换到其它操作模式，从而可以使用其它传感器数据：
 
-如果不存在这些测量值，EKF 将无法启动。 当检测到这些测量值时，EKF 将初始化状态并完成倾角和偏航对准。 当倾角和偏航对齐完成后，EKF 可以转换到其它操作模式，从而可以使用其它传感器数据：
+Each height source can be enabled/disabled using its dedicated control parameter:
+
+- [GNSS/GPS](#gnss-gps): [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
+- [Barometer](#barometer): [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
+- [Range finder](#range-finder): [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
+- [External vision](#external-vision-system): Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
+
+Over the long term the height estimate follows the "reference source" of height data. This reference is defined by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
+
+#### Typical configurations
+
+|                           | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) | [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) |
+| ------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Outdoor (default)         | 7 (Lon/lat/alt/vel)                                                        | 1 (enabled)                                                                  | 1 ([conditional](#conditional-range-aiding))                               | 1 (GNSS)                                                                 |
+| Indoor (non-flat terrain) | 0 (disabled)                                                               | 1 (enabled)                                                                  | 1 ([conditional](#conditional-range-aiding))                               | 2 (range)                                                                |
+| Indoor (flat terrain)     | 0 (disabled)                                                               | 1 (enabled)                                                                  | 2 ([always enabled](#range-height-fusion))                                 | 2 (range)                                                                |
+| External vision           | As required                                                                | As required                                                                  | As required                                                                | 3 (vision)                                                               |
+
+### Barometer
+
+Enable/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL).
+
+For more details about the configuration of height sources, [click here](#height).
 
 #### 静态气压位置误差校正
 
@@ -125,12 +144,17 @@ EKF 具有不同的操作模式，以允许不同的传感器测量组合。 滤
 The EKF2 module models the error as a body fixed ellipsoid that specifies the fraction of dynamic pressure that is added to/subtracted from the barometric pressure - before it is converted to a height estimate.
 
 A good tuning is obtained as follows:
+
 1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
-2. Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html) :::note The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag).
+2. Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html)
+
+:::note
+The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag).
 :::
 3. Use the log with the [baro_static_pressure_compensation_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation) Python script to obtain the optimal set of parameters.
 
 Tuning parameters:
+
 - [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
 - [EKF2_PCOEF_XN](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN)
 - [EKF2_PCOEF_YP](../advanced_config/parameter_reference.md#EKF2_PCOEF_YP)
@@ -141,22 +165,21 @@ Tuning parameters:
 
 A barometer at a constant altitude is subject to drift in its measurements due to changes in the ambient pressure environment or variations of the sensor temperature. To compensate for this measurement error, EKF2 estimates the bias using GNSS height (if available) a "non drifting" reference. No tuning is required.
 
-### GPS
+### GNSS/GPS
 
 #### 位置和速度测量
 
 GPS measurements will be used for position and velocity if the following conditions are met:
 
-* 通过设置 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数启用 GPS 的使用。
+* GPS use is enabled via setting of the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
 * GPS 信号质量检查已通过。 这些检查由 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 和 `EKF2_REQ_*` 参数控制。
-* 通过设置 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 参数，EKF 可以直接使用 GPS 高度。
 
-<span id="yaw_measurements"></span>
+For more details about the configuration of height sources, [click here](#height).
+
 #### 偏航角测量
 
-Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data. This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination. Use of GPS yaw measurements is enabled by setting bit position 7 to 1 (adding 128) in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
+Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data. This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination. Use of GPS yaw measurements is enabled by setting bit position 3 to 1 (adding 8) in the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
 
-<span id="yaw_from_gps_velocity"></span>
 #### 从 GPS 速度数据获取偏航角
 
 The EKF runs an additional multi-hypothesis filter internally that uses multiple 3-state Extended Kalman Filters (EKF's) whose states are NE velocity and yaw angle. These individual yaw angle estimates are then combined using a Gaussian Sum Filter (GSF). The individual 3-state EKF's use IMU and GPS horizontal velocity data (plus optional airspeed data) and do not rely on any prior knowledge of the yaw angle or magnetometer measurements. This provides a backup to the yaw from the main filter and is used to reset the yaw for the main 24-state EKF when a post-takeoff loss of navigation indicates that the yaw estimate from the magnetometer is bad. This will result in an `Emergency yaw reset - magnetometer use stopped` message information message at the GCS.
@@ -164,7 +187,6 @@ The EKF runs an additional multi-hypothesis filter internally that uses multiple
 Data from this estimator is logged when ekf2 replay logging is enabled and can be viewed in the `yaw_estimator_status` message. The individual yaw estimates from the individual 3-state EKF yaw estimators are in the `yaw` fields. The GSF combined yaw estimate is in the `yaw_composite` field. The variance for the GSF yaw estimate is in the `yaw_variance` field. All angles are in radians. Weightings applied by the GSF to the individual 3-state EKF outputs are in the`weight` fields.
 
 This also makes it possible to operate without any magnetometer data or dual antenna GPS receiver for yaw provided some horizontal movement after takeoff can be performed to enable the yaw to become observable. To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to `none` (5) to disable magnetometer use. Once the vehicle has performed sufficient horizontal movement to make the yaw observable, the main 24-state EKF will align it's yaw to the GSF estimate and commence use of GPS.
-
 
 #### 双 GPS 接收器
 
@@ -175,18 +197,17 @@ The [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) par
 The following items should be checked during setup:
 
 * 验证第二接收器的数据是否存在。 This will be logged as `vehicle_gps_position_1` and can also be checked when connected via the *nsh console* using the command `listener vehicle_gps_position -i 1`. [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 参数需要被正确设置。
-* 检查每个接收器的 `s_variance_m_s` ， `eph` 和 `epv` 数据，并决定可以使用哪些精确度指标。 如果两个接收器都输出给传感器 `s_variance_m_s` 和 `eph` 数据，并且 GPS 垂直位置不直接用于导航，则建议设置 [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) 为 3。 在只有 `eph` 数据且两个接收器都不输出 `s_variance_m_s` 数据时，设置 [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) 为 2。 只有在 GPS 被选定为主高度数据源，并具有 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 参数，并且两个接收器都输出有意义的 `epv` 数据的情况下，第 2 位才会被设置。
+* 检查每个接收器的 `s_variance_m_s` ， `eph` 和 `epv` 数据，并决定可以使用哪些精确度指标。 如果两个接收器都输出给传感器 `s_variance_m_s` 和 `eph` 数据，并且 GPS 垂直位置不直接用于导航，则建议设置 [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) 为 3。 在只有 `eph` 数据且两个接收器都不输出 `s_variance_m_s` 数据时，设置 [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) 为 2。 Bit position 2 would only be set if the GPS had been selected as the reference height source with the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter and both receivers output sensible `epv` data.
 * 混合接收器数据的输出被记录为 `ekf_gps_position`，并且当通过 nsh 终端连接时，可以通过命令 `listener ekf_gps_position` 进行检查。
 * 如果接收器以不同的频率输出, 混合输出的频率将是较低的接收器的频率。 在可能的情况下，接收器应配置为同样的输出频率。
-
 
 #### 全球导航卫星系统性能要求
 
 For the ECL to accept GNSS data for navigation, certain minimum requirements need to be satisfied over a period of time, defined by [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (10 seconds by default).
 
-Minima are defined in the [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be en-/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
+Minima are defined in the [EKF2_REQ_\*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be enabled/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
 
-The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL. In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g.  u-blox M8 series) - i.e. values that are considered good/acceptable.
+The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL. In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. u-blox M8 series) - i.e. values that are considered good/acceptable.
 
 | 指标                   | 最小需求                                                                                        | 平均值  | 单位  | 备注                                                                              |
 | -------------------- | ------------------------------------------------------------------------------------------- | ---- | --- | ------------------------------------------------------------------------------- |
@@ -207,9 +228,65 @@ The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period
 
 ### 测距仪
 
-Range finder distance to ground is used by a single state filter to estimate the vertical position of the terrain relative to the height datum.
+[Range finder](../sensor/rangefinders.md) distance to ground is used by a single state filter to estimate the vertical position of the terrain relative to the height datum.
 
-If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter to 2.
+The fusion modes of operation are controlled by [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL):
+
+1. [Conditional range aiding](#conditional-range-aiding)
+1. [Range height fusion](#range-height-fusion)
+
+For more details about the configuration of height sources, [click here](#height).
+
+#### Conditional range aiding
+
+Conditional range finder fusion (a.k.a. *Conditional range aid*) activates the range finder fusion for height estimation during low speed/low altitude operation (in addition to the other active height sources). If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement to match the readings of the range finder over time. When the conditions are not met to start range aiding, a secondary reference is automatically selected.
+
+:::note
+Switching between height references causes the absolute altitude estimate to drift over time.
+If this is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
+:::
+
+It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
+
+Range aid may also be used to improve altitude hold when the vehicle is stationary.
+
+:::tip
+[Terrain Hold](../flying/terrain_following_holding.md#terrain_hold) is recommended over *Range Aid* for terrain holding. This is because terrain hold uses the normal ECL/EKF estimator for determining height, and this is generally more reliable than a distance sensor in most conditions.
+:::
+
+*Conditional range aid* is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) = "Enabled (conditional mode)" (1).
+
+It is further configured using the `EKF2_RNG_A_` parameters:
+- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizontal speed, above which range aid is disabled.
+- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
+
+#### Range height fusion
+
+PX4 allows you to continuously fuse the range finder as a source of height (in any flight mode/vehicle type). This may be useful for applications when the vehicle is *guaranteed* to only fly over a near-flat surface (e.g. indoors).
+
+When using a distance sensor as a height source, fliers should be aware:
+
+- Flying over obstacles can lead to the estimator rejecting rangefinder data (due to internal data consistency checks), which can result in poor altitude holding while the estimator is relying purely on accelerometer estimates.
+
+  :::note
+This scenario might occur when a vehicle ascends a slope at a near-constant height above ground, because the rangefinder altitude does not change while that estimated from the accelerometer does.
+The EKF performs innovation consistency checks that take into account the error between measurement and current state as well as the estimated variance of the state and the variance of the measurement itself.
+If the checks fail the rangefinder data will be rejected, and the altitude will be estimated from the accelerometer and the other selected height sources (GNSS, baro, vision), if enabled and available
+After 5 seconds of inconsistent data if the distance sensor is the active source oh height data, the estimator resets the height state to match the current distance sensor data.
+If one or more other sources of height are active, the range finder is declared faulty and the estimator continues to estimate its height using the other sensors.
+The measurements might also become consistent again, for example, if the vehicle descends, or if the estimated height drifts to match the measured rangefinder height.
+:::
+
+- The local NED origin will move up and down with ground level.
+- Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data. This again leads to poor altitude hold.
+
+The feature is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) to  "Enabled" (2). To make the range finder the height reference when active, set: [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) to "Range sensor".
+
+:::tip
+To enable the range finder fusion only when the drone is stationary (in order to benefit from a better altitude estimate during takeoff and landing) but not fuse the range finder the rest of the time, use the [conditional mode](#conditional-range-aiding) (1) of [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
+:::
+
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
 
 #### Range Finder Obstruction Detection
 
@@ -220,6 +297,7 @@ The check is only enabled when the rangefinder is not used as the primary height
 For effective obstruction detection, the range finder noise parameter needs to be tightly tuned using flight data. The kinematic consistency gate parameter can then be adjusted to obtain the desired fault detection sensitivity.
 
 Tuning parameters:
+
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE)
 - [EKF2_RNG_K_GATE](../advanced_config/parameter_reference.md#EKF2_RNG_K_GATE)
 
@@ -240,11 +318,11 @@ Multi-rotor platforms can take advantage of the relationship between airspeed an
 The relationship between airspeed and specific force (IMU accelerometer measurements) along the X and Y body axes is controlled by the [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X), [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) and [EKF2_MCOEF](../advanced_config/parameter_reference.md#EKF2_MCOEF) parameters which set the ballistic coefficients for flight in the X and Y directions, and the momentum drag produced by the propellers, respectively. The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) parameter.
 
 A good tuning is obtained as follows:
+
 1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
 2. Extract the **.ulg** log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html) :::note The same **.ulg** log file can also be used to tune the [static pressure position error coefficients](#correction-for-static-pressure-position-error).
 :::
 3. Use the log with the [mc_wind_estimator_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) Python script to obtain the optimal set of parameters.
-
 
 ### 光流
 
@@ -254,29 +332,30 @@ A good tuning is obtained as follows:
 * 在 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 1 位为真。
 * 光流传感器返回的质量度量值大于 [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) 参数设置的最低要求。
 
-<span id="ekf2_extvis"></span>
 ### 外部视觉系统
 
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 3 位为真，则将使用外部视觉系统的水平位置数据。
-* 如果[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)参数设置为3，则将使用外部视觉系统垂直位置数据。
+* External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3. For more details about the configuration of height sources, [click here](#height).
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 8 位设置为真，将使用外部视觉系统速度数据。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 4 位为真，则外部视觉系统姿态数据将用于偏航估计。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 6 位为真，则外部视觉参考帧偏移将被估计并用于旋转外部视觉系统数据。
 
 Either bit 4 (`EV_YAW`) or bit 6 (`EV_ROTATE`) should be set to true, but not both together. Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
 
-| EKF_AID_MASK 值 | 设置位                           | 描述                                                             |
-| ---------------- | ----------------------------- | -------------------------------------------------------------- |
-| 321              | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**Recommended**)                         |
-| 73               | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead) |
-| 24               | EV_POS + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                                           |
-| 272              | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                                           |
-| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame                           |
-| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                                           |
+| EKF_AID_MASK 值 | 设置位                           | 描述                                   |
+| ---------------- | ----------------------------- | ------------------------------------ |
+| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                 |
+| 24               | EV_POS + EV_YAW             | Heading w.r.t. external vision frame |
+| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                 |
+| 272              | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame |
+| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame |
+| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                 |
+
+:::tip
+When using external vision in combination with [GNSS fusion](#gps), it is recommended to use `EV_VEL` and not `EV_POS` in order to prevent the two position-fixing sources from fighting against each other.
+:::
 
 The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
@@ -322,7 +401,6 @@ Multiple log files in a directory can be analysed using the [batch\_process\_log
 * Global \(WGS-84\) output data is found in the [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_global_position.msg) message.
 * Wind velocity output data is found in the [wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/wind.msg) message.
 
-
 ### 状态
 
 Refer to states\[32\] in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg). The index map for states\[32\] is as follows:
@@ -357,12 +435,14 @@ The observation `estimator_innovations`, `estimator_innovation_variances`, and `
 
 :::note
 The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_innovations.msg)) lists the names of the set of messages to be created):
+
 ```
 # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
 ```
 :::
 
 Some of the observations are:
+
 * 磁力计 XYZ (gauss, gauss^2) : `mag_field[3]`
 * 偏航角度 (rad, rad^2) : `heading`
 * 真实空速 (m/s, (m/s)^2) : `airspeed`
@@ -373,6 +453,7 @@ Some of the observations are:
 * 速度和位置新息：每个传感器
 
 In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate). These are largely self documenting, and are reproduced below:
+
 ```
 # GPS
 float32[2] gps_hvel # horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
@@ -401,7 +482,6 @@ float32[2] aux_hvel # horizontal auxiliary velocity innovation from landing targ
 float32    aux_vvel # vertical auxiliary velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
 ```
 
-
 ### 输出互补滤波器
 
 The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to `output_tracking_error[3]` in the `ekf2_innovations` message.
@@ -414,7 +494,7 @@ The index map is as follows:
 
 ### EKF 错误
 
-The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg).
+The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the `filter_fault_flags` in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg).
 
 ### 观测错误
 
@@ -425,7 +505,7 @@ There are two categories of observation faults:
 
 Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
 
-Test levels are  available in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg) as follows:
+Test levels are  available in [`estimator_status`](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg) as follows:
 
 * `mag_test_ratio`: 最大磁强计新息组分与新息测试极限的比率
 * `vel_test_ratio`: 最大速度新息组分与新息测试极限的比率
@@ -449,7 +529,7 @@ To prevent this, every covariance and state update step contains the following e
 * 如果新息方差小于观测方差（这需要一个不可能的负值状态方差）或协方差更新将为任何一个状态产生负值方差，那么：
   * 跳过状态和协方差更新
   * 协方差矩阵中的相应行和列被重置
-  * The failure is recorded in the [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg) filter\_fault\_flags message
+  * The failure is recorded in the [`estimator_status`](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_status.msg) `filter_fault_flags` message
 * 状态方差（协方差矩阵中的对角线）被限制为非负。
 * 状态方差应用数值上限。
 * 协方差矩阵强制对称。
@@ -568,6 +648,7 @@ This is caused when air pushed down by the propellers hits the ground and create
 ![Barometer ground effect](../../assets/ecl/gnd_effect.png)
 
 You can enable *ground effect compensation* to fix this problem:
+
 - 从绘图中估算出气压计在起飞或着陆期间的跌落程度。 在上面的绘图中，人们可以看到降落过程中大约6米的气压计下沉。
 - 然后将参数 [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) 设置为该值，并添加 10% 的余量值。 因此，在这种情况下，6.6米的数值将是一个良好的起点。
 
@@ -576,4 +657,3 @@ If a terrain estimate is available (e.g. the vehicle is equipped with a range fi
 ## 更多信息：
 
 * [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ), *PX4 Developer Summit 2019*, Dr. Paul Riseborough): Overview of the estimator, and major changes from 2018/19, and the expected improvements through 2019/20.
-
