@@ -317,7 +317,8 @@ When the conditions are not met to start range aiding, a secondary reference is 
 
 :::note
 Switching between height references causes the absolute altitude estimate to drift over time.
-If this is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
+This isn't an issue when flying in position mode but can be problematic if the drone is supposed to fly a mission at a specific GNSS altitude.
+If the absolute altitude drift is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
 :::
 
 It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
