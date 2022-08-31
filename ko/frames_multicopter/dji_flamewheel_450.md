@@ -112,7 +112,6 @@ This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.co
 ### 기타
 
 아래의 매개 변수도 설정하십시오.
-- `EKF2_HGT_MODE = 2` : Lidar-Lite가 고도값의 소스로 사용되는 지 확인합니다.
 - `MAV_PROTO_VER = 2` : MAVLink 프로토콜 버전 2 사용
 - `CBRK_IO_SAFETY = 22027` : 안전 버튼 비활성화
 - `EKF2_GPS_POS_X`, `EKF2_GPS_POS_Y`, `EKF2_GPS_POS_Z` : 보드 (NED 좌표)를 기준으로 GPS 장치 오프셋을 설정합니다.
