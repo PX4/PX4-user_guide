@@ -113,7 +113,7 @@ GPS는 *yaw 출력이 장치에서 지원되는* 모듈 (예 : [Trimble MB-Two](
 | 매개변수                                                                         | 설정                                                                                                                                     |
 | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | 기체 x 축 ([여기](../config/flight_controller_orientation.md#calculating-orientation)에 표시된 앞/뒤 축)을 기준으로 *기준선* (두 GPS 안테나 사이의 선)이 이루는 각도입니다. |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)   | 비트 위치 7 "GPS yaw fusion"을 `1`로 설정합니다 (즉, 매개변수 값에 128을 추가).                                                                             |
+| [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)   | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).                                                  |
 
 
 :::tip
