@@ -111,6 +111,7 @@
   * [지형 추적 및 유지](flying/terrain_following_holding.md)
 * [비행 로그 분석](log/flight_log_analysis.md)
   * [비행 검토 및 로그 분석](log/flight_review.md)
+  * [Log Analysis using PlotJuggler](log/plotjuggler_log_analysis.md)
 * [고급 기능](advanced_features/README.md)
   * [항공 사고 방지: ADSB/FLARM](advanced_features/traffic_avoidance_adsb.md)
   * [항공 사고 방지: UTM](advanced_features/traffic_avoidance_utm.md)

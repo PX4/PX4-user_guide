@@ -111,6 +111,7 @@
   * [地形追従/高度保持](flying/terrain_following_holding.md)
 * [フライトログ分析](log/flight_log_analysis.md)
   * [Flight Reviewによるフライトログ分析](log/flight_review.md)
+  * [Log Analysis using PlotJuggler](log/plotjuggler_log_analysis.md)
 * [高度な機能](advanced_features/README.md)
   * [Air Traffic Avoidance: ADSB/FLARM](advanced_features/traffic_avoidance_adsb.md)
   * [Air Traffic Avoidance: UTM](advanced_features/traffic_avoidance_utm.md)
