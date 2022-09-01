@@ -111,6 +111,7 @@
   * [地形跟随/保持](flying/terrain_following_holding.md)
 * [飞行日志分析](log/flight_log_analysis.md)
   * [使用 Flight Review 进行日志分析](log/flight_review.md)
+  * [Log Analysis using PlotJuggler](log/plotjuggler_log_analysis.md)
 * [高级功能](advanced_features/README.md)
   * [空中交通避障：ADSB/FLARM](advanced_features/traffic_avoidance_adsb.md)
   * [空中交通避障：UTM](advanced_features/traffic_avoidance_utm.md)
