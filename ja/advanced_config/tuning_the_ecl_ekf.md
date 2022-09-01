@@ -243,7 +243,8 @@ Conditional range finder fusion (a.k.a. *Conditional range aid*) activates the r
 
 :::note
 Switching between height references causes the absolute altitude estimate to drift over time.
-If this is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
+This isn't an issue when flying in position mode but can be problematic if the drone is supposed to fly a mission at a specific GNSS altitude.
+If the absolute altitude drift is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
 :::
 
 It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
@@ -259,6 +260,7 @@ Range aid may also be used to improve altitude hold when the vehicle is stationa
 It is further configured using the `EKF2_RNG_A_` parameters:
 - [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizontal speed, above which range aid is disabled.
 - [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
 
 #### Range height fusion
 
@@ -285,8 +287,6 @@ The feature is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_r
 :::tip
 To enable the range finder fusion only when the drone is stationary (in order to benefit from a better altitude estimate during takeoff and landing) but not fuse the range finder the rest of the time, use the [conditional mode](#conditional-range-aiding) (1) of [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
 :::
-
-- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
 
 #### Range Finder Obstruction Detection
 
