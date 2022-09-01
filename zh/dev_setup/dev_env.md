@@ -3,7 +3,7 @@
 The *supported platforms* for PX4 development are:
 - [Ubuntu Linux](../dev_setup/dev_env_linux_ubuntu.md) (Recommended)
 - [Linux](../dev_setup/dev_env_mac.md)
-- [Windows](../dev_setup/dev_env_windows_cygwin.md)
+- [Windows (10/11)](../dev_setup/dev_env_windows_wsl.md)
 
 
 ## 支持的编译目标
@@ -15,7 +15,7 @@ The *supported platforms* for PX4 development are:
 | **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) |       X        |    X    |    X    |
 | **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                                                                                                 |       X        |         |         |
 | **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                  |       X        | &check; | &check; |
-| **模拟器：** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                         |       X        |    X    |         |
+| **模拟器：** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                         |       X        |    X    |    X    |
 | **模拟器：** [Gazebo SITL](../simulation/gazebo.md)                                                                                                                                                           |       X        |         |         |
 
 不同操作系统的开发环境的安装请参阅：

@@ -1,18 +1,15 @@
-# Windows 개발 환경
+# Windows Development Environment (Cygwin-based)
 
 다음 지침은 Windows 10에서 (Cygwin 기반) PX4 개발 환경 설정 방법을 설명합니다. 이 환경은 다음을 위한 PX4를 구축하는 데 사용합니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
 
-
 :::warning
-The current version of this toolchain does not work with the master codeline (though it does with stable versions). The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) is a highly recommended Windows 11 (only) alternative, and is likely to become the supported Windows solution in the near future.
+This setup is an [unsupported windows development environment](../advanced/dev_env_unsupported.md).
+
+The toolchain was previously recommended, but does not work with PX4 v1.12 and later due to packaging issues. The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.
 :::
 
-
-:::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
-:::
 
 <a id="installation"></a>
 

@@ -1,6 +1,6 @@
 # Windows Cygwin 开发环境 (维护说明)
 
-本主题解释了如何构建和扩展支持的 [基于Cygwin的Windows开发环境](../dev_setup/dev_env_windows_cygwin.md) 的开发环境。
+This topic explains how to construct and extend the development environment used for the no-longer-supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
 
 
 ## 附加信息

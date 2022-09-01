@@ -1,6 +1,6 @@
 # Windows Cygwin 개발 환경(유지 보수 지침)
 
-[Cygwin 기반 Windows 개발 환경](../dev_setup/dev_env_windows_cygwin.md)을 설정 방법을 설명합니다.
+This topic explains how to construct and extend the development environment used for the no-longer-supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
 
 
 ## 추가 정보
