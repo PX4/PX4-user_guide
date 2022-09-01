@@ -1,18 +1,15 @@
-# Windows Cygwin 工具链
+# Windows Development Environment (Cygwin-based)
 
 该工具链非常轻便，而且容易安装和使用。 它是目前Windows环境下用于PX4开发的最新和最好的工具。
 * 编译/上传 PX4到Nuttx目标(Pixhawk系列飞控)
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 
-
 :::warning
-The current version of this toolchain does not work with the master codeline (though it does with stable versions). The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) is a highly recommended Windows 11 (only) alternative, and is likely to become the supported Windows solution in the near future.
+This setup is an [unsupported windows development environment](../advanced/dev_env_unsupported.md).
+
+The toolchain was previously recommended, but does not work with PX4 v1.12 and later due to packaging issues. The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.
 :::
 
-
-:::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
-:::
 
 <a id="installation"></a>
 
