@@ -3,7 +3,7 @@
 The *supported platforms* for PX4 development are:
 - [Ubuntu Linux](../dev_setup/dev_env_linux_ubuntu.md) (Recommended)
 - [Mac OS](../dev_setup/dev_env_mac.md)
-- [Windows 10](../dev_setup/dev_env_windows_cygwin.md)
+- [Windows (10/11)](../dev_setup/dev_env_windows_wsl.md)
 
 
 ## Supported Targets
@@ -15,7 +15,7 @@ Target | Linux (Ubuntu) | Mac | Windows
 **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) | &check; | &check; | &check;
 **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md) | &check; | | 
 **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md) | &check; | &check; | &check;
-**Simulation:** [Gazebo SITL](../simulation/gazebo.md) | &check; | &check; | 
+**Simulation:** [Gazebo SITL](../simulation/gazebo.md) | &check; | &check; | &check;
 **Simulation:** [ROS with Gazebo](../simulation/ros_interface.md) | &check; | | 
 
 Experienced Docker users can also build with the containers used by our continuous integration system: [Docker Containers](../test_and_ci/docker.md)

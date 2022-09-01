@@ -1,6 +1,6 @@
-# Windows WSL2-Based Development Environment
+# Windows Development Environment (WSL2-Based)
 
-The following instructions explain how to set up a PX4 development environment on Windows 11, running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
+The following instructions explain how to set up a PX4 development environment on Windows 10 or Windows 11 (preferred), running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
 
 This environment can be used to build PX4 for:
 
@@ -8,13 +8,14 @@ This environment can be used to build PX4 for:
 - [jMAVSim Simulation](../simulation/jmavsim.md)
 - [Gazebo Simulation](../simulation/gazebo.md)
 
-:::note
-This setup can also be used on Windows 10, with some [caveats](#windows-10-gui-support).
+:::tip
+This setup is supported by the PX4 dev team.
+The environment should in theory be able to build any target that can be built on Ubuntu.
+The list above are those targets that have been tested.
 :::
 
-:::warning
-This setup is currently an [unsupported windows development environment](../advanced/dev_env_unsupported.md).
-We are considering whether, and at what point, this setup might become the _recommended_ Windows development environment.
+:::note
+This setup be used on Windows 10, with some [caveats](#windows-10-gui-support).
 :::
 
 ## Overview
@@ -47,12 +48,13 @@ The benefit of WSL2 is that its virtual machine is deeply integrated into Window
 
 ### Windows 10 GUI Support
 
-Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics features will not work. 
+Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics features will not work.
 This includes Gazebo and jMAVSim rendered visualization, QGC for Linux running in WSL, `git` gui, etc.
 
 Development is possible as you can still:
-- Build PX4 in WSL2 and flash it to boards using `QGC for Windows`.
-- Run simulations in [headless mode](../simulation/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`), and connect using `QGC for Windows`.
+- Build PX4 in WSL2 and flash it to boards using QGC from **Windows**.
+- Run simulations in [headless mode](../simulation/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`).
+  Connect using QGC on Windows or in WSL.
 
 :::note
 WSL2 GUI support is provided by the [Windows Subsystem for Linux GUI (WSLg)](https://github.com/microsoft/wslg).
