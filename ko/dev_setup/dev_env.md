@@ -3,7 +3,7 @@
 PX4 개발 *지원 플랫폼*은 다음과 같습니다.
 - [Ubuntu Linux](../dev_setup/dev_env_linux_ubuntu.md)(권장)
 - [Mac OS](../dev_setup/dev_env_mac.md)
-- [윈도우 10](../dev_setup/dev_env_windows_cygwin.md)
+- [Windows (10/11)](../dev_setup/dev_env_windows_wsl.md)
 
 
 ## 지원 대상
@@ -15,7 +15,7 @@ PX4 개발 *지원 플랫폼*은 다음과 같습니다.
 | **NuttX 기반 하드웨어:** [Pixhawk 시리즈](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) |    &check;     | &check; | &check; |
 | **Linux 기반 하드웨어:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                                                                                              |    &check;     |         |         |
 | **시뮬레이션:** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                             |    &check;     | &check; | &check; |
-| **시뮬레이션:** [가제보 SITL](../simulation/gazebo.md)                                                                                                                                                  |    &check;     | &check; |         |
+| **시뮬레이션:** [가제보 SITL](../simulation/gazebo.md)                                                                                                                                                  |    &check;     | &check; | &check; |
 | **시뮬레이션:** [가제보 ROS](../simulation/ros_interface.md)                                                                                                                                            |    &check;     |         |         |
 
 숙련된 Docker 사용자는 지속적 통합 시스템 [Docker Containers](../test_and_ci/docker.md)컨테이너로 빌드할 수 있습니다.
