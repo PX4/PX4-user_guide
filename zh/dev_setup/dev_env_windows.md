@@ -1,4 +1,4 @@
-<Redirect to="dev_env_windows_cygwin" />
+<Redirect to="dev_env_windows_wsl" />
 
 <!-- Everything deleted below here - redirects to Windows Cygwin -->
 
