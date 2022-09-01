@@ -52,8 +52,9 @@ Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics f
 This includes Gazebo and jMAVSim rendered visualization, QGC for Linux running in WSL, `git` gui, etc.
 
 Development is possible as you can still:
-- Build PX4 in WSL2 and flash it to boards using _QGC for Windows_.
-- Run simulations in [headless mode](../simulation/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`), and connect using `QGC for Windows`.
+- Build PX4 in WSL2 and flash it to boards using QGC from **Windows**.
+- Run simulations in [headless mode](../simulation/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`).
+  Connect using QGC on Windows or in WSL.
 
 :::note
 WSL2 GUI support is provided by the [Windows Subsystem for Linux GUI (WSLg)](https://github.com/microsoft/wslg).
