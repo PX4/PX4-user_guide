@@ -123,18 +123,15 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 ## Serial Port Mapping
 
-UART | Device | Port
---- | --- | ---
-UART1 | /dev/ttyS0 | GPS
-USART2 | /dev/ttyS1 | TELEM1 (flow control)
-USART3 | /dev/ttyS2 | TELEM2 (flow control)
-UART4 | /dev/ttyS3 | TELEM4
-USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
-UART7 | /dev/ttyS5 | Debug Console
-UART8 | /dev/ttyS6 | Not connected (no PX4IO)
-
-
-<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+|  UART  |   Device   | QGC Parameter Description |     Port Label on FC     |
+|:------:|:----------:|:-------------------------:|:------------------------:|
+| UART1  | /dev/ttyS0 | GPS1                      | GPS Module               |
+| USART2 | /dev/ttyS1 | TELEM1                    | TELEM1                   |
+| USART3 | /dev/ttyS2 | TELEM2                    | N/A                      |
+| UART4  | /dev/ttyS3 | TELEM/SERIAL4             | UART/l2C B               |
+| USART6 | /dev/ttyS4 | N/A                       | RC IN                    |
+| UART7  | /dev/ttyS5 | N/A                       | Debug                    |
+| UART8  | /dev/ttyS6 | N/A                       | Not connected (no PX4IO) |
 
 
 ## Peripherals
