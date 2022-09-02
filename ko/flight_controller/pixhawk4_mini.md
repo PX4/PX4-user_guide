@@ -113,18 +113,15 @@ make px4_fmu-v5_default
 
 ## 시리얼 포트 매핑
 
-| UART   | 장치         | 포트                         |
-| ------ | ---------- | -------------------------- |
-| UART1  | /dev/ttyS0 | GPS                        |
-| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어)             |
-| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)             |
-| UART4  | /dev/ttyS3 | TELEM4                     |
-| USART6 | /dev/ttyS4 | TX는 SBUS_RC 커넥터의 RC 입력입니다. |
-| UART7  | /dev/ttyS5 | 디버그 콘솔                     |
-| UART8  | /dev/ttyS6 | 연결되지 않음 (PX4IO 없음)         |
-
-
-<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+|  UART  |     장치     | QGC Parameter Description |  Port Label on FC  |
+|:------:|:----------:|:-------------------------:|:------------------:|
+| UART1  | /dev/ttyS0 |           GPS1            |     GPS Module     |
+| USART2 | /dev/ttyS1 |          TELEM1           |       TELEM1       |
+| USART3 | /dev/ttyS2 |          TELEM2           |        N/A         |
+| UART4  | /dev/ttyS3 |       TELEM/SERIAL4       |     UART/l2C B     |
+| USART6 | /dev/ttyS4 |            N/A            |       RC IN        |
+| UART7  | /dev/ttyS5 |            N/A            |       Debug        |
+| UART8  | /dev/ttyS6 |            N/A            | 연결되지 않음 (PX4IO 없음) |
 
 
 ## 주변 장치
