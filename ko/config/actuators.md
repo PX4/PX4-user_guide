@@ -9,7 +9,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 이 기능을 사용하려면 매개변수 [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)을 설정하고 [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME)에 올바른 프레임 유형이 설정되어 있는 지 확인하십시오. *QGroundControl*을 재시작하여야 합니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/systemlib/system_params.c#L298 -->
 
-The easiest way to try this out in simulation is to use any of the following gazebo `make` targets, which have control allocation pre-enabled:
+시뮬레이션에서 이것을 시도하는 가장 쉬운 방법은 사전에 제어 할당이 활성화된 다음 전망대 `make` 대상을 사용하는 것입니다.
 
 ```
 make px4_sitl gazebo_iris_ctrlalloc
@@ -17,9 +17,9 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 ```
 :::
 
-Open the view in *QGroundControl* here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab).
+여기에서 *QGroundControl* 보기를 오픈합니다. **"Q"(앱 메뉴) > 차량 설정 > 액추에이터**(탭).
 
-## Overview
+## --개요
 
 The view has three sections:
 - [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md). This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
