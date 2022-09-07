@@ -450,6 +450,32 @@ param <command> [arguments...]
    find          Show index of a param
      <param>     param name
 ```
+## payload_deliverer
+Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
+
+
+### 예
+Handles payload delivery with either Gripper or a Winch with an appropriate timeout / feedback sensor setting, and communicates back the delivery result as an acknowledgement internally
+
+
+<a id="payload_deliverer_usage"></a>
+
+### 설명
+```
+payload_deliverer <command> [arguments...]
+ Commands:
+   start
+
+   gripper_test  Tests the Gripper's release & grabbing sequence
+
+   gripper_open  Opens the gripper
+
+   gripper_close Closes the gripper
+
+   stop
+
+   status        print status info
+```
 ## perf
 Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
 
@@ -499,7 +525,7 @@ pwm min -c 13 -p 1200
 
 <a id="pwm_usage"></a>
 
-### 사용법
+### Usage
 ```
 pwm <command> [arguments...]
  Commands:
@@ -542,7 +568,7 @@ Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src
 Reboot the system
 <a id="reboot_usage"></a>
 
-### 설명
+### Usage
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
@@ -574,7 +600,7 @@ Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/
 Test operations on an SD Card
 <a id="sd_stress_usage"></a>
 
-### Usage
+### 설명
 ```
 sd_stress [arguments...]
      [-r <val>]  Number of runs
@@ -591,7 +617,7 @@ This can be used to use u-center connected to USB with a GPS on a serial port.
 
 <a id="serial_passthru_usage"></a>
 
-### Usage
+### 설명
 ```
 serial_passthru [arguments...]
      -e <val>    External device path
@@ -606,7 +632,7 @@ serial_passthru [arguments...]
 Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
 
-### Description
+### 예
 
 Command-line tool to set and get system time.
 
@@ -620,7 +646,7 @@ system_time get
 
 <a id="system_time_usage"></a>
 
-### 예
+### Usage
 ```
 system_time <command> [arguments...]
  Commands:
@@ -645,7 +671,7 @@ Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/mas
 Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
 
-### Usage
+### 설명
 ```
 usb_connected [arguments...]
 ```
@@ -655,7 +681,7 @@ Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Tool to print various version information
 <a id="ver_usage"></a>
 
-### Usage
+### 설명
 ```
 ver <command> [arguments...]
  Commands:
