@@ -72,7 +72,7 @@ To perform an offboard calibration:
 1. 将 [ SDLOG_MODE ](../advanced_config/parameter_reference.md#SDLOG_MODE) 参数设置为 2 以从系统启动时就开始记录日志。
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
 1. 将电路板冷却到操作所需的最低温度。
-1. 接通电源并保持电路板静止<sup id="fnref2:2"><a href="#fn:2" class="footnote-ref"> 2 </a></sup>，将其缓慢加热至所需的最高工作温度。 <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
+1. 接通电源并保持电路板静止[^2]，将其缓慢加热至所需的最高工作温度。 [^3]
 1. 断开电源并取出 .ulog 文件。
 1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
    ```sh
@@ -161,4 +161,4 @@ Scale factors are assumed to be temperature invariant due to the difficulty asso
 ---
 [^1]: 当校准开始时，[SYS_CAL_Accel](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL)、[SYS_CAL_Baro](../advanced_config/parameter_reference.md#SYS_CAL_BARO) 和 [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) 参数重置为 0。
 [^2]: 气压传感器偏置的校准需要一个稳定的气压环境。 由于天气的原因，空气压力变化缓慢，建筑物内部的气压会因室外风的波动和暖通空调系统的运行而迅速变化。
-[^3]: 在加热冷却板时必须小心，以避免在某些情况下在板上形成凝结物，导致电路板损坏。[&#8617;](#fnref2:3){.footnote-backref}
+[^3]: 在加热冷却板时必须小心，以避免在某些情况下在板上形成凝结物，导致电路板损坏。

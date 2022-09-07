@@ -455,6 +455,32 @@ param <command> [arguments...]
    find          显示参数的索引
      <param>     参数名
 ```
+## payload_deliverer
+Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
+
+
+### 描述
+Handles payload delivery with either Gripper or a Winch with an appropriate timeout / feedback sensor setting, and communicates back the delivery result as an acknowledgement internally
+
+
+<a id="payload_deliverer_usage"></a>
+
+### 用法
+```
+payload_deliverer <command> [arguments...]
+ Commands:
+   start
+
+   gripper_test  Tests the Gripper's release & grabbing sequence
+
+   gripper_open  Opens the gripper
+
+   gripper_close Closes the gripper
+
+   stop
+
+   status        print status info
+```
 ## perf
 Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
 
@@ -638,7 +664,7 @@ Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/syst
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
 
-### 用法
+### Usage
 ```
 top [arguments...]
    once          print load only once
@@ -659,7 +685,7 @@ Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/main/src/syst
 Tool to print various version information
 <a id="ver_usage"></a>
 
-### Usage
+### 用法
 ```
 ver <command> [arguments...]
  Commands:

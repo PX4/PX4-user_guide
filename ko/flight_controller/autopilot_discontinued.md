@@ -7,6 +7,7 @@
 
 ## 자동조종장치
 
+- [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 - [CUAV v5](../flight_controller/cuav_v5.md) (Pixhawk FMUv5)
 - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 - [Holybro Pixfalcon](../flight_controller/pixfalcon.md) (Pixhawk FMUv2)
@@ -15,5 +16,6 @@
 
 ## 완제품
 
+- [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
 - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) ([완제품](../complete_vehicles/README.md))
 - [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) ([완제품](../complete_vehicles/README.md))

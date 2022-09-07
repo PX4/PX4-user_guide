@@ -1,7 +1,7 @@
 # 모듈 참조: 시뮬레이션
 
-## sih
-소스: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih)
+## simulator_sih
+Source: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
 
 
 ### 설명
@@ -16,11 +16,11 @@
 
 
 
-<a id="sih_usage"></a>
+<a id="simulator_sih_usage"></a>
 
 ### 사용법
 ```
-sih <command> [arguments...]
+simulator_sih <command> [arguments...]
  Commands:
    start
 
