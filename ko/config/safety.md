@@ -316,7 +316,7 @@ VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 
 비행중 비시동을 지원하지 않는 모드의 경우 비행 중 스위치가 무시되지만 착륙 후에 사용 가능합니다. 여기에는 *위치 모드* 및 자율 모드 (예 : *미션*, *착륙* 등)가 포함됩니다.
 
 :::note
-[자동 비시동 시간 제한](#auto-disarming-timeouts)(예 : [COM_DISARM_LAND](#COM_DISARM_LAND)을 통해)은 설정/해제 스위치와 독립적입니다. 즉, 스위치가 설정되어 있어도 시간 제한이 계속 작동합니다.
+[자동 비시동 시간 제한](#auto-disarming-timeouts)(예 : [COM_DISARM_LAND](#COM_DISARM_LAND)을 통해)은 설정/해제 스위치와 독립적입니다. 즉, 스위치가 설정되어 있어도 시간 제한이 작동합니다.
 :::
 
 
@@ -327,7 +327,7 @@ VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 
 
 ### 귀환 스위치
 
-귀환 스위치를 사용하여 즉시 [귀환 모드](../flight_modes/return.md)를 활성화합니다.
+귀환 스위치를 사용하여 즉시 [귀환 모드](../flight_modes/return.md)로 전환합니다.
 
 ## 기타 안전 설정
 
@@ -340,7 +340,7 @@ VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 
 | 매개변수                                                                                                       | 설명                              |
 | ---------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 착륙후 자동 시동 꺼기 대기 시간              |
-| <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 기체가 이륙이 너무 느린 경우 자동 시동 꺼기 대기 시간 |
+| <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 기체가 이륙이 너무 더딘 경우 자동 시동 꺼기 대기 시간 |
 
 ## 추가 정보
 
