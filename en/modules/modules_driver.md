@@ -881,7 +881,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out_sim)
+Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
 
 ### Description
@@ -1143,6 +1143,27 @@ sht3x <command> [arguments...]
    values        Print actual data
 
    reset         Reinitialize sensor
+```
+## simulator_ignition_bridge
+Source: [modules/simulation/simulator_ignition_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_ignition_bridge)
+
+
+### Description
+
+
+<a id="simulator_ignition_bridge_usage"></a>
+### Usage
+```
+simulator_ignition_bridge <command> [arguments...]
+ Commands:
+   start
+     -m <val>    Model name
+     -p <val>    Model Pose
+     [-w <val>]  World name
+
+   stop
+
+   status        print status info
 ```
 ## tap_esc
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)

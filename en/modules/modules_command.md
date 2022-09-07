@@ -449,6 +449,32 @@ param <command> [arguments...]
    find          Show index of a param
      <param>     param name
 ```
+## payload_deliverer
+Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
+
+
+### Description
+Handles payload delivery with either Gripper or a Winch with an appropriate timeout / feedback sensor setting,
+and communicates back the delivery result as an acknowledgement internally
+
+
+<a id="payload_deliverer_usage"></a>
+### Usage
+```
+payload_deliverer <command> [arguments...]
+ Commands:
+   start
+
+   gripper_test  Tests the Gripper's release & grabbing sequence
+
+   gripper_open  Opens the gripper
+
+   gripper_close Closes the gripper
+
+   stop
+
+   status        print status info
+```
 ## perf
 Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
 

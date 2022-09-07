@@ -46,7 +46,7 @@ It can be used for reproducible replay.
 - [estimator_aid_source_1d](estimator_aid_source_1d.md)
 - [estimator_aid_source_2d](estimator_aid_source_2d.md)
 - [estimator_aid_source_3d](estimator_aid_source_3d.md)
-- [estimator_baro_bias](estimator_baro_bias.md)
+- [estimator_bias](estimator_bias.md)
 - [estimator_event_flags](estimator_event_flags.md)
 - [estimator_gps_status](estimator_gps_status.md)
 - [estimator_innovations](estimator_innovations.md)
@@ -73,6 +73,8 @@ scale errors, in-run bias and thermal drift (if thermal compensation is enabled 
 - [gps_dump](gps_dump.md) — This message is used to dump the raw gps communication to the log.
 Set the parameter GPS_DUMP_COMM to 1 to use this.
 - [gps_inject_data](gps_inject_data.md)
+- [gripper](gripper.md) — # Used to command an actuation in the gripper, which is mapped to a specific output in the mixer module
+- [health_report](health_report.md)
 - [heater_status](heater_status.md)
 - [home_position](home_position.md) — GPS home position in WGS84 coordinates.
 - [hover_thrust_estimate](hover_thrust_estimate.md)
@@ -210,7 +212,7 @@ NaN means the state was not controlled
 - [vehicle_rates_setpoint](vehicle_rates_setpoint.md)
 - [vehicle_roi](vehicle_roi.md) — Vehicle Region Of Interest (ROI)
 - [vehicle_status](vehicle_status.md) — Encodes the system state of the vehicle published by commander
-- [vehicle_status_flags](vehicle_status_flags.md) — This is a struct used by the commander internally.
+- [vehicle_status_flags](vehicle_status_flags.md) — TODO: rename to failsafe_flags (will be input to failsafe state machine)
 - [vehicle_thrust_setpoint](vehicle_thrust_setpoint.md)
 - [vehicle_torque_setpoint](vehicle_torque_setpoint.md)
 - [vehicle_trajectory_bezier](vehicle_trajectory_bezier.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg
