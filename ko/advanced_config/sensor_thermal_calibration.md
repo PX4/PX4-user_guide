@@ -72,7 +72,7 @@ PX4는 두 가지 보정 절차를 지원합니다.
 1. [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 매개변수를 2로 설정하여 부팅에서 데이터 로깅을 활성화합니다.
 1. *열 교정*(비트 2)에 대한 [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 확인란을 설정하여 교정에 필요한 원시 센서 데이터를 기록합니다.
 1. 보드를 작동에 필요한 최소 온도로 냉각합니다.
-1. 전원을 공급하고 보드를 <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>로 유지하고, 필요한 최대 작동 온도까지 천천히 올립니다. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
+1. 전원을 공급하고 보드를 [^2]로 유지하고, 필요한 최대 작동 온도까지 천천히 올립니다. [^3]
 1. 전원을 제거하고 .ulog 파일을 추출하십시오.
 1. **Firmware/Tools** 디렉토리에서 터미널 창을 열고 Python 보정 스크립트를 실행합니다.
    ```sh
@@ -161,5 +161,5 @@ corrected_measurement = (raw_measurement - offset) * scale_factor
 
 ---
 [^1]: 보정이 시작되면 [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) 및 [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) 매개변수가 0으로 재설정됩니다.
-[^2]: 기압 센서 오프셋을 보정하려면 안정적인 기압 환경이 필요합니다. 기압은 날씨에는 느리게 변하고 건물 내부에서는 외부 바람과 HVAC 작동으로 인해 빠르게 변할 수 있습니다.[&#8617;](#fnref2:2){.footnote-backref}
-[^3]: 일부 상황에서 결로로 인하여 보드를 손상을 방지하기 위하여 냉각한 보드를 데울 때주의하여야합니다.[&#8617;](#fnref2:3){.footnote-backref}
+[^2]: 기압 센서 오프셋을 보정하려면 안정적인 기압 환경이 필요합니다. 기압은 날씨에는 느리게 변하고 건물 내부에서는 외부 바람과 HVAC 작동으로 인해 빠르게 변할 수 있습니다.
+[^3]: 일부 상황에서 결로로 인하여 보드를 손상을 방지하기 위하여 냉각한 보드를 데울 때주의하여야합니다.
