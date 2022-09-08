@@ -42,7 +42,7 @@ For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_confi
 
 ## Wiring and Connections
 
-The Freefly RTK GPS comes with an 8 pin JST-GH connector that can be plugged into a PixHawk autopilot.
+Hawk R1 RTK GPS comes with an 8 pin JST-GH connector that can be plugged into a PixHawk autopilot.
 For use as a base station, the module has a USB-C connector
 
 ### Pinout
@@ -50,7 +50,7 @@ For use as a base station, the module has a USB-C connector
 LOCOSYS GPS pinout is provided below.
 For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 6-pin JST-GH cable.
 
-Pin | Freefly GPS
+Pin | Hawk R1 GPS
 --- | ---
 1 | VCC_5V
 2 | GPS_RX
