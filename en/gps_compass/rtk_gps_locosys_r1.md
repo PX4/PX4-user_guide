@@ -15,7 +15,6 @@ Main features include:
 - Default 5Hz, up to 10 Hz update rate*
 - Build-in super capacitor to reserve system data for rapid satellite acquisition
 
-Three LED indicator for Power, PPS and Data transmit
 :::note
 This module can be used with PX4 v1.13 or above.
 :::
@@ -38,8 +37,8 @@ An RTK GPS kit includes:
 ## Configuration
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
-You need to connect your Hawk R1 to either GPS2 port on compatible Pixhawk boards or your preferred UART port on the boards without a seperate 
-For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
+You need to connect your Hawk R1 to either GPS2 port on compatible Pixhawk boards or your preferred UART port on the boards without a seperate GPS2 port.
+For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
 
 ## Wiring and Connections
 
@@ -48,8 +47,8 @@ For use as a base station, the module has a USB-C connector
 
 ### Pinout
 
-The Freefly GPS pinout is provided below.
-For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 8-pin JST-GH cable.
+LOCOSYS GPS pinout is provided below.
+For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 6-pin JST-GH cable.
 
 Pin | Freefly GPS
 --- | ---
@@ -91,5 +90,5 @@ Pin | Freefly GPS
 	
 ## More Information
 
-More information can be found on [Freefly's Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
+More information can be found on [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
   
