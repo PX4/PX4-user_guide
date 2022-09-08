@@ -19,6 +19,7 @@
   - [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md)
   - [Holybro Pixhawk Mini (FMUv2)](../flight_controller/pixhawk_mini.md)
   - [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md)
+  - [Holybro pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md)
   - [mRo Pixracer (FMUv4)](../flight_controller/pixracer.md)
   - [mRo Pixhawk (FMUv2)](../flight_controller/mro_pixhawk.md)
 - [제조사지원 자동항법장치](../flight_controller/autopilot_manufacturer_supported.md)
