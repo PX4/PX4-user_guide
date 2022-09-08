@@ -94,7 +94,7 @@ Make sure *QGroundControl* is not running!
    cd <Firmware_clone>
     make px4_sitl_default gazebo
    ```
-1. 打开载具模型的 sdf 文件（例如 **Tools/sitl_gazebo/models/iris/iris.sdf**）。
+1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
 1. 找到文件的 `mavlink_interface plugin` 分区，将 `serialEnabled` 和 `hil_mode` 参数更改为 `true` 。
 
 :::note
@@ -102,12 +102,15 @@ The serial device depends on what port is used to connect the vehicle to the com
 :::
 
 1. Set up the environment variables:
+
    ```sh
-   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
+
    and run Gazebo in HITL mode:
+
    ```sh
-   gazebo Tools/sitl_gazebo/worlds/hitl_iris.world
+   gazebo Tools/simulation/gazebo/sitl_gazebo/worlds/hitl_iris.world
    ```
 1. Start *QGroundControl*. It should autoconnect to PX4 and Gazebo.
 
@@ -122,7 +125,7 @@ Make sure *QGroundControl* is not running!
 1. 将飞行控制器连接到计算机, 并等待其启动。
 1. 在 HITL 模式下运行 jMAVSim (r如有必要，修改串口号名称 `/dev/ttyACM0` - 比如，在 Mac OS 上该参数应为 `/dev/tty.usbmodem1`)： sh ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 921600 -r 250
    ```sh
-   ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
 :::note
