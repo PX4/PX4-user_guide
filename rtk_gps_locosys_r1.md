@@ -56,8 +56,8 @@ Pin | Freefly GPS
 1 | VCC_5V
 2 | GPS_RX
 3 | GPS_TX
-4 | I2C_SCL
-5 | I2C_SDA
+4 | Null
+5 | Null
 6 | BUTTON
 7 | BUTTON_LED
 8 | GND
