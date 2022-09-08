@@ -183,7 +183,7 @@ To start the simulation with the world that contains a IR-LOCK beacon and a vehi
 make px4_sitl gazebo_iris_irlock
 ```
 
-You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
+You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/iris_irlock.world#L42).
 
 
 ## Operating Principles

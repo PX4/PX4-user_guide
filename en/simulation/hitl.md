@@ -101,7 +101,7 @@ Make sure *QGroundControl* is not running!
    cd <Firmware_clone>
    DONT_RUN=1 make px4_sitl_default gazebo
    ```
-1. Open the vehicle model's sdf file (e.g. **Tools/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
+1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
 1. Replace the `serialDevice` parameter (`/dev/ttyACM0`) if necessary.
 
    :::note
@@ -111,14 +111,18 @@ Make sure *QGroundControl* is not running!
    :::
 
 1. Set up the environment variables:
+
    ```sh
-   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
+
    and run Gazebo in HITL mode:
+
    ```sh
-   gazebo Tools/sitl_gazebo/worlds/hitl_iris.world
+   gazebo Tools/simulation/gazebo/sitl_gazebo/worlds/hitl_iris.world
    ```
-1. Start *QGroundControl*. It should autoconnect to PX4 and Gazebo.
+1. Start *QGroundControl*.
+   It should autoconnect to PX4 and Gazebo.
 
 <a id="jmavsim_hitl_configuration"></a>
 #### jMAVSim (Quadrotor only)
@@ -130,7 +134,7 @@ Make sure *QGroundControl* is not running!
 1. Connect the flight controller to the computer and wait for it to boot.
 1. Run jMAVSim in HITL mode:
    ```sh
-   ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
    :::note

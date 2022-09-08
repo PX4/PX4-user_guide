@@ -63,9 +63,9 @@ To run SITL wrapped in ROS the ROS environment needs to be updated, then launch 
 cd <PX4-Autopilot_clone>
 DONT_RUN=1 make px4_sitl_default gazebo
 source ~/catkin_ws/devel/setup.bash    # (optional)
-source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo/sitl_gazebo
 roslaunch px4 posix_sitl.launch
 ```
 
@@ -109,11 +109,11 @@ Now in a new terminal make sure you will be able to insert the Iris model throug
 
 ```sh
 cd <PX4-Autopilot_clone>
-source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 ```
 
 Now start Gazebo like you would when working with ROS and insert the Iris quadcopter model. Once the Iris is loaded it will automatically connect to the px4 app.
 
 ```sh
-roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/sitl_gazebo/worlds/iris.world
+roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo/sitl_gazebo/worlds/iris.world
 ```

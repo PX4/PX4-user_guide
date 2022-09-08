@@ -155,7 +155,7 @@ make px4_sitl gazebo_typhoon_h480
 
 If you need to use a different vehicle you can include the model in its configuration file.
 You can see how in the respective Iris and Typhoon configuration files:
-- [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
+- [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
   ```xml
     <include>
       <uri>model://lidar</uri>
