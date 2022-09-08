@@ -38,7 +38,7 @@ An RTK GPS kit includes:
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
 You need to connect your Hawk R1 to either GPS2 port on compatible Pixhawk boards or your preferred UART port on the boards without a seperate GPS2 port.
-For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
+For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
 
 ## Wiring and Connections
 
