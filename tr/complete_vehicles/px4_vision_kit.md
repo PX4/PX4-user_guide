@@ -2,7 +2,7 @@
 
 The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-vision/) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
 
-![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
+![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (on V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
@@ -33,23 +33,27 @@ The guide explains the minimal additional setup required to get the vehicle read
 1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras). Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
 1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates). Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
 1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions). This is why the boot image is supplied on a *USB2.0* memory stick.
-1. PX4 Vision with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery. ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+1. PX4 Vision v1 with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery.
+
+   ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+1. All PX4 Vision v1.5 *UP Core* can be powered by either the DC plug or with battery.
 
 :::warning
-For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should only be powered using the battery (do not remove the *UP Core power* socket safety cover).
+For PX4 Vision v1 with ECN below 010/carrier board below RC04, the *UP Core* should only be powered using the battery (do not remove the *UP Core power* socket safety cover). This does not apply to PX4 Vision v1.5
 
 ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port_update.png)
 :::
 
 ## What is Inside
-:::note PX4 Vision Dev Kit V1.5 comes with a [Pixhawk 6C](../flight_controller/pixhawk6c.md) flight controller instead of [Pixhawk 4](../flight_controller/pixhawk4.md)
+
+:::note
+Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
 :::
 
-![What's inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/PX4_Vision_v1.5_Whats_Inside.jpg)
 
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
+What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/Explode-view.png)
 
-<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
 
 The PX4 Vision DevKit contains following components:
 - Core Components:
@@ -118,7 +122,7 @@ In addition, users will need ground station hardware/software:
    - Ensure the antennas are clear of any obstructions and electrically isolated from the frame (e.g. secure them under the carrier board or to the vehicle arms or legs).
 
 1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) the RC ground and air units (if not already done). The binding procedure depends on the specific radio system used (read the receiver manual).
-1. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate. (not require for v1.5)
+1. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate. (Not required for v1.5)
 
    ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
@@ -218,6 +222,8 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
 
+
+<!--
 <span id="install_image_mission_computer"></span>
 ### Installing the image on the Companion Computer
 
@@ -233,18 +239,22 @@ To flash the USB image to the *UP Core*:
 
 1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
 1. [Login to the companion computer](#login_mission_computer) (as described above).
-1. Open a terminal and run the following command to copy the image onto internal memory (eMMC). The terminal will prompt for a number of responses during the flashing process.
+1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
+   The terminal will prompt for a number of responses during the flashing process.
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
    sudo ./flash_emmc.sh
    ```
 
-:::note
-All information saved in the *UP Core* computer will be removed when executing this script.
+   :::note
+   All information saved in the *UP Core* computer will be removed when executing this script.
+
 :::
 
 1. Pull out the USB stick.
-1. Restart the vehicle. The *UP Core* computer will now boot from internal memory (eMMC).
+1. Restart the vehicle.
+   The *UP Core* computer will now boot from internal memory (eMMC).
+-->
 
 ### Boot the Companion Computer
 
