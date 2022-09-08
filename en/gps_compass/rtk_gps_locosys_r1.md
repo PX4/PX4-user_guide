@@ -39,28 +39,27 @@ An RTK GPS kit includes:
 ## Configuration
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
-You need to connect your Hawk R1 to either GPS2 port on compatible Pixhawk boards or your preferred UART port on the boards without a seperate 
-For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
+You need to connect your Hawk R1 to either GPS2 port on compatible Pixhawk boards or your preferred UART port on the boards without a seperate port for GPS2.
+For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
 
 ## Wiring and Connections
 
-The Freefly RTK GPS comes with an 8 pin JST-GH connector that can be plugged into a PixHawk autopilot.
-For use as a base station, the module has a USB-C connector
+The Locosys RTK GPS receivers come with an 6 pin JST-GH connector that can be plugged into a PixHawk autopilot.
 
 ### Pinout
 
 The Freefly GPS pinout is provided below.
-For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 8-pin JST-GH cable.
+For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 6-pin JST-GH cable.
 
 Pin | Freefly GPS
 --- | ---
 1 | VCC_5V
 2 | GPS_RX
 3 | GPS_TX
-4 | I2C_SCL
-5 | I2C_SDA
-6 | BUTTON
-7 | BUTTON_LED
+4 | Null
+5 | Null
+6 | Null
+7 | Null
 8 | GND
 
 ## Specification
@@ -92,5 +91,5 @@ Pin | Freefly GPS
 	
 ## More Information
 
-More information can be found on [Freefly's Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
+More information can be found on [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
   
