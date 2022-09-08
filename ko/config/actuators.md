@@ -46,51 +46,51 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 
 ### 모터 지오메트리
 
-The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor.
+모터 지오메트리 섹션에서는 모터 수, 상대 위치 및 각 모터의 기타 속성을 설정합니다.
 
-Most motor properties apply to all frames. A few properties apply to specific frames. For example, `Tilted-by` and `axis` are only relevant for [Tiltrotor VTOL](#motor-geometry-vtol-tiltrotor) and [Standard VTOL](#motor-geometry-standard-vtol) vehicles, respectively.
+대부분의 모터 속성은 모든 프레임에 적용됩니다. 몇 가지 속성이 특정 프레임에 적용됩니다. 예를 들어, `기울기` 및 `축`은 각각 [틸트로터 VTOL](#motor-geometry-vtol-tiltrotor) 및 [표준 VTOL](#motor-geometry-standard-vtol) 기체에 해당됩니다.
 
-The geometry configuration for multicopter airframes provides a diagram showing the relative x,y positions for each of the motors. See the [Airframe Reference](../airframes/airframe_reference.md) for an broad understanding of the motor positions for other frames.
+멀티콥터 기체의 기하학적 구성은 각 모터의 상대적 x,y 위치를 보여주는 다이어그램을 제공합니다. 다른 프레임의 모터 위치에 대한 광범위한 이해는 [기체 참조](../airframes/airframe_reference.md)를 참고하십시오.
 
-Core geometry concepts and the configuration for a number of different frames are provided in the following sections.
+코어 지오메트리 개념과 다양한 프레임에 대한 설정은 다음 섹션에서 제공됩니다.
 
 
-#### Motor Geometry: Multicopter
+#### 모터 지오메트리: 멀티콥터
 
-The image below shows the geometry setup for a multicopter frame with and without advanced settings.
+아래 이미지는 고급 설정이 있거나 없는 멀티콥터 프레임의 지오메트리 설정을 나타냅니다.
 
 :::note
-Specifically this is the motor geometry for a [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) muticopter. Other multicopters frames are configured similarly.
+특히 이것은 [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) 뮤티콥터의 모터 지오메트리입니다. 다른 멀티콥터 프레임도 유사하게 구성됩니다.
 :::
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
-First, the **Motors** drop-down setting lets you choose the number of motors (4 for the example above).
+먼저, **모터** 드롭다운 설정을 통하여 모터 수(위 예의 경우 4개)를 선택할 수 있습니다.
 
-For each motor you can then set:
+각 모터에 대해 다음을 설정할 수 있습니다:
 
-- `Position X`: [X-position](#motor-position-coordinate-system), in metres.
-- `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
-- `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
-- (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
-- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
-- (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
+- `위치 X`: [X 위치](#motor-position-coordinate-system), 미터 단위.
+- `위치 Y`: [Y 위치](#motor-position-coordinate-system), 미터 단위.
+- `위치 Z`: [Z 위치](#motor-position-coordinate-system), 미터 단위.
+- (고급) `CCW 방향`: 모터가 시계 반대 방향으로 회전하는 것을 나타내는 확인란입니다(시계 방향의 경우 선택 취소).
+- (고급) `양방향`: 모터가 [양방향](#bidirectional-motors)임을 나타내는 확인란
+- (고급) `슬루율`: 자세한 내용은 [제어 표면 기하학](#control-surfaces-geometry) 섹션을 참조하십시오.
 
 :::note
-The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
+`X`, `Y`, `Z` 위치는 _무게 중심_을 기준으로 [FRD 좌표계에 있습니다. ](#motor-position-coordinate-system). 이것은 비행 컨트롤러의 위치와 동일하지 않을 수 있습니다.
 :::
 
 
-#### Motor Geometry: VTOL Quadrotor Tailsitter
+#### 모터 지오메트리: VTOL Quadrotor Tailsitter
 
-The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
+[VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)의 모터 구조는 아래에 나와 있습니다(다른 Tailsitter VTOL 차량을 구성하는 방법도 유사함).
 
-Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
+모터는 [멀티콥터 지오메트리](#motor-geometry-multicopter)와 동일한 구성 필드를 갖습니다.
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
 
-#### Motor Geometry: VTOL Tiltrotor
+#### 모터 지오메트리: VTOL 틸트로터
 
 The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
 
