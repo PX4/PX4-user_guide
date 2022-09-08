@@ -113,13 +113,13 @@ ROS(1)/MAVROS를 사용하여 새로운 파이썬 테스트를 PX4 테스트 스
    - 시뮬레이터를 시작합니다.
         ```sh
         cd <PX4-Autopilot_clone>
-        source Tools/setup_gazebo.bash
+        source Tools/simulation/gazebo/setup_gazebo.bash
         roslaunch launch/mavros_posix_sitl.launch
         ```
     - 테스트를 실행합니다(새로운 쉘에서).
         ```
         cd <PX4-Autopilot_clone>
-        source Tools/setup_gazebo.bash
+        source Tools/simulation/gazebo/setup_gazebo.bash
         rosrun px4 mavros_new_test.py
         ```
 
