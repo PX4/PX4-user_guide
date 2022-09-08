@@ -178,7 +178,7 @@ make px4_sitl gazebo_iris_irlock
 ```
 
 
-비컨은 Gazebo GUI에서 이동시키거나, [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42)에서 비컨을 이동하여 위치를 변경할 수 있습니다.
+You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/iris_irlock.world#L42).
 
 
 
