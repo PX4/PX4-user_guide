@@ -14,9 +14,11 @@ SIH는 새로운 PX4 사용자가 PX4와 다양한 모드 및 기능에 익숙�
 동적 모델은 이 [pdf 보고서](https://github.com/PX4/Devguide/raw/master/assets/simulation/SIH_dynamic_model.pdf)을 참고하십시오.
 
 또한 차량을 나타내는 물리적 매개변수(예: 질량, 관성 및 최대 추력)는 [SIH 매개변수](../advanced_config/parameter_reference.md#simulation-in-hardware)에서 쉽게 수정할 수 있습니다.
+
 > "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." ("민첩한 고정익 무인항공기의 역학 모델링.") Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
 
 The model for the tailsitter vehicle is inspired from the Master thesis:
+
 > "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
 
 Furthermore, the physical parameters representing the vehicle (such as mass, inertia, and maximum thrust force) can easily be modified from the [SIH parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
@@ -38,7 +40,8 @@ Running the SIH is as easy as selecting an airframe. Plug the autopilot to the d
 When the SIH airframe is selected, the module `sih` starts by itself, the vehicle should be displayed on the ground control station map.
 
 :::warning
-The airplane needs to takeoff in manual mode at full throttle. Also, if the airplane hits the floor the state estimator might lose its fix.
+The airplane needs to takeoff in manual mode at full throttle.
+Also, if the airplane hits the floor the state estimator might lose its fix.
 :::
 
 ## 디스플레이 설정
@@ -52,7 +55,7 @@ To display the simulated vehicle:
 1. 하드웨어 자동 조종 장치의 플러그를 뽑았다가 다시 꽂습니다(부팅하는 데 몇 초 정도 걸림).
 1. 터미널에서 **jmavsim_run.sh** 스크립트를 입력하여, jMAVSim을 실행합니다.
    ```
-   ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -r 250 -o
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -o
    ```
    여기서 플래그들은 아래와 같습니다.
    - `-q` - *QGroundControl*에 대한 통신 허용(선택 사항)
@@ -62,7 +65,7 @@ To display the simulated vehicle:
    - add a flag `-a` to display an aircraft or '-t' to display a tailsitter. 이 플래그가 없으면 기본적으로 쿼드로터가 표시됩니다.
 1. 몇 초 후에 *QGroundControl*을 다시 오픈할 수 있습니다.
 
-At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC __Fly__ view.
+At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC _Fly_ view.
 
 
 ## 개발진
