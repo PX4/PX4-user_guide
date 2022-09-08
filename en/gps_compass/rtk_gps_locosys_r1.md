@@ -15,7 +15,8 @@ Main features include:
 - Default 5Hz, up to 10 Hz update rate*
 - Build-in super capacitor to reserve system data for rapid satellite acquisition
 
-Three LED indicator for Power, PPS and Data transmit
+
+
 :::note
 This module can be used with PX4 v1.13 or above.
 :::
