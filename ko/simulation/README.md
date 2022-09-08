@@ -168,9 +168,14 @@ SITL이 이 기능을 지원하지 않는 시뮬레이터와 함께 사용되는
 
 To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
 
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
+To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
-jMAVSim에서 잠금 단계를 비활성화하려면 [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75)에서 `-l`을 제거하거나, Java 바이너리가 `-lockstep` 플래그 없이 시작되었는지 확인하십시오.
+To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jmavsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
+<!-- Relevant lines in sitl_run.sh are:
+# Start Java simulator
+"$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l &
+SIM_PID=$!
+-->
 
 
 ### 시작 스크립트
@@ -202,7 +207,7 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 
 PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영상과 동영상 캡처를 할 수 있습니다. 설정 방법은 [Gazebo > 비디오 스트리밍](../simulation/gazebo.md#video)을 참고하십시오.
 
-시뮬레이션 카메라는 [MAVLink 카메라 프로토콜](https://mavlink.io/en/protocol/camera.html)을 구현하는 gazebo 플러그인입니다.<!-- **PX4-Autopilot/Tools/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
+시뮬레이션 카메라는 [MAVLink 카메라 프로토콜](https://mavlink.io/en/protocol/camera.html)을 구현하는 gazebo 플러그인입니다.<!-- **PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
 1. MAVLink 카메라와 함께 사용할 카메라 트리거 드라이버를 구성하려면 [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE)를 `3`으로 설정합니다. :::tip 이 모드에서 드라이버는 이미지 캡처가 요청시에 [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 자세한 내용은 [카메라](../peripherals/camera.md)를 참고하십시오.
 :::
 
