@@ -19,33 +19,32 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 
 여기에서 *QGroundControl* 보기를 오픈합니다. **"Q"(앱 메뉴) > 차량 설정 > 액추에이터**(탭).
 
-## --개요
+## 개요
 
-The view has three sections:
-- [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md). This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
-- [Actuator Outputs](#actuator-outputs): Assign motors, control surfaces, and other actuators to specific output.
-- [Actuator Testing](#actuator-testing): Test that motors and actuators move in the direction / speed as expected.
+보기에는 세 개의 섹션이 있습니다.
+- [기하](#geometry): [선택한 기체](../config/airframe.md)의 기하 도형을 설정합니다. 여기에는 [모터](#motor-geometry)의 수, 위치 및 속성과 [제어 표면](#control-surfaces-geometry) 및 [모터 틸트 서보](#motor-tilt-servo-geometry)의 수와 속성이 포함됩니다.
+- [액추에이터 출력](#actuator-outputs): 모터, 제어 표면 및 기타 액추에이터를 특정 출력에 할당합니다.
+- [액추에이터 테스트](#actuator-testing): 모터와 액추에이터가 예상대로 방향과 속도로 움직이는 지 테스트합니다.
 
-A quadcopter might have an setup screen similar to the one shown below. This defines a 4-rotor copter with X-geometry. It maps the 4 motors to the AUX1 to AUX4 outputs, and specifies that the connect to DShot1200 ESC. It also maps PWM400 AUX outputs for controlling a parachute and landing gear.
+쿼드콥터에는 아래와 같은 설정 화면이 있을 수 있습니다. 이것은 X-지오메트리를 가진 4-로터 헬리콥터를 정의합니다. 4개의 모터를 AUX1에서 AUX4 출력으로 매핑하고, DShot1200 ESC에 연결하도록 설정합니다. 또한 낙하산 및 착륙 장치를 제어하기 위한 PWM400 AUX 출력을 매핑합니다.
 
 ![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
 :::note
-Only the most common settings are displayed by default. Select the **Advanced** checkbox in the top right corner to display all settings.
+기본적으로 가장 일반적인 설정만 표시됩니다. 모든 설정을 표시하려면 오른쪽 상단 모서리에 있는 **고급** 확인란을 선택합니다.
 :::
 
-## Geometry
+## 지오메트리
 
-The geometry section is used to set any configurable geometry-related parameters for the selected [airframe](../config/airframe.md). This includes the number and position of [motors](#motor-geometry), and the number, function, and properties of [control surfaces](#control-surfaces-geometry). For VTOL tiltrotor vehicles, it will also include the number and properties of [tilt servos](#motor-tilt-servo-geometry)
+지오메트리 섹션은 선택한 [기체](../config/airframe.md)에 대해 구성 가능한 지오메트리 관련 매개변수를 설정하는 데 사용됩니다. 여기에는 [모터](#motor-geometry)의 수와 위치, [제어 표면](#control-surfaces-geometry)의 수, 기능 및 속성이 포함됩니다. VTOL 틸트로터 차량의 경우 [틸트 서보](#motor-tilt-servo-geometry)의 수와 속성도 포함됩니다.
 
-:::note
-The UI is customised for the selected airframe:
+:::note UI는 선택한 기체에 맞게 사용자 지정됩니다:
 
-- Only _configurable_ fields for the selected airframe type are displayed; fields that aren't configurable for the airframe are hidden.
-- The motor position diagram is currently only displayed for multicopter frames.
+- 선택한 기체 유형에 대한 _구성 가능_ 필드만 표시됩니다. 기체에 대해 구성할 수 없는 필드는 숨겨져 있습니다.
+- 모터 위치 다이어그램은 현재 멀티콥터 프레임에만 표시됩니다.
 :::
 
-### Motor Geometry
+### 모터 지오메트리
 
 The motor geometry section lets you set the number of motors, the relative position, and other properties of each motor.
 
