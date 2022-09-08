@@ -119,6 +119,7 @@ At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also [Gaz
 To build an example setup, follow the step below:
 
 1. Clone the PX4/PX4-Autopilot code, then build the SITL code
+
    ```
    cd Firmware_clone
    git submodule update --init --recursive
@@ -126,8 +127,8 @@ To build an example setup, follow the step below:
    ```
 1. Source your environment:
    ```
-   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
-   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
+   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/simulation/gazebo/sitl_gazebo
    ```
 
 1. Run launch file:
@@ -151,7 +152,7 @@ You can control the vehicles with *QGroundControl* or MAVROS in a similar way to
 
 For each simulated vehicle, the following is required:
 
-* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). Currently, the model `xacro` file is assumed to end with **base.xacro**. This model should have an argument called  `mavlink_udp_port` which defines the UDP port on which gazebo will communicate with PX4 node. The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select. To define the UDP port, set the `mavlink_udp_port` in the launch file for each vehicle, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37) as an example.
+* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). Currently, the model `xacro` file is assumed to end with **base.xacro**. This model should have an argument called  `mavlink_udp_port` which defines the UDP port on which gazebo will communicate with PX4 node. The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select. To define the UDP port, set the `mavlink_udp_port` in the launch file for each vehicle, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37) as an example.
 
 :::note
 If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. The same **`xacro`** file is adequate.
@@ -240,7 +241,7 @@ The steps are:
    ```
 
    :::note
-   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/sitl_gazebo/tree/master/models/plane) will be used by default.
+   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo/tree/master/models/plane) will be used by default.
 
 :::
 
@@ -251,7 +252,7 @@ To add a new vehicle, you need to make sure the model can be found (in order to 
 1. You can choose to do either of:
    * modify the **single_vehicle_spawn_sdf.launch** file to point to the location of your model by changing the line below to point to your model:
      ```
-$(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf ``` :::note Ensure you set the `vehicle` argument even if you hardcode the path to your model.
+$(find px4)/Tools/simulation/gazebo/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf ``` :::note Ensure you set the `vehicle` argument even if you hardcode the path to your model.
 :::
    * copy your model into the folder indicated above (following the same path convention).
 
