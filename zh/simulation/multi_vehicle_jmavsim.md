@@ -21,11 +21,11 @@ To start multiple instances (on separate ports):
    ```
 1. 启动第一个实例: `./Tools/jmavsim_run.sh`
    ```
-   ./Tools/jmavsim_run.sh -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -l
    ```
 1. 启动后续实例，并为该实例指定 *仿真* UDP 端口（所有命令应在同一行输入，以空格键隔开，完成输入后直接回车运行，此时由于所有实例的启动位置都相同所以无法分辨启动的实例个数，可通过查看端口号进行查询）： `./Tools/jmavsim_run.sh -p 14561` 端口号应设置为 `14560+i` for `i` in `[0, N-1]`。
    ```
-   ./Tools/jmavsim_run.sh -p 4561 -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -p 4560 -l
    ```
    端口号应该被设置为 `4560+i` ， `i` 的范围为 `[0, N-1]` 。
 
