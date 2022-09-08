@@ -119,6 +119,7 @@ At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also [Gaz
 {% endyoutube %}
 
 1. Clone the PX4/PX4-Autopilot code, then build the SITL code
+
    ```
    cd Firmware_clone
    git submodule update --init --recursive
@@ -126,8 +127,8 @@ At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also [Gaz
    ```
 1. Source your environment:
    ```
-   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
-   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
+   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/simulation/gazebo/sitl_gazebo
    ```
 
 1. 运行启动文件:
@@ -151,7 +152,7 @@ You can control the vehicles with *QGroundControl* or MAVROS in a similar way to
 
 For each simulated vehicle, the following is required:
 
-* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). Currently, the model `xacro` file is assumed to end with **base.xacro**. 此模型应该有一个名为 `mavlink_udp_port` 的参数, 该参数定义了与 px4 节点通信的 udp 端口。 模型的 `xacro` 文件将用于生成包含您选择的 udp 端口的 `urdf` 模型。 若要定义 udp 端口，请在每个飞行器的启动文件中设置 `mavlink_udp_port`，请参阅例子[here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37)。
+* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). Currently, the model `xacro` file is assumed to end with **base.xacro**. 此模型应该有一个名为 `mavlink_udp_port` 的参数, 该参数定义了与 px4 节点通信的 udp 端口。 模型的 `xacro` 文件将用于生成包含您选择的 udp 端口的 `urdf` 模型。 若要定义 udp 端口，请在每个飞行器的启动文件中设置 `mavlink_udp_port`，请参阅例子[here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37)。
 
 :::note
 If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. The same **`xacro`** file is adequate.
@@ -240,7 +241,7 @@ Be aware of which port is `src` and `dst` for the different endpoints.
    ```
 
    :::note
-   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/sitl_gazebo/tree/master/models/plane) will be used by default.
+   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo/tree/master/models/plane) will be used by default.
 
 :::
 
@@ -251,7 +252,7 @@ This method is similar to using the xacro except that the SITL/Gazebo port numbe
 1. You can choose to do either of:
    * modify the **single_vehicle_spawn_sdf.launch** file to point to the location of your model by changing the line below to point to your model:
      ```
-$(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf ``` :::note Ensure you set the `vehicle` argument even if you hardcode the path to your model.
+$(find px4)/Tools/simulation/gazebo/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf ``` :::note Ensure you set the `vehicle` argument even if you hardcode the path to your model.
 :::
    * copy your model into the folder indicated above (following the same path convention).
 

@@ -20,11 +20,11 @@
    ```
 1. 첫 번째 인스턴스를 시작합니다.
    ```
-   ./Tools/jmavsim_run.sh -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -l
    ```
 1. 인스턴스에 대한 *시뮬레이션* TCP 포트를 지정하여 후속 인스턴스를 시작합니다.
    ```
-   ./Tools/jmavsim_run.sh -p 4561 -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -p 4560 -l
    ```
    포트는 `[0, N-1]`의 `i`에 대하여 `4560+i`로 설정되어야 합니다.
 

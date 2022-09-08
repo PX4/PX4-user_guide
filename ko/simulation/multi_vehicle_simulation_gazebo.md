@@ -118,6 +118,7 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
 예제 설정을 빌드하려면 아래 단계를 따라 진행하십시오.
 
 1. PX4/PX4-Autopilot 코드를 복제한 다음, SITL 코드를 빌드합니다.
+
    ```
    cd Firmware_clone
    git submodule update --init --recursive
@@ -125,8 +126,8 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
    ```
 1. 환경 설정을 업데이트합니다.
    ```
-   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
-   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
+   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/simulation/gazebo/sitl_gazebo
    ```
 
 1. 실행 파일을 실행합니다.
@@ -150,7 +151,7 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
 
 각 시뮬레이션 차량에 대하여, 다음 사항들이 필요합니다.
 
-* **Gazebo 모델**: `PX4-Autopilot/Tools/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro`에서 `xacro` 파일로 정의됩니다. [여기](https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf)를 참고하십시오. 현재 모델 `xacro` 파일은 **base.xacro**로 끝나는 것으로 가정합니다. 이 모델에는 Gazebo가 PX4 노드와 통신할 UDP 포트를 정의하는 `mavlink_udp_port`라는 인수가 있어야 합니다. 모델의 `xacro` 파일은 선택한 UDP 포트가 포함된 `urdf` 모델을 생성하는 데 사용됩니다. UDP 포트를 정의하려면 각 차량의 실행 파일에서 `mavlink_udp_port`를 설정합니다. 예제는 [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37)를 참고하십시오.
+* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). 현재 모델 `xacro` 파일은 **base.xacro**로 끝나는 것으로 가정합니다. 이 모델에는 Gazebo가 PX4 노드와 통신할 UDP 포트를 정의하는 `mavlink_udp_port`라는 인수가 있어야 합니다. 모델의 `xacro` 파일은 선택한 UDP 포트가 포함된 `urdf` 모델을 생성하는 데 사용됩니다. UDP 포트를 정의하려면 각 차량의 실행 파일에서 `mavlink_udp_port`를 설정합니다. 예제는 [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37)를 참고하십시오.
 
 :::note
 동일한 차량 모델을 사용하는 경우에는, 각 차량에 대해 별도의 **`xacro`** 파일이 필요하지 않습니다. 동일한 **`xacro`** 파일이면 충분합니다.
@@ -239,22 +240,14 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
    ```
 
    :::note
-차량 모델 파일 이름 인수는 선택 사항입니다(<code>vehicle:=<model_file_name></code>). 생략하면 기본적으로 <a href="https://github.com/PX4/sitl_gazebo/tree/master/models/plane">평면 모델</a>이 사용됩니다.
+   Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo/tree/master/models/plane) will be used by default.
    이 방법은 생성된 각 차량에 대해 SITL/Gazebo 포트 번호가 <em x-id="4">xmstarlet</em>에 의해 자동으로 삽입되고 SDF 파일에 지정할 필요가 없다는 점을 제외하고 xacro를 사용하는 것과 유사합니다.
 
 새 차량을 추가하려면 모델을 검색 여부를 확인하여야 하고(Gazebo에서 생성하기 위해), PX4에 적절한 시작 스크립트가 있어야 합니다.
 
 1. 모델을 지정하도록 아래 줄을 변경하여 <strong x-id="1">single_vehicle_spawn_sdf.launch</strong> 파일을 수정하여 모델의 위치를 가리키도록 합니다.
      ```
-). 생략하면 기본적으로 [평면 모델](https://github.com/PX4/sitl_gazebo/tree/master/models/plane)이 사용됩니다.
-      이 방법은 생성된 각 차량에 대해 SITL/Gazebo 포트 번호가 _xmstarlet_에 의해 자동으로 삽입되고 SDF 파일에 지정할 필요가 없다는 점을 제외하고 xacro를 사용하는 것과 유사합니다.
-   
-   새 차량을 추가하려면 모델을 검색 여부를 확인하여야 하고(Gazebo에서 생성하기 위해), PX4에 적절한 시작 스크립트가 있어야 합니다.
-   
-   1. 모델을 지정하도록 아래 줄을 변경하여 **single_vehicle_spawn_sdf.launch** 파일을 수정하여 모델의 위치를 가리키도록 합니다.
-   </code>
-:::note
-모델 경로를 하드코딩한 경우에도, `차량` 인수를 설정하여야 합니다.
+$(find px4)/Tools/simulation/gazebo/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf ``` :::note Ensure you set the `vehicle` argument even if you hardcode the path to your model.
 :::
    * 모델을 위에 표시된 폴더에 복사합니다(동일한 경로 규칙에 따라).
 
