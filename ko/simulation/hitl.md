@@ -94,7 +94,7 @@ The *QGroundControl User Guide* also has instructions on [Joystick](https://docs
    cd <Firmware_clone>
    DONT_RUN=1 make px4_sitl_default gazebo
    ```
-1. 차량 모델의 sdf 파일을 오픈합니다(예: **Tools/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
+1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
 1. 필요한 경우 `serialDevice` 매개변수(`/dev/ttyACM0`)를 변경합니다.
 
 :::note
@@ -102,12 +102,15 @@ The *QGroundControl User Guide* also has instructions on [Joystick](https://docs
 :::
 
 1. 환경 변수를 설정합니다.
+
    ```sh
-   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
+
    Gazebo를 HITL 모드에서 실행합니다.
+
    ```sh
-   gazebo Tools/sitl_gazebo/worlds/hitl_iris.world
+   gazebo Tools/simulation/gazebo/sitl_gazebo/worlds/hitl_iris.world
    ```
 1. *QGroundControl*을 실행합니다. PX4와 Gazebo에 자동으로 연결되어야 합니다.
 
@@ -122,7 +125,7 @@ The *QGroundControl User Guide* also has instructions on [Joystick](https://docs
 1. 비행 콘트롤러를 컴퓨터에 연결하고, 부팅시까지 기다립니다.
 1. jMAVSim를 HITL 모드에서 실행:
    ```sh
-   ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
 :::note
