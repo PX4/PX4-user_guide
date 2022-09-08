@@ -19,6 +19,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md)
   - [Holybro Pixhawk Mini (FMUv2)](../flight_controller/pixhawk_mini.md)
   - [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md)
+  - [Holybro pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md)
   - [mRo Pixracer (FMUv4)](../flight_controller/pixracer.md)
   - [mRo Pixhawk (FMUv2)](../flight_controller/mro_pixhawk.md)
 - [由制造商支持的自动驾驶仪](../flight_controller/autopilot_manufacturer_supported.md)
