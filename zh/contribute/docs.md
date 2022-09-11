@@ -4,7 +4,7 @@ Contributions to the PX4 User Guide are very welcome; from simple fixes to spell
 
 This topic explains how to make and test changes. Towards the end there is a basic style guide.
 
-::: tip
+:::tip
 Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
