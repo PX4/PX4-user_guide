@@ -32,7 +32,7 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `x`, `y`, `z`)
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
     * Acceleration setpoint  (only `afx`, `afy`, `afz`)
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
     * Position setpoint **and** velocity setpoint **and** acceleration (the velocity and the acceleration setpoints are used as feedforwards; the velocity setpoint is added to the output of the position controller and the result is used as the input to the velocity controller; the acceleration setpoint is added to the output of the velocity controller and the result used to compute the thrust vector).
@@ -41,7 +41,7 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
     * *Thrust* setpoint (only `afx`, `afy`, `afz`)
 
       :::note
