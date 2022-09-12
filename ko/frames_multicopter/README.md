@@ -12,10 +12,6 @@ PX4는 헬리콥터, 트라이 콥터, 쿼드 콥터, 헥사 로터, 도데카 �
 
 @[유투브](https://www.youtube.com/watch?v=JovSwzoTepU)
 
-Lumenier QAV250 Pixhawk 미니 빌드
-
-@[유투브](http://www.youtube.com/watch?v=MZzo4DMNkug)
-
 DJI Matrice 100 (Pixhawk 1)
 
 @[유투브](https://www.youtube.com/watch?v=3OGs0ONemGc)
