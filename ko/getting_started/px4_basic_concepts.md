@@ -6,7 +6,7 @@
 
 ## 드론의 정의
 
-드론은 원격 또는 자동으로 조종할 수 있는 무인로봇 차량입니다.
+드론은 원격 또는 자동으로 조종할 수 있는 무인 로봇입니다.
 
 드론은  [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
 
@@ -15,7 +15,7 @@
 드론을 가르키는 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 :::
 
-자동비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
 
 
 ## PX4 자동비행장치
@@ -41,9 +41,9 @@ PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](
 
 ## 비행 콘트롤러(보드)
 
-PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 차량의 물리적 조건, 운용 목적과 비용을 고려하여 적절한 보드를 선택할 수 있습니다.
+PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에 실행 가능하게 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행되어 집니다. 기체의 물리적 조건, 운용 목적과 비용을 고려하여 최적의 보드를 선택할 수 있습니다.
 
-자세한 내용은 [비행 콘트롤러 선택](flight_controller_selection.md)을 참고하십시오.
+자세한 내용은 [비행 콘트롤러 선택](flight_controller_selection.md)편을 참고하십시오.
 
 ## 센서
 
