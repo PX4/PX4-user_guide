@@ -1,5 +1,3 @@
-# 概要
-
 * [はじめに](README.md)
 * [さあ、はじめよう](getting_started/README.md)
   * [基本コンセプト](getting_started/px4_basic_concepts.md)
