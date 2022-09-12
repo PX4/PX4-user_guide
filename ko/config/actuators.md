@@ -112,12 +112,12 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 
 #### 모터 지오메트리: 기타 기체
 
-Other vehicle types will define an appropriate motor geometry for their frame type. Once again these motors will generally have the same kinds of properties as shown above.
+다른 기체 유형은 프레임 유형에 적합한 모터 형상을 정의합니다. 다시 한 번 이러한 모터는 일반적으로 위에 표시된 것과 같은 종류의 속성을 가집니다.
 
-For example, a fixed-wing vehicle may just have a single pusher moter, while a rover with differential steering will have a motor for throttle and for steering.
+예를 들어, 고정익에는 단일 푸셔 모터만 있을 수 있지만, 차동 조향 장치가 있는 로버에는 스로틀 및 조향용 모터가 있습니다.
 
 
-#### Motor Position Coordinate System
+#### 모터 위치 좌표계
 
 The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
 
