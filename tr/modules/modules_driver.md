@@ -792,7 +792,7 @@ It is typically started with:
 pca9685_pwm_out start -a 64 -b 1
 ```
 
-Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
+The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
 
 <a id="pca9685_pwm_out_usage"></a>
 
@@ -864,12 +864,6 @@ Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/dri
 ### Description
 This module is responsible for driving the output pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
-On startup, the module tries to occupy all available pins for PWM/Oneshot output. It skips all pins already in use (e.g. by a camera trigger module).
-
-### Implementation
-By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
 <a id="pwm_out_usage"></a>
 
@@ -884,7 +878,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out_sim)
+Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
 
 ### Description
@@ -1146,6 +1140,28 @@ sht3x <command> [arguments...]
    values        Print actual data
 
    reset         Reinitialize sensor
+```
+## simulator_ignition_bridge
+Source: [modules/simulation/simulator_ignition_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_ignition_bridge)
+
+
+### Description
+
+
+<a id="simulator_ignition_bridge_usage"></a>
+
+### Usage
+```
+simulator_ignition_bridge <command> [arguments...]
+ Commands:
+   start
+     -m <val>    Model name
+     -p <val>    Model Pose
+     [-w <val>]  World name
+
+   stop
+
+   status        print status info
 ```
 ## tap_esc
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
