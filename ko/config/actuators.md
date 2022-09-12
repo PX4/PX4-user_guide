@@ -92,25 +92,25 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 
 #### 모터 지오메트리: VTOL 틸트로터
 
-The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
+[일반 쿼드플레인 VTOL 틸트로터](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor)의 모터 지오메트리는 아래에 기술되어 있습니다(다른 [VTOL 틸트로터](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor)를 구성하는 방식도 유사함).
 
 ![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
 
-- `Tilted by`: The associated servo used for tilting the motor. The properties of this servo are defined in the [Motor Tilt Servo Geometry](#motor-tilt-servo-geometry).
+- `기울기`: 모터를 기울이는 데 사용되는 관련 서보입니다. 이 서보의 속성은 [모터 틸트 서보 지오메트리](#motor-tilt-servo-geometry)에 정의되어 있습니다.
 
 
-#### Motor Geometry: Standard VTOL
+#### 모터 형상: 표준 VTOL
 
-The motor geometry for a [Generic Standard Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
+[일반 표준 쿼드플레인 VTOL 틸트로터](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol)의 모터 구조는 아래와 같습니다(다른 "표준 VTOL"을 구성하는 방법도 유사함).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
-Motors have most of the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter). There is an additional field to indicate the direction in which the motor moves the vehicle (for a standard VTOL, the hover motors are usually set "upwards" and the pusher motor is set to "forwards").
+모터는 [멀티콥터 지오메트리](#motor-geometry-multicopter)와 대부분 동일한 구성 필드를 갖습니다. 모터가 차량을 움직이는 방향을 나타내는 추가 필드가 있습니다(표준 VTOL의 경우 호버 모터는 일반적으로 "위쪽"으로 설정되고 푸셔 모터는 "앞으로"로 설정됨).
 
-- `Axis`: One of `Upwards`, `Downwards`, `Forwards`, `Backwards`, `Leftwards`, `Rightwards`, `Custom`
-  - If `Custom` is selected, then the UI displays three additional fields for setting the motor orientation.
+- `축`: `위로`, `아래로`, `앞으로`, `뒤로`, ` 중 하나 왼쪽으로`, `오른쪽으로`, `사용자 지정`
+  - `사용자 지정`을 선택하면 UI에 모터 방향 설정을 위한 세 개의 추가 필드가 표시됩니다.
 
-#### Motor Geometry: Other Vehicles
+#### 모터 지오메트리: 기타 기체
 
 Other vehicle types will define an appropriate motor geometry for their frame type. Once again these motors will generally have the same kinds of properties as shown above.
 
