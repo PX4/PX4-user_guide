@@ -119,52 +119,52 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 
 #### 모터 위치 좌표계
 
-The coordinate system for motor positions is FRD (in body frame), where the X axis points forward, the Y axis to the right and the Z axis down.
+모터 위치를 나타내는 좌표계는 FRD(몸체 프레임 내)이며, 여기서 X축은 앞쪽, Y축은 오른쪽, Z축은 아래쪽을 가르킵니다.
 
-The origin is the vehicle's **centre-of-gravity (COG)**. This may **NOT** be the same position as the location of the autopilot.
+원점은 차량의 **무게 중심(COG)**입니다. 이것은 자동조종장치 내부의 위치가 **아닐** 수 있습니다.
 
 ![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
 
 
-#### Bidirectional Motors
+#### 양방향 모터
 
-Some vehicles may use bidirectional motors (i.e. motors that support spinning in both directions). For example, ground vehicles that want to move forwards and backwards, or VTOL vehicles that have pusher motors that can turn in either direction.
+일부 차량은 양방향 모터(즉, 양방향 회전을 지원하는 모터)를 사용할 수 있습니다. 예를 들어, 전진 및 후진을 원하는 지상 차량 또는 어느 방향으로든 회전할 수 있는 푸셔 모터가 있는 VTOL 차량이 있습니다.
 
-If bidiectional motors are used, make sure to select the **Reversible** checkbox for those motors (the checkbox is displayed as an "advanced" option).
+양방향 모터를 사용하는 경우 해당 모터에 대해 **가역성** 확인란을 선택하여야 합니다(확인란은 "고급" 옵션으로 표시됨).
 
 ![Reversible](../../assets/config/actuators/qgc_geometry_reversible_marked.png)
 
-Note that you will need to also ensure that the ESC associated with bidirectional motors is configured appropriately (e.g. 3D mode enabled for DShot ESCs, which can be achieved via [DShot commands](../peripherals/dshot.md#commands)).
+양방향 모터와 연결된 ESC가 적절하게 구성되었는지도 확인하여야 합니다(예: [DShot 명령](../peripherals/dshot.md#commands)을 통해 달성할 수 있는 DShot ESC에 대해 활성화된 3D 모드).
 
 
-### Control Surfaces Geometry
+### 조종면 지오메트리
 
-The control surfaces section of the geometry panel lets you set the number and types of control surfaces that are present on the vehicle. You may also need to set trim and slew rate values in some cases. More advanced users can also configure the roll scale, yaw scale, and pitch scale (generally the defaults are acceptable, and this is not needed).
+지오메트리 패널의 조종면 섹션에서는 기체 조종면의 갯수와 유형을 설정할 수 있습니다. 경우에 따라 트림 및 슬루율 값을 설정할 수도 있습니다. 고급 사용자는 롤 스케일, 요 스케일 및 피치 스케일을 구성할 수 있습니다(일반적으로 기본값이 허용되며 필요하지 않음).
 
-An "example" control surface section for a vehicle with two ailerons is shown below. Note that ailerons only affect roll, so the pitch and yaw fields are disabled.
+2개의 에일러론이 있는 차량의 "예시" 제어 표면 섹션이 아래에 나와 있습니다. 에일러론은 롤에만 영향을 미치므로 피치 및 요 필드는 비활성화됩니다.
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
-The fields are:
+항목들은 다음과 같습니다.
 
-- `Control Surfaces`: The number of control surfaces (set this first!)
-- `Type`: The type of each control surface: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder`, `Left Elevon`, `Right Elevon`, `Left V-Tail`, `Right V-Tail`, `Left Flap`, `Right Flap`, `Airbrakes`, `Custom`.
-- `Roll scale`: Effectiveness of actuator around roll axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Pitch scale`: Effectiveness of actuator around pitch axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Yaw scale`: Effectiveness of actuator around yaw axis (normalised: -1 to 1). [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Trim`: An offset added to the actuator so that it is centered without input. This might be determined by trial and error.
-- `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
-  - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied). It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
-  - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
-- `Lock control surfaces in hover`:
-  - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
-  - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
+- `조종면`: 조종면의 갯수(먼저 설정하십시오!)
+- `유형`: 각 조종면의 유형: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder</0 >, <code>왼쪽 엘레본`, `오른쪽 엘레본`, `왼쪽 V-Tail`, `오른쪽 V-Tail`, `왼쪽 플랩`, `오른쪽 플랩`, `에어브레이크`, `맞춤형`.
+- `롤 스케일`: 롤 축을 중심으로 한 액추에이터의 효율성(정규화: -1 ~ 1). [일반적으로 기본 액추에이터 값을 사용하여야 합니다](#actuator-roll-pitch-and-yaw-scaling).
+- `피치 스케일`: 피치 축 주위의 액츄에이터의 효율성(정규화: -1에서 1). [일반적으로 기본 액추에이터 값을 사용하여야 합니다](#actuator-roll-pitch-and-yaw-scaling).
+- `요 스케일`: 요 축을 중심으로 한 액추에이터의 효율성(정규화: -1 ~ 1). [일반적으로 기본 액추에이터 값을 사용합니다](#actuator-roll-pitch-and-yaw-scaling).
+- `트림`: 입력 없이 중앙에 오도록 액추에이터에 추가된 오프셋입니다. 이것은 시행착오를 거쳐 결정될 수 있습니다.
+- `슬루율`: 모터 및 서보 신호가 전체 출력 범위를 통과하는 데 허용되는 최소 시간(초).
+  - 설정은 액츄에이터의 변화율을 제한합니다(지정하지 않으면 비율 제한이 적용되지 않음). 틸트로터 VTOL 차량의 틸팅 액추에이터와 같이 너무 빨리 움직일 경우 손상될 수 있는 액추에이터를 위한 것입니다.
+  - 예를 들어, 2.0으로 설정하면 모터 및 서보가 2초 이내에 작동을 완료하는 속도로 0에서 1로 이동하도록 명령되지 않음을 의미합니다(가역 모터의 경우 범위는 -1에서 1).
+- `마우스 오버시 조종면 잠금`:
+  - `사용`: 대부분의 차량은 호버링 시 조종면을 사용하지 않습니다. 이 설정을 사용하여 기체 역학에 영향을 미치지 않도록 잠그십시오.
+  - `비활성화`: 듀오 테일시터(피치 및 요 제어에 엘레본 사용)와 같이 호버링에서 조종면을 사용하는 기체를 설정합니다. 또한 조종면을 사용하여 고속으로 이동할 때 호버 모드에서 추가 안정화를 제공하거나 강한 바람이 부는 기체에 대하여 설정합니다.
 
 
-#### Actuator Roll, Pitch, and Yaw Scaling
+#### 액추에이터 롤, 피치 및 요 스케일링
 
 :::note
-For the majority of airframe setups the default values for each control surface types should not be changed.
+대부분의 기체 설정에서 각 조종면 유형의 기본값은 변경되어서는 안 됩니다.
 :::
 
 The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized effectiveness of the actuator around the corresponding axis.

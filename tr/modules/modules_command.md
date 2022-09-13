@@ -6,8 +6,6 @@ Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/mai
 
 Utility to test actuators.
 
-Note: this is only used in combination with SYS_CTRL_ALLOC=1.
-
 WARNING: remove all props before using this command.
 
 <a id="actuator_test_usage"></a>
@@ -274,54 +272,6 @@ mfd <command> [arguments...]
  Commands:
    query         Returns true if not existed
 ```
-## mixer
-Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mixer)
-
-
-### Description
-Load or append mixer files to the ESC driver.
-
-Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
-
-<a id="mixer_usage"></a>
-
-### Usage
-```
-mixer <command> [arguments...]
- Commands:
-   load
-     <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
-
-   append
-     <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
-```
-## motor_test
-Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/motor_test)
-
-
-Utility to test motors.
-
-WARNING: remove all props before using this command.
-
-<a id="motor_test_usage"></a>
-
-### Usage
-```
-motor_test <command> [arguments...]
- Commands:
-   test          Set motor(s) to a specific output value
-     [-m <val>]  Motor to test (1...8, all if not specified)
-     [-p <val>]  Power (0...100)
-                 default: 0
-     [-t <val>]  Timeout in seconds (default=no timeout)
-                 default: 0
-     [-i <val>]  driver instance
-                 default: 0
-
-   stop          Stop all motors
-
-   iterate       Iterate all motors starting and stopping one after the other
-```
 ## mtd
 Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
 
@@ -457,6 +407,32 @@ param <command> [arguments...]
    find          Show index of a param
      <param>     param name
 ```
+## payload_deliverer
+Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
+
+
+### Description
+Handles payload delivery with either Gripper or a Winch with an appropriate timeout / feedback sensor setting, and communicates back the delivery result as an acknowledgement internally
+
+
+<a id="payload_deliverer_usage"></a>
+
+### Usage
+```
+payload_deliverer <command> [arguments...]
+ Commands:
+   start
+
+   gripper_test  Tests the Gripper's release & grabbing sequence
+
+   gripper_open  Opens the gripper
+
+   gripper_close Closes the gripper
+
+   stop
+
+   status        print status info
+```
 ## perf
 Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
 
@@ -471,77 +447,6 @@ perf [arguments...]
    latency       Print HRT timer latency histogram
 
  Prints all performance counters if no arguments given
-```
-## pwm
-Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/pwm)
-
-
-### Description
-This command is used to configure PWM outputs for servo and ESC control.
-
-The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
-
-It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm status` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
-
-The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the minimum value they should spin.
-
-Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
-
-The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
-
-Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
-
-### Examples
-
-Set the PWM rate for all channels to 400 Hz:
-```
-pwm rate -a -r 400
-```
-
-Arm and set the outputs of channels 1 and 3 to a PWM value to 1200 us:
-```
-pwm min -c 13 -p 1200
-```
-
-
-<a id="pwm_usage"></a>
-
-### Usage
-```
-pwm <command> [arguments...]
- Commands:
-   arm           Arm output
-
-   disarm        Disarm output
-
-   status        Print current configuration of all channels
-
-   rate          Configure PWM rates
-     -r <val>    PWM Rate in Hz (0 = Oneshot, otherwise 50 to 400Hz)
-
-   oneshot       Configure Oneshot125 (rate is set to 0)
-
-   min           Set Minimum PWM value
-
-   max           Set Maximum PWM value
-
- The commands 'min' and 'max' require a PWM value:
-     -p <val>    PWM value (eg. 1100)
-
- The commands 'rate', 'oneshot', 'min', 'max' additionally require to specify
- the channels with one of the following commands:
-     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
-                 1=first)
-     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-     [-g <val>]  Select channels by group (eg. 0, 1, 2. use 'pwm status' to show
-                 groups)
-     [-a]        Select all channels
-
- These parameters apply to all commands:
-     [-d <val>]  Select PWM output device
-                 values: <file:dev>, default: /dev/pwm_output0
-     [-v]        Verbose output
-     [-e]        Exit with 1 instead of 0 on error
 ```
 ## reboot
 Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/reboot)

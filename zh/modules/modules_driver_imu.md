@@ -522,12 +522,37 @@ icm42688p <command> [arguments...]
 
    status        print status info
 ```
+## iim42652
+Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iim42652)
+
+<a id="iim42652_usage"></a>
+
+### 用法
+```
+iim42652 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## l3gd20
 Source: [drivers/imu/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/l3gd20)
 
 <a id="l3gd20_usage"></a>
 
-### 用法
+### Usage
 ```
 l3gd20 <command> [arguments...]
  Commands:
@@ -631,7 +656,7 @@ Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu9520_usage"></a>
 
-### Usage
+### 使用
 ```
 mpu9520 <command> [arguments...]
  Commands:
@@ -668,7 +693,7 @@ mpu9520_i2c <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 57
+                 default: 104
      [-R <val>]  Rotation
                  default: 0
 
