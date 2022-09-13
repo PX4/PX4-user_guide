@@ -167,49 +167,49 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 대부분의 기체 설정에서 각 조종면 유형의 기본값은 변경되어서는 안 됩니다.
 :::
 
-The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized effectiveness of the actuator around the corresponding axis.
+`롤 스케일`, `피치 스케일` 및 `요 스케일` 값은 해당 축 주위의 액츄에이터의 정규화된 효율성을 나타냅니다.
 
-Tuning the values is a low/level/advanced topic, and is generally only needed when tuning coupled control surfaces (like an elevon, that controls both pitch and roll). In this case the things you need to know are:
+값 조정은 낮은/수준/고급 주제이며 일반적으로 결합된 제어 표면(피치와 롤을 모두 제어하는 elevon과 같은)을 조정시에만 필요합니다. 이 경우 주의해야할 사항은 다음과 같습니다.
 
-- The numbers that are entered are directly put into the allocation matrix, that is then inverted to get from desired moments (normalized) to control signals.
-- Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
+- 입력된 숫자는 할당 매트릭스에 직접 입력되며, 원하는 순간(정규화)에서 제어 신호를 얻기 위해 반전됩니다.
+- 배율을 높이면 제어 표면의 처짐이 _감소_됩니다(역전될 때).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
  
 
-#### Control Surface Deflection Convention
+#### 조종면 처짐 규칙
 
-The diagram below shows the convention for deflections:
+아래 다이어그램은 편향 규칙을 나타냅니다.
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
 
-In summary:
+요약:
 
-- **Horizontal Control Surfaces:** Upwards movement equals positive deflection. Includes Ailerons, etc
-- **Vertical Control Surfaces:** Rightwards movement is positive deflection. Includes rudders etc.
-- **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above). Includes V-Tail etc.
+- **수평 조종면:** 위쪽으로 이동하면 양의 편향이 발생합니다. 에일러론 등 포함
+- **수직 조종면:** 오른쪽으로 이동하면 양의 편향이 발생합니다. 러더 등이 포함됩니다.
+- **혼합 조종면:** 위쪽/오른쪽 방향 움직임은 양수입니다(위와 같이). V-Tail 등이 포함됩니다.
 
 <!-- Also see this comment: https://github.com/PX4/PX4-Autopilot/blob/96b03040491e727752751c0e0beed87f0966e6d4/src/modules/control_allocator/module.yaml#L492 -->
 
-### Motor Tilt Servo Geometry
+### 모터 틸트 서보 지오메트리
 
-[VTOL tiltrotor vehicles](../frames_vtol/tiltrotor.md) can tilt their motors to transition between hover and forward flight. This section defines the properties of the tilting servos. These are mapped to specific motors in the motor geometry for a tiltrotor.
+[VTOL 틸트로터 차량](../frames_vtol/tiltrotor.md)은 호버링과 전방 비행 사이를 전환하기 위해 모터를 기울일 수 있습니다. 이 섹션은 틸팅 서보의 속성을 정의합니다. 이는 틸트로터의 모터 형상에서 특정 모터에 매핑됩니다.
 
-The example below shows the tilt servo setup for the [tiltrotor motor geometry shown above](../config/actuators.md#motor-geometry-vtol-tiltrotor).
+아래 예는 [위에 표시된 틸트로터 모터 형상](../config/actuators.md#motor-geometry-vtol-tiltrotor)에 대한 틸트 서보 설정을 나타냅니다.
 
 ![Tilt Servo Geometry Setup Example](../../assets/config/actuators/tilt_servo_geometry_config.png)
 
-The values that can be set are:
+설정 가능한 값들은 다음과 같습니다.
 
-- `Tilt servos`: The number of servos (tiltable motors).
-- `Angle at min tilt`: [Maximum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z axis.
-- `Angle at max tilt`: [Minimum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z-axis.
-- `Tilt direction`: `Towards front` (positive x direction) or `Towards right` (positive y direction).
-- `Use for control`: [Tilt servo used for yaw/pitch](#tilt-servos-for-yaw-pitch-control)
-  - `None`: Torque control is not used.
-  - `Yaw`: Tilt servos used to control yaw.
-  - `Pitch`: Tilt servos used to control pitch.
-  - `Both Yaw and Pitch`: Tilt servos are used to control both yaw and pitch.
+- `틸트 서보`: 서보(틸트 가능한 모터)의 수입니다.
+- `최소 기울기 각도`: z축을 기준으로 한 [최대 기울기 각도](#tilt-servo-coordinate-system)(도)
+- `최대 기울기 각도`: Z축을 기준으로 한 [최소 기울기 각도](#tilt-servo-coordinate-system)(도)
+- `기울기 방향`: `앞쪽으로`(양의 x 방향) 또는 `오른쪽으로`(양의 y 방향).
+- `제어에 사용`: [요/피치에 사용되는 틸트 서보](#tilt-servos-for-yaw-pitch-control)
+  - `없음`: 토크 제어를 사용하지 않습니다.
+  - `요`: 요를 제어하는 데 사용되는 틸트 서보입니다.
+  - `피치`: 피치를 제어하는 데 사용되는 틸트 서보입니다.
+  - `요 및 피치 모두`: 틸트 서보는 요와 피치를 모두 제어하는 데 사용됩니다.
 
 
 #### Tilt Servo Coordinate System
