@@ -212,7 +212,7 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
   - `요 및 피치 모두`: 틸트 서보는 요와 피치를 모두 제어하는 데 사용됩니다.
 
 
-#### Tilt Servo Coordinate System
+#### 틸트 서보 좌표계
 
 The coordinate system for tilt rotor angles is shown below. The reference direction for tilt angles is straight upwards (0 degrees). Tilt angles towards the front or right of the vehicle are positive, and towards the back or to the left are negative.
 
