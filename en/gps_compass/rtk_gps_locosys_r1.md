@@ -42,13 +42,11 @@ For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_confi
 
 ## Wiring and Connections
 
-Hawk R1 RTK GPS comes with an 8 pin JST-GH connector that can be plugged into a PixHawk autopilot.
-For use as a base station, the module has a USB-C connector
+Hawk R1 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a PixHawk autopilot.
 
 ### Pinout
 
 LOCOSYS GPS pinout is provided below.
-For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 6-pin JST-GH cable.
 
 Pin | Hawk R1 GPS
 --- | ---
@@ -61,31 +59,38 @@ Pin | Hawk R1 GPS
 7 | Null
 8 | GND
 
+## Status LEDs
+
+Color | Name  | Description
+--- | --- | ---
+Green | TX Indicator | GNSS Data transmission
+Red | Power Indicator | Power
+Blue | PPS | Precise Positioning Service active
+
+![Hawk A1 LEDs](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_leds.png)
+
 ## Specification
 
-- u-blox ZED-F9P GPS Receiver
-  - Ultracap backup power for fast (hot-start) restarts
-  - EMI shield over receiver for improved EMI immunity
-- IST8310 Magnetometer
-- Safety-switch and safety LED
-- RGB LEDs for status indication
-  - NCP5623CMUTBG I2C Driver
-- BMP388 Baro on I2C bus
-- External, active antenna (Maxtena M7HCT)
+- Frequency
+  - GPS/QZSS: L1 C/A, L5C
+  - GLONASS: L1OF
+  - BEIDOU: B1I, B2a
+  - GALILEO: E1, E5a
+- 135 Channels support
+- Up to 10 Hz update rate (default to 5Hz)
+- Acquisition Time
+  - Hot start (Open Sky) in 2 seconds
+  - Cold Start (Open Sky) in 28 seconds without AGPS
+- PPS with 100ms pulse width, 1.8Vdc
+- External, active Helix antenna
   - SMA connector
-- STM32 MCU for future CAN-based communication
-  - FW updates through USB connector
+- UBlox Protocol Support 
+  - U5Hz:UBX-NAV-PVT,UBX-NAV-DOP
+  - 1Hz: UBX-NAV-TIMEGPS
 - Connectivity:
-  - USB-C
-  - 2-way USB Switch to MCU and F9P
-  - SMA for active antenna (20mA max)
-  - 4-pin JST-GH CAN Bus (dronecode compliant)
-  - 8-pin JST-GH UART/I2C
--** Power:
-  - Input from either (diode OR'd): 
-  - USB (5V)
-  - CAN (4.7 to 25.2V)
-  - (4.7 to 25.2V)
+  - 6-pin JST-GH UART/I2C (Pixhawk compatible)
+- Power:
+  - DC supply voltage 3.3V ~ 5.0V input
   - Power consumption <1W
 	
 ## More Information
