@@ -1,6 +1,6 @@
 # ThePeach FCC-R1 
 
-:::WARNING
+:::warning
 PX4 does not manufacture this (or any) autopilot. 
 Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
 :::
