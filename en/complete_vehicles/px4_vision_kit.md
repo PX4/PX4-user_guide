@@ -41,7 +41,7 @@ The guide explains the minimal additional setup required to get the vehicle read
    This is why the boot image is supplied on a *USB2.0* memory stick.
 1. PX4 Vision v1 with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery.
    
-   ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+   ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/serial_number_update.jpg)
 1. All PX4 Vision v1.5 *UP Core* can be powered by either the DC plug or with battery.   
 
 :::warning
@@ -56,9 +56,9 @@ For PX4 Vision v1 with ECN below 010/carrier board below RC04, the *UP Core* sho
 Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
 :::
 
-![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/PX4_Vision_v1.5_Whats_Inside.jpg)
+![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/Explode-view.png)
+What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
 
 
 The PX4 Vision DevKit contains following components:
@@ -183,7 +183,7 @@ In addition, users will need ground station hardware/software:
 
    - Screw down firmly using the provided propellor nuts:
 
-     ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
+     ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.png)
 
 
 ## Fly the Drone with Avoidance
