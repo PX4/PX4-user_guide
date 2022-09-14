@@ -41,8 +41,6 @@
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
   - [SP Racing H7 EXTREME](../flight_controller/spracingh7extreme.md)
-  - [ThePeach FCC-K1](../flight_controller/thepeach_k1.md)
-  - [ThePeach FCC-R1](../flight_controller/thepeach_r1.md)
 - [시험단계 자동비행장치](../flight_controller/autopilot_experimental.md)
   - [라즈베리 파이  2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   - [라즈베리 파이 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md)
