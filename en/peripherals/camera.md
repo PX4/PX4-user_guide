@@ -11,25 +11,25 @@ This timestamp can be used for several applications, including: timestamping pho
 
 ## Trigger Configuration
 
-Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/SetupView/Camera.html#px4-camera-setup) section. 
+Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/master/en/SetupView/Camera.html#px4-camera-setup) section.
 
-![Trigger pins](../../assets/camera/trigger_pins.png) 
+![Trigger pins](../../assets/camera/trigger_pins.png)
 
-The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [hardware setup](#trigger-hardware-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [trigger output configuration](#trigger-output-pin-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
 
 :::note
 The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware.
 For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
-## Trigger Modes
+### Trigger Modes
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
 Mode | Description
 --- | ---
 0 | Camera triggering is disabled.
-1 | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#command-interface) for more details.
+1 | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface) for more details.
 2 | Switches the intervalometer constantly on.
 3 | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.
 4 | triggers automatically when flying a survey in Mission mode.
@@ -38,30 +38,23 @@ Mode | Description
 If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 :::
 
-## Trigger Hardware Configuration
+### Trigger Interface Backends
 
-### Trigger Setup using Mixer Configuration
+The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
-The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
-The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
+Number | Description
+--- | ---
+1 | Enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.
+2  | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher mapped [camera trigger pins](#trigger-output-pin-configuration). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.
+3 | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).
+4 | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera. The trigger signal is duplicated on both pins specified using `TRIG_PINS`.
 
-:::note
-On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+).
-On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano).
-At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
-:::
 
-:::warning
-With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs).
-With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs.
-Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
-:::
+### Trigger Output Pin Configuration
 
-### Trigger Setup using Control Allocation
+Camera trigger pins are set in the *QGroundControl* [Actuators](../config/actuators.md) configuration screen.
 
-When _dynamic control allocation_ is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)) camera trigger pins can be set on any FMU outputs.
-This is done on the *QGroundControl* [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Trigger` function on any FMU output.
-
+The trigger pins can be set by assigning the `Camera_Trigger` function on any FMU output.
 If using trigger setup that requires two pins (e.g. Seagull MAP2) you can assign to any two outputs.
 
 Note however that once an output has been used for camera triggering, the whole PWM group cannot be used for anything else (you can't use another output in the group for an actuator or motor, say).
@@ -72,19 +65,7 @@ At time of writing triggering only works on FMU pins:
 - A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
 :::
 
-
-## Trigger Interface Backends
-
-The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter: 
-
-Number | Description
---- | ---
-1 | enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.
-2  | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher AUX pins of `TRIG_PINS`, respectively (therefore, channel/pin 1 to AUX 5 and channel/pin 2 to AUX 6 by default). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.
-3 | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).
-4 | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera. The trigger signal is duplicated on both pins specified using `TRIG_PINS`.
-
-## Other Parameters
+### Other Parameters
 
 Parameter | Description
 --- | ---
@@ -98,6 +79,15 @@ The full list of parameters pertaining to the camera trigger module can be found
 
 Cameras can also (optionally) use a camera capture pin to signal the exact moment when a photo/frame is taken.
 This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+
+Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
+The pin used for camera capture is then set in the *QGroundControl* [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function on any FMU output.
+
+:::note
+At time of writing camera capture only works on FMU pins:
+- On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+).
+- A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
+:::
 
 PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V).
 If the camera isn't outputting an appropriate voltage, then additional circuitry will be required to make the signal compatible.
@@ -114,24 +104,11 @@ PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.htm
 If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 :::
 
-Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
+## MAVLink Command Interface
 
-If mixers are used, then the capture pin used depends on the hardware:
-- Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
-- Other board use FMU PWM pin 6 (hardcoded) for camera capture.
-
-If _dynamic control allocation_ is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)) the camera capture pin can be set on any FMU output pin.
-This is done on the *QGroundControl* [Actuators](../config/actuators.md) configuration screen by assigning the `Camera_Capture` function to the desired output.
-
-:::note
-At time of writing camera capture only works on FMU pins:
-- On a Pixhawk flight controller that has both FMU and I/O boards FMU pins map to `AUX` outputs (e.g. Pixhawk 4, CUAV v5+) . 
-- A controller that only has an FMU, the pins map to `MAIN` outputs (e.g. Pixhawk 4 mini, CUAV v5 nano).
+:::warning
+This section is out of date and needs a significant update (and retesting).
 :::
-
-## Command Interface
-
-**TODO : NEEDS UPDATING**
 
 The camera trigger driver supports several commands:
 
@@ -144,6 +121,7 @@ Param #2 | Trigger cycle time in milliseconds (sets the `TRIG_INTERVAL` paramete
 Param #3 | Sequence reset (set to 1 to reset image sequence number, 0 to keep current sequence number)
 
 [MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Accepted in all modes.
+
 This is used by the GCS to test-shoot the camera from the user interface.
 The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.
 
@@ -158,6 +136,7 @@ This command is autogenerated during missions to trigger the camera based on sur
 ## Testing Trigger Functionality
 
 1. On the PX4 console:
+
    ```
    camera_trigger test
    ```
@@ -183,8 +162,6 @@ The recommended camera settings are:
 * Leave the remaining parameters at their defaults.
 
 You will need to connect the Seagull MAP2 to FMU pins on your autopilot.
-If using a mixer on a flight controller with both FMU and IO board, pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6` (if using control allocation the pins can be assigned to any FMU output).
-
 The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
 ### Camera Configuration
@@ -207,7 +184,8 @@ To avoid autofocus and metering lag when the camera is triggered, the following 
 
 ### Geotagging
 
-Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on "Start Tagging".
+Download/copy the logfile and images from the flight and point QGroundControl to them.
+Then click on **Start Tagging**.
 
 ![QGC Geotagging](../../assets/camera/qgc_geotag.png)
 
@@ -226,7 +204,7 @@ In this example, we will go over the basics of synchronising IMU measurements wi
 To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
 
 The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks.
-This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4).
+This offset is added or subtracted from the timestamps in the MAVLink messages (e.g. `HIGHRES_IMU`) in the cross-middleware translator component (e.g. MAVROS on the companion and `mavlink_receiver` in PX4).
 The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset.
 This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
 
@@ -265,9 +243,10 @@ For the purposes of this example we will be configuring the trigger to operate i
 
 * `TRIG_INTERVAL`: 33.33 ms
 * `TRIG_POLARITY`: 0 (active low)
-* `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
-* `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
-* `TRIG_PINS`: 56, Leave default.
+* `TRIG_ACT_TIME`: 0.5 ms.
+  The manual specifies it only has to be a minimum of 1 microsecond.
+* `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger.
+  This is essential to properly process sequence numbers.
 
 ### Step 3
 
