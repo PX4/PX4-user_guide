@@ -3,7 +3,7 @@
 The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) RTL receiver designed based on compatibility with Pixhawk from Locosys.
 The module can act as rover when installed on the aircraft. The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
-The built-in lightweight helical antenna not only enhances RTK positioning stability, but also increases the flight time of the drone. The fast Time-To-First-Fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk(PX4)-based platform UAV.
+The built-in lightweight helical antenna not only enhances RTK positioning stability, but also increases the flight time of the drone. The fast Time-To-First-Fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
 
 Main features include:
 - Concurrent reception of L1 and L5 band signals
