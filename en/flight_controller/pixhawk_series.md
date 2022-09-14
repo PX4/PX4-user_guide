@@ -38,6 +38,7 @@ The list of boards supported by the PX4 project is reproduced below:
 * [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
 * [mRo Pixracer](../flight_controller/pixracer.md)  (FMUv4)
 * [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
+* [CUAV Pixhawk V6X](../flight_controller/pixhawk_v6x.md) (FMUv6X)
 * [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
 * [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
 * [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
