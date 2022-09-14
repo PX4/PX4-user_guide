@@ -214,9 +214,10 @@ They are matched based on the sequence number (first image frame is sequence 0),
 
 The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
 
-![Sequence diag](../../assets/camera/sequence_diagram.jpg)
+[![Mermaid sequence diagram](https://mermaid.ink/img/pako:eNqNUs9rwjAU_lceOW-3nXIQpBYRrI7ayQ6F8myebViTuCR1iPi_L9Eq6Dzs9kK-H3lfviOrjSDGmaPvnnRNE4mNRVVqgIXxBFY2rQezhffPN-BQSEXgDrqGH-lbULi3xoF0IIwmwN4bhV7W2HWHKBFJr6PRFcchQUUWoQiyDVmwhOLw16u-oISV-wC6sYbzxhjvALWIvjeFe86d6WWolGsc54lRKnCHFyRGe2u6KDDAI_OyazZez6X-4jwMVZJNqsmyKvLZdJrmVbJcFPlyHnmdMTtIg-kB4m01WxRpvh7PQcmuk45qo4V7GsbNIBlnaT6-ij885jGM-21QzbKPlUe1ex7CIztDX7dw_W3QvdqQ_R_17AJSYUPn9Hf9JuzXshcWcAqlCDU6RqmS-ZYUlYyHUdAW-86XrNSnAO13Aj2lQnpjGd9i5-iFxd6sQqkY97anK2io4oA6_QK-Kelj)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNqNUs9rwjAU_lceOW-3nXIQpBYRrI7ayQ6F8myebViTuCR1iPi_L9Eq6Dzs9kK-H3lfviOrjSDGmaPvnnRNE4mNRVVqgIXxBFY2rQezhffPN-BQSEXgDrqGH-lbULi3xoF0IIwmwN4bhV7W2HWHKBFJr6PRFcchQUUWoQiyDVmwhOLw16u-oISV-wC6sYbzxhjvALWIvjeFe86d6WWolGsc54lRKnCHFyRGe2u6KDDAI_OyazZez6X-4jwMVZJNqsmyKvLZdJrmVbJcFPlyHnmdMTtIg-kB4m01WxRpvh7PQcmuk45qo4V7GsbNIBlnaT6-ij885jGM-21QzbKPlUe1ex7CIztDX7dw_W3QvdqQ_R_17AJSYUPn9Hf9JuzXshcWcAqlCDU6RqmS-ZYUlYyHUdAW-86XrNSnAO13Aj2lQnpjGd9i5-iFxd6sQqkY97anK2io4oA6_QK-Kelj)
 
-<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-editor
+<!-- Original 
+![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 {/% mermaid %/}
 sequenceDiagram
   Note right of PX4 : Time sync with mavros is done automatically
