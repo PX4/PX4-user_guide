@@ -42,7 +42,7 @@ For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_confi
 
 ## Wiring and Connections
 
-Hawk R1 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a PixHawk autopilot.
+Hawk R1 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a Pixhawk autopilot.
 
 ### Pinout
 
