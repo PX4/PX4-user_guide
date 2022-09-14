@@ -118,7 +118,7 @@ Build the library locally to test that any changes you have made have rendered p
    yarn docs:buildwin
    ```
 
-::: tip
+:::tip
 Use `yarn docs:dev` to preview changes *as you make them* (documents are updated and served very quickly). Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`.
 :::
 
