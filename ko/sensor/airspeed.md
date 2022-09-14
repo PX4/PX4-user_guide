@@ -46,13 +46,15 @@ If you have multiple airspeed sensors then you can select which sensor is _prefe
 - `2`: Second airspeed sensor started
 - `3`: Third airspeed sensor started
 
-The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails the checks. The selected sensor is then used to supply data to the estimator (EKF2).
+The airspeed selector validates the indicated sensor _first_ and only falls back to other sensors if the indicated sensor fails airspeed checks ([ASPD_DO_CHECKS](../advanced_config/parameter_reference.md#ASPD_DO_CHECKS) is used to configure the checks).
+
+The selected sensor is then used to supply data to the estimator (EKF2). The EKF fuses the airspeed data if it's above [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and has a low innovation compared to groundspeed minus windspeed.
 
 ### Sensor-specific Configuration
 
 Other than enabling the sensor, sensor-specific configuration is often not required. If it is needed, it should be covered in the appropriate sensor page (for example [TFSLOT > Configuration](./airspeed_tfslot.md\#configuration)).
 
-For sensors that require specific configuration and that do not have a page in this guide you may need to set the following parameters:
+The specific configuration for sensors that do not have a separate page is listed below:
 
 - **Sensirion SDP3X:** [CAL_AIR_CMODEL](../advanced_config/parameter_reference.md#CAL_AIR_CMODEL) (provides overview of required settings), [CAL_AIR_TUBED_MM](../advanced_config/parameter_reference.md#CAL_AIR_TUBED_MM), [CAL_AIR_TUBELEN](../advanced_config/parameter_reference.md#CAL_AIR_TUBELEN).
 
