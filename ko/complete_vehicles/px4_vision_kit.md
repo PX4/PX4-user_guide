@@ -35,7 +35,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 1. `USB1`로 표시된 포트는 *USB3* 주변 장치와  동시에 사용하는 경우에는 GPS를 방해할 수 있습니다(임무를 포함한 GPS 종속 기능 비활성화). 이로 인하여, 부팅 이미지가 *USB2.0* 메모리 스틱으로 제공됩니다.
 1. PX4 Vision v1 with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery.
 
-   ![RC 번호](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN 번호](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+   ![RC 번호](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN 번호](../../assets/hardware/px4_vision_devkit/serial_number_update.jpg)
 1. All PX4 Vision v1.5 *UP Core* can be powered by either the DC plug or with battery.
 
 :::warning
@@ -50,9 +50,9 @@ For PX4 Vision v1 with ECN below 010/carrier board below RC04, the *UP Core* sho
 Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
 :::
 
-![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/PX4_Vision_v1.5_Whats_Inside.jpg)
+![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/Explode-view.png)
+What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
 
 
 PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
@@ -175,7 +175,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
    - 제공된 프로펠러 너트를 사용하여 단단히 조입니다.
 
-     ![프로펠러 너트](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
+     ![프로펠러 너트](../../assets/hardware/px4_vision_devkit/propeller_nuts.png)
 
 
 ## 드론 회피 비행
