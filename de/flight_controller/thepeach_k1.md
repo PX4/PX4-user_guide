@@ -1,14 +1,14 @@
-# THE Peach FCC-K1
+# ThePeach FCC-K1
 
 :::WARNING
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
 :::
 
-**THE Peach FCC-K1** is an advanced autopilot designed and manufactured in **THE Peach**.
+**ThePeach FCC-K1** is an advanced autopilot designed and manufactured in **ThePeach**.
 
 It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4** on **Nuttx OS**.
 
-![THE Peach_FCC-K1](../../assets/flight_controller/thepeach_k1/main.png)
+![ThePeach FCC-K1](../../assets/flight_controller/thepeach_k1/main.png)
 
 ## Specifications
 
@@ -68,7 +68,7 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 ## Voltage Ratings
 
-**THE Peach FCC-K1** can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER** and **USB**.
+**ThePeach FCC-K1** can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER** and **USB**.
 
 :::note
 The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
@@ -102,4 +102,4 @@ make thepeach_k1_default
 
 ## Where to buy
 
-Order from [THE Peach](http://thepeach.shop/)
+Order from [ThePeach](http://thepeach.shop/)
