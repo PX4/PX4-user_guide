@@ -46,7 +46,7 @@ To automatically disarm the vehicle after it lands, in *QGroundControl* go to [V
 :::warning
 在切换到其他遥控器模式之前，确保油门摇杆不为零（否则无人机将坠毁）。
 我们建议您在切换到任何其他模式之前将摇杆置中。
-::: 
+:::
 
 有关任务规划的更多信息，请参阅：
 

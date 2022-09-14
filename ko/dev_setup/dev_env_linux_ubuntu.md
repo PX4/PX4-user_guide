@@ -59,8 +59,9 @@
    - `--no-nuttx` 및 `--no-sim-tools` 옵션을 사용하여 NuttX 및/또는 시뮬레이션 도구를 생략할 수 있습니다.
 1. 완료되면 컴퓨터를 재부팅합니다.
 
-::: details
-정보용 참고사항
+:::note
+These are additional "for your information" notes. They only explain the implementation.
+
 - 스크립트는 Gazebo 9를 설치합니다([gazebosim.org 지침](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install)에 따름). Gazebo 7, 8도 지원되지만 권장되지는 않습니다.
 - 다음과 같이 gcc 버전을 확인하여 NuttX 설치를 확인할 수 있습니다.
   ```bash

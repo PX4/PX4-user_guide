@@ -35,7 +35,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 1. 只有在 GPS 工作正常时才能测试任务模式中的自主避障（飞行任务需要使用 GPS 配合）。 防撞功能需要在可获得位置的模式下进行测试，比如GPS或光流有比较好的定位。
 1. PX4 Vision v1 with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery.
 
-   ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+   ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/serial_number_update.jpg)
 1. All PX4 Vision v1.5 *UP Core* can be powered by either the DC plug or with battery.
 
 :::warning
@@ -50,9 +50,9 @@ For PX4 Vision v1 with ECN below 010/carrier board below RC04, the *UP Core* sho
 Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
 :::
 
-![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/PX4_Vision_v1.5_Whats_Inside.jpg)
+![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/Explode-view.png)
+What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
 
 
 当无人机按上述安装完成时：
@@ -173,7 +173,7 @@ WiFi 网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 
 
    - 使用随附的螺旋桨螺母将其拧紧：
 
-     ![螺旋桨螺母](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
+     ![螺旋桨螺母](../../assets/hardware/px4_vision_devkit/propeller_nuts.png)
 
 
 ## 测试飞行（带避障）

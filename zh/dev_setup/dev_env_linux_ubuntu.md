@@ -60,8 +60,9 @@ To install the toolchain:
    - 你可以通过传输参数`--no-nuttx` 和 `--no-sim-tools` 来跳过 nuttx 和/或 仿真器工具的安装。
 1. 完成后重新启动计算机。
 
-::: details
-Information-only notes
+:::note
+These are additional "for your information" notes. They only explain the implementation.
+
 - ** Note** PX4兼容Gazebo7、8和9。 上面的 [安装说明](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install) 是关于安装 Gazebo 9 的。
 - You can verify the NuttX installation by confirming the gcc version as shown:
   ```bash
