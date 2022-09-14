@@ -1,7 +1,15 @@
 # ThePeach FCC-K1
 
-:::WARNING
-PX4 does not manufacture this (or any) autopilot. 
+:::warning
+This flight controller is not fully available.
+It depends on the following PRs:
+- [PX4-Autopilot#20176: boards: Add THE Peach K1/R1 code ](https://github.com/PX4/PX4-Autopilot/pull/20176)
+- [PX4-Bootloader#219: Add THEPeach K1/R1](https://github.com/PX4/PX4-Bootloader/pull/219)
+- [QGroundControl#10401: Add The Peach K1/R1 USB Board info](https://github.com/mavlink/qgroundcontrol/pull/10401)
+:::
+
+:::warning
+PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
 :::
 
@@ -40,18 +48,13 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
   
 - Mechanical
   - Dimensions: 40.2 x 61.1 x 24.8 mm
-  
   - Weight: 65g
-  
-    
 
 ## Connectors
 
 ![pinmap_top](../../assets/flight_controller/thepeach_k1/pinmap_top.png)
 
 ![pinmap_bottom](../../assets/flight_controller/thepeach_k1/pinmap_bottom.png)
-
-
 
 ## Serial Port Mapping
 
@@ -65,14 +68,14 @@ USART6 | /dev/ttyS4 | PX4IO
 UART7  | /dev/ttyS5 | Debug Console
 UART8  | /dev/ttyS6 | TELEM4
 
-
-
 ## Voltage Ratings
 
-**ThePeach FCC-K1** can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER** and **USB**.
+**ThePeach FCC-K1** can be double-redundant on the power supply if two power sources are supplied.
+The two power rails are: **POWER** and **USB**.
 
 :::note
-The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER** or **USB** or the board will be unpowered.
 :::
 
 **Normal Operation Maximum Ratings**
@@ -87,10 +90,7 @@ Under these conditions all power sources will be used in this order to power the
 Under these conditions, all power sources cause permanent damage to the flight controller.
 
 1. POWER input (5.5V Over)
-
 2. USB input (5.5V Over)
-
-   
 
 ## Building Firmware
 
@@ -98,8 +98,6 @@ To build PX4 for this target:
 ```jsx
 make thepeach_k1_default
 ```
-
-
 
 ## Where to buy
 
