@@ -44,7 +44,6 @@
   * [Flight Modes](config/flight_mode.md)
   * [Battery](config/battery.md)
   * [Safety](config/safety.md)
-  * [Motors](config/motors.md)
   * [Actuators](config/actuators.md)
   * [Autotune](config/autotune.md)
 * [Airframe Builds](airframes/README.md)
