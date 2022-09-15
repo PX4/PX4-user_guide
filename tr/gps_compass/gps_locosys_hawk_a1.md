@@ -76,7 +76,7 @@ The LOCOSYS GPS pinout is provided below. This can be used to help modify the co
 
 - **Receiver Type:** 135-channel LOCOSYS MC-1612-V2b engine, GPS/QZSS L1 C/A, L5C, GLONASS L1OF, BeiDou B1I, B2a Galileo:E1, E5a SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
 - **Navigation Update Rate:** Max: 5Hz default Max: 10 Hz
-- **Positionaing Accuracy:** 3D Fix
+- **Positioning Accuracy:** 3D Fix
 - **Time to first fix:**
   - **Cold start:** 28s
   - **Aided start:** EASY
