@@ -23,7 +23,6 @@ PX4 차량의 표준 소프트웨어 설정 방법과 보정 방법에 대하여
 * [비행 모드](../config/flight_mode.md)(선택 사항)
 * [배터리](../config/battery.md)(선택 사항)
 * [안전 설정](../config/safety.md)(선택 사항)
-* [모터/서보](../config/motors.md)
 * [액츄에이터](../config/actuators.md)
 * [자동 튜닝](../config/autotune.md)
 
