@@ -37,6 +37,7 @@ PX4 프로젝트에서 지원하는 보드 목록은 다음과 같습니다.
 * [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
 * [mRo Pixracer](../flight_controller/pixracer.md)  (FMUv4)
 * [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
+* [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
 * [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
 * [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
 * [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
