@@ -1,9 +1,12 @@
 # Locosys RTK GPS
 
-The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed based on compatibility with Pixhawk from Locosys.
+The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.
+
 The module can act as rover when installed on the aircraft. The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
-The built-in lightweight helical antenna not only enhances RTK positioning stability, but also increases the flight time of the drone. The fast Time-To-First-Fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
+The built-in lightweight helical antenna enhances RTK positioning stability.
+The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
+
 
 Main features include:
 - Concurrent reception of L1 and L5 band signals
@@ -37,7 +40,8 @@ An RTK GPS kit includes:
 ## Configuration
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
-You need to connect your Hawk R1 to either GPS2 port on compatible Pixhawk boards or your preferred UART port on the boards without a seperate GPS2 port.
+Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
+
 For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
 
 ## Wiring and Connections
