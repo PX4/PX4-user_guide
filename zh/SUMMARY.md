@@ -236,6 +236,7 @@
       * [Freefly RTK GPS](gps_compass/rtk_gps_freefly.md)
       * [Holybro H-RTK-F9P](gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
       * [Holybro H-RTK-M8P](gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
+      * [Locosys Hawk R1](gps_compass/rtk_gps_locosys_r1.md)
       * [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
       * [CubePilot Here+ (Discontined)](gps_compass/rtk_gps_hex_hereplus.md)
     * [数传电台](telemetry/README.md)
