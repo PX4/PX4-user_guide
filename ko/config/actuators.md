@@ -13,7 +13,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 쿼드콥터에는 아래와 같은 설정 화면이 있을 수 있습니다. 이것은 X-지오메트리를 가진 4-로터 헬리콥터를 정의합니다. 4개의 모터를 AUX1에서 AUX4 출력으로 매핑하고, DShot1200 ESC에 연결하도록 설정합니다. 또한 낙하산 및 착륙 장치를 제어하기 위한 PWM400 AUX 출력을 매핑합니다.
 
-![Actuators MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
+![액추에이터 멀티콥터(QGC)](../../assets/config/actuators/qgc_actuators_mc_aux.png)
 
 :::note
 기본적으로 가장 일반적인 설정만 표시됩니다. 모든 설정을 표시하려면 오른쪽 상단 모서리에 있는 **고급** 확인란을 선택합니다.
@@ -48,7 +48,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 특히 이것은 [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) 뮤티콥터의 모터 지오메트리입니다. 다른 멀티콥터 프레임도 유사하게 구성됩니다.
 :::
 
-![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
+![지오메트리 멀티콥터(QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
 먼저, **모터** 드롭다운 설정을 통하여 모터 수(위 예의 경우 4개)를 선택할 수 있습니다.
 
@@ -72,14 +72,14 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 모터는 [멀티콥터 지오메트리](#motor-geometry-multicopter)와 동일한 구성 필드를 갖습니다.
 
-![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
+![지오메트리 모터: 테일 시터 vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
 
 
 #### 모터 지오메트리: VTOL 틸트로터
 
 [일반 쿼드플레인 VTOL 틸트로터](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor)의 모터 지오메트리는 아래에 기술되어 있습니다(다른 [VTOL 틸트로터](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor)를 구성하는 방식도 유사함).
 
-![Geometry motor: tiltrotor vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
+![지오메트리 모터: 틸트로터 vtol](../../assets/config/actuators/qgc_geometry_tiltrotor_motors.png)
 
 - `기울기`: 모터를 기울이는 데 사용되는 관련 서보입니다. 이 서보의 속성은 [모터 틸트 서보 지오메트리](#motor-tilt-servo-geometry)에 정의되어 있습니다.
 
@@ -88,7 +88,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 [일반 표준 쿼드플레인 VTOL 틸트로터](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol)의 모터 구조는 아래와 같습니다(다른 "표준 VTOL"을 구성하는 방법도 유사함).
 
-![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
+![기하학 모터: 표준 vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
 모터는 [멀티콥터 지오메트리](#motor-geometry-multicopter)와 대부분 동일한 구성 필드를 갖습니다. 모터가 차량을 움직이는 방향을 나타내는 추가 필드가 있습니다(표준 VTOL의 경우 호버 모터는 일반적으로 "위쪽"으로 설정되고 푸셔 모터는 "앞으로"로 설정됨).
 
@@ -108,7 +108,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 원점은 차량의 **무게 중심(COG)**입니다. 이것은 자동조종장치 내부의 위치가 **아닐** 수 있습니다.
 
-![Actuators CG reference diagram](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
+![액추에이터 CG 참조 다이어그램](../../assets/config/actuators/quadcopter_actuators_cg_reference.png)
 
 
 #### 양방향 모터
@@ -117,7 +117,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 양방향 모터를 사용하는 경우 해당 모터에 대해 **가역성** 확인란을 선택하여야 합니다(확인란은 "고급" 옵션으로 표시됨).
 
-![Reversible](../../assets/config/actuators/qgc_geometry_reversible_marked.png)
+![역전 가능](../../assets/config/actuators/qgc_geometry_reversible_marked.png)
 
 양방향 모터와 연결된 ESC가 적절하게 구성되었는지도 확인하여야 합니다(예: [DShot 명령](../peripherals/dshot.md#commands)을 통해 달성할 수 있는 DShot ESC에 대해 활성화된 3D 모드).
 
@@ -128,7 +128,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 2개의 에일러론이 있는 차량의 "예시" 제어 표면 섹션이 아래에 나와 있습니다. 에일러론은 롤에만 영향을 미치므로 피치 및 요 필드는 비활성화됩니다.
 
-![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
+![조종면 설정 예제](../../assets/config/actuators/control_surfaces_geometry.png)
 
 항목들은 다음과 같습니다.
 
@@ -166,7 +166,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 아래 다이어그램은 편향 규칙을 나타냅니다.
 
-![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
+![조종면 편향](../../assets/config/actuators/plane_control_surface_convention.png)
 
 요약:
 
@@ -182,7 +182,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 아래 예는 [위에 표시된 틸트로터 모터 형상](../config/actuators.md#motor-geometry-vtol-tiltrotor)에 대한 틸트 서보 설정을 나타냅니다.
 
-![Tilt Servo Geometry Setup Example](../../assets/config/actuators/tilt_servo_geometry_config.png)
+![틸트 서보 지오메트리 설정 예](../../assets/config/actuators/tilt_servo_geometry_config.png)
 
 설정 가능한 값들은 다음과 같습니다.
 
@@ -201,7 +201,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 틸트 로터 각도의 좌표계는 아래와 같습니다. 기울기 각도의 기준 방향은 위쪽(0도)입니다. 차량의 앞쪽 또는 오른쪽을 향한 틸트 각도는 양수이고 뒤쪽 또는 왼쪽을 향한 틸트 각도는 음수입니다.
 
-![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
+![틸트 축](../../assets/config/actuators/tilt_axis.png)
 
 `최소 기울기 각도` 및 `최대 기울기 각도`는 기울기 서보의 이동 범위를 나타냅니다. 최소 기울기는 두 각도 중 더 작은 _숫자값_(절대값 아님)입니다.
 
@@ -235,7 +235,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 _액추에이터 출력_ 섹션은 모터, 제어 표면 서보 및 특정 프레임에서 사용하는 기타 액츄에이터를 비행 컨트롤러의 물리적 출력에 할당하고 해당 출력에 대한 매개변수를 설정합니다.
 
-![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
+![액추에이터 출력 - 멀티콥터 다이어그램](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
 연결된 비행 컨트롤러에서 지원하는 각 출력 버스에 대해 별도의 탭이 표시됩니다. PWM AUX(IO 보드 출력), PWM MAIN(FMU 보드 출력), UAVCAN.
 
@@ -295,7 +295,7 @@ This list is correct at PX4 v1.13. The functions are defined in source at [/src/
 
 오른쪽 하단의 _액추에이터 테스트_ 섹션에는 액츄에이터 및 모터 설정을 테스트(및 결정)하는 데 사용할 수 있는 슬라이더가 있습니다. [액추에이터 출력](#actuator-outputs) 섹션에 정의된 각 출력에 대해 슬라이더가 제공됩니다. 아래 슬라이더 예는 일반적인 VTOL Tiltrotor 기체에 대한 섹션을 나타냅니다.
 
-![Actuator Testing Slider](../../assets/config/actuators/vtol_tiltrotor_sliders_example.png)
+![액추에이터 테스트 슬라이더](../../assets/config/actuators/vtol_tiltrotor_sliders_example.png)
 
 이 섹션에는 슬라이더를 사용하기 전에 전환해야 하는 **슬라이더 활성화** 스위치가 있습니다. 슬라이더는 전체 동작 범위에서 모터/서보에 전원을 공급하고 무장 해제 및 최소 위치로 "스냅"할 수 있습니다.
 
@@ -335,7 +335,7 @@ Outputs are assigned to functions and configured in the [Actuator Outputs](#actu
 출력이나 테스트를 할당하기 전에 모터에서 프로펠러를 제거하십시오.
 :::
 
-![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
+![모터 버튼 식별](../../assets/config/actuators/identify_motors_button.png)
 
 버튼을 클릭하면 QGC가 명령을 전송하여 모터를 회전시킵니다. 해당 모터를 출력에 할당하려면 화면에 표시된 해당 모터를 선택합니다. 그런 다음, QGC는 할당할 다음 모터를 회전하는 식으로 계속됩니다.
 
@@ -356,119 +356,119 @@ Outputs are assigned to functions and configured in the [Actuator Outputs](#actu
 ### 출력 할당(수동)
 
 :::warning
-Remove the propellers from motors before assigning outputs or any testing.
+출력이나 테스트를 할당하기 전에 모터에서 프로펠러를 제거하십시오.
 :::
 
-Actuator outputs for both motors and servos can be _manually_ assigned using sliders in the [Actuator Testing](#actuator-testing) section.
+모터와 서보의 액추에이터 출력은 [액추에이터 테스트](#actuator-testing) 섹션의 슬라이더를 사용하여 _수동으로_ 할당할 수 있습니다.
 
-To assign an actuator:
+액추에이터에 할당하려면:
 
-1. First assign functions to the outputs that you think are _likely_ to be correct in the _Actuator Outputs_ section.
-1. Toggle the **Enable sliders** switch in _Actuator Testing_ section.
-1. Move the slider for the actuator you want to test:
-   - Motors should be moved to the minimum thrust position.
-   - Servos should be moved near the middle position.
-1. Check which actuator moves on the vehicle. This should match the actuator positions for your geometry (the [airframe reference](../airframes/airframe_reference.md) shows motor positions for a number of standard airframes).
-   - If the correct actuator moves, then proceed to the next step.
-   - If a wrong actuator moves, swap the output assignment over.
-   - If nothing moves then increase the slider mid-way though the range, then higher if needed. If nothing moves after that the output might not be connected, the motor might not be powered, or the output might be misconfigured. You will need to troubleshoot (perhaps try other actuator outputs to see if "anything" moves).
-1. Return the slider to the "disarmed" position (bottom of slider for motors, centre of slider for servos).
-1. Repeat for all actuators
+1. 먼저 _액추에이터 출력_ 섹션에서 정확할 것으로 _가능성이 있는_ 출력에 기능을 할당합니다.
+1. _액추에이터 테스트_ 섹션에서 **슬라이더 사용** 스위치를 전환합니다.
+1. 테스트하려는 액추에이터의 슬라이더를 이동합니다.
+   - 모터는 최소 추력 위치로 이동하여야 합니다.
+   - 서보는 중간 위치 근처로 이동하여야 합니다.
+1. 어떤 액츄에이터가 차량에서 움직이는 지 확인하십시오. 이것은 지오메트리에 대한 액추에이터 위치와 일치해야 합니다([기체 참조](../airframes/airframe_reference.md)는 여러 표준 기체에 대한 모터 위치를 나타냅니다).
+   - 올바른 액츄에이터가 움직이면 다음 단계로 진행합니다.
+   - 잘못된 액츄에이터가 움직이면 출력 할당을 변경합니다.
+   - 아무 것도 움직이지 않으면, 슬라이더를 범위 중간에 늘리고 필요한 경우 더 높입니다. 그 후 아무 것도 움직이지 않으면, 출력이 연결되지 않거나 모터에 전원이 공급되지 않거나 출력 설정에 오류가 있을 수 있습니다. 문제를 해결하여야 합니다("무엇이든"이 움직이는지 확인하기 위하여 다른 액추에이터 출력을 시도할 수 있음).
+1. 슬라이더를 "무장 해제" 위치로 되돌립니다(모터의 경우 슬라이더 하단, 서보의 경우 슬라이더 중앙).
+1. 모든 액추에이터에 대하여 반복합니다.
 
 
-### Motor Configuration
+### 모터 설정
 
-The motor configuration sets output values such that motors:
+모터 설정에서는 모터의  출력 값을 설정합니다.
 
-- don't spin when disarmed (at the `disarmed` PWM output value)
-- barely spin at the `minimum` PWM output value
-- give **positive thrust** in the expected direction
+- 무장 해제 시 회전하지 않음(`해제` PWM 출력 값에서)
+- `최소` PWM 출력 값에서 거의 회전하지 않음
+- 예상 방향으로 **긍정적인 추진력**을 할당함
 
-For each motor:
+각각의 모터에 대하여:
 
-1. Pull the motor slider down so that it snaps to the bottom. In this position the motor is set to the outputs `Disarmed` value.
-   - Verify that the motor doesn't spin in this position.
-   - If the motor spins, reduce the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
-2. Slowly move the slider up until it snaps to the _minimum_ position. In this position the motor is set to the outputs `Minimum` value.
-   - Verify that the motor is spinning very slowly in this position.
-   - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
+1. 모터 슬라이더를 아래로 당겨서 아래쪽에 찰칵 소리가 나도록 합니다. 이 위치에서 모터는 출력 `Disarmed` 값으로 설정됩니다.
+   - 모터가 이 위치에서 회전하지 않는 지 확인하십시오.
+   - 모터가 회전하면 [액추에이터 출력](#actuator-outputs) 섹션에서 해당 PWM `비활성화됨` 값을 여전히 회전하는 수준 이하로 줄이십시오.
+2. 슬라이더가 _최소_ 위치에 고정될 때까지 슬라이더를 천천히 위로 이동합니다. 이 위치에서 모터는 출력 `최소` 값으로 설정됩니다.
+   - 이 위치에서 모터가 매우 느리게 회전하는 지 확인합니다.
+   - 모터가 회전하지 않거나 너무 빠르게 회전하는 경우에는 모터가 거의 회전하지 않도록 [액추에이터 출력](#actuator-outputs)에서 해당 PWM `비 무장 해제` 값을 조정하여야 합니다.
 
      ![PWM Minimum Output](../../assets/config/actuators/pwm_minimum_output.png)   :::note
   For DShot output, this is not required <!-- any, or just the minimum check? -->
 
 :::
-3. Increase the slider value to a level where you can verify that the motor is spinning in the correct direction and that it would give a positive thrust in the expected direction.
-   - The expected thrust direction can vary by vehicle type. For example in multicopters the thrust should always point upwards, while in a fixed wing vehicle the thrust will push the vehicle forwards.
+3. 모터가 올바른 방향으로 회전하고 있고 예상 방향으로 긍정적인 추진력을 제공하는 지 확인할 수 있는 수준으로 슬라이더 값을 증가시킵니다.
+   - 예상 추력 방향은 차량 유형에 따라 다를 수 있습니다. 예를 들어, 멀티콥터에서는 추력이 항상 위쪽을 향해야 하지만 고정익 차량에서는 추력이 차량을 앞으로 밀어냅니다.
    - For VTOL, thrust should point upwards when the Tilt Servo is at 0 degrees as defined the [Tilt Servo Convention](#tilt-servo-coordinate-system). Testing of the [Tilt Servo](#tilt-servo-setup) is covered below as well.
-   - If thrust is in the wrong direction, you may need to [reverse the motors](#reversing-motors).
+   - 추력이 잘못된 방향인 경우 [모터를 역전](#reversing-motors)해야 할 수 있습니다.
 
 
-### Control Surface Setup
+### 조종면 설정
 
-First set the _frame rate_ for the servos used in each group of outputs. This would normally be set to the maximum value supported by your servo. Below we show how you would set it to PWM50 (the most common value).
+먼저 각 출력 그룹에 사용되는 서보의 _프레임 속도_를 설정합니다. 이것은 일반적으로 서보가 지원하는 최대값으로 설정합니다. 아래에서는 PWM50(가장 일반적인 값)으로 설정하는 방법을 설명합니다.
 
-![Control Surface Disarmed 1500 Setting](../../assets/config/actuators/control_surface_disarmed_1500.png)
+![조종면 무장 해제 1500 설정](../../assets/config/actuators/control_surface_disarmed_1500.png)
 
 :::note
-You will almost certainly need to change the pulse rate from the default of 400Hz because support is rare (if not supported the servo will usually make an "odd" noise). If you're using PWM servos, PWM50 is far more common. If a high rate servo is _really_ needed, DShot offers better value.
+지원이 드물기 때문에 기본 400Hz에서 펄스 속도를 변경해야 할 것이 거의 확실합니다(지원되지 않는 경우 서보는 일반적으로 "이상한" 소음을 냄). PWM 서보를 사용하는 경우에는 PWM50이 훨씬 더 일반적입니다. 고속 서보가 _절실하게_ 필요한 경우에는 DShot을 사용하는 것이 더 좋습니다.
 :::
 
-For each of the control surfaces:
+각각의 조종면에 대하여:
 
-1. Set the `Disarmed` value so that the surfaces will stay at neutral position when disarmed. This is usually around `1500` for PWM servos.
+1. 무장 해제 시 표면이 중립 위치를 유지하도록 `비시동 해제` 값을 설정합니다. 이것은 일반적으로 PWM 서보의 경우 약 `1500`입니다.
 2. Move the slider for the surface upwards (positive command) and verify that it moves in the direction defined in the [Control Surface Convention](#control-surface-deflection-convention).
-   - If the control surface moves in the opposite direction, click on the `Rev Range` checkbox to reverse the range.
-3. Move the slider again to the middle and check if the Control Surfaces are aligned in the neutral position of the wing
-   - If it is not aligned, you can set the **Trim** value for the control surface. :::note This is done in the `Trim` setting of the Geometry panel, usually by "trial and error". ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
+   - 조종면이 반대 방향으로 이동하는 경우 `Rev Range` 확인란을 클릭하여 범위를 반대로 설정합니다.
+3. 슬라이더를 다시 가운데로 이동하고 조종면이 날개의 중립 위치에 정렬되어 있는 지 확인합니다.
+   - 정렬되지 않은 경우 조종면에 대한 **트림** 값을 설정할 수 있습니다. :::note 이것은 일반적으로 "시행 착오"를 통해 지오메트리 패널의 `자르기` 설정에서 수행됩니다. ![Control Surface Trimming](../../assets/config/actuators/control_surface_trim.png)
 :::
 
-   - After setting the trim for a control surface, move its slider away from the center, release, and then back into disarmed (middle) position. Confirm that surface is in the neutral position.
+   - 조종면의 트림을 설정한 후 슬라이더를 중앙에서 멀리 이동하고 놓은 다음 다시 무장 해제(가운데) 위치로 되돌립니다. 표면이 중립 위치에 있는지 확인합니다.
 
-     Note that you **must** move the slider _even if it is already in the middle position_ (it doesn't start getting commands until it has been moved).
+     슬라이더가 이미 중간 위치에 있더라도 _슬라이더를 **반드시** 움직여야 합니다_(움직일 때까지 명령을 받기 시작하지 않음).
 
 
 :::note
 Another way to test without using the sliders would be to set the [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) parameter to `Always`:
 
-- This will enable the control of servos even when the vehicle is disarmed, and will constantly be applying the Trim setting to the Control Surfaces
-- You can try setting different values for the Trim and check the alignment, and then settle on the value you are happy with.
+- 이렇게 하면 기체가 무장 해제된 경우에도 서보 제어가 가능하며 제어 표면에 트림 설정이 지속적으로 적용됩니다.
+- Trim에 대해 다른 값을 설정하고 정렬을 확인한 다음 만족하는 값으로 설정할 수 있습니다.
 :::
 
-### Tilt Servo Setup
+### 틸트 서보 설정
 
-First set the _frame rate_ for the servos used in each group of outputs. This would normally be set to the maximum value supported by your servo. Below it is set to PWM50 (the most common value). Note, this part of the setup is the same as for control surfaces above.
+먼저 각 출력 그룹에 사용되는 서보의 _프레임 속도_를 설정합니다. 이것은 일반적으로 서보가 지원하는 최대값으로 설정합니다. 그 아래는 PWM50(가장 일반적인 값)으로 설정됩니다. 설정의 이 부분은 위의 조종면과 동일합니다.
 
-![Tilt Servo Setup](../../assets/config/actuators/tilt_servo_setup.png)
+![틸트 서보 설정](../../assets/config/actuators/tilt_servo_setup.png)
 
-For each of the tilt servos:
+각 틸트 서보에 대하여:
 
-1. Set the `Disarmed` value (e.g. `1000` or `2000` for PWM Servos) so that the servo will be positioned in expected direction when _disarmed_.
-2. Position the slider for the servo in the lowest position, and verify that a positive value increase will point towards the `Angle at Min Tilt` (defined in the Geometry section).
+1. `Disarmed` 값(예: PWM Servo의 경우 `1000` 또는 `2000`)을 설정하여 설정 _해제_ 시 서보가 예상 방향으로 위치하도록 합니다.
+2. 서보의 슬라이더를 가장 낮은 위치에 놓고 양수 값 증가가 `최소 기울기 각도`(기하학 섹션에 정의됨)를 가리키는 지 확인합니다.
 
-   ![Tilt Servo Geometry Setup](../../assets/config/actuators/tilt_servo_geometry_config.png)
-3. Position the slider for the servo in the highest position, and verify that positive motor thrust will point towards the `Angle at Max Tilt` (as defined in the Geometry section).
+   ![틸트 서보 지오메트리 설정](../../assets/config/actuators/tilt_servo_geometry_config.png)
+3. 서보의 슬라이더를 가장 높은 위치에 놓고 양의 모터 추력이 `최대 기울기 각도`를 가리키는 지 확인합니다(기하학 섹션에 정의됨).
 
-### Other Notes
+### 기타 참고 사항
 
-- If a safety button is used, it must be pressed before actuator testing is allowed.
-- The kill-switch can still be used to stop motors immediately.
-- Servos do not actually move until the corresponding slider is changed.
-- The parameter [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) can be used to completely disable actuator testing.
-- On the shell, [actuator_test](../modules/modules_command.md#actuator-test) can be used as well for actuator testing.
-- VTOLs will automatically turn off motors pointing upwards during **fixed-wing flight**:
-  - Standard VTOL : Motors defined as multicopter motors will be turned off
-  - Tiltrotors : Motors that have no associated tilt servo will turn off
-  - Tailsitters do not turn off any motors in fixed-wing flight
+- 안전 버튼을 쿨러야 액츄에이트를 테스트 할 수 있습니다.
+- 중지 스위치를 사용하면 모터를 즉시 중지할 수 있습니다.
+- 해당 슬라이더가 변경될 때까지 서보는 실제로 이동하지 않습니다.
+- 매개 변수 [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN)을 사용하여 액츄에이터 테스트를 완전히 비활성화 할 수 있습니다.
+- 셸에서 [actuator_test](../modules/modules_command.md#actuator-test)는 액추에이터를 테스트할 수 있습니다.
+- VTOL은 **고정익 비행** 중에 위쪽을 가리키는 모터를 자동으로 끕니다.
+  - 표준 VTOL: 멀티콥터 모터로 정의된 모터가 꺼집니다.
+  - 틸트로터: 연결된 틸트 서보가 없는 모터는 꺼집니다.
+  - 테이시터는 고정익 비행시에도 모터를 끄지 않습니다.
 
-### Reversing Motors
+### 모터 역전
 
-The motors must turn in the direction defined in configured geometry ("**Direction CCW**" checkboxes). If any motors do not turn in the correct direction they must be reversed.
+모터는 지오메트리 설정에서 정의된 방향으로 회전하여야 합니다("**Direction CCW**" 확인란). 모터가 올바른 방향으로 회전하지 않으면, 역전하여야 합니다.
 
-There are several options:
+회전 반향을 변경하는 방법은 다음과 같습니다:
 
-- If the ESCs are configured as [DShot](../peripherals/dshot.md) you can reverse the direction via UI (**Set Spin Direction** buttons). Note that the current direction cannot be queried, so you might have to try both options.
-- Swap 2 of the 3 motor cables (it does not matter which ones).
+- ESC가 [DShot](../peripherals/dshot.md)으로 구성된 경우 UI를 통해 방향을 변경할 수 있습니다(**회전 방향 설정** 버튼). 현재 방향을 알 수 없으므로, 두 옵션을 모두 시도하여야 할 수 있습니다.
+- 모터 케이블 3개 중 2개를 변경하면됩니다(어떤 케이블이든 상관 없음).
 
   :::note
-If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
+모터가 총알 커넥터를 사용하지 않은 경우에는 납땜을 다시 하여야 합니다 (이러한 이유로 DShot ESC를 선호합니다).
 :::
