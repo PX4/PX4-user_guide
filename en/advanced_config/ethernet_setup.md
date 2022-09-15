@@ -24,7 +24,7 @@ It may also be supported on other boards.
 
 Supported flight controllers include:
 
- - [CUAV Pixhawk V6X](../flight_controller/pixhawk_v6x.md)
+ - [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md)
  - [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md)
   
 

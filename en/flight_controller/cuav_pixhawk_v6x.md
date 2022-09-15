@@ -9,19 +9,22 @@ Contact the [manufacturer](https://store.cuav.net/) for hardware support or comp
 
 It is based on the [Pixhawk​​® Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf), [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf), and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
-![Pixhawk V6X](../../assets/flight_controller/pixhawk_v6x/pixhawk_v6x.jpg)
+![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x.jpg)
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-Pixhawk*<sup>&reg;</sup> v6x brings you the ultimate performance experience and high stability and reliability in all aspects.
+Pixhawk<sup>&reg;</sup> V6X brings you the ultimate in performance, stability and reliability in all aspects.
 
-- Arm® Cortex®-M7 processor (STM32H753) with Floating Point Unit (FPU), 480Mhz high-speed operations and 2MB flash.
+- Arm® Cortex®-M7 processor (STM32H753) with Floating Point Unit (FPU), 480MHz high-speed operations and 2MB flash.
   Developers can be more productive and efficient, allowing for more complex algorithms and models.
-- High-performance on-board，low-noise IMU and automotive-grade magnetic compass based on FMUv6X open standard. It aims to achieve better stability and anti-interference ability.
-- Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
-- An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
+- High-performance on-board, low-noise IMU and automotive-grade magnetic compass based on FMUv6X open standard.
+  It aims to achieve better stability and anti-interference ability.
+- Triple redundant IMU & double redundant barometer on separate buses.
+  When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
+- An independent LDO powers every sensor set with independent power control.
+  A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
 - External sensor bus (SPI5) has two chip select lines and data-ready signals for additional sensors and payload with SPI-interface.
 - Integrated Microchip Ethernet PHY for high-speed communication over Ethernet with onboard devices such as mission computers.
 - Newly designed vibration isolation system to filter out high frequency vibration and reduce noise to ensure accurate readings.
@@ -95,23 +98,22 @@ The Pixhawk® V6X is ideal for corporate research labs, academic research and co
 * Size
   * Flight controller
   
-![Pixhawk V6X](../../assets/flight_controller/pixhawk_v6x/v6x_size.jpg)
-
+    ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/v6x_size.jpg)
   * Core module
 
-![Pixhawk V6X](../../assets/flight_controller/pixhawk_v6x/core.jpg)
-  
+    ![Pixhawk V6X](../../assets/flight_controller/cuav_pixhawk_v6x/core.png)
+
 ## Where to Buy
 
 Order from [CUAV](https://store.cuav.net/).
 
 ## Assembly/Setup
 
-The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_pixhawk_v6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
+The [Pixhawk V6X Wiring Quick Start](../assembly/quick_start_cuav_pixhawk_v6x.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
 ## Pinouts
 
-![Pixhawk V6x Pinout](../../assets/flight_controller/pixhawk_v6x/pixhawk_v6x_pinouts.png)
+![Pixhawk V6x Pinout](../../assets/flight_controller/cuav_pixhawk_v6x/pixhawk_v6x_pinouts.png)
 
 Notes:
 - The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
@@ -132,7 +134,8 @@ UART8 | /dev/ttyS7 | GPS2
 
 ## Voltage Ratings
 
-*Pixhawk V6X* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWERC1/POWER1**, **POWERC2/POWER2** and **USB**.
+*Pixhawk V6X* can be triple-redundant on the power supply if three power sources are supplied.
+The three power rails are: **POWERC1/POWER1**, **POWERC2/POWER2** and **USB**.
 
 * **POWER C1** and **POWER C2** are DroneCAN/UAVCAN battery interfaces (recommended)；**POWER1** and **POWER2** are SMbus/I2C battery interfaces (backup).
 * **POWER C1** and **POWER1** use the same power switch, **POWER C2** and **POWER2** use the same power switch.
@@ -140,19 +143,19 @@ UART8 | /dev/ttyS7 | GPS2
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
-1. **POWER C1**、**POWER C2**、**POWER1**and **POWER2** inputs (4.75V to 5.7V)
+1. **POWER C1**, **POWER C2**, **POWER1** and **POWER2** inputs (4.75V to 5.7V)
 2. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 1. **POWER1** and **POWER2** inputs (operational range 4.7V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.7V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **USB input** (operational range 4.7V to 5.7V, 0V to 6V undamaged)
+1. **Servo input:** `VDD_SERVO` pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 **Voltage monitoring**
 
-Digital DroneCAN/UAVCAN battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_pixhawk_v6x.md#power)).
+Digital DroneCAN/UAVCAN battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_cuav_pixhawk_v6x.md#power)).
 
 :::note
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
@@ -166,6 +169,7 @@ It is pre-built and automatically installed by *QGroundControl* when appropriate
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make px4_fmu-v6x_default
 ```
@@ -210,7 +214,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 ## Further info
 
 - [CUAV Docs](https://doc.cuav.net/) (CUAV)
-- [Pixhawk V6X Wiring QuickStart](../assembly/quick_start_pixhawk_v6x.md)
-- [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
-- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
+- [Pixhawk V6X Wiring QuickStart](../assembly/quick_start_cuav_pixhawk_v6x.md)
+- [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
+- [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
+- [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)
