@@ -6,10 +6,16 @@ It can be used to connect to ground stations, companion computers, and other MAV
 It is particularly recommended when connecting to systems that "natively" use Ethernet - for example IP radios.
 
 This topic covers:
-- [Supported flight controllers](#supported-flight-controllers)
-- [Setting up an Ethernet network](#setting-up-the-ethernet-network) for PX4 and any systems it needs to connect to (including ground stations and companion computers).
-- [PX4 MAVLink Serial Port Configuration](#px4-mavlink-serial-port-configuration), specifying the UDP ports and MAVLink profiles that should be used for connecting to a GCS and a companion computer.
-- Using [MAVSDK](#mavsdk-python-setup-example) or [ROS2](#ros2-setup-example) to connect to PX4 over the network.
+- [PX4 Ethernet Setup](#px4-ethernet-setup)
+  - [Supported Flight Controllers](#supported-flight-controllers)
+  - [Setting up the Ethernet Network](#setting-up-the-ethernet-network)
+    - [PX4 Ethernet Network Setup](#px4-ethernet-network-setup)
+    - [Ubuntu Ethernet Network Setup](#ubuntu-ethernet-network-setup)
+    - [Companion Computer Ethernet Network Setup](#companion-computer-ethernet-network-setup)
+  - [PX4 MAVLink Serial Port Configuration](#px4-mavlink-serial-port-configuration)
+  - [QGroundControl Setup Example](#qgroundcontrol-setup-example)
+  - [MAVSDK-Python Setup Example](#mavsdk-python-setup-example)
+  - [ROS2 Setup Example](#ros2-setup-example)
 
 ## Supported Flight Controllers
 
@@ -18,8 +24,9 @@ It may also be supported on other boards.
 
 Supported flight controllers include:
 
+ - [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md)
  - [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md)
-
+  
 
 ## Setting up the Ethernet Network
 
