@@ -11,7 +11,7 @@ The image below shows how to connect the most important sensors and peripherals 
 | Main interface | **Function** |
 | :--- | :--- |
 | POWER C1 | Please connect CAN PMU SE to this interface; this interface is connected to UAVCAN power module |
-| POWER C2 | Please connect CAN PMU SE to this interface; this interface is connected to UAVCAN power module |
+| POWER C2 | Connect CAN PMU SE to this interface; this interface is connected to UAVCAN power module |
 | POWER 1 | Connect SMbus(I2C) power module |
 | POWER 2 | Connect SMbus(I2C) power module |
 | GPS&SAFETY |Connect Neo series GPS/C-RTK 9PS, including GPS, safety switch, buzzer interface.|
@@ -30,7 +30,9 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ## Vehicle Front
 
-> **NOTE** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](https://docs.px4.io/v1.9.0/en/assembly).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::
 
 ![front](../../assets/flight_controller/pixhawk_v6x/quickstart_02.jpg)
 
@@ -46,7 +48,8 @@ The GPS/compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 ![GPS](../../assets/flight_controller/pixhawk_v6x/quickstart_03.jpg)
 
 :::note
-Pixhawk V6X<sup>&reg;</sup> is not compatible with NEO V2 GPS built-in buzzer, please use [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/).The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
+Pixhawk V6X<sup>&reg;</sup> is not compatible with NEO V2 GPS built-in buzzer: you should use [NEO3/NEO 3Pro](https://store.cuav.net/shop/neo-3/) instead.
+The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
 To disable the safety press and hold the safety switch for 1 second.
 You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 :::
@@ -66,7 +69,8 @@ For more information about selecting a radio system, receiver compatibility, and
 
 ## Power
 
-Pixhawk V6X<sup>&reg;</sup> is equipped with CAN PMU lite module, it supports 3~14s lithium battery, please connect the 6pin connector of the module to the flight control **Power C1** 、**Power C2** interface.
+Pixhawk V6X<sup>&reg;</sup> is equipped with a CAN PMU lite module that supports 3~14s lithium battery.
+Connect the 6pin connector of the module to the flight control **Power C1** or **Power C2** interface.
 
 ![Power](../../assets/flight_controller/pixhawk_v6x/assets/quickstart_05.jpg)
 
@@ -79,13 +83,14 @@ Pixhawk V6X<sup>&reg;</sup> is equipped with CAN PMU lite module, it supports 3~
 The vehicle-based radio should be connected to the **TELEM1**/**TELEM2**/**TELEM3** port as shown below (if connected to **TELEM1**, no further configuration is required).
 The other radio is connected to your ground station computer or mobile device (usually by USB).
 
-You can also purchase telemetry from the [CUAV store](https://store.cuav.net/uav-telemetry-module/).
+You can also purchase telemetry radios from the [CUAV store](https://store.cuav.net/uav-telemetry-module/).
 
-![TELEME](../../assets/flight_controller/pixhawk_v6x/assets/quickstart_06.jpg)
+![Telemetry radios](../../assets/flight_controller/pixhawk_v6x/quickstart_06.jpg)
 
 ## SD Card
 
-SD cards are highly recommended as they require [recording and analyzing flight details](../getting_started/flight_reporting.md), running tasks and using UAVCAN bus hardware.The SD card is already installed on Pixhawk V6X<sup>&reg;</sup> when it leaves the factory, so you don't need to install it.
+SD cards are highly recommended as they are required for [recording and analyzing flight details](../getting_started/flight_reporting.md), running tasks and using UAVCAN bus hardware.
+An SD card is already installed on Pixhawk V6X<sup>&reg;</sup> when it leaves the factory.
 
 :::tip
 For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
@@ -95,10 +100,12 @@ For more information see [Basic Concepts > SD Cards (Removable Memory)](../getti
 
 Motors/servos are connected to the **M1~M8** (**MAIN**) and **A1~A8** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-![Motors](../../assets/flight_controller/pixhawk_v6x/assets/quickstart_07.jpg)
+![Motors](../../assets/flight_controller/pixhawk_v6x/quickstart_07.jpg)
 
 :::note
-The **MAIN** outputs in the PX4 firmware are mapped to the *Pixhawk V6X's M1~M8 ports (from IO), while the **AUX outputs** are mapped to the *Pixhawk V6X*'s A1~A8 ports (from the FMU),For example, **MAIN1** maps to M1 pin and **AUX1** maps to A1 pin.This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+The **MAIN** outputs in the PX4 firmware are mapped to the *Pixhawk V6X's M1~M8 ports (from IO), while the **AUX outputs** are mapped to the *Pixhawk V6X*'s A1~A8 ports (from the FMU).
+For example, **MAIN1** maps to M1 pin and **AUX1** maps to A1 pin.
+This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 
 :::warning
@@ -109,7 +116,7 @@ The mapping is not consistent across frames (e.g. you can't rely on the throttle
 
 Pixhawk V6X<sup>&reg;</sup> does not supply power to the servos. If using a plane or rover, an external BEC (eg, BEC-equipped ESC or separate 5V BEC or 2S LiPo battery) needs to be connected to any of the power (+) pins in M1~M8/A1~A8 to drive the servos .
 
-![servo](../../assets/flight_controller/pixhawk_v6x/assets/quickstart_08.jpg)
+![servo](../../assets/flight_controller/pixhawk_v6x/quickstart_08.jpg)
 
 :::note
 The power rail voltage must be appropriate for the servo being used!

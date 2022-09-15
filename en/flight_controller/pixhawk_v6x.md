@@ -17,7 +17,8 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 Pixhawk*<sup>&reg;</sup> v6x brings you the ultimate performance experience and high stability and reliability in all aspects.
 
-- Arm® Cortex®-M7 processor (STM32H753) with Floating Point Unit (FPU), 480Mhz high-speed operations and 2M flsh; Developers can be more productive and efficient with their development work, allowing for complex algorithms and models.
+- Arm® Cortex®-M7 processor (STM32H753) with Floating Point Unit (FPU), 480Mhz high-speed operations and 2MB flash.
+  Developers can be more productive and efficient, allowing for more complex algorithms and models.
 - High-performance on-board，low-noise IMU and automotive-grade magnetic compass based on FMUv6X open standard. It aims to achieve better stability and anti-interference ability.
 - Triple redundant IMU & double redundant barometer on separate buses. When the PX4 Autopilot detects a sensor failure, the system seamlessly switches to another to maintain flight control reliability.
 - An independent LDO powers every sensor set with independent power control. A vibration isolation System to filter out high-frequency vibration and reduce noise to ensure accurate readings, allowing vehicles to reach better overall flight performances.
