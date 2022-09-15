@@ -60,8 +60,9 @@ To install the toolchain:
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
 1. Restart the computer on completion.
 
-::: details
-Information-only notes
+:::note
+These are additional "for your information" notes. They only explain the implementation.
+
 - The script installs Gazebo 9 (following [gazebosim.org instructions](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install)). Gazebo 7, 8 are also supported but not recommended.
 - You can verify the NuttX installation by confirming the gcc version as shown:
   ```bash

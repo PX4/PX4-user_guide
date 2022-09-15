@@ -167,108 +167,108 @@ make px4_sitl gazebo_typhoon_h480_ctrlalloc
 대부분의 기체 설정에서 각 조종면 유형의 기본값은 변경되어서는 안 됩니다.
 :::
 
-The `Roll scale`, `Pitch scale` and `Yaw scale` values indicate the normalized effectiveness of the actuator around the corresponding axis.
+`롤 스케일`, `피치 스케일` 및 `요 스케일` 값은 해당 축 주위의 액츄에이터의 정규화된 효율성을 나타냅니다.
 
-Tuning the values is a low/level/advanced topic, and is generally only needed when tuning coupled control surfaces (like an elevon, that controls both pitch and roll). In this case the things you need to know are:
+값 조정은 낮은/수준/고급 주제이며 일반적으로 결합된 제어 표면(피치와 롤을 모두 제어하는 elevon과 같은)을 조정시에만 필요합니다. 이 경우 주의해야할 사항은 다음과 같습니다.
 
-- The numbers that are entered are directly put into the allocation matrix, that is then inverted to get from desired moments (normalized) to control signals.
-- Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
+- 입력된 숫자는 할당 매트릭스에 직접 입력되며, 원하는 순간(정규화)에서 제어 신호를 얻기 위해 반전됩니다.
+- 배율을 높이면 제어 표면의 처짐이 _감소_됩니다(역전될 때).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
  
 
-#### Control Surface Deflection Convention
+#### 조종면 처짐 규칙
 
-The diagram below shows the convention for deflections:
+아래 다이어그램은 편향 규칙을 나타냅니다.
 
 ![Control Surface Deflections](../../assets/config/actuators/plane_control_surface_convention.png)
 
-In summary:
+요약:
 
-- **Horizontal Control Surfaces:** Upwards movement equals positive deflection. Includes Ailerons, etc
-- **Vertical Control Surfaces:** Rightwards movement is positive deflection. Includes rudders etc.
-- **Mixed Control Surfaces:** Upwards/rightwards movement is positive (as above). Includes V-Tail etc.
+- **수평 조종면:** 위쪽으로 이동하면 양의 편향이 발생합니다. 에일러론 등 포함
+- **수직 조종면:** 오른쪽으로 이동하면 양의 편향이 발생합니다. 러더 등이 포함됩니다.
+- **혼합 조종면:** 위쪽/오른쪽 방향 움직임은 양수입니다(위와 같이). V-Tail 등이 포함됩니다.
 
 <!-- Also see this comment: https://github.com/PX4/PX4-Autopilot/blob/96b03040491e727752751c0e0beed87f0966e6d4/src/modules/control_allocator/module.yaml#L492 -->
 
-### Motor Tilt Servo Geometry
+### 모터 틸트 서보 지오메트리
 
-[VTOL tiltrotor vehicles](../frames_vtol/tiltrotor.md) can tilt their motors to transition between hover and forward flight. This section defines the properties of the tilting servos. These are mapped to specific motors in the motor geometry for a tiltrotor.
+[VTOL 틸트로터 차량](../frames_vtol/tiltrotor.md)은 호버링과 전방 비행 사이를 전환하기 위해 모터를 기울일 수 있습니다. 이 섹션은 틸팅 서보의 속성을 정의합니다. 이는 틸트로터의 모터 형상에서 특정 모터에 매핑됩니다.
 
-The example below shows the tilt servo setup for the [tiltrotor motor geometry shown above](../config/actuators.md#motor-geometry-vtol-tiltrotor).
+아래 예는 [위에 표시된 틸트로터 모터 형상](../config/actuators.md#motor-geometry-vtol-tiltrotor)에 대한 틸트 서보 설정을 나타냅니다.
 
 ![Tilt Servo Geometry Setup Example](../../assets/config/actuators/tilt_servo_geometry_config.png)
 
-The values that can be set are:
+설정 가능한 값들은 다음과 같습니다.
 
-- `Tilt servos`: The number of servos (tiltable motors).
-- `Angle at min tilt`: [Maximum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z axis.
-- `Angle at max tilt`: [Minimum tilt angle](#tilt-servo-coordinate-system) in degrees, relative to the z-axis.
-- `Tilt direction`: `Towards front` (positive x direction) or `Towards right` (positive y direction).
-- `Use for control`: [Tilt servo used for yaw/pitch](#tilt-servos-for-yaw-pitch-control)
-  - `None`: Torque control is not used.
-  - `Yaw`: Tilt servos used to control yaw.
-  - `Pitch`: Tilt servos used to control pitch.
-  - `Both Yaw and Pitch`: Tilt servos are used to control both yaw and pitch.
+- `틸트 서보`: 서보(틸트 가능한 모터)의 수입니다.
+- `최소 기울기 각도`: z축을 기준으로 한 [최대 기울기 각도](#tilt-servo-coordinate-system)(도)
+- `최대 기울기 각도`: Z축을 기준으로 한 [최소 기울기 각도](#tilt-servo-coordinate-system)(도)
+- `기울기 방향`: `앞쪽으로`(양의 x 방향) 또는 `오른쪽으로`(양의 y 방향).
+- `제어에 사용`: [요/피치에 사용되는 틸트 서보](#tilt-servos-for-yaw-pitch-control)
+  - `없음`: 토크 제어를 사용하지 않습니다.
+  - `요`: 요를 제어하는 데 사용되는 틸트 서보입니다.
+  - `피치`: 피치를 제어하는 데 사용되는 틸트 서보입니다.
+  - `요 및 피치 모두`: 틸트 서보는 요와 피치를 모두 제어하는 데 사용됩니다.
 
 
-#### Tilt Servo Coordinate System
+#### 틸트 서보 좌표계
 
-The coordinate system for tilt rotor angles is shown below. The reference direction for tilt angles is straight upwards (0 degrees). Tilt angles towards the front or right of the vehicle are positive, and towards the back or to the left are negative.
+틸트 로터 각도의 좌표계는 아래와 같습니다. 기울기 각도의 기준 방향은 위쪽(0도)입니다. 차량의 앞쪽 또는 오른쪽을 향한 틸트 각도는 양수이고 뒤쪽 또는 왼쪽을 향한 틸트 각도는 음수입니다.
 
 ![Tilt Axis](../../assets/config/actuators/tilt_axis.png)
 
-The `Angle at min tilt` and `Angle at max tilt` indicate the range of movement for the tilt servo. The minimum tilt is the smaller _numerical value_ (not absolute) of the two angles.
+`최소 기울기 각도` 및 `최대 기울기 각도`는 기울기 서보의 이동 범위를 나타냅니다. 최소 기울기는 두 각도 중 더 작은 _숫자값_(절대값 아님)입니다.
 
-If the max/min tilt vectors are **P<sub>0</sub>** and **P<sub>1</sub>** as shown above, both tilt angles are positive but **θ<sub>0</sub>** is smaller:
+위와 같이 최대/최소 기울기 벡터가 **P<sub>0</sub>** 및 **P<sub>1</sub>**이면 두 기울기 각도가 모두 양수이지만, **θ<sub>0</sub>**은 더 작습니다.
 
-- `Angle at min tilt` = **θ<sub>0</sub>**
-- `Angle at max tilt` = **θ<sub>1</sub>**
+- `최소 기울기 각도` = **θ<sub>0</sub>**
+- `최대 기울기 각도` = **θ<sub>1</sub>**
 
 :::note
-If the diagram was mirrored so that **P<sub>0</sub>** and **P<sub>1</sub>** were tilting into the -x, -y quadrant, then both the tilt angles would be negative. Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**, it would be the `Angle at min tilt`.
+다이어그램이 미러링되어 **P<sub>0</sub>** 및 **P<sub>1</sub>**이 -x, -y 사분면으로 기울어진 경우 , 그러면 두 기울기 각도가 모두 음수가 됩니다. **θ<sub>1</sub>**이 **θ<sub>0</sub>**보다 음수(작음)가 더 크기 때문에  `최소 기울기의 각도`가 됩니다.
 
-Similarly, a servo that moves:
+이와 마찬가지로, 서보는 다음과 같이 동작합니다:
 
 - between the upright and forward positions would have `min=0` and `max=90`.
-- symmetrically 45 degrees around the upright position would have `min=-45` and `max=45`
-- between the upright and backward positions would have `min=-90` and `max=0`.
+- 수직 위치를 중심으로 대칭적으로 45도는 `최소=-45` 및 `최대=45`입니다.
+- 수직 위치와 후방 위치 사이의 값은 `min=-90` 및 `max=0`입니다.
 :::
 
-The `Tilt direction` indicates whether the servo tilts in the plane towards the `Front` or `Right` of the vehicle. On the diagram this would be represented by **α** that can only take values of 0 (front) or 90 (right).
+`기울기 방향`은 비행기에서 서보가 차량의 `전면` 또는 `오른쪽`을 향하여 기울기를 나타냅니다. 다이어그램에서 이것은 0(앞) 또는 90(오른쪽) 값만 사용할 수 있는 **α**로 표시됩니다.
 
-#### Tilt Servos for Yaw/Pitch Control
+#### 요/피치 제어용 틸트 서보
 
-Tilt servos can provide torque on one or more axes, which may be used to yaw or pitch the vehicle:
+틸트 서보는 하나 이상의 축에 토크를 제공할 수 있으며, 이는 차량을 요잉 또는 피치를 제어할 수 있습니다.
 
-- Yaw is commonly set in this way, though motors are often used instead on vehicles with four or more motors.
-- Pitch is more commonly controlled using differential motors thrust. Control using tilt servos is useful on airframes that can't use differential thrust, such as a [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A).
+- Yaw는 일반적으로 이러한 방식으로 설정되지만 모터는 4개 이상의 모터가 있는 기체에서 대신 사용되는 경우가 많습니다.
+- 피치는 일반적으로 차동 모터 추력을 사용하여 제어합니다. 틸트 서보를 사용한 제어는 [Bicopter](https://www.youtube.com/watch?v=hfss7nCN40A)와 같이 차동 추력을 사용할 수 없는 기체에 유용합니다.
 
-Whether this feature is used is configured in the `Use for control` setting.
+이 기능의 사용 여부는 `제어에 사용`에서 설정합니다.
 
-## Actuator Outputs
+## 액추에이터 출력
 
-The _Actuator Outputs_ section is used to assign motors, control surface servos, and other actuators used by the particular frame to the physical outputs on the flight controller, and to set parameters for those outputs.
+_액추에이터 출력_ 섹션은 모터, 제어 표면 서보 및 특정 프레임에서 사용하는 기타 액츄에이터를 비행 컨트롤러의 물리적 출력에 할당하고 해당 출력에 대한 매개변수를 설정합니다.
 
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN.
+연결된 비행 컨트롤러에서 지원하는 각 출력 버스에 대해 별도의 탭이 표시됩니다. PWM AUX(IO 보드 출력), PWM MAIN(FMU 보드 출력), UAVCAN.
 
 Motors and actuators (which are referred to as "[functions](#output-functions)") can be assigned to any physical output on any of the available buses.
 
 :::note
-PWM AUX outputs are preferred over the PWM MAIN outputs for controlling motors (they have lower latency).
+PWM AUX 출력은 모터 제어용 PWM MAIN 출력보다 선호됩니다(지연 시간이 더 짧음).
 :::
 
-PWM outputs are grouped based on the hardware timer groups. Meaning all the outputs in one group must operate under the same protocol at the same rate (e.g. PWM signal at 400Hz for all the outputs in one group). Therefore it is not possible to map Servo and a Motor in the same output group, as they usually operate at a different rate.
+PWM 출력은 하드웨어 타이머 그룹을 기반으로 그룹화됩니다. 즉, 한 그룹의 모든 출력은 동일한 프로토콜에서 동일한 속도로 작동하여야 합니다(예: 한 그룹의 모든 출력에 대해 400Hz의 PWM 신호). 그러므로, 일반적으로 서로 다른 속도로 작동하기 때문에 동일한 출력 그룹에서 서보와 모터를 매핑하는 것은 불가능합니다.
 
-The PWM AUX tab has CAP outputs that are generally used as the [camera capture/trigger input](../peripherals/camera.md#trigger-configuration). However you can map the CAP outputs to other output functions, and other AUX outputs can be used as camera capture/triggering input.
+PWM AUX 탭에는 일반적으로 [카메라 캡처/트리거 입력](../peripherals/camera.md#trigger-configuration)으로 사용되는 CAP 출력이 있습니다. 그러나, CAP 출력을 다른 출력 기능에 매핑할 수 있으며 다른 AUX 출력을 카메라 캡처/트리거 입력으로 사용 가능합니다.
 
 :::note
-Configuring the Camera Capture / Trigger input requires a reboot to take effect
+카메라 캡처/트리거 입력 설정을 적용하려면 재부팅하여야 합니다.
 :::
 
-You should assign functions to the outputs that match your physical wiring of motors and servos, and use the [Actuator Testing](#actuator-testing) section described below to determine appropriate output parameter values. These steps are covered in [Output Assignment and Configuration](#output-assignment-and-configuration).
+모터 및 서보의 물리적 배선과 일치하는 출력에 기능을 할당하고 아래에 설명된 [액추에이터 테스트](#actuator-testing) 섹션을 사용하여 적절한 출력 매개변수 값을 결정하여야 합니다. 이 단계는 [출력 할당 및 구성](#output-assignment-and-configuration)에서 설명합니다.
 
 ### Output Functions
 
@@ -306,69 +306,69 @@ The following functions can only be applied to FMU outputs:
 This list is correct at PX4 v1.13. The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
 :::
 
-## Actuator Testing
+## 액추에이터 테스트
 
-The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings. A slider is provided for each output defined in the [Actuator Outputs](#actuator-outputs) section. The slider example below shows the section for a typical VTOL Tiltrotor airframe.
+오른쪽 하단의 _액추에이터 테스트_ 섹션에는 액츄에이터 및 모터 설정을 테스트(및 결정)하는 데 사용할 수 있는 슬라이더가 있습니다. [액추에이터 출력](#actuator-outputs) 섹션에 정의된 각 출력에 대해 슬라이더가 제공됩니다. 아래 슬라이더 예는 일반적인 VTOL Tiltrotor 기체에 대한 섹션을 나타냅니다.
 
 ![Actuator Testing Slider](../../assets/config/actuators/vtol_tiltrotor_sliders_example.png)
 
-The section has an **Enable Sliders** switch that must be toggled before sliders can be used. The sliders can power the motors/servos across their full range of motion, and "snap" to the disarmed and minimum positions.
+이 섹션에는 슬라이더를 사용하기 전에 전환해야 하는 **슬라이더 활성화** 스위치가 있습니다. 슬라이더는 전체 동작 범위에서 모터/서보에 전원을 공급하고 무장 해제 및 최소 위치로 "스냅"할 수 있습니다.
 
 :::note
-After you toggle the **Enable sliders** switch, actuators/motors won't do anything until the corresponding slider is _moved_. This is a safety feature to prevent sudden motor movements after switch is enabled.
+**슬라이더 활성화** 스위치를 토글한 후 액추에이터/모터는 해당 슬라이더가 _이동_될 때까지 아무 작업도 하지 않습니다. 이것은 스위치가 활성화된 후 갑작스러운 모터 움직임을 방지하기 위한 안전 장치입니다.
 :::
 
-Sliders can be used to verify the following:
+슬라이더를 사용하여 다음을 확인할 수 있습니다.
 
-1. Actuators (Motors, Control surfaces, etc.) are assigned to the expected output.
-1. Motors don't spin when at the `disarmed` PWM output value
-1. Motors barely spin at the `minimum` PWM output value.
-1. Motors give **positive thrust** in the expected direction
-1. Control Surfaces are in the correct idle position for `disarmed` output value
+1. 액추에이터(모터, 제어 표면 등)는 예상 출력에 할당됩니다.
+1. PWM 출력 값이 `해제`일 때 모터가 회전하지 않습니다.
+1. 모터는 `최소` PWM 출력 값에서 거의 회전하지 않습니다.
+1. 모터가 예상 방향으로 **양의 추력**을 제공합니다.
+1. 조종면은 출력 값 `시동`에 대하여 올바른 유휴 위치에 있습니다.
 1. Control Surfaces move in the direction as defined in the [Control Surface Convention](#control-surface-deflection-convention)
-1. Motor Tilt Servos are in the correct idle position for `disarmed` output value
+1. 모터 틸트 서보가 출력 값 `해제`에 대해 올바른 유휴 위치에 있습니다.
 1. Motor Tilt Servos move in the direction as defined in the [Tilt Servo Convention](#tilt-servo-coordinate-system)
 
 
-## Output Assignment and Configuration
+## 출력 할당 및 설정
 
 Outputs are assigned to functions and configured in the [Actuator Outputs](#actuator-outputs) section, while the  [Actuator Testing](#actuator-testing) sliders are commonly used to determine appropriate configuration values to enter:
 
 - MC vehicles that have connected motors to PWM outputs can use the [Identify & Assign Motors](#multicopter-pwm-motor-assignment) button to perform motor assignment "semi-automatically".
-- Output assignment of both motors and actuators can be done/checked using sliders (see [Output Assignment (Manual)](#output-assignment-manual)).
-- Disarmed, minimum, and maximum settings, for all outputs can also be also determined using sliders. This is shown as part of [Motor Configuration](#motor-configuration), [Control Surface Setup](#control-surface-setup), [Tilt servo setup](#tilt-servo-setup)
+- 모터와 액추에이터의 출력 할당은 슬라이더를 사용하여 수행/확인할 수 있습니다([출력 할당(수동)](#output-assignment-manual) 참조).
+- 모든 출력에 대한 해제, 최소 및 최대 설정도 슬라이더를 사용하여 결정할 수 있습니다. This is shown as part of [Motor Configuration](#motor-configuration), [Control Surface Setup](#control-surface-setup), [Tilt servo setup](#tilt-servo-setup)
 
-### Multicopter PWM: Motor Assignment
+### 멀티콥터 PWM: 모터 할당
 
-You can use the **Identify & Assign Motors** button to assign motors to PWM outputs using a semi-automated process.
+**식별 & 모터 할당** 버튼은 반자동 프로세스를 사용하여 모터를 PWM 출력에 할당합니다.
 
 :::note
-This is the easiest way to assign motors, but is currently only supported for motors on **multicopter vehicles** that are connected to PWM outputs (UAVCAN outputs and other frame types do not support this feature). On other frames you can follow the instructions in [Output Assignment (Manual)](#output-assignment-manual).
+이것은 모터를 할당하는 가장 쉬운 방법이지만 현재 PWM 출력에 연결된 **멀티콥터 차량**의 모터에만 지원됩니다(UAVCAN 출력 및 기타 프레임 유형은 이 기능을 지원하지 않음). 다른 프레임에서는 [출력 할당(수동)](#output-assignment-manual)의 지침을 따를 수 있습니다.
 :::
 
 :::warning
-Remove the propellers from motors before assigning outputs or any testing.
+출력이나 테스트를 할당하기 전에 모터에서 프로펠러를 제거하십시오.
 :::
 
 ![Identify motor button](../../assets/config/actuators/identify_motors_button.png)
 
-When you click the button, QGC sends a command to a motor, causing it to spin. To assign that motor to an output you simply select the corresponding motor displayed in the screen. QGC will then spin the next motor for you to assign, and so on.
+버튼을 클릭하면 QGC가 명령을 전송하여 모터를 회전시킵니다. 해당 모터를 출력에 할당하려면 화면에 표시된 해당 모터를 선택합니다. 그런 다음, QGC는 할당할 다음 모터를 회전하는 식으로 계속됩니다.
 
-Instructions:
+설명:
 
-1. Setup the motor geometry to match the motors on your frame.
-1. Select the PWM tab where you want to assign the motors.
-1. Click the **Identify & Assign Motors** button.
-1. One motor will start spinning (click **Spin Motor Again** if it stops spinning too quickly to note.)
+1. 프레임의 모터와 일치하도록 모터 형상을 설정합니다.
+1. 모터를 할당할 PWM 탭을 선택합니다.
+1. **식별 & 모터 할당** 버튼을 클릭합니다.
+1. 하나의 모터가 회전하기 시작합니다(참고할 수 없을 정도로 회전이 너무 빨리 멈추면 **모터 다시 회전** 클릭).
 
-   Select the corresponding motor in the geometry section.
+   지오메트리 섹션에서 해당 모터를 선택합니다.
 
    ![](../../assets/config/actuators/identify_motors_in_progress.png)
 
-1. After assigning all motors, the tool will set the correct motor mapping for the outputs and then exit.
+1. 모든 모터를 할당한 후 도구는 출력에 대한 올바른 모터 매핑을 설정한 다음 종료됩니다.
 
 
-### Output Assignment (Manual)
+### 출력 할당(수동)
 
 :::warning
 Remove the propellers from motors before assigning outputs or any testing.

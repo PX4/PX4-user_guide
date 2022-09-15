@@ -94,7 +94,7 @@ The following requirements apply:
 :::note
 Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs.
 *New* experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards.
-:::  
+:::
 
 <a id="unsupported"></a>
 ## Unsupported

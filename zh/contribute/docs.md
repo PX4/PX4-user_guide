@@ -118,7 +118,7 @@ A "remote" is a handle to a particular repository. The remote named *origin* is 
    yarn docs:buildwin
    ```
 
-::: tip
+:::tip
 Use `yarn docs:dev` to preview changes *as you make them* (documents are updated and served very quickly). Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`.
 :::
 

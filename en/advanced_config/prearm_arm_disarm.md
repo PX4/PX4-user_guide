@@ -19,7 +19,7 @@ Users can control progression though these states using a [safety switch](../get
   :::warning
   A vehicle that is armed is potentially dangerous.
   The safety switch is an additional mechanism that prevents arming from happening by accident.
-  :::  
+  :::
 - An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
 - An *arming gesture* is a stick movement *on an RC controller* that can be used as an alternative to an arming switch.
 - MAVLink commands can also be sent by a ground control station to arm/disarm a vehicle.
