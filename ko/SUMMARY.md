@@ -44,7 +44,6 @@
   * [비행 모드 ](config/flight_mode.md)
   * [배터리 전원모듈 설정](config/battery.md)
   * [안전 설정](config/safety.md)
-  * [모터](config/motors.md)
   * [액츄에이터](config/actuators.md)
   * [자동 튜닝](config/autotune.md)
 * [기체 제작](airframes/README.md)

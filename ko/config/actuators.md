@@ -2,24 +2,9 @@
 
 _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자가 지정하고, 액츄에이터와 모터를 비행 컨트롤러 출력에 할당하고, 액츄에이터와 모터 응답을 테스트 합니다.
 
-표시되는 요소는 [선택한 프레임](../config/airframe.md)에 따라 달라지며, 출력은 [기체 참조](../airframes/airframe_reference.md)와 같이 기본적으로 매핑됩니다.
-
-:::note
-*액추에이터* 보기는 기하학 및 믹서 구성 파일을 매개변수로 대체하는 _동적 제어 할당_이 활성화된 경우에만 표시됩니다. 이 기능은 기본적으로 비활성화되어 있습니다.
-
-이 기능을 사용하려면 매개변수 [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)을 설정하고 [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME)에 올바른 프레임 유형이 설정되어 있는 지 확인하십시오. *QGroundControl*을 재시작하여야 합니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/systemlib/system_params.c#L298 -->
-
-시뮬레이션에서 이것을 시도하는 가장 쉬운 방법은 사전에 제어 할당이 활성화된 다음 전망대 `make` 대상을 사용하는 것입니다.
-
-```
-make px4_sitl gazebo_iris_ctrlalloc
-make px4_sitl gazebo_typhoon_h480_ctrlalloc
-```
-:::
-
-여기에서 *QGroundControl* 보기를 오픈합니다. **"Q"(앱 메뉴) > 차량 설정 > 액추에이터**(탭).
-
 ## 개요
+
+여기에서 *QGroundControl* 보기를 오픈합니다. **"Q"(앱 메뉴) > 차량 설정 > 액추에이터**(탭). 표시되는 요소는 [선택한 프레임](../config/airframe.md)에 따라 달라지며, 출력은 [기체 참조](../airframes/airframe_reference.md)와 같이 기본적으로 매핑됩니다.
 
 보기에는 세 개의 섹션이 있습니다.
 - [기하](#geometry): [선택한 기체](../config/airframe.md)의 기하 도형을 설정합니다. 여기에는 [모터](#motor-geometry)의 수, 위치 및 속성과 [제어 표면](#control-surfaces-geometry) 및 [모터 틸트 서보](#motor-tilt-servo-geometry)의 수와 속성이 포함됩니다.
