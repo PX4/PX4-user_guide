@@ -35,7 +35,7 @@ Notes:
 
 ## Adding a new Geometry or Output Function
 
-See [this commit](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) for how to add a new geometry. The QGC UI will then automatically show the right configuration UI when `CA_AIRFRAME` is set to the new geometry.
+See [this commit](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) for how to add a new geometry. The QGC UI will then automatically show the right configuration UI when [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) is set to the new geometry.
 
 [This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function. Any uORB topic can be subscribed and assigned to a function.
 
@@ -47,7 +47,7 @@ When [adding a new airframe configuration](../dev_airframes/adding_a_new_frame.m
 
 You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
 ```
-....
+...
 param set-default CA_AIRFRAME 4
 param set-default CA_ROTOR_COUNT 2
 param set-default CA_ROTOR0_KM -0.05
