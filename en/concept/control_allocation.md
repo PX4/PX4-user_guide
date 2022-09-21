@@ -1,5 +1,10 @@
 # Control Allocation (Mixing)
 
+:::note
+Control allocation replaces the legacy mixing approach used in PX4 v1.13 and earlier.
+For PX4 v1.13 documentation see: [Mixing & Actuators](https://docs.px4.io/v1.13/en/concept/mixing.html), [Geometry Files](https://docs.px4.io/v1.13/en/concept/geometry_files.html) and [Adding a New Airframe Configuration](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html).
+:::
+
 PX4 takes desired torque and thrust commands from the core controllers and translates them to actuator commands which control motors or servos.
 
 The translation depends on the physical geometry of the airframe.
