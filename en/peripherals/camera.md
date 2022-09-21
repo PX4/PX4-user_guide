@@ -1,10 +1,10 @@
 # Camera Trigger & Capture
 
-PX4 can map outputs to trigger a camera or integrate with a [MAVLink camera]().
+PX4 can map outputs to trigger a camera or integrate with a [MAVLink camera](#mavlink-cameras).
 
 :::note
 We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html).
-Directly connected cameras only support [a small subset](#mavlink-command-interface) of MAVLink camera commands.
+Directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of MAVLink camera commands.
 :::
 
 Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a camera capture pin.
@@ -38,7 +38,7 @@ Four different modes are supported, controlled by the [TRIG_MODE](../advanced_co
 Mode | Description
 --- | ---
 0 | Camera triggering is disabled.
-1 | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface) for more details.
+1 | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#mavlink-command-interface-directly-connected-cameras) for more details.
 2 | Switches the intervalometer constantly on.
 3 | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.
 4 | triggers automatically when flying a survey in Mission mode.
@@ -115,7 +115,7 @@ If camera capture is configured, the timestamp from the camera capture driver is
 
 ## MAVLink Command Interface (Directly Connected Cameras)
 
-When using a camera connected to the flight controller as described in this document (e.g. using the GPIO, PWM or seagull backend interfaces) the camera driver supports only the following subset of MAVLink commands:
+When using a camera connected to the flight controller as described in this document (e.g. using the GPIO, PWM or seagull backend interfaces) the camera driver supports the following subset of MAVLink commands:
 
 [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
 
@@ -153,8 +153,8 @@ PX4 can also be configured to use a [MAVLink trigger interface backend](#trigger
 
 In this case MAVLink camera messages are forwarded to a MAVLink camera for handling (although PX4 will still emit the `CAMERA_TRIGGER` when a trigger command is received).
 
-Using a MAVLink camera is recommended because directly connected cameras only support [a small subset](#mavlink-command-interface) of the available MAVLink camera commands.
-MAVLink cameras, by contrast, potentially offer much more control over a camera usign the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html).
+MAVLink cameras are recommended because directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of the available MAVLink camera messages and commands.
+MAVLink cameras potentially offer much more control over a camera using the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html).
 
 
 ## Testing Trigger Functionality
