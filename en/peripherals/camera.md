@@ -1,18 +1,17 @@
-# Camera Trigger & Capture
+# Camera Configuration
 
-PX4 can map outputs to trigger a camera or integrate with a [MAVLink camera](#mavlink-cameras).
+PX4 can be configured to connect physical outputs to trigger a camera, or it can be used with a [MAVLink camera](#mavlink-cameras).
 
 :::note
 We recommend that you use a MAVLink camera as this allows comprehensive control of cameras via the [camera protocol](https://mavlink.io/en/services/camera.html).
 Directly connected cameras only support [a small subset](#mavlink-command-interface-directly-connected-cameras) of MAVLink camera commands.
 :::
 
-Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a camera capture pin.
-This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
-
 Whenever a camera is triggered, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp.
 This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
 
+Cameras can also (optionally) signal PX4 at the exact moment that a photo/frame is taken using a camera capture pin.
+This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
 
 <!-- Camera trigger driver: https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/camera_trigger -->
