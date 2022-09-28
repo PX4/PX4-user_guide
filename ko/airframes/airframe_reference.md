@@ -4,7 +4,7 @@
 이 **목록**은 `make airframe_metadata` 빌드 명령을 사용하여 소스 코드에서 [자동으로 생성](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/markdownout.py)됩니다.
 :::
 
-이 페이지는 모터 할당 및 번호 지정을 포함하여 지원되는 모든 기체 유형을 나열합니다. **녹색** 모터는 시계 방향으로 회전화며, **청색** 모터는 반시계 방향으로 회전합니다.
+이 페이지에서 모터 할당와 번호 지정을 포함하여 모든 지원 기체 유형을 기술합니다. **녹색** 모터는 시계 방향으로 회전화며, **청색** 모터는 반시계 방향으로 회전합니다.
 
 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 해당 채널이 있다면, 보통 **AUX OUT** 라벨이 존재합니다.
 
@@ -266,7 +266,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Octorotor Coaxial
+### 옥토콥터 동축
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg"/>
@@ -295,7 +295,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Octorotor x
+### 옥토콥터 X형
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/OctoRotorX.svg"/>
@@ -308,7 +308,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
- <td>Generic Octocopter X geometry</td>
+ <td>일반 옥타콥터 X 기하 구조</td>
  <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 8001</p></td>
 </tr>
 </tbody>
