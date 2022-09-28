@@ -315,7 +315,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Quadrotor +
+### 쿼드로터 +
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/QuadRotorPlus.svg"/>
@@ -328,14 +328,14 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_quadrotor_+_generic_10__quad_+_geometry">
- <td>Generic 10" Quad + geometry</td>
+ <td>일반 10" 쿼드 + 기하 구조</td>
  <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Quadrotor H
+### 쿼드로터 H
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/QuadRotorH.svg"/>
@@ -348,18 +348,18 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_quadrotor_h_reaper_500_quad">
- <td>Reaper 500 Quad</td>
- <td>Maintainer: Blankered<p><code>SYS_AUTOSTART</code> = 4040</p></td>
+ <td>리퍼 500 쿼드</td>
+ <td>유지관리자: Blankered<p><code>SYS_AUTOSTART</code> = 4040</p></td>
 </tr>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
  <td>BetaFPV Beta75X 2S Brushless Whoop</td>
- <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p></td>
+ <td>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Quadrotor x
+### 쿼드로터 x
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/QuadRotorX.svg"/>
@@ -372,7 +372,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_quadrotor_x_generic_quadcopter">
- <td>Generic Quadcopter</td>
+ <td>일반 쿼드콥터</td>
  <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4001</p></td>
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">
@@ -389,27 +389,29 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_nxp_hovergames">
  <td>NXP HoverGames</td>
- <td>Maintainer: Iain Galloway &lt;iain.galloway@nxp.com&gt;<p><code>SYS_AUTOSTART</code> = 4017</p></td>
+ <td>유지보수: Iain Galloway &lt;iain.galloway@nxp.com&gt;<p><code>SYS_AUTOSTART</code> = 4017</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_x500_v2">
  <td>Holybro X500 V2</td>
- <td>Maintainer: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019</p></td>
+ <td>유지보수: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019
+</p></td>
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
- <td>Generic 250 Racer</td>
+ <td>일반 250 레이서</td>
  <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4050</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
  <td><a href="https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
- <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4052</p></td>
+ <td>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4052</p></td>
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td>Holybro Kopis 2</td>
- <td>Maintainer: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
+ <td>유지보수: Beat Kueng &lt;beat@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4053</p></td>
 </tr>
 <tr id="copter_quadrotor_x_advanced_technology_labs_(atl)_mantis_edu">
  <td>Advanced Technology Labs (ATL) Mantis EDU</td>
- <td><p><code>SYS_AUTOSTART</code> = 4061</p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 4061
+</p></td>
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
@@ -421,15 +423,15 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>
- <td>Maintainer: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
+ <td>유지보수: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2">
  <td>Crazyflie 2</td>
- <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4900</p></td>
+ <td>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4900</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
- <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
+ <td>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
 </tr>
 </tbody>
 </table>
@@ -533,7 +535,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
  <td>Applied Aeronautics Albatross</td>
- <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
+ <td>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
 </tr>
 </tbody>
 </table>
