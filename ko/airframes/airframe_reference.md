@@ -455,13 +455,13 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="copter_simulation_(copter)_sih_quadcopter_x">
  <td>SIH Quadcopter X</td>
- <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1100</p></td>
+ <td>유지보수: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1100</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Tricopter Y+
+### 트리콥터 Y+
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/YPlus.svg"/>
@@ -490,9 +490,9 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-## 비행기
+## 고정익
 
-### Flying Wing
+### 플라잉 윙
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/FlyingWing.svg"/>
@@ -512,7 +512,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Plane A-Tail
+### 고정익 A-Tail
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/PlaneATail.svg"/>
@@ -534,14 +534,14 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
- <td>Applied Aeronautics Albatross</td>
+ <td>적용된 에어로노틱스 알바트로스</td>
  <td>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Simulation (Plane)
+### 시뮬레이션(고정익)
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeUnknown.svg"/>
@@ -555,13 +555,14 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="plane_simulation_(plane)_sih_plane_aert">
  <td>SIH plane AERT</td>
- <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
+ <td>유지보수: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101
+</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Standard Plane
+### 표준 항공기
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/Plane.svg"/>
@@ -601,7 +602,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
  <td>NXP Cup car: DF Robot GPX</td>
- <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
+ <td>유지보수: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
 </tr>
 </tbody>
 </table>
@@ -622,12 +623,12 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
- <td>Generic Underwater Robot</td>
+ <td>일반 수중 로봇</td>
  <td><p><code>SYS_AUTOSTART</code> = 60000</p></td>
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
- <td>HippoCampus UUV (Unmanned Underwater Vehicle)</td>
- <td>Maintainer: Daniel Duecker &lt;daniel.duecker@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60001</p></td>
+ <td>HippoCampus UUV (무인 수중선)</td>
+ <td>유지보수: Daniel Duecker &lt;daniel.duecker@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60001</p></td>
 </tr>
 </tbody>
 </table>
@@ -656,7 +657,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="underwater_robot_vectored_6_dof_uuv_bluerov2_(heavy_configuration)">
  <td>BlueROV2 (Heavy Configuration)</td>
- <td>Maintainer: Thies Lennart Alff &lt;thies.lennart.alff@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60002</p></td>
+ <td>유지보수: Thies Lennart Alff &lt;thies.lennart.alff@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60002</p></td>
 </tr>
 </tbody>
 </table>
@@ -687,7 +688,7 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_simulation_(vtol)_sih_tailsitter_duo">
  <td>SIH Tailsitter Duo</td>
- <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
+ <td>유지보수: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
 </tr>
 </tbody>
 </table>
