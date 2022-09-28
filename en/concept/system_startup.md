@@ -94,17 +94,14 @@ Note that the root folder of the microsd card is identified by the path `/fs/mic
 
 #### Customizing the Configuration (config.txt)
 
-The `config.txt` file can be used to modify shell variables (parameters).
+The `config.txt` file can be used to modify parameters.
 It is loaded after the main system has been configured and *before* it is booted.
 
-For example, you could create a file on the SD card, `etc/config.txt` with this content:
+For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
 
 ```
-set PWM_AUX_OUT 1234
-set PWM_AUX_DISARMED 1500
-set PWM_AUX_MIN 1000
-set PWM_AUX_MAX 2000
-set PWM_AUX_RATE 50
+param set-default PWM_MAIN_DIS3 1000
+param set-default PWM_MAIN_MIN3 1120
 ```
 
 #### Starting additional applications
