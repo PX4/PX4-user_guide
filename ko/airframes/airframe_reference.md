@@ -437,7 +437,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation (Copter)
+### 시뮬레이션 (콥터)
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeUnknown.svg"/>
