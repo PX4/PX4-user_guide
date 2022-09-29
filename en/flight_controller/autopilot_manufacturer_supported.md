@@ -26,6 +26,7 @@ The boards in this category are:
 - [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
 - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
 - [ModalAI VOXL Flight](../flight_controller/modalai_voxl_flight.md)
+- [ModalAI VOXL 2](../flight_controller/modalai_voxl_2.md)
 - [mRobotics-X2.1](../flight_controller/mro_x2.1.md) (FMUv2)
 - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
 - [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (www.nxp.com)

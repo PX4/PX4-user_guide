@@ -203,6 +203,7 @@
       * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
       * [ModalAI Flight Core v1](flight_controller/modalai_fc_v1.md)
       * [ModalAI VOXL Flight](flight_controller/modalai_voxl_flight.md)
+      * [ModalAI VOXL 2](flight_controller/modalai_voxl_2.md)
       * [SPRacing SPRacingH7EXTREME](flight_controller/spracingh7extreme.md)
     * [Experimental Autopilots](flight_controller/autopilot_experimental.md)
       * [BeagleBone Blue](flight_controller/beaglebone_blue.md)
