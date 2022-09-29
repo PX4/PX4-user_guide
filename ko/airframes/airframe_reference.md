@@ -665,7 +665,7 @@ div.frame_variant td, div.frame_variant th {
 
 ## 수직이착륙기
 
-### Simulation (VTOL)
+### 시뮬레이션(VTOL)
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeUnknown.svg"/>
@@ -688,13 +688,14 @@ div.frame_variant td, div.frame_variant th {
 <tbody>
 <tr id="vtol_simulation_(vtol)_sih_tailsitter_duo">
  <td>SIH Tailsitter Duo</td>
- <td>유지보수: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
+ <td>유지보수: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102
+</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### Standard VTOL
+### 표준 VTOL
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/VTOLPlane.svg"/>
@@ -707,8 +708,8 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
- <td>HIL Standard VTOL QuadPlane</td>
- <td>Maintainer: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
+ <td>HIL 표준 VTOL QuadPlane</td>
+ <td>유지보수: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
  <td>Generic Standard VTOL</td>
@@ -716,7 +717,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
  <td>Vertical Technologies DeltaQuad</td>
- <td>Maintainer: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Servo1</b>: Right elevon</li><li><b>Servo2</b>: Left elevon</li><li><b>Servo3</b>: Pusher motor</li><li><b>Servo4</b>: Pusher reverse channel</li></ul></p></td>
+ <td>유지보수: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Servo1</b>: Right elevon</li><li><b>Servo2</b>: Left elevon</li><li><b>Servo3</b>: Pusher motor</li><li><b>Servo4</b>: Pusher reverse channel</li></ul></p></td>
 </tr>
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td>BabyShark VTOL</td>
