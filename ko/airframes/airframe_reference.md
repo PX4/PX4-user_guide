@@ -721,7 +721,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td>BabyShark VTOL</td>
- <td>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Motor5</b>: Pusher motor</li><li><b>Servo1</b>: Ailerons</li><li><b>Servo2</b>: A-tail left</li><li><b>Servo3</b>: A-tail right</li></ul></p></td>
+ <td>유지보수: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>특정 출력:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Motor5</b>: Pusher motor</li><li><b>Servo1</b>: Ailerons</li><li><b>Servo2</b>: A-tail left</li><li><b>Servo3</b>: A-tail right</li></ul></p></td>
 </tr>
 </tbody>
 </table>
@@ -747,7 +747,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### VTOL Tiltrotor
+### VTOL 틸트로터
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/VTOLTiltRotor.svg"/>
@@ -760,7 +760,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
- <td>Generic Quadplane VTOL Tiltrotor</td>
+ <td>일반 쿼드플레인 수직이착륙기</td>
  <td><p><code>SYS_AUTOSTART</code> = 13030</p></td>
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
