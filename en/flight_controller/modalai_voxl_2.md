@@ -93,48 +93,23 @@ For details, the source code is available [here](https://gitlab.com/voxl-public/
 
 Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl-flight-datasheet-connectors/).
 
-#### Top
+All single ended signals on B2B connectors J3, J5, J6, J7, and J8 are 1.8V CMOS unless explicitly noted. 
+All single ended signals on cable-to-board connectors J10, J18, & J19 are 3.3V CMOS unless explicitly noted.
 
-![VOXL2Callouts](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.jpg)
+| Connector | Description                   | MPN (Board Side)        | Mating MPN (Board/Cable Side) | Type                         | Signal Feature Summary                                                                                                                                                                                     |
+|-----------|-------------------------------|-------------------------|-------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| J2        | Fan                           | SM02B-SRSS-TB(LF)(SN)   | SHR-02V-S                     | Cable Header, 2-pin R/A      | 5V DC for FAN + PWM Controlled FAN-Return (GND)                                                                                                                                                            |
+| J3        | Legacy B2B                    | QSH-030-01-L-D-K-TR     | QTH-030-01-L-D-A-K-TR         | B2B Receptacle, 60-pin       | 5V/3.8V/3.3V/1.8V power for plug-in boards, JTAG and Debug Signals, QUP expansion, GPIOs, USB3.1 Gen 2 (USB1)                                                                                              |
+| J4        | Prime Power In                | 22057045                | 0050375043                    | Cable Connector, 4-pin R/A   | +5V main DC power in + GND, I2C@5V for power monitors                                                                                                                                                      |
+| J5        | High Speed B2B                | ADF6-30-03.5-L-4-2-A-TR | ADM6-30-01.5-L-4-2-A-TR       | B2B Socket, 120-pin          | More 3.8V/3.3V/1.8V power for plug-in boards, 5V power in for “SOM Mode”, QUP expansion, GPIOS (including I2S), SDCC (SD Card V3.0), UFS1 (secondary UFS Flash), 2L PCIe Gen 3, AMUX and SPMI PMIC signals |
+| J6        | Camera Group 0                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V               | B2B Plug, 60-pin             | Qty-2 4L MIPI CSI ports, CCI and camera control signals, 8 power rails (from 1.05V up to 5V) for cameras and other sensors, dedicated SPI (QUP) port                                                       |
+| J7        | Camera Group 1                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V               | B2B Plug, 60-pin             | Qty-2 4L MIPI CSI ports, CCI and camera control signals, 8 power rails (from 1.05V up to 5V) for cameras and other sensors, dedicated SPI (QUP) port                                                       |
+| J8        | Camera Group 2                | DF40C-60DP-0.4V(51)     | DF40C-60DS-0.4V               | B2B Plug, 60-pin             | Qty-2 4L MIPI CSI ports, CCI and camera control signals, 8 power rails (from 1.05V up to 5V) for cameras and other sensors, dedicated SPI (QUP) port                                                       |
+| J9        | USB-C (ADB)                   | UJ31-CH-3-SMT-TR        | USB Type-C                    | Cable Receptacle, 24-pin R/A | ADB USB-C with re-driver and display port alternate mode (USB0)                                                                                                                                            |
+| J10       | SPI Expansion                 | SM08B-GHS-TB(LF)(SN)    | GHR-08V-S                     | Cable Header, 8-pin R/A      | SPI@3.3V with 2 CS_N pins, 32kHz CLK_OUT@3.3V                                                                                                                                                              |
+| J18       | ESC (SLPI Access)             | SM04B-GHS-TB(LF)(SN)    | GHR-04V-S                     | Cable Header, 4-pin R/A      | ESC UART@3.3V, 3.3V reference voltage                                                                                                                                                                      |
+| J19       | GNSS/MAG/RC/I2C (SLPI Access) | SM12B-GHS-TB(LF)(SN)    | GHR-12V-S                     | Cable Header, 6-pin R/A      | GNSS UART@3.3V, Magnetometer I2C@3.3V, 5V, RC UART, Spare I2C                                                                                                                                              |
 
-*Note: 1000 Series connectors accessible from the STM32/PX4*
-
-| Connector | Summary | Used By |
-| --- | --- | --- |
-| J2  | Hires 4k Image Sensor (CSI0) | Snapdragon - Linux |
-| J3  | Stereo Image Sensor (CSI1) | Snapdragon - Linux |
-| J6  | Cooling Fan Connector | Snapdragon - Linux |
-| J7  | BLSP6 (GPIO) and BLSP9 (UART) | Snapdragon - Linux |
-| J13  | Expansion B2B | Snapdragon - Linux |
-| J14  | Integrated GNSS Antenna Connection | Snapdragon - Linux |
-| J1001  | Programming and Debug/UART3 | STM32 - PX4 |
-| J1002  | UART ESC, UART2/TELEM3 | STM32 - PX4 |
-| J1003  | PPM RC In | STM32 - PX4 |
-| J1004  | RC Input, Spektrum/SBus/UART6  | STM32 - PX4 |
-| J1006  | USB 2.0 Connector (PX4/QGroundControl) | STM32 - PX4 |
-| J1007  | 8-Channel PWM/DShot Output | STM32 - PX4 |
-| J1008  | CAN Bus | STM32 - PX4 |
-| J1009  | I2C3, UART4 | STM32 - PX4 |
-| J1010  | Telemetry (TELEM1) | STM32 - PX4 |
-| J1011  | I2C2, Safety Button Input | STM32 - PX4 |
-| J1012  | External GPS & Mag, UART1, I2C1 | STM32 - PX4 |
-| J1013  | Power Input, I2C3 | STM32 - PX4 (powers whole  system) |
-
-#### Bottom
-
-![VOXLFlightBottom](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-bottom.jpg)
-
-*Note: 1000 Series connectors accessible from the STM32/PX4*
-
-| Connector | Summary | Used By |
-| --- | --- | --- |
-| J4  | Tracking/Optic Flow Image Sensor (CSI2) | Snapdragon - Linux |
-| J8  | USB 3.0 OTG | Snapdragon - Linux, **adb** |
-| J10  | BLSP7 UART and I2C off-board | Snapdragon - Linux |
-| J11  | BLSP12 UART and I2C off-board  | Snapdragon - Linux |
-| VOXL microSD  |  | Snapdragon - Linux |
-| PX4 microSD  | 32Gb Max | STM32 - PX4 |
-| Wi-Fi Antennas | Included | Snapdragon - Linux |
 
 ### User Guide
 
