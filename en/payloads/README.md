@@ -28,12 +28,15 @@ The following topics show how to *connect* and configure a camera:
 * [Camera Triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink. 
 * [Camera Capture](../peripherals/camera.md#camera-capture) feedback via hotshoe input.
 
-## Cargo Drones ("Actuator" Payloads)
+## Cargo Drones (Package delivery)
 
-Cargo drones commonly use servos/actuators to trigger cargo release, control winches, and so on.
-PX4 supports actuator triggering using both RC and MAVLink commands.
+Cargo drones commonly use servos/actuators to trigger cargo release, control winches, and so on. PX4 supports actuator triggering using both RC and MAVLink commands, as well as providing a native [package delivery in mission feature](../flying/package_delivery_mission.md).
 
-### RC Payload Control
+### Delivery using Package delivery feature
+
+Read more in [package delivery in mission feature](../flying/package_delivery_mission.md) documentation.
+
+### Actuator control with RC
 
 Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels.
 The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
@@ -44,7 +47,7 @@ For example, to control an actuator attached to AUX pin 3 (say) you could assign
 You would then use set the RC channel to control that ouptut using `RC_MAP_AUX5`.
 
 
-### MAVLink Payload Control
+### Actuator control with MAVLink message
 
 [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used in a command or mission to set the value of up to 6 actuators (at a time).
 
@@ -159,4 +162,4 @@ Cameras connected directly to the flight control _only_ support camera triggerin
 :::
 
 A search and rescue drone may also need to carry cargo, for example, emergency supplies for a stranded hiker.
-See [Cargo Drones](#cargo-drones-actuator-payloads) above for information about payload delivery.
+See [Cargo Drones](#cargo-drones-package-delivery) above for information about payload delivery.
