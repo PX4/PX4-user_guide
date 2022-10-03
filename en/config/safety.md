@@ -20,18 +20,20 @@ Action | Description
 <a id="action_hold"></a>[Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
 <a id="action_return"></a>[Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).
 <a id="action_land"></a>[Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
+<a id="action_disarm"></a>Disarm | Stops the motors immediately.
 <a id="action_flight_termination"></a>[Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
 <a id="action_lockdown"></a>Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill-switch).
 
-:::note
-It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
-For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
-:::
+Notes:
+- The default behavior for most failsafes is to first enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds, before taking the failsafe action.
+  This allows the user to notice what is happening.
+  During that time, moving the RC sticks does not trigger an override.
+- In most cases the user can always override a failsafe by switching modes (via RC or GCS).
+- In case of a combination of failsafes, the more severe action is taken.
+  For example if manual control loss is set to Return mode and GCS link loss to Land, Land is executed if both are not available.
 
-:::note
-If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored.
-Instead the action is determined by separate system level and vehicle specific code.
-This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+:::tip
+The exact behavior can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
 :::
 
 ## QGroundControl Safety Setup
