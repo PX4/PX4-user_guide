@@ -25,5 +25,3 @@ make run_failsafe_web_server
 ```
 
  <iframe src="failsafe/index.html?no-title=1" frameborder="0" height="1400px" style="text-align: center; margin-left: -230px; margin-right: -230px;" width="1200"></iframe>
-
-
