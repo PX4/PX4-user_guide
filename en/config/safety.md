@@ -10,13 +10,17 @@ PX4 has a number of safety features to protect and recover your vehicle if somet
 
 ## Failsafe Actions
 
-Each failsafe defines its own set of actions.
-Some of the more common failsafe actions are:
+When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action.
+This gives the user time to notice what is happening and override the failsafe if needed.
+In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+
+The list below shows the set of all failsafe actions, ordered in increasing severity.
+Note that different types of failsafe may not support all of these actions.
 
 Action | Description
 --- | ---
-<a id="action_none"></a>None/Disabled | No action (the failsafe will be ignored).
-<a id="action_warning"></a>Warning | A warning message will be sent to *QGroundControl*.
+<a id="action_none"></a>None/Disabled | No action. The failsafe will be ignored.
+<a id="action_warning"></a>Warning | A warning message will be sent (i.e. to *QGroundControl*).
 <a id="action_hold"></a>[Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
 <a id="action_return"></a>[Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).
 <a id="action_land"></a>[Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
@@ -24,16 +28,13 @@ Action | Description
 <a id="action_flight_termination"></a>[Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
 <a id="action_lockdown"></a>Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill-switch).
 
-Notes:
-- The default behavior for most failsafes is to first enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds, before taking the failsafe action.
-  This allows the user to notice what is happening.
-  During that time, moving the RC sticks does not trigger an override.
-- In most cases the user can always override a failsafe by switching modes (via RC or GCS).
-- In case of a combination of failsafes, the more severe action is taken.
-  For example if manual control loss is set to Return mode and GCS link loss to Land, Land is executed if both are not available.
+
+
+If multiple failsafes are triggered, the more severe action is taken.
+For example if both RC and GPS are lost, and manual control loss is set to [Return mode](#action_return) and GCS link loss to [Land](action_land), Land is executed.
 
 :::tip
-The exact behavior can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
+The exact behavior when different failsafes are triggered can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
 :::
 
 ## QGroundControl Safety Setup
