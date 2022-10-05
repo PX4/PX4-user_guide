@@ -1,43 +1,64 @@
 # Adding a Frame Configuration
 
 PX4 [frame configuration files](#configuration-file-overview) are shell scripts that set up some (or all) of the parameters, controllers and apps needed for a particular vehicle frame, such as a quadcopter, ground vehicle, or boat.
-These scripts are executed when the corresponding airframe is is selected and applied in QGroundControl during [AirFrame](../config/airframe.md) configuration.
+These scripts are executed when the corresponding [airframe is selected and applied](../config/airframe.md) in _QGroundControl_.
 
-The configuration files for NuttX targets are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder (configuration files for POSIX simulators are stored in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)).
+The configuration files that are compiled into firmware for NuttX targets are located in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder (configuration files for POSIX simulators are stored in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)).
 The folder contains both complete and full configurations for specific vehicles, and partial "generic configurations" for different vehicle types.
 The generic configurations are often used as the starting point for creating new configuration files.
 
-In addition, a frame configuration file can also be loaded from an SD card, or you can _customize_ the current existing firmware configuration using text files on the SD card
-Both cases are detailed on the [System Startup](../concept/system_startup.md) page.
-
-## How to add a Frame Configuration
-
-When developing a new frame it is usual to select an appropriate "generic configuration" in QGC, such as _Generic Quadcopter_, configure the geometry/outputs, tune the vehicle.
-Once the vehicle is ready you can create a new configuration file that appends the additional parameters to the information in the original generic configuration.
+In addition, a frame configuration file can also be loaded from an SD card.
 
 :::note
-The [`param show-for-airframe`](../modules/modules_command.md#param) console command can be used to list the parameter difference compared to the original generic airfame.
+You can also "tweak" the current frame configuration using text files on the SD card.
+This is covered in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) page.
 :::
-
-To create a new frame configuration:
-
-1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) folder.
-   Give it a short descriptive filename and prepend the filename with an unused autostart ID.
-
-1. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle, then [build and upload](../dev_setup/building_px4.md) the software.
 
 :::note
 To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
 :::
 
+## Developing a Frame Configuration
+
+The recommended process for developing a new frame configuration is:
+
+1. Start by selecting an appropriate "generic configuration" for the target vehicle type in QGC, such as _Generic Quadcopter_.
+1. Configure the [geometry and actuator outputs](.../config/actuators.md).
+1. Perform other [basic configuration](../config/README.md).
+1. Tune the vehicle.
+1. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
+
+Once you have the parameters you can create a new frame configuration file by copying the configuration file for the generic configuration, and appending the new parameters.
+
+Alternatively you can just append the modified parameters to the startup configuration files described in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) ("tweaking the generic configuration").
+
+## How to add a Configuration to Firmware
+
+To add a frame configuration to firmware:
+
+1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) folder.
+   - Give it a short descriptive filename and prepend the filename with an unused autostart ID (for example, `1033092_superfast_vtol`).
+   - Update the file with configuration parameters and apps (see section above).
+1. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle
+1. [Build and upload](../dev_setup/building_px4.md) the software.
+
+## How to add a Configuration to an SD Card
+
+A frame configuration file to be launched from SD card is the same as one stored in firmware.
+
+To make PX4 launch with a frame configuration, renamed it to `rc.autostart` and copy it to the SD card at `/ext_autostart/rc.autostart`.
+PX4 will find any linked files in firmware.
+
+
 ## Configuration File Overview
 
 The configuration file consists of several main blocks:
 
-* Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*).
-* Airframe-specific parameter settings, including [tuning gains](#tuning-gains)
-* The controllers and apps it should start, e.g. multicopter or fixed wing controllers, land detectors etc.
-* The physical configuration of the system (e.g. a plane, wing or multicopter) and geometry using [control allocation](../concept/control_allocation.md) parameters.
+- Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*).
+ Airframe-specific parameter settings
+  - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
+  - [Tuning gains](#tuning-gains)
+- The controllers and apps it should start, such as multicopter or fixed wing controllers, land detectors etc.
 
 These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
 
@@ -47,9 +68,18 @@ New frame configuration files are only automatically added to the build system a
 
 ### Example - Generic Quadcopter Frame Config
 
+The configuration file for a generic Quad X copter is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)).
+This is very simple, because it defines only the minimal setup common to all quadcopters.
+
+The first line is a shebang, which tells the NuttX operating system (on which PX4 runs) that the configuration file is an executable shell script.
 ```
 #!/bin/sh
-#
+```
+
+This is followed by the frame documentation.
+The `@name`, `@type` and `@class` are used to identify and group the frame in the [API Reference](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) and QGroundControl Airframe Selection.
+
+```
 # @name Generic Quadcopter
 #
 # @type Quadrotor x
@@ -57,9 +87,18 @@ New frame configuration files are only automatically added to the build system a
 #
 # @maintainer Lorenz Meier <lorenz@px4.io>
 #
+```
 
+The next line imports generic parameters that are appropriate for all vehicles of the specified type (see [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
+
+```
 . ${R}etc/init.d/rc.mc_defaults
+```
 
+Finally the file lists the control allocation parameters (starting with `CA_` that define the default geometry for the frame.
+These may be modified for your frame geometry in the [Actuators Configuration](../config/actuators.md), and output mappings may be added.
+
+```
 param set-default CA_ROTOR_COUNT 4
 param set-default CA_ROTOR0_PX 0.15
 param set-default CA_ROTOR0_PY 0.15
@@ -75,24 +114,11 @@ param set-default CA_ROTOR3_KM -0.05
 
 ### Example - Babyshark VTOL Complete Vehicle
 
-A typical configuration file is shown below.
+A more complicated configuration file for a complete vehicle is provided below.
 This is the configuration for the Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
 
-The first line is a shebang, which tells the NuttX operating system (on which PX4 runs) that the configuration file is an executable shell script.
-This is followed by the frame documentation.
-
-The shebang is followed by the frame documentation, which is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
-
-The name and 
-
-`@name` is the name of the frame, `@class` are used to 
-This is used in 
-
-
-
-
-This is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
-
+The shebang and documentation sections are similar to those for the generic frame, but here we also document what `outputs` are mapped to each motor and actuator.
+Note that these outputs are documentation only; the actual mapping is done using parameters.
 
 ```bash
 #!/bin/sh
@@ -119,11 +145,15 @@ This is used in the [Airframes Reference](../airframes/airframe_reference.md) an
 #
 ```
 
-The next section specifies vehicle-specific parameters, including [tuning gains](#tuning-gains):
+As for the generic frame, we then include the generic VTOL defaults.
 
 ```bash
 . ${R}etc/init.d/rc.vtol_defaults
+```
 
+Then we define configuration parameters and [tuning gains](#tuning-gains):
+
+```
 param set-default MAV_TYPE 22
 
 param set-default BAT1_N_CELLS 6
@@ -192,6 +222,8 @@ param set-default VT_TRANS_MIN_TM 4
 param set-default VT_TYPE 2
 ```
 
+Last of all, the file defines the control allocation parameters for the geometry and the parameters that set which outputs map to different motors and acutators.
+
 ```bash
 param set-default CA_AIRFRAME 2
 param set-default CA_ROTOR_COUNT 5
@@ -234,35 +266,6 @@ param set-default PWM_MAIN_DIS2 1500
 param set-default PWM_MAIN_DIS4 1500
 ```
 
-Set frame type ([MAV_TYPE](https://mavlink.io/en/messages/common.html#MAV_TYPE)):
-
-```bash
-# Configure this as plane
-set MAV_TYPE 1
-```
-
-Set the [mixer](#mixer-file) to use (if [control allocation](../concept/control_allocation.md) is not enabled):
-```bash
-# Set mixer
-set MIXER wingwing
-```
-
-Configure PWM outputs (specify the outputs to drive/activate, and the levels).
-```bash
-set PWM_OUT 4
-```
-
-:::warning
-If you want to reverse a channel, never do this on your RC transmitter or with e.g `RC1_REV`.
-The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal).
-Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
-:::
-
-
-### Mixer File
-
-
-
 ## Adding a New Airframe Group
 
 Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html) and in the [Airframe Reference](../airframes/airframe_reference.md).
@@ -304,7 +307,6 @@ If the airframe is for a **new group** you additionally need to:
    :::note
    The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
    :::
-
 
 ## Tuning Gains
 
