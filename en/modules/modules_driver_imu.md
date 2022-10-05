@@ -626,13 +626,13 @@ mpu6000 <command> [arguments...]
 
    status        print status info
 ```
-## mpu9520
-Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu6500)
+## mpu9250
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu9250)
 
-<a id="mpu9520_usage"></a>
+<a id="mpu9250_usage"></a>
 ### Usage
 ```
-mpu9520 <command> [arguments...]
+mpu9250 <command> [arguments...]
  Commands:
    start
      [-s]        Internal SPI bus(es)
@@ -650,13 +650,13 @@ mpu9520 <command> [arguments...]
 
    status        print status info
 ```
-## mpu9520_i2c
+## mpu9250_i2c
 Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu9250)
 
-<a id="mpu9520_i2c_usage"></a>
+<a id="mpu9250_i2c_usage"></a>
 ### Usage
 ```
-mpu9520_i2c <command> [arguments...]
+mpu9250_i2c <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
