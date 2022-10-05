@@ -74,23 +74,29 @@ The resulting boot log has detailed information about the boot sequence and shou
 ### Replacing the System Startup
 
 In most cases customizing the default boot is the better approach, which is documented below.
-If the complete boot should be replaced, create a file `/fs/microsd/etc/rc.txt`, which is located in the `etc` folder on the microSD card. If this file is present nothing in the system will be auto-started.
+If the complete boot should be replaced, create a file `/fs/microsd/etc/rc.txt`, which is located in the `etc` folder on the microSD card.
+If this file is present nothing in the system will be auto-started.
 
 ### Customizing the System Startup
 
-The best way to customize the system startup is to introduce a [new airframe configuration](../dev_airframes/adding_a_new_frame.md).
-If only tweaks are wanted (like starting one more application) special hooks in the startup can be used.
+The best way to customize the system startup is to introduce a [new frame configuration](../dev_airframes/adding_a_new_frame.md).
+The frame configuration file can be included in the firmware or on an SD Card.
+
+If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
+
+- [/etc/config.txt](#customizing-the-configuration-config-txt): modify parameter values
+- [/etc/extras.txt](#starting-additional-applications-extras-txt): start applications
+
+The files are described below.
 
 :::warning
 The system boot files are UNIX FILES which require UNIX LINE ENDINGS.
 If editing on Windows use a suitable editor.
 :::
 
-There are two main hooks.
-Note that the root folder of the microsd card is identified by the path `/fs/microsd`.
-
-- /fs/microsd/etc/config.txt
-- /fs/microsd/etc/extras.txt
+:::note
+These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`.
+:::
 
 #### Customizing the Configuration (config.txt)
 
@@ -104,7 +110,7 @@ param set-default PWM_MAIN_DIS3 1000
 param set-default PWM_MAIN_MIN3 1120
 ```
 
-#### Starting additional applications
+#### Starting Additional Applications (extras.txt)
 
 The `extras.txt` can be used to start additional applications after the main system boot.
 Typically these would be payload controllers or similar optional custom components.
