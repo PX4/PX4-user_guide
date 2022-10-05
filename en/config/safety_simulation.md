@@ -18,7 +18,7 @@ To use it:
 6. Play with different settings and conditions!
 
 
-The simulation can also be executed locally:
+The simulation can also be executed locally in order to test a specific version or set of changes:
 
 ```sh
 make run_failsafe_web_server
