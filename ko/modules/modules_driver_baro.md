@@ -79,14 +79,14 @@ dps310 <command> [arguments...]
 
    status        print status info
 ```
-## icp10100
-Source: [drivers/barometer/invensense/icp10100](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/invensense/icp10100)
+## icp101xx
+Source: [drivers/barometer/invensense/icp101xx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/invensense/icp101xx)
 
-<a id="icp10100_usage"></a>
+<a id="icp101xx_usage"></a>
 
 ### 사용법
 ```
-icp10100 <command> [arguments...]
+icp101xx <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
@@ -102,14 +102,14 @@ icp10100 <command> [arguments...]
 
    status        print status info
 ```
-## icp10111
-Source: [drivers/barometer/invensense/icp10111](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/invensense/icp10111)
+## icp201xx
+Source: [drivers/barometer/invensense/icp201xx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/barometer/invensense/icp201xx)
 
-<a id="icp10111_usage"></a>
+<a id="icp201xx_usage"></a>
 
 ### 사용법
 ```
-icp10111 <command> [arguments...]
+icp201xx <command> [arguments...]
  Commands:
    start
      [-I]        Internal I2C bus(es)
