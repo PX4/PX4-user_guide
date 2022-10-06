@@ -44,6 +44,7 @@
   * [飞行模式](config/flight_mode.md)
   * [电池](config/battery.md)
   * [安全性](config/safety.md)
+    * [Failsafe Simulation](config/safety_simulation.md)
   * [执行器](config/actuators.md)
   * [自动调参](config/autotune.md)
 * [机架组装](airframes/README.md)
