@@ -385,8 +385,8 @@ div.frame_variant td, div.frame_variant th {
  <td>Holybro S500</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4015</p></td>
 </tr>
-<tr id="copter_quadrotor_x_px4_vision_devkit_platform">
- <td>PX4 Vision DevKit Platform</td>
+<tr id="copter_quadrotor_x_px4_vision_dev_kit_v1">
+ <td>PX4 Vision Dev Kit v1</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 4016</p></td>
 </tr>
 <tr id="copter_quadrotor_x_nxp_hovergames">
@@ -396,6 +396,10 @@ div.frame_variant td, div.frame_variant th {
 <tr id="copter_quadrotor_x_holybro_x500_v2">
  <td>Holybro X500 V2</td>
  <td>Maintainer: Farhang Naderi &lt;farhang.nba@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4019</p></td>
+</tr>
+<tr id="copter_quadrotor_x_px4_vision_dev_kit_v1.5">
+ <td>PX4 Vision Dev Kit v1.5</td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 4020</p></td>
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
  <td>Generic 250 Racer</td>
