@@ -195,11 +195,33 @@ bst <command> [arguments...]
 
    status        print status info
 ```
+## crsf_rc
+Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
+
+
+### 用法
+This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
+
+
+<a id="crsf_rc_usage"></a>
+
+### 描述
+```
+crsf_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   stop
+
+   status        print status info
+```
 ## sf1xx
 Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
 
 
-### 用法
+### 描述
 This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement to use DShot as ESC communication protocol instead of PWM.
 
 On startup, the module tries to occupy all available pins for DShot output. It skips all pins already in use (e.g. by a camera trigger module).
@@ -209,7 +231,7 @@ It supports:
 - 通过独立的串口遥控，并且发布esc_status消息
 - 通过命令行接口发送 DShot 命令
 
-### 描述
+### 示例
 Permanently reverse motor 1:
 ```
 dshot reverse -m 1
@@ -239,27 +261,26 @@ Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/e
 
 <a id="fake_gps_usage"></a>
 
-### 描述
+### 实现
 ```
 fake_gps <command> [arguments...]
- mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## fake_imu
 Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
 
 
-### 描述
+### 示例
 
 
 <a id="fake_imu_usage"></a>
 
-### 实现
+### 用法
 ```
 fake_imu <command> [arguments...]
  Commands:
@@ -273,20 +294,21 @@ fake_imu <command> [arguments...]
 Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_magnetometer)
 
 
-### 示例
+### 描述
 Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires vehicle_attitude and vehicle_gps_position.
 
 <a id="fake_magnetometer_usage"></a>
 
-### 用法
+### 描述
 ```
 fake_magnetometer <command> [arguments...]
+ mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
 ## gimbal
 Source: [modules/gimbal](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gimbal)
@@ -297,7 +319,7 @@ Mount/gimbal Gimbal control driver. It maps several different input methods (eg.
 
 Documentation how to use it is on the [gimbal_control](https://docs.px4.io/main/en/advanced/gimbal_control.html) page.
 
-### Examples
+### 示例
 Test the output by setting a angles (all omitted axes are set to 0):
 ```
 gimbal test pitch -45 yaw 30
@@ -305,7 +327,7 @@ gimbal test pitch -45 yaw 30
 
 <a id="gimbal_usage"></a>
 
-### Usage
+### 描述
 ```
 gimbal <command> [arguments...]
  Commands:
@@ -323,7 +345,7 @@ gimbal <command> [arguments...]
 Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
 
 
-### Description
+### 描述
 GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
 The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
@@ -331,7 +353,7 @@ The module supports a secondary GPS device, specified via `-e` parameter. The po
 ### Implementation
 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
-### Examples
+### 示例
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
 ```
@@ -372,6 +394,30 @@ gps <command> [arguments...]
    reset         Reset GPS device
      cold|warm|hot Specify reset type
 ```
+## gz_bridge
+Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
+
+
+### Description
+
+
+<a id="gz_bridge_usage"></a>
+
+### Usage
+```
+gz_bridge <command> [arguments...]
+ Commands:
+   start
+     -m <val>    Fuel model name
+     -p <val>    Model Pose
+     -n <val>    Model name
+     -i <val>    PX4 instance
+     [-w <val>]  World name
+
+   stop
+
+   status        print status info
+```
 ## ina226
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
 
@@ -388,7 +434,7 @@ If the INA226 module is not powered, then by default, initialization of the driv
 
 <a id="ina226_usage"></a>
 
-### Usage
+### 描述
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -413,7 +459,7 @@ ina226 <command> [arguments...]
 Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina228)
 
 
-### Description
+### 实现
 Driver for the INA228 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -425,7 +471,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 
 <a id="ina228_usage"></a>
 
-### Usage
+### 示例
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -450,7 +496,7 @@ ina228 <command> [arguments...]
 Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
 
 
-### Description
+### 描述
 Driver for the INA238 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -487,14 +533,14 @@ ina238 <command> [arguments...]
 Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/iridiumsbd)
 
 
-### 实现
+### 描述
 IridiumSBD driver.
 
 Creates a virtual serial port that another module can use for communication (e.g. mavlink).
 
 <a id="iridiumsbd_usage"></a>
 
-### 示例
+### 使用
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -515,7 +561,7 @@ Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/main/src/driv
 
 <a id="irlock_usage"></a>
 
-### 使用
+### 描述
 ```
 irlock <command> [arguments...]
  Commands:
@@ -557,7 +603,7 @@ Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="lsm303agr_usage"></a>
 
-### 使用
+### Usage
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -581,7 +627,7 @@ lsm303agr <command> [arguments...]
 Source: [drivers/actuators/modalai_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modalai_esc)
 
 
-### Description
+### 描述
 This module is responsible for...
 
 ### Implementation
@@ -596,7 +642,7 @@ todo
 
 <a id="modalai_esc_usage"></a>
 
-### Usage
+### 描述
 ```
 modalai_esc <command> [arguments...]
  Commands:
@@ -637,6 +683,33 @@ modalai_esc <command> [arguments...]
 
    status        print status info
 ```
+## msp_osd
+Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
+
+
+### 描述
+Msp OSD!
+
+### Implementation
+Does the things for the DJI Air Unit OSD
+
+### 示例
+CLI usage example:
+```
+msp_osd
+```
+
+
+<a id="msp_osd_usage"></a>
+
+### 描述
+```
+msp_osd <command> [arguments...]
+ Commands:
+   stop
+
+   status        print status info
+```
 ## newpixel
 Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/neopixel)
 
@@ -666,7 +739,7 @@ Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paa3905_usage"></a>
 
-### 描述
+### Usage
 ```
 paa3905 <command> [arguments...]
  Commands:
@@ -781,7 +854,7 @@ Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="pmw3901_usage"></a>
 
-### 描述
+### Usage
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -855,7 +928,7 @@ It is used in SITL and HITL.
 
 <a id="pwm_out_sim_usage"></a>
 
-### Usage
+### 描述
 ```
 pwm_out_sim <command> [arguments...]
  Commands:
@@ -1104,28 +1177,6 @@ sht3x <command> [arguments...]
    values        Print actual data
 
    reset         Reinitialize sensor
-```
-## simulator_ignition_bridge
-Source: [modules/simulation/simulator_ignition_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_ignition_bridge)
-
-
-### 描述
-
-
-<a id="simulator_ignition_bridge_usage"></a>
-
-### 描述
-```
-simulator_ignition_bridge <command> [arguments...]
- Commands:
-   start
-     -m <val>    Model name
-     -p <val>    Model Pose
-     [-w <val>]  World name
-
-   stop
-
-   status        print status info
 ```
 ## tap_esc
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
