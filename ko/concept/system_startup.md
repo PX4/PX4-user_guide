@@ -48,32 +48,44 @@ NuttX에는 통합된 쉘 인터프리터([NuttShell(NSH)](https://cwiki.apache.
 
 #### 일반적인 부팅 실패 사례
 
-  * 맞춤형 애플리케이션의 경우: 시스템에 RAM이 부족합니다. `free` 명령을 실행하여 사용 가능한 RAM의 용량을 확인합니다.
-  * 스택 추적을 초래하는 소프트웨어 오류 또는 주장
+- 맞춤형 애플리케이션의 경우: 시스템에 RAM이 부족합니다. `free` 명령을 실행하여 사용 가능한 RAM의 용량을 확인합니다.
+- 스택 추적을 초래하는 소프트웨어 오류 또는 주장
 
 ### 시스템 시작 변경
 
-대부분의 경우 기본 부팅을 사용자 지정하는 것이 더 나은 접근 방식이며, 아래에서 자세하게 설명합니다. 전체 부팅을 변경 하는 경우 microSD 카드의 `etc` 폴더에 `/fs/microsd/etc/rc.txt` 파일을 생성합니다. 이 파일이 없으면, 시스템에서는 아무 것도 자동으로 시작되지 않습니다.
+The whole boot can be replaced by creating a file `/etc/rc.txt` on the microSD card with a new configuration (nothing in the old configuration will be auto-started, and if the file is empty, nothing at all will be started).
+
+Customizing the default boot is almost always a better approach. This is documented below.
 
 ### 시스템 시작 사용자 정의
 
-시스템 시작을 사용자가 정의하는 가장 좋은 방법은 [새로운 기체 구성](../dev_airframes/adding_a_new_frame.md)을 도입하는 것입니다. 약간의 변경만 하는 경우(예: 하나 이상의 응용 프로그램을 시작하거나 다른 믹서를 사용하는 경우)에는 시작시 특수 후크를 사용할 수 있습니다.
+The best way to customize the system startup is to introduce a [new frame configuration](../dev_airframes/adding_a_new_frame.md). The frame configuration file can be included in the firmware or on an SD Card.
+
+If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
+
+- [/etc/config.txt](#customizing-the-configuration-config-txt): modify parameter values
+- [/etc/extras.txt](#starting-additional-applications-extras-txt): start applications
+
+The files are described below.
 
 :::warning
-시스템 부트 파일은 UNIX LINE ENDINGS가 필요한 UNIX FILES입니다. Windows에서 편집하는 경우 적절한 편집기를 사용하여야 합니다.
-:::
+시스템 부트 파일은 UNIX LINE ENDINGS가 필요한 UNIX FILES입니다. Windows에서 편집하는 경우 적절한 편집기를 사용하여야 합니다. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
 
-세 가지 주요 후크가 있습니다. microsd 카드의 루트 폴더는 `/fs/microsd` 경로로 식별됩니다.
-
-* /fs/microsd/etc/config.txt
-* /fs/microsd/etc/extras.txt
-* /fs/microsd/etc/mixers/NAME_OF_MIXER
+:::note
+These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
 
 #### 구성 사용자 정의(config.txt)
 
-`config.txt` 파일을 사용하여 쉘 변수를 수정할 수 있습니다. 기본 시스템이 구성후나 부팅 *전에* 로드됩니다.
+The `config.txt` file can be used to modify parameters. 기본 시스템이 구성후나 부팅 *전에* 로드됩니다.
 
-#### 추가 응용 프로그램 시작
+For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
+
+```
+param set-default PWM_MAIN_DIS3 1000
+param set-default PWM_MAIN_MIN3 1120
+```
+
+#### Starting Additional Applications (extras.txt)
 
 `extras.txt`는 기본 시스템 부팅 후에, 추가로 애플리케이션을 시작할 수 있습니다. 일반적으로, 페이로드 콘트롤러나 유사한 선택적 사용자 지정 구성 요소들입니다.
 
@@ -81,33 +93,16 @@ NuttX에는 통합된 쉘 인터프리터([NuttShell(NSH)](https://cwiki.apache.
 시스템 부팅 파일에서 잘못된 명령을 실행하면, 부팅이 실패할 수 있습니다. 일반적으로 시스템은 부팅 실패 후 mavlink 메시지를 스트리밍하지 않습니다. 이 경우 시스템 콘솔에 인쇄된 오류 메시지를 확인하여야 합니다. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
 
 다음 예는 사용자 정의 애플리케이션 시작 방법을 설명합니다.
-  * 다음 내용으로 SD 카드 `etc/extras.txt`에 파일을 생성합니다.
-    ```
-    custom_app start
-    ```
-  * `set +e`과 `set -e` 명령어를 사용하여 선택적으로 명령을 지정할 수 있습니다.
-    ```
-    set +e
-    optional_app start      # Will not result in boot failure if optional_app is unknown or fails
-    set -e
+- 다음 내용으로 SD 카드 `etc/extras.txt`에 파일을 생성합니다.
+  ```
+  custom_app start
+  ```
+- `set +e`과 `set -e` 명령어를 사용하여 선택적으로 명령을 지정할 수 있습니다.
 
-    mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
-    ```
+  ```
+  set +e
+  optional_app start      # Will not result in boot failure if optional_app is unknown or fails
+  set -e
 
-#### 커스텀 믹서 시작하기
-
-기본적으로 시스템은 `/etc/mixers`에서 믹서를 로드합니다. `/fs/microsd/etc/mixers`에 같은 이름의 파일이 있는 경우에는 이 파일이 대신 로드됩니다. 이를 통하여 펌웨어를 다시 컴파일할 필요 없이, 믹서 파일을 사용자가 정의할 수 있습니다.
-
-##### 예제
-
-다음 예는 사용자 지정 Aux 믹서를 추가하는 방법입니다.
-  * 믹서 콘텐츠로 SD 카드에 `etc/mixers/gimbal.aux.mix` 파일을 생성합니다.
-  * 이를 사용하기 위하여, 아래의 내용으로 추가 파일 `etc/config.txt`를 생성합니다.
-    ```
-    set MIXER_AUX gimbal
-    set PWM_AUX_OUT 1234
-    set PWM_AUX_DISARMED 1500
-    set PWM_AUX_MIN 1000
-    set PWM_AUX_MAX 2000
-    set PWM_AUX_RATE 50 
-    ```
+  mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
+  ```

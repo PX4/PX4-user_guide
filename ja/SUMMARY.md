@@ -44,6 +44,7 @@
   * [フライトモード](config/flight_mode.md)
   * [Battery](config/battery.md)
   * [Safety](config/safety.md)
+    * [Failsafe Simulation](config/safety_simulation.md)
   * [Actuators](config/actuators.md)
   * [Autotune](config/autotune.md)
 * [機体の組み立て](airframes/README.md)

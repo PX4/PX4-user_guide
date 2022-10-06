@@ -48,64 +48,59 @@ dyn ./test.px4mod
 
 #### 启动失败的常见原因
 
-  * 对于自定义的应用程序：系统用尽了 RAM 资源。 运行 `free` 命令以查看可用 RAM 的大小。
-  * 引发堆栈跟踪的软件故障或者断言。
+- 对于自定义的应用程序：系统用尽了 RAM 资源。 运行 `free` 命令以查看可用 RAM 的大小。
+- 引发堆栈跟踪的软件故障或者断言。
 
 ### 自定义系统的启动文件
 
-在大多数情况下自定义默认启动项是更好的做法，实现方法见下文。 如果需要替换整个引导文件，请创建文件： `/fs/microsd/etc/rc.txt` ，该文件位于 microSD 卡的根目录下的 `etc` 文件夹下。 如果此文件存在，系统中的任何内容都不会自动启动。
+The whole boot can be replaced by creating a file `/etc/rc.txt` on the microSD card with a new configuration (nothing in the old configuration will be auto-started, and if the file is empty, nothing at all will be started).
+
+Customizing the default boot is almost always a better approach. This is documented below.
 
 ### 自定义系统的启动文件
 
-自定义系统启动的最佳方法是引入 [新的机架配置](../airframes/adding_a_new_frame.md) 。 如果只需要一些小的调整（比如多启动一个应用程序，或只是启用一个不同的混控器)，那么你可以在启动过程中使用特殊的钩子（hook）来达成目的。
+The best way to customize the system startup is to introduce a [new frame configuration](../dev_airframes/adding_a_new_frame.md). The frame configuration file can be included in the firmware or on an SD Card.
 
-主要有三类钩子。 主要有三类钩子（hook）， 需要注意的是 microsd 的根目录是挂载在操作系统中的 `/fs/microsd` 目录下的。
-:::
+If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
 
-`config.txt` 文件可用于修改 shell 变量。 该文件会在主系统完成配置后、 进行启动*前*进行加载。
+- [/etc/config.txt](#customizing-the-configuration-config-txt): modify parameter values
+- [/etc/extras.txt](#starting-additional-applications-extras-txt): start applications
 
-* /fs/microsd/etc/config.txt
-* /fs/microsd/etc/extras.txt
-* /fs/microsd/etc/mixers/NAME_OF_MIXER
+The files are described below.
+
+主要有三类钩子。 主要有三类钩子（hook）， 需要注意的是 microsd 的根目录是挂载在操作系统中的 `/fs/microsd` 目录下的。 这就使得我们可以在不重新编译固件的情况下对混控器文件进行自定义修改。
+
+:::note
+These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`. 这就使得我们可以在不重新编译固件的情况下对混控器文件进行自定义修改。
 
 #### 自定义配置（config.txt）
 
-`extras.txt` 可用于在主系统启动后启动额外的应用程序。 通常这些额外应用程序可以载荷控制器或类似的可选自定义组件。
+The `config.txt` file can be used to modify parameters. 通常这些额外应用程序可以载荷控制器或类似的可选自定义组件。
 
-#### 启动额外的应用
+For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
+
+```
+param set-default PWM_MAIN_DIS3 1000
+param set-default PWM_MAIN_MIN3 1120
+```
+
+#### Starting Additional Applications (extras.txt)
 
 The `extras.txt` can be used to start additional applications after the main system boot. Typically these would be payload controllers or similar optional custom components.
 
 默认情况下系统将从 `/etc/mixers` 文件夹下载入混控器。 如果在 `/fs/microsd/etc/mixers` 文件夹下存在一个同名文件，则后者将会替代默认的混控器被系统载入。 这就使得我们可以在不重新编译固件的情况下对混控器文件进行自定义修改。
 
 下面的示例演示了如何添加一个辅助（AUX）混控器：
-  * 在 SD 卡上创建一个文件 `etc/extras.txt` ，该文件应包含如下内容： `custom_app start`
-    ```
-    custom_app start
-    ```
-  * 搭配使用 `set +e` 和 `set -e` 可以将命令设置为可选命令：
-    ```
-    set +e
-  optional_app start      # 即便 optional_app 未知或者失效也不会导致系统启动失败
+- 在 SD 卡上创建一个文件 `etc/extras.txt` ，该文件应包含如下内容： `custom_app start`
+  ```
+  custom_app start
+  ```
+- 搭配使用 `set +e` 和 `set -e` 可以将命令设置为可选命令：
+
+  ```
+  set +e
+  optional_app start      # Will not result in boot failure if optional_app is unknown or fails
   set -e
 
-  mandatory_app start     # 如果 mandatory_app 未知或者失效则会导致系统启动中断
-    ```
-
-#### 启动自定义的混控器
-
-By default the system loads the mixer from `/etc/mixers`. If a file with the same name exists in `/fs/microsd/etc/mixers` this file will be loaded instead. This allows to customize the mixer file without the need to recompile the Firmware.
-
-##### 示例
-
-The following example shows how to add a custom aux mixer:
-  * 在 SD 卡中创建文件 `etc/mixers/gimbal.aux.mix` ，并将你的混控器设定内容写入该文件内。
-  * 为了使用该混控器，再创建一个额外的文件 `etc/config.txt` ，该文件的内容如下： set MIXER_AUX gimbal set PWM_AUX_OUT 1234 set PWM_AUX_DISARMED 1500 set PWM_AUX_MIN 1000 set PWM_AUX_MAX 2000 set PWM_AUX_RATE 50
-    ```
-    set MIXER_AUX gimbal
-    set PWM_AUX_OUT 1234
-    set PWM_AUX_DISARMED 1500
-    set PWM_AUX_MIN 1000
-    set PWM_AUX_MAX 2000
-    set PWM_AUX_RATE 50
-    ```
+  mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
+  ```
