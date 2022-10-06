@@ -176,6 +176,16 @@ hardfault_log <command> [arguments...]
 
    reset         Reset the reboot counter
 ```
+## hist
+Source: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hist)
+
+Command-line tool to show the px4 message history. There are no arguments.
+<a id="hist_usage"></a>
+
+### Usage
+```
+hist [arguments...]
+```
 ## i2cdetect
 Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2cdetect)
 

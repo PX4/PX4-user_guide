@@ -197,6 +197,28 @@ bst <command> [arguments...]
 
    status        print status info
 ```
+## crsf_rc
+Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
+
+
+### Description
+This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
+
+
+<a id="crsf_rc_usage"></a>
+
+### Usage
+```
+crsf_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   stop
+
+   status        print status info
+```
 ## dshot
 Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
 
@@ -407,6 +429,30 @@ gps <command> [arguments...]
 
    reset         Reset GPS device
      cold|warm|hot Specify reset type
+```
+## gz_bridge
+Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
+
+
+### Description
+
+
+<a id="gz_bridge_usage"></a>
+
+### Usage
+```
+gz_bridge <command> [arguments...]
+ Commands:
+   start
+     -m <val>    Fuel model name
+     -p <val>    Model Pose
+     -n <val>    Model name
+     -i <val>    PX4 instance
+     [-w <val>]  World name
+
+   stop
+
+   status        print status info
 ```
 ## ina226
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
@@ -669,6 +715,33 @@ modalai_esc <command> [arguments...]
      -l <val>    Bitmask 0x0FFF (12 bits) - ESC0 (RGB) ESC1 (RGB) ESC2 (RGB)
                  ESC3 (RGB)
 
+   stop
+
+   status        print status info
+```
+## msp_osd
+Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
+
+
+### Description
+Msp OSD!
+
+### Implementation
+Does the things for the DJI Air Unit OSD
+
+### Examples
+CLI usage example:
+```
+msp_osd
+```
+
+
+<a id="msp_osd_usage"></a>
+
+### Usage
+```
+msp_osd <command> [arguments...]
+ Commands:
    stop
 
    status        print status info
@@ -1140,28 +1213,6 @@ sht3x <command> [arguments...]
    values        Print actual data
 
    reset         Reinitialize sensor
-```
-## simulator_ignition_bridge
-Source: [modules/simulation/simulator_ignition_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_ignition_bridge)
-
-
-### Description
-
-
-<a id="simulator_ignition_bridge_usage"></a>
-
-### Usage
-```
-simulator_ignition_bridge <command> [arguments...]
- Commands:
-   start
-     -m <val>    Model name
-     -p <val>    Model Pose
-     [-w <val>]  World name
-
-   stop
-
-   status        print status info
 ```
 ## tap_esc
 Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tap_esc)
