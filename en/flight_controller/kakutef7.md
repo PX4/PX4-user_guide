@@ -9,7 +9,6 @@ The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
-
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
@@ -96,6 +95,8 @@ The firmware can be installed in any of the normal ways:
 
 
 ## Configuration
+
+If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use the [Actuator](../config/actuators.md) configuration UI to set the motor ordering appropriately.
 
 In addition to the [basic configuration](../config/README.md), the following parameters are important:
 
