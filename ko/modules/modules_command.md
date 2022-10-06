@@ -169,13 +169,23 @@ hardfault_log <command> [arguments...]
 
    reset         Reset the reboot counter
 ```
+## hist
+Source: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hist)
+
+Command-line tool to show the px4 message history. There are no arguments.
+<a id="hist_usage"></a>
+
+### 사용법
+```
+hist [arguments...]
+```
 ## i2cdetect
 Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
 
 Utility to scan for I2C devices on a particular bus.
 <a id="i2cdetect_usage"></a>
 
-### 사용법
+### 설명
 ```
 i2cdetect [arguments...]
      [-b <val>]  I2C bus
@@ -201,7 +211,7 @@ led_control blink -c blue -l 0 -n 5
 
 <a id="led_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 led_control <command> [arguments...]
  Commands:
@@ -259,7 +269,7 @@ Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Utility interact with the manifest
 <a id="mfd_usage"></a>
 
-### 사용법
+### 설명
 ```
 mfd <command> [arguments...]
  Commands:
@@ -271,7 +281,7 @@ Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
 <a id="mtd_usage"></a>
 
-### 설명
+### Usage
 ```
 mtd <command> [arguments...]
  Commands:
@@ -300,7 +310,7 @@ This was previously used to start a shell on the USB serial port. Now there runs
 
 <a id="nshterm_usage"></a>
 
-### Usage
+### 설명
 ```
 nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
@@ -330,7 +340,7 @@ reboot
 
 <a id="param_usage"></a>
 
-### Usage
+### 설명
 ```
 param <command> [arguments...]
  Commands:
@@ -410,7 +420,7 @@ Handles payload delivery with either Gripper or a Winch with an appropriate time
 
 <a id="payload_deliverer_usage"></a>
 
-### Usage
+### 사용법
 ```
 payload_deliverer <command> [arguments...]
  Commands:
@@ -432,7 +442,7 @@ Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/s
 Tool to print performance counters
 <a id="perf_usage"></a>
 
-### 사용법
+### 설명
 ```
 perf [arguments...]
    reset         Reset all counters
@@ -447,7 +457,7 @@ Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src
 Reboot the system
 <a id="reboot_usage"></a>
 
-### Usage
+### 설명
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
@@ -479,7 +489,7 @@ Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/
 Test operations on an SD Card
 <a id="sd_stress_usage"></a>
 
-### 설명
+### 사용법
 ```
 sd_stress [arguments...]
      [-r <val>]  Number of runs
@@ -496,7 +506,7 @@ This can be used to use u-center connected to USB with a GPS on a serial port.
 
 <a id="serial_passthru_usage"></a>
 
-### Usage
+### 설명
 ```
 serial_passthru [arguments...]
      -e <val>    External device path
@@ -539,7 +549,7 @@ Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
 
-### Usage
+### 설명
 ```
 top [arguments...]
    once          print load only once
@@ -560,7 +570,7 @@ Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Tool to print various version information
 <a id="ver_usage"></a>
 
-### 설명
+### 예
 ```
 ver <command> [arguments...]
  Commands:
