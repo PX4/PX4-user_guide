@@ -1,4 +1,4 @@
-# Holybro  Kakute F7
+# Holybro Kakute F7
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
@@ -102,7 +102,6 @@ In addition to the [basic configuration](../config/README.md), the following par
 Parameter | Setting
 --- | ---
 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag.
-[MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
 
 ## Serial Port Mapping
@@ -135,4 +134,3 @@ The  [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
 These are shown below.
 
 ![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
-
