@@ -1,24 +1,24 @@
-# Holybro X500 V2 (Pixhawk 5X Build)
+# Holybro X500 V2 (Pixhawk 5X 조립)
 
-This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) and configuring PX4 using *QGroundControl*.
+이 페이지에서는 [Holybro X500 V2 ARF 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)를 조립 방법과 *QGroundControl*의 PX4 설정 방법을 설명합니다.
 
-The ARF ("Almost Ready to Fly") kit provides the shortest and straightforward assembly experience for those who want to jump into drone development and not spend that much time on setting up the hardware. It includes the frame, motors, ESCs, propellers and power distribution board.
+ARF("거의 비행 준비 완료") 키트는 하드웨어 설정에 많은 시간을 할애하지 않고, 드론 개발에 입문자들이 간편하고 간단한 조립할 수 있습니다. 여기에는 프레임, 모터, ESC, 프로펠러 및 배전반이 포함됩니다.
 
-In addition to the kit you will need to have the flight controller, radio transmitters, GPS and RC controller. The ARF kit can be used with most flight controllers supported by PX4.
+키트 외에도 비행 콘트롤러, 무선 송신기, GPS 및 RC 콘트롤러가 필요합니다. ARF 키트는 PX4와 호환되는 대부분의 비행 콘트롤러를 지원합니다.
 
-## Key information
+## 주요 정보
 
-- **Kit:** [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html)
-- **Flight controller:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
-- **Assembly time (approx.):** 55 min (25 minutes for frame, 30 minutes for autopilot installation/configuration)
+- **키트:** [Holybro X500 V2 ARF 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)
+- **비행 콘트롤러:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
+- **조립 시간(약):** 55분(프레임 25분, 자동조종장치 설치/설성은 30분)
 
 ![Full X500 V2 Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500-kit.png)
 
-## Bill of materials
+## 부품 명세서
 
-The Holybro [X500 V2 Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) includes almost all the required components:
+Holybro [X500 V2 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)에는 필수 부품들이 포함되어 있습니다.
 
-* X500V2 Frame Kit
+* X500V2 프레임 키트
   * Body - Full Carbon Fiber Top & Bottom plate (144 x 144mm, 2mm thick)
   * Arm - High strength & ultra-lightweight 16mm carbon fiber tubes
   * Landing gear - 16mm & 10mm diameter carbon fiber tubes
