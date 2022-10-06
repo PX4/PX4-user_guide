@@ -73,9 +73,10 @@ The resulting boot log has detailed information about the boot sequence and shou
 
 ### Replacing the System Startup
 
-In most cases customizing the default boot is the better approach, which is documented below.
-If the complete boot should be replaced, create a file `/fs/microsd/etc/rc.txt`, which is located in the `etc` folder on the microSD card.
-If this file is present nothing in the system will be auto-started.
+The whole boot can be replaced by creating a file `/etc/rc.txt` on the microSD card with a new configuration (nothing in the old configuration will be auto-started, and if the file is empty, nothing at all will be started).
+
+Customizing the default boot is almost always a better approach.
+This is documented below.
 
 ### Customizing the System Startup
 
