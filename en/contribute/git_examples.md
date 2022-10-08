@@ -24,7 +24,7 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
   ```sh
   git remote -v
   ```
-* Make the changes that you want to add to the current master.
+* Make the changes that you want to add to the current main.
 * Create a new branch with a meaningful name that represents your feature<br>
   ```sh
   git checkout -b <your feature branch name>
@@ -40,23 +40,23 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
   git commit -m "<your commit message>"
   ```
 For a good commit message, please refer to [Contributing](../contribute/README.md) section.
-* Some time might have passed and the [upstream master](https://github.com/PX4/PX4-Autopilot.git) has changed.
+* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed.
   PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing).
-  To include the newest changes from upstream in your local branch, switch to your master branch<br>
+  To include the newest changes from upstream in your local branch, switch to your main branch<br>
   ```sh
-  git checkout master
+  git checkout main
   ```
-  Then pull the newest commits from upstream master<br>
+  Then pull the newest commits from upstream main<br>
   ```sh
-  git pull upstream master
+  git pull upstream main
   ```
-  Now your local master is up to date. Switch back to your feature branch<br>
+  Now your local main is up to date. Switch back to your feature branch<br>
   ```sh
   git checkout <your feature branch name>
   ```
-  and rebase on your updated master<br>
+  and rebase on your updated main<br>
   ```sh
-  git rebase master
+  git rebase main
   ```
 * Now you can push your local commits to your forked repository<br>
   ```sh
@@ -96,7 +96,7 @@ There are several ways to update a submodule.
 Either you clone the repository or you go in the submodule directory and follow the same procedure as in [Contributing code to PX4](#contributing_code).
 
 ## Do a PR for a submodule update
-This is required after you have done a PR for a submodule X repository and the bug-fix / feature-add is in the current master of submodule X. Since the Firmware still points to a commit before your update, a submodule pull request is required such that the submodule used by the Firmware points to the newest commit.
+This is required after you have done a PR for a submodule X repository and the bug-fix / feature-add is in the current main of submodule X. Since the Firmware still points to a commit before your update, a submodule pull request is required such that the submodule used by the Firmware points to the newest commit.
 ```sh
 cd Firmware
 ```
@@ -108,10 +108,10 @@ cd Firmware
   ```sh
   cd <path to submodule>
   ```
-* PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout master and pull the newest upstream code.
+* PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout main and pull the newest upstream code.
   ```sh
-  git checkout master
-  git pull upstream master
+  git checkout main
+  git pull upstream main
   ```
 * Go back to Firmware directory, and as usual add, commit and push the changes.
   ```sh
@@ -140,7 +140,7 @@ git checkout <branch name>
 
 ### Force push to forked repository
 
-After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/master. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push:
+After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/main. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push:
 ```sh
 git push --force-with-lease origin <your feature branch name>
 ```
