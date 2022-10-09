@@ -24,7 +24,7 @@ git remote add upstream https://github.com/PX4/Firmware.git
   ```sh
   git remote -v
   ```
-* 进行要添加到当前 master 的更改。
+* Make the changes that you want to add to the current main.
 * 使用代表您的功能的有意义的名称创建一个新分支<br>
   ```sh
   git checkout -b <your feature branch name>
@@ -41,21 +41,21 @@ There you should see the message that a new branch has been pushed to your forke
   git commit -m "<your commit message>"
   ```
 you can use the command `git branch` to make sure you're on the right branch. * Add your changes that you want to be part of the commit by adding the respective files
-* Some time might have passed and the [upstream master](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 更喜欢线性提交历史记录, 并使用 [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)。 要在本地分支中包含上游的最新更改, 请切换到主分支<br>
+* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 更喜欢线性提交历史记录, 并使用 [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)。 To include the newest changes from upstream in your local branch, switch to your main branch<br>
   ```sh
-  git checkout master
+  git checkout main
   ```
-  然后从上游 master 中提取最新的提交<br>
+  Then pull the newest commits from upstream main<br>
   ```sh
-  git pull upstream master
+  git pull upstream main
   ```
-  Now your local master is up to date. Switch back to your feature branch 切换回您的功能分支<br>
+  Now your local main is up to date. 切换回您的功能分支<br>
   ```sh
   git checkout <your feature branch name>
   ```
-  并根据您更新的母版重新定位<br>
+  and rebase on your updated main<br>
   ```sh
-  git rebase master
+  git rebase main
   ```
 * 现在, 您可以将本地提交推送到分支版本库<br>
   ```sh
@@ -89,7 +89,7 @@ git pull upstream master
 有几种方法可以更新子模块。 There are several ways to update a submodule. Either you clone the repository or you go in the submodule directory and follow the same procedure as in [Contributing code to PX4](#Contributing-code-to-PX4).
 
 ## 为子模块更新执行 PR
-这是在您为子模块 x 存储库做了 PR 之后所必需的, 并且错误修复/功能添加在子模块 x 的当前主控件中。由于固件仍指向更新之前的提交, 因此需要一个子模块拉取请求, 以便固件使用的子模块指向最新提交。
+This is required after you have done a PR for a submodule X repository and the bug-fix / feature-add is in the current main of submodule X. Since the Firmware still points to a commit before your update, a submodule pull request is required such that the submodule used by the Firmware points to the newest commit.
 ```sh
 cd Firmware
 ```
@@ -101,12 +101,10 @@ cd Firmware
   ```sh
   cd <path to submodule>
   ```
-* PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout master and pull the newest upstream code. 因此，先 checkout master 并且拉取最新的上游代码。
+* PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout master and pull the newest upstream code. Therefore, first checkout main and pull the newest upstream code.
   ```sh
-  cd -
-git add <path to submodule>
-git commit -m "Update submodule to include ..."
-git push upstream pr-some-fix
+  git checkout main
+  git pull upstream main
   ```
 * 回到 Firmware 目录，如往常一样添加、提交和上推更改。
   ```sh
@@ -135,7 +133,7 @@ git checkout <branch name>
 
 ### 强制推送到分叉存储库
 
-做完第一个 PR 后, 来自 PX4 社区的人将回顾你的更改。 在大多数情况下, 这意味着您必须根据评审来修复本地分支。 在本地更改文件后, 需要使用最新的 uperecle1 主服务器重新定位功能分支。 但是, 在重新建立基础后, 不再可能将特征分支直接推送到分叉存储库, 而是需要使用强制推送:
+做完第一个 PR 后, 来自 PX4 社区的人将回顾你的更改。 在大多数情况下, 这意味着您必须根据评审来修复本地分支。 After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/main. 但是, 在重新建立基础后, 不再可能将特征分支直接推送到分叉存储库, 而是需要使用强制推送:
 ```sh
 git push --force-with-lease origin <your feature branch name>
 ```
