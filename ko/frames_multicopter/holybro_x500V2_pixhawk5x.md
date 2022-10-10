@@ -19,24 +19,24 @@ ARF("거의 비행 준비 완료") 키트는 하드웨어 설정에 많은 시�
 Holybro [X500 V2 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)에는 필수 부품들이 포함되어 있습니다.
 
 * X500V2 프레임 키트
-  * Body - Full Carbon Fiber Top & Bottom plate (144 x 144mm, 2mm thick)
-  * Arm - High strength & ultra-lightweight 16mm carbon fiber tubes
-  * Landing gear - 16mm & 10mm diameter carbon fiber tubes
-  * Platform board - With mounting holes for GPS & popular companion computer
-  * Dual 10mm Ø rod x 250 mm long rail mounting system
-  * Battery mount with two Battery Straps
-  * Hand tools for installation
-* [Holybro Motors - 2216 KV880 x6](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
+  * 바디 - 풀 카본 파이버 탑 & 바닥판(144 x 144mm, 두께 2mm)
+  * 암 - 고강도 & 초경량 16mm 탄소 섬유 튜브
+  * 랜딩 기어 - 16mm & 10mm 직경의 탄소 섬유 튜브
+  * 플랫폼 보드 - GPS & 인기있는 보조 컴퓨터
+  * 이중 10mm Ø 로드 x 250mm 롱 레일 마운팅 시스템
+  * 2개의 배터리 스트랩이 있는 배터리 마운트
+  * 설치용 수공구
+* [Holybro 모터 - 2216 KV880 x6](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
 * [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
-* [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
-* Power Distribution Board – XT60 plug for battery & XT30 plug for ESCs & peripherals
-* Camera mount (optional and the 3D file can be downloaded from [here](http://www.holybro.com/3D_Print/Holybro_X500_V2_3D%20Print.rar))
+* [프로펠러 - 1045x4](https://shop.holybro.com/propeller10452pair_p1155.html)
+* 배전반 – 배터리 및 배터리용 XT60 플러그 ESC &용 XT30 플러그 주변기기
+* 카메라 마운트(선택 사항 및 3D 파일은 [여기](http://www.holybro.com/3D_Print/Holybro_X500_V2_3D%20Print.rar)에서 다운로드할 수 있음)
 
-Other parts in this build(**Not included in the ARF kit**):
-* [Pixhawk 5X autopilot](../flight_controller/pixhawk5x.md)
+이 빌드의 다른 부품(**ARF 키트에 포함되지 않음**):
+* [Pixhawk 5X 자동조종장치](../flight_controller/pixhawk5x.md)
 * [M8N GPS](http://shop.holybro.com/holybro-m8n-gps_p1094.html)
-* [Power Module - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
-* [433/915 MHz Telemetry Radio](http://shop.holybro.com/sik-telemetry-radio-v3_p1103.html)
+* [전원 모듈 - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
+* [433/915 MHz 무선 텔레메트리](http://shop.holybro.com/sik-telemetry-radio-v3_p1103.html)
 
 Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
