@@ -40,22 +40,22 @@ Holybro [X500 V2 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)에는 �
 
 Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
-## Kit Hardware
+## 키트 하드웨어
 
-This section lists all hardware for the frame and the autopilot installation.
+프레임 및 자동조종장치 설치를 위한 하드웨어 목록입니다.
 
-| Item                         | Description                                       | Quantity |
-| ---------------------------- | ------------------------------------------------- | -------- |
-| Bottom plate                 | Carbon fiber (2mm thick)                          | 1        |
-| Top plate                    | Carbon fiber (1.5mm thick)                        | 1        |
-| Arm                          | Carbon fiber tube (Assembled with motors mounted) | 4        |
-| Landing gear - Vertical pole | Carbon fiber tube + engineering plastic           | 2        |
-| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam    | 2        |
-| Mounting Rail                | Diameter: 10mm length: 250mm                      | 2        |
-| Battery mounting board       | Thickness: 2mm                                    | 1        |
-| Battery pad                  | 3mm Silicone sheet black                          | 1        |
-| Platform board               | Thickness: 2mm                                    | 1        |
-| Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                   | 8        |
+| 항목                           | 설명                                                | 수량 |
+| ---------------------------- | ------------------------------------------------- | -- |
+| Bottom plate                 | Carbon fiber (2mm thick)                          | 1  |
+| Top plate                    | Carbon fiber (1.5mm thick)                        | 1  |
+| Arm                          | Carbon fiber tube (Assembled with motors mounted) | 4  |
+| Landing gear - Vertical pole | Carbon fiber tube + engineering plastic           | 2  |
+| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam    | 2  |
+| Mounting Rail                | Diameter: 10mm length: 250mm                      | 2  |
+| Battery mounting board       | Thickness: 2mm                                    | 1  |
+| Battery pad                  | 3mm Silicone sheet black                          | 1  |
+| Platform board               | Thickness: 2mm                                    | 1  |
+| Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                   | 8  |
 
  ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
 
