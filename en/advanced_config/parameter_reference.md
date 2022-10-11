@@ -11981,7 +11981,7 @@ table {
  <td><strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)</td>
  <td>Maximum magnetic field inconsistency between units that will allow arming <p><strong>Comment:</strong> Set -1 to disable the check.</p>   </td>
  <td>[3, 180] </td>
- <td>45</td>
+ <td>60</td>
  <td>deg</td>
 </tr>
 <tr>
@@ -23278,7 +23278,7 @@ table {
  <td>Accelerometer 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
@@ -23292,7 +23292,7 @@ table {
  <td>Accelerometer 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
@@ -23306,7 +23306,7 @@ table {
  <td>Accelerometer 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
@@ -23441,7 +23441,7 @@ table {
  <td>Accelerometer 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_XSCALE">CAL_ACC1_XSCALE</strong> (FLOAT)</td>
@@ -23455,7 +23455,7 @@ table {
  <td>Accelerometer 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_YSCALE">CAL_ACC1_YSCALE</strong> (FLOAT)</td>
@@ -23469,7 +23469,7 @@ table {
  <td>Accelerometer 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_ZSCALE">CAL_ACC1_ZSCALE</strong> (FLOAT)</td>
@@ -23604,7 +23604,7 @@ table {
  <td>Accelerometer 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_XSCALE">CAL_ACC2_XSCALE</strong> (FLOAT)</td>
@@ -23618,7 +23618,7 @@ table {
  <td>Accelerometer 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_YSCALE">CAL_ACC2_YSCALE</strong> (FLOAT)</td>
@@ -23632,7 +23632,7 @@ table {
  <td>Accelerometer 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_ZSCALE">CAL_ACC2_ZSCALE</strong> (FLOAT)</td>
@@ -23767,7 +23767,7 @@ table {
  <td>Accelerometer 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_XSCALE">CAL_ACC3_XSCALE</strong> (FLOAT)</td>
@@ -23781,7 +23781,7 @@ table {
  <td>Accelerometer 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_YSCALE">CAL_ACC3_YSCALE</strong> (FLOAT)</td>
@@ -23795,7 +23795,7 @@ table {
  <td>Accelerometer 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_ZSCALE">CAL_ACC3_ZSCALE</strong> (FLOAT)</td>
@@ -24074,21 +24074,21 @@ table {
  <td>Gyroscope 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_YOFF">CAL_GYRO0_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_ZOFF">CAL_GYRO0_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_ID">CAL_GYRO1_ID</strong> (INT32)</td>
@@ -24216,21 +24216,21 @@ table {
  <td>Gyroscope 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_YOFF">CAL_GYRO1_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_ZOFF">CAL_GYRO1_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_ID">CAL_GYRO2_ID</strong> (INT32)</td>
@@ -24358,21 +24358,21 @@ table {
  <td>Gyroscope 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_YOFF">CAL_GYRO2_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_ZOFF">CAL_GYRO2_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_ID">CAL_GYRO3_ID</strong> (INT32)</td>
@@ -24500,21 +24500,21 @@ table {
  <td>Gyroscope 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_YOFF">CAL_GYRO3_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_ZOFF">CAL_GYRO3_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ID">CAL_MAG0_ID</strong> (INT32)</td>
@@ -24656,7 +24656,7 @@ table {
  <td>Magnetometer 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XSCALE">CAL_MAG0_XSCALE</strong> (FLOAT)</td>
@@ -24684,7 +24684,7 @@ table {
  <td>Magnetometer 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YSCALE">CAL_MAG0_YSCALE</strong> (FLOAT)</td>
@@ -24712,7 +24712,7 @@ table {
  <td>Magnetometer 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ZSCALE">CAL_MAG0_ZSCALE</strong> (FLOAT)</td>
@@ -24861,7 +24861,7 @@ table {
  <td>Magnetometer 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XSCALE">CAL_MAG1_XSCALE</strong> (FLOAT)</td>
@@ -24889,7 +24889,7 @@ table {
  <td>Magnetometer 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YSCALE">CAL_MAG1_YSCALE</strong> (FLOAT)</td>
@@ -24917,7 +24917,7 @@ table {
  <td>Magnetometer 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ZSCALE">CAL_MAG1_ZSCALE</strong> (FLOAT)</td>
@@ -25066,7 +25066,7 @@ table {
  <td>Magnetometer 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XSCALE">CAL_MAG2_XSCALE</strong> (FLOAT)</td>
@@ -25094,7 +25094,7 @@ table {
  <td>Magnetometer 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YSCALE">CAL_MAG2_YSCALE</strong> (FLOAT)</td>
@@ -25122,7 +25122,7 @@ table {
  <td>Magnetometer 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ZSCALE">CAL_MAG2_ZSCALE</strong> (FLOAT)</td>
@@ -25271,7 +25271,7 @@ table {
  <td>Magnetometer 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XSCALE">CAL_MAG3_XSCALE</strong> (FLOAT)</td>
@@ -25299,7 +25299,7 @@ table {
  <td>Magnetometer 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YSCALE">CAL_MAG3_YSCALE</strong> (FLOAT)</td>
@@ -25327,7 +25327,7 @@ table {
  <td>Magnetometer 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ZSCALE">CAL_MAG3_ZSCALE</strong> (FLOAT)</td>
