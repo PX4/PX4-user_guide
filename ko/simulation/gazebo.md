@@ -367,7 +367,8 @@ The Gazebo camera sensor is supported/enabled on the following frames:
 :::note
 참고로 종속 항목에는 `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`,  `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`가 포함됩니다. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
-대상 차량이 지원하는 경우에는, 비디오 스트리밍이 자동으로 시작됩니다. Typhoon H480에서 비디오 스트리밍을 시작하려면 다음 명령어를 입력하십시오.
+:::note FYI
+only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`. Typhoon H480에서 비디오 스트리밍을 시작하려면 다음 명령어를 입력하십시오.
 
 ### 동영상 스트리밍 시작/중지
 
