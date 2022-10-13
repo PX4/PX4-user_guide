@@ -31,10 +31,10 @@ The diagram below shows the division of bus and functional responsibilities betw
 Some Pixhawk-series controllers are built without the I/O board in order to reduce space or complexity, or to better address certain board use-cases.
 
 The I/O board is disabled by setting parameter [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO).
-When the I/O board is disabled:
-- The MAIN mixer file is loaded into the FMU (so the "MAIN" outputs listed in the [Airframe Reference](../airframes/airframe_reference.md) appear on the port labeled AUX).
+When the I/O board is disabled: 
+- The MAIN mixer file is loaded into the FMU (so the "MAIN" outputs listed in the [Airframe Reference](../airframes/airframe_reference.md) appear on the port labeled AUX). 
   The AUX mixer file isn't loaded, so outputs defined in this file are not used.
-- RC input goes directly to the FMU rather than via the IO board.
+- RC input goes directly to the FMU rather than via the IO board. 
 
 Flight controllers without an I/O board have `MAIN` ports, but they *do not* have `AUX` ports.
 Consequently they can only be used in [airframes](../airframes/airframe_reference.md) that do not use `AUX` ports, or that only use them for non-essential purposes (e.g. RC passthrough).
