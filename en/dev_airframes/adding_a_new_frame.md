@@ -320,7 +320,7 @@ The following topics explain how to tune the parameters that will be specified i
 
 ## Add Frame to QGroundControl
 
-To make a new airframe available for section in the *QGroundControl* [airframe configuration](../config/airframe.md):
+To make a new airframe available for section in the *QGroundControl* [frame configuration](../config/airframe.md):
 
 1. Make a clean build (e.g. by running `make clean` and then `make px4_fmu-v5_default`)
 1. Open QGC and select **Custom firmware file...** as shown below:

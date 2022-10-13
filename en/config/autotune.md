@@ -159,7 +159,7 @@ PX4 uses [PID controllers](../flight_stack/controller_diagrams.md) (rate, attitu
 The controllers must be well tuned in order to get the best performance out of a vehicle.
 In particular, a poorly tuned rate controller results in less stable flight in all modes, and takes longer to recover from disturbances.
 
-Generally if you use an [airframe configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly.
+Generally if you use a [frame configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly.
 However unless the configuration precisely matches your hardware you should tune the rate and attitude controllers.
 Tuning the velocity and position controllers is less important because they are less affected by vehicle dynamics, and the default tuning configuration for a similar airframe is often sufficient.
 

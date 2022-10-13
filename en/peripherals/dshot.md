@@ -25,6 +25,7 @@ A Pixhawk flight controller that has both FMU and IO will label these ports as A
 DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
 
 To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
+
 Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
 
 Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
