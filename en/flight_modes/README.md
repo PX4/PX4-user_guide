@@ -416,7 +416,7 @@ Key for understanding the table is as follows:
 
 Symbol | Description
 --- | ---
-M | Manual control via RC sticks. RC input is sent directly to the output mixer.
+M | Manual control via RC sticks. RC input is sent directly to the output mixer. 
 S | Assistance from autopilot to stabilize the attitude. RC input is required. Position of RC stick maps to the orientation of vehicle.
 S<sub>rate</sub> |  Assistance from autopilot to stabilize the attitude rate. RC input is required. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 S<sup>+</sup> | Assistance from autopilot to hold position or altitude against wind. RC input is required.
