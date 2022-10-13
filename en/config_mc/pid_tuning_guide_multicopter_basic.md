@@ -7,7 +7,7 @@ This tutorial explains how to _manually_ tune the PID loops on PX4 for all [mult
 Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
 :::
 
-Generally if you're using an appropriate [supported airframe configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely.
+Generally if you're using an appropriate [supported frame configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely.
 Tuning is recommended for all new vehicle setups to get the _very best_ performance, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight.
 For example, different ESCs or motors change the optimal tuning gains.
 
@@ -39,7 +39,7 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 
 ## Preconditions
 
-- You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle.
+- You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle.
   This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
 - If using PWM output: [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN) is set correctly.
