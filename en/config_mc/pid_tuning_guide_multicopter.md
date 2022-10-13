@@ -260,6 +260,7 @@ It can happen that one of the motor commands becomes negative, for example for a
 This is a mixer saturation.
 It is physically impossible for the vehicle to execute these commands (except for reversible motors).
 PX4 has two modes to resolve this:
+
 - Either by reducing the commanded torque for roll such that none of the motor commands is below zero (Airmode disabled).
   In the extreme case where the commanded thrust is zero, it means that no attitude correction is possible anymore, which is why a minimum thrust is always required for this mode.
 - Or by increasing (boosting) the commanded thrust, such that none of the motor commands is negative (Airmode enabled).
@@ -284,4 +285,3 @@ If mixing becomes saturated towards the upper bound the commanded thrust is redu
 This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
-
