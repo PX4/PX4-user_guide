@@ -227,15 +227,16 @@ It is also possible to just compile the code with command:
 
 You need to check these extra items to get your vehicle work properly.
 
-#### Mixer file
+#### Mixer file 
 
-Mixer file is defined in `pilotpi_xx.conf`:
+Mixer file is defined in `pilotpi_xx.conf`: 
 
 ```sh
-mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
+mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix 
 ```
 
-All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
+All available mixers are stored in `etc/mixers`. 
+You can create one by yourself as well.
 
 #### External compass
 
