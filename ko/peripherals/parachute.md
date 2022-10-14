@@ -43,27 +43,18 @@ You can also configure an [external Automatic Trigger System (ATS)](../config/sa
 
 ### Parachute Output Bus Setup
 
-If the parachute is triggered by a PWM or CAN output then it must first be connected to an unused output (for the purpose of this example, below we assume AUX PWM output 6 is used). You will probably also need to separately power the parachute servo. This is might be done by connecting a 5V BEC to the Flight Controller servo rail, and powering the parachute from it.
+If the parachute is triggered by a PWM or CAN output then it must first be connected to an unused output. You will probably also need to separately power the parachute servo. This is might be done by connecting a 5V BEC to the Flight Controller servo rail, and powering the parachute from it.
 
-You then need to ensure that the parachute pin will be set to a value that will trigger the parachute when a failsafe occurs.
-
-In PX4 v1.13 (by default) and earlier:
-
-- Set [PWM_AUX_DIS6](../advanced_config/parameter_reference.md#PWM_AUX_DIS6) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
-- Set [PWM_AUX_DIS6](../advanced_config/parameter_reference.md#PWM_AUX_DIS6) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
-
-:::note
-The above values would be suitable for this spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/). You will need to use values appropriate for your parachute.
-:::
-
-If dynamic control allocation is enabled ([SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)):
+You then need to ensure that the parachute pin will be set to a value that will trigger the parachute when a failsafe occurs:
 - Open [Actuators](../config/actuators.md) in QGroundControl
-- Assign the _Parachute_ function to the `AUX6` output:
+- Assign the _Parachute_ function to any unused output (below we set the `AUX6` output):
 
   ![Actuators - Parachute (QGC)](../../assets/config/actuators/qgc_actuators_parachute.png)
-- Set appropriate PWM values. The output is automatically set to the maximum PWM value when a failsafe is triggered.
+- Set appropriate PWM values for your parachute. The output is automatically set to the maximum PWM value when a failsafe is triggered.
 
-
+:::note
+For the spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/) the minimum PWM value should be between 700 and 1000ms, and the maximum value between 1800 and 2200ms.
+:::
 
 ### MAVLink Parachute Setup
 

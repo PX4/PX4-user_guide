@@ -8,28 +8,24 @@ PX4에는 문제 발생시에 기체를 보호하고 복구하는 다양한 안�
 
 ## 안전장치 기능
 
-안전장치 기능들은 여러가지 동작들로 조합됩니다. 일반적인 안전장치 기능들은 아래와 같습니다.
+When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action. This gives the user time to notice what is happening and override the failsafe if needed. In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+
+The list below shows the set of all failsafe actions, ordered in increasing severity. Note that different types of failsafe may not support all of these actions.
 
 | 동작                                                                         | 설명                                                                                                                                                                                                                                                                        |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="action_none"></a>없음/비활성화                                           | 조치 없음(안전 장치는 무시됩니다).                                                                                                                                                                                                                                                      |
-| <a id="action_warning"></a>경고                                                | 경고 메시지가 *QGroundControl*으로 전송됩니다.                                                                                                                                                                                                                                         |
+| <a id="action_none"></a>없음/비활성화                                           | No action. The failsafe will be ignored.                                                                                                                                                                                                                                  |
+| <a id="action_warning"></a>경고                                                | A warning message will be sent (i.e. to *QGroundControl*).                                                                                                                                                                                                                |
 | <a id="action_hold"></a>[대기 모드](../flight_modes/hold.md)                  | 기체는 *대기 모드*로 들어갑니다. 멀티콥터는 제자리에서 호버링을 하고, 고정익은 원주 선회 비행을 합니다.                                                                                                                                                                                                              |
 | <a id="action_return"></a>[복귀 모드](../flight_modes/return.md)                | 기체는 *복귀 모드*로 들어갑니다. 복귀 경로는 [복귀 설정](#return-mode-settings)에서 자세히 설정할 수 있습니다.                                                                                                                                                                                               |
 | <a id="action_land"></a>[착륙 모드](../flight_modes/land.md)                  | 차량은 *착륙 모드*로 전환하여 즉시 착륙합니다.                                                                                                                                                                                                                                               |
+| <a id="action_disarm"></a>Disarm                                            | Stops the motors immediately.                                                                                                                                                                                                                                             |
 | <a id="action_flight_termination"></a>[비행 종료](../advanced_config/flight_termination.md) | 모든 컨트롤러를 끄고 모든 PWM 출력을 안전 장치 값(예 : [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1))으로 설정합니다. 안전장치 출력은 낙하산, 랜딩 기어를 배치하거나 다른 작업을 수행할 수 있습니다. 고정익은 안전하게 활공할 수 있습니다. |
-| <a id="action_lockdown"></a>봉쇄                                                | 모터를 정지합니다(시동을 껍니다). 이것은 [킬 스위치](#kill-switch)를 사용하는 것과  동일합니다.                                                                                                                                                                                                            |
 
-:::note
-모드를 전환하여 오류 방지 조치 (원인이 수정 된 경우)에서 복구할 수 있습니다.
-:::note
-모드를 전환하여 오류 방지 조치 (원인이 수정 된 경우)에서 복구 할 수 있습니다.
-:::
+If multiple failsafes are triggered, the more severe action is taken. For example if both RC and GPS are lost, and manual control loss is set to [Return mode](#action_return) and GCS link loss to [Land](action_land), Land is executed.
 
-:::note
-차량이 다른 안전 장치에 응답하는 동안 안전 장치가 발생하면 (예 : RC 손실로 인해 반환 모드에있는 동안 배터리 부족), 두 번째 트리거에 대해 지정된 안전 장치 동작이 무시됩니다.
-대신 작업은 별도의 시스템 수준과 기체별 코드에 의해 결정됩니다.
-이로 인하여, 기체 비행은 수동 모드로 변경되어 사용자가 직접 복구할 수 있습니다.
+:::tip
+The exact behavior when different failsafes are triggered can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
 :::
 
 ## QGroundControl 안전 설정
@@ -78,7 +74,7 @@ Additional (and underlying) parameter settings are shown below.
 | ----------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="COM_RC_LOSS_T"></a> RC 연결불량 시간 초과          | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | Time after RC stops updating supplied data that the RC link is considered lost.                                                      |
 | <a id="COM_RCL_ACT_T"></a>RC Loss Action Timeout | [COM_RCL_ACT_T](../advanced_config/parameter_reference.md#COM_RCL_ACT_T)   | Timeout after RC link loss waiting to recover RC before the failsafe action is triggered. In this stage the vehicle is in hold mode. |
-| <a id="NAV_RCL_ACT"></a>안전장치 동작                | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 비활성화, 배회, 귀환, 착륙, 종료, 봉쇄.                                                                                                            |
+| <a id="NAV_RCL_ACT"></a>안전장치 동작                | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | Disabled, Loiter, Return, Land, Disarm, Terminate.                                                                                   |
 | <a id="COM_RCL_EXCEPT"></a>RC 손실 예외              | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC 손실이 무시되는 모드를 설정합니다: 미션(기본값), 정지, 오프보드.                                                                                            |
 
 ### 데이터 연결불량 안전장치
@@ -89,10 +85,10 @@ Additional (and underlying) parameter settings are shown below.
 
 설정에 관련된 기본 매개변수는 다음과 같습니다.
 
-| 설정             | 매개변수                                                                       | 설명                                    |
-| -------------- | -------------------------------------------------------------------------- | ------------------------------------- |
-| 데이터 연결불량 시간 초과 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 데이터 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다. |
-| 안전장치 동작        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | 비활성화, 배회 모드, 귀환 모드, 착륙 모드, 종료, 봉쇄.    |
+| 설정             | 매개변수                                                                       | 설명                                                              |
+| -------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| 데이터 연결불량 시간 초과 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 데이터 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다.                           |
+| 안전장치 동작        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Disarm, Terminate. |
 
 
 ### Geofence 안전장치
@@ -256,7 +252,7 @@ VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 
 비행 중 고장 감지는 기본적으로 비활성화되어 있습니다 (매개 변수 : [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM)을 설정하여 활성화).
 :::
 
-**이륙**중에 차량이 뒤집히면 고장 감지기 [자세 트리거](#attitude-trigger)가 [잠금 동작](#action_lockdown)을 호출합니다(잠금은 모터를 정지시키지만, 비행 종료와 달리 낙하산을 펼치거나 기타 실패 조치 수행하지 않음). 이 확인은 `CBRK_FLIGHTTERM` 매개 변수에 관계없이 *이륙시 항상 사용*합니다.
+During **takeoff** the failure detector [attitude trigger](#attitude-trigger) invokes the [disarm action](#action_disarm) if the vehicle flips (disarm kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions). 이 확인은 `CBRK_FLIGHTTERM` 매개 변수에 관계없이 *이륙시 항상 사용*합니다.
 
 고장 감지기는 기체의 뒤집히는 것이 *예상*되는 경우를 제외하고, 모든 기체 유형 및 모드에서 활성화됩니다 (예 : [Acro 모드(MC), \[Acro 모드 (FW)\](../flight_modes/altitude_fw.md), \[Rattitude\](../flight_modes/manual_fw.md) 및 수동 (FW)](../flight_modes/altitude_mc.md)).
 
@@ -316,7 +312,7 @@ VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 
 비행중 비시동을 지원하지 않는 모드의 경우 비행 중 스위치가 무시되지만 착륙 후에 사용 가능합니다. 여기에는 *위치 모드* 및 자율 모드 (예 : *미션*, *착륙* 등)가 포함됩니다.
 
 :::note
-[자동 비시동 시간 제한](#auto-disarming-timeouts)(예 : [COM_DISARM_LAND](#COM_DISARM_LAND)을 통해)은 설정/해제 스위치와 독립적입니다. 즉, 스위치가 설정되어 있어도 시간 제한이 계속 작동합니다.
+[자동 비시동 시간 제한](#auto-disarming-timeouts)(예 : [COM_DISARM_LAND](#COM_DISARM_LAND)을 통해)은 설정/해제 스위치와 독립적입니다. 즉, 스위치가 설정되어 있어도 시간 제한이 작동합니다.
 :::
 
 
@@ -327,7 +323,7 @@ VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 
 
 ### 귀환 스위치
 
-귀환 스위치를 사용하여 즉시 [귀환 모드](../flight_modes/return.md)를 활성화합니다.
+귀환 스위치를 사용하여 즉시 [귀환 모드](../flight_modes/return.md)로 전환합니다.
 
 ## 기타 안전 설정
 
@@ -340,7 +336,7 @@ VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 
 | 매개변수                                                                                                       | 설명                              |
 | ---------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | <a id="COM_DISARM_LAND"></a>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 착륙후 자동 시동 꺼기 대기 시간              |
-| <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 기체가 이륙이 너무 느린 경우 자동 시동 꺼기 대기 시간 |
+| <a id="COM_DISARM_PRFLT"></a>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 기체가 이륙이 너무 더딘 경우 자동 시동 꺼기 대기 시간 |
 
 ## 추가 정보
 

@@ -48,6 +48,7 @@ They allow you to use parts that are known to work, and to fly a vehicle that is
 :::
 
 * Multicopter
+  * [PX4 Development Kit - X500 V2](https://shop.holybro.com/px4-development-kit-x500-v2_p1340.html) ([holybro.com](https://www.holybro.com/))
   * [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
   * [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
   * [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)

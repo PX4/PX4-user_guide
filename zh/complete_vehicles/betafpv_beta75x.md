@@ -1,5 +1,9 @@
 # BetaFPV Beta75X 2S 穿越机
 
+:::warning
+This frame has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
+
 BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的FPV飞行或者是肉眼直飞。
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)

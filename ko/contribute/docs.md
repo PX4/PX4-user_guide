@@ -4,7 +4,7 @@ PX4 사용자 가이드에 대한 기여를 매우 환영합니다. 간단한 �
 
 이 항목에서는 변경 사항을 적용하고 테스트하는 방법을 설명합니다. 마지막에는 기본 스타일 가이드가 있습니다.
 
-::: tip
+:::tip
 Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
@@ -118,8 +118,8 @@ Note You will need a (free) [Github](https://github.com/) account to contribute 
    yarn docs:buildwin
    ```
 
-::: tip
-`yarn docs:dev`를 사용하여 *변경할 때* 변경 사항을 미리 봅니다(문서가 매우 빠르게 업데이트되고 제공됨). 풀 요청을 제출전에 `docs:build`를 사용하여 빌드하여야 합니다. 이렇게 하면 `docs:dev`를 사용할 때 표시되지 않는 문제를 강조하여 표시할 수 있습니다.
+:::tip
+Use `yarn docs:dev` to preview changes *as you make them* (documents are updated and served very quickly). 풀 요청을 제출전에 `docs:build`를 사용하여 빌드하여야 합니다. 이렇게 하면 `docs:dev`를 사용할 때 표시되지 않는 문제를 강조하여 표시할 수 있습니다.
 :::
 
 ### 소스 코드 구조

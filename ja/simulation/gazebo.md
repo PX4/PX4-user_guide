@@ -201,7 +201,7 @@ Joystick and thumb-joystick support are supported through *QGroundControl* ([set
 
 ### Improving Distance Sensor Performance
 
-The current default world is [PX4/sitl_gazebo/worlds/**iris.world**](https://github.com/PX4/sitl_gazebo/tree/master/worlds)), which uses a heightmap as ground.
+The current default world is [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds/**iris.world**](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)), which uses a heightmap as ground.
 
 This can cause difficulty when using a distance sensor. If there are unexpected results we recommend you change the model in **iris.model** from `uneven_ground` to `asphalt_plane`.
 
@@ -223,7 +223,7 @@ To enable/disable GPS noise:
 The SDF files are not overwritten on subsequent builds.
 :::
 
-2. Open the SDF file for your target vehicle (e.g. **./Tools/sitl_gazebo/models/iris/iris.sdf**).
+2. Open the SDF file for your target vehicle (e.g. **./Tools/simulation/gazebo/sitl_gazebo/models/iris/iris.sdf**).
 3. Search for the `gpsNoise` element:
    ```xml
    <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
@@ -241,7 +241,7 @@ The next time you build/restart Gazebo it will use the new GPS noise setting.
 
 ## Loading a Specific World
 
-PX4 supports a number of [Gazebo Worlds](../simulation/gazebo_worlds.md), which are stored in [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) By default Gazebo displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world).
+PX4 supports a number of [Gazebo Worlds](../simulation/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds). By default Gazebo displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
 
 You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
 
@@ -278,7 +278,7 @@ You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does
 
 The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
 
-An example can be found in the [sonoma_raceway.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world):
+An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/sonoma_raceway.world):
 ```
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -374,7 +374,7 @@ The Gazebo camera sensor is supported/enabled on the following frames:
 *Gstreamer 1.0* is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
 :::note FYI
-only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
 ### Start/Stop Video Streaming
@@ -427,7 +427,7 @@ VERBOSE_SIM=1 make px4_sitl gazebo
 
 ## Extending and Customizing
 
-To extend or customize the simulation interface, edit the files in the `Tools/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/px4/sitl_gazebo) on Github.
+To extend or customize the simulation interface, edit the files in the `Tools/simulation/gazebo/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/PX4/PX4-SITL_gazebo) on Github.
 
 :::note
 The build system enforces the correct GIT submodules, including the simulator.

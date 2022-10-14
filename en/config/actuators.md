@@ -2,26 +2,10 @@
 
 The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
 
-The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
-
-:::note
-The *Actuators* view is only displayed if _dynamic control allocation_ is enabled, which replaces geometry and mixer configuration files with parameters.
-This is currently disabled by default.
-
-To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME).
-You may need to restart *QGroundControl*. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/systemlib/system_params.c#L298 -->
-
-The easiest way to try this out in simulation is to use any of the following gazebo `make` targets, which have control allocation pre-enabled:
-
-```
-make px4_sitl gazebo_iris_ctrlalloc
-make px4_sitl gazebo_typhoon_h480_ctrlalloc
-```
-:::
+## Overview
 
 Open the view in *QGroundControl* here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab).
-
-## Overview
+The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
 
 The view has three sections:
 - [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md).

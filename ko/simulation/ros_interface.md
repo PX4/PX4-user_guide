@@ -59,9 +59,9 @@ ROS에 래핑된 SITL을 실행하려면 ROS 환경을 업데이트한 다음, �
 cd <PX4-Autopilot_clone>
 DONT_RUN=1 make px4_sitl_default gazebo
 source ~/catkin_ws/devel/setup.bash    # (optional)
-source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo/sitl_gazebo
 roslaunch px4 posix_sitl.launch
 ```
 
@@ -105,11 +105,11 @@ INFO  Waiting for initial data on UDP. Please start the flight simulator to proc
 
 ```sh
 cd <PX4-Autopilot_clone>
-source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 ```
 
 이제 ROS로 작업할 때와 같이, Gazebo를 시작하고 Iris 쿼드콥터 모델을 삽입합니다. Iris가 로드되면 자동으로 px4 앱에 연결됩니다.
 
 ```sh
-roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/sitl_gazebo/worlds/iris.world
+roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo/sitl_gazebo/worlds/iris.world
 ```

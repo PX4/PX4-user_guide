@@ -12,10 +12,6 @@ DJI Flame Wheel 450 with Distance Sensor and RTK GPS (Pixhawk 3 Pro)
 
 @[youtube](https://www.youtube.com/watch?v=JovSwzoTepU)
 
-Lumenier QAV250 Pixhawk Mini Build
-
-@[youtube](http://www.youtube.com/watch?v=MZzo4DMNkug)
-
 DJI Matrice 100 (Pixhawk 1)
 
 @[youtube](https://www.youtube.com/watch?v=3OGs0ONemGc)

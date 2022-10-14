@@ -8,7 +8,7 @@ It is commonly used to navigate a vehicle in situations where GPS is absent (e.g
 :::note
 *MoCap* is conceptually similar to [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md).
 The main difference is that in VIO the vision system runs on the vehicle, and additionally makes use of the vehicle IMU to provide velocity information.
-:::  
+:::
 
 ## MoCap Resources
 

@@ -30,5 +30,4 @@ The boards in this category are:
 - [mRobotics-X2.1](../flight_controller/mro_x2.1.md) (FMUv2)
 - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
 - [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (www.nxp.com)
-- [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 - [SPRacing SPRacingH7EXTREME](../flight_controller/spracingh7extreme.md)

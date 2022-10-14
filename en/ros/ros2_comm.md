@@ -120,17 +120,17 @@ To create and build the workspace:
 
 1. Create a workspace directory using:
    ```sh
-   $ mkdir -p ~/px4_ros_com_ros2/src
+   mkdir -p ~/px4_ros_com_ros2/src
    ```
 1. Clone the ROS 2 bridge packages `px4_ros_com` and `px4_msgs` to the `/src` directory (the `master` branch is cloned by default):
    ```sh
-   $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
-   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
+   git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
+   git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
    ```
 1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
    ```sh
-   $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
-   $ source build_ros2_workspace.bash
+   cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
+   source build_ros2_workspace.bash
    ```
 
 
@@ -158,13 +158,13 @@ We can do this by running the bridge against PX4 running in the simulator.
    Note also that PX4 SITL will automatically start the `micrortps_client` connected to UDP ports 2019 and 2020.
 1. On a *new* terminal, `source` the ROS 2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:
    ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ micrortps_agent -t UDP
+   source ~/px4_ros_com_ros2/install/setup.bash
+   micrortps_agent -t UDP
    ```
 1. Open a new terminal and start a "listener" using the provided launch file:
    ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
+   source ~/px4_ros_com_ros2/install/setup.bash
+   ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
    
    If the bridge is working correctly you will be able to see the data being printed on the terminal/console where you launched the ROS listener:
@@ -445,7 +445,7 @@ The **clean_all.bash** script (in **px4_ros_com/scripts**) is provided to ease t
 The most common way of using it is by passing it the ROS (1) workspace directory path (since it's usually not on the default path):
 
 ```sh
-$ source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
+source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 ```
 
 :::tip

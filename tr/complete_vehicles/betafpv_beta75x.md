@@ -1,5 +1,9 @@
 # BetaFPV Beta75X 2S Brushless Whoop
 
+:::warning
+This frame has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
+
 The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) is a very small quadrotor that can be flown indoors or outdoors, FPV or line-of-sight.
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)

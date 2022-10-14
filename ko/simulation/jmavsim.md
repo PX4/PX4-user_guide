@@ -127,7 +127,7 @@ make broadcast jmavsim
 JMAVSim과 PX4를 별도로 시작할 수 있습니다.
 
 ```
-./Tools/jmavsim_run.sh -l
+./Tools/simulation/jmavsim/jmavsim_run.sh -l
 make px4_sitl none
 ```
 

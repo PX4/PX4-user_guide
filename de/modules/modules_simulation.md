@@ -1,7 +1,7 @@
 # Modules Reference: Simulation
 
-## sih
-Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih)
+## simulator_sih
+Source: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
 
 
 ### Description
@@ -16,11 +16,11 @@ The simulator implements the equations of motion using matrix algebra. Quaternio
 
 
 
-<a id="sih_usage"></a>
+<a id="simulator_sih_usage"></a>
 
 ### Usage
 ```
-sih <command> [arguments...]
+simulator_sih <command> [arguments...]
  Commands:
    start
 

@@ -2,7 +2,7 @@
 
 [*PX4 Vision Autonomy 개발 키트*](http://www.holybro.com/product/px4-vision/)는 자율 비행 컴퓨터 비전 개발을 위한 견고하고 저렴한 키트입니다.
 
-![개요](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
+![개요](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (on V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
@@ -33,22 +33,27 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 1. 이 키트는 전방 카메라를 사용하는 컴퓨터 비전 프로젝트용입니다. 하향 또는 후방 깊이 카메라가 없습니다. 따라서, 추가 수정없이는 [안전 착륙](../computer_vision/safe_landing.md) 또는 하방향 카메라가 필요한 다른 기능들을 테스트할 수 없습니다.
 1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates). 충돌 방지는 GPS와 광학 흐름에서 위치 잠금시에 위치 모드에서 테스트할 수 있습니다.
 1. `USB1`로 표시된 포트는 *USB3* 주변 장치와  동시에 사용하는 경우에는 GPS를 방해할 수 있습니다(임무를 포함한 GPS 종속 기능 비활성화). 이로 인하여, 부팅 이미지가 *USB2.0* 메모리 스틱으로 제공됩니다.
-1. ECN 010 이상의 PX4 Vision(캐리어 보드 RC05 이상), *UP Core*는 DC 플러그 또는 배터리로 전원을 공급할 수 있습니다. ![RC 번호](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN 번호](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+1. PX4 Vision v1 with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery.
 
-:::warning ECN이 RC04 아래 010/캐리어 보드 미만인 PX4 Vision의 경우 *UP Core*는 배터리로 전원을 공급하여야합니다. *UP Core 전원* 소켓 안전 커버를 제거하지 마십시오.
+   ![RC 번호](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN 번호](../../assets/hardware/px4_vision_devkit/serial_number_update.jpg)
+1. All PX4 Vision v1.5 *UP Core* can be powered by either the DC plug or with battery.
+
+:::warning
+For PX4 Vision v1 with ECN below 010/carrier board below RC04, the *UP Core* should only be powered using the battery (do not remove the *UP Core power* socket safety cover). This does not apply to PX4 Vision v1.5
 
 ![경고 - 전원 포트를 연결하지 마십시오](../../assets/hardware/px4_vision_devkit/warning_power_port_update.png)
 :::
 
 ## 내부 내용
-:::note PX4 Vision Dev Kit V1.5 comes with a [Pixhawk 6C](../flight_controller/pixhawk6c.md) flight controller instead of [Pixhawk 4](../flight_controller/pixhawk4.md)
+
+:::note
+Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
 :::
 
-![What's inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
+What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
 
-<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 업라이트 이미지" />
 
 PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - 핵심 구성 요소:
@@ -117,7 +122,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
    - 안테나에 장애물이 없는 지, 프레임에서 전기적으로 절연되어 있는지 확인합니다 (예 : 캐리어 보드 아래 또는 기체 팔 또는 다리에 고정).
 
 1. RC 지상 및 공중 유닛을 [바인딩](../getting_started/rc_transmitter_receiver.md#binding)합니다 (아직 수행하지 않은 경우). 바인딩 절차는 사용된 무선 시스템에 따라 다릅니다 (수신기 설명서 참조).
-1. GPS 마스트를 수직 위치로 올리고 덮개를 베이스 플레이트의 홀더에 조입니다. (not require for v1.5)
+1. GPS 마스트를 수직 위치로 올리고 덮개를 베이스 플레이트의 홀더에 조입니다. (Not required for v1.5)
 
    ![GPS 마스트 올리기](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
@@ -170,7 +175,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
    - 제공된 프로펠러 너트를 사용하여 단단히 조입니다.
 
-     ![프로펠러 너트](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
+     ![프로펠러 너트](../../assets/hardware/px4_vision_devkit/propeller_nuts.png)
 
 
 ## 드론 회피 비행
@@ -217,33 +222,39 @@ PX4와 보조 컴퓨터는 다음 인터페이스를 사용하여 [MAVLink](http
 - [경로 계획 인터페이스](../computer_vision/path_planning_interface.md) - 자동 모드에서 회피 기능을 구현 API.
 - [충돌 방지 인터페이스](../computer_vision/collision_prevention.md) - 장애물 맵을 기반으로하는 수동 위치 모드에서 차량 기반 회피를위한 API (현재 충돌 방지에 사용됨).
 
+
+<!--
 <span id="install_image_mission_computer"></span>
-### 보조 컴퓨터에 이미지 설치
+### Installing the image on the Companion Computer
 
-*UP Core*에 이미지를 설치하고 내부 메모리(USB 스틱 대신)에서 부팅할 수 있습니다.
+You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
-내부 메모리 부팅이 훨씬 빠르며 USB 스틱보다 더 많은 메모리를 제공하며 USB 포트를 더 확보할 수 있습니다.
+This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick.
 
 :::note
-내장 메모리에서 부팅은 약 30 초가 걸리며, 제공된 USB2 스틱으로 부팅은 약 1분 정도 걸립니다(다른 카드는 더 오래 걸릴 수 있음).
+Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
 :::
 
-USB 이미지를 *UP Core*로 플래시하려면 :
+To flash the USB image to the *UP Core*:
 
-1. 사전 플래시된 USB 드라이브를 `USB1`이라고 표시된 *UP Core* 포트에 삽입합니다.
-1. [보조 컴퓨터에 로그인](#login_mission_computer)합니다(위 설명 참조).
-1. 터미널에서 다음 명령어를 실행하여 이미지를 내부 메모리 (eMMC)에 복사합니다. 터미널은 깜박이는 프로세스동안에 여러가지 응답을 요청합니다.
+1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
+1. [Login to the companion computer](#login_mission_computer) (as described above).
+1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
+   The terminal will prompt for a number of responses during the flashing process.
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
    sudo ./flash_emmc.sh
    ```
 
-:::note
-이 스크립트를 실행하면 *UP Core*에 저장된 모든 정보가 삭제됩니다.
+   :::note
+   All information saved in the *UP Core* computer will be removed when executing this script.
+
 :::
 
-1. USB 스틱을 꺼냅니다.
-1. 기체를 재부팅합니다. 이제 *UP Core* 컴퓨터가 내부 메모리 (eMMC)에서 부팅됩니다.
+1. Pull out the USB stick.
+1. Restart the vehicle.
+   The *UP Core* computer will now boot from internal memory (eMMC).
+-->
 
 ### 보조 컴퓨터 부팅
 

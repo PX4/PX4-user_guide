@@ -368,15 +368,9 @@ The parameters below are recommended for this build (the yellow parameters are t
 
 For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
 
-## 视频
-
-The video below shows this QAV250 on a test flight.
-
-@[youtube](https://youtu.be/MZzo4DMNkug)
-
 
 ## Acknowledgements
 
-This build log was provided by: *Abimael Suarez, 3DRobotics*. Video was provided by *Santiago Escala*, *3DRobotics*.
+This build log was provided by: *Abimael Suarez, 3DRobotics*.
 
 <!-- Open Questions/ACTIONS - Need to update with cross links to other PX4 docs. At moment many of these do not exist: Pixhawk wiring overviews, receivers, gps etc, flight modes. -Tidy up some of the diagrams do remove unnecessary complication (e.g. remove OS footer from QGroundControl screens) -->

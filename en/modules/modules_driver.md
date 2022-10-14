@@ -192,6 +192,27 @@ bst <command> [arguments...]
 
    status        print status info
 ```
+## crsf_rc
+Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
+
+
+### Description
+This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
+
+
+<a id="crsf_rc_usage"></a>
+### Usage
+```
+crsf_rc <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  RC device
+                 values: <file:dev>, default: /dev/ttyS3
+
+   stop
+
+   status        print status info
+```
 ## dshot
 Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/dshot)
 
@@ -404,6 +425,29 @@ gps <command> [arguments...]
 
    reset         Reset GPS device
      cold|warm|hot Specify reset type
+```
+## gz_bridge
+Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/gz_bridge)
+
+
+### Description
+
+
+<a id="gz_bridge_usage"></a>
+### Usage
+```
+gz_bridge <command> [arguments...]
+ Commands:
+   start
+     -m <val>    Fuel model name
+     -p <val>    Model Pose
+     -n <val>    Model name
+     -i <val>    PX4 instance
+     [-w <val>]  World name
+
+   stop
+
+   status        print status info
 ```
 ## ina226
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
@@ -671,6 +715,32 @@ modalai_esc <command> [arguments...]
 
    status        print status info
 ```
+## msp_osd
+Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/osd/msp_osd)
+
+
+### Description
+Msp OSD!
+
+### Implementation
+Does the things for the DJI Air Unit OSD
+
+### Examples
+CLI usage example:
+```
+msp_osd
+```
+
+
+<a id="msp_osd_usage"></a>
+### Usage
+```
+msp_osd <command> [arguments...]
+ Commands:
+   stop
+
+   status        print status info
+```
 ## newpixel
 Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/neopixel)
 
@@ -787,8 +857,6 @@ It is typically started with:
 pca9685_pwm_out start -a 64 -b 1
 ```
 
-Use the `mixer` command to load mixer files.
-`mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix`
 The number X can be acquired by executing
 `pca9685_pwm_out status` when this driver is running.
 
@@ -861,13 +929,6 @@ This module is responsible for driving the output pins. For boards without a sep
 (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the
 px4io driver is used for main ones.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
-On startup, the module tries to occupy all available pins for PWM/Oneshot output.
-It skips all pins already in use (e.g. by a camera trigger module).
-
-### Implementation
-By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
 <a id="pwm_out_usage"></a>
 ### Usage
@@ -881,7 +942,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_out_sim)
+Source: [modules/simulation/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/pwm_out_sim)
 
 
 ### Description

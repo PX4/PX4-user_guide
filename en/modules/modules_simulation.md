@@ -1,7 +1,7 @@
 # Modules Reference: Simulation
 
-## sih
-Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih)
+## simulator_sih
+Source: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
 
 
 ### Description
@@ -22,10 +22,10 @@ Most of the variables are declared global in the .hpp file to avoid stack overfl
 
 
 
-<a id="sih_usage"></a>
+<a id="simulator_sih_usage"></a>
 ### Usage
 ```
-sih <command> [arguments...]
+simulator_sih <command> [arguments...]
  Commands:
    start
 

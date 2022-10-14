@@ -1,7 +1,7 @@
 # 模块参考：仿真
 
-## sih
-Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih)
+## simulator_sih
+Source: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
 
 
 ### 说明
@@ -16,11 +16,11 @@ Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules
 
 
 
-<a id="sih_usage"></a>
+<a id="simulator_sih_usage"></a>
 
 ### 用法
 ```
-sih <command> [arguments...]
+simulator_sih <command> [arguments...]
  wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start

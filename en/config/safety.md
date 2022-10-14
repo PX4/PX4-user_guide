@@ -10,28 +10,28 @@ PX4 has a number of safety features to protect and recover your vehicle if somet
 
 ## Failsafe Actions
 
-Each failsafe defines its own set of actions.
-Some of the more common failsafe actions are:
+When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action.
+This gives the user time to notice what is happening and override the failsafe if needed.
+In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+
+The list below shows the set of all failsafe actions, ordered in increasing severity.
+Note that different types of failsafe may not support all of these actions.
 
 Action | Description
 --- | ---
-<a id="action_none"></a>None/Disabled | No action (the failsafe will be ignored).
-<a id="action_warning"></a>Warning | A warning message will be sent to *QGroundControl*.
+<a id="action_none"></a>None/Disabled | No action. The failsafe will be ignored.
+<a id="action_warning"></a>Warning | A warning message will be sent (i.e. to *QGroundControl*).
 <a id="action_hold"></a>[Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
 <a id="action_return"></a>[Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).
 <a id="action_land"></a>[Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
+<a id="action_disarm"></a>Disarm | Stops the motors immediately.
 <a id="action_flight_termination"></a>[Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
-<a id="action_lockdown"></a>Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill-switch).
 
-:::note
-It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
-For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
-:::
+If multiple failsafes are triggered, the more severe action is taken.
+For example if both RC and GPS are lost, and manual control loss is set to [Return mode](#action_return) and GCS link loss to [Land](action_land), Land is executed.
 
-:::note
-If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored.
-Instead the action is determined by separate system level and vehicle specific code.
-This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+:::tip
+The exact behavior when different failsafes are triggered can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
 :::
 
 ## QGroundControl Safety Setup
@@ -87,7 +87,7 @@ Setting | Parameter | Description
 --- | --- | ---
 <a id="COM_RC_LOSS_T"></a> RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Time after RC stops updating supplied data that the RC link is considered lost.
 <a id="COM_RCL_ACT_T"></a>RC Loss Action Timeout | [COM_RCL_ACT_T](../advanced_config/parameter_reference.md#COM_RCL_ACT_T) | Timeout after RC link loss waiting to recover RC before the failsafe action is triggered. In this stage the vehicle is in hold mode.
-<a id="NAV_RCL_ACT"></a>Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Disabled, Loiter, Return, Land, Terminate, Lockdown.
+<a id="NAV_RCL_ACT"></a>Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Disabled, Loiter, Return, Land, Disarm, Terminate.
 <a id="COM_RCL_EXCEPT"></a>RC Loss Exceptions | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard.
 
 ### Data Link Loss Failsafe
@@ -101,7 +101,7 @@ The settings and underlying parameters are shown below.
 Setting | Parameter | Description
 --- | --- | ---
 Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger.
-Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Hold mode, Return mode, Land mode, Terminate, Lockdown.
+Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Hold mode, Return mode, Land mode, Disarm, Terminate.
 
 
 ### Geofence Failsafe
@@ -279,7 +279,7 @@ During **flight**, the failure detector can be used to trigger [flight terminati
 Failure detection during flight is deactivated by default (enable by setting the parameter: [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM)).
 :::
 
-During **takeoff** the failure detector [attitude trigger](#attitude-trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions).
+During **takeoff** the failure detector [attitude trigger](#attitude-trigger) invokes the [disarm action](#action_disarm) if the vehicle flips (disarm kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions).
 Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
 
 The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), and [Manual (FW)](../flight_modes/manual_fw.md)).

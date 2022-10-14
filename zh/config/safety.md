@@ -8,26 +8,24 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 ## 故障保护动作
 
-Each failsafe defines its own set of actions. Some of the more common failsafe actions are:
+When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action. This gives the user time to notice what is happening and override the failsafe if needed. In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+
+The list below shows the set of all failsafe actions, ordered in increasing severity. Note that different types of failsafe may not support all of these actions.
 
 | 动作                                                                        | 描述                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="action_none"></a>无/禁用                                             | 无动作 (故障保护将被忽略)。                                                                                                                                                                                                                                    |
-| <a id="action_warning"></a>警告                                               | A warning message will be sent to *QGroundControl*.                                                                                                                                                                                                |
+| <a id="action_none"></a>无/禁用                                             | No action. The failsafe will be ignored.                                                                                                                                                                                                           |
+| <a id="action_warning"></a>警告                                               | A warning message will be sent (i.e. to *QGroundControl*).                                                                                                                                                                                         |
 | <a id="action_hold"></a>[保持模式](../flight_modes/hold.md)                  | The vehicle will enter *Hold mode*. 对于多旋翼飞行器，这意味着飞行器将悬停，而对于固定翼飞行器，飞行器将盘旋。                                                                                                                                                                          |
 | <a id="action_return"></a>[返航模式](../flight_modes/return.md)                | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).                                                                                                                    |
 | <a id="action_land"></a>[降落模式](../flight_modes/land.md)                  | The vehicle will enter *Land mode*, and lands immediately.                                                                                                                                                                                         |
+| <a id="action_disarm"></a>Disarm                                           | Stops the motors immediately.                                                                                                                                                                                                                      |
 | <a id="action_flight_termination"></a>[飞行终止](../advanced_config/flight_termination.md) | 关闭所有控制器并将所有 PWM 输出设置为其故障保护值（例如 [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1)，[PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) 等输出）。 故障保护输出可用于启动降落伞、起落架或执行其他操作。 对于固定翼飞行器，这可能允许您将机体滑翔至安全位置。 |
-| <a id="action_lockdown"></a>锁定                                               | 制动发动机（使其上锁）。  This is the same as using the [kill switch](#kill-switch).                                                                                                                                                                           |
 
-:::note
-It is possible to recover from a failsafe action (if the cause is fixed) by switching modes. For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
-:::
+If multiple failsafes are triggered, the more severe action is taken. For example if both RC and GPS are lost, and manual control loss is set to [Return mode](#action_return) and GCS link loss to [Land](action_land), Land is executed.
 
-:::note
-If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored.
-Instead the action is determined by separate system level and vehicle specific code.
-This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+:::tip
+The exact behavior when different failsafes are triggered can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
 :::
 
 ## QGroundControl 安全设置
@@ -76,7 +74,7 @@ Additional (and underlying) parameter settings are shown below.
 | ----------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | <a id="COM_RC_LOSS_T"></a> 遥控信号丢失超时               | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | Time after RC stops updating supplied data that the RC link is considered lost.                                                      |
 | <a id="COM_RCL_ACT_T"></a>RC Loss Action Timeout | [COM_RCL_ACT_T](../advanced_config/parameter_reference.md#COM_RCL_ACT_T)   | Timeout after RC link loss waiting to recover RC before the failsafe action is triggered. In this stage the vehicle is in hold mode. |
-| <a id="NAV_RCL_ACT"></a>故障保护动作                 | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 禁用，悬停，返航，降落，终止，锁定。                                                                                                                   |
+| <a id="NAV_RCL_ACT"></a>故障保护动作                 | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | Disabled, Loiter, Return, Land, Disarm, Terminate.                                                                                   |
 | <a id="COM_RCL_EXCEPT"></a>RC Loss Exceptions    | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard.                                                        |
 
 ### 数据链路丢失故障保护
@@ -87,10 +85,10 @@ The Data Link Loss failsafe is triggered if a telemetry link (connection to grou
 
 The settings and underlying parameters are shown below.
 
-| 设置       | 参数                                                                         | 描述                   |
-| -------- | -------------------------------------------------------------------------- | -------------------- |
-| 数据链路丢失超时 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 数据连接断开后到故障保护触发之前的时间。 |
-| 故障保护动作   | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | 禁用，悬停，返航，降落，终止，锁定。   |
+| 设置       | 参数                                                                         | 描述                                                              |
+| -------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| 数据链路丢失超时 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 数据连接断开后到故障保护触发之前的时间。                                            |
+| 故障保护动作   | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Disarm, Terminate. |
 
 
 ### 地理围栏故障保护
@@ -253,7 +251,7 @@ During **flight**, the failure detector can be used to trigger [flight terminati
 Failure detection during flight is deactivated by default (enable by setting the parameter: [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM)).
 :::
 
-During **takeoff** the failure detector [attitude trigger](#attitude-trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions). Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
+During **takeoff** the failure detector [attitude trigger](#attitude-trigger) invokes the [disarm action](#action_disarm) if the vehicle flips (disarm kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions). Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
 
 The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), and [Manual (FW)](../flight_modes/manual_fw.md)).
 
