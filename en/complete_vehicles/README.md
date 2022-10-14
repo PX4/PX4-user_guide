@@ -16,7 +16,6 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
   * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 * Multicopter
   * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI Sentinel](https://modalai.com/products/sentinel)
   * [ModalAI m500](https://www.modalai.com/pages/sentinel)
   * [ModalAI Sentinel](https://www.modalai.com/products/sentinel-development-drone)
 * VTOL
