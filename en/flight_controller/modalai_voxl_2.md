@@ -25,11 +25,11 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | OS                                                                            | Ubuntu 18.04 - Linux Kernel v4.19                                |
 | GPU                                                                           | Adreno 650 GPU – 1024 ALU                                        |
 | NPU                                                                           | 15 TOPS                                                          |
-| Flight Controller Embedded                                                    | Yes (Sensors DSP)                                                |
+| Flight Controller Embedded                                                    | Yes (Sensors DSP, PX4)                                           |
 | Built in WiFi                                                                 | No                                                               |
 | Add-on Connectivity                                                           | WiFi, 5G, 4G/LTE, Microhard                                      |
 | Video Encoding                                                                | 8K30 h.264/h.265 108MP still images                              |
-| Computer Vision Sensors                                                       | QTY. 2 Stereo Pair<br>QTY. 1 Tracking                            |
+| Computer Vision Sensors                                                       | QTY 6 4-lane CSI, QTY4 CCI (e.g. 2 stereo pair, hires, tracking) |
 | Tracking Sensor                                                               | Yes                                                              |
 | Dimensions                                                                    | 70mm x 36mm                                                      |
 | Weight                                                                        | 16g                                                              |
@@ -38,7 +38,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | QGroundControl                                                                | Yes                                                              |
 | ATAK                                                                          | Yes                                                              |
 | NDAA ’20 Section 848 Compliant                                                | Yes, Assembled in USA                                            |
-| PMD TOF                                                                       | Pending                                                          |
+| PMD TOF                                                                       | Yes (SDK 1.0 and newer)                                          |
 | FLIR Boson                                                                    | USB                                                              |
 | FLIR Lepton                                                                   | USB, SPI in development                                          |
 
@@ -61,12 +61,17 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 
 ## PX4 Firmware Compatibility
 
+### voxl-dev branch
+
 *VOXL 2* is currently being mainlined into PX4, and ModalAI is actively working on a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/voxl-dev) that can be used.
 
 As VOXL 2 runs Ubuntu, the production releases of PX4 for VOXL 2 are distributed through [apt package management](https://docs.modalai.com/configure-pkg-manager/) and the [VOXL SDK](https://docs.modalai.com/voxl-sdk/).
 
 More information about the firmware can be found [here](https://docs.modalai.com/voxl2-px4-developer-guide/).
 
+### main branch
+
+The goal is PX4 mainline support, and this is a work in progress currently started [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)
 
 ## QGroundControl Support
 
@@ -74,24 +79,29 @@ This board supported in QGroundControl 4.0 and later.
 
 ## Availability
 
-- [VOXL Flight Complete Kit](https://modalai.com/voxl-flight)
-- [VOXL Flight Board](https://www.modalai.com/products/voxl-flight?variant=31707275362355) (only)
-- [VOXL Flight integrated with Obstacle Avoidance Cameras (VOXL Flight Deck)](https://modalai.com/flight-deck) ([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
-- [VOXL Flight in a ready to fly VOXL m500 Development Drone](https://www.modalai.com/collections/development-drones/products/voxl-m500) ([Datasheet](https://docs.modalai.com/voxl-m500-reference-drone-datasheet/))
-
+- [Sentinel Development Drone powered by VOXL 2](https://www.modalai.com/pages/sentinel)
+  - [Demo Video](https://www.youtube.com/watch?v=hMhQgWPLGXo)
+- [VOXL 2 Flight Deck, ready to mount, tune and fly](https://www.modalai.com/collections/ready-to-mount/products/voxl-2-flight-deck)
+- [VOXL 2 Development Kits](https://www.modalai.com/products/voxl-2)
+  - [Demo Video](https://www.youtube.com/watch?v=aVHBWbwp488)
 
 ## Quick Start
 
-A quickstart from the vendor is located [here](https://docs.modalai.com/voxl-flight-quickstart/).
+Quickstarts from the vendor are located [here](https://docs.modalai.com/voxl2-quickstarts/).
 
-### voxl-vision-px4
+### VOXL SDK
 
-The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the  companion computer portion of the hardware serving as a sort of MAVLink proxy.
-For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)
+VOXL SDK (Software Development Kit) consists of the open source [voxl-px4](https://docs.modalai.com/voxl-px4/), [core libraries](https://docs.modalai.com/core-libs/), [services](https://docs.modalai.com/mpa-services/), [tools](https://docs.modalai.com/inspect-tools/), [utilities](https://docs.modalai.com/sdk-utilities/), and [build environments](https://docs.modalai.com/build-environments/) that ModalAI provide to accelerate the use and development of VOXL compute boards and accessories.
+
+VOXL SDK runs on VOXL, VOXL 2 and RB5 Flight!
+
+The source code for projects within VOXL SDK can be found at https://gitlab.com/voxl-public alongside build instructions.
 
 ### Connectors
 
-Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl-flight-datasheet-connectors/).
+Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl2-connectors/) along with a [video overview here](https://www.youtube.com/watch?v=xmqI3msjqdo)
+
+![VOXLConnectors](../../assets/flight_controller/modalai/voxl_2/voxl-2-connectors.jpg)
 
 All single ended signals on B2B connectors J3, J5, J6, J7, and J8 are 1.8V CMOS unless explicitly noted. 
 All single ended signals on cable-to-board connectors J10, J18, & J19 are 3.3V CMOS unless explicitly noted.
@@ -113,34 +123,16 @@ All single ended signals on cable-to-board connectors J10, J18, & J19 are 3.3V C
 
 ### User Guide
 
-The full user guide is available [here](https://docs.modalai.com/voxl-flight-quickstart).
+The PX4 user guide for VOXL 2 is available [here](https://docs.modalai.com/voxl-px4/).
 
+### Developer Guide
+
+The PX4 developer guide for VOXL 2 is available [here](https://docs.modalai.com/voxl-px4-developer-guide/).
 
 ### How to Build
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
-
-```
-make modalai_fc-v1
-```
-
-## Serial Port Mapping
-
-*Note: mappings shown are for the PX4 controlled interfaces only*
-
-UART | Device | Port
---- | --- | ---
-USART1 | /dev/ttyS0 | GPS1 (J1012) |
-USART2 | /dev/ttyS1 | TELEM3 (J1002) |
-USART3 | /dev/ttyS2 | Debug Console (J1001) |
-UART4 | /dev/ttyS3 | Expansion UART (J6) |
-UART5 | /dev/ttyS4 | UART between PX4 and Companion Computer |
-USART6 | /dev/ttyS5 | RC (J1004)
-UART7 | /dev/ttyS6 | TELEM1 (J1010)
-UART8 | /dev/ttyS7 | N/A
-
-<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+See the [VOXL PX4 Build Guide](https://docs.modalai.com/voxl2-px4-build-guide/) on how to build.
 
 ## Support
 
-Please visit the [ModalAI Forum](https://forum.modalai.com/category/8/voxl-flight) for more information.
+Please visit the [ModalAI Forum](https://forum.modalai.com/category/26/voxl-2) for more information.
