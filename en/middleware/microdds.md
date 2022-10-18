@@ -35,3 +35,34 @@ The *Agent* runs as a daemon process that's defined by what the clients defines 
 
 #### microdds Communication
 microDDS has APIs that allow writing time-critical applications and can be used over many transport protocols supporting TCP,UDP over Ethernet Wi-Fi & 6LoWPAN and Bluetooth. The user can also customise this making microDDS transport-agnostic.
+
+## Test
+
+Let’s test! 
+You can check the microdds running using a grep command (ps aux | grep micro)
+
+TERMINAL 1
+
+Start your favorite simulation model, we’re gonna go with the default. 
+
+```sh
+cd ~/PX4_Autopilot #Into your Autopilot folder
+make px4_sitl gazebo 
+```
+Gazebo must open and you can check the micro-dds client running with the following command
+
+```sh
+microdds_client status #Checks client status 
+```
+![Simulation](../../assets/middleware/microdds/simulation.png)
+
+TERMINAL 2
+
+```sh
+cd ~/px4_ros2_ws #Intro your ROS2 directory 
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 topic list -v #Displays available topic 
+ros2 topic echo fmu/out/vehicle_status #You can check any available topic
+```
+![ROS2 Topic](../../assets/middleware/microdds/topic.png)
