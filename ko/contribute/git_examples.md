@@ -24,7 +24,7 @@ PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4�
   ```sh
   git remote -v
   ```
-* 현재 마스터에 변경 작업을 추가합니다.
+* Make the changes that you want to add to the current main.
 * 기능을 나타내는 의미 있는 이름으로 새 분기를 생성합니다.<br>
   ```sh
   git checkout -b <your feature branch name>
@@ -40,21 +40,21 @@ PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4�
   git commit -m "<your commit message>"
   ```
 적절한 커밋 메시지 예들은 [기여](../contribute/README.md) 섹션을 참고하십시오.
-* 시간이 지나서, [업스트림 마스터](https://github.com/PX4/PX4-Autopilot.git)가 변경되었을 수 있습니다. PX4는 선형 커밋 기록을 선호하며, [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)를 사용합니다. 업스트림의 최신 변경 사항을 로컬 브랜치에 포함하려면, 마스터 브랜치로 전환합니다.<br>
+* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4는 선형 커밋 기록을 선호하며, [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)를 사용합니다. To include the newest changes from upstream in your local branch, switch to your main branch<br>
   ```sh
-  git checkout master
+  git checkout main
   ```
-  그런 다음, 업스트림 마스터에서 최신 커밋을 가져옵니다.<br>
+  Then pull the newest commits from upstream main<br>
   ```sh
-  git pull upstream master
+  git pull upstream main
   ```
-  이제 로컬 마스터 브랜치는 최신입니다. 기능을 추가하는 브랜치로 되돌아 갑니다.<br>
+  Now your local main is up to date. 기능을 추가하는 브랜치로 되돌아 갑니다.<br>
   ```sh
   git checkout <your feature branch name>
   ```
-  업데이트된 마스터를 기반으로 리베이스합니다.<br>
+  and rebase on your updated main<br>
   ```sh
-  git rebase master
+  git rebase main
   ```
 * 이제 로컬 커밋을 분기된 저장소로 푸시할 수 있습니다.<br>
   ```sh
@@ -87,7 +87,7 @@ PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4�
 하위 모듈을 업데이트하는 방법에는 여러 가지가 있습니다. 저장소를 복제하거나 하위 모듈 디렉토리로 이동하여 [PX4에 코드 기여](#contributing_code)와 동일한 방법으로 진행합니다.
 
 ## 하위 모듈 업데이트에 대한 풀 요청 실행
-이것은 하위 모듈 X 저장소에 대한 풀 요청을 실행하고, 버그 수정/기능 추가가 하위 모듈 X의 현재 마스터에에서 요구됩니다. 펌웨어는 업데이트 전에 커밋을 가리키므로, 펌웨어에서 사용하는 하위 모듈이 최신 커밋을 가리키도록 하위 모듈에 대한 풀 요청이 필요합니다.
+This is required after you have done a PR for a submodule X repository and the bug-fix / feature-add is in the current main of submodule X. Since the Firmware still points to a commit before your update, a submodule pull request is required such that the submodule used by the Firmware points to the newest commit.
 ```sh
 cd Firmware
 ```
@@ -99,10 +99,10 @@ cd Firmware
   ```sh
   cd <path to submodule>
   ```
-* PX4 하위 모듈이 반드시 최신 커밋을 가리킬 필요는 없습니다. 따라서, 먼저 마스터를 체크아웃하고 최신 업스트림 코드를 가져옵니다.
+* PX4 하위 모듈이 반드시 최신 커밋을 가리킬 필요는 없습니다. Therefore, first checkout main and pull the newest upstream code.
   ```sh
-  git checkout master
-  git pull upstream master
+  git checkout main
+  git pull upstream main
   ```
 * Firmware 디렉토리로 돌아가서, 평소처럼 변경 사항을 추가, 커밋 및 푸시합니다.
   ```sh
@@ -131,7 +131,7 @@ git checkout <branch name>
 
 ### 분기된 저장소로 강제 푸시
 
-첫 번째 풀 요청후에, PX4 커뮤니티의 사람들이 변경 사항을 검토합니다. 대부분의 경우 검토에 따라 로컬 지점을 수정하여야 함을 의미합니다. 파일을 로컬로 변경한 후 기능 분기를 가장 최근의 업스트림/마스터로 다시 기반으로 지정하여야 합니다. 그러나, 리베이스 후에는 더 이상 기능 분기를 분기된 저장소에 직접 푸시할 수 없지만, 대신 강제 푸시를 사용하여야 합니다.
+첫 번째 풀 요청후에, PX4 커뮤니티의 사람들이 변경 사항을 검토합니다. 대부분의 경우 검토에 따라 로컬 지점을 수정하여야 함을 의미합니다. After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/main. 그러나, 리베이스 후에는 더 이상 기능 분기를 분기된 저장소에 직접 푸시할 수 없지만, 대신 강제 푸시를 사용하여야 합니다.
 ```sh
 git push --force-with-lease origin <your feature branch name>
 ```

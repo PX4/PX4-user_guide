@@ -9,6 +9,7 @@ PX4 takes desired torque and thrust commands from the core controllers and trans
 
 The translation depends on the physical geometry of the airframe.
 For example, given a torque command to "turn right" (say):
+
 - A plane with one servo per aileron will command one of servo high and the other low.
 - A multicopter will yaw right by changing the speed of all motors.
 
@@ -55,9 +56,9 @@ Any uORB topic can be subscribed and assigned to a function.
 Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml)
 The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
 
-## Setting the Default Airframe Geometry
+## Setting the Default Frame Geometry
 
-When [adding a new airframe configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and and other default values for the mixer.
+When [adding a new frame configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and other default mixer values for the geometry.
 
 You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
 ```
@@ -69,15 +70,8 @@ param set-default CA_ROTOR0_PY 0.2
 ...
 ```
 
-:::note
-The `CA_*` parameters will replace the mixer definition used by default in PX4 v1.13 and earlier:
-```
-set MIXER vtol_tailsitter_duo
-```
-:::
+## Setting up Geometry and Outputs
 
-## Setting up Geometry Mixer and Outputs
+The broad geometry and default parameters for a vehicle are set (from the frame configuration file) when selecting the airframe in QGroundControl: [Basic Configuration > Airframe](../config/airframe.md).
 
-The broad geometry and default parameters for a vehicle are set (from the airframe configuration file) when selecting the airframe in QGroundControl: [Basic Configuration > Airframe](../config/airframe.md).
-
-The mixer geometry parameters and output mapping for the specific frame and flight controller hardware are then configured using the QGroundControl **Actuators** setup screen: [Basic Configuration > Actuator Configuration and Testing](../config/actuators.md).
+The geometry parameters and output mapping for the specific frame and flight controller hardware are then configured using the QGroundControl **Actuators** setup screen: [Basic Configuration > Actuator Configuration and Testing](../config/actuators.md).

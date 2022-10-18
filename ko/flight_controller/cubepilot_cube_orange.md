@@ -101,20 +101,20 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ## 시리얼 포트 매핑
 
-| UART   | 장치         | 포트                                       |
-| ------ | ---------- | ---------------------------------------- |
-| USART1 | /dev/ttyS0 | <!-- # IO DEBUG:/dev/ttyS0 -->
-|
-| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어)                           |
-| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)                           |
-| UART4  | /dev/ttyS3 | GPS1                                     |
-| USART6 | /dev/ttyS4 | PX4IO                                    |
-| UART7  | /dev/ttyS5 | 콘솔                                       |
-| UART8  | /dev/ttyS6 | GPS2                                     |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| USART1 | /dev/ttyS0 | TELEM1 (흐름 제어) |
+| USART2 | /dev/ttyS1 | TELEM2 (흐름 제어) |
+| USART3 | /dev/ttyS2 | GPS1           |
+| UART4  | /dev/ttyS3 | PX4IO          |
+| USART6 | /dev/ttyS4 |                |
+| UART7  | /dev/ttyS5 | 콘솔             |
+| UART8  | /dev/ttyS6 | GPS2           |
+
   
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/default.px4board -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/default.px4board -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/nuttx-config/nsh/defconfig#L188-L197 -->
 
 
 ### 디버그 포트
