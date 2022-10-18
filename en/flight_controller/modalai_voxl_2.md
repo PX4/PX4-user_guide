@@ -58,12 +58,11 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 
 [3D STEP File](https://storage.googleapis.com/modalai_public/modal_drawings/M0054_VOXL2_PVT_SIP_REVA.step)
 
-
 ## PX4 Firmware Compatibility
 
 ### voxl-dev branch
 
-*VOXL 2* is currently being mainlined into PX4, and ModalAI is actively working on a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/voxl-dev) that can be used.
+ModalAI is actively working on a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/voxl-dev) that can be used.
 
 As VOXL 2 runs Ubuntu, the production releases of PX4 for VOXL 2 are distributed through [apt package management](https://docs.modalai.com/configure-pkg-manager/) and the [VOXL SDK](https://docs.modalai.com/voxl-sdk/).
 
@@ -71,7 +70,7 @@ More information about the firmware can be found [here](https://docs.modalai.com
 
 ### main branch
 
-The goal is PX4 mainline support, and this is a work in progress currently started [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)
+PX4 mainline support is a work in progress (currently started [here](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/voxl2)).
 
 ## QGroundControl Support
 
@@ -95,7 +94,7 @@ VOXL SDK (Software Development Kit) consists of the open source [voxl-px4](https
 
 VOXL SDK runs on VOXL, VOXL 2 and RB5 Flight!
 
-The source code for projects within VOXL SDK can be found at https://gitlab.com/voxl-public alongside build instructions.
+The source code for projects within VOXL SDK can be found at https://gitlab.com/voxl-public, alongside build instructions.
 
 ### Connectors
 
@@ -103,7 +102,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 
 ![VOXLConnectors](../../assets/flight_controller/modalai/voxl_2/voxl-2-connectors.jpg)
 
-All single ended signals on B2B connectors J3, J5, J6, J7, and J8 are 1.8V CMOS unless explicitly noted. 
+All single ended signals on B2B connectors J3, J5, J6, J7, and J8 are 1.8V CMOS unless explicitly noted.
 All single ended signals on cable-to-board connectors J10, J18, & J19 are 3.3V CMOS unless explicitly noted.
 
 | Connector | Description                   | MPN (Board Side)        | Mating MPN (Board/Cable Side) | Type                         | Signal Feature Summary                                                                                                                                                                                     |
