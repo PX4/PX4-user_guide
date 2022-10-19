@@ -30,18 +30,13 @@ The diagram below shows the division of bus and functional responsibilities betw
 
 Some Pixhawk-series controllers are built without the I/O board in order to reduce space or complexity, or to better address certain board use-cases.
 
-The I/O board is disabled by setting parameter [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO).
-When the I/O board is disabled: 
-- The MAIN mixer file is loaded into the FMU (so the "MAIN" outputs listed in the [Airframe Reference](../airframes/airframe_reference.md) appear on the port labeled AUX). 
-  The AUX mixer file isn't loaded, so outputs defined in this file are not used.
-- RC input goes directly to the FMU rather than via the IO board. 
-
-Flight controllers without an I/O board have `MAIN` ports, but they *do not* have `AUX` ports.
-Consequently they can only be used in [airframes](../airframes/airframe_reference.md) that do not use `AUX` ports, or that only use them for non-essential purposes (e.g. RC passthrough).
-They can be used for most multicopters and *fully* autonomous vehicles (without a safety pilot using RC control), as these typically only use `MAIN` ports for motors/essential controls.
+In this case [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) is set to `0` so that the I/O driver is not started.
+Because there are no I/O board outputs, the [Actuator Configuration](../config/actuators.md) will not display the MAIN tab.
+Airframe actuator configurations should typically assign essential outputs to the AUX outputs (FMU) so that the configuration can still be used on controllers that do not have MAIN outputs (I/O board).
 
 :::warning
-Flight controllers without an I/O board cannot be used in [airframes](../airframes/airframe_reference.md) that map any `AUX` ports to essential flight controls or motors (as they have no `AUX` ports).
+Flight controllers that do not have an IO board only have the FMU PWM AUX bus.
+While this will appear as AUX in the actuator configuration UI, the physical device may be printed with "MAIN" (this is for historical reasons, where "MAIN" meant "essential outputs" and was not linked to outputs from a particular bus).
 :::
 
 :::note
