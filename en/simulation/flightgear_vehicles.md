@@ -121,7 +121,7 @@ The file content meaning is as follows:
 * `FgModel` - a precise case sensitive name of the FlightGear model corresponding to "XXXX-set.xml" in the model directory (where XXXX is the model name).
 * `Url` is optional and it is not currently used. It is intended for future use to auto-download the models from web
 * `Controls` - the most important part of the process of adding a vehicle. This section contains the mapping between the PX4 mixer file and [FlightGear property tree](http://wiki.flightgear.org/Property_tree).
-  * The first number in a list selects a PX4 mixer output. 
+  * The first number in a list selects a PX4 mixer output.
   * Path string is a FlightGear variable location in the property tree.
  * The last number in a list is a multiplier, allowing inversion or scaling of mixer input. 
 
