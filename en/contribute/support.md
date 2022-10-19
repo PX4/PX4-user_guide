@@ -9,7 +9,7 @@ This section shows how you can get help from the core dev team and the wider com
 
 ## Forums and Chat
 
-The core development team and community are active on the following platforms.
+The core development team and community are active on the following channels.
 
 <a href="https://discord.gg/dronecode" style="padding:20px" ><img src="../../assets/site/logo_discord.png" alt="Discord Logo" width="110px"/></a>
 
