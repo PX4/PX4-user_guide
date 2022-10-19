@@ -17,7 +17,7 @@ The general requirements for all supported boards are:
 1. The hardware must be available in the market.
 1. The boards may not have blocking hardware bugs or unacceptable quality that make it impossible or dangerous to use the board with PX4 on a UAV. Board needs to pass acceptance criteria to ensure quality of parts and assembly.
 1. A clear and easy way to contact customer support for customers. One or more of the following is accepted:
-   - Slack channel presence
+   - PX4 Discord server presence
    - Support email
    - Phone number
 
@@ -119,13 +119,13 @@ Integrate the board according to the board porting release process described in 
 
 :::warning
 The board support process may be changed and improved over time.
-Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Slack.
+Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Discord.
 :::
 
 ## Support
 
 If parts of the board support guide/process are not clear:
 
-- Ask the community for help on Slack channel `#hardware` or on the discuss forums
+- Ask the community for help on Discord channels under `Hardware` category, or on the discuss forum
 - Attend the regular hardware call
 - Consultancy options are listed here: [https://px4.io/community/consultants/](https://px4.io/community/consultants/)
