@@ -39,4 +39,4 @@ The second part of the meeting is for in-depth technical discussions and open en
 * **Join the call**: [https://meet.jit.si/PX4DeveloperCallWeekly](https://meet.jit.si/PX4DeveloperCallWeekly)
 
 * Agenda is published before the call on [PX4 Discuss - weekly-dev-call](https://discuss.px4.io//c/weekly-dev-call)
-* To nominate Issues and PRs for the call you can use the [devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall) label to flag them for discussion.
+* To nominate Issues and PRs for the call you can use the [Dev Call](https://github.com/PX4/PX4-Autopilot/labels/Dev%20Call) label to flag them for discussion.
