@@ -7,19 +7,19 @@
 
 This section shows how you can get help from the core dev team and the wider community.
 
-<a id="support"></a>
-
 ## 论坛和聊天
 
-The core development team and community are active on the following forums and chat channels.
+The core development team and community are active on the following channels.
 
-* [PX4 Discuss](http://discuss.px4.io/)（*推荐*）
-* [Slack](https://px4.slack.com) ([join link](https://join.slack.com/t/px4/shared_invite/zt-si4xo5qs-R4baYFmMjlrT4rQK5yUnaA))
+<a href="https://discord.gg/dronecode" style="padding:20px" ><img src="../../assets/site/logo_discord.png" alt="Discord Logo" width="110px"/></a>
+
+<a href="https://discuss.px4.io/" style="padding:20px" ><img src="../../assets/site/logo_pro_small.png" alt="PX4 Discuss Forum Logo" width="110px"/></a>
 
 :::tip
-Post on [PX4 Discuss](https://discuss.px4.io//) first! If you don't get a response in a few days then ping us on Slack with a link to your question (on discuss).
+Post on [PX4 Discuss](https://discuss.px4.io/) first! Discuss is indexed by search engines and serves as a common knowledge base
 
-Discuss is better than slack in the first instance because questions and answers are permanent.
+If you don't get a response in a few days then ping us on Discord with a link to the post.
+
 :::
 
 ## Diagnosing Problems
@@ -27,16 +27,13 @@ Discuss is better than slack in the first instance because questions and answers
 在议程中，为重大影响的回拉请求，给与回答。
 
 * Upload logs to [Flight Log Review](https://logs.px4.io/)
-* Open a discussion on [PX4 Discuss](https://discuss.px4.io//) with a flight report and links to logs.
+* Open a discussion on [PX4 Discuss](https://discuss.px4.io/c/flight-testing/) with a flight report and links to logs.
 * The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
 
 ## Issue & Bug Reporting
 
 * Upload logs to [Flight Log Review](https://logs.px4.io/)
 * [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues) with a flight report with as much detail as possible and links to logs.
-
-
-<a id="dev_call"></a>
 
 ## 每周开发通讯
 
@@ -54,9 +51,3 @@ There is also space in the agenda to discuss pull requests, major impacting issu
 The Dronecode test team can help review (test flight) your pull requests and provide feedback and logs.
 
 See [Test Flights](../test_and_ci/test_flights.md) for information about available test vehicles/autopilots, how to request flights, and response times.
-
-
-## General Support
-
-* [加入我们的 Slack 社区](https://slack.px4.io/)
-* [发布一条讨论](https://discuss.px4.io/)
