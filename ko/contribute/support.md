@@ -7,19 +7,19 @@
 
 이 절에서는 핵심 개발팀과 커뮤니티의 지원을 받는 방법을 알려드립니다.
 
-<a id="support"></a>
-
 ## 포럼 및 채팅
 
-핵심 개발 팀과 커뮤니티는 다음 포럼과 대화 채널에서 활동합니다.
+The core development team and community are active on the following channels.
 
-* [PX4 토론](http://discuss.px4.io/) (*권장*)
-* [Slack](https://px4.slack.com) ([join link](https://join.slack.com/t/px4/shared_invite/zt-si4xo5qs-R4baYFmMjlrT4rQK5yUnaA))
+<a href="https://discord.gg/dronecode" style="padding:20px" ><img src="../../assets/site/logo_discord.png" alt="Discord Logo" width="110px"/></a>
+
+<a href="https://discuss.px4.io/" style="padding:20px" ><img src="../../assets/site/logo_pro_small.png" alt="PX4 Discuss Forum Logo" width="110px"/></a>
 
 :::tip
-먼저 [PX4 토론](http://discuss.px4.io/)에 게시하세요! 며칠 내에 답변을받지 못하면 Slack에서 질문에 대한 링크 (토론 중)를 사용하여 저희에게 알려주십시오.
+Post on [PX4 Discuss](https://discuss.px4.io/) first! Discuss is indexed by search engines and serves as a common knowledge base
 
-Slck에서의 질문/답변은 기록으로 남기 때문에, 처음에는 토론을 사용하실 것을 추천드립니다.
+If you don't get a response in a few days then ping us on Discord with a link to the post.
+
 :::
 
 ## 문제 진단
@@ -27,16 +27,13 @@ Slck에서의 질문/답변은 기록으로 남기 때문에, 처음에는 토�
 문제의 원인이 무엇인지 확실하지 않고 문제 분석의 도움을 원하시면,
 
 * [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
-* [PX4 토론](http://discuss.px4.io/)에 글을 올리시고, 비행 보고서와 로그 링크를 제출하십시오.
+* Open a discussion on [PX4 Discuss](https://discuss.px4.io/c/flight-testing/) with a flight report and links to logs.
 * The dev team may prompt you to [raise an issue](#issue-bug-reporting) if the problem is caused by a bug.
 
 ## 문제와 버그 보고
 
 * [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
 * [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues) with a flight report with as much detail as possible and links to logs.
-
-
-<a id="dev_call"></a>
 
 ## 주간 온라인 개발자 회의
 
@@ -54,9 +51,3 @@ Pull 요청, 주요 현안, Q&A를 의논하는 시간도 있습니다.
 드론코드 시험 팀에서는 여러분이 보낸 pull 요청의 검토(시험 비행)를 지원할 수 있고 기록에 대한 의견을 제시할 수 있습니다.
 
 진행할 기체 시험, 자동 운항 시험, 운항 요청 방법, 결과 응답 시간 정보는 [시험 비행](../test_and_ci/test_flights.md)을 참고 하십시오.
-
-
-## 일반 지원
-
-* [Slack 커뮤니티 가입](https://slack.px4.io/)
-* [토론 개설](https://discuss.px4.io/)
