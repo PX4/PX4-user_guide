@@ -39,4 +39,4 @@ PX4 개발 팀은 플랫폼 기술 세부내역과 심층 분석 내역을 정�
 * **통화 참여** : [https://meet.jit.si/PX4DeveloperCallWeekly](https://meet.jit.si/PX4DeveloperCallWeekly)
 
 * 온라인 미팅 진행전에 [PX4 토론 - 주간 온라인 개발자 회의](http://discuss.px4.io/c/weekly-dev-call)에 의제를 게시할 예정입니다
-* 유선 미팅에서 문제나 PR을 다루려면 해당 내용에 [devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall) 레이블을 달아 의제로 표기할 수 있습니다.
+* To nominate Issues and PRs for the call you can use the [Dev Call](https://github.com/PX4/PX4-Autopilot/labels/Dev%20Call) label to flag them for discussion.
