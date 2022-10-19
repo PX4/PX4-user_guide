@@ -211,8 +211,8 @@ The inputs into this block are called "virtual" as, depending on the current VTO
 For a standard and tilt-rotor VTOL, during transition the fixed-wing attitude controller produces the rate setpoints, which are then fed into the separate rate controllers, resulting in torque commands for the multicopter and fixed-wing actuators.
 For tailsitters, during transition the multicopter attitude controller is running.
 
-The outputs of the VTOL attitude block are separate torque and force commands for the multicopter (typically `actuator_controls_0`) and fixed-wing (typically `actuator_controls_1`) actuators. 
-These are handled in an airframe-specific mixer file (see [Mixing](../concept/mixing.md)). 
+The outputs of the VTOL attitude block are separate torque and force commands for the multicopter and fixed-wing actuators (two instances for `vehicle_torque_setpoint` and `vehicle_thrust_setpoint`). 
+These are handled in an airframe-specific control allocation class.
 
 For more information on the tuning of the transition logic inside the VTOL block, see [VTOL Configuration](../config_vtol/README.md).
 
