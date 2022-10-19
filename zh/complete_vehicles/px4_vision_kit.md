@@ -338,10 +338,10 @@ The kit is designed for creating computer vision software that runs on the compa
 - 加载新固件后选择 *PX4 Vision DevKit* 机架： ![机身选择 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
-Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
 :::
 
-## 其他拓展资源
+## PX4 Vision Carrier Board Pinouts
 
 软件问题，请使用以下社区支持频道：
 
@@ -360,6 +360,5 @@ Modification of PX4 code is not *needed* to meet most computer vision use cases.
 For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following community support channels:
-- [PX4 discuss](https://discuss.px4.io/)
-- [PX4 slack](https://slack.px4.io/) 频道：#avoidance
 - [Holybro PX4 Vision Wikifactory 资料库](https://wikifactory.com/+holybro/px4-vision)
+- [PX4 Support channels](../contribute/support.md)
