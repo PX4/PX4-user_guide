@@ -27,26 +27,24 @@ The output is set using the [MNT_MODE_OUT](../advanced_config/parameter_referenc
 By default the output is set to a PXM port (`AUX (0)`).
 If the [MAVLink Gimbal Protocol v2](https://mavlink.io/en/services/gimbal_v2.html) is supported by your gimbal, you should instead select `MAVLink gimbal protocol v2 (2)`.
 
-
 The full list of parameters for setting up the mount driver can be found in [Parameter Reference > Mount](../advanced_config/parameter_reference.md#mount).
 The relevant settings for a number of common gimbal configurations are described below.
 
 ## MAVLink Gimbal (MNT_MODE_OUT=MAVLINK)
 
-To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`. 
+Each physical gimbal device on the system must have its own high level gimbal manager, which is discoverable by a ground station using the MAVLink gimbal protocol.
+The ground station sends high level [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) commands to the manager, and it will in turn send appropriate lower level "gimbal device" commands to control the gimbal.
+
+PX4 can be configured as the gimbal manager to control a single gimbal device (which can either be physically connected or be a MAVLink gimbal).
+Additional MAVLink gimbals may be controlled by their own gimbal manager components (PX4 will forward the MAVLink traffic).
+
+To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
 
 The gimbal can be connected to *any free serial port* using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) (also see [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)).
 For example, if the `TELEM2` port on the flight controller is unused you can connect it to the gimbal and set the following PX4 parameters:
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to **NORMAL**
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) to manufacturer recommended baud rate.
-
-With this setup, ground stations can send [MAVLink Gimbal Commands](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) to PX4, such as `MAV_CMD_DO_SET_ROI_LOCATION` to track region of interest and `MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW` to control the gimbal attitude, and so on.
-
-:::note
-In Gimbal Protocol v2 terms, this setup configures PX4 as a _Gimbal Manager_.
-The flight stack handles high level "gimbal manager" commands and mission items, sending appropriate lower level "gimbal device" commands to control the gimbal.
-:::
 
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
