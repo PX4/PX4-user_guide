@@ -17,7 +17,7 @@ PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)
 1. 하드웨어는 시장에서 사용할 수 있어야 합니다.
 1. 보드에는 UAV에서 PX4와 함께 보드를 사용하는 것이 불가능하거나 위험하게 하는 버그나 허용 범위 초과하는  품질 이상이 없어야 합니다. 보드는 부품과 조립품의 품질을 보장하기 위해 승인 기준을 통과하여야 합니다.
 1. 고객을 지원하고 고객이 연락할 수 있는 명확하고 쉬운 방법이 있어야 합니다. 다음과 같은 방법이 허용됩니다.
-   - Slack 채널 존재
+   - PX4 Discord server presence
    - 지원 이메일
    - 전화번호
 
@@ -119,13 +119,13 @@ PX4 보드 관리자에게 [boards@px4.io](mailto:boards@px4.io)로 연락하여
 
 :::warning
 보드 지원 프로세스는 시간이 지남에 따라 변경되거나 개선될 수 있습니다.
-하드웨어 제조업체는 정기적인 하드웨어 통화, 토론 포럼 또는 Slack을 통해 이 프로세스에 기여하는 것이 좋습니다.
+Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Discord.
 :::
 
 ## 지원
 
 보드 지원 가이드/프로세스의 일부가 명확하지 않은 경우:
 
-- Slack 채널 `#hardware` 또는 토론 포럼에서 커뮤니티에 도움을 요청하십시오.
+- Ask the community for help on Discord channels under `Hardware` category, or on the discuss forum
 - 정규 하드웨어 회의 참석
 - 컨설팅 옵션은 [https://px4.io/community/consultants/](https://px4.io/community/consultants/)을 참고하십시오.
