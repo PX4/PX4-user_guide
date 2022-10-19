@@ -38,6 +38,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [Holybro Pix32 v5](../flight_controller/holybro_pix32_v5.md)
   - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
   - [ModalAI VOXL Flight](../flight_controller/modalai_voxl_flight.md)
+  - [ModalAI VOXL 2](../flight_controller/modalai_voxl_2.md)
   - [mRobotics-X2.1 (FMUv2)](../flight_controller/mro_x2.1.md)
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
