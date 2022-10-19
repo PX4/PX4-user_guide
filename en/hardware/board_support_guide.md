@@ -23,7 +23,7 @@ The general requirements for all supported boards are:
    - Support email
    - Phone number
 
-2. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
+1. Point of contact (PoC) for the PX4 maintainers (direct email or available in Slack/Forum/Github)
 3. The board needs to use the [PX4 bootloader protocol](https://github.com/PX4/PX4-Autopilot/tree/main/platforms/nuttx/src/bootloader).
    For more information on bootloaders see: [PX4 Nuttx Porting Guide > Bootloader](../hardware/porting_guide_nuttx.md#bootloader).
 1. Adequate documentation, which includes, but is not limited to:
