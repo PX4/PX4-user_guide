@@ -5002,64 +5002,64 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS1">SIM_IGN_DIS1</strong> (INT32)</td>
- <td>SIM_IGN Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS1">SIM_GZ_DIS1</strong> (INT32)</td>
+ <td>SIM_GZ Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS2">SIM_IGN_DIS2</strong> (INT32)</td>
- <td>SIM_IGN Channel 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS2">SIM_GZ_DIS2</strong> (INT32)</td>
+ <td>SIM_GZ Channel 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS3">SIM_IGN_DIS3</strong> (INT32)</td>
- <td>SIM_IGN Channel 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS3">SIM_GZ_DIS3</strong> (INT32)</td>
+ <td>SIM_GZ Channel 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS4">SIM_IGN_DIS4</strong> (INT32)</td>
- <td>SIM_IGN Channel 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS4">SIM_GZ_DIS4</strong> (INT32)</td>
+ <td>SIM_GZ Channel 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS5">SIM_IGN_DIS5</strong> (INT32)</td>
- <td>SIM_IGN Channel 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS5">SIM_GZ_DIS5</strong> (INT32)</td>
+ <td>SIM_GZ Channel 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS6">SIM_IGN_DIS6</strong> (INT32)</td>
- <td>SIM_IGN Channel 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS6">SIM_GZ_DIS6</strong> (INT32)</td>
+ <td>SIM_GZ Channel 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS7">SIM_IGN_DIS7</strong> (INT32)</td>
- <td>SIM_IGN Channel 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS7">SIM_GZ_DIS7</strong> (INT32)</td>
+ <td>SIM_GZ Channel 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_DIS8">SIM_IGN_DIS8</strong> (INT32)</td>
- <td>SIM_IGN Channel 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_DIS8">SIM_GZ_DIS8</strong> (INT32)</td>
+ <td>SIM_GZ Channel 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC1">SIM_IGN_FUNC1</strong> (INT32)</td>
- <td>SIM_IGN Channel 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC1">SIM_GZ_FUNC1</strong> (INT32)</td>
+ <td>SIM_GZ Channel 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5158,8 +5158,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC2">SIM_IGN_FUNC2</strong> (INT32)</td>
- <td>SIM_IGN Channel 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC2">SIM_GZ_FUNC2</strong> (INT32)</td>
+ <td>SIM_GZ Channel 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5258,8 +5258,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC3">SIM_IGN_FUNC3</strong> (INT32)</td>
- <td>SIM_IGN Channel 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC3">SIM_GZ_FUNC3</strong> (INT32)</td>
+ <td>SIM_GZ Channel 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5358,8 +5358,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC4">SIM_IGN_FUNC4</strong> (INT32)</td>
- <td>SIM_IGN Channel 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC4">SIM_GZ_FUNC4</strong> (INT32)</td>
+ <td>SIM_GZ Channel 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5458,8 +5458,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC5">SIM_IGN_FUNC5</strong> (INT32)</td>
- <td>SIM_IGN Channel 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC5">SIM_GZ_FUNC5</strong> (INT32)</td>
+ <td>SIM_GZ Channel 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5558,8 +5558,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC6">SIM_IGN_FUNC6</strong> (INT32)</td>
- <td>SIM_IGN Channel 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC6">SIM_GZ_FUNC6</strong> (INT32)</td>
+ <td>SIM_GZ Channel 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5658,8 +5658,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC7">SIM_IGN_FUNC7</strong> (INT32)</td>
- <td>SIM_IGN Channel 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC7">SIM_GZ_FUNC7</strong> (INT32)</td>
+ <td>SIM_GZ Channel 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5758,8 +5758,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_FUNC8">SIM_IGN_FUNC8</strong> (INT32)</td>
- <td>SIM_IGN Channel 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_IGN Channel 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
+ <td><strong id="SIM_GZ_FUNC8">SIM_GZ_FUNC8</strong> (INT32)</td>
+ <td>SIM_GZ Channel 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Constant Min</li> 
@@ -5858,127 +5858,127 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX1">SIM_IGN_MAX1</strong> (INT32)</td>
- <td>SIM_IGN Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX1">SIM_GZ_MAX1</strong> (INT32)</td>
+ <td>SIM_GZ Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX2">SIM_IGN_MAX2</strong> (INT32)</td>
- <td>SIM_IGN Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX2">SIM_GZ_MAX2</strong> (INT32)</td>
+ <td>SIM_GZ Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX3">SIM_IGN_MAX3</strong> (INT32)</td>
- <td>SIM_IGN Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX3">SIM_GZ_MAX3</strong> (INT32)</td>
+ <td>SIM_GZ Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX4">SIM_IGN_MAX4</strong> (INT32)</td>
- <td>SIM_IGN Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX4">SIM_GZ_MAX4</strong> (INT32)</td>
+ <td>SIM_GZ Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX5">SIM_IGN_MAX5</strong> (INT32)</td>
- <td>SIM_IGN Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX5">SIM_GZ_MAX5</strong> (INT32)</td>
+ <td>SIM_GZ Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX6">SIM_IGN_MAX6</strong> (INT32)</td>
- <td>SIM_IGN Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX6">SIM_GZ_MAX6</strong> (INT32)</td>
+ <td>SIM_GZ Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX7">SIM_IGN_MAX7</strong> (INT32)</td>
- <td>SIM_IGN Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX7">SIM_GZ_MAX7</strong> (INT32)</td>
+ <td>SIM_GZ Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MAX8">SIM_IGN_MAX8</strong> (INT32)</td>
- <td>SIM_IGN Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MAX8">SIM_GZ_MAX8</strong> (INT32)</td>
+ <td>SIM_GZ Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
  <td>[100, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN1">SIM_IGN_MIN1</strong> (INT32)</td>
- <td>SIM_IGN Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN1">SIM_GZ_MIN1</strong> (INT32)</td>
+ <td>SIM_GZ Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN2">SIM_IGN_MIN2</strong> (INT32)</td>
- <td>SIM_IGN Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN2">SIM_GZ_MIN2</strong> (INT32)</td>
+ <td>SIM_GZ Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN3">SIM_IGN_MIN3</strong> (INT32)</td>
- <td>SIM_IGN Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN3">SIM_GZ_MIN3</strong> (INT32)</td>
+ <td>SIM_GZ Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN4">SIM_IGN_MIN4</strong> (INT32)</td>
- <td>SIM_IGN Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN4">SIM_GZ_MIN4</strong> (INT32)</td>
+ <td>SIM_GZ Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN5">SIM_IGN_MIN5</strong> (INT32)</td>
- <td>SIM_IGN Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN5">SIM_GZ_MIN5</strong> (INT32)</td>
+ <td>SIM_GZ Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN6">SIM_IGN_MIN6</strong> (INT32)</td>
- <td>SIM_IGN Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN6">SIM_GZ_MIN6</strong> (INT32)</td>
+ <td>SIM_GZ Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN7">SIM_IGN_MIN7</strong> (INT32)</td>
- <td>SIM_IGN Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN7">SIM_GZ_MIN7</strong> (INT32)</td>
+ <td>SIM_GZ Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_MIN8">SIM_IGN_MIN8</strong> (INT32)</td>
- <td>SIM_IGN Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_MIN8">SIM_GZ_MIN8</strong> (INT32)</td>
+ <td>SIM_GZ Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
  <td>10</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_REV">SIM_IGN_REV</strong> (INT32)</td>
- <td>Reverse Output Range for SIM_IGN <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_IGN Channel 1</li> 
-  <li><strong>1:</strong> SIM_IGN Channel 2</li> 
-  <li><strong>2:</strong> SIM_IGN Channel 3</li> 
-  <li><strong>3:</strong> SIM_IGN Channel 4</li> 
-  <li><strong>4:</strong> SIM_IGN Channel 5</li> 
-  <li><strong>5:</strong> SIM_IGN Channel 6</li> 
-  <li><strong>6:</strong> SIM_IGN Channel 7</li> 
-  <li><strong>7:</strong> SIM_IGN Channel 8</li> 
+ <td><strong id="SIM_GZ_REV">SIM_GZ_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ Channel 1</li> 
+  <li><strong>1:</strong> SIM_GZ Channel 2</li> 
+  <li><strong>2:</strong> SIM_GZ Channel 3</li> 
+  <li><strong>3:</strong> SIM_GZ Channel 4</li> 
+  <li><strong>4:</strong> SIM_GZ Channel 5</li> 
+  <li><strong>5:</strong> SIM_GZ Channel 6</li> 
+  <li><strong>6:</strong> SIM_GZ Channel 7</li> 
+  <li><strong>7:</strong> SIM_GZ Channel 8</li> 
 </ul>
  </td>
  <td>[0, 255] </td>
@@ -10812,13 +10812,14 @@ table {
 <tr>
  <td><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
  <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0. Note that the data missing check is enabled if any of the options is set.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Only data missing check (triggers if more than 1s no data)</li> 
-  <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s)</li> 
+  <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li> 
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li> 
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
+  <li><strong>4:</strong> Check for data variation in first 10s after sensor connection</li> 
 </ul>
  </td>
- <td>[0, 15] </td>
- <td>7</td>
+ <td>[0, 31] </td>
+ <td>23</td>
  <td></td>
 </tr>
 <tr>
@@ -11202,6 +11203,28 @@ table {
  </td>
  <td>[1, 7] </td>
  <td>3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_AT_MAN_AUX">FW_AT_MAN_AUX</strong> (INT32)</td>
+ <td>Enable auto tuning enable on aux input <p><strong>Comment:</strong> Defines which aux input to enable auto tuning</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable</li> 
+
+<li><strong>1:</strong> Aux1</li> 
+
+<li><strong>2:</strong> Aux2</li> 
+
+<li><strong>3:</strong> Aux3</li> 
+
+<li><strong>4:</strong> Aux4</li> 
+
+<li><strong>5:</strong> Aux5</li> 
+
+<li><strong>6:</strong> Aux6</li> 
+</ul>
+  </td>
+ <td>[0, 6] </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -11742,22 +11765,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="TRIG_PINS">TRIG_PINS</strong> (INT32)</td>
- <td>Camera trigger pin <p><strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX8 on Pixhawk controllers with an I/O board, MAIN1-MAIN8 on controllers without an I/O board). The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[1, 12345678] </td>
- <td>56</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="TRIG_PINS_EX">TRIG_PINS_EX</strong> (INT32)</td>
- <td>Camera trigger pin extended <p><strong>Comment:</strong> This Bit mask selects which FMU pin is used (range: AUX9-AUX32) If the value is not 0 it takes precedence over TRIG_PINS. If bits above 8 are set that value is used as the selector for trigger pins. greater then 8. 0x00000300 Would be Pins 9,10. If the value is</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 2147483647] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="TRIG_POLARITY">TRIG_POLARITY</strong> (INT32)</td>
  <td>Camera trigger polarity <p><strong>Comment:</strong> This parameter sets the polarity of the trigger (0 = active low, 1 = active high )</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Active low</li> 
@@ -11974,7 +11981,7 @@ table {
  <td><strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)</td>
  <td>Maximum magnetic field inconsistency between units that will allow arming <p><strong>Comment:</strong> Set -1 to disable the check.</p>   </td>
  <td>[3, 180] </td>
- <td>45</td>
+ <td>60</td>
  <td>deg</td>
 </tr>
 <tr>
@@ -12845,25 +12852,6 @@ table {
  <td>Allows for 3d mode when using DShot and suitable mixer <p><strong>Comment:</strong> WARNING: ESC must be configured for 3D mode, and DSHOT_MIN set to 0. This splits the throttle ranges in two. Direction 1) 48 is the slowest, 1047 is the fastest. Direction 2) 1049 is the slowest, 2047 is the fastest. When mixer outputs 1000 or value inside DSHOT 3D deadband, DShot 0 is sent.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="DSHOT_CONFIG">DSHOT_CONFIG</strong> (INT32)</td>
- <td>Configure DShot <p><strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable (use PWM/Oneshot)</li> 
-
-<li><strong>150:</strong> DShot150</li> 
-
-<li><strong>300:</strong> DShot300</li> 
-
-<li><strong>600:</strong> DShot600</li> 
-
-<li><strong>1200:</strong> DShot1200</li> 
-</ul>
-  <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -14914,6 +14902,13 @@ table {
  <td>7.0</td>
  <td>m/s^2</td>
 </tr>
+<tr>
+ <td><strong id="FW_WIND_ARSP_SC">FW_WIND_ARSP_SC</strong> (FLOAT)</td>
+ <td>Wind-based airspeed scaling factor <p><strong>Comment:</strong> Multiplying this factor with the current absolute wind estimate gives the airspeed offset added to the minimum airspeed setpoint limit. This helps to make the system more robust against disturbances (turbulence) in high wind. Only applies to AUTO flight mode. airspeed_min_adjusted = FW_AIRSPD_MIN + FW_WIND_ARSP_SC * wind.length()</p>   </td>
+ <td>[0, ?] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## Failure Detector
@@ -15259,6 +15254,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="GPS_UBX_BAUD2">GPS_UBX_BAUD2</strong> (INT32)</td>
+ <td>u-blox F9P UART2 Baudrate <p><strong>Comment:</strong> Select a baudrate for the F9P's UART2 port. In GPS_UBX_MODE 1, 2, and 3, the F9P's UART2 port is configured to send/receive RTCM corrections. Set this to 57600 if you want to attach a telemetry radio on UART2.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, ?] </td>
+ <td>230400</td>
+ <td>B/s</td>
+</tr>
+<tr>
  <td><strong id="GPS_UBX_DYNMODEL">GPS_UBX_DYNMODEL</strong> (INT32)</td>
  <td>u-blox GPS dynamic platform model <p><strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.</p> <strong>Values:</strong><ul>
 <li><strong>2:</strong> stationary</li> 
@@ -15279,7 +15282,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_UBX_MODE">GPS_UBX_MODE</strong> (INT32)</td>
- <td>u-blox GPS Mode <p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base. Modes 1 and 2 require each F9P UART1 to be connected to the Autopilot. In addition, UART2 on the F9P units are connected to each other. Modes 3 and 4 only require UART1 on each F9P connected to the Autopilot or Can Node. UART RX DMA is required. RTK is still possible with this setup.</p> <strong>Values:</strong><ul>
+ <td>u-blox GPS Mode <p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. If rover has RTCM corrections from a static base (or other static correction source) coming in on UART2, then select Mode 5. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base. Modes 1 and 2 require each F9P UART1 to be connected to the Autopilot. In addition, UART2 on the F9P units are connected to each other. Modes 3 and 4 only require UART1 on each F9P connected to the Autopilot or Can Node. UART RX DMA is required. RTK is still possible with this setup.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Default</li> 
 
 <li><strong>1:</strong> Heading (Rover With Moving Base UART1 Connected To Autopilot, UART2 Connected To Moving Base)</li> 
@@ -15289,6 +15292,8 @@ table {
 <li><strong>3:</strong> Heading (Rover With Moving Base UART1 Connected to Autopilot Or Can Node At 921600)</li> 
 
 <li><strong>4:</strong> Moving Base (Moving Base UART1 Connected to Autopilot Or Can Node At 921600)</li> 
+
+<li><strong>5:</strong> Rover with Static Base on UART2 (similar to Default, except coming in on UART2)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -18891,18 +18896,6 @@ table {
  <td>0</td>
  <td></td>
 </tr>
-<tr>
- <td><strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)</td>
- <td>Motor Ordering <p><strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. When changing this, make sure to test the motor response without props first.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> PX4</li> 
-
-<li><strong>1:</strong> Betaflight / Cleanflight</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
 </tbody></table>
 
 ## Mount
@@ -19885,6 +19878,39 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="MSP_OSD_CONFIG">MSP_OSD_CONFIG</strong> (INT32)</td>
+ <td>Serial Configuration for MSP OSD <p><strong>Comment:</strong> Configure on which serial port to run MSP OSD.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="OSD_ATXXXX_CFG">OSD_ATXXXX_CFG</strong> (INT32)</td>
  <td>Enable/Disable the ATXXX OSD Chip <p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -19897,6 +19923,57 @@ table {
 </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="OSD_DWELL_TIME">OSD_DWELL_TIME</strong> (INT32)</td>
+ <td>OSD Dwell Time (ms) <p><strong>Comment:</strong> Amount of time in milliseconds to dwell at the beginning of the display, when scrolling.</p>   </td>
+ <td>[100, 10000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="OSD_LOG_LEVEL">OSD_LOG_LEVEL</strong> (INT32)</td>
+ <td>OSD Warning Level <p><strong>Comment:</strong> Minimum security of log level to display on the OSD.</p>   </td>
+ <td></td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="OSD_SCROLL_RATE">OSD_SCROLL_RATE</strong> (INT32)</td>
+ <td>OSD Scroll Rate (ms) <p><strong>Comment:</strong> Scroll rate in milliseconds for OSD messages longer than available character width. This is lower-bounded by the nominal loop rate of this module.</p>   </td>
+ <td>[100, 1000] </td>
+ <td>125</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="OSD_SYMBOLS">OSD_SYMBOLS</strong> (INT32)</td>
+ <td>OSD Symbol Selection <p><strong>Comment:</strong> Configure / toggle support display options.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> CRAFT_NAME</li> 
+  <li><strong>1:</strong> DISARMED</li> 
+  <li><strong>2:</strong> GPS_LAT</li> 
+  <li><strong>3:</strong> GPS_LON</li> 
+  <li><strong>4:</strong> GPS_SATS</li> 
+  <li><strong>5:</strong> GPS_SPEED</li> 
+  <li><strong>6:</strong> HOME_DIST</li> 
+  <li><strong>7:</strong> HOME_DIR</li> 
+  <li><strong>8:</strong> MAIN_BATT_VOLTAGE</li> 
+  <li><strong>9:</strong> CURRENT_DRAW</li> 
+  <li><strong>10:</strong> MAH_DRAWN</li> 
+  <li><strong>11:</strong> RSSI_VALUE</li> 
+  <li><strong>12:</strong> ALTITUDE</li> 
+  <li><strong>13:</strong> NUMERICAL_VARIO</li> 
+  <li><strong>14:</strong> (unused) FLYMODE</li> 
+  <li><strong>15:</strong> (unused) ESC_TMP</li> 
+  <li><strong>16:</strong> (unused) PITCH_ANGLE</li> 
+  <li><strong>17:</strong> (unused) ROLL_ANGLE</li> 
+  <li><strong>18:</strong> (unused) CROSSHAIRS</li> 
+  <li><strong>19:</strong> (unused) AVG_CELL_VOLTAGE</li> 
+  <li><strong>20:</strong> (unused) HORIZON_SIDEBARS</li> 
+  <li><strong>21:</strong> (unused) POWER</li> 
+</ul>
+ </td>
+ <td>[0, 4194303] </td>
+ <td>16383</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -19915,769 +19992,6 @@ table {
  <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>s/(1000*PWM)</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_DISARM">PWM_AUX_DISARM</strong> (INT32)</td>
- <td>PWM aux disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>[0, 2200] </td>
- <td>1500</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)</td>
- <td>PWM aux maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>[1600, 2200] </td>
- <td>2000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)</td>
- <td>PWM aux minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>[800, 1400] </td>
- <td>1000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_OUT">PWM_AUX_OUT</strong> (INT32)</td>
- <td>PWM channels used as ESC outputs <p><strong>Comment:</strong> Number representing the channels e.g. 134 - Channel 1, 3 and 4. Global e.g. PWM_AUX_MIN/MAX/DISARM limits only apply to these channels.</p>   </td>
- <td>[0, 123456789] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_RATE">PWM_AUX_RATE</strong> (INT32)</td>
- <td>PWM aux output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>[-1, 2000] </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_RATE1">PWM_AUX_RATE1</strong> (INT32)</td>
- <td>PWM aux 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the aux outputs</p>   </td>
- <td>[0, 400] </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td>PWM aux 1 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td>PWM aux 2 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td>PWM aux 3 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td>PWM aux 4 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td>PWM aux 5 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td>PWM aux 6 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV7">PWM_AUX_REV7</strong> (INT32)</td>
- <td>PWM aux 7 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_REV8">PWM_AUX_REV8</strong> (INT32)</td>
- <td>PWM aux 8 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
- <td>PWM aux 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
- <td>PWM aux 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
- <td>PWM aux 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
- <td>PWM aux 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
- <td>PWM aux 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
- <td>PWM aux 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM7">PWM_AUX_TRIM7</strong> (FLOAT)</td>
- <td>PWM aux 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_AUX_TRIM8">PWM_AUX_TRIM8</strong> (FLOAT)</td>
- <td>PWM aux 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS1">PWM_EXTRA_DIS1</strong> (INT32)</td>
- <td>PWM extra 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS2">PWM_EXTRA_DIS2</strong> (INT32)</td>
- <td>PWM extra 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS3">PWM_EXTRA_DIS3</strong> (INT32)</td>
- <td>PWM extra 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS4">PWM_EXTRA_DIS4</strong> (INT32)</td>
- <td>PWM extra 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS5">PWM_EXTRA_DIS5</strong> (INT32)</td>
- <td>PWM extra 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS6">PWM_EXTRA_DIS6</strong> (INT32)</td>
- <td>PWM extra 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS7">PWM_EXTRA_DIS7</strong> (INT32)</td>
- <td>PWM extra 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DIS8">PWM_EXTRA_DIS8</strong> (INT32)</td>
- <td>PWM extra 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_DISARM">PWM_EXTRA_DISARM</strong> (INT32)</td>
- <td>PWM extra disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>[0, 2200] </td>
- <td>1500</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL1">PWM_EXTRA_FAIL1</strong> (INT32)</td>
- <td>PWM extra 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL2">PWM_EXTRA_FAIL2</strong> (INT32)</td>
- <td>PWM extra 2 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL3">PWM_EXTRA_FAIL3</strong> (INT32)</td>
- <td>PWM extra 3 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL4">PWM_EXTRA_FAIL4</strong> (INT32)</td>
- <td>PWM extra 4 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL5">PWM_EXTRA_FAIL5</strong> (INT32)</td>
- <td>PWM extra 5 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL6">PWM_EXTRA_FAIL6</strong> (INT32)</td>
- <td>PWM extra 6 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL7">PWM_EXTRA_FAIL7</strong> (INT32)</td>
- <td>PWM extra 7 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_FAIL8">PWM_EXTRA_FAIL8</strong> (INT32)</td>
- <td>PWM extra 8 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>[0, 2150] </td>
- <td>0</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX">PWM_EXTRA_MAX</strong> (INT32)</td>
- <td>PWM extra maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>[1600, 2200] </td>
- <td>2000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX1">PWM_EXTRA_MAX1</strong> (INT32)</td>
- <td>PWM extra 1 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX2">PWM_EXTRA_MAX2</strong> (INT32)</td>
- <td>PWM extra 2 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX3">PWM_EXTRA_MAX3</strong> (INT32)</td>
- <td>PWM extra 3 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX4">PWM_EXTRA_MAX4</strong> (INT32)</td>
- <td>PWM extra 4 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX5">PWM_EXTRA_MAX5</strong> (INT32)</td>
- <td>PWM extra 5 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX6">PWM_EXTRA_MAX6</strong> (INT32)</td>
- <td>PWM extra 6 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX7">PWM_EXTRA_MAX7</strong> (INT32)</td>
- <td>PWM extra 7 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MAX8">PWM_EXTRA_MAX8</strong> (INT32)</td>
- <td>PWM extra 8 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   </td>
- <td>[-1, 2150] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN">PWM_EXTRA_MIN</strong> (INT32)</td>
- <td>PWM extra minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>[800, 1400] </td>
- <td>1000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN1">PWM_EXTRA_MIN1</strong> (INT32)</td>
- <td>PWM extra 1 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN2">PWM_EXTRA_MIN2</strong> (INT32)</td>
- <td>PWM extra 2 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN3">PWM_EXTRA_MIN3</strong> (INT32)</td>
- <td>PWM extra 3 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN4">PWM_EXTRA_MIN4</strong> (INT32)</td>
- <td>PWM extra 4 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN5">PWM_EXTRA_MIN5</strong> (INT32)</td>
- <td>PWM extra 5 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN6">PWM_EXTRA_MIN6</strong> (INT32)</td>
- <td>PWM extra 6 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN7">PWM_EXTRA_MIN7</strong> (INT32)</td>
- <td>PWM extra 7 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_MIN8">PWM_EXTRA_MIN8</strong> (INT32)</td>
- <td>PWM extra 8 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   </td>
- <td>[-1, 1600] </td>
- <td>-1</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_RATE">PWM_EXTRA_RATE</strong> (INT32)</td>
- <td>PWM extra output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>[-1, 2000] </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_RATE1">PWM_EXTRA_RATE1</strong> (INT32)</td>
- <td>PWM extra 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the main outputs</p>   </td>
- <td>[0, 400] </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV1">PWM_EXTRA_REV1</strong> (INT32)</td>
- <td>PWM extra 1 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV2">PWM_EXTRA_REV2</strong> (INT32)</td>
- <td>PWM extra 2 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV3">PWM_EXTRA_REV3</strong> (INT32)</td>
- <td>PWM extra 3 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV4">PWM_EXTRA_REV4</strong> (INT32)</td>
- <td>PWM extra 4 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV5">PWM_EXTRA_REV5</strong> (INT32)</td>
- <td>PWM extra 5 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV6">PWM_EXTRA_REV6</strong> (INT32)</td>
- <td>PWM extra 6 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV7">PWM_EXTRA_REV7</strong> (INT32)</td>
- <td>PWM extra 7 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_REV8">PWM_EXTRA_REV8</strong> (INT32)</td>
- <td>PWM extra 8 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM1">PWM_EXTRA_TRIM1</strong> (FLOAT)</td>
- <td>PWM extra 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM2">PWM_EXTRA_TRIM2</strong> (FLOAT)</td>
- <td>PWM extra 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM3">PWM_EXTRA_TRIM3</strong> (FLOAT)</td>
- <td>PWM extra 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM4">PWM_EXTRA_TRIM4</strong> (FLOAT)</td>
- <td>PWM extra 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM5">PWM_EXTRA_TRIM5</strong> (FLOAT)</td>
- <td>PWM extra 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM6">PWM_EXTRA_TRIM6</strong> (FLOAT)</td>
- <td>PWM extra 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM7">PWM_EXTRA_TRIM7</strong> (FLOAT)</td>
- <td>PWM extra 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_EXTRA_TRIM8">PWM_EXTRA_TRIM8</strong> (FLOAT)</td>
- <td>PWM extra 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_DISARM">PWM_MAIN_DISARM</strong> (INT32)</td>
- <td>PWM main disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>[0, 2200] </td>
- <td>900</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MAX">PWM_MAIN_MAX</strong> (INT32)</td>
- <td>PWM main maximum value <p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   </td>
- <td>[1600, 2200] </td>
- <td>2000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_MIN">PWM_MAIN_MIN</strong> (INT32)</td>
- <td>PWM main minimum value <p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   </td>
- <td>[800, 1400] </td>
- <td>1000</td>
- <td>us</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_OUT">PWM_MAIN_OUT</strong> (INT32)</td>
- <td>PWM channels used as ESC outputs <p><strong>Comment:</strong> Number representing the channels e.g. 134 - Channel 1, 3 and 4. Global e.g. PWM_MAIN_MIN/MAX/DISARM limits only apply to these channels.</p>   </td>
- <td>[0, 123456789] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_RATE">PWM_MAIN_RATE</strong> (INT32)</td>
- <td>PWM main output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>[-1, 2000] </td>
- <td>400</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_RATE1">PWM_MAIN_RATE1</strong> (INT32)</td>
- <td>PWM main 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the main outputs</p>   </td>
- <td>[0, 400] </td>
- <td>50</td>
- <td>Hz</td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
- <td>PWM main 1 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV10">PWM_MAIN_REV10</strong> (INT32)</td>
- <td>PWM main 10 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV11">PWM_MAIN_REV11</strong> (INT32)</td>
- <td>PWM main 11 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV12">PWM_MAIN_REV12</strong> (INT32)</td>
- <td>PWM main 12 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV13">PWM_MAIN_REV13</strong> (INT32)</td>
- <td>PWM main 13 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV14">PWM_MAIN_REV14</strong> (INT32)</td>
- <td>PWM main 14 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV2">PWM_MAIN_REV2</strong> (INT32)</td>
- <td>PWM main 2 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV3">PWM_MAIN_REV3</strong> (INT32)</td>
- <td>PWM main 3 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV4">PWM_MAIN_REV4</strong> (INT32)</td>
- <td>PWM main 4 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV5">PWM_MAIN_REV5</strong> (INT32)</td>
- <td>PWM main 5 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV6">PWM_MAIN_REV6</strong> (INT32)</td>
- <td>PWM main 6 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV7">PWM_MAIN_REV7</strong> (INT32)</td>
- <td>PWM main 7 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV8">PWM_MAIN_REV8</strong> (INT32)</td>
- <td>PWM main 8 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_REV9">PWM_MAIN_REV9</strong> (INT32)</td>
- <td>PWM main 9 reverse value <p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM1">PWM_MAIN_TRIM1</strong> (FLOAT)</td>
- <td>PWM main 1 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM10">PWM_MAIN_TRIM10</strong> (FLOAT)</td>
- <td>PWM main 10 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM11">PWM_MAIN_TRIM11</strong> (FLOAT)</td>
- <td>PWM main 11 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM12">PWM_MAIN_TRIM12</strong> (FLOAT)</td>
- <td>PWM main 12 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM13">PWM_MAIN_TRIM13</strong> (FLOAT)</td>
- <td>PWM main 13 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM14">PWM_MAIN_TRIM14</strong> (FLOAT)</td>
- <td>PWM main 14 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM2">PWM_MAIN_TRIM2</strong> (FLOAT)</td>
- <td>PWM main 2 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM3">PWM_MAIN_TRIM3</strong> (FLOAT)</td>
- <td>PWM main 3 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM4">PWM_MAIN_TRIM4</strong> (FLOAT)</td>
- <td>PWM main 4 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM5">PWM_MAIN_TRIM5</strong> (FLOAT)</td>
- <td>PWM main 5 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM6">PWM_MAIN_TRIM6</strong> (FLOAT)</td>
- <td>PWM main 6 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM7">PWM_MAIN_TRIM7</strong> (FLOAT)</td>
- <td>PWM main 7 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM8">PWM_MAIN_TRIM8</strong> (FLOAT)</td>
- <td>PWM main 8 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_MAIN_TRIM9">PWM_MAIN_TRIM9</strong> (FLOAT)</td>
- <td>PWM main 9 trim value <p><strong>Comment:</strong> Set to normalized offset</p>   </td>
- <td>[-0.2, 0.2] </td>
- <td>0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="PWM_SBUS_MODE">PWM_SBUS_MODE</strong> (INT32)</td>
@@ -20780,6 +20094,23 @@ table {
  <td>[0.0, 100] (0.1)</td>
  <td>10.0</td>
  <td>s</td>
+</tr>
+</tbody></table>
+
+## RC
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="RC_CRSF_TEL_EN">RC_CRSF_TEL_EN</strong> (INT32)</td>
+ <td>Crossfire RC telemetry enable <p><strong>Comment:</strong> Crossfire telemetry enable</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
 </tr>
 </tbody></table>
 
@@ -23230,9 +22561,9 @@ table {
 </tr>
 <tr>
  <td><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
- <td>Return mode loiter altitude <p><strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
- <td>[2, 100] (0.5)</td>
- <td>30</td>
+ <td>Return mode loiter altitude <p><strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed. VTOLs do transition to hover in this altitdue above the landing point.</p>   </td>
+ <td>[0, ?] (0.5)</td>
+ <td>30.</td>
  <td>m</td>
 </tr>
 <tr>
@@ -23252,21 +22583,21 @@ table {
 <tr>
  <td><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
  <td>Return mode delay <p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
- <td>[-1, 300] (0.5)</td>
+ <td>[-1, ?] (0.5)</td>
  <td>0.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="RTL_LOITER_RAD">RTL_LOITER_RAD</strong> (FLOAT)</td>
  <td>Loiter radius for rtl descend <p><strong>Comment:</strong> Set the radius for loitering to a safe altitude for VTOL transition.</p>   </td>
- <td>[25, 1000] (0.5)</td>
+ <td>[25, ?] (0.5)</td>
  <td>80.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
  <td>Horizontal radius from return point within which special rules for return mode apply <p><strong>Comment:</strong> The return altitude will be calculated based on RTL_CONE_ANG parameter. The yaw setpoint will switch to the one defined by corresponding waypoint.</p>   </td>
- <td>[0.5, 100] (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>10.0</td>
  <td>m</td>
 </tr>
@@ -23286,9 +22617,9 @@ table {
 </tr>
 <tr>
  <td><strong id="RTL_RETURN_ALT">RTL_RETURN_ALT</strong> (FLOAT)</td>
- <td>Return mode return altitude <p><strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
- <td>[0, 150] (0.5)</td>
- <td>60</td>
+ <td>Return mode return altitude <p><strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. The vehicle will climb to this altitude when Return mode is enganged, unless it currently is flying higher already. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
+ <td>[0, ?] (0.5)</td>
+ <td>60.</td>
  <td>m</td>
 </tr>
 <tr>
@@ -23947,7 +23278,7 @@ table {
  <td>Accelerometer 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
@@ -23961,7 +23292,7 @@ table {
  <td>Accelerometer 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
@@ -23975,7 +23306,7 @@ table {
  <td>Accelerometer 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
@@ -24110,7 +23441,7 @@ table {
  <td>Accelerometer 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_XSCALE">CAL_ACC1_XSCALE</strong> (FLOAT)</td>
@@ -24124,7 +23455,7 @@ table {
  <td>Accelerometer 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_YSCALE">CAL_ACC1_YSCALE</strong> (FLOAT)</td>
@@ -24138,7 +23469,7 @@ table {
  <td>Accelerometer 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_ZSCALE">CAL_ACC1_ZSCALE</strong> (FLOAT)</td>
@@ -24273,7 +23604,7 @@ table {
  <td>Accelerometer 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_XSCALE">CAL_ACC2_XSCALE</strong> (FLOAT)</td>
@@ -24287,7 +23618,7 @@ table {
  <td>Accelerometer 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_YSCALE">CAL_ACC2_YSCALE</strong> (FLOAT)</td>
@@ -24301,7 +23632,7 @@ table {
  <td>Accelerometer 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_ZSCALE">CAL_ACC2_ZSCALE</strong> (FLOAT)</td>
@@ -24436,7 +23767,7 @@ table {
  <td>Accelerometer 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_XSCALE">CAL_ACC3_XSCALE</strong> (FLOAT)</td>
@@ -24450,7 +23781,7 @@ table {
  <td>Accelerometer 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_YSCALE">CAL_ACC3_YSCALE</strong> (FLOAT)</td>
@@ -24464,7 +23795,7 @@ table {
  <td>Accelerometer 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_ZSCALE">CAL_ACC3_ZSCALE</strong> (FLOAT)</td>
@@ -24743,21 +24074,21 @@ table {
  <td>Gyroscope 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_YOFF">CAL_GYRO0_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_ZOFF">CAL_GYRO0_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_ID">CAL_GYRO1_ID</strong> (INT32)</td>
@@ -24885,21 +24216,21 @@ table {
  <td>Gyroscope 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_YOFF">CAL_GYRO1_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_ZOFF">CAL_GYRO1_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_ID">CAL_GYRO2_ID</strong> (INT32)</td>
@@ -25027,21 +24358,21 @@ table {
  <td>Gyroscope 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_YOFF">CAL_GYRO2_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_ZOFF">CAL_GYRO2_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_ID">CAL_GYRO3_ID</strong> (INT32)</td>
@@ -25169,21 +24500,21 @@ table {
  <td>Gyroscope 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_YOFF">CAL_GYRO3_YOFF</strong> (FLOAT)</td>
  <td>Gyroscope 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_ZOFF">CAL_GYRO3_ZOFF</strong> (FLOAT)</td>
  <td>Gyroscope 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ID">CAL_MAG0_ID</strong> (INT32)</td>
@@ -25325,7 +24656,7 @@ table {
  <td>Magnetometer 0 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XSCALE">CAL_MAG0_XSCALE</strong> (FLOAT)</td>
@@ -25353,7 +24684,7 @@ table {
  <td>Magnetometer 0 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YSCALE">CAL_MAG0_YSCALE</strong> (FLOAT)</td>
@@ -25381,7 +24712,7 @@ table {
  <td>Magnetometer 0 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ZSCALE">CAL_MAG0_ZSCALE</strong> (FLOAT)</td>
@@ -25530,7 +24861,7 @@ table {
  <td>Magnetometer 1 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XSCALE">CAL_MAG1_XSCALE</strong> (FLOAT)</td>
@@ -25558,7 +24889,7 @@ table {
  <td>Magnetometer 1 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YSCALE">CAL_MAG1_YSCALE</strong> (FLOAT)</td>
@@ -25586,7 +24917,7 @@ table {
  <td>Magnetometer 1 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ZSCALE">CAL_MAG1_ZSCALE</strong> (FLOAT)</td>
@@ -25735,7 +25066,7 @@ table {
  <td>Magnetometer 2 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XSCALE">CAL_MAG2_XSCALE</strong> (FLOAT)</td>
@@ -25763,7 +25094,7 @@ table {
  <td>Magnetometer 2 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YSCALE">CAL_MAG2_YSCALE</strong> (FLOAT)</td>
@@ -25791,7 +25122,7 @@ table {
  <td>Magnetometer 2 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ZSCALE">CAL_MAG2_ZSCALE</strong> (FLOAT)</td>
@@ -25940,7 +25271,7 @@ table {
  <td>Magnetometer 3 X-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XSCALE">CAL_MAG3_XSCALE</strong> (FLOAT)</td>
@@ -25968,7 +25299,7 @@ table {
  <td>Magnetometer 3 Y-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YSCALE">CAL_MAG3_YSCALE</strong> (FLOAT)</td>
@@ -25996,7 +25327,7 @@ table {
  <td>Magnetometer 3 Z-axis offset    </td>
  <td></td>
  <td>0.0</td>
- <td>m</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ZSCALE">CAL_MAG3_ZSCALE</strong> (FLOAT)</td>
@@ -27860,6 +27191,39 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="RC_CRSF_PRT_CFG">RC_CRSF_PRT_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for CRSF RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run CRSF RC Input Driver. Crossfire RC (CRSF) driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="RC_PORT_CONFIG">RC_PORT_CONFIG</strong> (INT32)</td>
  <td>Serial Configuration for RC Input Driver <p><strong>Comment:</strong> Configure on which serial port to run RC Input Driver. Setting this to 'Disabled' will use a board-specific default port for RC input.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -28605,13 +27969,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="SIH_BARO_OFFSET">SIH_BARO_OFFSET</strong> (FLOAT)</td>
- <td>Barometer offset in meters <p><strong>Comment:</strong> Absolute value superior to 10000 will disable barometer</p>   </td>
- <td></td>
- <td>0.0</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="SIH_DISTSNSR_MAX">SIH_DISTSNSR_MAX</strong> (FLOAT)</td>
  <td>distance sensor maximum range    </td>
  <td>[0.0, 1000.0] (0.01)</td>
@@ -28631,13 +27988,6 @@ table {
  <td></td>
  <td>-1.0</td>
  <td>m</td>
-</tr>
-<tr>
- <td><strong id="SIH_GPS_USED">SIH_GPS_USED</strong> (INT32)</td>
- <td>Number of GPS satellites used    </td>
- <td>[0, 50] </td>
- <td>10</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="SIH_IXX">SIH_IXX</strong> (FLOAT)</td>
@@ -28717,27 +28067,6 @@ table {
  <td>deg*1e7</td>
 </tr>
 <tr>
- <td><strong id="SIH_LOC_MU_X">SIH_LOC_MU_X</strong> (FLOAT)</td>
- <td>North magnetic field at the initial location <p><strong>Comment:</strong> This value represents the North magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>[-1.0, 1.0] (0.001)</td>
- <td>0.179</td>
- <td>gauss</td>
-</tr>
-<tr>
- <td><strong id="SIH_LOC_MU_Y">SIH_LOC_MU_Y</strong> (FLOAT)</td>
- <td>East magnetic field at the initial location <p><strong>Comment:</strong> This value represents the East magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>[-1.0, 1.0] (0.001)</td>
- <td>-0.045</td>
- <td>gauss</td>
-</tr>
-<tr>
- <td><strong id="SIH_LOC_MU_Z">SIH_LOC_MU_Z</strong> (FLOAT)</td>
- <td>Down magnetic field at the initial location <p><strong>Comment:</strong> This value represents the Down magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
- <td>[-1.0, 1.0] (0.001)</td>
- <td>0.504</td>
- <td>gauss</td>
-</tr>
-<tr>
  <td><strong id="SIH_L_PITCH">SIH_L_PITCH</strong> (FLOAT)</td>
  <td>Pitch arm length <p><strong>Comment:</strong> This is the arm length generating the pitching moment This value can be measured with a ruler. This corresponds to half the distance between the front and rear motors.</p>   </td>
  <td>[0.0, ?] (0.05)</td>
@@ -28750,27 +28079,6 @@ table {
  <td>[0.0, ?] (0.05)</td>
  <td>0.2</td>
  <td>m</td>
-</tr>
-<tr>
- <td><strong id="SIH_MAG_OFFSET_X">SIH_MAG_OFFSET_X</strong> (FLOAT)</td>
- <td>magnetometer X offset in Gauss <p><strong>Comment:</strong> Absolute value superior to 10000 will disable magnetometer</p>   </td>
- <td></td>
- <td>0.0</td>
- <td>gauss</td>
-</tr>
-<tr>
- <td><strong id="SIH_MAG_OFFSET_Y">SIH_MAG_OFFSET_Y</strong> (FLOAT)</td>
- <td>magnetometer Y offset in Gauss <p><strong>Comment:</strong> Absolute value superior to 10000 will disable magnetometer</p>   </td>
- <td></td>
- <td>0.0</td>
- <td>gauss</td>
-</tr>
-<tr>
- <td><strong id="SIH_MAG_OFFSET_Z">SIH_MAG_OFFSET_Z</strong> (FLOAT)</td>
- <td>magnetometer Z offset in Gauss <p><strong>Comment:</strong> Absolute value superior to 10000 will disable magnetometer</p>   </td>
- <td></td>
- <td>0.0</td>
- <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="SIH_MASS">SIH_MASS</strong> (FLOAT)</td>
@@ -28847,21 +28155,21 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_HOME_ALT">SIM_IGN_HOME_ALT</strong> (FLOAT)</td>
+ <td><strong id="SIM_GZ_HOME_ALT">SIM_GZ_HOME_ALT</strong> (FLOAT)</td>
  <td>simulator origin altitude    </td>
  <td></td>
  <td>488.0</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_HOME_LAT">SIM_IGN_HOME_LAT</strong> (FLOAT)</td>
+ <td><strong id="SIM_GZ_HOME_LAT">SIM_GZ_HOME_LAT</strong> (FLOAT)</td>
  <td>simulator origin latitude    </td>
  <td></td>
  <td>47.397742</td>
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="SIM_IGN_HOME_LON">SIM_IGN_HOME_LON</strong> (FLOAT)</td>
+ <td><strong id="SIM_GZ_HOME_LON">SIM_GZ_HOME_LON</strong> (FLOAT)</td>
  <td>simulator origin longitude    </td>
  <td></td>
  <td>8.545594</td>
@@ -28967,14 +28275,6 @@ table {
  <td></td>
  <td>5</td>
  <td>celcius</td>
-</tr>
-<tr>
- <td><strong id="SYS_CTRL_ALLOC">SYS_CTRL_ALLOC</strong> (INT32)</td>
- <td>Enable Dynamic Control Allocation <p><strong>Comment:</strong> If disabled, the existing mixing implementation is used. If enabled, dynamic control allocation with runtime configuration of the mixing and output functions is used.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="SYS_DM_BACKEND">SYS_DM_BACKEND</strong> (INT32)</td>
@@ -29093,7 +28393,7 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>1</td>
+ <td>0</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -30823,6 +30123,8 @@ table {
 <li><strong>1:</strong> - Turtle Mode enabled via AUX1</li> 
 
 <li><strong>2:</strong> - Turtle Mode enabled via AUX2</li> 
+
+<li><strong>3:</strong> - UART Passthrough Mode</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -30863,47 +30165,55 @@ table {
  <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
  <td></td>
  <td>15000</td>
- <td>RPM</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="UART_ESC_RPM_MIN">UART_ESC_RPM_MIN</strong> (INT32)</td>
  <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
  <td></td>
  <td>5500</td>
- <td>RPM</td>
-</tr>
-</tbody></table>
-
-## UART ESC Mode Deadzone 1
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="UART_ESC_DEAD1">UART_ESC_DEAD1</strong> (FLOAT)</td>
- <td>UART ESC Mode Deadzone 1 <p><strong>Comment:</strong> Must be greater than Deadzone 2. Absolute value of stick position needed to activate a motor.</p>   </td>
- <td>[0.01, 0.99] (0.01)</td>
- <td>0.30</td>
  <td></td>
 </tr>
-</tbody></table>
-
-## UART ESC Mode Deadzone 2
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
 <tr>
- <td><strong id="UART_ESC_DEAD2">UART_ESC_DEAD2</strong> (FLOAT)</td>
- <td>UART ESC Mode Deadzone 2 <p><strong>Comment:</strong> Must be less than Deadzone 1. Absolute value of stick position considered no longer on the X or Y axis, thus targetting a specific motor (single).</p>   </td>
- <td>[0.01, 0.99] (0.01)</td>
- <td>0.02</td>
+ <td><strong id="UART_ESC_T_COSP">UART_ESC_T_COSP</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Cosphi    </td>
+ <td>[0.000, 1.000] (0.001)</td>
+ <td>0.990</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_T_DEAD">UART_ESC_T_DEAD</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Deadband    </td>
+ <td>[0, 100] (1)</td>
+ <td>20</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_T_EXPO">UART_ESC_T_EXPO</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor expo    </td>
+ <td>[0, 100] (1)</td>
+ <td>35</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_T_MINF">UART_ESC_T_MINF</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor STICK_MINF    </td>
+ <td>[0.0, 100.0] (1.0)</td>
+ <td>0.15</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_T_PERC">UART_ESC_T_PERC</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
+ <td>[1, 100] (1)</td>
+ <td>90</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UART_ESC_T_YAWR">UART_ESC_T_YAWR</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Yaw Reversal    </td>
+ <td>[0, 1] (1)</td>
+ <td>0</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -30924,17 +30234,34 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="CANNODE_GPS_RTCM">CANNODE_GPS_RTCM</strong> (INT32)</td>
- <td>Enable RTCM pub/sub    </td>
+ <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
+ <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
+ <td>[1, 125] </td>
+ <td>120</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CANNODE_PUB_MBD">CANNODE_PUB_MBD</strong> (INT32)</td>
+ <td>Enable MovingBaselineData publication    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CANNODE_SUB_MBD">CANNODE_SUB_MBD</strong> (INT32)</td>
+ <td>Enable MovingBaselineData subscription    <p><b>Reboot required:</b> true</p>
+</td>
  <td>[?, 1] </td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
- <td>UAVCAN Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   </td>
- <td>[1, 125] </td>
- <td>120</td>
+ <td><strong id="CANNODE_SUB_RTCM">CANNODE_SUB_RTCM</strong> (INT32)</td>
+ <td>Enable RTCM subscription    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -30967,14 +30294,6 @@ table {
 </td>
  <td>[0, 3] </td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UAVCAN_ESC_IDLT">UAVCAN_ESC_IDLT</strong> (INT32)</td>
- <td>UAVCAN ESC will spin at idle throttle when armed, even if the mixer outputs zero setpoints    <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
@@ -31502,20 +30821,20 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
- <td>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This technique can be used to avoid the plane having to pitch down in order to move forward. This prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demaded down pitch is below VT_PITCH_MIN, and uses VT_FWD_THRUST_SC to get from demanded down pitch to fixed-wing actuation.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable FW forward actuation in hover.</li> 
+ <td>Enable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This feature can be used to avoid the plane having to pitch down in order to move forward, and prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong> Enable FW forward actuation in hover in altitude, position and auto modes (except LANDING).</li> 
+<li><strong>1:</strong> Enabled (except LANDING)</li> 
 
-<li><strong>2:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT1.</li> 
+<li><strong>2:</strong> Enabled if distance to ground above MPC_LAND_ALT1</li> 
 
-<li><strong>3:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT2.</li> 
+<li><strong>3:</strong> Enabled if distance to ground above MPC_LAND_ALT2</li> 
 
-<li><strong>4:</strong> Enable FW forward actuation in hover in altitude, position and auto modes.</li> 
+<li><strong>4:</strong> Enabled constantly</li> 
 
-<li><strong>5:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT1 (except LANDING).</li> 
+<li><strong>5:</strong> Enabled if distance to ground above MPC_LAND_ALT1 (except LANDING)</li> 
 
-<li><strong>6:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT2 (except LANDING).</li> 
+<li><strong>6:</strong> Enabled if distance to ground above MPC_LAND_ALT2 (except LANDING)</li> 
 </ul>
   </td>
  <td></td>
@@ -31558,13 +30877,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
- <td>The channel number of motors that must be turned off in fixed wing mode    </td>
- <td>[0, 12345678] (1)</td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
  <td>QuadChute Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
  <td>[0, 180] </td>
@@ -31600,31 +30912,10 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="VT_IDLE_PWM_MC">VT_IDLE_PWM_MC</strong> (INT32)</td>
- <td>Idle speed of VTOL when in multicopter mode    </td>
- <td>[900, 2000] (1)</td>
- <td>900</td>
- <td>us</td>
-</tr>
-<tr>
  <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
  <td>[-10.0, 45.0] </td>
  <td>-5.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="VT_MC_ON_FMU">VT_MC_ON_FMU</strong> (INT32)</td>
- <td>Enable the usage of AUX outputs for hover motors <p><strong>Comment:</strong> Set this parameter to true if the vehicle's hover motors are connected to the FMU (AUX) port. Not required for boards that only have a FMU, and no IO. Only applies for standard VTOL and tiltrotor.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="VT_MOT_ID">VT_MOT_ID</strong> (INT32)</td>
- <td>The channel number of motors which provide lift during hover    </td>
- <td>[0, 12345678] (1)</td>
- <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -31805,27 +31096,6 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="EXFW_HDNG_P">EXFW_HDNG_P</strong> (FLOAT)</td>
- <td>    </td>
- <td></td>
- <td>0.1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="EXFW_PITCH_P">EXFW_PITCH_P</strong> (FLOAT)</td>
- <td>    </td>
- <td></td>
- <td>0.2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="EXFW_ROLL_P">EXFW_ROLL_P</strong> (FLOAT)</td>
- <td>    </td>
- <td></td>
- <td>0.2</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
  <td>Enable user assisted descent speed for autonomous land routine <p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED</p> <strong>Values:</strong><ul>

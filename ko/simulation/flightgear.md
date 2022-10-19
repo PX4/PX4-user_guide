@@ -194,7 +194,7 @@ FlightGear의 조이스틱 입력은 비활성화 되어야 합니다. 그렇지
 
 ## 확장 및 사용자 정의
 
-시뮬레이션 인터페이스를 확장하거나 사용자 정의를 위하여 **Tools/flightgear_bridge* 폴더에서 파일을 편집합니다. 코드는 Github의 [PX4-FlightGear-Bridge 저장소](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)를 참고하십시오.
+To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder. 코드는 Github의 [PX4-FlightGear-Bridge 저장소](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)를 참고하십시오.
 
 
 ## 추가 정보

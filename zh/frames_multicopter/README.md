@@ -12,10 +12,6 @@ PX4提供大量单-多旋翼， 包括单旋翼、三旋翼、四旋翼、六旋
 
 @[youtube](https://www.youtube.com/watch?v=JovSwzoTepU)
 
-Lumenier QAV250 Pixhawk Mini Build
-
-@[youtube](http://www.youtube.com/watch?v=MZzo4DMNkug)
-
 大疆Matrice 100 (Pixhawk 1)
 
 @[youtube](https://www.youtube.com/watch?v=3OGs0ONemGc)

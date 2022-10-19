@@ -1,15 +1,24 @@
-# THE Peach FCC-R1 
+# ThePeach FCC-R1
 
-:::WARNING
+:::warning
+This flight controller is not fully available.
+It depends on the following PRs:
+- [PX4-Autopilot#20176: boards: Add THE Peach K1/R1 code ](https://github.com/PX4/PX4-Autopilot/pull/20176)
+- [PX4-Bootloader#219: Add THEPeach K1/R1](https://github.com/PX4/PX4-Bootloader/pull/219)
+- [QGroundControl#10401: Add The Peach K1/R1 USB Board info](https://github.com/mavlink/qgroundcontrol/pull/10401)
+:::
+
+
+:::warning
 PX4 does not manufacture this (or any) autopilot. 
 Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
 :::
 
-**THE Peach FCC-R1** is an advanced autopilot designed and made in **THE Peach**.
+**ThePeach FCC-R1** is an advanced autopilot designed and made in **ThePeach**.
 
 It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4** on **Nuttx OS**.
 
-![THE Peach_R1](../../assets/flight_controller/thepeach_r1/main.png)
+![ThePeach_R1](../../assets/flight_controller/thepeach_r1/main.png)
 
 ## Specifications
 
@@ -46,12 +55,11 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 - Mechanical
   - Dimensions: 49.2 x 101 x 18.2mm
-
   - Weight: 100g
-    
+
 ## Connectors
 
-## ![pinmap_top](../../assets/flight_controller/thepeach_r1/pinmap.png)
+![pinmap_top](../../assets/flight_controller/thepeach_r1/pinmap.png)
 
 ## Serial Port Mapping
 
@@ -67,9 +75,9 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
 
 ## Voltage Ratings
 
-**THE Peach FCC-R1** can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER** and **USB**.
+**ThePeach FCC-R1** can be double-redundant on the power supply if two power sources are supplied. The two power rails are: **POWER** and **USB**.
 
-**note:**
+Note:
 
 1. The output power rails **FMU PWM OUT** and **I/O PWM OUT** do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
 2. The USB do not power the **Raspberry Pi CM3+**. You must supply power to **POWER** or the Raspberry Pi CM3+ will be unpowered.
@@ -99,4 +107,4 @@ make thepeach_r1_default
 
 ## Where to buy
 
-Order from [THE Peach](http://thepeach.shop/)
+Order from [ThePeach](http://thepeach.shop/)

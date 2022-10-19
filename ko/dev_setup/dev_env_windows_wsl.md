@@ -97,7 +97,7 @@ wsl --shutdown
 ````
 
 Alternatively, after entering `exit` you can just close the prompt.
-::: 
+:::
 
 ### Install PX4 Toolchain
 

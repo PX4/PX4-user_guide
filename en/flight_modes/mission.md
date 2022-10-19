@@ -52,7 +52,7 @@ While flying in mission mode, if you decide to discontinue the mission and switc
 :::warning
 Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).
 We recommend you centre the control sticks before switching to any other mode.
-::: 
+:::
  
 For more information about mission planning, see:
 * [Mission Planning](../flying/missions.md)

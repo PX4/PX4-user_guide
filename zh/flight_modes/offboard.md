@@ -32,7 +32,7 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设置值 （仅 `x`，`y`，`z`）
-    * 速度设定值（仅 `vx`，`yy`，`vz`）
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
     * 加速度设定值（仅 `afx`，`afy`，`afz`）
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
     * Position setpoint **and** velocity setpoint **and** acceleration (the velocity and the acceleration setpoints are used as feedforwards; the velocity setpoint is added to the output of the position controller and the result is used as the input to the velocity controller; the acceleration setpoint is added to the output of the velocity controller and the result used to compute the thrust vector).
@@ -41,7 +41,7 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
-    * 速度设定值（仅 `vx`，`yy`，`vz`）
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
     * *Thrust* setpoint  (only `afx`, `afy`, `afz`)
 
       :::note

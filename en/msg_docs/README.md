@@ -153,7 +153,6 @@ Will be updated on startup of the sensor module and when sensor selection change
 - [task_stack_info](task_stack_info.md) — stack information for a single running process
 - [tecs_status](tecs_status.md)
 - [telemetry_status](telemetry_status.md)
-- [test_motor](test_motor.md)
 - [timesync](timesync.md)
 - [timesync_status](timesync_status.md)
 - [trajectory_bezier](trajectory_bezier.md) — Bezier Trajectory description. See also Mavlink TRAJECTORY msg

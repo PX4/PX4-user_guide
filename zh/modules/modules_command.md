@@ -6,8 +6,6 @@ Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/mai
 
 用于测试执行器的实用程序
 
-注意：这仅与 SYS_CTRL_ALLOC=1 结合使用。
-
 警告：在使用此命令之前移除所有螺旋桨。
 
 <a id="actuator_test_usage"></a>
@@ -177,6 +175,16 @@ hardfault_log <command> [arguments...]
 
    reset         Reset the reboot counter
 ```
+## hist
+Source: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hist)
+
+Command-line tool to show the px4 message history. There are no arguments.
+<a id="hist_usage"></a>
+
+### 用法
+```
+hist [arguments...]
+```
 ## i2cdetect
 Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2cdetect)
 
@@ -272,54 +280,6 @@ Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/main/src/syst
 mfd <command> [arguments...]
  Commands:
    query         如果不存在返回 ture
-```
-## mixer
-Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mixer)
-
-
-### 描述
-向电调驱动器载入和添加一个混控器文件。
-
-需要注意的是驱动必须支持这个命令使用的 ioctl ，这一点在 Nuttx 上是成立的，但在其它平台上就不一定成立，如 RPI。
-
-<a id="mixer_usage"></a>
-
-### 用法
-```
-mixer <command> [arguments...]
- Commands:
-   load
-     <file:dev> <file> 输出设备 (eg. /dev/pwm_output0) 和混控器文件
-
-   append
-     <file:dev> <file> 输出设备 (eg. /dev/pwm_output0) 和混控器文件
-```
-## motor_test
-Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/motor_test)
-
-
-用于测试执行器的实用程序
-
-警告：在使用此命令之前移除所有螺旋桨。
-
-<a id="motor_test_usage"></a>
-
-### 用法
-```
-motor_test <command> [arguments...]
- Commands:
-   test          设置电机输出值
-     [-m <val>]  测试的电机 (1...8, 没有指定时为全部)
-     [-p <val>]  Power (0...100)
-                 默认: 0
-     [-t <val>]  以秒为单位的超时时间 (默认=无超时)
-                 默认: 0
-     [-i <val>]  驱动实例序号
-                 默认: 0
-
-   stop          停止所有电机
-
-   iterate       依次开始所有的电机启动和停止
 ```
 ## mtd
 Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
@@ -496,76 +456,6 @@ perf [arguments...]
 
  如果未给出参数则打印所有性能计数器
 ```
-## pwm
-Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/pwm)
-
-
-### 描述
-此命令用于配置输出给舵机和电调的 PWM。
-
-默认设备 `/dev/pwm_output0` 是主通道, AUX 通道在 `/dev/pwm_output1` (`-d` 参数).
-
-该命令用于在启动脚本中确认 PWM 参数 (`PWM_*`)被应用(或有机身配置提供，当被指定时）。 `pwm status` 展示当前设置 (中立位微调值是一个偏移，通过 `PWM_MAIN_TRIMx` 和 `PWM_AUX_TRIMx` 来配置).
-
-应设置加锁值以使电机不旋转（它也用于停止开关），它时能够旋转的最小值。
-
-通道被分配到一组。 由于硬件限制, 只能为每个组设置更新频率。 使用 `pwm status` 显示所有组. 如果使用了 `-c` 参数, 所有通道所在组都将生效。
-
-参数 `-p` 和 `-r` 可以设置未一个参数变量而不是一个指定的整数：使用 -p p:PWM_MIN。
-
-注意，在 OneShot 模式下， PWM 范围 [1000, 2000] 会被自动映射到 [125, 250] 。
-
-### 示例
-
-将所有通道的 PWM 频率设置为 400 Hz:
-```
-pwm rate -a -r 400
-```
-
-Arm and set the outputs of channels 1 and 3 to a PWM value to 1200 us:
-```
-pwm min -c 13 -p 1200
-```
-
-
-<a id="pwm_usage"></a>
-
-### 用法
-```
-pwm <command> [arguments...]
- Commands:
-   arm           解锁输出
-
-   disarm        加锁输出
-
-   status        打印所有通道的当前配置
-
-   rate          配置 PWM 频率
-     -r <val>    PWM频率 (0 = 单发, 否则 50 to 400Hz)
-
-   oneshot       配置单发125 (rate 设置为 0)
-
-   min           设置 PWM 最小值
-
-   max           设置 PWM 最大值
-
-命令'min' 和 'max' 需要一个 PWM 值:
-     -p <val>    PWM 值(例如. 1100)
-
- 命令 'rate', 'oneshot', 'min', 'max' 还需要使用以下命令之一指定通道:
-     [-c <val>]  通过以下形式选择通道: 1234 (1 digit per channel,
-                 1=first)
-     [-m <val>]  通过位掩码选择通道 (eg. 0xF, 3)
-     [-g <val>]  通过组选择通道 (eg. 0, 1, 2. 使用 'pwm status' 显示
-                 组)
-     [-a]        选择所有通道
-
- 这些参数适用于所有命令:
-     [-d <val>]  选择 PWM 输出设备
-                 值: <file:dev>, 默认: /dev/pwm_output0
-     [-v]        详细输出
-     [-e]        退出时用1代替0表示错误
-```
 ## reboot
 Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/reboot)
 
@@ -664,7 +554,7 @@ Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/syst
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
 
-### Usage
+### 用法
 ```
 top [arguments...]
    once          print load only once

@@ -4,7 +4,7 @@ An Omnicopter is a multicopter that can provide thrust in all directions (6 degr
 This allows it to move in any direction without having to tilt, and it can hover at an arbitrary tilt angle.
 All of this is achieved by arranging the motor positions and thrust axis in specific ways:
 
-<img src="../../assets/airframes/multicopter/omnicopter/frame.jpg" style="display: block; margin: 0 auto"/>
+![Omnicopter](../../assets/airframes/multicopter/omnicopter/frame.jpg)
 
 This build follows the original design from [Brescianini, Dario, and Raffaello D'Andrea](https://www.youtube.com/watch?v=sIi80LMLJSY).
 
@@ -103,7 +103,6 @@ Make sure the motors do not overheat with the changed settings.
 ### PX4
 
 - Select a generic multicopter airframe
-- Enable [SYS_CTRL_ALLOC](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC)
 - Use an [arming switch](../advanced_config/prearm_arm_disarm#arming-button-switch), do not use stick arming
 - [Select DShot](../config/actuators.md) as output protocol on all eight outputs
 - Configure the motors according to this:

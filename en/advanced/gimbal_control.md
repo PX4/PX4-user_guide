@@ -1,82 +1,72 @@
-# Gimbal Control Setup
+# Gimbal Configuration
 
-If you want to control a gimbal with a camera (or any other payload) attached to the vehicle, you need to configure how you want to control it and how PX4 can command it.
-This page explains the setup.
+This page explains how to configure and control a gimbal that has an attached camera (or any other payload).
 
-PX4 contains a generic mount/gimbal control driver with different input and output methods.
-- The input defines how you control the gimbal: via RC or via MAVLink commands (for example in missions or surveys).
-- The output defines how the gimbal is connected: either via MAVLink commands or using the Flight Controller AUX PWM port.
-Any input method can be selected to drive any output, and both input and output have to be configured via parameters.
+## Overview
 
-## Parameters
+PX4 contains a generic mount/gimbal control driver that supports different input and output methods:
 
-The [Mount](../advanced_config/parameter_reference.md#mount) parameters are used to setup the mount driver.
+- The input method defines the protocol used to command a gimbal mount that is managed by PX4.
+  This might be an RC controller, a MAVLink command sent by a GCS, or both — automatically switching between them.
+- The output method defines how PX4 communicates with the connected gimbal.
+  The recommended protocol is MAVLink v2, but you can also connect directly to a flight controller PWM output port.
 
-The most important ones are the input ([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)) and the output ([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) mode.
-By default, the input is disabled and the driver does not run.
-After selecting the input mode, reboot the vehicle so that the mount driver starts.
+PX4 takes the input signal and routes/translates it to be sent through to the output.
+Any input method can be selected to drive any output.
 
-If the input mode is set to `AUTO`, the mode will automatically be switched based on the latest input.
-To switch from MAVLink to RC, a large stick motion is required.
+Both the input and output are configured using parameters.
+The input is set using the parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN).
+By default this is set to `Disabled (-1)` and the driver does not run.
+After selecting the input mode, reboot the vehicle to start the mount driver.
+
+You should set `MNT_MODE_IN` to one of: `RC (1)`, `MAVlink gimbal protocol v2 (4)` or `Auto (0)` (the other options are deprecated).
+If you select `Auto (0)`, the gimbal will automatically select either RC or or MAVLink input based on the latest input.
+Note that the auto-switch from MAVLink to RC requires a large stick motion!
+
+The output is set using the [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) parameter.
+By default the output is set to a PXM port (`AUX (0)`).
+If the [MAVLink Gimbal Protocol v2](https://mavlink.io/en/services/gimbal_v2.html) is supported by your gimbal, you should instead select `MAVLink gimbal protocol v2 (2)`.
+
+
+The full list of parameters for setting up the mount driver can be found in [Parameter Reference > Mount](../advanced_config/parameter_reference.md#mount).
+The relevant settings for a number of common gimbal configurations are described below.
 
 ## MAVLink Gimbal (MNT_MODE_OUT=MAVLINK)
 
-To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVLINK_DO_MOUNT` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLINK`.
+To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`. 
 
 The gimbal can be connected to *any free serial port* using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) (also see [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)).
-
-A common configuration is to have a serial connection to the gimbal from the Flight Controller TELEM2 port (assuming TELEM2 is free).
-For this configuration you would set:
+For example, if the `TELEM2` port on the flight controller is unused you can connect it to the gimbal and set the following PX4 parameters:
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to **NORMAL**
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) to manufacturer recommended baud rate.
 
-This will enable the user to command the gimbal using [MAV_CMD_DO_MOUNT_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONTROL) and [MAV_CMD_DO_MOUNT_CONFIGURE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONFIGURE).
+With this setup, ground stations can send [MAVLink Gimbal Commands](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) to PX4, such as `MAV_CMD_DO_SET_ROI_LOCATION` to track region of interest and `MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW` to control the gimbal attitude, and so on.
 
-
-## Gimbal on Flight Controller (MNT_MODE_OUT=AUX)
-
-The gimbal can be connected to the Flight controller AUX ports by setting the output mode to `MNT_MODE_OUT=AUX`.
-
-A mixer file is required to define the mapping for the output pins and the [mount mixer](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/mount.aux.mix) is automatically selected (this overrides any AUX mixer provided by the airframe configuration).
-
-The output assignment is as following:
-- **AUX1**: Pitch
-- **AUX2**: Roll
-- **AUX3**: Yaw
-- **AUX4**: Shutter/retract
-
-### Customizing the mixer configuration
-
-:::tip
-Read [Mixing and Actuators](../concept/mixing.md) for an explanation of how mixers work and the format of the mixer file.
+:::note
+In Gimbal Protocol v2 terms, this setup configures PX4 as a _Gimbal Manager_.
+The flight stack handles high level "gimbal manager" commands and mission items, sending appropriate lower level "gimbal device" commands to control the gimbal.
 :::
 
-The outputs can be customized by [creating a mixer file](../concept/system_startup.md#starting-a-custom-mixer) on the SD card named `etc/mixers/mount.aux.mix`.
+## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
-A basic mixer configuration for a mount is shown below.
+The gimbal can also be controlled by connecting it to up to three flight controller PWM ports and setting the output mode to `MNT_MODE_OUT=AUX`.
 
-```
-# roll
-M: 1
-O:      10000  10000      0 -10000  10000
-S: 2 0  10000  10000      0 -10000  10000
+The output pins that are used to control the gimbal are set in the [Acuator Configuration > Outputs](../config/actuators.md#actuator-outputs) by selecting any three unused Actuator Outputs and assigning them the following output functions:
+- `Gimbal Roll`: Output controls gimbal roll.
+- `Gimbal Pitch`: Output controls Gimbal pitch.
+- `Gimbal Yaw`: Output controls Gimbal pitch.
 
-# pitch
-M: 1
-O:      10000  10000      0 -10000  10000
-S: 2 1  10000  10000      0 -10000  10000
+For example, you might have the following settings to assign the gimbal roll, pitch and yaw to AUX1-3 outputs.
 
-# yaw
-M: 1
-O:      10000  10000      0 -10000  10000
-S: 2 2  10000  10000      0 -10000  10000
-```
+![Gimbal Actuator config](../../assets/config/actuators/qgc_actuators_gimbal.png)
 
+The PWM values to use for the disarmed, maximum and minimum values can be determined in the same way as other servo, using the [Actuator Test sliders](../config/actuators.md#actuator-testing) to confirm that each slider moves the appropriate axis, and changing the values so that the gimbal is in the appropriate position at the disarmed, low and high position in the slider.
+The values may also be provided in gimbal documentation.
 
 ## SITL
 
-The Typhoon H480 model comes with a preconfigured simulated gimbal.
+The Gazebo [Typhoon H480 model](../simulation/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
 
 To run it, use:
 ```
@@ -85,16 +75,19 @@ make px4_sitl gazebo_typhoon_h480
 
 To just test the mount driver on other models or simulators, make sure the driver runs (using `vmount start`), then configure its parameters.
 
-
 ## Testing
-The driver provides a simple test command - it needs to be stopped first with `vmount stop`.
+
+The driver provides a simple test command — it needs to be stopped first with `vmount stop`.
 The following describes testing in SITL, but the commands also work on a real device.
 
 Start the simulation with (no parameter needs to be changed for that):
+
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
+
 Make sure it's armed, eg. with `commander takeoff`, then use the following command to control the gimbal (for example):
+
 ```
 vmount test yaw 30
 ```
@@ -102,4 +95,3 @@ vmount test yaw 30
 Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
 
 ![Gazebo Gimbal Simulation](../../assets/simulation/gazebo/gimbal-simulation.png)
-

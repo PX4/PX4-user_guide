@@ -14,7 +14,7 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 - **UBEC 5v 출력 전류:** 3A
 - **UBEC input voltage:** 2~12s LiPo
 - **Dimensions:** 68 x 50 x 8 mm
-- **Mounting Holes:** 45 x 45mm
+- **Mounting Holes:** 45 x 45 mm
 - **중량:** 36g
 
 ## 패키지 내용물
@@ -23,7 +23,7 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 
 - PM07 board
 - 80mm XT60 connector wire (installed)
-- Electrolytic capacito: 220uF 63V (installed)
+- Electrolytic capacitor: 220uF 63V (installed)
 - 2x JST GH 10P Cable
 - JST GH 8P Cable
 - 2x JST GH 6P Cable

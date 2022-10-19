@@ -107,16 +107,17 @@ To create and build the workspace:
 
 1. Create a workspace directory using:
    ```sh
-   $ mkdir -p ~/px4_ros_com_ros2/src
+   mkdir -p ~/px4_ros_com_ros2/src
    ```
 1. **PX4 Autopilot** 프로젝트의 루트에서 새 터미널을 열고, PX4 Gazebo 시뮬레이션을 실행합니다.
    ```sh
-   make px4_sitl_rtps gazebo
+   git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
+   git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
    ```
 1. *새* 터미널에서 ROS 2 작업 공간을 `소싱`한 다음 UDP를 전송 프로토콜로 사용하여 `micrortps_agent` 데몬을 시작합니다.
    ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ micrortps_agent -t UDP
+   cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
+   source build_ros2_workspace.bash
    ```
 
 
@@ -141,13 +142,13 @@ One way to check that the installation/setup succeeded is to test that the bridg
    Once PX4 has fully started the terminal will display the [NuttShell/System Console](../debug/system_console.md). Note also that PX4 SITL will automatically start the `micrortps_client` connected to UDP ports 2019 and 2020.
 1. On a *new* terminal, `source` the ROS 2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:
    ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ micrortps_agent -t UDP
+   source ~/px4_ros_com_ros2/install/setup.bash
+   micrortps_agent -t UDP
    ```
 1. Open a new terminal and start a "listener" using the provided launch file:
    ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
+   source ~/px4_ros_com_ros2/install/setup.bash
+   ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
    If the bridge is working correctly you will be able to see the data being printed on the terminal/console where you launched the ROS listener:
@@ -415,7 +416,7 @@ The **clean_all.bash** script (in **px4_ros_com/scripts**) is provided to ease t
 The most common way of using it is by passing it the ROS (1) workspace directory path (since it's usually not on the default path):
 
 ```sh
-$ source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
+source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 ```
 
 :::tip

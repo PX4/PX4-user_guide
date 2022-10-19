@@ -13,7 +13,8 @@
   * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 * 멀티콥터
   * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI m500](https://modalai.com/products/voxl-m500)
+  * [ModalAI m500](https://www.modalai.com/collections/development-drones/products/voxl-m500)
+  * [ModalAI Sentinel](https://www.modalai.com/products/sentinel-development-drone)
 * VTOL
   * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
@@ -43,6 +44,7 @@ This section lists fully assembled vehicles where you can update the software to
 :::
 
 * 멀티콥터
+  * [PX4 Development Kit - X500 V2](https://shop.holybro.com/px4-development-kit-x500-v2_p1340.html) ([holybro.com](https://www.holybro.com/))
   * [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
   * [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
   * [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)

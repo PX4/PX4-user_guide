@@ -196,7 +196,7 @@ You can see how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https:/
 
 ### 거리 센서 성능 향상
 
-The current default world is [PX4/sitl_gazebo/worlds/**iris.world**](https://github.com/PX4/sitl_gazebo/tree/master/worlds)), which uses a heightmap as ground.
+The current default world is [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds/**iris.world**](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)), which uses a heightmap as ground.
 
 Gazebo는 실제 시스템에서 일반적으로 발견되는 것과 유사한 GPS 잡음을 시뮬레이션할 수 있습니다(그렇지 않으면 보고된 GPS 값은 잡음이 없고 완벽한 것입니다). 이것은 GPS 노이즈의 영향을 받을 수 있는 응용 프로그램(예: 정밀 포지셔닝)에서 작업할 때 유용합니다.
 
@@ -218,7 +218,7 @@ GPS noise is enabled if the target vehicle's SDF file contains a value for the `
 SDF 파일은 후속 빌드에서 덮어 쓰지 않습니다.
 :::
 
-2. 대상 차량에 대한 SDF 파일을 엽니다(예: **./Tools/sitl_gazebo/models/iris/iris.sdf**).
+2. Open the SDF file for your target vehicle (e.g. **./Tools/simulation/gazebo/sitl_gazebo/models/iris/iris.sdf**).
 3. `gpsNoise` 요소를 검색합니다.
    ```xml
    <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
@@ -236,7 +236,7 @@ PX4는 [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/w
 
 ## 특정 세계 로드
 
-PX4 구성 대상에서 최종 옵션으로 지정하여 모든 세계를 로드할 수 있습니다.
+PX4 supports a number of [Gazebo Worlds](../simulation/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds). By default Gazebo displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
 
 예를 들어, *창고* 세계를 로드하려면 다음과 같이 추가할 수 있습니다.
 
@@ -271,7 +271,7 @@ The vehicle gets spawned very close to the origin of the world model at some sim
 
 The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
 
-다음 `make` 명령을 사용하여 [Sonoma Raceway World](../simulation/gazebo_worlds.md#sonoma-raceway)에서 로버를 생성하여 테스트할 수 있습니다. 모델 데이터베이스에서 다운로드하므로 최초 생성 시간이 오래 걸립니다.
+An example can be found in the [sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/sonoma_raceway.world):
 ```
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -367,7 +367,8 @@ The Gazebo camera sensor is supported/enabled on the following frames:
 :::note
 참고로 종속 항목에는 `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`,  `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`가 포함됩니다. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
-대상 차량이 지원하는 경우에는, 비디오 스트리밍이 자동으로 시작됩니다. Typhoon H480에서 비디오 스트리밍을 시작하려면 다음 명령어를 입력하십시오.
+:::note FYI
+only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`. Typhoon H480에서 비디오 스트리밍을 시작하려면 다음 명령어를 입력하십시오.
 
 ### 동영상 스트리밍 시작/중지
 
@@ -417,8 +418,7 @@ VERBOSE_SIM=1 make px4_sitl gazebo
 
 ## 확장 및 사용자 정의
 
-:::note
-빌드 시스템은 시뮬레이터를 포함하여 올바른 GIT 하위 모듈을 적용합니다. 디렉토리에 있는 파일의 변경 사항을 덮어쓰지 않습니다.
+To extend or customize the simulation interface, edit the files in the `Tools/simulation/gazebo/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/PX4/PX4-SITL_gazebo) on Github.
 
 :::note
 The build system enforces the correct GIT submodules, including the simulator.

@@ -369,15 +369,9 @@ ESC 보정을 수행하기 전에 프로펠러를 기체에서 제거하여야 �
 
 튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
 
-## 비디오
-
-아래 비디오는 QAV250 테스트 비행을 보여줍니다.
-
-@[유투브](https://youtu.be/MZzo4DMNkug)
-
 
 ## 감사의 글
 
-이 조립 방법은 *Abimael Suarez, 3DRobotics*에서 제공하였습니다. 비디오는 *Santiago Escala*, *3DRobotics*에서 제공하였습니다.
+이 조립 방법은 *Abimael Suarez, 3DRobotics*에서 제공하였습니다.
 
 <!-- Open Questions/ACTIONS - Need to update with cross links to other PX4 docs. At moment many of these do not exist: Pixhawk wiring overviews, receivers, gps etc, flight modes. -Tidy up some of the diagrams do remove unnecessary complication (e.g. remove OS footer from QGroundControl screens) -->

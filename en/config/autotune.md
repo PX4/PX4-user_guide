@@ -5,11 +5,6 @@ It is currently enabled for multicopter, fixed wing, and hybrid VTOL fixed wing 
 
 Tuning only needs to be done once, and is recommended unless unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
 
-:::note
-The QGroundControl Autotuning UI is not enabled for Fixed wing vehicles - see [qgroundcontrol#10194](https://github.com/mavlink/qgroundcontrol/issues/10194) (though it is for VTOL vehicles in fixed wing flight).
-You can start Fixed-wing autotuning by setting the parameter [FW_AT_START](../advanced_config/parameter_reference.md#FW_AT_START).
-:::
-
 :::warning
 Auto-tuning is performed while flying.
 The airframe must fly well enough handle moderate disturbances, and should be closely attended:
@@ -164,7 +159,7 @@ PX4 uses [PID controllers](../flight_stack/controller_diagrams.md) (rate, attitu
 The controllers must be well tuned in order to get the best performance out of a vehicle.
 In particular, a poorly tuned rate controller results in less stable flight in all modes, and takes longer to recover from disturbances.
 
-Generally if you use an [airframe configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly.
+Generally if you use a [frame configuration](../config/airframe.md) that is similar to your vehicle then the vehicle will be able to fly.
 However unless the configuration precisely matches your hardware you should tune the rate and attitude controllers.
 Tuning the velocity and position controllers is less important because they are less affected by vehicle dynamics, and the default tuning configuration for a similar airframe is often sufficient.
 
