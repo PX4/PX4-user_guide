@@ -358,10 +358,10 @@ You can also modify PX4 itself, and [install it as custom firmware](../config/fi
 
 :::note
 Modification of PX4 code is not *needed* to meet most computer vision use cases.
-To discuss the interfaces or how to integrate other features join the [PX4 support channel](../contribute/support.md) to discuss
+To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
 :::
 
-## Px4 Vision Carrier Board Pinouts
+## PX4 Vision Carrier Board Pinouts
 
 The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
 

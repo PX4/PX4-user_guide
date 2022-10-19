@@ -16,10 +16,11 @@ The core development team and community are active on the following channels.
 <a href="https://discuss.px4.io/" style="padding:20px" ><img src="../../assets/site/logo_pro_small.png" alt="PX4 Discuss Forum Logo" width="110px"/></a>
 
 :::tip
-Post on [PX4 Discuss](https://discuss.px4.io/) first! 
+Post on [PX4 Discuss](https://discuss.px4.io/) first!
+Discuss is indexed by search engines and serves as a common knowledge base
+
 If you don't get a response in a few days then ping us on Discord with a link to the post.
 
-Discuss is indexed by search engines and serves as a common knowledge base
 :::
 
 ## Diagnosing Problems
