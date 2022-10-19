@@ -358,7 +358,7 @@ You can also modify PX4 itself, and [install it as custom firmware](../config/fi
 
 :::note
 Modification of PX4 code is not *needed* to meet most computer vision use cases.
-To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+To discuss the interfaces or how to integrate other features join the [PX4 support channel](../contribute/support.md) to discuss
 :::
 
 ## Px4 Vision Carrier Board Pinouts
@@ -380,6 +380,5 @@ The Carrier board pinouts can be download from [Holybro's website](http://www.ho
 For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following community support channels:
-- [PX4 discuss](https://discuss.px4.io/)
-- [PX4 slack](https://slack.px4.io/) channel: #avoidance
 - [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
+- [PX4 Support channels](../contribute/support.md)
