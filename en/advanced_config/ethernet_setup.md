@@ -203,10 +203,10 @@ However this is not recommended because the default configuration is optimised f
 
 
 ## ROS2 Setup Example
-
-Prerequisites:
-
-- You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](../middleware/micrortps.md#client-px4-px4-autopilot).
+ 
+Prerequisites: 
+ 
+- You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](../middleware/micrortps.md#client-px4-px4-autopilot). 
 - [ROS2](../ros/ros2_comm.md#sanity-check-the-installation) has been set up correctly and [sanity check](../ros/ros2_comm.md#sanity-check-the-installation) has been confirmed. 
 - You have followed the Ethernet network and port setup as discussed at the top of this page. 
 

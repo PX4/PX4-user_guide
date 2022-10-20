@@ -26,7 +26,7 @@ PX4 supports both the "original" ROS and ROS 2, with the following configuration
 
 Unveiled at the [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (and [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), the PX4 Development team, announced the plans to support microROS.
 
-* microRTPS:  microRTPS bridge with Fast DDS (The current stable ROS 2 interface)
-* micro XRCE-DDS: DDS on PX4 (Next step!)
-* micro ROS: ROS 2 on the PX4 (Our Target!)
+* microRTPS:  microRTPS bridge with Fast DDS (The current stable ROS 2 interface) 
+* micro XRCE-DDS: DDS on PX4 (Next step!) 
+* micro ROS: ROS 2 on the PX4 (Our Target!) 
 

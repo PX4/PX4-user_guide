@@ -1,14 +1,20 @@
 # MicroDDS
 
-The *PX4-Fast RTPS(DDS) Bridge*, which was also referred to as as the *microRTPS Bridge*, has now been replaced with MicroDDS bridge.
+Micro XRCE-DDS is a software solution that enables communication with an existing DDS network. 
 
 The new approach provides a faster and simpler method of integrating applictaions running and linked in DDS domains (including ROS nodes), making it easy to share sensor data, commands, and other vehicle information.
 
 The following guide describes the new PX4 bridge architecture, and shows the reader how to write a simple *Micro DDS* application to subscribe * publish telemetry updates from the PX4 Autopilot.
 
 :::note
-Micro XRCE-DDS is a software solution that enables communictaion with an existing DDS network. 
+MicroDDS has replaced the PX4 FastRTPS (DDS) Bridge.
+If you're working PX4 v1.13 (or earlier) FastRTPS documentation can be found here:
+
+- [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html)
+  - [Manually Generate Client and Agent Code](https://docs.px4.io/v1.13/en/middleware/micrortps_manual_code_generation.html)
+- [Fast DDS Installation](https://docs.px4.io/v1.13/en/dev_setup/fast-dds-installation.html)
 :::
+
 
 ## Why this approach is of interest?
 

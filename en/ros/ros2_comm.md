@@ -11,7 +11,7 @@ For information about using the *microRTPS bridge* **without ROS 2**, see the [R
 :::
 
 :::note
-For a more detailed and visual explanation on how to use PX4 with ROS 2 see these presentations from the PX4 maintainers:
+For a more detailed and visual explanation on how to use PX4 with ROS 2 see these presentations from the PX4 maintainers: 
 1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 :::
@@ -65,14 +65,9 @@ To setup ROS 2 for use with PX4 you will need to:
 - [Build ROS 2 Workspace](#build-ros-2-workspace)
 - [Sanity Check the Installation](#sanity-check-the-installation) (Optional)
 
+<!--
 ### Install Fast DDS
-
-Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.2** (or later) and **Fast-RTPS-Gen 1.0.4** (not later!) and their dependencies.
-
-:::warning
-Check the guide to confirm the latest dependencies!
-You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen** have been installed.
-:::
+-->
 
 
 ### Install ROS 2

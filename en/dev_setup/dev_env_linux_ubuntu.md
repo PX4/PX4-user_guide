@@ -7,7 +7,6 @@ This environment can be used to build PX4 for [most PX4 targets](../dev_setup/de
 * [Gazebo Simulation](../simulation/gazebo.md)
 * [Raspberry Pi](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
-* [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -205,15 +204,6 @@ To install the development toolchain:
 * Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
 * The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
-
-
-<a id="fast_dds"></a>
-<a id="fast_rtps"></a>
-## Fast DDS installation
-
-[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is required if you're using PX4 with ROS2 (or some other RTPS/DDS system).
-
-Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
 
 
 ## Next Steps

@@ -20,14 +20,14 @@ The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2
 
 ## Overview
 
-The application pipeline for ROS (1) bridged over ROS 2 is shown below.
+The application pipeline for ROS (1) bridged over ROS 2 is shown below. 
 
-![Architecture with ROS](../../assets/middleware/micrortps/architecture_ros.png)
+![Architecture with ROS](../../assets/middleware/micrortps/architecture_ros.png) 
 
 Essentially it is the same as for ROS 2, except that there is an additional [`ros1_bridge`](https://github.com/ros2/ros1_bridge) package (by Open Robotics) that translates messages between the two versions.
 This is needed because the original version of ROS does not support RTPS.
 
-The other main difference is that the `px4_ros_com` and `px4_msgs` packages a separate `ros1` branch that generates the ROS message headers and source files for using **with** the `ros1_bridge`.
+The other main difference is that the `px4_ros_com` and `px4_msgs` packages a separate `ros1` branch that generates the ROS message headers and source files for using **with** the `ros1_bridge`. 
 This branch also includes example listener and advertiser nodes.
 
 
@@ -100,7 +100,7 @@ To use ROS (1) **and** ROS 2 (you need both for this!):
    $ micrortps_agent -t UDP
    ```
 
-1. On the [NuttShell/System Console](../debug/system_console.md), start the `micrortps_client` daemon also in UDP:
+1. On the [NuttShell/System Console](../debug/system_console.md), start the `micrortps_client` daemon also in UDP: 
    ```sh
    > micrortps_client start -t UDP
    ```
