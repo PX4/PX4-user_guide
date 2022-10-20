@@ -57,8 +57,6 @@ You can support additional gimbals provided that they:
 - Each gimbal must have a unique component id.
   For a PWM connected gimbal this will be the component ID of the autopilot
 
-Note that MAVLink does not support control of individual cameras in missions.
-Therefore any command sent in a mission will be broadcast to all connected cameras.
 
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
