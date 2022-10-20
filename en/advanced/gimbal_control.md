@@ -33,10 +33,9 @@ The relevant settings for a number of common gimbal configurations are described
 ## MAVLink Gimbal (MNT_MODE_OUT=MAVLINK)
 
 Each physical gimbal device on the system must have its own high level gimbal manager, which is discoverable by a ground station using the MAVLink gimbal protocol.
-The ground station sends high level [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) commands to the manager, and it will in turn send appropriate lower level "gimbal device" commands to control the gimbal.
+The ground station sends high level [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) commands to the manager of the gimbal it wants to control, and the manager will in turn send appropriate lower level "gimbal device" commands to control the gimbal.
 
-PX4 can be configured as the gimbal manager to control a single gimbal device (which can either be physically connected or be a MAVLink gimbal).
-Additional MAVLink gimbals may be controlled by their own gimbal manager components (PX4 will forward the MAVLink traffic).
+PX4 can be configured as the gimbal manager to control a single gimbal device (which can either be physically connected or be a MAVLink gimbal that implements the [gimbal device interface](https://mavlink.io/en/services/gimbal_v2.html#gimbal-device-messages)).
 
 To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
 
@@ -45,6 +44,21 @@ For example, if the `TELEM2` port on the flight controller is unused you can con
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to **NORMAL**
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) to manufacturer recommended baud rate.
+
+### Multiple Gimbal Support
+
+PX4 does not automatically create gimbal managers for other gimbal devices on the system.
+
+You can support additional gimbals provided that they:
+
+- implement the gimbal _manager_ protocol
+- Are visible to the ground station and PX4 on the MAVLink network.
+  This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
+- Each gimbal must have a unique component id.
+  For a PWM connected gimbal this will be the component ID of the autopilot
+
+Note that MAVLink does not support control of individual cameras in missions.
+Therefore any command sent in a mission will be broadcast to all connected cameras.
 
 ## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
