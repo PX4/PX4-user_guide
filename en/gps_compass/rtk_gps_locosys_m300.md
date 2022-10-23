@@ -6,11 +6,29 @@ LOCOSYS RTK-M300 has the advanced RTK (Real-time kinematic) receiver supports gl
 
 Because of the fan-less compact design, certified (-30 ~ +70 degrees) high and low temperature test , and (MIL-STD-810) military standard vibration test, provide fast and easy installation. It is especially for the RTK Base Station with limited room space to locate the computer system, but without compromising with its space to scarify its features. Whether as a RTK Base station or RTK Rover, it is very fast and convenient to use and install. RTK-M300 keeps the flexibility to meet different demands for telemetric monitor or surveying applications.
 
+## Features
+
+- Intel Atom® x5-E3930 processor dual core base clock 1.3GHz (boost up to 1.8GHz) compact and fan-less design.
+- L1 + L5 Dual-frequency and multi-constellation heading and RTK positioning solution.
+- Support GPS, GLONASS, BeiDou, GALILEO, QZSS satellite.
+- Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN).
+- Support 135-channel GNSS.
+- RTK Position Accuracy 1cm CEP.
+- GNSS Position Accuracy 1.5m CEP
+- Support 1/5Hz Default. (Option: Up to 10Hz update rate).
+- 10/100/1000Mbps Ethernet.
+- Operating temperature range -30 to +70°C.
+- AC 100-240V Power adapter.
+- Support wide range DC input from 9-36V.
+- Certified by CE/FCC/E13 mark.
+- Passed Military standard (MIL-STD-810) vibration test.
+- RTK Base station management or RTK Rover use.
+
 ## Where to buy
 [LOCOSYS RTK-M300](https://www.locosystech.com/en/product/RTK-System/rtk-M300.html)
 
 
-![LOCOSYS RTK-M300 mini pc](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
+![LOCOSYS RTK-M300 mini pc](../../assets/hardware/gps/locosys_m300/locosys_m300_general.png)
 
 :::note
 PX4 drivers for Ethernet, CAN and USB are under development.
