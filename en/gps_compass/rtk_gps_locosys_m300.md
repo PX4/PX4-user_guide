@@ -1,11 +1,16 @@
-# Femtones MINI2 Receiver
+# Locosys M300 RTK system 
 
-[MINI2 Receiver](http://www.femtomes.com) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning.
-It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
+[LOCOSYS RTK-M300](https://www.locosystech.com/en/product/RTK-System/rtk-M300.html), a compact, rugged and industrial grade computer with Intel Atom® x5-E3930 processor dual core 1.3GHz (boost up to 1.8GHz), Aluminum top case with sheet metal, is designed for the harsh or need noiseless Ad-hoc network environment.
 
-The receiver is connected to PX4 via a serial port (UART) and may be configured over Ethernet using a standard web browser.
+LOCOSYS RTK-M300 has the advanced RTK (Real-time kinematic) receiver supports global GPS/Glonass/Beidou/Galileo/QZSS satellites , L1+L5 Dual-frequency and multi-constellation RTK positioning solution. RTK-M300 adopt full frequency 4G-LTE communication board, Worldwide LTE, UMTS/HSPA+ and GSM/GPRS/EDGE coverage. It features 10/100/1000Mbps Ethernet data and voice connectivity. With external SIM socket, it allows user to access SIM card conveniently. RTK-M300 installs Win10 (or Linux)operating system, suitable for with LOCOSYS Firebird application software,provide user-friendly graphical operation interface, whether it is used for “Base station” management or “Rover” use.
 
-![MINI II Receiver](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
+Because of the fan-less compact design, certified (-30 ~ +70 degrees) high and low temperature test , and (MIL-STD-810) military standard vibration test, provide fast and easy installation. It is especially for the RTK Base Station with limited room space to locate the computer system, but without compromising with its space to scarify its features. Whether as a RTK Base station or RTK Rover, it is very fast and convenient to use and install. RTK-M300 keeps the flexibility to meet different demands for telemetric monitor or surveying applications.
+
+## Where to buy
+[LOCOSYS RTK-M300](https://www.locosystech.com/en/product/RTK-System/rtk-M300.html)
+
+
+![LOCOSYS RTK-M300 mini pc](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
 
 :::note
 PX4 drivers for Ethernet, CAN and USB are under development.
@@ -21,11 +26,7 @@ The following firmware options need to be selected when buying the device:
 - RTK
 - BASE 
 
-## Where to Buy
 
-Contact [Femtones](http://www.femtomes.com) directly for sales quote:
-- **Email:** [sales@femtomes.com](mailto:sales@femtomes.com)
-- **Telephone:** +86-10-53779838
 
 ## Functional Ports
 
