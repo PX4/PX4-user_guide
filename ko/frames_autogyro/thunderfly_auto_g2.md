@@ -21,7 +21,7 @@ Durafly 모델의 수정 내역은 아래와 같습니다.
 * 안전 파손이 가능한 로터 플레이트가 있는 2 개의 블레이드 로터
 * 랜딩 기어 크기 증가
 
-### 자율비행장치
+### 오토파일럿
 
 수정된 모델의 항공기의 중량은 매우 무겁습니다. 따라서, 경량 비행 컨트롤러 사용이 권장됩니다 (예 : [Holybro pix32](../flight_controller/holybro_pix32.md) 또는 [CUAV nano](../flight_controller/cuav_v5_nano.md)).
 
