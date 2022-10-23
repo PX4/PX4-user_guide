@@ -12,7 +12,7 @@
 
 아래의 이미지는 주요 센서와 주변 장치(모터 및 서보 출력 제외)들의 연결 방법을 설명합니다. 다음 섹션에서 각 장치에 대하여 자세히 설명합니다.
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
 
 | 인터페이스           | 기능                                                                                                                  |
 |:--------------- |:------------------------------------------------------------------------------------------------------------------- |
@@ -34,7 +34,7 @@
 자세한 인터페이스는 [V5 nano 매뉴얼](http://manual.cuav.net/V5-nano.pdf)을 참고하십시오.
 :::
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
 :::note
 콘트롤러를 권장 기본 방향으로 장착 할 수 없는 경우(예 : 공간 제약으로 인해) 실 장착 방향을 자동항법장치 프로그램에서 설정하여야합니다. [비행 콘트롤러 방향](../advanced_features/rtk-gps.md)
@@ -54,7 +54,7 @@ The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_co
 CAN GPS를 사용하는 경우 케이블을 사용하여 비행 제어 CAN 인터페이스에 연결하십시오.
 :::
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
 
 
 ## 안전 스위치
@@ -75,7 +75,7 @@ GPS 없이 비행시에는 차량 시동 스위치를 `GPS1` 포트에 직접 �
 
 아래 그림은 원격 수신기에 액세스하는 방법을 보여줍니다 (키트에서 S.BUS 케이블을 찾으십시오)
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
 
 ## Spektrum Satellite 수신기
@@ -91,7 +91,7 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 제공된 전원 모듈은 퓨즈가 없습니다. 주변 장치를 연결하는 동안 전원을 **반드시** 꺼야 합니다.
 :::
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
 :::note
 전원 모듈은 PWM 출력에 연결된 주변 장치에 전원 자체를 공급하지 않습니다.
@@ -104,7 +104,7 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 
 통신 채널은 텔레메트리를 통하여 이루어집니다. 차량 기반 라디오는 **TELEM1** 또는 **TELEM2** 포트에 연결합니다. 이 포트에 연결되어있는 경우에는 추가 설정이 필요하지 않습니다. 다른 라디오는 지상국 컴퓨터 또는 모바일 장치에 USB를 통하여 연결합니다.
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
 
 <span id="sd_card"></span>
@@ -117,7 +117,7 @@ An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory)
 
 모터/서보는 [기체 규격](../airframes/airframe_reference.md)에 지정된 순서대로 MAIN 및 AUX 포트에 연결됩니다.
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
 
 ## 핀배열
