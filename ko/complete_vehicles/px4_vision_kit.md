@@ -341,10 +341,10 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 - 새 펌웨어를 로드 한 후 *PX4 Vision DevKit* 기체를 선택합니다. ![기체 선택 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
-대부분의 컴퓨터 비전 사용 사례를 충족하기 위해 PX4 코드를 수정할 필요는 *없습니다 *. 인터페이스 또는 다른 기능을 통합하는 방법을 논의하려면 PX4 슬랙 채널 : # computer-vision에 가입하십시오.
+대부분의 컴퓨터 비전 사용 사례를 충족하기 위해 PX4 코드를 수정할 필요는 *없습니다 *. To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
 :::
 
-## Px4 비전 캐리어 보드 핀아웃
+## PX4 Vision Carrier Board Pinouts
 
 캐리어 보드 핀아웃은 [Holybro 웹 사이트](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)에서 다운로드할 수 있습니다.
 
@@ -363,6 +363,5 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 하드웨어 문제는 Holybro([productservice@holybro.com](mailto:productservice@holybro.com))에 문의하십시오.
 
 소프트웨어 문제는 아래의 커뮤니티 지원 채널을 사용하십시오.
-- [PX4 discuss](https://discuss.px4.io/)
-- [PX4 슬랙](https://slack.px4.io/) 채널 : #avoidance
 - [Holybro PX4 비전 위키 팩토리](https://wikifactory.com/+holybro/px4-vision)
+- [PX4 Support channels](../contribute/support.md)
