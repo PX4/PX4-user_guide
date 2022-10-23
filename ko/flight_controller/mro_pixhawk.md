@@ -11,7 +11,7 @@
 
 ![mRo Pixhawk 이미지](../../assets/flight_controller/mro/mro_pixhawk.jpg)
 
-PX4 실행을 위한 조립 설정 방법은 [Pixhawk 배선 개요](../assembly/quick_start_pixhawk.md)를 참고하십시오.
+PX4 실행을 위한 조립 설정 방법은 [Pixhawk 배선 퀵 스타트](../assembly/quick_start_pixhawk.md)를 참고하십시오.
 
 :::tip
 이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
