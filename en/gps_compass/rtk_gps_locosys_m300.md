@@ -68,17 +68,35 @@ Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com)
 
 Once configured the receiver is used in the same way as any other [RTK GPS](../gps_compass/rtk_gps.md) (i.e. with respect to the Survey-in process).
 
+## Specification
+
+- Frequency Range (MHz)
+  - GPS L1/L2/L5
+  - GLONASS L1/L2/L3
+  - BDS B1/B2/B3
+  - GALILEO E1/E5a/E5b/E6
+  - SBAS L1/L5
+  - QZSS L1/L2/L5/L6
+  - IRNSS L5
+  - L-Band
+- 135 Channels support
+- Up to 10 Hz update rate (default to 5Hz)
+- Acquisition Time
+  - Hot start (Open Sky) in 2 seconds
+  - Cold Start (Open Sky) in 28 seconds without AGPS
+- PPS with 100ms pulse width, 1.8Vdc
+- External, active Helix antenna
+  - SMA connector
+- UBlox Protocol Support 
+  - U5Hz:UBX-NAV-PVT,UBX-NAV-DOP
+  - 1Hz: UBX-NAV-TIMEGPS
+- Connectivity:
+  - 6-pin JST-GH UART/I2C (Pixhawk compatible)
+- Power:
+  - DC supply voltage 3.3V ~ 5.0V input
+  - Power consumption <1W
+
 
 ## Additional Information
 
-The MINI2 incorporates the following components:
-
-- [FB672](http://www.femtomes.com/en/FB672.php): Compact, dual antenna, dual frequency GNSS OEM board (delivers centimeter accurate position and precise heading).
-
-  ![FB672](../../assets/hardware/gps/rtk_fem_fb_1.jpg)
-
-- [FB6A0](http://www.femtomes.com/en/FB6A0.php): Compact, quadruple frequency GNSS OEM board (delivers centimeter-accurate positioning)
-
-  ![FB6A0](../../assets/hardware/gps/rtk_fem_fb_2.jpg)
-
-Detailed product instructions can be obtained on the official website or by contacting us.
+[Locosys LS-125-A](https://www.locosystech.com/en/product/LS-125-A.html) is a survey antenna compatible with RTK M300 system and recommended to be purchased with it. The antenna is not included in M300 kit. 
