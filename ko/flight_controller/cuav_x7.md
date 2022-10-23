@@ -74,7 +74,7 @@ PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전�
 
 ## 배선
 
-[CUAV X7 배선 개요](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
+[CUAV X7 배선 퀵 스타트](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
 
 ## 크기와 핀배열
 
