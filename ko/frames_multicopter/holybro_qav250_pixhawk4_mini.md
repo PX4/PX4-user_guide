@@ -12,9 +12,9 @@
 
 ![Pixhawk4 Mini와 조립된 Holybro QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
 
-## 간단한 가이드
+## 퀵 스타트 가이드
 
-[Pixhawk 4 Mini QAV250 키트 시작 안내서](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
+[Pixhawk 4 Mini QAV250 키트 퀵 스타트 가이드](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
 
 ## 부품 명세서
 
@@ -146,7 +146,7 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
    ![QAV250 벨크로 배터리 스트랩](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/16_velcro_strap.jpg)
 
 
-이제 "기본"프레임 빌드가 완료되었습니다 (필요한 경우, [Pixhawk 4 Wiring 빠른 시작](../assembly/quick_start_pixhawk4.md)에서 구성 요소 연결에 대한 자세한 정보를 참조).
+이제 "기본" 프레임 빌드가 완료되었습니다 (필요한 경우, [Pixhawk 4 Wiring 퀵 스타트](../assembly/quick_start_pixhawk4.md)에서 구성 요소 연결에 대한 자세한 정보를 참조).
 
 "기본" 버전의 키트가있는 경우, [PX4 설치/설정](#configure) 방법에 관한 지침으로 이동할 수 있습니다.
 
