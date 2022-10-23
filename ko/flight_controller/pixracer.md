@@ -58,7 +58,7 @@ Setup and telemetry are supported.
 
 ## Assembly
 
-See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
+[Pixracer 배선 퀵 스타트](../assembly/quick_start_pixracer.md)를 참고하십시오
 
 
 ## Wiring Diagrams
@@ -66,7 +66,7 @@ See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
 :::note
-If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
+If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. 더 자세한 정보는 이곳을 참고하십시오: [Pixracer 배선 퀵 스타트 > 외부 텔레메트리](../assembly/quick_start_pixracer.md#external-telemetry)
 :::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
