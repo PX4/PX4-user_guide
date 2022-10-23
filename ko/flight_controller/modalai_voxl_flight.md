@@ -104,7 +104,7 @@ ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmw
 
 ## 빠른 시작
 
-공급 업체의 빠른 시작 가이드는 [여기](https://docs.modalai.com/voxl-flight-quickstart/)를 참고하십시오.
+공급 업체의 퀵 스타트 가이드는 [여기](https://docs.modalai.com/voxl-flight-quickstart/)를 참고하십시오.
 
 ### voxl-vision-px4
 

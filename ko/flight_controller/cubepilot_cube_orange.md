@@ -41,7 +41,7 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ## 조립
 
-[큐브 배선 개요](../assembly/quick_start_cube.md)
+[Cube 배선 퀵 스타트](../assembly/quick_start_cube.md)
 
 ## 사양
 
@@ -142,7 +142,7 @@ make cubepilot_cubeorange
 
 ## 추가 정보 및 문서
 
-- [큐브 배선 개요](../assembly/quick_start_cube.md)
+- [Cube 배선 퀵 스타트](../assembly/quick_start_cube.md)
 - Cube 문서 (제조사) :
   - [큐브 모듈 개요](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [큐브 사용 설명서](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)

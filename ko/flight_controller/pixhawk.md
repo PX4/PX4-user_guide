@@ -15,7 +15,7 @@ Contact the manufacturer for support or compliance issues.
 
 ![Pixhawk 이미지](../../assets/hardware/hardware-pixhawk.png)
 
-PX4 조립 및 설정 방법은 [Pixhawk 배선 개요](../assembly/quick_start_pixhawk.md)를 참고하십시오.
+PX4 조립 및 설정 방법은 [Pixhawk 배선 퀵 스타트](../assembly/quick_start_pixhawk.md)를 참고하십시오.
 
 
 ## 주요 특징

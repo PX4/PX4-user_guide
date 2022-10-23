@@ -66,7 +66,7 @@ Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 <span id="connection"></span>
 ## 배선
 
-[CUAV V5+ 배선 개요](../assembly/quick_start_cuav_v5_plus.md)
+[CUAV V5+ 배선 퀵 스타트](../assembly/quick_start_cuav_v5_plus.md)
 
 ## 핀배열
 
@@ -210,5 +210,5 @@ SBUS/DSM/RSSI 인터페이스에 다른 장비(RC 수신기 제외)를 연결하
 - [FMUv5 레퍼런스 디자인 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
 - [CUAV Github](https://github.com/cuav)
 - [베이스 보드 설계 참조](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
-- [CUAV V5+ 배선 개요](../assembly/quick_start_cuav_v5_plus.md)
+- [CUAV V5+ 배선 퀵 스타트](../assembly/quick_start_cuav_v5_plus.md)
 - [DJI FlameWheel450에서 CUAV v5 +를 사용하는 기체 빌드 로그](../frames_multicopter/dji_f450_cuav_5plus.md)

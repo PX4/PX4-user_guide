@@ -151,6 +151,6 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://github.com
 
 - [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 - [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
-- [Pixhawk 4 배선 개요](../assembly/quick_start_pixhawk4.md)
+- [Pixhawk 4 배선 퀵스타트](../assembly/quick_start_pixhawk4.md)
 - [Pixhawk 4 핀배열](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 빠른 시작 가이드 (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)

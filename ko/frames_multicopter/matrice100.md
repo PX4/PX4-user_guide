@@ -15,7 +15,7 @@ DJI <sup>&reg;</sup> Matrice 쿼드콥터는 커스터마이징과 프로그래�
 
 ## 모터 연결
 
-자동조종장치 조립 방법은 [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)를 참조하십시오.
+오토파일럿 조립 방법은 [Pixhawk 배선 퀵 스타트](../assembly/quick_start_pixhawk.md)를 참조하십시오.
 
 ### 배선 다이어그램
 

@@ -149,7 +149,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 **Voltage monitoring**
 
-Digital DroneCAN/UAVCAN battery monitoring is enabled by default (see [Quickstart > Power](../assembly/quick_start_cuav_pixhawk_v6x.md#power)).
+디지털 DroneCAN/UAVCAN 배터리 모니터링은 기본적으로 활성화되어 있습니다 ([퀵 스타트 > 전력](../assembly/quick_start_cuav_pixhawk_v6x.md#power) 참고).
 
 :::note
 Analog battery monitoring via an ADC is not supported on this particular board, but may be supported in variations of this flight controller with a different baseboard.
@@ -206,7 +206,7 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 ## Further info
 
 - [CUAV Docs](https://doc.cuav.net/) (CUAV)
-- [Pixhawk V6X Wiring QuickStart](../assembly/quick_start_cuav_pixhawk_v6x.md)
+- [Pixhawk V6X 배선 퀵 스타트](../assembly/quick_start_cuav_pixhawk_v6x.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf)
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
 - [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)

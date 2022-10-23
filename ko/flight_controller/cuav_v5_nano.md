@@ -69,7 +69,7 @@ Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 <span id="connection"></span>
 ## 배선
 
-[V5 nano 배선 개요](../assembly/quick_start_cuav_v5_nano.md)
+[V5 nano 배선 퀵 스타트](../assembly/quick_start_cuav_v5_nano.md)
 
 
 ## 핀배열

@@ -410,6 +410,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ## 추가 정보
 
-- [Durandal 배선 개요](../assembly/quick_start_durandal.md)
+- [Durandal 배선 퀵 스타트](../assembly/quick_start_durandal.md)
 - [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
 - [Durandal 핀배열](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)

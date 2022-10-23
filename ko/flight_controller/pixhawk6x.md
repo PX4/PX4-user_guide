@@ -223,7 +223,7 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 ## Further info
 
 - [Holybro Docs](https://docs.holybro.com/) (Holybro)
-- [Pixhawk 6X Wiring QuickStart](../assembly/quick_start_pixhawk6x.md)
+- [Pixhawk 6X 배선 퀵 스타트](../assembly/quick_start_pixhawk6x.md)
 - [PM02D Power Module](../power_module/holybro_pm02d.md)
 - [PM03D Power Module](../power_module/holybro_pm03d.md)
 - [Pixhawk Autopilot FMUv6X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-012%20Pixhawk%20Autopilot%20v6X%20Standard.pdf).
