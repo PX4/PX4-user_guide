@@ -1,6 +1,6 @@
 # Locosys RTK-compass GPS
 
-The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. Additionally, it is equipped with an e-compass. 
+The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. Additionally, it is equipped with an e-compass. The only difference with [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is the availability of E-compass on Hawk R2.
 
 The module can act as rover when installed on the aircraft. The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
@@ -33,7 +33,7 @@ This module can be used with PX4 v1.13 or above.
 
 ## Where to Buy
 
-* [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r2.html)
+* [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
 
 ## Kit Contents
 
@@ -44,6 +44,8 @@ An RTK GPS kit includes:
 
 
 ## Configuration
+
+It is recommended 
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
 Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
