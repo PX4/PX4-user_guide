@@ -85,7 +85,7 @@ This board supported in QGroundControl 4.0 and later.
 
 ## Quick Start
 
-Quickstarts from the vendor are located [here](https://docs.modalai.com/voxl2-quickstarts/).
+공급 업체의 퀵 스타트 가이드는 [여기](https://docs.modalai.com/voxl2-quickstarts/)를 참고하십시오.
 
 ### VOXL SDK
 
