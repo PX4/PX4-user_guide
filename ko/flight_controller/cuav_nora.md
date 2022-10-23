@@ -75,7 +75,7 @@ PX4 펌웨어를 실행하면, 8개의 PWM 출력만 작동합니다.
 
 ## 배선
 
-[CUAV Nora 배선 개요](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+[CUAV Nora 배선 퀵 스타트](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
 ## 크기와 핀배열
 
