@@ -68,34 +68,51 @@ Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com)
 
 Once configured the receiver is used in the same way as any other [RTK GPS](../gps_compass/rtk_gps.md) (i.e. with respect to the Survey-in process).
 
-## Specification
+## Specifications
 
-- Frequency Range (MHz)
-  - GPS L1/L2/L5
-  - GLONASS L1/L2/L3
-  - BDS B1/B2/B3
-  - GALILEO E1/E5a/E5b/E6
-  - SBAS L1/L5
-  - QZSS L1/L2/L5/L6
-  - IRNSS L5
-  - L-Band
-- 135 Channels support
-- Up to 10 Hz update rate (default to 5Hz)
-- Acquisition Time
-  - Hot start (Open Sky) in 2 seconds
-  - Cold Start (Open Sky) in 28 seconds without AGPS
-- PPS with 100ms pulse width, 1.8Vdc
-- External, active Helix antenna
-  - SMA connector
-- UBlox Protocol Support 
-  - U5Hz:UBX-NAV-PVT,UBX-NAV-DOP
-  - 1Hz: UBX-NAV-TIMEGPS
-- Connectivity:
-  - 6-pin JST-GH UART/I2C (Pixhawk compatible)
-- Power:
-  - DC supply voltage 3.3V ~ 5.0V input
-  - Power consumption <1W
+System | Description
+:--- | :---: 
+CPU |	Intel Atom® x5-E3930 processor dual core 1.3GHz (boost up to 1.8GHz)
+Memory | 1 x 204-pin DDR3L SO-DIMM socket support 1866MHz up to 8GB. (Default 4GB)
+Communication	| - Worldwide 4G-LTE, UMTS/HSPA+ and GSM/GPRS/EDGE coverage -LTE TDD: B1/B2/B3/B4/B5/B7/B8/B12/B13/B18/B19/B20/B25/B26/B28 - LTE TDD: B38/B39/B40/B41 - WCDMA: B1/B2/B4/B5/B6/B8/B19 - GSM: B2/B3/B5/B8
+Function| LOCOSYS RTK Base Station or Rover
+I/O Interface-Front	| 1 x Power button - 4 x LED indicators for Status (programmable), Storage.
+1 x System reset button
+2 x Type A USB 3.0 compliant host, supporting system boot up
+1 x DB-15 VGA
+1 x HDMI
+1 x SIM card socket
 
+I/O Interface-Rear | 1 x 9~36VDC input with Ignition and 20W typical power consumption.
+1 x RJ-45 with LEDs for 10/100/1000Mbps Ethernet
+1 x Audio-in,
+1 x Audio-out
+1 x DB9 COM port
+
+Expandable Storage | 1 x 2.5” SSD SATA 3.0 1 x m-SATA
+
+Operating System | Windows 10 or Linux (By request)
+
+Power Management | Selectable boot-up & shut-down voltage for low power protection HW design ready for 8-level delay time on/off at user's self configuration Power on/off ignition, software detectable Support S3, S4 suspend mode
+Dimensions | 185mm (W) x 120mm (D) x 45mm (H) (7.3" x 4.7" x 1.8")
+Weight | 1 kg (2.20 lbs)
+
+Construction | Aluminum top case with sheet metal
+Oprating Environment	 | -30°C to 70°C (w/ industrial SSD) with air flow
+Storage temperatures: -40°C to 85°C
+Relative humidity: 10% to 90% (non-condensing)
+
+Vibration: Vibration (SSD): 2g @5~500 Hz
+Operating: MIL-STD-810F
+
+
+Storage: MIL-STD-810F, Method 514.5, Category 24, Integrity Test Shock (SSD):
+Operating: MIL-STD-810F, Method 516.5, Procedure I, Trucks and semi-trailers=20g
+Crash hazard: MIL-STD-810F, Method 516.5, Procedure V, Ground equipment=75g
+
+Power Adapter | AC100-240V
+Standards
+Certifications | CE approval FCC Class AE13 mark
 
 ## Additional Information
 
