@@ -1,6 +1,6 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
-# PX4 자율 비행 프로그램 안내서 ({{ $themeConfig.px4_version }})
+# PX4 오토파일럿 사용자 설명서 ({{ $themeConfig.px4_version }})
 
 [![배포](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](https://discuss.px4.io//) [![Discord](https://discordapp.com/api/guilds/1022170275984457759/widget.png?style=shield)](https://discord.gg/dronecode)
 
@@ -34,7 +34,7 @@ PX4를 지원하는 기체가 준비되어 있는 경우:
 
 - 기체 선택하기 - [기체 제작](airframes/README.md)에서는 지원 기체 목록이 있으며, 기체 조립법을 자세하게 설명합니다.
 - 비행 콘트롤러 선택 - [시작하기 &gt; 비행 콘트롤러](getting_started/flight_controller_selection.md)와 [자동항법장치](flight_controller/README.md)에 대하여 설명합니다.
-- [조립](assembly/README.md)은 주요 주변 장치를 자동항법장치에 연결하는 방법을 설명합니다.
+- [조립](assembly/README.md)은 주요 주변 장치를 오토파일럿에 연결하는 방법을 설명합니다.
 - [기초 설정](config/README.md)은 펌웨어 업데이트 방법과 설정법을 설명합니다. 주요 센서(나침반, 자이로, IMU, 대기 센서 등) 보정법, 원격 조종법과 안전 기능 설정 방법을 설명합니다.
 
 기체를 날릴 준비가 되었다면 [비행](flying/README.md)편을 참고하십시오.
