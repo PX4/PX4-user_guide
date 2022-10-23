@@ -1,6 +1,6 @@
 # Locosys RTK-compass GPS
 
-The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.
+The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. Additionally, it is equipped with an e-compass. 
 
 The module can act as rover when installed on the aircraft. The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
@@ -9,6 +9,7 @@ The fast time-to-first-fix, RTK convergence, superior sensitivity, low power con
 
 
 Main features include:
+- Centimeter-level RTK high position accuracy+ integrated 3-axis e-compass
 - Concurrent reception of L1 and L5 band signals
 - Support GPS, GLONASS, BEIDOU, GALILEO, QZSS
 - Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN)
@@ -17,17 +18,22 @@ Main features include:
 - Free hybrid ephemeris prediction to achieve faster cold start
 - Default 5Hz, up to 10 Hz update rate*
 - Build-in super capacitor to reserve system data for rapid satellite acquisition
+- Build-in 3 axis compass function
+- Three LED indicator for Power, PPS and Data transmit
+
+:::Note: SBAS support 5Hz only.
+:::
 
 :::note
 This module can be used with PX4 v1.13 or above.
 :::
 
-![LOCOSYS Hawk R1](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
+![LOCOSYS Hawk R2](../../assets/hardware/gps/locosys_hawk_a1/locosys_hawk_a1_gps.png)
 
 
 ## Where to Buy
 
-* [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
+* [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r2.html)
 
 ## Kit Contents
 
@@ -52,16 +58,16 @@ Hawk R1 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a 
 
 LOCOSYS GPS pinout is provided below.
 
-Pin | Hawk R1 GPS
+Pin | Hawk R2 GPS
 --- | ---
 1 | VCC_5V
 2 | GPS_RX
 3 | GPS_TX
-4 | Null
+4 | GNSS_PPS
 5 | Null
 6 | Null
-7 | Null
-8 | Null
+7 | I2C_CLK
+8 | I2C_DAT 
 9 | GND
 
 ## Status LEDs
@@ -100,5 +106,5 @@ Blue | PPS | Precise Positioning Service active
 	
 ## More Information
 
-More information can be found on [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
+More information can be found on [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
   
