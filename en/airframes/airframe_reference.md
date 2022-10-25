@@ -603,6 +603,10 @@ div.frame_variant td, div.frame_variant th {
  <td>Generic Ground Vehicle (Ackermann)</td>
  <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></p></td>
 </tr>
+<tr id="rover_rover_aion_robotics_r1_ugv">
+ <td><a href="https://www.aionrobotics.com/r1">Aion Robotics R1 UGV</a></td>
+ <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50003</p></td>
+</tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
  <td>NXP Cup car: DF Robot GPX</td>
  <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>

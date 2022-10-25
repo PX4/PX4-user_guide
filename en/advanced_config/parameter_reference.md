@@ -247,6 +247,230 @@ table {
 </tr>
 </tbody></table>
 
+## ADSB
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="ADSB_EMERGC">ADSB_EMERGC</strong> (INT32)</td>
+ <td>ADSB-Out Emergency State <p><strong>Comment:</strong> Sets the vehicle emergency state</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> NoEmergency</li> 
+
+<li><strong>1:</strong> General</li> 
+
+<li><strong>2:</strong> Medical</li> 
+
+<li><strong>3:</strong> LowFuel</li> 
+
+<li><strong>4:</strong> NoCommunications</li> 
+
+<li><strong>5:</strong> Interference</li> 
+
+<li><strong>6:</strong> Downed</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 6] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_EMIT_TYPE">ADSB_EMIT_TYPE</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Emitter Type <p><strong>Comment:</strong> Configure the emitter type of the vehicle.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unknown</li> 
+
+<li><strong>1:</strong> Light</li> 
+
+<li><strong>2:</strong> Small</li> 
+
+<li><strong>3:</strong> Large</li> 
+
+<li><strong>4:</strong> HighVortex</li> 
+
+<li><strong>5:</strong> Heavy</li> 
+
+<li><strong>6:</strong> Performance</li> 
+
+<li><strong>7:</strong> Rotorcraft</li> 
+
+<li><strong>8:</strong> RESERVED</li> 
+
+<li><strong>9:</strong> Glider</li> 
+
+<li><strong>10:</strong> LightAir</li> 
+
+<li><strong>11:</strong> Parachute</li> 
+
+<li><strong>12:</strong> UltraLight</li> 
+
+<li><strong>13:</strong> RESERVED</li> 
+
+<li><strong>14:</strong> UAV</li> 
+
+<li><strong>15:</strong> Space</li> 
+
+<li><strong>16:</strong> RESERVED</li> 
+
+<li><strong>17:</strong> EmergencySurf</li> 
+
+<li><strong>18:</strong> ServiceSurf</li> 
+
+<li><strong>19:</strong> PointObstacle</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 15] </td>
+ <td>14</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_GPS_OFF_LAT">ADSB_GPS_OFF_LAT</strong> (INT32)</td>
+ <td>ADSB-Out GPS Offset lat <p><strong>Comment:</strong> Sets GPS lataral offset encoding</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> NoData</li> 
+
+<li><strong>1:</strong> LatLeft2M</li> 
+
+<li><strong>2:</strong> LatLeft4M</li> 
+
+<li><strong>3:</strong> LatLeft6M</li> 
+
+<li><strong>4:</strong> LatRight0M</li> 
+
+<li><strong>5:</strong> LatRight2M</li> 
+
+<li><strong>6:</strong> LatRight4M</li> 
+
+<li><strong>7:</strong> LatRight6M</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 7] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_GPS_OFF_LON">ADSB_GPS_OFF_LON</strong> (INT32)</td>
+ <td>ADSB-Out GPS Offset lon <p><strong>Comment:</strong> Sets GPS longitudinal offset encoding</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> NoData</li> 
+
+<li><strong>1:</strong> AppliedBySensor</li> 
+</ul>
+  <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_ID">ADSB_ICAO_ID</strong> (INT32)</td>
+ <td>ADSB-Out ICAO configuration <p><strong>Comment:</strong> Defines the ICAO ID of the vehicle</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[-1, 16777215] </td>
+ <td>1194684</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_ICAO_SPECL">ADSB_ICAO_SPECL</strong> (INT32)</td>
+ <td>ADSB-In Special ICAO configuration <p><strong>Comment:</strong> This vehicle is always tracked. Use 0 to disable.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 16777215] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_IDENT">ADSB_IDENT</strong> (INT32)</td>
+ <td>ADSB-Out Ident Configuration <p><strong>Comment:</strong> Enable Identification of Position feature</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LEN_WIDTH">ADSB_LEN_WIDTH</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Size Configuration <p><strong>Comment:</strong> Report the length and width of the vehicle in meters. In most cases, use '1' for the smallest vehicle size.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> SizeUnknown</li> 
+
+<li><strong>1:</strong> Len15_Wid23</li> 
+
+<li><strong>2:</strong> Len25_Wid28</li> 
+
+<li><strong>3:</strong> Len25_Wid34</li> 
+
+<li><strong>4:</strong> Len35_Wid33</li> 
+
+<li><strong>5:</strong> Len35_Wid38</li> 
+
+<li><strong>6:</strong> Len45_Wid39</li> 
+
+<li><strong>7:</strong> Len45_Wid45</li> 
+
+<li><strong>8:</strong> Len55_Wid45</li> 
+
+<li><strong>9:</strong> Len55_Wid52</li> 
+
+<li><strong>10:</strong> Len65_Wid59</li> 
+
+<li><strong>11:</strong> Len65_Wid67</li> 
+
+<li><strong>12:</strong> Len75_Wid72</li> 
+
+<li><strong>13:</strong> Len75_Wid80</li> 
+
+<li><strong>14:</strong> Len85_Wid80</li> 
+
+<li><strong>15:</strong> Len85_Wid90</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 15] </td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_LIST_MAX">ADSB_LIST_MAX</strong> (INT32)</td>
+ <td>ADSB-In Vehicle List Size <p><strong>Comment:</strong> Change number of targets to track</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 50] </td>
+ <td>25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_MAX_SPEED">ADSB_MAX_SPEED</strong> (INT32)</td>
+ <td>ADSB-Out Vehicle Max Speed <p><strong>Comment:</strong> Informs ADSB vehicles of this vehicle's max speed capability</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> UnknownMaxSpeed</li> 
+
+<li><strong>1:</strong> 75Kts</li> 
+
+<li><strong>2:</strong> 150Kts</li> 
+
+<li><strong>3:</strong> 300Kts</li> 
+
+<li><strong>4:</strong> 600Kts</li> 
+
+<li><strong>5:</strong> 1200Kts</li> 
+
+<li><strong>6:</strong> Over1200Kts</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 6] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_SQUAWK">ADSB_SQUAWK</strong> (INT32)</td>
+ <td>ADSB-Out squawk code configuration <p><strong>Comment:</strong> This parameter defines the squawk code. Value should be between 0000 and 7777.</p>   <p><b>Reboot required:</b> false</p>
+</td>
+ <td>[0, 7777] </td>
+ <td>1200</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Actuator Outputs
 
 <table>
@@ -11868,7 +12092,7 @@ table {
 <tr>
  <td><strong id="COM_ACT_FAIL_ACT">COM_ACT_FAIL_ACT</strong> (INT32)</td>
  <td>Set the actuator failure failsafe mode <p><strong>Comment:</strong> Note: actuator failure needs to be enabled and configured via FD_ACT_* parameters.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+<li><strong>0:</strong> Warning only</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
 
@@ -12039,17 +12263,10 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_BAT_ACT_T">COM_BAT_ACT_T</strong> (FLOAT)</td>
- <td>Delay between battery state change and failsafe reaction <p><strong>Comment:</strong> Battery state requires action -> wait COM_BAT_ACT_T seconds in Hold mode for the user to realize and take a custom action -> React with failsafe action COM_LOW_BAT_ACT A zero value disables the delay.</p>   </td>
- <td>[0.0, 25.0] </td>
- <td>5.</td>
- <td>s</td>
-</tr>
-<tr>
  <td><strong id="COM_CPU_MAX">COM_CPU_MAX</strong> (FLOAT)</td>
  <td>Maximum allowed CPU load to still arm <p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
  <td>[-1, 100] (1)</td>
- <td>90.0</td>
+ <td>95.0</td>
  <td>%</td>
 </tr>
 <tr>
@@ -12068,9 +12285,16 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_DL_LOSS_T">COM_DL_LOSS_T</strong> (INT32)</td>
- <td>Datalink loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
+ <td>GCS connection loss time threshold <p><strong>Comment:</strong> After this amount of seconds without datalink, the GCS connection lost mode triggers</p>   </td>
  <td>[5, 300] (1)</td>
  <td>10</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="COM_FAIL_ACT_T">COM_FAIL_ACT_T</strong> (FLOAT)</td>
+ <td>Delay between failsafe condition triggered and failsafe reaction <p><strong>Comment:</strong> Before entering failsafe (RTL, Land, Hold), wait COM_FAIL_ACT_T seconds in Hold mode for the user to realize. During that time the user cannot take over control. Afterwards the configured failsafe action is triggered and the user may take over. A zero value disables the delay and the user cannot take over via stick movements (switching modes is still allowed).</p>   </td>
+ <td>[0.0, 25.0] </td>
+ <td>5.</td>
  <td>s</td>
 </tr>
 <tr>
@@ -12383,7 +12607,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_LKDOWN_TKO">COM_LKDOWN_TKO</strong> (FLOAT)</td>
- <td>Timeout for detecting a failure after takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to put the vehicle into a lockdown state if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW) and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
+ <td>Timeout for detecting a failure after takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to disarm the vehicle if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW) and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
  <td>[-1.0, 5.0] </td>
  <td>3.0</td>
  <td>s</td>
@@ -12417,30 +12641,8 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
- <td>Set offboard loss failsafe mode <p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li> 
-
-<li><strong>0:</strong> Land mode</li> 
-
-<li><strong>1:</strong> Hold mode</li> 
-
-<li><strong>2:</strong> Return mode</li> 
-
-<li><strong>3:</strong> Terminate</li> 
-
-<li><strong>4:</strong> Lockdown</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
- <td>Set offboard loss failsafe mode when RC is available <p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Disabled</li> 
-
+ <td>Set offboard loss failsafe mode <p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Position mode</li> 
 
 <li><strong>1:</strong> Altitude mode</li> 
@@ -12455,7 +12657,7 @@ table {
 
 <li><strong>6:</strong> Terminate</li> 
 
-<li><strong>7:</strong> Lockdown</li> 
+<li><strong>7:</strong> Disarm</li> 
 </ul>
   </td>
  <td></td>
@@ -12471,7 +12673,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)</td>
- <td>Time-out to wait when offboard connection is lost before triggering offboard lost action <p><strong>Comment:</strong> See COM_OBL_ACT and COM_OBL_RC_ACT to configure action.</p>   </td>
+ <td>Time-out to wait when offboard connection is lost before triggering offboard lost action <p><strong>Comment:</strong> See COM_OBL_RC_ACT to configure action.</p>   </td>
  <td>[0, 60] (0.01)</td>
  <td>1.0</td>
  <td>s</td>
@@ -12485,10 +12687,10 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
- <td>Position control navigation loss response <p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. If Altitude/Manual is selected: assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL. If Land/Terminate is selected: assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.</p> <strong>Values:</strong><ul>
+ <td>Position control navigation loss response <p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. If Altitude/Manual is selected: assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL. If Land/Descend is selected: assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to Descend.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Altitude/Manual</li> 
 
-<li><strong>1:</strong> Land/Terminate</li> 
+<li><strong>1:</strong> Land/Descend</li> 
 </ul>
   </td>
  <td></td>
@@ -12540,7 +12742,7 @@ table {
 <tr>
  <td><strong id="COM_QC_ACT">COM_QC_ACT</strong> (INT32)</td>
  <td>Set command after a quadchute  <strong>Values:</strong><ul>
-<li><strong>-1:</strong> No action: stay in current flight mode</li> 
+<li><strong>-1:</strong> Warning only</li> 
 
 <li><strong>0:</strong> Return mode</li> 
 
@@ -12662,7 +12864,7 @@ table {
 </tr>
 <tr>
  <td><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
- <td>Set data link loss failsafe mode <p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>Values:</strong><ul>
+ <td>Set GCS connection loss failsafe mode <p><strong>Comment:</strong> The GCS connection loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
@@ -12673,7 +12875,7 @@ table {
 
 <li><strong>5:</strong> Terminate</li> 
 
-<li><strong>6:</strong> Lockdown</li> 
+<li><strong>6:</strong> Disarm</li> 
 </ul>
   </td>
  <td>[0, 6] </td>
@@ -12691,7 +12893,7 @@ table {
 
 <li><strong>5:</strong> Terminate</li> 
 
-<li><strong>6:</strong> Lockdown</li> 
+<li><strong>6:</strong> Disarm</li> 
 </ul>
   </td>
  <td>[1, 6] </td>
@@ -14054,14 +14256,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
+ <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
+ <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td>norm</td>
@@ -14111,14 +14313,14 @@ table {
 <tr>
  <td><strong id="FW_PR_FF">FW_PR_FF</strong> (FLOAT)</td>
  <td>Pitch rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
  <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.5] (0.005)</td>
+ <td>[0.0, 1] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -14132,7 +14334,7 @@ table {
 <tr>
  <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
  <td>Pitch rate proportional gain <p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 2.0] (0.005)</td>
  <td>0.08</td>
  <td>%/rad/s</td>
 </tr>
@@ -14181,14 +14383,14 @@ table {
 <tr>
  <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
  <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
+ <td>[0.0, 1] (0.05)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
  <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.2] (0.005)</td>
+ <td>[0.0, 1] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -14196,13 +14398,13 @@ table {
  <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
  <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
- <td>0.2</td>
+ <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
  <td>Roll rate proportional Gain <p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 2.0] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
@@ -14216,7 +14418,7 @@ table {
 <tr>
  <td><strong id="FW_R_TC">FW_R_TC</strong> (FLOAT)</td>
  <td>Attitude Roll Time Constant <p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
- <td>[0.4, 1.0] (0.05)</td>
+ <td>[0.2, 1.0] (0.05)</td>
  <td>0.4</td>
  <td>s</td>
 </tr>
@@ -14251,7 +14453,7 @@ table {
 <tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
  <td>Wheel steering rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>0.2</td>
  <td>%/rad/s</td>
 </tr>
@@ -14266,7 +14468,7 @@ table {
  <td><strong id="FW_WR_IMAX">FW_WR_IMAX</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
- <td>1.0</td>
+ <td>0.4</td>
  <td></td>
 </tr>
 <tr>
@@ -14300,14 +14502,14 @@ table {
 <tr>
  <td><strong id="FW_YR_FF">FW_YR_FF</strong> (FLOAT)</td>
  <td>Yaw rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 10.0] (0.05)</td>
+ <td>[0.0, 1.0] (0.05)</td>
  <td>0.3</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
  <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 50.0] (0.5)</td>
+ <td>[0.0, 1] (0.5)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -14315,13 +14517,13 @@ table {
  <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
  <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
  <td>[0.0, 1.0] (0.05)</td>
- <td>0.2</td>
+ <td>0.4</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
  <td>Yaw rate proportional gain <p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 2.0] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
@@ -18206,6 +18408,8 @@ table {
 <li><strong>10:</strong> Gimbal</li> 
 
 <li><strong>11:</strong> Onboard Low Bandwidth</li> 
+
+<li><strong>12:</strong> uAvionix</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -18338,6 +18542,8 @@ table {
 <li><strong>10:</strong> Gimbal</li> 
 
 <li><strong>11:</strong> Onboard Low Bandwidth</li> 
+
+<li><strong>12:</strong> uAvionix</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -18470,6 +18676,8 @@ table {
 <li><strong>10:</strong> Gimbal</li> 
 
 <li><strong>11:</strong> Onboard Low Bandwidth</li> 
+
+<li><strong>12:</strong> uAvionix</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -18672,6 +18880,67 @@ table {
  <td>Enable arm/disarm stick gesture <p><strong>Comment:</strong> This determines if moving the left stick to the lower right arms and to the lower left disarms the vehicle.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## Micro XRCE-DDS
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="XRCE_DDS_0_CFG">XRCE_DDS_0_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Micro XRCE-DDS <p><strong>Comment:</strong> Configure on which serial port to run Micro XRCE-DDS.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
+
+<li><strong>401:</strong> Pixhawk Payload Bus</li> 
+
+<li><strong>1000:</strong> Ethernet</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="XRCE_DDS_DOM_ID">XRCE_DDS_DOM_ID</strong> (INT32)</td>
+ <td>XRCE DDS domain ID <p><strong>Comment:</strong> XRCE DDS domain ID</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="XRCE_DDS_UDP_PRT">XRCE_DDS_UDP_PRT</strong> (INT32)</td>
+ <td>Micro DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for micro DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>8888</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -19967,9 +20236,9 @@ table {
   <li><strong>16:</strong> (unused) PITCH_ANGLE</li> 
   <li><strong>17:</strong> (unused) ROLL_ANGLE</li> 
   <li><strong>18:</strong> (unused) CROSSHAIRS</li> 
-  <li><strong>19:</strong> (unused) AVG_CELL_VOLTAGE</li> 
+  <li><strong>19:</strong> AVG_CELL_VOLTAGE</li> 
   <li><strong>20:</strong> (unused) HORIZON_SIDEBARS</li> 
-  <li><strong>21:</strong> (unused) POWER</li> 
+  <li><strong>21:</strong> POWER</li> 
 </ul>
  </td>
  <td>[0, 4194303] </td>
@@ -20147,90 +20416,6 @@ table {
  <td>[-1, 7] </td>
  <td>-1</td>
  <td></td>
-</tr>
-</tbody></table>
-
-## RTPS
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RTPS_CONFIG">RTPS_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for FastRTPS <p><strong>Comment:</strong> Configure on which serial port to run FastRTPS.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>6:</strong> UART 6</li> 
-
-<li><strong>101:</strong> TELEM 1</li> 
-
-<li><strong>102:</strong> TELEM 2</li> 
-
-<li><strong>103:</strong> TELEM 3</li> 
-
-<li><strong>104:</strong> TELEM/SERIAL 4</li> 
-
-<li><strong>201:</strong> GPS 1</li> 
-
-<li><strong>202:</strong> GPS 2</li> 
-
-<li><strong>203:</strong> GPS 3</li> 
-
-<li><strong>300:</strong> Radio Controller</li> 
-
-<li><strong>301:</strong> Wifi Port</li> 
-
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RTPS_MAV_CONFIG">RTPS_MAV_CONFIG</strong> (INT32)</td>
- <td>Serial Configuration for MAVLink + FastRTPS <p><strong>Comment:</strong> Configure on which serial port to run MAVLink + FastRTPS.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>6:</strong> UART 6</li> 
-
-<li><strong>101:</strong> TELEM 1</li> 
-
-<li><strong>102:</strong> TELEM 2</li> 
-
-<li><strong>103:</strong> TELEM 3</li> 
-
-<li><strong>104:</strong> TELEM/SERIAL 4</li> 
-
-<li><strong>201:</strong> GPS 1</li> 
-
-<li><strong>202:</strong> GPS 2</li> 
-
-<li><strong>203:</strong> GPS 3</li> 
-
-<li><strong>300:</strong> Radio Controller</li> 
-
-<li><strong>301:</strong> Wifi Port</li> 
-
-<li><strong>401:</strong> Pixhawk Payload Bus</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RTPS_RATE">RTPS_RATE</strong> (INT32)</td>
- <td>Maximum RTPS data rate <p><strong>Comment:</strong> Configure the maximum sending rate for the RTPS streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. 0 is unlimited. Note this can cause reliability issues if enough RTPS topics are selected that exceed the serial bus limit.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, ?] </td>
- <td>0</td>
- <td>B/s</td>
 </tr>
 </tbody></table>
 
@@ -25537,7 +25722,7 @@ table {
  <td>IMU gyro ESC notch filter bandwidth <p><strong>Comment:</strong> Bandwidth per notch filter when using dynamic notch filtering with ESC RPM.</p>   </td>
  <td>[5, 30] </td>
  <td>15.</td>
- <td></td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_DNF_EN">IMU_GYRO_DNF_EN</strong> (INT32)</td>
@@ -25555,6 +25740,13 @@ table {
  <td>[1, 7] </td>
  <td>3</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="IMU_GYRO_DNF_MIN">IMU_GYRO_DNF_MIN</strong> (FLOAT)</td>
+ <td>IMU gyro dynamic notch filter minimum frequency <p><strong>Comment:</strong> Minimum notch filter frequency in Hz.</p>   </td>
+ <td></td>
+ <td>25.</td>
+ <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="IMU_GYRO_FFT_EN">IMU_GYRO_FFT_EN</strong> (INT32)</td>
@@ -29836,182 +30028,6 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="ADSB_EMERGC">ADSB_EMERGC</strong> (INT32)</td>
- <td>ADSB-Out Emergency State <p><strong>Comment:</strong> Sets the vehicle emergency state</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> NoEmergency</li> 
-
-<li><strong>1:</strong> General</li> 
-
-<li><strong>2:</strong> Medical</li> 
-
-<li><strong>3:</strong> LowFuel</li> 
-
-<li><strong>4:</strong> NoCommunications</li> 
-
-<li><strong>5:</strong> Interference</li> 
-
-<li><strong>6:</strong> Downed</li> 
-</ul>
-  <p><b>Reboot required:</b> false</p>
-</td>
- <td>[0, 6] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_EMIT_TYPE">ADSB_EMIT_TYPE</strong> (INT32)</td>
- <td>ADSB-Out Vehicle Emitter Type <p><strong>Comment:</strong> Configure the emitter type of the vehicle.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unknown</li> 
-
-<li><strong>1:</strong> Light</li> 
-
-<li><strong>2:</strong> Small</li> 
-
-<li><strong>3:</strong> Large</li> 
-
-<li><strong>4:</strong> HighVortex</li> 
-
-<li><strong>5:</strong> Heavy</li> 
-
-<li><strong>6:</strong> Performance</li> 
-
-<li><strong>7:</strong> Rotorcraft</li> 
-
-<li><strong>8:</strong> RESERVED</li> 
-
-<li><strong>9:</strong> Glider</li> 
-
-<li><strong>10:</strong> LightAir</li> 
-
-<li><strong>11:</strong> Parachute</li> 
-
-<li><strong>12:</strong> UltraLight</li> 
-
-<li><strong>13:</strong> RESERVED</li> 
-
-<li><strong>14:</strong> UAV</li> 
-
-<li><strong>15:</strong> Space</li> 
-
-<li><strong>16:</strong> RESERVED</li> 
-
-<li><strong>17:</strong> EmergencySurf</li> 
-
-<li><strong>18:</strong> ServiceSurf</li> 
-
-<li><strong>19:</strong> PointObstacle</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 15] </td>
- <td>14</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_ICAO_ID">ADSB_ICAO_ID</strong> (INT32)</td>
- <td>ADSB-Out ICAO configuration <p><strong>Comment:</strong> Defines the ICAO ID of the vehicle</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[-1, 16777215] </td>
- <td>1194684</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_ICAO_SPECL">ADSB_ICAO_SPECL</strong> (INT32)</td>
- <td>ADSB-In Special ICAO configuration <p><strong>Comment:</strong> This vehicle is always tracked. Use 0 to disable.</p>   <p><b>Reboot required:</b> false</p>
-</td>
- <td>[0, 16777215] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_IDENT">ADSB_IDENT</strong> (INT32)</td>
- <td>ADSB-Out Ident Configuration <p><strong>Comment:</strong> Enable Identification of Position feature</p>   <p><b>Reboot required:</b> false</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_LEN_WIDTH">ADSB_LEN_WIDTH</strong> (INT32)</td>
- <td>ADSB-Out Vehicle Size Configuration <p><strong>Comment:</strong> Report the length and width of the vehicle in meters. In most cases, use '1' for the smallest vehicle size.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> SizeUnknown</li> 
-
-<li><strong>1:</strong> Len15_Wid23</li> 
-
-<li><strong>2:</strong> Len25_Wid28</li> 
-
-<li><strong>3:</strong> Len25_Wid34</li> 
-
-<li><strong>4:</strong> Len35_Wid33</li> 
-
-<li><strong>5:</strong> Len35_Wid38</li> 
-
-<li><strong>6:</strong> Len45_Wid39</li> 
-
-<li><strong>7:</strong> Len45_Wid45</li> 
-
-<li><strong>8:</strong> Len55_Wid45</li> 
-
-<li><strong>9:</strong> Len55_Wid52</li> 
-
-<li><strong>10:</strong> Len65_Wid59</li> 
-
-<li><strong>11:</strong> Len65_Wid67</li> 
-
-<li><strong>12:</strong> Len75_Wid72</li> 
-
-<li><strong>13:</strong> Len75_Wid80</li> 
-
-<li><strong>14:</strong> Len85_Wid80</li> 
-
-<li><strong>15:</strong> Len85_Wid90</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 15] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_LIST_MAX">ADSB_LIST_MAX</strong> (INT32)</td>
- <td>ADSB-In Vehicle List Size <p><strong>Comment:</strong> Change number of targets to track</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 50] </td>
- <td>25</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_MAX_SPEED">ADSB_MAX_SPEED</strong> (INT32)</td>
- <td>ADSB-Out Vehicle Max Speed <p><strong>Comment:</strong> Informs ADSB vehicles of this vehicle's max speed capability</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> UnknownMaxSpeed</li> 
-
-<li><strong>1:</strong> 75Kts</li> 
-
-<li><strong>2:</strong> 150Kts</li> 
-
-<li><strong>3:</strong> 300Kts</li> 
-
-<li><strong>4:</strong> 600Kts</li> 
-
-<li><strong>5:</strong> 1200Kts</li> 
-
-<li><strong>6:</strong> Over1200Kts</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 6] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="ADSB_SQUAWK">ADSB_SQUAWK</strong> (INT32)</td>
- <td>ADSB-Out squawk code configuration <p><strong>Comment:</strong> This parameter defines the squawk code. Value should be between 0000 and 7777.</p>   <p><b>Reboot required:</b> false</p>
-</td>
- <td>[0, 7777] </td>
- <td>1200</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="MXS_EXT_CFG">MXS_EXT_CFG</strong> (INT32)</td>
  <td>Sagetech External Configuration Mode <p><strong>Comment:</strong> Disables auto-configuration mode enabling MXS config through external software.</p>   <p><b>Reboot required:</b> true</p>
