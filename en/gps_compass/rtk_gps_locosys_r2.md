@@ -1,12 +1,15 @@
-# Locosys RTK-compass GPS
+# LOCOSYS Hawk R2 RTK-Compass GPS
 
-The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. Additionally, it is equipped with an e-compass. The only difference with [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is the availability of E-compass on Hawk R2.
+The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.
+Additionally, it is equipped with an e-compass.
+The only difference between this module and the [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) is the presence of an E-compass on Hawk R2.
 
-The module can act as rover when installed on the aircraft. The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
+The module can act as rover when installed on the aircraft.
+The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS.
+It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
 The built-in lightweight helical antenna enhances RTK positioning stability.
 The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
-
 
 Main features include:
 - Centimeter-level RTK high position accuracy+ integrated 3-axis e-compass
@@ -16,13 +19,10 @@ Main features include:
 - Support 135-channel GNSS
 - Fast TTFF at low signal level
 - Free hybrid ephemeris prediction to achieve faster cold start
-- Default 5Hz, up to 10 Hz update rate*
+- Default 5Hz, up to 10 Hz update rate (SBAS support 5Hz only)
 - Build-in super capacitor to reserve system data for rapid satellite acquisition
 - Build-in 3 axis compass function
 - Three LED indicator for Power, PPS and Data transmit
-
-:::Note: SBAS support 5Hz only.
-:::
 
 :::note
 This module can be used with PX4 v1.13 or above.
@@ -45,16 +45,14 @@ An RTK GPS kit includes:
 
 ## Configuration
 
-It is recommended 
-
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
-Connect your Hawk R1 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
+Connect your Hawk R2 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
 
 For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
 
 ## Wiring and Connections
 
-Hawk R1 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a Pixhawk autopilot.
+Hawk R2 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a Pixhawk autopilot.
 
 ### Pinout
 
@@ -105,8 +103,7 @@ Blue | PPS | Precise Positioning Service active
 - Power:
   - DC supply voltage 3.3V ~ 5.0V input
   - Power consumption <1W
-	
+
 ## More Information
 
 More information can be found on [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html)
-  
