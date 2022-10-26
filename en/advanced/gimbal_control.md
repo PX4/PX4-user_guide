@@ -47,7 +47,8 @@ For example, if the `TELEM2` port on the flight controller is unused you can con
 
 ### Multiple Gimbal Support
 
-PX4 does not automatically create gimbal managers for other gimbal devices on the system.
+PX4 can automatically create a gimbal manager for a connected PWM gimbal or the first MAVLink gimbal device with the same system id it detects on any interface.
+It does not automatically create gimbal manager for any other MAVLink gimbal devices that it detects. 
 
 You can support additional gimbals provided that they:
 
