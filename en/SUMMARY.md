@@ -51,6 +51,8 @@
   * [Airframes Reference](airframes/airframe_reference.md)
   * [Autogyros](frames_autogyro/README.md)
     * [ThunderFly Auto-G2 (Holybro pix32)](frames_autogyro/thunderfly_auto_g2.md)
+  * [Boats](frames_boat/README.md)
+    * [Big Storm racing boat](frames_boat/bigstorm.md)
   * [Multicopters](frames_multicopter/README.md)
     * [X500 v2 (Pixhawk 5X)](frames_multicopter/holybro_x500V2_pixhawk5x.md)
     * [X500 (Pixhawk 4)](frames_multicopter/holybro_x500_pixhawk4.md)
