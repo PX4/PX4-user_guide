@@ -1,79 +1,79 @@
 # Traxxas Stampede VXL
 
-This vehicle was chosen to understand how a Pixhawk could be used for wheeled platforms. We chose to use a Traxxas vehicle as they are very popular and it is a very strong brand in the RC community. The idea was to develop a platform that allows for easy control of wheeled UGVs with an autopilot.
+选择这辆车是为了了解Pixhawk如何能够用于轮式平台。 我们选择使用 Traxxas 车辆，因为它们非常受欢迎，是遥控车社区中一个非常强大的品牌。 其目的是建立一个平台，便于使用自动驾驶器控制轮式UGV。
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
 ## 配件列表
 
-* [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
+* [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) 除了顶部塑料封面外，其余部分都被使用。
 * [Pixhawk Mini （停产）](../flight_controller/pixhawk_mini.md)
-  * 3DR 10S Power Module
-  * [3DR 433MHz Telemetry Module (EU)
-* [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) or other PX4-compatible remotes
-* [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
-* [PX4Flow](../sensor/px4flow.md)
+  * 3DR 10S 电源模块
+  * [3DR 433MHz 数传模块 (EU)
+* [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) 或其他 PX4 兼容的遥控器
+* [Spektrum Quad Race 系列接收机 w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
+* [PX4光流](../sensor/px4flow.md)
 
 
 ## 组装
 
-The assembly consists of a wooden frame on which all the autopilot parts were attached. Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
+组装体由一个木质框组成，上面安装所有的自驾仪部件。 测试显示，应使用良好的减震装置，尤其是对于Pixhawk飞控和光流模块。
 
-![Stampede Chassis](../../assets/airframes/rover/traxxas_stampede_vxl/stampede_chassis.jpg)
+![底盘](../../assets/airframes/rover/traxxas_stampede_vxl/stampede_chassis.jpg)
 
-![Wooden Panel Top](../../assets/airframes/rover/traxxas_stampede_vxl/panel_top.jpg)
+![木质面板顶部](../../assets/airframes/rover/traxxas_stampede_vxl/panel_top.jpg)
 
-![Wooden Panel Bottom](../../assets/airframes/rover/traxxas_stampede_vxl/panel_bottom.jpg)
+![木制面板底部](../../assets/airframes/rover/traxxas_stampede_vxl/panel_bottom.jpg)
 
-![Traxxas Stampede Final Assembly](../../assets/airframes/rover/traxxas_stampede_vxl/final_assembly.jpg)
+![整体图](../../assets/airframes/rover/traxxas_stampede_vxl/final_assembly.jpg)
 
-![Side View Final Assembly](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
+![侧视图](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
 
-![Wodden panel fixture](../../assets/airframes/rover/traxxas_stampede_vxl/mounting_detail.jpg)
+![木板](../../assets/airframes/rover/traxxas_stampede_vxl/mounting_detail.jpg)
 
-For this particular mounting we chose to use the clip supplied with the rover to attach the upper plate. For this, two supports were 3D printed. The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
+对于这个特定的安装，我们选择使用由小车提供的架子来连接上覆板。 为此，使用3D打印了两个支架。 The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
 :::warning
 It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual), which reduces power to 50%.
 :::
 
-## Output Connections
+## 输出接口
 
-| PWM Output | 执行器                  |
-| ---------- | -------------------- |
-| MAIN2      | Steering servo       |
-| MAIN4      | Throttle (ESC input) |
+| PWM 输出 | 执行器        |
+| ------ | ---------- |
+| MAIN2  | 转向马达/舵机    |
+| MAIN4  | 油门 (ESC输入) |
 
 :::note
-As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle).
+正如机架文档所述 [Airframe ](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle) 。
 :::
 
 ## 配置
 
 Rovers are configured using *QGroundControl* in the same way as any other vehicle.
 
-The main rover-specific configuration is setting the correct frame:
+主要的跟小车相关的配置是要设置正确的机架类型：
 1. Switch to the [Basic Configuration](../config/README.md) section in *QGroundControl*
-1. Select the [Airframe](../config/airframe.md) tab.
+1. 选择 [Airframe](../config/airframe.md) 选项卡。
 1. Scroll down the list to find the **Rover** icon.
 1. Choose **Traxxas stampede vxl 2wd** from the drop down list.
 
-![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
+![选择机架](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
 
 ## 用法
 
-At the current time, PX4 only supports [MISSION](../flight_modes/mission.md) and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
+目前，当ESC遥控器时，PX4只支持 [MISSION](../flight_modes/mission.md) 和MANUAL 模式。 要使用任务模式，请先通过QGC上传一个新任务。 然后，在ARMING之前，选择 `MISSION` 然后再选择ARM。
 
 :::warning
-It is very important to do a mission composed *only** of normal waypoints (i.e. no takeoff waypoints etc.) and it is crucial to set the waypoint height of **every** waypoint to 0 for correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+It is very important to do a mission composed *only** of normal waypoints (i.e. no takeoff waypoints etc.) and it is crucial to set the waypoint height of **every** waypoint to 0 for correct execution. 如果不这样做，驾驶员就会继续在航点周围旋转。
 :::
 
-A correct mission setup looks as follows:
+正确的任务设置如下：
 
-![mission](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
+![任务 Mission](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
 
 
-## Video
+## 视频
 
 <iframe width="740" height="416" src="https://www.youtube.com/embed/N3HvSKS3nCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
