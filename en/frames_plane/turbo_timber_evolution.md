@@ -1,6 +1,7 @@
 # Turbo Timber Evolution (TTE) Build
 
 ![Turbo Timber Evolution Closup in a field](../../assets/airframes/fw/turbo_timber_evolution/field_overview1.jpg)
+![Turbo Timber Evolution Closup](../../assets/airframes/fw/turbo_timber_evolution/field.png)
 
 The Turbo Timber Evolution is a model sold by Horizon Hobby originally intended for classic line-of-sight RC model flying.
 This model is designed to excel at STOL flying and has a number of notable traits that also make it an ideal candidate to be converted into an FPV PX4 platform.
@@ -180,6 +181,8 @@ PX4 is easily capable of stabilizing the airplane and fine tuning of the rate lo
 The results of tuning can be found in the parameter file attached below.
 In testing I found takeoffs can be as short as only 10ft using no flaps.
 I use full flaps on landing to slow the otherwise slippery airframe.
+
+![Turbo Timber Evolution Field Setup](../../assets/airframes/fw/turbo_timber_evolution/field_setup.jpg)
 
 ### Performance
 
