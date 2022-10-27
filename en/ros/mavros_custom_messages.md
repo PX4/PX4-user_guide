@@ -199,6 +199,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    #include <px4_platform_common/px4_config.h>
    #include <px4_platform_common/tasks.h>
    #include <px4_platform_common/posix.h>
+   #include <px4_platform_common/log.h>
    #include <unistd.h>
    #include <stdio.h>
    #include <poll.h>
@@ -216,7 +217,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
        orb_set_interval(key_sub_fd, 200); // limit the update rate to 200ms
 
        px4_pollfd_struct_t fds[] = {
-           { .fd = keyboard_sub_fd,   .events = POLLIN },
+           { .fd = key_sub_fd,   .events = POLLIN },
        };
 
        int error_counter = 0;
