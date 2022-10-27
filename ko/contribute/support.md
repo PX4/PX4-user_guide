@@ -19,7 +19,6 @@ The core development team and community are active on the following channels.
 Post on [PX4 Discuss](https://discuss.px4.io/) first! Discuss is indexed by search engines and serves as a common knowledge base
 
 If you don't get a response in a few days then ping us on Discord with a link to the post.
-
 :::
 
 ## 문제 진단
