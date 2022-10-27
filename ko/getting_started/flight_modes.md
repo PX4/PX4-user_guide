@@ -130,7 +130,7 @@
 
 [곡에 모드](../flight_modes/acro_mc.md)는 롤과 루프등의 곡예 비행을 위한 RC 모드입니다.
 
-롤, 피치 및 요 스틱은 각 축을 중심으로 회전 속도를 제어하고 각 축의 출력은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 위치하면 차량의 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지한체로 현재 운동량에 따라 이동합니다.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. 스틱이 중앙에 위치하면 차량의 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지한체로 현재 운동량에 따라 이동합니다.
 
 ![멀티콥터 수동 곡예 비행](../../assets/flight_modes/manual_acrobatic_MC.png)
 
@@ -287,7 +287,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [곡에 모드](../flight_modes/acro_fw.md)는 롤과 루프등의 곡예 비행을 위한 무선조종 모드입니다.
 
-롤, 피치 및 요 스틱은 각 축을 중심으로 회전 속도를 제어하고 각 축의 출력은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 위치하면 차량의 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지한체로 현재 운동량에 따라 이동합니다.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. 스틱이 중앙에 위치하면 차량의 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지한체로 현재 운동량에 따라 이동합니다.
 
 ![고정익 수동 곡예 비행](../../assets/flight_modes/manual_acrobatic_FW.png)
 
@@ -298,7 +298,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
-[수동 모드](../flight_modes/manual_fw.md)에서는 무선 조종기 스틱 입력을 출력 믹서에 직접 전송하여 수동으로만 기체를 제어합니다.
+[Manual mode](../flight_modes/manual_fw.md) sends RC stick input directly to control allocation for "fully" manual control.
 
 :::tip
 이 모드는 안정화 기능이 없기 때문에 가장 어려운 모드입니다 [곡예 모드](#acro_fw)와 달리, 무선 조종기 스틱이 중앙에 위치하여도 기체가 회전은 자동으로 멈추지 않습니다. 조종사는 스틱을 조종하여 다른 방향으로 힘을 가하여야 합니다.
