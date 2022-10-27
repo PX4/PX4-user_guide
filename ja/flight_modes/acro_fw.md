@@ -4,7 +4,7 @@
 
 *Acro mode* is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
 ![FW Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_FW.png)
 
@@ -12,7 +12,7 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
-RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.
+RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to control allocation.
 
 
 ## Parameters
