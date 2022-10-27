@@ -53,6 +53,7 @@
     * [ThunderFly Auto-G2 (Holybro pix32)](frames_autogyro/thunderfly_auto_g2.md)
   * [Multicopters](frames_multicopter/README.md)
     * [X500 v2 (Pixhawk 5X)](frames_multicopter/holybro_x500V2_pixhawk5x.md)
+    * [PX4 Dev Kit (Pixhawk 6C, X500 v2)](frames_multicopter/holybro_x500V2_full_dev_kit.md)
     * [X500 (Pixhawk 4)](frames_multicopter/holybro_x500_pixhawk4.md)
     * [S500 V2 (Pixhawk 4)](frames_multicopter/holybro_s500_v2_pixhawk4.md)
     * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
@@ -66,6 +67,7 @@
     * [Matrice 100 (Pixhawk 1)](frames_multicopter/matrice100.md)
     * [QAV-R 5" Racer (Pixracer)](frames_multicopter/qav_r_5_kiss_esc_racer.md)
     * [Omnicopter](frames_multicopter/omnicopter.md)
+    
   * [Planes](frames_plane/README.md)
     * [Wing Wing Z84 \(Pixracer\)](frames_plane/wing_wing_z84.md)
     * [Turbo Timber Evolution](frames_plane/turbo_timber_evolution.md)
