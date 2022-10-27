@@ -141,7 +141,7 @@ The craft will drift in the direction of any wind and you have to control the th
 
 [Acro mode](../flight_modes/acro_mc.md) is the RC mode for performing acrobatic maneuvers e.g. rolls and loops.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation.
 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
 ![MC Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_MC.png)
@@ -302,7 +302,7 @@ In order to perform a turn the command must beheld throughout the maneuver becau
 
 [Acro mode](../flight_modes/acro_fw.md) is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation.
 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
 ![FW Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_FW.png)
@@ -313,7 +313,7 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-[Manual mode](../flight_modes/manual_fw.md) sends RC stick input directly to the output mixer for "fully" manual control.
+[Manual mode](../flight_modes/manual_fw.md) sends RC stick input directly to control allocation for "fully" manual control.
 
 :::tip
 This is the hardest mode to fly, because nothing is stabilised.

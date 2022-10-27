@@ -20,7 +20,6 @@ Post on [PX4 Discuss](https://discuss.px4.io/) first!
 Discuss is indexed by search engines and serves as a common knowledge base
 
 If you don't get a response in a few days then ping us on Discord with a link to the post.
-
 :::
 
 ## Diagnosing Problems
