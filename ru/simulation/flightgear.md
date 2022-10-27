@@ -121,7 +121,6 @@ INFO  [simulator] Waiting for simulator to accept connection on TCP port 4560
 INFO  [simulator] Simulator connected on TCP port 4560.
 INFO  [commander] LED: open /dev/led0 failed (22)
 INFO  [commander] Mission #3 loaded, 9 WPs, curr: 8
-INFO  [init] Mixer: etc/mixers-sitl/plane_sitl.main.mix on /dev/pwm_output0
 INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote port 14550
 INFO  [airspeed_selector] No airspeed sensor detected. Switch to non-airspeed mode.
 INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
