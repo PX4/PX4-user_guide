@@ -4,7 +4,7 @@
 This article has been tested against:
 - **Ubuntu:** 20.04
 - **ROS:** Noetic
-- **PX4 Firmware:** v1.12.3
+- **PX4 Firmware:** v1.13
 
 However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
 :::
