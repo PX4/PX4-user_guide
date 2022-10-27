@@ -54,6 +54,7 @@
   * [Multicopters](frames_multicopter/README.md)
     * [X500 v2 (Pixhawk 6C)](frames_multicopter/holybro_x500v2_pixhawk6c.md)
     * [X500 v2 (Pixhawk 5X)](frames_multicopter/holybro_x500V2_pixhawk5x.md)
+    * [PX4 Dev Kit (Pixhawk 6C, X500 v2)](frames_multicopter/holybro_x500V2_full_dev_kit.md)
     * [X500 (Pixhawk 4)](frames_multicopter/holybro_x500_pixhawk4.md)
     * [S500 V2 (Pixhawk 4)](frames_multicopter/holybro_s500_v2_pixhawk4.md)
     * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
