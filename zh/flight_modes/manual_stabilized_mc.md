@@ -16,7 +16,7 @@ When under manual control the roll and pitch sticks control the *angle* of the v
 
 ## 技术描述
 
-飞手的输入通过横滚和俯仰角度以及偏航角速率指令传递给自驾仪。 油门被重新调节（参见[下面的](#params)）并直接传递到输出混控器。 自动驾驶仪控制着姿态，这意味着当遥控器摇杆居中时，它调整飞机的横滚和俯仰角为零（因此使姿态变平）。 自动驾驶仪不能补偿由于风（或其他来源）引起的漂移。
+飞手的输入通过横滚和俯仰角度以及偏航角速率指令传递给自驾仪。 Throttle is rescaled (see [below](#params)) and passed directly to control allocation. 自动驾驶仪控制着姿态，这意味着当遥控器摇杆居中时，它调整飞机的横滚和俯仰角为零（因此使姿态变平）。 自动驾驶仪不能补偿由于风（或其他来源）引起的漂移。
 
 :::note
 * 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。 :::
