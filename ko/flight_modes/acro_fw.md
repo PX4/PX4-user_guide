@@ -4,7 +4,7 @@
 
 곡예 기동을 수행하는 RC 모드 (예 : 롤, 뒤집기, 포장 마차 및 곡예 인물)
 
-롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
 
 ![FW 수동 곡예 비행](../../assets/flight_modes/manual_acrobatic_FW.png)
 
@@ -12,7 +12,7 @@
 
 곡예 기동을 수행하는 RC 모드 (예 : 롤, 뒤집기, 포장 마차 및 곡예 인물)
 
-RPY 스틱 입력은 자동 조종 장치에 의해 안정화되는 각속도 명령으로 변환됩니다. Throttle은 출력 믹서에 직접 전달됩니다.
+RPY 스틱 입력은 자동 조종 장치에 의해 안정화되는 각속도 명령으로 변환됩니다. Throttle is passed directly to control allocation.
 
 
 ## 매개 변수

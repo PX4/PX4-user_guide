@@ -7,7 +7,7 @@
 이 비행 콘트롤러에 대한 PX4는 [테스트 단계](../flight_controller/autopilot_experimental.md)입니다.
 :::
 
-Raspberry Pi 2/3 Navio2 자동조종장치의 개발 개요 문서입니다. 이를 통해 PX4를 빌드하고 Raspberry Pi로 전송하거나 빌드할 수 있습니다.
+Raspberry Pi 2/3 Navio2 오토파일럿의 개발자 퀵 스타트 가이드입니다. 이를 통해 PX4를 빌드하고 Raspberry Pi로 전송하거나 빌드할 수 있습니다.
 
 ![라즈베리파이 이미지](../../assets/hardware/hardware-rpi2.jpg)
 

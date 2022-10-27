@@ -4,7 +4,7 @@
 
 [<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*Manual mode* sends RC stick input directly to the output mixer for fully manual control.
+*Manual mode* sends RC stick input directly to control allocation for fully manual control.
 
 :::tip
 这是最难飞行的模式，因为什么都不稳定。 不同于[特技模式](../flight_modes/acro_fw.md)，如果 RP （俯仰和横滚） 摇杆居中，无人机不会自动停止绕轴转；飞手实际上必须移动摇杆向另一个方向施力。 :::
@@ -16,7 +16,7 @@
 
 ## 技术描述
 
-遥控模式，摇杆输入直接发送到混控器输出（用于 "完全" 手动控制）。
+RC mode where stick input is sent directly to control allocation (for "fully" manual control).
 
 这是唯一忽略 FMU（命令通过安全协处理器发送） 的飞行模式。 该模式提供了一个安全机制，允许在 FMU 固件故障时通过遥控器完全控制油门，升降舵，副翼和方向舵。
 

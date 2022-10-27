@@ -108,7 +108,7 @@ make px4_sitl_nolockstep flightgear_tf-r1
                 ["5","/controls/flight/aileron","-1"],
                 ["7","/controls/flight/elevator","-1"],
                 ["2","/controls/flight/rudder","1"],
-                ["4","/controls/engines/engine/throttle","1"]
+                ["4","/controls/engines/engine/throttle","1"] 
                 ]
 }
 ```

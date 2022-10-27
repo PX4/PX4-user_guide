@@ -220,17 +220,13 @@ mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주
 
 기체가 제대로 작동하려면 이러한 추가 항목을 확인하여야 합니다.
 
-#### 믹서 파일
+#### Actuator Configuration
 
-믹서 파일은 `pilotpi_xx.conf`에 정의되어 있습니다.
+First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-```sh
-mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
-```
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
 
-사용 가능한 모든 믹서는 `etc/mixers`에 저장됩니다. 직접 만들 수도 있습니다.
-
-#### 외부 나침반
+#### External Compass
 
 시작 스크립트(`*. config`)에서 다음을 찾을 수 있습니다.
 

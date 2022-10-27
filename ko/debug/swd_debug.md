@@ -81,7 +81,7 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 
 <a id="port_information"></a>
 
-| 자동조종장치                                                                              | 커넥터                                                                                                                                                                                                                                         |
+| 오토파일럿                                                                               | 커넥터                                                                                                                                                                                                                                         |
 | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md#debug-port) (FMUv5x)         | [Pixhawk Debug Full](#pixhawk-debug-full-10-pin-sh-debug-port)                                                                                                                                                                              |
 | [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                          |
