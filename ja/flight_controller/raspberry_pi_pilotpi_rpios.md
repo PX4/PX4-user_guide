@@ -221,17 +221,13 @@ It is also possible to just compile the code with command:
 
 You need to check these extra items to get your vehicle work properly.
 
-#### Mixer file
+#### Actuator Configuration
 
-Mixer file is defined in `pilotpi_xx.conf`:
+First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-```sh
-mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
-```
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
 
-All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
-
-#### External compass
+#### External Compass
 
 In the startup script(`*.config`), you will find
 
