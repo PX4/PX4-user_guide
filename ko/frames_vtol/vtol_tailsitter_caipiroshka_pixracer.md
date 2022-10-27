@@ -35,7 +35,7 @@ The *TBS Caipirinha* has been superseded and is no longer available. 이 지침�
 
 다음에서는 기체 조립에 관련된 몇 가지 팁을 제공합니다.
 
-### 자동조종장치
+### 오토파일럿
 
 기체의 무게 중심에 가까운 곳에 자동조종장치를 장착합니다.
 
