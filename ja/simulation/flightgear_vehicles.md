@@ -108,7 +108,7 @@ A new vehicle model needs to be included as a git submodule into [PX4-FlightGear
                 ["5","/controls/flight/aileron","-1"],
                 ["7","/controls/flight/elevator","-1"],
                 ["2","/controls/flight/rudder","1"],
-                ["4","/controls/engines/engine/throttle","1"]
+                ["4","/controls/engines/engine/throttle","1"] 
                 ]
 }
 ```
