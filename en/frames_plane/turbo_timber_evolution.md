@@ -37,6 +37,7 @@ Key Build Features
 ## Parts List
 
 - [Turbo Timber Evolution PNP (includes motor, servos, esc, etc, all fully installed)](https://www.horizonhobby.com/product/turbo-timber-evolution-1.5m-pnp-includes-floats/EFL105275.html#)
+- [80A Plush-32 ESC](https://hobbyking.com/en_us/turnigy-plush-32-80a-2-6s-brushless-speed-controller-w-bec-rev1-1-0.html)
 - [Pixhawk 4 Mini/GPS/Power module/ set](https://shop.holybro.com/pixhawk4-mini_p1120.html)
 - SIK telemetry radio
 - MS4525DO differential pressure module and pitot tube
@@ -57,6 +58,11 @@ The TTE comes out of the box very complete as-is.
 Servos and linkages have already been installed, and the only real work remaining is finishing work, such as installing the landing gear and horizontal stabilizer.
 For this portion of the assembly, I simply followed the manual.
 
+## A Note On Power Systems
+[Some reports](https://www.rcgroups.com/forums/showthread.php?3904021-NEW-E-flite-Turbo-Timber-Evolution-1-5m-%C2%96-Smartest-Most-Capable-Durable-Timber-Yet/page50) have indicated that the stock ESC bundled with the airplane has an issue with overheating.
+Because I knew this build would be especially heavy, and therefore would likely demand higher average power from the ESC, I opted to replace the stock 60A ESC with an 80A Turnigy PLUSH-32.
+At the time of writing, I was also in the process of replacing the stock motor with a [higher rated power motor](https://hobbyking.com/en_us/turnigy-aerodrive-sk3-3548-840kv-brushless-outrunner-motor-1.html), but had not yet completed a test flight.
+
 ## FPV Pod
 
 ![Window and front fuselage (hatch) with FPV Pod mounted on top](../../assets/airframes/fw/turbo_timber_evolution/fpv_pod_hatch.jpg)
@@ -65,18 +71,17 @@ For this portion of the assembly, I simply followed the manual.
 
 The FPV pod was mounted on top of the battery hatch using M3 nylon hardware.
 Mounting holes for the pod were located by placing the FPV pod on top (being careful to center it with a ruler) and then punching through the fpv pod mounting holes into the foam with a screwdriver.
-A long M3 nylon screw and a washer on the underside, followed by a washer and standoff on the top of the battery hatch were then be used to mount the FPV pod.
+A long M3 nylon screw and a washer on the underside, followed by a washer and standoff on the top of the battery hatch, were then be used to mount the FPV pod.
 
 ## Pitot Pod
 
-A airspeed sensor is highly recommended for use on fixed wing vehicles.
+An [airspeed sensor](http://docs.px4.io/main/en/sensor/airspeed.html) is highly recommended for use on fixed wing vehicles.
 This build uses a MS4525DO differential pressure module and pitot tube housed in a 3D printed pod that has a hardpoint hanger for connecting it to the wing.
 
 ![Pitot pod/tube sitting on a desk](../../assets/airframes/fw/turbo_timber_evolution/pitotpod1.jpg)
 
-
-Inside the pitot pod, the MS4525DO differential pressure sensor is housed and is connected to the pitot/static tube with a short length of tubing.
-Zipties are used as hoseclamps to prevent the tubing from backing off.
+Inside the pitot pod, the MS4525DO differential pressure sensor is connected to the pitot/static tube with a short length of tubing.
+Zipties are used as hoseclamps to prevent the tubing from backing off the sensor and pitot ports.
 The i2c and power leads were soldered directly to the MS4525 module, and then hotglue was used to mechanically reinforce the connections.
 
 ![Pitot pod opened up showing wires pitot tube connectors and wires soldered and hot-glued in place](../../assets/airframes/fw/turbo_timber_evolution/pitotpod2.jpg)
@@ -86,7 +91,7 @@ An M2 screw and nylock hold the pod to the hanger.
 
 ![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/pitotpodinstalled.png)
 
-These 4 leads were then taped to the underside of the wing running back to the Pixhawk 4 Mini.
+These four leads were then taped to the underside of the wing running back to the Pixhawk 4 Mini.
 
 The lid of the pitot pod was initially taped in place to allow the setup to be tested and modified if needed after first flight.
 After the first flight, the lid was hot glued in place.
@@ -121,7 +126,6 @@ Once the lower mount is installed, these screws are inaccessible, so attention w
 
 ![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/power_module.jpg)
 
-
 The Holybro power module was wired inline with the ESC.
 A spare 16awg power lead was also broken out, terminated to an XT30.
 This spare lead will be used to provide power to the Caddx Vista, but could also be connected to a splitter to power more peripherals.
@@ -132,7 +136,6 @@ I use both a 3.6Ah 4S Turnigy pack as well as a Upgrade Energy 4s2p liion pack.
 While the 3.6Ah lipo is inexpensive, nearly twice the flight time (24 minutes vs 12 minutes) can be acheived with the Upgrade Energy Liion pack.
 
 ![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/batteries.jpg)
-
 
 ### Servos
 
@@ -193,14 +196,18 @@ I use full flaps on landing to slow the otherwise slippery airframe.
 
 ### Videos
 
-[Spot Landing](https://www.youtube.com/watch?v=vMFCi3G5s6E)
+@[youtube](https://www.youtube.com/watch?v=vMFCi3G5s6E)
 
-[A Quick Flight](https://youtu.be/1DUV7QjcXrA)
+@[youtube](https://youtu.be/1DUV7QjcXrA)
 
 ### Flight Logs
 
-[Evening Flight (Includes video)](https://review.px4.io/plot_app?log=d3f2c1f9-f802-48c1-ab5d-3983fc8b8719)
+[Evening Flight (video of flight shown below)](https://review.px4.io/plot_app?log=d3f2c1f9-f802-48c1-ab5d-3983fc8b8719)
+@[youtube](https://www.youtube.com/watch?v=6CqigySqyAQ&ab_channel=ChrisSeto)
 
 ### Parameter File
 
-[Parameters](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
+[Snapshot of Px4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
+
+This param file contains the custom Px4 parameter config for this build, including radio setup, tuning and sensor config.
+The param file can be loaded via QGC using the [instructions here, under "Tools"](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html).
