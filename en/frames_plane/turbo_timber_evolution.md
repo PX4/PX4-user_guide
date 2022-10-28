@@ -61,7 +61,7 @@ For this portion of the assembly, I simply followed the manual.
 ## A Note On Power Systems
 [Some reports](https://www.rcgroups.com/forums/showthread.php?3904021-NEW-E-flite-Turbo-Timber-Evolution-1-5m-%C2%96-Smartest-Most-Capable-Durable-Timber-Yet/page50) have indicated that the stock ESC bundled with the airplane has an issue with overheating.
 Because I knew this build would be especially heavy, and therefore would likely demand higher average power from the ESC, I opted to replace the stock 60A ESC with an 80A Turnigy PLUSH-32.
-At the time of writing, I was also in the process of replacing the stock motor with a [higher rated power motor](https://hobbyking.com/en_us/turnigy-aerodrive-sk3-3548-840kv-brushless-outrunner-motor-1.html), but had not yet completed a test flight.
+At the time of writing, I was also in the process of replacing the stock motor with a [higher rated power motor](https://hobbyking.com/en_us/turnigy-aerodrive-sk3-3548-840kv-brushless-outrunner-motor.html), but had not yet completed a test flight.
 
 ## FPV Pod
 
