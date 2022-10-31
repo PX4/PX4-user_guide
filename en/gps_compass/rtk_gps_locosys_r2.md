@@ -1,14 +1,12 @@
 # LOCOSYS Hawk R2 RTK-Compass GPS
 
-The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.
-Additionally, it is equipped with an e-compass.
-The only difference between this module and the [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) is the presence of an E-compass on Hawk R2.
+The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. The only difference between this module and the [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) is the presence of an E-compass on Hawk R2.
 
 The module can act as rover when installed on the aircraft.
 The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS.
 It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
-The built-in lightweight helical antenna enhances RTK positioning stability.
+The built-in lightweight helical antenna enhances RTK positioning stability. Additionally, it is equipped with an e-compass.
 The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
 
 Main features include:
