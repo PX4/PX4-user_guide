@@ -44,22 +44,22 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
 프레임 및 자동조종장치 설치를 위한 하드웨어 목록입니다.
 
-| 항목                           | 설명                                                | 수량 |
-| ---------------------------- | ------------------------------------------------- | -- |
-| Bottom plate                 | Carbon fiber (2mm thick)                          | 1  |
-| Top plate                    | Carbon fiber (1.5mm thick)                        | 1  |
-| Arm                          | Carbon fiber tube (Assembled with motors mounted) | 4  |
-| Landing gear - Vertical pole | Carbon fiber tube + engineering plastic           | 2  |
-| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam    | 2  |
-| Mounting Rail                | Diameter: 10mm length: 250mm                      | 2  |
-| Battery mounting board       | Thickness: 2mm                                    | 1  |
-| Battery pad                  | 3mm Silicone sheet black                          | 1  |
-| Platform board               | Thickness: 2mm                                    | 1  |
-| Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                   | 8  |
+| 항목             | 설명                        | 수량 |
+| -------------- | ------------------------- | -- |
+| 하판             | 탄소 섬유(두께 2mm)             | 1  |
+| 상판             | 탄소 섬유(두께 1.5mm)           | 1  |
+| Arm            | 탄소 섬유 튜브(모터 장착 조립)        | 4  |
+| 착륙 기어 - 수직 막대  | 탄소 섬유 튜브 + 엔지니어링 플라스틱     | 2  |
+| 착륙 기어 - 크로스바   | 탄소 섬유 튜브 + 엔지니어링 플라스틱 + 폼 | 2  |
+| 장착 레일          | 직경 : 10mm, 길이 : 250mm     | 2  |
+| 배터리 장착 보드      | 두께: 2mm                   | 1  |
+| 배터리 패드         | 3mm 실리콘 시트 검정             | 1  |
+| 플팻폼 보드         | 두께: 2mm                   | 1  |
+| 옷걸이 & 고무 링 개스킷 | 내부 구멍 직경 : 10mm 검정        | 8  |
 
  ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
 
-   _Figure 1_: X500 V2 ARF Kit what's inside
+   _그림 1_: X500 V2 ARF 키트 내부
 
 ### Electronics
 
