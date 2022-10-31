@@ -38,7 +38,7 @@ This module can be used with PX4 v1.13 or above.
 An RTK GPS kit includes:
 - 1x GPS Module
 - 1x Helix antenna
-- 1x 6-pin JST-GH 
+- 1x 6-pin JST 
 
 
 ## Configuration
@@ -50,7 +50,7 @@ For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_confi
 
 ## Wiring and Connections
 
-Hawk R2 RTK GPS comes with an 6 pin JST-GH connector that can be plugged into a Pixhawk autopilot.
+Hawk R2 RTK GPS comes with an 6 pin JST connector that can be plugged into a Pixhawk autopilot.
 
 ### Pinout
 
