@@ -1,10 +1,10 @@
 # Turbo Timber Evolution (TTE) Build
 
-![Turbo Timber Evolution Closup in a field](../../assets/airframes/fw/turbo_timber_evolution/field_overview1.jpg)
-![Turbo Timber Evolution Closup](../../assets/airframes/fw/turbo_timber_evolution/field.png)
-
 The Turbo Timber Evolution is a model sold by Horizon Hobby originally intended for classic line-of-sight RC model flying.
-This model is designed to excel at STOL flying and has a number of notable traits that also make it an ideal candidate to be converted into an FPV PX4 platform.
+This model is designed to excel at [STOL](https://en.wikipedia.org/wiki/STOL) flying and has a number of notable traits that also make it an ideal candidate to be converted into a FPV PX4 platform.
+
+
+![Turbo Timber Evolution Closup](../../assets/airframes/fw/turbo_timber_evolution/field.png)
 
 Key airframe features:
 
@@ -28,7 +28,8 @@ This airplane is a premium example of that, with features like frise ailerons to
 Key Build Features
 * Easy overall build with minimal airframe setup
 * Easy access to Pixhawk USB and debug connector
-* FPV with camera pan mount
+* [First Person View (FPV)](https://en.wikipedia.org/wiki/First-person_view_(radio_control)) with camera pan mount
+
 * Air data provided by wing slung pitot static pod
 * Long flight times (with Liion battery option > 24 minutes)
 
@@ -38,8 +39,10 @@ Key Build Features
 
 - [Turbo Timber Evolution PNP (includes motor, servos, esc, etc, all fully installed)](https://www.horizonhobby.com/product/turbo-timber-evolution-1.5m-pnp-includes-floats/EFL105275.html#)
 - [80A Plush-32 ESC](https://hobbyking.com/en_us/turnigy-plush-32-80a-2-6s-brushless-speed-controller-w-bec-rev1-1-0.html)
-- [Pixhawk 4 Mini/GPS/Power module/ set](https://shop.holybro.com/pixhawk4-mini_p1120.html)
-- SIK telemetry radio
+- [Pixhawk 4 Mini](https://shop.holybro.com/pixhawk4-mini_p1120.html) (with GPS and Power module)
+
+- [SIK telemetry radio](../telemetry/sik_radio.md)
+
 - MS4525DO differential pressure module and pitot tube
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
 - [DJI FPV Goggles](https://www.dji.com/fpv)
@@ -54,24 +57,32 @@ Key Build Features
 
 ## Airframe Build
 
-The TTE comes out of the box very complete as-is.
-Servos and linkages have already been installed, and the only real work remaining is finishing work, such as installing the landing gear and horizontal stabilizer.
-For this portion of the assembly, I simply followed the manual.
+The vehicle comes out of the box near complete.
+Servos and linkages have already been installed, and the only real remaining work is installing the landing gear and horizontal stabilizer.
+For this portion of the assembly, simply follow the manual.
 
-## A Note On Power Systems
+
+:::note
 [Some reports](https://www.rcgroups.com/forums/showthread.php?3904021-NEW-E-flite-Turbo-Timber-Evolution-1-5m-%C2%96-Smartest-Most-Capable-Durable-Timber-Yet/page50) have indicated that the stock ESC bundled with the airplane has an issue with overheating.
-Because I knew this build would be especially heavy, and therefore would likely demand higher average power from the ESC, I opted to replace the stock 60A ESC with an 80A Turnigy PLUSH-32.
-At the time of writing, I was also in the process of replacing the stock motor with a [higher rated power motor](https://hobbyking.com/en_us/turnigy-aerodrive-sk3-3548-840kv-brushless-outrunner-motor.html), but had not yet completed a test flight.
+
+As this build will be especially heavy, and therefore likely demand higher average power from the ESC, the default 60A ESC was replaced with an 80A Turnigy PLUSH-32 during testing.
+The stock motor will also be replaced with a [higher power motor](https://hobbyking.com/en_us/turnigy-aerodrive-sk3-3548-840kv-brushless-outrunner-motor.html) (this has not yet been flight-tested).
+:::
 
 ## FPV Pod
+
+The FPV pod was mounted on top of the battery hatch using M3 nylon hardware.
+Mounting holes for the pod were located by placing the FPV pod on top (being careful to center it with a ruler) and then punching through the fpv pod mounting holes into the foam with a screwdriver.
+A long M3 nylon screw and a washer on the underside, followed by a washer and standoff on the top of the battery hatch, were then be used to mount the FPV pod.
 
 ![Window and front fuselage (hatch) with FPV Pod mounted on top](../../assets/airframes/fw/turbo_timber_evolution/fpv_pod_hatch.jpg)
 
 ![Underside of hatch showing the FPV pod attachement screws and wires pulled through](../../assets/airframes/fw/turbo_timber_evolution/hatch_underside.jpg)
 
-The FPV pod was mounted on top of the battery hatch using M3 nylon hardware.
-Mounting holes for the pod were located by placing the FPV pod on top (being careful to center it with a ruler) and then punching through the fpv pod mounting holes into the foam with a screwdriver.
-A long M3 nylon screw and a washer on the underside, followed by a washer and standoff on the top of the battery hatch, were then be used to mount the FPV pod.
+:::note
+PX4 itself does not integrate with the FPV system, so this has no connection with the flight controller.
+However it does need to be powered.
+:::
 
 ## Pitot Pod
 
@@ -185,7 +196,9 @@ The results of tuning can be found in the parameter file attached below.
 In testing I found takeoffs can be as short as only 10ft using no flaps.
 I use full flaps on landing to slow the otherwise slippery airframe.
 
+![Turbo Timber Evolution Closup in a field](../../assets/airframes/fw/turbo_timber_evolution/field_overview1.jpg)
 ![Turbo Timber Evolution Field Setup](../../assets/airframes/fw/turbo_timber_evolution/field_setup.jpg)
+
 
 ### Performance
 
