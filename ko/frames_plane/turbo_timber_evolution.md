@@ -29,8 +29,6 @@ Key Build Features:
 * Air data provided by wing slung pitot static pod
 * Long flight times (with Liion battery option > 24 minutes)
 
-# Build
-
 ## Parts List
 
 - [Turbo Timber Evolution PNP (includes motor, servos, esc, etc, all fully installed)](https://www.horizonhobby.com/product/turbo-timber-evolution-1.5m-pnp-includes-floats/EFL105275.html#)
