@@ -2,7 +2,7 @@
 
 This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) 
 
-<img src="../../assets/airframes/multicopter/x500_v2_full_kit/kit_no_props.jpg" width="400px" title="kit_no_props" />
+<img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/kit_no_props.jpg" width="400px" title="kit_no_props" />
 
 ## Assembly
 
@@ -71,7 +71,7 @@ Although the design is well built such that you can do this later as well.
 - This power module is supplied by a battery (4S 16.8V 5200 mAh)
 - The motors get power through the power distribution board.
 
-<img src="../../assets/airframes/multicopter/x500_v2_full_kit/motors_pdb_pixhwak6c.png" width="400px" title="motors_pdb_pixhwak6c" />
+<img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/motors_pdb_pixhawk6c.png" width="400px" title="motors_pdb_pixhawk6c" />
 
 
 ### ARMS
@@ -143,7 +143,7 @@ Use your allen keys/ any elongated item and insert it on the opposite side of th
 ### CAMERA
 - Cameras such as Intel Realsense depth/ tracking camera or Structure Core can be mounted using the Depth Camera Mount
 - Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using. 
-<img src="../../assets/airframes/multicopter/x500_v2_full_kit/payloads_x500v2.png" width="400px" title="payloads_x500v2" />
+<img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/payloads_x500v2.png" width="400px" title="payloads_x500v2" />
 
 ## Acknowledgements
 
