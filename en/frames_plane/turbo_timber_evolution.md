@@ -136,16 +136,16 @@ Once the lower mount is installed, these screws are inaccessible, so attention w
 
 The Holybro power module was wired inline with the ESC.
 A spare 16awg power lead was also broken out, terminated to an XT30.
-This spare lead will be used to provide power to the Caddx Vista, but could also be connected to a splitter to power more peripherals.
+This spare lead will be used to provide power to the Caddx Vista FPV unit, but could also be connected to a splitter to power more peripherals.
 Power for the servo and lighting will be provided by the "BEC" power supply in the ESC. 
 
-![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/power_module.jpg)
+![An image showing the completed power module](../../assets/airframes/fw/turbo_timber_evolution/power_module.jpg)
 
 The TTE is very flexible when it comes to battery options.
 I use both a 3.6Ah 4S Turnigy pack as well as a Upgrade Energy 4s2p liion pack.
 While the 3.6Ah LiPo is inexpensive, nearly twice the flight time (24 minutes vs 12 minutes) can be acheived with the Upgrade Energy Liion pack.
 
-![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/batteries.jpg)
+![Image of batteries used for the build](../../assets/airframes/fw/turbo_timber_evolution/batteries.jpg)
 
 ### Servos
 
@@ -154,7 +154,7 @@ An additional power plug for the lighting system needs to also be installed, but
 
 The [Acutator Configuration](../config/actuators.md) screen is shown below.
 
-![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/qgcactuators.png)
+![QGC Actuator configuration screen for this build](../../assets/airframes/fw/turbo_timber_evolution/qgcactuators.png)
 
 Servo endpoints were obtained by using a servo tester to determine the servo PWM pulse width to reach the max travel of each surface in each direction.
 
@@ -171,12 +171,13 @@ Similarly, a JST PH to std spaced headers adapter was made, and it was also left
 
 #### ExpressLRS RX
 
-A custom cable was made to connect the ExpressLRS RX to the Pixhawk 4 Mini.
+A custom cable was made to connect the ExpressLRS RX ([RC Reciever](../getting_started/rc_transmitter_receiver.md)) to the Pixhawk 4 Mini.
+
 Because the Pixhawk 4 Mini has limited uarts, the RX was connected to RC input which does not have a TX pin.
 This means that the RX will only send control data to the FCU but telemtry cannot be sent to the RX from the FCU.
 Heatshrink was used to secure the dupont connector of the cable such that it cannot back out off the headers of the ExpressLRS RX.
 
-#### Caddx Vista
+#### Caddx Vista (FPV camera)
 
 Another custom cable was made to connect the Caddx Vista to the FCU UART and power.
 A Molex microfit was added close to the Vista so that it could be easily disconnected without needing to gain access to the Pixhawk.
@@ -192,10 +193,12 @@ Heatshrink was used to electrically insulate the bare board and the radio was in
 ## Build Results & Performance
 
 Overall, this build was a success.
+
 Even with the added weight of the Pixhawk 4 Mini installation, the airplane balances well and has plenty of power to retain its original STOL characterisitics.
-PX4 is easily capable of stabilizing the airplane and fine tuning of the rate loops were accomplished using the fixed wing autotune module.
-The results of tuning can be found in the parameter file attached below.
-In testing I found takeoffs can be as short as only 10ft using no flaps.
+PX4 is easily capable of stabilizing the airplane and fine tuning of the rate loops were accomplished using [fixed wing autotuning](../config/autotune.md).
+The results of tuning can be found in the [parameter file linked below](#parameter-file).
+
+In testing I found takeoffs can be as short as only 10ft (3m) using no flaps.
 I use full flaps on landing to slow the otherwise slippery airframe.
 
 ![Turbo Timber Evolution Closup on top of a car](../../assets/airframes/fw/turbo_timber_evolution/field.png)
@@ -225,5 +228,5 @@ I use full flaps on landing to slow the otherwise slippery airframe.
 
 [Snapshot of Px4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
 
-This param file contains the custom Px4 parameter config for this build, including radio setup, tuning and sensor config.
-The param file can be loaded via QGC using the [instructions here, under "Tools"](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html).
+This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config.
+The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
