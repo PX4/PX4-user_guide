@@ -2,107 +2,112 @@
 
 This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) 
 
-<img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/kit_no_props.jpg" width="400px" title="kit_no_props" />
+![The fully built vehicle with props removed](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/kit_no_props.jpg)
+
 
 ## Assembly
 
-### HOLDERS
+### Holders
 
 **Screw**-  Sunk Screw M2.5*6 12pcs
 
-- Insert the hanger rubber ring gasket in each of their respective hangers. Do not use sharp objects to press the rubbers inside.
+1. Insert the hanger rubber ring gasket in each of their respective hangers.
+   Do not use sharp objects to press the rubbers inside.
 
-@[youtube](https://youtu.be/4Tid-FCP_aI)
-
-
-- Take the battery mounting board and screw it with the slide bar clip using the Sunk Screw M2.5*6.
-
-@[youtube](https://youtu.be/9E-rld6tPWQ)
-
-- Screw 4 hangers to the Platform Board using Sunk Screw M2.5*6.
-
-@[youtube](https://youtu.be/4qIBABc9KsY)
-
-- Take the slide bar and insert 4 hangers to screw to the bottom plate later.
-
-@[youtube](https://youtu.be/CFx6Ct7FCIc)
-
-- Now insert the battery holder and payload holders assembled in step 2 & 3
+   @[youtube](https://youtu.be/4Tid-FCP_aI)
 
 
-### POWER MODULE
-**Screw**- Socket Cap Screw M2.5*6 8pcs | Locknut M3 4pcs |Nylon Standoff M3*5 4pcs |  Screw M3*14 4pcs
+1. Take the battery mounting board and screw it with the slide bar clip using the Sunk Screw M2.5*6.
 
-@[youtube](https://youtu.be/0knU3Q_opEo)
+   @[youtube](https://youtu.be/9E-rld6tPWQ)
 
-- Take the bottom plate and insert 4 M3*14 screws and fasten the nylon standoffs on the same.
+1. Screw 4 hangers to the Platform Board using Sunk Screw M2.5*6.
 
-@[youtube](https://youtu.be/IfsMXTr3Uy4)
+   @[youtube](https://youtu.be/4qIBABc9KsY)
 
-- Place the Power distribution board and use the locknuts to assemble them. The power module PM02 (for Pixhawk 6C) would power this board
+1. Take the slide bar and insert 4 hangers to screw to the bottom plate later.
 
-@[youtube](https://youtu.be/Qjs6pqarRIY)
+   @[youtube](https://youtu.be/CFx6Ct7FCIc)
 
-- Use Socket Cap Screws M2.5*6 and screw the  bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of HOLDER assembly)
+1.  Now insert the battery holder and payload holders assembled in step 2 & 3
 
-### LANDING GEAR
+
+### Power Module
+
+**Screw**- Socket Cap Screw M2.5*6 8pcs | Locknut M3 4pcs |Nylon Standoff M3*5 4pcs | Screw M3*14 4pcs
+
+
+
+1. Take the bottom plate and insert 4 M3*14 screws and fasten the nylon standoffs on the same.
+
+   @[youtube](https://youtu.be/0knU3Q_opEo)
+
+1. Place the Power distribution board and use the locknuts to assemble them. The power module PM02 (for Pixhawk 6C) would power this board
+
+   @[youtube](https://youtu.be/IfsMXTr3Uy4)
+
+1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of HOLDER assembly)
+
+   @[youtube](https://youtu.be/Qjs6pqarRIY)
+
+### Landing Gear
 
 @[youtube](https://youtu.be/mU4vm4zyjcY)
 
 @[youtube](https://youtu.be/7REaF3YAqLg)
 
-- To assemble the landing gear, loosen the pre-assembled screws of the Landing Gear-Cross Bar and insert the Landing Gear-Vertical Pole and fasten the same.
+1. To assemble the landing gear, loosen the pre-assembled screws of the Landing Gear-Cross Bar and insert the Landing Gear-Vertical Pole and fasten the same.
 
-@[youtube](https://youtu.be/zwa2L_daam8)
+   @[youtube](https://youtu.be/zwa2L_daam8)
 
-@[youtube](https://youtu.be/iDxzWeyCN54)
+   @[youtube](https://youtu.be/iDxzWeyCN54)
 
-- Use the Socket Cap Screw M3*8 to screw the landing gears to the bottom plate
+1. Use the Socket Cap Screw M3*8 to screw the landing gears to the bottom plate
 
-@[youtube](https://youtu.be/3fNJQraCJx0)
+   @[youtube](https://youtu.be/3fNJQraCJx0)
 
-@[youtube](https://youtu.be/3en4DlQF4XU)
+   @[youtube](https://youtu.be/3en4DlQF4XU)
 
 *Because it’s cumbersome to insert the wires once the top plate is assembled, do the wiring beforehand. 
 Although the design is well built such that you can do this later as well.
  
-### POWER
+### Power
+
 - The Pixhawk 6C gets powered by a power module PM02 (in this case).
 - This power module is supplied by a battery (4S 16.8V 5200 mAh)
 - The motors get power through the power distribution board.
 
-<img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/motors_pdb_pixhawk6c.png" width="400px" title="motors_pdb_pixhawk6c" />
+![motors_pdb_pixhawk6c](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/motors_pdb_pixhawk6c.png)
 
 
-### ARMS
+### Arms
+
 **Screw-** Socket Cap Screw M3*38 16pcs | Flange Locknut M3 16pcs
 
 @[youtube](https://youtu.be/66Hfy6ysOpg)
 
-- Putting the arms is quite simple as the motors come pre-assembled.  - Ensure that you have the right numbered arm with its motor on the respective side.
+1. Putting the arms is quite simple as the motors come pre-assembled.  - Ensure that you have the right numbered arm with its motor on the respective side.
 
-@[youtube](https://youtu.be/45KCey3WiJ4)
+   @[youtube](https://youtu.be/45KCey3WiJ4)
 
-:::tip
+   :::tip
+   Use your allen keys/ any elongated item and insert it on the opposite side of the bolt that you're trying to fasten.
+   :::
 
-Use your allen keys/ any elongated item and insert it on the opposite side of the bolt that you're trying to fasten.
+1. Take one arm and insert the rectangle extrusion inside the rectangular hollow on the bottom plate.
 
-:::
+   @[youtube](https://youtu.be/GOTqmjq9_3s)
 
-- Take one arm and insert the rectangle extrusion inside the rectangular hollow on the bottom plate.
+1. While inserting the top plate on top of this the 3 piece assembly (bottom plate, top plate & arms) have to screwed using Socket Cap Screw M3*38 and Flange Locknut M3. 
+1. Hold one side using the mini cross wrench provided in the developer kit.
 
-@[youtube](https://youtu.be/GOTqmjq9_3s)
+   @[youtube](https://youtu.be/2rcNVekJQd0)
 
-- While inserting the top plate on top of this the 3 piece assembly (bottom plate, top plate & arms) have to screwed using Socket Cap Screw M3*38 and Flange Locknut M3. 
-- Hold one side using the mini cross wrench provided in the developer kit.
+1. Do not fasten any screws before all 3 motors are in place as this might make it difficult while you’re assembling the 3rd and 4th motor.
 
-@[youtube](https://youtu.be/2rcNVekJQd0)
+   @[youtube](https://youtu.be/SlKRuNoE_AY)
 
-- Do not fasten any screws before all 3 motors are in place as this might make it difficult while you’re assembling the 3rd and 4th motor.
-
-@[youtube](https://youtu.be/SlKRuNoE_AY)
-
-### PROPELLERS
+### Propellers
 
 @[youtube](https://youtu.be/V7JXI5-qrAs)
 
@@ -114,6 +119,7 @@ Use your allen keys/ any elongated item and insert it on the opposite side of th
 *The below parts can be placed as per user
 
 ### GPS
+
 **Screw-** Locknut M3 4 pcs | Screw M3*10 4pcs
 
 @[youtube](https://youtu.be/aiFxVJFjlos)
@@ -124,15 +130,16 @@ Use your allen keys/ any elongated item and insert it on the opposite side of th
 
 @[youtube](https://youtu.be/uG5UKy3FrIc)
 
-### PIXHAWK 6C-
+### Pixhawk 6C
+
 - The wire from the PM02 goes to POWER1 in Pixhawk
 - The telemetry goes to TELEM1
 - The GPS to GPS1
 
 @[youtube](https://youtu.be/wFlr_I3jERQ)
 
-[OPTIONAL]
-### COMPANION COMPUTER
+### Companion Computer (Optional)
+
 **Screw-** Socket Cap Screw M2.5*12 4pcs | Nylon Standoff M2.5*5 4pcs Locknut M2.5 4pcs
 
 - The X500 kit is awesome because of it’s design consideration of most common hardware used on drones.
@@ -140,10 +147,12 @@ Use your allen keys/ any elongated item and insert it on the opposite side of th
 - Insert 4 Socket Cap Screw M2.5*12 and put the standoffs on the same.
 - Now place the companion computer and assemble it using Locknut M2.5
 
-### CAMERA
+### Camera
+
 - Cameras such as Intel Realsense depth/ tracking camera or Structure Core can be mounted using the Depth Camera Mount
-- Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using. 
-<img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/payloads_x500v2.png" width="400px" title="payloads_x500v2" />
+- Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using.
+
+![payloads_x500v2](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/payloads_x500v2.png)
 
 ## Acknowledgements
 
