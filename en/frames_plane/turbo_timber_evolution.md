@@ -169,7 +169,8 @@ Similarly, a JST PH to std spaced headers adapter was made, and it was also left
 
 ### Peripherals
 
-#### ExpressLRS RX
+#### RC Receiver
+
 
 A custom cable was made to connect the ExpressLRS RX ([RC Reciever](../getting_started/rc_transmitter_receiver.md)) to the Pixhawk 4 Mini.
 
@@ -177,7 +178,8 @@ Because the Pixhawk 4 Mini has limited uarts, the RX was connected to RC input w
 This means that the RX will only send control data to the FCU but telemtry cannot be sent to the RX from the FCU.
 Heatshrink was used to secure the dupont connector of the cable such that it cannot back out off the headers of the ExpressLRS RX.
 
-#### Caddx Vista (FPV camera)
+#### FPV Camera (Caddx Vista)
+
 
 Another custom cable was made to connect the Caddx Vista to the FCU UART and power.
 A Molex microfit was added close to the Vista so that it could be easily disconnected without needing to gain access to the Pixhawk.
