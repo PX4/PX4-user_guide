@@ -41,7 +41,7 @@ Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
 ## Publishing
 
 Publishing a topic can be done from anywhere in the system, including interrupt context (functions called by the `hrt_call` API).
-However, advertising a topic is only possible outside of interrupt context.
+However, the topic needs to be advertised and published once beforehand outside of interrupt context.
 A topic has to be advertised in the same process as it's later published.
 
 ## Listing Topics and Listening in
