@@ -17871,9 +17871,9 @@ table {
 </tr>
 <tr>
  <td><strong id="LNDMC_Z_VEL_MAX">LNDMC_Z_VEL_MAX</strong> (FLOAT)</td>
- <td>Multicopter max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
+ <td>Multicopter vertical velocity threshold <p><strong>Comment:</strong> Vertical velocity threshold to detect landing. Should be set lower than the expected minimal speed for landing so MPC_LAND_SPEED for autonomous landing and MPC_LAND_CRWL if distance sensor is present and slowing down close to ground.</p>   </td>
  <td></td>
- <td>0.50</td>
+ <td>0.25</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -19612,8 +19612,8 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_LAND_CRWL">MPC_LAND_CRWL</strong> (FLOAT)</td>
- <td>Land crawl descend rate. Used below    </td>
- <td>[0.3, ?] </td>
+ <td>Land crawl descend rate <p><strong>Comment:</strong> Used below MPC_LAND_ALT3 if distance sensor data is availabe.</p>   </td>
+ <td>[0.1, ?] </td>
  <td>0.3</td>
  <td>m/s</td>
 </tr>
@@ -20288,7 +20288,8 @@ table {
 <tbody>
 <tr>
  <td><strong id="PD_GRIPPER_EN">PD_GRIPPER_EN</strong> (INT32)</td>
- <td>Enable Gripper actuation in Payload Deliverer    </td>
+ <td>Enable Gripper actuation in Payload Deliverer    <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>

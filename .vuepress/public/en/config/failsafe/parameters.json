@@ -14777,11 +14777,11 @@
     {
       "category": "Standard",
       "decimalPlaces": 1,
-      "default": 0.5,
+      "default": 0.25,
       "group": "Land Detector",
-      "longDesc": "Maximum vertical velocity allowed in the landed state",
+      "longDesc": "Vertical velocity threshold to detect landing. Should be set lower than the expected minimal speed for landing so MPC_LAND_SPEED for autonomous landing and MPC_LAND_CRWL if distance sensor is present and slowing down close to ground.",
       "name": "LNDMC_Z_VEL_MAX",
-      "shortDesc": "Multicopter max climb rate",
+      "shortDesc": "Multicopter vertical velocity threshold",
       "type": "Float",
       "units": "m/s"
     },
@@ -17456,9 +17456,10 @@
       "decimalPlaces": 1,
       "default": 0.3,
       "group": "Multicopter Position Control",
-      "min": 0.3,
+      "longDesc": "Used below MPC_LAND_ALT3 if distance sensor data is availabe.",
+      "min": 0.1,
       "name": "MPC_LAND_CRWL",
-      "shortDesc": "Land crawl descend rate. Used below",
+      "shortDesc": "Land crawl descend rate",
       "type": "Float",
       "units": "m/s"
     },
@@ -18551,6 +18552,7 @@
       "default": 0,
       "group": "Payload Deliverer",
       "name": "PD_GRIPPER_EN",
+      "rebootRequired": true,
       "shortDesc": "Enable Gripper actuation in Payload Deliverer",
       "type": "Int32",
       "values": [
