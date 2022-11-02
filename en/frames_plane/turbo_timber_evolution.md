@@ -226,7 +226,7 @@ I use full flaps on landing to slow the otherwise slippery airframe.
 
 ### Parameter File
 
-[Snapshot of Px4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
+[Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/turbo_timber_evolution/tteparams.params)
 
 This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config.
 The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
