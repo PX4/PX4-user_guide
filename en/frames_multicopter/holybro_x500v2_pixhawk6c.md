@@ -1,6 +1,6 @@
-# PX4 Dev Kit (Pixhawk 6C, X500 v2)
+# Holybro X500 V2 + Pixhawk 6C (PX4 Dev Kit)
 
-This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) 
+This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html), also known as the Holybro PX4 Dev Kit.
 
 ![The fully built vehicle with props removed](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/kit_no_props.jpg)
 
