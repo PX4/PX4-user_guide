@@ -153,7 +153,6 @@ The [Acutator Configuration](../config/actuators.md) screen is shown below.
 
 Servo endpoints were obtained by using a servo tester to determine the servo PWM pulse width to reach the max travel of each surface in each direction.
 
-
 ### Config & Debug
 
 Access to the Pixhawk 4 Mini requires removal of the upper mount.
@@ -172,10 +171,13 @@ Because the Pixhawk 4 Mini has limited uarts, the RX was connected to RC input w
 This means that the RX will only send control data to the FCU but telemtry cannot be sent to the RX from the FCU.
 Heatshrink was used to secure the dupont connector of the cable such that it cannot back out off the headers of the ExpressLRS RX.
 
-#### FPV Camera (Caddx Vista)
+#### FPV Pod & Airspeed Cable
 
-Another custom cable was made to connect the Caddx Vista FPV camera to the FCU UART (from the `UART/I2C B` port) and battery power from the Holybro power module.
+Another custom cable was made to connect the Caddx Vista FPV transmitter to the FCU UART (from the `UART/I2C B` port) and battery power from the Holybro power module.
 A Molex microfit was added close to the Vista so that it could be easily disconnected without needing to gain access to the Pixhawk.
+As the name implies, the `UART/I2C B` port provides both a UART and I2C interface.
+This port is split with the custom cable and one side provides power and data to the I2C airspeed sensor, while the other side provides power and UART TX/RX to the Caddx Vista.
+From the UART/I2C B port, 5V, GND, and I2C SCL/SDA, are connected to the I2C airspeed sensor, while just serial RX and TX are connected to the Caddx Vista (Ground is provided the seperate battery power/gnd leads for the Vista)
 
 The [msp_osd](../modules/modules_driver.md#msp-osd) module is used to stream telemetry to the Caddx Vista which can be seen on the DJI Goggles with the "custom OSD" feature enabled.
 
