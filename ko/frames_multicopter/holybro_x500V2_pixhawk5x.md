@@ -61,84 +61,84 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
    _그림 1_: X500 V2 ARF 키트 내부
 
-### Electronics
+### 전자부품
 
-| Item Description                                        | Quantity |
-| ------------------------------------------------------- | -------- |
-| Pixhawk5x & Assorted Cables                             | 1        |
-| M8N GPS Module                                          | 1        |
-| Power Module PM02D (with pre-soldered ESC power cables) | 1        |
-| Motors 2216 KV880（V2 Update)                            | 4        |
-| Holybro BLHeli S ESC 20A x4                             | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio         | 1        |
+| 품목 설명                             | 수량 |
+| --------------------------------- | -- |
+| Pixhawk5x & 다양한 케이블               | 1  |
+| M8N GPS 모듈                        | 1  |
+| 전원 모듈 PM02D(사전 납땜된 ESC 전원 케이블 포함) | 1  |
+| 모터스 2216 KV880(V2 업데이트)           | 4  |
+| Holybro BLHeli S ESC 20A x4       | 1  |
+| 433MHz 텔레메트리 / 915MHz 텔레메트리       | 1  |
 
-### Tools needed
+### 필요 공구
 
-Tools are included to do the assembly, however you may need:
+조립을 위한 도구가 포함되어 있지만, 아래의 도구들도 필요할 수 있습니다.
 
-- Wire cutters
-- Precision tweezers
+- 전선 커터
+- 정밀 트위저
 
 
-## Assembly
+## 조립
 
-Estimate time to assemble is 55 min (25 minutes for frame, 30 minutes for autopilot installation/configuration)
+예상 조립 시간은 55시간(프레임은 25분, 자동 조종 장치 설치/설정은 30분)입니다.
 
-1. Start by assembling the payload & battery holder. Push the rubbers into grippers (Do not use sharp items to push them in!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3.
+1. 페이로드 & 배터리 홀더. 고무를 그리퍼에 밀어 넣습니다(날카로운 물건을 사용하여 밀어 넣지 마십시오!). 그런 다음, 그림 3과 같이 배터리 홀더 베이스가 있는 홀더 막대를 홀더를 통과시킵니다.
 
    ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_required_stuff.png)
 
-   _Figure 2_: Payload holder components
+   _그림 2_: 페이로드 홀더 구성요소
 
    ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_assembled.png)
 
-   _Figure 3_: Payload holder assembled
+   _그림 3_: 페이로드 홀더 조립
 
-1. The next is to go for attaching the bottom plate to the payload holder.
+1. 다음은 페이로드 홀더에 하단 플레이트를 부착하는 것입니다.
 
-   You will need the parts as shown in Figure 4. Then mount the base for power distribution board using nylon nuts as Figure 5. Finally using 8 hex screws you can join the bottom plate to the payload holder (Figure 7)
+   그림 4의 부품이 필요합니다. 그런 다음 그림 5와 같이 나일론 너트를 사용하여 배전반용 베이스를 장착합니다. 마지막으로 8개의 육각 나사를 사용하여 하단 플레이트를 페이로드 홀더에 결합할 수 있습니다(그림 7).
 
    ![Materials to attach bottom plate](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/topplate_holder_stuff.png)
 
-   _Figure 4_: Needed Materials
+   _그림 4_: 필요한 재료들
 
    ![PDB mountbase](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/powerboard-mountbase.png)
 
-   _Figure 5_: PDB mount base
+   _그림 5_: PDB 마운트 베이스
 
    ![PDB attachment](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pdb_bottom_plate.png)
 
-   _Figure 6_: Mounted pdb with nylon nuts
+   _그림 6_: 나일론 너트가 있는 마운트된 pdb
 
    ![Bottom plate Final](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/bottom_plate_holder_final.png)
 
-   _Figure 7_: Mounted Plate on payload holder
+   _그림 7_: 페이로드 홀더에 장착된 플레이트
 
-1. Let's gather the stuff needed for mounting landing gear as Figure 8. Use the hex screws to join landing gears to the bottom plate. You also need to open three hex screws on each of the leg stands so you can push them into carbon fiber pipes. Do not forget to tighten them back again.
+1. 그림 8과 같이 랜딩기어 장착에 필요한 재료를 준비합니다. 육각 나사를 사용하여 랜딩 기어를 하단 플레이트에 결합합니다. 또한, 각 다리 받침대에서 3개의 육각 나사를 열어 탄소 섬유 파이프에 밀어넣을 수 있습니다. 다시 조이는 것을 잊지 마십시오.
 
    ![Attach Landing Gear Stuff](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/landing_gear_materials.png)
 
-   _Figure 8_: Required parts for landing gear attachment
+   _그림 8_: 착륙 장치 부착에 필요한 부품
 
    ![Lanfing great to bottom plate](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/attached_landing_gear.png)
 
-   _Figure 9_: Landing gear attachment to the body
+   _그림 9_: 차체에 착륙 장치 부착
 
-1. We will gather all the arms now to mount the top plate. Please pay attention that the motor numbers on arms are a match with the ones mentioned on the top plate. Fortunately, motors are mounted and ESCs have been connected in advance. Start by passing through all the screws as you have the arms fixed in their own places (They have a guide as shown in Figure 11 to ensure they are in place) and tighten all nylon nuts a bit. Then you can connect XT30 power connectors to the power board. Please keep in mind that the signal wires have to be passed through the top plate such that we can connect them later to Pixhawk.
+1. 이제 상판을 장착할 암들을 준비합니다. 암의 모터 번호는 상판의 모터 번호와 일치하므로 주의하십시오. 다행히 모터가 장착되어 있고, ESC가 미리 연결되어 있습니다. 암이 제자리에 고정된 상태에서 모든 나사를 통과시켜 시작하고(제 위치에 있는지 확인하기 위해 그림 11과 같은 가이드가 있음) 모든 나일론 너트를 약간 조입니다. 그런 다음, XT30 전원 커넥터를 전원 보드에 연결할 수 있습니다. 신호 와이어는 나중에 Pixhawk에 연결할 수 있도록 상단 플레이트를 통과하여야 합니다.
 
    <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/needed_stuff_top_plate.png" width="700" title="Arms and top plate materials" />
 
-   _Figure 10_: Connecting arms needed materials.
+   _그림 10_: 암 연결에 필요한 재료.
 
    <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/guide_for_arm_mount.png" width="700" title="Guide for the arms mount" />
 
-   _Figure 11_: Guide for the arms mount
+   _그림 11_: 암 마운트용 가이드
 
-1. Tighten all 16 screws and nuts by using both hex wrench and nut driver.
+1. 육각 렌치와 너트 드라이버를 모두 사용하여 16개의 나사와 너트를 모두 조입니다.
 
    ![Top plae mounted](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_top_plate.png)
 
-   _Figure 12_: Mounted top plate
+   _그림 12_: 장착된 상단 플레이트
 
 
 1. Next you can mount your pixhawk on the top plate by using the stickers. It is recommended to have the direction of your Pixhawk's arrow the same as the one mentioned on the top plate.
