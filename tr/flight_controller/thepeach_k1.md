@@ -1,10 +1,8 @@
 # ThePeach FCC-K1
 
 :::warning
-This flight controller is not fully available. It depends on the following PRs:
+This flight controller is not fully available. It depends on the following PR:
 - [PX4-Autopilot#20176: boards: Add THE Peach K1/R1 code ](https://github.com/PX4/PX4-Autopilot/pull/20176)
-- [PX4-Bootloader#219: Add THEPeach K1/R1](https://github.com/PX4/PX4-Bootloader/pull/219)
-- [QGroundControl#10401: Add The Peach K1/R1 USB Board info](https://github.com/mavlink/qgroundcontrol/pull/10401)
 :::
 
 :::warning
