@@ -65,9 +65,9 @@ For this portion of the assembly, simply follow the manual.
 [Some reports](https://www.rcgroups.com/forums/showthread.php?3904021-NEW-E-flite-Turbo-Timber-Evolution-1-5m-%C2%96-Smartest-Most-Capable-Durable-Timber-Yet/page50) have indicated that the stock ESC bundled with the airplane has an issue with overheating.
 
 As this build will be especially heavy, and therefore likely demand higher average power from the ESC, the stock 60A ESC was replaced with an 80A Turnigy PLUSH-32 during testing.
-The stock motor was also replaced with a [higher power motor](https://hobbyking.com/en_us/turnigy-aerodrive-sk3-3548-840kv-brushless-outrunner-motor.html.
-The stock prop was replaced with an [APC 13x4](https://www.apcprop.com/product/13x4/) for better efficiency from the stock tri-blade prop.
-In testing, I found this new esc, motor, and prop combination to perform well.
+The stock motor was also replaced with a [higher power motor](https://hobbyking.com/en_us/turnigy-aerodrive-sk3-3548-840kv-brushless-outrunner-motor.html).
+The stock propeller was replaced with an [APC 13x4](https://www.apcprop.com/product/13x4/) for better efficiency than the stock tri-blade prop.
+This new ESC, motor, and propeller combination performs well in testing.
 :::
 
 ## FPV Pod
@@ -166,7 +166,6 @@ Similarly, a JST PH to std spaced headers adapter was made, and it was also left
 
 #### RC Receiver
 
-
 A custom cable was made to connect the ExpressLRS RX ([RC Reciever](../getting_started/rc_transmitter_receiver.md)) to the Pixhawk 4 Mini.
 
 Because the Pixhawk 4 Mini has limited uarts, the RX was connected to RC input which does not have a TX pin.
@@ -175,10 +174,10 @@ Heatshrink was used to secure the dupont connector of the cable such that it can
 
 #### FPV Camera (Caddx Vista)
 
-
-Another custom cable was made to connect the Caddx Vista to the FCU UART (from the `UART/I2C B` port) and battery power from the Holybro power module.
+Another custom cable was made to connect the Caddx Vista FPV camera to the FCU UART (from the `UART/I2C B` port) and battery power from the Holybro power module.
 A Molex microfit was added close to the Vista so that it could be easily disconnected without needing to gain access to the Pixhawk.
-The `msp_osd` module is used to stream telemetry to the Caddx Vista which can be seen on the DJI Goggles with the "custom OSD" feature enabled.
+
+The [msp_osd](../modules/modules_driver.md#msp-osd) module is used to stream telemetry to the Caddx Vista which can be seen on the DJI Goggles with the "custom OSD" feature enabled.
 
 ![Turbo Timber Evolution Build](../../assets/airframes/fw/turbo_timber_evolution/fpv_pod.jpg)
 
