@@ -7,7 +7,7 @@ Contact the [manufacturer](https://shop.holybro.com/) for hardware support or co
 
 *Pix32 v6*<sup>&reg;</sup> is the latest update to the pix32 v5 flight controllers. It is a variant of the Pixhawk 6C with a modular design and shares the same FMUv6C Target. It is comprised of a separate flight controller and carrier board which are connected by a [100 pin connector](https://docs.holybro.com/autopilot/pix32-v6/download). It is designed for those pilots who need a high power, flexible and customizable flight control system.
 
-It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the [Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) and [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). 
+It is equipped with a high performance H7 Processor, and comes with IMU redundancy, temperature-controlled IMU board, and cost effective design, delivering incredible performance and reliability. It complies with the [Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). 
 
 <img src="../../assets/flight_controller/pix32v6/pix32v6_fc_only.png" width="550px" title="pix32v6 Upright Image" />
 
