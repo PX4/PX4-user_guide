@@ -74,14 +74,18 @@ Foamtac doesn't seem to stick well to this foam, so I used CA glue for all foam-
 Prior to servo installation, it is recommended to use the sandpaper to rough the side of the servo facing the servo cover. During final installation, put a drop of Foamtac between the servo and the cover. This will prevent the servo from moving once installed.
 
 The servos on the RD2 are connected to control surfaces with adjustable servo linkages.
-The instructions will note that each servo installation will have a speciifc length of linkage included in the kit. 
-It's very important to align the servos such that the mechanical range of the servo is well aligned with the mechanical range of the control surface -- this means that at the servo center point, the servo arm is roughly centered, and so is the control surface. 
+The RD2 instructions will note that each control surface will use a specific length of linkage included in the kit.
+Make sure to measure each linkage before installation to make sure that it is the right length linkage for that control surface.
+It's very important to align the servos such that the mechanical range of the servo is well aligned with the mechanical range of the control surface.
+This means that at the servo center point, the servo arm is roughly centered, and so is the control surface.
+It might not be possible to get this alignment perfect, but the basic goal is to get the servo arm as close to 90 degrees as possible, and the control surface as close to centered as possible. Any remaining offset will be adjusted out in software.
 
 The following steps can be used to perform servo alignment
-1. With the servo by itself, not in the airplane, use the servo tester to move the servo to its center point
-2. Install the servo horn with the included retaining screw, taking care to align the horn to extend 90 degrees out on the correct side of the servo. 
-3. Install the servo in the servo pocket
-4. Install the linkage, and twist to adjust it such that the control surface is as close to centered as possible
+1. Begin with the servo outside of the airplane
+2. Use the servo tester to move the servo to its center point
+3. Install the servo horn with the included retaining screw, taking care to align the horn to extend 90 degrees out on the correct side of the servo
+4. Install the servo in the servo pocket on the airplane
+5. Install the linkage, and twist to adjust it such that the control surface is as close to centered as possible
 
 :: note
 When installing the servo horn on the servo, the horn will likely not sit exactly at a 90 degree angle to the servo due to the teeth on the servo shaft forcing it to only be installed at certain angles. 
@@ -108,25 +112,25 @@ Mounting the flight computer far back will help to keep the airframe center of g
 ## Electrical
 
 ### Servo Power
-Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos. The output of the BEC can be plugged into any unused servo output (I chose IO out 8)
+Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos. The output of the BEC can be plugged into any unused servo output (I chose IO output 8)
 
-### Power Distrobution
+### Power Distribution
 
-Battery power is routed through the Holybro Power module, then to a custom designed power distrobution PCB (printed circuit board).
-From the power distrobution board, battery power is split to the BEC, both ESCs, and Caddx Vista through seperate XT30 connectors.
+Battery power is routed through the Holybro Power module, then to a custom designed power distribution PCB (printed circuit board).
+From the power distribution board, battery power is split to the BEC, both ESCs, and Caddx Vista through separate XT30 connectors.
 
 ### ESCs & Motors
 Bullet connectors were soldered to 16awg leads, which were then soldered to each phase output on each ESC.
-Heatshrink was applied over the finished ESCs and the bullet connectors from the ESCs were connected to their respecitve motors. 
+Heatshrink was applied over the finished ESCs and the bullet connectors from the ESCs were connected to their respective motors. 
 Motor direction depends on the order of the motor leads connected to the ESC.
 For now, take a guess on each side. If either motor is spinning the wrong way, the direction can be swapped by swapping any two connections. 
 Correct motor direction will be checked in the final preflight checks.
 
 ### Servos & ESC Signal Leads
-Servos were wired to the fmu out power in the order ailerons, throttle, elevator, rudder, FPV pan.
+Servos were wired to the FMU out port in the order left aileron, right aileron, left ESC, right ESC,, elevator, rudder, FPV pan. 
 
 :: note
-The ESCs are controlled over DSHOT, not PWM. To make efficent use of the DSHOT output port restrictions, both ESCs must be wired to fmu out 3 and 4.
+The ESCs are controlled over DSHOT, not PWM like the servos. To make efficient use of the DSHOT output port restrictions, the two ESCs must be wired to FMU output channels 3 and 4.
 :::
 
 ### Airspeed Sensor
@@ -134,7 +138,7 @@ The ESCs are controlled over DSHOT, not PWM. To make efficent use of the DSHOT o
 ### USB
 
 A right angle USB C extension cable was used to allow easy access to the USB C port on the FMU.
-The cable was installed such that it escapse the pixhawk heading aft, and the cable continues to run to the rear hatch, where the excess length was wound securely into a knot.
+The cable was installed such that it escapes the pixhawk heading aft, and the cable continues to run to the rear hatch, where the excess length was wound securely into a knot.
 Access to this cable can be accomplished by simply removing the rear hatch and unknotting the cable.
 
 
@@ -142,7 +146,7 @@ Access to this cable can be accomplished by simply removing the rear hatch and u
 
 ## Build Results & Performance
 
-Overall, this build was a sucess.
+Overall, this build was a success.
 
 
 ### Performance
