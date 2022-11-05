@@ -38,6 +38,8 @@ Key build features
 - [Reptile Dragon 2 kit](https://usa.banggood.com/REPTILE-DRAGON-2-1200mm-Wingspan-Twin-Motor-Double-Tail-EPP-FPV-RC-Airplane-KIT-or-PNP-p-1805237.html?cur_warehouse=CN&ID=531466)
 - [Pixhawk 5x Carrier board](https://shop.holybro.com/pixhawk-5x_p1279.html)
 - [ARK6X FMU](https://arkelectron.com/product/arkv6x/)
+- Holybro power module
+- Holybro M9N GPS module
 - MS4525DO differential pressure module and pitot tube
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
 - [DJI FPV Goggles](https://www.dji.com/fpv)
@@ -86,6 +88,12 @@ When installing the servo horn on the servo, the horn will likely not sit exactl
 Just get it close enough to 90 degrees, and the remaining offset will be removed either with the linkage, or later in software.
 :::
 
+## GPS/Compass Module Mounting
+
+The GPS module was removed from its plastic case to allow the use of the mounting holes, and then nylon M3 hardware was used to attach it to the rear electronics shelf included with the RD2. Two of the three required holes are already coincidentally located in the electronics tray, so I used a marker and a drill to make and drill the third hole. 
+
+This location is far aft of power wiring and other magnetic disturbances, which makes for an ideal location for the GPS/compass module
+
 ## FPV Pod
 
 The FPV pod was mounted on top of the battery hatch using M3 nylon hardware.
@@ -94,6 +102,59 @@ The FPV pod was mounted on top of the battery hatch using M3 nylon hardware.
 
 A custom mount for the Pixhawk 5X carrier board was designed and 3D printed. this mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
 It's important to install this mount in the correct location inside the RD2; as far back as possible.
-with a large battery and the FPV pod up front, the airplane will be very noseheavy.
-Mounting the flight computer far back will help to keep the airframe balanced in CG.
+With a large battery and the FPV pod up front, the airplane will tend to be noseheavy.
+Mounting the flight computer far back will help to keep the airframe center of gravity (CG) in the correct location.
 
+## Electrical
+
+### Servo Power
+Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos. The output of the BEC can be plugged into any unused servo output (I chose IO out 8)
+
+### Power Distrobution
+
+Battery power is routed through the Holybro Power module, then to a custom designed power distrobution PCB (printed circuit board).
+From the power distrobution board, battery power is split to the BEC, both ESCs, and Caddx Vista through seperate XT30 connectors.
+
+### ESCs & Motors
+Bullet connectors were soldered to 16awg leads, which were then soldered to each phase output on each ESC.
+Heatshrink was applied over the finished ESCs and the bullet connectors from the ESCs were connected to their respecitve motors. 
+Motor direction depends on the order of the motor leads connected to the ESC.
+For now, take a guess on each side. If either motor is spinning the wrong way, the direction can be swapped by swapping any two connections. 
+Correct motor direction will be checked in the final preflight checks.
+
+### Servos & ESC Signal Leads
+Servos were wired to the fmu out power in the order ailerons, throttle, elevator, rudder, FPV pan.
+
+:: note
+The ESCs are controlled over DSHOT, not PWM. To make efficent use of the DSHOT output port restrictions, both ESCs must be wired to fmu out 3 and 4.
+:::
+
+### Airspeed Sensor
+
+### USB
+
+A right angle USB C extension cable was used to allow easy access to the USB C port on the FMU.
+The cable was installed such that it escapse the pixhawk heading aft, and the cable continues to run to the rear hatch, where the excess length was wound securely into a knot.
+Access to this cable can be accomplished by simply removing the rear hatch and unknotting the cable.
+
+
+
+
+## Build Results & Performance
+
+Overall, this build was a sucess.
+
+
+### Performance
+- Stall speed: 15mph indicated
+- Cruise speed: 35-50mph
+- Endurance: ~40 minutes at 28mph
+
+### Videos
+
+### Flight Logs
+
+[Snapshot of PX4 airframe params]()
+
+This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config.
+The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
