@@ -12,7 +12,7 @@ ARF("거의 비행 준비 완료") 키트는 하드웨어 설정에 많은 시�
 - **비행 콘트롤러:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
 - **조립 시간(약):** 55분(프레임 25분, 자동조종장치 설치/설성은 30분)
 
-![Full X500 V2 Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500-kit.png)
+![전체 X500 V2 키트](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500-kit.png)
 
 ## 부품 명세서
 
@@ -57,7 +57,7 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 | 플팻폼 보드         | 두께: 2mm                   | 1  |
 | 옷걸이 & 고무 링 개스킷 | 내부 구멍 직경 : 10mm 검정        | 8  |
 
- ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
+ ![X500  V2 ARF 전체 패키지 내용](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
 
    _그림 1_: X500 V2 ARF 키트 내부
 
@@ -141,67 +141,66 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
    _그림 12_: 장착된 상단 플레이트
 
 
-1. Next you can mount your pixhawk on the top plate by using the stickers. It is recommended to have the direction of your Pixhawk's arrow the same as the one mentioned on the top plate.
+1. 다음으로, 스티커를 사용하여 상단 플레이트에 픽스호크를 장착합니다. Pixhawk의 화살표 방향을 상판에 표기된 방향에 맞추는 것이 좋습니다.
 
    ![Flight controller mounting stickers](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pixhawk5x_stickertapes.png)
 
-   _Figure 13_: Sticker tapes on Pixhawk
+   _그림 13_: Pixhawk의 스티커 테이프
 
-1. If you want to mount the GPS on the companion computer plate, you can now secure the GPS mount onto it using 4 screws and nuts.
+1. 보조 컴퓨터 플레이트에 GPS를 장착하려면, 4개의 나사와 너트를 사용하여 GPS 마운트를 고정할 수 있습니다.
 
    <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/gps_mount_plate.png" width="400" title="Secure GPS mount onto companion plate" />
 
-   _Figure 14_: Secure GPS mount onto companion plate
+   _그림 14_: GPS 마운트를 보조 컴퓨터에 고정
 
 
-1. Use the tape and stick the GPS to the top of the GPS mast and mount the GPS mast. Make sure the arrow on the gps is pointing forward (Figure 15).
+1. 테이프를 사용하여 GPS를 GPS 마스트 상단에 붙이고 GPS 마스트를 장착합니다. GPS의 화살표가 앞쪽을 가리키는지 확인하십시오(그림 15).
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
 
-   _Figure 15_: GPS and mast
+   _그림 15_: GPS와 마스트
 
 
-1. Finally, you can connect the Pixhawk interfaces such as telemetry radio to 'TELEM1' and motors signal cables accordingly.
+1. 마지막으로, 텔레메트리와 같은 Pixhawk 인터페이스들을 'TELEM1'에 연결하고, 그에 따라 모터 신호 케이블을 연결할 수 있습니다.
 
-Please refer to [Pixhawk 5X Quick Start](../assembly/quick_start_pixhawk5x.md) for more information.
+자세한 내용은 [Pixhawk  5X 빠른 시작](../assembly/quick_start_pixhawk5x.md)을 참고하십시오.
 
-That's it. The fully assembled kit is shown below (Depth camera not included in the kit):
+조립이 완료되었습니다. 마지막으로 Pixhawk TV와 'TELEM1'에 도달하실 수 있습니다.
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
 
 <a id="configure"></a>
 
-## Install/Configure PX4
+## PX4 설치 및 설정
 
-:::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 X500 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
-First update the firmware and airframe:
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro X500 V2**) ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
+먼저, 펌웨어와 기체 프레임을 업데이트 합니다.
+* [펌웨어](../config/firmware.md)
+* [Airframe](../config/airframe.md) - *Holybro S500* 기체(**Quadrotor x > Holybro S500**)를 선택합니다. ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-Then perform the mandatory setup/calibration:
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+그리고, 설치후에 필수적인 설정 작업을 실시합니다.
+* [센서 방향](../config/flight_controller_orientation.md)
+* [나침반](../config/compass.md)
+* [가속도계](../config/accelerometer.md)
+* [수평 보정](../config/level_horizon_calibration.md)
+* [라디오 설정](../config/radio.md)
+* [비행 모드](../config/flight_mode.md)
 
-Ideally you should also do:
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+다음 작업 역시 반드시 진행하여야 합니다.
+* [ESC 보정](../advanced_config/esc_calibration.md)
+* [배터리](../config/battery.md)
+* [안전](../config/safety.md)
 
 
-## Tuning
+## 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build. For instructions on how, see: [Multicopter Basic PID Tuning](../config_mc/pid_tuning_guide_multicopter_basic.md).
+기체 선택은 프레임의 *기본* 자동조종장치의 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다. 자세한 방법은 [Multicopter 기본 PID 조정](../config_mc/pid_tuning_guide_multicopter_basic.md)을 참고하십시오.
 
-## Acknowledgements
+## 감사의 글
 
-This build log was provided by PX4 Team.
+이 조립 설명서는 PX4 팀에서 제공하였습니다.
