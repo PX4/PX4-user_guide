@@ -3,17 +3,15 @@
 By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle.
 If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
 
-## Calculating Orientation
+## Orientation definition
 
-ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward (x), right (y), down (z) axes.
+ROLL, PITCH and/or YAW for flight controller and sensors are calculated relative to the vehicle's forward (x), right (y), down (z) axes.
+
+You can use this tool for visualizing the Euler angles : https://compsci290-s2016.github.io/CoursePage/Materials/EulerAnglesViz/
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-The axes to rotate around stay the same from one rotation step to the next one.
-So the frame to perform the rotation in stays fixed.
-This is also known as *extrinsic rotation*.
-
-<img src="../../assets/qgc/setup/sensor/fc_orientation_1.png" style="width: 600px;"/>
+The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as "**extrinsic rotation**(roll-pitch-yaw sequence)". Read more about it in [this article](https://en.wikipedia.org/wiki/Euler_angles#Conventions_by_extrinsic_rotations).
 
 For example, the vehicles shown below have rotations around the z-axis (i.e. yaw only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
@@ -26,16 +24,21 @@ The axis are normally relative to the orientation of the vehicle during steady f
 For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions).
 :::
 
+### Supported rotations
+
+PX4 supports the rotations defined by the MAVLink's [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) enumerator.
+
+Note that a custom rotation is also available for a magnetometer if it is not mounted in one of the supported rotation configurations. For this, please refer to [Setting a custom rotation](../assembly/mount_gps_compass.md#custom-magnetometer-orientation) chapter of the Magnetometer mounting documentation.
+
 ## Setting the Orientation
 
-To set the orientations:
+To set the orientations for the flight controller/magnetometer:
 
 1. Start *QGroundControl* and connect the vehicle.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-1. Select the **Set Orientations** button.
-   <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;"/>
-1. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
-
+1. Select the **Orientations** button.
+   <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.png" style="width: 600px;"/>
+1. Select the **AutoPilot Orientation** (as [calculated above](#orientation-definition)).
    <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;"/>
 1. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
 1. Press **OK**.
