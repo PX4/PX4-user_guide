@@ -44,7 +44,7 @@ Key build features
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
 - [DJI FPV Goggles](https://www.dji.com/fpv)
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24)
-- Misc hardware: M3 hardware (standoffs, washers, bolts), XT30 connector, hot glue, heatshrink, Molex Microfit connectors
+- Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
 - Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
 - 4s2p 18650 LiIon flight battery
 
@@ -100,11 +100,12 @@ This location is far aft of power wiring and other magnetic disturbances, which 
 
 ## FPV Pod
 
-The FPV pod was mounted on top of the battery hatch using M3 nylon hardware.
+The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with two O-rings to space the FPV pod base plate from the battery hatch.
 
 ## Flight Computer installation 
 
-A custom mount for the Pixhawk 5X carrier board was designed and 3D printed. this mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
+A custom mount for the Pixhawk 5X carrier board was designed and 3D printed.
+This mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
 It's important to install this mount in the correct location inside the RD2; as far back as possible.
 With a large battery and the FPV pod up front, the airplane will tend to be noseheavy.
 Mounting the flight computer far back will help to keep the airframe center of gravity (CG) in the correct location.
@@ -127,38 +128,87 @@ For now, take a guess on each side. If either motor is spinning the wrong way, t
 Correct motor direction will be checked in the final preflight checks.
 
 ### Servos & ESC Signal Leads
-Servos were wired to the FMU out port in the order left aileron, right aileron, left ESC, right ESC,, elevator, rudder, FPV pan. 
+Servos were wired to the FMU out port in the order left aileron, right aileron, left ESC, right ESC, elevator, rudder, FPV pan. 
 
 :: note
 The ESCs are controlled over DSHOT, not PWM like the servos. To make efficient use of the DSHOT output port restrictions, the two ESCs must be wired to FMU output channels 3 and 4.
 :::
 
-### Airspeed Sensor
+### Airspeed Sensor & Pitot Tube
+
+The airspeed sensor was connected to the I2C port on the Pixhawk 5x carrier board.
+The pitot tube was pushed through the pitot tube mount and then installed in the front fpv camera cut out.
+The pitot/static hoses were cut to length and installed to connect the pitot static probe to the airspeed sensor.
+Finally, the pitot static sensor was double stick taped to the sidewall of the airframe.
+
+### ELRS RX
+
+A custom cable was made to connect the ELRS RX to the `telem 2` port of the Holybro Pixhawk 5x.
+A thin radio antenna tube was pushed through the top of the aiframe used to mount one of the two ELRS diversity antennas upright.
+The second diversity antenna was taped to the sideall of the airframe, 90 degrees from the alignment of the first antenna.
+The ELRS RX was doublr stick taped to the sideall of the airframe next to the airspeed pressure sensor.
 
 ### USB
 
 A right angle USB C extension cable was used to allow easy access to the USB C port on the FMU.
-The cable was installed such that it escapes the pixhawk heading aft, and the cable continues to run to the rear hatch, where the excess length was wound securely into a knot.
+The cable was installed such that it escapes the pixhawk heading towards the back of the airplane, and the cable continues to run to the rear hatch, where the excess length can be securely wound into a knot.
 Access to this cable can be accomplished by simply removing the rear hatch and unknotting the cable.
 
+## Preflight & First Flight
 
+### Radio Setup
+For a first flight, I recommend to have at least `manual`, `acro`, and `position `flight modes accessable.
+Additionally, I also attach an aux swtich to the fixed wing autotune module so that the airframe can be easily autotuned during the first flight.
 
+### Final Checks
+
+Prior to the first flight, a comprehensive preflight must be conducted.
+I recommend checking the following items:
+- Sensor calibration (QGC)
+  - Mag calibration
+  - Accelerometer calibration
+  - Airspeed calibration
+  - Level horizon calibration
+- Check control surface deflection
+ - Right stick -> Right aileron goes up, left aileron goes down
+ - Left stick -> Left aileron goes up, right aileron goes down
+ - Stick back -> elevator goes up
+ -Stick forward -> elevator goes down
+ - Left rudder -> Rudder goes left
+ - Right rudder -> Rudder goes right
+- Check Px4 inputs (in `stabilized mode`)
+ - Roll right -> Right Aileron goes down
+ - Roll left -> Left aileron goes down
+ - Pitch up -> Elevator goes down
+ - Pitch down -> Elevator goes up
+
+### First Flight
+I recommend performing the first takeoff in manual mode.
+Because this airplane has no landing gear, you will either need to throw the airplane yourself, or ideally have a helper throw it.
+When throwing any airplane, throw at a slightly nose up attitude with full throttle.
+It's critical to be ready to give aft stick input to prevent the airplane from impacting the ground if it happens to be trimmed nosedown.
+Once the airplane is sucessfully airborne, cruise up to an altitude of a few hundred feet and switch to `acro` mode. 
+If the airplane is well behaved in `acro` mode, switch to `position` mode. 
+Optionally, you can use the fixed wing auto tuner switch configured in `Radio Setup` to autotune the airframe.
 
 ## Build Results & Performance
 
-Overall, this build was a success.
-
+Overall, this build was a success. The RD2 flies well in this configuration and has plenty of room onboard for sensors and additional hardware.
 
 ### Performance
 - Stall speed: 15mph indicated
 - Cruise speed: 35-50mph
 - Endurance: ~40 minutes at 28mph
 
-### Videos
+### Videos & Flight Logs
+[Demo Flight log](https://review.px4.io/plot_app?log=6a1a279c-1df8-4736-9f55-70ec16656d1e)
 
-### Flight Logs
+FPV video of flight log:
+![youtube](https://www.youtube.com/watch?v=VqNWwIPWJb0&ab_channel=ChrisSeto)
 
-[Snapshot of PX4 airframe params]()
+### Params
+
+[Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
 
 This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config.
 The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
