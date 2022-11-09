@@ -35,7 +35,7 @@ C++에서의 사용 방법은 [자습서](../modules/hello_sky.md)를 참고하�
 
 ## 퍼블리시(게시)
 
-토픽 게시는 인터럽트 컨텍스트(`hrt_call` API에 의해 호출되는 함수)를 포함하여 시스템의 어디에서나 수행할 수 있습니다. However, the topic needs to be advertised and published outside of an interrupt context (at least once) before it can be published in an interrupt context. 주제는 나중에 게시되는 것과 동일한 프로세스에서 광고되어야 합니다.
+토픽 게시는 인터럽트 컨텍스트(`hrt_call` API에 의해 호출되는 함수)를 포함하여 시스템의 어디에서나 수행할 수 있습니다. However, the topic needs to be advertised and published outside of an interrupt context (at least once) before it can be published in an interrupt context.
 
 ## 토픽 나열 및 듣기
 
