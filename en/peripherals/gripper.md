@@ -4,7 +4,7 @@
 
 Grippers are a commonly used mechanism for UAV delivery applications. There are multiple types of interfaces (e.g. PWM, CAN) for different products in the market.
 
-## Supported Gripper types
+## Supported Gripper Types
 
 PX4 supports following Gripper types, check the individual page to learn how to integrate them.
 
@@ -14,7 +14,7 @@ PX4 supports following Gripper types, check the individual page to learn how to 
 The [Roboclaw driver](../modules/modules_driver.md#roboclaw) isn't supported as a Gripper yet. However in the future it may get supported as a Gripper.
 :::
 
-## Gripper actuator mapping
+## Gripper Actuator Mapping
 
 To enable the output of the Gripper, set the Function of the output port the gripper is connected to as `Gripper`.
 
@@ -24,7 +24,7 @@ Make sure to set the correct PWM frequency (usually commercial servo / grippers 
 
 ![Gripper output mapping](../../assets/config/gripper/qgc_gripper_output_setup.png)
 
-## Griper action joystick button mapping in QGC
+## Gripper Action Joystick Button Mapping in QGC
 
 QGC provides the Button mapping interface, which allows to map delivery mechanism actions to specific buttons of the [Joystick](../config/joystick.md) connected to QGC.
 
@@ -49,15 +49,15 @@ Therefore unless you [configure the gripper for package delivery](#setting-up-gr
 
 Gripper is commonly used for features like [Package Delivery](../advanced_features/package_delivery.md). This section describes how to setup the Payload Delivery for Gripper.
 
-### Note on using Joystick button action during package delivery mission
+### Note on Using Joystick Button Action During Package Delivery Mission
 
 If you forcefully command the gripper to 'Close' position while the package delivery is happening (gripper open action), gripper won't be able to finish the open action, and the mission will come to a halt for a payload delivery mission item timeout, then resume the mission.
 
-### Enable payload delivery feature (Gripper)
+### Enable Payload Delivery Feature (Gripper)
 
 Set [`PD_GRIPPER_EN`](../advanced_config/parameter_reference.md#PD_GRIPPER_EN) parameter to 1 (reboot required after change).
 
-### Enabling Pre-arm mode
+### Enabling Pre-arm Mode
 
 By default, the Gripper will be in a disarmed position when the vehicle is disarmed. However since in most cases, the operator wants to open / close the gripper for mounting the payload while the vehicle is disarmed, we need to set a parameter to allow pre-arming, which allows non-motor actuators to move freely when disarmed, but not the motors.
 
@@ -91,7 +91,7 @@ If you get an error message such as "[payload_deliverer] not running", make sure
 
 After measuring the opening and closing actuation time, set [PD_GRIPPER_TO](../advanced_config/parameter_reference.md#PD_GRIPPER_TO) to the longer timeout of the two.
 
-### Mission timeout
+### Mission Timeout
 
 To use payload delivery feature as part of a mission, it is important to make sure that a potential actuation failure does not cause the mission to be halted or interrupted.
 
