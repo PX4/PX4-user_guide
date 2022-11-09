@@ -88,7 +88,7 @@
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
     * [Takeoff \(Fixed Wing\)](flying/fixed_wing_takeoff.md)
   * [Missions](flying/missions.md)
-    * [Package Delivery Mission Planning](flying/package_delivery_mission.md)
+    * [Package Delivery Mission](flying/package_delivery_mission.md)
   * [GeoFence](flying/geofence.md)
   * [Safety Point Planning](flying/plan_safety_points.md)
   * [Flight Modes](flight_modes/README.md)
