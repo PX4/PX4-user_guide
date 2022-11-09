@@ -1,6 +1,6 @@
 # Package Delivery Mission Planning
 
-A package delivery mission allows user to plan & execute a package delivery. Note that this is only supported for vehicles that has a [delivery mechanism hardware](../peripherals/gripper.md) configured & installed.
+A package delivery mission allows user to plan and execute a package delivery. Note that this is only supported for vehicles that has a [delivery mechanism hardware](../peripherals/gripper.md) configured & installed.
 
 
 ## Operator Control Configuration
