@@ -1,9 +1,9 @@
-# Package delivery mission planning
+# Package Delivery Mission Planning
 
 A package delivery mission allows user to plan & execute a package delivery. Note that this is only supported for vehicles that has a [delivery mechanism hardware](../peripherals/gripper.md) configured & installed.
 
 
-## Operator control configuration
+## Operator Control Configuration
 
 Before using the package delivery feature, if feasible please setup the [gripper action button](../peripherals/gripper.md#griper-action-joystick-button-mapping-in-qgc) to have a manual control over the Gripper's state.
 
@@ -16,11 +16,11 @@ The package delivery feature using a gripper is embedded in the action waypoint 
 
 ![Package delivery action waypoint item methodology](../../assets/flying/package_delivery_action_waypoint_item.jpg)
 
-### Create a standard mission waypoint
+### Create a Standard Mission Waypoint
 
 Follow the [mission documentation](missions.md) on how to setup a Mission Start, Takeoff waypoints. Then, plan whatever waypoints you would like to execute as well.
 
-### Create a package delivery waypoint
+### Create a Package Delivery Waypoint
 
 A package delivery requires combination of a **pre-waypoint** and a **action-waypoint** as described in the diagram above.
 
@@ -49,7 +49,7 @@ You can use either one of these waypoint types for the pre-waypoint:
 
 At this point, the Release Mechanism waypoint would have disappeared from the map since it's an Action with no positional information.
 
-### Examples of Package delivery mission plan
+### Examples Plans
 
 #### Package Drop Mission
 
@@ -75,7 +75,7 @@ Notice how the altitude graph shows the 'Land' item, also on the right panel.
 
 ### Special Remarks
 
-#### RTL waypoint for a landed package delivery missions
+#### RTL Waypoint for Package Delivery with Landing
 
 :::warning
 DO NOT place a "Return to Launch" item right after the Package delivery waypoint (Pre-waypoint + Action waypoint). This will result in vehicle idling at the landed coordinate.
