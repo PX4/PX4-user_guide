@@ -6,7 +6,7 @@ Grippers are a commonly used mechanism for UAV delivery applications. There are 
 
 ## Supported Gripper Types
 
-PX4 supports following Gripper types, check the individual page to learn how to integrate them.
+PX4 supports the following Gripper types, check the individual page to learn how to integrate them.
 
 - [Servo Gripper with PWM](gripper_servo.md)
 
