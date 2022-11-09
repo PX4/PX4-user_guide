@@ -40,19 +40,17 @@ This module can be used with PX4 v1.13 or above.
 An RTK GPS kit includes:
 - 1x GPS Module
 - 1x Helix antenna
-- 1x 6-pin JST-ready cable 
+- 1x 6-pin JST-ready cable
 
-
-## Configuration
-
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
-Connect your Hawk R2 to the `GPS2` port on compatible Pixhawk boards (preferred, though you can use any other unused UART port).
-
-For the aircraft, you should set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 230400 8N1 to ensure that PX4 configures the correct baudrate.
 
 ## Wiring and Connections
 
-Hawk R2 RTK GPS comes with an 6 pin JST connector that can be plugged into a Pixhawk autopilot.
+Hawk R2 RTK GPS comes with an 6 pin JST connector that can be plugged into the GPS2 port on Pixhawk-standard autopilots.
+
+![LOCOSYS Hawk R2 cable for connecting to flight controller](../../assets/hardware/gps/locosys_hawk_r2/locosys_hawk_r2_jst6_cable.jpg)
+
+It can also be used on other UART ports, but you would need to connect and configure the port used.
+The pinout below is provided in case you need to create a custom cable.
 
 ### Pinout
 
@@ -69,6 +67,17 @@ Pin | Hawk R2 GPS
 7 | I2C_CLK
 8 | I2C_DAT 
 9 | GND
+
+
+## PX4 Configuration
+
+After connecting your Hawk R2 to the `GPS2` port on compatible Pixhawk boards, RTK setup and use on PX4 via *QGroundControl* is largely plug and play.
+For more information see: [RTK GPS](../gps_compass/rtk_gps.md#positioning-setup-configuration).
+
+You should also configure the serial port you are using to the correct baud rate.
+If you're using GPS2, set the parameter [SER_GPS2_BAUD](../advanced_config/parameter_reference.md#SER_GPS2_BAUD) to 230400 8N1.
+
+The compass only requires the usual [Compass Calibration](../config/compass.md).
 
 ## Status LEDs
 
