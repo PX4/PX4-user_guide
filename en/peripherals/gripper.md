@@ -81,7 +81,7 @@ To measure gripper actuation time, go to the MAVLink Shell in AMC and execute th
 
 `> payload_deliverer gripper_test`
 
-Then observe how long it takes for the gripper to go from open position to closed position, and vise versa for opening. Note down the actuation time for both cases and choose the maximum measurement for the actuation time.
+Then observe how long it takes for the gripper to go from open position to closed position, and vice versa for opening. Note down the actuation time for both cases and choose the maximum measurement for the actuation time.
 
 As an alternative test method, you can utilize the [Joystick capability](#griper-action-joystick-button-mapping-in-qgc) to trigger gripper open and close actions as well.
 
