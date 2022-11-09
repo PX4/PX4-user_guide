@@ -1,20 +1,28 @@
-# Locosys RTK GPS
+# LOCOSYS Hawk R1 RTK GPS
 
 The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.
 
-The module can act as rover when installed on the aircraft. The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
+The module can act as an RTK GPS rover when installed on the aircraft.
+
+The receiver is capable of concurrently tracking all global civil navigation systems, including GPS, GLONASS, GALILEO, BEIDOU and QZSS. It acquires both L1 and L5 signals at the same time while providing the centimeter-level RTK positioning accuracy.
 
 The built-in lightweight helical antenna enhances RTK positioning stability. The fast time-to-first-fix, RTK convergence, superior sensitivity, low power consumption make it a better choice for Pixhawk-based platform UAVs.
 
+:::note
 
-Main features include:
+This module does not have a compass. For an equivalent GPS module with a compass try: [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md).
+:::
+
+
+## Main Features
+
 - Concurrent reception of L1 and L5 band signals
 - Support GPS, GLONASS, BEIDOU, GALILEO, QZSS
 - Capable of SBAS (WAAS, EGNOS, MSAS, GAGAN)
 - Support 135-channel GNSS
 - Fast TTFF at low signal level
 - Free hybrid ephemeris prediction to achieve faster cold start
-- Default 5Hz, up to 10 Hz update rate*
+- Default 5Hz, up to 10 Hz update rate (SBAS support 5Hz only).
 - Build-in super capacitor to reserve system data for rapid satellite acquisition
 
 :::note
@@ -101,4 +109,3 @@ LOCOSYS GPS pinout is provided below.
 ## More Information
 
 More information can be found on [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html)
-  
