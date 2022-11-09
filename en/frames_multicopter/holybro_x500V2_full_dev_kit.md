@@ -131,7 +131,7 @@ The below parts can be placed as per user
 
 [![Assembl21](https://img.youtube.com/vi/uG5UKy3FrIc/0.jpg)](https://youtu.be/uG5UKy3FrIc)
 
-### Pixhawk 6C-
+### Pixhawk 6C
 - The wire from the PM02 goes to POWER1 in Pixhawk
 - The telemetry goes to TELEM1
 - The GPS to GPS1
