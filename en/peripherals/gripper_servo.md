@@ -22,7 +22,7 @@ Yellow  | PWM Signal
 
 You would need to connect them into a PWM input of the Flight controller appropriately.
 
-### Compatibility checks
+### Compatibility Checks
 
 Before connecting the cable, double-check the following requirements:
 
