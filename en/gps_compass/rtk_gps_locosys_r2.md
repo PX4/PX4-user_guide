@@ -40,7 +40,7 @@ This module can be used with PX4 v1.13 or above.
 An RTK GPS kit includes:
 - 1x GPS Module
 - 1x Helix antenna
-- 1x 6-pin JST 
+- 1x 6-pin JST-ready cable 
 
 
 ## Configuration
