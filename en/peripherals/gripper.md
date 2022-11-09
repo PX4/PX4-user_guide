@@ -77,7 +77,7 @@ Note that for now we only support a [Servo Gripper](gripper_servo.md), so you wi
 
 You need to specify an actuation time, which specifies the time it takes to open or close the gripper. As most grippers don't have a sensor to detect successful actuation (close/opening), the payload delivery feature will rely on this value to estimate gripper's position.
 
-To measure gripper actuation time, go to the MAVLink Shell in AMC and execute the following code while the drone is on a bench and the propellers are removed:
+To measure gripper actuation time, go to the [MAVLink Shell](../debug/mavlink_shell.md) in QGC  and execute the following command while the drone is on a bench and the propellers are removed:
 
 `> payload_deliverer gripper_test`
 
