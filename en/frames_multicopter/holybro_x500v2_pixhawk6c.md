@@ -8,10 +8,11 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 ## Assembly
 
 :::note
-The images in this document can be selected to see a youtube video of the step.
+- The images in this document can be selected to see a youtube video of the step.
+- Each section lists any required screws at the top.
 :::
 
-### Holders
+### Payload and Battery Holder
 
 **Screw**-  Sunk Screw M2.5*6 12pcs
 
@@ -49,13 +50,11 @@ The images in this document can be selected to see a youtube video of the step.
 
    [![Assembly7](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/assembly7.png)](https://youtu.be/Qjs6pqarRIY)
 
-1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of HOLDER assembly)
+1. Use Socket Cap Screws M2.5*6 and screw the bottom plate on the 4 hangers (that we inserted in the 2 bars on the 3rd step of the payload holder assembly)
 
   <!--  @[youtube](https://youtu.be/Qjs6pqarRIY) -->
 
 ### Landing Gear
-
-
 
 1. To assemble the landing gear, loosen the pre-assembled screws of the Landing Gear-Cross Bar and insert the Landing Gear-Vertical Pole and fasten the same.
 
@@ -160,6 +159,43 @@ The following parts can be placed as per usual.
 - Simply insert the mount inside the 2 bars and use the screws according to the camera you’re using.
 
 ![payloads_x500v2](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/payloads_x500v2.png)
+
+
+## Install/Configure PX4
+
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
+
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame.
+1. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+1. Update the firmware and airframe:
+   - [Firmware](../config/firmware.md)
+   - [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro X500 V2**)
+   
+     ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
+
+1. Then perform the mandatory setup/calibration:
+   - [Sensor Orientation](../config/flight_controller_orientation.md)
+   - [Compass](../config/compass.md)
+   - [Accelerometer](../config/accelerometer.md)
+   - [Level Horizon Calibration](../config/level_horizon_calibration.md)
+   - [Radio Setup](../config/radio.md)
+   - [Flight Modes](../config/flight_mode.md)
+
+   Ideally you should also do:
+   
+   - [ESC Calibration](../advanced_config/esc_calibration.md)
+   - [Battery](../config/battery.md)
+   - [Safety](../config/safety.md)
+
+## Tuning
+
+Airframe selection sets *default* autopilot parameters for the frame.
+These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+
+For instructions on how, start from [Auto-tune](../config/autotune.md).
+
 
 ## Acknowledgements
 
