@@ -148,8 +148,7 @@ The following parts can be placed as per usual.
 
 **Screw-** Socket Cap Screw M2.5*12 4pcs | Nylon Standoff M2.5*5 4pcs Locknut M2.5 4pcs
 
-- The X500 kit is awesome because of it’s design consideration of most common hardware used on drones.
-- The companion computer such as Raspberry Pi or Jetson nano can be placed here.
+The X500 kit is provides space for a companion computer, such as Raspberry Pi or Jetson nano can be placed here [TBD].
 - Insert 4 Socket Cap Screw M2.5*12 and put the standoffs on the same.
 - Now place the companion computer and assemble it using Locknut M2.5
 
