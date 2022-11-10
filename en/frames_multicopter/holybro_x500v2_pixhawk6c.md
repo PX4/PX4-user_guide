@@ -7,6 +7,10 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
 
 ## Assembly
 
+:::note
+Most of the images in this document can be clicked to see a you-tube video showing the steps!!
+:::
+
 ### Holders
 
 **Screw**-  Sunk Screw M2.5*6 12pcs
@@ -15,11 +19,18 @@ This topic provides full instructions for building the [Holybro X500 V2 ARF Kit]
    Do not use sharp objects to press the rubbers inside.
 
    [![Assembly1](https://img.youtube.com/vi/4Tid-FCP_aI/0.jpg)](https://www.youtube.com/watch?v=4Tid-FCP_aI)
+   
+   xx
+   [![Assembly1](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/Assembly1.png)](https://www.youtube.com/watch?v=4Tid-FCP_aI)
+   
 
 
 1. Take the battery mounting board and screw it with the slide bar clip using the Sunk Screw M2.5*6.
 
    [![Assembly2](https://img.youtube.com/vi/9E-rld6tPWQ/0.jpg)](https://youtu.be/9E-rld6tPWQ)
+   
+   xx
+   [![Assembly2](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/Assembly2.png)](https://youtu.be/9E-rld6tPWQ)
 
 1. Screw 4 hangers to the Platform Board using Sunk Screw M2.5*6.
 
