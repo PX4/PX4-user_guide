@@ -11,7 +11,7 @@ The compass can also be mounted in any _supported_ orientation, where the suppor
 
 If you're using the normal [Compass Calibration](../config/compass.md) process the parameter [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO) is enabled, and the orientation should be detected automatically.
 
-If your compass can't be oriented in any of the supported orientations, you can utilize `Custom rotation`, which is documented below.
+If your compass can't be oriented in any of the supported orientations, you can use a [custom rotation](#custom_magnetometer_rotation) as documented below.
 
 :::warning
 If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, PX4 will detect the closest supported value. This will result in errors/warnings, even if the calibration appeared to succeed.
