@@ -19,13 +19,13 @@ If you mount the compass at an orientation that isn't supported, for example `Ya
 
 ### Custom magnetometer orientation
 
-By selecting the `Custom Euler Angle` in the orientation setting for your magnetometer, you can specify any rotation using [CAL_MAGn_ROLL](../advanced_config/parameter_reference.md#CAL_MAG1_ROLL), [CAL_MAGn_PITCH](../advanced_config/parameter_reference.md#CAL_MAG1_PITCH) and [CAL_MAGn_YAW](../advanced_config/parameter_reference.md#CAL_MAG1_YAW) parameters.
+You can use a custom orientation by first selecting `Custom Euler Angle` in the orientation setting for your magnetometer.  
+You can then set any rotation using the [CAL_MAGn_ROLL](../advanced_config/parameter_reference.md#CAL_MAG1_ROLL), [CAL_MAGn_PITCH](../advanced_config/parameter_reference.md#CAL_MAG1_PITCH) and [CAL_MAGn_YAW](../advanced_config/parameter_reference.md#CAL_MAG1_YAW) parameters.
 
 The roll/pitch/yaw are defined as documented [here](../config/flight_controller_orientation.md#orientation-definition).
 
-To configure the custom orientation correctly, do the following:
-1. Set the [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) parameter to `Custom Euler Angle`
-2. Set the magnetometer's custom roll/pitch/yaw appropriately
-3. Follow the [compass calibration procedure](../config/compass.md#performing-the-calibration)
+To configure a custom orientation and calibrate the compass:
 
-After this, you should have a calibrated magnetometer with a custom specified rotation.
+1. Set the [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) parameter to `Custom Euler Angle`
+2. Set the magnetometer's correct custom roll/pitch/yaw
+3. Follow the [compass calibration procedure](../config/compass.md#performing-the-calibration)
