@@ -1,6 +1,6 @@
 # 우분투 개발 환경
 
-아래에서 Ubuntu Linux 18.04 amd 20.04에서 PX4 개발 환경에 대하여 설명합니다. 이 환경은 [대부분의 PX4 타켓](../dev_setup/dev_env.md#supported-targets) 빌드에 사용됩니다.
+The following instructions set up a PX4 development environment on Ubuntu Linux 18.04 and 20.04. 이 환경은 [대부분의 PX4 타켓](../dev_setup/dev_env.md#supported-targets) 빌드에 사용됩니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
 * [가제보 시뮬레이션](../simulation/gazebo.md)

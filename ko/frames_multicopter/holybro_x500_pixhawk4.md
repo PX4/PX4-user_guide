@@ -1,6 +1,6 @@
 # Holybro X500 + Pixhawk4 조립
 
-키트 조립법과 *QGroundControl*의 PX4 설정법에 대하여 설명합니다.
+키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
 ## 주요 정보
 
@@ -15,23 +15,23 @@
 
 Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수 구성 요소가 포함되어 있습니다.
 
-* [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
+* [Pixhawk 4 오토파일럿](../flight_controller/pixhawk4.md)
 * [Pixhawk 4 GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)
-* [Power Management - PM07](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
-* [Holybro Motors - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
+* [전원 관리 - PM07](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
+* [Holybro 모터 - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
 * [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
-* [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
-* 전원 관리 - PM07
+* [프로펠러 - 1045x4](https://shop.holybro.com/propeller10452pair_p1155.html)
+* 배터리 스트랩 - PM07
 * 전원 및 무선 조종기 케이블
 * 휠베이스 - 500 mm
-* 433 MHz Telemetry Radio/915 MHz Telemetry Radio
-* 433 MHz Telemetry Radio/915 MHz Telemetry Radio
+* 433 MHz 텔레메트리 /915 MHz 텔레메트리
+* 433 MHz 텔레메트리/915 MHz 텔레메트리
 
-드론을 수동 제어에는 배터리와 수신기([호환 무선 시스템](../getting_started/rc_transmitter_receiver.md))가 필요합니다.
+드론 수동 제어시에는 배터리와 수신기([호환 무선 시스템](../getting_started/rc_transmitter_receiver.md))가 필요합니다.
 
-## 하드웨어
+## 주요 하드웨어
 
-프레임과 자율비행프로그램 설치를 위한 하드웨어들 입니다.
+프레임과 오토파일럿 설치를 위한 하드웨어들 입니다.
 
 | 항목              | 설명                           | 수량 |
 | --------------- | ---------------------------- | -- |
@@ -75,7 +75,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 ## 조립
 
-예상 조립 시간은 3.75시간(프레임은 180분, 자동 조종 장치 설치/설정은 45분)입니다.
+예상 조립 시간은 3.75시간(프레임은 180분, 오토파일럿 설치와 설정은 45분)입니다.
 
 1. 랜딩기어 조립부터 시작합니다. 랜딩 기어 나사를 풀고 수직 기둥을 삽입합니다(그림 1 및 2).
 
@@ -87,7 +87,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    _그림 2_: 랜딩 기어 조립
 
-1. 그런 다음, 그림 3에 표시된 4개의 모터 베이스를 통해 4개의 암을 넣습니다. 로드가 베이스를 약간 돌출시키고 4개의 암 전체에서 일관성이 있는 지 확인하고 모터 와이어가 바깥쪽을 향하도록 합니다.
+1. 그런 다음, 그림 3에 표시된 4개의 모터 베이스를 통해 4개의 암을 넣습니다. 로드가 베이스를 약간 돌출시키고 4개의 암 전체에서 일관성이 있는 지 확인하고, 모터 와이어가 바깥쪽을 향하도록 합니다.
 
    ![모터 베이스에 암 부착](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
@@ -113,7 +113,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/quadx.png" width="240" />
 
-   _그림 7_: 모터 순서/방향 다이어그램
+   _그림 7_: 모터 순서와 방향 다이어그램
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/motor_direction1.jpg" width="400" />
 
@@ -125,7 +125,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    _그림 8_: 전원 모듈 PWM 및 전원 배선
 
-1. GPS를 상판에 장착하려는 경우 이제 4개의 나사와 너트를 사용하여 GPS 장착을 상판에 고정할 수 있습니다.
+1. GPS를 상판에 장착하는 경우에는 4개의 나사와 너트를 사용하여 GPS 장착을 상판에 고정합니다.
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gpsmount.jpg" width="400" title="상단 플레이트에 고정 GPS 마운트" />
 
@@ -141,7 +141,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    _그림 10-2_: 상판과 하판 연결
 
-1. 암 튜브를 프레임에 약간 밀어 넣고, 돌출 정도(그림 11의 빨간색 사각형)가 4개의 암 모두에서 일정한 지 확인합니다. 모든 모터가 위를 향하고 있는 지 확인한 다음 모든 너트와 나사를 조입니다.
+1. 암 튜브를 프레임에 약간 밀어 넣고, 돌출 정도(그림 11의 빨간색 사각형)가 4개의 암 모두에서 일정한 지 확인합니다. 모든 모터가 위를 향하고 있는 지 확인후, 모든 너트와 나사를 조입니다.
 
    ![암 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
 
@@ -165,29 +165,29 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
    _그림 14_: 슬라이드 바의 배터리 마운트
 
-1. 랜딩 기어를 바닥판에 장착합니다. 이 설치 과정을 더 쉽게 하려면 드론을 옆으로 기울이는 것이 좋습니다.
+1. 랜딩 기어를 하판에 장착합니다. 이 설치 과정을 더 쉽게 하려면 드론을 옆으로 기울이는 것이 좋습니다.
 
    ![착륙 기어](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
-   _그림 15_: 착륙 장치
+   _그림 15_: 착륙 기어
 
 
-1. 테이프를 사용하여 GPS를 GPS 마스트 상단에 붙이고 GPS 마스트를 장착합니다. GPS의 화살표가 앞을 가리키는 지 확인하십시오(그림 16).
+1. 테이프를 사용하여 GPS를 GPS 마스트 상단에 붙이고 GPS 마스트를 장착합니다. GPS의 화살표가 전방을 가리키는 지 확인하십시오(그림 16).
 
    <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="그림 16: GPS 및 마스트" />
 
-   _그림 16_: GPS 및 마스트
+   _그림 16_: GPS와 마스트
 
 
-1. 상판에 원격 측정 라디오를 장착합니다. 원격 측정 케이블을 `TELEM1` 포트에 연결하고, GPS 모듈을 비행 콘트롤러의 `GPS MODULE` 포트에 연결합니다. 케이블을 PM07 `FMU-PWM-in`에서 FC의 `I/O-PWM-out`으로 연결하고 PM07 `PWR1`에서 그림 17과 같이 FC의 `POWER1`로 연결합니다.
+1. 상판에 텔레메트리를 장착합니다. 원격 측정 케이블을 `TELEM1` 포트에 연결하고, GPS 모듈을 비행 컨트롤러의 `GPS MODULE` 포트에 연결합니다. 케이블을 PM07 `FMU-PWM-in`에서 FC의 `I/O-PWM-out`으로 연결하고 PM07 `PWR1`에서 그림 17과 같이 FC의 `POWER1`로 연결합니다.
 
    ![Pixhawk 4 배선 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/fc_connections.jpg)
 
-   _그림 17_: 원격 측정 라디오를 장착하고 PWM 및 전원 케이블을 비행 콘트롤러에 연결합니다.
+   _그림 17_: 텔레메트리를 장착하고 PWM 및 전원 케이블을 비행 컨트롤러에 연결합니다.
 
-자세한 내용은 [Pixhawk 4 빠른 시작](../assembly/quick_start_pixhawk4.md)을 참고하십시오.
+자세한 내용은 [Pixhawk 4 빠른 시작](../assembly/quick_start_pixhawk4.md)편을 참고하십시오.
 
-조립이 완료되었습니다. 완전히 조립된 키트는 다음과 같습니다.
+조립이 완료되었습니다. 조립 완료된 키트는 다음과 같습니다.
 
 ![키트 조립](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
@@ -200,29 +200,29 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 X500 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드 후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고, X500 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드 후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
 먼저, 펌웨어와 기체 프레임을 업데이트 합니다.
 * [펌웨어](../config/firmware.md)
-* [Airframe](../config/airframe.md) - *Holybro S500* 기체(**Quadrotor x > Holybro S500**)를 선택해야 합니다. ![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
+* [Airframe](../config/airframe.md) - *Holybro S500* 기체(**Quadrotor x > Holybro S500**)를 선택합니다. ![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
 
-그리고, 설치후에 필수적인 설정 작업을 실시합니다.
+그리고, 설치후에 필수 설정 작업을 실시합니다.
 * [센서 방향](../config/flight_controller_orientation.md)
 * [나침반](../config/compass.md)
-* [가속도계 ](../config/accelerometer.md)
-* [수평 보정](../config/level_horizon_calibration.md)
+* [가속도 센서](../config/accelerometer.md)
+* [수평 캘리브레이션](../config/level_horizon_calibration.md)
 * [무선 조종기 설정](../config/radio.md)
 * [비행 모드](../config/flight_mode.md)
 
 다음 작업들은 반드시 진행하여야 합니다.
-* [ESC 보정](../advanced_config/esc_calibration.md)
+* [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
 * [배터리](../config/battery.md)
 * [안전](../config/safety.md)
 
 
 ## 튜닝
 
-기체 선택은 프레임의 자유비행에 관련된 *기본*적인 매개변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다. 자세한 방법은 [Multicopter 기본 PID 조정](../config_mc/pid_tuning_guide_multicopter_basic.md)을 참고하십시오.
+기체를 선택하면, 자율비행에 관련된 기체의 *기본*적인 매개변수들이 설정됩니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다. 자세한 방법은 [Multicopter 기본 PID 조정](../config_mc/pid_tuning_guide_multicopter_basic.md)편을 참고하십시오.
 
 ## 감사의 글
 
