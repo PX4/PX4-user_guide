@@ -33,7 +33,7 @@
 * [Basic Configuration](config/README.md)
   * [Firmware](config/firmware.md)
   * [Airframe](config/airframe.md)
-  * [Orientation](config/flight_controller_orientation.md)
+  * [Sensor Orientation](config/flight_controller_orientation.md)
   * [Compass](config/compass.md)
   * [Gyroscope](config/gyroscope.md)
   * [Accelerometer](config/accelerometer.md)
