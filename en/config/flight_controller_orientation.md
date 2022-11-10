@@ -3,9 +3,11 @@
 By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle.
 If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
 
-## Orientation definition
+## Orientation Definition
 
-ROLL, PITCH and/or YAW for flight controller and sensors are calculated relative to the vehicle's forward (x), right (y), down (z) axes.
+
+Roll, pitch and/or yaw for flight controller and sensors are calculated relative to the vehicle's forward (x), right (y), down (z) axes.
+
 
 You can use this tool for visualizing the Euler angles : https://compsci290-s2016.github.io/CoursePage/Materials/EulerAnglesViz/
 
@@ -28,9 +30,10 @@ For more information see [Basic Concepts](../getting_started/px4_basic_concepts.
 
 ### Supported rotations
 
-PX4 supports the rotations defined by the MAVLink's [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) enumerator.
+PX4 supports, and can automatically detect, the MAVLink rotations defined in [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION).
 
-Note that a custom rotation is also available for a magnetometer if it is not mounted in one of the supported rotation configurations. For this, please refer to [Setting a custom rotation](../assembly/mount_gps_compass.md#custom-magnetometer-orientation) chapter of the Magnetometer mounting documentation.
+
+Note that [custom rotations](../assembly/mount_gps_compass.md) are also supported.
 
 ## Setting the Orientation
 
