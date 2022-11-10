@@ -1,6 +1,6 @@
 # Ubuntu Development Environment
 
-The following instructions set up a PX4 development environment on Ubuntu Linux 18.04 amd 20.04. This environment can be used to build PX4 for [most PX4 targets](../dev_setup/dev_env.md#supported-targets):
+The following instructions set up a PX4 development environment on Ubuntu Linux 18.04 and 20.04. This environment can be used to build PX4 for [most PX4 targets](../dev_setup/dev_env.md#supported-targets):
 * Pixhawk and other NuttX-based hardware
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 * [Gazebo Simulation](../simulation/gazebo.md)
