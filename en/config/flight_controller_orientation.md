@@ -11,7 +11,9 @@ You can use this tool for visualizing the Euler angles : https://compsci290-s201
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as "**extrinsic rotation**(roll-pitch-yaw sequence)". Read more about it in [this article](https://en.wikipedia.org/wiki/Euler_angles#Conventions_by_extrinsic_rotations).
+The axes to rotate around stay the same from one rotation step to the next one.
+So the frame to perform the rotation in stays fixed.
+This roll-pitch-yaw sequence is also known as [extrinsic rotation](https://en.wikipedia.org/wiki/Euler_angles#Conventions_by_extrinsic_rotations).
 
 For example, the vehicles shown below have rotations around the z-axis (i.e. yaw only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
