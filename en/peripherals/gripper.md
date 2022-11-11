@@ -16,13 +16,7 @@ The [Roboclaw driver](../modules/modules_driver.md#roboclaw) isn't supported as 
 
 ## Gripper Actuator Mapping
 
-To enable the output of the Gripper, set the Function of the output port the gripper is connected to as `Gripper`.
-
-:::note
-Make sure to set the correct PWM frequency (usually commercial servo / grippers only support 50Hz)! If you mis-configure the frequency you risk damaging the gripper.
-:::
-
-![Gripper output mapping](../../assets/config/gripper/qgc_gripper_output_setup.png)
+To enable the output of the Gripper, set the Function of the output port where the gripper is connected to as `Gripper` in the [Actuators](../config/actuators.md#actuator-outputs) tab.
 
 ## Gripper Action Joystick Button Mapping in QGC
 

@@ -33,3 +33,13 @@ Before connecting the cable, double-check the following requirements:
 ## Setting up the Gripper
 
 For detailed instruction on further setup instructions, refer to the [Gripper](gripper.md#gripper-actuator-mapping) documentation.
+
+## Actuator mapping
+
+![Gripper output mapping](../../assets/config/gripper/qgc_gripper_output_setup.png)
+
+Here is an example of a Servo Gripper configured to take PWM signal at 50Hz assigned in the Actuators tab.
+
+:::note
+Make sure to set the correct PWM frequency (usually commercial servo / grippers only support 50Hz)! If you mis-configure the frequency you risk damaging the gripper.
+:::
