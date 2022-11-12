@@ -11,6 +11,7 @@ This category includes boards that are not fully compliant with the pixhawk stan
 :::
 
 The boards in this category are:
+- [AIRLink](../flight_controller/airlink.md)
 - [AirMind MindPX](../flight_controller/mindpx.md)
 - [AirMind MindRacer](../flight_controller/mindracer.md)
 - [CUAV X7](../flight_controller/cuav_x7.md)
