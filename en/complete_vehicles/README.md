@@ -66,7 +66,7 @@ These may or may not be updatable to run "vanilla" PX4.
   * [Airlango Mystic](http://airlango.com/products/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
 * Fixed Wing:
-  * [Sentera PXH(https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
+  * [Sentera PXH](https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
 * VTOL
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
   * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
