@@ -61,7 +61,7 @@ This section lists fully assembled vehicles where you can update the software to
   * [Airlango Mystic](http://airlango.com/products/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
 * 고정익
-  * [Sentera PXH(https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
+  * [Sentera PXH](https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
 * VTOL
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
   * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
