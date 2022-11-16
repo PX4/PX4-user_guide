@@ -187,6 +187,7 @@
       * [mRo Pixhawk (FMUv3)](flight_controller/mro_pixhawk.md)
       * [Holybro Pixhawk Mini (FMUv3)](flight_controller/pixhawk_mini.md)
     * [Manufacturer-Supported Autopilots](flight_controller/autopilot_manufacturer_supported.md)
+      * [AIRLink](flight_controller/airlink.md)
       * [AirMind MindPX](flight_controller/mindpx.md)
       * [AirMind MindRacer](flight_controller/mindracer.md)
       * [CUAV X7](flight_controller/cuav_x7.md)
