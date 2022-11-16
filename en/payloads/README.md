@@ -64,7 +64,7 @@ For example, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x) has t
 - "**AUX3:** feed-through of RC AUX3 channel"
 
 If your vehicle doesn't specify RC AUX feed-through outputs, then you can add them using using a custom [Mixer File](../concept/mixing.md) that maps [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) outputs 5-7 to your desired port(s).
-An example of such a mixer is the default passthrough mixer: [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/pass.aux.mix).
+An example of such a mixer is the default passthrough mixer: [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/mixers/pass.aux.mix).
 
 
 ### RC Payload Control

@@ -2,7 +2,7 @@
 
 A logging message, output with PX4_{WARN,ERR,INFO}
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/log_message.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/log_message.msg)
 
 ```c
 # A logging message, output with PX4_{WARN,ERR,INFO}

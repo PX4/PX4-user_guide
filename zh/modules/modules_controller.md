@@ -1,7 +1,7 @@
 # 模块参考：控制器
 
 ## ODULE_NAM
-Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
+Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/control_allocator)
 
 
 ### 描述
@@ -21,7 +21,7 @@ ODULE_NAM <command> [arguments...]
    status        打印状态信息
 ```
 ## fw_att_control
-Source: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control)
+Source: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/airship_att_control)
 
 
 ### 描述
@@ -46,7 +46,7 @@ airship_att_control <command> [arguments...]
    status        print status info
 ```
 ## fw_pos_control_l1
-Source: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager)
+Source: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/flight_mode_manager)
 
 
 ### 参数描述
@@ -72,7 +72,7 @@ fw_pos_control_l1 <command> [arguments...]
    status        print status info
 ```
 ## mc_att_control
-Source: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_att_control)
+Source: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/fw_att_control)
 
 
 ### 描述
@@ -93,7 +93,7 @@ fw_att_control <command> [arguments...]
    status        print status info
 ```
 ## mc_pos_control
-Source: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control_l1)
+Source: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/fw_pos_control_l1)
 
 
 ### 描述
@@ -120,7 +120,7 @@ mc_pos_control <command> [arguments...]
    status        print status info
 ```
 ## mc_att_control
-Source: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_att_control)
+Source: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/mc_att_control)
 
 
 ### 参数描述
@@ -147,7 +147,7 @@ mc_att_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control)
+Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/mc_pos_control)
 
 
 ### 参数描述
@@ -173,7 +173,7 @@ mc_pos_control <command> [arguments...]
    status        print status info
 ```
 ## mc_rate_control
-Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_rate_control)
+Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/mc_rate_control)
 
 
 ### 用法
@@ -196,7 +196,7 @@ mc_rate_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator)
+Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/navigator)
 
 
 ### 实现
@@ -225,7 +225,7 @@ navigator <command> [arguments...]
    status        print status info
 ```
 ## rover_pos_control
-Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
+Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/rover_pos_control)
 
 
 ### 参数描述
@@ -262,7 +262,7 @@ rover_pos_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_att_control
-Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
+Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/uuv_att_control)
 
 
 ### 参数描述
@@ -298,7 +298,7 @@ uuv_att_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_pos_control
-Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control)
+Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/uuv_pos_control)
 
 
 ### Description
@@ -328,7 +328,7 @@ uuv_pos_control <command> [arguments...]
    status        print status info
 ```
 ## vtol_att_control
-Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
+Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/vtol_att_control)
 
 
 ### Description

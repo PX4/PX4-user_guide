@@ -2,7 +2,7 @@
 
 power monitor message
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/power_monitor.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/power_monitor.msg)
 
 ```c
 # power monitor message

@@ -2,7 +2,7 @@
 
 GPS position in WGS84 coordinates. the field 'timestamp' is for the position & velocity (microseconds)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gps.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/sensor_gps.msg)
 
 ```c
 # GPS position in WGS84 coordinates.

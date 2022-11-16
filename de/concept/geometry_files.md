@@ -8,8 +8,8 @@ Geometry files are used by PX4 to generate mixer definitions that map the output
 
 ## How to add a New Geometry
 
-1. Create new TOML geometry file (e.g. "foo.toml") in [/src/lib/mixer/MultirotorMixer/geometries](https://github.com/PX4/PX4-Autopilot/tree/main/src/lib/mixer/MultirotorMixer/geometries). The file must include a new **key** (e.g.: `key = "4fo"`). See [Geometry File Format](#geometry-file-format) for information on the required fields.
-1. Add the geometry file to [/src/lib/mixer/MultirotorMixer/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/CMakeLists.txt).
+1. Create new TOML geometry file (e.g. "foo.toml") in [/src/lib/mixer/MultirotorMixer/geometries](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/lib/mixer/MultirotorMixer/geometries). The file must include a new **key** (e.g.: `key = "4fo"`). See [Geometry File Format](#geometry-file-format) for information on the required fields.
+1. Add the geometry file to [/src/lib/mixer/MultirotorMixer/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/mixer/MultirotorMixer/CMakeLists.txt).
 1. Create a new [mixer file](../concept/mixing.md) that uses the new geometry. For example you might create **ROMFS/px4fmu_common/mixers/foo.main.mix** with a line containing the new key (in this case `4fo`):
    ```
    R 4fo
@@ -23,7 +23,7 @@ Geometry files are used by PX4 to generate mixer definitions that map the output
 
 Geometry files are plain-text files that are divided into sections deliniated by the headers: `[info]`, `[rotor_default]`, and `[[rotor]]` (there is a `[[rotor]]` section for each rotor in the geometry).
 
-The fields allowed in each section are listed below (as defined in the [px_generate_mixers.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/tools/px_generate_mixers.py) script).
+The fields allowed in each section are listed below (as defined in the [px_generate_mixers.py](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/mixer/MultirotorMixer/geometries/tools/px_generate_mixers.py) script).
 
 
 ### [info] section
@@ -57,9 +57,9 @@ The allowed keys are:
 
 ## Example File
 
-There are numerous examples in the source tree: [/src/lib/mixer/MultirotorMixer/geometries/](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/).
+There are numerous examples in the source tree: [/src/lib/mixer/MultirotorMixer/geometries/](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/mixer/MultirotorMixer/geometries/).
 
-A tri-copter geometry ([tri_y.toml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml)) is reproduced below.
+A tri-copter geometry ([tri_y.toml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml)) is reproduced below.
 
 ```
 # Tri Y

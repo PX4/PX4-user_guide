@@ -25,7 +25,7 @@ Simulator |Description
 [JSBSim](../simulation/jsbsim.md) | <p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p>
 [jMAVSim](../simulation/jmavsim.md) | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for [multi-vehicle simulation](../simulation/multi_vehicle_jmavsim.md).</p><p><strong>Supported Vehicles:</strong> Quad</p>
 [AirSim](../simulation/airsim.md) | <p>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here.</p><p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p>
-[Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>
+[Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>
 [Ignition Gazebo](../simulation/ignition_gazebo.md) | <p>Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.</p><p><strong>Supported Vehicles:</strong> Quad</p>
 
 Instructions for how to setup and use the simulators are in the topics linked above.
@@ -44,7 +44,7 @@ The image below shows the message flow.
 ![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
 :::note
-A SITL build of PX4 uses [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulator/simulator_mavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp).
+A SITL build of PX4 uses [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/simulator/simulator_mavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_receiver.cpp).
 Sensor data from the simulator is written to PX4 uORB topics.
 All motors / actuators are blocked, but internal software is fully operational.
 :::
@@ -210,7 +210,7 @@ To disable lockstep in jMAVSim, remove `-l` in [jmavsim_run.sh](https://github.c
 ### Startup Scripts
 
 Scripts are used to control which parameter settings to use or which modules to start.
-They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point.
+They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point.
 See [System Startup](../concept/system_startup.md) for more information.
 
 ### Simulating Failsafes and Sensor/Hardware Failure
@@ -309,7 +309,7 @@ Do not use this approach if there are multiple simulations running on the networ
 :::
 
 This should be done in an appropriate configuration file where `mavlink start` is called.
-For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS).
+For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 
 ### Enable Streaming to Specific Address
@@ -318,7 +318,7 @@ The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes t
 The specified remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
 
 This should be done in various configuration files where `mavlink start` is called.
-For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS).
+For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 
 ### SSH Tunneling

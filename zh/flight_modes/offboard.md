@@ -30,7 +30,7 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
 ### 直升机/垂直起降
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设置值 （仅 `x`，`y`，`z`）
     * 速度设定值（仅 `vx`，`yy`，`vz`）
     * 加速度设定值（仅 `afx`，`afy`，`afz`）
@@ -39,7 +39,7 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
   - - PX4 supports the following  `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
     * 速度设定值（仅 `vx`，`yy`，`vz`）
     * *Thrust* setpoint  (only `afx`, `afy`, `afz`)
@@ -58,7 +58,7 @@ Acceleration setpoint values are mapped to create a normalized thrust setpoint (
 ### 固定翼
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅` x `，` y `，` z `；速度和加速度设定值被忽略）。
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): :::note Some of the *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. :::
 
@@ -71,7 +71,7 @@ Acceleration setpoint values are mapped to create a normalized thrust setpoint (
   * PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
 
@@ -92,7 +92,7 @@ The *setpoint type* values below are not part of the MAVLink standard for the `t
 
 ### 无人车
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设置值 （仅 `x`，`y`，`z`）
       * Specify the *type* of the setpoint in `type_mask`:
 
@@ -105,7 +105,7 @@ The *setpoint type* values below are not part of the MAVLink standard for the `t
   - PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
   * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard). 值为：
     - 下面的比特位没有置位，是正常表现。

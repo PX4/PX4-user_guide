@@ -52,4 +52,4 @@ The command line and GUI interfaces are shown below.
 
 ![guiconfig](../../assets/hardware/kconfig-guiconfig.png)
 
-*Kconfiglib* and *menuconfig* come with the *kconfiglib* python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) installation script. If *kconfiglib* is not installed, you can do so using the command: `pip3 install kconfiglib`
+*Kconfiglib* and *menuconfig* come with the *kconfiglib* python package, which is installed by the normal [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/Tools/setup/ubuntu.sh) installation script. If *kconfiglib* is not installed, you can do so using the command: `pip3 install kconfiglib`

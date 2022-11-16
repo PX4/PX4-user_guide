@@ -3,7 +3,7 @@
 Bezier Trajectory description. See also Mavlink TRAJECTORY msg
 The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/trajectory_bezier.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/trajectory_bezier.msg)
 
 ```c
 # Bezier Trajectory description. See also Mavlink TRAJECTORY msg

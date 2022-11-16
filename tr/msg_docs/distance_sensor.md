@@ -2,7 +2,7 @@
 
 DISTANCE_SENSOR message data
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/distance_sensor.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/distance_sensor.msg)
 
 ```c
 # DISTANCE_SENSOR message data

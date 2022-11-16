@@ -57,7 +57,7 @@ Mixer files will be replaced by [Control Allocation](../concept/control_allocati
 
 ## 예제 파일
 
-There are numerous examples in the source tree: [/src/lib/mixer/MultirotorMixer/geometries/](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer/MultirotorMixer/geometries/).
+There are numerous examples in the source tree: [/src/lib/mixer/MultirotorMixer/geometries/](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/mixer/MultirotorMixer/geometries/).
 
 트라이콥터 지오메트리([tri_y.toml](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml))는 다음과 같습니다.
 

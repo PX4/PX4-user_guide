@@ -297,7 +297,7 @@ You can configure the image quality and output (the image output is only intende
 * PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
 :::note
-PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/px4flow)
+PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/drivers/optical_flow/px4flow)
 :::
 
 ## Build

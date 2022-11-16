@@ -2,7 +2,7 @@
 
 Relative position of precision land target in navigation (body fixed, north aligned, NED) and inertial (world fixed, north aligned, NED) frames
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/landing_target_pose.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/landing_target_pose.msg)
 
 ```c
 # Relative position of precision land target in navigation (body fixed, north aligned, NED) and inertial (world fixed, north aligned, NED) frames

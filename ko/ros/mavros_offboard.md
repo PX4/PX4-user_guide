@@ -7,7 +7,7 @@ Gazebo/SITL에서 시뮬레이션된 Iris 쿼드콥터를 사용하여 MAVROS로
 :::
 
 :::tip
-이 예제는 C++ 언어를 사용합니다. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
+이 예제는 C++ 언어를 사용합니다. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/integrationtests/python_src/px4_it/mavros).
 :::
 
 <video width="100%" autoplay="true" controls="true">

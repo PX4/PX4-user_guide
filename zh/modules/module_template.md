@@ -12,19 +12,19 @@
 
 ## 工作队列任务
 
-PX4-Autopilot contains a template for writing a new application (module) that runs as a *work queue task*: [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item).
+PX4-Autopilot contains a template for writing a new application (module) that runs as a *work queue task*: [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/examples/work_item).
 
 工作队列任务应用程序与普通(任务)应用程序相同。 除了它需要指定它是一个工作队列任务，并在初始化期间运行调度它本身。
 
 示例显示了如何操作。 总结：
-1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/CMakeLists.txt)):
+1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/examples/work_item/CMakeLists.txt)):
    ```
    ...
    DEPENDS
       px4_work_queue
    ```
-1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
-1. 在构造函数初始化中指定要添加任务的队列。 The [work_item](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
+1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
+1. 在构造函数初始化中指定要添加任务的队列。 The [work_item](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
    ```cpp
    WorkItemExample::WorkItemExample() :
        ModuleParams(nullptr),
@@ -34,7 +34,7 @@ PX4-Autopilot contains a template for writing a new application (module) that ru
    ```
 
 :::note
-The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 :::
 
 1. 实现 `ScheduledWorkitem:::Run()` 方法来执行"work"。
@@ -45,7 +45,7 @@ The available work queues (`wq_configurations`) are listed in [WorkQueueManager.
 
 ## 任务
 
-PX4/PX4-Autopilot contains a template for writing a new application (module) that runs as a task on its own stack: [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module).
+PX4/PX4-Autopilot contains a template for writing a new application (module) that runs as a task on its own stack: [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/templates/template_module).
 
 该模板演示了完整应用程序所需或有用的以下附加功能/方面：
 

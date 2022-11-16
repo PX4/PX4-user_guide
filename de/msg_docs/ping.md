@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ping.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/ping.msg)
 
 ```c
 uint64 timestamp            # time since system start (microseconds)

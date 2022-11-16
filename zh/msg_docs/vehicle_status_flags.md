@@ -2,7 +2,7 @@
 
 This is a struct used by the commander internally.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_status_flags.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/vehicle_status_flags.msg)
 
 ```c
 # This is a struct used by the commander internally.

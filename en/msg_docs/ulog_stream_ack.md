@@ -3,7 +3,7 @@
 Ack a previously sent ulog_stream message that had
 the NEED_ACK flag set
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/ulog_stream_ack.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/ulog_stream_ack.msg)
 
 ```c
 # Ack a previously sent ulog_stream message that had

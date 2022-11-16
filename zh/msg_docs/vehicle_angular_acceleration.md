@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_angular_acceleration.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/vehicle_angular_acceleration.msg)
 
 ```c
 

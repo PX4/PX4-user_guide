@@ -2,7 +2,7 @@
 
 Sensor corrections in SI-unit form for the voted sensor
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_correction.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/sensor_correction.msg)
 
 ```c
 #

@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/estimator_aid_source_3d.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/estimator_aid_source_3d.msg)
 
 ```c
 uint64 timestamp             # time since system start (microseconds)

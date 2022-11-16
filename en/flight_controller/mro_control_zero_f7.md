@@ -122,7 +122,7 @@ UART8 | /dev/ttyS5  | Free serial port (typically for FrSky telemetry)
 
 
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
 
 
 

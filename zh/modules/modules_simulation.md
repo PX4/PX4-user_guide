@@ -1,7 +1,7 @@
 # 模块参考：仿真
 
 ## sih
-Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih)
+Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/sih)
 
 
 ### 说明

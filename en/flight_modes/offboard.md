@@ -39,7 +39,7 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
 ### Copter/VTOL
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `x`, `y`, `z`)
     * Velocity setpoint (only `vx`, `yy`, `vz`)
     * Acceleration setpoint  (only `afx`, `afy`, `afz`)
@@ -48,7 +48,7 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
   - - PX4 supports the following  `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
     * Velocity setpoint (only `vx`, `yy`, `vz`)
     * *Thrust* setpoint  (only `afx`, `afy`, `afz`)
@@ -67,7 +67,7 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
 ### Fixed Wing
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (`x`, `y`, `z` only; velocity and acceleration setpoints are ignored).
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
         :::note
@@ -85,7 +85,7 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
   
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
 	  
@@ -107,7 +107,7 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
 
 ### Rover
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `x`, `y`, `z`)
       * Specify the *type* of the setpoint in `type_mask`:
 	  
@@ -121,7 +121,7 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
   - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
   * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard).
     The values are:

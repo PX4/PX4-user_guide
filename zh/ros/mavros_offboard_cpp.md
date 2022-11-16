@@ -7,7 +7,7 @@ This tutorial shows the basics of *Offboard* control with MAVROS, using an Iris 
 :::
 
 :::tip
-This example uses C++. A very similar example for Python can be found in [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (also see the examples in [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
+This example uses C++. A very similar example for Python can be found in [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (also see the examples in [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/integrationtests/python_src/px4_it/mavros).
 :::
 
 <video width="100%" autoplay="true" controls="true">

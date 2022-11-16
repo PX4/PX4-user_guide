@@ -32,7 +32,7 @@ MAVLink 짐벌을 활성화하려면, 매개변수 [MNT_MODE_IN](../advanced_con
 
 짐벌은 출력 모드를 `MNT_MODE_OUT=AUX`로 설정하여 비행 콘트롤러 AUX 포트에 연결할 수 있습니다.
 
-A mixer file is required to define the mapping for the output pins and the [mount mixer](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/mixers/mount.aux.mix) is automatically selected (this overrides any AUX mixer provided by the airframe configuration).
+A mixer file is required to define the mapping for the output pins and the [mount mixer](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/mixers/mount.aux.mix) is automatically selected (this overrides any AUX mixer provided by the airframe configuration).
 
 출력 할당은 다음과 같습니다:
 - **AUX1**: 상하 회전각(Pitch)

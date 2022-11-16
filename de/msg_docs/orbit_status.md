@@ -2,7 +2,7 @@
 
 ORBIT_YAW_BEHAVIOUR
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/orbit_status.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/orbit_status.msg)
 
 ```c
 # ORBIT_YAW_BEHAVIOUR

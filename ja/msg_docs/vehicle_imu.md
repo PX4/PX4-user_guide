@@ -2,7 +2,7 @@
 
 IMU readings in SI-unit form.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_imu.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/vehicle_imu.msg)
 
 ```c
 # IMU readings in SI-unit form.

@@ -110,14 +110,14 @@ set PWM_OUT 4
 :::note
 Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13).
 
-You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC). If enabled, the geometry may then be defined using `CA_*` parameters in the airframe configuration file, as shown in [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter#L28).
+You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC). If enabled, the geometry may then be defined using `CA_*` parameters in the airframe configuration file, as shown in [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter#L28).
 :::
 
 :::note
 [개념 > 믹싱](../concept/mixing.md)을 먼저 참고하십시오. 이것은 믹서 파일을 해석에 필요한 배경 정보를 제공합니다.
 :::
 
-[mixer files](#mixer-file) describe the physical configuration of the system, and are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/mixers) folder.
+[mixer files](#mixer-file) describe the physical configuration of the system, and are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/ROMFS/px4fmu_common/mixers) folder.
 
 일반적인 믹서 파일은 아래에 나와 있습니다([원본 파일은 여기](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). 믹서 파일 이름(이 경우 `wingwing.main.mix`)은 기체 유형(`wingwing`), 출력 유형(`.main` 또는 `.aux`), 그리고 믹서 파일(`.mix`)에 대한 중요한 정보를 제공합니다.
 

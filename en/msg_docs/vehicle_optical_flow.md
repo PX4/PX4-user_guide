@@ -2,7 +2,7 @@
 
 Optical flow in XYZ body frame in SI units.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_optical_flow.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/vehicle_optical_flow.msg)
 
 ```c
 # Optical flow in XYZ body frame in SI units.

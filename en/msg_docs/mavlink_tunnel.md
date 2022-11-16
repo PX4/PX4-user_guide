@@ -2,7 +2,7 @@
 
 MAV_TUNNEL_PAYLOAD_TYPE enum
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/mavlink_tunnel.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/mavlink_tunnel.msg)
 
 ```c
 # MAV_TUNNEL_PAYLOAD_TYPE enum

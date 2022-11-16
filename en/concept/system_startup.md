@@ -1,15 +1,15 @@
 # System Startup
 
 The PX4 startup is controlled by shell scripts.
-On NuttX they reside in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder - some of these are also used on Posix (Linux/MacOS).
-The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix).
+On NuttX they reside in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/ROMFS/px4fmu_common/init.d) folder - some of these are also used on Posix (Linux/MacOS).
+The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/ROMFS/px4fmu_common/init.d-posix).
 
 All files starting with a number and underscore (e.g. `10000_airplane`) are predefined airframe configurations.
 They are exported at build-time into an `airframes.xml` file which is parsed by [QGroundControl](http://qgroundcontrol.com) for the airframe selection UI.
 Adding a new configuration is covered [here](../dev_airframes/adding_a_new_frame.md).
 
 The remaining files are part of the general startup logic.
-The first executed file is the [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
+The first executed file is the [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
 
 The following sections are split according to the operating system that PX4 runs on.
 

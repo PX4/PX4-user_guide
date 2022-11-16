@@ -9,7 +9,7 @@ At the end of the tutorial, you should see the same behaviour as in the video be
 :::
 
 :::tip
-This example uses Python. Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
+This example uses Python. Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/integrationtests/python_src/px4_it/mavros).
 :::
 
 <video width="100%" autoplay="true" controls="true" id = "offb_video">
@@ -283,10 +283,10 @@ For the `start_offb.launch` copy the following code:
 </launch>
 ```
 
-As you can see, the `mavros_posix_sitl.launch` file is included. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)).
+As you can see, the `mavros_posix_sitl.launch` file is included. This file is responsible for launching MAVROS, the PX4 SITL, the Gazebo Environment and for spawning a vehicle in a given world (for further information see the file [here](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/launch/mavros_posix_sitl.launch)).
 
 :::tip
-The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)) for a complete list).
+The `mavros_posix_sitl.launch` file takes several arguments that can be set according to your preferences such as the vehicle to spawn or the Gazebo world (refer to [here](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/launch/mavros_posix_sitl.launch)) for a complete list).
 
 You can override the default value of these arguments defined in `mavros_posix_sitl.launch` by declaring them inside the *include* tags. As an example, if you wanted to spawn the vehicle in the `warehouse.world`, you would write the following:
 

@@ -2,7 +2,7 @@
 
 This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_attitude.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/vehicle_attitude.msg)
 
 ```c
 # This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use

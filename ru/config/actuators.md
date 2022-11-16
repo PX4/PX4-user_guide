@@ -7,7 +7,7 @@ The displayed elements depend on the [selected frame](../config/airframe.md), wi
 :::note
 The *Actuators* view is only displayed if _dynamic control allocation_ is enabled, which replaces geometry and mixer configuration files with parameters. This is currently disabled by default.
 
-To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME). You may need to restart *QGroundControl*. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/systemlib/system_params.c#L298 -->
+To enable this feature, set the parameter [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC) and make sure the correct frame type is set in [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME). You may need to restart *QGroundControl*. <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/systemlib/system_params.c#L298 -->
 
 The easiest way to try this out in simulation is to use any of the following gazebo `make` targets, which have control allocation pre-enabled:
 
@@ -304,7 +304,7 @@ The following functions can only be applied to FMU outputs:
 - `PPS_Input`: Pulse-per-second input capture. Used for GPS synchronisation. Enabled when [`PPS_CAP_ENABLE==0`](../advanced_config/parameter_reference.md#PPS_CAP_ENABLE)
 
 :::note
-This list is correct at PX4 v1.13. The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
+This list is correct at PX4 v1.13. The functions are defined in source at [/src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/mixer_module/output_functions.yaml).
 :::
 
 ## Actuator Testing

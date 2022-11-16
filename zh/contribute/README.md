@@ -6,7 +6,7 @@
 </div>
 
 :::tip
-We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md). This code aims to foster an open and welcoming environment.
+We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/CODE_OF_CONDUCT.md). This code aims to foster an open and welcoming environment.
 :::
 
 This section contains information about contributing to PX4, including the source code, documentation, and translations, and their relevant licenses.

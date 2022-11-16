@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/debug_array.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/debug_array.msg)
 
 ```c
 uint8 ARRAY_SIZE = 58

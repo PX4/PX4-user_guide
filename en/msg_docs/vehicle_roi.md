@@ -2,7 +2,7 @@
 
 Vehicle Region Of Interest (ROI)
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_roi.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/vehicle_roi.msg)
 
 ```c
 # Vehicle Region Of Interest (ROI)

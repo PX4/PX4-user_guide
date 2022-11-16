@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/landing_target_innovations.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/landing_target_innovations.msg)
 
 ```c
 uint64 timestamp        # time since system start (microseconds)

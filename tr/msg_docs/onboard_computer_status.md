@@ -2,7 +2,7 @@
 
 ONBOARD_COMPUTER_STATUS message data
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/onboard_computer_status.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/onboard_computer_status.msg)
 
 ```c
 # ONBOARD_COMPUTER_STATUS message data

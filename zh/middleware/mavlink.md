@@ -14,9 +14,9 @@ The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_traject
 
 ## 创建自定义 MAVLink 消息
 
-PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
+PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
 
-There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/). The dialect that is built is specified using the variable `MAVLINK_DIALECT` in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/CMakeLists.txt#L34); by default this is [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml). The files are generated into the build directory: `/build/<build target>/mavlink/`.
+There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/). The dialect that is built is specified using the variable `MAVLINK_DIALECT` in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/CMakeLists.txt#L34); by default this is [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml). The files are generated into the build directory: `/build/<build target>/mavlink/`.
 
 In order to add your message we recommend that you create your messages in a new dialect file in the same directory, for example `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `MAVLINK_DIALECT` to build the new file. This dialect file should include `development.xml`.
 
@@ -35,14 +35,14 @@ The [MAVLink Developer guide](https://mavlink.io/en/getting_started/) has more i
 
 This section explains how to use a custom uORB message and send it as a MAVLink message.
 
-Add the headers of the MAVLink and uORB messages to [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
+Add the headers of the MAVLink and uORB messages to [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 #include <uORB/topics/ca_trajectory.h>
 #include <v2.0/custom_messages/mavlink.h>
 ```
 
-Create a new class in [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp#L2193)
+Create a new class in [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_messages.cpp#L2193)
 
 ```C
 class MavlinkStreamCaTrajectory : public MavlinkStream
@@ -107,7 +107,7 @@ protected:
 };
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_messages.cpp)
+Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 StreamListItem *streams_list[] = {
@@ -116,7 +116,7 @@ create_stream_list_item<MavlinkStreamCaTrajectory>(),
 ...
 ```
 
-Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
+Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
 
 ```
 mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
@@ -132,25 +132,25 @@ To see the message on *QGroundControl* you will need to [build it with your MAVL
 
 This section explains how to receive a message over MAVLink and publish it to uORB.
 
-Add a function that handles the incoming MAVLink message in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L77)
+Add a function that handles the incoming MAVLink message in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_receiver.h#L77)
 
 ```C
 #include <uORB/topics/ca_trajectory.h>
 #include <v2.0/custom_messages/mavlink_msg_ca_trajectory.h>
 ```
 
-Add a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L140)
+Add a function that handles the incoming MAVLink message in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_receiver.h#L140)
 
 ```C
 void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 ```
-Add an uORB publisher in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.h#L195)
+Add an uORB publisher in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_receiver.h#L195)
 
 ```C
 uORB::Publication<ca_trajectory_s>          _ca_traj_msg_pub{ORB_ID(ca_trajectory)};
 ```
 
-Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp)
+Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_receiver.cpp)
 
 ```C
 void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
@@ -172,7 +172,7 @@ void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
 }
 ```
 
-and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp#L228)
+and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/modules/mavlink/mavlink_receiver.cpp#L228)
 
 ```C
 MavlinkReceiver::handle_message(mavlink_message_t *msg)

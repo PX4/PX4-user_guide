@@ -269,7 +269,7 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 * PC with *QGroundControl* installed
 * PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-:::note PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/px4flow)
+:::note PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/drivers/optical_flow/px4flow)
 :::
 
 ## 编译

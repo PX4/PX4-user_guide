@@ -12,7 +12,7 @@
 ## 부팅 / 시작
 
 부팅중에 재생되는 톤들입니다.
-<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d/rcS --> 
 
 
 #### 시작 톤

@@ -162,7 +162,7 @@ MacOSでは、実行中のすべてのプロセスでデフォルトで最大256
 ```
 
 解決策は、開いているファイルの最大許容数を増やすことです (e.g. to 300)． 以下の方法をmacOS *ターミナル* 上で試すことができます．
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/mac_set_ulimit.sh), or
+- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/Tools/mac_set_ulimit.sh), or
 - 次のコマンドを入力します。
   ```sh
   ulimit -S -n 300
@@ -260,7 +260,7 @@ Notes:
 - You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/jmavsim_run.sh -l`.
 
 
-The `VENDOR_MODEL_VARIANT` options map to particular *px4board* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)).
+The `VENDOR_MODEL_VARIANT` options map to particular *px4board* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/boards/px4/fmu-v5/default.px4board)).
 
 Additional make targets are discussed in relevant sections:
 - `bloaty_compare_master`: [Binary Size Profiling]()

@@ -30,7 +30,7 @@ Not all coordinate frames and field values allowed by MAVLink are supported for 
 ### 멀티콥터/VTOL
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`x`, `y`, `z` 만 해당.)
     * 속도 설정점 (`vx`, `vy`, `vz` 만 해당)
     * 가속도 설정점 (`afx`, `afy`, `afz` 만 해당)
@@ -39,7 +39,7 @@ Not all coordinate frames and field values allowed by MAVLink are supported for 
   - * PX4는 `coordinate_frame` 값 (전용)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다. <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
     * 속도 설정점 (`vx`, `vy`, `vz` 만 해당)
     * *추진력* 설정점 (`afx`, `afy`, `afz` 만 해당)
@@ -58,7 +58,7 @@ Not all coordinate frames and field values allowed by MAVLink are supported for 
 ### 고정익
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점 (`x`, `y`, `z` 만 해당, 속도 및 가속도 설정 값은 무시됨).
       * :::note 아래의 *setpoint type* 값은 `type_mask` 필드에 대한 MAVLink 표준의 일부가 아닙니다. :::
 
@@ -71,7 +71,7 @@ Not all coordinate frames and field values allowed by MAVLink are supported for 
   * PX4는 좌표 프레임 (`coordinate_frame` 필드)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
       * `type_mask`에서 설정점의 *유형*을 지정합니다 (이 비트가 설정되지 않은 경우 차량은 꽃과 같은 패턴으로 비행합니다).
 
@@ -92,7 +92,7 @@ Not all coordinate frames and field values allowed by MAVLink are supported for 
 
 ### 탐사선
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`x`, `y`, `z` 만 해당.)
       * `type_mask`에서 설정점의 *유형*을 지정합니다.
 
@@ -104,7 +104,7 @@ Not all coordinate frames and field values allowed by MAVLink are supported for 
   - PX4는 좌표 프레임 (`coordinate_frame` 필드)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다 (`type_mask`를 통해). <!-- https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
   * `type_mask`에서 설정점의 *유형*을 지정합니다 (MAVLink 표준의 일부가 아님). 값들은 다음과 같습니다:
     - 다음 비트가 설정되지 않으면 정상적인 동작입니다.

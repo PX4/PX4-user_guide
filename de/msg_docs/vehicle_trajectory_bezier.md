@@ -2,7 +2,7 @@
 
 Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_bezier is used to send a smooth flight path from the companion computer / avoidance module to the position controller.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/vehicle_trajectory_bezier.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/vehicle_trajectory_bezier.msg)
 
 ```c
 # Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg

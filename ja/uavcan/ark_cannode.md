@@ -13,7 +13,7 @@ Order this module from:
 ## Specifications
 
 * [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_CANNODE)
-* Runs [PX4 Open Source Firmware](https://github.com/PX4/PX4-Autopilot/tree/main/boards/ark/cannode)
+* Runs [PX4 Open Source Firmware](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/boards/ark/cannode)
 * Supports [UAVCAN](README.md) [Firmware Updating](node_firmware.md)
 * Dynamic [UAVCAN](README.md) node enumeration
 * Sensors

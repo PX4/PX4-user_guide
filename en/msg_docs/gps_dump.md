@@ -3,7 +3,7 @@
 This message is used to dump the raw gps communication to the log.
 Set the parameter GPS_DUMP_COMM to 1 to use this.
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/gps_dump.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/gps_dump.msg)
 
 ```c
 # This message is used to dump the raw gps communication to the log.

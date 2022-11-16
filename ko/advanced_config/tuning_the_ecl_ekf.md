@@ -321,7 +321,7 @@ Multiple log files in a directory can be analysed using the [batch\_process\_log
 * 태도 출력 데이터는 [vehicle\_attitude](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude.msg) 메시지에서 조회할 수 있습니다.
 * 로컬 위치 출력 데이터는 [vehicle\_local\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position.msg) 메시지에서 조회할 수 있습니다.
 * 글로벌 \(WGS-84\) 출력 데이터는 [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) 메시지에 있습니다.
-* Wind velocity output data is found in the [wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/wind.msg) message.
+* Wind velocity output data is found in the [wind.msg](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/wind.msg) message.
 
 
 ### 상태
@@ -499,7 +499,7 @@ Determining which of these is the primary cause requires a methodical approach t
 * 수평 위치 혁신 테스트 비율 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).pos\_test\_ratio 플롯합니다.
 * 높이 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 플롯합니다.
 * 자력계 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).mag\_test\_ratio 플롯합니다.
-* Plot the GPS receiver reported speed accuracy - [sensor_gps](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_gps.msg).s\_variance\_m\_s
+* Plot the GPS receiver reported speed accuracy - [sensor_gps](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/sensor_gps.msg).s\_variance\_m\_s
 * IMU 델타 각도 상태 추정값 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).states\[10\],states\[11\] 및 states\[12\] 를 플로팅합니다.
 * EKF 내부 고주파 진동 메트릭을 플로팅합니다.
   * Delta angle coning vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[0\]

@@ -110,14 +110,14 @@ If you want to reverse a channel, never do this on your RC transmitter or with e
 :::note
 Mixer files will be replaced by [Control Allocation](../concept/control_allocation.md) parameters in the next version (after PX4 v1.13).
 
-You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC). If enabled, the geometry may then be defined using `CA_*` parameters in the airframe configuration file, as shown in [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter#L28).
+You can enable control allocation in PX4 v1.13 by setting [SYS_CTRL_ALLOC=1](../advanced_config/parameter_reference.md#SYS_CTRL_ALLOC). If enabled, the geometry may then be defined using `CA_*` parameters in the airframe configuration file, as shown in [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter#L28).
 :::
 
 :::note
 First read [Concepts > Mixing](../concept/mixing.md). This provides background information required to interpret this mixer file.
 :::
 
-[mixer files](#mixer-file) describe the physical configuration of the system, and are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/mixers) folder.
+[mixer files](#mixer-file) describe the physical configuration of the system, and are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/ROMFS/px4fmu_common/mixers) folder.
 
 A typical mixer file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`).
 

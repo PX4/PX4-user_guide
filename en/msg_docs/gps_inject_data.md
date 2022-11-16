@@ -2,7 +2,7 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/gps_inject_data.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/gps_inject_data.msg)
 
 ```c
 uint64 timestamp		# time since system start (microseconds)

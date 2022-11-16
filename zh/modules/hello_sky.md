@@ -13,7 +13,7 @@
 * 适用于期望平台的 [PX4 开发工具链](../setup/dev_env.md) 。
 * 从 Github [下载 PX4 源代码](../setup/building_px4.md#get_px4_code) 。
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * 重命名 (或删除) **px4_simple_app** 目录。
 
 ## 最小的应用程序
@@ -137,7 +137,7 @@ The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/P
    - `MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。
 
 :::tip
-The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
+The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
    为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
 :::note
@@ -156,10 +156,10 @@ The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_modu
 
 应用程序的编写至此完成。 为了运行它，您首先需要确保它是作为 PX4 的一部分构建的。 应用程序被将依据目标的适当板级*cmake*文件添加到编译/固件中：
 
-* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
-* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
-* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
-* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
+* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/boards/px4/sitl/default.px4board)
+* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/boards/px4/fmu-v2/default.px4board)
+* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/boards/px4/fmu-v4/default.px4board)
+* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/boards)
 
 要启用将应用程序编译到固件中，请在*cmake*文件中的某处为您的应用程序创建一个新行：
 
@@ -266,7 +266,7 @@ INFO  [px4_simple_app] Hello Sky!
 
 :::tip PX4 硬件抽象的好处在这里发挥作用！ 无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
-应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 订阅主题很简单：
 
@@ -364,7 +364,7 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## 完整的示例代码
 
-The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c) is now:
+The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/src/examples/px4_simple_app/px4_simple_app.c) is now:
 
 ```c
 /****************************************************************************
@@ -510,7 +510,7 @@ px4_simple_app
 
 ## 总结
 
-本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
+本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/msg/) and that the headers are well documented and serve as reference.
 
 此处可找到更多信息和故障排除/常见陷阱：[uORB](../middleware/uorb.md)。
 

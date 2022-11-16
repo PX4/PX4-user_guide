@@ -2,7 +2,7 @@
 
 stack information for a single running process
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/task_stack_info.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/task_stack_info.msg)
 
 ```c
 # stack information for a single running process

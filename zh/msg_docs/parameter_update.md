@@ -2,7 +2,7 @@
 
 This message is used to notify the system about one or more parameter changes
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/parameter_update.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/msg/parameter_update.msg)
 
 ```c
 # This message is used to notify the system about one or more parameter changes

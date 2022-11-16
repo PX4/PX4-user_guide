@@ -52,8 +52,8 @@ The Gazebo simulation can be modified to integrate sensors publishing directly t
 
 首先使用以下命令启动模拟器：
 
-* [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/posix_sitl.launch): plain SITL launch
-* [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch): SITL and MAVROS
+* [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/launch/posix_sitl.launch): plain SITL launch
+* [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/release/1.13/launch/mavros_posix_sitl.launch): SITL and MAVROS
 
 控制台将如下所示：
 
