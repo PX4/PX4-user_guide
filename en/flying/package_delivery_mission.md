@@ -1,7 +1,6 @@
 # Package Delivery Mission Planning
 
-A package delivery mission allows user to plan and execute a package delivery. Note that this is only supported for vehicles that has a [delivery mechanism hardware](../peripherals/gripper.md) configured & installed.
-
+A package delivery mission allows user to plan and execute a package delivery. Note that this is only supported for vehicles that has a [delivery mechanism hardware](../peripherals/gripper.md) configured and installed.
 
 ## Operator Control Configuration
 
@@ -82,3 +81,11 @@ DO NOT place a "Return to Launch" item right after the Package delivery waypoint
 :::
 
 This will allow the vehicle to take-off from the package delivery waypoint, since that isn't possible with a RTL waypoint. Due to safety reasons([related issue](https://github.com/PX4/PX4-Autopilot/pull/20044)), "Return To Launch" is disabled when vehicle is landed.
+
+
+## Manual Control of Gripper in Missions
+
+If joystick buttons are [configured for the gripper open/close actions]() then these can be triggered manually in a mission or any other mode.
+
+Note however that if you manually command the gripper to 'Close' position while the package delivery is happening (gripper open action), gripper won't be able to finish the open action.
+The mission will come to a halt for a payload delivery mission item timeout, then resume the mission.
