@@ -1,75 +1,80 @@
 # Gripper Peripherals
 
+Grippers are mechanical devices that can be integrated with an unmanned vehicle to hold (grip) and release payloads.
+
+PX4 allows grippers to triggered automatically in [Payload Delivery Missions](../flying/package_delivery_mission.md) or manually using a Joystick.
+
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
-Grippers are a commonly used mechanism for UAV delivery applications. There are multiple types of interfaces (e.g. PWM, CAN) for different products in the market.
-
-## Supported Gripper Types
-
-PX4 supports the following Gripper types, check the individual page to learn how to integrate them.
-
-- [Servo Gripper with PWM](gripper_servo.md)
-
 :::note
-The [Roboclaw driver](../modules/modules_driver.md#roboclaw) isn't supported as a Gripper yet. However in the future it may get supported as a Gripper.
+A gripper can also be configured as a [generic RC or MAVLink actuator](../payloads/README.md#actuator-control-with-rc).
+This allows it to be used manually via an RC Controller, but not in missions or on a Joystick.
 :::
 
-## Gripper Actuator Mapping
+## Supported Grippers
+
+There are many different gripper mechanisms ("jaws", "fingers", "electromagnets") and interfaces (PWM, CAN, MAVLink, and so on).
+
+PX4 supports grippers that have simple triggers to hold and release, and that use the following interfaces (see linked documents for details):
+
+- [PWM Servo Gripper](gripper_servo.md) - Grippers connected to autopilot PWM outputs
+- **MAVLink Gripper** (Untested) - Grippers that support the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
+
+:::note
+The [Roboclaw driver](../modules/modules_driver.md#roboclaw) isn't supported as a Gripper yet.
+However in the future it may get supported as a Gripper.
+:::
+
+## Using a Gripper
+
+For information on using a gripper in missions see [Payload Delivery Missions](../flying/package_delivery_mission.md).
+
+You can trigger the gripper manually if you've mapped `gripper open` and `gripper close` buttons in the [QGC Joystick Configuration](#qgc-joystick-configuration).
+Note that if you press **Grab** button while the gripper is opening, it will automatically abort releasing behavior and go to the Close position, effectively cancelling the release command.
+If you do this in a mission while the release is actually happening then the [delivery will be cancelled](../flying/package_delivery_mission.md#manual-control-of-gripper-in-missions).
+
+MAVLink applications, such as ground stations, can also control the gripper using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
+
+
+## PX4 Configuration
+
+### Package Delivery Configuration
+
+PX4 Gripper support is tied to the package delivery feature, which must be enabled and configured in order to be able to use a gripper.
+
+1. Set [`PD_GRIPPER_EN`](../advanced_config/parameter_reference.md#PD_GRIPPER_EN) parameter to 1 (reboot required after change).
+1. Set [`PD_GRIPPER_TYPE`](../advanced_config/parameter_reference.md#PD_GRIPPER_TYPE) to match your Gripper.
+   For example, set to `Servo` for a [Servo Gripper](gripper_servo.md).
+
+### Gripper Actuator Mapping
 
 To enable the output of the Gripper, set the Function of the output port where the gripper is connected to as `Gripper` in the [Actuators](../config/actuators.md#actuator-outputs) tab.
 
-## Gripper Action Joystick Button Mapping in QGC
+<!-- Replace this with actuator diagram -->
 
-QGC provides the Button mapping interface, which allows to map delivery mechanism actions to specific buttons of the [Joystick](../config/joystick.md) connected to QGC.
+### QGC Joystick Configuration
 
-### Buttons Mapping
+QGroundControl [Joystick](../config/joystick.md) configuration allows you to map gripper actions to Joystick buttons, after which you will be open and close the gripper manually.
 
-Navigate by clicking **"QGC Logo (upper-left)" > "Vehicle Setup" > "Joystick" > "Button Assignment"** tab. There are Gripper Open and Gripper Close actions available to map to a button.
+Open the Joystick configuration by selecting: **QGC Logo (upper-left) > Vehicle Setup > Joystick > Button Assignment** tab.
+Select `Gripper Open` and `Gripper Close` actions for your desired joystick buttons
 
 ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
 
-You can test the actions by clicking on the buttons each and checking Gripper's movements.
-If the gripper doesn't move as expected, please make sure that the Gripper integration was set up properly.
+You can test the actions by clicking on the mapped buttons and checking for gripper movement.
+If the gripper doesn't move as expected check the package delivery configuration and actuator mapping are set up properly.
 
-If you press "Grab" button while the gripper is opening, it will automatically abort releasing behavior and go to the Close position, effectively cancelling the release command.
+### Enable Pre-ARM Mode
 
-:::note
-Note that currently in PX4 the Gripper isn't supported as a standalone driver, but is instead tied to the [payload delivery feature](../advanced/package_delivery.md).
-
-Therefore unless you [configure the gripper for package delivery](#setting-up-gripper-for-package-delivery), gripper will not be functioning!
-:::
-
-
-## Setting up Gripper for Package Delivery
-
-Gripper is commonly used for features like [Package Delivery](../advanced/package_delivery.md).
-This section describes how to setup the Payload Delivery for Gripper.
-
-### Note on Using Joystick Button Action During Package Delivery Mission
-
-If you forcefully command the gripper to 'Close' position while the package delivery is happening (gripper open action), gripper won't be able to finish the open action, and the mission will come to a halt for a payload delivery mission item timeout, then resume the mission.
-
-### Enable Payload Delivery Feature (Gripper)
-
-Set [`PD_GRIPPER_EN`](../advanced_config/parameter_reference.md#PD_GRIPPER_EN) parameter to 1 (reboot required after change).
-
-### Enabling Pre-arm Mode
-
-By default, the Gripper will be in a disarmed position when the vehicle is disarmed. However since in most cases, the operator wants to open / close the gripper for mounting the payload while the vehicle is disarmed, we need to set a parameter to allow pre-arming, which allows non-motor actuators to move freely when disarmed, but not the motors.
+We need to set a parameter to enable [pre-arming](../advanced_config/prearm_arm_disarm.md).
+This keeps the motors disabled but allows the gripper to be opened and closed for attaching the payload (avoiding potential danger from spinning propellers).
 
 Set [`COM_PREARM_MODE`](../advanced_config/parameter_reference.md#COM_PREARM_MODE) to `Always`.
 
-### Profiling the Gripper
+### Configure Gripper Actuation Time
 
-Some mechanism specific settings need to be added to make sure the system is aware of the mechanism's physical properties. Since every gripper works differently (speed / range of motion / behavior).
-
-### Gripper Mechanism Type
-
-Set the [`PD_GRIPPER_TYPE`](../advanced_config/parameter_reference.md#PD_GRIPPER_TYPE) to the type of Gripper you have.
-
-Note that for now we only support a [Servo Gripper](gripper_servo.md), so you will be setting the value to `Servo`.
-
-### Gripper Actuation Time
+Some mechanism specific settings need to be added to make sure the system is aware of the mechanism's physical properties.
+Since every gripper works differently (speed / range of motion / behavior).
 
 You need to specify an actuation time, which specifies the time it takes to open or close the gripper. As most grippers don't have a sensor to detect successful actuation (close/opening), the payload delivery feature will rely on this value to estimate gripper's position.
 
