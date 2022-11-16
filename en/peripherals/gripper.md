@@ -28,12 +28,13 @@ Navigate by clicking **"QGC Logo (upper-left)" > "Vehicle Setup" > "Joystick" > 
 
 ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
 
-You can test the actions by clicking on the buttons each and checking Gripper's movements. If the gripper doesn't move as expected, please make sure that the Gripper integration was set up properly.
+You can test the actions by clicking on the buttons each and checking Gripper's movements.
+If the gripper doesn't move as expected, please make sure that the Gripper integration was set up properly.
 
 If you press "Grab" button while the gripper is opening, it will automatically abort releasing behavior and go to the Close position, effectively cancelling the release command.
 
 :::note
-Note that currently in PX4 the Gripper isn't supported as a standalone driver, but is instead tied to the [payload delivery feature](../advanced_features/package_delivery.md).
+Note that currently in PX4 the Gripper isn't supported as a standalone driver, but is instead tied to the [payload delivery feature](../advanced/package_delivery.md).
 
 Therefore unless you [configure the gripper for package delivery](#setting-up-gripper-for-package-delivery), gripper will not be functioning!
 :::
@@ -41,7 +42,8 @@ Therefore unless you [configure the gripper for package delivery](#setting-up-gr
 
 ## Setting up Gripper for Package Delivery
 
-Gripper is commonly used for features like [Package Delivery](../advanced_features/package_delivery.md). This section describes how to setup the Payload Delivery for Gripper.
+Gripper is commonly used for features like [Package Delivery](../advanced/package_delivery.md).
+This section describes how to setup the Payload Delivery for Gripper.
 
 ### Note on Using Joystick Button Action During Package Delivery Mission
 
