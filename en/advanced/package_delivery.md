@@ -2,6 +2,8 @@
 
 A package delivery mission is an extension of a waypoint mission, where a user can plan delivering a package as a waypoint. The detailed documentation on how to setup a package delivery mission plan can be found [here](../flying/package_delivery_mission.md)
 
+Note, currently only the [`Gripper`](../peripherals/gripper.md#package-delivery-configuration) functionality is supported.
+
 ## Package Delivery Architecture Diagram
 
 ![Package delivery architecture overview](../../assets/advanced_config/payload_delivery_mission_architecture.png)
