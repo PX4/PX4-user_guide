@@ -1,8 +1,10 @@
 # 平台测试和持续集成
 
-PX4 提供广泛的测试和测试设施，包括通过持续集成运行的单元和集成测试以及由我们的专业测试团队进行的“实时”飞行测试。 此页面提供概述。
+PX4 is extensively tested using unit and integration tests run via continuous integration. Live flight testing is also performed by the development team and the broader community.
 
-* [测试飞行](../test_and_ci/test_flights.md)
+Test topics include:
+
+* [Test Flights](../test_and_ci/test_flights.md) - How to make test flights (e.g. to [test PRs](../contribute/code.md#pull-requests))
 * [单元测试](../test_and_ci/unit_tests.md)
 * [持续集成测试（CI）](../test_and_ci/continous_integration.md)
 * [Jenkins CI（持续集成测试）](../test_and_ci/integration_testing.md)

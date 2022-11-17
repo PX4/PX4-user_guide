@@ -4,7 +4,7 @@
 이 문서는 다음 환경에서 테스트하였습니다.
 - **Ubuntu:** 20.04
 - **ROS:** Noetic
-- **PX4 Firmware:** v1.12.3
+- **PX4 Firmware:** v1.13
 
 그러나 이러한 단계는 상당히 일반적이므로 수정이 거의 없이 다른 배포판/버전에서 작동합니다.
 :::
@@ -211,7 +211,7 @@ Make sure that the **common.xml** files in the following directories are exactly
        orb_set_interval(key_sub_fd, 200); // limit the update rate to 200ms
 
        px4_pollfd_struct_t fds[] = {
-           { .fd = keyboard_sub_fd,   .events = POLLIN },
+           { .fd = key_sub_fd,   .events = POLLIN },
        };
 
        int error_counter = 0;

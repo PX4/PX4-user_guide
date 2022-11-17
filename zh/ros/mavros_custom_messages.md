@@ -3,7 +3,7 @@
 按照 *Source Installation* 中的指导，从 [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) 安装“ROS Kinetic”版本。
 - **Ubuntu:** 20.04
 - **ROS:** Noetic
-- **PX4 Firmware:** v1.12.3
+- **PX4 Firmware:** v1.13
 
 However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
 :::
@@ -210,7 +210,7 @@ Make sure that the **common.xml** files in the following directories are exactly
        orb_set_interval(key_sub_fd, 200); // limit the update rate to 200ms
 
        px4_pollfd_struct_t fds[] = {
-           { .fd = keyboard_sub_fd,   .events = POLLIN },
+           { .fd = key_sub_fd,   .events = POLLIN },
        };
 
        int error_counter = 0;

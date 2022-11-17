@@ -10,7 +10,7 @@ PX4 프로젝트는 3가지 Git 분기 모델을 사용합니다.
 
 We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). 그러나, 전세계의 역동적인 개발팀과 수시로 병합 작업을 진행합니다.
 
-To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your changes, and finally [send a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). 변경사항은 [지속적 통합](https://en.wikipedia.org/wiki/Continuous_integration) 테스트를 통과한 다음에 병합됩니다.
+To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your [changes as commits](#commits-and-commit-messages), and finally [send a pull request](#pull-requests). 변경사항은 [지속적 통합](https://en.wikipedia.org/wiki/Continuous_integration) 테스트를 통과한 다음에 병합됩니다.
 
 코드 기여는 [BSD 3절 라이선스](https://opensource.org/licenses/BSD-3-Clause)를 준수하여여 하며, 코드에는 사용에 제약 사항을 부과하지 않아야 합니다.
 
@@ -154,3 +154,15 @@ else {
 ****`git commit -s`**를 사용하여 모든 커밋을 승인합니다. ** 이렇게 하면 `signed-off-by:`가 추가됩니다. 마지막 줄에 이름과 이메일을 입력합니다.
 
 이 커밋 가이드는 Linux 커널과 Linus Torvalds가 관리하는 [프로젝트](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)에 대한 모범 사례들을 참고로 작성되었습니다.
+
+## Pull Requests
+
+Github [Pull Requests (PRs)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) are the primary mechanism used to submit new functionality and bug fixes to PX4.
+
+They include the new set of [commits](#commits-and-commit-messages) in your branch (relative the main branch), and a description of the changes.
+
+The description should include:
+- An overview of what the changes deliver; enough to understand the broad purpose of the code
+- Links to related issues or supporting information.
+- Information about what testing of the PR funcitonality has been done, with links to flight logs.
+- Where possible, the results from general [Test Flights](../test_and_ci/test_flights.md) both before and after the change.

@@ -10,7 +10,7 @@ The PX4 project uses a three-branch Git branching model:
 
 We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). However, due to the global team and fast moving development we might resort to merges at times.
 
-To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your changes, and finally [send a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). Changes will be merged when they pass our [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) tests.
+To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your [changes as commits](#commits-and-commit-messages), and finally [send a pull request](#pull-requests). Changes will be merged when they pass our [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) tests.
 
 All code contributions have to be under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and all code must not impose any further constraints on the use.
 
@@ -159,3 +159,15 @@ Reported-by: Name <email@px4.io>
 **Use **`git commit -s`** to sign off on all of your commits.** This will add `signed-off-by:` with your name and email as the last line.
 
 This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
+
+## Pull Requests
+
+Github [Pull Requests (PRs)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) are the primary mechanism used to submit new functionality and bug fixes to PX4.
+
+They include the new set of [commits](#commits-and-commit-messages) in your branch (relative the main branch), and a description of the changes.
+
+The description should include:
+- An overview of what the changes deliver; enough to understand the broad purpose of the code
+- Links to related issues or supporting information.
+- Information about what testing of the PR funcitonality has been done, with links to flight logs.
+- Where possible, the results from general [Test Flights](../test_and_ci/test_flights.md) both before and after the change.
