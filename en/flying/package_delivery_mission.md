@@ -25,7 +25,7 @@ A package delivery requires combination of a **pre-waypoint** and a **action-way
 
 #### Create the Pre-Waypoint
 
-![Pre-waypoint as Land item](../../assets/flying/qgc_package_delivery_pre_land_waypoint.png)
+![Pre-waypoint as Land item](../../assets/flying/qgc_package_delivery_pre_land_waypoint_example.png)
 
 You can use either one of these waypoint types for the pre-waypoint:
 
@@ -39,7 +39,7 @@ You can use either one of these waypoint types for the pre-waypoint:
 * Then select "Advanced" category
 * Then select "Gripper Mechanism" from the drop down list
 
-![Action waypoint](../../assets/flying/qgc_package_delivery_action_waypoint.png)
+![Action waypoint](../../assets/flying/qgc_mission_gripper_mechanism_item_example.png)
 
 * Then configure the action for the Release mechanism in the waypoint configuration. Set it to "Release" in order to release the package.
 * The gripper ID does not need to be set for now.
@@ -85,7 +85,7 @@ This will allow the vehicle to take-off from the package delivery waypoint, sinc
 
 ## Manual Control of Gripper in Missions
 
-If joystick buttons are [configured for the gripper open/close actions]() then these can be triggered manually in a mission or any other mode.
+If joystick buttons are [configured for the gripper open/close actions](../peripherals/gripper.md#qgc-joystick-configuration) then these can be triggered manually in a mission or any other mode.
 
 Note however that if you manually command the gripper to 'Close' position while the package delivery is happening (gripper open action), gripper won't be able to finish the open action.
 The mission will come to a halt for a payload delivery mission item timeout, then resume the mission.
