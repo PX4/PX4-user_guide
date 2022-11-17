@@ -18,7 +18,6 @@ There are many different gripper mechanisms ("jaws", "fingers", "electromagnets"
 PX4 supports grippers that have simple triggers to hold and release, and that use the following interfaces (see linked documents for details):
 
 - [PWM Servo Gripper](gripper_servo.md) - Grippers connected to autopilot PWM outputs
-  - [R4-EM-R22-161 : push-to-close latch electronic lock](https://southco.com/en_any_int/r4-em-r22-161)
 - **MAVLink Gripper** (Untested) - Grippers that support the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
 
 :::note
@@ -26,16 +25,6 @@ PX4 supports grippers that have simple triggers to hold and release, and that us
 :::
 
 ## Using a Gripper
-
-### Generic Actuator usage
-
-Gripper can be used as a [generic actuator](#generic-actuator-configuration), but for this controlling the gripper will only be possible via MAVLink interface, as documented in [payloads](../payloads/README.md#actuator-control-with-mavlink-message).
-
-This in theory allows usage in Missions that is not specific to package deliveries, by using the `MAV_CMD_DO_SET_ACTUATOR` mission command. But if you are trying to achieve a package delivery, it is recommended to use the package delivery setup documented below.
-
-### Package delivery usage
-
-Alternatively, the Gripper can be used in a [package delivery configuration](#package-delivery-configuration).
 
 For information on using a gripper in missions see [Payload Delivery Missions](../flying/package_delivery_mission.md).
 
@@ -47,13 +36,10 @@ Manually triggering a gripper from an [RC Control](../getting_started/rc_transmi
 
 MAVLink applications, such as ground stations, can also control the gripper using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
 
-## Generic Actuator Configuration
 
-![Generic actuator output setting in QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
+## PX4 Configuration
 
-As documented in [payloads](../payloads/README.md#actuator-control-with-mavlink-message), you can configure the Gripper to be tied to any of the `Offboard Actuator Set` functions in the [Actuators](../config/actuators.md#actuator-outputs) tab.
-
-## Package Delivery Configuration
+### Package Delivery Configuration
 
 PX4 gripper support is tied to the package delivery feature, which must be enabled and configured in order to be able to use a gripper.
 
@@ -63,9 +49,14 @@ PX4 gripper support is tied to the package delivery feature, which must be enabl
 
 ### Gripper Actuator Mapping
 
-![Gripper output mapping](../../assets/config/gripper/qgc_gripper_actuator_output_setting_example.png)
+Grippers that are connected directly to a flight controller, such as PWM servo grippers, must be mapped to specific outputs during [Actuator Configuration](../config/actuators.md#actuator-outputs).
 
-To enable the output of the gripper, set the Function of the output port where the gripper is connected to as `Gripper` in the [Actuators](../config/actuators.md#actuator-outputs) tab.
+This is done by assigning the `Gripper` function to the to the output port where the gripper is connected.
+For example, the image below assigns `Gripper` to the PWM AUX5 output.
+
+![Gripper output mapping](../../assets/config/gripper/qgc_gripper_output_setup.png)
+
+Additional information about actuator mapping is provided in the gripper-specific documentation.
 
 ### QGC Joystick Configuration
 
