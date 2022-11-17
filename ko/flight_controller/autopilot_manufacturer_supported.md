@@ -10,6 +10,7 @@
 :::
 
 이 카테고리의 보드는 다음과 같습니다.
+
 - [AirMind MindPX](../flight_controller/mindpx.md)
 - [AirMind MindRacer](../flight_controller/mindracer.md)
 - [CUAV X7](../flight_controller/cuav_x7.md)
@@ -29,4 +30,5 @@
 - [mRobotics-X2.1](../flight_controller/mro_x2.1.md) (FMUv2)
 - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
 - [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (www.nxp.com)
+- [Sky-Drones AIRLink](../flight_controller/airlink.md)
 - [SPRacing SPRacingH7EXTREME](../flight_controller/spracingh7extreme.md)
