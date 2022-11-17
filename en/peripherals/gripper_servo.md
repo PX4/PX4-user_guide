@@ -36,7 +36,7 @@ For detailed instruction on further setup instructions, refer to the [Gripper](g
 
 ## Actuator mapping
 
-![Gripper output mapping](../../assets/config/gripper/qgc_gripper_output_setup.png)
+![Gripper output mapping](../../assets/config/gripper/qgc_gripper_actuator_output_setting_example.png)
 
 Here is an example of a Servo Gripper configured to take PWM signal at 50Hz assigned in the Actuators tab.
 

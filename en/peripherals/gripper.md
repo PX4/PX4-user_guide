@@ -51,7 +51,7 @@ MAVLink applications, such as ground stations, can also control the gripper usin
 
 ![Generic actuator output setting in QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
 
-As documented in [payloads](../payloads/README.md#actuator-control-with-mavlink-message), you can configure the Gripper to be tied to any of the Offboard Actuator Set` functions in the [Actuators](../config/actuators.md#actuator-outputs) tab.
+As documented in [payloads](../payloads/README.md#actuator-control-with-mavlink-message), you can configure the Gripper to be tied to any of the `Offboard Actuator Set` functions in the [Actuators](../config/actuators.md#actuator-outputs) tab.
 
 ## Package Delivery Configuration
 
@@ -63,9 +63,9 @@ PX4 gripper support is tied to the package delivery feature, which must be enabl
 
 ### Gripper Actuator Mapping
 
-To enable the output of the gripper, set the Function of the output port where the gripper is connected to as `Gripper` in the [Actuators](../config/actuators.md#actuator-outputs) tab.
+![Gripper output mapping](../../assets/config/gripper/qgc_gripper_actuator_output_setting_example.png)
 
-<!-- Replace this with actuator diagram -->
+To enable the output of the gripper, set the Function of the output port where the gripper is connected to as `Gripper` in the [Actuators](../config/actuators.md#actuator-outputs) tab.
 
 ### QGC Joystick Configuration
 
