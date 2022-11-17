@@ -4,7 +4,7 @@ This section describes how to connect and configure a Servo type Gripper with PW
 
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
-Above is a typical example of a Servo Gripper.
+Above is a typical example of a Servo Gripper. The exact model is [R4-EM-R22-161 : push-to-close latch electronic lock](https://southco.com/en_any_int/r4-em-r22-161).
 
 ## Connecting a PWM-controlled Gripper
 
