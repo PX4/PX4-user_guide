@@ -1,6 +1,6 @@
 # Reptile Dragon 2 (RD2) Build
-The Reptile Dragon 2 is a twin motor RC airplane specifically designed for efficient FPV (first person view) flying.
-Being specific for FPV, the airplane is optimized for easy mounting of cameras, sensors, logic electronics, large batteries, antennas, and other components which would be found on a typical FPV setup. 
+The Reptile Dragon 2 is a twin motor RC airplane specifically designed for efficient FPV [(first person view)](https://en.wikipedia.org/wiki/First-person_view_(radio_control)) flying.
+Being specific for FPV, the RD2 is optimized for easy mounting of cameras, sensors, logic electronics, large batteries, antennas, and other payload components which would be found on a typical FPV airplane. 
 This emphasis on payload makes this airplane an ideal candidate for a PX4 installation.
 
 ## Overview
@@ -38,27 +38,28 @@ Key build features
 - [Reptile Dragon 2 kit](https://usa.banggood.com/REPTILE-DRAGON-2-1200mm-Wingspan-Twin-Motor-Double-Tail-EPP-FPV-RC-Airplane-KIT-or-PNP-p-1805237.html?cur_warehouse=CN&ID=531466)
 - [Pixhawk 5x Carrier board](https://shop.holybro.com/pixhawk-5x_p1279.html)
 - [ARK6X FMU](https://arkelectron.com/product/arkv6x/)
-- Holybro power module
-- Holybro M9N GPS module
+- [Holybro power module](https://shop.holybro.com/pm02d-power-module_p1285.html)
+- [Holybro M9N GPS module](https://shop.holybro.com/holybro-m9n-gps_p1280.html)
 - MS4525DO differential pressure module and pitot tube
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
 - [DJI FPV Goggles](https://www.dji.com/fpv)
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24)
+- [5V BEC](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec)
+- [4s2p 18650 LiIon flight battery](https://www.upgradeenergytech.com/product-page/6s-22-2v-5200mah-30c-dark-lithium-xt60)
 - Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
 - Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
-- 4s2p 18650 LiIon flight battery
 
 ## Tools
 - Servo tester (with centering button)
 - Screw driver set
 - 3D printer
 - Wrench set
-- Hot glue, CA glue, Foamtac glue
+- Hot glue, CA glue, "Foamtac" glue
 - Sandpaper
 
 ## Airframe Build
 
-The airplane comes out of the box and needs some assembly.
+The airplane needs some assembly out of the box.
 Servos, wings, and the tail will need to be installed.
 
 :: note
@@ -67,34 +68,37 @@ For this portion of assembly, the instructions included with the kit should be s
 
 ### Gluing Foam
 When gluing foam parts of the RD2 together, it's recommended to use sandpaper to rough the mating surface, then use CA glue.
-If the foam is not roughed with sandpaper, the glue will not have enough material to "grab" and the bond will be poor.
+If the foam is not roughed with sandpaper, the glue will not have a surface to be able to "grab" the foam and the bond will be poor.
 Foamtac doesn't seem to stick well to this foam, so I used CA glue for all foam-to-foam mates
 
 ### Servo Installation
+
+:: note
 Prior to servo installation, it is recommended to use the sandpaper to rough the side of the servo facing the servo cover. During final installation, put a drop of Foamtac between the servo and the cover. This will prevent the servo from moving once installed.
+:::
 
 The servos on the RD2 are connected to control surfaces with adjustable servo linkages.
-The RD2 instructions will note that each control surface will use a specific length of linkage included in the kit.
-Make sure to measure each linkage before installation to make sure that it is the right length linkage for that control surface.
+The RD2 instructions will note that each control surface uses a specific length of linkage (included in the kit).
+Make sure to measure each linkage before installation to be sure that it is the right length linkage for that control surface.
 It's very important to align the servos such that the mechanical range of the servo is well aligned with the mechanical range of the control surface.
-This means that at the servo center point, the servo arm is roughly centered, and so is the control surface.
-It might not be possible to get this alignment perfect, but the basic goal is to get the servo arm as close to 90 degrees as possible, and the control surface as close to centered as possible. Any remaining offset will be adjusted out in software.
+When the servo is at it's center point, the servo arm should be at a 90 degree angle to the servo, and the control surface should be roughly centered.
+It might not be possible to get this alignment perfect, so any remaining offset will be adjusted out in software.
 
 The following steps can be used to perform servo alignment
 1. Begin with the servo outside of the airplane
 2. Use the servo tester to move the servo to its center point
-3. Install the servo horn with the included retaining screw, taking care to align the horn to extend 90 degrees out on the correct side of the servo
+3. Install the servo horn with the included retaining screw, taking care to align the horn to extend as close as possible to 90 degrees out on the correct side of the servo
 4. Install the servo in the servo pocket on the airplane
 5. Install the linkage, and twist to adjust it such that the control surface is as close to centered as possible
 
 :: note
-When installing the servo horn on the servo, the horn will likely not sit exactly at a 90 degree angle to the servo due to the teeth on the servo shaft forcing it to only be installed at certain angles. 
+The servo horn will likely not sit exactly at a 90 degree angle to the servo due to the teeth on the servo shaft.
 Just get it close enough to 90 degrees, and the remaining offset will be removed either with the linkage, or later in software.
 :::
 
 ## GPS/Compass Module Mounting
 
-The GPS module was removed from its plastic case to allow the use of the mounting holes, and then nylon M3 hardware was used to attach it to the rear electronics shelf included with the RD2. Two of the three required holes are already coincidentally located in the electronics tray, so I used a marker and a drill to make and drill the third hole. 
+The GPS module was removed from its plastic case to allow the use of the mounting holes, and then nylon M3 hardware was used to attach it to the rear electronics shelf included with the RD2. Two of the three required holes are already coincidentally located in the electronics tray, so I used a marker and a drill to mark and drill the third hole. 
 
 This location is far aft of power wiring and other magnetic disturbances, which makes for an ideal location for the GPS/compass module
 
@@ -102,27 +106,29 @@ This location is far aft of power wiring and other magnetic disturbances, which 
 
 The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with two O-rings to space the FPV pod base plate from the battery hatch.
 
-## Flight Computer installation 
+## Flight Computer Installation 
 
 A custom mount for the Pixhawk 5X carrier board was designed and 3D printed.
 This mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
-It's important to install this mount in the correct location inside the RD2; as far back as possible.
+It's important to install this mount in the correct location inside the RD2; as far aft as possible.
 With a large battery and the FPV pod up front, the airplane will tend to be noseheavy.
-Mounting the flight computer far back will help to keep the airframe center of gravity (CG) in the correct location.
+Mounting the flight computer far aft will help to keep the airframe center of gravity (CG) in the correct location.
 
 ## Electrical
 
-### Servo Power
-Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos. The output of the BEC can be plugged into any unused servo output (I chose IO output 8)
-
-### Power Distribution
+### Battery Power Distribution
 
 Battery power is routed through the Holybro Power module, then to a custom designed power distribution PCB (printed circuit board).
 From the power distribution board, battery power is split to the BEC, both ESCs, and Caddx Vista through separate XT30 connectors.
 
+### Servo Power
+Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos.
+The input leads of the EC were soldered to a XT30 connector which was plugged into the power distribution board.
+The output of the BEC can be plugged into any unused servo output (I chose IO output 8).
+
 ### ESCs & Motors
 Bullet connectors were soldered to 16awg leads, which were then soldered to each phase output on each ESC.
-Heatshrink was applied over the finished ESCs and the bullet connectors from the ESCs were connected to their respective motors. 
+Heatshrink was shrunk over the finished ESCs and the bullet connectors from the ESCs were connected to their respective motors. 
 Motor direction depends on the order of the motor leads connected to the ESC.
 For now, take a guess on each side. If either motor is spinning the wrong way, the direction can be swapped by swapping any two connections. 
 Correct motor direction will be checked in the final preflight checks.
@@ -144,21 +150,42 @@ Finally, the pitot static sensor was double stick taped to the sidewall of the a
 ### ELRS RX
 
 A custom cable was made to connect the ELRS RX to the `telem 2` port of the Holybro Pixhawk 5x.
-A thin radio antenna tube was pushed through the top of the aiframe used to mount one of the two ELRS diversity antennas upright.
-The second diversity antenna was taped to the sideall of the airframe, 90 degrees from the alignment of the first antenna.
-The ELRS RX was doublr stick taped to the sideall of the airframe next to the airspeed pressure sensor.
+A thin radio antenna tube was pushed through the top of the airframe used to mount one of the two ELRS diversity antennas upright.
+The second diversity antenna was taped to the sidewall of the airframe, 90 degrees from the alignment of the first antenna.
+The ELRS RX was double stick taped to the sidewall of the airframe, next to the airspeed pressure sensor.
 
 ### USB
 
 A right angle USB C extension cable was used to allow easy access to the USB C port on the FMU.
-The cable was installed such that it escapes the pixhawk heading towards the back of the airplane, and the cable continues to run to the rear hatch, where the excess length can be securely wound into a knot.
+The cable was installed such that it escapes the pixhawk heading towards the aft of the airplane. The cable continues to run to the rear hatch, where the excess length can be securely wound into a knot.
 Access to this cable can be accomplished by simply removing the rear hatch and unknotting the cable.
 
 ## Preflight & First Flight
 
 ### Radio Setup
-For a first flight, I recommend to have at least `manual`, `acro`, and `position `flight modes accessable.
-Additionally, I also attach an aux swtich to the fixed wing autotune module so that the airframe can be easily autotuned during the first flight.
+For a first flight, I recommend to have at least `manual`, `acro`, and `position `flight modes accessible.
+Additionally, I also attach an aux switch to the fixed wing autotune module so that the airframe can be easily autotuned during the first flight.
+
+The channel mappings for this build are included in the params file linked at the bottom of this page.
+I chose to map the channels in order throttle, roll, pitch, yaw, (blank), and flight mode
+
+::note
+ExpressLRS requires aux1 as an "arming channel".
+This arming channel is separate from PX4's arming mechanism and is used to tell the ELRS TX that is can switch into high transmit power.
+In the Px4 channel mappings, I simply skip over this channel.
+On my transmitter, this channel is set to always be "high", so ELRS is always armed.
+:::
+
+### Motor Setup & Prop Installation
+The RD2 kit comes with clockwise and counter clockwise propellers for counter rotating motors.
+With counter rotating props, the airplane can be set up such that it has no [critical motors](https://en.wikipedia.org/wiki/Critical_engine).
+With no critical motors, controllability during a failed motor will be maximized. 
+The motor direction should be set such that props should be turn towards the fuselage on top of the plane.
+In other words, if you look at the left motor with the airplane facing away from you, it should spin clockwise while the right motor should spin counter clockwise.
+
+With the propellers removed, power the airplane up and use the "actuator test" page in qgc to spin up the motors.
+If the left or right motor does not spin in the correct direction, swap two of its ESC leads and check it again.
+Finally, when both motors are spinning the correct directions, use a wrench to attach the propellers.
 
 ### Final Checks
 
@@ -187,7 +214,7 @@ I recommend performing the first takeoff in manual mode.
 Because this airplane has no landing gear, you will either need to throw the airplane yourself, or ideally have a helper throw it.
 When throwing any airplane, throw at a slightly nose up attitude with full throttle.
 It's critical to be ready to give aft stick input to prevent the airplane from impacting the ground if it happens to be trimmed nosedown.
-Once the airplane is sucessfully airborne, cruise up to an altitude of a few hundred feet and switch to `acro` mode. 
+Once the airplane is successfully airborne, cruise up to an altitude of a few hundred feet and switch to `acro` mode. 
 If the airplane is well behaved in `acro` mode, switch to `position` mode. 
 Optionally, you can use the fixed wing auto tuner switch configured in `Radio Setup` to autotune the airframe.
 
