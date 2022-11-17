@@ -1,8 +1,10 @@
 # 플랫폼 테스트 및 지속적인 통합
 
-PX4는 지속적인 통합에서 단위 및 통합 테스트와 전담 테스트 팀의 "라이브" 비행 테스트를 포함하여 광범위한 테스트 및 테스트 시설을 제공합니다. 이 페이지는 개요를 제공합니다.
+PX4 is extensively tested using unit and integration tests run via continuous integration. Live flight testing is also performed by the development team and the broader community.
 
-* [시험 비행](../test_and_ci/test_flights.md)
+Test topics include:
+
+* [Test Flights](../test_and_ci/test_flights.md) - How to make test flights (e.g. to [test PRs](../contribute/code.md#pull-requests))
 * [단위 테스트](../test_and_ci/unit_tests.md)
 * [지속 통합(CI)](../test_and_ci/continous_integration.md)
 * [ROS 통합 테스트](../test_and_ci/jenkins_ci.md)
