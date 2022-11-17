@@ -25,6 +25,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [mRo Pixracer (FMUv4)](../flight_controller/pixracer.md)
   - [mRo Pixhawk (FMUv2)](../flight_controller/mro_pixhawk.md)
 - [Manufacturer-Supported Autopilots](../flight_controller/autopilot_manufacturer_supported.md)
+  - [AIRLink](../flight_controller/airlink.md)
   - [AirMind MindPX](../flight_controller/mindpx.md)
   - [AirMind MindRacer](../flight_controller/mindracer.md)
   - [CUAV X7](../flight_controller/cuav_x7.md)
