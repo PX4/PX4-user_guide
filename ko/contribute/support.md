@@ -9,16 +9,13 @@
 
 ## 포럼 및 채팅
 
-The core development team and community are active on the following channels.
+The core development team and community are active on the following channels:
 
-<a href="https://discord.gg/dronecode" style="padding:20px" ><img src="../../assets/site/logo_discord.png" alt="Discord Logo" width="110px"/></a>
-
-<a href="https://discuss.px4.io/" style="padding:20px" ><img src="../../assets/site/logo_pro_small.png" alt="PX4 Discuss Forum Logo" width="110px"/></a>
+- [PX4 Discuss Forum](https://discuss.px4.io/) - Post here first!
+- [PX4 Discord](https://discord.gg/dronecode) - Post here if you don't get a response in discuss within a few days (include a link to your forum topic).
 
 :::tip
-Post on [PX4 Discuss](https://discuss.px4.io/) first! Discuss is indexed by search engines and serves as a common knowledge base
-
-If you don't get a response in a few days then ping us on Discord with a link to the post.
+The Discuss Forum is much preferred because it is indexed by search engines and serves as a common knowledge base.
 :::
 
 ## 문제 진단
@@ -31,8 +28,8 @@ If you don't get a response in a few days then ping us on Discord with a link to
 
 ## 문제와 버그 보고
 
-* [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
-* [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues) with a flight report with as much detail as possible and links to logs.
+- [Flight Log Review](http://logs.px4.io/)에 로그를 업로드하십시오
+- [Open a Github Issue](https://github.com/PX4/PX4-Autopilot/issues). This must include a flight report with as much detail as possible (enough for the issue to be reproduced) and links to your logs on Flight review.
 
 ## 주간 온라인 개발자 회의
 
@@ -43,10 +40,3 @@ If you don't get a response in a few days then ping us on Discord with a link to
 [온라인 개발자 회의(Dev Call)](../contribute/dev_call.md)은 PX4 개발팀이 주관하는 주간 회의이며, 플랫폼 기술 상세, 활동 조정 및 심층 분석/수행 관련하여 논의합니다.
 
 Pull 요청, 주요 현안, Q&A를 의논하는 시간도 있습니다.
-
-
-## 시험 비행
-
-드론코드 시험 팀에서는 여러분이 보낸 pull 요청의 검토(시험 비행)를 지원할 수 있고 기록에 대한 의견을 제시할 수 있습니다.
-
-진행할 기체 시험, 자동 운항 시험, 운항 요청 방법, 결과 응답 시간 정보는 [시험 비행](../test_and_ci/test_flights.md)을 참고 하십시오.
