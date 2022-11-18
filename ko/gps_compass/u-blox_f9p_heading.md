@@ -25,16 +25,6 @@ The following devices are supported:
 - 애플리케이션 노트에는 모듈 사이에 필요한 최소 간격이 명시되어 있지 않습니다 (PX4를 실행하는 테스트 차량에 50cm가 사용되었습니다).
 - The antennas can be positioned as needed, but the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) must be configured: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source).
 
-### CAN Setup
-
-- The CAN port of the GPS devices need to be connected together and one connected to the autopilot.
-- Choose one GPS module to be the *Rover* and the other to be the *Moving Base*.
-  - On the *Rover*, set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `1`.
-  - On the *Moving Base*, set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `2`.
-- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter bit 7 must be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
-- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) may need to be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
-- Reboot and wait until both devices have GPS reception. `gps status` should then show the *Rover* GPS going into RTK mode, which means the heading angle is available.
-
 ### UART Setup
 
 - The UART2 of the GPS devices need to be connected together (TXD2 of the "Moving Base" to RXD2 of the "Rover")
@@ -46,6 +36,9 @@ The following devices are supported:
 - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) may need to be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
 - Reboot and wait until both devices have GPS reception. `gps status` should then show the Main GPS going into RTK mode, which means the heading angle is available.
 
+### CAN Setup
+
+Refer to the specific CAN RTK GPS documentation for the setup instructions.
 
 :::note
 If using RTK with a fixed base station the secondary GPS will show the RTK state w.r.t. the base station.
