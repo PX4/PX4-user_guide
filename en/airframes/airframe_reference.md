@@ -441,10 +441,10 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation (Copter)
+### Simulation
 
 <div class="frame_common">
-<img src="../../assets/airframes/types/AirframeUnknown.svg"/>
+<img src="../../assets/airframes/types/AirframeSimulation.svg"/>
 </div>
 
 <div class="frame_variant">
@@ -453,11 +453,11 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_simulation_(copter)_hil_quadcopter_x">
+<tr id="copter_simulation_hil_quadcopter_x">
  <td>HIL Quadcopter X</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1001</p></td>
 </tr>
-<tr id="copter_simulation_(copter)_sih_quadcopter_x">
+<tr id="copter_simulation_sih_quadcopter_x">
  <td>SIH Quadcopter X</td>
  <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1100</p></td>
 </tr>
@@ -545,10 +545,10 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation (Plane)
+### Simulation
 
 <div class="frame_common">
-<img src="../../assets/airframes/types/AirframeUnknown.svg"/>
+<img src="../../assets/airframes/types/AirframeSimulation.svg"/>
 </div>
 
 <div class="frame_variant">
@@ -557,7 +557,7 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="plane_simulation_(plane)_sih_plane_aert">
+<tr id="plane_simulation_sih_plane_aert">
  <td>SIH plane AERT</td>
  <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
 </tr>
@@ -672,10 +672,10 @@ div.frame_variant td, div.frame_variant th {
 
 ## VTOL
 
-### Simulation (VTOL)
+### Simulation
 
 <div class="frame_common">
-<img src="../../assets/airframes/types/AirframeUnknown.svg"/>
+<img src="../../assets/airframes/types/AirframeSimulation.svg"/>
 <table>
  <thead>
    <tr><th>Common Outputs</th></tr>
@@ -693,7 +693,7 @@ div.frame_variant td, div.frame_variant th {
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="vtol_simulation_(vtol)_sih_tailsitter_duo">
+<tr id="vtol_simulation_sih_tailsitter_duo">
  <td>SIH Tailsitter Duo</td>
  <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1102</p></td>
 </tr>

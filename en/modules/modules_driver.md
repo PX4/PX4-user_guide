@@ -720,10 +720,10 @@ Source: [drivers/osd/msp_osd](https://github.com/PX4/PX4-Autopilot/tree/main/src
 
 
 ### Description
-Msp OSD!
+MSP telemetry streamer
 
 ### Implementation
-Does the things for the DJI Air Unit OSD
+Converts uORB messages to MSP telemetry packets
 
 ### Examples
 CLI usage example:
