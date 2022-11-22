@@ -869,6 +869,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -1064,6 +1068,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -1259,6 +1267,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -1454,6 +1466,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -1649,6 +1665,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -1844,6 +1864,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -2039,6 +2063,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -2234,6 +2262,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -2429,6 +2461,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -2624,6 +2660,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -2819,6 +2859,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -3014,6 +3058,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -3209,6 +3257,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -3404,6 +3456,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -3599,6 +3655,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -3794,6 +3854,10 @@
         {
           "description": "Gripper",
           "value": 430
+        },
+        {
+          "description": "Landing Gear Wheel",
+          "value": 440
         }
       ]
     },
@@ -9066,6 +9130,7 @@
       "category": "Standard",
       "default": 0,
       "group": "FW Attitude Control",
+      "longDesc": "Only enabled during automatic runway takeoff and landing. In all manual modes the wheel is directly controlled with yaw stick.",
       "name": "FW_W_EN",
       "shortDesc": "Enable wheel steering controller",
       "type": "Int32",
@@ -9200,17 +9265,16 @@
     },
     {
       "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 1.3,
+      "decimalPlaces": 1,
+      "default": -1.0,
       "group": "FW Auto Landing",
-      "increment": 0.01,
-      "longDesc": "Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. FW_AIRSPD_MIN * FW_LND_AIRSPD_SC",
-      "max": 1.5,
-      "min": 1.0,
-      "name": "FW_LND_AIRSPD_SC",
-      "shortDesc": "Min. airspeed scaling factor for landing",
+      "increment": 0.1,
+      "longDesc": "The calibrated airspeed setpoint during landing. If set <= 0.0, landing airspeed = FW_AIRSPD_MIN by default.",
+      "min": -1.0,
+      "name": "FW_LND_AIRSPD",
+      "shortDesc": "Landing airspeed",
       "type": "Float",
-      "units": "norm"
+      "units": "m/s"
     },
     {
       "category": "Standard",
@@ -9308,7 +9372,7 @@
       "increment": 0.1,
       "longDesc": "Multiplied by the descent rate to calculate a dynamic altitude at which to trigger the flare. NOTE: max(FW_LND_FLALT, FW_LND_FL_TIME * descent rate) is taken as the flare altitude",
       "max": 5.0,
-      "min": 0.0,
+      "min": 0.1,
       "name": "FW_LND_FL_TIME",
       "shortDesc": "Landing flare time",
       "type": "Float",
@@ -9351,6 +9415,20 @@
       "shortDesc": "Maximum lateral position offset for the touchdown point",
       "type": "Float",
       "units": "m"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": -1.0,
+      "group": "FW Auto Landing",
+      "increment": 0.1,
+      "longDesc": "This is the time after the start of flaring that we expect the vehicle to touch the runway. At this time, a 0.5s clamp down ramp will engage, constraining the pitch setpoint to RWTO_PSP. If enabled, ensure that RWTO_PSP is configured appropriately for full gear contact on ground roll. Set to -1.0 to disable touchdown clamping. E.g. it may not be desirable to clamp on belly landings. The touchdown time will be constrained to be greater than or equal to the flare time (FW_LND_FL_TIME).",
+      "max": 5.0,
+      "min": -1.0,
+      "name": "FW_LND_TD_TIME",
+      "shortDesc": "Landing touchdown time (since flare start)",
+      "type": "Float",
+      "units": "s"
     },
     {
       "category": "Standard",
@@ -9413,20 +9491,6 @@
       "min": 0.1,
       "name": "FW_WING_SPAN",
       "shortDesc": "The aircraft's wing span (length from tip to tip)",
-      "type": "Float",
-      "units": "m"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 1,
-      "default": 10.0,
-      "group": "FW L1 Control",
-      "increment": 0.5,
-      "longDesc": "If the altitude error exceeds this parameter, the system will climb out with maximum throttle and minimum airspeed until it is closer than this distance to the desired altitude. Mostly used for takeoff waypoints / modes. Set to 0 to disable climbout mode (not recommended).",
-      "max": 150.0,
-      "min": 0.0,
-      "name": "FW_CLMBOUT_DIFF",
-      "shortDesc": "Climbout Altitude difference",
       "type": "Float",
       "units": "m"
     },
@@ -9950,6 +10014,19 @@
       "shortDesc": "Trim throttle",
       "type": "Float",
       "units": "norm"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": -1.0,
+      "group": "FW TECS",
+      "increment": 0.1,
+      "longDesc": "The calibrated airspeed setpoint TECS will stabilize to during the takeoff climbout. If set <= 0.0, FW_AIRSPD_MIN will be set by default.",
+      "min": -1.0,
+      "name": "FW_TKO_AIRSPD",
+      "shortDesc": "Takeoff Airspeed",
+      "type": "Float",
+      "units": "m/s"
     },
     {
       "category": "Standard",
@@ -16411,16 +16488,13 @@
     },
     {
       "category": "Standard",
-      "decimalPlaces": 1,
-      "default": -1.0,
+      "default": 30,
       "group": "Mission",
-      "increment": 0.5,
-      "longDesc": "This is the minimum altitude the system will always obey. The intent is to stay out of ground effect. set to -1, if there shouldn't be a minimum loiter altitude",
-      "max": 80.0,
-      "min": -1.0,
-      "name": "MIS_LTRMIN_ALT",
-      "shortDesc": "Minimum Loiter altitude",
-      "type": "Float",
+      "longDesc": "Minimum altitude above landing point that the vehicle will climb to after an aborted landing. Then vehicle will loiter in this altitude until further command is received. Only applies to fixed-wing vehicles.",
+      "min": 0,
+      "name": "MIS_LND_ABRT_ALT",
+      "shortDesc": "Landing abort min altitude",
+      "type": "Int32",
       "units": "m"
     },
     {
@@ -16645,6 +16719,19 @@
       "min": 0.05,
       "name": "NAV_MC_ALT_RAD",
       "shortDesc": "MC Altitude Acceptance Radius",
+      "type": "Float",
+      "units": "m"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": -1.0,
+      "group": "Mission",
+      "increment": 0.5,
+      "longDesc": "This is the minimum altitude above Home the system will always obey in Loiter (Hold) mode if switched into this mode without specifying an altitude (e.g. through Loiter switch on RC). Doesn't affect Loiters that are part of Missions or that are entered through a reposition setpoint (\"Go to\"). Set to a negative value to disable.",
+      "min": -1.0,
+      "name": "NAV_MIN_LTR_ALT",
+      "shortDesc": "Minimum Loiter altitude",
       "type": "Float",
       "units": "m"
     },
@@ -23395,20 +23482,6 @@
     },
     {
       "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 1.3,
-      "group": "Runway Takeoff",
-      "increment": 0.01,
-      "longDesc": "Pitch up will be commanded when the following airspeed is reached: FW_AIRSPD_MIN * RWTO_AIRSPD_SCL",
-      "max": 2.0,
-      "min": 0.0,
-      "name": "RWTO_AIRSPD_SCL",
-      "shortDesc": "Min airspeed scaling factor for takeoff",
-      "type": "Float",
-      "units": "norm"
-    },
-    {
-      "category": "Standard",
       "default": 0,
       "group": "Runway Takeoff",
       "longDesc": "0: airframe heading when takeoff is initiated 1: position control along runway direction (bearing defined from vehicle position on takeoff initiation to MAV_CMD_TAKEOFF position defined by operator)",
@@ -23440,20 +23513,6 @@
       "shortDesc": "L1 period while steering on runway",
       "type": "Float",
       "units": "s"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 1,
-      "default": 20.0,
-      "group": "Runway Takeoff",
-      "increment": 0.5,
-      "longDesc": "Fixed-wing settings are used if set to 0. Note that there is also a minimum pitch of 10 degrees during takeoff, so this must be larger if set.",
-      "max": 60.0,
-      "min": 0.0,
-      "name": "RWTO_MAX_PITCH",
-      "shortDesc": "Max pitch during takeoff",
-      "type": "Float",
-      "units": "deg"
     },
     {
       "category": "Standard",
@@ -23498,7 +23557,7 @@
       "max": 20.0,
       "min": -10.0,
       "name": "RWTO_PSP",
-      "shortDesc": "Pitch setpoint during taxi / before takeoff airspeed is reached",
+      "shortDesc": "Pitch setpoint during taxi / before takeoff rotation airspeed is reached",
       "type": "Float",
       "units": "deg"
     },
@@ -23512,6 +23571,32 @@
       "min": 1.0,
       "name": "RWTO_RAMP_TIME",
       "shortDesc": "Throttle ramp up time for runway takeoff",
+      "type": "Float",
+      "units": "s"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": -1.0,
+      "group": "Runway Takeoff",
+      "increment": 0.1,
+      "longDesc": "The calibrated airspeed threshold during the takeoff ground roll when the plane should start rotating (pitching up). Must be less than the takeoff airspeed, will otherwise be capped at the takeoff airpeed (see FW_TKO_AIRSPD). If set <= 0.0, defaults to 0.9 * takeoff airspeed (see FW_TKO_AIRSPD)",
+      "min": -1.0,
+      "name": "RWTO_ROT_AIRSPD",
+      "shortDesc": "Takeoff rotation airspeed",
+      "type": "Float",
+      "units": "m/s"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": 1.0,
+      "group": "Runway Takeoff",
+      "increment": 0.1,
+      "longDesc": "This is the time desired to linearly ramp in takeoff pitch constraints during the takeoff rotation",
+      "min": 0.1,
+      "name": "RWTO_ROT_TIME",
+      "shortDesc": "Takeoff rotation time",
       "type": "Float",
       "units": "s"
     },
