@@ -1,6 +1,6 @@
 # PWM Servo Gripper
 
-This section explains how to connect and configure a gripper that is controlled using a flight controller PWM output (a servo actuator).
+This section explains how to connect and configure a [gripper](../peripherals/gripper.md) that is controlled using a flight controller PWM output (a servo actuator).
 
 ![R4-EM-R22-16: High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
