@@ -1,14 +1,14 @@
-# Gripper Peripherals
+# Grippers
 
 Grippers are mechanical devices that can be integrated with an unmanned vehicle to grip (hold) and release payloads.
 
-PX4 allows grippers to be triggered automatically in [Payload Delivery Missions](../flying/package_delivery_mission.md) or manually using a Joystick, or even as a generic actuator.
+PX4 allows grippers to be triggered automatically in [Payload Delivery Missions](../flying/package_delivery_mission.md) or manually using a Joystick.
 
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
 :::note
 A gripper can instead be configured as a [generic RC or MAVLink actuator](../payloads/README.md#actuator-control-with-rc).
-This allows it to be used manually via an RC Controller, but not in missions or using a Joystick.
+A generic actuator cannot be used with a joystick or in payload missions, but it can be used with an RC Controller.
 :::
 
 ## Supported Grippers
@@ -30,7 +30,7 @@ For information on using a gripper in missions see [Payload Delivery Missions](.
 
 You can manually trigger a gripper manually from a Joystick button if you've mapped `gripper open` and `gripper close` buttons in the [QGC Joystick Configuration](#qgc-joystick-configuration).
 Note that if you press the **Grab** button while the gripper is opening, it will automatically abort releasing behavior and go to the closed position, effectively cancelling the release command.
-If you do this in a mission while the release is actually happening then the [delivery will be cancelled](../flying/package_delivery_mission.md#manual-control-of-gripper-in-missions).
+If you do this in a mission while the release is actually happening, then the [delivery will be cancelled](../flying/package_delivery_mission.md#manual-control-of-gripper-in-missions).
 
 Manually triggering a gripper from an [RC Control](../getting_started/rc_transmitter_receiver.md) switch is not supported.
 
@@ -54,9 +54,10 @@ Grippers that are connected directly to a flight controller, such as PWM servo g
 This is done by assigning the `Gripper` function to the to the output port where the gripper is connected.
 For example, the image below assigns `Gripper` to the PWM AUX5 output.
 
-![Gripper output mapping](../../assets/config/gripper/qgc_gripper_output_setup.png)
+![Gripper output mapping](../../assets/config/gripper/qgc_gripper_actuator_output_small.png)
 
 Additional information about actuator mapping is provided in the gripper-specific documentation.
+For example, see [Gripper Servo > Actuator Mapping](../peripherals/gripper_servo.md#actuator-mapping).
 
 ### QGC Joystick Configuration
 

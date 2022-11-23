@@ -1,14 +1,21 @@
-# Servo Gripper with PWM
+# PWM Servo Gripper
 
-This section describes how to connect and configure a Servo type Gripper with PWM input.
+This section explains how to connect and configure a gripper that is controlled using a flight controller PWM output (a servo actuator).
 
-![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
+![R4-EM-R22-16: High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
-Above is a typical example of a Servo Gripper. The exact model is [R4-EM-R22-161 : push-to-close latch electronic lock](https://southco.com/en_any_int/r4-em-r22-161).
+
+## Supported Grippers
+
+The following PWM-connected servos have been tested with PX4:
+
+- [R4-EM-R22-161 : push-to-close latch electronic lock](https://southco.com/en_any_int/r4-em-r22-161).
+
 
 ## Connecting a PWM-controlled Gripper
 
-The PWM cable comprises of three lines: Power, Ground and Signal. A typical connector is shown in the image below:
+The PWM cable comprises of three lines: power, ground and signal.
+A typical connector is shown in the image below:
 
 ![PWM Cable](../../assets/hardware/grippers/pwm_cable.png)
 
@@ -30,16 +37,26 @@ Before connecting the cable, double-check the following requirements:
 * **Power requirements of gripper**: Check the mechanism's data-sheet to find out the power line voltage level requirements. Depending on that, the gripper can be either connected directly to the [power module](../power_module/README.md) or connected to a 5V line.
   Alternatively a custom voltage regulator can be used to output any other voltage required.
 
-## Setting up the Gripper
+## PX4 Configuration
 
-For detailed instruction on further setup instructions, refer to the [Gripper](gripper.md#gripper-actuator-mapping) documentation.
+Configuration instructions can be found in: [Gripper > PX4 Configuration](../peripherals/gripper.md#px4-configuration) documentation.
 
-## Actuator mapping
+In particular, note that a servo gripper must be mapped to an output as shown below.
 
-![Gripper output mapping](../../assets/config/gripper/qgc_gripper_actuator_output_setting_example.png)
+### Actuator Mapping
 
-Here is an example of a Servo Gripper configured to take PWM signal at 50Hz assigned in the Actuators tab.
+PWM servo grippers, and other peripherals connected directly to PWM outputs, must be mapped to specific outputs during [Actuator Configuration](../config/actuators.md#actuator-outputs).
+
+This is done by assigning the `Gripper` function to the to the output port where the gripper is connected.
+For example, the image below assigns `Gripper` to the PWM AUX5 output.
+
+![Gripper output mapping](../../assets/config/gripper/qgc_gripper_output_setup.png)
+
+You must also set the correct PWM frequency for the gripper output port(for commercial servos / grippers this is normally 50Hz).
 
 :::note
-Make sure to set the correct PWM frequency (usually commercial servo / grippers only support 50Hz)! If you mis-configure the frequency you risk damaging the gripper.
+Mis-configuring the frequency may damaging the gripper.
 :::
+
+The sliders in the [Actuator Testing](../config/actuators.md#actuator-testing) section of the configuration screen can be used to verify that the correct output moves when you move the slider.
+The minimum and maximum PWM values should be set such that the servo is fully closed in the disarmed position and fully open at the maximum slider position.
