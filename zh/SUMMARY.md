@@ -232,6 +232,7 @@
       * [ARK GPS](dronecan/ark_gps.md)
       * [LOCOSYS Hawk A1 GNSS](gps_compass/gps_locosys_hawk_a1.md)
       * [Hex Here2](gps_compass/gps_hex_here2.md)
+      * [Sky-Drones SmartAP GPS](gps_compass/gps_smartap.md)
     * [RTK GPS](gps_compass/rtk_gps.md)
       * [ARK RTK GPS](dronecan/ark_rtk_gps.md)
       * [RTK GPS Heading with Dual u-blox F9P](gps_compass/u-blox_f9p_heading.md)
