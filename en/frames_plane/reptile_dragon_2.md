@@ -71,11 +71,22 @@ When gluing foam parts of the RD2 together, it's recommended to use sandpaper to
 If the foam is not roughed with sandpaper, the glue will not have a surface to be able to "grab" the foam and the bond will be poor.
 Foamtac doesn't seem to stick well to this foam, so I used CA glue for all foam-to-foam mates
 
+### Skid Plate
+
+![Skid plate installed on the bottom of the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/skid_plate.jpg)
+
+The RD2 comes with a skid plate, but it needs to be trimmed to fit.
+Trim off the mold flashing from the flat side of the skid plate.
+Uee coarse sandpaper to rough the inside surface of the skid plate as well as the mating surface on the underside of the airframe.
+After checking for fit, use CA glue to glue the skid plate to the bottom of the RD2.
+
 ### Servo Installation
 
 :: note
 Prior to servo installation, it is recommended to use the sandpaper to rough the side of the servo facing the servo cover. During final installation, put a drop of Foamtac between the servo and the cover. This will prevent the servo from moving once installed.
 :::
+
+![Correctly adjusted servo linkage installation](../../assets/airframes/fw/reptile_dragon_2/servo_linkage.jpg)
 
 The servos on the RD2 are connected to control surfaces with adjustable servo linkages.
 The RD2 instructions will note that each control surface uses a specific length of linkage (included in the kit).
@@ -98,16 +109,26 @@ Just get it close enough to 90 degrees, and the remaining offset will be removed
 
 ## GPS/Compass Module Mounting
 
+![GPS tray installed in the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/gps_tray.jpg)
+
 The GPS module was removed from its plastic case to allow the use of the mounting holes, and then nylon M3 hardware was used to attach it to the rear electronics shelf included with the RD2. Two of the three required holes are already coincidentally located in the electronics tray, so I used a marker and a drill to mark and drill the third hole. 
 
 This location is far aft of power wiring and other magnetic disturbances, which makes for an ideal location for the GPS/compass module
 
 ## FPV Pod
 
+![FPV pod close up mounted on the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/fpv_pod.jpg)
+
 The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with two O-rings to space the FPV pod base plate from the battery hatch.
 
-## Flight Computer Installation 
+## Flight Computer Installation
 
+![Flight computer carrier board](../../assets/airframes/fw/reptile_dragon_2/fcu.jpg)
+The Holybro Pixhawk 5X carrier comes installed in a plastic case.
+While the case does look nice, it is extra weight, so the carrier was removed from the case.
+Once removed from the case, the ARK6X was installed, and a protective cover fitted ontop.
+
+![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/fcu_mount.jpg)
 A custom mount for the Pixhawk 5X carrier board was designed and 3D printed.
 This mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
 It's important to install this mount in the correct location inside the RD2; as far aft as possible.
@@ -118,8 +139,15 @@ Mounting the flight computer far aft will help to keep the airframe center of gr
 
 ### Battery Power Distribution
 
+![Power wiring in the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/power_0.jpg)
+
 Battery power is routed through the Holybro Power module, then to a custom designed power distribution PCB (printed circuit board).
 From the power distribution board, battery power is split to the BEC, both ESCs, and Caddx Vista through separate XT30 connectors.
+
+![Alternative power distribution harness](../../assets/airframes/fw/reptile_dragon_2/alt_harness.jpg)
+Without the custom PCB, it's still easy to distirbute power to all the componets in the airplane.
+This image shows an alternative solution constructed from an XT60 connectr wired to several XT30 connectors.
+The servo power BEC is also shown in this image.
 
 ### Servo Power
 Because the Holybro carrier does not include an onboard servo power supply, an external ["BEC"](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) is used to provide power to the servos.
@@ -127,6 +155,8 @@ The input leads of the EC were soldered to a XT30 connector which was plugged in
 The output of the BEC can be plugged into any unused servo output (I chose IO output 8).
 
 ### ESCs & Motors
+![Esc and motor](../../assets/airframes/fw/reptile_dragon_2/esc_motor.jpg)
+
 Bullet connectors were soldered to 16awg leads, which were then soldered to each phase output on each ESC.
 Heatshrink was shrunk over the finished ESCs and the bullet connectors from the ESCs were connected to their respective motors. 
 Motor direction depends on the order of the motor leads connected to the ESC.
@@ -149,12 +179,21 @@ Finally, the pitot static sensor was double stick taped to the sidewall of the a
 
 ### ELRS RX
 
-A custom cable was made to connect the ELRS RX to the `telem 2` port of the Holybro Pixhawk 5x.
+![ExpressLRS to telem port cable](../../assets/airframes/fw/reptile_dragon_2/elrs_cable.jpg)
+
+A custom cable was made to connect the ELRS RX to the JST GH `telem 2` port of the Holybro Pixhawk 5x.
+The other end of the cable was terminated to a Dupont connector to connect to the standard spaced headers on the ELRS RX.
+The ELRS RX was connected to the cable, and then heatshink was used to secure the two together. 
+
+![ExpressLRS RX installed in the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/elrs_pitotstatic.jpg)
+
 A thin radio antenna tube was pushed through the top of the airframe used to mount one of the two ELRS diversity antennas upright.
 The second diversity antenna was taped to the sidewall of the airframe, 90 degrees from the alignment of the first antenna.
 The ELRS RX was double stick taped to the sidewall of the airframe, next to the airspeed pressure sensor.
 
 ### USB
+
+![Rear USB cable hatch](../../assets/airframes/fw/reptile_dragon_2/usb_hatch.jpg)
 
 A right angle USB C extension cable was used to allow easy access to the USB C port on the FMU.
 The cable was installed such that it escapes the pixhawk heading towards the aft of the airplane. The cable continues to run to the rear hatch, where the excess length can be securely wound into a knot.
