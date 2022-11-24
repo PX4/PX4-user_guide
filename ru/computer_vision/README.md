@@ -2,7 +2,7 @@
 
 [Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
 
-PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/pixhawk_companion.md)) in order to support the following features:
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/README.md)) in order to support the following features:
 - Pose/Velocity Estimation:
   - [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
   - [Motion Capture](../computer_vision/motion_capture.md) provides 3D pose estimation using a vision system that is *external* to the vehicle. It is primarily used for indoor navigation.
