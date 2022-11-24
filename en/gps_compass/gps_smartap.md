@@ -24,11 +24,11 @@ An SmartAP GPS kit includes:
 
 ## Configuration
 
-For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
+For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 uses the correct baudrate.
 
 ## Pinout and Connections
 
-SmartAP GPS has 10 pin JST-GH connector that can be plugged into a PixHawk autopilot.
+SmartAP GPS has 10 pin JST-GH connector that can be plugged into a Pixhawk flight controller (compliant with Pixhawk connector standard).
 
 Pin number  | Pin name
 ---|---
