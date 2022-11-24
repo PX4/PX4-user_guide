@@ -18,7 +18,7 @@ MAVLink 메시지로 오프보드 모드를 활성화할 수 있으므로, 이 �
 
 ### 보조 컴퓨터 인터페이스 활성화
 
-보조 컴퓨터에 연결하는 직렬 포트에서 MAVLink를 활성화합니다([보조 컴퓨터 설정](../companion_computer/pixhawk_companion.md) 참조).
+Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
 
 ## 하드웨어 설정
 
