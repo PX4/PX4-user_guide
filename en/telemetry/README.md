@@ -25,5 +25,5 @@ One benefit of WiFi radios is that you only need to purchase a single radio unit
 :::note
 PX4 does not support connecting an LTE USB module to the flight controller (and sending MAVLink traffic via the Internet).
 You can however connect an LTE module to a companion computer and use it to route MAVLink traffic from the flight controller.
-For more information see: [Companion Computer Peripherals > Data Telephony](../peripherals/companion_computer_peripherals.md#data_telephony).
+For more information see: [Companion Computer Peripherals > Data Telephony](../companion_computer/companion_computer_peripherals.md#data_telephony).
 :::
