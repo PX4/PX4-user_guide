@@ -796,7 +796,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -896,7 +898,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -996,7 +1000,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1096,7 +1102,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1196,7 +1204,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1296,7 +1306,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1396,7 +1408,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1496,7 +1510,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1596,7 +1612,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1696,7 +1714,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1796,7 +1816,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1896,7 +1918,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -1996,7 +2020,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -2096,7 +2122,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -2196,7 +2224,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -2296,7 +2326,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -2800,6 +2832,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -2905,6 +2939,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -3012,6 +3048,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3117,6 +3155,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -3224,6 +3264,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3329,6 +3371,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -3436,6 +3480,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3541,6 +3587,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -3648,6 +3696,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3754,6 +3804,8 @@ table {
 
 <li><strong>430:</strong> Gripper</li>
 
+<li><strong>440:</strong> Landing Gear Wheel</li>
+
 <li><strong>2000:</strong> Camera Trigger</li>
 
 <li><strong>2032:</strong> Camera Capture</li>
@@ -3859,6 +3911,8 @@ table {
 <li><strong>422:</strong> Gimbal Yaw</li>
 
 <li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li>
 
 <li><strong>2000:</strong> Camera Trigger</li>
 
@@ -4333,7 +4387,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4433,7 +4489,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4533,7 +4591,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4633,7 +4693,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4733,7 +4795,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4833,7 +4897,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -4933,7 +4999,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5033,7 +5101,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5374,7 +5444,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5474,7 +5546,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5574,7 +5648,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5674,7 +5750,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5774,7 +5852,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5874,7 +5954,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -5974,7 +6056,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6074,7 +6158,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6302,7 +6388,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6402,7 +6490,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6502,7 +6592,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6602,7 +6694,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6702,7 +6796,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6802,7 +6898,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -6902,7 +7000,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7002,7 +7102,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7174,7 +7276,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7274,7 +7378,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7374,7 +7480,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7474,7 +7582,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7574,7 +7684,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7674,7 +7786,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7774,7 +7888,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -7874,7 +7990,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8214,7 +8332,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8314,7 +8434,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8414,7 +8536,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8514,7 +8638,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8614,7 +8740,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8714,7 +8842,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8814,7 +8944,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -8914,7 +9046,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9254,7 +9388,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9354,7 +9490,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9454,7 +9592,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9554,7 +9694,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9654,7 +9796,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9754,7 +9898,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9854,7 +10000,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -9954,7 +10102,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10054,7 +10204,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10154,7 +10306,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10254,7 +10408,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10354,7 +10510,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10454,7 +10612,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10554,7 +10714,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10654,7 +10816,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -10754,7 +10918,9 @@ table {
 
 <li><strong>422:</strong> Gimbal Yaw</li>
 
-<li><strong>430:</strong> Gripper</li> 
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
 </ul>
   </td>
  <td></td>
@@ -12188,6 +12354,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_ARM_HFLT_CHK">COM_ARM_HFLT_CHK</strong> (INT32)</td>
+ <td>Enable FMU SD card hardfault detection check <p><strong>Comment:</strong> This check detects if there are hardfault files present on the SD card. If so, and the parameter is enabled, arming is prevented.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_ARM_IMU_ACC">COM_ARM_IMU_ACC</strong> (FLOAT)</td>
  <td>Maximum accelerometer inconsistency between IMU units that will allow arming    </td>
  <td>[0.1, 1.0] (0.05)</td>
@@ -12272,14 +12445,14 @@ table {
 <tr>
  <td><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
  <td>Time-out for auto disarm after landing <p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.</p>   </td>
- <td></td>
+ <td>(0.1)</td>
  <td>2.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
  <td>Time-out for auto disarm if not taking off <p><strong>Comment:</strong> A non-zero, positive value specifies the time in seconds, within which the vehicle is expected to take off after arming. In case the vehicle didn't takeoff within the timeout it disarms again. A negative value disables autmoatic disarming triggered by a pre-takeoff timeout.</p>   </td>
- <td></td>
+ <td>(0.1)</td>
  <td>10.0</td>
  <td>s</td>
 </tr>
@@ -12622,7 +12795,7 @@ table {
 <li><strong>3:</strong> Return at critical level, land at emergency level</li> 
 </ul>
   </td>
- <td>(1)</td>
+ <td></td>
  <td>0</td>
  <td></td>
 </tr>
@@ -12756,13 +12929,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="COM_RCL_ACT_T">COM_RCL_ACT_T</strong> (FLOAT)</td>
- <td>Delay between RC loss and configured reaction <p><strong>Comment:</strong> RC signal not updated -> still use data for COM_RC_LOSS_T seconds Consider RC signal lost -> wait COM_RCL_ACT_T seconds in Hold mode to regain signal React with failsafe action NAV_RCL_ACT A zero value disables the delay.</p>   </td>
- <td>[0.0, 25.0] </td>
- <td>15.0</td>
- <td>s</td>
-</tr>
-<tr>
  <td><strong id="COM_RCL_EXCEPT">COM_RCL_EXCEPT</strong> (INT32)</td>
  <td>RC loss exceptions <p><strong>Comment:</strong> Specify modes in which RC loss is ignored and the failsafe action not triggered.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Mission</li> 
   <li><strong>1:</strong> Hold</li> 
@@ -12825,7 +12991,7 @@ table {
 <tr>
  <td><strong id="COM_SPOOLUP_TIME">COM_SPOOLUP_TIME</strong> (FLOAT)</td>
  <td>Enforced delay between arming and further navigation <p><strong>Comment:</strong> The minimal time from arming the motors until moving the vehicle is possible is COM_SPOOLUP_TIME seconds. Goal: - Motors and propellers spool up to idle speed before getting commanded to spin faster - Timeout for ESCs and smart batteries to successfulyy do failure checks e.g. for stuck rotors before the vehicle is off the ground</p>   </td>
- <td>[0, 30] </td>
+ <td>[0, 30] (0.1)</td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -13105,37 +13271,6 @@ table {
 </tr>
 </tbody></table>
 
-## Data Link Loss
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="NAV_AH_ALT">NAV_AH_ALT</strong> (FLOAT)</td>
- <td>Airfield home alt <p><strong>Comment:</strong> Altitude of airfield home waypoint</p>   </td>
- <td>[-50, ?] (0.5)</td>
- <td>600.0</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
- <td>Airfield home Lat <p><strong>Comment:</strong> Latitude of airfield home waypoint</p>   </td>
- <td>[-900000000, 900000000] </td>
- <td>-265847810</td>
- <td>deg*1e7</td>
-</tr>
-<tr>
- <td><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
- <td>Airfield home Lon <p><strong>Comment:</strong> Longitude of airfield home waypoint</p>   </td>
- <td>[-1800000000, 1800000000] </td>
- <td>1518423250</td>
- <td>deg*1e7</td>
-</tr>
-</tbody></table>
-
 ## EKF2
 
 <table>
@@ -13196,7 +13331,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Set to true to enable vision position fusion 4 : Set to true to enable vision yaw fusion. Cannot be used if bit position 7 is true. 5 : Set to true to enable multi-rotor drag specific force fusion 6 : set to true if the EV observations are in a non NED reference frame and need to be rotated before being used 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Set to true to enable vision velocity fusion</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
+ <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Set to true to enable vision position fusion 4 : Set to true to enable vision yaw fusion. Cannot be used if bit position 7 is true. 5 : Set to true to enable multi-rotor drag specific force fusion 6 : set to true if the EV observations are in a non NED reference frame and need to be rotated before being used 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
   <li><strong>1:</strong> use optical flow</li> 
   <li><strong>2:</strong> inhibit IMU bias estimation</li> 
   <li><strong>3:</strong> vision position fusion</li> 
@@ -13204,7 +13339,7 @@ table {
   <li><strong>5:</strong> multi-rotor drag fusion</li> 
   <li><strong>6:</strong> rotate external vision</li> 
   <li><strong>7:</strong> unused</li> 
-  <li><strong>8:</strong> vision velocity fusion</li> 
+  <li><strong>8:</strong> unused</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
@@ -13369,6 +13504,18 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_EV_CTRL">EKF2_EV_CTRL</strong> (INT32)</td>
+ <td>External vision (EV) sensor aiding <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Horizontal position fusion 1 : Vertical position fusion 2 : 3D velocity fusion 3 : Yaw</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Horizontal position</li> 
+  <li><strong>1:</strong> Vertical position</li> 
+  <li><strong>2:</strong> 3D velocity</li> 
+  <li><strong>3:</strong> Yaw</li> 
+</ul>
+ </td>
+ <td>[0, 15] </td>
+ <td>15</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="EKF2_EV_DELAY">EKF2_EV_DELAY</strong> (FLOAT)</td>
  <td>Vision Position Estimator delay relative to IMU measurements    <p><b>Reboot required:</b> true</p>
 </td>
@@ -13378,9 +13525,14 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_EV_NOISE_MD">EKF2_EV_NOISE_MD</strong> (INT32)</td>
- <td>Whether to set the external vision observation noise from the parameter or from vision message <p><strong>Comment:</strong> If set to true the observation noise is set from the parameters directly, if set to false the measurement noise is taken from the vision message and the parameter are used as a lower bound.</p>   </td>
+ <td>External vision (EV) noise mode <p><strong>Comment:</strong> If set to 0 (default) the measurement noise is taken from the vision message and the EV noise parameters are used as a lower bound. If set to 1 the observation noise is set from the parameters directly,</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> EV reported variance (parameter lower bound)</li>
+
+<li><strong>1:</strong> EV noise parameters</li> 
+</ul>
+  </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -13403,6 +13555,13 @@ table {
  <td></td>
  <td>0.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="EKF2_EV_QMIN">EKF2_EV_QMIN</strong> (INT32)</td>
+ <td>External vision (EV) minimum quality (optional) <p><strong>Comment:</strong> External vision will only be started and fused if the quality metric is above this threshold. The quality metric is a completely optional field provided by some VIO systems.</p>   </td>
+ <td>[0, 100] </td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_FUSE_BETA">EKF2_FUSE_BETA</strong> (INT32)</td>
@@ -14147,23 +14306,23 @@ table {
 <tr>
  <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
  <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
- <td>[45, 720] </td>
- <td>90</td>
- <td>deg</td>
+ <td>[45, 720] (5)</td>
+ <td>90.</td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td>Acro body y max rate <p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
- <td>[45, 720] </td>
- <td>90</td>
- <td>deg</td>
+ <td>[45, 720] (5)</td>
+ <td>90.</td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
  <td>Acro body z max rate <p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
- <td>[10, 180] </td>
- <td>45</td>
- <td>deg</td>
+ <td>[10, 180] (5)</td>
+ <td>45.</td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
@@ -14295,6 +14454,13 @@ table {
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_MAN_YR_MAX">FW_MAN_YR_MAX</strong> (FLOAT)</td>
+ <td>Maximum manually added yaw rate <p><strong>Comment:</strong> This is the maximally added yaw rate setpoint from the yaw stick in any attitude controlled flight mode. The controller already generates a yaw rate setpoint to coordinate a turn, and this value is added to it. This is an absolute value, which is applied symmetrically to the negative and positive side.</p>   </td>
+ <td>[0, ?] (0.5)</td>
+ <td>30.</td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_Y_SC">FW_MAN_Y_SC</strong> (FLOAT)</td>
@@ -14480,7 +14646,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_W_EN">FW_W_EN</strong> (INT32)</td>
- <td>Enable wheel steering controller    </td>
+ <td>Enable wheel steering controller <p><strong>Comment:</strong> Only enabled during automatic runway takeoff and landing. In all manual modes the wheel is directly controlled with yaw stick.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -14555,11 +14721,11 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_LND_AIRSPD_SC">FW_LND_AIRSPD_SC</strong> (FLOAT)</td>
- <td>Min. airspeed scaling factor for landing <p><strong>Comment:</strong> Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. FW_AIRSPD_MIN * FW_LND_AIRSPD_SC</p>   </td>
- <td>[1.0, 1.5] (0.01)</td>
- <td>1.3</td>
- <td>norm</td>
+ <td><strong id="FW_LND_AIRSPD">FW_LND_AIRSPD</strong> (FLOAT)</td>
+ <td>Landing airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint during landing. If set <= 0.0, landing airspeed = FW_AIRSPD_MIN by default.</p>   </td>
+ <td>[-1.0, ?] (0.1)</td>
+ <td>-1.</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_ANG">FW_LND_ANG</strong> (FLOAT)</td>
@@ -14606,7 +14772,7 @@ table {
 <tr>
  <td><strong id="FW_LND_FL_TIME">FW_LND_FL_TIME</strong> (FLOAT)</td>
  <td>Landing flare time <p><strong>Comment:</strong> Multiplied by the descent rate to calculate a dynamic altitude at which to trigger the flare. NOTE: max(FW_LND_FLALT, FW_LND_FL_TIME * descent rate) is taken as the flare altitude</p>   </td>
- <td>[0.0, 5.0] (0.1)</td>
+ <td>[0.1, 5.0] (0.1)</td>
  <td>1.0</td>
  <td>s</td>
 </tr>
@@ -14630,6 +14796,13 @@ table {
  <td>[0.0, 10.0] (1)</td>
  <td>3.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="FW_LND_TD_TIME">FW_LND_TD_TIME</strong> (FLOAT)</td>
+ <td>Landing touchdown time (since flare start) <p><strong>Comment:</strong> This is the time after the start of flaring that we expect the vehicle to touch the runway. At this time, a 0.5s clamp down ramp will engage, constraining the pitch setpoint to RWTO_PSP. If enabled, ensure that RWTO_PSP is configured appropriately for full gear contact on ground roll. Set to -1.0 to disable touchdown clamping. E.g. it may not be desirable to clamp on belly landings. The touchdown time will be constrained to be greater than or equal to the flare time (FW_LND_FL_TIME).</p>   </td>
+ <td>[-1.0, 5.0] (0.1)</td>
+ <td>-1.0</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
@@ -14686,13 +14859,6 @@ table {
    <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</strong> (FLOAT)</td>
- <td>Climbout Altitude difference <p><strong>Comment:</strong> If the altitude error exceeds this parameter, the system will climb out with maximum throttle and minimum airspeed until it is closer than this distance to the desired altitude. Mostly used for takeoff waypoints / modes. Set to 0 to disable climbout mode (not recommended).</p>   </td>
- <td>[0.0, 150.0] (0.5)</td>
- <td>10.0</td>
- <td>m</td>
-</tr>
 <tr>
  <td><strong id="FW_L1_DAMPING">FW_L1_DAMPING</strong> (FLOAT)</td>
  <td>L1 damping <p><strong>Comment:</strong> Damping factor for L1 control.</p>   </td>
@@ -14889,14 +15055,14 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> If the CAS (calibrated airspeed) is above this value, the TECS controller will try to decrease airspeed more aggressively.</p>   </td>
+ <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed is above this value, the TECS controller will try to decrease airspeed more aggressively.</p>   </td>
  <td>[0.5, 40] (0.5)</td>
  <td>20.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
- <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively.</p>   </td>
+ <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle's stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
  <td>[0.5, 40] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
@@ -14960,7 +15126,7 @@ table {
 <tr>
  <td><strong id="FW_THR_SLEW_MAX">FW_THR_SLEW_MAX</strong> (FLOAT)</td>
  <td>Throttle max slew rate <p><strong>Comment:</strong> Maximum slew rate for the commanded throttle</p>   </td>
- <td>[0.0, 1.0] </td>
+ <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -14970,6 +15136,13 @@ table {
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.6</td>
  <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_TKO_AIRSPD">FW_TKO_AIRSPD</strong> (FLOAT)</td>
+ <td>Takeoff Airspeed <p><strong>Comment:</strong> The calibrated airspeed setpoint TECS will stabilize to during the takeoff climbout. If set <= 0.0, FW_AIRSPD_MIN will be set by default.</p>   </td>
+ <td>[-1.0, ?] (0.1)</td>
+ <td>-1.0</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_ALT_TC">FW_T_ALT_TC</strong> (FLOAT)</td>
@@ -17871,8 +18044,8 @@ table {
 </tr>
 <tr>
  <td><strong id="LNDMC_Z_VEL_MAX">LNDMC_Z_VEL_MAX</strong> (FLOAT)</td>
- <td>Multicopter vertical velocity threshold <p><strong>Comment:</strong> Vertical velocity threshold to detect landing. Should be set lower than the expected minimal speed for landing so MPC_LAND_SPEED for autonomous landing and MPC_LAND_CRWL if distance sensor is present and slowing down close to ground.</p>   </td>
- <td></td>
+ <td>Multicopter vertical velocity threshold <p><strong>Comment:</strong> Vertical velocity threshold to detect landing. Has to be set lower than the expected minimal speed for landing, which is either MPC_LAND_SPEED or MPC_LAND_CRWL. This is enforced by an automatic check.</p>   </td>
+ <td>[0, ?] </td>
  <td>0.25</td>
  <td>m/s</td>
 </tr>
@@ -18982,10 +19155,10 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="MIS_LTRMIN_ALT">MIS_LTRMIN_ALT</strong> (FLOAT)</td>
- <td>Minimum Loiter altitude <p><strong>Comment:</strong> This is the minimum altitude the system will always obey. The intent is to stay out of ground effect. set to -1, if there shouldn't be a minimum loiter altitude</p>   </td>
- <td>[-1, 80] (0.5)</td>
- <td>-1.0</td>
+ <td><strong id="MIS_LND_ABRT_ALT">MIS_LND_ABRT_ALT</strong> (INT32)</td>
+ <td>Landing abort min altitude <p><strong>Comment:</strong> Minimum altitude above landing point that the vehicle will climb to after an aborted landing. Then vehicle will loiter in this altitude until further command is received. Only applies to fixed-wing vehicles.</p>   </td>
+ <td>[0, ?] </td>
+ <td>30</td>
  <td>m</td>
 </tr>
 <tr>
@@ -19015,10 +19188,21 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="MIS_TAKEOFF_REQ">MIS_TAKEOFF_REQ</strong> (INT32)</td>
- <td>Take-off waypoint required <p><strong>Comment:</strong> If set, the mission feasibility checker will check for a takeoff waypoint on the mission.</p>   </td>
+ <td><strong id="MIS_TKO_LAND_REQ">MIS_TKO_LAND_REQ</strong> (INT32)</td>
+ <td>Mission takeoff/landing required <p><strong>Comment:</strong> Specifies if a mission has to contain a takeoff and/or mission landing. Validity of configured takeoffs/landings is checked independently of the setting here.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> No requirements</li>
+
+<li><strong>1:</strong> Require a takeoff</li>
+
+<li><strong>2:</strong> Require a landing</li>
+
+<li><strong>3:</strong> Require a takeoff and a landing</li>
+
+<li><strong>4:</strong> Require a takeoff and a landing, or neither of both</li> 
+</ul>
+  </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -19093,6 +19277,13 @@ table {
  <td>MC Altitude Acceptance Radius <p><strong>Comment:</strong> Acceptance radius for multicopter altitude.</p>   </td>
  <td>[0.05, 200.0] (0.5)</td>
  <td>0.8</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="NAV_MIN_LTR_ALT">NAV_MIN_LTR_ALT</strong> (FLOAT)</td>
+ <td>Minimum Loiter altitude <p><strong>Comment:</strong> This is the minimum altitude above Home the system will always obey in Loiter (Hold) mode if switched into this mode without specifying an altitude (e.g. through Loiter switch on RC). Doesn't affect Loiters that are part of Missions or that are entered through a reposition setpoint ("Go to"). Set to a negative value to disable.</p>   </td>
+ <td>[-1, ?] (0.5)</td>
+ <td>-1.</td>
  <td>m</td>
 </tr>
 <tr>
@@ -23116,13 +23307,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="RWTO_AIRSPD_SCL">RWTO_AIRSPD_SCL</strong> (FLOAT)</td>
- <td>Min airspeed scaling factor for takeoff <p><strong>Comment:</strong> Pitch up will be commanded when the following airspeed is reached: FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>1.3</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="RWTO_HDG">RWTO_HDG</strong> (INT32)</td>
  <td>Specifies which heading should be held during the runway takeoff ground roll <p><strong>Comment:</strong> 0: airframe heading when takeoff is initiated 1: position control along runway direction (bearing defined from vehicle position on takeoff initiation to MAV_CMD_TAKEOFF position defined by operator)</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Airframe</li>
@@ -23142,13 +23326,6 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="RWTO_MAX_PITCH">RWTO_MAX_PITCH</strong> (FLOAT)</td>
- <td>Max pitch during takeoff <p><strong>Comment:</strong> Fixed-wing settings are used if set to 0. Note that there is also a minimum pitch of 10 degrees during takeoff, so this must be larger if set.</p>   </td>
- <td>[0.0, 60.0] (0.5)</td>
- <td>20.0</td>
- <td>deg</td>
-</tr>
-<tr>
  <td><strong id="RWTO_MAX_THR">RWTO_MAX_THR</strong> (FLOAT)</td>
  <td>Max throttle during runway takeoff <p><strong>Comment:</strong> Can be used to test taxi on runway</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
@@ -23164,7 +23341,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RWTO_PSP">RWTO_PSP</strong> (FLOAT)</td>
- <td>Pitch setpoint during taxi / before takeoff airspeed is reached <p><strong>Comment:</strong> A taildragger with steerable wheel might need to pitch up a little to keep its wheel on the ground before airspeed to takeoff is reached.</p>   </td>
+ <td>Pitch setpoint during taxi / before takeoff rotation airspeed is reached <p><strong>Comment:</strong> A taildragger with steerable wheel might need to pitch up a little to keep its wheel on the ground before airspeed to takeoff is reached.</p>   </td>
  <td>[-10.0, 20.0] (0.5)</td>
  <td>0.0</td>
  <td>deg</td>
@@ -23174,6 +23351,20 @@ table {
  <td>Throttle ramp up time for runway takeoff    </td>
  <td>[1.0, 15.0] (0.1)</td>
  <td>2.0</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="RWTO_ROT_AIRSPD">RWTO_ROT_AIRSPD</strong> (FLOAT)</td>
+ <td>Takeoff rotation airspeed <p><strong>Comment:</strong> The calibrated airspeed threshold during the takeoff ground roll when the plane should start rotating (pitching up). Must be less than the takeoff airspeed, will otherwise be capped at the takeoff airpeed (see FW_TKO_AIRSPD). If set <= 0.0, defaults to 0.9 * takeoff airspeed (see FW_TKO_AIRSPD)</p>   </td>
+ <td>[-1.0, ?] (0.1)</td>
+ <td>-1.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="RWTO_ROT_TIME">RWTO_ROT_TIME</strong> (FLOAT)</td>
+ <td>Takeoff rotation time <p><strong>Comment:</strong> This is the time desired to linearly ramp in takeoff pitch constraints during the takeoff rotation</p>   </td>
+ <td>[0.1, ?] (0.1)</td>
+ <td>1.0</td>
  <td>s</td>
 </tr>
 <tr>
@@ -30226,13 +30417,6 @@ table {
  <td>90</td>
  <td></td>
 </tr>
-<tr>
- <td><strong id="UART_ESC_T_YAWR">UART_ESC_T_YAWR</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Yaw Reversal    </td>
- <td>[0, 1] (1)</td>
- <td>0</td>
- <td></td>
-</tr>
 </tbody></table>
 
 ## UAVCAN
@@ -30796,10 +30980,10 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
- <td>Delay in seconds before applying back transition throttle <p><strong>Comment:</strong> Set this to a value greater than 0 to give the motor time to spin down. unit s</p>   </td>
+ <td>Delay in seconds before applying back transition throttle <p><strong>Comment:</strong> Set this to a value greater than 0 to give the motor time to spin down.</p>   </td>
  <td>[0, 10] (1)</td>
  <td>0.0</td>
- <td></td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
@@ -30868,30 +31052,48 @@ table {
 <tr>
  <td><strong id="VT_FW_ALT_ERR">VT_FW_ALT_ERR</strong> (FLOAT)</td>
  <td>Adaptive QuadChute <p><strong>Comment:</strong> Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.</p>   </td>
- <td>[0.0, 200.0] </td>
+ <td>[0.0, 200.0] (1)</td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
- <td>Differential thrust in forwards flight <p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>   </td>
- <td>[0, 1] </td>
+ <td>Differential thrust in forwards flight <p><strong>Comment:</strong> Enable differential thrust seperately for roll, pitch, yaw in forward (fixed-wing) mode. The effectiveness of differential thrust around the corresponding axis can be tuned by setting VT_FW_DIFTHR_S_R / VT_FW_DIFTHR_S_P / VT_FW_DIFTHR_S_Y.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Yaw</li> 
+  <li><strong>1:</strong> Roll</li> 
+  <li><strong>2:</strong> Pitch</li> 
+</ul>
+ </td>
+ <td>[0, 7] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
- <td>Differential thrust scaling factor <p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>   </td>
- <td>[0.0, 1.0] (0.1)</td>
+ <td><strong id="VT_FW_DIFTHR_S_P">VT_FW_DIFTHR_S_P</strong> (FLOAT)</td>
+ <td>Pitch differential thrust factor in forward flight <p><strong>Comment:</strong> Maps the pitch control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>[0.0, 2.0] (0.1)</td>
+ <td>1.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_FW_DIFTHR_S_R">VT_FW_DIFTHR_S_R</strong> (FLOAT)</td>
+ <td>Roll differential thrust factor in forward flight <p><strong>Comment:</strong> Maps the roll control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>[0.0, 2.0] (0.1)</td>
+ <td>1.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="VT_FW_DIFTHR_S_Y">VT_FW_DIFTHR_S_Y</strong> (FLOAT)</td>
+ <td>Yaw differential thrust factor in forward flight <p><strong>Comment:</strong> Maps the yaw control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>[0.0, 2.0] (0.1)</td>
  <td>0.1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_MIN_ALT">VT_FW_MIN_ALT</strong> (FLOAT)</td>
  <td>QuadChute Altitude <p><strong>Comment:</strong> Minimum altitude for fixed wing flight, when in fixed wing the altitude drops below this altitude the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
- <td>[0.0, 200.0] </td>
+ <td>[0.0, 200.0] (1)</td>
  <td>0.0</td>
- <td></td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
@@ -30924,35 +31126,35 @@ table {
 <tr>
  <td><strong id="VT_F_TR_OL_TM">VT_F_TR_OL_TM</strong> (FLOAT)</td>
  <td>Airspeed less front transition time (open loop) <p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
- <td>[1.0, 30.0] </td>
+ <td>[1.0, 30.0] (0.5)</td>
  <td>6.0</td>
  <td>s</td>
 </tr>
 <tr>
  <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
- <td>[-10.0, 45.0] </td>
+ <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="VT_PITCH_MIN">VT_PITCH_MIN</strong> (FLOAT)</td>
  <td>Minimum pitch angle during hover <p><strong>Comment:</strong> Minimum pitch angle during hover flight. If the desired pitch angle is is lower than this value then the fixed-wing forward actuation can be used to compensate for the missing thrust in forward direction (see VT_FW_TRHUST_EN)</p>   </td>
- <td>[-10.0, 45.0] </td>
+ <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
- <td><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
- <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
- <td>[?, 20] (0.01)</td>
- <td>3.0</td>
- <td></td>
+ <td><strong id="VT_PSHER_SLEW">VT_PSHER_SLEW</strong> (FLOAT)</td>
+ <td>Pusher throttle ramp up slew rate <p><strong>Comment:</strong> Defines the slew rate of the puller/pusher throttle during transitions. Zero will deactivate the slew rate limiting and thus produce an instant throttle rise to the transition throttle VT_F_TRANS_THR.</p>   </td>
+ <td>[0, ?] (0.01)</td>
+ <td>0.33</td>
+ <td>1/s</td>
 </tr>
 <tr>
  <td><strong id="VT_SPOILER_MC_LD">VT_SPOILER_MC_LD</strong> (FLOAT)</td>
  <td>Spoiler setting while landing (hover)    </td>
- <td>[-1, 1] (0.05)</td>
+ <td>[-1, 1] (0.1)</td>
  <td>0.</td>
  <td>norm</td>
 </tr>
@@ -30987,7 +31189,7 @@ table {
 <tr>
  <td><strong id="VT_TRANS_MIN_TM">VT_TRANS_MIN_TM</strong> (FLOAT)</td>
  <td>Front transition minimum time <p><strong>Comment:</strong> Minimum time in seconds for front transition.</p>   </td>
- <td>[0.0, 20.0] </td>
+ <td>[0.0, 20.0] (0.1)</td>
  <td>2.0</td>
  <td>s</td>
 </tr>
@@ -31110,7 +31312,7 @@ table {
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>

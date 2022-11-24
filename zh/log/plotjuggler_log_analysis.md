@@ -64,8 +64,7 @@ Try out the boat testing log analysis yourself by downloading the ULog and Layou
 
 There are a number of PlotJuggler layout files shared by PX4 Developers. Each can be used for a specific purpose (Multicopter tuning, VTOL tuning, Boat debugging, etc.):
 
-* [Sample View layout](/assets/flight_log_analysis/plot_juggler/plotjuggler_sample_view.xml) : Template used in the [Multi-panel example](#splitting-horizontally--vertically--multi-panel) above <!-- * [VTOL Tuning layout]() 
-* [Multicopter Tuning layout]()  -->
+* [Sample View layout](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_log_analysis/plot_juggler/plotjuggler_sample_view.xml) : Template used in the [Multi-panel example](#splitting-horizontally--vertically--multi-panel) above.<!-- \[VTOL Tuning layout\]() , \[Multicopter Tuning layout\]() -->-->
 
 ## Advanced Usage
 
