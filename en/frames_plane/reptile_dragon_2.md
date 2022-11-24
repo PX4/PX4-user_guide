@@ -1,4 +1,9 @@
 # Reptile Dragon 2 (RD2) Build
+
+![Finished Reptile Dragon 2 airframe front](../../assets/airframes/fw/reptile_dragon_2/airframe_front.jpg)
+
+![Finished Reptile Dragon 2 airframe rear](../../assets/airframes/fw/reptile_dragon_2/airframe_rear.jpg)
+
 The Reptile Dragon 2 is a twin motor RC airplane specifically designed for efficient FPV [(first person view)](https://en.wikipedia.org/wiki/First-person_view_(radio_control)) flying.
 Being specific for FPV, the RD2 is optimized for easy mounting of cameras, sensors, logic electronics, large batteries, antennas, and other payload components which would be found on a typical FPV airplane. 
 This emphasis on payload makes this airplane an ideal candidate for a PX4 installation.
@@ -50,6 +55,7 @@ Key build features
   - Pixhawk 5x carrier mount
   - FPV pod and camera mount
   - Pitot static probe "plug" adapter
+- [Custom designed power distribution PCB](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/xt30_power_distro_pcb.zip)
 - Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
 - Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
 
@@ -177,8 +183,12 @@ The ESCs are controlled over DSHOT, not PWM like the servos. To make efficient u
 
 ### Airspeed Sensor & Pitot Tube
 
-The airspeed sensor was connected to the I2C port on the Pixhawk 5x carrier board.
+The airspeed sensor was connected to the I2C port on the Pixhawk 5x carrier board with the supplied JST GH I2C cable.
+
+![RD2 pitot plug](../../assets/airframes/fw/reptile_dragon_2/pitot_plug.jpg)
 The pitot tube was pushed through the pitot tube mount and then installed in the front fpv camera cut out.
+
+
 The pitot/static hoses were cut to length and installed to connect the pitot static probe to the airspeed sensor.
 Finally, the pitot static sensor was double stick taped to the sidewall of the airframe.
 
