@@ -34,7 +34,7 @@ ROS 2 uses the [`px4_msgs`](https://github.com/PX4/px4_msgs) and [`px4_ros_com`]
 The PX4 Autopilot project automatically updates [`px4_msgs`](https://github.com/PX4/px4_msgs) with new message definitions whenever they are changed (in the `master` branch).
 
 :::note
-The subset of uORB topics that will be accessible to ROS applications can be found in the [bridge configuration yaml file](https://github.com/PX4/px4_ros_com/blob/master/templates/urtps_bridge_topics.yaml).
+The subset of uORB topics that will be accessible to ROS applications can be found in the [bridge configuration yaml file](https://github.com/PX4/px4_ros_com/blob/release/1.13/templates/urtps_bridge_topics.yaml).
 :::
 
 PX4 firmware contains the microRTPS client based on its build-time message definitions.
@@ -122,10 +122,10 @@ To create and build the workspace:
    ```sh
    $ mkdir -p ~/px4_ros_com_ros2/src
    ```
-1. Clone the ROS 2 bridge packages `px4_ros_com` and `px4_msgs` to the `/src` directory (the `master` branch is cloned by default):
+1. Clone the ROS 2 bridge packages `px4_ros_com` and `px4_msgs` to the `/src` directory (the `release/1.13` branch must be cloned):
    ```sh
-   $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
-   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
+   $ git clone -b release/1.13 https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
+   $ git clone -b release/1.13 https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
    ```
 1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
    ```sh
