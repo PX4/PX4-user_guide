@@ -10,7 +10,7 @@ The diagram below shows a possible architecture for an unmanned vehicle architec
 
 The flight controller runs PX4 on NuttX, and provides core flight and safety code.
 The companion computer usually runs Linux, as this is a much better platform for "general" software development.
-They are connected using a fast serial or Ethernet link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/) or microROS/microDDS.
+They are connected using a fast serial or Ethernet link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/) or microDDS.
 
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
@@ -33,13 +33,29 @@ The choice of computer will depend on the usual tradeoffs: cost, weight, power c
 
 The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
 
-Common options are:
+#### Drone Apps
+
+Drone APIs and SDKs allow you to write software that can control PX4.
+Popular alternatives include:
 
 - [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - libraries in various programming languages to interface with MAVLink systems such as drones, cameras or ground systems.
-- [ROS2](../ros/ros2.md) to communicate to ROS2 nodes ([ROS (1) and MAVROS](../ros/mavros_installation.md) may also be used).
-- [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) to route MAVLink between serial and UDP.
-  [MAVProxy](https://ardupilot.org/mavproxy/) can also be used.
+- [ROS2](../ros/ros2.md) to communicate to ROS2 nodes ( may also be used).
+- [ROS (1) and MAVROS](../ros/mavros_installation.md)
+
+MAVSDK is generally easier to learn and use, while ROS provides more pre-written software for advanced cases like computer vision. 
+[Drone APIs and SDKs > What API Should I Use?](../robotics/README.md#what-api-should-i-use) explains the different options in detail.
+
+You can also write your own custom MAVLink libraries from scratch:
+
 - [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) shows how to connect custom code
+- MAVLink also can also be used with [many other programming languages](https://mavlink.io/en/#mavlink-project-generatorslanguages)
+
+#### Routers
+
+You will need a router if you need to bridge MAVLink from the vehicle to a ground station or IP network, or if you need multiple connections:
+- [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
+- [MAVProxy](https://ardupilot.org/mavproxy/)
+
 
 
 ## Ethernet Setup
