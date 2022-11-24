@@ -46,6 +46,10 @@ Key build features
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24)
 - [5V BEC](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec)
 - [4s2p 18650 LiIon flight battery](https://www.upgradeenergytech.com/product-page/6s-22-2v-5200mah-30c-dark-lithium-xt60)
+- [Custom designed 3D printed parts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/rd2_3d_printed_parts.zip)
+  - Pixhawk 5x carrier mount
+  - FPV pod and camera mount
+  - Pitot static probe "plug" adapter
 - Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
 - Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
 
@@ -104,6 +108,7 @@ The following steps can be used to perform servo alignment
 
 :: note
 The servo horn will likely not sit exactly at a 90 degree angle to the servo due to the teeth on the servo shaft.
+You can see this in the above example setup image.
 Just get it close enough to 90 degrees, and the remaining offset will be removed either with the linkage, or later in software.
 :::
 
