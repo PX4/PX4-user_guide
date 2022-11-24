@@ -34,13 +34,11 @@ Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/
 :::note
 FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
 The other pins cannot be used as motor/servo outputs.
-FMUv5x-based boards support DShot only on the first six FMU pins.
-:::
 
-:::tip
-You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port). 
+FMUv5x and FMUv6x based boards support DShot only on the a block of channels 1 to 4, and a block of channels 5 and 6.
+If DShot is enabled on either of these blocks, each channel within the block will only output DShot.
+While DShot is enabled on either or both blocks, normal PWM is supported on any channels which are not in the DShot enabled block(s).
 :::
-
 
 ## Configuration
 
