@@ -449,6 +449,47 @@ gz_bridge <command> [arguments...]
 
    status        print status info
 ```
+## ina220
+Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
+
+
+### Description
+Driver for the INA220 power monitor.
+
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+
+For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
+
+If the INA220 module is not powered, then by default, initialization of the driver will fail. To change this, use
+the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
+every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
+this flag set, the battery must be plugged in before starting the driver.
+
+
+<a id="ina220_usage"></a>
+### Usage
+```
+ina220 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 65
+     [-k]        if initialization (probing) fails, keep retrying periodically
+     [-t <val>]  battery index for calibration values (1 or 2)
+                 default: 1
+     [-T <val>]  Type
+                 values: VBATT|VREG, default: VBATT
+
+   stop
+
+   status        print status info
+```
 ## ina226
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
 
