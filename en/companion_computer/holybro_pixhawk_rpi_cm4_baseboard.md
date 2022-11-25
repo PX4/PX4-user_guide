@@ -64,10 +64,10 @@ The pinout of the cable is:
 | B | A |
 | C | D |
 | D | C |
-| NC | N/A |
-| NC | N/A |
-| NC | N/A |
-| NC | N/A |
+| - | N/A |
+| - | N/A |
+| - | N/A |
+| - | N/A |
 
 <img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Ethernet_Cable.png" width="380px" title="holybro_pixhawk_rpi_cm4_baseboard" />
 
