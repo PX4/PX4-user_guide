@@ -234,7 +234,6 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
 
-<!-- 
 <span id="install_image_mission_computer"></span>
 ### Installing the image on the Companion Computer
 
@@ -264,7 +263,6 @@ To flash the USB image to the *UP Core*:
 1. Pull out the USB stick.
 1. Restart the vehicle.
    The *UP Core* computer will now boot from internal memory (eMMC).
---> 
 
 ### Boot the Companion Computer
 
