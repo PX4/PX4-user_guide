@@ -2,7 +2,7 @@
 
 [コンピュータビジョン](https://en.wikipedia.org/wiki/Computer_vision) コンピュータが映像データを使用して環境を把握できる技術です。
 
-PX4では、以下の機能をサポートするために、主に [Companion Computers](../companion_computer/pixhawk_companion.md)上で動作するコンピュータビジョンシステムを使用しています。
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/README.md)) in order to support the following features:
 - [光学フロー](#optical_flow) では、2次元速度の推定が行えます (下向きのカメラと下向きの距離センサーを使用)。
 - [モーションキャプチャー](#mocap) は、車両の *外部* にあるビジョンシステムを使用して、3Dの 姿勢推定を提供します。 主に屋内ナビゲーションに使用されます。
 - [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable.

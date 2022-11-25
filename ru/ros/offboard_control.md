@@ -18,7 +18,7 @@ Although this step isn't mandatory since you can activate offboard mode using a 
 
 ### Enable the companion computer interface
 
-Enable MAVLink on the serial port that you connect to the companion computer (see [Companion computer setup](../companion_computer/pixhawk_companion.md)).
+Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
 
 ## Hardware setup
 

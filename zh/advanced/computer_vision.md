@@ -2,7 +2,7 @@
 
 [计算机视觉](https://en.wikipedia.org/wiki/Computer_vision) 技术使计算机能够使用视觉数据来理解他们的环境。
 
-PX4 使用计算机视觉系统（主要在机载计算机上运行）以支持以下功能：
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/README.md)) in order to support the following features:
 - [光流](#optical_flow)提供 2D 速度估计（使用向下的相机和向下的距离传感器）。
 - [Motion Capture](#mocap) provides 3D pose estimation using a vision system that is *external* to the vehicle. It is primarily used for indoor navigation. 它主要用于室内导航。
 - [Visual Inertial Odometry](#vio) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable. 当 GPS 不存在或不可靠时，它用于导航。

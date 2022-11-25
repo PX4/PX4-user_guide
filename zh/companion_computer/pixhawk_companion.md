@@ -1,21 +1,29 @@
-# Pixhawk系列的配套计算机
+# Using a Companion Computer with Pixhawk Controllers
 
-PX4 can connect to companion computers (Raspberry Pi, Odroid, Tegra K1, etc.) using any configurable serial port, including the Ethernet port (if supported). Message are sent over the link using the [MAVLink](https://mavlink.io/en/) protocol.
+PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).
 
-## Pixhawk设置
+See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
+
+
+## Companion Computer Software
+
+The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
+
+Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/README.md#companion-computer-software).
+
+## Ethernet Setup
+
+Ethernet is the recommended connection, if supported by your flight controller. See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
+
+## Serial Port Setup
+
+These instructions explain how to setup the connection if you're not using Ethernet.
+
+### Pixhawk Configuration
 
 PX4 is configured by default to connect to a companion computer connected to the `TELEM 2` serial port. No additional PX4-side configuration should be required if you use this port
 
 To enable MAVLink to connect on another port see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
-
-## 配套计算机设置
-
-In order to receive MAVLink, the companion computer needs to run some software talking to the serial port. The most common options are:
-
-  * [MAVROS](../ros/mavros_installation.md) to communicate to ROS nodes
-  * [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) to connect custom code
-  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](https://ardupilot.org/mavproxy/) to route MAVLink between serial and UDP
-
 
 ### Serial Port Hardware Setup
 

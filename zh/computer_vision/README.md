@@ -2,7 +2,7 @@
 
 [计算机视觉](https://en.wikipedia.org/wiki/Computer_vision) 技术使计算机能够使用视觉数据来理解他们的环境。
 
-PX4 使用计算机视觉系统（主要在机载计算机上运行）以支持以下功能：
+PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/README.md)) in order to support the following features:
 - 姿态 / 速度估计：
   - [光流](../sensor/optical_flow.md)提供2D速度估计（使用向下的相机和向下的距离传感器）。
   - [运动捕捉](../computer_vision/motion_capture.md)使用载具*外部*的视觉系统进行3D姿态估计。 它主要用于室内导航。
