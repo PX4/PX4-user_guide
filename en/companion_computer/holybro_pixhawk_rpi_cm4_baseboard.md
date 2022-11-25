@@ -71,7 +71,7 @@ The pinout of the cable is:
 
 <img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Ethernet_Cable.png" width="380px" title="holybro_pixhawk_rpi_cm4_baseboard" />
 
-#### IP setup on CM4 <a href="#ip-setup-on-cm4-3" id="ip-setup-on-cm4-3"></a>
+#### IP setup on CM4 
 
 Since there is no DHCP server active in this configuration, the IPs have to be set manually:\
 First, connect to the CM4 via ssh by connecting to the CM4’s wifi (or use a Wifi dongle).\
@@ -104,7 +104,7 @@ ip address show eth0
 
 This means the CM4’s ethernet IP is 169.254.21.183.
 
-#### IP setup on FC <a href="#ip-setup-on-fc-4" id="ip-setup-on-fc-4"></a>
+#### IP setup on FC 
 
 Now connect to the NuttX shell (using a console, or the MAVLink shell), and check the status of the link:
 
@@ -153,7 +153,7 @@ Now the devices should be able to ping each other.
 
 Note that this configuration is ephemeral and will be lost after a reboot, so we’ll need to find a way to configure it statically.
 
-#### Ping test <a href="#ping-test-5" id="ping-test-5"></a>
+#### Ping test 
 
 First from the CM4:
 
