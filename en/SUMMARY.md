@@ -311,6 +311,7 @@
       * [PX4 DroneCAN Firmware](dronecan/px4_cannode_fw.md)
       * [ARK CANnode](dronecan/ark_cannode.md)
   * [Companion Computers](companion_computer/README.md)
+    * [Holybro Pixhawk RPI CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)  
     * [Pixhawk Companion](companion_computer/pixhawk_companion.md)
     * [Companion Computer Peripherals](companion_computer/companion_computer_peripherals.md)
 * [Development](development/development.md)
