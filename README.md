@@ -25,6 +25,6 @@ features:
 - title: Powerful Safety Features
   details: Great safety features including automated failsafe behaviour, support for different return modes, parachutes etc. are by default already included in the codebase. The features are easily configurable and tunable for custom systems.
 
-footer: BSD 3-clause license
+footer: BSD 3-clause license Test 
 ---
 <Redirect to="/en/" />
