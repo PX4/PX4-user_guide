@@ -214,6 +214,34 @@ A right angle USB C extension cable was used to allow easy access to the USB C p
 The cable was installed such that it escapes the pixhawk heading towards the aft of the airplane. The cable continues to run to the rear hatch, where the excess length can be securely wound into a knot.
 Access to this cable can be accomplished by simply removing the rear hatch and unknotting the cable.
 
+## Software Setup
+
+For this build, we need to use the modules `crsf_rc` and `msp_osd` from PX4, which require some custom configuration to enable.
+First, follow (this guide to setup a build environment)[https://docs.px4.io/main/en/dev_setup/building_px4.html] for the PX4 source.
+Once a build environment has been setup, cd into the PX4 dir, and run `make ark_fmu-v6x_default boardconfig` to launch the PX4 board config tool.
+
+### `crsf_rc` Module
+PX4 includes a standalone CRSF parser module which supports telemetry and CRSF LinkStatistics.
+To use this module, the default `rc_input` module must be disabled and the `crsf_rc` module must be enabled.
+
+1. In the PX4 board config tool, navigate to the `drivers` submenu, then scroll down to highlight `rc_input`.
+2. Use the enter key to remove the `*` from `rc_input` checkbox.
+3. Scroll to highlight the `RC` submenu, then press enter to open it.
+4. Scroll to highlight `crsf_rc` and press enter to enable it.
+5. Save and exit the PX4 board config tool.
+
+### `msp_osd` Module
+The `msp_osd` module steams MSP telemetry to a selected serial port.
+The Caddx Vista Air Unit supports listening to MSP telemetry and will show the received telemetry values in its OSD (on screen display).
+
+1. In the PX4 board config tool, navigate to the `drivers` submenu, then scroll down to highlight `OSD`.
+2. Use the enter key to open the `OSD` submenu
+3. Scroll down to highlight `msp_osd` and press enter to enable it
+
+### Parameter Config
+* Use the `MSP_OSD_CONFIG` param to select the serial port which is connected to the Caddx Vista (in this build, `/dev/ttyS7`).
+* Use the `RC_CRSF_PRT_CFG` param to select the serial port which is connected to the ELRS RX (in this build, `telem 1`).
+
 ## Preflight & First Flight
 
 ### Radio Setup
