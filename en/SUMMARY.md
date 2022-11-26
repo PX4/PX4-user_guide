@@ -271,6 +271,7 @@
       * [Holybro PM02D (digital)](power_module/holybro_pm02d.md)
       * [Holybro PM03D (digital)](power_module/holybro_pm03d.md)
       * [Pomegranate Systems Power Module](dronecan/pomegranate_systems_pm.md)
+      * [Sky-Drones SmartAP PDB](power_module/sky-drones_smartap-pdb.md)
     * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
       * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
       * [Ainstein US-D1 Standard Radar Altimeter](sensor/ulanding_radar.md)
