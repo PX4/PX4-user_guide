@@ -14726,14 +14726,14 @@ table {
 <tr>
  <td><strong id="FW_LND_FL_PMIN">FW_LND_FL_PMIN</strong> (FLOAT)</td>
  <td>Flare, minimum pitch <p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once flaring is triggered</p>   </td>
- <td>[0, 15.0] (0.5)</td>
+ <td>[-5, 15.0] (0.5)</td>
  <td>2.5</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_LND_FL_SINK">FW_LND_FL_SINK</strong> (FLOAT)</td>
  <td>Landing flare sink rate <p><strong>Comment:</strong> TECS will attempt to control the aircraft to this sink rate via pitch angle (throttle killed during flare)</p>   </td>
- <td>[0.0, 1.0] (0.1)</td>
+ <td>[0.0, 2] (0.1)</td>
  <td>0.25</td>
  <td>m/s</td>
 </tr>
@@ -14883,38 +14883,31 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="LAUN_ALL_ON">LAUN_ALL_ON</strong> (INT32)</td>
- <td>Launch detection    </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
+ <td><strong id="FW_LAUN_AC_T">FW_LAUN_AC_T</strong> (FLOAT)</td>
+ <td>Trigger time <p><strong>Comment:</strong> Launch is detected when acceleration in body forward direction is above FW_LAUN_AC_THLD for FW_LAUN_AC_T seconds.</p>   </td>
+ <td>[0.0, 5.0] (0.05)</td>
+ <td>0.05</td>
+ <td>s</td>
 </tr>
 <tr>
- <td><strong id="LAUN_CAT_A">LAUN_CAT_A</strong> (FLOAT)</td>
- <td>Catapult accelerometer threshold <p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
+ <td><strong id="FW_LAUN_AC_THLD">FW_LAUN_AC_THLD</strong> (FLOAT)</td>
+ <td>Trigger acceleration threshold <p><strong>Comment:</strong> Launch is detected when acceleration in body forward direction is above FW_LAUN_AC_THLD for FW_LAUN_AC_T seconds.</p>   </td>
  <td>[0, ?] (0.5)</td>
  <td>30.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
- <td><strong id="LAUN_CAT_MDEL">LAUN_CAT_MDEL</strong> (FLOAT)</td>
+ <td><strong id="FW_LAUN_DETCN_ON">FW_LAUN_DETCN_ON</strong> (INT32)</td>
+ <td>FW Launch detection <p><strong>Comment:</strong> Enables automatic launch detection based on measured acceleration. Use for hand- or catapult-launched vehicles. Only available for fixed-wing vehicles. Not compatible with runway takeoff.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_LAUN_MOT_DEL">FW_LAUN_MOT_DEL</strong> (FLOAT)</td>
  <td>Motor delay <p><strong>Comment:</strong> Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate</p>   </td>
  <td>[0.0, 10.0] (0.5)</td>
  <td>0.0</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="LAUN_CAT_PMAX">LAUN_CAT_PMAX</strong> (FLOAT)</td>
- <td>Maximum pitch before the throttle is powered up (during motor delay phase) <p><strong>Comment:</strong> This is an extra limit for the maximum pitch which is imposed in the phase before the throttle turns on. This allows to limit the maximum pitch angle during a bungee launch (make the launch less steep).</p>   </td>
- <td>[0.0, 45.0] (0.5)</td>
- <td>30.0</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="LAUN_CAT_T">LAUN_CAT_T</strong> (FLOAT)</td>
- <td>Catapult time threshold <p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
- <td>[0.0, 5.0] (0.05)</td>
- <td>0.05</td>
  <td>s</td>
 </tr>
 </tbody></table>
@@ -17955,6 +17948,14 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="LNDFW_TRIG_TIME">LNDFW_TRIG_TIME</strong> (FLOAT)</td>
+ <td>Fixed-wing land detection trigger time <p><strong>Comment:</strong> Time the land conditions (speeds and acceleration) have to be satisfied to detect a landing.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0.1, ?] </td>
+ <td>2.</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
  <td>Fixed-wing land detector: Max horizontal velocity threshold <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
  <td>[0.5, 10] </td>
@@ -17963,9 +17964,9 @@ table {
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
- <td>Fixed-wing land detector: Max vertiacal velocity threshold <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state. A factor of 0.7 is applied in case of airspeed-less flying (either because no sensor is present or sensor data got invalid in flight).</p>   </td>
+ <td>Fixed-wing land detector: Max vertiacal velocity threshold <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state.</p>   </td>
  <td>[0.1, 20] </td>
- <td>2.0</td>
+ <td>1.0</td>
  <td>m/s</td>
 </tr>
 <tr>
@@ -26027,6 +26028,41 @@ table {
  <td>Hz</td>
 </tr>
 <tr>
+ <td><strong id="INA220_CONFIG">INA220_CONFIG</strong> (INT32)</td>
+ <td>INA220 Power Monitor Config    </td>
+ <td>[0, 65535] (1)</td>
+ <td>8607</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_CUR_BAT">INA220_CUR_BAT</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Battery Max Current    </td>
+ <td>[0.1, 500.0] (0.1)</td>
+ <td>164.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_CUR_REG">INA220_CUR_REG</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Regulator Max Current    </td>
+ <td>[0.1, 500.0] (0.1)</td>
+ <td>164.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_SHUNT_BAT">INA220_SHUNT_BAT</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Battery Shunt    </td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
+ <td>0.0005</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA220_SHUNT_REG">INA220_SHUNT_REG</strong> (FLOAT)</td>
+ <td>INA220 Power Monitor Regulator Shunt    </td>
+ <td>[0.000000001, 0.1] (.000000001)</td>
+ <td>0.0005</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="INA226_CONFIG">INA226_CONFIG</strong> (INT32)</td>
  <td>INA226 Power Monitor Config    </td>
  <td>[0, 65535] (1)</td>
@@ -26310,6 +26346,14 @@ table {
 <tr>
  <td><strong id="SENS_EN_ETSASPD">SENS_EN_ETSASPD</strong> (INT32)</td>
  <td>Eagle Tree airspeed sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_INA220">SENS_EN_INA220</strong> (INT32)</td>
+ <td>Enable INA220 Power Monitor <p><strong>Comment:</strong> For systems a INA220 Power Monitor, this should be set to true</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>

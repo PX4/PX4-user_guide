@@ -222,8 +222,6 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
 
-
-<!--
 <span id="install_image_mission_computer"></span>
 ### Installing the image on the Companion Computer
 
@@ -239,22 +237,18 @@ To flash the USB image to the *UP Core*:
 
 1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
 1. [Login to the companion computer](#login_mission_computer) (as described above).
-1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
-   The terminal will prompt for a number of responses during the flashing process.
+1. Open a terminal and run the following command to copy the image onto internal memory (eMMC). The terminal will prompt for a number of responses during the flashing process.
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
    sudo ./flash_emmc.sh
    ```
 
-   :::note
-   All information saved in the *UP Core* computer will be removed when executing this script.
-
+:::note
+All information saved in the *UP Core* computer will be removed when executing this script.
 :::
 
 1. Pull out the USB stick.
-1. Restart the vehicle.
-   The *UP Core* computer will now boot from internal memory (eMMC).
--->
+1. Restart the vehicle. The *UP Core* computer will now boot from internal memory (eMMC).
 
 ### Boot the Companion Computer
 
