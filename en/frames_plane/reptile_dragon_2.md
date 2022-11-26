@@ -47,6 +47,7 @@ Key build features
 - [Holybro M9N GPS module](https://shop.holybro.com/holybro-m9n-gps_p1280.html)
 - MS4525DO differential pressure module and pitot tube
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
+- [Emax ES08MA ii](https://emaxmodel.com/products/emax-es08ma-ii-12g-mini-metal-gear-analog-servo-for-rc-model-robot-pwm-servo)
 - [DJI FPV Goggles](https://www.dji.com/fpv)
 - [ExpressLRS Matek Diversity RX](http://www.mateksys.com/?portfolio=elrs-r24)
 - [5V BEC](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec)
@@ -128,7 +129,27 @@ This location is far aft of power wiring and other magnetic disturbances, which 
 
 ## FPV Pod
 
+### FPV Pod Assembly
+First, mount the ES08MA ii servo in the servo pocket of the FPV pod.
+The servo should simply slip in, with the cable exiting the FPV Pod through the hole in the servo pocket.
+Use a dot of Foamtac glue to secure the servo.
+
+![Camera carrier with servo horn installed](../../assets/airframes/fw/reptile_dragon_2/camera_carrier.jpg)
+
+Use one of the servo horns included in the ES08ma ii package.
+Cut the horn such that it fits in the slot in the FPV pod camera carrier.
+It should sit flush to the bottom of the slot.
+Secure the horn with CA glue.
+
+Use the servo tester to center the servo.
+Attach the camera carrier servo horn directly to the top of the servo and secure it with the included screw.
+Secure the DJI FPV camera into the carrier with the two side screws.
+
+To finish the FPV pod assembly, install the Caddx Vista to the back of the pod using long M2 bolts, 1mm standoffs, and nylock nuts. 
+
 ![FPV pod close up mounted on the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/fpv_pod.jpg)
+
+### FPV Pod Airframe Installation
 
 The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with two O-rings to space the FPV pod base plate from the battery hatch.
 
@@ -217,7 +238,7 @@ Access to this cable can be accomplished by simply removing the rear hatch and u
 ## Software Setup
 
 For this build, we need to use the modules `crsf_rc` and `msp_osd` from PX4, which require some custom configuration to enable.
-First, follow (this guide to setup a build environment)[https://docs.px4.io/main/en/dev_setup/building_px4.html] for the PX4 source.
+First, follow [this guide to setup a build environment](https://docs.px4.io/main/en/dev_setup/building_px4.html) for the PX4 source.
 Once a build environment has been setup, cd into the PX4 dir, and run `make ark_fmu-v6x_default boardconfig` to launch the PX4 board config tool.
 
 ### `crsf_rc` Module
