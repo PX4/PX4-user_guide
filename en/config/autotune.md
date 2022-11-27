@@ -9,7 +9,7 @@ Tuning only needs to be done once, and is recommended unless unless you're using
 Auto-tuning is performed while flying.
 The airframe must fly well enough handle moderate disturbances, and should be closely attended:
 - Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
-- Be ready to abort the autotuning process by moving the remote control sticks.
+- Be ready to abort the autotuning process by switching flight modes or toggling the aux auto-tune enable switch to the disabled position
 - Verify that the vehicle flies well after tuning.
 :::
 
@@ -51,7 +51,13 @@ It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning
 For best results, we recommend running the test in calm weather conditions.
 
 :::note
-The sequence can be aborted at any time by the operator by moving the roll/pitch stick on the RC controller.
+The auto-tuning sequence can be aborted at any time by the operator by switching flight modes.
+If an [aux switch was used](#Parameters) to enable the auto-tune sequence, the switch can be toggled back to the disabled position to instantly stop autotuning.
+:::
+
+:::note
+During auto tuning, the RC sticks can *still* be used to fly the vehicle.
+[Hold mode](../flight_modes/hold.md) is useful for keeping a fixed wing vehicle circling in one place, but any other flight mode will work as well.
 :::
 
 The test steps are:
@@ -62,13 +68,13 @@ The test steps are:
      Hover the vehicle at a safe distance and at a few meters above ground (between 4 and 20m).
    - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes/hold.md).
       This will guide the plane to fly in circle at constant altitude and speed.
-1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
-
-   ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
-1. Select either the *Rate Controller* or *Attitude Controller* tabs.
-   Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
-1. Stop moving the joysticks and click on the **Autotune** button.
-   Read the warning popup and click on **OK** to start tuning.
+1. Enable autotune using either QGroundControl or an RC aux switch.
+   - ** RC aux switch ** Toggle the switch to the "enabled" position.
+   - ** QGroundControl ** 1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
+     ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
+     1. Select either the *Rate Controller* or *Attitude Controller* tabs.
+     1. Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
+     1. Read the warning popup and click on **OK** to start tuning.
 1. The drone will first start to perform quick roll motions followed by pitch and yaw motions.
    The progress is shown in the progress bar, next to the _Autotune_ button.
 1. Apply the tuning:
@@ -118,6 +124,11 @@ Attempt manual tuning using the appropriate guides:
 
 
 ## Parameters
+
+Autotuning can be enabled/disabled via a PX4 aux input channel by setting [FW_AT_MAN_AUX ](../advanced_config/parameter_reference.md#FW_AT_MAN_AUX).
+The selected aux input channel can then be connected to an RC channel to allow the auto-tuner to be controlled via an RC switch which has normal endpoints of ~1000uS when disabled, and at least ~1750uS when enabled.
+The auto tuner will be disabled when the switch is below .5 (on the range manual control setpoint range of of [-1, 1] and enabled when the switch channel is above .5.
+If using an RC aux switch to enable autotuning, make sure to configure [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) before flight.
 
 By default MC vehicles land before parameters are applied, while FW vehicles apply the parameters in-air and then test that the controllers work properly.
 This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) and [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameters respectively:
