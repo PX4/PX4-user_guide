@@ -1,11 +1,11 @@
 # 매개변수와 설정
 
-PX4는 *param 하위 시스템*(`float` 및 `int32_t` 값의 플랫 테이블)과 텍스트 파일(믹서 및 시작 스크립트용)로 설정을 저장합니다.
+PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
 
 이 섹션에서는 *param* 하위 시스템을 자세히 설명합니다. 매개변수를 나열, 저장 및 로드하는 방법과 매개변수를 정의하고 지상국에서 사용하는 방법을 설명합니다.
 
 :::tip
-[시스템 시작](../concept/system_startup.md)과 [기체 구성](../dev_airframes/adding_a_new_frame.md)은 다른 페이지에 자세히 설명합니다.
+[System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
 :::
 
 
