@@ -68,4 +68,4 @@ PNF (또는 "PNP") 버전에는 모터, 프로펠러 및 ESC가 포함됩니다.
 
 QGC 기체 구성의 비행 날개 섹션에서 Z-84를 선택합니다.
 
-![QGC-West Wing용 펌웨어 선택](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)
+![QGC-West Wing용 펌웨어 선택](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png) 
