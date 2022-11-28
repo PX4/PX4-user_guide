@@ -23,21 +23,17 @@ If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../ad
 :::note
 A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively. DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
 
-To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs. Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
+To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
+
+Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
 
 Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 :::
 
-:::note
-FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
-The other pins cannot be used as motor/servo outputs.
-FMUv5x-based boards support DShot only on the first six FMU pins.
-:::
+:::note FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs.
 
-:::tip
-You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port).
+FMUv5x and FMUv6x based boards support DShot only on the a group of channels 1 to 4, and a second group of channels 5 and 6. If DShot is enabled on either of these groups, each channel within the group will only output DShot. While DShot is enabled on either or both groups, normal PWM is supported on any channels which are not in the DShot enabled groups(s).
 :::
-
 
 ## Configuration
 
