@@ -78,6 +78,16 @@ For more information, see: [https://gnu-mcu-eclipse.github.io/debug/jlink/instal
    ![Eclipse: GDB Segger Debug config: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png)
    ![Eclipse: GDB Segger Debug config: startup tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
 
+## SEGGER Task-aware debugging
+
+1. Make sure that in your build the following config is enabled *Enable TCBinfo struct for debug* `CONFIG_DEBUG_TCBINFO`
+   - Hint you can change this through make <target> menuconfig
+   ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
+1. Run `make jlink-nuttx` to compile the jlink-nuttx.so library
+1. Modify Eclipse: GDB Segger Debug config *Other options* to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`
+   ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware.png)
+
+
 
 ## Troubleshooting
 
