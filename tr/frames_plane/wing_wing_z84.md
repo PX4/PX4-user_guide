@@ -68,4 +68,4 @@ The images below give a rough idea about the assembly process, which is simple a
 
 Select the Z-84 in the flying wing section of the QGC airframe config:
 
-![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)
+![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png) 
