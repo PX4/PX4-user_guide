@@ -22,20 +22,17 @@ AUX 및 MAIN 레이블이 지정된 포트가 있는 Pixhawk를 사용하는 경
 
 :::note FMU와 IO가 모두 있는 Pixhawk 비행 콘트롤러는 포트를 각각 AUX 및 MAIN으로 표시합니다. DShot은 FMU 포트(AUX로 표시)에서만 사용할 수 있습니다. 이는 ESC/모터 출력이 일반적으로 [기체 정의서](../airframes/airframe_reference.md)의 MAIN 포트에 할당되기 때문에 문제가 됩니다.
 
-따라서 DShot을 사용하려면 일반적으로 `SYS_USE_IO=0`을 설정하고 (AUX 레이블이 지정된 포트가 MAIN 레이블이 지정된 포트인 것처럼 *거동*하게 함) ESC를 해당 AUX 라벨의 출력에 연결합니다. 일반적으로 [기체 정의서](../airframes/airframe_reference.md)의 AUX 포트에 할당되는 출력은 더 이상 사용할 수 없습니다.
+따라서 DShot을 사용하려면 일반적으로 `SYS_USE_IO=0`을 설정하고 (AUX 레이블이 지정된 포트가 MAIN 레이블이 지정된 포트인 것처럼 *거동*하게 함) ESC를 해당 AUX 라벨의 출력에 연결합니다.
+
+일반적으로 [기체 정의서](../airframes/airframe_reference.md)의 AUX 포트에 할당되는 출력은 더 이상 사용할 수 없습니다.
 
 개발자는 멀티콥터 출력이 MAIN이 아닌 AUX 포트에 있도록 [에어 프레임 AUX 믹서](../dev_airframes/adding_a_new_frame.md#mixer-file)를 대안으로 수정할 수 있습니다.
 :::
 
-:::note
-FMUv5 기반 보드(예 : Pixhawk 4 또는 CUAV Pixhawk V5 +)는 하드웨어 충돌로 인하여 처음 4 개의 FMU 핀에서만 DShot을 지원합니다.
-다른 핀은 모터/서보 출력으로 사용할 수 없습니다.
-FMUv5x-based boards support DShot only on the first six FMU pins.
-:::
+:::note FMUv5 기반 보드(예 : Pixhawk 4 또는 CUAV Pixhawk V5 +)는 하드웨어 충돌로 인하여 처음 4 개의 FMU 핀에서만 DShot을 지원합니다. 다른 핀은 모터/서보 출력으로 사용할 수 없습니다.
 
-:::tip FMU에서 DShot ESC/servos 및 PWM ESC/servos를 혼합할 수 없습니다 (DShot은 포트의 *모든* FMU 핀에 대해 활성화/비활성화 됨).
+FMUv5x and FMUv6x based boards support DShot only on the a group of channels 1 to 4, and a second group of channels 5 and 6. If DShot is enabled on either of these groups, each channel within the group will only output DShot. While DShot is enabled on either or both groups, normal PWM is supported on any channels which are not in the DShot enabled groups(s).
 :::
-
 
 ## 설정
 
