@@ -1,14 +1,16 @@
-# GPS/나침반 장착
+# Mounting a GPS/Compass
 
-GPS/나침반은 전자 장치들과 가능한 멀리 떨어진 곳에 방향 표시가 기체의 전면을 향하도록 장착하는 것이 좋습니다. 아래 다이어그램은 Pixhawk 4와 나침반의 전방 마커를 나타냅니다.
+GPS/Compasses should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. If mounted in this way you can immediately proceed to [compass calibration](../config/compass.md#performing-the-calibration).
+
+아래 다이어그램은 Pixhawk 4와 나침반의 전방 마커를 나타냅니다.
 
 ![Pixhawk 4 -- 나침반/GPS 연결 ](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
 ## 나침반 방향
 
-나침반은 _지원되는_ 방향중에서 택일하여 장착할 수 있습니다. 지원되는 방향은 [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT)에서 볼 수 있으며, 비행 컨트롤러의 방향을 지정하는 데 사용되는 것과 동일한 방식입니다.
+The compass can be mounted in any of the standard MAVLink orientations defined in [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION). The orientation follows the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#orientation-definition).
 
-일반적인 [나침반 보정](../config/compass.md) 프로세스를 사용하는 경우 매개변수 [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO)가 활성화되고 방향이 자동으로 감지되어야 합니다.
+If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO) enabled), the orientation should be detected automatically. Otherwise you can directly select the appropriate value in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) for up to three compasses.
 
 :::warning
 지원되는 방향으로 나침반을 장착하여야 합니다!
