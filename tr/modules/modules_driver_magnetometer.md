@@ -201,6 +201,8 @@ lis3mdl <command> [arguments...]
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 30
      [-R <val>]  Rotation
                  default: 0
 

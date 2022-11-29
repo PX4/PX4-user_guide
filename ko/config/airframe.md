@@ -1,13 +1,13 @@
-# 기체 설정
+# Frame Setup
 
-펌웨어를 설치한 후에 차량에 적절한 [기체 설정](../airframes/airframe_reference.md)을 선택하여야 합니다.
+After installing firmware you need to select the vehicle [frame configuration](../airframes/airframe_reference.md) that best matches your vehicle.
 
 :::note
-표준 설정은 비행에 충분하도록 잘 조정되어야 하므로, 차량 브랜드 및 모델(있는 경우)에 대한 기체 설정을 선택하십시오.
-그렇지 않으면, 가장 비슷한 "일반" 프레임 옵션을 선택하십시오.
+Select the configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration. 
+그렇지 않으면, 가장 비슷한 "일반" 프레임 옵션을 선택하십시오. 
 :::
 
-## 기체 프레임 설정
+## Set the Frame
 
 기체 프레임 설정하기:
 

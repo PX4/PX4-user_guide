@@ -438,9 +438,10 @@ microdds_client <command> [arguments...]
      [-h <val>]  Host IP
                  values: <IP>, default: 127.0.0.1
      [-p <val>]  Remote Port
-                 default: 15555
+                 default: 8888
      [-l]        Restrict to localhost (use in combination with
                  ROS_LOCALHOST_ONLY=1)
+     [-n <val>]  Client DDS namespace
 
    stop
 

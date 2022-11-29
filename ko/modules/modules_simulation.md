@@ -5,9 +5,9 @@ Source: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/
 
 
 ### 설명
-이 모듈은 하드웨어 자동 조종 장치 내에서 완전히 실행되는 쿼드로터용 시뮬레이터를 제공합니다.
+This module provides a simulator for quadrotors and fixed-wings running fully inside the hardware autopilot.
 
-이 시뮬레이터는 믹서에서 제공하는 액추에이터 pwm 신호인 "actuator_outputs"를 구독합니다.
+This simulator subscribes to "actuator_outputs" which are the actuator pwm signals given by the control allocation module.
 
 이 시뮬레이터는 루프에 상태 추정기를 통합하기 위하여 실제 노이즈로 손상된 센서 신호를 게시합니다.
 

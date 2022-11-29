@@ -5,8 +5,7 @@
 비교적 작은 하드웨어와 어셈블리 변경이 최적의 비행  튜닝 게인에 영향을 미치므로,  새로운 기체 설정에 튜닝이 권장됩니다. 예를 들어, 새로운 ESC 또는 모터에는 다른 튜닝 게인이 필요합니다.
 :::
 
-:::tip
-일반적으로 적절한 [지원되는 기체 구성](../airframes/airframe_reference.md#copter) ([QGroundControl >기체 ](../config/airframe.md)에서 선택)을 사용하는 경우 기본 튜닝을 통해 기체를 안전하게 비행할 수 있습니다. 모든 새 차량 설정이 _최고의_ 성능을 얻을 수 있도록 조정하는 것이 좋습니다. 상대적으로 작은 하드웨어와 조립품 변경이 최적의 비행을 위해 필요한 조정 이득에 영향을 줄 수 있기 때문입니다. For example, different ESCs or motors change the optimal tuning gains.
+Generally if you're using an appropriate [supported frame configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely. 모든 새 차량 설정이 _최고의_ 성능을 얻을 수 있도록 조정하는 것이 좋습니다. 상대적으로 작은 하드웨어와 조립품 변경이 최적의 비행을 위해 필요한 조정 이득에 영향을 줄 수 있기 때문입니다. For example, different ESCs or motors change the optimal tuning gains.
 
 
 ## 소개
@@ -30,7 +29,7 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 
 ## 전제 조건:
 
-- 기체에 가장 일치하는 [기본 기체 구성](../config/airframe.md)을 선택하였습니다. 이것은 이미 비행한 기체를 제공할 것입니다.
+- You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle. 이것은 이미 비행한 기체를 제공할 것입니다.
 - [ESC 보정](../advanced_config/esc_calibration.md)을 완료하여야 합니다.
 - PWM 출력을 사용하는 경우: [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)이 올바르게 설정되었습니다. 차량을 낮게 설정해야 하지만, 차량이 무장을 했을 때 ** 모터들은 절대 멈추지 않습니다</p>
 

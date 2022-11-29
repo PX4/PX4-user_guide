@@ -69,7 +69,7 @@ mavlink <command> [arguments...]
                  default: 127.0.0.1
      [-m <val>]  Mode: sets default streams and rates
                  values: custom|camera|onboard|osd|magic|config|iridium|minimal|
-                 extvision|extvisionmin|gimbal, default: normal
+                 extvision|extvisionmin|gimbal|uavionix, default: normal
      [-n <val>]  wifi/ethernet interface name
                  values: <interface_name>
      [-c <val>]  Multicast address (multicasting can be enabled via
@@ -84,6 +84,11 @@ mavlink <command> [arguments...]
 
    stop-all      Stop all instances
 
+   stop          Stop a running instance
+     [-u <val>]  Select Mavlink instance via local Network Port
+     [-d <val>]  Select Mavlink instance via Serial Device
+                 values: <file:dev>
+
    status        Print status for all instances
      [streams]   Print all enabled streams
 
@@ -96,44 +101,6 @@ mavlink <command> [arguments...]
 
    boot_complete Enable sending of messages. (Must be) called as last step in
                  startup script.
-```
-## micrortps_client
-소스: [modules/micrortps_bridge/micrortps_client](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/micrortps_bridge/micrortps_client)
-
-<a id="micrortps_client_usage"></a>
-
-### 사용법
-```
-micrortps_client <command> [arguments...]
- Commands:
-   start
-     [-t <val>]  Transport protocol
-                 values: UART|UDP, default: UART
-     [-d <val>]  Select Serial Device
-                 values: <file:dev>, default: /dev/ttyACM0
-     [-b <val>]  Baudrate (can also be p:<param_name>)
-                 default: 460800
-     [-m <val>]  Maximum sending data rate in B/s
-                 default: 0
-     [-p <val>]  Poll timeout for UART in ms
-     [-l <val>]  Limit number of iterations until the program exits
-                 (-1=infinite)
-                 default: 10000
-     [-w <val>]  Time in us for which each read from the link iteration sleeps
-                 default: 1
-     [-r <val>]  Select UDP Network Port for receiving (local)
-                 default: 2019
-     [-s <val>]  Select UDP Network Port for sending (remote)
-                 default: 2020
-     [-i <val>]  Select IP address (remote)
-                 values: <x.x.x.x>, default: 127.0.0.1
-     [-f]        Activate UART link SW flow control
-     [-h]        Activate UART link HW flow control
-     [-v]        Add more verbosity
-
-   stop
-
-   status
 ```
 ## uorb
 소스: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/uorb)

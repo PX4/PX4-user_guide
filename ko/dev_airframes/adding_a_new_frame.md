@@ -307,7 +307,7 @@ For a new frame belonging to an existing group, you don't need to do anything mo
 
 ## Add Frame to QGroundControl
 
-신규 기체를 *QGroundControl* [기체 구성](../config/airframe.md) 섹션에 사용할 수 있도록 하려면:
+To make a new airframe available for section in the *QGroundControl* [frame configuration](../config/airframe.md):
 
 1. 깨끗한 빌드 만들기(예: `make clean`을 실행한 다음 `make px4_fmu-v5_default` 실행)
 1. QGC를 열고 아래와 같이 **맞춤 펌웨어 파일...**을 선택합니다.
