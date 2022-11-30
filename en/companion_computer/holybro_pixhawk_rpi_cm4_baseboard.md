@@ -1,11 +1,11 @@
 # Holybro Pixhawk RPi CM4 Baseboard
 
-The [Holybro Pixhawk RPi CM4 Baseboard](http://www.holybro.com/product/pixhawk-rpi-cm4-baseboard/) is a single-board solution that pre-integrates a (swappable) Pixhawk flight controller with the Raspberry Pi CM4 companion computer.
+The [Holybro Pixhawk RPi CM4 Baseboard](http://www.holybro.com/product/pixhawk-rpi-cm4-baseboard/) is a single-board solution that pre-integrates a (swappable) Pixhawk flight controller with the Raspberry Pi CM4 companion computer ("RPi").
 The baseboard has a compact form factor with all the connections needed for development.
 
 ![RPi CM4 with Pixhawk](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_hero.jpg)
 
-The flight controller module is internally connected to RPi CM4 through `TELEM2`, and can also be connected via Ethernet with the provided external cable.
+The flight controller module is internally connected to RPi CM4 through `TELEM2`, but may alternatively be connected using Ethernet with the provided external cable.
 
 This baseboard is plug-in compatible with both [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.html) and [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.html).
 
@@ -31,24 +31,42 @@ It can therefore be used with other boards that follow these standards, but may 
 
 ## Connections & Ports
 
+:::note
+The [Holybro Documentation](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) has more detailed (and possibly more "up to date") port and connection information.
+:::
+
 The diagram below shows all the connectors and ports on the baseboard.
 
 ![Schematic diagram](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ports.jpg)
 
-### Connection Between RPi CM4 & Flight Controller:
-FC Module is internally connected to RPi CM4 through TELEM2
-- CM4 GPIO14 <-> FMU TXD TELEM2
-- CM4 GPIO15 <-> FMU RXD TELEM2
-- CM4 GPIO16 <-> FMU CTS TELEM2
-- CM4 GPIO17 <-> FMU RTS TELEM2
+### RPi CM4 & FC Serial Connection
 
-Refer to the [Holybro Documentation page](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) for the latest ports & connection information.
+The flight controller `TELEM2` port is internally connected to RPi CM4 as shown: 
+
+RPi CM4 | FC TELEM2 (FMU)
+--- | ---
+GPIO14 | TXD
+GPIO15 | RXD
+GPIO16 | CTS
+GPIO17 | RTS
+
+:::note
+The connection must be also be [configured in both RPi and PX4](#configure-px4-to-cm4-mavlink-serial-connection) (unless an [Ethernet](#ethernet-connection) is used instead).
+:::
+
+## Installing the Flight Controller
+
+A plug-compatible flight controller such as [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.html) and [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.html) can simply be pushed into the module slot.
+
+Flight controllers that have a different form factor will need additional wiring.
 
 ## Installing the RPi CM4 Companion
 
-![Image showing separate baseboard, baseboard cover, RasPi, Flight controller, screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_disassembled.jpg)
+This section shows how to install/attach a Raspberry Pi CM4 to the baseboard.
 
-To install Raspberry Pi CM4 companion compute onto the baseboard.
+![Image showing separate baseboard, baseboard cover, RPi, Flight controller, screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_disassembled.jpg)
+
+To install the Raspberry Pi CM4 companion computer:
 
 1. Disconnect the `FAN` wiring.
 
@@ -72,87 +90,123 @@ The PM03D power module is supplied with the board.
 The RPi CM4 and flight controller must be powered separately:
 - The flight controller is powered via the CLIK-Mate cable to `POWER1` or `POWER2` port
 - The RPi CM4 is powered by the `USB C` (CM4 Slave) connection.
+  You can also use your own power supply to power the RPi CM4 baseboard.
 
 The image below shows the wiring in greater detail.
 
 ![Image showing writing from the PM03D power module to the baseboard](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_wiring_guide.jpg)
 
-# RPi CM4 Flash Guide
+## Flashing the RPi CM4
 
-### Please **Note:**
+This section explains how you install your preferred Linux distro, such as "Raspberry Pi OS 64bit" onto the RPi EMCC.
 
-* If you are using PX4, you will need to use PX4 version 1.13.1 or newer for PX4 to recognize this baseboard.
-* The fan does not indicate if the RPi CM4 is powered/running or not.
-* The power module plugged into Power1/2 does not power the RPi part. You can use the additional USB-C Cable from the PM03D power module to the CM4 Slave USB-C port.
-* The Micro-HDMI port is an output port.
-* Some RPi CM4 might not have Wifi device and therefore won’t connect automatically, unless you plug it into a router or a compatible Wifi dongle into the CM4 Host ports.
 
-### Flash EMMC <a href="#flash-emmc-2" id="flash-emmc-2"></a>
+Notes:
 
-We need to flash a RPi image onto EMMC.
+- If you are using PX4, you will need to use PX4 version 1.13.1 or newer for PX4 to recognize this baseboard.
+- The fan does not indicate if the RPi CM4 is powered/running or not.
+- The power module plugged into Power1/2 does not power the RPi part.
+  You can use the additional USB-C Cable from the PM03D power module to the CM4 Slave USB-C port.
+- The Micro-HDMI port is an output port.
+- RPi CM4 boards that do not have Wifi device will not connect automatically.
+  In this case you will need to plug it into a router or plug a compatible Wifi dongle into the CM4 Host ports.
 
-1. Switch Dip-Switch to RPI.
-2. Connect computer to USB-C _CM4 Slave_ port used power & flash the RPi.
-3. Get usbboot, build it and run it.
+### Flash EMMC
 
-```
-sudo apt install libusb-1.0-0-dev
-git clone --depth=1 https://github.com/raspberrypi/usbboot,
-cd usbboot
-make
-sudo ./rpiboot
-```
+To flash a RPi image onto EMMC.
 
-* You can now install your favorite Linux distro, e.g. Raspberry Pi OS 64bit, using The `rpi-imager`. Make sure to add wifi and ssh settings (hidden behind the gear/advanced symbol).
+1. Switch Dip-Switch to `RPI`.
 
-```
-sudo apt install rpi-imager
-rpi-imager
-```
+   ![](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/cm4_dip_switch.png)
+1. Connect computer to USB-C _CM4 Slave_ port used to power & flash the RPi.
 
-1. Once done, unmount the volumes, and power off the CM4 by unplugging USB-C CM4 Slave.
-2. Switch Dip-Switch back to EMMC.
-3. Power on CM4 by providing power to USB-C CM4 Slave port.
-4. To check if it’s booting/working, either check HDMI output, or connect via ssh (if set up in rpi-imager, and wifi is available).
+   ![](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/cm4_usbc_slave_port.png)
 
-### Connect PX4 to CM4 via serial <a href="#connect-px4-to-cm4-via-serial-3" id="connect-px4-to-cm4-via-serial-3"></a>
+1. Get `usbboot`, build it and run it.
 
-Pixhawk 6X talks to CM4 using Telem2 (`/dev/ttyS4`).
+   ```
+   sudo apt install libusb-1.0-0-dev
+   git clone --depth=1 https://github.com/raspberrypi/usbboot,
+   cd usbboot
+   make
+   sudo ./rpiboot
+   ```
 
-1. To enable this MAVLink instance, set the params:\
-   `- MAV_1_CONFIG: 102`\
-   `- MAV_1_MODE: 2`\
-   `- SER_TEL2_BAUD`: `921600`
-2. reboot the FMU
-3. On the RPi side, you can connect it to Wifi using a router or a Wifi Dongle.
-4. Enable serial port to FMU by using `raspi-config`: Go to `3 Interface Options`, then `I6 Serial Port`.\
-   Choose\
-   `- login shell accessible over serial → No`\
-   `- serial port hardware enabled` → `Yes`\
-   ``Finish, and reboot.\
+1. You can now install your preferred Linux distro using The `rpi-imager`.
+   Make sure you add WiFi and SSH settings (hidden behind the gear/advanced symbol).
+
+   ```
+   sudo apt install rpi-imager
+   rpi-imager
+   ```
+
+1. Once done, unplugging USB-C CM4 Slave (this will unmount the volumes, and power off the CM4).
+1. Switch Dip-Switch back to `EMMC`.
+1. Power on CM4 by providing power to USB-C CM4 Slave port.
+1. To check if it’s booting/working you can either:
+   - Check there is HDMI output
+   - Connect via SSH (if set up in rpi-imager, and WiFi is available).
+
+### Configure PX4 to CM4 MAVLink Serial Connection
+
+:::note
+If you are using [Ethernet](#ethernet-connection) to connect the FC and RPi, this setup is not needed.
+:::
+
+The Pixhawk FC module is [internally connected to the RPi CM4](#rpi-cm4-fc-serial-connection) using `TELEM2` (`/dev/ttyS4`).
+The FC and RPi CM4 must both be configured to communicate over this port.
+
+#### FC Serial Port Setup
+
+The FC should be set up to connect to the `TELEM2` port correctly by default.
+If not, you can configure the port using the parameters as shown.
+
+To enable this MAVLink instance on the FC:
+
+1. Set the parameters:
+
+   - `MAV_1_CONFIG` = `102`
+   - `MAV_1_MODE = 2`
+   - `SER_TEL2_BAUD` = `921600`
+1. Reboot the FC.
+
+
+#### RPi Serial Port Setup
+
+On the RPi side:
+
+1. Connect to the RPi (using WiFi, a router, or a Wifi Dongle).
+1. Enable the RPi serial port by running `RPi-config`
+   - Go to `3 Interface Options`, then `I6 Serial Port`.
+     Then choose:
+     - `login shell accessible over serial → No`
+     - `serial port hardware enabled` → `Yes`
+
+1.  Finish, and reboot.
    (This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`
-5. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
+1. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
 
-### Try out MAVSDK-Python <a href="#try-out-mavsdk-python-4" id="try-out-mavsdk-python-4"></a>
+
+### Try out MAVSDK-Python
 
 1. Make sure the CM4 is connected to the internet, e.g. using a wifi, or ethernet.
-2. Install MAVSDK Python:
+1. Install MAVSDK Python:
 
-```
-python3 -m pip install mavsdk
-```
+   ```
+   python3 -m pip install mavsdk
+   ```
 
 1. Copy an example from the [MAVSDK-Python examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
 2. Change the `system_address="udp://:14540"` to `system_address="serial:///dev/serial0:921600"`
 3. Try out the example. Permission for the serial port should already be available through the `dialout` group.
 
-You can also use your own power supply to power the RPi CM4 baseboard.
-
 
 ## Ethernet Connection
 
-The flight controller module is internally connected to RPi CM4 through TELEM2 (Serial).
-You can also set up a local Ethernet connection between them using the supplied cable. Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
+The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (Serial).
+
+You can also set up a local Ethernet connection between them using the supplied cable.
+Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
 
 :::note
 For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
@@ -243,7 +297,7 @@ eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
 ```
 
 However, it doesn’t have an IP yet.
-Set one that is similar to the one on the RasPi CM4:
+Set one that is similar to the one on the RPi CM4:
 
 ```
 ifconfig eth0 169.254.21.184
