@@ -14,8 +14,6 @@ The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pi
 It can therefore be used with other boards that follow these standards, but may require additional wiring.
 :::
 
-
-
 ## Purchase
 
 - [Holybro Pixhawk RPi CM4 Baseboard](http://www.holybro.com/product/pixhawk-rpi-cm4-baseboard/) (www.holybro.com)
@@ -153,8 +151,8 @@ You can also use your own power supply to power the RPi CM4 baseboard.
 
 ## Ethernet Connection
 
-The flight controller module is internally connected to RPi CM4 through TELEM2.
-You can also set up a local Ethernet connection between them using the supplied cable.
+The flight controller module is internally connected to RPi CM4 through TELEM2 (Serial).
+You can also set up a local Ethernet connection between them using the supplied cable. Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.
 
 :::note
 For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
