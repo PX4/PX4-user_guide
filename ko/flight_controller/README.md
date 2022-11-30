@@ -1,6 +1,8 @@
 # 비행 컨트롤러(자동 조종 장치) 하드웨어
 
-문서화되어 있는 자동조종장치들이 기술되어 있습니다. PX4를 실행할 수 있습니다. 이 목록은 전체 목록이 아니며, 여기에 기술되지 않은 비행 컨트롤러와 기타 변종이 있을 수 있습니다.
+This section lists autopilot hardware that can be used to run the PX4 flight stack).
+
+This list is not exhaustive (it covers controllers documented in this library). There are other compatible flight controllers and variants, including those [documented here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
 
 :::tip
 [완제품 기체](../complete_vehicles/README.md)(PX4를 실행할 수있는 소비자용 드론 및 참조 플랫폼)에서 PX4를 사용할 수 있습니다.
