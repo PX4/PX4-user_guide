@@ -53,10 +53,7 @@ SmartAP Power Distribution Board pinout diagram is shown below.
 
 The two big pads are intended for the main battery connection.
 Up to two independent batteries can be connected using the thick wires (e.g. 8-10 AWG) to be able to handle high current loads and even more using thinner wires.
-Up to 12 ESCs can be connected: there are pads on top, bottom, left and right sides.
-
-
-
+Up to 12 ESCs can be connected using the 6 smaller pads on top, bottom, left and right sides.
 
 ## Voltage and current sensors
 
