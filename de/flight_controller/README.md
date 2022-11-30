@@ -1,6 +1,8 @@
 # Flight Controller (Autopilot) Hardware
 
-This section lists the autopilot hardware documented in this library (that can be used to run the PX4 flight stack). This list is not exhaustive - there are other compatible flight controllers and variants.
+This section lists autopilot hardware that can be used to run the PX4 flight stack).
+
+This list is not exhaustive (it covers controllers documented in this library). There are other compatible flight controllers and variants, including those [documented here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware).
 
 :::tip
 You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).

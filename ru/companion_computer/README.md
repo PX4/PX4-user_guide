@@ -1,6 +1,6 @@
 # Companion Computers
 
-Companion computers ("mission computers"), are separate on-vehicle computers that enable computationally expensive features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
 
 The diagram below shows a possible architecture for an unmanned vehicle architecture that includes a flight controller and companion computer.
 
@@ -13,13 +13,22 @@ The flight controller runs PX4 on NuttX, and provides core flight and safety cod
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
 
-## Supported Hardware
+## Integrated Companion/Flight Controller Boards
+
+Controller boards that come with a pre-integrated companion computer and flight controller can significantly ease both software and hardware setup. In some cases the boards are set up to allow easy replacement of flight controller and/or companion computer parts.
+
+The following boards are known to provide a good integration with PX4:
+
+- [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
+
+
+## Supported Companion Computers
 
 PX4 can be used with computers that can be configured to communicate via MAVLink or microROS/microDDS over over a serial port (or Ethernet port, if present).
 
 A small subset of possible alternatives are listed below:
 
-- Raspberry Pi,
+- Raspberry Pi
 - Odroid
 - Tegra K1
 
@@ -51,7 +60,6 @@ You can also write your own custom MAVLink libraries from scratch:
 You will need a router if you need to bridge MAVLink from the vehicle to a ground station or IP network, or if you need multiple connections:
 - [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
 - [MAVProxy](https://ardupilot.org/mavproxy/)
-
 
 
 ## Ethernet Setup
