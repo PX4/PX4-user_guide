@@ -1,80 +1,111 @@
 # Holybro Pixhawk RPi CM4 Baseboard
 
-# Overview
+The [Holybro Pixhawk RPi CM4 Baseboard](http://www.holybro.com/product/pixhawk-rpi-cm4-baseboard/) is a single-board solution that pre-integrates a (swappable) Pixhawk flight controller with the Raspberry Pi CM4 companion computer.
+The baseboard has a compact form factor with all the connections needed for development.
+
+![RPi CM4 with Pixhawk](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_hero.jpg)
+
+The flight controller module is internally connected to RPi CM4 through `TELEM2`, and can also be connected via Ethernet with the provided external cable.
+
+This baseboard is plug-in compatible with both [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.html) and [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.html).
+
+:::note
+The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) and [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
+It can therefore be used with other boards that follow these standards, but may require additional wiring.
+:::
 
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Basebooard_Main_Photo.jpg" width="580px" title="holybro_pixhawk_rpi_cm4_baseboard" />
 
-The Holybro Pixhawk RPi CM4 Baseboard combine the Pixhawk FC module with the Raspberry Pi CM4 companion computer in on compact form factor with all the connections you need for development. \
-\
-It follows the Pixhawk Connector and Autopilot Bus Standard, allow easy swap of FC Module with any FC that follows the Pixhawk Bus Standard. The FC Module is internally connected to RPi CM4 through TELEM2, and can also be connected via ethernet with a external cable provided.  This baseboard is compatible with both Pixhawk 5X & 6X, and most other flight controller that follow the Pixhawk Autopilot Bus Standard.\
-\
-Recommend minimum specification for RPi CM4:
+## Purchase
 
-* Wireless: Yes
-* RAM: 4GB (or 8GB)
-* eMMC: 16GB
+- [Holybro Pixhawk RPi CM4 Baseboard](http://www.holybro.com/product/pixhawk-rpi-cm4-baseboard/) (www.holybro.com)
 
-# Connections & Ports
+  The baseboard can be purchased with or without an RPi CM4 and/or flight controller:
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Baseboard_Ports.jpg" width="780px" title="holybro_pixhawk_rpi_cm4_baseboard" />
+  - The Raspberry Pi CM4 (CM4008032) supplied by Holybro has the following specification:
+    - RAM: 8GB 
+    - eMMC: 32GB
+    - Wireless: No
+  - The recommended minimum specification for the RPi CM4 is:
+    - RAM: 4GB (or 8GB)
+    - eMMC: 16GB
+    - Wireless: Yes
 
-Please refer to the [Holybro Documentation page](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) for the latest info on the Connections & Ports
+## Connections & Ports
 
-# Installation of RPi CM4
+The diagram below shows all the connectors and ports on the baseboard.
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Disassembled.jpg" width="580px" />
+![Schematic diagram](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ports.jpg)
 
-To install Raspberry Pi CM4 companion compute onto this baseboard.
+Refer to the [Holybro Documentation page](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) for the latest infofmation.
 
-* Disconnect the FAN connector.
+## Installing the RPi CM4 Companion
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Fan.jpg" width="380px" />
+![Image showing separate baseboard, baseboard cover, RasPi, Flight controller, screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_disassembled.jpg)
 
-* Remove these 4 screws on the back side of the baseboard.
+To install Raspberry Pi CM4 companion compute onto the baseboard.
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Backside.jpg" width="380px" />
+1. Disconnect the `FAN` wiring.
 
-* Remove the case of the baseboard, install the CM4 and screw on the 4 screws.
+   ![HB_Pixhawk_CM4_Fan](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_fan.jpg)
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Screws.jpg" width="380px" />
+1. Remove these 4 screws on the back side of the baseboard.
+
+   ![Bottom of the board showing screws in corners holding the cover](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_bottom.jpg)
+
+1. Remove the baseboard case, install the CM4, and use the 4 screws to attach it (as shown):
+
+   ![HB_Pixhawk_CM4_Screws](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_screws.jpg)
+
+1. Reattach the cover.
 
 
-# PM03D - RPi CM4 Base Wiring Guide
+## Power Module Wiring
 
-To ensure stable power supply, the RPi CM4 & Flight controller must be powered separately.&#x20;
+The PM03D power module is supplied with the board.
 
-Flight controller is powered via the CLIK-Mate cable to POWER1 or POWER2 port, and RPi CM4 is powered by the USB C (CM4 Slave) connection.
+The RPi CM4 and flight controller must be powered separately:
+- The flight controller is powered via the CLIK-Mate cable to `POWER1` or `POWER2` port
+- The RPi CM4 is powered by the `USB C` (CM4 Slave) connection.
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_PM03D_CM4_Baseboard.jpg" width="880px" />
+The image below shows the wiring in greater detail.
 
-# Ethernet Connection
+![Image showing writing from the PM03D power module to the baseboard](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_wiring_guide.jpg)
 
-### Link-local networking setup between CM4 and FC
+## Ethernet Connection
 
-#### Local cable
+The flight controller module is internally connected to RPi CM4 through TELEM2.
+You can also set up a local Ethernet connection between them using the supplied cable.
 
-To set up a local ethernet connection between CM4 and the flight computer, the two ethernet ports need to be connected using a 8 pin to 4 pin connector.
+:::note
+For more general information see: [PX4 Ethernet Setup](../advanced_config/ethernet_setup.md).
+:::
+
+### Connect the Cable
+
+To set up a local ethernet connection between CM4 and the flight computer, the two ethernet ports need to be connected using a 8 pin to 4 pin connector (provided).
+
+![HB_Pixhawk_CM4_Ethernet_Cable](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ethernet_cable.png)
 
 The pinout of the cable is:
 
-| CM4 Eth 8 Pin              | FC ETH 4 Pin                              | 
-| ---------------- | ------------------------------------- | 
-| A | B |
-| B | A |
-| C | D |
-| D | C |
-| - | N/A |
-| - | N/A |
-| - | N/A |
-| - | N/A |
+CM4 Eth 8 Pin | FC ETH 4 Pin 
+--- | ---
+A | B
+B | A
+C | D
+D | C
+- | N/A
+- | N/A
+- | N/A
+- | N/A
 
-<img src="../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/HB_Pixhawk_CM4_Ethernet_Cable.png" width="380px" title="holybro_pixhawk_rpi_cm4_baseboard" />
 
-#### IP setup on CM4 
+### IP Setup on CM4 
 
-Since there is no DHCP server active in this configuration, the IPs have to be set manually:\
-First, connect to the CM4 via ssh by connecting to the CM4’s wifi (or use a Wifi dongle).\
+Since there is no DHCP server active in this configuration, the IP addresses have to be set manually:
+
+First, connect to the CM4 via SSH by connecting to the CM4’s WiFi (or use a Wifi dongle).
 Once the ethernet cables are plugged in, the `eth0` network interface seems to switch from DOWN to UP.
 
 You can check the status using:
@@ -104,7 +135,7 @@ ip address show eth0
 
 This means the CM4’s ethernet IP is 169.254.21.183.
 
-#### IP setup on FC 
+#### IP Setup on FC 
 
 Now connect to the NuttX shell (using a console, or the MAVLink shell), and check the status of the link:
 
@@ -134,13 +165,14 @@ eth0    Link encap:Ethernet HWaddr xx:xx:xx:xx:xx:xx at UP
         inet addr:0.0.0.0 DRaddr:192.168.0.254 Mask:255.255.255.0
 ```
 
-However, it doesn’t have an IP yet. I’m going to set one similar to the one of CM4:
+However, it doesn’t have an IP yet.
+Set one that is similar to the one on the RasPi CM4:
 
 ```
 ifconfig eth0 169.254.21.184
 ```
 
-And check it:
+Then check it:
 
 ```
 ifconfig
@@ -153,7 +185,7 @@ Now the devices should be able to ping each other.
 
 Note that this configuration is ephemeral and will be lost after a reboot, so we’ll need to find a way to configure it statically.
 
-#### Ping test 
+#### Ping Test 
 
 First from the CM4:
 
@@ -171,7 +203,7 @@ PING 169.254.21.184 (169.254.21.184) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.112/0.155/0.190/0.034 ms
 ```
 
-And from the FC in NuttShell:
+Then from the flight controller in NuttShell:
 
 ```
 ping 169.254.21.183
@@ -190,9 +222,9 @@ PING 169.254.21.183 56 bytes of data
 10 packets transmitted, 10 received, 0% packet loss, time 10010 ms
 ```
 
-#### MAVLink/MAVSDK test 
+#### MAVLink/MAVSDK Test
 
-For this, we need to set the mavlink instance to send traffic to the CM4’s IP:
+For this, we need to set the MAVLink instance to send traffic to the CM4's IP address:
 
 For an initial test we can do:
 
@@ -213,4 +245,3 @@ wget https://raw.githubusercontent.com/mavlink/MAVSDK-Python/main/examples/tune.
 chmod +x tune.py
 ./tune.py
 ```
-
