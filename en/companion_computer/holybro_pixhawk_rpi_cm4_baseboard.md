@@ -37,7 +37,14 @@ The diagram below shows all the connectors and ports on the baseboard.
 
 ![Schematic diagram](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ports.jpg)
 
-Refer to the [Holybro Documentation page](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) for the latest infofmation.
+### Connection Between RPi CM4 & Flight Controller:
+FC Module is internally connected to RPi CM4 through TELEM2
+- CM4 GPIO14 <-> FMU TXD TELEM2
+- CM4 GPIO15 <-> FMU RXD TELEM2
+- CM4 GPIO16 <-> FMU CTS TELEM2
+- CM4 GPIO17 <-> FMU RTS TELEM2
+
+Refer to the [Holybro Documentation page](https://docs.holybro.com/autopilot/pixhawk-baseboards/pixhawk-rpi-cm4-baseboard/connections-and-ports) for the latest ports & connection information.
 
 ## Installing the RPi CM4 Companion
 
@@ -71,6 +78,78 @@ The RPi CM4 and flight controller must be powered separately:
 The image below shows the wiring in greater detail.
 
 ![Image showing writing from the PM03D power module to the baseboard](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_wiring_guide.jpg)
+
+# RPi CM4 Flash Guide
+
+### Please **Note:**
+
+* If you are using PX4, you will need to use PX4 version 1.13.1 or newer for PX4 to recognize this baseboard.
+* The fan does not indicate if the RPi CM4 is powered/running or not.
+* The power module plugged into Power1/2 does not power the RPi part. You can use the additional USB-C Cable from the PM03D power module to the CM4 Slave USB-C port.
+* The Micro-HDMI port is an output port.
+* Some RPi CM4 might not have Wifi device and therefore won’t connect automatically, unless you plug it into a router or a compatible Wifi dongle into the CM4 Host ports.
+
+### Flash EMMC <a href="#flash-emmc-2" id="flash-emmc-2"></a>
+
+We need to flash a RPi image onto EMMC.
+
+1. Switch Dip-Switch to RPI.
+2. Connect computer to USB-C _CM4 Slave_ port used power & flash the RPi.
+3. Get usbboot, build it and run it.
+
+```
+sudo apt install libusb-1.0-0-dev
+git clone --depth=1 https://github.com/raspberrypi/usbboot,
+cd usbboot
+make
+sudo ./rpiboot
+```
+
+* You can now install your favorite Linux distro, e.g. Raspberry Pi OS 64bit, using The `rpi-imager`. Make sure to add wifi and ssh settings (hidden behind the gear/advanced symbol).
+
+```
+sudo apt install rpi-imager
+rpi-imager
+```
+
+1. Once done, unmount the volumes, and power off the CM4 by unplugging USB-C CM4 Slave.
+2. Switch Dip-Switch back to EMMC.
+3. Power on CM4 by providing power to USB-C CM4 Slave port.
+4. To check if it’s booting/working, either check HDMI output, or connect via ssh (if set up in rpi-imager, and wifi is available).
+
+### Connect PX4 to CM4 via serial <a href="#connect-px4-to-cm4-via-serial-3" id="connect-px4-to-cm4-via-serial-3"></a>
+
+Pixhawk 6X talks to CM4 using Telem2 (`/dev/ttyS4`).
+
+1. To enable this MAVLink instance, set the params:\
+   `- MAV_1_CONFIG: 102`\
+   `- MAV_1_MODE: 2`\
+   `- SER_TEL2_BAUD`: `921600`
+2. reboot the FMU
+3. On the RPi side, you can connect it to Wifi using a router or a Wifi Dongle.
+4. Enable serial port to FMU by using `raspi-config`: Go to `3 Interface Options`, then `I6 Serial Port`.\
+   Choose\
+   `- login shell accessible over serial → No`\
+   `- serial port hardware enabled` → `Yes`\
+   ``Finish, and reboot.\
+   (This will add `enable_uart=1` to `/boot/config.txt`, and remove `console=serial0,115200` from `/boot/cmdline.txt`
+5. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
+
+### Try out MAVSDK-Python <a href="#try-out-mavsdk-python-4" id="try-out-mavsdk-python-4"></a>
+
+1. Make sure the CM4 is connected to the internet, e.g. using a wifi, or ethernet.
+2. Install MAVSDK Python:
+
+```
+python3 -m pip install mavsdk
+```
+
+1. Copy an example from the [MAVSDK-Python examples](https://github.com/mavlink/MAVSDK-Python/tree/main/examples).
+2. Change the `system_address="udp://:14540"` to `system_address="serial:///dev/serial0:921600"`
+3. Try out the example. Permission for the serial port should already be available through the `dialout` group.
+
+You can also use your own power supply to power the RPi CM4 baseboard.
+
 
 ## Ethernet Connection
 
