@@ -262,7 +262,7 @@
       * [HolyBro XBP9X Telemetry Radio](telemetry/holybro_xbp9x_radio.md)
       * [CUAV P8 Telemetry Radio](telemetry/cuav_p8_radio.md)
     * [FrSky Telemetry](peripherals/frsky_telemetry.md)
-    * [Power Modules](power_module/README.md)
+    * [Power Modules/PDB](power_module/README.md)
       * [CUAV HV pm](power_module/cuav_hv_pm.md)
       * [CUAV CAN PMU](dronecan/cuav_can_pmu.md)
       * [Holybro PM02](power_module/holybro_pm02.md)

@@ -1,11 +1,10 @@
 # Sky-Drones SmartAP PDB
 
-[SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html) (Power Distribution Board) is a board which allows transferring the power from the battery to ESCs / Motors and generate power supply for the flight controller and 
-other peripherals with different voltage levels. Also, PDB provides the functionality for battery 
-voltage / current measurements. SmartAP PDB makes high-power lines connections easier and much more reliable.
+[SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html) (Power Distribution Board) is used to simplify the distribution of power from one or more batteries to ESCs (motors), flight controller, and other peripherals.
+It also acts as a [power module](../power_module/README.md), enabling battery voltage and current measurements.
+SmartAP PDB makes connecting high-power lines easier and much more reliable.
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-top-side.jpg)
-
 
 ## Specifications
 
@@ -16,7 +15,7 @@ voltage / current measurements. SmartAP PDB makes high-power lines connections e
 - 12 pairs of pads (6 on top, 6 on bottom) for powering up to 12 motors
 - Integrated voltage and current sensors with L/C filters
 - Precise Hall Effect based current measurements
-- Integrated DC-DC converter from 10-60 V input (up to 14S battery) to 5V / 5A output  to power peripherals
+- Integrated DC-DC converter from 10-60 V input (up to 14S battery) to 5V / 5A output to power peripherals
 - Integrated DC-DC converter from 10-60 V input (up to 14S battery) to 12V / 5A output to power peripherals
 - 5V and 12V power output terminals (standard 2.54mm/0.1" connectors)
 - Integrated electromagnetic sounder (buzzer)
@@ -30,7 +29,11 @@ voltage / current measurements. SmartAP PDB makes high-power lines connections e
 - Height: 14mm
 - Weight: 16g
 
-## Parameters
+## PX4 Configuration
+
+[Battery and Power Module Setup](../config/battery.md) describes how to configure the battery setting for a power module.
+
+The key configuration settings are:
 
 - Voltage scaler: 15.51
 - Current scaler: 36.00
@@ -44,14 +47,21 @@ voltage / current measurements. SmartAP PDB makes high-power lines connections e
 
 ## Wiring / Pinout
 
-SmartAP Power Distribution Board pinout diagram is shown below. Big pads in the rear side are intended for the main battery connection. Up to two independent batteries can be connected using the thick wires (e.g. 8-10 AWG) to be able to handle high current loads and even more using thinner wires. Both top and bottom, left and right sides have pads for ESCs power supply connection. Therefore, up to 12 ESCs can be connected.
+SmartAP Power Distribution Board pinout diagram is shown below.
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-pinout.png)
+
+The two big pads are intended for the main battery connection.
+Up to two independent batteries can be connected using the thick wires (e.g. 8-10 AWG) to be able to handle high current loads and even more using thinner wires.
+Up to 12 ESCs can be connected: there are pads on top, bottom, left and right sides.
+
+
 
 
 ## Voltage and current sensors
 
-SmartAP PDB has integrated voltage and current sensors. Current sensor is located on the bottom side of the PDB.
+SmartAP PDB has integrated voltage and current sensors.
+The current sensor is located on the bottom side of the PDB.
 
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-current-sensor.png)
 
