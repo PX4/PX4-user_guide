@@ -76,11 +76,16 @@ Although the design is well built such that you can do this later as well.
 
 ### Power
 
-- The Pixhawk 6C gets powered by a power module PM02 (in this case).
-- This power module is supplied by a battery (4S 16.8V 5200 mAh)
-- The motors get power through the power distribution board.
+The Pixhawk 6C gets powered by a power module PM02 (in this case).
+This power module is supplied by a battery (4S 16.8V 5200 mAh)
+
+The motors are powered through the power distribution board, as shown in the diagram below.
 
 ![motors_pdb_pixhawk6c](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/motors_pdb_pixhawk6c.png)
+
+Note that the ESC connectors are color-coded and must be inserted in the PWM out such that the white cable faces up.
+
+![esc_connector_pixhawk6c](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk6c/esc_connector.jpg)
 
 
 ### Arms
