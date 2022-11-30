@@ -9,7 +9,8 @@ Tuning only needs to be done once, and is recommended unless unless you're using
 Auto-tuning is performed while flying.
 The airframe must fly well enough handle moderate disturbances, and should be closely attended:
 - Test that your vehicle is [stable enough for autotuning](#pre-tuning-test).
-- Be ready to abort the autotuning process by moving the remote control sticks.
+- Be ready to abort the autotuning process.
+  You can do this by changing flight modes or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch-fixed-wing)).
 - Verify that the vehicle flies well after tuning.
 :::
 
@@ -23,7 +24,7 @@ This test ensures that the vehicle can fly safely in position controlled modes.
 
 :::note
 During [Airframe Setup](../config/airframe.md) you should have selected the frame that most closely matches your vehicle.
-This will usually be tuned well enough to fly, and it _may_ also be sufficiently well tuned to run autotuning.
+This may fly well enough to run autotuning.
 :::
 
 To make sure the vehicle is stable enough for auto-tuning:
@@ -44,14 +45,17 @@ If the drone can stabilize itself within 2 oscillations it is ready for the auto
 If not, go to the [troubleshooting](#troubleshooting) section, which explains the minimal manual tuning to prepare the vehicle for auto-tuning.
 
 
-### Auto-tuning procedure
+### Auto-tuning Procedure
 
 The auto-tuning sequence must be performed in a **safe flight zone, with enough space**.
 It takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)).
 For best results, we recommend running the test in calm weather conditions.
 
+The recommended modes for autotuning are [Hold mode](../flight_modes/hold.md) (fixed wing) and [Altitude mode](../flight_modes/altitude_mc.md) (MC), but any other flight mode can be used.
+During auto tuning, the RC sticks can still be used to fly the vehicle.
+
 :::note
-The sequence can be aborted at any time by the operator by moving the roll/pitch stick on the RC controller.
+The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
 :::
 
 The test steps are:
@@ -62,13 +66,18 @@ The test steps are:
      Hover the vehicle at a safe distance and at a few meters above ground (between 4 and 20m).
    - **Fixed-wing:** Once flying at cruise speed, activate [Hold mode](../flight_modes/hold.md).
       This will guide the plane to fly in circle at constant altitude and speed.
-1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
+1. Enable autotune.
 
-   ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
-1. Select either the *Rate Controller* or *Attitude Controller* tabs.
-   Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
-1. Stop moving the joysticks and click on the **Autotune** button.
-   Read the warning popup and click on **OK** to start tuning.
+   :::tip
+   If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-wing) is configured you can just toggle the switch to the "enabled" position.
+   :::
+   
+   1. In QGroundControl, open the menu: **Vehicle setup > PID Tuning**
+
+      ![Tuning Setup > Autotune Enabled](../../assets/qgc/setup/autotune/autotune.png)
+   1. Select either the *Rate Controller* or *Attitude Controller* tabs.
+   1. Ensure that the **Autotune enabled** button is enabled (this will display the **Autotune** button and remove the manual tuning selectors).
+   1. Read the warning popup and click on **OK** to start tuning.
 1. The drone will first start to perform quick roll motions followed by pitch and yaw motions.
    The progress is shown in the progress bar, next to the _Autotune_ button.
 1. Apply the tuning:
@@ -78,15 +87,16 @@ The test steps are:
      Takeoff carefully and manually test that the vehicle is stable.
 1. If any strong oscillations occur, land immediately and follow the instructions in the [Troubleshooting](#troubleshooting) section below.
 
-<br/>
+
 
 Additional notes:
+
 - **VTOL:** Hybrid VTOL fixed wing vehicles must be tuned twice, following multicopter instructions in MC mode and fixed-wing instructions in FW mode.
 - **Multicopter:** The instructions above tune the vehicle in [Altitude mode](../flight_modes/altitude_mc.md).
   You can instead takeoff in [Takeoff mode](../flight_modes/takeoff.md) and tune in [Position mode](../flight_modes/position_mc.md) if the vehicle is is _known_ to be stable in these modes.
 - **Fixed wing:** Autotuning can also be run in [Altitude mode](../flight_modes/altitude_mc.md) or [Position mode](../flight_modes/position_mc.md).
   However running the test while flying straight requires a larger safe area for tuning, and does not give a significantly better tuning result.
-- Whether tuning is applied in-air or after landing can be [configured using parameters](#parameters).
+- Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
 
 ## Troubleshooting
 
@@ -117,7 +127,9 @@ Attempt manual tuning using the appropriate guides:
 - [Fixed-Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
 
 
-## Parameters
+## Optional Configuration
+
+### Apply Parameters When In-Air/Landed
 
 By default MC vehicles land before parameters are applied, while FW vehicles apply the parameters in-air and then test that the controllers work properly.
 This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) and [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) parameters respectively:
@@ -131,6 +143,21 @@ This behaviour can be configured using the [MC_AT_APPLY](../advanced_config/para
   If the control loop is unstable, the control gains are immediately reverted back to their previous value.
   If the test passes, the pilot can then use the new tuning.
 
+### Enable/Disable Autotune Switch (Fixed Wing)
+
+A remote control switch can be configured to enable/disable autotune (in any mode) using an RC AUX channel.
+
+To map a switch:
+
+1. Select an RC channel on your controller to use for the autotune enable/disable switch.
+1. Set [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to match the RC channel for your switch (you can use any of `RC_MAP_AUX1` to `RC_MAP_AUX6`).
+1. Set [FW_AT_MAN_AUX](../advanced_config/parameter_reference.md#FW_AT_MAN_AUX) to the selected channel (i.e. `1: Aux 1` if you mapped `RC_MAP_AUX1`).
+
+The auto tuner will be disabled when the switch is below `0.5` (on the manual control setpoint range of of `[-1, 1]` and enabled when the switch channel is above `0.5`.
+
+If using an RC AUX switch to enable autotuning, make sure to [select the tuning axes](#select-tuning-axis-fixed-wing) before flight.
+
+### Select Tuning Axis (Fixed Wing)
 
 Fixed wing vehicles (only) can select which axes are tuned using the [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) bitmask parameter:
 
@@ -176,7 +203,7 @@ For fixed wing vehicles the new tuning is applied in-air by default, after which
 For multicopter, the vehicle lands and applies the new tuning parameters after disarming; the pilot is expected to then take off carefully and test the tuning.
 
 The tuning process takes about 40 seconds ([between 19 and 68 seconds](#how-long-does-autotuning-take)).
-The default behaviour can be configured using [parameters](#parameters).
+The default behaviour can be configured using [parameters](#optional-configuration).
 
 
 ### FAQ
