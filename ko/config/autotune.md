@@ -7,7 +7,7 @@
 :::warning
 비행 중에 자동 튜닝이 수행됩니다. 기체는 중간 정도의 교란을 처리할 수 있을 만큼 원할하게 비행가능 하여야 하며, 다음 사항에 주의를 기울여야 합니다.
 - 기체가 [자동 튜닝을 할 만큼 충분히 안정적인지](#pre-tuning-test) 테스트합니다.
-- 리모콘 스틱으로 자동 튜닝을 중단할 수 있어야 합니다.
+- Be ready to abort the autotuning process. You can do this by changing flight modes or using an auto-tune enable/disable switch ([if configured](#enable-disable-autotune-switch-fixed-wing)).
 - 튜닝 후 기체가 원활하게 비행하는 지 확인하십시오.
 :::
 
@@ -19,7 +19,7 @@
 기체 자동 튜닝을 실행을 위하여 비행이 가능하도록 적절선에서 안정화 작업이 선행되어야 합니다. 이 테스트는 기체의 위치 제어 모드에서 안전 비행 여부를 확인합니다.
 
 :::note
-[기체 설정](../config/airframe.md) 중에 귀하의 기체와 가장 근접하게 일치하는 프레임을 미리 선택하합니다. 이것은 일반적으로 비행하기에 충분히 잘 조정되며 자동 조정을 실행하기에 충분히 _튜닝될 수_ 있습니다.
+[기체 설정](../config/airframe.md) 중에 귀하의 기체와 가장 근접하게 일치하는 프레임을 미리 선택하합니다. This may fly well enough to run autotuning.
 :::
 
 기체 자동 튜닝 안정성 확인 방법:
@@ -37,12 +37,14 @@
 그렇지 않으면, 기체의 자동 튜닝에 필요한 최소한의 수동 튜닝을 설명하는 [문제 해결](#troubleshooting) 섹션을 참고하십시오.
 
 
-### 자동 튜닝 절차
+### Auto-tuning Procedure
 
 자동 튜닝은 **공간이 충분한 안전 지역**에서 진행하여야 합니다. 약 40초([19~68초](#how-long-does-autotuning-take)) 가량 걸립니다. 최상의 결과를 위하여, 날씨가 잔잔할 때 테스트를 실행하는 것이 좋습니다.
 
+The recommended modes for autotuning are [Hold mode](../flight_modes/hold.md) (fixed wing) and [Altitude mode](../flight_modes/altitude_mc.md) (MC), but any other flight mode can be used. During auto tuning, the RC sticks can still be used to fly the vehicle.
+
 :::note
-조종자는 RC 컨트롤러의 롤/피치 스틱을 움직여 언제든지 절차를 중단할 수 있습니다.
+The auto-tuning sequence can be aborted at any time by changing flight modes or using the [enable/disable Autotune switch](#enable-disable-autotune-switch-fixed-wing) (if configured).
 :::
 
 테스트 단계는 다음과 같습니다:
@@ -51,24 +53,32 @@
 1. RC를 사용하여 이륙 및 테스트 준비합니다:
    - **멀티콥터:** [고도 모드](../flight_modes/altitude_mc.md)에서 조종기를 사용하여 이륙합니다. 안전한 거리와 지상에서 4~20m에서 기체를 호버링하십시오.
    - **고정익:** 순항 속도로 비행하면 [유지 모드](../flight_modes/hold.md)를 활성화합니다. 이렇게 하면 비행기가 일정한 고도와 속도로 원을 그리며 선회 비행합니다.
-1. QGroundControl에서 메뉴(**차량 설정 > PID 조정**)를 클릭합니다.
+1. Enable autotune.
 
-   ![튜닝 설정 > 자동 튜닝 활성화](../../assets/qgc/setup/autotune/autotune.png)
-1. *Rate Controller* 또는 *Attitude Controller* 탭을 선택합니다. **자동 튜닝 활성화** 버튼이 활성화 여부를 확인합니다(이렇게 하면 **자동 튜닝** 버튼이 표시되고 수동 튜닝 선택기가 제거됨).
-1. 조이스틱의 움직임을 멈추고 **자동 조정** 버튼을 클릭합니다. 경고 팝업을 읽고 **확인**을 클릭하여 튜닝을 시작합니다.
+:::tip
+If an [Enable/Disable Autotune Switch](#enable-disable-autotune-switch-fixed-wing) is configured you can just toggle the switch to the "enabled" position.
+:::
+
+   1. QGroundControl에서 메뉴(**차량 설정 > PID 조정**)를 클릭합니다.
+
+      ![튜닝 설정 > 자동 튜닝 활성화](../../assets/qgc/setup/autotune/autotune.png)
+   1. *Rate Controller* 또는 *Attitude Controller* 탭을 선택합니다.
+   1. **자동 튜닝 활성화** 버튼이 활성화 여부를 확인합니다(이렇게 하면 **자동 튜닝** 버튼이 표시되고 수동 튜닝 선택기가 제거됨).
+   1. 경고 팝업을 읽고 **확인**을 클릭하여 튜닝을 시작합니다.
 1. 드론은 먼저 빠른 롤 동작을 수행한 후 피치 및 요 동작을 수행합니다. 진행률은 _자동 조정_ 버튼 옆의 진행률 표시줄에 표시됩니다.
 1. 튜닝 적용:
    - **고정익:** 조정이 즉시/자동으로 적용되고 비행 중에 테스트를 실시합니다(기본값). 그런 다음, PX4는 4초 테스트를 실행하고 문제가 감지되면 튜닝 작업의 이전 상태로 복원합니다.
    - **멀티콥터:** 새로운 조정 매개변수를 적용을 위하여 수동으로 착륙하고 시동을 해제합니다. 주의하여 이륙하고 차량이 안정성을 수동으로 테스트하십시오.
 1. 강한 진동이 발생하면, 즉시 착륙하고 아래 [문제 해결](#troubleshooting) 섹션의 지침을 따르십시오.
 
-<br/>
+
 
 추가 참고 사항:
+
 - **VTOL:** 하이브리드 VTOL 고정익은 멀티콥터 모드의 멀티콥터 지침과 고정익 모드의 고정익 지침에 따라 두 번 튜닝합니다.
 - **멀티콥터:** 위의 지침은 [고도 모드](../flight_modes/altitude_mc.md)에서 기체를 튜닝합니다. 대신 [이륙 모드](../flight_modes/takeoff.md)에서 이륙하고 기체가 이러한 모드에서 안정적인 것으로 _알려진 경우_ [위치 모드](../flight_modes/position_mc.md)에서 튜닝할 수 있습니다.
 - **고정익:** 자동 튜닝은 [고도 모드](../flight_modes/altitude_mc.md) 또는 [위치 모드](../flight_modes/position_mc.md)에서도 실행할 수 있습니다. 그러나 직선으로 비행하면서 테스트를 실행하면 더 큰 튜닝 안전 영역이 필요하며, 더 좋은 튜닝 결과를 보장하지 않습니다.
-- 튜닝이 공중에서 적용되는 지 또는 착지 후에 적용 여부는 [매개변수에서 설정](#parameters)합니다.
+- Whether tuning is applied in-air or after landing can be [configured using parameters](#apply-parameters-when-in-air-landed).
 
 ## 문제 해결
 
@@ -97,7 +107,9 @@
 - [고정익 PID 튜닝 가이드](../config_fw/pid_tuning_guide_fixedwing.md)
 
 
-## 매개변수
+## Optional Configuration
+
+### Apply Parameters When In-Air/Landed
 
 기본적으로, 멀티콥터는 매개변수 적용전에 착륙하는 반면에, 고정익은 매개변수를 공중에 적용후에 콘트롤러 정상 작동 여부를 테스트합니다. 이 동작은 각각 [MC_AT_APPLY](../advanced_config/parameter_reference.md#MC_AT_APPLY) 및 [FW_AT_APPLY](../advanced_config/parameter_reference.md#FW_AT_APPLY) 매개변수에서 설정합니다.
 
@@ -105,6 +117,21 @@
 * `1`: 무장 해제 후 게인을 적용합니다(멀티콥터의 경우 기본값). 이후, 조종자는 주의하여 이륙하면서 튜닝 결과를 테스트할 수 있습니다.
 * `2`: 즉시 적용됩니다(고정익의 경우 기본값). 새로운 튜닝이 적용되고, 교란이 컨트롤러로 전송된 후, 다음 4초 동안 안정성이 모니터링됩니다. 제어 루프가 불안정한 경우, 제어 게인을 즉시 이전 값으로 복원합니다. 테스트를 통과하면, 조종자는 새로운 튜닝 결과를 사용할 수 있습니다.
 
+### Enable/Disable Autotune Switch (Fixed Wing)
+
+A remote control switch can be configured to enable/disable autotune (in any mode) using an RC AUX channel.
+
+To map a switch:
+
+1. Select an RC channel on your controller to use for the autotune enable/disable switch.
+1. Set [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to match the RC channel for your switch (you can use any of `RC_MAP_AUX1` to `RC_MAP_AUX6`).
+1. Set [FW_AT_MAN_AUX](../advanced_config/parameter_reference.md#FW_AT_MAN_AUX) to the selected channel (i.e. `1: Aux 1` if you mapped `RC_MAP_AUX1`).
+
+The auto tuner will be disabled when the switch is below `0.5` (on the manual control setpoint range of of `[-1, 1]` and enabled when the switch channel is above `0.5`.
+
+If using an RC AUX switch to enable autotuning, make sure to [select the tuning axes](#select-tuning-axis-fixed-wing) before flight.
+
+### Select Tuning Axis (Fixed Wing)
 
 고정익(전용)은 [FW_AT_AXES](../advanced_config/parameter_reference.md#FW_AT_AXES) 비트마스크 매개변수로 조정 축을 선택할 수 있습니다.
 
@@ -137,7 +164,7 @@ Generally if you use a [frame configuration](../config/airframe.md) that is simi
 
 기체는 고도 안정화 모드([고도 모드](../flight_modes/altitude_mc.md), [유지 모드](../flight_modes/hold.md) 또는 [위치 모드](../flight_modes/position_mc.md))에서 비행하여야 합니다. 비행 스택은 각 축에서 차량에 작은 교란을 적용후, 새 튜닝 매개변수 계산을 시도합니다. 고정익은 신규 튜닝은 기본적으로 공중에서 적용하며, 그 후 기체는 새 설정을 테스트하고 컨트롤러가 안정적이지 않으면 튜닝 값들을 이전으로 되돌립니다. 멀티콥터는 착륙 및 무장 해제 후에 새 튜닝 매개변수를 적용합니다. 조종자는 주의를 기울여 이륙 및 튜닝을 테스트하여야 합니다.
 
-튜닝 프로세스는 약 40초([19~68초](#how-long-does-autotuning-take))가 소요됩니다. 기본 동작은 [매개변수](#parameters)를 사용하여 설정할 수 있습니다.
+튜닝 프로세스는 약 40초([19~68초](#how-long-does-autotuning-take))가 소요됩니다. The default behaviour can be configured using [parameters](#optional-configuration).
 
 
 ### 자주 묻는 질문
