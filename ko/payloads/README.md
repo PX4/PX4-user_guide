@@ -2,7 +2,7 @@
 
 PX4는 카메라와 같은 다양한 장치들을 탑재할 수 있습니다.
 
-페이로드는 [비행콘트롤러 출력](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators)에 연결되며 일반적으로 임무 수행시에 자동으로 동작하거나 RC 패스스루 또는 MAVLink/MAVSDK 명령을 사용하여 수동으로 동작할 수 있습니다.
+Payloads are connected to [Fight Controller outputs](../getting_started/px4_basic_concepts.md#outputs-motors-servos-actuators), and can generally be triggered automatically in missions, or manually using RC passthrough, mapping to a joystick, or MAVLink/MAVSDK commands.
 
 :::note
 Payloads (actuators) can be tested in the [pre-arm state](../getting_started/px4_basic_concepts.html#arming-and-disarming), which disables motors but allows actuators to move. 이 방법은 차량이 시동 상태에서 테스트하는 것보다 더 안전합니다.
@@ -25,26 +25,51 @@ The following topics show how to *connect* and configure a camera:
 * [Camera Triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
 * [Camera Capture](../peripherals/camera.md#camera-capture) feedback via hotshoe input.
 
-## 화물 드론("액추에이터" 탑재)
+## Cargo Drones (Package Delivery)
 
-Cargo drones commonly use servos/actuators to trigger cargo release, control winches, and so on. PX4 supports actuator triggering using both RC and MAVLink commands.
+Cargo drones commonly use grippers, winches, and mechanisms to release packages at their destinations.
 
-### RC Payload Control
+PX4 supports [package delivery in missions](#package-delivery-in-missions) using a [gripper](../peripherals/gripper.md) (support for winches and other release mechanism is also intended). PX4 also supports generic actuator triggering using both [RC Control](#generic-actuator-control-with-rc) and [MAVLink commands](#generic-actuator-control-with-mavlink-command).
+
+:::note
+Prefer using a gripper (or other integrated hardware) to generic actuator triggering when possible.
+This makes missions easier to write, more predictable, and more reusable.
+The main reason to use generic actuator triggering is when RC triggering is required, or you need to use release hardware that is not integrated.
+:::
+
+### Package Delivery in Missions
+
+PX4 supports [package delivery in missions](#package-delivery-in-missions) using a [Gripper](../peripherals/gripper.md) (support for winches and other release mechanism is also intended).
+
+This is recommended because with properly configured hardware, it is much easier to create missions that are predictable, reusable, and safe.
+
+Grippers can also be triggering using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command, or manually via a Joystick button.
+
+For setup and usage information see:
+
+- [Gripper](../peripherals/gripper.md)
+- [Flying > Package Delivery Mission Planning](../flying/package_delivery_mission.md)
+
+### Generic Actuator Control with RC
 
 Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels. The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
 
 To map a particular RC channel to an output function `RC AUX n` (and hence it's assigned output) you use the [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) parameter that has the same `n` number.
 
-For example, to control an actuator attached to AUX pin 3 (say) you could assign it the output function `RC AUX 5`. You would then use set the RC channel to control that ouptut using `RC_MAP_AUX5`.
+For example, to control an actuator attached to AUX pin 3 (say) you would assign the output function `RC AUX 5` to the output `AUX3`. You could then use set the RC channel to control the `AUX3` output using `RC_MAP_AUX5`.
 
 
-### MAVLink Payload Control
+### Generic Actuator Control with MAVLink Command
 
-[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used in a command or mission to set the value of up to 6 actuators (at a time).
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used in a mission or as a command to set the value of up to 6 actuators (at a time). This command can be used in missions or as a stand alone command.
 
 The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `Offboard Actuator Set 1` to `Offboard Actuator Set 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
 
+![Generic actuator output setting in QGC](../../assets/peripherals/qgc_generic_actuator_output_setting_example.png)
+
 `MAV_CMD_DO_SET_ACTUATOR` `param1` to `param6` control the outputs mapped by `Offboard Actuator Set 1` to `Offboard Actuator Set 6` respectively.
+
+For example, in the image above, the `AUX5` output is assigned the function `Offboard Actuator Set 1` function. To control the actuator attached to `AUX5` you would set the value of `MAV_CMD_DO_SET_ACTUATOR.param1`.
 
 
 ### MAVSDK (예제 스크립트)
@@ -149,4 +174,4 @@ int main(int argc, char** argv)
 비행 제어 장치에 직접 연결된 카메라 _만_ 카메라 트리거를 지원하며, 대부분 감시 검색 작업에는 적합하지 않을 수 있습니다.
 :::
 
-수색 및 구조용 드론은 실종 등산객을 위한 비상 용품과 같은 화물을 운반할 수 있습니다. 페이로드 배송에 대한 정보는 위의 [화물 드론](#cargo-drones-actuator-payloads)을 참조하십시오.
+수색 및 구조용 드론은 실종 등산객을 위한 비상 용품과 같은 화물을 운반할 수 있습니다. See [Cargo Drones](#cargo-drones-package-delivery) above for information about payload delivery.
