@@ -2,7 +2,7 @@
 
 Grippers are mechanical devices that can be integrated with an unmanned vehicle to grip (hold) and release payloads.
 
-PX4 allows grippers to be triggered automatically in [Payload Delivery Missions](../flying/package_delivery_mission.md) or manually using a Joystick.
+PX4 allows grippers to be triggered automatically in [Payload Delivery Missions](../flying/package_delivery_mission.md) or manually [using a Joystick](#qgc-joystick-configuration).
 
 ![High-load gripper example](../../assets/hardware/grippers/highload_gripper_example.jpg)
 
@@ -59,19 +59,6 @@ For example, the image below assigns `Gripper` to the PWM AUX5 output.
 Additional information about actuator mapping is provided in the gripper-specific documentation.
 For example, see [Gripper Servo > Actuator Mapping](../peripherals/gripper_servo.md#actuator-mapping).
 
-### QGC Joystick Configuration
-
-QGroundControl [Joystick](../config/joystick.md) configuration allows you to map gripper actions to Joystick buttons, after which you will be open and close the gripper manually.
-
-To map joystick buttons in QGroundControl:
-
-1. Open the menu: **QGC Logo (upper-left) > Vehicle Setup > Joystick > Button Assignment** tab.
-
-   ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
-1. Select `Gripper Open` and `Gripper Close` actions for your desired joystick buttons, as shown above.
-
-You can test the actions by clicking on the mapped buttons and checking for gripper movement.
-If the gripper doesn't move as expected check the package delivery configuration and actuator mapping are set up properly.
 
 ### Enable Pre-ARM Mode
 
@@ -122,3 +109,18 @@ The mission-delivery timout provides an additional safeguard, continuing the mis
 To set the timeout:
 
 1. Set [MIS_PD_TO](../advanced_config/parameter_reference.md#MIS_PD_TO) to a value greater than the [gripper actuation timeout](#gripper-actuation-timeout).
+
+
+## QGC Joystick Configuration
+
+QGroundControl [Joystick](../config/joystick.md) configuration allows you to map gripper actions to Joystick buttons, after which you will be open and close the gripper manually.
+
+To map joystick buttons in QGroundControl:
+
+1. Open the menu: **QGC Logo (upper-left) > Vehicle Setup > Joystick > Button Assignment** tab.
+
+   ![Gripper action mapping](../../assets/config/gripper/qgc_gripper_actions_joystick.png)
+1. Select `Gripper Open` and `Gripper Close` actions for your desired joystick buttons, as shown above.
+
+You can test the actions by clicking on the mapped buttons and checking for gripper movement.
+If the gripper doesn't move as expected check the package delivery configuration and actuator mapping are set up properly.

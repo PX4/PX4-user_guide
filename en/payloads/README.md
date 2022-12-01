@@ -28,7 +28,7 @@ The following topics show how to *connect* and configure a camera:
 * [Camera Triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink. 
 * [Camera Capture](../peripherals/camera.md#camera-capture) feedback via hotshoe input.
 
-## Cargo Drones (Package delivery)
+## Cargo Drones (Package Delivery)
 
 Cargo drones commonly use grippers, winches, and mechanisms to release packages at their destinations.
 
