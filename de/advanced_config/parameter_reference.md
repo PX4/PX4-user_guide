@@ -20655,7 +20655,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC10_TRIM">RC10_TRIM</strong> (FLOAT)</td>
- <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 10 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20695,7 +20695,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC11_TRIM">RC11_TRIM</strong> (FLOAT)</td>
- <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 11 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20735,7 +20735,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC12_TRIM">RC12_TRIM</strong> (FLOAT)</td>
- <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 12 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20775,7 +20775,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC13_TRIM">RC13_TRIM</strong> (FLOAT)</td>
- <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 13 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20815,7 +20815,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC14_TRIM">RC14_TRIM</strong> (FLOAT)</td>
- <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 14 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20855,7 +20855,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC15_TRIM">RC15_TRIM</strong> (FLOAT)</td>
- <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 15 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20895,7 +20895,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC16_TRIM">RC16_TRIM</strong> (FLOAT)</td>
- <td>RC channel 16 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 16 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20935,7 +20935,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC17_TRIM">RC17_TRIM</strong> (FLOAT)</td>
- <td>RC channel 17 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 17 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -20975,7 +20975,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC18_TRIM">RC18_TRIM</strong> (FLOAT)</td>
- <td>RC channel 18 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 18 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21015,7 +21015,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC1_TRIM">RC1_TRIM</strong> (FLOAT)</td>
- <td>RC channel 1 trim <p><strong>Comment:</strong> Mid point value (same as min for throttle)</p>   </td>
+ <td>RC channel 1 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500.0</td>
  <td>us</td>
@@ -21055,7 +21055,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC2_TRIM">RC2_TRIM</strong> (FLOAT)</td>
- <td>RC channel 2 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 2 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500.0</td>
  <td>us</td>
@@ -21095,7 +21095,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC3_TRIM">RC3_TRIM</strong> (FLOAT)</td>
- <td>RC channel 3 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 3 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21135,7 +21135,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC4_TRIM">RC4_TRIM</strong> (FLOAT)</td>
- <td>RC channel 4 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 4 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21175,7 +21175,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC5_TRIM">RC5_TRIM</strong> (FLOAT)</td>
- <td>RC channel 5 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 5 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21215,7 +21215,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC6_TRIM">RC6_TRIM</strong> (FLOAT)</td>
- <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 6 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21255,7 +21255,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC7_TRIM">RC7_TRIM</strong> (FLOAT)</td>
- <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 7 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21295,7 +21295,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC8_TRIM">RC8_TRIM</strong> (FLOAT)</td>
- <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 8 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -21335,7 +21335,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RC9_TRIM">RC9_TRIM</strong> (FLOAT)</td>
- <td>RC channel 9 trim <p><strong>Comment:</strong> Mid point value (has to be set to the same as min for throttle channel).</p>   </td>
+ <td>RC channel 9 trim <p><strong>Comment:</strong> Mid point value</p>   </td>
  <td>[800.0, 2200.0] </td>
  <td>1500</td>
  <td>us</td>
@@ -31369,13 +31369,6 @@ table {
   </td>
  <td>[0, 1] </td>
  <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RV_YAW_P">RV_YAW_P</strong> (FLOAT)</td>
- <td>    </td>
- <td></td>
- <td>0.1</td>
  <td></td>
 </tr>
 <tr>
