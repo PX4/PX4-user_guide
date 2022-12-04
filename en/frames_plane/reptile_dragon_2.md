@@ -42,8 +42,10 @@ Key build features
 ## Parts list
 
 - [Reptile Dragon 2 kit](https://usa.banggood.com/REPTILE-DRAGON-2-1200mm-Wingspan-Twin-Motor-Double-Tail-EPP-FPV-RC-Airplane-KIT-or-PNP-p-1805237.html?cur_warehouse=CN&ID=531466)
-- [Pixhawk 5x Carrier board](https://shop.holybro.com/pixhawk-5x_p1279.html)
+
 - [ARK6X FMU](https://arkelectron.com/product/arkv6x/)
+- [ARK6X Carrier](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/)
+- [Alternative FMU carrier: Pixhawk 5x Carrier board](https://shop.holybro.com/pixhawk-5x_p1279.html)
 - [Holybro power module](https://shop.holybro.com/pm02d-power-module_p1285.html)
 - [Holybro M9N GPS module](https://shop.holybro.com/holybro-m9n-gps_p1280.html)
 - MS4525DO differential pressure module and pitot tube
@@ -169,14 +171,46 @@ The FPV pod was mounted on top of the battery hatch using nylon M3 bolts with tw
 
 ## Flight Computer Installation
 
-![Flight computer carrier board](../../assets/airframes/fw/reptile_dragon_2/fcu.jpg)
+:::note
+This build is compatible with both the ARK6X carrier and the Holybro 5X Carrier.
+Instructions are provided for both.
+:::
+
+![ARK Carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/base_plate.jpg)
+The RD2 comes with a wooden electronics mount baseplate preglued in the airframe.
+In this image, two sets of marker ticks are used to indicate where the mounts for each carrier mount should back up to; the single tik for the Holybro 5X carrier mount, and the two ticks for the ARK5X carrier mount.
+
+### ARK6X Carrier Option (Recommended)
+
+![ARK6X Carrier parts](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_parts.jpg)
+![ARK6X Carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_assembled.jpg)
+A custom 3D printed mount was made for the ARK6X Carrier.
+M2.5 nylon hardware was used to secure the ARK6X Carrier to the mount.
+
+![ARK6X Carrier with PWM breakout](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_pwm.jpg)
+The ARK6X Carrier doesn't have normal servo output connectors.
+Instead, it has a single JST GH connector which carries the 8 FMU servo outputs.
+A Holybro PWM breakout board was used to split the single JST GH PWM output connector into 8 individual servo channels.
+
+![ARK6X Carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_mount.jpg)
+The ARK6X Carrier is shown here mounted to the base plate.
+Note the aft end of the carrier aligned against the two tick marks.
+
+![ARK6X Carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_installed.jpg)
+Finally, the ARK6X was installed on top of the mount.
+
+### HolyBro 5X Carrier Option
+
+![Flight computer carrier board](../../assets/airframes/fw/reptile_dragon_2/holybro_5x.jpg)
 The Holybro Pixhawk 5X carrier comes installed in a plastic case.
 While the case does look nice, it is extra weight, so the carrier was removed from the case.
 Once removed from the case, the ARK6X was installed, and a protective cover fitted ontop.
 
-![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/fcu_mount.jpg)
+![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount.jpg)
 A custom mount for the Pixhawk 5X carrier board was designed and 3D printed.
 This mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
+
+![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount_installed.jpg)
 It's important to install this mount in the correct location inside the RD2; as far aft as possible.
 With a large battery and the FPV pod up front, the airplane will tend to be noseheavy.
 Mounting the flight computer far aft will help to keep the airframe center of gravity (CG) in the correct location.
@@ -291,6 +325,16 @@ The Caddx Vista Air Unit supports listening to MSP telemetry and will show the r
 1. In the PX4 board config tool, navigate to the `drivers` submenu, then scroll down to highlight `OSD`.
 2. Use the enter key to open the `OSD` submenu
 3. Scroll down to highlight `msp_osd` and press enter to enable it
+
+### Building & Flashing
+
+Once the `msp_osd` and `crsf_rc` modules are enabled and the `rc_input` module is disabled, the firmware source must be compiled and the resulting image flashed to the FMU.
+
+To compile and flash the firmware, connect the FMU/Carrier to the build host PC via USB and run:
+
+```
+make ark_fmu-v6x_default upload`
+```
 
 ### Parameter Config
 
