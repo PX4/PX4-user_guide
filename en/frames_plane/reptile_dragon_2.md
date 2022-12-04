@@ -44,10 +44,11 @@ Key build features
 - [Reptile Dragon 2 kit](https://usa.banggood.com/REPTILE-DRAGON-2-1200mm-Wingspan-Twin-Motor-Double-Tail-EPP-FPV-RC-Airplane-KIT-or-PNP-p-1805237.html?cur_warehouse=CN&ID=531466)
 
 - [ARK6X FMU](https://arkelectron.com/product/arkv6x/)
-- [ARK6X Carrier](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/)
+- [ARK6X carrier](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/)
 - [Alternative FMU carrier: Pixhawk 5x Carrier board](https://shop.holybro.com/pixhawk-5x_p1279.html)
 - [Holybro power module](https://shop.holybro.com/pm02d-power-module_p1285.html)
 - [Holybro M9N GPS module](https://shop.holybro.com/holybro-m9n-gps_p1280.html)
+- Holybro PWM breakout board
 - MS4525DO differential pressure module and pitot tube
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)
 - [Emax ES08MA ii](https://emaxmodel.com/products/emax-es08ma-ii-12g-mini-metal-gear-analog-servo-for-rc-model-robot-pwm-servo)
@@ -56,11 +57,12 @@ Key build features
 - [5V BEC](https://www.readymaderc.com/products/details/rmrc-3a-power-regulator-5-to-6-volt-ubec)
 - [4s2p 18650 LiIon flight battery](https://www.upgradeenergytech.com/product-page/6s-22-2v-5200mah-30c-dark-lithium-xt60)
 - [Custom designed 3D printed parts](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/rd2_3d_printed_parts.zip)
-  - Pixhawk 5x carrier mount
+  - ARK6X carrier mount
+  - Holybro Pixhawk 5x carrier mount
   - FPV pod and camera mount
   - Pitot static probe "plug" adapter
 - [Custom designed power distribution PCB](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/xt30_power_distro_pcb.zip)
-- Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
+- Misc hardware: M3 hardware (standoffs, washers, O-rings, bolts), M2.5 nylon standoffs and screws, XT30 connectors, hot glue, heatshrink, Molex Microfit connectors
 - Silicone wiring (14awg for high current, 16awg for low current, 22awg for low power and signals)
 
 ## Tools
@@ -180,26 +182,26 @@ Instructions are provided for both.
 The RD2 comes with a wooden electronics mount baseplate preglued in the airframe.
 In this image, two sets of marker ticks are used to indicate where the mounts for each carrier mount should back up to; the single tik for the Holybro 5X carrier mount, and the two ticks for the ARK5X carrier mount.
 
-### ARK6X Carrier Option (Recommended)
+### ARK6X carrier Option (Recommended)
 
-![ARK6X Carrier parts](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_parts.jpg)
-![ARK6X Carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_assembled.jpg)
-A custom 3D printed mount was made for the ARK6X Carrier.
-M2.5 nylon hardware was used to secure the ARK6X Carrier to the mount.
+![ARK6X carrier parts](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_parts.jpg)
+![ARK6X carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_assembled.jpg)
+A custom 3D printed mount was made for the ARK6X carrier.
+M2.5 nylon hardware was used to secure the ARK6X carrier to the mount.
 
-![ARK6X Carrier with PWM breakout](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_pwm.jpg)
-The ARK6X Carrier doesn't have normal servo output connectors.
+![ARK6X carrier with PWM breakout](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_pwm.jpg)
+The ARK6X carrier doesn't have normal servo output connectors.
 Instead, it has a single JST GH connector which carries the 8 FMU servo outputs.
 A Holybro PWM breakout board was used to split the single JST GH PWM output connector into 8 individual servo channels.
 
-![ARK6X Carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_mount.jpg)
-The ARK6X Carrier is shown here mounted to the base plate.
+![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_mount.jpg)
+The ARK6X carrier is shown here mounted to the base plate.
 Note the aft end of the carrier aligned against the two tick marks.
 
-![ARK6X Carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_installed.jpg)
+![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_installed.jpg)
 Finally, the ARK6X was installed on top of the mount.
 
-### HolyBro 5X Carrier Option
+### holybro 5X Carrier Option
 
 ![Flight computer carrier board](../../assets/airframes/fw/reptile_dragon_2/holybro_5x.jpg)
 The Holybro Pixhawk 5X carrier comes installed in a plastic case.
@@ -214,6 +216,10 @@ This mount adapts the RD2's internal mounting plate hole pattern to the mounting
 It's important to install this mount in the correct location inside the RD2; as far aft as possible.
 With a large battery and the FPV pod up front, the airplane will tend to be noseheavy.
 Mounting the flight computer far aft will help to keep the airframe center of gravity (CG) in the correct location.
+
+![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_electronics_0.jpg)
+![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_electronics_1.jpg)
+The images above show the fully completed and connected Holybro 5X carrier installation.
 
 ## Electrical
 
@@ -259,7 +265,7 @@ To make efficient use of the [DSHOT output port restrictions](../peripherals/dsh
 
 ### Airspeed Sensor & Pitot Tube
 
-The airspeed sensor was connected to the I2C port on the Pixhawk 5x carrier board with the supplied JST GH I2C cable.
+The airspeed sensor was connected to the I2C port on the FMU carrier board with the supplied JST GH I2C cable.
 
 ![RD2 pitot plug](../../assets/airframes/fw/reptile_dragon_2/pitot_plug.jpg)
 
@@ -270,12 +276,14 @@ Finally, the pitot static sensor was taped to the sidewall of the airframe (usin
 
 ### ELRS RX
 
-A custom cable was made to connect the ELRS RX to the JST GH `TELEM2` port of the Holybro Pixhawk 5x.
+A custom cable was made to connect the ELRS RX to the JST GH `TELEM2` port of the FMU carrier board.
 
 ![ExpressLRS to telem port cable](../../assets/airframes/fw/reptile_dragon_2/elrs_cable.jpg)
 
 The other end of the cable was terminated to a Dupont connector to connect to the standard spaced headers on the ELRS RX.
 The ELRS RX was connected to the cable, and then heatshrink was used to secure the two together. 
+
+![ExpressLRS RX attached to telem port cable](../../assets/airframes/fw/reptile_dragon_2/elrs_rx_cable.jpg)
 
 ![ExpressLRS RX installed in the RD2 airframe](../../assets/airframes/fw/reptile_dragon_2/elrs_pitotstatic.jpg)
 
