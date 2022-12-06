@@ -7,11 +7,10 @@ The baseboard has a compact form factor with all the connections needed for deve
 
 The flight controller module is internally connected to RPi CM4 through `TELEM2`, but may alternatively be connected using Ethernet with the provided external cable.
 
-This baseboard is plug-in compatible with both [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.html) and [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.html).
+This baseboard is plug-in compatible with [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.html), [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.html), and any other Pixhawk controller that follows the [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) guidelines for mechanical compatibility across vendors.
 
 :::note
-The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) and [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).
-It can therefore be used with other boards that follow these standards, but may require additional wiring.
+The board follows the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) and [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) (including the guidelines for "mechanical compatibility across vendors").
 :::
 
 ## Purchase
@@ -51,7 +50,7 @@ GPIO16 | CTS
 GPIO17 | RTS
 
 :::note
-The connection must be also be [configured in both RPi and PX4](#configure-px4-to-cm4-mavlink-serial-connection) (unless an [Ethernet](#ethernet-connection) is used instead).
+The connection must be also be [configured in both RPi and PX4](#configure-px4-to-cm4-mavlink-serial-connection) (unless [Ethernet](#ethernet-connection-optional) is used instead).
 :::
 
 ## Installing the Flight Controller
@@ -147,23 +146,26 @@ To flash a RPi image onto EMMC.
    - Check there is HDMI output
    - Connect via SSH (if set up in rpi-imager, and WiFi is available).
 
-### Configure PX4 to CM4 MAVLink Serial Connection
+## Configure PX4 to CM4 MAVLink Serial Connection
 
 :::note
-If you are using [Ethernet](#ethernet-connection) to connect the FC and RPi, this setup is not needed.
+If you are using [Ethernet](#ethernet-connection-optional) to connect the FC and RPi, this setup is not needed.
 :::
 
 The Pixhawk FC module is [internally connected to the RPi CM4](#rpi-cm4-fc-serial-connection) using `TELEM2` (`/dev/ttyS4`).
 The FC and RPi CM4 must both be configured to communicate over this port.
 
-#### FC Serial Port Setup
+### FC Serial Port Setup
 
 The FC should be set up to connect to the `TELEM2` port correctly by default.
 If not, you can configure the port using the parameters as shown.
 
 To enable this MAVLink instance on the FC:
 
-1. Set the parameters:
+1. Connect a computer running QGroundControl via USB Type C port on the baseboard labeled `FC`
+
+   ![Image of baseboard showing FC USB-C connector](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_fc_usb_c.jpg)
+1. [Set the parameters](../advanced_config/parameters.md):
 
    - `MAV_1_CONFIG` = `102`
    - `MAV_1_MODE = 2`
@@ -171,7 +173,7 @@ To enable this MAVLink instance on the FC:
 1. Reboot the FC.
 
 
-#### RPi Serial Port Setup
+### RPi Serial Port Setup
 
 On the RPi side:
 
@@ -187,7 +189,7 @@ On the RPi side:
 1. Now MAVLink traffic should be available on `/dev/serial0` at a baudrate of 921600.
 
 
-### Try out MAVSDK-Python
+## Try out MAVSDK-Python
 
 1. Make sure the CM4 is connected to the internet, e.g. using a wifi, or ethernet.
 1. Install MAVSDK Python:
@@ -201,7 +203,7 @@ On the RPi side:
 3. Try out the example. Permission for the serial port should already be available through the `dialout` group.
 
 
-## Ethernet Connection
+## Ethernet Connection (Optional)
 
 The flight controller module is [internally connected to RPi CM4](#rpi-cm4-fc-serial-connection) from `TELEM2` (Serial).
 
@@ -214,7 +216,7 @@ For more general information see: [PX4 Ethernet Setup](../advanced_config/ethern
 
 ### Connect the Cable
 
-To set up a local ethernet connection between CM4 and the flight computer, the two ethernet ports need to be connected using a 8 pin to 4 pin connector (provided).
+To set up a local ethernet connection between CM4 and the flight computer, the two ethernet ports need to be connected using the provided 8 pin to 4 pin connector.
 
 ![HB_Pixhawk_CM4_Ethernet_Cable](../../assets/companion_computer/holybro_pixhawk_rpi_cm4_baseboard/baseboard_ethernet_cable.png)
 
