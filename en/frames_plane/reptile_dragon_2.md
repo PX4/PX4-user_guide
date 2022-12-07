@@ -308,7 +308,8 @@ These require some custom configuration to enable.
 First, follow [this guide to setup a development environment](../dev_setup/dev_env.md ) and [this guide to get the PX4 source code](../dev_setup/building_px4.md).
 
 Once a build environment has been setup, open a terminal and `cd` into the `PX4-Autopilot` directory.
-To launch the [PX4 board config tool](../hardware/porting_guide_config.md#px4-menuconfig-setup) run:
+To launch the [PX4 board config tool (`menuconfig`)](../hardware/porting_guide_config.md#px4-menuconfig-setup) run:
+
 
 ```
 make ark_fmu-v6x_default boardconfig`
@@ -412,9 +413,9 @@ When throwing any airplane, throw at a slightly nose up attitude with full throt
 
 It's critical to be ready to give aft stick input to prevent the airplane from impacting the ground if it happens to be trimmed nosedown.
 Once the airplane is successfully airborne, cruise up to an altitude of a few hundred feet and switch to [Acro mode](../flight_modes/acro_fw.md).
-If the airplane is well behaved in Acro mode, switch to [Position mode](https://docs.px4.io/main/en/flight_modes/position_fw.html).
+This is a good time to use [Autotuning](../config/autotune.md) to tune the airframe.
 
-Optionally, you can use [Autotuning](../config/autotune.md) to tune the airframe.
+If the airplane is well behaved in _Acro mode_, switch to [Position mode](../flight_modes/position_fw.md).
 
 ## Build Results & Performance
 
