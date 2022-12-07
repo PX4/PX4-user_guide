@@ -324,7 +324,7 @@ To launch the [PX4 board config tool (`menuconfig`)](../hardware/porting_guide_c
 
 
 ```
-make ark_fmu-v6x_default boardconfig`
+make ark_fmu-v6x_default boardconfig
 ```
 
 ### `crsf_rc` Module
@@ -354,7 +354,7 @@ Once the `msp_osd` and `crsf_rc` modules are enabled and the `rc_input` module i
 To compile and flash the firmware, connect the FMU/Carrier to the build host PC via USB and run:
 
 ```
-make ark_fmu-v6x_default upload`
+make ark_fmu-v6x_default upload
 ```
 
 ### Parameter Config
