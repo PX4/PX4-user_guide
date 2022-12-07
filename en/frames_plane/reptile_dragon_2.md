@@ -312,16 +312,16 @@ A right angle USB C extension cable was used to allow easy access to the USB C p
 The cable was installed such that it escapes the pixhawk heading towards the aft of the airplane. The cable continues to run to the rear hatch, where the excess length can be securely wound into a knot.
 Access to this cable can be accomplished by simply removing the rear hatch and unknotting the cable.
 
-## Software Setup
+## Firmware Build
 
-For this build, we need to use the PX4 modules [crsf_rc](../modules/modules_driver.md#crsf-rc) and [msp_osd](../modules/modules_driver.md#msp-osd).
+You can't use prebuilt PX4 release (or main) firmware for this vehicle, as it depends on PX4 modules [crsf_rc](../modules/modules_driver.md#crsf-rc) and [msp_osd](../modules/modules_driver.md#msp-osd) that are not included by default.
+
 These require some custom configuration to enable.
 
 First, follow [this guide to setup a development environment](../dev_setup/dev_env.md ) and [this guide to get the PX4 source code](../dev_setup/building_px4.md).
 
 Once a build environment has been setup, open a terminal and `cd` into the `PX4-Autopilot` directory.
 To launch the [PX4 board config tool (`menuconfig`)](../hardware/porting_guide_config.md#px4-menuconfig-setup) run:
-
 
 ```
 make ark_fmu-v6x_default boardconfig
@@ -357,23 +357,34 @@ To compile and flash the firmware, connect the FMU/Carrier to the build host PC 
 make ark_fmu-v6x_default upload
 ```
 
+## PX4 Configuration
+
 ### Parameter Config
 
-- Use the [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG) param to select the serial port which is connected to the Caddx Vista (in this build, `/dev/ttyS7`).
-- Use the [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) param to select the serial port which is connected to the ELRS RX (in this build, `telem 1`).
+This param file contains the custom PX4 parameter configuration for this build, including radio setup, tuning and sensor config.
+Load the file via QGC using the instructions at [Parameters> Tools](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
 
-## Preflight & First Flight
+- [Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
+
+
+You may need to modify some parameters for your build
+In particular you should check:
+
+- [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG) param must match serial port which is connected to the Caddx Vista (in this build, `/dev/ttyS7`).
+- [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG) param must match the serial port which is connected to the ELRS RX (in this build, `Telem 1`).
 
 ### Radio Setup
 
-For a first flight, I recommend to have at least `manual`, `acro`, and `position` flight modes accessible.
-Additionally, I also attach an aux switch to the fixed wing autotune module so that the airframe can be easily autotuned during the first flight.
+You should enable Manual, Acro, and Position modes on your controller (at least for the first flight).
+For instructions see [Flight mode Configuration](../config/flight_mode.md)
 
-The channel mappings for this build are included in the params file linked at the bottom of this page.
-I chose to map the channels in order throttle, roll, pitch, yaw, (blank), and flight mode
+We also recommend configuring an [autotuning switch](../config/autotune.md#enable-disable-autotune-switch-fixed-wing) for the first flight, as this makes it easier to enable/disable autotuning while flying.
+
+The channel mappings for this build are included in the supplied [params file](#parameter-config).
+The channel order is throttle, roll, pitch, yaw, (blank), and flight mode
 
 :::note
-ExpressLRS requires AUX1 as an "arming channel".
+ExpressLRS requires `AUX1` as an "arming channel".
 This arming channel is separate from PX4's arming mechanism and is used to tell the ELRS TX that is can switch into high transmit power.
 
 In the PX4 channel mappings, I simply skip over this channel.
@@ -381,6 +392,9 @@ On my transmitter, this channel is set to always be "high", so ELRS is always ar
 :::
 
 ### Motor Setup & Prop Installation
+
+Motors and flight control surface setup done in the [Actuator](../config/actuators.md) section.
+The supplied [params file](#parameter-config) maps the actuators as described in this build.
 
 The RD2 kit comes with clockwise and counter clockwise propellers for counter rotating motors.
 With counter rotating props, the airplane can be set up such that it has no [critical motors](https://en.wikipedia.org/wiki/Critical_engine).
@@ -393,7 +407,7 @@ With the propellers removed, power the airplane up and use the [Actuator](../con
 If the left or right motor does not spin in the correct direction, swap two of its ESC leads and check it again.
 Finally, when both motors are spinning the correct directions, use a wrench to attach the propellers.
 
-### Final Checks
+## Final Checks
 
 Prior to the first flight, a comprehensive preflight must be conducted.
 
@@ -417,7 +431,8 @@ I recommend checking the following items:
  - Pitch up -> Elevator goes down
  - Pitch down -> Elevator goes up
 
-### First Flight
+
+## First Flight
 
 I recommend performing the first takeoff in manual mode.
 Because this airplane has no landing gear, you will either need to throw the airplane yourself, or ideally have a helper throw it.
@@ -447,10 +462,3 @@ The RD2 flies well in this configuration and has plenty of room onboard for sens
 FPV video of flight log:
 
 @[youtube](https://www.youtube.com/watch?v=VqNWwIPWJb0&ab_channel=ChrisSeto)
-
-### Params
-
-[Snapshot of PX4 airframe params](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/fw/reptile_dragon_2/reptile_dragon_2_params.params)
-
-This param file contains the custom PX4 parameter config for this build, including radio setup, tuning and sensor config.
-The param file can be loaded via QGC using the instructions at [Parameters> Tools ](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html#tools) (QGC User Guide).
