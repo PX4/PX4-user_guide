@@ -182,44 +182,56 @@ Instructions are provided for both.
 The RD2 comes with a wooden electronics mount baseplate preglued in the airframe.
 In this image, two sets of marker ticks are used to indicate where the mounts for each carrier mount should back up to; the single tik for the Holybro 5X carrier mount, and the two ticks for the ARK5X carrier mount.
 
-### ARK6X carrier Option (Recommended)
+### ARK6X Carrier (Recommended)
 
-![ARK6X carrier parts](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_parts.jpg)
-![ARK6X carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_assembled.jpg)
 A custom 3D printed mount was made for the ARK6X carrier.
 M2.5 nylon hardware was used to secure the ARK6X carrier to the mount.
 
-![ARK6X carrier with PWM breakout](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_pwm.jpg)
+![ARK6X carrier parts](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_parts.jpg)
+![ARK6X carrier assembled to mount](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_assembled.jpg)
+
 The ARK6X carrier doesn't have normal servo output connectors.
 Instead, it has a single JST GH connector which carries the 8 FMU servo outputs.
 A Holybro PWM breakout board was used to split the single JST GH PWM output connector into 8 individual servo channels.
 
-![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_mount.jpg)
+![ARK6X carrier with PWM breakout](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_pwm.jpg)
+
 The ARK6X carrier is shown here mounted to the base plate.
 Note the aft end of the carrier aligned against the two tick marks.
 
-![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_installed.jpg)
+![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_mount.jpg)
+
 Finally, the ARK6X was installed on top of the mount.
 
-### holybro 5X Carrier Option
+![ARK6X carrier installed](../../assets/airframes/fw/reptile_dragon_2/ark_carrier_installed.jpg)
 
-![Flight computer carrier board](../../assets/airframes/fw/reptile_dragon_2/holybro_5x.jpg)
-The Holybro Pixhawk 5X carrier comes installed in a plastic case.
+
+### Holybro 5X Carrier (Optional)
+
+An alternative carrier board is the Holybro Pixhawk 5X carrier.
+
+The carrier comes installed in a plastic case.
 While the case does look nice, it is extra weight, so the carrier was removed from the case.
 Once removed from the case, the ARK6X was installed, and a protective cover fitted ontop.
 
-![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount.jpg)
+![Flight computer carrier board](../../assets/airframes/fw/reptile_dragon_2/holybro_5x.jpg)
+
 A custom mount for the Pixhawk 5X carrier board was designed and 3D printed.
 This mount adapts the RD2's internal mounting plate hole pattern to the mounting holes on the Pixhawk 5X carrier board.
 
-![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount_installed.jpg)
+![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount.jpg)
+
 It's important to install this mount in the correct location inside the RD2; as far aft as possible.
 With a large battery and the FPV pod up front, the airplane will tend to be noseheavy.
 Mounting the flight computer far aft will help to keep the airframe center of gravity (CG) in the correct location.
 
+![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_5x_carrier_mount_installed.jpg)
+
+The images above show the fully completed and connected Holybro 5X carrier installation.
+
 ![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_electronics_0.jpg)
 ![Flight computer mount](../../assets/airframes/fw/reptile_dragon_2/holybro_electronics_1.jpg)
-The images above show the fully completed and connected Holybro 5X carrier installation.
+
 
 ## Electrical
 
