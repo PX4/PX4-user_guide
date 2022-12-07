@@ -161,10 +161,11 @@ The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_modu
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
 * *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
-要启用将应用程序编译到固件中，请在*cmake*文件中的某处为您的应用程序创建一个新行：
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
-    examples/px4_simple_app
+examples  --->
+    [x] PX4 Simple app  ----
 ```
 
 :::note

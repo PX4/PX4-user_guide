@@ -162,10 +162,11 @@
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
 * 다른 보드의 *cmake* 파일은 [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에서 찾을 수 있습니다.
 
-애플리케이션을 펌웨어로 컴파일하려면 *cmake* 파일에 애플리케이션에 대한 새로운 행을 만드십시오.
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
-    examples/px4_simple_app
+examples  --->
+    [x] PX4 Simple app  ----
 ```
 
 :::note
