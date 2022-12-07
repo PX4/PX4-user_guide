@@ -14924,7 +14924,7 @@ table {
  <td><strong id="FW_USE_NPFG">FW_USE_NPFG</strong> (INT32)</td>
  <td>Use NPFG as lateral-directional guidance law for fixed-wing vehicles <p><strong>Comment:</strong> Replaces L1.</p>   </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
