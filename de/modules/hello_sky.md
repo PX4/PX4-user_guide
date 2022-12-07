@@ -162,11 +162,11 @@ The application is now complete. In order to run it you first need to make sure 
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
 * *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
-To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run \[boardconfig\](../hardware/porting_guide_config.md#px4_menuconfig setup) `make px4_fmu-v4_default boardconfig`:
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
-    examples  --->
-        [x] PX4 Simple app  ----
+examples  --->
+    [x] PX4 Simple app  ----
 ```
 
 :::note
