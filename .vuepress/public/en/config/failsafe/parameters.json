@@ -9644,7 +9644,7 @@
     },
     {
       "category": "Standard",
-      "default": 0,
+      "default": 1,
       "group": "FW NPFG Control",
       "longDesc": "Replaces L1.",
       "name": "FW_USE_NPFG",
