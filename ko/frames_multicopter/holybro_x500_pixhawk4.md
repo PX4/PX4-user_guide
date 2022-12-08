@@ -192,10 +192,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 ![키트 조립](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 
-
-<a id="configure"></a>
-
-## PX4 설치 및 설정
+## PX4 Configuration
 
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -204,9 +201,10 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 먼저, 펌웨어와 기체 프레임을 업데이트 합니다.
 * [펌웨어](../config/firmware.md)
-* [Airframe](../config/airframe.md) - *Holybro S500* 기체(**Quadrotor x > Holybro S500**)를 선택합니다. ![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
+* [Airframe](../config/airframe.md) - *Holybro S500* 기체(**Quadrotor x > Holybro S500**)를 선택합니다. ![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
 그리고, 설치후에 필수 설정 작업을 실시합니다.
+
 * [센서 방향](../config/flight_controller_orientation.md)
 * [나침반](../config/compass.md)
 * [가속도 센서](../config/accelerometer.md)
@@ -215,14 +213,20 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 * [비행 모드](../config/flight_mode.md)
 
 다음 작업들은 반드시 진행하여야 합니다.
+
 * [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
 * [배터리](../config/battery.md)
 * [안전](../config/safety.md)
 
+You should not need to configure these:
+
+- [Actuators](config/actuators.md)
 
 ## 튜닝
 
-기체를 선택하면, 자율비행에 관련된 기체의 *기본*적인 매개변수들이 설정됩니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다. 자세한 방법은 [Multicopter 기본 PID 조정](../config_mc/pid_tuning_guide_multicopter_basic.md)편을 참고하십시오.
+기체를 선택하면, 자율비행에 관련된 기체의 *기본*적인 매개변수들이 설정됩니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
+
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## 감사의 글
 
