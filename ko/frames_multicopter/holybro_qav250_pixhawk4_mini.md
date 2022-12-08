@@ -170,42 +170,48 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 시스템을 직접 배선해야하는 경우, 아래 다이어그램은 카메라, VTX 및 전원 모듈 간의 연결 방법을 나타냅니다. ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
-<span id="configure"></span>
-## PX4 설치/설정
+## PX4 Configuration
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
 먼저, 펌웨어와 기체프레임을 업데이트 합니다.
-* [펌웨어](../config/firmware.md)
-* [기체](../config/airframe.md)
+- [펌웨어](../config/firmware.md)
+- [기체](../config/airframe.md)
 
 :::note
 *HolyBro QAV250* 기체 (**Quadrotor x > HolyBro QAV250**)를 선택하여야 합니다.
 
-  ![QGroundContro l -HolyBro QAV250 기체 선택](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png) ::: 다음에는 필수작업인 설정작업과 보정 작업을 진행합니다.
-* [센서 방향](../config/flight_controller_orientation.md)
-* [나침반](../config/compass.md)
-* [가속도계](../config/accelerometer.md)
-* [수평 보정](../config/level_horizon_calibration.md)
-* [무선 조종기 설정](../config/radio.md)
-* [비행 모드](../config/flight_mode.md)
+  ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
+:::
+
+Then update vehicle geometry and output mappings:
+
+- [Actuators](../config/actuators.md)
+
+Then perform the mandatory setup/calibration:
+
+- [센서 방향](../config/flight_controller_orientation.md)
+- [나침반](../config/compass.md)
+- [가속도계](../config/accelerometer.md)
+- [수평 보정](../config/level_horizon_calibration.md)
+- [무선 조종기 설정](../config/radio.md)
+- [비행 모드](../config/flight_mode.md)
 
 다음 작업 역시 반드시 진행하여야 합니다.
-* [ESC 보정](../advanced_config/esc_calibration.md)
-* [배터리](../config/battery.md)
-* [안전 설정](../config/safety.md)
+
+- [ESC 보정](../advanced_config/esc_calibration.md)
+- [배터리](../config/battery.md)
+- [안전 설정](../config/safety.md)
 
 
 ## 튜닝
 
-기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행하기에 충분하지만, 특정 프레임 구성에 대한 파라미터를 조정하는 것이 좋습니다.
+기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. These may be good enough to fly with, but you should tune each frame build.
 
-<!-- should state what we want them to use! -->
-
-튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 
 ## 감사의 글
