@@ -8,7 +8,7 @@ Key information
 - **Flight controller:** [CUAV V5+](../flight_controller/cuav_v5_plus.md)
 - **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
 
-![Finished setup 1](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete.jpg)
+![Finished setup 1](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete.png)
 
 ## Bill of materials
 
