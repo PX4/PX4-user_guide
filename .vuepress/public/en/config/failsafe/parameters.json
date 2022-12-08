@@ -16423,6 +16423,16 @@
       "type": "Int32"
     },
     {
+      "category": "System",
+      "default": 1,
+      "group": "Micro XRCE-DDS",
+      "longDesc": "XRCE DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.",
+      "name": "XRCE_DDS_KEY",
+      "rebootRequired": true,
+      "shortDesc": "XRCE DDS key",
+      "type": "Int32"
+    },
+    {
       "category": "Standard",
       "default": 8888,
       "group": "Micro XRCE-DDS",
