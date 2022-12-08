@@ -201,7 +201,7 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
    You should not need to configure these:
 
-   - [Actuators](config/actuators.md)
+   - [Actuators](../config/actuators.md)
 
 ## 튜닝
 
