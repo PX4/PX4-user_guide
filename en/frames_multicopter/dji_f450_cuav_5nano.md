@@ -168,14 +168,13 @@ The final build is shown below:
 ## PX4 Configuration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame.
-[Download and install](http://qgroundcontrol.com/downloads/) 
-*QGroundControl* for your platform.
+[Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
-First update the firmware and airframe:
+First update the firmware, airframe, geometry and outputs:
 
 - [Firmware](../config/firmware.md)
 - [Airframe](../config/airframe.md)
@@ -186,9 +185,11 @@ First update the firmware and airframe:
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_airframe_generic_quadx.png)
   :::
   
-Then update vehicle geometry and output mappings:
-
 - [Actuators](../config/actuators.md)
+  - Update the vehicle geometry to match the frame.
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
+
 
 Then perform the mandatory setup/calibration:
 
