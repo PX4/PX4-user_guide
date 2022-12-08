@@ -179,7 +179,7 @@ First update the firmware and airframe:
 
 Then update vehicle geometry and output mappings:
 
-- [Actuators](config/actuators.md)
+- [Actuators](../config/actuators.md)
 
 
 Then perform the mandatory setup/calibration:
@@ -203,7 +203,7 @@ Ideally you should also do:
 
 ## Tuning
 
-Airframe selection sets *default* autopilot parameters for the frame. These may good enough to fly with, but you should tune each frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 
