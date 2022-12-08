@@ -237,21 +237,19 @@ Better safe than sorry!
 :::
 
 
-First update the firmware and airframe:
+First update the firmware, airframe, and actuator mappings:
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+- [Firmware](../config/firmware.md)
+ [Airframe](../config/airframe.md)
 
   You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
 
   ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/qgc_airframe_generic_250_racer.png)
 
-Then set the geometry and outputs
-
 - [Actuators](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
-  - Assign actuator functions to outputs to match your wiring
-  - Test the configuration using the sliders. 
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
