@@ -279,7 +279,7 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 
 You should not need to configure these:
 
-- [Actuators](config/actuators.md)
+- [Actuators](../config/actuators.md)
 
 ## 튜닝
 
