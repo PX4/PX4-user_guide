@@ -202,7 +202,7 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 
    You should not need to configure these:
 
-   - [Actuators](config/actuators.md)
+   - [Actuators](../config/actuators.md)
 
 ## Tuning
 

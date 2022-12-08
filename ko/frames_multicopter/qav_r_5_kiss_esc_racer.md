@@ -4,7 +4,7 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 
 주요 정보:
 
-- **기체:** Lumenier QAV-R 5"
+- **Frame:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
 - **비행 컨트롤러:** [Pixracer](../flight_controller/pixracer.md)
 
 @[유투브](https://youtu.be/wMYgqvsNEwQ)
@@ -15,6 +15,7 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 ## 부품 목록
 
 ### 기체(비행에 필요)
+
 * Autopilot : ESP8266 WiFi 및 [ACSP5](https://store.mrobotics.io/product-p/auav-acsp5-mr.htm) 전원 모듈을 포함한 [AUAV](https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm)의 [ Pixracer](../flight_controller/pixracer.md)
 * [기체:](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html) Lumenier QAV-R 5"
 * 모터: [Lumenier RX2206 -11 2350KV](http://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
@@ -41,15 +42,15 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 ## 기본 프레임 조립
 
 09:25에서 13:26 사이에이 비디오처럼 기본 센터 플레이트와 암을 조립했습니다.
-<p align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/7SIpJccXZjM?start=565&end=806" frameborder="0" allowfullscreen></iframe>
-</p>
+
+@[youtube](https://youtu.be/7SIpJccXZjM)
 
 네 개의 모터를 프레임 중앙을 향해 나오는 케이블과 함께 프레임에 장착했습니다. 각 모터에 프레임과 함께 제공되는 두 개의 긴 모터 나사를 사용하여 멀리 떨어져있는 두 개의 구멍에 삽입하였습니다.
 
 ## 동력 전달 장치 조립
 
 KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
+
 - BLHeli와 달리 사용하는 소프트웨어는 오픈 소스가 아닙니다
 - 미리 납땜된 전선 또는 플러그가 있는 하드웨어가 없습니다.
 
@@ -71,11 +72,13 @@ KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
 :::
 
 ### 모터
+
 먼저 ESC가 중앙으로 이동 한 암에 장착 될 때 세 개의 모터 케이블을 모두 직접 절단했지만 ,부품을 쉽게 배치하고 케이블에 장력을 발생시키지 않도록 충분한 여유를 둡니다. 그런 다음 모터에서 나오는 순서대로 스위칭 MOS-FET가 위로 향한 ESC의 출력 접점에 납땜하여 비행 중에 공냉 기능이 좋아집니다. 이 케이블 순서를 선택하면 테스트에서 모든 모터가 시계 반대 방향으로 회전했습니다. 필요한 경우 [Quadrotor x 구성](../airframes/airframe_reference.md#quadrotor-x)을 따르도록 전용 [JP1 솔더 점퍼](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg)를 브리징하여 회전 방향을 전환합니다.
 
 ![모터 전원 연결](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
 
 ### 전원 모듈
+
 먼저 프레임과 함께 제공되는 XT60 커넥터를 Pixracer와 함께 배송 된 *ACSP5 전원 모듈*의 레이블이있는 배터리쪽에 납땜하였습니다. 전원 모듈과 함께 제공되는 elco 커패시터를 동일한쪽에 올바른 극성으로 추가하였습니다.
 
 ![ACSP5 전원 모듈](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
@@ -149,6 +152,7 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 사용한 GPS의 커넥터에 맞는 GPS 케이블을 가져와 Pixracer 세트와 함께 조립하였습니다. 안타깝게도 핀 할당이 완전히 잘못되어 [3DR Pixhawk Mini 사용자 설명서](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) GPS 포트에 따라 핀셋을 사용하여 커넥터를 다시 배선하였습니다.
 
 #### Pixracer GPS/I2C 포트
+
 | 핀 | 할당  |
 | - | --- |
 | 1 | GND |
@@ -159,6 +163,7 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 | 6 | +5V |
 
 #### M8N 3DR Pixhawk mini GPS 커넥터
+
 | 핀      | 할당     | Pixracer 연결 핀 |
 | ------ | ------ | ------------- |
 | 1(red) | SCL    | 3             |
@@ -186,29 +191,60 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 
 ![카메라](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## 소프트웨어 설정
+## PX4 Configuration
+
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 :::warning
 초기 설정시에는 배터리와 프로펠러를 기체에서 반드시 제거하십시오.
 사고의 위험성이 있는 것은 초기에 확실하게 제거하는 것이 좋습니다.
 :::
 
-일반적인 설정 방법은 [기본 설정](../config/README.md)을 참조하십시오.
 
-이 조립 방법에서는 "FMU as task"개선 (PX4 v1.7 이후 기본적으로 포함 및 활성화 됨)을 지원하기 때문에 최신 PX4 마스터를 가져와 Pixracer에 플래시하였습니다. [QGC](http://qgroundcontrol.com/) 일일 빌드를 사용하여 다음을 설정하였습니다.
-- [Generic 250 Racer 구성](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) 기체 선택
-- 센서 보정
-- 충전된 셀 전압 4.15V 및 빈 셀 전압 3.5V로 배터리를 4S(4 셀 LiPo)로 설정합니다.
-- Calibrate the voltage divider through typing in the current accurate voltmeter measurement
-- 2 개의 추가 스위치 입력에 대해 이미 설정된 Taranis를 사용하여 RC 채널을 보정합니다. 모드 스위치용 Taranis 전면 플레이트의 오른쪽 상단 모서리에있는 하나의 스위치와 암 스위치로 사용되는 전면 플레이트의 왼쪽 상단 모서리에있는 다른 스위치.
-- 시동 스위치를 설정할 수 있습니다.
+First update the firmware and airframe:
+
+* [Firmware](../config/firmware.md)
+* [Airframe](../config/airframe.md)
+
+  You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
+
+  ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/qgc_airframe_generic_250_racer.png)
+
+Then set the geometry and outputs
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring
+  - Test the configuration using the sliders.
+
+Then perform the mandatory setup/calibration:
+
+* [Sensor Orientation](../config/flight_controller_orientation.md)
+* [Compass](../config/compass.md)
+* [Accelerometer](../config/accelerometer.md)
+* [Level Horizon Calibration](../config/level_horizon_calibration.md)
+* [Radio Setup](../config/radio.md)
+* [Flight Modes](../config/flight_mode.md)
+
+Ideally you should also do:
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery](../config/battery.md)
+  - 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V (or appropriate values for your battery).
+- [Safety](../config/safety.md)
 
 
 ### 튜닝
 
-다음은 모든 기본 지침이 포함된 일반 [튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)입니다.
+Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
-### 조립 예제
+For instructions on how, start from [Autotune](../config/autotune.md).
+
+## 조립 예제
 
 [FPV 아크로 비행 로그(최대 값 : 108km/h 속도, 85A 총 전류 소모량)](https://logs.px4.io/plot_app?log=9c311942-bc7c-4b0c-8be8-eeb64fa8192c)
 

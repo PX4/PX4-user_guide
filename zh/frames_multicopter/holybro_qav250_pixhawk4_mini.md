@@ -170,8 +170,7 @@ The steps to install the kit are:
 If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
-<span id="configure"></span>
-## Install/Configure PX4
+## PX4 Configuration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -180,33 +179,40 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 :::
 
 First update the firmware and airframe:
-* [固件](../config/firmware.md)
-* [机架](../config/airframe.md)
+- [固件](../config/firmware.md)
+- [机架](../config/airframe.md)
 
 :::note
 You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
 
-  ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png) ::: Then perform the mandatory setup/calibration:
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+  ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
+:::
+
+Then update vehicle geometry and output mappings:
+
+- [Actuators](../config/actuators.md)
+
+Then perform the mandatory setup/calibration:
+
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Compass](../config/compass.md)
+- [Accelerometer](../config/accelerometer.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md)
+- [Radio Setup](../config/radio.md)
+- [Flight Modes](../config/flight_mode.md)
 
 Ideally you should also do:
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery](../config/battery.md)
+- [Safety](../config/safety.md)
 
 
 ## 调试
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
-<!-- should state what we want them to use! -->
-
-For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 
 ## Acknowledgements
