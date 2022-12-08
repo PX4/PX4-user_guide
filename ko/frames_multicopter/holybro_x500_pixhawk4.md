@@ -197,7 +197,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고, X500 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드 후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고, X500 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 먼저, 펌웨어와 기체 프레임을 업데이트 합니다.
 * [펌웨어](../config/firmware.md)
@@ -220,7 +220,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 You should not need to configure these:
 
-- [Actuators](config/actuators.md)
+- [Actuators](../config/actuators.md)
 
 ## 튜닝
 
