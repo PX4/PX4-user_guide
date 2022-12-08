@@ -70,6 +70,7 @@
 
   * [고정익](frames_plane/README.md)
     * [Wing Wing Z84 \(픽스레이서\)](frames_plane/wing_wing_z84.md)
+    * [Reptile Dragon 2](frames_plane/reptile_dragon_2.md)
     * [Turbo Timber Evolution](frames_plane/turbo_timber_evolution.md)
   * [수직이착륙기(VTOL)](frames_vtol/README.md)
     * [표준 VTOL](frames_vtol/standardvtol.md)

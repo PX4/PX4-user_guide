@@ -70,6 +70,7 @@
 
   * [固定翼](frames_plane/README.md)
     * [Wing Wing Z84 \(Pixracer\)](frames_plane/wing_wing_z84.md)
+    * [Reptile Dragon 2](frames_plane/reptile_dragon_2.md)
     * [Turbo Timber Evolution](frames_plane/turbo_timber_evolution.md)
   * [垂直起降](frames_vtol/README.md)
     * [标准垂起固定翼](frames_vtol/standardvtol.md)
