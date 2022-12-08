@@ -214,7 +214,7 @@ Ideally you should also do:
 ## Tuning
 
 Airframe selection sets *default* autopilot parameters for the frame.
-These may good enough to fly with, but you should tune each frame build.
+These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 
