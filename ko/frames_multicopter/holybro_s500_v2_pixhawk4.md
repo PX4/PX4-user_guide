@@ -244,10 +244,9 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 ![완전 조립](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
 
-<span id="configure"></span>
-## -- PX4 설치 및 설정
+## PX4 Configuration
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드 후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
+*QGroundControl*을 이용하여 PX4 자율비행 프로그램을 설치하고, QAV250 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드하여 설치](http://qgroundcontrol.com/downloads/) 합니다.
 
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -258,12 +257,12 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 * [기체](../config/airframe.md)
 
 :::note
-*Holybro S500* 기체 (**Quadrotor x > Holybro S500**)를 선택하여야 합니다.
+*Holybro S500* 기체 (**Quadrotor x > Holybro S500**)를 선택합니다.
 :::
 
-![QGroundContro l - HolyBro X500 기체 선택](../../assets/airframes/multicopter/s500_holybro_pixhawk4/S500_airframe.jpg)
+![QGroundContro l - HolyBro X500 기체 선택](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
-다음에는 필수작업인 설정작업과 보정 작업을 진행합니다.
+다음에는 필수 작업인 설정작업과 보정 작업을 진행합니다.
 
 * [센서 방향](../config/flight_controller_orientation.md)
 * [나침반](../config/compass.md)
@@ -278,12 +277,16 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 * [배터리](../config/battery.md)
 * [안전 설정](../config/safety.md)
 
+You should not need to configure these:
+
+- [Actuators](config/actuators.md)
+
 ## 튜닝
 
-기체 선택은 프레임의 자유비행 관련 *기본*적인 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
+기체 선택은 프레임의 자유비행에 관련된 *기본*적인 매개 변수들을 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
-튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## 감사의 글
 
-이 조립 방법은 Dronecode Test Flight Team에서 제공했습니다.
+이 조립 방법은 Dronecode Test Flight 팀에서 제공하였습니다.
