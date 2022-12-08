@@ -249,8 +249,8 @@ First update the firmware and airframe:
 Then set the geometry and outputs
 
 - [Actuators](../config/actuators.md)
-  - Update the vehicle geometry to match the QAV-R 5" KISS ESC Racer
-  - Assign actuators functions to outputs as wired.
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring
   - Test the configuration using the sliders. 
 
 Then perform the mandatory setup/calibration:
