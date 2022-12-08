@@ -180,7 +180,7 @@ You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Gener
 
 Then update vehicle geometry and output mappings:
 
-- [Actuators](config/actuators.md)
+- [Actuators](../config/actuators.md)
 
 Then perform the mandatory setup/calibration:
 
@@ -204,7 +204,7 @@ Ideally you should also do:
 
 ## 调试
 
-Airframe selection sets *default* autopilot parameters for the frame. These may good enough to fly with, but you should tune each frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 
