@@ -19078,6 +19078,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="XRCE_DDS_KEY">XRCE_DDS_KEY</strong> (INT32)</td>
+ <td>XRCE DDS key <p><strong>Comment:</strong> XRCE DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="XRCE_DDS_UDP_PRT">XRCE_DDS_UDP_PRT</strong> (INT32)</td>
  <td>Micro DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for micro DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
 </td>
