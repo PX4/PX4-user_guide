@@ -69,9 +69,9 @@
     * [Omnicopter](frames_multicopter/omnicopter.md)
 
   * [Planes](frames_plane/README.md)
-    * [Wing Wing Z84 \(Pixracer\)](frames_plane/wing_wing_z84.md)
-    * [Reptile Dragon 2](frames_plane/reptile_dragon_2.md)
-    * [Turbo Timber Evolution](frames_plane/turbo_timber_evolution.md)
+    * [Reptile Dragon 2 (ARK6X)](frames_plane/reptile_dragon_2.md)
+    * [Turbo Timber Evolution (Pixhawk 4 Mini)](frames_plane/turbo_timber_evolution.md)
+    * [Wing Wing Z84 (Pixracer)](frames_plane/wing_wing_z84.md)
   * [VTOL](frames_vtol/README.md)
     * [Standard VTOL](frames_vtol/standardvtol.md)
       * [FunCub QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
