@@ -170,18 +170,18 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 ![키트 조립](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
 
-<a id="configure"></a>
-
-## PX4 설치 및 설정
+## PX4 Configuration
 
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
 *QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 X500 프레임 설정과 보정 작업을 진행합니다.
+
 1. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 1. Update the firmware and airframe:
+
    - [펌웨어](../config/firmware.md)
-   - [Airframe](../config/airframe.md) - *Holybro S500* 기체(**Quadrotor x > Holybro S500**)를 선택합니다.
+   - [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
 
      ![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
@@ -199,11 +199,15 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
    - [배터리](../config/battery.md)
    - [안전](../config/safety.md)
 
+   You should not need to configure these:
+
+   - [Actuators](config/actuators.md)
+
 ## 튜닝
 
 기체 선택은 프레임의 *기본* 자동조종장치의 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
-For instructions on how, start from [Auto-tune](../config/autotune.md).
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## 감사의 글
 

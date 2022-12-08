@@ -244,8 +244,7 @@ Fully assembled, the kit looks as shown below:
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
 
-<span id="configure"></span>
-## Install/Configure PX4
+## PX4 Configuration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -262,7 +261,7 @@ First update the firmware and airframe:
 You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 :::
 
-![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/S500_airframe.jpg)
+![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
 Then perform the mandatory setup/calibration:
 
@@ -279,11 +278,15 @@ Ideally you should also do:
 * [电池](../config/battery.md)
 * [安全](../config/safety.md)
 
+You should not need to configure these:
+
+- [Actuators](config/actuators.md)
+
 ## 调试
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
-For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## Acknowledgements
 

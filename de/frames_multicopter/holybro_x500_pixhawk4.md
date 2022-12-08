@@ -192,10 +192,7 @@ That's it. The fully assembled kit is shown below:
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 
-
-<a id="configure"></a>
-
-## Install/Configure PX4
+## PX4 Configuration
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
@@ -205,9 +202,10 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md) - You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**) ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
+* [Airframe](../config/airframe.md) - You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**) ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
 
 Then perform the mandatory setup/calibration:
+
 * [Sensor Orientation](../config/flight_controller_orientation.md)
 * [Compass](../config/compass.md)
 * [Accelerometer](../config/accelerometer.md)
@@ -216,14 +214,20 @@ Then perform the mandatory setup/calibration:
 * [Flight Modes](../config/flight_mode.md)
 
 Ideally you should also do:
+
 * [ESC Calibration](../advanced_config/esc_calibration.md)
 * [Battery](../config/battery.md)
 * [Safety](../config/safety.md)
 
+You should not need to configure these:
+
+- [Actuators](config/actuators.md)
 
 ## Tuning
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build. For instructions on how, see: [Multicopter Basic PID Tuning](../config_mc/pid_tuning_guide_multicopter_basic.md).
+Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## Acknowledgements
 

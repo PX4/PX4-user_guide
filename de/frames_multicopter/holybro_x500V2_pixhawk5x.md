@@ -170,19 +170,19 @@ That's it. The fully assembled kit is shown below (Depth camera not included in 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
 
-<a id="configure"></a>
-
-## Install/Configure PX4
+## PX4 Configuration
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame.
+
 1. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 1. Update the firmware and airframe:
+
    - [Firmware](../config/firmware.md)
-   - [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro X500 V2**)
+   - [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
 
      ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
@@ -200,11 +200,15 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
    - [Battery](../config/battery.md)
    - [Safety](../config/safety.md)
 
+   You should not need to configure these:
+
+   - [Actuators](config/actuators.md)
+
 ## Tuning
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
-For instructions on how, start from [Auto-tune](../config/autotune.md).
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## Acknowledgements
 
