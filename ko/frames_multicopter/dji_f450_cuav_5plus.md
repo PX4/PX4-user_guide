@@ -178,7 +178,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 케이블 타이와, 양�
 
 Then update vehicle geometry and output mappings:
 
-- [Actuators](config/actuators.md)
+- [Actuators](../config/actuators.md)
 
 
 그리고, 설치후 필수 설정 작업을 실시합니다.
@@ -202,7 +202,7 @@ Then update vehicle geometry and output mappings:
 
 ## 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These may good enough to fly with, but you should tune each frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These may be good enough to fly with, but you should tune each frame build.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 
