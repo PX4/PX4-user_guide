@@ -211,7 +211,7 @@ First update the firmware and airframe:
   
 Then update vehicle geometry and output mappings:
 
-- [Actuators](config/actuators.md)
+- [Actuators](../config/actuators.md)
 
 Then perform the mandatory setup/calibration:
 

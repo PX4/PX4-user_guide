@@ -297,7 +297,7 @@ Ideally you should also do:
 
 You should not need to configure these:
 
-- [Actuators](config/actuators.md)
+- [Actuators](../config/actuators.md)
 
 ## Tuning
 
