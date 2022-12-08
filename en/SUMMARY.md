@@ -62,7 +62,6 @@
     * [DJI F450 + RTK \(Pixhawk 3 Pro\)](frames_multicopter/dji_flamewheel_450.md)
     * [QAV250 \(Pixhawk Mini\)](frames_multicopter/lumenier_qav250_pixhawk_mini.md)
     * [Robocat 270 \(Pixracer\)](frames_multicopter/robocat_270_pixracer.md)
-    * [Matrice 100 (Pixhawk 1)](frames_multicopter/matrice100.md)
     * [QAV-R 5" Racer (Pixracer)](frames_multicopter/qav_r_5_kiss_esc_racer.md)
     * [Omnicopter](frames_multicopter/omnicopter.md)
 
