@@ -215,8 +215,7 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 :::
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame.
-[Download and install](http://qgroundcontrol.com/downloads/)
-*QGroundControl* for your platform.
+[Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
