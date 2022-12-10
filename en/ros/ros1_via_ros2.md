@@ -51,6 +51,12 @@ To create and build the workspace:
    $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros1/src/px4_ros_com -b ros1 # clones the 'ros1' branch
    $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros1/src/px4_msgs -b ros1
    ```
+1. Update the message definitions of the `ros1` branch
+   <!-- px4_msgs/ros1 is not synchronized with release/1.13 -->
+   ```sh
+   $ rm -f ~/px4_ros_com_ros1/src/px4_msgs/msg/*.msg
+   $ cp ~/px4_ros_com_ros2/src/px4_msgs/msg/*.msg ~/px4_ros_com_ros1/src/px4_msgs/msg/
+   ```
 1. Use the `build_ros1_bridge.bash` script to build the ROS workspace (including `px4_ros_com`, `px4_msgs`, and `ros1_bridge`).
    <!-- we didn't clone `ros1_bridge` ? -->
    ```sh
@@ -72,6 +78,16 @@ As discussed in [ROS 2 User Guide > Sanity Check the Installation](../ros/ros2_c
 To use ROS (1) **and** ROS 2 (you need both for this!):
 
 1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
+
+:::warning Note
+The above instructions must be adjusted to get version v1.13 of PX4 source.
+```sh
+git clone -b <tag> https://github.com/PX4/PX4-Autopilot.git --recursive
+```
+where `<tag>` can be `release/1.13` or any of the `v.13.*` tags depending on the user specific scenarios.
+Otherwise, please refer to the [latest](https://docs.px4.io/main/en/contribute/) documentation.
+:::
+
 1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 Gazebo simulation using:
    ```sh
    make px4_sitl_rtps gazebo
