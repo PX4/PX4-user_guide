@@ -79,7 +79,7 @@ To use ROS (1) **and** ROS 2 (you need both for this!):
 
 1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
 
-   :::warning Note
+   :::note
    The above instructions must be adjusted to get version v1.13 of PX4 source.
    
    ```sh
