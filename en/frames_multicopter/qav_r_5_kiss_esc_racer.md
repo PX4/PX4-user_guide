@@ -247,7 +247,7 @@ First update the firmware, airframe, and actuator mappings:
   ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/qgc_airframe_generic_250_racer.png)
 
 - [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - You should not need to update the vehicle geometry.
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
 
