@@ -1,6 +1,6 @@
 # Multi-Vehicle Simulation with Ignition Gazebo
 
-This topic explains how to simulate multiple UAV vehicles using [Ignition Gazebo](../simulation/multi_vehicle_simulation_ignition_gazebo.md) and SITL.
+This topic explains how to simulate multiple UAV vehicles using [Ignition Gazebo](../simulation/ignition_gazebo.md) and SITL.
 
 :::note
 Multi-Vehicle Simulation with Ignition Gazebo is only supported on Linux.
@@ -14,7 +14,7 @@ First build PX4 SITL code using:
 make px4_sitl
 ```
 
-Each instance of PX4 can then be run in its own terminal, specifying a unique instance number and its desired combination of [environment variables](../simulation/ignition_gazebo.md#usage-configuration-options):
+Each instance of PX4 can then be launched in its own terminal, specifying a unique instance number and its desired combination of [environment variables](../simulation/ignition_gazebo.md#usage-configuration-options):
 
 ```sh
 ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]

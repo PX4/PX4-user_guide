@@ -78,36 +78,38 @@ where `ARGS` is a list of environment variables including:
 
 - `PX4_SYS_AUTOSTART` (_mandatory_):
   Sets the [airframe autostart id](../dev_airframes/adding_a_new_frame.md) of the PX4 airframe to start.
-  Only `4001` (x500 quadcopter) is currently supported.
-
-- `PX4_SIMULATOR=GZ` (_optional_ as long as the selected airframe [defines the default variables](#adding-new-worlds-and-models)):
-  Sets the simulator, which for Ignition Gazebo must be `gz`.
-
-- `PX4_GZ_WORLD` (_optional_ as long as the selected airframe [defines the default variables](#adding-new-worlds-and-models)):
-  Sets the Ignition world file for a new simulation.
-  If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
-  This variable is ignored if an existing simulation is already running.
+  - Only `4001` (x500 quadcopter) is currently supported.
 
 - `PX4_GZ_MODEL_NAME`:
   Sets the name of an **existing** model in the gazebo simulation.
-  When provided, the startup script tries to bind a new PX4 instance to the Ignition resource matching exactly that name.
-  It is mutually exclusive with `PX4_GZ_MODEL`.
+  If provided, the startup script tries to bind a new PX4 instance to the Ignition resource matching exactly that name.
+  - It is mutually exclusive with `PX4_GZ_MODEL`.
 
 - `PX4_GZ_MODEL`:
   Sets the name of a new Ignition model to be spawned in the simulator.
-  When provided, the startup script looks for a model in the Ignition resource path that matches the given variable, spawns it and binds a new PX4 instance to it.
-  It is mutually exclusive with `PX4_GZ_MODEL_NAME`.
+  If provided, the startup script looks for a model in the Ignition resource path that matches the given variable, spawns it and binds a new PX4 instance to it.
+  - The setting is mutually exclusive with `PX4_GZ_MODEL_NAME`.
 
   :::note
   If both `PX4_GZ_MODEL_NAME` and `PX4_GZ_MODEL` are not given, then PX4 looks for `PX4_SIM_MODEL` and uses it as an alias for `PX4_GZ_MODEL`.
   However, this prevents the use of `PX4_GZ_MODEL_POSE`.
   :::
 
-- `PX4_GZ_MODEL_POSE` (_optional_):
+- `PX4_GZ_MODEL_POSE`:
   Sets the spawning position and orientation of the model when `PX4_GZ_MODEL` is adopted.
-  When provided, then startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
-  If omitted, the zero pose `[0,0,0,0,0,0]` is used.
-  If less then 6 values are provided, the missing ones are fixed to zero.
+  If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
+  - If omitted, the zero pose `[0,0,0,0,0,0]` is used.
+  - If less then 6 values are provided, the missing ones are fixed to zero.
+
+- `PX4_GZ_WORLD`:
+  Sets the Ignition world file for a new simulation.
+  If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
+  - This variable is ignored if an existing simulation is already running.
+  - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
+
+- `PX4_SIMULATOR=GZ`:
+  Sets the simulator, which for Ignition Gazebo must be `gz`.
+  - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
 The PX4 Ignition worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz).
 They are added to the Ignition search `PATH` by [gazebo_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/gazebo_env.sh.in) during the simulation startup phase.
