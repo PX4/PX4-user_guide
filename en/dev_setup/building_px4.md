@@ -21,6 +21,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
+This is all you need to do just to build the latest code.
 If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release).
 [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
