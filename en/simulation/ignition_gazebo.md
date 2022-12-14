@@ -76,14 +76,14 @@ ARGS ./build/px4_sitl_default/bin/px4
 
 where `ARGS` is a list of environment variables including:
 
-- `PX4_SYS_AUTOSTART` (_mandatory_):
+- `PX4_SYS_AUTOSTART` (**Mandatory**):
   Sets the [airframe autostart id](../dev_airframes/adding_a_new_frame.md) of the PX4 airframe to start.
   - Only `4001` (x500 quadcopter) is currently supported.
 
 - `PX4_GZ_MODEL_NAME`:
-  Sets the name of an **existing** model in the gazebo simulation.
+  Sets the name of an _existing_ model in the gazebo simulation.
   If provided, the startup script tries to bind a new PX4 instance to the Ignition resource matching exactly that name.
-  - It is mutually exclusive with `PX4_GZ_MODEL`.
+  - The setting is mutually exclusive with `PX4_GZ_MODEL`.
 
 - `PX4_GZ_MODEL`:
   Sets the name of a new Ignition model to be spawned in the simulator.
@@ -100,6 +100,7 @@ where `ARGS` is a list of environment variables including:
   If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
   - If omitted, the zero pose `[0,0,0,0,0,0]` is used.
   - If less then 6 values are provided, the missing ones are fixed to zero.
+  - The pose requires a model; this can only be set if either of `PX4_GZ_MODEL_NAME` or `PX4_GZ_MODEL` is set.
 
 - `PX4_GZ_WORLD`:
   Sets the Ignition world file for a new simulation.
