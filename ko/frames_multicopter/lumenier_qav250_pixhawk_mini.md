@@ -277,97 +277,55 @@ Pixhawk는 화살표가 프레임 전면을 향하도록 방향을 맞추어야�
 ![QAV250 - pixhawk mini로 조립](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build_with_pixhawk_mini.jpg)
 
 
-## PX4 설치 및 구성
+## PX4 Configuration
 
-이 섹션에서는 [QGroundControl](http://qgroundcontrol.com/)을 사용하여 PX4 자동 조종 장치를 설치하고 QAV250 프레임에 맞게 구성/조정하는 방법을 설명합니다.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-:::note
-*QGroundControl*을 사용하여 자동조종 장치를 설치 및 구성하고 임무를 계획하고 기체를 원격으로 제어할 수 있습니다. :::
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md). :::
 
-*QGroundControl*을 [다운로드후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
-
-### 펌웨어 업데이트
-
-Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이트합니다.
-
-**1 단계 :** *QGroundControl*의 사이드 바에서 **펌웨어**를 선택합니다. 기체를 USB 포트에 연결합니다.
-
-![QGroundControl - 펌웨어 업데이트](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_firmware_menu.png)
-
-**2 단계 :** 기체를 선택합니다 (**Quadrotor x > Lumenier QAV250**).
-
-**적용 및 재시작**을 클릭하십시오.
-
-![QGroundControl - 업데이트 펌웨어 선택](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_qgc_firmware.png)
-
-:::note
-추가 정보는 다음을 참조하십시오.
-- [자동조종장치 설정](../config/README.md)
-- [펌웨어 설정](../config/firmware.md) :::
-
-### 기체 보정/설정
-
-기체의 보정/설정 방법은 대부분 모든 차량에서 유사합니다. 아래 지침을 따르거나, [Autopilot 구성](../config/README.md)을 참조할 수 있습니다.
-
-**3 단계 :** 무선 조종기 보정
-
-1. 리모콘을 켜십시오.
-2. 왼쪽 사이드 바에서 **라디오**를 선택합니다.
-3. 리모컨의 "모드"를 선택하십시오 (오른쪽 상단).
-4. **보정** 버튼을 클릭하고 화면의 지시를 따릅니다.
-
-![QGroundControl - 무선 조종기 보정](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_radio_calibration.jpg)
-
-**4 단계 :** 센서 보정
-
-1. 왼쪽 사이드 바에서 **센서**를 선택합니다.
-2. **나침반** 버튼을 선택한 다음 화면의 지시를 따릅니다.
-3. **자이로스코프** 버튼을 선택한 다음 화면의 지시를 따릅니다.
-4. **가속도계** 버튼을 선택한 다음 화면의 지시를 따릅니다.
-
-![QGroundControl - 센서 보정](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_calibrate_sensors.png)
-
-**5 단계 :** 비행 모드를 선택합니다.
-
-[비행 모드](../flight_modes/README.md)는 수동 조종 보조 기능 또는 완전 자율 비행 기능을 제공합니다. 신규 사용자는 다음 세 가지 모드를 지원하도록 수신기를 구성하여야 합니다 (이로 인해 차량을 훨씬 쉽게 비행 할 수 있음).
-
-- *안정화 모드*-차량을 뒤집기 어렵고 스틱을 놓으면 수평이됩니다 (정지 위치가 아님).
-- *고도* - 상승 및 하강이 최대 속도로 제어됩니다.
-- *위치* - 스틱을 놓으면 차량이 정지합니다. (그리고 바람 드리프트에 대한 위치 유지).
-
-[비행 모드를 구성](../config/flight_mode.md)하는 방법에는 여러 가지가 있습니다. 이 경우 단일 채널 (5)에 매핑하는 수신기에 3 방향 스위치가 있습니다.
-
-![QGroundControl - 비행 모드 설정](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_flight_mode_selection_qav250.png)
-
-더 자세한 정보는 다음을 참고하세요.
-
-- [비행 모드 설정](../config/flight_mode.md)
-- [비행 모드](../flight_modes/README.md)
-- [비행 모드](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html) (QGroundControl)
-
-**6 단계 :** ESC 보정
-
-1. 프로펠러 제거.
-
-   :::warning
-ESC 보정을 수행하기 전에 프로펠러를 기체에서 제거하여야 합니다!
+:::warning
+Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration.
+Better safe than sorry!
 :::
-2. 왼쪽 사이드 바에서 **전원**을 선택합니다.
-3. **보정** 버튼을 선택한 다음 화면의 지침을 따릅니다. 배터리를 연결합니다. 신호음이 멈추면 확인을 누르고 배터리를 분리합니다.
 
-   ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
+First update the firmware, airframe, and actuator mappings:
 
-   ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
+- [Firmware](../config/firmware.md)
+- [Airframe](../config/airframe.md)
+
+  You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
+
+  ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_airframe_generic_250_racer.png)
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
+
+Then perform the mandatory setup/calibration:
+
+* [Sensor Orientation](../config/flight_controller_orientation.md)
+* [Compass](../config/compass.md)
+* [Accelerometer](../config/accelerometer.md)
+* [Level Horizon Calibration](../config/level_horizon_calibration.md)
+* [Radio Setup](../config/radio.md)
+* [비행 모드](../config/flight_mode.md)
+
+Ideally you should also do:
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery](../config/battery.md)
+  - 4S (4 cell LiPo) with charged cell voltage 4.05V and empty cell voltage 3.4V (or appropriate values for your battery).
+- [Safety](../config/safety.md)
+
 
 ### 튜닝
 
-펌웨어 설치는 선택한 프레임 (이 경우 *Lumenier QAV250*의 경우)에 대해 구성된 *기본* 자동조종장치 매개 변수를 설정합니다. 조립 방법에 따라 다른 부품들을 사용하고 다르게 배치 할 수 있으므로, 특정 기체 조립에 관련된 매개 변수를 조정하는 것이 좋습니다.
+Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
-아래 매개 변수는 이 조립법에 권장됩니다 (노란색 매개 변수는 변경된 매개 변수입니다). 비행 테스트를 통해 생성되었습니다.
+For instructions on how, start from [Autotune](../config/autotune.md).
 
-![QAV250의 권장 매개 변수](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_recommended_parameters.jpg)
-
-튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
 
 
 ## 감사의 글
