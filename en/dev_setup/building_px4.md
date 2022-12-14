@@ -13,15 +13,16 @@ For solutions to common build problems see [Troubleshooting](#troubleshooting) b
 ## Download the PX4 Source Code
 
 The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
-To get the *very latest* version onto your computer, enter the following command into a terminal:
+
+To get the *very latest* ("main") version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code. 
-[GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4. 
+If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release).
+[GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
 ## First Build (Using the jMAVSim Simulator)

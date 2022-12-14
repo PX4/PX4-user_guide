@@ -34,7 +34,7 @@ ROS 2 uses the [`px4_msgs`](https://github.com/PX4/px4_msgs) and [`px4_ros_com`]
 The PX4 Autopilot project automatically updates [`px4_msgs`](https://github.com/PX4/px4_msgs) with new message definitions whenever they are changed (in the `master` branch).
 
 :::note
-The subset of uORB topics that will be accessible to ROS applications can be found in the [bridge configuration yaml file](https://github.com/PX4/px4_ros_com/blob/master/templates/urtps_bridge_topics.yaml).
+The subset of uORB topics that will be accessible to ROS applications can be found in the [bridge configuration yaml file](https://github.com/PX4/px4_ros_com/blob/main/templates/urtps_bridge_topics.yaml).
 :::
 
 PX4 firmware contains the microRTPS client based on its build-time message definitions.
