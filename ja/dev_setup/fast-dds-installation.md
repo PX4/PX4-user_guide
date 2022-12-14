@@ -64,17 +64,17 @@ If the last step fails, try running the command with the proper user privileges 
 Clone the project from Github:
 
 ```sh
-$ git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.2 ~/FastDDS-2.0.2
-$ cd ~/FastDDS-2.0.2
-$ mkdir build && cd build
+git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.2 ~/FastDDS-2.0.2
+cd ~/FastDDS-2.0.2
+mkdir build && cd build
 ```
 
 If you are on Linux, execute:
 
 ```sh
-$ cmake -DTHIRDPARTY=ON -DSECURITY=ON ..
-$ make -j$(nproc --all)
-$ sudo make install
+cmake -DTHIRDPARTY=ON -DSECURITY=ON ..
+make -j$(nproc --all)
+sudo make install
 ```
 
 This will install Fast DDS to `/usr/local`, with secure communications support. If you need to install to a custom location you can use: `-DCMAKE_INSTALL_PREFIX=<path>`.
@@ -94,7 +94,6 @@ The following additional arguments can be used when calling *CMake*:
 Then clone Fast-RTPS-Gen 1.0.4:
 ```
 git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
-
 && cd ~/Fast-RTPS-Gen/gradle/wrapper
 ```
 
@@ -106,8 +105,8 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-6.8.3-bin.zip
 Now you should run the following commands:
 
 ```
-    cd ~/Fast-RTPS-Gen 
-    ./gradlew assemble && sudo env "PATH=$PATH" ./gradlew install
+cd ~/Fast-RTPS-Gen 
+./gradlew assemble && sudo env "PATH=$PATH" ./gradlew install
 ```
 
 ## Installation from Binaries
