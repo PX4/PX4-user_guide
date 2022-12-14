@@ -62,17 +62,17 @@ cmake --build . --target install
 Windows를 사용하는 경우 *Visual Studio* 버전을 선택합니다.
 
 ```sh
-$ git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.0 ~/FastDDS-2.0.0
-$ cd ~/FastDDS-2.0.0
-$ mkdir build && cd build
+git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.2 ~/FastDDS-2.0.2
+cd ~/FastDDS-2.0.2
+mkdir build && cd build
 ```
 
 *CMake*를 호출시, 다음 추가 인수를 사용할 수 있습니다.
 
 ```sh
-$ cmake -DTHIRDPARTY=ON -DSECURITY=ON ..
-$ make -j$(nproc --all)
-$ sudo make install
+cmake -DTHIRDPARTY=ON -DSECURITY=ON ..
+make -j$(nproc --all)
+sudo make install
 ```
 
 *Fast-RTPS-Gen*은 Fast RTPS(DDS) IDL 코드 생성기입니다. If you need to install to a custom location you can use: `-DCMAKE_INSTALL_PREFIX=<path>`.
@@ -93,7 +93,6 @@ $ sudo make install
 Then clone Fast-RTPS-Gen 1.0.4:
 ```
 git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
-
 && cd ~/Fast-RTPS-Gen/gradle/wrapper
 ```
 
@@ -105,8 +104,8 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-6.8.3-bin.zip
 Now you should run the following commands:
 
 ```
-    cd ~/Fast-RTPS-Gen 
-    ./gradlew assemble && sudo env "PATH=$PATH" ./gradlew install
+cd ~/Fast-RTPS-Gen 
+./gradlew assemble && sudo env "PATH=$PATH" ./gradlew install
 ```
 
 ## 바이너리로 설치

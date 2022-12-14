@@ -207,7 +207,8 @@ Better safe than sorry!
 
 First update the firmware, airframe, and actuator mappings:
 
-- [Firmware](../config/firmware.md) [Airframe](../config/airframe.md)
+- [Firmware](../config/firmware.md)
+- [Airframe](../config/airframe.md)
 
   You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
 
