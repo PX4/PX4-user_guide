@@ -276,97 +276,55 @@ The frame build is now complete! In the next step we can install and configure t
 ![QAV250 - Complete build with pixhawk mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build_with_pixhawk_mini.jpg)
 
 
-## PX4 installation and configuration
+## PX4 Configuration
 
-This section explains how you can use [QGroundControl](http://qgroundcontrol.com/) to install the PX4 autopilot and configure/tune it for the QAV250 frame.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-:::note
-*QGroundControl* can be used to install and configure your autopilot, and also to plan missions and control your vehicle remotely. :::
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md). :::
 
-[Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
-
-### Firmware update
-
-Update the *Pixhawk Mini* with the PX4 firmware, configured for the Lumenier QAV250.
-
-**Step 1:** Start *QGroundControl* and select **Firmware** from the sidebar. Connect your vehicle to the USB port
-
-![QGroundControl - Update firmware](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_firmware_menu.png)
-
-**Step 2:** Select the airframe (**Quadrotor x > Lumenier QAV250**).
-
-Then click **Apply and Restart**.
-
-![QGroundControl - Select firmware to update](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_qgc_firmware.png)
-
-:::note
-For additional information see:
-- [Autopilot Configuration](../config/README.md)
-- [Firmware setup](../config/firmware.md) :::
-
-### Vehicle calibration/setup
-
-Vehicle calibration/setup is typically similar for all vehicles. You can follow the instructions below, or see [Autopilot Configuration](../config/README.md).
-
-**Step 3:** Radio calibration
-
-1. Turn on the remote control.
-2. Select **Radio** in the left-sidebar.
-3. Select the "mode" of your remote control (top right).
-4. Click the **Calibrate** button and follow the on-screen instructions.
-
-![QGroundControl - Radio Calibration](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_radio_calibration.jpg)
-
-**Step 4:** Calibrate sensors
-
-1. Select **Sensors** in the left-sidebar.
-2. Select the **Compass** button and then follow the on-screen instructions.
-3. Select the **Gyroscope **button and then follow the on-screen instructions.
-4. Select the **Accelerometer **button and then follow the on-screen instructions.
-
-![QGroundControl - Calibrate Sensors](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_calibrate_sensors.png)
-
-**Step 5:** Select flight modes.
-
-[Flight Modes](../flight_modes/README.md) provide autopilot assisted or fully controlled flight. New users should configure their receiver to support the following three modes (these make the vehicle much easier to fly):
-
-- *Stabilized* - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-- *Altitude* - Climb and drop are controlled to have a maximum rate.
-- *Position* - When sticks are released the vehicle will stop (and hold position against wind drift)
-
-There are a number of ways to [configure flight modes](../config/flight_mode.md). In this case we have a three-way switch on the receiver that we map to a single channel (5).
-
-![QGroundControl - Set flight modes](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_flight_mode_selection_qav250.png)
-
-For more information see:
-
-- [Flight Mode Configuration](../config/flight_mode.md)
-- [Flight Modes](../flight_modes/README.md)
-- [Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html) (QGroundControl)
-
-**Step 6:** Calibrate ESC
-
-1. Remove propellers.
-
-   :::warning
-Propellers must be removed from vehicle prior to performing ESC calibration!
+:::warning
+Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration.
+Better safe than sorry!
 :::
-2. Select **Power **in the left-sidebar.
-3. Select the **Calibrate **button and then follow the on-screen instructions (Connect your battery. When the tones stop, press OK and unplug battery).
 
-   ![QGroundControl - Calibrate ESCs](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
+First update the firmware, airframe, and actuator mappings:
 
-   ![QGroundControl - Calibrate ESCs](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
+- [Firmware](../config/firmware.md)
+- [Airframe](../config/airframe.md)
+
+  You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
+
+  ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_airframe_generic_250_racer.png)
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
+
+Then perform the mandatory setup/calibration:
+
+* [Sensor Orientation](../config/flight_controller_orientation.md)
+* [Compass](../config/compass.md)
+* [Accelerometer](../config/accelerometer.md)
+* [Level Horizon Calibration](../config/level_horizon_calibration.md)
+* [Radio Setup](../config/radio.md)
+* [Flight Modes](../config/flight_mode.md)
+
+Ideally you should also do:
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery](../config/battery.md)
+  - 4S (4 cell LiPo) with charged cell voltage 4.05V and empty cell voltage 3.4V (or appropriate values for your battery).
+- [Safety](../config/safety.md)
+
 
 ### Tuning
 
-Firmware installation sets *default* autopilot parameters that have been configured for the selected frame (in this case for the *Lumenier QAV250*). As builds may use different components and place them differently, it is a good idea to tune the parameters for a specific frame build.
+Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
-The parameters below are recommended for this build (the yellow parameters are the ones that have changed). These were generated by flight testing.
+For instructions on how, start from [Autotune](../config/autotune.md).
 
-![Recommended parameters for QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_recommended_parameters.jpg)
-
-For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
 
 
 ## Acknowledgements
