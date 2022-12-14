@@ -59,14 +59,11 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
   ```sh
   git pull upstream main
   ```
-  Now your local main is up to date. Switch back to your feature branch
+  Now your local main is up to date.
+  Switch back to your feature branch and rebase on your updated main
 
   ```sh
   git checkout <your feature branch name>
-  ```
-  and rebase on your updated main
-  
-  ```sh
   git rebase main
   ```
 * Now you can push your local commits to your forked repository
@@ -86,6 +83,34 @@ Adding a feature to PX4 follows a defined workflow. In order to share your contr
   Check if they have questions on your changes every once in a while.
 
 
+## Changing Source Trees
+
+We recommend using PX4 `make` commands to switch between source code branches.
+This saves you having to remember the commands to update submodules and clean up build artifacts (build files that are not removed will result in "untracked files" errors after the switch).
+
+To switch between branches:
+
+1. Clean up the current branch, de-initializing submodule and removing all build artifacts:
+
+   ```sh
+   make clean
+   make distclean
+   ```
+1. Switch to a new branch or tag (here we first fetch the fictional branch "PR_test_branch" from the `upstream` remote):
+
+   ```sh
+   git fetch upstream PR_test_branch
+   git checkout PR_test_branch
+   ```
+1. Get the submodules for the new branch:
+
+   ```sh
+   make submodulesclean
+   ```
+
+<!-- FYI: Cleaning commands in https://github.com/PX4/PX4-Autopilot/blob/main/Makefile#L494 -->
+
+
 ## Get a Specific Release
 
 Specific PX4 point releases are made as tags of the [release branches](#get-a-release-branch), and are named using the format `v<release>`.
@@ -93,12 +118,22 @@ These are [listed on Github here](https://github.com/PX4/PX4-Autopilot/releases?
 
 To get the source code for a *specific older release* (tag):
 
-1. Clone the PX4-Autopilot repo and navigate into PX4-Autopilot directory:
+1. Clone the PX4-Autopilot repo and navigate into _PX4-Autopilot_ directory:
 
    ```sh
    git clone https://github.com/PX4/PX4-Autopilot.git
    cd PX4-Autopilot
    ```
+   
+   :::note
+   You can reuse an existing repo rather than cloning a new one.
+   In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+   
+   ```sh
+   make clean
+   make distclean
+   ```
+   :::
 
 1. Checkout code for particular tag (e.g. for tag v1.13.0-beta2)
 
@@ -106,13 +141,11 @@ To get the source code for a *specific older release* (tag):
    git checkout v1.13.0-beta2
    ```
 
-1. Then update submodules as shown:
+1. Update submodules:
 
    ```sh
-   git submodule init
-   git submodule update --recursive
+   make submodulesclean
    ```
-
 
 ## Get a Release Branch
 
@@ -122,31 +155,40 @@ The are [listed here](https://github.com/PX4/PX4-Autopilot/branches/all?query=re
 
 To get a release branch:
 
-* Clone the PX4-Autopilot repo and navigate into _PX4-Autopilot_ directory:
+- Clone the PX4-Autopilot repo and navigate into _PX4-Autopilot_ directory:
 
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git
   cd PX4-Autopilot
   ```
+  :::note
+  You can reuse an existing repo rather than cloning a new one.
+  In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+
+  ```sh
+  make clean
+  make distclean
+  ```
+  :::
   
-* Fetch the desired release branch.
+  
+- Fetch the desired release branch.
   For example, assuming you want the source for PX4 v1.13:
 
   ```sh
   git fetch origin release/1.13
   ```
 
-* Checkout the code for the branch
+- Checkout the code for the branch
 
   ```sh
   git checkout release/1.13
   ```
 
-* You will need to update submodules:
+- Update submodules:
 
   ```sh
-  git submodule init
-  git submodule update --recursive
+  make submodulesclean
   ```
 
 ## Update Submodule
