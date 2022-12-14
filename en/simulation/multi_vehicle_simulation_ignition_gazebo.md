@@ -1,18 +1,29 @@
 # Multi-Vehicle Simulation with Ignition Gazebo
 
-This topic explains how to simulate multiple UAV vehicles using Ignition Gazebo and SITL (Linux only).
+This topic explains how to simulate multiple UAV vehicles using [Ignition Gazebo](../simulation/multi_vehicle_simulation_ignition_gazebo.md) and SITL.
 
-Ignition Gazebo allows an easier and more flexible connection with PX4 compared to other simulators which unfolds in a simpler procedure to setup multi-vehicle scenarios.
-Once that the SITL code has been build with
+:::note
+Multi-Vehicle Simulation with Ignition Gazebo is only supported on Linux.
+:::
+
+Ignition Gazebo makes it very easy to setup multi-vehicle scenarios (compared to other simulators).
+
+First build PX4 SITL code using:
+
 ```sh
 make px4_sitl
 ```
-it can be run and linked to Ignition with the right combination of environment variables and arguments:
 
-```
+Each instance of PX4 can then be run in its own terminal, specifying a unique instance number and its desired combination of [environment variables](../simulation/ignition_gazebo.md#usage-configuration-options):
+
+```sh
 ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
 ```
-- `<instance>`: The instance number of the vehicle, each vehicle must have a unique instance number.
-If not given, it defaults to zero.
-When used with `PX4_GZ_MODEL` then Ignition Gazebo will automatically pick an unique model name in the form `${PX4_GZ_MODEL}_instance`. 
-- `ARGS`: The same environmental variables list described in [Ingnition Gazebo Simulation](ignition_gazebo.md#advanced-usages).
+
+- `<instance>`:
+  The instance number of the vehicle.
+  - Each vehicle must have a unique instance number.
+    If not given, the instance number defaults to zero.
+  - When used with `PX4_GZ_MODEL`, Ignition Gazebo will automatically pick a unique model name in the form `${PX4_GZ_MODEL}_instance`. 
+- `ARGS`:
+   A list of environmental variables, as described in [Ingnition Gazebo Simulation > Usage/Configuration Options](../simulation/ignition_gazebo.md#usage-configuration-options).
