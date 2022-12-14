@@ -80,7 +80,10 @@ where `ARGS` is a list of environment variables including:
   Sets the [airframe autostart id](../dev_airframes/adding_a_new_frame.md) of the PX4 airframe to start.
   Only `4001` (x500 quadcopter) is currently supported.
 
-- `PX4_GZ_WORLD` (_optional_):
+- `PX4_SIMULATOR=GZ` (_optional_ as long as the selected airframe [defines the default variables](#adding-new-worlds-and-models)):
+  Sets the simulator, which for Ignition Gazebo must be `gz`.
+
+- `PX4_GZ_WORLD` (_optional_ as long as the selected airframe [defines the default variables](#adding-new-worlds-and-models)):
   Sets the Ignition world file for a new simulation.
   If it is not given, then [default](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) is used.
   This variable is ignored if an existing simulation is already running.
@@ -95,10 +98,16 @@ where `ARGS` is a list of environment variables including:
   When provided, the startup script looks for a model in the Ignition resource path that matches the given variable, spawns it and binds a new PX4 instance to it.
   It is mutually exclusive with `PX4_GZ_MODEL_NAME`.
 
+  :::note
+  If both `PX4_GZ_MODEL_NAME` and `PX4_GZ_MODEL` are not given, then PX4 looks for `PX4_SIM_MODEL` and uses it as an alias for `PX4_GZ_MODEL`.
+  However, this prevents the use of `PX4_GZ_MODEL_POSE`.
+  :::
+
 - `PX4_GZ_MODEL_POSE` (_optional_):
-  Sets the spawning position of the model when `PX4_GZ_MODEL` is adopted.
-  When provided, then startup script spawns the model at the given position.
-  If omitted, the origin `[0,0,0]` is used.
+  Sets the spawning position and orientation of the model when `PX4_GZ_MODEL` is adopted.
+  When provided, then startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
+  If omitted, the zero pose `[0,0,0,0,0,0]` is used.
+  If less then 6 values are provided, the missing ones are fixed to zero.
 
 The PX4 Ignition worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz).
 They are added to the Ignition search `PATH` by [gazebo_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/gazebo_env.sh.in) during the simulation startup phase.
@@ -111,16 +120,16 @@ They are added to the Ignition search `PATH` by [gazebo_env.sh.in](https://githu
 
 Here are some examples of the different scenarios covered above.
 
-1. **Start simulator + default world + spawn vehicle at default location**
+1. **Start simulator + default world + spawn vehicle at default pose**
 
    ```sh
    PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4
    ```
 
-2. **Start simulator + default world + spawn vehicle at custom location**
+2. **Start simulator + default world + spawn vehicle at custom pose (y=2m)**
 
    ```sh
-   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,0" PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4
+   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,2" PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4
    ```
 
 3. **Start simulator + default world + link to existing vehicle**
@@ -144,17 +153,18 @@ To add a new model:
    PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}
    PX4_SIM_MODEL=${PX4_SIM_MODEL:=<your model name>}
    ```
+   - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Ignition Gazebo) for that specific airframe.
 
-   - `PX4_SIM_MODEL` is not mandatory, but:
-     - it is needed to allow the simulation to be launched using the `make` command:
+   - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
 
-       ```sh
-       make px4_sitl gz_<your model name>
-       ```
-     - if it is not set then `PX4_SIMULATOR=gz` and a valid world must be provided when launching the simulation.
+   - Setting the default value of `PX4_SIM_MODEL` lets you start the simulation with just
+     ```bash
+     PX4_SYS_AUTOSTART=<your new airframe id> ./build/px4_sitl_default/bin/px4
+     ```
 
 :::note
 As long as the world file and the model file are in the Ignition search path `IGN_GAZEBO_RESOURCE_PATH` it is not necessary to add them to the PX4 world and model directories.
+However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
 
 ## Multi-Vehicle Simulation
