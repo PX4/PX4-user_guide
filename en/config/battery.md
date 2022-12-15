@@ -47,20 +47,18 @@ This method compares the measured raw battery voltage to the range between cell 
 This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
 :::
 
-To configure the basic settings for battery 1:
+To configure the basic battery settings for battery 1:
 
 1. Start *QGroundControl* and connect the vehicle.
-1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
+1. Select the **Q menu > Vehicle Setup** to open vehicle settings, and then **Power** in the sidebar.
 
-You are presented with the basic settings that characterize the battery.
-The sections below explain what values to set for each field.
+   This opens the *Power Setup* configuration screen
+   
+   ![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.png)
+   
+1. Set the values for Battery 1 in the indicated section (the values to enter are discussed in the following sections).
+1. If you have a second battery, change the *Source* to "Battery Module" in the Battery 2 section and set the values in the same way as for Battery 1.
 
-![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
-
-:::note
-At time of writing *QGroundControl* only allows you to set values for battery 1 in this view.
-For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
-:::
 
 ### Number of Cells (in Series)
 
