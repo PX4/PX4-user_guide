@@ -100,7 +100,7 @@ where `ARGS` is a list of environment variables including:
   If provided, the startup script spawns the model at a pose following the syntax `"x,y,z,roll,pitch,yaw"`, where the positions are given in metres and the angles are in radians.
   - If omitted, the zero pose `[0,0,0,0,0,0]` is used.
   - If less then 6 values are provided, the missing ones are fixed to zero.
-  - The pose requires a model; this can only be set if either of `PX4_GZ_MODEL_NAME` or `PX4_GZ_MODEL` is set.
+  - This can only be used with `PX4_GZ_MODEL` (not `PX4_GZ_MODEL_NAME`).
 
 - `PX4_GZ_WORLD`:
   Sets the Ignition world file for a new simulation.
