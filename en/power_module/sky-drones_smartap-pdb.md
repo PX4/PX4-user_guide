@@ -35,9 +35,8 @@ SmartAP PDB makes connecting high-power lines easier and much more reliable.
 
 The key configuration settings are:
 
-- Voltage scaler: 15.51
-- Current scaler: 36.00
-- Current offset: 0.41
+- Voltage divider: 15.51
+- Amps per volt: 36.00
 
 
 ## Where to buy
@@ -52,7 +51,7 @@ SmartAP Power Distribution Board pinout diagram is shown below.
 ![SmartAP PDB](../../assets/hardware/power_module/sky-drones_smartap-pdb/smartap-pdb-pinout.png)
 
 The two big pads are intended for the main battery connection.
-Up to two independent batteries can be connected using the thick wires (e.g. 8-10 AWG) to be able to handle high current loads and even more using thinner wires.
+Up to two independent batteries can be connected using the thick wires (e.g. 8-10 AWG) to be able to handle high current loads and higher total capacity.
 Up to 12 ESCs can be connected using the 6 smaller pads on top, bottom, left and right sides.
 
 ## Voltage and current sensors
