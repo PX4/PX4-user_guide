@@ -76,7 +76,7 @@ Besides that:
 
 ## Implementation
 
-The source code of the offboard control example can be found in [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/master/src/examples/offboard/offboard_control.cpp).
+The source code of the offboard control example can be found in [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
 Here are some details about the implementation:
 
@@ -159,7 +159,7 @@ Also, in this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain 
 
 :::tip
 The position is published in the NED coordinate frame for simplicity.
-If a user wants to subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), they can use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp) library.
+If a user wants to subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), they can use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) library.
 :::
 
 ```cpp
