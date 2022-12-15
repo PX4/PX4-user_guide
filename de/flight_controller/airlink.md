@@ -371,7 +371,8 @@ make sky-drones_smartap-airlink
 
 ## Peripherals
 
-[SmartAP GPS](../gps_compass/gps_smartap.html) - GPS module with compass, pressure sensor and RGB LED
+- [SmartAP GPS](../gps_compass/gps_smartap.html) - GPS module with compass, pressure sensor and RGB LED
+- [SmartAP PDB](../power_module/sky-drones_smartap-pdb.html) - Power Distribution Board
 
 
 ## Reference Design
