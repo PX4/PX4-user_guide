@@ -31,7 +31,13 @@ If needed, you can:
 
 ## Calibration
 
-Barometer parts are generally pre-calibrated.
+Barometers don't require calibration.
+
+<!-- Notes:
+- Absolute value isn't important since we just use the difference in altitude between "now" and the value when initializing EKF2
+- There is usually a scale factor error but it's compensated by the GNSS altitude using a bias estimator in EKF2 (we don't provide a way to calibrate that). This method is fine as long as the height change of the drone isn't too fast (below 200-300km/h probably; don't have real data on that).
+- The baro readings can be corrected using a [QNH](https://docs.px4.io/main/en/advanced_config/parameter_reference.html#SENS_BARO_QNH) (https://en.wikipedia.org/wiki/Altimeter_setting) parameter, but again, it is only necessary to adjust it if the absolute barometric altitude is required by the pilot.
+-->
 
 
 ## Developer Information
