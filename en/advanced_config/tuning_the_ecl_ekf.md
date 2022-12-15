@@ -170,9 +170,14 @@ This reference is defined by the [EKF2_HGT_REF](../advanced_config/parameter_ref
 
 ### Barometer
 
-Enable/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL).
+Enable/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) as a source for [Height](#height) data.
 
-For more details about the configuration of height sources, [click here](#height).
+Note that data from only one barometer is fused, even if multiple barometers are available.
+The barometer with the highest [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) priority value is selected first, falling back to the next highest priority barometer if a sensor fault is detected.
+If barometers have equal-highest priorities, the first detected is used.
+A barometer can be completely disabled as a possible source by setting its `CAL_BAROx_PRIO` value to `0` (disabled).
+
+See [Height](#height) more details about the configuration of height sources.
 
 #### Correction for Static Pressure Position Error
 
