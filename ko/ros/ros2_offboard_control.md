@@ -71,7 +71,7 @@ PX4 내부 작동이 확실하지 않은 경우에는 MAVLink 마이크로서비
 
 ## 구현
 
-오프보드 제어 예제의 소스 코드는 [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/master/src/examples/offboard/offboard_control.cpp)에 있습니다.
+The source code of the offboard control example can be found in [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
 구현에 대한 몇 가지 세부정보는 다음과 같습니다.
 
@@ -149,7 +149,7 @@ void OffboardControl::publish_trajectory_setpoint() const {
 위의 함수는 `offboard_control_mode`와 `trajectory_setpoint` 메시지의 필드를 설정하는 방법을 설명합니다. 위의 예는 오프보드 위치 제어에 적용할 수 있습니다. 여기서 `offboard_control_mode` 메시지에서 `position` 필드는 `true`로 설정되고 모든 나머지는 `거짓`으로 설정됩니다. 또한 이 경우 `x`, `y`, `z` 및 `yaw` 필드는 특정 값으로 하드 코딩되지만, 알고리즘에 따라 또는 다른 노드에서 오는 메시지에 대한 구독 콜백에 의해 동적으로 업데이트될 수 있습니다.
 
 :::tip
-위치는 이미 단순성을 위해 NED 좌표 프레임에 게시되고 있지만, 사용자가 다른 노드에서 오는 데이터를 구독하려는 경우입니다. ROS/ROS 2의 표준 참조 프레임은 ENU이므로 사용자는 [`frame_transform` 라이브러리](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp)에서 사용 가능한 도우미 기능을 사용할 수 있습니다. If a user wants to subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), they can use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp) library.
+위치는 이미 단순성을 위해 NED 좌표 프레임에 게시되고 있지만, 사용자가 다른 노드에서 오는 데이터를 구독하려는 경우입니다. ROS/ROS 2의 표준 참조 프레임은 ENU이므로 사용자는 [`frame_transform` 라이브러리](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp)에서 사용 가능한 도우미 기능을 사용할 수 있습니다. If a user wants to subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), they can use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) library.
 :::
 
 ```cpp
