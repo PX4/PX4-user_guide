@@ -49,9 +49,14 @@ users must follow the instructions for: [ROS/Gazebo](#rosgazebo). <!-- ROS insta
 To install the toolchain:
 
 1. [Download PX4 Source Code](../dev_setup/building_px4.md):
+
    ```bash
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
+
+:::note
+The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+:::
 1. Run the **ubuntu.sh** with no arguments (in a bash shell) to install everything:
    ```bash
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
