@@ -7,88 +7,185 @@
 Adding a feature to PX4 follows a defined workflow. In order to share your contributions on PX4, you can follow this example. 为了在 px4 上分享您的贡献, 您可以遵循此示例。
 
 * 如果您还没有注册，请先[Sign up](https://github.com/join) Github 账户
-* Fork the PX4-Autopilot re[p (see [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
-* 将分支克隆到本地计算机<br>
+* Fork the PX4-Autopilot repo (see [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo))
+* 将分支克隆到本地计算机
+
   ```sh
   cd ~/wherever/
 git clone https://github.com/<your git name>/Firmware.git
   ```
-* Go into the new directory, initialize and update the submodules, and add the original upstream Firmware<br>
+* Go into the new directory, initialize and update the submodules, and add the original upstream Firmware
+
   ```sh
   cd Firmware
 git submodule update --init --recursive
 git remote add upstream https://github.com/PX4/Firmware.git
   ```
-* You should have now two remote repositories: One repository is called upstream that points to the PX4 Firmware, and one repository that points to your forked repository of the PX4 repository.
+* You should have now two remote repositories: One repository is called `upstream` that points to PX4/PX4-Autopilot, and one repository `origin` that points to your forked copy of the PX4 repository.
 * 这可以通过以下命令进行检查:
   ```sh
   git remote -v
   ```
 * Make the changes that you want to add to the current main.
-* 使用代表您的功能的有意义的名称创建一个新分支<br>
+* 使用代表您的功能的有意义的名称创建一个新分支
+
   ```sh
   git checkout -b <your feature branch name>
   ```
+
   You can verify that the push was successful by going to your forked repository in your browser: `https://github.com/<your git name>/Firmware.git`  
 There you should see the message that a new branch has been pushed to your forked repository.
-* 通过添加相应的文件添加您希望成为提交的一部分的更改<br>
+* 通过添加相应的文件添加您希望成为提交的一部分的更改
+
   ```sh
   git add <file name>
   ```
   If you prefer having a GUI to add your files see [Gitk](https://git-scm.com/book/en/v2/Git-in-Other-Environments-Graphical-Interfaces) or [`git add -p`](http://nuclearsquid.com/writings/git-add/).
-* 提交添加的文件, 并顺便记录一条有意义的消息, 解释您的更改<br>
+* 提交添加的文件, 并顺便记录一条有意义的消息, 解释您的更改
+
   ```sh
   git commit -m "<your commit message>"
   ```
-you can use the command `git branch` to make sure you're on the right branch. * Add your changes that you want to be part of the commit by adding the respective files
-* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 更喜欢线性提交历史记录, 并使用 [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)。 To include the newest changes from upstream in your local branch, switch to your main branch<br>
+
+  you can use the command `git branch` to make sure you're on the right branch. * Add your changes that you want to be part of the commit by adding the respective files
+* Some time might have passed and the [upstream main](https://github.com/PX4/PX4-Autopilot.git) has changed. PX4 更喜欢线性提交历史记录, 并使用 [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)。 To include the newest changes from upstream in your local branch, switch to your main branch
+
   ```sh
   git checkout main
   ```
-  Then pull the newest commits from upstream main<br>
+
+  Then pull the newest commits from upstream main
+
   ```sh
   git pull upstream main
   ```
-  Now your local main is up to date. 切换回您的功能分支<br>
+  Now your local main is up to date. Switch back to your feature branch and rebase on your updated main
+
   ```sh
   git checkout <your feature branch name>
-  ```
-  and rebase on your updated main<br>
-  ```sh
   git rebase main
   ```
-* 现在, 您可以将本地提交推送到分支版本库<br>
+* 现在, 您可以将本地提交推送到分支版本库
+
   ```sh
   git push origin <your feature branch name>
   ```
-* For a good commit message, please refer to [Contributing](../contribute/README.md) section. * Some time might have passed and the [upstream master](https://github.com/PX4/Firmware.git) has changed. PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing). To include the newest changes from upstream in your local branch, switch to your master branch
+* You can verify that the push was successful by going to your forked repository in your browser: `https://github.com/<your git name>/PX4-Autopilot.git`
+
+  There you should see the message that a new branch has been pushed to your forked repository.
 * 现在是时候创建一个拉取请求 (PR) 了。 Now it's time to create a pull request (PR). On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request". Then it should list your changes and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check [other pull requests](https://github.com/PX4/Firmware/pulls) for comparison) 然后, 它应该列出你的更改，你必须添加一个有意义的标题 (在提交 PR 的情况下, 它通常是提交消息) 和消息 (<span style="color:orange">解释你做了这些更改的原因 </span>， 检查 [其他拉取请求 ](https://github.com/PX4/PX4-Autopilot/pulls) 进行比较)。
 * 搞定！ You're done! Responsible members of PX4 will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while. 每过一段时间，他们会检查你的更改，以确保没有疑义。
 
+
+## Changing Source Trees
+
+We recommend using PX4 `make` commands to switch between source code branches. This saves you having to remember the commands to update submodules and clean up build artifacts (build files that are not removed will result in "untracked files" errors after the switch).
+
+To switch between branches:
+
+1. Clean up the current branch, de-initializing submodule and removing all build artifacts:
+
+   ```sh
+   make clean
+   make distclean
+   ```
+1. Switch to a new branch or tag (here we first fetch the fictional branch "PR_test_branch" from the `upstream` remote):
+
+   ```sh
+   git fetch upstream PR_test_branch
+   git checkout PR_test_branch
+   ```
+1. Get the submodules for the new branch:
+
+   ```sh
+   make submodulesclean
+   ```
+
+<!-- FYI: Cleaning commands in https://github.com/PX4/PX4-Autopilot/blob/main/Makefile#L494 -->
+
+
 ## 更新子模块
 
-If you prefer having a GUI to add your files see [Gitk](https://git-scm.com/book/en/v2/Git-in-Other-Environments-Graphical-Interfaces) or [
-* Clone the PX4-Autopilot repo and navigate into PX4-Autopilot directory:
+Specific PX4 point releases are made as tags of the [release branches](#get-a-release-branch), and are named using the format `v<release>`. These are [listed on Github here](https://github.com/PX4/PX4-Autopilot/releases?q=release&expanded=true) (or you can query all tags using `git tag -l`).
+
+To get the source code for a *specific older release* (tag):
+
+1. Clone the PX4-Autopilot repo and navigate into _PX4-Autopilot_ directory:
+
+   ```sh
+   git clone https://github.com/PX4/PX4-Autopilot.git
+   cd PX4-Autopilot
+   ```
+
+:::note
+You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+
+   ```sh
+   make clean
+   make distclean
+   ```
+
+:::
+
+1. Checkout code for particular tag (e.g. for tag v1.13.0-beta2)
+
+   ```sh
+   git checkout v1.13.0-beta2
+   ```
+
+1. Update submodules:
+
+   ```sh
+   make submodulesclean
+   ```
+
+## Get a Release Branch
+
+Releases branches are branched of `main`, and used to backport necessary changes from main into a release. The branches are named using the format `release/<release_number>` (e.g. `release/v1.13`). The are [listed here](https://github.com/PX4/PX4-Autopilot/branches/all?query=release).
+
+To get a release branch:
+
+- Clone the PX4-Autopilot repo and navigate into _PX4-Autopilot_ directory:
+
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git
   cd PX4-Autopilot
   ```
-* 列出所有发行版本（标签）
+:::note
+You can reuse an existing repo rather than cloning a new one. In this case clean the build environment (see [changing source trees](#changing-source-trees)):
+
   ```sh
-  git checkout master
-git pull upstream master
-  ```
-* 迁出特定tag的代码（比如 tag为 1.7.4的beta版本）
-  ```sh
-  git checkout v1.7.4beta
+  make clean
+  make distclean
   ```
 
+:::
+
+
+- Fetch the desired release branch. For example, assuming you want the source for PX4 v1.13:
+
+  ```sh
+  git fetch origin release/1.13
+  ```
+
+- Checkout the code for the branch
+
+  ```sh
+  git checkout release/1.13
+  ```
+
+- Update submodules:
+
+  ```sh
+  make submodulesclean
+  ```
 
 ## 更新子模块
 
 有几种方法可以更新子模块。 There are several ways to update a submodule. Either you clone the repository or you go in the submodule directory and follow the same procedure as in [Contributing code to PX4](#Contributing-code-to-PX4).
 
 ## 为子模块更新执行 PR
+
 This is required after you have done a PR for a submodule X repository and the bug-fix / feature-add is in the current main of submodule X. Since the Firmware still points to a commit before your update, a submodule pull request is required such that the submodule used by the Firmware points to the newest commit.
 ```sh
 cd Firmware
