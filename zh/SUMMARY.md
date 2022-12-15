@@ -226,6 +226,7 @@
       * [骁龙飞控](flight_controller/snapdragon_flight.md)
       * [Intel® Aero RTF Drone（已停产）](complete_vehicles/intel_aero.md)
   * [飞行控制器外设](peripherals/README.md)
+    * [Barometers](sensor/barometers.md)
     * [GPS/罗盘](gps_compass/README.md)
       * [ARK GPS](dronecan/ark_gps.md)
       * [LOCOSYS Hawk A1 GNSS](gps_compass/gps_locosys_hawk_a1.md)
