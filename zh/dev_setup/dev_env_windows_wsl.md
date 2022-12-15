@@ -115,11 +115,16 @@ To install the development toolchain:
 
 :::
 
-1. Download PX4 source code using `git` (which is already installed in WSL2):
+1. Download the PX4 source code using `git` (which is already installed in WSL2):
 
    ```bash
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
+
+:::note
+The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+:::
+
 1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
 
    ```bash
