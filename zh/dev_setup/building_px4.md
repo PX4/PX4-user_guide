@@ -8,7 +8,9 @@ PX4 源代码存储在 [PX4/Firmware](https://github.com/PX4/Firmware) 存储库
 
 ## 下载 PX4 源代码
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository. To get the *very latest* version onto your computer, enter the following command into a terminal:
+The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
+
+To get the *very latest* ("main") version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
@@ -17,7 +19,7 @@ git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
 ```
 
 :::note
-This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4.
+This is all you need to do just to build the latest code. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
 ## 初次编译（使用 jMAVSim 模拟器）

@@ -48,9 +48,14 @@ The following instructions set up a PX4 development environment on Ubuntu Linux 
 툴체인을 설치하려면:
 
 1. [PX4 소스 코드 다운로드합니다](../dev_setup/building_px4.md):
+
    ```bash
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
+
+:::note
+The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+:::
 1. 인수 없이 (bash 셸에서) **ubuntu.sh**를 실행합니다.
    ```bash
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh

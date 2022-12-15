@@ -11,14 +11,16 @@ PX4는 시뮬레이션 대상과 하드웨어 대상을 콘솔이나 IDE에서 �
 
 ## PX4 소스 코드 다운로드
 
-PX4 소스 코드는 Github의 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소에 저장되어 있습니다. *최신* 버전을 컴퓨터에 다운로드하려면 터미널에 다음 명령을 실행하십시오.
+PX4 소스 코드는 Github의 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소에 저장되어 있습니다.
+
+To get the *very latest* ("main") version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-이것이 최신 코드를 빌드하기 위해 필요합니다. [GIT 예제 > PX4에 코드 기여](../contribute/git_examples.md#contributing_code)는 PX4에 기여하기 위해 git을 사용 방법을 설명합니다.
+이것이 최신 코드를 빌드하기 위해 필요합니다. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
 ## 최초 빌드 (jMAVSim 시뮬레이션 활용)
