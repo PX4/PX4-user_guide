@@ -49,9 +49,14 @@ users must follow the instructions for: [ROS/Gazebo](#rosgazebo). <!-- ROS insta
 To install the toolchain:
 
 1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh" target="_blank" download>ubuntu_sim_common_deps.sh</a>**：[通用依赖](#common-dependencies)，[jMAVSim](#jmavsim) 模拟器
+
    ```bash
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
+
+:::note
+The environment setup scripts in the source usually work for recent PX4 releases. If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+:::
 1. 运行 bash 脚本（比如运行 **ubuntu_sim.sh** ）： bash source ubuntu_sim.sh 所有弹出的提示均确认通过。
    ```bash
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
