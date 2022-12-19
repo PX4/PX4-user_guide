@@ -27,4 +27,3 @@ ARGS ./build/px4_sitl_default/bin/px4 [-i <instance>]
   - When used with `PX4_GZ_MODEL`, Ignition Gazebo will automatically pick a unique model name in the form `${PX4_GZ_MODEL}_instance`. 
 - `ARGS`:
    A list of environmental variables, as described in [Ingnition Gazebo Simulation > Usage/Configuration Options](../simulation/ignition_gazebo.md#usage-configuration-options).
-   
