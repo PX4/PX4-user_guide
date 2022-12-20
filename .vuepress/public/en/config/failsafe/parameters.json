@@ -289,6 +289,26 @@
       "category": "Standard",
       "default": 0,
       "group": "ADSB",
+      "longDesc": "Sets first 4 characters of a total of 8. Valid characters are A-Z, 0-9, \" \". Example \"PX4 \" -> 1347957792 For CALLSIGN shorter than 8 characters use the null terminator at the end '\\0'.",
+      "name": "ADSB_CALLSIGN_1",
+      "rebootRequired": true,
+      "shortDesc": "First 4 characters of CALLSIGN",
+      "type": "Int32"
+    },
+    {
+      "category": "Standard",
+      "default": 0,
+      "group": "ADSB",
+      "longDesc": "Sets second 4 characters of a total of 8. Valid characters are A-Z, 0-9, \" \" only. Example \"TEST\" -> 1413829460 For CALLSIGN shorter than 8 characters use the null terminator at the end '\\0'.",
+      "name": "ADSB_CALLSIGN_2",
+      "rebootRequired": true,
+      "shortDesc": "Second 4 characters of CALLSIGN",
+      "type": "Int32"
+    },
+    {
+      "category": "Standard",
+      "default": 0,
+      "group": "ADSB",
       "longDesc": "Sets the vehicle emergency state",
       "max": 6,
       "min": 0,
@@ -3980,17 +4000,13 @@
         {
           "description": "Load factor check (triggers if measurement is below stall speed)",
           "index": 3
-        },
-        {
-          "description": "Check for data variation in first 10s after sensor connection",
-          "index": 4
         }
       ],
       "category": "Standard",
-      "default": 23,
+      "default": 7,
       "group": "Airspeed Validator",
       "longDesc": "Controls which checks are run to check airspeed data for validity. Only applied if ASPD_PRIMARY > 0. Note that the data missing check is enabled if any of the options is set.",
-      "max": 31,
+      "max": 15,
       "min": 0,
       "name": "ASPD_DO_CHECKS",
       "shortDesc": "Enable checks on airspeed sensors",
@@ -6851,11 +6867,11 @@
           "index": 2
         },
         {
-          "description": "vision position fusion",
+          "description": "unused",
           "index": 3
         },
         {
-          "description": "vision yaw fusion",
+          "description": "unused",
           "index": 4
         },
         {
@@ -6863,7 +6879,7 @@
           "index": 5
         },
         {
-          "description": "rotate external vision",
+          "description": "unused",
           "index": 6
         },
         {
@@ -6878,7 +6894,7 @@
       "category": "Standard",
       "default": 0,
       "group": "EKF2",
-      "longDesc": "Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Set to true to enable vision position fusion 4 : Set to true to enable vision yaw fusion. Cannot be used if bit position 7 is true. 5 : Set to true to enable multi-rotor drag specific force fusion 6 : set to true if the EV observations are in a non NED reference frame and need to be rotated before being used 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead",
+      "longDesc": "Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead",
       "max": 511,
       "min": 0,
       "name": "EKF2_AID_MASK",
@@ -7109,7 +7125,7 @@
     {
       "category": "Standard",
       "decimalPlaces": 2,
-      "default": 0.05,
+      "default": 0.1,
       "group": "EKF2",
       "min": 0.05,
       "name": "EKF2_EVA_NOISE",
@@ -10749,6 +10765,43 @@
       "shortDesc": "u-blox F9P UART2 Baudrate",
       "type": "Int32",
       "units": "B/s"
+    },
+    {
+      "bitmask": [
+        {
+          "description": "Enable I2C input protocol UBX",
+          "index": 0
+        },
+        {
+          "description": "Enable I2C input protocol NMEA",
+          "index": 1
+        },
+        {
+          "description": "Enable I2C input protocol RTCM3X",
+          "index": 2
+        },
+        {
+          "description": "Enable I2C output protocol UBX",
+          "index": 3
+        },
+        {
+          "description": "Enable I2C output protocol NMEA",
+          "index": 4
+        },
+        {
+          "description": "Enable I2C output protocol RTCM3X",
+          "index": 5
+        }
+      ],
+      "category": "Standard",
+      "default": 0,
+      "group": "GPS",
+      "max": 32,
+      "min": 0,
+      "name": "GPS_UBX_CFG_INTF",
+      "rebootRequired": true,
+      "shortDesc": "u-blox protocol configuration for interfaces",
+      "type": "Int32"
     },
     {
       "category": "Standard",
@@ -16170,25 +16223,6 @@
       "longDesc": "The mavlink heartbeat message will not be forwarded if this parameter is set to 'disabled'. The main reason for disabling heartbeats to be forwarded is because they confuse dronekit.",
       "name": "MAV_HB_FORW_EN",
       "shortDesc": "Heartbeat message forwarding",
-      "type": "Int32",
-      "values": [
-        {
-          "description": "Disabled",
-          "value": 0
-        },
-        {
-          "description": "Enabled",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "category": "Standard",
-      "default": 0,
-      "group": "MAVLink",
-      "longDesc": "If set, it gets the data from 'vehicle_visual_odometry' instead of 'vehicle_odometry' serving as a loopback of the received ODOMETRY messages on the Mavlink receiver.",
-      "name": "MAV_ODOM_LP",
-      "shortDesc": "Activate ODOMETRY loopback",
       "type": "Int32",
       "values": [
         {
@@ -29241,21 +29275,11 @@
       "category": "Standard",
       "default": 1,
       "group": "System",
-      "longDesc": "Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.",
+      "longDesc": "Set this to 0 if the board has no magnetometer. If set to 0, the preflight checks will not check for the presence of a magnetometer, otherwise N sensors are required.",
       "name": "SYS_HAS_MAG",
       "rebootRequired": true,
       "shortDesc": "Control if the vehicle has a magnetometer",
-      "type": "Int32",
-      "values": [
-        {
-          "description": "Disabled",
-          "value": 0
-        },
-        {
-          "description": "Enabled",
-          "value": 1
-        }
-      ]
+      "type": "Int32"
     },
     {
       "category": "Standard",
@@ -31357,6 +31381,18 @@
       "name": "VT_FW_MIN_ALT",
       "shortDesc": "QuadChute Altitude",
       "type": "Float",
+      "units": "m"
+    },
+    {
+      "category": "Standard",
+      "default": 0,
+      "group": "VTOL Attitude Control",
+      "increment": 1,
+      "longDesc": "Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. Triggering a quadchute always means transitioning the vehicle to hover flight in which generally a lot of energy is consumed. At high altitudes there is therefore a big risk to deplete the battery and therefore crash. Currently, there is no automated re-transition to fixed wing mode implemented and therefore this parameter serves and an intermediate measure to increase safety. Setting this value to 0 deactivates the behavior.",
+      "min": 0,
+      "name": "VT_FW_QC_HMAX",
+      "shortDesc": "Quadchute maximum height",
+      "type": "Int32",
       "units": "m"
     },
     {
