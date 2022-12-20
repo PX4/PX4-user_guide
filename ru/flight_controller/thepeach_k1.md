@@ -1,11 +1,6 @@
 # ThePeach FCC-K1
 
 :::warning
-This flight controller is not fully available. It depends on the following PR:
-- [PX4-Autopilot#20176: boards: Add THE Peach K1/R1 code ](https://github.com/PX4/PX4-Autopilot/pull/20176)
-:::
-
-:::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
 :::
 
