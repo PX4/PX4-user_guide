@@ -6,8 +6,6 @@
 
 USA built flight controller carrier board based on the [FMUV6X and Pixhawk Autopilot Bus open source standards](https://github.com/pixhawk/Pixhawk-Standards) with triple synced IMUs.
 
-USA built flight controller carrier board based on the Pixhawk Autopilot Bus open source standard.
-
 ![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-Front.jpg)
 
 
