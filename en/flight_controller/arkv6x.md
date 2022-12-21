@@ -1,8 +1,8 @@
 # ARK Electronics ARKV6X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://arkelectron.com/contact-us/) for hardware support or compliance issues. :::
-
-
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://arkelectron.com/contact-us/) for hardware support or compliance issues.
+:::
 
 USA built flight controller based on the [FMUV6X and Pixhawk Autopilot Bus open source standard](https://github.com/pixhawk/Pixhawk-Standards) with triple synced IMUs.
 
@@ -29,9 +29,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ### Microprocessor
 
 - [STM32H743IIK6 MCU](https://www.st.com/en/microcontrollers-microprocessors/stm32h743ii.html)
-    - 480MHz
-    - 2MB Flash
-    - 1MB Flash
+  - 480MHz
+  - 2MB Flash
+  - 1MB Flash
 
 ### Other Features
 
@@ -45,9 +45,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ### Power Requirments
 
 - 5V
-    - 500mA
-    - (300ma for main system)
-    - (200ma for heater)
+  - 500mA
+  - (300ma for main system)
+  - (200ma for heater)
 
 ### Additional Information
 
@@ -55,11 +55,14 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - Dimensions | 3.6 x 2.9 x 0.5 cm
 
 ### Pinout
-- For pinout of the ARKV6X see the [DS-10 Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
+
+For pinout of the ARKV6X see the [DS-10 Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
 
 ### Building Firmware
 
-    make ark_fmu-v6x_default
+```
+make ark_fmu-v6x_default
+```
 
 ### Where To Buy
 
