@@ -4,14 +4,14 @@
 
 
 
-USA built flight controller carrier board based on the [FMUV6X and Pixhawk Autopilot Bus open source standards](https://github.com/pixhawk/Pixhawk-Standards) with triple synced IMUs.
+USA built flight controller based on the [FMUV6X and Pixhawk Autopilot Bus open source standard](https://github.com/pixhawk/Pixhawk-Standards) with triple synced IMUs.
 
 ![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-Front.jpg)
 
 
 ## Description
 
-The ARKV6X flight controller is based on the [FMUV6X and Pixhawk Autopilot Bus open source sstandards](https://github.com/pixhawk/Pixhawk-Standards). With triple synced IMUs, data averaging, voting, and filtering is possible. The Pixhawk Autopilot Bus (PAB) form factor enables the ARKV6X to be used on any PAB carrier board.
+The ARKV6X flight controller is based on the [FMUV6X and Pixhawk Autopilot Bus open source sstandards](https://github.com/pixhawk/Pixhawk-Standards). With triple synced IMUs, data averaging, voting, and filtering is possible. The Pixhawk Autopilot Bus (PAB) form factor enables the ARKV6X to be used on any PAB carrier board. ARK Electronics also offers a compatible [PAB](../flight_controller/arkpab.md).
 
 Pixhawk Autopilot Bus open source specifications
 
