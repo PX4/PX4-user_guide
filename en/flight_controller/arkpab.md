@@ -2,7 +2,7 @@
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://arkelectron.com/contact-us/) for hardware support or compliance issues. :::
 
-USA built flight controller carrier board based on the [FMUV6X and Pixhawk Autopilot Bus open source standard](https://github.com/pixhawk/Pixhawk-Standards).
+USA built flight controller carrier board based on the [Pixhawk Autopilot Bus open source standard](https://github.com/pixhawk/Pixhawk-Standards).
 
 ![ARKPAB Main Photo](../../assets/flight_controller/arkpab/ARKPAB-main.jpg)
 

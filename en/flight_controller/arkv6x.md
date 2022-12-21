@@ -13,7 +13,9 @@ USA built flight controller based on the [FMUV6X and Pixhawk Autopilot Bus open 
 
 The ARKV6X flight controller is based on the [FMUV6X and Pixhawk Autopilot Bus open source sstandards](https://github.com/pixhawk/Pixhawk-Standards). With triple synced IMUs, data averaging, voting, and filtering is possible. The Pixhawk Autopilot Bus (PAB) form factor enables the ARKV6X to be used on any PAB carrier board. ARK Electronics also offers a compatible [PAB](../flight_controller/arkpab.md).
 
-Pixhawk Autopilot Bus open source specifications
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ### Sensors
@@ -23,10 +25,6 @@ Pixhawk Autopilot Bus open source specifications
 - [Bosch BMP390 Barometer](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp390.html)
 - [Bosch BMM150 Magnetometer](https://www.bosch-sensortec.com/products/motion-sensors/magnetometers-bmm150/)
 
-### Heater
-
-- Designed with a 1W heater. Keeps sensors warm even in extreme conditions
-- Sensors have very little drift over a range of temperatures
 
 ### Microprocessor
 
@@ -42,11 +40,14 @@ Pixhawk Autopilot Bus open source specifications
 - LED Indicators
 - MicroSD Slot
 - USA Built
+- Designed with a 1W heater. Keeps sensors warm even in extreme conditions
 
 ### Power Requirments
 
 - 5V
-    - 300mA
+    - 500mA
+    - (300ma for main system)
+    - (200ma for heater)
 
 ### Additional Information
 
