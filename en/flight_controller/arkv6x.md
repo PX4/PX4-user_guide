@@ -2,32 +2,35 @@
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for hardware support or compliance issues. :::
 
-ARKV6XPICTURE
 
-USA built flight controller based on the FMUV6X and Pixhawk Autopilot Bus open source standards with triple synced IMUs.
+
+USA built flight controller based on the [FMUV6X and Pixhawk Autopilot Bus open source specification](https://github.com/pixhawk/Pixhawk-Standards) with triple synced IMUs.
+
+![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-Front.jpg)
 
 
 ## Description
 
-The ARKV6X flight controller is based on the FMUV6X and Pixhawk Autopilot Bus open source specifications. With triple synced IMUs, data averaging, voting, and filtering is possible. The Pixhawk Autopilot Bus (PAB) form factor enables the ARKV6X to be used on any PAB carrier board.
+The ARKV6X flight controller is based on the [FMUV6X and Pixhawk Autopilot Bus open source specifications](https://github.com/pixhawk/Pixhawk-Standards). With triple synced IMUs, data averaging, voting, and filtering is possible. The Pixhawk Autopilot Bus (PAB) form factor enables the ARKV6X to be used on any PAB carrier board.
 
 Pixhawk Autopilot Bus open source specifications
 
 
 ### Sensors
 
-- Dual Invensense ICM-42688-P IMUs
-- Invensense IIM-42652 Industrial IMU
-- Bosch BMP390 Barometer
-- Bosch BMM150 Magnetometer
+- [Dual Invensense ICM-42688-P IMUs](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-42688-p/)
+- [Invensense IIM-42652 Industrial IMU](https://invensense.tdk.com/products/smartindustrial/iim-42652/)
+- [Bosch BMP390 Barometer](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp390.html)
+- [Bosch BMM150 Magnetometer](https://www.bosch-sensortec.com/products/motion-sensors/magnetometers-bmm150/)
 
 ### Heater
 
-- Designed with a 1W heater. Sensors therefore have very little drift over a range of temperatures. Heater keeps sensors warm even in extreme conditions.
+- Designed with a 1W heater. Keeps sensors warm even in extreme conditions
+- Sensors have very little drift over a range of temperatures
 
 ### Microprocessor
 
-- STM32H743IIK6 MCU
+- [STM32H743IIK6 MCU](https://www.st.com/en/microcontrollers-microprocessors/stm32h743ii.html)
     - 480MHz
     - 2MB Flash
     - 1MB Flash
@@ -35,7 +38,7 @@ Pixhawk Autopilot Bus open source specifications
 ### Other Features
 
 - FRAM
-- Pixhawk Autopilot Bus (PAB) Form Factor
+- [Pixhawk Autopilot Bus (PAB) Form Factor](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
 - LED Indicators
 - MicroSD Slot
 - USA Built
@@ -52,9 +55,10 @@ Pixhawk Autopilot Bus open source specifications
 
 ## Where To Buy
 
-Order From Ark Electronics
+Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/)
 
-ARKV6XPICTURE
+![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-Altium-Render.png)
+![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-back.jpg)
 
 
 ## Building Firmware
