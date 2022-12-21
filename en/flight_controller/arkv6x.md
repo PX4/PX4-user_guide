@@ -46,7 +46,7 @@ Pixhawk Autopilot Bus open source specifications
 ### Power Requirments
 
 - 5V
-- 300mA
+    - 300mA
 
 ### Additional Information
 
@@ -56,9 +56,6 @@ Pixhawk Autopilot Bus open source specifications
 ## Where To Buy
 
 Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/)
-
-![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-Altium-Render.png)
-![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-back.jpg)
 
 
 ## Building Firmware
