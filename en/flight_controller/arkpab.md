@@ -60,3 +60,5 @@ The ARK Pixhawk Autopilot Bus (PAB) Carrier is based on the [Pixhawk Autopilot B
 ![ARKPAB Top Down Photo](../../assets/flight_controller/arkpab/ARKPAB-top.jpg)
 
 ![ARKPAB Bottom Photo](../../assets/flight_controller/arkpab/ARKPAB-back2.jpg)
+
+![ARK Logo](../../assets/flight_controller/arkpab/ARK-Logo.png)

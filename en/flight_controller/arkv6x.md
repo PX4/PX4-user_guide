@@ -6,7 +6,7 @@
 
 USA built flight controller based on the [FMUV6X and Pixhawk Autopilot Bus open source standard](https://github.com/pixhawk/Pixhawk-Standards) with triple synced IMUs.
 
-![ARKV6X](../../assets/flight_controller/arkv6x/ARKV6X-Front.jpg)
+![ARKV6X Main Photo](../../assets/flight_controller/arkv6x/ARKV6X-Front.jpg)
 
 
 ## Description
@@ -54,11 +54,15 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - Weight | 5.0 g
 - Dimensions | 3.6 x 2.9 x 0.5 cm
 
-## Where To Buy
+### Pinout
+- For pinout of the ARKV6X see the [DS-10 Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
+
+### Building Firmware
+
+    make ark_fmu-v6x_default
+
+### Where To Buy
 
 Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/)
 
-
-## Building Firmware
-
-    make ark_fmu-v6x_default
+![ARK Logo](../../assets/flight_controller/arkv6x/ARK-Logo.png)
