@@ -9,4 +9,4 @@ Contact the [manufacturer](https://arkelectron.com/) for hardware support or com
 It was designed and developed by Holybro.
 
 
-THIS IS A TEST
+THIS IS A TEST AS WELL
