@@ -32,10 +32,10 @@ There are 3 different connectors options for different purposes.
 
 ## Pinout
 
-| SKU12012 Holybro M8N GPS (JST GHR1.25mm 10 pin cable) this JST GH 10Pin connector can be use d on Pixhawk Series 10pin“GPS Module” or "GPS1" input port.                                   | <img src="../../assets/hardware/gps/holybro_gps_pinout.jpg" width="450px" title="holybro_gps">     |
+| SKU12012 Holybro M8N GPS (JST GHR1.25mm 10 pin cable) this JST GH 10Pin connector can be use d on Pixhawk Series 10pin“GPS Module” or "GPS1" input port.                                   | <img src="../../assets/hardware/gps/holybro_gps_pinout.jpg" width="650px" title="holybro_gps">     |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-|  SKU12013   Holybro M8N GPS for Pix32  (Molex1.25mm 6pin  ; 4pin  ;3pin cable) :   These Molex 1.25mm 6pin  ; 4pin  ;3pin connectors are for Pix32 "Switch", "GPS", and "I2C" input ports. (not for Pix32 v5 or v6)  | <img src="../../assets/hardware/gps/holybro_gps_pinout2.jpg" width="450px" title="holybro_gps">     |
-|  SKU12014   Holybro M8N 2nd GPS (JST GHR1.25m m 6pin cable) ：   This JST GH 6Pin connector can be used on Pixhawk Series 6pin“UART  ; I2C”or " GPS2" input port as secondary GPS.                      | <img src="../../assets/hardware/gps/holybro_gps_pinout3.jpg" width="450px" title="holybro_gps"> |
+|  SKU12013   Holybro M8N GPS for Pix32  (Molex1.25mm 6pin  ; 4pin  ;3pin cable) :   These Molex 1.25mm 6pin  ; 4pin  ;3pin connectors are for Pix32 "Switch", "GPS", and "I2C" input ports. (not for Pix32 v5 or v6)  | <img src="../../assets/hardware/gps/holybro_gps_pinout2.jpg" width="650px" title="holybro_gps">     |
+|  SKU12014   Holybro M8N 2nd GPS (JST GHR1.25m m 6pin cable) ：   This JST GH 6Pin connector can be used on Pixhawk Series 6pin“UART  ; I2C”or " GPS2" input port as secondary GPS.                      | <img src="../../assets/hardware/gps/holybro_gps_pinout3.jpg" width="650px" title="holybro_gps"> |
 
 Note: Pinout is the same for M9N GPS Module
 
