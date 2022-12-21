@@ -1,6 +1,6 @@
 # ARK Electronics ARKV6X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for hardware support or compliance issues. :::
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://arkelectron.com/contact-us/) for hardware support or compliance issues. :::
 
 
 
