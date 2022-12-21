@@ -229,6 +229,7 @@
       * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
   * [Flight Controller Peripherals](peripherals/README.md)
     * [GPS/Compass](gps_compass/README.md)
+      * [Holybro DroneCAN M8N GPS](dronecan/holybro_dronecan_m8n_gps.md)
       * [ARK GPS](dronecan/ark_gps.md)
       * [LOCOSYS Hawk A1 GNSS](gps_compass/gps_locosys_hawk_a1.md)
       * [Hex Here2](gps_compass/gps_hex_here2.md)
