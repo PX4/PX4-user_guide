@@ -74,7 +74,7 @@ Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electrici
 5. Setup camera pipeline. Open `/etc/systemd/system/fpv-camera.service` and uncomment pipeline according to your camera (PI camera or Logitech camera)
 6. Open `/etc/wifibroadcast.cfg` and configure WiFi channel according to your antenna setup (or use default #165 for 5.8GHz)
 7. Configure PX4 to output telemetry stream at speed 1500kbps (other UART speeds doesn't match well to RPI frequency dividers).
-   Connect Pixhawk uart to Raspberry PI uart. In `/etc/wifibroadcast.cfg` uncomment `peer = 'serial:ttyUSB0:115200'` in `[drone_mavlink]` section.
+   Connect Pixhawk uart to Raspberry PI uart. In `/etc/wifibroadcast.cfg` uncomment `peer = 'serial:ttyS0:1500000'` in `[drone_mavlink]` section.
 
 ### Using linux laptop as ground computer (the hard way)
 1. On **ground** linux development computer:
