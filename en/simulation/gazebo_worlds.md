@@ -28,9 +28,15 @@ The source code for supported worlds can be found on GitHub here: [PX4/PX4-SITL_
 
 ## McMillan Airfield
 
-[PX4/PX4-SITL_gazebo/tree/master/worlds/worlds/mcmillan_airfield.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/mcmillan_airfield.world)
+[PX4/PX4-SITL_gazebo/tree/master/worlds/mcmillan_airfield.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/mcmillan_airfield.world)
 
 ![McMillan Airfield World](../../assets/simulation/gazebo/worlds/mcmillan_airfield.jpg)
+
+## Safe Landing
+
+[PX4/PX4-SITL_gazebo/tree/master/worlds/safe_landing.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/safe_landing.world)
+
+![Safe Landing World](../../assets/simulation/gazebo/worlds/safe_landing.png)
 
 ## Sonoma Raceway
 
