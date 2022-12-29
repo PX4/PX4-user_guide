@@ -1,7 +1,6 @@
 # ThePeach FCC-K1
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://thepeach.kr/)에 문의하십시오.
 :::
 
 **ThePeach FCC-K1** is an advanced autopilot designed and manufactured in **ThePeach**.
