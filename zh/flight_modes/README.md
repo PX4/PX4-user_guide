@@ -86,8 +86,8 @@ th {
         <li>俯仰摇杆控制高度（与 <a href="#altitude_fw">高度</a>相同）。</li>
         <li>滚转摇杆控制滚转角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a> （与 <a href="#stabilized_fw">稳定</0> 相同）。</li>
         <li>油门设置空速（与 <a href="#altitude_fw">高度</a> 相同）。</li> 
-        <li>滚转、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。</li>
-        <li>偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
+        <li>Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
      </ul></li>
    </ul>
   </p>
@@ -115,7 +115,7 @@ th {
       <ul>
        <li>俯仰摇杆控制高度。</li>
        <li>油门杆控制飞机的空速（如回中 横滚、俯仰、偏航摇杆）。</li>
-       <li>偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
+       <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). 这和 <a href="#stabilized_fw">稳定模式</a> 一样。</li>
     </ul>
   </li>
   </ul>
@@ -138,7 +138,7 @@ th {
    <li>俯仰摇杆控制俯仰角度。</li>
    <li>滚转摇杆控制滚转角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。</li>
    <li>油门摇杆控制油门。</li>
-   <li>偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。</li>
+   <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
 </ul>
  </td>
 </tr>
