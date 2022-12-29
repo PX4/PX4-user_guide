@@ -18,6 +18,28 @@ For more information see the [QGroundControl User Guide](https://docs.qgroundcon
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
 
+### Mission Feasibility Checks
+
+Upon receiving an updated mission file from the ground station, the flight controller runs some feasibility checks that are meant to ensure the safety of the vehicle and catch unintended mission settings. If one of the checks fails, the user is notified and it is not possible to start the mission.
+
+The checks involve (selection of most likely ones):
+- First mission item too far away
+- Distance between two subsequent items is too large
+- Any mission item outside of defined geofence
+- More than one land start defined
+- Fixed-wing landing infeasible slope angle
+- Land start item before RTL item
+- Missing takeoff and/or land item (see parameter list below for configuration)
+
+The relevant parameters are shown below:
+
+Parameter | Description
+--- | ---
+[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.
+[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | The mission will not be started if any distance between two subsequent waypoints is greater than this value. Disabled if value is 0 or less.
+[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG) | Maximum landing slope angle.
+[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing.
+
 ### Setting Vehicle Yaw
 
 If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
