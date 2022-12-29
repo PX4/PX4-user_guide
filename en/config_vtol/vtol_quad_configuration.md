@@ -59,14 +59,15 @@ Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS
 Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable.
 If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
 
-#### Forward Transition Pusher/Puller Ramp-up Time
+#### Forward Transition Pusher/Puller Slew Rate
 
-Parameter: [VT_PSHER_RMP_DT](../advanced_config/parameter_reference.md#VT_PSHER_RMP_DT)
+Parameter: [VT_PSHER_SLEW](../advanced_config/parameter_reference.md#VT_PSHER_SLEW)
 
-A forward transition refers to the transition from multirotor to fixed wing mode.
+A forward transition refers to the transition from multirotor to fixed-wing mode.
 This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`).
 A value of 0 will result in commanding the transition throttle value being set immediately.
-If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
+By default the slew rate is set to 0.33, meaning that it will take 3s to ramp up to 100% throttle.
+If you wish to smoothen the throttling up you can reduce it.
 
 Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
 
