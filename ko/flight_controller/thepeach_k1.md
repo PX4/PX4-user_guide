@@ -1,16 +1,15 @@
 # ThePeach FCC-K1
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://thepeach.kr/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://thepeach.kr/)에 문의하십시오.
 :::
 
-**ThePeach FCC-K1** is an advanced autopilot designed and manufactured in **ThePeach**.
+**ThePeach FCC-K1**은 **(주)더피치**에서 설계 및 제조한 고급 비행 컨트롤러입니다.
 
 It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4** on **Nuttx OS**.
 
 ![ThePeach FCC-K1](../../assets/flight_controller/thepeach_k1/main.png)
 
-## Specifications
+## 주요 사양
 
 - Main Processor: STM32F427VIT6
   - 32bit ARM Cortex-M4, 168 MHz 256 KB RAM 2 MB Flash memory
@@ -23,7 +22,7 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
   - Accel/Gyro/Mag: MPU-9250
   - Barometer: MS5611
 
-- Interfaces
+- 인터페이스
   - 8+5 PWM output (8 from IO, 5 from FMU)
   - Spektrum DSM / DSM2 / DSM-X Satellite compatible input
   - Futaba S.BUS compatible input and output
@@ -41,13 +40,13 @@ It is based on the **Pixhawk-project FMUv3** open hardware design and runs **PX4
   - Dimensions: 40.2 x 61.1 x 24.8 mm
   - Weight: 65g
 
-## Connectors
+## 커넥터
 
 ![pinmap_top](../../assets/flight_controller/thepeach_k1/pinmap_top.png)
 
 ![pinmap_bottom](../../assets/flight_controller/thepeach_k1/pinmap_bottom.png)
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
 |        | UART       | Device                | Port |
 | ------ | ---------- | --------------------- | ---- |
@@ -81,13 +80,13 @@ Under these conditions, all power sources cause permanent damage to the flight c
 1. POWER input (5.5V Over)
 2. USB input (5.5V Over)
 
-## Building Firmware
+## 펌웨어 빌드
 
 To build PX4 for this target:
 ```jsx
 make thepeach_k1_default
 ```
 
-## Where to buy
+## 구매처
 
 Order from [ThePeach](http://thepeach.shop/)
