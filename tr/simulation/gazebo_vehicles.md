@@ -29,6 +29,22 @@ make px4_sitl gazebo
 make px4_sitl gazebo_iris_opt_flow
 ```
 
+### Quadrotor with Depth Camera
+
+These models have a depth camera attached, modelled on the Intel® RealSense™ D455.
+
+_Forward-facing depth camera:_
+
+```sh
+make px4_sitl gazebo_iris_depth_camera
+```
+
+_Downward-facing depth camera:_
+
+```sh
+make px4_sitl gazebo_iris_downward_depth_camera
+```
+
 <a id="3dr_solo"></a>
 
 ### 3DR Solo (Quadrotor)
@@ -44,7 +60,7 @@ make px4_sitl gazebo_solo
 
 ### Typhoon H480 (Hexrotor)
 
-```
+```sh
 make px4_sitl gazebo_typhoon_h480
 ```
 
