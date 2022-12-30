@@ -37,6 +37,7 @@
   * [Compass](config/compass.md)
   * [Gyroscope](config/gyroscope.md)
   * [Accelerometer](config/accelerometer.md)
+  * [IMU Factory Calibration](config/imu_factory_calibration.md)
   * [Airspeed](config/airspeed.md)
   * [Level Horizon Calibration](config/level_horizon_calibration.md)
   * [Radio Setup](config/radio.md)
