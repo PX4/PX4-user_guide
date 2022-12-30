@@ -66,7 +66,8 @@ A forward transition refers to the transition from multirotor to fixed-wing mode
 This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`).
 A value of 0 will result in commanding the transition throttle value being set immediately.
 By default the slew rate is set to 0.33, meaning that it will take 3s to ramp up to 100% throttle.
-If you wish to smoothen the throttling up you can reduce it.
+If you wish to make throttling-up smoother you can reduce this value.
+
 
 Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
 
