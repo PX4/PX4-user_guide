@@ -224,6 +224,22 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="ADSB_CALLSIGN_1">ADSB_CALLSIGN_1</strong> (INT32)</td>
+ <td>First 4 characters of CALLSIGN <p><strong>Comment:</strong> Sets first 4 characters of a total of 8. Valid characters are A-Z, 0-9, " ". Example "PX4 " -> 1347957792 For CALLSIGN shorter than 8 characters use the null terminator at the end '\0'.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ADSB_CALLSIGN_2">ADSB_CALLSIGN_2</strong> (INT32)</td>
+ <td>Second 4 characters of CALLSIGN <p><strong>Comment:</strong> Sets second 4 characters of a total of 8. Valid characters are A-Z, 0-9, " " only. Example "TEST" -> 1413829460 For CALLSIGN shorter than 8 characters use the null terminator at the end '\0'.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="ADSB_EMERGC">ADSB_EMERGC</strong> (INT32)</td>
  <td>ADSB-Out Emergency State <p><strong>Comment:</strong> Sets the vehicle emergency state</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> NoEmergency</li>
@@ -11173,11 +11189,10 @@ table {
   <li><strong>1:</strong> Data stuck (triggers if data is exactly constant for 2s in FW mode)</li> 
   <li><strong>2:</strong> Innovation check (see ASPD_FS_INNOV)</li> 
   <li><strong>3:</strong> Load factor check (triggers if measurement is below stall speed)</li> 
-  <li><strong>4:</strong> Check for data variation in first 10s after sensor connection</li> 
 </ul>
  </td>
- <td>[0, 31] </td>
- <td>23</td>
+ <td>[0, 15] </td>
+ <td>7</td>
  <td></td>
 </tr>
 <tr>
@@ -11311,142 +11326,6 @@ table {
  <td>[0, 1] </td>
  <td>1.e-2</td>
  <td>m/s^2/sqrt(Hz)</td>
-</tr>
-</tbody></table>
-
-## Angular Velocity Control
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="AVC_X_D">AVC_X_D</strong> (FLOAT)</td>
- <td>Body X axis angular velocity D gain <p><strong>Comment:</strong> Body X axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>0.36</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_X_FF">AVC_X_FF</strong> (FLOAT)</td>
- <td>Body X axis angular velocity feedforward gain <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>[0.0, ?] </td>
- <td>0.0</td>
- <td>Nm/(rad/s)</td>
-</tr>
-<tr>
- <td><strong id="AVC_X_I">AVC_X_I</strong> (FLOAT)</td>
- <td>Body X axis angular velocity I gain <p><strong>Comment:</strong> Body X axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.2</td>
- <td>Nm/rad</td>
-</tr>
-<tr>
- <td><strong id="AVC_X_I_LIM">AVC_X_I_LIM</strong> (FLOAT)</td>
- <td>Body X axis angular velocity integrator limit <p><strong>Comment:</strong> Body X axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.3</td>
- <td>Nm</td>
-</tr>
-<tr>
- <td><strong id="AVC_X_K">AVC_X_K</strong> (FLOAT)</td>
- <td>Body X axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_X_K * (AVC_X_P * error + AVC_X_I * error_integral + AVC_X_D * error_derivative) Set AVC_X_P=1 to implement a PID in the ideal form. Set AVC_X_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>[0.0, 5.0] (0.0005)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_X_P">AVC_X_P</strong> (FLOAT)</td>
- <td>Body X axis angular velocity P gain <p><strong>Comment:</strong> Body X axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 20.0] (0.01)</td>
- <td>18.</td>
- <td>1/s</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_D">AVC_Y_D</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity D gain <p><strong>Comment:</strong> Body Y axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>0.36</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_FF">AVC_Y_FF</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>[0.0, ?] </td>
- <td>0.0</td>
- <td>Nm/(rad/s)</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_I">AVC_Y_I</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity I gain <p><strong>Comment:</strong> Body Y axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.2</td>
- <td>Nm/rad</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_I_LIM">AVC_Y_I_LIM</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity integrator limit <p><strong>Comment:</strong> Body Y axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.3</td>
- <td>Nm</td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_K">AVC_Y_K</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Y_K * (AVC_Y_P * error + AVC_Y_I * error_integral + AVC_Y_D * error_derivative) Set AVC_Y_P=1 to implement a PID in the ideal form. Set AVC_Y_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>[0.0, 20.0] (0.0005)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Y_P">AVC_Y_P</strong> (FLOAT)</td>
- <td>Body Y axis angular velocity P gain <p><strong>Comment:</strong> Body Y axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 20.0] (0.01)</td>
- <td>18.</td>
- <td>1/s</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_D">AVC_Z_D</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity D gain <p><strong>Comment:</strong> Body Z axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 2.0] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_FF">AVC_Z_FF</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity feedforward <p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.0</td>
- <td>Nm/(rad/s)</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_I">AVC_Z_I</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity I gain <p><strong>Comment:</strong> Body Z axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.1</td>
- <td>Nm/rad</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_I_LIM">AVC_Z_I_LIM</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity integrator limit <p><strong>Comment:</strong> Body Z axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.30</td>
- <td>Nm</td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_K">AVC_Z_K</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity controller gain <p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Z_K * (AVC_Z_P * error + AVC_Z_I * error_integral + AVC_Z_D * error_derivative) Set AVC_Z_P=1 to implement a PID in the ideal form. Set AVC_Z_K=1 to implement a PID in the parallel form.</p>   </td>
- <td>[0.0, 5.0] (0.0005)</td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="AVC_Z_P">AVC_Z_P</strong> (FLOAT)</td>
- <td>Body Z axis angular velocity P gain <p><strong>Comment:</strong> Body Z axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 20.0] (0.01)</td>
- <td>7.</td>
- <td>1/s</td>
 </tr>
 </tbody></table>
 
@@ -13299,13 +13178,13 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Set to true to enable vision position fusion 4 : Set to true to enable vision yaw fusion. Cannot be used if bit position 7 is true. 5 : Set to true to enable multi-rotor drag specific force fusion 6 : set to true if the EV observations are in a non NED reference frame and need to be rotated before being used 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
+ <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
   <li><strong>1:</strong> use optical flow</li> 
   <li><strong>2:</strong> inhibit IMU bias estimation</li> 
-  <li><strong>3:</strong> vision position fusion</li> 
-  <li><strong>4:</strong> vision yaw fusion</li> 
+  <li><strong>3:</strong> unused</li> 
+  <li><strong>4:</strong> unused</li> 
   <li><strong>5:</strong> multi-rotor drag fusion</li> 
-  <li><strong>6:</strong> rotate external vision</li> 
+  <li><strong>6:</strong> unused</li> 
   <li><strong>7:</strong> unused</li> 
   <li><strong>8:</strong> unused</li> 
 </ul>
@@ -13440,7 +13319,7 @@ table {
  <td><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
  <td>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message    </td>
  <td>[0.05, ?] </td>
- <td>0.05</td>
+ <td>0.1</td>
  <td>rad</td>
 </tr>
 <tr>
@@ -15197,24 +15076,31 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_T_SPD_OMEGA">FW_T_SPD_OMEGA</strong> (FLOAT)</td>
- <td>Complementary filter "omega" parameter for speed <p><strong>Comment:</strong> This is the cross-over frequency (in radians/second) of the complementary filter used to fuse longitudinal acceleration and airspeed to obtain an improved airspeed estimate. Increasing this frequency weights the solution more towards use of the airspeed sensor, whilst reducing it weights the solution more towards use of the accelerometer data.</p>   </td>
- <td>[1.0, 10.0] (0.5)</td>
- <td>2.0</td>
- <td>rad/s</td>
+ <td><strong id="FW_T_SPD_DEV_STD">FW_T_SPD_DEV_STD</strong> (FLOAT)</td>
+ <td>Airspeed rate measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.05</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SPD_PRC_STD">FW_T_SPD_PRC_STD</strong> (FLOAT)</td>
+ <td>Process noise standard deviation for the airspeed rate in the airspeed filter <p><strong>Comment:</strong> This is the process noise standard deviation in the airspeed filter filter defining the noise in the airspeed rate for the constant airspeed rate model. This is used to define how much the airspeed and the airspeed rate are filtered. The smaller the value the more the measurements are smoothed with the drawback for delays.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.2</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SPD_STD">FW_T_SPD_STD</strong> (FLOAT)</td>
+ <td>Airspeed measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed used in the airspeed filter in TECS.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.2</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_STE_R_TC">FW_T_STE_R_TC</strong> (FLOAT)</td>
  <td>Specific total energy rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the specific total energy rate used for throttle damping.</p>   </td>
  <td>[0.0, 2] (0.01)</td>
  <td>0.4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_T_TAS_R_TC">FW_T_TAS_R_TC</strong> (FLOAT)</td>
- <td>True airspeed rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the true airspeed rate.</p>   </td>
- <td>[0.0, 2] (0.01)</td>
- <td>0.2</td>
  <td></td>
 </tr>
 <tr>
@@ -15596,6 +15482,21 @@ table {
  <td>[0, ?] </td>
  <td>230400</td>
  <td>B/s</td>
+</tr>
+<tr>
+ <td><strong id="GPS_UBX_CFG_INTF">GPS_UBX_CFG_INTF</strong> (INT32)</td>
+ <td>u-blox protocol configuration for interfaces   <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable I2C input protocol UBX</li> 
+  <li><strong>1:</strong> Enable I2C input protocol NMEA</li> 
+  <li><strong>2:</strong> Enable I2C input protocol RTCM3X</li> 
+  <li><strong>3:</strong> Enable I2C output protocol UBX</li> 
+  <li><strong>4:</strong> Enable I2C output protocol NMEA</li> 
+  <li><strong>5:</strong> Enable I2C output protocol RTCM3X</li> 
+</ul>
+ <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 32] </td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="GPS_UBX_DYNMODEL">GPS_UBX_DYNMODEL</strong> (INT32)</td>
@@ -18886,13 +18787,6 @@ table {
  <td>Heartbeat message forwarding <p><strong>Comment:</strong> The mavlink heartbeat message will not be forwarded if this parameter is set to 'disabled'. The main reason for disabling heartbeats to be forwarded is because they confuse dronekit.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MAV_ODOM_LP">MAV_ODOM_LP</strong> (INT32)</td>
- <td>Activate ODOMETRY loopback <p><strong>Comment:</strong> If set, it gets the data from 'vehicle_visual_odometry' instead of 'vehicle_odometry' serving as a loopback of the received ODOMETRY messages on the Mavlink receiver.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -28727,10 +28621,10 @@ table {
 </tr>
 <tr>
  <td><strong id="SYS_HAS_MAG">SYS_HAS_MAG</strong> (INT32)</td>
- <td>Control if the vehicle has a magnetometer <p><strong>Comment:</strong> Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Control if the vehicle has a magnetometer <p><strong>Comment:</strong> Set this to 0 if the board has no magnetometer. If set to 0, the preflight checks will not check for the presence of a magnetometer, otherwise N sensors are required.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -31116,6 +31010,13 @@ table {
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="VT_FW_QC_HMAX">VT_FW_QC_HMAX</strong> (INT32)</td>
+ <td>Quadchute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. Triggering a quadchute always means transitioning the vehicle to hover flight in which generally a lot of energy is consumed. At high altitudes there is therefore a big risk to deplete the battery and therefore crash. Currently, there is no automated re-transition to fixed wing mode implemented and therefore this parameter serves and an intermediate measure to increase safety. Setting this value to 0 deactivates the behavior.</p>   </td>
+ <td>[0, ?] (1)</td>
+ <td>0</td>
+ <td>m</td>
+</tr>
+<tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
  <td>QuadChute Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
  <td>[0, 180] </td>
@@ -31265,65 +31166,6 @@ table {
  <td>[20, 300] (1)</td>
  <td>80</td>
  <td>m</td>
-</tr>
-</tbody></table>
-
-## Vehicle Model
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="VM_INERTIA_XX">VM_INERTIA_XX</strong> (FLOAT)</td>
- <td>Inertia matrix, XX component    </td>
- <td>(0.00001)</td>
- <td>0.01</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_XY">VM_INERTIA_XY</strong> (FLOAT)</td>
- <td>Inertia matrix, XY component    </td>
- <td>(0.00001)</td>
- <td>0.</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_XZ">VM_INERTIA_XZ</strong> (FLOAT)</td>
- <td>Inertia matrix, XZ component    </td>
- <td>(0.00001)</td>
- <td>0.</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_YY">VM_INERTIA_YY</strong> (FLOAT)</td>
- <td>Inertia matrix, YY component    </td>
- <td>(0.00001)</td>
- <td>0.01</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_YZ">VM_INERTIA_YZ</strong> (FLOAT)</td>
- <td>Inertia matrix, YZ component    </td>
- <td>(0.00001)</td>
- <td>0.</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_INERTIA_ZZ">VM_INERTIA_ZZ</strong> (FLOAT)</td>
- <td>Inertia matrix, ZZ component    </td>
- <td>(0.00001)</td>
- <td>0.01</td>
- <td>kg m^2</td>
-</tr>
-<tr>
- <td><strong id="VM_MASS">VM_MASS</strong> (FLOAT)</td>
- <td>Mass    </td>
- <td>(0.00001)</td>
- <td>1.</td>
- <td>kg</td>
 </tr>
 </tbody></table>
 
