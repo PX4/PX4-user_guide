@@ -225,6 +225,12 @@ Parameter | Description
 [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT) | Failsafe action if no RC is available: Land mode, Hold mode, Return mode.
 [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode.
 
+### Mission Feasibility Checks
+
+A number of checks are run to ensure that a mission can only be started if it is _feasible_.
+For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
+
+As these are not strictly speaking "failsafes" they are documented in [Flying > Mission> Mission Feasibility Checks](../flying/missions.html#mission-feasibility-checks).
 
 ### Traffic Avoidance Failsafe
 
