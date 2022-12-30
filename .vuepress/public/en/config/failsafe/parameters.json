@@ -10203,17 +10203,45 @@
     },
     {
       "category": "Standard",
-      "decimalPlaces": 1,
-      "default": 2.0,
+      "decimalPlaces": 2,
+      "default": 0.05,
       "group": "FW TECS",
-      "increment": 0.5,
-      "longDesc": "This is the cross-over frequency (in radians/second) of the complementary filter used to fuse longitudinal acceleration and airspeed to obtain an improved airspeed estimate. Increasing this frequency weights the solution more towards use of the airspeed sensor, whilst reducing it weights the solution more towards use of the accelerometer data.",
+      "increment": 0.1,
+      "longDesc": "This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.",
       "max": 10.0,
-      "min": 1.0,
-      "name": "FW_T_SPD_OMEGA",
-      "shortDesc": "Complementary filter \"omega\" parameter for speed",
+      "min": 0.01,
+      "name": "FW_T_SPD_DEV_STD",
+      "shortDesc": "Airspeed rate measurement standard deviation for airspeed filter",
       "type": "Float",
-      "units": "rad/s"
+      "units": "m/s^2"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.2,
+      "group": "FW TECS",
+      "increment": 0.1,
+      "longDesc": "This is the process noise standard deviation in the airspeed filter filter defining the noise in the airspeed rate for the constant airspeed rate model. This is used to define how much the airspeed and the airspeed rate are filtered. The smaller the value the more the measurements are smoothed with the drawback for delays.",
+      "max": 10.0,
+      "min": 0.01,
+      "name": "FW_T_SPD_PRC_STD",
+      "shortDesc": "Process noise standard deviation for the airspeed rate in the airspeed filter",
+      "type": "Float",
+      "units": "m/s^2"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.2,
+      "group": "FW TECS",
+      "increment": 0.1,
+      "longDesc": "This is the measurement standard deviation for the airspeed used in the airspeed filter in TECS.",
+      "max": 10.0,
+      "min": 0.01,
+      "name": "FW_T_SPD_STD",
+      "shortDesc": "Airspeed measurement standard deviation for airspeed filter",
+      "type": "Float",
+      "units": "m/s"
     },
     {
       "category": "Standard",
@@ -10226,19 +10254,6 @@
       "min": 0.0,
       "name": "FW_T_STE_R_TC",
       "shortDesc": "Specific total energy rate first order filter time constant",
-      "type": "Float"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 0.2,
-      "group": "FW TECS",
-      "increment": 0.01,
-      "longDesc": "This filter is applied to the true airspeed rate.",
-      "max": 2.0,
-      "min": 0.0,
-      "name": "FW_T_TAS_R_TC",
-      "shortDesc": "True airspeed rate first order filter time constant",
       "type": "Float"
     },
     {

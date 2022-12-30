@@ -15108,24 +15108,31 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="FW_T_SPD_OMEGA">FW_T_SPD_OMEGA</strong> (FLOAT)</td>
- <td>Complementary filter "omega" parameter for speed <p><strong>Comment:</strong> This is the cross-over frequency (in radians/second) of the complementary filter used to fuse longitudinal acceleration and airspeed to obtain an improved airspeed estimate. Increasing this frequency weights the solution more towards use of the airspeed sensor, whilst reducing it weights the solution more towards use of the accelerometer data.</p>   </td>
- <td>[1.0, 10.0] (0.5)</td>
- <td>2.0</td>
- <td>rad/s</td>
+ <td><strong id="FW_T_SPD_DEV_STD">FW_T_SPD_DEV_STD</strong> (FLOAT)</td>
+ <td>Airspeed rate measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.05</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SPD_PRC_STD">FW_T_SPD_PRC_STD</strong> (FLOAT)</td>
+ <td>Process noise standard deviation for the airspeed rate in the airspeed filter <p><strong>Comment:</strong> This is the process noise standard deviation in the airspeed filter filter defining the noise in the airspeed rate for the constant airspeed rate model. This is used to define how much the airspeed and the airspeed rate are filtered. The smaller the value the more the measurements are smoothed with the drawback for delays.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.2</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SPD_STD">FW_T_SPD_STD</strong> (FLOAT)</td>
+ <td>Airspeed measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed used in the airspeed filter in TECS.</p>   </td>
+ <td>[0.01, 10.0] (0.1)</td>
+ <td>0.2</td>
+ <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_T_STE_R_TC">FW_T_STE_R_TC</strong> (FLOAT)</td>
  <td>Specific total energy rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the specific total energy rate used for throttle damping.</p>   </td>
  <td>[0.0, 2] (0.01)</td>
  <td>0.4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_T_TAS_R_TC">FW_T_TAS_R_TC</strong> (FLOAT)</td>
- <td>True airspeed rate first order filter time constant <p><strong>Comment:</strong> This filter is applied to the true airspeed rate.</p>   </td>
- <td>[0.0, 2] (0.01)</td>
- <td>0.2</td>
  <td></td>
 </tr>
 <tr>
