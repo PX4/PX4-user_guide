@@ -22,14 +22,15 @@ For more information see the [QGroundControl User Guide](https://docs.qgroundcon
 
 Upon receiving an updated mission file from the ground station, the flight controller runs some feasibility checks that are meant to ensure the safety of the vehicle and catch unintended mission settings. If one of the checks fails, the user is notified and it is not possible to start the mission.
 
-The checks involve (selection of most likely ones):
-- First mission item too far away
+A subset of the most important checks are listed below:
+- First mission item too far away from vehicle
 - Distance between two subsequent items is too large
-- Any mission item outside of defined geofence
-- More than one land start defined
-- Fixed-wing landing infeasible slope angle
-- Land start item before RTL item
-- Missing takeoff and/or land item (see parameter list below for configuration)
+- Any mission item conflicts with a plan or safety geofence
+- More than one land start mission item defined ([MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START))
+- A fixed-wing landing has an infeasible slope angle
+- Land start item (`MAV_CMD_DO_LAND_START`) appears in mission before an RTL item ([MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH))
+- Missing takeoff and/or land item when these are configured as a requirement (see parameter list below for configuration)
+
 
 The relevant parameters are shown below:
 
