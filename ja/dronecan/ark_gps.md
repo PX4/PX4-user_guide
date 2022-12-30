@@ -60,7 +60,9 @@ ARK GPS boards ship with recent firmware pre-installed, but if you want to build
 - Firmware target: `ark_can-gps_default`
 - Bootloader target: `ark_can-gps_canbootloader`
 
-## Flight Controller Setup
+## PX4 Configuration
+
+You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle. The required settings are outlined below.
 
 :::note
 The ARK GPS will not boot if there is no SD card in the flight controller when powered on.
@@ -68,7 +70,7 @@ The ARK GPS will not boot if there is no SD card in the flight controller when p
 
 ### Enable DroneCAN
 
-In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
+In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
 The steps are:
 
@@ -79,9 +81,9 @@ Once enabled, the module will be detected on boot. GPS data should arrive at 10H
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
 
-### PX4 Configuration
+### Sensor Position Configuration
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle:
+If the sensor is not centred within the vehicle you will also need to define sensor offsets:
 
 - Enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
 - Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
