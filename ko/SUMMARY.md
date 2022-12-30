@@ -231,6 +231,7 @@
     * [Barometers](sensor/barometers.md)
     * [GPS/나침반](gps_compass/README.md)
       * [ARK GPS](dronecan/ark_gps.md)
+      * [Holybro DroneCAN M8N GPS](dronecan/holybro_m8n_gps.md)
       * [LOCOSYS Hawk A1 GNSS](gps_compass/gps_locosys_hawk_a1.md)
       * [Hex Here2](gps_compass/gps_hex_here2.md)
       * [Sky-Drones SmartAP GPS](gps_compass/gps_smartap.md)
