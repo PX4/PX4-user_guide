@@ -39,7 +39,7 @@
 
 비행 컨트롤러에게 대기속도 센서 없이 날고 있다는 것을 알리려면, 대기 속도 모드를 'Airspeed disabled'([FW_ARSP_MODE = 1](../advanced_config/parameter_reference.md#FW_ARSP_MODE))로 설정하여야 합니다.
 
-순항 스로틀([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE))을 기준 비행의 로그에서 결정된 백분율로 설정합니다. QGC는 이 값을 1..100에서 스케일하고, 로그의 추력 값은 0..1에서 스케일링합니다. 그러므로, 0.65의 추력을 65로 입력해야합니다. 안전상의 이유로 첫 번째 비행을 테스트하기 위해 결정된 값에 +10% 스로틀을 추가하는 것이 좋습니다.
+Set the trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)) to the percentage as determined from the log of the reference flight. QGC는 이 값을 1..100에서 스케일하고, 로그의 추력 값은 0..1에서 스케일링합니다. 그러므로, 0.65의 추력을 65로 입력해야합니다. 안전상의 이유로 첫 번째 비행을 테스트하기 위해 결정된 값에 +10% 스로틀을 추가하는 것이 좋습니다.
 
 최소 전면전환 시간([VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM))을 기준 비행에서 결정된 초 수로 설정하고 안전을 위해 +- 30%를 추가합니다.
 
@@ -71,6 +71,6 @@
 - [FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE): 잘못된 선언 (2)
 - [CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK): 162128
 - [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP): EKF2 (2)
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE): 결정됨 (예 : 70 %)
+- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM): determined (e.g. 70%)
 - [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): 결정됨 (예: 10 초)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15

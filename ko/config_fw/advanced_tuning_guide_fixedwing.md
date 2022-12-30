@@ -35,7 +35,7 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 
 다음 매개 변수를 설정하십시오.
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) -기동비행시 원하는 트림 대기 속도로 설정합니다.
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - 트림 대기 속도로 비행에 필요한 스로틀을 설정합니다.
+- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) - set to the throttle required to fly at trim airspeed.
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - 수평 비행을 유지를 위한 피치 각도로 설정합니다.
 
 #### 2 차 : 대기 속도와 스로틀 제한
