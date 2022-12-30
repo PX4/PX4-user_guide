@@ -32,28 +32,7 @@ Other key parameters that you may need to tune in order to improve landing behav
   This should be set to enable a controlled descent.
 * [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the horizontal and vertical speed limit in the last stage of an automatic landing if the system has a distance sensor. Has to be be set larger than LNDMC_Z_VEL_MAX.
 
-## Fixed-wing Configuration
-
-Tuning parameters for fixed-wing land detection:
-
-* [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - the maximum airspeed allowed for the system still to be considered landed. 
-  Has to be a tradeoff between airspeed sensing accuracy and triggering fast enough. 
-  Better airspeed sensors should allow lower values of this parameter.
-* [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
-* [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed.
-* [LNDFW_XYACC_MAX](../advanced_config/parameter_reference.md#LNDFW_XYACC_MAX) - the maximal horizontal acceleration for the system to still be considered landed.
-* [LNDFW_TRIG_TIME](../advanced_config/parameter_reference.md#LNDFW_TRIG_TIME) - Trigger time the conditions above have to be fulfilled to declare a landing.
-
-:::note
-When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity). 
-:::
-
-<span id="states"></span>
-## Land Detector States
-
-### Multicopter Land Detection
-
-In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints.
+n order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints.
 If a condition cannot be reached because of missing sensors, then the condition is true by default. 
 For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time. 
  
@@ -95,3 +74,20 @@ the position controller will set the thrust vector to zero.
 
 Conditions for this state:
 - all conditions of maybe landed are true
+
+
+## Fixed-wing Configuration
+
+Tuning parameters for fixed-wing land detection:
+
+* [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - the maximum airspeed allowed for the system still to be considered landed. 
+  Has to be a tradeoff between airspeed sensing accuracy and triggering fast enough. 
+  Better airspeed sensors should allow lower values of this parameter.
+* [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
+* [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed.
+* [LNDFW_XYACC_MAX](../advanced_config/parameter_reference.md#LNDFW_XYACC_MAX) - the maximal horizontal acceleration for the system to still be considered landed.
+* [LNDFW_TRIG_TIME](../advanced_config/parameter_reference.md#LNDFW_TRIG_TIME) - Trigger time the conditions above have to be fulfilled to declare a landing.
+
+:::note
+When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity). 
+:::
