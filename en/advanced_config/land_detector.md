@@ -30,7 +30,7 @@ Other key parameters that you may need to tune in order to improve landing behav
   
 * [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. 
   This should be set to enable a controlled descent.
-
+* [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the horizontal and vertical speed limit in the last stage of an automatic landing if the system has a distance sensor. Has to be be set larger than LNDMC_Z_VEL_MAX.
 
 ## Fixed-wing Configuration
 
@@ -57,16 +57,19 @@ In order to detect landing, the multicopter first has to go through three differ
 If a condition cannot be reached because of missing sensors, then the condition is true by default. 
 For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time. 
  
-In order to proceed to the next state, each condition has to be true for some predefined time. 
-If one condition fails, the land detector drops out of the current state immediately. 
+In order to proceed to the next state, each condition has to be true for a third of the configured total land detector trigger time [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME). In case the vehicle is equipped with a distance sensor, but the distance to ground is currently no measurable (usually because it is too large), the trigger time is increased by a factor of 3.
+
+If one condition fails, the land detector drops out of the current state immediately.
 
 #### Ground Contact
 
-This state is reached if following conditions are true for 0.35 seconds:
+Conditions for this state:
 
 - no vertical movement ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - no horizontal movement ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6), or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
+- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + (hover throttle - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6), 
+- additional check if vehicle is currently in a height-rate controlled flight mode: the vehicle has to have the intend to descend (vertical velocity setpoint above LNDMC_Z_VEL_MAX).
+- additional check for vehicles with a distance sensor: current distance to ground is below 1m.
 
 If the vehicle is in position- or velocity-control and ground contact was detected, 
 the position controller will set the thrust vector along the body x-y-axis to zero.
@@ -74,11 +77,12 @@ the position controller will set the thrust vector along the body x-y-axis to ze
 
 #### Maybe Landed
 
-This state is reached if following conditions are true for 0.25 seconds:
+Conditions for this state:
 
 - all conditions of ground contact are true
 - is not rotating ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
 - has low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
+- no freefall detected
 
 If the vehicle only has knowledge of thrust and angular rate, 
 in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds. 
@@ -89,5 +93,5 @@ the position controller will set the thrust vector to zero.
 
 #### Landed
 
-This state is reached if following conditions are true for 0.3 seconds:
+Conditions for this state:
 - all conditions of maybe landed are true
