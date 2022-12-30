@@ -1,10 +1,13 @@
 # Holybro DroneCAN M8N GPS
 
-The Holybro DroneCAN GPS has an UBLOX M8N module, BMM150 compass, tri-colored LED indicator. It has adopted the DroneCAN protocol for communication. It is better in dealing with electromagnetic interference compare to serial connection, making it more reliable. It does not occupy any serial port of the flight controller, and different CAN devices can be connected to the same CAN bus via a CAN splitter board.
+The Holybro DroneCAN GPS has an UBLOX M8N module, BMM150 compass, tri-colored LED indicator.
 
-<img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="hb_dronecan_m8n_gps" /> 
+The GPS module uses the [DroneCAN](README.md) protocol for communication.
+DroneCAN connections are more resistant to electromagnetic interference compared to serial connection, making it more reliable.
+In addition, using DroneCAN means that the GPS and compass do not occupy any flight controller serial ports (different/additional CAN devices can be connected to the same CAN bus via a CAN splitter board).
 
-![hb_dronecan_m8n_gps](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg)
+<img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps.jpg" width="400px" title="Hero diagram for the GPS module" /> 
+
 
 ## Where to Buy
 
@@ -43,26 +46,30 @@ Order this module from:
 
 ## Hardware Setup
 
-### Wiring
-
-The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
-For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
-
 ### Mounting
 
 The recommended mounting orientation is with the arrow on the GPS pointing towards the **front of vehicle**.
 
 The sensor can be mounted anywhere on the frame, but you will need to specify its position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
+### Wiring
+
+The Holybro DroneCAN GPS is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+For more information, refer to the [CAN Wiring](../can/README.md#wiring) instructions.
+
 ### Pinout
 
-<img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_pinout.jpg" width="400px" title="hb_dronecan_m8n_gps" />
+![Diagram showing GPS pinouts](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_pinout.jpg)
 
-### Dimension
+### Dimensions
 
-<img src="../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg" width="400px" title="hb_dronecan_m8n_gps" /> 
+![Diagram showing GPS dimensions](../../assets/hardware/gps/hb_dronecan_m8n/hb_dronecan_m8n_gps_dimension.jpg)
 
-## Flight Controller Setup
+
+## PX4 Configuration
+
+You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle.
+The required settings are outlined below.
 
 :::note
 The GPS will not boot if there is no SD card in the flight controller when powered on.
@@ -70,21 +77,21 @@ The GPS will not boot if there is no SD card in the flight controller when power
 
 ### Enable DroneCAN
 
-In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
+In order to use the ARK GPS board, connect it to the Pixhawk CAN bus and enable the DroneCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [DroneCAN ESCs](../dronecan/escs.md)).
 
 The steps are:
 
 - In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
-- Connect ARK GPS CAN to the Pixhawk CAN.
+- Connect GPS CAN to the Pixhawk CAN.
 
 Once enabled, the module will be detected on boot.
 GPS data should arrive at 5Hz.
 
 DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enabling DroneCAN](../dronecan/README.md#enabling-dronecan).
 
-### PX4 Configuration
+### Sensor Position Configuration
 
-You need to set necessary [DroneCAN](README.md) parameters and define offsets if the sensor is not centred within the vehicle:
+If the sensor is not centred within the vehicle you will also need to define sensor offsets:
 
 - Enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
 - Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS), [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG), and [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO).
