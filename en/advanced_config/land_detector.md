@@ -91,3 +91,8 @@ Tuning parameters for fixed-wing land detection:
 :::note
 When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity). 
 :::
+
+
+## VTOL Land Detector
+
+The VTOL land detector is 1:1 the same as the MC land detector if the system is in hover mode. In FW mode, land detection is disabled.
