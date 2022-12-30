@@ -27,7 +27,6 @@ make px4_sitl gazebo
 make px4_sitl gazebo_iris_opt_flow
 ```
 
-<a id="quadrotor_depth_camera"></a>
 ### Quadrotor with Depth Camera
 
 These models have a depth camera attached, modelled on the Intel® RealSense™ D455.
