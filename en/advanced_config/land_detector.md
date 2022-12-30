@@ -32,18 +32,21 @@ Other key parameters that you may need to tune in order to improve landing behav
   This should be set to enable a controlled descent.
 
 
-## Fixed Wing Configuration
+## Fixed-wing Configuration
 
-The complete set of relevant parameters is available under the [LNDFW](../advanced_config/parameter_reference.md#land-detector) prefix. 
-These two parameters are sometimes worth tuning:
+Tuning parameters for fixed-wing land detection:
 
 * [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - the maximum airspeed allowed for the system still to be considered landed. 
-  The default of 8 m/s is a reliable tradeoff between airspeed sensing accuracy and triggering fast enough. 
+  Has to be a tradeoff between airspeed sensing accuracy and triggering fast enough. 
   Better airspeed sensors should allow lower values of this parameter.
 * [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
 * [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed.
-  This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
+* [LNDFW_XYACC_MAX](../advanced_config/parameter_reference.md#LNDFW_XYACC_MAX) - the maximal horizontal acceleration for the system to still be considered landed.
+* [LNDFW_TRIG_TIME](../advanced_config/parameter_reference.md#LNDFW_TRIG_TIME) - Trigger time the conditions above have to be fulfilled to declare a landing.
 
+:::note
+When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity). 
+:::
 
 <span id="states"></span>
 ## Land Detector States
