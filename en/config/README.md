@@ -7,7 +7,7 @@ Before starting this section you should [Download QGroundControl](http://qground
 
 To access **Vehicle Setup** screens, open the QGC application menu ("Q" icon in the top-left corner) and then choose **Vehicle Setup** in the *Select Tool* popup:
 
-  ![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
+![QGC Main Menu Popup: highlighting Vehicle Setup](../../assets/qgc/setup/menu_setup.png)
 :::
 
 The sub topics cover each of the steps in detail (first install the PX4 firmware and set your vehicle airframe):
@@ -17,7 +17,6 @@ The sub topics cover each of the steps in detail (first install the PX4 firmware
 * [Compass](../config/compass.md)
 * [Gyroscope](../config/gyroscope.md)
 * [Accelerometer](../config/accelerometer.md)
-* [IMU Factory Calibration](../config/imu_factory_calibration.md)
 * [Airspeed](../config/airspeed.md) (primarily for fixed-wing/VTOL)
 * [Level Horizon Calibration](../config/level_horizon_calibration.md)
 * [Radio Setup](../config/radio.md)
