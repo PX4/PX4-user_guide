@@ -128,16 +128,23 @@ This minimum data set is required for all EKF modes of operation. Other sensor d
 ### Magnetometer
 
 Three axis body fixed magnetometer data (or external vision system pose data) at a minimum rate of 5Hz is required.
+
 Magnetometer data can be used in two ways:
 
-* Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination.
-  This yaw angle is then used as an observation by the EKF.
-  This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases.
-  It is the default method used during start-up and on ground.
-* The XYZ magnetometer readings are used as separate observations.
-  This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
+- Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination.
+  The yaw angle is then used as an observation by the EKF.
+  - This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases.
+  - It is the default method used during start-up and on ground.
+- The XYZ magnetometer readings are used as separate observations.
+  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
+    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
+    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
+  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
+  - This is the default method used when the vehicle is moving.
 
 The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
+The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving.
+Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
 
 The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
 
