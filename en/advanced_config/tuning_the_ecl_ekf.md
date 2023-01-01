@@ -136,8 +136,9 @@ Magnetometer data can be used in two ways:
   - This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases.
   - It is the default method used during start-up and on ground.
 - The XYZ magnetometer readings are used as separate observations.
-  - This method is more accurate when the vehicle is moving, as it allows body frame offsets to be learned (when the vehicle is moving the heading or the magnetometer biases are observable).
-    The method is less robust, and the accuracy benefits are not available when the vehicle is not moving.
+  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
+    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
+    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
   - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
   - This is the default method used when the vehicle is moving.
 
