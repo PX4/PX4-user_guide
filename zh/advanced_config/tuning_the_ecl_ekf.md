@@ -94,12 +94,21 @@ EKF 具有不同的操作模式，以允许不同的传感器测量组合。 滤
 
 ### 磁力计
 
-需要以最小 5Hz 的速率的三轴机体固连磁力计数据（或外部视觉系统姿势数据）。 磁力计数据可以用于两种方式：
+需要以最小 5Hz 的速率的三轴机体固连磁力计数据（或外部视觉系统姿势数据）。
 
-* 使用倾角估计和磁偏角将磁力计测量值转换为偏航角。 然后将该偏航角用作 EKF 的观测值。 该方法精度较低并且不允许学习机体坐标系场偏移，但是它对于磁场异常和大的初置陀螺偏差更有鲁棒性。 它是启动期间和在地面时的默认方法。
-* XYZ 磁力计读数用作单独的观测值。 该方法更精确并且允许学习机体坐标系场偏移，但是它假设地球磁场环境只会缓慢变化，并且当存在显着的外部磁场异常时表现较差。
+磁力计数据可以用于两种方式：
 
-用于选择这些模式的逻辑由 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 参数设置。
+- 使用倾角估计和磁偏角将磁力计测量值转换为偏航角。 The yaw angle is then used as an observation by the EKF.
+  - 该方法精度较低并且不允许学习机体坐标系场偏移，但是它对于磁场异常和大的初置陀螺偏差更有鲁棒性。
+  - 它是启动期间和在地面时的默认方法。
+- XYZ 磁力计读数用作单独的观测值。
+  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
+    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
+    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
+  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
+  - This is the default method used when the vehicle is moving.
+
+用于选择这些模式的逻辑由 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 参数设置。 The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving. Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
 
 The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
 
