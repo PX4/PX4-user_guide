@@ -3,7 +3,7 @@
 The GPS includes either a M8N or M9N UBLOX module, IST8310 compass, tri-colored LED indicator, and a safety switch.
 
 There are 3 different connector options, allowing easy connection to flight controllers that are compliant with the Pixhawk-connector standard as either a primary or secondary GPS.
-This module ships with a baud rate of 38400 5Hz.
+This module ships with a baud rate of 38400 Hz.
 
 The main difference between the modules is that the M8N allows concurrent reception of up to 3 GNSS systems, while M9N can concurrently connect to up to 4.
 
