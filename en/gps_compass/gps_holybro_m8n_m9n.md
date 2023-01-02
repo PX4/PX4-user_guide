@@ -49,7 +49,7 @@ These allow out-of-the box connection to flight controllers that follow the Pixh
   ![Holybro M8N with Pixhawk 2nd GPS connector](../../assets/hardware/gps/holybro_gps_pinout3.jpg)
 - **SKU12013 Holybro M8N GPS for Pix32 (Molex 1.25mm 6pin & 4pin & 3pin cable)**
 
-  These Molex 1.25mm 6pin & 4pin & 3pin connectors are for Pix32 `Switch`, `GPS`, and `I2C` input ports (not for Pix32 v5 or v6).
+  These Molex 1.25mm 6pin & 4pin & 3pin connectors are for the [Holybro pix32 Flight Controller](../flight_controller/holybro_pix32.md) `Switch`, `GPS`, and `I2C` input ports (not for the Pix32 v5 or v6).
   
   ![Holybro M8N with Pix32 connector](../../assets/hardware/gps/holybro_gps_pinout2.jpg)
 
