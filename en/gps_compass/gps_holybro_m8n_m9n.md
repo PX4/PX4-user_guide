@@ -9,7 +9,7 @@ The main difference between the modules is that the M8N allows concurrent recept
 
 <img src="../../assets/hardware/gps/holybro_m8n_gps.jpg" width="200px" title="holybro_gps" /> <img src="../../assets/hardware/gps/holybro_m9n_gps.jpg" width="215px" title="holybro_gps" /> 
 
-### Features and Specifications:
+### Features and Specifications
 
 - Ublox Neo-M8N or M9N module
 - Industry leading –167 dBm navigation sensitivity
