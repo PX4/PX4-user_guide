@@ -81,7 +81,9 @@ Parameter | Description
 <span id="runway_launch"></span>
 ### Runway Takeoff
 
-For vehicles with a landing gear and steerable wheel. Enable wheel controller via [FW_W_EN](#FW_W_EN).
+For vehicles with a landing gear and steerable wheel.
+Enable wheel controller via [FW_W_EN](#FW_W_EN).
+
 Vehicle should be centered and aligned with runway when takeoff is initiated (either by arming in takeoff mode or by starting a mission with a takeoff mission item as active waypoint).
 The operator can "nudge" the vehicle while on the runway to help keeping it centered and aligned (see [RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE)).
 
