@@ -230,7 +230,7 @@ Parameter | Description
 A number of checks are run to ensure that a mission can only be started if it is _feasible_.
 For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
 
-As these are not strictly speaking "failsafes" they are documented in [Flying > Mission> Mission Feasibility Checks](../flying/missions.html#mission-feasibility-checks).
+As these are not strictly speaking "failsafes" they are documented in [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### Traffic Avoidance Failsafe
 
