@@ -1,25 +1,19 @@
 # IMU Factory Calibration
 
-If you are an OEM building a PX4-based end-product, you may wish to ensure end users can always reset vehicle configurations and tuning to a safe, flying state.
-PX4 supports a factory calibration procedure to achieve this, where critical IMU calibration parameters are written into `/fs/mtd_caldata` which is typically an onboard EEPROM chip, making them persistent in the event of a full parameter reset.
+PX4 OEM manufacturers can perform an IMU factory calibration in order to store persistent values for the accelerometer, gyroscope and magnetometer biases into persistent EEPROM.
+This ensures that end users can always reset vehicle configurations and tuning to a safe, flying state.
 
-:::note
-This feature is dependent on the availability of a dedicated EEPROM chip on the FMU (or accompanying IMU PCBA).
-This storage must be available at `/fs/mtd_caldata`.
+This procedure will write the following parameters to `/fs/mtd_caldata`: [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_MAG*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID).
+This data will then be used when the parameters are set (or reset) to their default values.
+
+:::warning
+This feature is dependent on the availability of storage at `/fs/mtd_caldata`.
+Generally the FMU must have a dedicated EEPROM chip for this purpose (or accompanying IMU PCBA).
 :::
 
-## Difference to Airframe Configuration
-
-An airframe configuration is the collection of parameters which are applicable across all vehicles of the same type.
-This includes things like sensor set, [autopilot rotation](flight_controller_orientation.md) and PID tuning. 
-
-Some parameters can vary from device to device, and therefore need to be treated differently.
-These parameters include the accelerometer, gyroscope and magnetometer biases.
-
-This procedure will write the following parameters into persistent EEPROM:
-- [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID)
-- [CAL_MAG*](../advanced_config/parameter_reference.md#CAL_MAG0_ID)
-- [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID)
+:::note
+These values cannot be stored in the [frame configuration](../dev_airframes/adding_a_new_frame.md) because they vary from device to device (the frame configuration defines the set of parameters that are applicable across all vehicles of the same type, such as the enabled sensors, [autopilot rotation](../config/flight_controller_orientation.md) and PID tuning).
+:::
 
 ## Performing the Factory Calibration 
 
@@ -29,10 +23,7 @@ This procedure will write the following parameters into persistent EEPROM:
   This will write all `CAL_ACC*`, `CAL_GYRO*` and `CAL_MAG*` parameters into `/fs/mtd_caldata`.
 1. Set the parameter `SYS_FAC_CAL_MODE` back to 0 (default).
 
-
-:::note
-Subsequent calibrations will still take effect as usual. The factory calibration is only used when all parameters are reset.
-:::
+Subsequent user calibrations will then take effect as usual (factory calibration data is only used for the parameter default values).
 
 ## Further Information
 
