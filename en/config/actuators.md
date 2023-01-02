@@ -79,6 +79,34 @@ The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centr
 Note, this may not be the same as the position of the flight controller!
 :::
 
+#### Geometry: Helicopter
+
+The geometry for a [Generic Helicopter (with Tail ESC)](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_(tail_esc)) is shown below.
+
+This is the only helicopter configuration supported, and allows for a single main rotor with any type of swash-plate and an ESC tail rotor.
+
+![Geometry: helicopter](../../assets/config/actuators/qgc_geometry_helicopter.png)
+
+The motors have no configurable geometry:
+
+- `Rotor (Motor 1)`: The main rotor
+- `Yaw tail motor (Motor 2)`: The tail rotor
+
+Swash plate servos:
+- Set the number of servos
+
+  For each servo set:
+  
+  - `Angle`: Angle measured clockwise, with `0` pointing forwards.
+  - `Arm Length (relative)`: ?
+  - `Trim`: Offset individual servo positions (generally not needed).
+
+Additional settings:
+
+- `Yaw compensation scale based on collective pitch`: 0
+- `Yaw compensation scale based on throttle`: 0
+- `Main rotor turns counter-clockwise`: Disabled  (clockwise rotation) | Enabled
+- `Throttle spoolup time`: 1.0
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
@@ -87,8 +115,8 @@ The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.
 Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
-
-
+ 
+  
 #### Motor Geometry: VTOL Tiltrotor
 
 The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
