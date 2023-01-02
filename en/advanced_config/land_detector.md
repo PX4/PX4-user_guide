@@ -14,7 +14,7 @@ You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISA
 The complete set of relevant landing detector parameters are listed in the parameter reference with the prefix [LNDMC](../advanced_config/parameter_reference.md#land-detector) (these can be edited in QGroundControl via the [parameter editor](../advanced_config/parameters.md)).
 
 :::tip
-Information about how the parameters affect landing can be found below in [Land Detector States](#states).
+Information about how the parameters affect landing can be found below in [Land Detector States](#mc-land-detector-states).
 :::
 
 Other key parameters that you may need to tune in order to improve landing behaviour on particular airframes are:
