@@ -94,12 +94,21 @@ EKF에는 다양한 센서 측정 조합으로 작동하는 여러가지 모드�
 
 ### 자력계
 
-최소 5Hz 속도의 3축 본체 고정 자력계 데이터 (또는 외부 비전 시스템 포즈 데이터)가 필요합니다. 자력계 데이터는 두 가지 방법으로 사용할 수 있습니다.
+최소 5Hz 속도의 3축 본체 고정 자력계 데이터 (또는 외부 비전 시스템 포즈 데이터)가 필요합니다.
 
-* 자력계는 기울기 추정과 자기 편각을 사용하여 요 각도를 측정합니다. 이 요 각도는 EKF에서 관찰로 사용됩니다. 이 방법은 정확도가 떨어지고, 본체 필드 오프셋의 학습을 허용하지 않지만, 자기 이상과 대규모 스타트업 자이로 바이어스에 더 강력합니다. 지상에서 시동에 사용되는 기본 방법입니다.
-* XYZ 자력계 판독 값은 별도의 관측치로 사용됩니다. 이 방법은 더 정확하고 본체 프레임 오프셋을 학습할 수 있지만, 지구 자기장 환경이 느리게 변하고 심각한 외부 자기 이상이있을 때 성능이 저하된다고 가정합니다.
+자력계 데이터는 두 가지 방법으로 사용할 수 있습니다.
 
-이러한 모드를 선택하는 데 사용되는 로직은 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 매개변수로 설정됩니다.
+- 자력계는 기울기 추정과 자기 편각을 사용하여 요 각도를 측정합니다. The yaw angle is then used as an observation by the EKF.
+  - 이 방법은 정확도가 떨어지고, 본체 필드 오프셋의 학습을 허용하지 않지만, 자기 이상과 대규모 스타트업 자이로 바이어스에 더 강력합니다.
+  - 지상에서 시동에 사용되는 기본 방법입니다.
+- XYZ 자력계 판독 값은 별도의 관측치로 사용됩니다.
+  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
+    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
+    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
+  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
+  - This is the default method used when the vehicle is moving.
+
+이러한 모드를 선택하는 데 사용되는 로직은 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 매개변수로 설정됩니다. The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving. Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
 
 The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
 
