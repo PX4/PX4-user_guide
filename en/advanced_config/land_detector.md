@@ -32,6 +32,9 @@ Other key parameters that you may need to tune in order to improve landing behav
   This should be set to enable a controlled descent.
 * [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the horizontal and vertical speed limit in the last stage of an automatic landing if the system has a distance sensor. Has to be be set larger than LNDMC_Z_VEL_MAX.
 
+
+### MC Land Detector States
+
 In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints.
 If a condition cannot be reached because of missing sensors, then the condition is true by default. 
 For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time. 
