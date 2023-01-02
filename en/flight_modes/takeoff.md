@@ -36,7 +36,10 @@ Parameter | Description
 The aircraft takes off in the current direction (heading) using either *catapult/hand-launch mode* or *runway takeoff mode*.
 The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
 
-There are generally two ways to start an automatic takeoff on fixed-wing vehicles: either by planning a mission takeoff and starting the mission, or by switching to the Takeoff flight mode and arm the vehicle. Both ways lead to the same behavior, with the difference that in a mission takeoff, the user can specify the takeoff course (vehicle will track this course after being clear of the runway) and takeoff altitude (vehicle will climb to this altitude while staying on the takeoff course). For the non-mission takeoff, the course is set to the vehicle heading on arming, and the altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
+There are generally two ways to start an automatic takeoff on fixed-wing vehicles: either by planning a mission takeoff and starting the mission, or by switching to the Takeoff flight mode and arm the vehicle.
+Both methods lead to very similar behavior, with the difference being that in a mission takeoff, the user can specify the takeoff course (vehicle will track this course after being clear of the runway) and takeoff altitude (vehicle will climb to this altitude while staying on the takeoff course).
+For the non-mission takeoff, the course is set to the vehicle heading on arming, and the altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
+
 
 Parameters that apply to both catapult/hand-launch as well as runway takeoffs:
 
