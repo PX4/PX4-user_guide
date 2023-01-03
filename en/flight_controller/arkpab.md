@@ -7,7 +7,7 @@ Contact the [manufacturer](https://arkelectron.com/contact-us/) for hardware sup
 
 The ARK Pixhawk Autopilot Bus (PAB) Carrier is a USA-built flight controller carrier board, based on the [Pixhawk Autopilot Bus open source standard](https://github.com/pixhawk/Pixhawk-Standards).
 
-The PAB form factor enables the ARK PAB Carrier to be used with any PAB-compatible flight controller, such as the [ARKV6X](../flight_controller/arkv6x.md).
+The PAB form factor enables the ARK PAB Carrier to be used with any [PAB-compatible flight controller](../flight_controller/pixhawk_autopilot_bus.md), such as the [ARKV6X](../flight_controller/arkv6x.md).
 
 ![ARKPAB Main Photo](../../assets/flight_controller/arkpab/arkpab_main.jpg)
 
