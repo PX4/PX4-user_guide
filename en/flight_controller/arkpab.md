@@ -11,6 +11,9 @@ The PAB form factor enables the ARK PAB Carrier to be used with any PAB-compatib
 
 ![ARKPAB Main Photo](../../assets/flight_controller/arkpab/arkpab_main.jpg)
 
+### Where To Buy
+
+Order From [Ark Electronics](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/) (US)
 
 ## Features
 
@@ -55,16 +58,262 @@ The PAB form factor enables the ARK PAB Carrier to be used with any PAB-compatib
 - Debug Port
   - 10 Pin JST-SH
 
-## Additional Information
+## Dimensions
 
-- Power Requirements
-  - 5V
-  - TBD
-- Dimensions (Without Flight Controller Module)
-  - 74mm x 43.5mm x 12mm
+- Without Flight Controller Module
+  - 74.0mm x 43.5mm x 12.0mm
+  - 22g
+
+## Power
+
+- 5V input on `POWER1`, `POWER2`, `USB C`, and the `USB JST-GH` connector
+  - Input is prioritized in the following order: POWER1 > POWER2 > USB
+  - `USB C` and the `USB JST-GH` are in parallel
+  - Overvoltage protection at 5.8V
+  - Undervoltage protection at 3.9V
+- `VDD_5V_HIPOWER` and `VDD_5V_PERIPH` can each provide a total of 1.5A across all the connectors
+
+## LEDS
+
+- There are two LEDs on the ARK PAB
+  - `Red` is the ethernet power LED
+  - `Green` is the ethernet activity LED
+
+## Pinout
+
+![ARKPAB Pinout](../../assets/flight_controller/arkpab/arkpab_pinout.jpg)
+
+## POWER1
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VBRICK1`        | +5.0V
+2 (blk) | `VBRICK1`        | +5.0V
+3 (blk) | I2C1_SCL         | +3.3V
+4 (blk) | I2C1_SDA         | +3.3V
+5 (blk) | `GND`            | GND
+6 (blk) | `GND`            | GND
+
+## POWER2
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VBRICK2`        | +5.0V
+2 (blk) | `VBRICK2`        | +5.0V
+3 (blk) | I2C2_SCL         | +3.3V
+4 (blk) | I2C2_SDA         | +3.3V
+5 (blk) | `GND`            | GND
+6 (blk) | `GND`            | GND
+
+## PWM
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | VDD_SERVO (Not Connected) | +5.0V
+2 (blk) | FMU_CH1                   | +3.3V
+3 (blk) | FMU_CH2                   | +3.3V
+4 (blk) | FMU_CH3                   | +3.3V
+5 (blk) | FMU_CH4                   | +3.3V
+6 (blk) | FMU_CH5                   | +3.3V
+7 (blk) | FMU_CH6                   | +3.3V
+8 (blk) | FMU_CH7                   | +3.3V
+9 (blk) | FMU_CH8                   | +3.3V
+10 (blk) | `GND`                    | GND
+
+## GPS1
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PERIPH`          | +5.0V
+2 (blk) | USART1_TX_GPS1           | +3.3V
+3 (blk) | USART1_RX_GPS1           | +3.3V
+4 (blk) | I2C1_SCL                 | +3.3V
+5 (blk) | I2C1_SDA                 | +3.3V
+6 (blk) | nSAFETY_SWITCH_IN        | +3.3V
+7 (blk) | nSAFETY_SWITCH_LED_OUT   | +3.3V
+8 (blk) | `3V3_FMU`                | +3.3V
+9 (blk) | BUZZER                   | +5.0V
+10 (blk) | `GND`                   | GND
+
+## GPS2
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_HIPOWER`        | +5.0V
+2 (blk) | UART8_TX_GPS2           | +3.3V
+3 (blk) | UART8_RX_GPS2           | +3.3V
+4 (blk) | I2C2_SCL                | +3.3V
+5 (blk) | I2C2_SDA                | +3.3V
+6 (blk) | `GND`                   | GND
+
+## TELEM1
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_HIPOWER`       | +5.0V
+2 (blk) | UART7_TX               | +3.3V
+3 (blk) | UART7_RX               | +3.3V
+4 (blk) | UART7_CTS              | +3.3V
+5 (blk) | UART7_RTS              | +3.3V
+6 (blk) | `GND`                  | GND
+
+## TELEM2
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PERIPH`        | +5.0V
+2 (blk) | UART5_TX               | +3.3V
+3 (blk) | UART5_RX               | +3.3V
+4 (blk) | UART5_CTS              | +3.3V
+5 (blk) | UART5_RTS              | +3.3V
+6 (blk) | `GND`                  | GND
+
+## TELEM3
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_HIPOWER`       | +5.0V
+2 (blk) | USART2_TX               | +3.3V
+3 (blk) | USART2_RX               | +3.3V
+4 (blk) | USART2_CTS              | +3.3V
+5 (blk) | USART2_RTS              | +3.3V
+6 (blk) | `GND`                  | GND
+
+## UART4/I2C3
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PERIPH`        | +5.0V
+2 (blk) | UART4_TX               | +3.3V
+3 (blk) | UART4_RX               | +3.3V
+4 (blk) | I2C3_SCL               | +3.3V
+5 (blk) | I2C3_SDA               | +3.3V
+6 (blk) | `GND`                  | GND
+
+## I2C3
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PERIPH`        | +5.0V
+2 (blk) | I2C3_SCL               | +3.3V
+3 (blk) | I2C3_SDA               | +3.3V
+4 (blk) | `GND`                  | GND
+
+## CAN1
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_HIPOWER`    | +5.0V
+2 (blk) | CAN1_H              | +3.3V
+3 (blk) | CAN1_L              | +3.3V
+4 (blk) | `GND`               | GND
+
+## CAN2
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PERIPH`     | +5.0V
+2 (blk) | CAN2_H              | +3.3V
+3 (blk) | CAN2_L              | +3.3V
+4 (blk) | `GND`               | GND
+
+## USB
+
+All signals in parallel with USB C connector
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VBUS_IN`           | +5.0V
+2 (blk) | USB_N               | +3.3V
+3 (blk) | USB_P               | +3.3V
+4 (blk) | `GND`               | GND
+
+## ETH
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | ETH_RD_N            | +50.0V Tolerant
+2 (blk) | ETH_RD_P            | +50.0V Tolerant
+3 (blk) | ETH_TD_N            | +50.0V Tolerant
+4 (blk) | ETH_TD_P            | +50.0V Tolerant
+
+## ADIO
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PERIPH`     | +5.0V
+2 (blk) | FMU_CAP             | +3.3V
+3 (blk) | BOOTLOADER          | +3.3V
+4 (blk) | FMU_RST_REQ         | +3.3V
+5 (blk) | nARMED              | +3.3V
+6 (blk) | ADC1_3V3            | +3.3V
+7 (blk) | ADC1_6V6            | +3.3V
+8 (blk) | `GND`               | GND
+
+## RC/SBUS
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_SBUS_RC`       | +5.0V
+2 (blk) | USART6_RX_SBUS_IN      | +3.3V
+3 (blk) | USART6_TX              | +3.3V
+4 (blk) | `VDD_3V3_SPEKTRUM`     | +3.3V
+5 (blk) | `GND`                  | GND
+
+## PPM
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PPM_RC`          | +5.0V
+2 (blk) | DSM_INPUT/FMU_PPM_INPUT  | +3.3V
+3 (blk) | `GND`                    | GND
+
+## DSM
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_3V3_SPEKTRUM`       | +3.3V
+2 (blk) | `GND`                    | GND
+3 (blk) | DSM_INPUT/FMU_PPM_INPUT  | +3.3V
+
+## SPI6
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `VDD_5V_PERIPH`           | +5.0V
+2 (blk) | SPI6_SCK                  | +3.3V
+3 (blk) | SPI6_MISO                 | +3.3V
+4 (blk) | SPI6_MOSI                 | +3.3V
+5 (blk) | SPI6_nCS1                 | +3.3V
+6 (blk) | SPI6_nCS2                 | +3.3V
+7 (blk) | SPIX_nSYNC                | +3.3V
+8 (blk) | SPI6_DRDY1                | +3.3V
+9 (blk) | SPI6_DRDY2                | +3.3V
+10 (blk) | SPI6_nRESET              | +3.3V
+11 (blk) | `GND`                    | GND
+
+## Debug Port
+
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
+
+The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full-10-pin-sh-debug-port) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | `Vtref`          | +3.3V
+2 (blk) | Console TX (OUT) | +3.3V
+3 (blk) | Console RX (IN)  | +3.3V
+4 (blk) | `SWDIO`          | +3.3V
+5 (blk) | `SWCLK`          | +3.3V
+6 (blk) | `SWO`            | +3.3V
+7 (blk) | NFC GPIO         | +3.3V
+8 (blk) | PH11             | +3.3V
+9 (blk) | nRST             | +3.3V
+10 (blk) | `GND`           | GND
+
+For information about wiring and using this port see:
+- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to USART3).
+- [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md)
 
 ![ARKPAB Top Down Photo](../../assets/flight_controller/arkpab/arkpab_top.jpg)
 
 ![ARKPAB Bottom Photo](../../assets/flight_controller/arkpab/arkpab_back2.jpg)
-
-![ARK Logo](../../assets/flight_controller/arkpab/ark_logo.png)

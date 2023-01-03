@@ -17,6 +17,10 @@ ARK Electronics also offers a compatible [PAB](../flight_controller/arkpab.md).
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
+### Where To Buy
+
+Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/) (US)
+
 ### Sensors
 
 - [Dual Invensense ICM-42688-P IMUs](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-42688-p/)
@@ -38,14 +42,14 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - LED Indicators
 - MicroSD Slot
 - USA Built
-- Designed with a 1W heater. Keeps sensors warm even in extreme conditions
+- Designed with a 1W heater. Keeps sensors warm in extreme conditions
 
 ### Power Requirments
 
 - 5V
   - 500mA
-  - (300ma for main system)
-  - (200ma for heater)
+    - 300ma for main system
+    - 200ma for heater
 
 ### Additional Information
 
@@ -56,14 +60,21 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 For pinout of the ARKV6X see the [DS-10 Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf)
 
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+USART1 | /dev/ttyS0 | GPS
+USART2 | /dev/ttyS1 | TELEM3
+USART3 | /dev/ttyS2 | Debug Console
+UART4 | /dev/ttyS3 | UART4 & I2C
+UART5 | /dev/ttyS4 | TELEM2
+USART6 | /dev/ttyS5 | PX4IO/RC
+UART7 | /dev/ttyS6 | TELEM1
+UART8 | /dev/ttyS7 | GPS2
+
 ### Building Firmware
 
 ```
 make ark_fmu-v6x_default
 ```
-
-### Where To Buy
-
-Order From [Ark Electronics](https://arkelectron.com/product/arkv6x/)
-
-![ARK Logo](../../assets/flight_controller/arkv6x/ark_logo.png)
