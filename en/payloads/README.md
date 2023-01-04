@@ -19,34 +19,21 @@ The MAVSDK provides simple APIs to use this protocol for both [standalone camera
 Cameras can also be connected directly to a flight controller using PWM or GPI outputs.
 PX4 supports the following set of MAVLink commands/mission items for cameras that are connected to the flight controller:
 
-* [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL) - set time interval between captures.
-* [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - set distance between captures
-* [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - start/stop capturing (using distance or time, as defined using above messages).
+- [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL) - set time interval between captures.
+- [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - set distance between captures
+- [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - start/stop capturing (using distance or time, as defined using above messages).
 
 The following topics show how to *connect* and configure a camera:
 
-* [Camera Triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink. 
-* [Camera Capture](../peripherals/camera.md#camera-capture) feedback via hotshoe input.
+- [Camera Triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink. 
+- [Camera Capture](../peripherals/camera.md#camera-capture) feedback via hotshoe input.
+
 
 ## Cargo Drones (Package Delivery)
 
-Cargo drones commonly use grippers, winches, and mechanisms to release packages at their destinations.
+Cargo drones commonly use grippers, winches, and other mechanisms to release packages at their destinations.
 
-PX4 supports [package delivery in missions](#package-delivery-in-missions) using a [gripper](../peripherals/gripper.md) (support for winches and other release mechanism is also intended).
-PX4 also supports generic actuator triggering using both [RC Control](#generic-actuator-control-with-rc) and [MAVLink commands](#generic-actuator-control-with-mavlink-command).
-
-:::note
-Prefer using a gripper (or other integrated hardware) to generic actuator triggering when possible.
-This makes missions easier to write, more predictable, and more reusable.
-The main reason to use generic actuator triggering is when RC triggering is required, or you need to use release hardware that is not integrated.
-:::
-
-### Package Delivery in Missions
-
-PX4 supports [package delivery in missions](#package-delivery-in-missions) using a [Gripper](../peripherals/gripper.md) (support for winches and other release mechanism is also intended).
-
-This is recommended because with properly configured hardware, it is much easier to create missions that are predictable, reusable, and safe.
-
+PX4 supports _package delivery in missions_ using a [gripper](../peripherals/gripper.md).
 Grippers can also be triggering using the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command, or manually via a Joystick button.
 
 For setup and usage information see:
@@ -54,15 +41,58 @@ For setup and usage information see:
 - [Gripper](../peripherals/gripper.md)
 - [Flying > Package Delivery Mission Planning](../flying/package_delivery_mission.md)
 
-### Generic Actuator Control with RC
+:::note
+Support for winches and other release mechanisms is also intended.
 
-Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels.
-The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
+If you need to perform cargo delivery using hardware that is not yet integrated, you can use [Generic Actuator Control](#generic-actuator-control).
+Prefer using integrated hardware if possible as this makes missions easier to write, more predictable, and more reusable.
+:::
 
-To map a particular RC channel to an output function `RC AUX n` (and hence it's assigned output) you use the [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) parameter that has the same `n` number.
+## Surveillance, Search & Rescue
 
-For example, to control an actuator attached to AUX pin 3 (say) you would assign the output function `RC AUX 5` to the output `AUX3`.
-You could then use set the RC channel to control the `AUX3` output using `RC_MAP_AUX5`.
+Surveillance and Search & Rescue drones have similar requirements to mapping drones.
+The main differences are that, in addition to flying a planned survey area, they typically need good standalone control over the camera for image and video capture, and they may need to be able to work during both day and night
+
+Use a camera that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) as this supports image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
+These cameras can be controlled either manually from QGroundControl or via MAVSDK (for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
+See [Camera triggering](../peripherals/camera.md) for information on how to configure your camera to work with MAVLink.
+
+:::note
+Cameras connected directly to the flight controller _only_ support camera triggering, and are unlikely to be suitable for most surveillance/search work.
+:::
+
+A search and rescue drone may also need to carry cargo, for example, emergency supplies for a stranded hiker.
+See [Cargo Drones](#cargo-drones-package-delivery) above for information about payload delivery.
+
+## Agricultural Drones/Crop Spraying
+
+Agricultural drones are commonly used for mapping crop health and pest detection and animal management (herding, tracking, etc.).
+These cases are similar to the [mapping](#mapping-drones) and [surveillance, search & rescue](#surveillance-search-rescue) cases above.
+While specific crops/animals may need specialist cameras, the integration with PX4 is the same.
+
+Agricultural drone may also be used for crop spraying.
+In this case the sprayer must be controlled as a [generic actuator](#generic-actuator-control):
+
+- Most sprayers provide controls to activate/deactivate a pump; some also allow control over the rate of flow or the spray field (i.e. by controlling the nozzle shape, or using a spinner to distribute the payload).
+- The [Generic Actuator Control with MAVLink Command](#generic-actuator-control-with-mavlink-command) section explains how you can connect flight controller outputs to your sprayer and trigger them using the `MAV_CMD_DO_SET_ACTUATOR`.
+- You can define the area to spray using a [Survey pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_survey.html), or you can define the grid to fly using waypoints.
+  In either case, it is important to ensure that the vehicle flight path provides adqequate coverage for your payload.
+- You should add a `MAV_CMD_DO_SET_ACTUATOR` to your mission before and after the survey pattern in order to enable and disable the sprayer.
+  Note that this [cannot be done directly through QGC](#generic-actuator-control-in-missions).
+
+
+## Generic Actuator Control
+
+You can connect arbitrary hardware to unused PX4 outputs and control it using and [RC Control](#generic-actuator-control-with-rc) or [MAVLink commands](#generic-actuator-control-with-mavlink-command).
+
+This is useful when you need to use a payload type for which there is no equivalent MAVLink command, or that is not supported by PX4.
+Note that there is no [direct support](#generic-actuator-control-in-missions) in QGroundControl for using generic actuator control in missions.
+
+:::note
+Prefer using integrated hardware and hardware-specific MAVLink commands to generic actuator control when possible.
+Using integrated hardware allows PX4 to optimise mission planning and behaviour.
+It also makes missions easier to write as *QGroundControl* typically provides mission editors for control over supported hardware.
+:::
 
 
 ### Generic Actuator Control with MAVLink Command
@@ -79,6 +109,28 @@ The outputs that are to be controlled are specified in the [Actuators](../config
 For example, in the image above, the `AUX5` output is assigned the function `Offboard Actuator Set 1` function.
 To control the actuator attached to `AUX5` you would set the value of `MAV_CMD_DO_SET_ACTUATOR.param1`.
 
+### Generic Actuator Control with RC
+
+Up to 6 autopilot PWM or CAN outputs can be controlled using RC channels.
+The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `RC AUX 1` to `RC AUX 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
+
+To map a particular RC channel to an output function `RC AUX n` (and hence it's assigned output) you use the [RC_MAP_AUXn](../advanced_config/parameter_reference.md#RC_MAP_AUX1) parameter that has the same `n` number.
+
+For example, to control an actuator attached to AUX pin 3 (say) you would assign the output function `RC AUX 5` to the output `AUX3`.
+You could then use set the RC channel to control the `AUX3` output using `RC_MAP_AUX5`.
+
+### Generic Actuator Control in Missions
+
+*QGroundControl* does not provide a mission item for setting actuator values.
+Using generic actuator control in missions is therefore partially manual.
+
+To use a generic actuator in a mission:
+
+1. Create a mission that uses a placeholder mission item where you want the actuator command (such as [MAV_CMD_DO_SET_SERVO](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_SERVO)).
+2. Export the plan to a file and open the file
+3. Find the placeholder mission item(s) using the command number; for `SET_SERVO` this will look like `"command": 183,`.
+4. Update the fields in the command to match the desired [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) command values (for example, the command number will change to `187`)
+5. Import and upload the modified plan.
 
 ### MAVSDK (Example script)
 
@@ -172,18 +224,4 @@ int main(int argc, char** argv)
 }
 ```
 
-## Surveillance, Search & Rescue
 
-Surveillance and Search & Rescue drones have similar requirements to mapping drones.
-The main differences are that, in addition to flying a planned survey area, they typically need good standalone control over the camera for image and video capture, and they may need to be able to work during both day and night
-
-Use a camera that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) as this supports image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
-These cameras can be controlled either manually from QGroundControl or via MAVSDK (for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
-See [Camera triggering](../peripherals/camera.md) for information on how to configure your camera to work with MAVLink.
-
-:::note
-Cameras connected directly to the flight control _only_ support camera triggering, and are unlikely to be suitable for most surveillance/search work.
-:::
-
-A search and rescue drone may also need to carry cargo, for example, emergency supplies for a stranded hiker.
-See [Cargo Drones](#cargo-drones-package-delivery) above for information about payload delivery.
