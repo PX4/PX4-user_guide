@@ -18,11 +18,11 @@ The *WFB-ng project* provides a data transport that use low-level WiFi packets t
 The high level benefits of *WFB-ng* include:
 
 - Low-latency video link
-- Bidirectional telemetry (mavlink) link
-- TCP/IP tunnel
+- Bidirectional telemetry link (MAVLink).
+- TCP/IP tunnel.
 - Automatic TX diversity - use multiple cards on the ground to avoid antenna tracker.
 - Full link encryption and authentication (using [libsodium](https://download.libsodium.org/doc/)).
-- Aggregation of MAVLink packets (pack small packets into batches before transmitting)
+- Aggregation of MAVLink packets (pack small packets into batches before transmitting).
 - Enhanced [OSD](https://github.com/svpcom/wfb-ng-osd) for Raspberry PI or generic linux desktop with gstreamer.
 
 Additional information is provided in the [FAQ](#faq) below.
@@ -62,7 +62,8 @@ For **Raspberry PI** (UAV or ground) it must be directly connected to 5V BEC (or
 - Cut a `+5V` wire on PCB near USB port and wire it to BEC (don't do this if doubt - use custom cable instead).
    
 You must also add a 470uF **low ESR capacitor** (like ESC has) between **card +5v and ground** to filter voltage spikes.
-You can integrate capacitor to custom usb cable. Without capacitor you can got strange issues like packets corruption or loss.
+You should integrate the capacitor with a custom USB cable.
+Without the capacitor you can get packet corruption or packet loss.
 Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires.
 
 **But if you use special very high power cards from taobao/aliexpress then you MUST power it as described above in ANY case.**
@@ -144,7 +145,7 @@ Or setup RTL properly to avoid model loss.
 **A:** WFB-ng is not tied to any GPU - it operates with UDP packets. 
   But to get RTP stream you need a video encoder (which encodes raw data from camera to x264 stream), or you must use a camera with a hardware video codec like Logitech C920 or Ethernet security cameras.
   
-#### What ARM Boards are recommended for the UAV?
+#### What ARM Boards are Recommended for the UAV?
 
 - RPI3b/3b+/ZeroW. Prebuild images are available, but it supports only h264 video for CSI cameras.
 - Jetson Nano. It supports h264 and h265 but you need to setup it yourself according to [Setup HOWTO](https://github.com/svpcom/wfb-ng/wiki/Setup-HOWTO)
