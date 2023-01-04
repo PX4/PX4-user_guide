@@ -1,10 +1,11 @@
 
-# Long-distance data link using wifi in raw mode
+# Long-distance Data-link using WiFi in Raw Mode
 
-This page shows how to set up a companion computer with a camera (Logitech C920 or RaspberryPi camera) such that the video stream is transferred from the UAV to a ground computer and displayed in *QGroundControl*. It also provide a bidirectional telemetry link (i.e. like SiK radio) and tcp/ip tunnel for drone access during flight.
+This page shows how to set up a companion computer with a camera (Logitech C920 or RaspberryPi camera) such that the video stream is transferred from the UAV to a ground computer and displayed in *QGroundControl*.
+It also provide a bidirectional [telemetry](../telemetry/README.md) link and TCP/IP tunnel for drone control during flight.
 
 This setup uses WiFi in unconnected (broadcast) mode and software from the [WFB-ng project](https://github.com/svpcom/wfb-ng).
-If you control drone via mavlink (via joystick in QGC) then you can use WFB-ng as single link for all drone communications.
+If you manually control the drone with a Joystick from QGroundControl (which uses MAVLink) then you can use WFB-ng as single link for all drone communications (Video, MAVLink telemetry, remote control using a Joystick).
 
 :::note
 Before using *WFB-ng* check regulators allow this kind of WiFi use in your country. 
@@ -12,7 +13,7 @@ Before using *WFB-ng* check regulators allow this kind of WiFi use in your count
 
 ## WFB-ng Overview
 
-The *WFB-ng project* provides data transport that use low-level WiFi packets to avoid the distance and latency limitations of the ordinary IEEE 802.11 stack.
+The *WFB-ng project* provides a data transport that use low-level WiFi packets to avoid the distance and latency limitations of the ordinary IEEE 802.11 stack.
 
 The high level benefits of *WFB-ng* include:
 
@@ -22,7 +23,7 @@ The high level benefits of *WFB-ng* include:
 - Automatic TX diversity - use multiple cards on the ground to avoid antenna tracker.
 - Full link encryption and authentication (using [libsodium](https://download.libsodium.org/doc/)).
 - Aggregation of MAVLink packets (pack small packets into batches before transmitting)
-- Enhanced [OSD](https://github.com/svpcom/wfb-ng-osd) for Raspberry PI or generic linux desktop with gstreamer
+- Enhanced [OSD](https://github.com/svpcom/wfb-ng-osd) for Raspberry PI or generic linux desktop with gstreamer.
 
 Additional information is provided in the [FAQ](#faq) below.
 
@@ -34,33 +35,33 @@ On the UAV side:
 * Raspberry PI 3B/3B+/ZeroW
 * One of:
 
-  a. [Raspberry Pi camera](https://www.raspberrypi.org/products/camera-module-v2/) connected via CSI.
+  - [Raspberry Pi camera](https://www.raspberrypi.org/products/camera-module-v2/) connected via CSI.
 
-  b. [Logitech camera C920](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34) connected via USB
+  - [Logitech camera C920](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34) connected via USB
 
-* WiFi module  [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card.
+- WiFi module  [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card.
 
 On the ground side:
 * One of:
 
-  a. Any computer with usb port and Linux (tested on ubuntu 18.04 x86-64)
-  b. Raspberry PI connected via ethernet to computer running QGroundControl with any OS.
+  - Any computer with usb port and Linux (tested on ubuntu 18.04 x86-64)
+  - Raspberry PI connected via ethernet to computer running QGroundControl with any OS.
   
-* WiFi module  [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card. 
+- WiFi module  [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card. 
   See [WFB-ng wiki > WiFi hardware](https://github.com/svpcom/wfb-ng/wiki/WiFi-hardware) for more information on supported modules.
 
 ## Hardware Modification
 
-Alpha AWUS036ACH is a medium power card and uses much current while transmitting. 
+Alpha AWUS036ACH is a medium power card that uses a lot of current while transmitting. 
 If you power it from ordinary USB2 it will reset the port on most **ARM boards**.
-But if you connect it to **USB3** port via **native USB3 cable** to **linux laptop** you can use it without modifications.
+If you connect it to **USB3** port via **native USB3 cable** to a **Linux laptop** you can use it without modification.
 
 For **Raspberry PI** (UAV or ground) it must be directly connected to 5V BEC (or high current power adapter in case of ground pi) in one of two ways:
 
-1. Make a custom USB cable ([cut `+5V` wire from USB plug and connect it to BEC])(https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
-2. Cut a `+5V` wire on PCB near USB port and wire it to BEC (don't do this if doubt - use custom cable instead).
+- Make a custom USB cable ([cut `+5V` wire from USB plug and connect it to BEC])(https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
+- Cut a `+5V` wire on PCB near USB port and wire it to BEC (don't do this if doubt - use custom cable instead).
    
-Also you must to add 470uF **low ESR capacitor** (like ESC has) between **card +5v and ground** to filter voltage spikes.
+You must also add a 470uF **low ESR capacitor** (like ESC has) between **card +5v and ground** to filter voltage spikes.
 You can integrate capacitor to custom usb cable. Without capacitor you can got strange issues like packets corruption or loss.
 Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires.
 
@@ -76,8 +77,8 @@ Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electrici
 7. Configure PX4 to output telemetry stream at speed 1500kbps (other UART speeds doesn't match well to RPI frequency dividers).
    Connect Pixhawk uart to Raspberry PI uart. In `/etc/wifibroadcast.cfg` uncomment `peer = 'serial:ttyS0:1500000'` in `[drone_mavlink]` section.
 
-### Using linux laptop as ground computer (the hard way)
-1. On **ground** linux development computer:
+### Using a Linux Laptop as GCS (Harder than using a RasPi)
+1. On **ground** Linux development computer:
    ```
    sudo apt install libpcap-dev libsodium-dev python3-all python3-twisted
    git clone -b stable https://github.com/svpcom/wfb-ng.git
@@ -87,16 +88,17 @@ Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electrici
 5. Don't forget to copy `/etc/gs.key` from **UAV** side to **ground** side to bind two setups.
 6. Also don't forget to use the same frequency channel as on the UAV side.
 
-### Using Raspberry PI as ground computer (the easy way)
-If you have Windows, OSX or doesn't want to setup WFB-ng to your linux laptop then you can use the same prebuilt image and another rasperry pi:
+### Using Raspberry PI as GCS (Easier)
 
-1. Flash image to the **ground** Rasbperry PI
-2. Reboot it and ssh with standard credentials (pi/raspberry).
+If you have Windows, OSX, or don't want to setup WFB-ng to your Linux laptop then you can use the same prebuilt image and another Raspberry Pi:
+
+1. Flash image to the **ground** Raspberry Pi.
+2. Reboot it and SSH in with standard credentials (pi/raspberry).
 3. Run actions for **ground** role as displayed in motd, but skip setup of `fpv-video` service and `osd` service.
-4. Connect your laptop and ground pi via ethernet and configure ip addresses
-5. Edit `/etc/wifibroadcast.cfg` and set ip address of the laptop instead of `127.0.0.1` in `[gs_mavlink]` and `[gs_video]` sections.
+4. Connect your laptop and ground RasPi via ethernet and configure IP addresses
+5. Edit `/etc/wifibroadcast.cfg` and set the IP address of the laptop in `[gs_mavlink]` and `[gs_video]` sections (replacing `127.0.0.1`).
 
-### QGroundControl setup
+### QGroundControl Setup
 
 1. Run *QGroundControl* and set `RTP h264` on port 5600 as video source
 2. Use default settings (udp on port 14550) as mavlink source
@@ -113,7 +115,7 @@ If you need a higher bandwidth you can use other MCS index (for example 2 or gre
 For simple cases you can use omnidirectional antennas with linear (that bundled with wifi cards) or circular leaf ([circularly polarized Coverleaf Antenna](http://www.antenna-theory.com/antennas/cloverleaf.php)) polarization. 
 If you want to setup long distance link you can use multiple wifi adapters with directional and omnidirectional antennas. TX/RX diversity for multiple adapters supported out of box (just add multiple NICs to ``/etc/default/wifibroadcast``).
 If your WiFi adapter has two antennas (like Alfa AWU036ACH) TX diversity is implemented via [STBC](https://en.wikipedia.org/wiki/Space%E2%80%93time_block_code). 
-Cards with 4 ports (like Alfa AWUS1900) are currently not supported
+Cards with 4 ports (like Alfa AWUS1900) are currently not supported.
 
 ## FAQ
 
@@ -124,11 +126,13 @@ Cards with 4 ports (like Alfa AWUS1900) are currently not supported
 
 **Q:** *What are transmission guarantees?*
 
-**A:** Wifibrodcast use FEC (forward error correction). You can tune it (both TX and RX simultaneously!) to fit your needs.
+**A:** Wifibroadcast uses FEC (forward error correction).
+You can tune it (both TX and RX simultaneously!) to fit your needs.
 
-**Q** *How long I can fly?*
+**Q** *How far I can fly and still connect?*
 
-**A** It depends on your antennas and wifi cards. With Alfa AWU036ACH and 20dBi patch antenna on the ground ~20km is possible.
+**A** It depends on your antennas and WiFi cards.
+With Alfa AWU036ACH and 20dBi patch antenna on the ground ~20km is possible.
 
 :::caution
 Don't use band that the RC TX operates on! 
@@ -138,14 +142,15 @@ Or setup RTL properly to avoid model loss.
 **Q:** *Is only Raspberry PI supported?*
 
 **A:** WFB-ng is not tied to any GPU - it operates with UDP packets. 
-  But to get RTP stream you need a video encoder (with encode raw data from camera to x264 stream) or use camera with hw video codec like Logitech C920 or ethernet securiry cameras.
+  But to get RTP stream you need a video encoder (which encodes raw data from camera to x264 stream), or you must use a camera with a hardware video codec like Logitech C920 or Ethernet security cameras.
   
 #### What ARM Boards are recommended for the UAV?
 
-- RPI3b/3b+/ZeroW. Prebuild images available, but it supports only h264 video for CSI cameras.
+- RPI3b/3b+/ZeroW. Prebuild images are available, but it supports only h264 video for CSI cameras.
 - Jetson Nano. It supports h264 and h265 but you need to setup it yourself according to [Setup HOWTO](https://github.com/svpcom/wfb-ng/wiki/Setup-HOWTO)
 
-You can use any other linux arm board, but you need to use ethernet or usb camera with builtin hw video codecs (like Logitech C920)
+You can use any other Linux ARM board, but you need to use an Ethernet or USB camera with built-in hardware video codecs (such as Logitech C920).
+
 ## Theory
 
 WFB-ng puts the WiFi cards into monitor mode. This mode allows to send and receive arbitrary packets without association and waiting for ACK packets.
