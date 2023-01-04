@@ -151,6 +151,7 @@
   * [Bootloader 更新](advanced_config/bootloader_update.md)
   * [刷写 Bootloader 到 Betaflight 系统](advanced_config/bootloader_update_from_betaflight.md)
   * [着陆探测器配置](advanced_config/land_detector.md)
+  * [IMU Factory Calibration](advanced_config/imu_factory_calibration.md)
   * [传感器热补偿](advanced_config/sensor_thermal_calibration.md)
   * [指南针动力补偿](advanced_config/compass_power_compensation.md)
   * [高级控制器转向](advanced_config/advanced_flight_controller_orientation_leveling.md)

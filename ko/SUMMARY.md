@@ -151,6 +151,7 @@
   * [부트로더 업데이트](advanced_config/bootloader_update.md)
   * [Betaflight 부트로더 설치](advanced_config/bootloader_update_from_betaflight.md)
   * [착륙 감지기 설정](advanced_config/land_detector.md)
+  * [IMU Factory Calibration](advanced_config/imu_factory_calibration.md)
   * [센서 온도 보정](advanced_config/sensor_thermal_calibration.md)
   * [나침반 전력 보정](advanced_config/compass_power_compensation.md)
   * [고급 컨트롤러 방향 설정](advanced_config/advanced_flight_controller_orientation_leveling.md)

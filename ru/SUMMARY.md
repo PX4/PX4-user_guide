@@ -151,6 +151,7 @@
   * [Bootloader Update](advanced_config/bootloader_update.md)
   * [Bootloader Flashing onto Betaflight Systems](advanced_config/bootloader_update_from_betaflight.md)
   * [Land Detector Configuration](advanced_config/land_detector.md)
+  * [IMU Factory Calibration](advanced_config/imu_factory_calibration.md)
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Compass Power Compensation](advanced_config/compass_power_compensation.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
