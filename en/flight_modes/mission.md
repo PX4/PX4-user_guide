@@ -27,22 +27,26 @@ Missions are uploaded onto a SD card that needs to be inserted **before** bootin
 
 At high level all vehicle types behave in the same way when MISSION mode is engaged:
 
-1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.  
-1. If a mission is stored and PX4 is landed:
-   * On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
-   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.  
-1. If no mission is stored, or if PX4 has finished executing all mission commands:
+1. If no mission is stored, or if PX4 has finished executing all mission commands, or if the [mission is not feasible](#mission-feasibility-checks):
    * If flying the vehicle will loiter.
    * If landed the vehicle will "wait".
+1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
+1. If a mission is stored and PX4 is landed:
+   * On copters PX4 will execute the [mission/flight plan](../flying/missions.md).
+     If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
+   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero).
+     The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.
 1. You can manually change the current mission command by selecting it in *QGroundControl*.
 
    :::note
-   If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
+   If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter.
+   One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
    :::
 1. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
 
    :::tip
-   To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. Enter the time to wait after landing before disarming the vehicle.
+   To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*.
+   Enter the time to wait after landing before disarming the vehicle.
    :::
 
 Missions can be paused by activating [HOLD mode](../flight_modes/hold.md).
@@ -60,8 +64,8 @@ For more information about mission planning, see:
 
 ## Mission Feasibility Checks
 
-PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed.
-If any of the checks fail, the user is notified and it is not possible to start the mission (on upload the mission may not be saved).
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and whenever there is an attempt to run the mission.
+If any of the checks fail, the user is notified and it is not possible to start the mission.
 
 A subset of the most important checks are listed below:
 
