@@ -151,6 +151,7 @@
   * [ブートローダーのアップデート](advanced_config/bootloader_update.md)
   * [Betaflight Systemsへのブートローダ書込み](advanced_config/bootloader_update_from_betaflight.md)
   * [ランディングディテクターの設定](advanced_config/land_detector.md)
+  * [IMU Factory Calibration](advanced_config/imu_factory_calibration.md)
   * [センサーの温度特性補償](advanced_config/sensor_thermal_calibration.md)
   * [Compass Power Compensation](advanced_config/compass_power_compensation.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
