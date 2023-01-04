@@ -3,9 +3,9 @@
 
 This page shows how to set up a companion computer with a camera (Logitech C920 or RaspberryPi camera) such that the video stream is transferred from the UAV to a ground computer and displayed in *QGroundControl*.
 It also provide a bidirectional [telemetry](../telemetry/README.md) link and TCP/IP tunnel for drone control during flight.
+If you manually control the drone with a Joystick from QGroundControl (which uses MAVLink) then you can use WFB-ng as single link for all drone communications (Video, MAVLink telemetry, remote control using a Joystick).
 
 This setup uses WiFi in unconnected (broadcast) mode and software from the [WFB-ng project](https://github.com/svpcom/wfb-ng).
-If you manually control the drone with a Joystick from QGroundControl (which uses MAVLink) then you can use WFB-ng as single link for all drone communications (Video, MAVLink telemetry, remote control using a Joystick).
 
 :::note
 Before using *WFB-ng* check regulators allow this kind of WiFi use in your country. 
