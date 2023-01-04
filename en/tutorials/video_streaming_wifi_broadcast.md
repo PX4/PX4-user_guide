@@ -42,10 +42,10 @@ On the UAV side:
 - WiFi module  [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card.
 
 On the ground side:
-* One of:
+- One of:
 
-  - Any computer with usb port and Linux (tested on ubuntu 18.04 x86-64)
-  - Raspberry PI connected via ethernet to computer running QGroundControl with any OS.
+  - Any computer with USB port and Linux (tested on ubuntu 18.04 x86-64)
+  - Raspberry PI connected via Ethernet to computer running QGroundControl on any OS.
   
 - WiFi module  [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) or any other **RTL8812au** card. 
   See [WFB-ng wiki > WiFi hardware](https://github.com/svpcom/wfb-ng/wiki/WiFi-hardware) for more information on supported modules.
@@ -123,7 +123,7 @@ Cards with 4 ports (like Alfa AWUS1900) are currently not supported.
 **Q:** *What type of data can be transmitted using wfb-ng?*
 
 **A:** Any UDP with packet size <= 1445. 
-  For example x264 inside RTP or MAVLink.
+For example x264 inside RTP or MAVLink.
 
 **Q:** *What are transmission guarantees?*
 
@@ -135,7 +135,7 @@ You can tune it (both TX and RX simultaneously!) to fit your needs.
 **A** It depends on your antennas and WiFi cards.
 With Alfa AWU036ACH and 20dBi patch antenna on the ground ~20km is possible.
 
-:::caution
+:::warning
 Don't use band that the RC TX operates on! 
 Or setup RTL properly to avoid model loss.
 :::
@@ -143,11 +143,12 @@ Or setup RTL properly to avoid model loss.
 **Q:** *Is only Raspberry PI supported?*
 
 **A:** WFB-ng is not tied to any GPU - it operates with UDP packets. 
-  But to get RTP stream you need a video encoder (which encodes raw data from camera to x264 stream), or you must use a camera with a hardware video codec like Logitech C920 or Ethernet security cameras.
+But to get RTP stream you need a video encoder (which encodes raw data from camera to x264 stream), or you must use a camera with a hardware video codec like Logitech C920 or Ethernet security cameras.
   
 #### What ARM Boards are Recommended for the UAV?
 
-- RPI3b/3b+/ZeroW. Prebuild images are available, but it supports only h264 video for CSI cameras.
+- RPI3b/3b+/ZeroW.
+  Prebuilt images are available, but it supports only h264 video for CSI cameras.
 - Jetson Nano. It supports h264 and h265 but you need to setup it yourself according to [Setup HOWTO](https://github.com/svpcom/wfb-ng/wiki/Setup-HOWTO)
 
 You can use any other Linux ARM board, but you need to use an Ethernet or USB camera with built-in hardware video codecs (such as Logitech C920).
