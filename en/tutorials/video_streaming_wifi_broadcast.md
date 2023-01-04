@@ -17,7 +17,7 @@ The *WFB-ng project* provides a data transport that use low-level WiFi packets t
 
 The high level benefits of *WFB-ng* include:
 
-- Low-latency video link
+- Low-latency video link.
 - Bidirectional telemetry link (MAVLink).
 - TCP/IP tunnel.
 - Automatic TX diversity - use multiple cards on the ground to avoid antenna tracker.
