@@ -31,9 +31,9 @@ The installation of Homebrew is quick and easy: [installation instructions](http
 
 ## Enable more open files (Handle "LD: too many open files" error)
 
-Create the `~/.zshenv` file or append it (by running `open ~/.zshenv` on the terminal) and add this line:
+Create the `~/.zshenv` file and add insert the line `ulimit -S -n 2048` into it:
 ```sh
-ulimit -S -n 2048
+echo ulimit -S -n 2048 > ~/.zshenv
 ```
 
 ## Enforce Python Version
