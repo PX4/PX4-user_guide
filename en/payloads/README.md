@@ -45,7 +45,6 @@ For setup and usage information see:
 Support for winches and other release mechanisms is also intended.
 
 If you need to perform cargo delivery using hardware that is not yet integrated, you can use [Generic Actuator Control](#generic-actuator-control).
-Prefer using integrated hardware if possible as this makes missions easier to write, more predictable, and more reusable.
 :::
 
 ## Surveillance, Search & Rescue
@@ -73,32 +72,28 @@ While specific crops/animals may need specialist cameras, the integration with P
 Agricultural drone may also be used for crop spraying.
 In this case the sprayer must be controlled as a [generic actuator](#generic-actuator-control):
 
-- Most sprayers provide controls to activate/deactivate a pump; some also allow control over the rate of flow or the spray field (i.e. by controlling the nozzle shape, or using a spinner to distribute the payload).
-- The [Generic Actuator Control with MAVLink Command](#generic-actuator-control-with-mavlink-command) section explains how you can connect flight controller outputs to your sprayer and trigger them using the `MAV_CMD_DO_SET_ACTUATOR`.
+- The [Generic Actuator Control with MAVLink](#generic-actuator-control-with-mavlink) section explains how you can connect flight controller outputs to your sprayer so that they can be controlled using MAVLink.
+  Most sprayers provide controls to activate/deactivate a pump; some also allow control over the rate of flow or the spray field (i.e. by controlling the nozzle shape, or using a spinner to distribute the payload).
 - You can define the area to spray using a [Survey pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_survey.html), or you can define the grid to fly using waypoints.
-  In either case, it is important to ensure that the vehicle flight path provides adqequate coverage for your payload.
-- You should add a `MAV_CMD_DO_SET_ACTUATOR` to your mission before and after the survey pattern in order to enable and disable the sprayer.
-  Note that this [cannot be done directly through QGC](#generic-actuator-control-in-missions).
+  In either case, it is important to ensure that the vehicle flight path and altitude provide adequate coverage for your particular spray being used.
+- You should add a ["Set actuator" mission item](#generic-actuator-control-in-missions) to your mission before and after the survey pattern in order to enable and disable the sprayer.
 
 
 ## Generic Actuator Control
 
-You can connect arbitrary hardware to unused PX4 outputs and control it using and [RC Control](#generic-actuator-control-with-rc) or [MAVLink commands](#generic-actuator-control-with-mavlink-command).
+You can connect arbitrary hardware to unused PX4 outputs and control it using [RC Control](#generic-actuator-control-with-rc) or [MAVLink](#generic-actuator-control-with-mavlink) (either as commands or in a [mission](#generic-actuator-control-in-missions)).
 
-This is useful when you need to use a payload type for which there is no equivalent MAVLink command, or that is not supported by PX4.
-Note that there is no [direct support](#generic-actuator-control-in-missions) in QGroundControl for using generic actuator control in missions.
+This is useful when you need to use a payload type for which there is no associated MAVLink command, or that is not supported by PX4.
 
 :::note
 Prefer using integrated hardware and hardware-specific MAVLink commands to generic actuator control when possible.
-Using integrated hardware allows PX4 to optimise mission planning and behaviour.
-It also makes missions easier to write as *QGroundControl* typically provides mission editors for control over supported hardware.
+Using integrated hardware allows optimised mission planning and behaviour.
 :::
 
+### Generic Actuator Control with MAVLink
 
-### Generic Actuator Control with MAVLink Command
-
-[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used in a mission or as a command to set the value of up to 6 actuators (at a time).
-This command can be used in missions or as a stand alone command.
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) can be used to set the value of up to 6 actuators (at a time).
+This command can be used in [missions](#generic-actuator-control-in-missions) by creating a "Set actuator" mission item, or as a stand alone command.
 
 The outputs that are to be controlled are specified in the [Actuators](../config/actuators.md#actuator-outputs) configuration screen by assigning the functions `Offboard Actuator Set 1` to `Offboard Actuator Set 6` to the desired [actuator outputs](../config/actuators.md#actuator-outputs).
 
@@ -121,16 +116,33 @@ You could then use set the RC channel to control the `AUX3` output using `RC_MAP
 
 ### Generic Actuator Control in Missions
 
-*QGroundControl* does not provide a mission item for setting actuator values.
-Using generic actuator control in missions is therefore partially manual.
+To use generic actuator control in a mission you must first [configure the outputs that you want to control using MAVLink](#generic-actuator-control-with-mavlink).
+
+Then in *QGroundControl* you can set the value of actuator outputs in a mission using the **Set actuator** mission item (this adds a [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) to the uploaded mission plan).
+
+It is important to note that with generic actuator control, neither *QGroundControl* or PX4 know anything about the hardware being triggered.
+When processing the mission item, PX4 will simply set the outputs to the specified values and then immediately proceed to the next mission item.
+If the hardware requires time to activate and you need to pause at the current waypoint for this to happen, then you will need to plan the mission with additional items to achieve the desired behaviour.
+
+:::note
+This is one reason why integrated hardware is preferred!
+It allows missions to be written generically, with any hardware-specific behaviour or timing managed by the flight stack configuration.
+:::
 
 To use a generic actuator in a mission:
 
-1. Create a mission that uses a placeholder mission item where you want the actuator command (such as [MAV_CMD_DO_SET_SERVO](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_SERVO)).
-2. Export the plan to a file and open the file
-3. Find the placeholder mission item(s) using the command number; for `SET_SERVO` this will look like `"command": 183,`.
-4. Update the fields in the command to match the desired [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) command values (for example, the command number will change to `187`)
-5. Import and upload the modified plan.
+1. Create a waypoint mission item where you want the actuator command.
+1. Change the waypoint mission item to a "Set actuator" mission item:
+
+   ![Set actuator mission item](../../assets/qgc/plan/mission_item_editors/mission_item_select_set_actuator.png)
+
+   - Select the header on the waypoint mission editor to open the **Select Mission Command** editor.
+   - Select the category **Advanced**, and then the **Set actuator** item.
+     This will change the mission item type to "Set actuator".
+
+1. Select the actuators that are connected and set their values (these are normalized between -1 and 1).
+
+   ![Set actuator mission item](../../assets/qgc/plan/mission_item_editors/set_actuator.png)
 
 ### MAVSDK (Example script)
 
