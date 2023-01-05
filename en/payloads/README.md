@@ -137,7 +137,7 @@ To use a generic actuator in a mission:
    ![Set actuator mission item](../../assets/qgc/plan/mission_item_editors/mission_item_select_set_actuator.png)
 
    - Select the header on the waypoint mission editor to open the **Select Mission Command** editor.
-   - Select the category **Advanced**, and then the **Set actuator** item.
+   - Select the category **Advanced**, and then the **Set actuator** item (if the item is not present, try a more recent version of *QGroundControl* or a daily build).
      This will change the mission item type to "Set actuator".
 
 1. Select the actuators that are connected and set their values (these are normalized between -1 and 1).
