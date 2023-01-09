@@ -95,6 +95,20 @@ Therefore, please disable the 'Airmode' before you begin PID tuning.
 
 ## Step 3: Rate control tuning
 
+We will use the QGC's rate controller tuning UI, for that please do the following:
+
+1. Go to 'PID Tuning' Tab in QGC
+2. Set 'Airmode' selector to have it 'disabled' (by default)
+3. Go to 'Stabilized' flight mode
+
+Note that in Stabilized mode, you have direct control on collective thrust using the throttle, and roll/pitch/yaw angle with manual control stick input.
+
+### Roll/Pitch Rate controller tuning
+
+First, re
+
+### Yaw Rate controller tuning
+
 ## Step 4: Attitude control tuning
 
 ## Step 5: Velocity control tuning
