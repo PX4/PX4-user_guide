@@ -53,6 +53,46 @@ If you don't set any value, the default will be `0.0`, which assumes linear rela
 
 ## Step 2: Pre conditions
 
+There are some critical pre-conditions you need to check & be aware of, in order to start tuning the PID values of the Multicopter:
+
+### Actuator mapping sanity check
+
+Before you go on any further, make sure the actuators outputs are correctly mapped. This can be done by going through the [output assignment](../config/actuators.md#output-assignment-and-configuration).
+
+Make sure that the motors order and direction of rotation as as expected! With a wrong motor assignment, the PID controller can output undesirable results (e.g. Drone flipping and crashing).
+
+### Motor Tilting for Yaw Authority
+
+Furthermore, it is recommended to [tilt the rotors](./mc_motor_tilting_for_yaw.md) to increase the yaw control authority. Especially if your vehicle is very large (with high moment of inertia around yaw-axis).
+
+### Theory behind PID Control
+
+It is helpful to understand / get intuitive sense on how PID tuning works. For that, you can refer to either the [Multicopter Control Architecture](../flight_stack/controller_diagrams.md#multicopter-control-architecture), and/or the following video:
+
+@[youtube](https://www.youtube.com/watch?v=JBvnB0279-Q)
+
+Furthermore, as we will be tuning the K, I and D gains using standard PID system notation (instead of P, I and D) in this documentation, please read the [standard vs parallel PID form](./pid_tuning_guide_multicopter_advanced.md#rate-controller-architectureform) documentation.
+
+### Note on Attitude gain for testing in Stabilized mode
+
+Although it is ideal to tune the rate controller in an Acro mode (which commands rate setpoints directly from user's setpoint), this requires fine control and lots of experience in the operator's side.
+
+Therefore, it is most convenient to test the vehicle in a 'Stabilized' mode. However, this comes with a catch.
+
+As documented in [Multicopter Attitude Controller documentation](../flight_stack/controller_diagrams.md#multicopter-attitude-controller), for stabilized mode, the 'Attitude P gain' plays a crucial role in defining the feasible vehicle dynamics.
+
+If the P-gain is too high (which is the problem case) with a big vehicle with high moment of inertia, it can quickly generate infeasible rate setpoints, and lead the vehicle into a crash.
+
+<!-- TODO: Add diagram / graph on how having too high P-attitude gain can lead to instability -->
+
+Therefore, before you go onto the rate control step, please use the default rate control gains and first tune the 'attitude controller' first.
+
+### Disabling Airmode
+
+As documented [here](./pid_tuning_guide_multicopter_advanced.md#airmode--mixer-saturation), 'Airmode' is useful to utilize vehicle's full rate control capability, but it interferes with the PID tuning (as it arbitrarily increases the overall collective thrust).
+
+Therefore, please disable the 'Airmode' before you begin PID tuning.
+
 ## Step 3: Rate control tuning
 
 ## Step 4: Attitude control tuning
