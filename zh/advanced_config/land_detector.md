@@ -13,7 +13,7 @@
 所有的关于着陆探测器的参数集在参数索引中列出，带有前缀 [LNDMC](../advanced_config/parameter_reference.md#land-detector) （可以通过[参数编辑器](../advanced_config/parameters.md)在 QGroundControl 中编辑这些参数）。
 
 :::tip
-关于参数如何影响着着陆的信息可以在下面的 [Land Detor States](#states) 中找到。
+Information about how the parameters affect landing can be found below in [Land Detector States](#mc-land-detector-states).
 :::
 
 为了改善特定机架上的着陆，您可能需要调整的其他关键参数包括:
@@ -25,44 +25,38 @@
 :::
 
 * [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)-系统的全局最小油门。 应该将其设置为可控的下降
+* [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the vertical speed applied in the last stage of autonomous landing if the system has a distance sensor and it is present and working. Has to be set larger than LNDMC_Z_VEL_MAX.
 
 
-## 固定翼配置
-
-完整的相关参数集可在 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 前缀下查阅。 这两个参数有时需要调整:
-
-* [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX)----飞机降落时允许的最大空速。 默认值 8 m 是，在空速传感器精度和足够快的触发速度之间权衡后，一个合适的设定值。 越好的空速传感器允许此参数的值越低。
-* [ LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX)-是着陆时系统的最大水平速度，这应当被考虑，从而选择一个合适的值。
-* [ LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX)-是着陆时系统的最大垂直速度，这应当被考虑，从而选择一个合适的值。 可以调整此参数，以确保着陆探测器触发早于或者晚于将飞机手动投掷。
-
-
-<span id="states"></span>
-## 着陆探测器状态
-
-### 多旋翼着陆检测
+### MC Land Detector States
 
 为了探测着陆，多旋翼首先必须经历三个不同的状态，其中每个状态都包含来自先前状态的条件以及更严格的约束。 如果由于缺少传感器而无法达到条件，则默认情况下认为该条件为真。 例如，在[ 特技模式 ](../flight_modes/acro_mc.md)中并且除了陀螺仪传感器之外没有传感器处于活动状态，则检测仅依赖于推力输出和时间。
 
-为了进入下一个状态，每个条件必须在某个预定义的时间内为真。 如果一个条件失败，则陆地探测器立即退出当前状态。
+In order to proceed to the next state, each condition has to be true for a third of the configured total land detector trigger time [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME). If the vehicle is equipped with a distance sensor, but the distance to ground is currently not measurable (usually because it is too large), the trigger time is increased by a factor of 3.
+
+如果一个条件失败，则陆地探测器立即退出当前状态。
 
 #### 地面接触
 
-如果满足以下条件达到 0.35 秒，则进入此状态：
+Conditions for this state:
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- 推力低于 [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3 除非有悬停推理估计，否则 0.6）， 或速度设定点是着陆速度的 0.9， 但车辆没有垂直移动。
+- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + (hover throttle - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6),
+- additional check if vehicle is currently in a height-rate controlled flight mode: the vehicle has to have the intent to descend (vertical velocity setpoint above LNDMC_Z_VEL_MAX).
+- additional check for vehicles with a distance sensor: current distance to ground is below 1m.
 
 如果飞行器处于位置控制或速度控制并且检测到地面接触，位置控制器会将沿飞行器 x-y 轴的推力矢量设置为零。
 
 
 #### 可能着陆
 
-如果满足以下条件达到 0.25 秒，则进入此状态：
+Conditions for this state:
 
-- 所有的地面接触条件都是真
+- all conditions of the [ground contact](#ground-contact) state are true
 - 没有滚动运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
 - 具有低推力 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
+- no freefall detected
 
 如果飞行器只知道推力和角速度，为了进入下一个状态，飞行器必须具有较低的推力（油门）和非旋转状态达到 8.0 秒。
 
@@ -71,5 +65,25 @@
 
 #### 降落完成
 
-如果满足以下条件达到 0.3 秒，则进入此状态：
-- 所有的可能着陆条件均为真
+Conditions for this state:
+- all conditions of the [maybe landed](#maybe-landed) state are true
+
+
+## Fixed-wing Configuration
+
+Tuning parameters for fixed-wing land detection:
+
+* [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX)----飞机降落时允许的最大空速。 Has to be a tradeoff between airspeed sensing accuracy and triggering fast enough. 越好的空速传感器允许此参数的值越低。
+* [ LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX)-是着陆时系统的最大水平速度，这应当被考虑，从而选择一个合适的值。
+* [ LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX)-是着陆时系统的最大垂直速度，这应当被考虑，从而选择一个合适的值。
+* [LNDFW_XYACC_MAX](../advanced_config/parameter_reference.md#LNDFW_XYACC_MAX) - the maximal horizontal acceleration for the system to still be considered landed.
+* [LNDFW_TRIG_TIME](../advanced_config/parameter_reference.md#LNDFW_TRIG_TIME) - Trigger time during which the conditions above have to be fulfilled to declare a landing.
+
+:::note
+When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity).
+:::
+
+
+## VTOL Land Detector
+
+The VTOL land detector is 1:1 the same as the MC land detector if the system is in hover mode. In FW mode, land detection is disabled.
