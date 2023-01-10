@@ -30,7 +30,7 @@ Other key parameters that you may need to tune in order to improve landing behav
   
 * [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. 
   This should be set to enable a controlled descent.
-* [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the horizontal and vertical speed limit in the last stage of an automatic landing if the system has a distance sensor. Has to be be set larger than LNDMC_Z_VEL_MAX.
+* [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the vertical speed applied in the last stage of autonomous landing if the system has a distance sensor and it is present and working. Has to be set larger than LNDMC_Z_VEL_MAX.
 
 
 ### MC Land Detector States
