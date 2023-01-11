@@ -20,7 +20,7 @@ The *Altitude* flight mode makes it easier for users to control vehicle altitude
 
 * 回中的滚动/俯仰/偏航输入（在死区内）：
   * 自动驾驶仪使飞机/机翼水平并且维持高度。
-  * 如果空速传感器已连接，油门杆控制飞机速度。 在没有空速传感器的情况下，用户无法控制油门（在这种情况下，飞机将在巡航油门下([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) 水平飞行，根据需要增加或减少油门以上升或下降。
+  * 如果空速传感器已连接，油门杆控制飞机速度。 Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend).
 * 外部中心：
   * 俯仰摇杆控制高度。
   * 油门杆控制飞机的空速（如回中输入 横滚/俯仰/偏航）。

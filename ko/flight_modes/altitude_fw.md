@@ -20,7 +20,7 @@ RC 수동 모드는 안정화 모드와 같지만 고도 안정화를 사용합�
 
 * 중앙 롤/피치/요 입력 (데드 밴드 내부) :
   * 자동조종장치는 기체/날개를 수평으로 유지하고 고도를 유지합니다.
-  * 스로틀 스틱은 대기 속도 센서가 연결된 경우 기체의 대기 속도를 제어합니다. 대기 속도 센서가 없으면 사용자는 스로틀을 제어할 수 없습니다 (이 경우 기체는 크루즈 스로틀 ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE))에서 수평으로 날아 오르거나 내리는 데 필요한만큼 스로틀을 높이거나 낮춥니 다).
+  * 스로틀 스틱은 대기 속도 센서가 연결된 경우 기체의 대기 속도를 제어합니다. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend).
 * 센터  외부:
   * 피치 스틱은 고도를 제어합니다.
   * 스로틀 스틱은 기체의 대기 속도를 제어합니다 (중앙 롤/피치/요 입력의 경우).

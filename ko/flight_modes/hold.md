@@ -31,22 +31,22 @@ RC 스틱을 움직이면, 차량이 [위치 모드](../flight_modes/position_mc
 
 <!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/loiter.cpp#L61 -->
 
-## 고정익 (FW)
+## Fixed-wing (FW)
 
-비행기는 현재 고도에서 GPS 유지 위치를 중심으로 선회한다. 모드가 동작시, 기체는 먼저 `MIS_LTRMIN_ALT` 고도로 상승합니다.
+비행기는 현재 고도에서 GPS 유지 위치를 중심으로 선회한다. The vehicle will first ascend to `NAV_MIN_LTR_ALT` if the mode is engaged below this altitude (by default disabled).
 
 RC 스틱 이동은 무시됩니다.
 
 아래의 매개 변수를 사용하여 동작을 설정할 수 있습니다.
 
-| 매개변수                                                                         | 설명                                               |
-| ---------------------------------------------------------------------------- | ------------------------------------------------ |
-| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | 배회 원의 반경                                         |
-| [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | 정지기 모드의 최소 높이(모드가 더 낮은 고도에서 작동하면 기체가 이 고도로 상승함). |
+| 매개변수                                                                           | 설명                                               |
+| ------------------------------------------------------------------------------ | ------------------------------------------------ |
+| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | 배회 원의 반경                                         |
+| [NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | 정지기 모드의 최소 높이(모드가 더 낮은 고도에서 작동하면 기체가 이 고도로 상승함). |
 
 
 ## VTOL
 
-VTOL은 고정익 모드에서는 유지 동작과 매개 변수는 [고정익](#fixed-wing-fw)를 따르며, 멀티콥터 모드에서는 [멀티콥터](#multi-copter-mc) 매개 변수를 따릅니다.
+A VTOL follows the HOLD behavior and parameters of [Fixed-wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
 <!-- this maps to AUTO_LOITER in flight mode state machine -->

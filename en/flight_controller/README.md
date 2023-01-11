@@ -48,6 +48,8 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
   - [SP Racing H7 EXTREME](../flight_controller/spracingh7extreme.md)
+  - [ThePeach FCC-K1](../flight_controller/thepeach_k1.md)
+  - [ThePeach FCC-R1](../flight_controller/thepeach_r1.md)
 - [Experimental Autopilots](../flight_controller/autopilot_experimental.md)
   - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   - [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md)

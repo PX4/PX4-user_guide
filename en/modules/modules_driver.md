@@ -853,32 +853,6 @@ paw3902 <command> [arguments...]
 
    status        print status info
 ```
-## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685)
-
-<a id="pca9685_usage"></a>
-### Usage
-```
-pca9685 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 64
-
-   reset
-
-   test          enter test mode
-
-   stop
-
-   status        print status info
-```
 ## pca9685_pwm_out
 Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685_pwm_out)
 
