@@ -9,7 +9,7 @@ The ARK Pixhawk Autopilot Bus (PAB) Carrier is a USA-built flight controller car
 
 The PAB form factor enables the ARK PAB Carrier to be used with any [PAB-compatible flight controller](../flight_controller/pixhawk_autopilot_bus.md), such as the [ARKV6X](../flight_controller/arkv6x.md).
 
-![ARKPAB Main Photo](../../assets/flight_controller/arkpab/ark_pab_main.jpg)
+![ARKPAB Main Photo](../../assets/flight_controller/arkpab/arkpab_main.jpg)
 
 ### Where To Buy
 
@@ -314,6 +314,6 @@ For information about wiring and using this port see:
 - [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to USART3).
 - [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md)
 
-![ARKPAB Top Down Photo](../../assets/flight_controller/arkpab/ark_pab_top.jpg)
+![ARKPAB Top Down Photo](../../assets/flight_controller/arkpab/arkpab_top.jpg)
 
-![ARKPAB Bottom Photo](../../assets/flight_controller/arkpab/ark_pab_back.jpg)
+![ARKPAB Bottom Photo](../../assets/flight_controller/arkpab/arkpab_back2.jpg)
