@@ -48,7 +48,7 @@ The Pixhawk®​ 6X is perfect for developers at corporate research labs, startu
 * IO Processor: STM32F100
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * On-board sensors
-  * Accel/Gyro: ICM-20649
+  * Accel/Gyro: ICM-20649 or BMI088
   * Accel/Gyro: ICM-42688-P
   * Accel/Gyro: ICM-42670-P
   * Mag: BMM150
