@@ -125,6 +125,18 @@ Parameter | Description
 [FW_LND_TD_OFF](../advanced_config/parameter_reference.md#FW_LND_TD_OFF) | Configure the allowable touchdown lateral offset from the commanded landing point.
 [FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN) | Enable the nose wheel steering controller.
 
+### Near ground safety constraints
+
+In landing mode, the distance sensor is used to determine proximity to the ground, and the airframe's geometry is used to calculate roll contraints to prevent wing strike.
+
+![Fixed-wing landing nudging](../../assets/flying/wing_geometry.png)
+
+
+Parameter | Description
+--- | ---
+[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN) | Wing span of the airframe.
+[FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT) | Height of wing from bottom of gear (or belly if no gear).
+
 ## VTOL
 
 A VTOL follows the LAND behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
