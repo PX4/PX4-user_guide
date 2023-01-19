@@ -30,7 +30,7 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
 1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step. 
 1. If a mission is stored and PX4 is landed:
    * On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
-   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.  
+   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). If the currently active waypoint is a Takeoff, the system will automatically takeoff (see [FW Takeoff/Landing in Mission](#fixed_wing_mission_takeoff_landing)).
 1. If no mission is stored, or if PX4 has finished executing all mission commands:
    * If flying the vehicle will loiter.
    * If landed the vehicle will "wait".
@@ -162,3 +162,27 @@ Vehicles switch to the next waypoint as soon as they enter the acceptance radius
   - The equation is: 
     $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$
 
+<span id="fixed_wing_mission_takeoff_landing"></span>
+## Fixed-wing Mission Takeoff/Landing
+
+Starting and ending flights with mission takeoff and landing is the recommended way of operating a plane autonomously. A detailed description of the executed logic during autonomous takeoffs and landings can be found
+in [Fixed-wing Takeoff](../config/flight_modes/takeoff.md#fixed_wing) and [Fixed-wing Takeoff](../config/flight_modes/land.md#fixed_wing).
+The section here is to highlight differences in mission takeoffs and landings compared to the stand-alone flight modes.
+
+### Takeoff
+
+Fixed-wing mission takeoffs can be configured by placing a Takeoff mission item, including an altitude setpoint, on the map. 
+The vehicle will then takeoff towards this waypoint, and climb until the altitude specified is reached. 
+After reaching the takeoff altitude, the mission will be automatically proceeded with the next waypoint. 
+The configuration is the same for wheeled vehicles that do a runway takeoff, or hand-launched ones.
+In both cases, the vehicle should be placed facing the takeoff waypoint when the mission is started, 
+which will arm the vehicle and throttle up the motors.
+
+If possible, always make the vehicle takeoff into the wind.
+
+### Land
+
+Currently the only way to land a vehicle autonomously is through a mission landing. It is recommended that the landing is 
+configured through a [landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html). 
+
+If possible, always plan the landing such that it does the approach into the wind.
