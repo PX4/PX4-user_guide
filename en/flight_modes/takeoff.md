@@ -33,12 +33,19 @@ Parameter | Description
 <span id="fixed_wing"></span>
 ## Fixed-wing (FW)
 
-The aircraft takes off in the current direction (heading) using either *catapult/hand-launch mode* or *runway takeoff mode*.
+Automatic takeoff has two modalities: *catapult/hand-launch* or *runway takeoff*.
 The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
 
-There are generally two ways to start an automatic takeoff on fixed-wing vehicles: either by planning a mission takeoff and starting the mission, or by switching to the Takeoff flight mode and arm the vehicle.
-Both methods lead to very similar behavior, with the difference being that in a mission takeoff, the user can specify the takeoff course (vehicle will track this course after being clear of the runway) and takeoff altitude (vehicle will climb to this altitude while staying on the takeoff course).
-For the non-mission takeoff, the course is set to the vehicle heading on arming, and the altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
+
+There are two ways to start an automatic takeoff on fixed-wing vehicles: either by planning a mission takeoff and starting the mission, or by switching to the Takeoff flight mode and arming the vehicle.
+
+In both cases, a flight path (starting point and takeoff course) and clearance altitude are defined.
+The flight path takes the vehicle's current position as starting point when the takeoff mode is first entered, and a straight line from this starting point continues in the direction of the defined course indefinitely.
+On takeoff, the aircraft will follow this line, climbing at the maximum climb rate (`FW_T_CLMB_MAX`) until reaching the clearance altitude.
+In mission mode, reaching the clearance altitude triggers the next mission item, and for non-mission takeoffs, the vehicle will enter a hold.
+Mission takeoffs allow the operator to define the takeoff course and clearance altitude.
+For non-mission takeoffs, the course is set to the vehicle heading on arming, and the altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
+
 
 
 Parameters that apply to both catapult/hand-launch as well as runway takeoffs:
@@ -109,7 +116,8 @@ Parameter | Description
 <span id="RWTO_MAX_THR"></span>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR) | Max throttle during runway takeoff.
 <span id="RWTO_RAMP_TIME"></span>[RWTO_RAMP_TIME](../advanced_config/parameter_reference.md#RWTO_RAMP_TIME) | Throttle ramp up time.
 <span id="RWTO_ROT_AIRSPD"></span>[RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD) | Airspeed threshold to start rotation (pitching up). If not configured by operator is set to 0.9*FW_TKO_AIRSPD.
-<span id="FW_TKO_AIRSPD"></span>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD) | Airspeed setpoint during takeoff. If not configured by operator is set to FW_AIRSPD_MIN.
+<span id="FW_TKO_AIRSPD"></span>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD) | Airspeed setpoint during the takeoff climbout phase (after rotation). If not configured by operator is set to FW_AIRSPD_MIN.
+
 <span id="RWTO_NUDGE"></span>[RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE) | Enable wheel controller nudging while on the runway.
 <span id="FW_WING_SPAN"></span>[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN) | The wingspan of the vehicle. Used to prevent wingstrikes.
 <span id="FW_WING_HEIGHT"></span>[FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT) | The height of the wings above ground (ground clearance). Used to prevent wingstrikes.
