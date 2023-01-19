@@ -55,9 +55,6 @@ Parameter | Description
 <span id="MIS_TAKEOFF_ALT"></span>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Altitude setpoint above Home that the vehicle will climb to during takeoff if not in mission mode.
 <span id="FW_TKO_AIRSPD"></span>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD) | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator)
 <span id="FW_TKO_PITCH_MIN"></span>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | This is the minimum pitch angle setpoint during the climbout phase.
-<span id="FW_THR_MAX"></span>[FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) | Maximum throttle during the whole takeoff phase.
-<span id="FW_T_CLMB_MAX"></span>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) | Climb rate setpoint during climbout phase.
-
 
 
 
