@@ -85,7 +85,9 @@ Parameter | Description
 
 #### Operator abort
 
-The landing may be aborted by the operator at any point during the final approach, resulting in a climb out to an orbit pattern centered above the land waypoint.
+The landing may be aborted by the operator at any point during the final approach via the [MAV_CMD_DO_GO_AROUND](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GO_AROUND) command. On QGroundControl a popup button appears to enable this.
+
+Aborting the landing results in a climb out to an orbit pattern centered above the land waypoint.
 The maximum of the aircraft's current altitude and [MIS_LND_ABRT_ALT](../advanced_config/parameter_reference.md#MIS_LND_ABRT_ALT) is set as the abort orbit alitutde -- height relative to (above) the landing waypoint.
 Landing configuration (e.g. flaps, spoilers, landing airspeed) is disabled during abort and the aicraft flies in cruise conditions.
 
