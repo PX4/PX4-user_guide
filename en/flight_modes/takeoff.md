@@ -62,7 +62,7 @@ Parameter | Description
 ### Catapult/Hand Launch
 
 In *catapult/hand-launch mode* the vehicle waits to detect launch (based on acceleration trigger).
-On launch it ramps up to full throttle [FW_THR_MAX](#FW_THR_MAX) and climbs with the maximum climb rate [FW_T_CLMB_MAX](#FW_T_CLMB_MAX) while keeping the pitch setpoint above [FW_TKO_PITCH_MIN](#FW_TKO_PITCH_MIN).
+On launch it enables the motor and climbs with the maximum climb rate [FW_T_CLMB_MAX](#FW_T_CLMB_MAX) while keeping the pitch setpoint above [FW_TKO_PITCH_MIN](#FW_TKO_PITCH_MIN).
 Once it reaches [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT) (or altitude defined in the mission item) it will automatically switch to [Hold mode](../flight_modes/hold.md) and loiter.
 
 All RC stick movement is ignored during the full takeoff sequence.
@@ -95,8 +95,8 @@ The operator can "nudge" the vehicle while on the runway to help keeping it cent
 
 The *runway takeoff mode* has the following phases:
 1. **Throttle ramp**: Throttle is ramped up within [RWTO_RAMP_TIME](../advanced_config/parameter_reference.md#RWTO_RAMP_TIME) to [RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR).
-1. **Clamped to runway**: Pitch fixed, no roll and course hold until the rotation airspeed ([RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD)) is reached. The operator is able to nudge the vehicle left/right via yaw stick.
-1. **Climbout**: Increase pitch setpoint and climb to takeoff altitude. To prevent wingstrikes, the controller will keep the roll setpoint locked to 0 when close to the ground, and then gradually allow more roll while climbing. It is based on the vehicle geometry as configured in [FW_WING_SPAN](#FW_WING_SPAN) and [FW_WING_HEIGHT](#FW_WING_HEIGHT).
+2. **Clamped to runway**: Pitch fixed, no roll and takeoff path controlled until the rotation airspeed ([RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD)) is reached. The operator is able to nudge the vehicle left/right via yaw stick.
+3. **Climbout**: Increase pitch setpoint and climb to takeoff altitude. To prevent wingstrikes, the controller will keep the roll setpoint locked to 0 when close to the ground, and then gradually allow more roll while climbing. It is based on the vehicle geometry as configured in [FW_WING_SPAN](#FW_WING_SPAN) and [FW_WING_HEIGHT](#FW_WING_HEIGHT).
 
 :::note
 For a smooth takeoff, the runway wheel controller possibly needs to be tuned.
