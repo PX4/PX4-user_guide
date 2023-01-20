@@ -58,7 +58,7 @@ If you connect it to **USB3** port via **native USB3 cable** to a **Linux laptop
 
 For **Raspberry PI** (UAV or ground) it must be directly connected to 5V BEC (or high current power adapter in case of ground pi) in one of two ways:
 
-- Make a custom USB cable ([cut `+5V` wire from USB plug and connect it to BEC])(https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
+- Make a custom USB cable [(cut `+5V` wire from USB plug and connect it to BEC)](https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
 - Cut a `+5V` wire on PCB near USB port and wire it to BEC (don't do this if doubt - use custom cable instead).
    
 You must also add a 470uF **low ESR capacitor** (like ESC has) between **card +5v and ground** to filter voltage spikes.
@@ -81,7 +81,9 @@ Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electrici
 ### Using a Linux Laptop as GCS (Harder than using a RasPi)
 1. On **ground** Linux development computer:
    ```
-   sudo apt install libpcap-dev libsodium-dev python3-all python3-twisted
+   sudo apt install python3-all libpcap-dev libsodium-dev python3-pip python3-pyroute2 \
+            python3-future python3-twisted python3-serial iw virtualenv \
+            debhelper dh-python build-essential -y
    git clone -b stable https://github.com/svpcom/wfb-ng.git
    cd wfb-ng && make deb && sudo apt install ./deb_dist/wfb-ng*.deb
    ```
@@ -156,6 +158,6 @@ You can use any other Linux ARM board, but you need to use an Ethernet or USB ca
 ## Theory
 
 WFB-ng puts the WiFi cards into monitor mode. This mode allows to send and receive arbitrary packets without association and waiting for ACK packets.
-[Analysis of Injection Capabilities and Media Access of IEEE 802.11 Hardware in Monitor Mode](https://github.com/svpcom/wfb-ng/blob/master/doc/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf)
-[802.11 timings](https://github.com/ewa/802.11-data)
+- [Analysis of Injection Capabilities and Media Access of IEEE 802.11 Hardware in Monitor Mode](https://github.com/svpcom/wfb-ng/blob/master/doc/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf)
+- [802.11 timings](https://github.com/ewa/802.11-data)
 
