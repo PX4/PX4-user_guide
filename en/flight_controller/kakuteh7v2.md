@@ -5,11 +5,11 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
-The [Holybro Kakute H7 V2](www.holybro.com/product/kakute-h7-v2/) The Holybro Kakute H7 v2 Flight Controller is full of features including integrated Bluetooth, HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for Logging (not supported with PX4 yet), 5V and 9V BEC, and bigger soldering pad with easy layout and much more.
+The [Holybro Kakute H7 V2](http://www.holybro.com/product/kakute-h7-v2/) flight controller is full of features including integrated Bluetooth, HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for Logging (not supported with PX4 yet), 5V and 9V BEC, and bigger soldering pad with easy layout and much more.
 
-The Kakute H7v2 builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and the [Kakute H7](http://www.holybro.com/product/kakute-h7-flight-controller-with-bluetooth/).
+The Kakute H7v2 builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and the [Kakute H7](../flight_controller/kakuteh7.md).
 
-The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/Magnetometers.
+The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/magnetometers.
 
 ![Kakute H7v2 top](../../assets/flight_controller/kakuteh7v2/kakuteh7v2_top.png)
 ![Kakute H7v2 bottom](../../assets/flight_controller/kakuteh7v2/kakuteh7v2_bottom.png)
@@ -20,22 +20,22 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ## Key Features
 
-* MCU: STM32H743 32-bit processor running at 480 MHz
-* IMU: BMI270
-* Barometer: BMP280
-* OSD: AT7456E
-* Onboard Bluetooth chip: Disabled with PX4
-* VTX On/Off Pit Switch: Not used with PX4
-* 6x UARTs (1,2,3,4,6,7; UART2 is used for Bluetooth telemetry)
-* 9x PWM Outputs (8 Motor Outputs, 1 LED)
-* 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
-* 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
-* Battery input voltage: 7v to 42v
-* BEC 5V 2A Cont.
-* BEC 9V 1.5A Cont.
-* Mounting: 30.5 x 30.5mm/Φ4mm hole with Φ3mm Grommets
-* Dimension: 35x35mm
-* Weight: 8g
+- MCU: STM32H743 32-bit processor running at 480 MHz
+- IMU: BMI270
+- Barometer: BMP280
+- OSD: AT7456E
+- Onboard Bluetooth chip: Disabled with PX4
+- VTX On/Off Pit Switch: Not used with PX4
+- 6x UARTs (1,2,3,4,6,7; UART2 is used for Bluetooth telemetry)
+- 9x PWM Outputs (8 Motor Outputs, 1 LED)
+- 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
+- 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
+- Battery input voltage: 7v to 42v
+- BEC 5V 2A Cont.
+- BEC 9V 1.5A Cont.
+- Mounting: 30.5 x 30.5mm/Φ4mm hole with Φ3mm Grommets
+- Dimensions: 35x35mm
+- Weight: 8g
 
 
 ## Where to Buy
@@ -48,7 +48,6 @@ The *Kakute H7v2* is designed to work with the *Tekko32* 4-in-1 ESC and they can
 :::
 
 ## Connectors and Pins
-
 
 | Pin              | Function                              | PX4 default |
 | ---------------- | ------------------------------------- | ----------- |
@@ -85,6 +84,7 @@ Download the [holybro_kakuteh7v2_bootloader.hex](TODO) bootloader binary and rea
 ## Building Firmware
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+
 ```
 make holybro_kakuteh7v2_default
 ```
@@ -92,7 +92,9 @@ make holybro_kakuteh7v2_default
 ## Installing PX4 Firmware
 
 The firmware can be installed in any of the normal ways:
-- Build and upload the source
+
+- Build and upload the source:
+
   ```
   make holybro_kakuteh7v2_default upload
   ```
@@ -100,7 +102,7 @@ The firmware can be installed in any of the normal ways:
   You can use either pre-built firmware or your own custom firmware.
 
 :::note
-KakuteH7v2 is supported with PX4 main and v1.14 or newer..
+KakuteH7v2 is supported with PX4 main and v1.14 or newer.
 :::
 
 ## PX4 Configuration

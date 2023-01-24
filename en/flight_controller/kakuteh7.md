@@ -20,24 +20,25 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ## Key Features
 
-* MCU: STM32H743 32-bit processor running at 480 MHz
-* IMU: MPU6000
-* Barometer: BMP280
-* OSD: AT7456E
-* Onboard Bluetooth chip: Disabled with PX4
-* 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
-* 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
-* Battery input voltage: 2S - 8S
-* BEC 5V 2A Cont.
-* BEC 9V 1.5A Cont.
-* Mounting: 30.5 x 30.5mm/Φ4mm hole with Φ3mm Grommets
-* Dimension: 35x35mm
-* Weight: 8g
+- MCU: STM32H743 32-bit processor running at 480 MHz
+- IMU: MPU6000
+- Barometer: BMP280
+- OSD: AT7456E
+- Onboard Bluetooth chip: Disabled with PX4
+- 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
+- 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
+- Battery input voltage: 2S - 8S
+- BEC 5V 2A Cont.
+- BEC 9V 1.5A Cont.
+- Mounting: 30.5 x 30.5mm/Φ4mm hole with Φ3mm Grommets
+- Dimensions: 35x35mm
+- Weight: 8g
 
 
 ## Where to Buy
 
 The board can be bought from one of the following shops (for example):
+
 - [Holybro](https://shop.holybro.com/kakute-h7-flight-controller-with-bluetooth_p1289.html?)
 
 :::tip
@@ -109,7 +110,7 @@ In addition to the [basic configuration](../config/README.md), the following par
 Parameter | Setting
 --- | ---
 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag.
-[MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight motor assignment, this parameter can be set accordingly.
+[MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight motor assignment, this parameter can be set accordingly. 
 
 
 ## Serial Port Mapping
