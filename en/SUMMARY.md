@@ -197,6 +197,8 @@
       * [Drotek Dropix (FMUv2)](flight_controller/dropix.md)
       * [Holybro Kakute F7](flight_controller/kakutef7.md)
       * [Holybro Kakute H7](flight_controller/kakuteh7.md)
+      * [Holybro Kakute H7v2](flight_controller/kakuteh7v2.md)
+      * [Holybro Kakute H7mini](flight_controller/kakuteh7mini.md)
       * [Holybro Durandal](flight_controller/durandal.md)
       * [Holybro Pix32 v5](flight_controller/holybro_pix32_v5.md)
       * [Holybro pix32 (FMUv2)](flight_controller/holybro_pix32.md)
