@@ -20,9 +20,7 @@ Communications with the ground stations and the cloud are usually routed via the
 Controller boards that come with a pre-integrated companion computer and flight controller can significantly ease both software and hardware setup.
 In some cases the boards are set up to allow easy replacement of flight controller and/or companion computer parts.
 
-The following boards are known to provide a good integration with PX4:
-
-- [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
+For more information see [Integrated FC/Companion Computers](companion_computer/integrated_companion.md).
 
 
 ## Supported Companion Computers
