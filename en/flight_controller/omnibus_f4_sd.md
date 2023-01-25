@@ -223,7 +223,8 @@ make omnibus_f4sd_default
 
 ## Installing PX4 Firmware
 
-The firmware can be installed in any of the normal ways: 
+The firmware can be installed in any of the normal ways:
+
 - Build and upload the source
   ```
   make omnibus_f4sd_default upload
@@ -240,7 +241,6 @@ Parameter | Setting
 --- | ---
 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag.
 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.
-[MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
 
 ## Further Info
