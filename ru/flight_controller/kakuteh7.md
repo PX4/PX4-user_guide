@@ -104,7 +104,6 @@ In addition to the [basic configuration](../config/README.md), the following par
 | Parameter                                                              | Setting                                                                                                                 |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
-| [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight motor assignment, this parameter can be set accordingly.                        |
 
 
 ## Serial Port Mapping
