@@ -10,8 +10,7 @@ We would welcome your [contribution](../contribute/README.md) of new features, n
 ## Supported Configurations
 
 Supported helicopter configurations:
-- Single main rotor with any type of swash-plate
-- ESC tail rotor
+- Single main rotor with any type of swash-plate and an ESC tail rotor.
 
 
 ## Setup
