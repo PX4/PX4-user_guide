@@ -212,6 +212,7 @@ make omnibus_f4sd_default
 ## 펌웨어 설치
 
 펌웨어는 일반적인 방법으로 설치할 수 있습니다.
+
 - 소스 빌드 및 업로드
   ```
   make omnibus_f4sd_default upload
@@ -223,11 +224,10 @@ make omnibus_f4sd_default
 
 [기본 설정](../config/README.md) 외에도 아래의 매개변수가 중요합니다.
 
-| 매개변수                                                                     | 설정                                                                            |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | 보드에 내부 자력계가 없기 때문에 비활성화하여야 합니다. 외부 자력계를 연결하여 활성화 할 수 있습니다.                    |
-| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | 보드에 기압계가 없는 경우에는 비활성화 하십시오.                                                   |
-| [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING)   | Betaflight/Cleanflight 모터 할당과 함께 4-in-1 ESC를 사용하는 경우 이 매개변수를 적절하게 설정할 수 있습니다. |
+| 매개변수                                                                     | 설정                                                         |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | 보드에 내부 자력계가 없기 때문에 비활성화하여야 합니다. 외부 자력계를 연결하여 활성화 할 수 있습니다. |
+| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | 보드에 기압계가 없는 경우에는 비활성화 하십시오.                                |
 
 
 ## 추가 정보
