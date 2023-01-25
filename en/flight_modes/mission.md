@@ -6,11 +6,11 @@
 The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 :::note
-* This mode requires 3d position information (e.g. GPS).
-* The vehicle must be armed before this mode can be engaged.
-* This mode is automatic - no user intervention is *required* to control the vehicle.
-* RC control switches can be used to change flight modes on any vehicle.
-* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+- This mode requires 3d position information (e.g. GPS).
+- The vehicle must be armed before this mode can be engaged.
+- This mode is automatic - no user intervention is *required* to control the vehicle.
+- RC control switches can be used to change flight modes on any vehicle.
+- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 :::
 
 ## Description
@@ -28,13 +28,15 @@ Missions are uploaded onto a SD card that needs to be inserted **before** bootin
 At high level all vehicle types behave in the same way when MISSION mode is engaged:
 
 1. If no mission is stored, or if PX4 has finished executing all mission commands, or if the [mission is not feasible](#mission-feasibility-checks):
-   * If flying the vehicle will loiter.
-   * If landed the vehicle will "wait".
+
+   - If flying the vehicle will loiter.
+   - If landed the vehicle will "wait".
 1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
+   - On copters PX4 will treat a takeoff item as a normal waypoint if already flying.
 1. If a mission is stored and PX4 is landed:
-   * On copters PX4 will execute the [mission/flight plan](../flying/missions.md).
+   - On copters PX4 will execute the [mission/flight plan](../flying/missions.md).
      If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
-   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero).
+   - On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero).
      The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.
 1. You can manually change the current mission command by selecting it in *QGroundControl*.
 
@@ -59,12 +61,12 @@ We recommend you centre the control sticks before switching to any other mode.
 :::
  
 For more information about mission planning, see:
-* [Mission Planning](../flying/missions.md)
-* [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
+- [Mission Planning](../flying/missions.md)
+- [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
 
 ## Mission Feasibility Checks
 
-PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and whenever there is an attempt to run the mission.
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed.
 If any of the checks fail, the user is notified and it is not possible to start the mission.
 
 A subset of the most important checks are listed below:
@@ -96,23 +98,23 @@ General parameters:
 
 Parameter | Description
 --- | ---
-<span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.
-<span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Fixed-wing loiter radius.
-<span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.
-<span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).
+<a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.
+<a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Fixed-wing loiter radius.
+<a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.
+<a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).
 
 
-Parameters related to mission feasibility:
+Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 
 Parameter | Description
 --- | ---
-<span id="MIS_DIST_1WP"></span>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.
-<span id="MIS_DIST_WPS"></span>[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | The mission will not be started if any distance between two subsequent waypoints is greater than this value. Disabled if value is 0 or less.
-<span id="FW_LND_ANG"></span>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG) | Maximum landing slope angle.
-<span id="MIS_TKO_LAND_REQ"></span>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing.
+<a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.
+<a id="MIS_DIST_WPS"></a>[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | The mission will not be started if any distance between two subsequent waypoints is greater than this value. Disabled if value is 0 or less.
+<a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG) | Maximum landing slope angle.
+<a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing.
 
 
-<span id="mission_commands"></span>
+<a id="mission_commands"></a>
 ## Supported Mission Commands
 
 PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list).
