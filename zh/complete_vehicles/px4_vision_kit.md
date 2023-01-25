@@ -239,7 +239,7 @@ To flash the USB image to the *UP Core*:
   
   
    ```sh
-   cd ~/catkin_ws/src/px4vision_ros
+   cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 
