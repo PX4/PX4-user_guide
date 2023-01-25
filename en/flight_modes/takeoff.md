@@ -36,16 +36,14 @@ Parameter | Description
 Automatic takeoff has two modalities: *catapult/hand-launch* or *runway takeoff*.
 The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
 
-
-There are two ways to start an automatic takeoff on fixed-wing vehicles: either by planning a mission takeoff and starting the mission, or by switching to the Takeoff flight mode and arming the vehicle.
+There are two ways to start an automatic takeoff on fixed-wing vehicles: either by [planning a mission takeoff](../flight_modes/mission.md#takeoff) and starting the mission, or by switching to the _Takeoff mode_ and arming the vehicle.
 
 In both cases, a flight path (starting point and takeoff course) and clearance altitude are defined.
 The flight path takes the vehicle's current position as starting point when the takeoff mode is first entered, and a straight line from this starting point continues in the direction of the defined course indefinitely.
 On takeoff, the aircraft will follow this line, climbing at the maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) until reaching the clearance altitude.
-In mission mode, reaching the clearance altitude triggers the next mission item, and for non-mission takeoffs, the vehicle will enter a hold.
+In ][mission mode](../flight_modes/mission.md), reaching the clearance altitude triggers the next mission item, and for non-mission takeoffs, the vehicle will enter a hold.
 Mission takeoffs allow the operator to define the takeoff course and clearance altitude.
 For non-mission takeoffs, the course is set to the vehicle heading on arming, and the altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
-
 
 
 Parameters that apply to both catapult/hand-launch as well as runway takeoffs:
@@ -55,7 +53,6 @@ Parameter | Description
 <span id="MIS_TAKEOFF_ALT"></span>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.
 <span id="FW_TKO_AIRSPD"></span>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD) | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator)
 <span id="FW_TKO_PITCH_MIN"></span>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | This is the minimum pitch angle setpoint during the climbout phase
-
 
 
 <span id="hand_launch"></span>
@@ -68,9 +65,11 @@ Once it reaches [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT) it will automatically switch
 All RC stick movement is ignored during the full takeoff sequence.
 
 To launch in this mode:
+
 - Arm the vehicle
 - Put the vehicle into *Takeoff mode*
-- Launch/throw the vehicle (firmly) directly into the wind. You can also shake the vehicle first, wait till the motor spins up and throw only then
+- Launch/throw the vehicle (firmly) directly into the wind.
+  You can also shake the vehicle first, wait till the motor spins up and throw only then
 
 The Launch detector is affected by the following parameters:
 
@@ -101,7 +100,6 @@ The *runway takeoff mode* has the following phases:
 :::note
 For a smooth takeoff, the runway wheel controller possibly needs to be tuned.
 It consists of a rate controller (P-I-FF-controller with the parameters [FW_WR_P](../advanced_config/parameter_reference.md#FW_WR_P), [FW_WR_I](../advanced_config/parameter_reference.md#FW_WR_I), [FW_WR_FF](../advanced_config/parameter_reference.md#FW_WR_FF)) and an outer loop that calculates heading setpoints from course errors and can be tuned via [RWTO_L1_PERIOD](#RWTO_L1_PERIOD).
-
 :::
 
 Runway takeoff important parameters:
