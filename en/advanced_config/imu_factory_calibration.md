@@ -8,7 +8,7 @@ This data will then be used when the parameters are set (or reset) to their defa
 
 :::warning
 This feature relies on the FMU having a dedicated EEPROM chip or an accompanying IMU PCBA that has sufficient space for the data.
-PX4 will store the data to `/fs/mtd_caldata`, creating the file if necessary.
+PX4 will store the data to `/fs/mtd_caldata`.
 :::
 
 :::note
