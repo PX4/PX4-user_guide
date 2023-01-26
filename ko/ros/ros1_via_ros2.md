@@ -1,5 +1,9 @@
 # ROS 2 Bridge를 통한 ROS(1)(사용 설명서)
 
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
 이 항목에서는 [ROS 2](../ros/ros2.md)로 브리지하여, PX4와 함께 ROS(1)를 사용하는 방법을 설명합니다.
 
 필요한 소프트웨어를 설치하고 ROS(1) 애플리케이션을 구축하는 방법과 ROS-ROS2-PX4 아키텍처에 대한 개요를 설명합니다. 또한, ROS 2 및 ROS 1 작업 공간을 동시에 설정하는 방법도 설명합니다.
