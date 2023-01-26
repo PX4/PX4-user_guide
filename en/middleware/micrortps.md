@@ -1,5 +1,18 @@
 # RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
 
+:::warning
+This content is out of date.
+Do not use!
+
+The Fast RTPS Bridge used in PX4 v1.13 has been replaced by the XRCE-DDS Bridge in PX4 main (and later versions).
+Support for microROS has also been added.
+Information and basic tutorials can be found here:
+
+- [ROS2 in PX4: ROS2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
+- [PX4 ROS2 offboard tutorial](https://gist.github.com/julianoes/adbf76408663829cd9aed8d14c88fa29) (Github gist - JulianOes)
+- [ROS2 PX4 Offboard Tutorial](https://github.com/Jaeyoung-Lim/px4-offboard/blob/2d784532fd323505ac8a6e53bb70145600d367c4/doc/ROS2_PX4_Offboard_Tutorial.md) (Jaeyoung-Lim).
+:::
+
 The *PX4-Fast RTPS(DDS) Bridge*, which is also referred to as as the *microRTPS Bridge*, adds a Real Time Publish Subscribe (RTPS) interface to the PX4 Autopilot, enabling the exchange of [uORB messages](../middleware/uorb.md) between the various PX4 Autopilot internal components and (offboard) *Fast DDS* applications in realtime.
 
 This allows us to better integrate with applications running and linked in DDS domains (including ROS nodes), making it easy to share sensor data, commands, and other vehicle information.
