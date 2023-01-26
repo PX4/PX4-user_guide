@@ -99,12 +99,37 @@ adis16497 <command> [arguments...]
 
    status        print status info
 ```
+## adis16507
+Source: [drivers/imu/analog_devices/adis16507](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/analog_devices/adis16507)
+
+<a id="adis16507_usage"></a>
+
+### 描述
+```
+adis16507 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## bmi055
 Source: [drivers/imu/bosch/bmi055](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi055)
 
 <a id="bmi055_usage"></a>
 
-### 描述
+### 用法
 ```
 bmi055 <command> [arguments...]
  Commands:
@@ -207,6 +232,31 @@ bmi088_i2c <command> [arguments...]
 
    status        print status info
 ```
+## bmi270
+Source: [drivers/imu/bosch/bmi270](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi270)
+
+<a id="bmi270_usage"></a>
+
+### 用法
+```
+bmi270 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## fxas21002c
 Source: [drivers/imu/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/fxas21002c)
 
@@ -278,7 +328,7 @@ Source: [drivers/imu/invensense/icm20602](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="icm20602_usage"></a>
 
-### 用法
+### 描述
 ```
 icm20602 <command> [arguments...]
  Commands:
@@ -328,7 +378,7 @@ Source: [drivers/imu/invensense/icm20649](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="icm20649_usage"></a>
 
-### 描述
+### 用法
 ```
 icm20649 <command> [arguments...]
  Commands:
@@ -502,7 +552,7 @@ Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/
 
 <a id="icm42688p_usage"></a>
 
-### 用法
+### Usage
 ```
 icm42688p <command> [arguments...]
  Commands:
@@ -517,6 +567,8 @@ icm42688p <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
+     [-C <val>]  Input clock frequency (Hz)
+                 default: 0
 
    stop
 
@@ -527,7 +579,7 @@ Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="iim42652_usage"></a>
 
-### 用法
+### Usage
 ```
 iim42652 <command> [arguments...]
  Commands:
@@ -541,6 +593,8 @@ iim42652 <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
+                 default: 0
+     [-C <val>]  Input clock frequency (Hz)
                  default: 0
 
    stop
@@ -606,7 +660,7 @@ Source: [drivers/imu/st/lsm9ds1](https://github.com/PX4/PX4-Autopilot/tree/main/
 
 <a id="lsm9ds1_usage"></a>
 
-### Usage
+### 使用
 ```
 lsm9ds1 <command> [arguments...]
  Commands:
@@ -631,7 +685,7 @@ Source: [drivers/imu/invensense/mpu6000](https://github.com/PX4/PX4-Autopilot/tr
 
 <a id="mpu6000_usage"></a>
 
-### Usage
+### 使用
 ```
 mpu6000 <command> [arguments...]
  Commands:
