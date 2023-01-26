@@ -357,6 +357,31 @@ teraranger <command> [arguments...]
 
    status        print status info
 ```
+## tf02pro
+Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tf02pro)
+
+<a id="tf02pro_usage"></a>
+
+### 用法
+```
+tf02pro <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 16
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop
+
+   status        print status info
+```
 ## tfmini
 Source: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tfmini)
 
@@ -382,7 +407,7 @@ tfmini stop
 
 <a id="tfmini_usage"></a>
 
-### 用法
+### Usage
 ```
 tfmini <command> [arguments...]
  Commands:
@@ -464,7 +489,7 @@ Source: [drivers/distance_sensor/vl53l1x](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="vl53l1x_usage"></a>
 
-### Usage
+### 参数描述
 ```
 vl53l1x <command> [arguments...]
  Commands:
