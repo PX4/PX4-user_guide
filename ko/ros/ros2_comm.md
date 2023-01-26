@@ -1,5 +1,9 @@
 # ROS 2 사용 설명서(PX4-ROS 2 브리지)
 
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
 PX4에서 ROS 2를 설정하고 사용하는 방법을 설명합니다.
 
 필요한 소프트웨어를 설치하고 ROS 2 애플리케이션을 구축하는 방법에 대한 지침과 ROS2-PX4 브리지 아키텍처 및 애플리케이션 파이프라인에 대한 개요를 제공합니다.
@@ -60,8 +64,7 @@ To setup ROS 2 for use with PX4 you will need to:
 
 ROS 2와 해당 종속성을 설치합니다.
 
-이 섹션에서는 *홈 디렉토리*에서 호스팅되는 ROS 2 작업 공간을 만드는 방법을 보여줍니다(필요에 따라 명령을 수정하여 소스 코드를 다른 곳에 배치). `px4_ros_com` 및 `px4_msg` 패키지가 작업 영역 폴더에 복제한 다음, 스크립트를 사용하여 작업 영역을 빌드합니다.
-:::
+이 섹션에서는 *홈 디렉토리*에서 호스팅되는 ROS 2 작업 공간을 만드는 방법을 보여줍니다(필요에 따라 명령을 수정하여 소스 코드를 다른 곳에 배치). `px4_ros_com` 및 `px4_msg` 패키지가 작업 영역 폴더에 복제한 다음, 스크립트를 사용하여 작업 영역을 빌드합니다. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
 
 
 ### ROS2 설치
@@ -101,7 +104,8 @@ If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to
 This section shows how create a ROS 2 workspace hosted in your *home directory* (modify the commands as needed to put the source code elsewhere). The `px4_ros_com` and `px4_msg` packages are cloned to a workspace folder, and then a script is used to build the workspace.
 
 :::tip
-모든 스크립트 옵션은 `--help` 인수를 사용하여 출력합니다. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
+모든 스크립트 옵션은 `--help` 인수를 사용하여 출력합니다.
+:::
 
 To create and build the workspace:
 
