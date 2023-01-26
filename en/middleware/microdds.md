@@ -31,7 +31,7 @@ The Micro-XRCE-DDS-Gen has 2 major advantages, i.e. it can be used to generate c
 
 ### microDDS Bridge
 
-The [*microDDS*](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html) provides DDS publisher subcription approach wherein the client is on a low-resource consumption device and the agent is connected to with the DDS gobal data space.
+[*micro XRCE-DDS*](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html) provides a DDS publisher/subscriber middleware wherein the client is on a low-resource consumption device and the agent is connected to with the DDS global data space.
 
 #### The microdds Client
 The *Client* is the PX4 Autopilot middleware daemon process that runs on the flight controller. The client can either publish or subcribe directly to data topics because the agent itself acts on behalf of the [client](https://micro-xrce-dds.docs.eprosima.com/en/stable/client.html)
