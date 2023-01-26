@@ -1,10 +1,14 @@
 # ROS 2 Offboard Control Example
 
 :::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
+:::warning
 *Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
-:::warning ROS
+:::note ROS
 2 interaction with PX4, done through the [*microRTPS* bridge](../ros/ros2_comm.md), requires that the user understands how the PX4 internals work! The same understanding is required for PX4 offboard control via ROS 2, where the user publishes directly to the required uORB topics (without any level of abstraction between ROS and PX4 data formats/conventions).
 
 If you are unsure of PX4 internals work, we recommend that you instead use a workflow that depends on the MAVLink microservices and abstraction layer to execute offboard control or any other kind of interaction through the *microRTPS* bridge.

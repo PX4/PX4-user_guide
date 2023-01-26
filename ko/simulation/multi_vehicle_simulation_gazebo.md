@@ -9,7 +9,7 @@
 
 Gazebo에서 다중 차량을 시뮬레이션하려면, 터미널에서 다음 명령어를 입력하십시오.(*펌웨어* 트리 루트에서).
 ```
-Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
+Tools/gazebo/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
 - `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
@@ -56,7 +56,11 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
 
 ### 빌드 및 테스트(RTPS/DDS)
 
-Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 터미널에서 *PX4-Autopilot* 트리(위에 설명된 대로) 루트의 `-t px4_sitl_rtps` 옵션과 함께 `gazebo_sitl_multiple_run.sh` 명령을 사용합니다. 여기에서 `-t px4_sitl_rtps` 옵션을 사용합니다. 이 옵션은 MAVLink 시뮬레이션 API가 아닌 PX4와 통신하기 위해 RTPS를 사용하도록 설정합니다. 그러면 `iris_rtps` 모델(현재 RTPS와 함께 사용하기 위해 구현된 유일한 모델)이 빌드되고 실행됩니다.
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
+To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). 여기에서 `-t px4_sitl_rtps` 옵션을 사용합니다. 이 옵션은 MAVLink 시뮬레이션 API가 아닌 PX4와 통신하기 위해 RTPS를 사용하도록 설정합니다. 그러면 `iris_rtps` 모델(현재 RTPS와 함께 사용하기 위해 구현된 유일한 모델)이 빌드되고 실행됩니다.
 
 :::note
 *eProsima Fast DDS*가 설치되어 있어야 하고, `micrortps_agent`가 각 차량의 다른 터미널에서 실행되어야 합니다. 자세한 내용은 [RTPS/DDS 인터페이스: PX4-고속 RTPS(DDS) 브리지](../middleware/micrortps.md)를 참고하십시오.
@@ -75,10 +79,10 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
    * ROS 독립적인 RTPS/DDS 애플리케이션에서 에이전트를 사용하려면 [여기에 있는 설치 방법](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)을 참고하십시오.
    * ROS 2에서 에이전트를 사용하려면, [이 설치 방법](../ros/ros2_comm.md)을 참고하십시오.
 
-1. `gazebo_sitl_multiple_run.sh`를 실행합니다. 예를 들어 4대의 차량을 생성하려면, 다음을 명령어를 실행하십시오.
+1. Run `Tools/gazebo/sitl_multiple_run.sh`. 예를 들어 4대의 차량을 생성하려면, 다음을 명령어를 실행하십시오.
 
    ```bash
-   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
+   ./Tools/gazebo/sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
    ```
 
    :::note

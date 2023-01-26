@@ -1,11 +1,15 @@
 # ROS 2 오프보드 제어 예
 
 :::warning
-*오프보드* 제어는 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 할 수 있어야 합니다.
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
 :::
 
 :::warning
-[*microRTPS* 브리지](../middleware/micrortps.md)를 통해 PX4와 ROS 2 상호작용을 하려면, 사용자가 PX4 내부가 어떻게 작동하는지 이해하여야 합니다. 사용자가 필요한 uORB 주제에 직접 게시하는 ROS 2를 통한 PX4 오프보드 제어에도 동일한 이해가 필요합니다(ROS와 PX4 데이터 형식/관례 간의 추상화 수준 없이).
+*오프보드* 제어는 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 할 수 있어야 합니다.
+:::
+
+:::note ROS
+2 interaction with PX4, done through the [*microRTPS* bridge](../ros/ros2_comm.md), requires that the user understands how the PX4 internals work! 사용자가 필요한 uORB 주제에 직접 게시하는 ROS 2를 통한 PX4 오프보드 제어에도 동일한 이해가 필요합니다(ROS와 PX4 데이터 형식/관례 간의 추상화 수준 없이).
 
 PX4 내부 작동이 확실하지 않은 경우에는 MAVLink 마이크로서비스 및 추상화 계층에 의존하는 워크플로를 대신 사용하여 오프보드 제어 또는 *microRTPS* 브리지를 통한 다른 종류의 상호 작용을 실행하는 것이 좋습니다.
 :::

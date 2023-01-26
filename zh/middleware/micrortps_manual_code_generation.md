@@ -1,5 +1,9 @@
 # 手动生成客户端和代理端代码
 
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
 本主题演示如何手动生成客户端和代理的代码（而不是编译 PX4 时[自动生成](../middleware/micrortps.md)的）。
 
 代码是使用 python 脚本生成的：**/Tools/generate_microRTPS_bridge.py**。
