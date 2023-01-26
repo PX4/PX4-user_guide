@@ -496,6 +496,426 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="MODAL_IO_FUNC1">MODAL_IO_FUNC1</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_FUNC2">MODAL_IO_FUNC2</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 2 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_FUNC3">MODAL_IO_FUNC3</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 3 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_FUNC4">MODAL_IO_FUNC4</strong> (INT32)</td>
+ <td>MODAL IO Output ESC 4 Output Function <p><strong>Comment:</strong> Select what should be output on MODAL IO Output ESC 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_REV">MODAL_IO_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for MODAL IO Output <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> MODAL IO Output ESC 1</li> 
+  <li><strong>1:</strong> MODAL IO Output ESC 2</li> 
+  <li><strong>2:</strong> MODAL IO Output ESC 3</li> 
+  <li><strong>3:</strong> MODAL IO Output ESC 4</li> 
+</ul>
+ </td>
+ <td>[0, 15] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="PCA9685_DIS1">PCA9685_DIS1</strong> (INT32)</td>
  <td>PCA9685 Output Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[800, 2200] </td>
@@ -5312,64 +5732,120 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS1">SIM_GZ_DIS1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS1">SIM_GZ_EC_DIS1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS2">SIM_GZ_DIS2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS2">SIM_GZ_EC_DIS2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS3">SIM_GZ_DIS3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS3">SIM_GZ_EC_DIS3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS4">SIM_GZ_DIS4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS4">SIM_GZ_EC_DIS4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS5">SIM_GZ_DIS5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS5">SIM_GZ_EC_DIS5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS6">SIM_GZ_DIS6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS6">SIM_GZ_EC_DIS6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS7">SIM_GZ_DIS7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS7">SIM_GZ_EC_DIS7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_DIS8">SIM_GZ_DIS8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td><strong id="SIM_GZ_EC_DIS8">SIM_GZ_EC_DIS8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
  <td>[0, 1000] </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC1">SIM_GZ_FUNC1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FAIL1">SIM_GZ_EC_FAIL1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC1).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL2">SIM_GZ_EC_FAIL2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC2).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL3">SIM_GZ_EC_FAIL3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC3).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL4">SIM_GZ_EC_FAIL4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC4).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL5">SIM_GZ_EC_FAIL5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC5).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL6">SIM_GZ_EC_FAIL6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC6).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL7">SIM_GZ_EC_FAIL7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC7).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FAIL8">SIM_GZ_EC_FAIL8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_EC_FUNC8).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EC_FUNC1">SIM_GZ_EC_FUNC1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5470,8 +5946,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC2">SIM_GZ_FUNC2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC2">SIM_GZ_EC_FUNC2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5572,8 +6048,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC3">SIM_GZ_FUNC3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC3">SIM_GZ_EC_FUNC3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5674,8 +6150,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC4">SIM_GZ_FUNC4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC4">SIM_GZ_EC_FUNC4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5776,8 +6252,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC5">SIM_GZ_FUNC5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC5">SIM_GZ_EC_FUNC5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5878,8 +6354,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC6">SIM_GZ_FUNC6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC6">SIM_GZ_EC_FUNC6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -5980,8 +6456,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC7">SIM_GZ_FUNC7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC7">SIM_GZ_EC_FUNC7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -6082,8 +6558,8 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_FUNC8">SIM_GZ_FUNC8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Channel 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+ <td><strong id="SIM_GZ_EC_FUNC8">SIM_GZ_EC_FUNC8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ ESC 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Constant Min</li>
@@ -6184,127 +6660,1183 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX1">SIM_GZ_MAX1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX1">SIM_GZ_EC_MAX1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX2">SIM_GZ_MAX2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX2">SIM_GZ_EC_MAX2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX3">SIM_GZ_MAX3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX3">SIM_GZ_EC_MAX3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX4">SIM_GZ_MAX4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX4">SIM_GZ_EC_MAX4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX5">SIM_GZ_MAX5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX5">SIM_GZ_EC_MAX5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX6">SIM_GZ_MAX6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX6">SIM_GZ_EC_MAX6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX7">SIM_GZ_MAX7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX7">SIM_GZ_EC_MAX7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MAX8">SIM_GZ_MAX8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
- <td>[100, 1000] </td>
+ <td><strong id="SIM_GZ_EC_MAX8">SIM_GZ_EC_MAX8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
  <td>1000</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN1">SIM_GZ_MIN1</strong> (INT32)</td>
- <td>SIM_GZ Channel 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN1">SIM_GZ_EC_MIN1</strong> (INT32)</td>
+ <td>SIM_GZ ESC 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN2">SIM_GZ_MIN2</strong> (INT32)</td>
- <td>SIM_GZ Channel 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN2">SIM_GZ_EC_MIN2</strong> (INT32)</td>
+ <td>SIM_GZ ESC 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN3">SIM_GZ_MIN3</strong> (INT32)</td>
- <td>SIM_GZ Channel 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN3">SIM_GZ_EC_MIN3</strong> (INT32)</td>
+ <td>SIM_GZ ESC 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN4">SIM_GZ_MIN4</strong> (INT32)</td>
- <td>SIM_GZ Channel 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN4">SIM_GZ_EC_MIN4</strong> (INT32)</td>
+ <td>SIM_GZ ESC 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN5">SIM_GZ_MIN5</strong> (INT32)</td>
- <td>SIM_GZ Channel 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN5">SIM_GZ_EC_MIN5</strong> (INT32)</td>
+ <td>SIM_GZ ESC 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN6">SIM_GZ_MIN6</strong> (INT32)</td>
- <td>SIM_GZ Channel 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN6">SIM_GZ_EC_MIN6</strong> (INT32)</td>
+ <td>SIM_GZ ESC 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN7">SIM_GZ_MIN7</strong> (INT32)</td>
- <td>SIM_GZ Channel 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN7">SIM_GZ_EC_MIN7</strong> (INT32)</td>
+ <td>SIM_GZ ESC 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_MIN8">SIM_GZ_MIN8</strong> (INT32)</td>
- <td>SIM_GZ Channel 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td><strong id="SIM_GZ_EC_MIN8">SIM_GZ_EC_MIN8</strong> (INT32)</td>
+ <td>SIM_GZ ESC 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
  <td>[0, 1000] </td>
- <td>10</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="SIM_GZ_REV">SIM_GZ_REV</strong> (INT32)</td>
- <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ Channel 1</li> 
-  <li><strong>1:</strong> SIM_GZ Channel 2</li> 
-  <li><strong>2:</strong> SIM_GZ Channel 3</li> 
-  <li><strong>3:</strong> SIM_GZ Channel 4</li> 
-  <li><strong>4:</strong> SIM_GZ Channel 5</li> 
-  <li><strong>5:</strong> SIM_GZ Channel 6</li> 
-  <li><strong>6:</strong> SIM_GZ Channel 7</li> 
-  <li><strong>7:</strong> SIM_GZ Channel 8</li> 
+ <td><strong id="SIM_GZ_EC_REV">SIM_GZ_EC_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ ESC 1</li> 
+  <li><strong>1:</strong> SIM_GZ ESC 2</li> 
+  <li><strong>2:</strong> SIM_GZ ESC 3</li> 
+  <li><strong>3:</strong> SIM_GZ ESC 4</li> 
+  <li><strong>4:</strong> SIM_GZ ESC 5</li> 
+  <li><strong>5:</strong> SIM_GZ ESC 6</li> 
+  <li><strong>6:</strong> SIM_GZ ESC 7</li> 
+  <li><strong>7:</strong> SIM_GZ ESC 8</li> 
+</ul>
+ </td>
+ <td>[0, 255] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS1">SIM_GZ_SV_DIS1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS2">SIM_GZ_SV_DIS2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS3">SIM_GZ_SV_DIS3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS4">SIM_GZ_SV_DIS4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS5">SIM_GZ_SV_DIS5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS6">SIM_GZ_SV_DIS6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS7">SIM_GZ_SV_DIS7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_DIS8">SIM_GZ_SV_DIS8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Disarmed Value <p><strong>Comment:</strong> This is the output value that is set when not armed. Note that non-motor outputs might already be active in prearm state if COM_PREARM_MODE is set.</p>   </td>
+ <td>[0, 1000] </td>
+ <td>500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL1">SIM_GZ_SV_FAIL1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC1).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL2">SIM_GZ_SV_FAIL2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC2).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL3">SIM_GZ_SV_FAIL3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC3).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL4">SIM_GZ_SV_FAIL4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC4).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL5">SIM_GZ_SV_FAIL5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC5).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL6">SIM_GZ_SV_FAIL6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC6).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL7">SIM_GZ_SV_FAIL7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC7).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FAIL8">SIM_GZ_SV_FAIL8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Failsafe Value <p><strong>Comment:</strong> This is the output value that is set when in failsafe mode. When set to -1 (default), the value depends on the function (see SIM_GZ_SV_FUNC8).</p>   </td>
+ <td>[-1, 1000] </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC1">SIM_GZ_SV_FUNC1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 1. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC2">SIM_GZ_SV_FUNC2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 2. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC3">SIM_GZ_SV_FUNC3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 3. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC4">SIM_GZ_SV_FUNC4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 4. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC5">SIM_GZ_SV_FUNC5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 5. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC6">SIM_GZ_SV_FUNC6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 6. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC7">SIM_GZ_SV_FUNC7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 7. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_FUNC8">SIM_GZ_SV_FUNC8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Output Function <p><strong>Comment:</strong> Select what should be output on SIM_GZ Servo 8. The default failsafe value is set according to the selected function: - 'Min' for ConstantMin - 'Max' for ConstantMax - 'Max' for Parachute - ('Max'+'Min')/2 for Servos - 'Disarmed' for the rest</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Constant Min</li>
+
+<li><strong>2:</strong> Constant Max</li>
+
+<li><strong>101:</strong> Motor 1</li>
+
+<li><strong>102:</strong> Motor 2</li>
+
+<li><strong>103:</strong> Motor 3</li>
+
+<li><strong>104:</strong> Motor 4</li>
+
+<li><strong>105:</strong> Motor 5</li>
+
+<li><strong>106:</strong> Motor 6</li>
+
+<li><strong>107:</strong> Motor 7</li>
+
+<li><strong>108:</strong> Motor 8</li>
+
+<li><strong>109:</strong> Motor 9</li>
+
+<li><strong>110:</strong> Motor 10</li>
+
+<li><strong>111:</strong> Motor 11</li>
+
+<li><strong>112:</strong> Motor 12</li>
+
+<li><strong>201:</strong> Servo 1</li>
+
+<li><strong>202:</strong> Servo 2</li>
+
+<li><strong>203:</strong> Servo 3</li>
+
+<li><strong>204:</strong> Servo 4</li>
+
+<li><strong>205:</strong> Servo 5</li>
+
+<li><strong>206:</strong> Servo 6</li>
+
+<li><strong>207:</strong> Servo 7</li>
+
+<li><strong>208:</strong> Servo 8</li>
+
+<li><strong>301:</strong> Offboard Actuator Set 1</li>
+
+<li><strong>302:</strong> Offboard Actuator Set 2</li>
+
+<li><strong>303:</strong> Offboard Actuator Set 3</li>
+
+<li><strong>304:</strong> Offboard Actuator Set 4</li>
+
+<li><strong>305:</strong> Offboard Actuator Set 5</li>
+
+<li><strong>306:</strong> Offboard Actuator Set 6</li>
+
+<li><strong>400:</strong> Landing Gear</li>
+
+<li><strong>401:</strong> Parachute</li>
+
+<li><strong>402:</strong> RC Roll</li>
+
+<li><strong>403:</strong> RC Pitch</li>
+
+<li><strong>404:</strong> RC Throttle</li>
+
+<li><strong>405:</strong> RC Yaw</li>
+
+<li><strong>406:</strong> RC Flaps</li>
+
+<li><strong>407:</strong> RC AUX 1</li>
+
+<li><strong>408:</strong> RC AUX 2</li>
+
+<li><strong>409:</strong> RC AUX 3</li>
+
+<li><strong>410:</strong> RC AUX 4</li>
+
+<li><strong>411:</strong> RC AUX 5</li>
+
+<li><strong>412:</strong> RC AUX 6</li>
+
+<li><strong>420:</strong> Gimbal Roll</li>
+
+<li><strong>421:</strong> Gimbal Pitch</li>
+
+<li><strong>422:</strong> Gimbal Yaw</li>
+
+<li><strong>430:</strong> Gripper</li>
+
+<li><strong>440:</strong> Landing Gear Wheel</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX1">SIM_GZ_SV_MAX1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX2">SIM_GZ_SV_MAX2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX3">SIM_GZ_SV_MAX3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX4">SIM_GZ_SV_MAX4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX5">SIM_GZ_SV_MAX5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX6">SIM_GZ_SV_MAX6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX7">SIM_GZ_SV_MAX7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MAX8">SIM_GZ_SV_MAX8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Maximum Value <p><strong>Comment:</strong> Maxmimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN1">SIM_GZ_SV_MIN1</strong> (INT32)</td>
+ <td>SIM_GZ Servo 1 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN2">SIM_GZ_SV_MIN2</strong> (INT32)</td>
+ <td>SIM_GZ Servo 2 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN3">SIM_GZ_SV_MIN3</strong> (INT32)</td>
+ <td>SIM_GZ Servo 3 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN4">SIM_GZ_SV_MIN4</strong> (INT32)</td>
+ <td>SIM_GZ Servo 4 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN5">SIM_GZ_SV_MIN5</strong> (INT32)</td>
+ <td>SIM_GZ Servo 5 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN6">SIM_GZ_SV_MIN6</strong> (INT32)</td>
+ <td>SIM_GZ Servo 6 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN7">SIM_GZ_SV_MIN7</strong> (INT32)</td>
+ <td>SIM_GZ Servo 7 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_MIN8">SIM_GZ_SV_MIN8</strong> (INT32)</td>
+ <td>SIM_GZ Servo 8 Minimum Value <p><strong>Comment:</strong> Minimum output value (when not disarmed).</p>   </td>
+ <td>[0, 1000] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_SV_REV">SIM_GZ_SV_REV</strong> (INT32)</td>
+ <td>Reverse Output Range for SIM_GZ <p><strong>Comment:</strong> Allows to reverse the output range for each channel. Note: this is only useful for servos.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> SIM_GZ Servo 1</li> 
+  <li><strong>1:</strong> SIM_GZ Servo 2</li> 
+  <li><strong>2:</strong> SIM_GZ Servo 3</li> 
+  <li><strong>3:</strong> SIM_GZ Servo 4</li> 
+  <li><strong>4:</strong> SIM_GZ Servo 5</li> 
+  <li><strong>5:</strong> SIM_GZ Servo 6</li> 
+  <li><strong>6:</strong> SIM_GZ Servo 7</li> 
+  <li><strong>7:</strong> SIM_GZ Servo 8</li> 
 </ul>
  </td>
  <td>[0, 255] </td>
@@ -13295,14 +14827,14 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_X">EKF2_BCOEF_X</strong> (FLOAT)</td>
- <td>X-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the forward/reverse axis when flying a multi-copter which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_X paraemter should be set initially to the ratio of mass / projected frontal area and adjusted together with EKF2_MCOEF to minimise variance of the X-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. Set this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
+ <td>X-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the forward/reverse axis when flying a multi-copter which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The drag produced by this effect scales with speed squared. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter. Set this parameter to zero to turn off the bluff body drag model for this axis.</p>   </td>
  <td>[0.0, 200.0] </td>
  <td>100.0</td>
  <td>kg/m^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_Y">EKF2_BCOEF_Y</strong> (FLOAT)</td>
- <td>Y-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the right/left axis when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_Y paraemter should be set initially to the ratio of mass / projected side area and adjusted together with EKF2_MCOEF to minimise variance of the Y-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. et this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
+ <td>Y-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the right/left axis when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The drag produced by this effect scales with speed squared. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter. Set this parameter to zero to turn off the bluff body drag model for this axis.</p>   </td>
  <td>[0.0, 200.0] </td>
  <td>100.0</td>
  <td>kg/m^2</td>
@@ -13565,6 +15097,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_GYR_B_LIM">EKF2_GYR_B_LIM</strong> (FLOAT)</td>
+ <td>Gyro bias learning limit <p><strong>Comment:</strong> The ekf delta angle bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
+ <td>[0.0, 0.4] </td>
+ <td>0.15</td>
+ <td>rad/s</td>
+</tr>
+<tr>
  <td><strong id="EKF2_GYR_B_NOISE">EKF2_GYR_B_NOISE</strong> (FLOAT)</td>
  <td>Process noise for IMU rate gyro bias prediction    </td>
  <td>[0.0, 0.01] </td>
@@ -13717,7 +15256,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>
- <td>propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. For example, if flying at 10 m/s at sea level conditions produces a rotor induced drag deceleration of 1.5 m/s/s when the multi-copter levelled to zero roll/pitch, then EKF2_MCOEF would be set to 0.15 = (1.5/10.0). Set EKF2_MCOEF to a positive value to enable wind estimation using this drag effect. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. The EKF2_MCOEF parameter should be adjusted together with EKF2_BCOEF_X and EKF2_BCOEF_Y to minimise variance of the X and y axis drag specific force innovation sequences.</p>   </td>
+ <td>Propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. Set this parameter to zero to turn off the momentum drag model for both axis.</p>   </td>
  <td>[0, 1.0] </td>
  <td>0.15</td>
  <td>1/s</td>
@@ -14183,27 +15722,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
- <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
- <td>[45, 720] (5)</td>
- <td>90.</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
- <td>Acro body y max rate <p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
- <td>[45, 720] (5)</td>
- <td>90.</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
- <td>Acro body z max rate <p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
- <td>[10, 180] (5)</td>
- <td>45.</td>
- <td>deg/s</td>
-</tr>
-<tr>
  <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
  <td>Airspeed mode <p><strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Normal (use airspeed if available)</li>
@@ -14214,97 +15732,6 @@ table {
  <td></td>
  <td>0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
- <td>Enable airspeed scaling <p><strong>Comment:</strong> This enables a logic that automatically adjusts the output of the rate controller to take into account the real torque produced by an aerodynamic control surface given the current deviation from the trim airspeed (FW_AIRSPD_TRIM). Enable when using aerodynamic control surfaces (e.g.: plane) Disable when using rotor wings (e.g.: autogyro)</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_BAT_SCALE_EN">FW_BAT_SCALE_EN</strong> (INT32)</td>
- <td>Whether to scale throttle by battery power level <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The fixed wing should constantly behave as if it was fully charged with reduced max thrust at lower battery percentages. i.e. if cruise speed is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_FLPS">FW_DTRIM_P_FLPS</strong> (FLOAT)</td>
- <td>Pitch trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever flaps are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_SPOIL">FW_DTRIM_P_SPOIL</strong> (FLOAT)</td>
- <td>Pitch trim increment for spoiler configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever spoilers are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
- <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
- <td>Pitch trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_R_FLPS">FW_DTRIM_R_FLPS</strong> (FLOAT)</td>
- <td>Roll trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to TRIM_ROLL whenever flaps are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
- <td>Roll trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_R_VMIN">FW_DTRIM_R_VMIN</strong> (FLOAT)</td>
- <td>Roll trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
- <td>Yaw trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_Y_VMIN">FW_DTRIM_Y_VMIN</strong> (FLOAT)</td>
- <td>Yaw trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing.</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
-</tr>
-<tr>
- <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
- <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off.</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>0.0</td>
- <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
@@ -14349,41 +15776,6 @@ table {
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="FW_PR_D">FW_PR_D</strong> (FLOAT)</td>
- <td>Pitch rate derivative gain <p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_PR_FF">FW_PR_FF</strong> (FLOAT)</td>
- <td>Pitch rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.5</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
- <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 1] (0.005)</td>
- <td>0.1</td>
- <td>%/rad</td>
-</tr>
-<tr>
- <td><strong id="FW_PR_IMAX">FW_PR_IMAX</strong> (FLOAT)</td>
- <td>Pitch rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
- <td>Pitch rate proportional gain <p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 2.0] (0.005)</td>
- <td>0.08</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
  <td><strong id="FW_PSP_OFF">FW_PSP_OFF</strong> (FLOAT)</td>
  <td>Pitch setpoint offset (pitch at level flight) <p><strong>Comment:</strong> An airframe specific offset of the pitch setpoint in degrees, the value is added to the pitch setpoint and should correspond to the pitch at typical cruise speed of the airframe.</p>   </td>
  <td>[-90.0, 90.0] (0.5)</td>
@@ -14417,41 +15809,6 @@ table {
  <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="FW_RR_D">FW_RR_D</strong> (FLOAT)</td>
- <td>Roll rate derivative Gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.00</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
- <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
- <td>[0.0, 1] (0.05)</td>
- <td>0.5</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
- <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 1] (0.005)</td>
- <td>0.1</td>
- <td>%/rad</td>
-</tr>
-<tr>
- <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
- <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
- <td>Roll rate proportional Gain <p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 2.0] (0.005)</td>
- <td>0.05</td>
- <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
@@ -14536,41 +15893,6 @@ table {
  <td>[0.0, 90.0] (0.5)</td>
  <td>30.0</td>
  <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="FW_YR_D">FW_YR_D</strong> (FLOAT)</td>
- <td>Yaw rate derivative gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
- <td>0.0</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_YR_FF">FW_YR_FF</strong> (FLOAT)</td>
- <td>Yaw rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.3</td>
- <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
- <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 1] (0.5)</td>
- <td>0.1</td>
- <td>%/rad</td>
-</tr>
-<tr>
- <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
- <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
- <td>0.4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
- <td>Yaw rate proportional gain <p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td>[0.0, 2.0] (0.005)</td>
- <td>0.05</td>
- <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_Y_RMAX">FW_Y_RMAX</strong> (FLOAT)</td>
@@ -14914,6 +16236,233 @@ table {
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
+</tr>
+</tbody></table>
+
+## FW Rate Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
+ <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
+ <td>[45, 720] </td>
+ <td>90</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
+ <td>Acro body y max rate <p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
+ <td>[45, 720] </td>
+ <td>90</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
+ <td>Acro body z max rate <p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
+ <td>[10, 180] </td>
+ <td>45</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
+ <td>Enable airspeed scaling <p><strong>Comment:</strong> This enables a logic that automatically adjusts the output of the rate controller to take into account the real torque produced by an aerodynamic control surface given the current deviation from the trim airspeed (FW_AIRSPD_TRIM). Enable when using aerodynamic control surfaces (e.g.: plane) Disable when using rotor wings (e.g.: autogyro)</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_BAT_SCALE_EN">FW_BAT_SCALE_EN</strong> (INT32)</td>
+ <td>Whether to scale throttle by battery power level <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The fixed wing should constantly behave as if it was fully charged with reduced max thrust at lower battery percentages. i.e. if cruise speed is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_P_FLPS">FW_DTRIM_P_FLPS</strong> (FLOAT)</td>
+ <td>Pitch trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever flaps are fully deployed.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_P_SPOIL">FW_DTRIM_P_SPOIL</strong> (FLOAT)</td>
+ <td>Pitch trim increment for spoiler configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever spoilers are fully deployed.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
+ <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
+ <td>Pitch trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_R_FLPS">FW_DTRIM_R_FLPS</strong> (FLOAT)</td>
+ <td>Roll trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to TRIM_ROLL whenever flaps are fully deployed.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
+ <td>Roll trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MAX.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_R_VMIN">FW_DTRIM_R_VMIN</strong> (FLOAT)</td>
+ <td>Roll trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MIN.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
+ <td>Yaw trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MAX.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_DTRIM_Y_VMIN">FW_DTRIM_Y_VMIN</strong> (FLOAT)</td>
+ <td>Yaw trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MIN.</p>   </td>
+ <td>[-0.25, 0.25] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)</td>
+ <td>Flaps setting during landing <p><strong>Comment:</strong> Sets a fraction of full flaps during landing. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
+ <td>Flaps setting during take-off <p><strong>Comment:</strong> Sets a fraction of full flaps during take-off. Also applies to flaperons if enabled in the mixer/allocation.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>0.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_D">FW_PR_D</strong> (FLOAT)</td>
+ <td>Pitch rate derivative gain <p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>[0.0, 1.0] (0.005)</td>
+ <td>0.</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_FF">FW_PR_FF</strong> (FLOAT)</td>
+ <td>Pitch rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
+ <td>[0.0, 10.0] (0.05)</td>
+ <td>0.5</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
+ <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>[0.0, 0.5] (0.005)</td>
+ <td>0.1</td>
+ <td>%/rad</td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_IMAX">FW_PR_IMAX</strong> (FLOAT)</td>
+ <td>Pitch rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
+ <td>[0.0, 1.0] (0.05)</td>
+ <td>0.4</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
+ <td>Pitch rate proportional gain <p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td>[0.0, 1.0] (0.005)</td>
+ <td>0.08</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_D">FW_RR_D</strong> (FLOAT)</td>
+ <td>Roll rate derivative Gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>[0.0, 1.0] (0.005)</td>
+ <td>0.00</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_FF">FW_RR_FF</strong> (FLOAT)</td>
+ <td>Roll rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output. Use this to obtain a tigher response of the controller without introducing noise amplification.</p>   </td>
+ <td>[0.0, 10.0] (0.05)</td>
+ <td>0.5</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
+ <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>[0.0, 0.2] (0.005)</td>
+ <td>0.1</td>
+ <td>%/rad</td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_IMAX">FW_RR_IMAX</strong> (FLOAT)</td>
+ <td>Roll integrator anti-windup <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value.</p>   </td>
+ <td>[0.0, 1.0] (0.05)</td>
+ <td>0.2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
+ <td>Roll rate proportional Gain <p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td>[0.0, 1.0] (0.005)</td>
+ <td>0.05</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_D">FW_YR_D</strong> (FLOAT)</td>
+ <td>Yaw rate derivative gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>[0.0, 1.0] (0.005)</td>
+ <td>0.0</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_FF">FW_YR_FF</strong> (FLOAT)</td>
+ <td>Yaw rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
+ <td>[0.0, 10.0] (0.05)</td>
+ <td>0.3</td>
+ <td>%/rad/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
+ <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
+ <td>[0.0, 50.0] (0.5)</td>
+ <td>0.1</td>
+ <td>%/rad</td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_IMAX">FW_YR_IMAX</strong> (FLOAT)</td>
+ <td>Yaw rate integrator limit <p><strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value</p>   </td>
+ <td>[0.0, 1.0] (0.05)</td>
+ <td>0.2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
+ <td>Yaw rate proportional gain <p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td>[0.0, 1.0] (0.005)</td>
+ <td>0.05</td>
+ <td>%/rad/s</td>
 </tr>
 </tbody></table>
 
@@ -18910,6 +20459,150 @@ table {
 </tr>
 </tbody></table>
 
+## MODAL IO
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="MODAL_IO_BAUD">MODAL_IO_BAUD</strong> (INT32)</td>
+ <td>UART ESC baud rate <p><strong>Comment:</strong> Default rate is 250Kbps, which is used in off-the-shelf MoadalAI ESC products.</p>   </td>
+ <td></td>
+ <td>250000</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_CONFIG">MODAL_IO_CONFIG</strong> (INT32)</td>
+ <td>UART ESC configuration <p><strong>Comment:</strong> Selects what type of UART ESC, if any, is being used.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+
+<li><strong>1:</strong> - VOXL ESC</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_MODE">MODAL_IO_MODE</strong> (INT32)</td>
+ <td>UART ESC Mode <p><strong>Comment:</strong> Selects what type of mode is enabled, if any</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> - None</li>
+
+<li><strong>1:</strong> - Turtle Mode enabled via AUX1</li>
+
+<li><strong>2:</strong> - Turtle Mode enabled via AUX2</li>
+
+<li><strong>3:</strong> - UART Passthrough Mode</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 2] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_RPM_MAX">MODAL_IO_RPM_MAX</strong> (INT32)</td>
+ <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
+ <td></td>
+ <td>15000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_RPM_MIN">MODAL_IO_RPM_MIN</strong> (INT32)</td>
+ <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
+ <td></td>
+ <td>5500</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR1">MODAL_IO_SDIR1</strong> (INT32)</td>
+ <td>UART ESC ID 1 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR2">MODAL_IO_SDIR2</strong> (INT32)</td>
+ <td>UART ESC ID 2 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR3">MODAL_IO_SDIR3</strong> (INT32)</td>
+ <td>UART ESC ID 3 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_SDIR4">MODAL_IO_SDIR4</strong> (INT32)</td>
+ <td>UART ESC ID 4 Spin Direction Flag  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Default</li>
+
+<li><strong>1:</strong> - Reverse</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_COSP">MODAL_IO_T_COSP</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Cosphi    </td>
+ <td>[0.000, 1.000] (0.001)</td>
+ <td>0.990</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_DEAD">MODAL_IO_T_DEAD</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Deadband    </td>
+ <td>[0, 100] (1)</td>
+ <td>20</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_EXPO">MODAL_IO_T_EXPO</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor expo    </td>
+ <td>[0, 100] (1)</td>
+ <td>35</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_MINF">MODAL_IO_T_MINF</strong> (FLOAT)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor STICK_MINF    </td>
+ <td>[0.0, 100.0] (1.0)</td>
+ <td>0.15</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MODAL_IO_T_PERC">MODAL_IO_T_PERC</strong> (INT32)</td>
+ <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
+ <td>[1, 100] (1)</td>
+ <td>90</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Magnetometer Bias Estimator
 
 <table>
@@ -19101,7 +20794,7 @@ table {
 
 <li><strong>3:</strong> Require a takeoff and a landing</li>
 
-<li><strong>4:</strong> Require a takeoff and a landing, or neither of both</li> 
+<li><strong>4:</strong> Require both a takeoff and a landing, or neither</li> 
 </ul>
   </td>
  <td></td>
@@ -23356,7 +25049,9 @@ table {
 
 <li><strong>2:</strong> from boot until shutdown</li>
 
-<li><strong>3:</strong> depending on AUX1 RC channel</li> 
+<li><strong>3:</strong> depending on AUX1 RC channel</li>
+
+<li><strong>4:</strong> from 1st armed until shutdown</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -25760,23 +27455,9 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="CAL_MAG_ROT_AUTO">CAL_MAG_ROT_AUTO</strong> (INT32)</td>
- <td>Automatically set external rotations <p><strong>Comment:</strong> During calibration attempt to automatically determine the rotation of external magnetometers.</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="CAL_MAG_SIDES">CAL_MAG_SIDES</strong> (INT32)</td>
- <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>参数对照:</strong><ul>
-<li><strong>34:</strong> Two side calibration</li>
-
-<li><strong>38:</strong> Three side calibration</li>
-
-<li><strong>63:</strong> Six side calibration</li> 
-</ul>
-  </td>
- <td>[34, 63] </td>
+ <td>For legacy QGC support only <p><strong>Comment:</strong> Use SENS_MAG_SIDES instead</p>   </td>
+ <td></td>
  <td>63</td>
  <td></td>
 </tr>
@@ -26519,6 +28200,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_TF02PRO">SENS_EN_TF02PRO</strong> (INT32)</td>
+ <td>TF02 Pro Distance Sensor (i2c)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_THERMAL">SENS_EN_THERMAL</strong> (INT32)</td>
  <td>Thermal control of sensor temperature  <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Thermal control unavailable</li>
@@ -26551,6 +28240,14 @@ table {
 </td>
  <td>[0, 3] </td>
  <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_VL53L0X">SENS_EN_VL53L0X</strong> (INT32)</td>
+ <td>VL53L0X Distance Sensor    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -26722,6 +28419,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_MAG_AUTOROT">SENS_MAG_AUTOROT</strong> (INT32)</td>
+ <td>Automatically set external rotations <p><strong>Comment:</strong> During calibration attempt to automatically determine the rotation of external magnetometers.</p>   </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_MAG_MODE">SENS_MAG_MODE</strong> (INT32)</td>
  <td>Sensors hub mag mode  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Publish all magnetometers</li>
@@ -26741,6 +28445,20 @@ table {
  <td>[1, 200] </td>
  <td>15.0</td>
  <td>Hz</td>
+</tr>
+<tr>
+ <td><strong id="SENS_MAG_SIDES">SENS_MAG_SIDES</strong> (INT32)</td>
+ <td>Bitfield selecting mag sides for calibration <p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>参数对照:</strong><ul>
+<li><strong>34:</strong> Two side calibration</li>
+
+<li><strong>38:</strong> Three side calibration</li>
+
+<li><strong>63:</strong> Six side calibration</li> 
+</ul>
+  </td>
+ <td>[34, 63] </td>
+ <td>63</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="SENS_MB12_0_ROT">SENS_MB12_0_ROT</strong> (INT32)</td>
@@ -27464,6 +29182,39 @@ table {
 <tr>
  <td><strong id="SENS_ULAND_CFG">SENS_ULAND_CFG</strong> (INT32)</td>
  <td>Serial Configuration for uLanding Radar <p><strong>Comment:</strong> Configure on which serial port to run uLanding Radar.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>6:</strong> UART 6</li>
+
+<li><strong>101:</strong> TELEM 1</li>
+
+<li><strong>102:</strong> TELEM 2</li>
+
+<li><strong>103:</strong> TELEM 3</li>
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+
+<li><strong>201:</strong> GPS 1</li>
+
+<li><strong>202:</strong> GPS 2</li>
+
+<li><strong>203:</strong> GPS 3</li>
+
+<li><strong>300:</strong> Radio Controller</li>
+
+<li><strong>301:</strong> Wifi Port</li>
+
+<li><strong>401:</strong> EXT2</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_VN_CFG">SENS_VN_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for VectorNav (VN-100, VN-200, VN-300) <p><strong>Comment:</strong> Configure on which serial port to run VectorNav (VN-100, VN-200, VN-300).</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>6:</strong> UART 6</li>
@@ -30241,130 +31992,6 @@ table {
 </tr>
 </tbody></table>
 
-## UART ESC
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="UART_ESC_BAUD">UART_ESC_BAUD</strong> (INT32)</td>
- <td>UART ESC baud rate <p><strong>Comment:</strong> Default rate is 250Kbps, which is used in off-the-shelf MoadalAI ESC products.</p>   </td>
- <td></td>
- <td>250000</td>
- <td>bit/s</td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_CONFIG">UART_ESC_CONFIG</strong> (INT32)</td>
- <td>UART ESC configuration <p><strong>Comment:</strong> Selects what type of UART ESC, if any, is being used.</p> <strong>参数对照:</strong><ul>
-<li><strong>0:</strong> - Disabled</li>
-
-<li><strong>1:</strong> - VOXL ESC</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MODE">UART_ESC_MODE</strong> (INT32)</td>
- <td>UART ESC Mode <p><strong>Comment:</strong> Selects what type of mode is enabled, if any</p> <strong>参数对照:</strong><ul>
-<li><strong>0:</strong> - None</li>
-
-<li><strong>1:</strong> - Turtle Mode enabled via AUX1</li>
-
-<li><strong>2:</strong> - Turtle Mode enabled via AUX2</li>
-
-<li><strong>3:</strong> - UART Passthrough Mode</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[0, 2] </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR1">UART_ESC_MOTOR1</strong> (INT32)</td>
- <td>UART ESC Motor 1 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>3</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR2">UART_ESC_MOTOR2</strong> (INT32)</td>
- <td>UART ESC Motor 2 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR3">UART_ESC_MOTOR3</strong> (INT32)</td>
- <td>UART ESC Motor 3 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>4</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_MOTOR4">UART_ESC_MOTOR4</strong> (INT32)</td>
- <td>UART ESC Motor 4 Mapping.  1-4 (negative for reversal)    </td>
- <td>[-4, 4] </td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_RPM_MAX">UART_ESC_RPM_MAX</strong> (INT32)</td>
- <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
- <td></td>
- <td>15000</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_RPM_MIN">UART_ESC_RPM_MIN</strong> (INT32)</td>
- <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
- <td></td>
- <td>5500</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_COSP">UART_ESC_T_COSP</strong> (FLOAT)</td>
- <td>UART ESC Turtle Mode Cosphi    </td>
- <td>[0.000, 1.000] (0.001)</td>
- <td>0.990</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_DEAD">UART_ESC_T_DEAD</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor Deadband    </td>
- <td>[0, 100] (1)</td>
- <td>20</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_EXPO">UART_ESC_T_EXPO</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor expo    </td>
- <td>[0, 100] (1)</td>
- <td>35</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_MINF">UART_ESC_T_MINF</strong> (FLOAT)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor STICK_MINF    </td>
- <td>[0.0, 100.0] (1.0)</td>
- <td>0.15</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UART_ESC_T_PERC">UART_ESC_T_PERC</strong> (INT32)</td>
- <td>UART ESC Turtle Mode Crash Flip Motor Percent    </td>
- <td>[1, 100] (1)</td>
- <td>90</td>
- <td></td>
-</tr>
-</tbody></table>
-
 ## UAVCAN
 
 <table>
@@ -30415,6 +32042,14 @@ table {
  <td><strong id="CANNODE_TERM">CANNODE_TERM</strong> (INT32)</td>
  <td>CAN built-in bus termination    </td>
  <td>[?, 1] </td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_GZ_EN">SIM_GZ_EN</strong> (INT32)</td>
+ <td>Simulator Gazebo bridge enable    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
@@ -30996,13 +32631,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="VT_FW_ALT_ERR">VT_FW_ALT_ERR</strong> (FLOAT)</td>
- <td>Adaptive QuadChute <p><strong>Comment:</strong> Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.</p>   </td>
- <td>[0.0, 200.0] (1)</td>
- <td>0.0</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
  <td>Differential thrust in forwards flight <p><strong>Comment:</strong> Enable differential thrust seperately for roll, pitch, yaw in forward (fixed-wing) mode. The effectiveness of differential thrust around the corresponding axis can be tuned by setting VT_FW_DIFTHR_S_R / VT_FW_DIFTHR_S_P / VT_FW_DIFTHR_S_Y.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Yaw</li> 
   <li><strong>1:</strong> Roll</li> 
@@ -31043,24 +32671,24 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_HMAX">VT_FW_QC_HMAX</strong> (INT32)</td>
- <td>Quadchute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. Triggering a quadchute always means transitioning the vehicle to hover flight in which generally a lot of energy is consumed. At high altitudes there is therefore a big risk to deplete the battery and therefore crash. Currently, there is no automated re-transition to fixed wing mode implemented and therefore this parameter serves and an intermediate measure to increase safety. Setting this value to 0 deactivates the behavior.</p>   </td>
+ <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. Triggering a quadchute always means transitioning the vehicle to hover flight in which generally a lot of energy is consumed. At high altitudes there is therefore a big risk to deplete the battery and therefore crash. Currently, there is no automated re-transition to fixed wing mode implemented and therefore this parameter serves and an intermediate measure to increase safety. Setting this value to 0 deactivates the behavior (always enable quad-chute independently of altitude).</p>   </td>
  <td>[0, ?] (1)</td>
  <td>0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
- <td>QuadChute Max Pitch <p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
+ <td>Quad-chute max pitch threshold <p><strong>Comment:</strong> Absolute pitch threshold for quad-chute triggering in FW mode. Above this the vehicle will transition back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 180] </td>
  <td>0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_R">VT_FW_QC_R</strong> (INT32)</td>
- <td>QuadChute Max Roll <p><strong>Comment:</strong> Maximum roll angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
+ <td>Quad-chute max roll threshold <p><strong>Comment:</strong> Absolute roll threshold for quad-chute triggering in FW mode. Above this the vehicle will transition back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 180] </td>
  <td>0</td>
- <td></td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_DUR">VT_F_TRANS_DUR</strong> (FLOAT)</td>
@@ -31103,6 +32731,20 @@ table {
  <td>[0, ?] (0.01)</td>
  <td>0.33</td>
  <td>1/s</td>
+</tr>
+<tr>
+ <td><strong id="VT_QC_HR_ERROR_I">VT_QC_HR_ERROR_I</strong> (FLOAT)</td>
+ <td>Quad-chute uncommanded descent threshold <p><strong>Comment:</strong> Threshold for integrated height rate error to trigger a uncommanded-descent quad-chute. Only checked in altitude-controlled fixed-wing flight. Additional conditions that have to be met for uncommanded descent detection are a positive (climbing) height rate setpoint and a negative (sinking) current height rate estimate. Set to 0 do disable this threshold.</p>   </td>
+ <td>[0.0, 200.0] (1)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="VT_QC_T_ALT_LOSS">VT_QC_T_ALT_LOSS</strong> (FLOAT)</td>
+ <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
+ <td>[0, 50] (1)</td>
+ <td>10.0</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="VT_SPOILER_MC_LD">VT_SPOILER_MC_LD</strong> (FLOAT)</td>
