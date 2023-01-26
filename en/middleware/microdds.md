@@ -18,7 +18,7 @@ If you're working PX4 v1.13 (or earlier) FastRTPS documentation can be found her
 
 ## Why this approach is of interest?
 
-Initially, micro-RTPS served as the middleware and its consistent improvement evolved into what's known as the microDDS that provides the user a native interface between the flight controller and the mission computer. 
+Initially, micro-RTPS served as the middleware and its consistent improvement evolved into what's known as the microDDS that provides the user a native interface between the flight controller and the mission computer DDS/ROS2 data space. 
 The notable difference between the two is what kind of transport protocol each supports. The newest version supports UDP/TCP/Serial/Custom transport protocol.  
 
 The Micro-XRCE-DDS-Gen has 2 major advantages, i.e. it can be used to generate client code and build px4_msgs along with microdds_client together creating a single library.  
