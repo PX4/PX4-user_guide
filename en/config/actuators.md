@@ -92,21 +92,22 @@ The motors have no configurable geometry:
 - `Rotor (Motor 1)`: The main rotor
 - `Yaw tail motor (Motor 2)`: The tail rotor
 
-Swash plate servos:
-- Set the number of servos
+Swash plate servos: `3` | `4` <!-- 4 provides additional stability -->
 
   For each servo set:
   
   - `Angle`: Angle measured clockwise, with `0` pointing forwards.
-  - `Arm Length (relative)`: ?
-  - `Trim`: Offset individual servo positions (generally not needed).
+  - `Arm Length (relative)`: Radius from the center (top view). <!-- a shorter arm means same servo motion moves the plate more. This allows SW to compensate -->
+  - `Trim`: Offset individual servo positions (only needed in rare case where swash plate is not level when all servos are at the same position).
 
 Additional settings:
 
 - `Yaw compensation scale based on collective pitch`: 0
 - `Yaw compensation scale based on throttle`: 0
-- `Main rotor turns counter-clockwise`: Disabled  (clockwise rotation) | Enabled
-- `Throttle spoolup time`: 1.0
+- `Main rotor turns counter-clockwise`: `Disabled` (clockwise rotation) | `Enabled`
+- `Throttle spoolup time`: Set value (in seconds) greater than the achievable minimum motor spool up time.
+  A larger value may improve user experience.
+
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
