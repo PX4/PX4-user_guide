@@ -1,5 +1,9 @@
 # 클라이언트 및 에이전트 코드 수동 생성
 
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
 클라이언트와 에이전트 코드를 수동으로 생성하는 방법을 설명합니다(PX4 펌웨어가 컴파일될 때 코드를 [자동으로 생성](../middleware/micrortps.md)하는 대신).
 
 코드는 Python 스크립트 **/Tools/generate_microRTPS_bridge.py**를 사용하여 생성합니다.

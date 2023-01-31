@@ -41,6 +41,17 @@ bl_update [arguments...]
 
    <file>        Bootloader bin 文件                
 ```
+## bsondump
+Source: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
+
+read BSON from a file and print in human form
+<a id="bsondump_usage"></a>
+
+### 用法
+```
+bsondump [arguments...]
+     <file>      File name
+```
 ## dumpfile
 Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
 
@@ -350,44 +361,41 @@ reboot
 ```
 param <command> [arguments...]
  Commands:
-   load          从文件中加载参数（覆盖全部）
-     [<file>]    文件名 (没有给出时使用默认值)
+   load          Load params from a file (overwrite all)
+     [<file>]    File name (use default if not given)
 
-   import        从文件中导入参数
-     [<file>]    文件名 (没有给出时使用默认值)
+   import        Import params from a file
+     [<file>]    File name (use default if not given)
 
-   save          保存参数到文件
-     [<file>]    文件名 (没有给出时使用默认值)
+   save          Save params to a file
+     [<file>]    File name (use default if not given)
 
-   dump          丢弃文件给出的参数
-     [<file>]    文件名 (没有给出时使用默认值)
+   select        Select default file
+     [<file>]    File name
 
-   select        选择一个默认文件
-     [<file>]    文件名
+   select-backup Select default file
+     [<file>]    File name
 
-   select-backup 选择一个默认文件
-     [<file>]    文件名
+   show          Show parameter values
+     [-a]        Show all parameters (not just used)
+     [-c]        Show only changed params (unused too)
+     [-q]        quiet mode, print only param value (name needs to be exact)
+     [<filter>]  Filter by param name (wildcard at end allowed, eg. sys_*)
 
-   show          显示参数名称
-     [-a]        显示所有参数名称 (包括未使用的)
-     [-c]        只显示已更改的参数 (包括未使用的)
-     [-q]        安静模式, 只打印参数值 (名称需要精准)
-     [<filter>]  通过参数名过滤 (位于结尾的通配符是允许的, eg. sys_*)
+   show-for-airframe Show changed params for airframe config
 
-   show-for-airframe 显示机身配置被更改的参数
+   status        Print status of parameter system
 
-   status        打印参数系统状态
+   set           Set parameter to a value
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
 
-   set           设置参数为一个值
-     <param_name> <value> 参数名和设置值
-     [fail]      如果提供，允许在参数不存在时不生效
+   set-default   Set parameter default to a value
+     [-s]        If provided, silent errors if parameter doesn't exists
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
 
-   set-default   设置参数默认值
-     [-s]        如果提供，参数不存在时引起无声错误
-     <param_name> <value> 参数名和设置值
-     [fail]      如果提供，允许在参数不存在时不生效
-
-   compare       将参数同某个值比较。 如果相等命令会执行成功
+   compare       Compare a param with a value. 如果相等命令会执行成功
      [-s]        如果提供，参数不存在时引起无声错误
      <param_name> <value> 参数名和被比较的值
 

@@ -1,5 +1,9 @@
 # ROS 2 User Guide (PX4-ROS 2 Bridge)
 
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
 This topic explains how to setup and use ROS 2 with PX4.
 
 It provides an overview of the ROS2-PX4 bridge architecture and application pipeline, along with instructions on how to install all the needed software and build ROS 2 applications.

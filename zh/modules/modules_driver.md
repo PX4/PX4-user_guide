@@ -2,6 +2,7 @@
 子分类
 - [Imu](modules_driver_imu.md)
 - [距离传感器](modules_driver_distance_sensor.md)
+- [Ins](modules_driver_ins.md)
 - [空速传感器](modules_driver_airspeed_sensor.md)
 - [气压计](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
@@ -662,8 +663,8 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
-## modalai_esc
-Source: [drivers/actuators/modalai_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modalai_esc)
+## modal_io
+Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
 
 
 ### Description
@@ -679,11 +680,11 @@ todo
 ```
 
 
-<a id="modalai_esc_usage"></a>
+<a id="modal_io_usage"></a>
 
 ### Usage
 ```
-modalai_esc <command> [arguments...]
+modal_io <command> [arguments...]
  Commands:
    start         Start the task
 
@@ -823,33 +824,6 @@ paw3902 <command> [arguments...]
 
    status        print status info
 ```
-## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685)
-
-<a id="pca9685_usage"></a>
-
-### 描述
-```
-pca9685 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 64
-
-   reset
-
-   test          enter test mode
-
-   stop
-
-   status        print status info
-```
 ## pca9685_pwm_out
 Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pca9685_pwm_out)
 
@@ -872,7 +846,7 @@ The number X can be acquired by executing `pca9685_pwm_out status` when this dri
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### Usage
+### 描述
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -893,7 +867,7 @@ Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="pmw3901_usage"></a>
 
-### 描述
+### Usage
 ```
 pmw3901 <command> [arguments...]
  Commands:

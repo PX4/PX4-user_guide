@@ -41,10 +41,11 @@ Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#co
 [Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future. | &check; | &cross; | | | |
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 | &check; | &check; | | |
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P | IST8310 | &check; | | |
+[Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md) | M8N | BMM150 | | | |
 [Holybro Micro M8N GPS](https://shop.holybro.com/micro-m8n-gps_p1009.html) | M8N | IST8310 | | | |
 [Holybro Nano Ublox M8 5883 GPS](https://shop.holybro.com/nano-ublox-m8-5883-gps-module_p1236.html) | UBX-M8030 | QMC5883 | | | |
-[Holybro M8N GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) | M8N | IST8310 | | | |
-[Holybro M9N GPS](http://www.holybro.com/product/holybro-m9n-gps/) | M9N | IST8310 | | | |
+[Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md) | M8N | IST8310 | | | |
+[Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md) | M9N | IST8310 | | | |
 [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | &check; | | &check;|
 [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | &check; | | |
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | M8P | IST8310 | &check; | | |

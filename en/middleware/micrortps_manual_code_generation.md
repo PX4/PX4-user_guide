@@ -1,5 +1,9 @@
 # Manually Generate Client and Agent Code
 
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
 This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 firmware is compiled).
 
 The code is generated using the python script: **/Tools/generate_microRTPS_bridge.py**.

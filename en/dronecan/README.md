@@ -35,7 +35,7 @@ Supported hardware includes (this is not an exhaustive list):
 - Airspeed sensors
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - GNSS receivers for GPS and GLONASS
-  - [Holybro DroneCAN M8N GPS](https://docs.holybro.com/gps-and-rtk-system/dronecan-gps))
+  - [Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md)
   - [ARK GPS](../dronecan/ark_gps.md)
   - [ARK RTK GPS](../dronecan/ark_rtk_gps.md)
   - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)

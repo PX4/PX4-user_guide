@@ -43,7 +43,6 @@ While it might seem that you are dealing with a vehicle that can fly in two mode
 
 Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
 
-<span id="transition_throttle"></span>
 #### Transition Throttle
 
 Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
@@ -59,14 +58,17 @@ Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS
 Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable.
 If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
 
-#### Forward Transition Pusher/Puller Ramp-up Time
+#### Forward Transition Pusher/Puller Slew Rate
 
-Parameter: [VT_PSHER_RMP_DT](../advanced_config/parameter_reference.md#VT_PSHER_RMP_DT)
+Parameter: [VT_PSHER_SLEW](../advanced_config/parameter_reference.md#VT_PSHER_SLEW)
 
-A forward transition refers to the transition from multirotor to fixed wing mode.
-This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`).
+A forward transition refers to the transition from multirotor to fixed-wing mode.
+The forward transition pusher/puller slew rate is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`).
+
 A value of 0 will result in commanding the transition throttle value being set immediately.
-If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
+By default the slew rate is set to 0.33, meaning that it will take 3s to ramp up to 100% throttle.
+If you wish to make throttling-up smoother you can reduce this value.
+
 
 Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
 
@@ -88,8 +90,6 @@ This is the airspeed which, when reached, will trigger the transition out of mul
 It is critical that you have properly calibrated your airspeed sensor.
 It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
 
-
-<span id="transitioning_tips"></span>
 ### Transitioning Tips
 
 As already mentioned make sure you have a well tuned multirotor mode.
@@ -100,7 +100,6 @@ Before you fly have a plan for what you will do in each of the three phases (mul
 Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight.
 Don’t run your batteries too low as you will need more power in multirotor mode to land.
 Be conservative.
-
 
 #### Transition: Getting Ready
 
@@ -117,15 +116,15 @@ Make sure the VTOL is in a stable hover before you start the transition.
 Start your transition.
 It should transition within 50 – 100 meters.
 If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land.
-Try increasing the [transition throttle](#transition_throttle) (`VT_F_TRANS_THR`) value.
+Try increasing the [transition throttle](#transition-throttle) (`VT_F_TRANS_THR`) value.
 Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor.
 If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
 
 As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 
-:::caution
+:::warning
 The following feature has been discussed but not implemented yet: 
-Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+- Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
 :::
 
 #### Transition: Fixed Wing to Multirotor (Back-transition)
@@ -137,8 +136,6 @@ Because the wing will still be flying you’ll find you have plenty of time to a
 
 For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
 
-
-<span id="aborting_a_transition"></span>
 #### Aborting a Transition
 
 It’s important to know what to expect when you revert a transition command *during* a transition.

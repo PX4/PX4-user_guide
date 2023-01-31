@@ -20,7 +20,7 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
 
 * Centered Roll/Pitch/Yaw inputs (inside deadband):
   * Autopilot levels vehicle/wings and maintains altitude.
-  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
+  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend).
 * Outside center:
   * Pitch stick controls altitude.
   * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).

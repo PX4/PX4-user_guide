@@ -8,7 +8,7 @@ Package delivery missions will be extended to support other cargo release hardwa
 
 ## Delivery Mechanism Configuration
 
-Package delivery missions require some configuration, which must be done before a mission can be planned an executed.
+Package delivery missions require some configuration, which must be done before a mission can be planned and executed.
 
 The configuration is largely hardware-specific, and is hence covered in the setup page for each type of package delivery hardware:
 

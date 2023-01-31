@@ -31,22 +31,22 @@ The *Hold* flight mode (a.k.a. "Loiter") causes the vehicle to stop and maintain
 
 <!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/loiter.cpp#L61 -->
 
-## 固定翼（FW）
+## Fixed-wing (FW)
 
-飞机在当前高度并在 GPS 保持的位置绕圈飞行。 如果在低于这个高度使用该模式，无人机会首先上升到 `MIS_LTRMIN_ALT`。
+飞机在当前高度并在 GPS 保持的位置绕圈飞行。 The vehicle will first ascend to `NAV_MIN_LTR_ALT` if the mode is engaged below this altitude (by default disabled).
 
 遥控器摇杆操作被忽略。
 
 可以使用以下参数配置此动作。
 
-| 参数                                                                           | 描述                                   |
-| ---------------------------------------------------------------------------- | ------------------------------------ |
-| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | 留待圈的半径。                              |
-| [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | 留待模式的最小高度（如果模式在较低的高度进行，则飞行器将上升到此高度）。 |
+| 参数                                                                             | 描述                                   |
+| ------------------------------------------------------------------------------ | ------------------------------------ |
+| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | 留待圈的半径。                              |
+| [NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | 留待模式的最小高度（如果模式在较低的高度进行，则飞行器将上升到此高度）。 |
 
 
 ## 垂直起降（VTOL）
 
-当处于固定翼模式时，VTOL 遵循 HOLD 行为和 [固定翼](#fixed-wing-fw)的参数，而当处于多旋翼模式时，VTOL 遵循[多旋翼](#multi-copter-mc)的参数。
+A VTOL follows the HOLD behavior and parameters of [Fixed-wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
 <!-- this maps to AUTO_LOITER in flight mode state machine -->

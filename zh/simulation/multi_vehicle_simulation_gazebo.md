@@ -9,7 +9,7 @@
 
 To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the *Firmware* tree):
 ```
-Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
+Tools/gazebo/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
 - `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
@@ -56,7 +56,11 @@ The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 
 ### Build and Test (RTPS/DDS)
 
-To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
+:::warning
+This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
+:::
+
+To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
 
 :::note
 You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above and the `micrortps_agent` should be run in the different terminals for each vehicle. For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), for how to use the interaction with non-ROS2 DDS participant applications, or [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS2 nodes.
@@ -75,10 +79,10 @@ You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above an
    * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)
    * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
 
-1. Run `gazebo_sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
+1. Run `Tools/gazebo/sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
 
    ```bash
-   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
+   ./Tools/gazebo/sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
    ```
 
    :::note

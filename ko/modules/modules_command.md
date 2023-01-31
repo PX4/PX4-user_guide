@@ -27,13 +27,24 @@ PX4 바이너리로 컴파일되지 않은 동적 PX4 모듈을 로드하고 실
 dumpfile [arguments...]
    <file>      덤프할 파일
 ```
+## bsondump
+Source: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
+
+read BSON from a file and print in human form
+<a id="bsondump_usage"></a>
+
+### 설명
+```
+bsondump [arguments...]
+     <file>      File name
+```
 ## dyn
 소스: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
 
 Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
 <a id="dumpfile_usage"></a>
 
-### 설명
+### 사용법
 ```
 dumpfile [arguments...]
      <file>      File to dump
@@ -53,7 +64,7 @@ dyn ./hello.px4mod start
 
 <a id="dyn_usage"></a>
 
-### 사용법
+### Usage
 ```
 esc_calib [arguments...]
      [-d <val>]  Select PWM output device
@@ -126,7 +137,7 @@ gpio write /dev/gpin1 1
 
 <a id="gpio_usage"></a>
 
-### Usage
+### 사용법
 ```
 gpio [arguments...]
    read
@@ -175,7 +186,7 @@ Source: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/main/src/sys
 Command-line tool to show the px4 message history. There are no arguments.
 <a id="hist_usage"></a>
 
-### 사용법
+### 설명
 ```
 hist [arguments...]
 ```
@@ -185,7 +196,7 @@ Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/
 Utility to scan for I2C devices on a particular bus.
 <a id="i2cdetect_usage"></a>
 
-### 설명
+### 사용법
 ```
 i2cdetect [arguments...]
      [-b <val>]  I2C bus
@@ -251,7 +262,7 @@ The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
 
 <a id="listener_usage"></a>
 
-### 사용법
+### 설명
 ```
 listener <command> [arguments...]
  Commands:
@@ -269,7 +280,7 @@ Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Utility interact with the manifest
 <a id="mfd_usage"></a>
 
-### 설명
+### Usage
 ```
 mfd <command> [arguments...]
  Commands:
@@ -281,7 +292,7 @@ Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
 <a id="mtd_usage"></a>
 
-### Usage
+### 설명
 ```
 mtd <command> [arguments...]
  Commands:
@@ -340,7 +351,7 @@ reboot
 
 <a id="param_usage"></a>
 
-### 설명
+### 사용법
 ```
 param <command> [arguments...]
  Commands:
@@ -351,9 +362,6 @@ param <command> [arguments...]
      [<file>]    File name (use default if not given)
 
    save          Save params to a file
-     [<file>]    File name (use default if not given)
-
-   dump          Dump params from a file
      [<file>]    File name (use default if not given)
 
    select        Select default file
@@ -420,7 +428,7 @@ Handles payload delivery with either Gripper or a Winch with an appropriate time
 
 <a id="payload_deliverer_usage"></a>
 
-### 사용법
+### 설명
 ```
 payload_deliverer <command> [arguments...]
  Commands:
@@ -469,7 +477,7 @@ Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/s
 Test the speed of an SD Card
 <a id="sd_bench_usage"></a>
 
-### 설명
+### 사용법
 ```
 sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
@@ -489,7 +497,7 @@ Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/
 Test operations on an SD Card
 <a id="sd_stress_usage"></a>
 
-### 사용법
+### 설명
 ```
 sd_stress [arguments...]
      [-r <val>]  Number of runs
@@ -506,7 +514,7 @@ This can be used to use u-center connected to USB with a GPS on a serial port.
 
 <a id="serial_passthru_usage"></a>
 
-### 설명
+### Usage
 ```
 serial_passthru [arguments...]
      -e <val>    External device path
@@ -535,7 +543,7 @@ system_time get
 
 <a id="system_time_usage"></a>
 
-### Usage
+### 설명
 ```
 system_time <command> [arguments...]
  Commands:
@@ -560,7 +568,7 @@ Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/mas
 Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
 
-### 설명
+### 예
 ```
 usb_connected [arguments...]
 ```
@@ -570,7 +578,7 @@ Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/sy
 Tool to print various version information
 <a id="ver_usage"></a>
 
-### 예
+### Usage
 ```
 ver <command> [arguments...]
  Commands:

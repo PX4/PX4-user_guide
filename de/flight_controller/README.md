@@ -29,6 +29,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [AIRLink](../flight_controller/airlink.md)
   - [AirMind MindPX](../flight_controller/mindpx.md)
   - [AirMind MindRacer](../flight_controller/mindracer.md)
+  - [ARK Electronics ARKV6X](../flight_controller/arkv6x.md) (and [ARK Electronics Pixhawk Autopilot Bus Carrier](../flight_controller/arkpab.md))
   - [CUAV X7](../flight_controller/cuav_x7.md)
   - [CUAV Nora](../flight_controller/cuav_nora.md)
   - [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md)

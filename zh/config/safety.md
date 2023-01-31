@@ -169,23 +169,20 @@ The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/paramet
 
 Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter ([FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT)) that defines how long they will loiter (circle with a constant roll angle ([FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)) at the current altitude) after losing position before attempting to land. If VTOLs have are configured to switch to hover for landing ([NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)) then they will first transition and then descend.
 
-The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
+The relevant parameters for all vehicles shown below.
 
 | 参数                                                                               | 描述                                        |
 | -------------------------------------------------------------------------------- | ----------------------------------------- |
 | [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 失去位置后到触发故障保护前的延迟。                         |
 | [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 执行任务期间的位置控制导航丢失响应。 值：0——假设使用遥控，1——假设没有遥控。 |
-| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | 用于位置错误检查的断路器（在所有模式下禁用错误检查）。               |
 
 
-Parameters that only affect Fixed Wing vehicles:
+Parameters that only affect Fixed-wing vehicles:
 
-| 参数                                                                     | 描述                                                                                                |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 设置为 0 以禁用。 |
-| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | 以一定的俯仰角盘旋。                                                                                        |
-| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 以一定的横滚/侧倾角盘旋。                                                                                     |
-| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 盘旋时的油门量。                                                                                          |
+| 参数                                                                   | 描述                                                                                                |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). 设置为 0 以禁用。 |
+| [FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)   | 以一定的横滚/侧倾角盘旋。                                                                                     |
 
 
 ### Offboard 中断故障保护

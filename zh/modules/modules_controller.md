@@ -119,6 +119,27 @@ mc_pos_control <command> [arguments...]
 
    status        print status info
 ```
+## fw_rate_control
+Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+
+
+### 参数描述
+fw_rate_control is the fixed-wing rate controller.
+
+
+<a id="fw_rate_control_usage"></a>
+
+### 用法
+```
+fw_rate_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
 ## mc_att_control
 Source: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_att_control)
 
@@ -135,31 +156,9 @@ https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth
 
 <a id="mc_att_control_usage"></a>
 
-### 用法
-```
-mc_att_control <command> [arguments...]
- Commands:
-   start
-     [vtol]      VTOL mode
-
-   stop
-
-   status        print status info
-```
-## navigator
-Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control)
-
-
-### 参数描述
-The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
-
-The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
-
-<a id="mc_pos_control_usage"></a>
-
 ### 实现
 ```
-mc_pos_control <command> [arguments...]
+mc_att_control <command> [arguments...]
  navigator <command> [arguments...]
  Commands:
    start
@@ -172,11 +171,33 @@ mc_pos_control <command> [arguments...]
 
    status        print status info
 ```
+## navigator
+Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control)
+
+
+### 用法
+The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
+
+The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+
+<a id="mc_pos_control_usage"></a>
+
+### 参数描述
+```
+mc_pos_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
 ## mc_rate_control
 Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_rate_control)
 
 
-### 用法
+### 实现
 This implements the multicopter rate controller. It takes rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
 
 The controller has a PID loop for angular rate error.
@@ -184,7 +205,7 @@ The controller has a PID loop for angular rate error.
 
 <a id="mc_rate_control_usage"></a>
 
-### 参数描述
+### 用法
 ```
 mc_rate_control <command> [arguments...]
  Commands:
@@ -199,7 +220,7 @@ mc_rate_control <command> [arguments...]
 Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator)
 
 
-### 实现
+### 参数描述
 Module that is responsible for autonomous flight modes. This includes missions (read from dataman), takeoff and RTL. It is also responsible for geofence violation checking.
 
 ### 示例
@@ -251,7 +272,7 @@ rover_pos_control stop
 
 <a id="rover_pos_control_usage"></a>
 
-### 用法
+### Usage
 ```
 rover_pos_control <command> [arguments...]
  Commands:
@@ -265,7 +286,7 @@ rover_pos_control <command> [arguments...]
 Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
 
 
-### 参数描述
+### Description
 Controls the attitude of an unmanned underwater vehicle (UUV).
 
 fw_att_control 是固定翼姿态控制器。
@@ -331,12 +352,12 @@ uuv_pos_control <command> [arguments...]
 Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
 
 
-### Description
+### 描述
 fw_att_control is the fixed wing attitude controller.
 
 <a id="vtol_att_control_usage"></a>
 
-### Usage
+### 实现
 ```
 vtol_att_control <command> [arguments...]
  Commands:

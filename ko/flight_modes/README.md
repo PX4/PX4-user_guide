@@ -85,8 +85,8 @@ th {
         <li>피치 스틱은 고도를 제어합니다 (<a href="#altitude_fw">고도 </a>와 동일).</li>
         <li>롤 스틱은 롤 각도를 제어합니다. Autopilot은 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지합니다 (<a href="#stabilized_fw">안정화</a>와 동일함).</li>
         <li>스로틀은 대기 속도를 설정합니다 (<a href="#altitude_fw">고도</a>와 동일).</li> 
-        <li>롤, 피치 및 요는 모두 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프 할 수 없음).</li>
-        <li>요 스틱은 방향타를 작동합니다 (<a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
+        <li>Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
      </ul></li>
    </ul>
   </p>
@@ -114,7 +114,7 @@ th {
       <ul>
        <li>피치 스틱은 고도를 제어합니다.</li>
        <li>스로틀 스틱은 기체의 속도를 제어합니다 (중앙 RPY 스틱의 경우).</li>
-       <li>요 스틱은 방향타를 작동합니다 (<a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
+       <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). <a href="#stabilized_fw">안정화</a>와 동일합니다.</li>
     </ul>
   </li>
   </ul>
@@ -137,7 +137,7 @@ th {
    <li>피치 스틱은 피치 각도를 제어합니다.</li>
    <li>롤 스틱은 롤 각도를 제어합니다. 자동 조종 장치는 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지합니다.</li>
    <li>스토틀 스틱으로 추진력을 제어합니다</li>
-   <li>요 스틱은 방향타를 작동합니다 (<a href="https://en.wikipedia.org/wiki/Coordinated_flight">조정 비행</a>을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다).</li>
+   <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
 </ul>
  </td>
 </tr>
