@@ -46,7 +46,7 @@ Conditions for this state:
 - additional check if vehicle is currently in a height-rate controlled flight mode: the vehicle has to have the intent to descend (vertical velocity setpoint above LNDMC_Z_VEL_MAX).
 - additional check for vehicles with a distance sensor: current distance to ground is below 1m.
 
-如果飞行器处于位置控制或速度控制并且检测到地面接触，位置控制器会将沿飞行器 x-y 轴的推力矢量设置为零。
+If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 
 
 #### 可能着陆
@@ -58,14 +58,15 @@ Conditions for this state:
 - 具有低推力 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 - no freefall detected
 
-如果飞行器只知道推力和角速度，为了进入下一个状态，飞行器必须具有较低的推力（油门）和非旋转状态达到 8.0 秒。
+If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
 
-如果飞行器处于位置控制或速度控制并且可能已检测到着陆，位置控制器会将推力矢量设置为零。
+If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
 
 
 #### 降落完成
 
 Conditions for this state:
+
 - all conditions of the [maybe landed](#maybe-landed) state are true
 
 
@@ -83,6 +84,9 @@ Tuning parameters for fixed-wing land detection:
 When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity).
 :::
 
+### FW Land Detector States
+
+Fixed-wing land detection only has the "landed" state (unlike MC, which has several).
 
 ## VTOL Land Detector
 
