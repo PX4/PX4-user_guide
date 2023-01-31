@@ -54,8 +54,7 @@ Conditions for this state:
 - additional check if vehicle is currently in a height-rate controlled flight mode: the vehicle has to have the intent to descend (vertical velocity setpoint above LNDMC_Z_VEL_MAX).
 - additional check for vehicles with a distance sensor: current distance to ground is below 1m.
 
-If the vehicle is in position- or velocity-control and ground contact was detected, 
-the position controller will set the thrust vector along the body x-y-axis to zero.
+If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 
 
 #### Maybe Landed
@@ -67,16 +66,15 @@ Conditions for this state:
 - has low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 - no freefall detected
 
-If the vehicle only has knowledge of thrust and angular rate, 
-in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds. 
+If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds. 
 
-If the vehicle is in position or velocity control and maybe landed was detected, 
-the position controller will set the thrust vector to zero. 
+If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero. 
 
 
 #### Landed
 
 Conditions for this state:
+
 - all conditions of the [maybe landed](#maybe-landed) state are true
 
 
@@ -96,6 +94,9 @@ Tuning parameters for fixed-wing land detection:
 When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity). 
 :::
 
+### FW Land Detector States
+
+Fixed-wing land detection only has the "landed" state (unlike MC, which has several).
 
 ## VTOL Land Detector
 
