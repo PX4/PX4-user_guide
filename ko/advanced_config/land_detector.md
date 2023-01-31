@@ -46,7 +46,7 @@ Conditions for this state:
 - additional check if vehicle is currently in a height-rate controlled flight mode: the vehicle has to have the intent to descend (vertical velocity setpoint above LNDMC_Z_VEL_MAX).
 - additional check for vehicles with a distance sensor: current distance to ground is below 1m.
 
-기체가 위치나 속도 제어중에 지면 접촉을 감지하면,  위치 제어기는 기체의 x-y 축을 따르는 추력 벡터를 0으로 설정합니다.
+If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 
 
 #### 착륙 예측
@@ -58,14 +58,15 @@ Conditions for this state:
 - 추력이 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`보다 낮을 경우
 - no freefall detected
 
-만약 기체가 추력과 각가속도만을 알고 있다면, 다음 상태로 진입하기 위해서는 기체의 추력이 낮아야 하고, 8초 동안 회전하지 않아야 합니다.
+If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
 
-만약 기체가 위치나 속도 제어중에 착륙 예측 상태를 감지하면,  위치 제어기는 기체의 추력 벡터를 0으로 설정합니다.
+If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
 
 
 #### 착륙
 
 Conditions for this state:
+
 - all conditions of the [maybe landed](#maybe-landed) state are true
 
 
@@ -83,6 +84,9 @@ Tuning parameters for fixed-wing land detection:
 When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity).
 :::
 
+### FW Land Detector States
+
+Fixed-wing land detection only has the "landed" state (unlike MC, which has several).
 
 ## VTOL Land Detector
 

@@ -66,6 +66,7 @@ If the vehicle is in position or velocity control and maybe landed was detected,
 #### Landed
 
 Conditions for this state:
+
 - all conditions of the [maybe landed](#maybe-landed) state are true
 
 
@@ -83,6 +84,9 @@ Tuning parameters for fixed-wing land detection:
 When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity).
 :::
 
+### FW Land Detector States
+
+Fixed-wing land detection only has the "landed" state (unlike MC, which has several).
 
 ## VTOL Land Detector
 

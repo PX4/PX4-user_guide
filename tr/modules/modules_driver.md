@@ -2,6 +2,7 @@
 Subcategories:
 - [Imu](modules_driver_imu.md)
 - [Distance Sensor](modules_driver_distance_sensor.md)
+- [Ins](modules_driver_ins.md)
 - [Airspeed Sensor](modules_driver_airspeed_sensor.md)
 - [Baro](modules_driver_baro.md)
 - [Transponder](modules_driver_transponder.md)
@@ -698,8 +699,8 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
-## modalai_esc
-Source: [drivers/actuators/modalai_esc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modalai_esc)
+## modal_io
+Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
 
 
 ### Description
@@ -715,11 +716,11 @@ todo
 ```
 
 
-<a id="modalai_esc_usage"></a>
+<a id="modal_io_usage"></a>
 
 ### Usage
 ```
-modalai_esc <command> [arguments...]
+modal_io <command> [arguments...]
  Commands:
    start         Start the task
 

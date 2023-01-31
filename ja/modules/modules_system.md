@@ -354,6 +354,7 @@ logger <command> [arguments...]
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
      [-x]        Enable/disable logging via Aux1 RC channel
+     [-a]        Log 1st armed until shutdown
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
