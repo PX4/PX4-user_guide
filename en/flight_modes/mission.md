@@ -37,7 +37,10 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
    - On copters PX4 will execute the [mission/flight plan](../flying/missions.md).
      If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
    - On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero).
-     The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.
+     If the currently active waypoint is a Takeoff, the system will automatically takeoff (see [FW Takeoff/Landing in Mission](#fixed-wing-mission-takeoff-landing)).
+1. If no mission is stored, or if PX4 has finished executing all mission commands:
+   * If flying the vehicle will loiter.
+   * If landed the vehicle will "wait".
 1. You can manually change the current mission command by selecting it in *QGroundControl*.
 
    :::note
@@ -61,6 +64,7 @@ We recommend you centre the control sticks before switching to any other mode.
 :::
  
 For more information about mission planning, see:
+
 - [Mission Planning](../flying/missions.md)
 - [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
 
@@ -78,7 +82,6 @@ A subset of the most important checks are listed below:
 - A fixed-wing landing has an infeasible slope angle ([FW_LND_ANG](#FW_LND_ANG))
 - Land start item (`MAV_CMD_DO_LAND_START`) appears in mission before an RTL item ([MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH))
 - Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
-
 
 ## QGroundControl Support
 
@@ -197,3 +200,64 @@ Vehicles switch to the next waypoint as soon as they enter the acceptance radius
   - By default, it's about 70 meters.
   - The equation is: 
     $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$
+
+## Fixed-wing Mission Takeoff/Landing
+
+Starting and ending flights with mission takeoff and landing is the recommended way of operating a plane autonomously.
+
+### FW-Takeoff
+
+:::note
+A more detailed description of mission mode fixed-wing takeoff can be found in [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw) (covering fixed wing takeoff in both mission mode and takeoff mode).
+:::
+
+Fixed-wing mission takeoffs are defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
+
+During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached.
+The mission item is then accepted, and the mission will start executing the next item.
+
+Both runway and hand-launched takeoff are supported — for configuration information see [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw).
+For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off.
+When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected).
+
+In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started.
+If possible, always make the vehicle takeoff into the wind.
+
+A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+
+
+### FW-Land
+
+:::note
+A more detailed description of mission mode fixed-wing landing can be found in [Land mode > Fixed-wing](../flight_modes/land.md#fixed-wing-fw) (covering fixed wing landing in both mission mode and takeoff mode).
+:::
+
+Currently the only way to land a vehicle autonomously is through a mission landing.
+It is recommended that the landing is configured through a [landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
+
+If possible, always plan the landing such that it does the approach into the wind.
+
+
+## Multicopter Mission Takeoff/Landing
+
+### MC Takeoff
+
+Plan a multicopter mission takeoff by adding a `Takeoff` mission item to the map (this corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command).
+
+During mission execution this will cause the vehicle to ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then head towards the 3D position defined in the mission item.
+
+If a mission with no takeoff mission item is started, the vehicle will ascend to the minimum takeoff altitude and then proceed to the first `Waypoint` mission item.
+
+If the vehicle is already flying when the mission is started, a takeoff mission item is treated as a normal waypoint.
+
+
+## VTOL Mission Takeoff/Landing
+
+### VTOL-Takeoff
+
+Plan a VTOL mission takeoff by adding a `VTOL Takeoff` mission item to the map.
+
+During mission execution the vehicle will ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then transition to fixed-wing mode with the heading defined in the mission item.
+After transitioning the vehicle heads towards the 3D position defined in the mission item.
+
+A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint. 
