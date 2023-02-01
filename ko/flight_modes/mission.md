@@ -5,11 +5,11 @@
 *임무 모드*는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 :::note
-* 이 모드에는 3D 위치 정보 (예 : GPS)가 필요합니다.
-* 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
-* 이 모드는 자동이며, 기체 제어에 사용자 개입이 *필요하지* 않습니다.
-* RC 무선 조종기 스위치는 기체의 비행 모드를 변경할 수 있습니다.
-* 멀티콥터와 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다. :::
+- 이 모드에는 3D 위치 정보 (예 : GPS)가 필요합니다.
+- 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
+- 이 모드는 자동이며, 기체 제어에 사용자 개입이 *필요하지* 않습니다.
+- RC 무선 조종기 스위치는 기체의 비행 모드를 변경할 수 있습니다.
+- 멀티콥터와 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다. :::
 
 ## 설명
 
@@ -22,17 +22,22 @@ Missions are usually created in a ground control station (e.g. [QGroundControl](
 
 높은 수준에서 모든 기체 유형은 임무모드가 작동시 동일한 방식으로 작동합니다.
 
+1. If no mission is stored, or if PX4 has finished executing all mission commands, or if the [mission is not feasible](#mission-feasibility-checks):
+
+   - 비행하면 기체는 배회합니다.
+   - 착륙하면 기체는 "대기"합니다.
 1. 임무가 저장되고 PX4가 비행 이면 현재 단계에서 [미션/비행 계획](../flying/missions.md)을 실행합니다.
+   - On copters PX4 will treat a takeoff item as a normal waypoint if already flying.
 1. 미션이 저장되고 PX4가 착륙한 경우 :
-   * 헬리콥터에서 PX4는 [미션/비행 계획](../flying/missions.md)을 실행합니다. 임무에 `이륙` 명령이 없는 경우 PX4는 현재 단계에서 나머지 비행 계획을 실행하기 전에 기체를 최소 고도로 상승시킵니다.
-   * 고정익 차량에서는 PX4가 자동으로 이륙하지 않습니다 (자동조종장치가 움직임 부족을 감지하고 스로틀을 0으로 설정합니다). 차량은 임누 모드에서 손이나 투석기를 발사하면 임무를 수행을 시작할 수 있습니다.
+   - 헬리콥터에서 PX4는 [미션/비행 계획](../flying/missions.md)을 실행합니다. 임무에 `이륙` 명령이 없는 경우 PX4는 현재 단계에서 나머지 비행 계획을 실행하기 전에 기체를 최소 고도로 상승시킵니다.
+   - 고정익 차량에서는 PX4가 자동으로 이륙하지 않습니다 (자동조종장치가 움직임 부족을 감지하고 스로틀을 0으로 설정합니다). If the currently active waypoint is a Takeoff, the system will automatically takeoff (see [FW Takeoff/Landing in Mission](#fixed-wing-mission-takeoff-landing)).
 1. 저장된 임무가 없거나 PX4가 모든 임무 명령 실행을 완료한 경우 :
    * 비행하면 기체는 배회합니다.
    * 착륙하면 기체는 "대기"합니다.
 1. *QGroundControl*에서 선택하여 현재 임무 명령을 수동으로 변경할 수 있습니다.
 
 :::note
-미션에서 *항목으로 이동* 명령이있는 경우 다른 항목으로 이동해도 루프 카운터가 재설정되지 **않습니다**. 이것은 현재 임무 명령을 1로 변경하면 임무를 "완전히 다시 시작" 하지 않는 것입니다. :::
+If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. 이것은 현재 임무 명령을 1로 변경하면 임무를 "완전히 다시 시작" 하지 않는 것입니다. :::
 1. 임무는 기체의 시동이 꺼지거나 새 임무가 업로드된 경우에만 초기화됩니다.
 
 :::tip
@@ -46,29 +51,59 @@ RC 모드로 전환 전에 스로틀 스틱이 0이 아닌지 확인하십시오
 :::
 
 임무 계획에 대한 자세한 내용은 다음을 참조하십시오.
-* [임무 계획](../flying/missions.md)
-* [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
 
+- [임무 계획](../flying/missions.md)
+- [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
+
+## Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed. If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+A subset of the most important checks are listed below:
+
+- First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
+- Distance between two subsequent items is too large ([MIS_DIST_WPS](#MIS_DIST_WPS))
+- Any mission item conflicts with a plan or safety geofence
+- More than one land start mission item defined ([MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START))
+- A fixed-wing landing has an infeasible slope angle ([FW_LND_ANG](#FW_LND_ANG))
+- Land start item (`MAV_CMD_DO_LAND_START`) appears in mission before an RTL item ([MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH))
+- Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
 
 ## QGroundControl 지원
 
-*QGroundControl*은 추가 GCS 수준의 임무 처리 지원을 제공합니다 (비행 컨트롤러에서 제공하는 것 외에도). 더 자세한 정보는 다음을 참고하세요.
-* [기체 착륙 후 임무 제거](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
-* [귀환 모드 후 임무 재개](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#resume-mission)
+*QGroundControl*은 추가 GCS 수준의 임무 처리 지원을 제공합니다 (비행 컨트롤러에서 제공하는 것 외에도).
+
+더 자세한 정보는 다음을 참고하세요.
+- [기체 착륙 후 임무 제거](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
+- [귀환 모드 후 임무 재개](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#resume-mission)
 
 
 ## 임무 매개변수
 
 임무 동작은 여러 매개 변수의 영향을 받습니다. [매개 변수 참조 > 임무](../advanced_config/parameter_reference.md#mission)에 문서화되어 있습니다. 매우 작은 하위 집합이 아래에 나열되어 있습니다.
 
-| 매개변수                                                                                                             | 설명                                                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)             | RC 손실 안전 모드 (RC 연결이 끊어지면 기체가 수행할 작업) - 예 : 홀드 모드 진입, 복귀 모드, 종료 등                                                                                          |
-| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | 고정익 선회 반경                                                                                                                                                 |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터(MC 모드에서는 VTOL)의 스틱 움직임이 [위치 모드](../flight_modes/position_mc.md)에서 조종사에게 제어권을 재부여 여부를 제어합니다. 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다. |
-| <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                                                    |
+General parameters:
 
-<span id="mission_commands"></span>
+| 매개변수                                                                                                    | 설명                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC 손실 안전 모드 (RC 연결이 끊어지면 기체가 수행할 작업) - 예 : 홀드 모드 진입, 복귀 모드, 종료 등                                                                                          |
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | 고정익 선회 반경                                                                                                                                                 |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터(MC 모드에서는 VTOL)의 스틱 움직임이 [위치 모드](../flight_modes/position_mc.md)에서 조종사에게 제어권을 재부여 여부를 제어합니다. 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                                                    |
+
+
+Parameters related to [mission feasibility checks](#mission-feasibility-checks):
+
+| 매개변수                                                                                                      | 설명                                                                                                                                                      |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)         | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
+| <a id="MIS_DIST_WPS"></a>[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS)         | The mission will not be started if any distance between two subsequent waypoints is greater than this value. Disabled if value is 0 or less.            |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)             | Maximum landing slope angle.                                                                                                                            |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
+
+
+<a id="mission_commands"></a>
+
 ## 지원되는 임무 명령
 
 PX4는 미션 모드에서 다음 MAVLink 미션 명령을 "수락"합니다 (일부 *caveats* 포함). 달리 명시되지 않는 한 구현은 MAVLink 사양에 정의된 대로입니다.
@@ -81,7 +116,7 @@ PX4는 미션 모드에서 다음 MAVLink 미션 명령을 "수락"합니다 (�
 * [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF)
 * [MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)
 * [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
-  - `MAV_CMD_NAV_VTOL_TAKEOFF.param2 ` (전환 제목)은 무시됩니다. 대신 다음 웨이포인트로의 방향이 전환 방향으로 사용됩니다. <!-- at LEAST until PX4 v1.11: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
+  - `MAV_CMD_NAV_VTOL_TAKEOFF.param2 ` (전환 제목)은 무시됩니다. 대신 다음 웨이포인트로의 방향이 전환 방향으로 사용됩니다. <!-- at LEAST until PX4 v1.13: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
 * [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND)
 * [MAV_CMD_NAV_FENCE_RETURN_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_RETURN_POINT)
 * [MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION)
@@ -145,3 +180,55 @@ PX4는 이전 웨이포인트에서 현재 목표까지 직선을 따라갈 것�
   - 기본적으로 약 70 미터입니다.
   - 방정식: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
 
+## Fixed-wing Mission Takeoff/Landing
+
+Starting and ending flights with mission takeoff and landing is the recommended way of operating a plane autonomously.
+
+### FW-Takeoff
+
+:::note
+A more detailed description of mission mode fixed-wing takeoff can be found in [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw) (covering fixed wing takeoff in both mission mode and takeoff mode). :::
+
+Fixed-wing mission takeoffs are defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
+
+During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached. The mission item is then accepted, and the mission will start executing the next item.
+
+Both runway and hand-launched takeoff are supported — for configuration information see [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw). For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off. When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected).
+
+In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started. If possible, always make the vehicle takeoff into the wind.
+
+A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+
+
+### FW-Land
+
+:::note
+A more detailed description of mission mode fixed-wing landing can be found in [Land mode > Fixed-wing](../flight_modes/land.md#fixed-wing-fw) (covering fixed wing landing in both mission mode and takeoff mode). :::
+
+Currently the only way to land a vehicle autonomously is through a mission landing. It is recommended that the landing is configured through a [landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
+
+If possible, always plan the landing such that it does the approach into the wind.
+
+
+## Multicopter Mission Takeoff/Landing
+
+### MC Takeoff
+
+Plan a multicopter mission takeoff by adding a `Takeoff` mission item to the map (this corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command).
+
+During mission execution this will cause the vehicle to ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then head towards the 3D position defined in the mission item.
+
+If a mission with no takeoff mission item is started, the vehicle will ascend to the minimum takeoff altitude and then proceed to the first `Waypoint` mission item.
+
+If the vehicle is already flying when the mission is started, a takeoff mission item is treated as a normal waypoint.
+
+
+## VTOL Mission Takeoff/Landing
+
+### VTOL-Takeoff
+
+Plan a VTOL mission takeoff by adding a `VTOL Takeoff` mission item to the map.
+
+During mission execution the vehicle will ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then transition to fixed-wing mode with the heading defined in the mission item. After transitioning the vehicle heads towards the 3D position defined in the mission item.
+
+A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint. 
