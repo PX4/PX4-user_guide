@@ -30,20 +30,24 @@ Parameter | Description
 <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes/position_mc.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.
 <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled)
 
-<span id="fixed_wing"></span>
+<a id="fixed_wing"></a>
 ## Fixed-wing (FW)
 
 Automatic takeoff has two modalities: *catapult/hand-launch* or *runway takeoff*.
 The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
 
-There are two ways to start an automatic takeoff on fixed-wing vehicles: either by [planning a mission takeoff](../flight_modes/mission.md#takeoff) and starting the mission, or by switching to the _Takeoff mode_ and arming the vehicle.
+There are two ways to start an automatic takeoff on fixed-wing vehicles: either by [planning a mission takeoff](../flight_modes/mission.md#fw-takeoff) and starting the mission, or by switching to the _Takeoff mode_ and arming the vehicle.
 
 In both cases, a flight path (starting point and takeoff course) and clearance altitude are defined.
 The flight path takes the vehicle's current position as starting point when the takeoff mode is first entered, and a straight line from this starting point continues in the direction of the defined course indefinitely.
 On takeoff, the aircraft will follow this line, climbing at the maximum climb rate ([FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)) until reaching the clearance altitude.
-In ][mission mode](../flight_modes/mission.md), reaching the clearance altitude triggers the next mission item, and for non-mission takeoffs, the vehicle will enter a hold.
-Mission takeoffs allow the operator to define the takeoff course and clearance altitude.
-For non-mission takeoffs, the course is set to the vehicle heading on arming, and the altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
+
+In _Takeoff mode_ (non-mission takeoffs), the course is set to the vehicle heading on arming, and the clearance altitude is set to [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT).
+Reaching the clearance altitude causes the vehicle to enter _Hold mode_.
+
+In [Mission mode](../flight_modes/mission.md) the operator defines the takeoff course and clearance altitude in the Takeoff mission item.
+The course is defined by the line between the vehicle starting point and the mission item horizontal position, and the clearance altitude is the mission item altitude.
+Reaching the mission item altitude triggers the next mission item.
 
 
 Parameters that apply to both catapult/hand-launch as well as runway takeoffs:
@@ -71,7 +75,7 @@ To launch in this mode:
 - Launch/throw the vehicle (firmly) directly into the wind.
   You can also shake the vehicle first, wait till the motor spins up and throw only then
 
-The Launch detector is affected by the following parameters:
+The _launch detector_ is affected by the following parameters:
 
 Parameter | Description
 --- | ---
