@@ -1,6 +1,6 @@
 # FunCub QuadPlane (Pixhawk)
 
-Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플레인 항공기(Multiplex FunCub)입니다.
+Fun Cub QuadPlane VTOL은 쿼드콥터로 개조된 표준 테일 플레인 항공기(Multiplex FunCub)입니다.
 
 주요 정보:
 
@@ -9,34 +9,34 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
-수정되지 않은 Fun Cub는 비교적 저렴하고 비행방법이 비교적 쉽습니다. 조립후에는 비행기는 비교적 무겁고 비행이 간단하지 않습니다. 비행은 우수하지만, 전진 비행시에는 약 75 %의 추진력이 필요합니다.
+수정되지 않은 Fun Cub는 가격이 비교적 저렴하며, 비행방법도 비교적 쉬운 편입니다. 조립 후의 비행기는 비교적 무겁우며, 비행이 간단하지 않습니다. 비행 기능은 우수하지만, 전진 비행시에는 약 75 %의 추진력이 필요합니다.
 
 
 ## 부품 명세서
 
-실제 평면도는 위의 이미지와 비슷합니다 (다른 유사한 모델도 잘 작동합니다. 이것은 Multiplex Fun Cub입니다). 필요한 최소한의 장비는 다음과 같습니다.
+실제 평면도는 위의 이미지와 비슷합니다 (다른 유사한 모델도 잘 작동합니다. 이것은 Multiplex Fun Cub입니다). 필요한 최소 장비는 다음과 같습니다.
 
 - Multiplex FunCub (또는 유사 제품)
 - Pixhawk 또는 호환 제품
 - 디지털 풍속 센서
-- 900kV 모터 (예 : Iris 추진 세트 - 모터 및 ESC)
-- 쿼드 모터 용 10 " 프로펠러(10x45 또는 10x47)
+- 900kV 모터(예 : Iris 추진 세트 - 모터 및 ESC)
+- 쿼드 모터용 10 " 프로펠러(10x45 또는 10x47)
 - 고정익 모터용 10" 프로펠러(10 × 7)
 - GPS 모듈
 - 4S 배터리
-- 쿼드 모터 장착 용 알루미늄 프레임 (10x10mm 사각 튜브, 벽 두께 1mm)
+- 쿼드 모터 장착용 알루미늄 프레임 (10x10mm 사각 튜브, 벽 두께 1mm)
 - TOW는 4200mAh 4S 배터리로 중량은 약  2.3kg입니다.
 
 
 ## 구조
 
-구조는 아래와 같이 알루미늄 재질로 만들어집니다.
+구조는 아래와 같은 알루미늄 재질로 만들어집니다.
 
-![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![un Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
+![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![un Cub  vtom 장착 프레임](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
 
 ## 배선
 
-Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉아 있는" 방향과 같음).
+Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면 배치된" 방향과 같음).
 
 :::tip
 서보 방향은 *QGroundControl*의 PWM_OUTPUT 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 반전될 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목). :::
@@ -53,7 +53,7 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉�
 | AUX 4  | 방향타              |
 | AUX 5  | 스로틀              |
 
-배선 및 설정에 관한 자세한 지침은 다음을 참조하십시오. [표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
+배선과 설정에 관한 자세한 지침은 다음을 참조하십시오. [표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
 ## 기체 설정
 
