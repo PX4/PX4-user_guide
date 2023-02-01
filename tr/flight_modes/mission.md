@@ -5,11 +5,11 @@
 *Mission mode* causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/master/en/) (QGC).
 
 :::note
-* This mode requires 3d position information (e.g. GPS).
-* The vehicle must be armed before this mode can be engaged.
-* This mode is automatic - no user intervention is *required* to control the vehicle.
-* RC control switches can be used to change flight modes on any vehicle.
-* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe. :::
+- This mode requires 3d position information (e.g. GPS).
+- The vehicle must be armed before this mode can be engaged.
+- This mode is automatic - no user intervention is *required* to control the vehicle.
+- RC control switches can be used to change flight modes on any vehicle.
+- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe. :::
 
 ## Description
 
@@ -22,10 +22,15 @@ Missions are uploaded onto a SD card that needs to be inserted **before** bootin
 
 At high level all vehicle types behave in the same way when MISSION mode is engaged:
 
+1. If no mission is stored, or if PX4 has finished executing all mission commands, or if the [mission is not feasible](#mission-feasibility-checks):
+
+   - If flying the vehicle will loiter.
+   - If landed the vehicle will "wait".
 1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
+   - On copters PX4 will treat a takeoff item as a normal waypoint if already flying.
 1. If a mission is stored and PX4 is landed:
-   * On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
-   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.
+   - On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
+   - On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). If the currently active waypoint is a Takeoff, the system will automatically takeoff (see [FW Takeoff/Landing in Mission](#fixed-wing-mission-takeoff-landing)).
 1. If no mission is stored, or if PX4 has finished executing all mission commands:
    * If flying the vehicle will loiter.
    * If landed the vehicle will "wait".
@@ -46,29 +51,59 @@ We recommend you centre the control sticks before switching to any other mode.
 :::
 
 For more information about mission planning, see:
-* [Mission Planning](../flying/missions.md)
-* [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
 
+- [Mission Planning](../flying/missions.md)
+- [Plan View](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
+
+## Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible when it is uploaded, and when the vehicle is first armed. If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+A subset of the most important checks are listed below:
+
+- First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
+- Distance between two subsequent items is too large ([MIS_DIST_WPS](#MIS_DIST_WPS))
+- Any mission item conflicts with a plan or safety geofence
+- More than one land start mission item defined ([MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START))
+- A fixed-wing landing has an infeasible slope angle ([FW_LND_ANG](#FW_LND_ANG))
+- Land start item (`MAV_CMD_DO_LAND_START`) appears in mission before an RTL item ([MAV_CMD_NAV_RETURN_TO_LAUNCH](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_RETURN_TO_LAUNCH))
+- Missing takeoff and/or land item when these are configured as a requirement ([MIS_TKO_LAND_REQ](#MIS_TKO_LAND_REQ))
 
 ## QGroundControl Support
 
-*QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller). For more information see:
-* [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
-* [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#resume-mission)
+*QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller).
+
+For more information see:
+- [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands)
+- [Resume mission after Return mode](https://docs.qgroundcontrol.com/master/en/releases/stable_v3.2_long.html#resume-mission)
 
 
 ## Mission Parameters
 
 Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission). A very small subset are listed below.
 
-| Parameter                                                                                                        | Description                                                                                                                                                                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)             | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.                                                                                                                                         |
-| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | Fixed-wing loiter radius.                                                                                                                                                                                                                                               |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
-| <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                                         |
+General parameters:
 
-<span id="mission_commands"></span>
+| Parameter                                                                                               | Description                                                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.                                                                                                                                         |
+| <a id="NAV_LOITER_RAD"></a>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | Fixed-wing loiter radius.                                                                                                                                                                                                                                               |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                                         |
+
+
+Parameters related to [mission feasibility checks](#mission-feasibility-checks):
+
+| Parameter                                                                                                 | Description                                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)         | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
+| <a id="MIS_DIST_WPS"></a>[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS)         | The mission will not be started if any distance between two subsequent waypoints is greater than this value. Disabled if value is 0 or less.            |
+| <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)             | Maximum landing slope angle.                                                                                                                            |
+| <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
+
+
+<a id="mission_commands"></a>
+
 ## Supported Mission Commands
 
 PX4 "accepts" the following MAVLink mission commands in Mission mode (with some _caveats_, given after the list). Unless otherwise noted, the implementation is as defined in the MAVLink specification.
@@ -81,7 +116,7 @@ PX4 "accepts" the following MAVLink mission commands in Mission mode (with some 
 * [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF)
 * [MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)
 * [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
-  - `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored. Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.11: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
+  - `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored. Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.13: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
 * [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND)
 * [MAV_CMD_NAV_FENCE_RETURN_POINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_RETURN_POINT)
 * [MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION)
@@ -145,3 +180,55 @@ Vehicles switch to the next waypoint as soon as they enter the acceptance radius
   - By default, it's about 70 meters.
   - The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$
 
+## Fixed-wing Mission Takeoff/Landing
+
+Starting and ending flights with mission takeoff and landing is the recommended way of operating a plane autonomously.
+
+### FW-Takeoff
+
+:::note
+A more detailed description of mission mode fixed-wing takeoff can be found in [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw) (covering fixed wing takeoff in both mission mode and takeoff mode). :::
+
+Fixed-wing mission takeoffs are defined in a Takeoff mission item, which corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command.
+
+During mission execution the vehicle will takeoff towards this waypoint, and climb until the specified altitude is reached. The mission item is then accepted, and the mission will start executing the next item.
+
+Both runway and hand-launched takeoff are supported — for configuration information see [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw). For a runway takeoff, the `Takeoff` mission item will cause the vehicle to arm, throttle up the motors and take off. When hand-launching the vehicle will arm, but only throttle up when the vehicle is thrown (the acceleration trigger is detected).
+
+In both cases, the vehicle should be placed (or launched) facing towards the takeoff waypoint when the mission is started. If possible, always make the vehicle takeoff into the wind.
+
+A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
+
+
+### FW-Land
+
+:::note
+A more detailed description of mission mode fixed-wing landing can be found in [Land mode > Fixed-wing](../flight_modes/land.md#fixed-wing-fw) (covering fixed wing landing in both mission mode and takeoff mode). :::
+
+Currently the only way to land a vehicle autonomously is through a mission landing. It is recommended that the landing is configured through a [landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
+
+If possible, always plan the landing such that it does the approach into the wind.
+
+
+## Multicopter Mission Takeoff/Landing
+
+### MC Takeoff
+
+Plan a multicopter mission takeoff by adding a `Takeoff` mission item to the map (this corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command).
+
+During mission execution this will cause the vehicle to ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then head towards the 3D position defined in the mission item.
+
+If a mission with no takeoff mission item is started, the vehicle will ascend to the minimum takeoff altitude and then proceed to the first `Waypoint` mission item.
+
+If the vehicle is already flying when the mission is started, a takeoff mission item is treated as a normal waypoint.
+
+
+## VTOL Mission Takeoff/Landing
+
+### VTOL-Takeoff
+
+Plan a VTOL mission takeoff by adding a `VTOL Takeoff` mission item to the map.
+
+During mission execution the vehicle will ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then transition to fixed-wing mode with the heading defined in the mission item. After transitioning the vehicle heads towards the 3D position defined in the mission item.
+
+A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint. 

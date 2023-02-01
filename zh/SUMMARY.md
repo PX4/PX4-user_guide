@@ -85,7 +85,6 @@
   * [首次飞行指南](flying/first_flight_guidelines.md)
   * [飞行基础指南 ](flying/basic_flying.md)
     * [着陆\(固定翼\)](flying/fixed_wing_landing.md)
-    * [降落\(固定翼\)](flying/fixed_wing_takeoff.md)
   * [任务](flying/missions.md)
     * [Package Delivery Mission](flying/package_delivery_mission.md)
   * [地理围栏](flying/geofence.md)

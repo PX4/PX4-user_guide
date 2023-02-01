@@ -1,6 +1,6 @@
-# Volantex Ranger-Ex QuadPlane VTOL (Pixhawk)
+# Volantex Ranger-Ex QuadPlane VTOL(Pixhawk)
 
-QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 기반의 표준 꼬리 비행기입니다. Ranger-Ex는 비행법이 간편한 범용적인 FPV 플랫폼입니다. HobbyKing에서 구매할 수 있으며, Quanum Observer로 제품명이 변경되었습니다. 플라스틱 동체와 2m EPO 날개는 탑재 하중이 높은 견고한 기체입니다.
+QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 기반의 표준 꼬리 비행기입니다. Ranger-Ex는 비행법이 간단한 범용적인 FPV 플랫폼입니다. HobbyKing에서 구매할 수 있으며, Quanum Observer로 제품명이 변경되었습니다. 플라스틱 동체와 2m EPO 날개는 탑재 하중이 높은 견고한 기체입니다.
 
 주요 정보:
 
@@ -9,12 +9,12 @@ QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 �
 
 ![쿼드레인저](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
-VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. 제안하는 쿼드 설정은 7.5kg의 추력을 제공하며 기체는 약 4.5kg의 총 중량으로 비행할 수 있습니다. FPV 장비와 카메라를 탑재에 충분한 하중 용량이 남아 있습니다.
+VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. 제안하는 쿼드 설정은 7.5kg의 추력을 제공하며, 기체는 약 4.5kg의 총 중량으로 비행 가능합니다. FPV 장비와 카메라를 탑재에 충분한 하중 용량을 가지고 있습니다.
 
-변환은 공기 역학에 미치는 영향을 최소화하고 추가 강도를 제공하여 날개 굴곡을 최소화하도록 설계되었습니다.
+변환은 공기 역학에 미치는 영향을 최소화하고, 추가 강도를 제공하여 날개 굴곡을 최소화하도록 설계되었습니다.
 
 
-## 부품 명세서
+## -- 부품 명세서
 
 - Volantex Ranger-Ex 혹은 Quanum Observer
 - 1200KV 530W 모터
