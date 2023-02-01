@@ -1,20 +1,33 @@
 # 임무
 
+:::note
+This is a very high level introduction. For more detailed information see:
+
+- The [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) contains information about planning and executing missions.
+- [Mission mode](../flight_modes/mission.md) provides additional technical information about how mission mode works. :::
+
 ## 임무 계획하기
 
 수동으로 임무를 계획하는 것은 비교적 간단합니다.
-- 임무 보기로 전환합니다.
-- 왼쪽 상단에서 **경유지 추가** ( "더하기") 아이콘을 선택합니다.
+- Open to the _Plan View_ and select the _Mission_ radio button
+- Select the **Takeoff** toolbar option then select the takeoff location on the map (set the takeoff altitude in the corresponding editor to a sensible value).
+- Select the **Add Waypoint** ("plus") toolbar icon.
 - 지도를 클릭하여 경유지를 추가합니다.
 - 경유지 매개 변수와 유형을 수정하려면 오른쪽의 경유지 목록을 사용하십시오. 하단의 고도 표시기는 각 경유지의 상대 고도를 표시합니다.
 - **업로드** 버튼 (오른쪽 상단)을 클릭하여 차량에 임무를 전송합니다.
 
 *패턴* 도구를 사용하여 측량 그리드 생성을 자동화 할 수 있습니다.
 
-:::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![임무 계획](../../assets/flying/planning_mission.jpg)
+
+### Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible. For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
+
+The checks are run when the mission is uploaded and immediately before it is run. If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+For more detail on the checks and possible actions, see: [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### 기체 요 각도 설정
 
