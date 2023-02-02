@@ -201,11 +201,20 @@ Vehicles switch to the next waypoint as soon as they enter the acceptance radius
   - The equation is: 
     $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$
 
-## Fixed-wing Mission Takeoff/Landing
 
-Starting and ending flights with mission takeoff and landing is the recommended way of operating a plane autonomously.
+## MC Mission Takeoff
 
-### FW-Takeoff
+Plan a multicopter mission takeoff by adding a `Takeoff` mission item to the map (this corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command).
+
+During mission execution this will cause the vehicle to ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then head towards the 3D position defined in the mission item.
+
+If a mission with no takeoff mission item is started, the vehicle will ascend to the minimum takeoff altitude and then proceed to the first `Waypoint` mission item.
+
+If the vehicle is already flying when the mission is started, a takeoff mission item is treated as a normal waypoint.
+
+## FW Mission Takeoff
+
+Starting flights with mission takeoff (and landing using a mission landing) is the recommended way of operating a plane autonomously.
 
 :::note
 A more detailed description of mission mode fixed-wing takeoff can be found in [Takeoff mode > Fixed-wing](../flight_modes/takeoff.md#fixed-wing-fw) (covering fixed wing takeoff in both mission mode and takeoff mode).
@@ -226,38 +235,148 @@ If possible, always make the vehicle takeoff into the wind.
 A fixed-wing mission requires a `Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
 
 
-### FW-Land
+## FW Mission Landing
 
-:::note
-A more detailed description of mission mode fixed-wing landing can be found in [Land mode > Fixed-wing](../flight_modes/land.md#fixed-wing-fw) (covering fixed wing landing in both mission mode and takeoff mode).
-:::
-
-Currently the only way to land a vehicle autonomously is through a mission landing.
-It is recommended that the landing is configured through a [landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
+Fixed wing mission landing is the recommended way to land a plane autonomously.
+This can be planned in *QGroundControl* using [fixed-wing landing pattern](https://docs.qgroundcontrol.com/master/en/PlanView/pattern_fixed_wing_landing.html).
 
 If possible, always plan the landing such that it does the approach into the wind.
 
+:::note
+Note fixed wing landing using [Land mode](../flight_modes/land.md#fixed-wing-fw) is currently broken, so mission landing is the _only_ way to autonomously land a plane.
+:::
 
-## Multicopter Mission Takeoff/Landing
+The following sections describe the landing sequence, land abort and nudging, safety considerations, and configuration. 
 
-### MC Takeoff
+### Landing Sequence
 
-Plan a multicopter mission takeoff by adding a `Takeoff` mission item to the map (this corresponds to the [MAV_CMD_NAV_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_TAKEOFF) MAVLink command).
+A landing pattern consists of a loiter waypoint ([MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)) followed by a land waypoint ([MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)).
+The positions of the two points define the start and end point of the landing approach, and hence the glide slope for the landing approach.
 
-During mission execution this will cause the vehicle to ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then head towards the 3D position defined in the mission item.
+This pattern results in the following landing sequence:
 
-If a mission with no takeoff mission item is started, the vehicle will ascend to the minimum takeoff altitude and then proceed to the first `Waypoint` mission item.
+1. **Fly to landing location**: The aircraft flies at its current altitude towards the loiter waypoint.
+2. **Descending orbit to approach altitude**: On reaching the loiter radius of the waypoint, the vehicle performs a descending orbit until it reaches the "approach altitude" (the altitude of the loiter waypoint).
+   The vehicle continues to orbit at this altitude until it has a tanjential path towards the land waypoint, at which point the landing approach is initiated.
+4. **Landing approach**: The aircraft follows the landing approach slope towards the land waypoint until the flare altitude is reached.
+5. **Flare**: The vehicle flares until it touches down.
 
-If the vehicle is already flying when the mission is started, a takeoff mission item is treated as a normal waypoint.
+![Fixed-wing landing](../../assets/flying/fixed-wing_landing.png)
 
 
-## VTOL Mission Takeoff/Landing
+### Landing Approach
 
-### VTOL-Takeoff
+The vehicle tracks the landing slope (generally at a slower speed than cruise) until reaching the flare altitude.
+
+Note that the glide slope is calculated from the 3D positions of the loiter and landing waypoints; if its angle exceeds the parameter [FW_LND_ANG](#FW_LND_ANG) the mission will be rejected as unfeasible on upload.
+
+The parameters that affect the landing approach are listed below.
+
+Parameter | Description
+--- | ---
+<a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG) | The maximum achievable landing approach slope angle. Note that smaller angles may still be commanded via the landing pattern mission item.
+[FW_LND_EARLYCFG](../advanced_config/parameter_reference.md#FW_LND_EARLYCFG) | Optionally deploy landing configuration during the landing descent orbit (e.g. flaps, spoilers, landing airspeed).
+[FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD) | Calibrated airspeed setpoint during landing.
+[FW_FLAPS_LND_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_LND_SCL) | Flaps setting during landing.
+[FW_LND_THRTC_SC](../advanced_config/parameter_reference.md#FW_LND_THRTC_SC) | Altitude time constant factor for landing (overrides default [TECS tuning](../config_fw/advanced_tuning_guide_fixedwing.md)).
+
+### Flaring / Roll-out
+
+Flaring consists of a switch from altitude tracking to a shallow sink rate setpoint and constraints on the commandable throttle, resulting in nose up manuevering to slow the descent and produce a softer touchdown.
+
+The flaring altitude is calculated during the final approach via "time-to-impact" ([FW_LND_FL_TIME](#FW_LND_FL_TIME)) and the approach descent rate.
+An additional safety parameter [FW_LND_FLALT](#FW_LND_FLALT) sets the minimum altitude at which the vehicle will flare (if the time based altitude is too low to allow a safe flare maneuver).
+
+If belly landing, the vehicle will continue in the flaring state until touchdown, land detection, and subsequent disarm. For runway landings, [FW_LND_TD_TIME](#FW_LND_TD_TIME) enables setting the time post flare start to pitch down the nose (e.g. consider tricycle gear) onto the runway ([RWTO_PSP](#RWTO_PSP)) and avoid bouncing. This time roughly corresponds to the touchdown post flare, and should be tuned for a given airframe during test flights only after the flare has been tuned.
+
+The parameters that affect flaring are listed below.
+
+Parameter | Description
+--- | ---
+<a id="FW_LND_FL_TIME"></a>[FW_LND_FL_TIME](../advanced_config/parameter_reference.md#FW_LND_FL_TIME) | Time before impact (at current descent rate) at which the vehicle should flare. 
+<a id="FW_LND_FL_SINK"></a>[FW_LND_FL_SINK](../advanced_config/parameter_reference.md#FW_LND_FL_SINK) | A shallow sink rate the aircraft will track during the flare.
+<a id="FW_LND_FLALT"></a>[FW_LND_FLALT](../advanced_config/parameter_reference.md#FW_LND_FLALT) | Minimum altitude above ground the aircraft must flare. This is only used when the time-based flare altitude is too low.
+<a id="FW_LND_FL_PMAX"></a>[FW_LND_FL_PMAX](../advanced_config/parameter_reference.md#FW_LND_FL_PMAX) | Maximum allowed pitch during the flare.
+<a id="FW_LND_FL_PMIN"></a>[FW_LND_FL_PMIN](../advanced_config/parameter_reference.md#FW_LND_FL_PMIN) | Minimum allowed pitch during the flare (often necessary to avoid negative pitch angles commanded to increase airspeed, as the throttle is reduced to idle setting.)
+<a id="FW_LND_TD_TIME"></a>[FW_LND_TD_TIME](../advanced_config/parameter_reference.md#FW_LND_TD_TIME) | The time after flare start when the vehicle should pitch the nose down.
+<a id="RWTO_PSP"></a>[RWTO_PSP](../advanced_config/parameter_reference.md#RWTO_PSP) | Pitch setpoint while on the runway. For tricycle gear, typically near zero. For tail draggers, positive.
+<a id="FW_THR_IDLE"></a>[FW_THR_IDLE](../advanced_config/parameter_reference.md#FW_THR_IDLE) | Idle throttle setting. The vehicle will retain this setting throughout the flare and roll out.
+
+### Abort
+
+#### Operator Abort
+
+The landing may be aborted by the operator at any point during the final approach using the [MAV_CMD_DO_GO_AROUND](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GO_AROUND) command.
+On _QGroundControl_ a popup button appears during landing to enable this.
+
+Aborting the landing results in a climb out to an orbit pattern centered above the land waypoint.
+The maximum of the aircraft's current altitude and [MIS_LND_ABRT_ALT](#MIS_LND_ABRT_ALT) is set as the abort orbit altitude height relative to (above) the landing waypoint.
+Landing configuration (e.g. flaps, spoilers, landing airspeed) is disabled during abort and the aicraft flies in cruise conditions.
+
+The abort command is disabled during the flare for safety.
+Operators may still manually abort the landing by switching to any manual mode, such as [Stabilized mode](../flight_modes/stabilized_fw.md)), though it should be noted that this is risky!
+
+#### Automatic Abort
+
+Automatic abort logic is additionally available for several conditions, if configured.
+Available automatic abort criteria may be enabled via bitmask parameter [FW_LND_ABORT](#FW_LND_ABORT).
+One example of an automatic abort criteria is the absence of a valid range measurement from a distance sensor.
+
+:::warning
+Landing without a distance sensor is **strongly** discouraged.
+Disabling terrain estimation with [FW_LND_USETER](#FW_LND_USETER) and select bits of [FW_LND_ABORT](#FW_LND_ABORT) will remove the default distance sensor requirement, but consequently falls back to GNSS altitude to determine the flaring altitude, which may be several meters too high or too low, potentially resulting in damage to the airframe.
+:::
+
+Parameter | Description
+--- | ---
+<a id="MIS_LND_ABRT_ALT"></a>[MIS_LND_ABRT_ALT](../advanced_config/parameter_reference.md#MIS_LND_ABRT_ALT) | The minimum altitude above the land point an abort orbit can be commanded.
+<a id="FW_LND_ABORT"></a>[FW_LND_ABORT](../advanced_config/parameter_reference.md#FW_LND_ABORT) | Determines which automatic abort criteria are enabled.
+<a id="FW_LND_USETER"></a>[FW_LND_USETER](../advanced_config/parameter_reference.md#FW_LND_USETER) | Enables use of the distance sensor during the final approach.
+
+### Nudging
+
+In the case of minor GNSS or map discrepancies causing an offset approach, small manual adjustments to the landing approach and roll out can be made by the operator (via yaw stick) when [FW_LND_NUDGE](../advanced_config/parameter_reference.md#FW_LND_NUDGE) is enabled.
+Options include either nudging the approach angle or the full approach path.
+
+In both cases, the vehicle remains in full auto mode, tracking the shifted approach vector.
+[FW_LND_TD_OFF](../advanced_config/parameter_reference.md#FW_LND_TD_OFF) allows determination of how far to the left or right of the landing waypoint the projected touchdown point may be nudged.
+Yaw stick input corresponds to a nudge "rate".
+Once the stick is released (zero rate), the approach path or angle will stop moving.
+
+![Fixed-wing landing nudging](../../assets/flying/fixed-wing_landing_nudge.png)
+
+Approach path nudging is frozen once the flare starts.
+If conducting a runway landing with steerable nose wheel, the yaw stick command passes directly to the nose wheel from flare start, during roll out, until disarm.
+Note that if the wheel controller is enabled ([FW_W_EN](#FW_W_EN)), the controller will actively attempt to steer the vehicle to the approach path, i.e. "fighting" operator yaw stick inputs.
+
+:::note
+Nudging should not be used to supplement poor position control tuning.
+If the vehicle is regularly showing poor tracking peformance on a defined path, please refer to the [fixed-wing control tuning guide](../flight_modes/position_fw.md) for instruction.
+:::
+
+Parameter | Description
+--- | ---
+<a id="FW_LND_NUDGE"></a>[FW_LND_NUDGE](../advanced_config/parameter_reference.md#FW_LND_NUDGE) | Enable nudging behavior for fixed-wing landing.
+<a id="FW_LND_TD_OFF"></a>[FW_LND_TD_OFF](../advanced_config/parameter_reference.md#FW_LND_TD_OFF) | Configure the allowable touchdown lateral offset from the commanded landing point.
+<a id="FW_W_EN"></a>[FW_W_EN](../advanced_config/parameter_reference.md#FW_W_EN) | Enable the nose wheel steering controller.
+
+### Near Ground Safety Constraints
+
+In landing mode, the distance sensor is used to determine proximity to the ground, and the airframe's geometry is used to calculate roll contraints to prevent wing strike.
+
+![Fixed-wing landing nudging](../../assets/flying/wing_geometry.png)
+
+Parameter | Description
+--- | ---
+[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN) | Wing span of the airframe.
+[FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT) | Height of wing from bottom of gear (or belly if no gear).
+
+
+## VTOL Mission Takeoff
 
 Plan a VTOL mission takeoff by adding a `VTOL Takeoff` mission item to the map.
 
 During mission execution the vehicle will ascend vertically to the minimum takeoff altitude defined in the [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) parameter, then transition to fixed-wing mode with the heading defined in the mission item.
 After transitioning the vehicle heads towards the 3D position defined in the mission item.
 
-A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint. 
+A VTOL mission requires a `VTOL Takeoff` mission item to takeoff; if however the vehicle is already flying when the mission is started the takeoff item will be treated as a normal waypoint.
