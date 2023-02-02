@@ -36,7 +36,7 @@ Parameter | Description
 Automatic takeoff has two modalities: *catapult/hand-launch* or *runway takeoff*.
 The mode defaults to catapult/hand launch, but can be set to runway takeoff by setting [RWTO_TKOFF](#RWTO_TKOFF) to 1.
 
-There are two ways to start an automatic takeoff on fixed-wing vehicles: either by [planning a mission takeoff](../flight_modes/mission.md#fw-takeoff) and starting the mission, or by switching to the _Takeoff mode_ and arming the vehicle.
+There are two ways to start an automatic takeoff on fixed-wing vehicles: either by [planning a mission takeoff](../flight_modes/mission.md#fw-mission-takeoff) and starting the mission, or by switching to the _Takeoff mode_ and arming the vehicle.
 
 In both cases, a flight path (starting point and takeoff course) and clearance altitude are defined.
 The flight path takes the vehicle's current position as starting point when the takeoff mode is first entered, and a straight line from this starting point continues in the direction of the defined course indefinitely.
