@@ -84,7 +84,6 @@
 * [비행](flying/README.md)
   * [처녀 비행 지침](flying/first_flight_guidelines.md)
   * [비행 101](flying/basic_flying.md)
-    * [고정익 착륙](flying/fixed_wing_landing.md)
   * [임무 비행](flying/missions.md)
     * [Package Delivery Mission](flying/package_delivery_mission.md)
   * [지오펜스](flying/geofence.md)
