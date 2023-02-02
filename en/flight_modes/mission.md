@@ -250,25 +250,31 @@ The following sections describe the landing sequence, land abort and nudging, sa
 
 ### Landing Sequence
 
-The fixed-wing landing pattern has three components: a **landing descent orbit**, a **landing waypoint**, and a **landing approach slope**.
+A landing pattern consists of a loiter waypoint ([MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)) followed by a land waypoint ([MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)).
+The positions of the two points define the start and end point of the landing approach, and hence the glide slope for the landing approach.
 
-On engaging a landing pattern, the following sequence is initiated:
+This pattern results in the following landing sequence:
 
-1. **Fly to landing location**: The aircraft flies at the current altitude to the landing descent orbit.
-2. **Descend to approach altitude**: On reaching the orbit, the vehicle will descend to the approach altitude.
-   Once reaching the approach altitude, the airframe will continue on the orbit until reaching the final approach exit (tangential exit towards landing waypoint).
-4. **Final approach**: The aircraft will follow the landing approach slope until the flare altitude is reached.
-5. **Flare**: The vehicle flares until touching down.
+1. **Fly to landing location**: The aircraft flies at its current altitude towards the loiter waypoint.
+2. **Descending orbit to approach altitude**: On reaching the loiter radius of the waypoint, the vehicle performs a descending orbit until it reaches the "approach altitude" (the altitude of the loiter waypoint).
+   The vehicle continues to orbit at this altitude until it has a tanjential path towards the land waypoint, at which point the landing approach is initiated.
+4. **Landing approach**: The aircraft follows the landing approach slope towards the land waypoint until the flare altitude is reached.
+5. **Flare**: The vehicle flares until it touches down.
 
 ![Fixed-wing landing](../../assets/flying/fixed-wing_landing.png)
+
 
 ### Landing Approach
 
 The vehicle tracks the landing slope (generally at a slower speed than cruise) until reaching the flare altitude.
 
+Note that the glide slope is calculated from the 3D positions of the loiter and landing waypoints; if its angle exceeds the parameter [FW_LND_ANG](#FW_LND_ANG) the mission will be rejected as unfeasible on upload.
+
+The parameters that affect the landing approach are listed below.
+
 Parameter | Description
 --- | ---
-[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG) | The maximum achievable landing approach slope angle. Note that smaller angles may still be commanded via the landing pattern mission item.
+<a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG) | The maximum achievable landing approach slope angle. Note that smaller angles may still be commanded via the landing pattern mission item.
 [FW_LND_EARLYCFG](../advanced_config/parameter_reference.md#FW_LND_EARLYCFG) | Optionally deploy landing configuration during the landing descent orbit (e.g. flaps, spoilers, landing airspeed).
 [FW_LND_AIRSPD](../advanced_config/parameter_reference.md#FW_LND_AIRSPD) | Calibrated airspeed setpoint during landing.
 [FW_FLAPS_LND_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_LND_SCL) | Flaps setting during landing.
@@ -282,6 +288,8 @@ The flaring altitude is calculated during the final approach via "time-to-impact
 An additional safety parameter [FW_LND_FLALT](#FW_LND_FLALT) sets the minimum altitude at which the vehicle will flare (if the time based altitude is too low to allow a safe flare maneuver).
 
 If belly landing, the vehicle will continue in the flaring state until touchdown, land detection, and subsequent disarm. For runway landings, [FW_LND_TD_TIME](#FW_LND_TD_TIME) enables setting the time post flare start to pitch down the nose (e.g. consider tricycle gear) onto the runway ([RWTO_PSP](#RWTO_PSP)) and avoid bouncing. This time roughly corresponds to the touchdown post flare, and should be tuned for a given airframe during test flights only after the flare has been tuned.
+
+The parameters that affect flaring are listed below.
 
 Parameter | Description
 --- | ---
