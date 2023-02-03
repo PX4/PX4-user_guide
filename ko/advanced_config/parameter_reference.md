@@ -12828,7 +12828,7 @@ table {
  <td><strong id="ASPD_SCALE_NSD">ASPD_SCALE_NSD</strong> (FLOAT)</td>
  <td>Airspeed Selector: Wind estimator true airspeed scale process noise spectral density <p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector. When unaided, the scale uncertainty (1-sigma, unitless) increases by this amount every second.</p>   </td>
  <td>[0, 0.1] </td>
- <td>0.0001</td>
+ <td>1.e-4</td>
  <td>1/s/sqrt(Hz)</td>
 </tr>
 <tr>
@@ -14090,11 +14090,8 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_FLT_TIME_MAX">COM_FLT_TIME_MAX</strong> (INT32)</td>
- <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any mode other than RTL or Land. Set a negative value to disable.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
-</ul>
-  </td>
- <td>[-1, 10000] </td>
+ <td>Maximum allowed flight time <p><strong>Comment:</strong> The vehicle aborts the current operation and returns to launch when the time since takeoff is above this value. It is not possible to resume the mission or switch to any auto mode other than RTL or Land. Taking over in any manual mode is still possible. Starting from 90% of the maximum flight time, a warning message will be sent every 1 minute with the remaining time until automatic RTL. Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] </td>
  <td>-1</td>
  <td>s</td>
 </tr>
@@ -14258,16 +14255,23 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POS_FS_EPH">COM_POS_FS_EPH</strong> (FLOAT)</td>
- <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
- <td></td>
- <td>5</td>
+ <td>Horizontal position error threshold <p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
+ <td>[0, ?] </td>
+ <td>5.</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="COM_POS_FS_EPV">COM_POS_FS_EPV</strong> (FLOAT)</td>
- <td>Vertical position error threshold <p><strong>Comment:</strong> This is the vertical position error (EPV) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
- <td></td>
- <td>10</td>
+ <td>Vertical position error threshold <p><strong>Comment:</strong> This is the vertical position error (EPV) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
+ <td>[0, ?] </td>
+ <td>10.</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="COM_POS_LOW_EPH">COM_POS_LOW_EPH</strong> (FLOAT)</td>
+ <td>EPH threshold for RTL <p><strong>Comment:</strong> Specify the threshold for triggering a warning for low local position accuracy. Additionally triggers a RTL if currently in Mission or Loiter mode. Local position has to be still declared valid, which is most of all depending on COM_POS_FS_EPH. Use this feature on systems with dead-reckoning capabilites (e.g. fixed-wing vehicles with airspeed sensor) to improve the user notification and failure mitigation when flying in GNSS-denied areas. Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] </td>
+ <td>-1.0</td>
  <td>m</td>
 </tr>
 <tr>
@@ -14388,22 +14392,22 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_VEL_FS_EVH">COM_VEL_FS_EVH</strong> (FLOAT)</td>
- <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
- <td></td>
- <td>1</td>
+ <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous velocity error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
+ <td>[0, ?] </td>
+ <td>1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="COM_WIND_MAX">COM_WIND_MAX</strong> (FLOAT)</td>
- <td>Wind speed RLT threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered and enforced as long as the threshold is exceeded. A negative value disables the feature.</p>   </td>
- <td>[-1, 30] (0.1)</td>
+ <td>Wind speed RTL threshold <p><strong>Comment:</strong> Wind speed threshold above which an automatic return to launch is triggered. It is not possible to resume the mission or switch to any auto mode other than RTL or Land if this threshold is exceeded. Taking over in any manual mode is still possible. Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="COM_WIND_WARN">COM_WIND_WARN</strong> (FLOAT)</td>
- <td>Wind speed warning threshold <p><strong>Comment:</strong> A warning is triggered if the currently estimated wind speed is above this value. Warning is sent periodically (every 1min). A negative value disables the feature.</p>   </td>
- <td>[-1, 30] (0.1)</td>
+ <td>Wind speed warning threshold <p><strong>Comment:</strong> A warning is triggered if the currently estimated wind speed is above this value. Warning is sent periodically (every 1 minute). Set to -1 to disable.</p>   </td>
+ <td>[-1, ?] (0.1)</td>
  <td>-1.</td>
  <td>m/s</td>
 </tr>
@@ -15139,7 +15143,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
- <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
+ <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
  <td>[0.0, 5.0] </td>
  <td>0.5</td>
  <td>m/s^2</td>
@@ -15196,7 +15200,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.</p> <strong>값:</strong><ul>
+ <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Automatic</li>
 
 <li><strong>1:</strong> Magnetic heading</li>
@@ -15217,7 +15221,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_YAWLIM">EKF2_MAG_YAWLIM</strong> (FLOAT)</td>
- <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
+ <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
  <td>[0.0, 1.0] </td>
  <td>0.25</td>
  <td>rad/s</td>
@@ -25029,7 +25033,7 @@ table {
 </tr>
 <tr>
  <td><strong id="SDLOG_PROFILE">SDLOG_PROFILE</strong> (INT32)</td>
- <td>Logging topic profile (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data) 7 : Topics for computer vision and collision avoidance 8 : Raw FIFO high-rate IMU (Gyro) 9 : Raw FIFO high-rate IMU (Accel) 10: Logging of mavlink tunnel message (useful for payload communication debugging)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
+ <td>Logging topic profile (integer bitmask) <p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and magnetometer data) 7 : Topics for computer vision and collision avoidance 8 : Raw FIFO high-rate IMU (Gyro) 9 : Raw FIFO high-rate IMU (Accel) 10: Logging of mavlink tunnel message (useful for payload communication debugging)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
   <li><strong>1:</strong> Estimator replay (EKF2)</li> 
   <li><strong>2:</strong> Thermal calibration</li> 
   <li><strong>3:</strong> System identification</li> 

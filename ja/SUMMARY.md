@@ -84,7 +84,6 @@
 * [フライト](flying/README.md)
   * [初飛行のガイドライン](flying/first_flight_guidelines.md)
   * [手動操縦](flying/basic_flying.md)
-    * [着陸 \(固定翼機\)](flying/fixed_wing_landing.md)
   * [自動操縦](flying/missions.md)
     * [Package Delivery Mission](flying/package_delivery_mission.md)
   * [ジオフェンス](flying/geofence.md)

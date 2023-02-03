@@ -197,18 +197,11 @@ The relevant parameters are shown below:
 | [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | 遥控不可用时的故障保护动作：降落模式、保持模式、返航模式。                 |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | 如果遥控可用，则故障保护动作：定点模式、定高模式、手动模式、返航模式、降落模式、保持模式。 |
 
+### Mission Feasibility Checks
 
-### 任务故障保护
+A number of checks are run to ensure that a mission can only be started if it is _feasible_. For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
 
-The Mission Failsafe checks prevent a previous mission being started at a new takeoff location or if it is too big (distance between waypoints is too great). The failsafe action is that the mission will not be run.
-
-The relevant parameters are shown below:
-
-| 参数                                                                       | 描述                                          |
-| ------------------------------------------------------------------------ | ------------------------------------------- |
-| [MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | 如果当前航点距离起飞点的距离大于该值，则任务不会启动。 如果值为 0 或小于，则禁用。 |
-| [MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | 如果随后两个航点之间的任何距离大于这个数值，则不会开始执行任务。            |
-
+As these are not strictly speaking "failsafes" they are documented in [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### 交通规避故障保护
 
