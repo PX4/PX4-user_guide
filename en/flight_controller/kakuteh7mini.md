@@ -13,8 +13,7 @@ The Kakute H7 mini builds upon the best features of its predecessor, the [Kakute
 
 The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/magnetometers.
 
-<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg" width="300px" title="KakuteH7Mini Top Image" />
-<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg" width="300px" title="KakuteH7Mini Bottom Image" />
+<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg" width="300px" title="KakuteH7Mini Top Image" /> <img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg" width="300px" title="KakuteH7Mini Bottom Image" />
 
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -76,8 +75,6 @@ The board can be bought from one of the following shops (for example):
 <a id="bootloader"></a>
 ## PX4 Bootloader Update
 
-TODO: hex file
-
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
 Before the PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
 Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
@@ -94,8 +91,6 @@ make holybro_kakuteh7mini_default
 
 :::note
 KakuteH7 is supported with PX4 master & PX4 v1.13 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
-
-From PX4 v1.14 (or newer) *QGroundControl* will automatically find the default release, beta and development firmware. 
 Prior to that release you will need to manually build and install the firmware.
 :::
 
