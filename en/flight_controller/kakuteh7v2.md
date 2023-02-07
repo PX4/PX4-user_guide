@@ -11,8 +11,7 @@ The Kakute H7v2 builds upon the best features of its predecessor, the [Kakute F7
 
 The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/magnetometers.
 
-<img src="../../assets/flight_controller/kakuteh7v2/kakuteh7v2_top.png" width="300px" title="KakuteH7V2 Top Image" />
-<img src="../../assets/flight_controller/kakuteh7v2/kakuteh7v2_bottom.png" width="300px" title="KakuteH7V2 Bottom Image" />
+<img src="../../assets/flight_controller/kakuteh7v2/kakuteh7v2_top.png" width="300px" title="KakuteH7V2 Top Image" /> <img src="../../assets/flight_controller/kakuteh7v2/kakuteh7v2_bottom.png" width="300px" title="KakuteH7V2 Bottom Image" />
 
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -76,8 +75,6 @@ The *Kakute H7v2* is designed to work with the *Tekko32* 4-in-1 ESC and they can
 <a id="bootloader"></a>
 ## PX4 Bootloader Update
 
-TODO: hex file
-
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
 Before the PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
 Download the [holybro_kakuteh7v2_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7v2/holybro_kakuteh7v2_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
@@ -95,8 +92,6 @@ make holybro_kakuteh7v2_default
 
 :::note
 KakuteH7 is supported with PX4 master & PX4 v1.13 or newer. If you are loading the pre-built firmware via QGroundcontrol, you must use QGC Daily or QGC version newer than 4.1.7.
-
-From PX4 v1.14 (or newer) *QGroundControl* will automatically find the default release, beta and development firmware. 
 Prior to that release you will need to manually build and install the firmware.
 :::
 
