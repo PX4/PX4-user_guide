@@ -5,7 +5,7 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
-The [Holybro Kakute H7 mini](http://www.holybro.com/product/kakute-h7-mini/) a flight controller intended for lightweight build (Such as racers, etc.)
+The [Holybro Kakute H7 mini](http://www.holybro.com/product/kakute-h7-mini/) flight controller is intended for lightweight frame builds (such as racers, etc.).
 
  This flight controller is full of features including integrated Bluetooth, HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for logging (not supported with PX4 yet), 5V BEC, and bigger soldering pad with easy layout and much more.
 
