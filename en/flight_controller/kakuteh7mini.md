@@ -5,14 +5,16 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
-The [Holybro Kakute H7 mini](http://www.holybro.com/product/kakute-h7-mini/) flight controller is full of features including integrated Bluetooth, HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for logging (not supported with PX4 yet), 5V and 9V BEC, and bigger soldering pad with easy layout and much more.
+The [Holybro Kakute H7 mini](http://www.holybro.com/product/kakute-h7-mini/) a flight controller intended for lightweight build (Such as racers, etc.)
+
+ This flight controller is full of features including integrated Bluetooth, HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for logging (not supported with PX4 yet), 5V BEC, and bigger soldering pad with easy layout and much more.
 
 The Kakute H7 mini builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and the [Kakute H7](../flight_controller/kakuteh7.md).
 
 The board also has an on-board barometer, LED & buzzer pad, and I2C pad (SDA & SCL) for external GPS/magnetometers.
 
-![Kakute H7mini top](../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg)
-![Kakute H7mini bottom](../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg)
+<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_top.jpg" width="300px" title="KakuteH7Mini Top Image" />
+<img src="../../assets/flight_controller/kakuteh7mini/kakuteh7mini_bottom.jpg" width="300px" title="KakuteH7Mini Bottom Image" />
 
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -28,18 +30,16 @@ PX4 runs on the H7 mini v1.3 and later.
 - IMU: BMI270
 - Barometer: BMP280
 - OSD: AT7456E
-- Onboard Bluetooth chip: Disabled with PX4
 - VTX On/Off Pit Switch: Not used with PX4
 - 6x UARTs (1,2,3,4,6,7; UART2 is used for Bluetooth telemetry)
 - 9x PWM Outputs (8 Motor Outputs, 1 LED)
 - 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
 - 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
-- Battery input voltage: 7v to 42v
+- Battery input voltage: 2S-6S
 - BEC 5V 2A Cont.
-- BEC 9V 1.5A Cont.
-- Mounting: 30.5 x 30.5mm/Φ4mm hole with Φ3mm Grommets
-- Dimensions: 35x35mm
-- Weight: 8g
+- Mounting: 20 x 20mm/Φ3.6mm hole with M3 & M2 Grommets
+- Dimensions: 30x31x6mm
+- Weight: 5.5g
 
 
 ## Where to Buy
@@ -51,7 +51,8 @@ The board can be bought from one of the following shops (for example):
 
 | Pin              | Function                              | PX4 default |
 | ---------------- | ------------------------------------- | ----------- |
-| B+ | Battery positive voltage (2S-8S) ||
+| B+ | Battery positive voltage (2S-6S) ||
+| VTX+ | Battery positive voltage (2S-6S) ||
 | SDA, SCL | I2C connection (for peripherals) ||
 | 5V | 5V output (2A max) ||
 | 3V3 | 3.3V output (0.25A max) ||
@@ -79,7 +80,7 @@ TODO: hex file
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki).
 Before the PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
-Download the [holybro_kakuteh7mini_bootloader.hex](TODO) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7mini/holybro_kakuteh7mini_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## Building Firmware
 
@@ -91,7 +92,12 @@ make holybro_kakuteh7mini_default
 
 ## Installing PX4 Firmware
 
-The firmware can be installed in any of the normal ways:
+:::note
+From PX4 v1.14 (or newer) *QGroundControl* will automatically find the default release, beta and development firmware. 
+Prior to that release you will need to manually build and install the firmware.
+:::
+
+Firmware can be manually installed in any of the normal ways:
 
 - Build and upload the source:
 
