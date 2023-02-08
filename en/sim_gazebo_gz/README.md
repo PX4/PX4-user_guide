@@ -1,11 +1,11 @@
-# Ignition Gazebo Simulation
+# Gz Simulation
+:::note
+Gz, a.k.a Gazebo Classic, previously known as 'Gz', is the only supported version of Gazebo for Ubuntu 22.04 and onwards. Therefore it is strongly recommended to use the Gz, instead of the classic Gazebo for simulations.
 
-:::warning
-Ignition Gazebo supports a single frame (X500 quadcopter) and world (October 2022).
+To learn more about the change, please read the [official blog post](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) from Gazebo.
 :::
 
-[Ignition Gazebo](https://gazebosim.org/home) is an open source robotics simulator from the _Ignition Robotics Project_.
-It is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
+[Gz](https://gazebosim.org/home) is an open source robotics simulator that succeeds the previous 'Classic Gazebo'.
 
 **Supported Vehicles:** Quadrotor, Plane, VTOL
 
@@ -18,28 +18,28 @@ See [Simulation](../simulation/README.md) for general information about simulato
 ## Installation (Ubuntu Linux)
 
 :::note
-These instructions were tested on Ubuntu 18.04, Ubuntu 20.04, and Ubuntu 22.04
+These instructions were tested on Ubuntu 18.04, Ubuntu 20.04, and Ubuntu 22.04, and are copied from [official Gazebo Garden Install Instruction](https://gazebosim.org/docs/garden/install_ubuntu).
 :::
 
 1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Install Ignition Gazebo (`sudo` may be required):
+2. Install Gz:
 
    ```sh
-   sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-   wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-   apt update
-   apt install ignition-fortress
+    sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install gz-garden
    ```
 
 ## Running the Simulation
 
-Ignition Gazebo SITL simulation can be conveniently run through a `make` command as shown below:
+Gz SITL simulation can be conveniently run through a `make` command as shown below:
 
 ```bash
 cd /path/to/PX4-Autopilot
 make px4_sitl gz_x500
 ```
-This will run both the PX4 SITL instance and the ignition gazebo client
+This will run both the PX4 SITL instance and the Gz client
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
@@ -52,7 +52,7 @@ plane | `make px4_sitl gz_rc_cessna`
 The commands above launch a single vehicle with the full UI.
 *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
-In order to run the simulation without running the ignition gazebo gui, one can use the `HEADLESS=1` flag:
+In order to run the simulation without running the Gz gui, one can use the `HEADLESS=1` flag:
 
 ```bash
 HEADLESS=1 make px4_sitl gz_x500
@@ -111,7 +111,7 @@ where `ARGS` is a list of environment variables including:
   - This value should be [specified for the selected airframe](#adding-new-worlds-and-models) but may be overridden using this argument.
 
 - `PX4_SIMULATOR=GZ`:
-  Sets the simulator, which for Ignition Gazebo must be `gz`.
+  Sets the simulator, which for Gz must be `gz`.
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
 The PX4 Ignition worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz).
@@ -158,7 +158,7 @@ To add a new model:
    PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}
    PX4_SIM_MODEL=${PX4_SIM_MODEL:=<your model name>}
    ```
-   - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Ignition Gazebo) for that specific airframe.
+   - `PX4_SIMULATOR=${PX4_SIMULATOR:=gz}` sets the default simulator (Gz) for that specific airframe.
 
    - `PX4_GZ_WORLD=${PX4_GZ_WORLD:=default}` sets the [default world](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gz/worlds/default.sdf) for that specific airframe.
 
@@ -176,8 +176,7 @@ However, `make px4_sitl gz_<model>_<world>` won't work with them.
 
 Multi-Vehicle simulation is supported on Linux hosts.
 
-For more information see: [Multi-Vehicle Sim with Ignition Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
-
+For more information see: [Multi-Vehicle Simulation with Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
 
 ## Further Information
 
