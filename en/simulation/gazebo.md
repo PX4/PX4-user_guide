@@ -370,9 +370,11 @@ The *Gazebo* [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic
 
 This publishes depth images and camera information on the `/camera/depth/image_raw` and `/camera/depth/camera_info` ROS topics respectively.
 
-To use these images, one should install ROS, bearing in mind the advice given at [the top of this page](http://docs.px4.io/main/en/simulation/gazebo.html#gazebo-simulation).
+To use these images, you will need to install ROS.
+Note the warning at the top of this page about how to "avoid installation conflicts" when installing ROS and Gazebo.
 
-One can simulate a quadrotor with a forward-facing depth camera using:
+You can simulate a quadrotor with a forward-facing depth camera using:
+
 ```sh
 make px4_sitl gazebo_iris_depth_camera
 ```
