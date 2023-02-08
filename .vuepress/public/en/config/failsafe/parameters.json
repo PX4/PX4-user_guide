@@ -4420,11 +4420,11 @@
       "category": "Standard",
       "default": 0,
       "group": "Autotune",
-      "longDesc": "Defines which aux input to enable auto tuning",
+      "longDesc": "Defines which RC_MAP_AUXn parameter maps the RC channel used to enable/disable auto tuning.",
       "max": 6,
       "min": 0,
       "name": "FW_AT_MAN_AUX",
-      "shortDesc": "Enable auto tuning enable on aux input",
+      "shortDesc": "Enable/disable auto tuning using an RC AUX input",
       "type": "Int32",
       "values": [
         {
@@ -6871,7 +6871,7 @@
           "index": 1
         },
         {
-          "description": "inhibit IMU bias estimation",
+          "description": "unused",
           "index": 2
         },
         {
@@ -6902,7 +6902,7 @@
       "category": "Standard",
       "default": 0,
       "group": "EKF2",
-      "longDesc": "Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead",
+      "longDesc": "Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead",
       "max": 511,
       "min": 0,
       "name": "EKF2_AID_MASK",
@@ -7519,6 +7519,18 @@
     },
     {
       "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 1.0,
+      "group": "EKF2",
+      "max": 10.0,
+      "min": 0.1,
+      "name": "EKF2_GRAV_NOISE",
+      "shortDesc": "Accelerometer measurement noise for gravity based observations",
+      "type": "Float",
+      "units": "m/s^2"
+    },
+    {
+      "category": "Standard",
       "decimalPlaces": 1,
       "default": 15.0,
       "group": "EKF2",
@@ -7618,6 +7630,30 @@
           "value": 3
         }
       ]
+    },
+    {
+      "bitmask": [
+        {
+          "description": "Gyro Bias",
+          "index": 0
+        },
+        {
+          "description": "Accel Bias",
+          "index": 1
+        },
+        {
+          "description": "Gravity vector fusion",
+          "index": 2
+        }
+      ],
+      "category": "Standard",
+      "default": 3,
+      "group": "EKF2",
+      "max": 7,
+      "min": 0,
+      "name": "EKF2_IMU_CTRL",
+      "shortDesc": "IMU control",
+      "type": "Int32"
     },
     {
       "category": "Standard",
@@ -17668,6 +17704,27 @@
       "shortDesc": "Land crawl descend rate",
       "type": "Float",
       "units": "m/s"
+    },
+    {
+      "category": "Standard",
+      "default": 0,
+      "group": "Multicopter Position Control",
+      "longDesc": "When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED Additionally, the vehicle can be yawed and moved laterally using the other sticks. Manual override during auto modes has to be disabled to use this feature (see COM_RC_OVERRIDE).",
+      "max": 1,
+      "min": 0,
+      "name": "MPC_LAND_RC_HELP",
+      "shortDesc": "Enable user assisted descent for autonomous land routine",
+      "type": "Int32",
+      "values": [
+        {
+          "description": "Fixed descent speed of MPC_LAND_SPEED",
+          "value": 0
+        },
+        {
+          "description": "User assisted descent speed",
+          "value": 1
+        }
+      ]
     },
     {
       "category": "Standard",
@@ -31714,27 +31771,6 @@
       "shortDesc": "VTOL Takeoff relative loiter altitude",
       "type": "Float",
       "units": "m"
-    },
-    {
-      "category": "Standard",
-      "default": 0,
-      "group": "Miscellaneous",
-      "longDesc": "When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED",
-      "max": 1,
-      "min": 0,
-      "name": "MPC_LAND_RC_HELP",
-      "shortDesc": "Enable user assisted descent speed for autonomous land routine",
-      "type": "Int32",
-      "values": [
-        {
-          "description": "Fixed descent speed of MPC_LAND_SPEED",
-          "value": 0
-        },
-        {
-          "description": "User assisted descent speed",
-          "value": 1
-        }
-      ]
     },
     {
       "category": "Standard",
