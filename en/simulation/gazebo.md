@@ -57,6 +57,8 @@ Vehicle | Command
 --- | ---
 [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor) | `make px4_sitl gazebo`
 [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow) | `make px4_sitl gazebo_iris_opt_flow`
+[Quadrotor with Depth Camera](../simulation/gazebo_vehicles.md#quadrotor-with-depth-camera) (forward-facing) | `make px4_sitl gazebo_iris_depth_camera`
+[Quadrotor with Depth Camera](../simulation/gazebo_vehicles.md#quadrotor-with-depth-camera) (downward-facing) | `make px4_sitl gazebo_iris_downward_depth_camera`
 [3DR Solo (Quadrotor)](../simulation/gazebo_vehicles.md#3dr_solo) | `make px4_sitl gazebo_solo`
 <span id="typhoon_h480"></span>[Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`
 [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane) | `make px4_sitl gazebo_plane`
@@ -360,6 +362,23 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 :::note
 The simulated camera is implemented in [PX4/PX4-SITL_gazebo/master/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp). 
 :::
+
+
+## Simulated Depth Camera
+
+The *Gazebo* [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
+
+This publishes depth images and camera information on the `/camera/depth/image_raw` and `/camera/depth/camera_info` ROS topics respectively.
+
+To use these images, you will need to install ROS.
+Note the warning at the top of this page about how to "avoid installation conflicts" when installing ROS and Gazebo.
+
+You can simulate a quadrotor with a forward-facing depth camera using:
+
+```sh
+make px4_sitl gazebo_iris_depth_camera
+```
+
 
 <a id="flight_termination"></a>
 ## Simulated Parachute/Flight Termination
