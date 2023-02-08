@@ -70,6 +70,7 @@ See the link for rollout information.
 
 To install WSL2 with the default Ubuntu distribution on a new installation of Windows 11:
 
+1. Make sure your computer your computer's virtualization feature is enabled in the BIOS. It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively.
 1. Open _cmd.exe_ as administrator.
    This can be done by pressing the start key, typing `cmd`, right klicking on the _Command prompt_ entry and selecting **Run as administrator**.
 1. Execute the command `wsl --install` to run the installation routine for WSL.
@@ -137,7 +138,7 @@ To install the development toolchain:
    The environment setup scripts in the source usually work for recent PX4 releases.
    If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
    :::
-   
+
 1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
 
    ```bash
@@ -146,7 +147,7 @@ To install the development toolchain:
 
    :::note
    This installs tools to build PX4 for Pixhawk, Gazebo and JMAVSim targets:
-   
+
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
    :::
@@ -165,7 +166,7 @@ To install the development toolchain:
    ```
    make px4_sitl
    ```
-   
+
 For more build options see [Building PX4 Software](../dev_setup/building_px4.md).
 
 
@@ -176,7 +177,7 @@ VS Code running on Windows is well integrated with WSL.
 To set up the integration:
 1. [Download](https://code.visualstudio.com/) and install Visual Studio Code (VS Code) on Windows,
 2. Open _VS Code_.
-3. Install the extension called [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (marketplace) 
+3. Install the extension called [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (marketplace)
 4. [Open a WSL shell](#opening-a-wsl-shell)
 5. In the WSL shell, switch to the PX4 folder:
    ```
@@ -187,17 +188,17 @@ To set up the integration:
    code .
    ```
    This will open the IDE fully integrated with the WSL shell.
-   
+
    Make sure you always open the PX4 repository in the Remote WSL mode.
 
 7. Next time you want to develop WSL2 you can very easily open it again in Remote WSL mode by selecting **Open Recent** (as shown below).
    This will start WSL for you.
 
    ![](../../assets/toolchain/vscode/vscode_wsl.png)
-   
+
    Note however that the IP address of the WSL virtual machine will have changed, so you won't be able to monitor simulation from QGC for Windows (you can still monitor using QGC for Linux)
-   
-   
+
+
 
 ## QGroundControl
 
@@ -235,10 +236,10 @@ Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/ge
 These steps describe how you can connect to the simulation running in the WSL:
 
 1. [Open a WSL shell](#opening-a-wsl-shell)
-2. Check the IP address of the WSL virtual machine by running the command `ip addr | grep eth0`:   
+2. Check the IP address of the WSL virtual machine by running the command `ip addr | grep eth0`:
    ```bash
    $ ip addr | grep eth0
-   
+
    6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
        inet 172.18.46.131/20 brd 172.18.47.255 scope global eth0
    ```
