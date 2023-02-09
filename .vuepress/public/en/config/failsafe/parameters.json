@@ -23351,7 +23351,7 @@
       "default": 1.1,
       "group": "Return To Land",
       "increment": 0.1,
-      "longDesc": "Safety factor that is used to scale the actual RTL time estiamte. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN",
+      "longDesc": "Safety factor that is used to scale the actual RTL time estimate. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN",
       "max": 2.0,
       "min": 1.0,
       "name": "RTL_TIME_FACTOR",
