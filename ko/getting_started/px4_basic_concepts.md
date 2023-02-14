@@ -1,14 +1,14 @@
 # 기본 개념
 
-무인 항공기의 기본 개념과 PX4 사용법에 대하여 설명합니다. 초보자뿐만 아니라 전문가에게도 유익한 자료들이 많이 있습니다.
+무인 항공기의 기본 개념과 PX4 사용법을 설명합니다. 초보자뿐만 아니라 전문가에게도 유익한 자료들이 많이 있습니다.
 
 기본 개념에 익숙하시면, [기본 조립](../assembly/README.md)편에서 자동비행장치의 배선 방법을 공부할 수 있습니다. *QGroundControl*를 이용한 펌웨어 설치 방법은 [기본 설정](../config/README.md)편을 참고하십시오.
 
 ## 드론의 정의
 
-드론은 원격 또는 자동으로 조종할 수 있는 무인 로봇입니다.
+드론은 원격이나 자동으로 조종할 수 있는 무인 로봇입니다.
 
-드론은  [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
+드론은  [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/) 등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
 
 :::tip
 항공용, 지상용, 해양용 및 잠수용 드론이 있습니다. 
@@ -22,9 +22,9 @@
 
 [PX4](https://px4.io/)는 오픈 소스 기반의 강력한 *자동조종장치*입니다.
 
-PX4의 주요 특징은 아래와 같습니다.
+PX4의 주요 특징들은 아래와 같습니다.
 - 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체, 잠수정 등 [다양한 차량들](../airframes/airframe_reference.md)을 제어합니다.
-- [차량 콘트롤러](#vehicle-flight-controller-board), 센서 및 다양한 주변 장치에 적합한 매우 탁월한 선택입니다.
+- [차량 컨트롤러](#vehicle-flight-controller-board), 센서 및 다양한 주변 장치에 적합한 매우 탁월한 선택입니다.
 - 유연하고 강력한 [비행 모드](#flight-modes)와 [안전 기능](#safety-settings-failsafe)을 지원합니다.
 
 PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜 지원 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
@@ -34,16 +34,16 @@ PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](
 
 드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 여러가지 매개변수 설정, 실시간 비행 정보 조회 및 완전 자동 임무 비행 등의 작업이 가능합니다.
 
-*QGroundControl*은 윈도우, 안드로이드, MacOS 및 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하여 설치할 수 있습니다.
+*QGroundControl*은 윈도우, 안드로이드, MacOS 및 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 필요한 프로그램을 다운로드하여 설치할 수 있습니다.
 
 ![QGC 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
 
-## 비행 콘트롤러(보드)
+## 비행 컨트롤러(보드)
 
-PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에 실행 가능하게 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행되어 집니다. 기체의 물리적 조건, 운용 목적과 비용을 고려하여 최적의 보드를 선택할 수 있습니다.
+PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 기체의 물리적 조건, 운용 목적 및 비용을 고려하여 최적의 보드를 선택할 수 있습니다.
 
-자세한 내용은 [비행 콘트롤러 선택](flight_controller_selection.md)편을 참고하십시오.
+자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)편을 참고하십시오.
 
 ## 센서
 
