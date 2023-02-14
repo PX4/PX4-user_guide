@@ -1,4 +1,4 @@
-# Gz Simulation
+# Gazebo Simulation
 :::note
 Gz, a.k.a Gazebo Classic, previously known as 'Gz', is the only supported version of Gazebo for Ubuntu 22.04 and onwards. Therefore it is strongly recommended to use the Gz, instead of the classic Gazebo for simulations.
 
