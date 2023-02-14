@@ -3,7 +3,8 @@
 This section contains topics related to helicopter configuration and tuning.
 
 :::note
-Helicopters are less well-supported than other types of vehicles.
+Helicopters are less well-supported on than other types of vehicles.
+For example, PX4 does not support helicopters with coaxial or dual rotor types, and features such as RPM governor and autorotation. 
 We would welcome your [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements.
 :::
 
