@@ -323,12 +323,37 @@ fxos8701cq <command> [arguments...]
 
    status        print status info
 ```
+## iam20680hp
+Source: [drivers/imu/invensense/iam20680hp](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iam20680hp)
+
+<a id="iam20680hp_usage"></a>
+
+### 描述
+```
+iam20680hp <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## icm20602
 Source: [drivers/imu/invensense/icm20602](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm20602)
 
 <a id="icm20602_usage"></a>
 
-### 描述
+### 用法
 ```
 icm20602 <command> [arguments...]
  Commands:
@@ -527,7 +552,7 @@ Source: [drivers/imu/invensense/icm42670p](https://github.com/PX4/PX4-Autopilot/
 
 <a id="icm42670p_usage"></a>
 
-### 用法
+### Usage
 ```
 icm42670p <command> [arguments...]
  Commands:
@@ -635,7 +660,7 @@ Source: [drivers/imu/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/main/src
 
 <a id="lsm303d_usage"></a>
 
-### Usage
+### 使用
 ```
 lsm303d <command> [arguments...]
  Commands:
