@@ -84,84 +84,84 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
 예상 조립 시간은 55시간(프레임은 25분, 자동 조종 장치 설치/설정은 30분)입니다.
 
-1. 페이로드 & 배터리 홀더. 고무를 그리퍼에 밀어 넣습니다(날카로운 물건을 사용하여 밀어 넣지 마십시오!). 그런 다음, 그림 3과 같이 배터리 홀더 베이스가 있는 홀더 막대를 홀더를 통과시킵니다.
+1. Start by assembling the payload & battery holder. Push the rubbers into grippers (Do not use sharp items to push them in!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3.
 
-   ![랜딩 그림 1: 구성 요소](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_required_stuff.png)
+   ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_required_stuff.png)
 
-   _그림 2_: 페이로드 홀더 구성요소
+   _Figure 2_: Payload holder components
 
-   ![착륙 그림 2: 조립](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_assembled.png)
+   ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/payload_holder_assembled.png)
 
-   _그림 3_: 페이로드 홀더 조립
+   _Figure 3_: Payload holder assembled
 
-1. 다음은 페이로드 홀더에 하단 플레이트를 부착하는 것입니다.
+1. The next is to go for attaching the bottom plate to the payload holder.
 
-   그림 4의 부품이 필요합니다. 그런 다음 그림 5와 같이 나일론 너트를 사용하여 배전반용 베이스를 장착합니다. 마지막으로 8개의 육각 나사를 사용하여 하단 플레이트를 페이로드 홀더에 결합할 수 있습니다(그림 7).
+   You will need the parts as shown in Figure 4. Then mount the base for power distribution board using nylon nuts as Figure 5. Finally using 8 hex screws you can join the bottom plate to the payload holder (Figure 7)
 
-   ![하판 부착 재료](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/topplate_holder_stuff.png)
+   ![Materials to attach bottom plate](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/topplate_holder_stuff.png)
 
-   _그림 4_: 필요한 재료들
+   _Figure 4_: Needed Materials
 
-   ![PDB 마운트 베이스](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/powerboard-mountbase.png)
+   ![PDB mountbase](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/powerboard-mountbase.png)
 
-   _그림 5_: PDB 마운트 베이스
+   _Figure 5_: PDB mount base
 
-   ![PDB 첨부](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pdb_bottom_plate.png)
+   ![PDB attachment](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pdb_bottom_plate.png)
 
-   _그림 6_: 나일론 너트가 있는 마운트된 pdb
+   _Figure 6_: Mounted pdb with nylon nuts
 
-   ![하판 최종](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/bottom_plate_holder_final.png)
+   ![Bottom plate Final](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/bottom_plate_holder_final.png)
 
-   _그림 7_: 페이로드 홀더에 장착된 플레이트
+   _Figure 7_: Mounted Plate on payload holder
 
-1. 그림 8과 같이 랜딩기어 장착에 필요한 재료를 준비합니다. 육각 나사를 사용하여 랜딩 기어를 하단 플레이트에 결합합니다. 또한, 각 다리 받침대에서 3개의 육각 나사를 열어 탄소 섬유 파이프에 밀어넣을 수 있습니다. 다시 조이는 것을 잊지 마십시오.
+1. Let's gather the stuff needed for mounting landing gear as Figure 8. Use the hex screws to join landing gears to the bottom plate. You also need to open three hex screws on each of the leg stands so you can push them into carbon fiber pipes. Do not forget to tighten them back again.
 
-   ![랜딩 기어 재료 부착](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/landing_gear_materials.png)
+   ![Attach Landing Gear Stuff](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/landing_gear_materials.png)
 
-   _그림 8_: 착륙 장치 부착에 필요한 부품
+   _Figure 8_: Required parts for landing gear attachment
 
-   ![하판에 착지](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/attached_landing_gear.png)
+   ![Lanfing great to bottom plate](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/attached_landing_gear.png)
 
-   _그림 9_: 차체에 착륙 장치 부착
+   _Figure 9_: Landing gear attachment to the body
 
-1. 이제 상판을 장착할 암들을 준비합니다. 암의 모터 번호는 상판의 모터 번호와 일치하므로 주의하십시오. 다행히 모터가 장착되어 있고, ESC가 미리 연결되어 있습니다. 암이 제자리에 고정된 상태에서 모든 나사를 통과시켜 시작하고(제 위치에 있는지 확인하기 위해 그림 11과 같은 가이드가 있음) 모든 나일론 너트를 약간 조입니다. 그런 다음, XT30 전원 커넥터를 전원 보드에 연결할 수 있습니다. 신호 와이어는 나중에 Pixhawk에 연결할 수 있도록 상단 플레이트를 통과하여야 합니다.
+1. We will gather all the arms now to mount the top plate. Please pay attention that the motor numbers on arms are a match with the ones mentioned on the top plate. Fortunately, motors are mounted and ESCs have been connected in advance. Start by passing through all the screws as you have the arms fixed in their own places (They have a guide as shown in Figure 11 to ensure they are in place) and tighten all nylon nuts a bit. Then you can connect XT30 power connectors to the power board. Please keep in mind that the signal wires have to be passed through the top plate such that we can connect them later to Pixhawk.
 
-   <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/needed_stuff_top_plate.png" width="700" title="암 및 상판 재료" />
+   <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/needed_stuff_top_plate.png" width="700" title="Arms and top plate materials" />
 
-   _그림 10_: 암 연결에 필요한 재료.
+   _Figure 10_: Connecting arms needed materials.
 
-   <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/guide_for_arm_mount.png" width="700" title="암 마운트용 가이드" />
+   <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/guide_for_arm_mount.png" width="700" title="Guide for the arms mount" />
 
-   _그림 11_: 암 마운트용 가이드
+   _Figure 11_: Guide for the arms mount
 
-1. 육각 렌치와 너트 드라이버를 모두 사용하여 16개의 나사와 너트를 모두 조입니다.
+1. Tighten all 16 screws and nuts by using both hex wrench and nut driver.
 
-   ![상단 플레이트 장착](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_top_plate.png)
+   ![Top plae mounted](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_top_plate.png)
 
-   _그림 12_: 장착된 상단 플레이트
-
-
-1. 다음으로, 스티커를 사용하여 상단 플레이트에 픽스호크를 장착합니다. Pixhawk의 화살표 방향을 상판에 표기된 방향에 맞추는 것이 좋습니다.
-
-   ![비행 컨트롤러 장착 스티커](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pixhawk5x_stickertapes.png)
-
-   _그림 13_: Pixhawk의 스티커 테이프
-
-1. 보조 컴퓨터 플레이트에 GPS를 장착하려면, 4개의 나사와 너트를 사용하여 GPS 마운트를 고정할 수 있습니다.
-
-   <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/gps_mount_plate.png" width="400" title="보조 플레이트에 GPS 마운트 고정" />
-
-   _그림 14_: GPS 마운트를 보조 컴퓨터에 고정
+   _Figure 12_: Mounted top plate
 
 
-1. 테이프를 사용하여 GPS를 GPS 마스트 상단에 붙이고 GPS 마스트를 장착합니다. GPS의 화살표가 앞쪽을 가리키는지 확인하십시오(그림 15).
+1. Next you can mount your pixhawk on the top plate by using the stickers. It is recommended to have the direction of your Pixhawk's arrow the same as the one mentioned on the top plate.
 
-   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="그림 16: GPS 및 마스트" />
+   ![Flight controller mounting stickers](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/pixhawk5x_stickertapes.png)
 
-   _그림 15_: GPS와 마스트
+   _Figure 13_: Sticker tapes on Pixhawk
+
+1. If you want to mount the GPS on the companion computer plate, you can now secure the GPS mount onto it using 4 screws and nuts.
+
+   <img src="../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/gps_mount_plate.png" width="400" title="Secure GPS mount onto companion plate" />
+
+   _Figure 14_: Secure GPS mount onto companion plate
 
 
-1. 마지막으로, 텔레메트리와 같은 Pixhawk 인터페이스들을 'TELEM1'에 연결하고, 그에 따라 모터 신호 케이블을 연결할 수 있습니다.
+1. Use the tape and stick the GPS to the top of the GPS mast and mount the GPS mast. Make sure the arrow on the gps is pointing forward (Figure 15).
+
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
+
+   _Figure 15_: GPS and mast
+
+
+1. Finally, you can connect the Pixhawk interfaces such as telemetry radio to 'TELEM1' and motors signal cables accordingly.
 
 자세한 내용은 [Pixhawk  5X 빠른 시작](../assembly/quick_start_pixhawk5x.md)을 참고하십시오.
 
@@ -175,33 +175,37 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 X500 프레임 설정과 보정 작업을 진행합니다.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-1. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
-1. Update the firmware and airframe:
+First update the firmware, airframe, and actuator mappings:
 
-   - [펌웨어](../config/firmware.md)
-   - [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
+- [펌웨어](../config/firmware.md)
+- [Airframe](../config/airframe.md)
 
-     ![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
+  You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
 
-1. 그리고, 설치후에 필수적인 설정 작업을 실시합니다.
-   - [센서 방향](../config/flight_controller_orientation.md)
-   - [나침반](../config/compass.md)
-   - [가속도계](../config/accelerometer.md)
-   - [수평 보정](../config/level_horizon_calibration.md)
-   - [라디오 설정](../config/radio.md)
-   - [비행 모드](../config/flight_mode.md)
+  ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-   다음 작업 역시 반드시 진행하여야 합니다.
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
-   - [ESC 보정](../advanced_config/esc_calibration.md)
-   - [배터리](../config/battery.md)
-   - [안전](../config/safety.md)
+그리고, 설치후에 필수적인 설정 작업을 실시합니다.
 
-   You should not need to configure these:
+- [센서 방향](../config/flight_controller_orientation.md)
+- [나침반](../config/compass.md)
+- [가속도계](../config/accelerometer.md)
+- [수평 보정](../config/level_horizon_calibration.md)
+- [라디오 설정](../config/radio.md)
+- [비행 모드](../config/flight_mode.md)
 
-   - [Actuators](../config/actuators.md)
+다음 작업 역시 반드시 진행하여야 합니다.
+
+- [ESC 보정](../advanced_config/esc_calibration.md)
+- [배터리](../config/battery.md)
+- [안전](../config/safety.md)
+
 
 ## 튜닝
 
