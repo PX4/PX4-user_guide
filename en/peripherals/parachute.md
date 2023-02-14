@@ -96,4 +96,4 @@ The parachute will trigger during [flight termination](../advanced_config/flight
 
 The easiest way to test a (real) parachute is to enable the [failure detector attitude trigger](../config/safety.md#attitude-trigger) and tip the vehicle over.
 
-You can also simulate a parachute/flight termination in Gazebo: [Development > Simulation > Gazebo > Simulated Parachute/Flight Termination](../sim_gazebo_classic/gazebo.md#flight_termination).
+You can also simulate a parachute/flight termination in Gazebo: [Development > Simulation > Gazebo > Simulated Parachute/Flight Termination](../sim_gazebo_classic/README.md#flight_termination).

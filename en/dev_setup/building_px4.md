@@ -61,7 +61,7 @@ This will reposition the vehicle.
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
 :::tip
-PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../sim_gazebo_classic/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). 
+PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../sim_gazebo_classic/README.md) and [AirSim Simulation](../simulation/airsim.md). 
 These are also started with *make* - e.g.
 ```
 make px4_sitl gazebo
@@ -281,7 +281,7 @@ make list_config_targets
   For more information see [Simulation Debugging](../debug/simulation_debugging.md).
 - **WORLD:** (Gazebo only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded.
   Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
-  For more information see [Gazebo > Loading a Specific World](../sim_gazebo_classic/gazebo.md#set_world).
+  For more information see [Gazebo > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:

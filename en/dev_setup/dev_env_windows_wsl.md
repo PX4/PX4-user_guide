@@ -6,7 +6,7 @@ This environment can be used to build PX4 for:
 
 - [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
 - [jMAVSim Simulation](../simulation/jmavsim.md)
-- [Gazebo Simulation](../sim_gazebo_classic/gazebo.md)
+- [Gazebo Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -53,7 +53,7 @@ This includes Gazebo and jMAVSim rendered visualization, QGC for Linux running i
 
 Development is possible as you can still:
 - Build PX4 in WSL2 and flash it to boards using QGC from **Windows**.
-- Run simulations in [headless mode](../sim_gazebo_classic/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`).
+- Run simulations in [headless mode](../sim_gazebo_classic/README.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`).
   Connect using QGC on Windows or in WSL.
 
 :::note
