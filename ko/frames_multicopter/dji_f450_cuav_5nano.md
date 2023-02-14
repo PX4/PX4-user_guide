@@ -161,12 +161,12 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블
 
 ## PX4 Configuration
 
-*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 프레임에 대한 설정과 보정 작업을 진행합니다. *QGroundControl*을 다운로드후에,
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 프레임에 대한 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-먼저, 펌웨어와 에어프레임을 업데이트 합니다.
+First update the firmware, airframe, geometry and outputs:
 
 - [펌웨어](../config/firmware.md)
 - [Airframe](../config/airframe.md)
@@ -177,9 +177,11 @@ You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Gener
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_airframe_generic_quadx.png)
 :::
 
-Then update vehicle geometry and output mappings:
-
 - [Actuators](../config/actuators.md)
+  - Update the vehicle geometry to match the frame.
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
+
 
 그리고, 설치후에 필수적인 설정 작업과 보정 작업을 진행하여야 합니다.
 
