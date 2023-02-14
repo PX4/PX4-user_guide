@@ -20,13 +20,13 @@ The following simulators work with PX4 for HITL and/or SITL simulation.
 
 Simulator |Description
 ---|---
-[Gazebo](../sim_gazebo_classic/gazebo.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>
+[Gazebo](../sim_gazebo_classic/README.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>
 [FlightGear](../simulation/flightgear.md) | <p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. [Multi-vehicle simulation](../simulation/multi_vehicle_flightgear.md) is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p>
 [JSBSim](../simulation/jsbsim.md) | <p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p>
 [jMAVSim](../simulation/jmavsim.md) | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for [multi-vehicle simulation](../simulation/multi_vehicle_jmavsim.md).</p><p><strong>Supported Vehicles:</strong> Quad</p>
 [AirSim](../simulation/airsim.md) | <p>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here.</p><p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p>
 [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>
-[Ignition Gazebo](../sim_gazebo_gz/gazebo.md) | <p>Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.</p><p><strong>Supported Vehicles:</strong> Quad</p>
+[Ignition Gazebo](../sim_gazebo_gz/README.md) | <p>Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.</p><p><strong>Supported Vehicles:</strong> Quad</p>
 
 Instructions for how to setup and use the simulators are in the topics linked above.
 
@@ -122,7 +122,7 @@ The syntax (simplified) looks like this:
 ```
 make px4_sitl simulator[_vehicle-model]
 ```
-where `simulator` is `gazebo`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([jMAVSim](../simulation/jmavsim.md) only supports multicopters, while [Gazebo](../sim_gazebo_classic/gazebo.md) supports many different types).
+where `simulator` is `gazebo`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([jMAVSim](../simulation/jmavsim.md) only supports multicopters, while [Gazebo](../sim_gazebo_classic/README.md) supports many different types).
 
 A number of examples are shown below, and there are many more in the individual pages for each of the simulators:
 
@@ -242,8 +242,8 @@ For setup information see the *QGroundControl User Guide*:
 
 ## Camera Simulation
 
-PX4 supports capture of both still images and video from within the [Gazebo](../sim_gazebo_classic/gazebo.md) simulated environment.
-This can be enabled/set up as described in [Gazebo > Video Streaming](../sim_gazebo_classic/gazebo.md#video).
+PX4 supports capture of both still images and video from within the [Gazebo](../sim_gazebo_classic/README.md) simulated environment.
+This can be enabled/set up as described in [Gazebo > Video Streaming](../sim_gazebo_classic/README.md#video).
 
 The simulated camera is a gazebo plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html)<!-- **PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->.
 PX4 connects/integrates with this camera in *exactly the same way* as it would with any other MAVLink camera:

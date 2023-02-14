@@ -119,7 +119,7 @@ You can then control the vehicles with *QGroundControl* and MAVROS in a similar 
 
   :::note
   At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9.
-  See also [Gazebo Simulation](../sim_gazebo_classic/gazebo.md).
+  See also [Gazebo Simulation](../sim_gazebo_classic/README.md).
   :::
 * [MAVROS package](http://wiki.ros.org/mavros)
 * a clone of latest [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot)

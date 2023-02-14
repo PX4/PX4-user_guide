@@ -1,6 +1,6 @@
 # Gazebo Vehicles
 
-This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_classic/gazebo.md) simulation and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
+This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_classic/README.md) simulation and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
 
 Supported vehicle types include: mutirotors, VTOL, VTOL Tailsitter, Plane, Rover, Submarine/UUV.
 
@@ -9,7 +9,7 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 :::
 
 :::note
-The [Gazebo](../sim_gazebo_classic/gazebo.md) page shows how to install Gazebo, how to enable video and load custom maps, and many other configuration options.
+The [Gazebo](../sim_gazebo_classic/README.md) page shows how to install Gazebo, how to enable video and load custom maps, and many other configuration options.
 :::
 
 ## Multicopter
@@ -63,7 +63,7 @@ make px4_sitl gazebo_typhoon_h480
 ![Typhoon H480 in Gazebo](../../assets/simulation/gazebo/vehicles/typhoon.jpg)
 
 :::note
-This target also supports [video streaming simulation](../sim_gazebo_classic/gazebo.md#video-streaming).
+This target also supports [video streaming simulation](../sim_gazebo_classic/README.md#video-streaming).
 :::
 
 <a id="fixed_wing"></a>
