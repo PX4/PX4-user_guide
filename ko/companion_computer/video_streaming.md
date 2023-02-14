@@ -30,4 +30,4 @@ QGC로 비디오 스트리밍을 설정하고 사용하려면 :
 
 ## 가제보 시뮬레이션
 
-Gazebo는 시뮬레이션 환경에서 비디오 스트리밍을 지원합니다. 자세한 내용은 [가제보 시뮬레이션 > 비디오 스트리밍](../simulation/gazebo.md#video-streaming)을 참고하십시오.
+Gazebo는 시뮬레이션 환경에서 비디오 스트리밍을 지원합니다. For more information see [Gazebo Simulation > Video Streaming](../sim_gazebo_classic/gazebo.md#video-streaming).
