@@ -140,7 +140,7 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## Simulation
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../sim_gazebo_classic/gazebo.md).
+Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../sim_gazebo_classic/README.md).
 To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 The iris optical flow model includes a Lidar rangefinder:
