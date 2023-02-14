@@ -168,7 +168,7 @@ IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입
 
 ## 시뮬레이션
 
-IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo](../simulation/gazebo.md)에서 시뮬레이션할 수 있습니다.
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../sim_gazebo_classic/gazebo.md).
 
 IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 

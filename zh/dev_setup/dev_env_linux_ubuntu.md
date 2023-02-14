@@ -3,7 +3,7 @@
 The following instructions set up a PX4 development environment on Ubuntu Linux 18.04 and 20.04. Linux允许您构建[所有PX4目标](../setup/dev_env.md#supported-targets)（基于NuttX的硬件、高通骁龙飞控硬件、基于Linux的硬件、仿真、ROS）。
 * Pixhawk and other NuttX-based hardware
 * [jMAVSim Simulation](../simulation/jmavsim.md)
-* [Gazebo Simulation](../simulation/gazebo.md)
+* [Gazebo Simulation](../sim_gazebo_classic/gazebo.md)
 * [通用依赖](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
 * [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
@@ -28,11 +28,11 @@ The instructions should also work on other Debian Linux based systems, but this 
 
 Bash scripts are provided to help make it easy to install development environment for different target platforms. They are intended to be run on *clean* Ubuntu LTS installations.
 
-| Script                                                                                                                           | Description                                                                                                                                                                                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)**                                            | Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
+| Script                                                                                                                           | Description                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)**                                            | Installs [Gazebo 9](../sim_gazebo_classic/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
 |
-| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!                                                                                                                                                                                  |
+| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!                                                                                                                                                                                          |
 
 :::note
 The scripts *may* not work if installed "on top" of an existing system, or on a different Ubuntu release.
@@ -40,7 +40,7 @@ The scripts *may* not work if installed "on top" of an existing system, or on a 
 
 ## ROS/Gazebo
 
-Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> script to set up a development environment that includes [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators, and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
+Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> script to set up a development environment that includes [Gazebo 9](../sim_gazebo_classic/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators, and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
 
 :::warning ROS
 users must follow the instructions for: [ROS/Gazebo](#rosgazebo). <!-- ROS installs Gazebo automatically, as part of the ROS installation). -->

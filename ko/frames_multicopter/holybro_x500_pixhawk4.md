@@ -199,28 +199,35 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 *QGroundControl*에서 PX4 자율비행 프로그램을 설치하고, X500 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-먼저, 펌웨어와 기체 프레임을 업데이트 합니다.
-* [펌웨어](../config/firmware.md)
-* [Airframe](../config/airframe.md) - *Holybro S500* 기체(**Quadrotor x > Holybro S500**)를 선택합니다. ![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+First update the firmware, airframe, and actuator mappings:
+
+- [펌웨어](../config/firmware.md)
+- [Airframe](../config/airframe.md)
+
+  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+
+  ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 그리고, 설치후에 필수 설정 작업을 실시합니다.
 
-* [센서 방향](../config/flight_controller_orientation.md)
-* [나침반](../config/compass.md)
-* [가속도 센서](../config/accelerometer.md)
-* [수평 캘리브레이션](../config/level_horizon_calibration.md)
-* [무선 조종기 설정](../config/radio.md)
-* [비행 모드](../config/flight_mode.md)
+- [센서 방향](../config/flight_controller_orientation.md)
+- [나침반](../config/compass.md)
+- [가속도 센서](../config/accelerometer.md)
+- [수평 캘리브레이션](../config/level_horizon_calibration.md)
+- [무선 조종기 설정](../config/radio.md)
+- [비행 모드](../config/flight_mode.md)
 
 다음 작업들은 반드시 진행하여야 합니다.
 
-* [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
-* [배터리](../config/battery.md)
-* [안전](../config/safety.md)
+- [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
+- [배터리](../config/battery.md)
+- [안전](../config/safety.md)
 
-You should not need to configure these:
-
-- [Actuators](../config/actuators.md)
 
 ## 튜닝
 

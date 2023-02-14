@@ -1,6 +1,6 @@
 # Wing Wing Z-84 Pixracer Build
 
-The Wing Wing Z-84 is our gold standard airframe - small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
+The Wing Wing Z-84 is a flying wing frame. It is small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
 
 Key information:
 
@@ -27,7 +27,7 @@ The "kit" version does not include these components, which must be purchased sep
 
 One of these (any small (>=12A) ESC will do):
 
-- [Blue Series 12A ESC](https://hobbyking.com/en_us/hobbyking-12a-blueseries-brushless-speed-controller.html) (Hobbyking)
+- [Turnigy 20A Brushed ESC ESC](https://hobbyking.com/en_us/turnigy-20a-brushed-esc.html) (Hobbyking)
 - [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
 
 ### Autopilot and Essential Components
@@ -44,10 +44,9 @@ One of these (any small (>=12A) ESC will do):
 - 1 cm diameter O-ring for prop saver ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
 - 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
-
 ## 布线
 
-The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not the ones labeled with AUX. The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
+Wire the servos and motors as shown. Use the `MAIN` outputs (not the ones labeled with AUX). The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
 
 | Port   | 接口定义                        |
 | ------ | --------------------------- |
@@ -55,7 +54,7 @@ The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not th
 | MAIN 1 | Left Aileron                |
 | MAIN 2 | Right Aileron               |
 | MAIN 3 | 空白                          |
-| MAIN 4 | 油门                          |
+| MAIN 4 | Motor 1                     |
 
 
 ## Build Log
@@ -64,8 +63,22 @@ The images below give a rough idea about the assembly process, which is simple a
 
 ![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg) ![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg) ![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg) ![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg) ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg) ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## Airframe Configuration
+## PX4 Configuration
 
-Select the Z-84 in the flying wing section of the QGC airframe config:
+### Airframe Configuration
 
-![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png) 
+Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Configuration](../en/config/airframe.md):
+
+![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)
+
+### Actuator Mapping
+
+Set up the [Actuator Configuration](../en/config/actuators.md) to match the wiring for the ailerons and throttle as [indicated above](#wiring).
+
+![QGC - set the actuators](../../assets/airframes/fw/wing_wing/qgc_actuator_config.png)
+
+### Other Configuration
+
+Perform all the the other [Basic Configuration](../config/README.md), including [Autotuning](../config/autotune.md).
+
+Advanced tuning is optional - see [Fixed Wing Vehicle Configuration](../config_fw/README.md).

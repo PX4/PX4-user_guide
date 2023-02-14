@@ -1,6 +1,6 @@
 # Wing Wing Z-84 Pixracer 조립
 
-Wing Wing Z-84는 매우 우수한 표준 기체입니다. 작고 튼튼하며 [Pixracer](../flight_controller/pixracer.md) 장착할 수 있습니다.
+The Wing Wing Z-84 is a flying wing frame. It is small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
 
 주요 정보:
 
@@ -27,7 +27,7 @@ PNF (또는 "PNP") 버전에는 모터, 프로펠러와 ESC가 포함됩니다.
 
 다음 중 하나 (작은 (> = 12A) ESC가 수행함) :
 
-- [블루 시리즈 12A ESC](https://hobbyking.com/en_us/hobbyking-12a-blueseries-brushless-speed-controller.html) (Hobbyking)
+- [Turnigy 20A Brushed ESC ESC](https://hobbyking.com/en_us/turnigy-20a-brushed-esc.html) (Hobbyking)
 - [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
 
 ### Autopilot 및 필수 부품들
@@ -44,10 +44,9 @@ PNF (또는 "PNP") 버전에는 모터, 프로펠러와 ESC가 포함됩니다.
 - 프로펠러 보호용 직경 1cm O - 링 ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
 - 125x110 mm 프로펠러 ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
-
 ## 배선
 
-아래 배선은 Pixhawk와 Pixracer에 적용됩니다. AUX로 표시된 출력이 아닌 메인 출력을 사용하십시오. 자동조종장치가 서보 레일에 전원을 공급하지 않으므로, 모터 컨트롤러에는 내장 BEC가 있어야합니다.
+Wire the servos and motors as shown. Use the `MAIN` outputs (not the ones labeled with AUX). 자동조종장치가 서보 레일에 전원을 공급하지 않으므로, 모터 컨트롤러에는 내장 BEC가 있어야합니다.
 
 | 포트     | 연결                          |
 | ------ | --------------------------- |
@@ -55,7 +54,7 @@ PNF (또는 "PNP") 버전에는 모터, 프로펠러와 ESC가 포함됩니다.
 | MAIN 1 | 좌측 보조익                      |
 | MAIN 2 | 우측 보조익                      |
 | MAIN 3 | 비어있음                        |
-| MAIN 4 | 스로틀                         |
+| MAIN 4 | Motor 1                     |
 
 
 ## 조립 방법
@@ -64,8 +63,22 @@ PNF (또는 "PNP") 버전에는 모터, 프로펠러와 ESC가 포함됩니다.
 
 ![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg) ![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg) ![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg) ![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg) ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg) ![Wing Wing Z-84 조립](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## 기체 설정
+## PX4 Configuration
 
-QGC 기체 구성의 비행 날개 섹션에서 Z-84를 선택합니다.
+### 기체 설정
 
-![QGC-West Wing용 펌웨어 선택](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png) 
+Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Configuration](../en/config/airframe.md):
+
+![QGC-West Wing용 펌웨어 선택](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)
+
+### Actuator Mapping
+
+Set up the [Actuator Configuration](../en/config/actuators.md) to match the wiring for the ailerons and throttle as [indicated above](#wiring).
+
+![QGC - set the actuators](../../assets/airframes/fw/wing_wing/qgc_actuator_config.png)
+
+### Other Configuration
+
+Perform all the the other [Basic Configuration](../config/README.md), including [Autotuning](../config/autotune.md).
+
+Advanced tuning is optional - see [Fixed Wing Vehicle Configuration](../config_fw/README.md).

@@ -60,7 +60,7 @@ The PWM values to use for the disarmed, maximum and minimum values can be determ
 
 ## SITL
 
-The Gazebo [Typhoon H480 model](../simulation/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
+The Gazebo [Typhoon H480 model](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
 
 To run it, use:
 ```

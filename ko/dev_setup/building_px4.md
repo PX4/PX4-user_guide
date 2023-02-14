@@ -53,7 +53,7 @@ Flying the simulation with the ground control station is closer to the real oper
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). These are also started with *make* - e.g.
+:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../sim_gazebo_classic/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). These are also started with *make* - e.g.
 ```
 make px4_sitl gazebo
 ```
@@ -248,7 +248,7 @@ make list_config_targets
 `none`은 PX4를 시작하고 시뮬레이터(jmavsim, 전망대 또는 기타 시뮬레이터)를 기다리면, 사용할 수 있습니다. 예를 들어, `make px4_sitl none_iris`는 시뮬레이터 없이(그러나 홍채 기체가 있는) PX4를 시작합니다. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
 - **모델:** 사용할 *기체* 모델(예: `iris`(*기본*), `rover` , `tailsitter` 등), 시뮬레이터에 의해 로드됩니다. 환경 변수 `PX4_SIM_MODEL`은 선택한 모델로 설정되며, 이 모델은 [시작 스크립트](../simulation/README.md#startup-scripts)에서 적절한 매개변수 선택합니다.
 - **디버거:** 사용할 디버거: `없음`(*기본*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 자세한 내용은 [시뮬레이션 디버깅](../debug/simulation_debugging.md)을 참고하십시오.
-- **WORLD:** (Gazebo 만). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world). 자세한 내용은 [전망대 > 특정 세계 로드](../simulation/gazebo.md#set_world)를 참고하십시오.
+- **WORLD:** (Gazebo 만). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../sim_gazebo_classic/gazebo.md#set_world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:

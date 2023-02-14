@@ -168,7 +168,7 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 케이블 타이와, 양�
 :::tip PX4 설치 및 성정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-먼저 펌웨어와 에어프레임을 업데이트 합니다.
+First update the firmware, airframe, geometry, and outputs:
 
 - [펌웨어](../config/firmware.md)
 - [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
@@ -176,10 +176,10 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 케이블 타이와, 양�
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_airframe_generic_quadx.png)
 :::
 
-Then update vehicle geometry and output mappings:
-
 - [Actuators](../config/actuators.md)
-
+  - Update the vehicle geometry to match the frame.
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 그리고, 설치후 필수 설정 작업을 실시합니다.
 

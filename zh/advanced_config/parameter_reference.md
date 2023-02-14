@@ -13008,7 +13008,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_AT_MAN_AUX">FW_AT_MAN_AUX</strong> (INT32)</td>
- <td>Enable auto tuning enable on aux input <p><strong>Comment:</strong> Defines which aux input to enable auto tuning</p> <strong>参数对照:</strong><ul>
+ <td>Enable/disable auto tuning using an RC AUX input <p><strong>Comment:</strong> Defines which RC_MAP_AUXn parameter maps the RC channel used to enable/disable auto tuning.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disable</li>
 
 <li><strong>1:</strong> Aux1</li>
@@ -14746,9 +14746,9 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU delta velocity bias estimation 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
+ <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
   <li><strong>1:</strong> use optical flow</li> 
-  <li><strong>2:</strong> inhibit IMU bias estimation</li> 
+  <li><strong>2:</strong> unused</li> 
   <li><strong>3:</strong> unused</li> 
   <li><strong>4:</strong> unused</li> 
   <li><strong>5:</strong> multi-rotor drag fusion</li> 
@@ -15094,6 +15094,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="EKF2_GRAV_NOISE">EKF2_GRAV_NOISE</strong> (FLOAT)</td>
+ <td>Accelerometer measurement noise for gravity based observations    </td>
+ <td>[0.1, 10.0] </td>
+ <td>1.0</td>
+ <td>m/s^2</td>
+</tr>
+<tr>
  <td><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
  <td>Default value of true airspeed used in EKF-GSF AHRS calculation <p><strong>Comment:</strong> If no airspeed measurements are available, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes.</p>   </td>
  <td>[0.0, 100.0] </td>
@@ -15150,6 +15157,17 @@ table {
 </td>
  <td></td>
  <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="EKF2_IMU_CTRL">EKF2_IMU_CTRL</strong> (INT32)</td>
+ <td>IMU control   <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Gyro Bias</li> 
+  <li><strong>1:</strong> Accel Bias</li> 
+  <li><strong>2:</strong> Gravity vector fusion</li> 
+</ul>
+ </td>
+ <td>[0, 7] </td>
+ <td>3</td>
  <td></td>
 </tr>
 <tr>
@@ -21409,6 +21427,18 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
+ <td>Enable user assisted descent for autonomous land routine <p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED Additionally, the vehicle can be yawed and moved laterally using the other sticks. Manual override during auto modes has to be disabled to use this feature (see COM_RC_OVERRIDE).</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li>
+
+<li><strong>1:</strong> User assisted descent speed</li> 
+</ul>
+  </td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="MPC_LAND_SPEED">MPC_LAND_SPEED</strong> (FLOAT)</td>
  <td>Landing descend rate    </td>
  <td>[0.6, ?] </td>
@@ -24627,7 +24657,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="RTL_TIME_FACTOR">RTL_TIME_FACTOR</strong> (FLOAT)</td>
- <td>RTL time estimate safety margin factor <p><strong>Comment:</strong> Safety factor that is used to scale the actual RTL time estiamte. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
+ <td>RTL time estimate safety margin factor <p><strong>Comment:</strong> Safety factor that is used to scale the actual RTL time estimate. Time with margin = RTL_TIME_FACTOR * time + RTL_TIME_MARGIN</p>   </td>
  <td>[1.0, 2.0] (0.1)</td>
  <td>1.1</td>
  <td></td>
@@ -32855,18 +32885,6 @@ table {
    <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
- <td>Enable user assisted descent speed for autonomous land routine <p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED</p> <strong>参数对照:</strong><ul>
-<li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li>
-
-<li><strong>1:</strong> User assisted descent speed</li> 
-</ul>
-  </td>
- <td>[0, 1] </td>
- <td>0</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
  <td>Skip the controller  <strong>Values:</strong><ul>

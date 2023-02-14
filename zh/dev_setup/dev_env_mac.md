@@ -3,7 +3,7 @@
 MacOS 是受支持的 PX4 开发平台。 根据本文的指示构建的开发环境可以用编译：
 * 基于 NuttX 的硬件 (Pixhawk等)
 * [额外工具](../simulation/jmavsim.md)
-* [Gazebo Simulation](../simulation/gazebo.md)
+* [Gazebo Simulation](../sim_gazebo_classic/gazebo.md)
 
 :::details
 Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:

@@ -51,7 +51,7 @@ QGroundControlでシミュレーションすることは、車両の実際の動
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4は[Gazebo Simulation](../simulation/gazebo.md)と[AirSim Simulation](../simulation/airsim.md)を含む多くの[シミュレータ](../simulation/README.md)で使用できます． これらも *make*で起動されます。
+:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../sim_gazebo_classic/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). これらも *make*で起動されます。
 ```
 make px4_sitl gazebo
 ```
@@ -248,7 +248,7 @@ make list_config_targets
 :::
 - **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters.
 - **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
-- **WORLD:** (Gazebo only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../simulation/gazebo.md#set_world).
+- **WORLD:** (Gazebo only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../sim_gazebo_classic/gazebo.md#set_world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
