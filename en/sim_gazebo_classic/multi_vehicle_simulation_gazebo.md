@@ -12,9 +12,9 @@ To simulate multiple iris or plane vehicles in Gazebo use the following commands
 Tools/gazebo/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
+- `<model>`: The [vehicle type/model](../sim_gazebo_classic/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
 - `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 255.
-- `<world>`: The [world](../simulation/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
+- `<world>`: The [world](../sim_gazebo_classic/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
 - `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`).
   For example:
 
@@ -119,7 +119,7 @@ You can then control the vehicles with *QGroundControl* and MAVROS in a similar 
 
   :::note
   At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9.
-  See also [Gazebo Simulation](../simulation/gazebo.md).
+  See also [Gazebo Simulation](../sim_gazebo_classic/gazebo.md).
   :::
 * [MAVROS package](http://wiki.ros.org/mavros)
 * a clone of latest [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot)

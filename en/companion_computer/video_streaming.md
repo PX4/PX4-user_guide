@@ -34,4 +34,4 @@ To setup and use video steaming with QGC:
 ## Gazebo Simulation
 
 Gazebo support video streaming from within the simulated environment.
-For more information see [Gazebo Simulation > Video Streaming](../simulation/gazebo.md#video-streaming).
+For more information see [Gazebo Simulation > Video Streaming](../sim_gazebo_classic/gazebo.md#video-streaming).
