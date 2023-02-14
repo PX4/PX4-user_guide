@@ -10,15 +10,15 @@
 이 카테고리의 보드는 다음과 같습니다.
 
 - [CUAV Pixahwk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
-- [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
+- [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) (FMUv6X)
 - [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md) (FMUv6C)
 - [Holybro Pix32 v6](../flight_controller/holybro_pix32_v6.md) (FMUv6C)
-- [Holybro Pixhawk 6X](../flight_controller/pixhawk6x.md) (FMUv6X)
 - [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 - [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
 - [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4pro)
 - [mRo Pixracer](../flight_controller/pixracer.md) (FMUv4)
 - [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
+- [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 - [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv3)
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv3)
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv3)
