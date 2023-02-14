@@ -56,7 +56,7 @@ to:
 
 ## Running the Simulation
 
-Run the following three lines in *separate* terminal windows. This opens up [Gazebo](../simulation/gazebo.md), *Rviz* and an octomap server.
+Run the following three lines in *separate* terminal windows. This opens up [Gazebo](../sim_gazebo_classic/gazebo.md), *Rviz* and an octomap server.
 
 ```sh
 roslaunch rotors_gazebo mav_hovering_example_with_vi_sensor.launch  mav_name:=firefly

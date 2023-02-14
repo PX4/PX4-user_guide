@@ -4,7 +4,7 @@ The following instructions set up a PX4 development environment for macOS.
 This environment can be used to build PX4 for:
 * Pixhawk and other NuttX-based hardware
 * [jMAVSim Simulation](../simulation/jmavsim.md)
-* [Gazebo Simulation](../simulation/gazebo.md)
+* [Gazebo Simulation](../sim_gazebo_classic/gazebo.md)
 
 :::details Apple M1 Macbook users!
 If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
