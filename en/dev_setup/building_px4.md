@@ -61,10 +61,11 @@ This will reposition the vehicle.
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
 :::tip
-PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../sim_gazebo_classic/README.md) and [AirSim Simulation](../simulation/airsim.md). 
+PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../simulation/airsim.md). 
 These are also started with *make* - e.g.
+
 ```
-make px4_sitl gazebo
+make px4_sitl gazebo-classic
 ```
 :::
 
@@ -269,19 +270,20 @@ make list_config_targets
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
   
-- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
+- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
 
   :::tip
-  `none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, gazebo, or some other simulator).
+  `none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator).
   For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
   :::
 - **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator.
   The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters. 
 - **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 
   For more information see [Simulation Debugging](../debug/simulation_debugging.md).
-- **WORLD:** (Gazebo only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded.
+- **WORLD:** (Gazebo Classic only).
+  Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded.
   Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
-  For more information see [Gazebo > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
+  For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
@@ -293,9 +295,9 @@ make px4_sitl list_vmd_make_targets
 
 Notes:
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional.
-  For example, `gazebo` is equivalent to `gazebo_iris` or `gazebo_iris_none`.
+  For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
 - You can use three underscores if you want to specify a default value between two other settings.
-  For example, `gazebo___gdb` is equivalent to `gazebo_iris_gdb`.
+  For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
 - You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator.
   For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
 

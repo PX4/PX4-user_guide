@@ -20,13 +20,13 @@ The following simulators work with PX4 for HITL and/or SITL simulation.
 
 Simulator |Description
 ---|---
-[Gazebo](../sim_gazebo_classic/README.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>
+[Gazebo](../sim_gazebo_gz/README.md) | <p><strong>This simulator is highly recommended.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad</p>
+[Gazebo Classic](../sim_gazebo_classic/README.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control.</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>
 [FlightGear](../simulation/flightgear.md) | <p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. [Multi-vehicle simulation](../simulation/multi_vehicle_flightgear.md) is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p>
 [JSBSim](../simulation/jsbsim.md) | <p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p>
 [jMAVSim](../simulation/jmavsim.md) | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for [multi-vehicle simulation](../simulation/multi_vehicle_jmavsim.md).</p><p><strong>Supported Vehicles:</strong> Quad</p>
 [AirSim](../simulation/airsim.md) | <p>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here.</p><p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p>
 [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>
-[Ignition Gazebo](../sim_gazebo_gz/README.md) | <p>Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.</p><p><strong>Supported Vehicles:</strong> Quad</p>
 
 Instructions for how to setup and use the simulators are in the topics linked above.
 
@@ -101,7 +101,7 @@ The different parts of the system connect via UDP, and can be run on either the 
   PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.
   :::note
   Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink).
-  This approach *may* used by [Gazebo multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
+  This approach *may* used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
   :::
 * PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
   - Ground stations listen to PX4's remote UDP port: `14550`
@@ -119,19 +119,24 @@ You can configure additional MAVLink UDP connections and otherwise modify the si
 
 The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them.
 The syntax (simplified) looks like this:
+
 ```
 make px4_sitl simulator[_vehicle-model]
 ```
-where `simulator` is `gazebo`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([jMAVSim](../simulation/jmavsim.md) only supports multicopters, while [Gazebo](../sim_gazebo_classic/README.md) supports many different types).
+
+where `simulator` is `gz` (for Gazebo), `gazebo-classic`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([Gazebo](../sim_gazebo_gz/README.md) and [jMAVSim](../simulation/jmavsim.md) only support multicopters at time of writing, while [Gazebo Classic](../sim_gazebo_classic/README.md) supports many different types).
 
 A number of examples are shown below, and there are many more in the individual pages for each of the simulators:
 
 ```sh
-# Start Gazebo with plane
-make px4_sitl gazebo_plane
+# Start Gazebo with the x500 multicopter
+make px4_sitl gz_x500
 
-# Start Gazebo with iris and optical flow
-make px4_sitl gazebo_iris_opt_flow
+# Start Gazebo Classic with plane
+make px4_sitl gazebo-classic-classic_plane
+
+# Start Gazebo Classic with iris and optical flow
+make px4_sitl gazebo-classic-classic_iris_opt_flow
 
 # Start JMavSim with iris (default vehicle model)
 make px4_sitl jmavsim
@@ -141,6 +146,7 @@ make px4_sitl none_iris
 ```
 
 The simulation can be further configured via environment variables:
+
 - `PX4_ESTIMATOR`: This variable configures which estimator to use.
   Possible options are: `ekf2` (default), `lpe` (deprecated).
   It can be set via `export PX4_ESTIMATOR=lpe` before running the simulation.
@@ -151,7 +157,7 @@ For more information see: [Building the Code > PX4 Make Build Targets](../dev_se
 <a id="simulation_speed"></a>
 ### Run Simulation Faster than Realtime
 
-SITL can be run faster or slower than realtime when using jMAVSim or Gazebo.
+SITL can be run faster or slower than realtime when using jMAVSim or Gazebo Classic.
 
 The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`.
 For example, to run the jMAVSim simulation at 2 times the real time speed:
@@ -164,6 +170,7 @@ PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
 ```
 
 You can apply the factor to all SITL runs in the current session using `EXPORT`:
+
 ```
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
@@ -181,7 +188,7 @@ For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increa
 
 ### Lockstep Simulation
 
-PX4 SITL and the simulators (jMAVSim or Gazebo) have been set up to run in *lockstep*.
+PX4 SITL and the simulators (jMAVSim or Gazebo Classic) have been set up to run in *lockstep*.
 What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
 :::note
@@ -189,6 +196,7 @@ Lockstep makes it possible to [run the simulation faster or slower than realtime
 :::
 
 The sequence of steps for lockstep are:
+
 1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
 1. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
 1. The simulation waits until it receives the actuator/motor message, then simulates the physics and calculates the next sensor message to send to PX4 again.
@@ -242,10 +250,10 @@ For setup information see the *QGroundControl User Guide*:
 
 ## Camera Simulation
 
-PX4 supports capture of both still images and video from within the [Gazebo](../sim_gazebo_classic/README.md) simulated environment.
+PX4 supports capture of both still images and video from within the [Gazebo Classic](../sim_gazebo_classic/README.md) simulated environment.
 This can be enabled/set up as described in [Gazebo > Video Streaming](../sim_gazebo_classic/README.md#video).
 
-The simulated camera is a gazebo plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html)<!-- **PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->.
+The simulated camera is a gazebo classic plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html) <!-- **PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->.
 PX4 connects/integrates with this camera in *exactly the same way* as it would with any other MAVLink camera:
 1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera
    :::tip 

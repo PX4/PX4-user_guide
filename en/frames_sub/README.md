@@ -11,7 +11,7 @@ The following features have not been implemented:
 
 PX4 enables a number of unmanned underwater vehicle (UUV) frames:
 - [BlueROV2](../frames_sub/bluerov2.md): Vectored 6 DOF UUV
-- HippoCampus UUV: [Airframe Reference](../airframes/airframe_reference.md#underwater-robot-2), [Gazebo Simulation](../sim_gazebo_classic/gazebo_vehicles.md#hippocampus-tuhh-uuv)
+- HippoCampus UUV: [Airframe Reference](../airframes/airframe_reference.md#underwater-robot-2), [Gazebo Classic Simulation](../sim_gazebo_classic/gazebo_vehicles.md#hippocampus-tuhh-uuv)
 
 :::note
 Other UUVs may be listed in [Airframe Reference > Underwater Robots](../airframes/airframe_reference.md#underwater-robot-2).
@@ -23,7 +23,3 @@ Other UUVs may be listed in [Airframe Reference > Underwater Robots](../airframe
 @[youtube](https://youtu.be/1sUaURmlmT8)
 
 @[youtube](https://youtu.be/xSXSoUK-iBM)
-
-
-
-
