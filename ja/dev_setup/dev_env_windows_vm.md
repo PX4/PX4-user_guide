@@ -17,7 +17,7 @@ While using a VM is a very easy way to set up and test an environment for buildi
 
 ## Instructions
 
-There are multiple ways to setup a VM which is capable of executing the PX4 environment on your system. This guide walks you through a VMWare setup. VMWare performance is acceptable for basic usage (building Firmware) but not for running ROS or Gazebo.
+There are multiple ways to setup a VM which is capable of executing the PX4 environment on your system. This guide walks you through a VMWare setup. VMWare performance is acceptable for basic usage (building Firmware) but not for running ROS or Gazebo Classic.
 
 1. Download [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
 1. Install it on your Windows system
@@ -26,7 +26,7 @@ There are multiple ways to setup a VM which is capable of executing the PX4 envi
 1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
 
    :::note
-This option is required to properly run 3D simulation environments like jMAVSim and Gazebo.
+This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
 We recommend this is done before installing Linux in the virtual environment.
 :::
 1. Select the option to create a new virtual machine.
