@@ -1,19 +1,21 @@
-# Multi-Vehicle Simulation with Gazebo
+# Multi-Vehicle Simulation with Gazebo Classic
 
-This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL (Linux only).
+This topic explains how to simulate multiple UAV vehicles using [Gazebo Classic](../sim_gazebo_classic/README.md) and SITL (Linux only).
 A different approach is used for simulation with and without ROS.
 
 
 <a id="no_ros"></a>
-## Multiple Vehicle with Gazebo (No ROS)
+## Multiple Vehicle with Gazebo Classic (No ROS)
 
-To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the *Firmware* tree):
+To simulate multiple iris or plane vehicles in Gazebo Classic use the following commands in the terminal (from the root of the *Firmware* tree):
 ```
 Tools/gazebo/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
 - `<model>`: The [vehicle type/model](../sim_gazebo_classic/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
-- `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 255.
+- `<number_of_vehicles>`: The number of vehicles to spawn.
+  Default is 3.
+  Maximum is 255.
 - `<world>`: The [world](../sim_gazebo_classic/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
 - `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`).
   For example:
@@ -59,7 +61,7 @@ The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-po
 This content is out of date due to the replacement of the [Fast RTPS Bridge](../middleware/micrortps.md) in PX4 main and releases after PX4 v1.13.
 :::
 
-To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above).
+To simulate multiple vehicles based on RTPS/DDS in Gazebo Classic, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above).
 Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API.
 This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
 
@@ -74,7 +76,7 @@ To build an example setup, follow the steps below:
    ```bash
    cd Firmware_clone
    git submodule update --init --recursive
-   DONT_RUN=1 make px4_sitl_rtps gazebo
+   DONT_RUN=1 make px4_sitl_rtps gazebo-classic
    ```
 
 1. Build the `micrortps_agent`
@@ -108,9 +110,9 @@ To build an example setup, follow the steps below:
    :::
 
 <a id="with_ros"></a>
-## Multiple Vehicles with ROS and Gazebo
+## Multiple Vehicles with ROS and Gazebo Classic
 
-This example demonstrates a setup that opens the Gazebo client GUI showing two Iris vehicles in an empty world.
+This example demonstrates a setup that opens the Gazebo Classic client GUI showing two Iris vehicles in an empty world.
 You can then control the vehicles with *QGroundControl* and MAVROS in a similar way to how you would manage a single vehicle.
 
 ### Required
@@ -119,7 +121,7 @@ You can then control the vehicles with *QGroundControl* and MAVROS in a similar 
 
   :::note
   At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9.
-  See also [Gazebo Simulation](../sim_gazebo_classic/README.md).
+  See also [Gazebo Classic Simulation](../sim_gazebo_classic/README.md).
   :::
 * [MAVROS package](http://wiki.ros.org/mavros)
 * a clone of latest [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot)
@@ -133,7 +135,7 @@ To build an example setup, follow the step below:
    ```
    cd Firmware_clone
    git submodule update --init --recursive
-   DONT_RUN=1 make px4_sitl_default gazebo
+   DONT_RUN=1 make px4_sitl_default gazebo-classic
    ```
 1. Source your environment:
    ```
@@ -147,10 +149,10 @@ To build an example setup, follow the step below:
    ```
 
    :::note
-   You can specify `gui:=false` in the above *roslaunch* to launch Gazebo without its UI.
+   You can specify `gui:=false` in the above *roslaunch* to launch Gazebo Classic without its UI.
    :::
 
-The tutorial example opens the Gazebo client GUI showing two Iris vehicles in an empty world.
+The tutorial example opens the Gazebo Classic client GUI showing two Iris vehicles in an empty world.
 
 You can control the vehicles with *QGroundControl* or MAVROS in a similar way to how you would manage a single vehicle:
 * *QGroundControl* will have a drop-down to select the vehicle that is "in focus"
@@ -162,9 +164,9 @@ You can control the vehicles with *QGroundControl* or MAVROS in a similar way to
 
 For each simulated vehicle, the following is required:
 
-* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf).
+* **Gazebo Classic model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf).
   Currently, the model `xacro` file is assumed to end with **base.xacro**.
-  This model should have an argument called  `mavlink_udp_port` which defines the UDP port on which gazebo will communicate with PX4 node.
+  This model should have an argument called  `mavlink_udp_port` which defines the UDP port on which Gazebo Classic will communicate with PX4 node.
   The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select.
   To define the UDP port, set the `mavlink_udp_port` in the launch file for each vehicle, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37) as an example.
 
@@ -172,7 +174,8 @@ For each simulated vehicle, the following is required:
   If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. The same **`xacro`** file is adequate.
   :::
 
-* **PX4 node**: This is the SITL PX4 app. It communicates with the simulator, Gazebo, through the same UDP port defined in the Gazebo vehicle model, i.e. `mavlink_udp_port`.
+* **PX4 node**: This is the SITL PX4 app.
+  It communicates with the simulator, Gazebo Classic, through the same UDP port defined in the Gazebo Classic vehicle model, i.e. `mavlink_udp_port`.
   To set the UDP port on the PX4 SITL app side, you need to set the `SITL_UDP_PRT` parameter in the startup file to match the `mavlink_udp_port` discussed previously, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46).
   The path of the startup file in the launch file is generated based on the `vehicle` and `ID` arguments, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36).
   The `MAV_SYS_ID` for each vehicle in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4), should match the `ID` for that vehicle in the launch file [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25).
@@ -184,7 +187,7 @@ For each simulated vehicle, the following is required:
 
 The launch file `multi_uav_mavros_sitl.launch`does the following,
 
-* loads a world in gazebo,
+* loads a world in Gazebo Classic,
   ```
     <!-- Gazebo sim -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -197,7 +200,7 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
   ```
 * for each vehicle,
 
-  * creates urdf model from xacro, loads gazebo model and runs PX4 SITL app instance
+  * creates urdf model from xacro, loads gazebo classic model and runs PX4 SITL app instance
     ```
       <!-- PX4 SITL and vehicle spawn -->
       <include file="$(find px4)/launch/single_vehicle_spawn.launch">
@@ -233,7 +236,7 @@ To add a third iris to this simulation there are two main components to consider
 * add `UAV3` to **multi_uav_mavros_sitl.launch**
   * duplicate the group of either existing vehicle (`UAV1` or `UAV2`)
   * increment the `ID` arg to `3`
-  * select a different port for `mavlink_udp_port` arg for communication with Gazebo
+  * select a different port for `mavlink_udp_port` arg for communication with Gazebo Classic
   * selects ports for MAVROS communication by modifying both port numbers in the `fcu_url` arg
 * create a startup file, and change the file as follows:
   * make a copy of an existing iris rcS startup file (`iris_1` or `iris_2`) and rename it `iris_3`
@@ -249,7 +252,7 @@ To add a third iris to this simulation there are two main components to consider
 
 ## Multiple Vehicles using SDF Models
 
-This section shows how developers can simulate multiple vehicles using vehicle models defined in Gazebo SDF files (instead of using models defined in the ROS Xacro file, as discussed in the rest of this topic).
+This section shows how developers can simulate multiple vehicles using vehicle models defined in Gazebo Classic SDF files (instead of using models defined in the ROS Xacro file, as discussed in the rest of this topic).
 
 The steps are:
 
@@ -266,18 +269,19 @@ The steps are:
    Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo/tree/master/models/plane) will be used by default.
    :::
 
-This method is similar to using the xacro except that the SITL/Gazebo port number is automatically inserted by _xmstarlet_ for each spawned vehicle, and does not need to be specified in the SDF file.
+This method is similar to using the xacro except that the SITL/Gazebo Classic port number is automatically inserted by _xmstarlet_ for each spawned vehicle, and does not need to be specified in the SDF file.
 
-To add a new vehicle, you need to make sure the model can be found (in order to spawn it in Gazebo), and PX4 needs to have an appropriate corresponding startup script.
+To add a new vehicle, you need to make sure the model can be found (in order to spawn it in Gazebo Classic), and PX4 needs to have an appropriate corresponding startup script.
 
 1. You can choose to do either of:
    * modify the **single_vehicle_spawn_sdf.launch** file to point to the location of your model by changing the line below to point to your model:
+
      ```
      $(find px4)/Tools/simulation/gazebo/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf
      ```
      :::note
-	 Ensure you set the `vehicle` argument even if you hardcode the path to your model.
-	 :::
+     Ensure you set the `vehicle` argument even if you hardcode the path to your model.
+     :::
    * copy your model into the folder indicated above (following the same path convention).
 
 1. The `vehicle` argument is used to set the `PX4_SIM_MODEL` environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model.

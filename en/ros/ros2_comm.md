@@ -154,10 +154,12 @@ One way to check that the installation/setup succeeded is to test that the bridg
 We can do this by running the bridge against PX4 running in the simulator.
 
 1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
-1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 Gazebo simulation using:
+1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+
    ```sh
-   make px4_sitl_rtps gazebo
+   make px4_sitl_rtps gazebo-classic
    ```
+
    Once PX4 has fully started the terminal will display the [NuttShell/System Console](../debug/system_console.md).
    Note also that PX4 SITL will automatically start the `micrortps_client` connected to UDP ports 2019 and 2020.
 1. On a *new* terminal, `source` the ROS 2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:

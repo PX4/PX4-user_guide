@@ -1,12 +1,14 @@
-# OctoMap 3D Models with ROS/Gazebo
+# OctoMap 3D Models with ROS/Gazebo Classic
 
-The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data. This model data can then be used by a drone for navigation and obstacle avoidance.
+The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data.
+This model data can then be used by a drone for navigation and obstacle avoidance.
 
-This guide covers how to use *OctoMap* with the Gazebo [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
+This guide covers how to use *OctoMap* with the [Gazebo Classic](../sim_gazebo_classic/README.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
 
 ## Installation
 
-The installation requires ROS, Gazebo and the Rotors Simulator plugin. Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
+The installation requires ROS, [Gazebo Classic](../sim_gazebo_classic/README.md) and the Rotors Simulator plugin.
+Follow the [Rotors Simulator instructions](https://github.com/ethz-asl/rotors_simulator) to install.
 
 Next, install the *OctoMap* library:
 ```sh
@@ -15,14 +17,16 @@ rosdep install octomap_mapping
 rosmake octomap_mapping
 ```
 
-Now, open ~/catkin_ws/src/rotors_simulator/rotors_gazebo/CMakeLists.txt	and add the following lines to the bottom of the file
+Now, open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/CMakeLists.txt` and add the following lines to the bottom of the file:
+
 ```sh
 find_package(octomap REQUIRED)
 include_directories(${OCTOMAP_INCLUDE_DIRS})
 link_libraries(${OCTOMAP_LIBRARIES})
 ```
 
-Open ~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml and add the following lines	
+Open `~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml` and add the following lines:
+
 ```sh
 <build_depend>octomap</build_depend>
 <run_depend>octomap</run_depend>
@@ -56,7 +60,8 @@ to:
 
 ## Running the Simulation
 
-Run the following three lines in *separate* terminal windows. This opens up [Gazebo](../sim_gazebo_classic/README.md), *Rviz* and an octomap server.
+Run the following three lines in *separate* terminal windows.
+This opens up [Gazebo Classic](../sim_gazebo_classic/README.md), *Rviz* and an octomap server.
 
 ```sh
 roslaunch rotors_gazebo mav_hovering_example_with_vi_sensor.launch  mav_name:=firefly
@@ -69,7 +74,7 @@ Now click the add button in the bottom left and select MarkerArray. Then double 
 
 Now you should see a part of the floor. 
 
-In the *Gazebo* window, insert a cube in front of the red rotors and you should see it in *Rviz*.
+In the *Gazebo Classic* window, insert a cube in front of the red rotors and you should see it in *Rviz*.
 
 ![OctoMap Example in Gazebo](../../assets/simulation/octomap.png)
 
