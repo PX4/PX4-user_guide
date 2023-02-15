@@ -15250,7 +15250,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.</p> <strong>Values:</strong><ul>
+ <td>Type of magnetometer fusion <p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times. If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Automatic</li>
 
 <li><strong>1:</strong> Magnetic heading</li>
@@ -16074,61 +16074,6 @@ table {
 </tr>
 </tbody></table>
 
-## FW L1 Control
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="FW_L1_DAMPING">FW_L1_DAMPING</strong> (FLOAT)</td>
- <td>L1 damping <p><strong>Comment:</strong> Damping factor for L1 control.</p>   </td>
- <td>[0.6, 0.9] (0.05)</td>
- <td>0.75</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_L1_PERIOD">FW_L1_PERIOD</strong> (FLOAT)</td>
- <td>L1 period <p><strong>Comment:</strong> Used to determine the L1 gain and controller time constant. This parameter is proportional to the L1 distance (which points ahead of the aircraft on the path it is following). A value of 18-25 seconds works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
- <td>[7.0, 50.0] (0.5)</td>
- <td>20.0</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="FW_L1_R_SLEW_MAX">FW_L1_R_SLEW_MAX</strong> (FLOAT)</td>
- <td>L1 controller roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
- <td>[0, ?] (1)</td>
- <td>90.0</td>
- <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
- <td>RC stick configuration fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
-  <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li> 
-</ul>
- </td>
- <td>[0, 3] </td>
- <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
- <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for autonomous modes including altitude and position control.</p>   </td>
- <td>[35.0, 65.0] (0.5)</td>
- <td>50.0</td>
- <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_TKO_PITCH_MIN">FW_TKO_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch during takeoff    </td>
- <td>[-5.0, 30.0] (0.5)</td>
- <td>10.0</td>
- <td>deg</td>
-</tr>
-</tbody></table>
-
 ## FW Launch detection
 
 <table>
@@ -16175,13 +16120,6 @@ table {
    <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td><strong id="FW_USE_NPFG">FW_USE_NPFG</strong> (INT32)</td>
- <td>Use NPFG as lateral-directional guidance law for fixed-wing vehicles <p><strong>Comment:</strong> Replaces L1.</p>   </td>
- <td></td>
- <td>Enabled (1)</td>
- <td></td>
-</tr>
 <tr>
  <td><strong id="NPFG_DAMPING">NPFG_DAMPING</strong> (FLOAT)</td>
  <td>NPFG damping ratio <p><strong>Comment:</strong> Damping ratio of the NPFG control law.</p>   </td>
@@ -16233,7 +16171,7 @@ table {
 </tr>
 <tr>
  <td><strong id="NPFG_SW_DST_MLT">NPFG_SW_DST_MLT</strong> (FLOAT)</td>
- <td>NPFG switch distance multiplier <p><strong>Comment:</strong> Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1. 1/pi (0.32) sets the switch distance equivalent to that of the L1 controller.</p>   </td>
+ <td>NPFG switch distance multiplier <p><strong>Comment:</strong> Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1.</p>   </td>
  <td>[0.1, 1.0] (0.01)</td>
  <td>0.32</td>
  <td></td>
@@ -16258,6 +16196,47 @@ table {
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
+</tr>
+</tbody></table>
+
+## FW Path Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>[Min, Max] (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="FW_PN_R_SLEW_MAX">FW_PN_R_SLEW_MAX</strong> (FLOAT)</td>
+ <td>Path navigation roll slew rate limit <p><strong>Comment:</strong> The maximum change in roll angle setpoint per second.</p>   </td>
+ <td>[0, ?] (1)</td>
+ <td>90.0</td>
+ <td>deg/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_POS_STK_CONF">FW_POS_STK_CONF</strong> (INT32)</td>
+ <td>RC stick configuration fixed-wing <p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)</li> 
+  <li><strong>1:</strong> Enable airspeed setpoint via sticks in altitude and position flight mode</li> 
+</ul>
+ </td>
+ <td>[0, 3] </td>
+ <td>2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
+ <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for autonomous modes including altitude and position control.</p>   </td>
+ <td>[35.0, 65.0] (0.5)</td>
+ <td>50.0</td>
+ <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_TKO_PITCH_MIN">FW_TKO_PITCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch during takeoff    </td>
+ <td>[-5.0, 30.0] (0.5)</td>
+ <td>10.0</td>
+ <td>deg</td>
 </tr>
 </tbody></table>
 
@@ -20857,7 +20836,7 @@ table {
 </tr>
 <tr>
  <td><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
- <td>Acceptance Radius <p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>   </td>
+ <td>Acceptance Radius <p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the npfg switch distance is used for horizontal acceptance.</p>   </td>
  <td>[0.05, 200.0] (0.5)</td>
  <td>10.0</td>
  <td>m</td>
@@ -24949,18 +24928,18 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="RWTO_L1_PERIOD">RWTO_L1_PERIOD</strong> (FLOAT)</td>
- <td>L1 period while steering on runway    </td>
- <td>[1.0, 100.0] (0.1)</td>
- <td>5.0</td>
- <td>s</td>
-</tr>
-<tr>
  <td><strong id="RWTO_MAX_THR">RWTO_MAX_THR</strong> (FLOAT)</td>
  <td>Max throttle during runway takeoff <p><strong>Comment:</strong> Can be used to test taxi on runway</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="RWTO_NPFG_PERIOD">RWTO_NPFG_PERIOD</strong> (FLOAT)</td>
+ <td>NPFG period while steering on runway    </td>
+ <td>[1.0, 100.0] (0.1)</td>
+ <td>5.0</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="RWTO_NUDGE">RWTO_NUDGE</strong> (INT32)</td>
@@ -27985,6 +27964,19 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_ARSPDSIM">SENS_EN_ARSPDSIM</strong> (INT32)</td>
+ <td>Enable simulated airspeed sensor instance  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_BATT">SENS_EN_BATT</strong> (INT32)</td>
  <td>SMBUS Smart battery driver BQ40Z50 and BQ40Z80    <p><b>Reboot required:</b> true</p>
 </td>
@@ -29276,6 +29268,19 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SIM_ARSPD_FAIL">SIM_ARSPD_FAIL</strong> (INT32)</td>
+ <td>Dynamically simulate failure of airspeed sensor instance  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
  <td>0</td>
  <td></td>
 </tr>
