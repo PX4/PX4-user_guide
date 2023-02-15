@@ -2,8 +2,9 @@
 
 The following instructions set up a PX4 development environment on Ubuntu Linux 18.04 and 20.04. 이 환경은 [대부분의 PX4 타켓](../dev_setup/dev_env.md#supported-targets) 빌드에 사용됩니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
+* [Gazebo Simulation](../sim_gazebo_gz/README.md) (Ubuntu 20.04 and later)
+* [Gazebo Classic Simulation](../sim_gazebo_classic/README.md) (up to Ubuntu 20.04)
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
-* [가제보 시뮬레이션](../sim_gazebo_classic/README.md)
 * [라즈베리파이](#raspberry-pi)
 * [ROS(1)](#ros-gazebo)(로봇 운영 체제)
 * [Fast DDS](../dev_setup/fast-dds-installation.md) - ROS2에 필요
@@ -27,17 +28,17 @@ The following instructions set up a PX4 development environment on Ubuntu Linux 
 
 다양한 플랫폼에서 개발 환경을 쉽게 설치하는 Bash 스크립트가 제공됩니다. 그것들은 *깨끗한* Ubuntu LTS 설치본에서 실행하기 위한 것입니다.
 
-| 스크립트                                                                                                                             | 설명                                                                                                                                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)**                                            | Installs [Gazebo 9](../sim_gazebo_classic/README.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
+| 스크립트                                                                                                                             | 설명                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)**                                            | Installs [Gazebo Classic](../sim_gazebo_classic/README.md) (version 9 on Ubuntu 18.04 - otherwise version 11) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
 |
-| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Ubuntu 18.04 LTS **에만** [ROS "Melodic"](#rosgazebo) 및 PX4를 설치합니다.<br>Ubuntu 20.04</2> 이상에서는 사용하지 마십시오!                                                                                                                                                                                                      |
+| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Ubuntu 18.04 LTS **에만** [ROS "Melodic"](#rosgazebo) 및 PX4를 설치합니다.<br>Ubuntu 20.04</2> 이상에서는 사용하지 마십시오!                                                                                                                                                                                                                                                               |
 
 :::note
 스크립트가 기존 시스템의 "상단에" 설치된 경우 또는 다른 Ubuntu 릴리스에 설치된 경우 작동하지 *않을 수 있습니다*.
 :::
 
-## Gazebo, JMAVSim 및 NuttX(Pixhawk) 타겟
+## Gazebo Classic, JMAVSim and NuttX (Pixhawk) Targets
 
 [Fast DDS](#fast-dds-installation)에 대한 종속성을 포함하지 않습니다. <!-- NEED px4_version --> script to set up a development environment that includes [Gazebo 9](../sim_gazebo_classic/README.md) and [jMAVSim](../simulation/jmavsim.md) simulators, and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
 
@@ -67,7 +68,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
 :::note
 These are additional "for your information" notes. They only explain the implementation.
 
-- 스크립트는 Gazebo 9를 설치합니다([gazebosim.org 지침](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install)에 따름). Gazebo 7, 8도 지원되지만 권장되지는 않습니다.
+- The script installs Gazebo Classic 9 (following [gazebosim.org instructions](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install)). Gazebo 7, 8도 지원되지만 권장되지는 않습니다.
 - 다음과 같이 gcc 버전을 확인하여 NuttX 설치를 확인할 수 있습니다.
   ```bash
    $arm-none-eabi-gcc --version
@@ -175,7 +176,7 @@ make
 
 <a id="rosgazebo"></a>
 
-## ROS/Gazebo
+## ROS/Gazebo Classic
 
 이 섹션에서는 Ubuntu 18.04에서 [ROS](../ros/README.md) "Melodic"과 PX4를 설치 방법을 설명합니다.
 
@@ -196,7 +197,7 @@ make
    스크립트가 진행되는 동안 일부 프롬프트를 확인하여야 합니다.
 
 :::note
-* ROS Melodic은 기본적으로 Gazebo9와 함께 설치됩니다.
+* ROS Melodic is installed with Gazebo (Classic) 9 by default.
 * catkin(ROS 빌드 시스템) 작업 공간은 **~/catkin_ws/**에 생성됩니다.
 * 스크립트는 ROS Wiki "Melodic" [Ubuntu 페이지](http://wiki.ros.org/melodic/Installation/Ubuntu)의 지침을 사용합니다.
 :::
