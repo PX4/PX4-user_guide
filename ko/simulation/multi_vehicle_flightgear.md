@@ -5,7 +5,7 @@ SITL에서 FlightGear를 사용하여 다중 차량 시뮬레이션 방법을 �
 :::note
 이것은 PX4 차량을 시뮬레이션하는 환경적으로 제일 현실적인 방법이며,  다향한 유형의 차량을 쉽게 테스트할 수 있습니다. *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/) 등에서 다중 차량 지원을 테스트하는 데 적합합니다.
 
-[Gazebo를 사용한 다중 차량 시뮬레이션](../simulation/multi-vehicle-simulation.md)은 대신 많은 차량을 사용한 그룹 시뮬레이션 및 Gazebo에서만 지원되는 컴퓨터 비전과 같은 기능을 테스트에 사용하여야 합니다.
+[Multi-Vehicle Simulation with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo Classic.
 :::
 
 ## 다중 인스턴스 시작 방법
