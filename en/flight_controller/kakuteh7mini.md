@@ -7,7 +7,7 @@ Contact the [manufacturer](https://shop.holybro.com/) for hardware support or co
 
 The [Holybro Kakute H7 mini](http://www.holybro.com/product/kakute-h7-mini/) flight controller is intended for lightweight frame builds (such as racers, etc.).
 
- This flight controller is full of features including integrated Bluetooth, HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for logging (not supported with PX4 yet), 5V BEC, and bigger soldering pad with easy layout and much more.
+ This flight controller is full of features including HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for logging (not supported with PX4 yet), 5V BEC, and bigger soldering pad with easy layout and much more.
 
 The Kakute H7 mini builds upon the best features of its predecessor, the [Kakute F7](../flight_controller/kakutef7.md), and the [Kakute H7](../flight_controller/kakuteh7.md).
 
@@ -30,6 +30,7 @@ PX4 runs on the H7 mini v1.3 and later.
 - Barometer: BMP280
 - OSD: AT7456E
 - 6x UARTs (1,2,3,4,6,7)
+- VTX On/Off Pit Switch: Not used with PX4
 - 9x PWM Outputs (8 Motor Outputs, 1 LED)
 - 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
 - 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
