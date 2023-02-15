@@ -1,6 +1,6 @@
 # PX4 도커 컨테이너
 
-Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Simulation](../sim_gazebo_classic/README.md) and [ROS](../simulation/ros_interface.md).
+Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).
 
 [도커 컨테이너](#px4_containers)를 사용하여 Linux 컴퓨터에서 빌드하는 방법을 설명합니다.
 
@@ -137,7 +137,7 @@ If you encounter the error "Can't open display: :0", `DISPLAY` may need to be se
 
 ```sh
 cd src/PX4-Autopilot    #This is <container_src>
-make px4_sitl_default gazebo
+make px4_sitl_default gazebo-classic
 ```
 
 
@@ -192,7 +192,7 @@ $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}
 
 #### 그래픽 드라이버 문제
 
-Gazebo를 실행하면 다음과 같은 유사한 오류 메시지가 나타날 수 있습니다.
+It's possible that running Gazebo Classic will result in a similar error message like the following:
 
 ```sh
 libGL error: failed to load driver: swrast

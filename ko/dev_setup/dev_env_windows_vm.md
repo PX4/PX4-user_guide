@@ -17,7 +17,7 @@ Windows 개발자는 Linux를 게스트 운영 체제로 사용하는 가상 머
 
 ## 사용 설명
 
-시스템에서 PX4 실행을 위한 가상 머신을 설정하는 방법에는 여러 가지가 있습니다. 이 가이드는 VMWare 설정 방법을 설명합니다. VMWare 성능은 기본 사용(펌웨어 구축)에는 적절하지만, ROS 또는 Gazebo를 실행하는 경우에는 적절하지 않습니다.
+시스템에서 PX4 실행을 위한 가상 머신을 설정하는 방법에는 여러 가지가 있습니다. 이 가이드는 VMWare 설정 방법을 설명합니다. VMWare performance is acceptable for basic usage (building Firmware) but not for running ROS or Gazebo Classic.
 
 1. [VMWare 플레이어](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)를 다운로드합니다.
 1. 윈도우 시스템에 설치합니다.
@@ -26,7 +26,7 @@ Windows 개발자는 Linux를 게스트 운영 체제로 사용하는 가상 머
 1. 가상 머신 설정에서 3D 가속 사용: **VM > 설정 > 하드웨어 > 디스플레이 > 3D 그래픽 가속화**
 
    :::note
-이 옵션은 jMAVSim 및 Gazebo와 같은 3D 시뮬레이션 실행에 필요합니다.
+This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
 가상 환경에 Linux를 설치하기 전에 이 작업을 수행하는 것이 좋습니다.
 :::
 1. 새 가상 머신을 생성하는 메뉴를 선택합니다.

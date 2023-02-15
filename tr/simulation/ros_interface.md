@@ -1,8 +1,8 @@
-# ROS with Gazebo Simulation
+# ROS with Gazebo Classic Simulation
 
-[ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo simulator](../sim_gazebo_classic/README.md). It uses the [MAVROS](../ros/mavros_installation.md) MAVLink node to communicate with PX4.
+[ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. It uses the [MAVROS](../ros/mavros_installation.md) MAVLink node to communicate with PX4.
 
-The ROS/Gazebo integration with PX4 follows the pattern in the diagram below (this shows the *generic* [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands.
+The ROS/Gazebo Classic integration with PX4 follows the pattern in the diagram below (this shows the *generic* [PX4 simulation environment](../simulation/README.md#sitl-simulation-environment)). PX4 communicates with the simulator (e.g. Gazebo Classic) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands.
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
 
@@ -10,13 +10,13 @@ The ROS/Gazebo integration with PX4 follows the pattern in the diagram below (th
 The only *slight* difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
 :::
 
-## Installing ROS and Gazebo
+## Installing ROS and Gazebo Classic
 
 :::note
 *ROS* is only supported on Linux (not macOS or Windows).
 :::
 
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo 9 simulator, and [MAVROS](../ros/mavros_installation.md).
+The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo Classic 9 simulator, and [MAVROS](../ros/mavros_installation.md).
 
 :::note
 The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
@@ -39,14 +39,15 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 
 :::note
 It can be useful to call *roslaunch* with the `-w NUM_WORKERS` (override number of worker threads) and/or `-v` (verbose) in order to get warnings about missing dependencies in your setup. For example:
+
 ```sh
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 :::
 
-## Launching Gazebo with ROS Wrappers
+## Launching Gazebo Classic with ROS Wrappers
 
-The Gazebo simulation can be modified to integrate sensors publishing directly to ROS topics e.g. the Gazebo ROS laser plugin. To support this feature, Gazebo must be launched with the appropriate ROS wrappers.
+The Gazebo Classic simulation can be modified to integrate sensors publishing directly to ROS topics e.g. the Gazebo Classic ROS laser plugin. To support this feature, Gazebo Classic must be launched with the appropriate ROS wrappers.
 
 There are ROS launch scripts available to run the simulation wrapped in ROS:
 
@@ -59,7 +60,7 @@ To run SITL wrapped in ROS the ROS environment needs to be updated, then launch 
 
 ```sh
 cd <PX4-Autopilot_clone>
-DONT_RUN=1 make px4_sitl_default gazebo
+DONT_RUN=1 make px4_sitl_default gazebo-classic
 source ~/catkin_ws/devel/setup.bash    # (optional)
 source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
@@ -76,10 +77,11 @@ This section shows how the *roslaunch* instructions provided previously actually
 First start the simulator using the command below:
 
 ```sh
-no_sim=1 make px4_sitl_default gazebo
+no_sim=1 make px4_sitl_default gazebo-classic
 ```
 
 The console will look like this:
+
 ```sh
 [init] shell id: 46979166467136
 [init] task name: px4
@@ -110,7 +112,7 @@ cd <PX4-Autopilot_clone>
 source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 ```
 
-Now start Gazebo like you would when working with ROS and insert the Iris quadcopter model. Once the Iris is loaded it will automatically connect to the px4 app.
+Now start Gazebo Classic like you would when working with ROS and insert the Iris quadcopter model. Once the Iris is loaded it will automatically connect to the px4 app.
 
 ```sh
 roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo/sitl_gazebo/worlds/iris.world

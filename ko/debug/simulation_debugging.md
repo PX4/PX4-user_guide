@@ -31,16 +31,16 @@ make px4_sitl_default jmavsim___valgrind
 
 ## 조합 시작
 
-SITL은 디버거를 연결하거나 연결하지 않고, jMAVSim 또는 Gazebo를 시뮬레이션 백엔드로 사용하여 시작할 수 있습니다. 그 결과 아래와 같은 시작 옵션이 나타납니다.
+SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend. 그 결과 아래와 같은 시작 옵션이 나타납니다.
 
 ```sh
 make px4_sitl_default jmavsim
 make px4_sitl_default jmavsim___gdb
 make px4_sitl_default jmavsim___lldb
 
-make px4_sitl_default gazebo
-make px4_sitl_default gazebo___gdb
-make px4_sitl_default gazebo___lldb
+make px4_sitl_default gazebo-classic
+make px4_sitl_default gazebo-classic___gdb
+make px4_sitl_default gazebo-classic___lldb
 ```
 
 여기서 마지막 매개변수는 &lt;viewer\_model\_debugger&gt; 삼중항입니다(밑줄 3개를 사용하면 기본 "iris" 모델을 의미함). 그러면, 디버거가 시작되고 SITL 애플리케이션이 시작됩니다. 디버거 셸에서 실행을 중지하려면 `CTRL-C`를 입력합니다.
@@ -84,7 +84,7 @@ make px4_sitl_default   # Configure with cmake
 make -C build/px4_sitl_default jmavsim___gdb
 ```
 
-빌드 디렉토리에서 사용 가능한 make 대상의 전체 목록은 다음 명령어로 조회할 수 있습니다.
+A full list of the available make targets in the build directory can be obtained with:
 
 ```sh
 make help
@@ -100,7 +100,7 @@ make list_vmd_make_targets
 
 `posix_sitl_*`에 대해 구성할 때 주어진 실행 파일 및/또는 모듈(cmake에서 `add_executable` 또는 `add_library`로 추가)에 대한 컴파일러 최적화를 억제할 수 있습니다. 이것은 디버거를 사용하여 코드를 단계별로 실행하거나, 그렇지 않으면 최적화 변수를 인쇄시에 편리합니다.
 
-그렇게 하려면 환경 변수 `PX4_NO_OPTIMIZATION`을 최적화 없이 컴파일하는 대상과 일치하는 세미콜론으로 구분된 정규식 목록으로 설정합니다. 이 환경변수는 설정이 `posix_sitl_*`이 아닌 경우에는 무시됩니다.
+To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
 
 예를 들어,
 

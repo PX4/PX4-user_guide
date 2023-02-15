@@ -184,13 +184,13 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1,
 
 ## 사용법
 
-After building the colcon workspace, and after starting PX4 SITL (`make px4_sitl_rtps gazebo`, which starts the microRTPS client automatically on UDP ports 2019 and 2020) and the microRTPS agent (`micrortps_agent -t UDP`, starting the agent connected to UDP ports 2020 and 2019):
+After building the colcon workspace, and after starting PX4 SITL (`make px4_sitl_rtps gazebo-classic`, which starts the microRTPS client automatically on UDP ports 2019 and 2020) and the microRTPS agent (`micrortps_agent -t UDP`, starting the agent connected to UDP ports 2020 and 2019):
 
 ```sh
 $ source path_to_colcon_workspace/install/setup.bash
 $ ros2 run px4_ros_com offboard_control
 ```
 
-## PX4 SITL과 Gazebo를 사용한 데모
+## Demo with PX4 SITL and Gazebo Classic
 
 @colcon 작업 공간을 구축하고 PX4 SITL과 microRTPS 브리지 클라이언트 및 에이전트를 시작한 후:
