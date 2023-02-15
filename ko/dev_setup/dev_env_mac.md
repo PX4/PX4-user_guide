@@ -3,7 +3,7 @@
 아래에서 macOS용 PX4 개발 환경 설정 방법을 설명합니다. PX4 빌드에 사용되어 집니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
-* [가제보 시뮬레이션](../sim_gazebo_classic/gazebo.md)
+* [가제보 시뮬레이션](../sim_gazebo_classic/README.md)
 
 :::details
 애플 M1 맥북 사용자 Apple M1 Macbook이 있는 경우 x86 터미널을 설정하여 터미널을 x86으로 실행해야 합니다.
