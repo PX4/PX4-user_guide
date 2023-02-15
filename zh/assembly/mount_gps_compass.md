@@ -1,6 +1,6 @@
-# Mounting a GPS/Compass
+# 安装GPS/指南针
 
-GPS/Compasses should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. If mounted in this way you can immediately proceed to [compass calibration](../config/compass.md#performing-the-calibration).
+应尽可能将GPS/指南针安装在框架上远离其他电子设备的地方。 它的方向标记指向载具前面。 如果以这种方式安装，你可以立即着手 [指南针校准](../config/compass.md#performing-the-calibration)。
 
 The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
@@ -8,9 +8,9 @@ The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
 ## Compass Orientation
 
-The compass can be mounted in any of the standard MAVLink orientations defined in [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION). The orientation follows the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#orientation-definition).
+指南针可以安装在任何 [MAV_SENSOR_OR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) 定义的标准的 MAVLink 方向中。 方向与 [设置飞行控制器方向](../config/flight_controller_orientation.md#orientation-definition) 时相同。
 
-If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO) enabled), the orientation should be detected automatically. Otherwise you can directly select the appropriate value in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) for up to three compasses.
+如果您正在使用普通的 [指南针校准](../config/compass.md) 进程（启用了 [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO)参数)，方向应该会被自动检测。 否则您可以在 [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) 中为最多三个指南针直接选择适当的值。
 
 :::warning
 You must mount the compass in a supported orientation!
