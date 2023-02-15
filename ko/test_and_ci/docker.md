@@ -1,6 +1,6 @@
 # PX4 도커 컨테이너
 
-도커 컨테이너는 NuttX 및 Linux 기반 하드웨어, [Gazebo 시뮬레이션](../simulation/gazebo.md) 및 [ROS](../simulation/ros_interface.md)를 포함한 전체 [PX4 개발 툴체인](../dev_setup/dev_env.md#supported-targets)을 제공됩니다.
+Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Simulation](../sim_gazebo_classic/README.md) and [ROS](../simulation/ros_interface.md).
 
 [도커 컨테이너](#px4_containers)를 사용하여 Linux 컴퓨터에서 빌드하는 방법을 설명합니다.
 

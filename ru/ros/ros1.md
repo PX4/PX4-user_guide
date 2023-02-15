@@ -13,7 +13,7 @@ The main topics covered are:
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS MAVROS Sending Custom Messages](../ros/mavros_custom_messages.md)
 - [ROS with Gazebo Simulation](../simulation/ros_interface.md)
-- [Gazebo OctoMap Models with ROS](../simulation/gazebo_octomap.md)
+- [Gazebo OctoMap Models with ROS](../sim_gazebo_classic/gazebo_octomap.md)
 - [ROS Installation on RPi](../ros/raspberrypi_installation.md)
 - [External Position Estimation (Vision/Motion based)](../ros/external_position_estimation.md)
 

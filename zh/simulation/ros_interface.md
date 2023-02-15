@@ -1,6 +1,6 @@
 # Gazebo 与 ROS 仿真
 
-[ ROS](../ros/README.md)（机器人操作系统）可与 PX4 和[ Gazebo 模拟器](../simulation/gazebo.md)一起使用。 它使用[ MAVROS](../ros/mavros_installation.md) MAVLink 节点与 PX4 通信。
+[ROS](../ros/README.md) (Robot Operating System) can be used with PX4 and the [Gazebo simulator](../sim_gazebo_classic/README.md). 它使用[ MAVROS](../ros/mavros_installation.md) MAVLink 节点与 PX4 通信。
 
 ROS/Gazebo 与 PX4 的集成遵循下图中的模式（这显示了* generic * [ PX4 simulation environment ](../simulation/README.md#sitl-simulation-environment)）。 PX4 与模拟器（例如 Gazebo）通信以从模拟世界接收传感器数据并发送电机和执行器值。 它与 GCS 和 Offboard API（例如 ROS）通信，以从模拟环境发送遥测数据并接收命令。
 

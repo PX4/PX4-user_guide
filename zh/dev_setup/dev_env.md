@@ -15,7 +15,7 @@ The *supported platforms* for PX4 development are:
 | **NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) |       X        |    X    |    X    |
 | **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                                                                                                 |       X        |         |         |
 | **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                  |       X        | &check; | &check; |
-| **Simulation:** [Gazebo SITL](../sim_gazebo_classic/gazebo.md)                                                                                                                                            |       X        |    X    |    X    |
+| **Simulation:** [Gazebo SITL](../sim_gazebo_classic/README.md)                                                                                                                                            |       X        |    X    |    X    |
 | **模拟器：** [Gazebo SITL](../simulation/gazebo.md)                                                                                                                                                           |       X        |         |         |
 
 不同操作系统的开发环境的安装请参阅：
