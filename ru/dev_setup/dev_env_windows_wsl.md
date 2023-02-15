@@ -6,7 +6,7 @@ This environment can be used to build PX4 for:
 
 - [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
 - [jMAVSim Simulation](../simulation/jmavsim.md)
-- [Gazebo Simulation](../sim_gazebo_classic/gazebo.md)
+- [Gazebo Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -48,7 +48,7 @@ Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics f
 
 Development is possible as you can still:
 - Build PX4 in WSL2 and flash it to boards using QGC from **Windows**.
-- Run simulations in [headless mode](../sim_gazebo_classic/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`). Connect using QGC on Windows or in WSL.
+- Run simulations in [headless mode](../sim_gazebo_classic/README.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`). Connect using QGC on Windows or in WSL.
 
 :::note WSL2 GUI support is provided by the [Windows Subsystem for Linux GUI (WSLg)](https://github.com/microsoft/wslg). This is present in stable Windows 11 builds by default. It is not yet in stable Windows 10 (only insider previews). See the link for rollout information.
 :::
