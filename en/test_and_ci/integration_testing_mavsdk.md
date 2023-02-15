@@ -27,7 +27,7 @@ If you haven't done so already:
 To build PX4 source code for simulator testing, use:
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
+DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 ```
 
 ### Install the MAVSDK C++ Library

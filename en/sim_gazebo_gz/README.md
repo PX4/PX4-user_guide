@@ -1,7 +1,7 @@
 # Gazebo Simulation
 
 :::warning
-This Gazebo variant was previously known as "Gazebo Ignition" (and _Gazebo Classic_ was previously known as Gazebo).
+Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was previously known as Gazebo).
 See the [official blog post](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) for more information.
 :::
 
@@ -44,7 +44,7 @@ cd /path/to/PX4-Autopilot
 make px4_sitl gz_x500
 ```
 This will run both the PX4 SITL instance and the Gazebo client.
-Note that all gazebo targets have the prefix `gz_`.
+Note that all gazebo make targets have the prefix `gz_`.
 
 The supported vehicles and `make` commands are listed below.
 

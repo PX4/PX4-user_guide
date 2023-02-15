@@ -124,7 +124,7 @@ Make sure the motors do not overheat with the changed settings.
 There is an omnicopter gazebo simulation target:
 
 ```sh
-make px4_sitl gazebo_omnicopter
+make px4_sitl gazebo-classic_omnicopter
 ```
 ![Gazebo Sim](../../assets/airframes/multicopter/omnicopter/gazebo.png)
 
