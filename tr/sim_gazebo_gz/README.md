@@ -6,7 +6,7 @@ Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was pre
 
 [Gazebo](https://gazebosim.org/home) is an open source robotics simulator. It supersedes the older [Gazebo Classic](sim_gazebo_classic/gazebo.md) simulator, and is the only supported version of Gazebo for Ubuntu 22.04 and onwards.
 
-**Supported Vehicles:** Quadrotor
+**Supported Vehicles:** Quadrotor, Plane, VTOL
 
 @[youtube](https://youtu.be/eRzdGD2vgkU)
 
@@ -44,9 +44,11 @@ This will run both the PX4 SITL instance and the Gazebo client. Note that all ga
 
 The supported vehicles and `make` commands are listed below.
 
-| Vehicle         | Command                 |
-| --------------- | ----------------------- |
-| quadrotor(x500) | `make px4_sitl gz_x500` |
+| Vehicle         | Command                          |
+| --------------- | -------------------------------- |
+| quadrotor(x500) | `make px4_sitl gz_x500`          |
+| VTOL            | `make px4_sitl gz_standard_vtol` |
+| plane           | `make px4_sitl gz_rc_cessna`     |
 
 The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
