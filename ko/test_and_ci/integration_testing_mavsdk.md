@@ -11,7 +11,7 @@ PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 테�
 ### 개발 환경 설정
 
 아직 하지 않은 경우:
-- [Linux](../dev_setup/dev_env_linux_ubuntu.md) 또는 [MacOS](../dev_setup/dev_env_mac.md)용 개발 도구 모음을 설치합니다(Windows는 지원되지 않음). Gazebo는 필수이며 기본적으로 설치되어야 합니다.
+- [Linux](../dev_setup/dev_env_linux_ubuntu.md) 또는 [MacOS](../dev_setup/dev_env_mac.md)용 개발 도구 모음을 설치합니다(Windows는 지원되지 않음). [Gazebo Classic](../sim_gazebo_classic/README.md) is required, and should be installed by default.
 - [PX4 소스 코드 받기](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
@@ -25,7 +25,7 @@ PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 테�
 시뮬레이터 테스트를 위한 PX4를 빌드하려면 다음 명령어를 실행하십시오.
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
+DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 ```
 
 ### MAVSDK C++ 라이브러리 설치
