@@ -152,14 +152,15 @@ If you observe slow sideways oscillations of the vehicle while doing a precision
 
 ## Simulation
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../sim_gazebo_classic/README.md).
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/README.md).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
+
 ```
-make px4_sitl gazebo_iris_irlock
+make px4_sitl gazebo-classic_iris_irlock
 ```
 
-You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/iris_irlock.world#L42).
+You can change the location of the beacon either by moving it in the Gazebo Classic GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/iris_irlock.world#L42).
 
 
 ## Operating Principles
