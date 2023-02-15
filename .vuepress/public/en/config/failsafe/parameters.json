@@ -7793,7 +7793,7 @@
       "category": "Standard",
       "default": 0,
       "group": "EKF2",
-      "longDesc": "Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.",
+      "longDesc": "Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fusion of magnetometer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times. If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.",
       "name": "EKF2_MAG_TYPE",
       "rebootRequired": true,
       "shortDesc": "Type of magnetometer fusion",
@@ -9138,94 +9138,6 @@
     {
       "category": "Standard",
       "decimalPlaces": 2,
-      "default": 0.75,
-      "group": "FW L1 Control",
-      "increment": 0.05,
-      "longDesc": "Damping factor for L1 control.",
-      "max": 0.9,
-      "min": 0.6,
-      "name": "FW_L1_DAMPING",
-      "shortDesc": "L1 damping",
-      "type": "Float"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 1,
-      "default": 20.0,
-      "group": "FW L1 Control",
-      "increment": 0.5,
-      "longDesc": "Used to determine the L1 gain and controller time constant. This parameter is proportional to the L1 distance (which points ahead of the aircraft on the path it is following). A value of 18-25 seconds works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.",
-      "max": 50.0,
-      "min": 7.0,
-      "name": "FW_L1_PERIOD",
-      "shortDesc": "L1 period",
-      "type": "Float",
-      "units": "s"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 0,
-      "default": 90.0,
-      "group": "FW L1 Control",
-      "increment": 1.0,
-      "longDesc": "The maximum change in roll angle setpoint per second.",
-      "min": 0.0,
-      "name": "FW_L1_R_SLEW_MAX",
-      "shortDesc": "L1 controller roll slew rate limit",
-      "type": "Float",
-      "units": "deg/s"
-    },
-    {
-      "bitmask": [
-        {
-          "description": "Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)",
-          "index": 0
-        },
-        {
-          "description": "Enable airspeed setpoint via sticks in altitude and position flight mode",
-          "index": 1
-        }
-      ],
-      "category": "Standard",
-      "default": 2,
-      "group": "FW L1 Control",
-      "longDesc": "Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.",
-      "max": 3,
-      "min": 0,
-      "name": "FW_POS_STK_CONF",
-      "shortDesc": "RC stick configuration fixed-wing",
-      "type": "Int32"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 1,
-      "default": 50.0,
-      "group": "FW L1 Control",
-      "increment": 0.5,
-      "longDesc": "The maximum roll angle setpoint for autonomous modes including altitude and position control.",
-      "max": 65.0,
-      "min": 35.0,
-      "name": "FW_R_LIM",
-      "shortDesc": "Maximum roll angle",
-      "type": "Float",
-      "units": "deg"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 1,
-      "default": 10.0,
-      "group": "FW L1 Control",
-      "increment": 0.5,
-      "max": 30.0,
-      "min": -5.0,
-      "name": "FW_TKO_PITCH_MIN",
-      "shortDesc": "Minimum pitch during takeoff",
-      "type": "Float",
-      "units": "deg"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
       "default": 0.05,
       "group": "FW Launch detection",
       "increment": 0.05,
@@ -9282,25 +9194,6 @@
       "shortDesc": "Motor delay",
       "type": "Float",
       "units": "s"
-    },
-    {
-      "category": "Standard",
-      "default": 1,
-      "group": "FW NPFG Control",
-      "longDesc": "Replaces L1.",
-      "name": "FW_USE_NPFG",
-      "shortDesc": "Use NPFG as lateral-directional guidance law for fixed-wing vehicles",
-      "type": "Int32",
-      "values": [
-        {
-          "description": "Disabled",
-          "value": 0
-        },
-        {
-          "description": "Enabled",
-          "value": 1
-        }
-      ]
     },
     {
       "category": "Standard",
@@ -9413,7 +9306,7 @@
       "default": 0.32,
       "group": "FW NPFG Control",
       "increment": 0.01,
-      "longDesc": "Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1. 1/pi (0.32) sets the switch distance equivalent to that of the L1 controller.",
+      "longDesc": "Multiplied by the track error boundary to determine when the aircraft switches to the next waypoint and/or path segment. Should be less than 1.",
       "max": 1.0,
       "min": 0.1,
       "name": "NPFG_SW_DST_MLT",
@@ -9475,6 +9368,67 @@
           "value": 1
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 0,
+      "default": 90.0,
+      "group": "FW Path Control",
+      "increment": 1.0,
+      "longDesc": "The maximum change in roll angle setpoint per second.",
+      "min": 0.0,
+      "name": "FW_PN_R_SLEW_MAX",
+      "shortDesc": "Path navigation roll slew rate limit",
+      "type": "Float",
+      "units": "deg/s"
+    },
+    {
+      "bitmask": [
+        {
+          "description": "Alternative stick configuration (height rate on throttle stick, airspeed on pitch stick)",
+          "index": 0
+        },
+        {
+          "description": "Enable airspeed setpoint via sticks in altitude and position flight mode",
+          "index": 1
+        }
+      ],
+      "category": "Standard",
+      "default": 2,
+      "group": "FW Path Control",
+      "longDesc": "Set RC/joystick configuration for fixed-wing manual position and altitude controlled flight.",
+      "max": 3,
+      "min": 0,
+      "name": "FW_POS_STK_CONF",
+      "shortDesc": "RC stick configuration fixed-wing",
+      "type": "Int32"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": 50.0,
+      "group": "FW Path Control",
+      "increment": 0.5,
+      "longDesc": "The maximum roll angle setpoint for autonomous modes including altitude and position control.",
+      "max": 65.0,
+      "min": 35.0,
+      "name": "FW_R_LIM",
+      "shortDesc": "Maximum roll angle",
+      "type": "Float",
+      "units": "deg"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": 10.0,
+      "group": "FW Path Control",
+      "increment": 0.5,
+      "max": 30.0,
+      "min": -5.0,
+      "name": "FW_TKO_PITCH_MIN",
+      "shortDesc": "Minimum pitch during takeoff",
+      "type": "Float",
+      "units": "deg"
     },
     {
       "category": "Standard",
@@ -16751,7 +16705,7 @@
       "default": 10.0,
       "group": "Mission",
       "increment": 0.5,
-      "longDesc": "Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.",
+      "longDesc": "Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the npfg switch distance is used for horizontal acceptance.",
       "max": 200.0,
       "min": 0.05,
       "name": "NAV_ACC_RAD",
@@ -23634,19 +23588,6 @@
     },
     {
       "category": "Standard",
-      "decimalPlaces": 1,
-      "default": 5.0,
-      "group": "Runway Takeoff",
-      "increment": 0.1,
-      "max": 100.0,
-      "min": 1.0,
-      "name": "RWTO_L1_PERIOD",
-      "shortDesc": "L1 period while steering on runway",
-      "type": "Float",
-      "units": "s"
-    },
-    {
-      "category": "Standard",
       "decimalPlaces": 2,
       "default": 1.0,
       "group": "Runway Takeoff",
@@ -23658,6 +23599,19 @@
       "shortDesc": "Max throttle during runway takeoff",
       "type": "Float",
       "units": "norm"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 1,
+      "default": 5.0,
+      "group": "Runway Takeoff",
+      "increment": 0.1,
+      "max": 100.0,
+      "min": 1.0,
+      "name": "RWTO_NPFG_PERIOD",
+      "shortDesc": "NPFG period while steering on runway",
+      "type": "Float",
+      "units": "s"
     },
     {
       "category": "Standard",
@@ -28530,6 +28484,27 @@
       "units": "deg"
     },
     {
+      "category": "Standard",
+      "default": 0,
+      "group": "Sensors",
+      "max": 1,
+      "min": 0,
+      "name": "SENS_EN_ARSPDSIM",
+      "rebootRequired": true,
+      "shortDesc": "Enable simulated airspeed sensor instance",
+      "type": "Int32",
+      "values": [
+        {
+          "description": "Disabled",
+          "value": 0
+        },
+        {
+          "description": "Enabled",
+          "value": 1
+        }
+      ]
+    },
+    {
       "category": "System",
       "default": -1,
       "group": "Sensors",
@@ -28825,6 +28800,27 @@
         {
           "description": "Six side calibration",
           "value": 63
+        }
+      ]
+    },
+    {
+      "category": "Standard",
+      "default": 0,
+      "group": "Sensors",
+      "max": 1,
+      "min": 0,
+      "name": "SIM_ARSPD_FAIL",
+      "rebootRequired": true,
+      "shortDesc": "Dynamically simulate failure of airspeed sensor instance",
+      "type": "Int32",
+      "values": [
+        {
+          "description": "Disabled",
+          "value": 0
+        },
+        {
+          "description": "Enabled",
+          "value": 1
         }
       ]
     },
