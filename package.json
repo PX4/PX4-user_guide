@@ -24,7 +24,7 @@
     "@vuepress/plugin-medium-zoom": "^1.8.2",
     "lodash.debounce": "^4.0.8",
     "markdown-it-video": "^0.6.3",
-    "vuepress": "^1.8.2",
+    "vuepress": "^1.9.8",
     "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-redirect": "^1.2.5",
     "vuepress-plugin-right-anchor": "^0.4.9"
