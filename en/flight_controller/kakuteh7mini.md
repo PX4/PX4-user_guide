@@ -29,8 +29,7 @@ PX4 runs on the H7 mini v1.3 and later.
 - IMU: BMI270
 - Barometer: BMP280
 - OSD: AT7456E
-- VTX On/Off Pit Switch: Not used with PX4
-- 6x UARTs (1,2,3,4,6,7; UART2 is used for Bluetooth telemetry)
+- 6x UARTs (1,2,3,4,6,7)
 - 9x PWM Outputs (8 Motor Outputs, 1 LED)
 - 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
 - 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
