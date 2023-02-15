@@ -77,7 +77,7 @@ September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#
 They can be removed once it is fixed (along with this note).
 :::
 
-To install SITL simulation with Gazebo:
+To install SITL simulation with Gazebo Classic:
 
 ```sh
 brew install --cask temurin

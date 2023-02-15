@@ -76,10 +76,12 @@ As discussed in [ROS 2 User Guide > Sanity Check the Installation](../ros/ros2_c
 To use ROS (1) **and** ROS 2 (you need both for this!):
 
 1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
-1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 Gazebo simulation using:
+1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+
    ```sh
-   make px4_sitl_rtps gazebo
+   make px4_sitl_rtps gazebo-classic
    ```
+
    Once PX4 has fully started the terminal will display the [NuttShell/System Console](../debug/system_console.md).
    
 1. On another terminal, source the ROS 2 environment and workspace and launch the `ros1_bridge` (this allows ROS 2 and ROS nodes to communicate with each other).

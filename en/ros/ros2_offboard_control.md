@@ -194,13 +194,13 @@ As the description suggests, the above code serves the purpose of sending `vehic
 
 ## Usage
 
-After building the colcon workspace, and after starting PX4 SITL (`make px4_sitl_rtps gazebo`, which starts the microRTPS client automatically on UDP ports 2019 and 2020) and the microRTPS agent (`micrortps_agent -t UDP`, starting the agent connected to UDP ports 2020 and 2019):
+After building the colcon workspace, and after starting PX4 SITL (`make px4_sitl_rtps gazebo-classic`, which starts the microRTPS client automatically on UDP ports 2019 and 2020) and the microRTPS agent (`micrortps_agent -t UDP`, starting the agent connected to UDP ports 2020 and 2019):
 
 ```sh
 $ source path_to_colcon_workspace/install/setup.bash
 $ ros2 run px4_ros_com offboard_control
 ```
 
-## Demo with PX4 SITL and Gazebo
+## Demo with PX4 SITL and Gazebo Classic
 
 @[youtube](https://youtu.be/Nbc7fzxFlYo)

@@ -2,7 +2,7 @@
 
 :::warning
 _Gazebo Classic_ is supported up to Ubuntu Linux 20.04.
-It has been superseded by [Gazebo](../sim_gazebo_gz/README.md) (and was [formerly known](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo)  as "Gazebo Ignition") for use on Ubuntu 22.04 and later.
+It has been superseded by [Gazebo](../sim_gazebo_gz/README.md) (which was [formerly known](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo)  as "Gazebo Ignition") for use on Ubuntu 22.04 and later.
 :::
 
 Gazebo Classic is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision.
@@ -10,11 +10,6 @@ This page describes its use with SITL and a single vehicle.
 Gazebo Classic can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md).
 
 **Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine/UUV.
-
-:::warning
-Gazebo Classic is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control.
-If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
-:::
 
 @[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
@@ -33,7 +28,13 @@ See [Simulation](../simulation/README.md) for general information about simulato
 
 ## Installation
 
-Gazebo Classic 9 setup is included in our standard build instructions:
+:::note
+Gazebo Classic is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control.
+If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo Classic (and thereby avoid installation conflicts).
+:::
+
+Gazebo Classic 9 or 11 setup is included in our standard build instructions:
+
 - **macOS:** [Development Environment on Mac](../dev_setup/dev_env_mac.md)
 - **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Gazebo, JMAVSim and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#gazebo-jmavsim-and-nuttx-pixhawk-targets)
 - **Windows:** Not supported.
@@ -56,7 +57,7 @@ make px4_sitl gazebo-classic
 The supported vehicles and `make` commands are listed below (click links to see vehicle images).
 
 :::note
-For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
+For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo-classic_`).
 :::
 
 Vehicle | Command
@@ -84,13 +85,13 @@ The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful refer
 
 The commands above launch a single vehicle with the full UI.
 Other options include:
-- [Starting PX4 and Gazebo separately](#start_px4_sim_separately) so that you can keep Gazebo running and only re-launch PX4 when needed (quicker than restarting both).
-- Run the simulation in [Headless Mode](#headless), which does not start the Gazebo UI (this uses fewer resources and is much faster).
+- [Starting PX4 and Gazebo separately](#start_px4_sim_separately) so that you can keep Gazebo Classic running and only re-launch PX4 when needed (quicker than restarting both).
+- Run the simulation in [Headless Mode](#headless), which does not start the Gazebo Classic UI (this uses fewer resources and is much faster).
 
 
 ## Taking it to the Sky
 
-The `make` commands above first build PX4, and then run it along with the Gazebo simulator.
+The `make` commands above first build PX4, and then run it along with the Gazebo Classic simulator.
 
 Once PX4 has started it will launch the PX4 shell as shown below.
 
@@ -119,12 +120,11 @@ INFO  [ecl/EKF] 5188000: commencing GPS fusion
 The console will print out status as PX4 loads the airframe-specific initialisation and parameter files, waits for (and connects to) the simulator.
 Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
 
-
 :::note
 Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
 :::
 
-![Gazebo UI](../../assets/simulation/gazebo/gazebo_follow.jpg)
+![Gazebo Classic UI](../../assets/simulation/gazebo/gazebo_follow.jpg)
 
 You can bring it into the air by typing:
 
@@ -143,10 +143,11 @@ Options that apply to all simulators are covered in the top level [Simulation](.
 <a id="headless"></a>
 ### Headless Mode
 
-Gazebo can be run in a *headless* mode in which the Gazebo UI is not launched.
+Gazebo Classic can be run in a *headless* mode in which the Gazebo Classic UI is not launched.
 This starts up more quickly and uses less system resources (i.e. it is a more "lightweight" way to run the simulation).
 
 Simply prefix the normal `make` command with `HEADLESS=1` as shown:
+
 ```bash
 HEADLESS=1 make px4_sitl gazebo-classic_plane
 ```
@@ -154,7 +155,7 @@ HEADLESS=1 make px4_sitl gazebo-classic_plane
 <a id="custom_takeoff_location"></a>
 ### Set Custom Takeoff Location
 
-The takeoff location in SITL Gazebo can be set using environment variables.
+The takeoff location in Gazebo Classic can be set using environment variables.
 This will override both the default takeoff location, and any value [set for the world](#set_world_location).
 
 The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
@@ -204,6 +205,7 @@ If needed, adapt the `windVelocityMax` parameter so that it is greater than `win
       <windPubTopic>world_wind</windPubTopic>
     </plugin>
 ```
+
 Wind direction is passed as a direction vector (standard ENU convention), which will be normalized in the gazebo plugin.
 Additionally you can state wind velocity variance in (m/s)² and direction variance based on a normal distribution to add some random factor into the simulation.
 Gust is internally handled in the same way as wind, with the slight difference that you can state start time and duration with the following two parameters `windGustStart` and `windGustDuration`.
@@ -226,7 +228,7 @@ If there are unexpected results we recommend you change the model in **iris.mode
 <a id="gps_noise"></a>
 ### Simulating GPS Noise
 
-Gazebo can simulate GPS noise that is similar to that typically found in real systems (otherwise reported GPS values will be noise-free/perfect).
+Gazebo Classic can simulate GPS noise that is similar to that typically found in real systems (otherwise reported GPS values will be noise-free/perfect).
 This is useful when working on applications that might be impacted by GPS noise - e.g. precision positioning.
 
 GPS noise is enabled if the target vehicle's SDF file contains a value for the `gpsNoise` element (i.e. it has the line: `<gpsNoise>true</gpsNoise>`).
@@ -255,14 +257,14 @@ To enable/disable GPS noise:
    * If it is not present, GPS is disabled.
      You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
 
-The next time you build/restart Gazebo it will use the new GPS noise setting.
+The next time you build/restart Gazebo Classic it will use the new GPS noise setting.
 
 
 <a id="set_world"></a>
 ## Loading a Specific World
 
-PX4 supports a number of [Gazebo Worlds](../sim_gazebo_classic/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds).
-By default Gazebo displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
+PX4 supports a number of [Worlds](../sim_gazebo_classic/gazebo_worlds.md), which are stored in [PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/main/worlds).
+By default Gazebo Classic displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world).
 
 You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
 
@@ -318,7 +320,7 @@ You can test this by spawning a rover in the [Sonoma Raceway World](../sim_gazeb
 make px4_sitl gazebo-classic_rover__sonoma_raceway
 ```
 
-The video below shows that the location of the environment is aligned with the gazebo world:
+The video below shows that the location of the environment is aligned with the world:
 
 @[youtube](https://youtu.be/-a2WWLni5do)
 
@@ -326,30 +328,33 @@ The video below shows that the location of the environment is aligned with the g
 <a id="start_px4_sim_separately"></a>
 ## Starting Gazebo and PX4 Separately
 
-For extended development sessions it might be more convenient to start Gazebo and PX4 separately or even from within an IDE.
+For extended development sessions it might be more convenient to start Gazebo Classic and PX4 separately or even from within an IDE.
 
 In addition to the existing cmake targets that run `sitl_run.sh` with parameters for px4 to load the correct model it creates a launcher targets named `px4_<mode>` that is a thin wrapper around original sitl px4 app.
 This thin wrapper simply embeds app arguments like current working directories and the path to the model file.
 
-To start Gazebo and PX4 separately:
+To start Gazebo Classic and PX4 separately:
 
-* Run gazebo (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
+* Run gazebo classic (or any other sim) server and client viewers via the terminal specifying an `_ide` variant:
+
   ```sh
   make px4_sitl gazebo-classic___ide
   ```
+
   or
+
   ```sh
   make px4_sitl gazebo-classic_iris_ide
   ```
 * In your IDE select `px4_<mode>` target you want to debug (e.g. `px4_iris`)
 * Start the debug session directly from IDE
 
-This approach significantly reduces the debug cycle time because simulator (e.g. Gazebo) is always running in background and you only re-run the px4 process which is very light.
+This approach significantly reduces the debug cycle time because simulator is always running in background and you only re-run the px4 process which is very light.
 
 
 ## Simulated Survey Camera
 
-The *Gazebo* survey camera simulates a [MAVLink camera](https://mavlink.io/en/services/camera.html) that captures geotagged JPEG images and sends camera capture information to a connected ground station.
+The *Gazebo Classic* survey camera simulates a [MAVLink camera](https://mavlink.io/en/services/camera.html) that captures geotagged JPEG images and sends camera capture information to a connected ground station.
 The camera also supports video streaming.
 It can be used to test camera capture, in particular within survey missions.
 
@@ -372,7 +377,7 @@ The simulated camera is implemented in [PX4/PX4-SITL_gazebo/master/src/gazebo_ca
 
 ## Simulated Depth Camera
 
-The *Gazebo* [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
+The *Gazebo Classic* [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
 
 This publishes depth images and camera information on the `/camera/depth/image_raw` and `/camera/depth/camera_info` ROS topics respectively.
 
@@ -389,7 +394,7 @@ make px4_sitl gazebo-classic_iris_depth_camera
 <a id="flight_termination"></a>
 ## Simulated Parachute/Flight Termination
 
-*Gazebo* can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in *Gazebo*).
+*Gazebo Classic* can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in *Gazebo Classic*).
 
 The `if750a` target has a parachute attached to the vehicle.
 To simulate the vehicle, run the following command:
@@ -409,18 +414,18 @@ For more information see:
 <a id="video"></a>
 ## Video Streaming
 
-PX4 SITL for Gazebo supports UDP video streaming from a Gazebo camera sensor attached to a vehicle model.
-When streaming is enabled, you can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera.
-The video is streamed using a *gstreamer* pipeline and can be enabled/disabled using a button in the Gazebo UI.
+PX4 SITL for Gazebo Classic supports UDP video streaming from a camera sensor attached to a simulated vehicle model.
+When streaming is enabled, you can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo Classic environment from the simulated vehicle - just as you would from a real camera.
+The video is streamed using a *gstreamer* pipeline and can be enabled/disabled using a button in the Gazebo Classic UI.
 
-The Gazebo camera sensor is supported/enabled on the following frames:
+The simulated camera sensor is supported/enabled on the following frames:
 * [Typhoon H480](#typhoon_h480)
 
 
 ### Prerequisites
 
 *Gstreamer 1.0* is required for video streaming.
-The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
+The required dependencies should already have been [installed when you set up Gazebo Classic](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
 :::note
 FYI only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
@@ -430,6 +435,7 @@ FYI only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-p
 
 Video streaming is automatically started when supported by the target vehicle.
 For example, to start streaming video on the Typhoon H480:
+
 ```
 make px4_sitl gazebo-classic_typhoon_h480
 ```
@@ -441,12 +447,12 @@ Streaming can be paused/restarted using the Gazebo UI *Video ON/OFF* button..
 
 ### How to View Gazebo Video
 
-The easiest way to view the SITL/Gazebo camera video stream is in *QGroundControl*.
+The easiest way to view the SITL/Gazebo Classic camera video stream is in *QGroundControl*.
 Simply open **Application Settings > General** and set **Video Source** to *UDP h.264 Video Stream* and **UDP Port** to *5600*:
   
 ![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo/qgc_gazebo_video_stream_udp.png)
 
-The video from Gazebo should then display in *QGroundControl* just as it would from a real camera.
+The video from Gazebo Classic should then display in *QGroundControl* just as it would from a real camera.
 
 ![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
 
@@ -463,7 +469,7 @@ gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video
 
 ### Verbose Logging
 
-SITL fails silently when there is something wrong with the gazebo model.
+SITL fails silently when there is something wrong with the model.
 You can enable more verbose logging using `VERBOSE_SIM`, as shown:
 
 ```
@@ -490,5 +496,5 @@ It will not overwrite changes in files in the directory.
 
 ## Further Information
 
-* [ROS with Gazebo Simulation](../simulation/ros_interface.md)
-* [Gazebo Octomap](../sim_gazebo_classic/gazebo_octomap.md)
+* [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
+* [Gazebo Classic Octomap](../sim_gazebo_classic/gazebo_octomap.md)
