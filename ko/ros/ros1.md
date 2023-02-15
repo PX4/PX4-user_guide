@@ -12,7 +12,7 @@
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS/MAVROS 사용자 지정 메시지 전송](../ros/mavros_custom_messages.md)
 - [ROS Gazebo 시뮬레이션](../simulation/ros_interface.md)
-- [ROS Gazebo OctoMap 모델](../simulation/gazebo_octomap.md)
+- [ROS Gazebo OctoMap 모델](../sim_gazebo_classic/gazebo_octomap.md)
 - [라즈베리파이 ROS 설치](../ros/raspberrypi_installation.md)
 - [외부 위치 추정(비전/모션 기반)](../ros/external_position_estimation.md)
 
