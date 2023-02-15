@@ -85,19 +85,19 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## fw_pos_control_l1
-Source: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control_l1)
+## fw_path_navigation
+Source: [modules/fw_path_navigation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_path_navigation)
 
 
 ### Description
-fw_pos_control_l1 is the fixed wing position controller.
+fw_path_navigation is the fixed wing path navigation.
 
 
-<a id="fw_pos_control_l1_usage"></a>
+<a id="fw_path_navigation_usage"></a>
 
 ### Usage
 ```
-fw_pos_control_l1 <command> [arguments...]
+fw_path_navigation <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode

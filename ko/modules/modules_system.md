@@ -568,6 +568,26 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
+## sensor_arispeed_sim
+Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+
+
+### Description
+
+
+
+<a id="sensor_arispeed_sim_usage"></a>
+
+### Usage
+```
+sensor_arispeed_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## sensor_baro_sim
 Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
 
@@ -748,14 +768,14 @@ tune_control <command> [arguments...]
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
-### Description
+### 설명
 
 Command-line tool to show work queue status.
 
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### 사용법
 ```
 work_queue <command> [arguments...]
  Commands:
