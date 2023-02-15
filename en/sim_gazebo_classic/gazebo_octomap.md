@@ -3,7 +3,7 @@
 The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data.
 This model data can then be used by a drone for navigation and obstacle avoidance.
 
-This guide covers how to use *OctoMap* with the Gazebo Classic [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
+This guide covers how to use *OctoMap* with the [Gazebo Classic](../sim_gazebo_classic/README.md) [Rotors Simulator](https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator) and ROS.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 # Multi-Vehicle Simulation with Gazebo Classic
 
-This topic explains how to simulate multiple UAV vehicles using Gazebo Classic and SITL (Linux only).
+This topic explains how to simulate multiple UAV vehicles using [Gazebo Classic](../sim_gazebo_classic/README.md) and SITL (Linux only).
 A different approach is used for simulation with and without ROS.
 
 
