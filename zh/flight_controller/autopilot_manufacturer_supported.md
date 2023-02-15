@@ -21,6 +21,8 @@ The boards in this category are:
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) (FMUv5)
 - [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 - [Drotek DroPix](../flight_controller/dropix.md) (FMUv2)
+- [Holybro Kakute H7v2](../flight_controller/kakuteh7v2.md)
+- [Holybro Kakute H7mini](../flight_controller/kakuteh7mini.md)
 - [Holybro Kakute F7](../flight_controller/kakutef7.md)
 - [Holybro Kakute H7](../flight_controller/kakuteh7.md)
 - [Holybro Durandal](../flight_controller/durandal.md)
