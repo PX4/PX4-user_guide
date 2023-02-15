@@ -607,7 +607,7 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
  <td>NXP Cup car: DF Robot GPX</td>
- <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></p></td>
+ <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 剩余轮子速度</li><li><b>舵机1</b>: 转向</li></ul></p></td>
 </tr>
 </tbody>
 </table>
@@ -649,7 +649,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor 1 CCW, bow starboard horizontal, , propeller CCW</li><li><b>Motor2</b>: motor 2 CCW, bow port horizontal, propeller CCW</li><li><b>Motor3</b>: motor 3 CCW, stern starboard horizontal, propeller CW</li><li><b>Motor4</b>: motor 4 CCW, stern port horizontal, propeller CW</li><li><b>Motor5</b>: motor 5 CCW, bow starboard vertical, propeller CCW</li><li><b>Motor6</b>: motor 6 CCW, bow port vertical, propeller CW</li><li><b>Motor7</b>: motor 7 CCW, stern starboard vertical, propeller CW</li><li><b>Motor8</b>: motor 8 CCW, stern port vertical, propeller CCW</li></ul></td>
+ <td><ul><li><b>电机1</b>: 电机1，逆时针，船首水平右舷，逆时针桨</li><li><b>电机2</b>: 电机2，逆时针，船首水平左舷，逆时针桨</li><li><b>电机3</b>: 电机3，逆时针，船尾水平右舷，顺时针桨</li><li><b>电机4</b>: 电机4，逆时针，船尾水平左舷，顺时针桨</li><li><b>电机5</b>: 电机5，逆时针，船首垂直右舷，逆时针桨</li><li><b>电机6</b>: 电机6，逆时针，船首垂直左舷，顺时针桨</li><li><b>电机7</b>: 电机7，逆时针，船尾垂直右舷，顺时针桨</li><li><b>电机8</b>: 电机8，逆时针，船尾垂直左舷，逆时针桨</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -670,7 +670,7 @@ div.frame_variant td, div.frame_variant th {
 
 ## VTOL
 
-### Simulation
+### 仿真
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -680,7 +680,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor right</li><li><b>Motor2</b>: motor left</li><li><b>Servo1</b>: elevon right</li><li><b>Servo2</b>: elevon left</li></ul></td>
+ <td><ul><li><b>电机1</b>: 右侧电机</li><li><b>电机2</b>: 左侧电机</li><li><b>舵机1</b>: 右升降副翼</li><li><b>舵机2</b>: 左升降副翼</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -716,22 +716,22 @@ div.frame_variant td, div.frame_variant th {
  <td>Maintainer: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
 </tr>
 <tr id="vtol_standard_vtol_generic_standard_vtol">
- <td>Generic Standard VTOL</td>
+ <td>通用标准VTOL</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13000</p></td>
 </tr>
 <tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
  <td>Vertical Technologies DeltaQuad</td>
- <td>Maintainer: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Servo1</b>: Right elevon</li><li><b>Servo2</b>: Left elevon</li><li><b>Servo3</b>: Pusher motor</li><li><b>Servo4</b>: Pusher reverse channel</li></ul></p></td>
+ <td>Maintainer: Sander Smeets &lt;sander@droneslab.com&gt;<p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 电机1</li><li><b>电机2</b>: 电机2</li><li><b>电机3</b>: 电机3</li><li><b>电机4</b>: 电机4</li><li><b>舵机1</b>: 右升降副翼</li><li><b>舵机2</b>: 左升降副翼</li><li><b>舵机3</b>: 推进器电机</li><li><b>电机4</b>: 推进器逆向通道</li></ul></p></td>
 </tr>
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td>BabyShark VTOL</td>
- <td>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Motor5</b>: Pusher motor</li><li><b>Servo1</b>: Ailerons</li><li><b>Servo2</b>: A-tail left</li><li><b>Servo3</b>: A-tail right</li></ul></p></td>
+ <td>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 电机1</li><li><b>电机2</b>: 电机2</li><li><b>电机3</b>: 电机3</li><li><b>电机4</b>: 电机4</li><li><b>电机5</b>: 推进器电机</li><li><b>舵机1</b>: 转向</li><li><b>舵机2</b>: A型尾左</li><li><b>舵机3</b>: A型尾右</li></ul></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 
-### VTOL Tailsitter
+### 立式垂直起落飞机
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeUnknown.svg"/>
@@ -744,7 +744,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="vtol_vtol_tailsitter_generic_vtol_tailsitter">
- <td>Generic VTOL Tailsitter</td>
+ <td>通用立式垂直起落飞机</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
 </tr>
 </tbody>
@@ -768,7 +768,7 @@ div.frame_variant td, div.frame_variant th {
  <td><p><code>SYS_AUTOSTART</code> = 13030</p></td>
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_tiltrotor_vtol">
- <td>Generic Tiltrotor VTOL</td>
+ <td>通用倾转旋翼机</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13100</p></td>
 </tr>
 </tbody>
