@@ -120,7 +120,7 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## 仿真
 
-激光测距和声纳测距仪可以在[Gazebo Simulator](../simulation/gazebo.md)上使用。 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
+Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../sim_gazebo_classic/README.md). 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
 
 iris 光流模型包括激光雷达测距仪：
 ```sh
