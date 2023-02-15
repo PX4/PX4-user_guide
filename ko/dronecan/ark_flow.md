@@ -84,7 +84,9 @@ DroneCAN configuration in PX4 is explained in more detail in [DroneCAN > Enablin
 
 You need to set the EKF optical flow parameters to enable fusing optical flow measurements for velocity calculation, set necessary [DroneCAN](README.md) parameters, and define offsets if the sensor is not centred within the vehicle.
 
-- In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow. To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save.
+Set the following parameters in *QGroundControl*:
+- In [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK), check the box for "use optical flow" (bit 1) to enable optical flow aiding (alternatively set the value of the whole parameter to `2`).
+- To optionally disable GPS aiding, set [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to `0`.
 - Set [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) to `10`.
 - Set [EKF2_RNG_QLTY_T](../advanced_config/parameter_reference.md#EKF2_RNG_QLTY_T) to `0.2`.
 - Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) to `0.08`.
