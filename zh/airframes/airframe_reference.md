@@ -1,12 +1,12 @@
 # 机架参考
 
 :::note
-**This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
+**此列表是使用 `make airframe_metadata`命令从源码[自动生成的](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/markdownout.py)。**
 :::
 
-This page lists all supported airframes and types including the motor assignment and numbering. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
+This page lists all supported airframes and types including the motor assignment and numbering. **绿色的**为顺时针转动的电机，**蓝色的**为逆时针转动的电机。
 
-**AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**.
+**AUX** 通道可能在一些飞行控制器上不存在。 如果存在，PWM AUX 通道通常被标记为 **AUX OUT**。
 
 <style>
 div.frame_common table, div.frame_common table {
@@ -55,7 +55,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: starboard thruster</li><li><b>Motor2</b>: port thruster</li><li><b>Motor3</b>: tail thruster</li><li><b>Servo1</b>: thrust tilt</li></ul></td>
+ <td><ul><li><b>电机1</b>: 右舷推进器</li><li><b>电机2</b>: 左舷推进器</li><li><b>电机3</b>: 尾部推进器</li><li><b>舵机1</b>: 推力倾斜</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -86,7 +86,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: rotor_head_L</li><li><b>Servo2</b>: rotor_head_R</li></ul></td>
+ <td><ul><li><b>电机1</b>: 油门</li><li><b>Servo1</b>: rotor_head_L</li><li><b>Servo2</b>: rotor_head_R</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -166,7 +166,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_helicopter_generic_helicopter_(tail_esc)">
- <td>Generic Helicopter (Tail ESC)</td>
+ <td>通用直升机(Tail ESC)</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 16001</p></td>
 </tr>
 </tbody>
@@ -203,7 +203,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: front right top, CW; angle:60; direction:CW</li><li><b>Motor2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>Motor3</b>: back top, CW; angle:180; direction:CW</li><li><b>Motor4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>Motor5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>Motor6</b>: front left bottom, CCW;angle:-60; direction:CCW</li></ul></td>
+ <td><ul><li><b>电机1</b>: 右前顶部; 角度:60; 方向:顺时针</li><li><b>电机2</b>: 右前底部; 角度:60; 方向:逆时针</li><li><b>电机3</b>: 后顶部; 角度:180; 方向:顺时针</li><li><b>电机4</b>: 后底部; 角度:180; 方向:逆时针</li><li><b>电机5</b>: 左前顶部; 角度:-60; 方向:顺时针</li><li><b>电机6</b>: 左前底部; 角度:-60; 方向:逆时针</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -276,7 +276,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Motor4</b>: motor 4</li><li><b>Motor5</b>: motor 5</li><li><b>Motor6</b>: motor 6</li><li><b>Motor7</b>: motor 7</li><li><b>Motor8</b>: motor 8</li></ul></td>
+ <td><ul><li><b>电机1</b>: 电机1</li><li><b>电机2</b>: 电机2</li><li><b>电机3</b>: 电机3</li><li><b>电机4</b>: 电机4</li><li><b>电机5</b>: 电机5</li><li><b>电机6</b>: 电机6</li><li><b>电机7</b>: 电机7</li><li><b>电机8</b>: 电机8</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -439,7 +439,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation
+### 仿真
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -473,7 +473,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: motor 1</li><li><b>Motor2</b>: motor 2</li><li><b>Motor3</b>: motor 3</li><li><b>Servo1</b>: yaw servo</li></ul></td>
+ <td><ul><li><b>电机1</b>: 电机1</li><li><b>电机2</b>: 电机2</li><li><b>电机3</b>: 电机3</li><li><b>舵机1</b>: 偏航角舵机</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -485,7 +485,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="copter_tricopter_y+_generic_multirotor_with_tilt">
- <td>Generic Multirotor with tilt</td>
+ <td>通用的带倾斜多旋翼</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 14001</p></td>
 </tr>
 </tbody>
@@ -524,7 +524,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
  <tbody>
 <tr>
- <td><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: aileron right</li><li><b>Servo2</b>: aileron left</li><li><b>Servo3</b>: v-tail right</li><li><b>Servo4</b>: v-tail left</li><li><b>Servo5</b>: wheel</li><li><b>Servo6</b>: flaps right</li><li><b>Servo7</b>: flaps left</li></ul></td>
+ <td><ul><li><b>电机1</b>: 油门</li><li><b>舵机1</b>: 右副翼</li><li><b>舵机2</b>: 左副翼</li><li><b>舵机3</b>: V型尾右</li><li><b>舵机2</b>: V型尾左</li><li><b>舵机5</b>: 轮子</li><li><b>舵机6</b>: 襟翼右</li><li><b>舵机7</b>: 襟翼左</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -543,7 +543,7 @@ div.frame_variant td, div.frame_variant th {
 </table>
 </div>
 
-### Simulation
+### 仿真
 
 <div class="frame_common">
 <img src="../../assets/airframes/types/AirframeSimulation.svg"/>
@@ -576,7 +576,7 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="plane_standard_plane_generic_standard_plane">
- <td>Generic Standard Plane</td>
+ <td>通用标准飞机</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2100</p></td>
 </tr>
 </tbody>
@@ -598,8 +598,8 @@ div.frame_variant td, div.frame_variant th {
  </thead>
 <tbody>
 <tr id="rover_rover_generic_ground_vehicle_(ackermann)">
- <td>Generic Ground Vehicle (Ackermann)</td>
- <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></p></td>
+ <td>通用地面车辆(Ackermann)</td>
+ <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>电机1</b>: 油门</li><li><b>舵机1</b>: 转向</li></ul></p></td>
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
  <td><a href="https://www.aionrobotics.com/r1">Aion Robotics R1 UGV</a></td>
