@@ -60,11 +60,12 @@ The PWM values to use for the disarmed, maximum and minimum values can be determ
 
 ## SITL
 
-The Gazebo [Typhoon H480 model](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
+The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 model](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
 
 실행하려면 다음을 사용하십시오.
+
 ```
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 다른 모델이나 시뮬레이터에서 마운트 드라이버를 테스트하려면 `vmount start`를 사용하여 드라이버가 실행되는 지 확인한 다음, 해당 매개변수를 설정하십시오.
@@ -76,7 +77,7 @@ The driver provides a simple test command — it needs to be stopped first with 
 다음을 사용하여 시뮬레이션을 시작합니다(이를 위해 매개변수를 변경할 필요는 없음).
 
 ```
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 예를 들어 시동 여부를 확인하십시오. `commander takeoff` 명령어를 실행한 다음, 다음 명령을 사용하여 짐벌(예)을 제어합니다:
