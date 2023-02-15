@@ -3,10 +3,11 @@
 아래에서 macOS용 PX4 개발 환경 설정 방법을 설명합니다. PX4 빌드에 사용되어 집니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
-* [가제보 시뮬레이션](../sim_gazebo_classic/README.md)
+* [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::details
 애플 M1 맥북 사용자 Apple M1 Macbook이 있는 경우 x86 터미널을 설정하여 터미널을 x86으로 실행해야 합니다.
+
 1. 유틸리티 폴더(**Finder > 이동 메뉴 > 유틸리티**)에서 터미널 애플리케이션을 찾습니다.
 2. *Terminal.app*을 선택하고 마우스 오른쪽 버튼으로 클릭한 다음 **복제**를 선택합니다.
 3. 복제된 터미널 앱의 이름을 변경합니다(예: *x86 터미널*으로)
@@ -60,7 +61,7 @@ python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyr
 sudo -H python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 ```
 
-## 가제보 시뮬레이션
+## Gazebo Classic Simulation
 
 Gazebo로 SITL 시뮬레이션을 설치하려면:
 
@@ -71,7 +72,7 @@ brew install px4-sim-gazebo
 jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java(예: Java 15)를 설치합니다. They can be removed once it is fixed (along with this note).
 :::
 
-:::warning PX4 v1.11 이상용 jMAVSim에는 JDK 15 이상의 버전이 필요합니다.
+To install SITL simulation with Gazebo Classic:
 
 ```sh
 brew install --cask temurin
