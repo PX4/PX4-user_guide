@@ -15,15 +15,15 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 아래의 시뮬레이터들은 HITL과  SITL 시뮬레이션용으로 PX4와 연동됩니다.
 
-| 시뮬레이터                                                                   | 설명                                                                                         |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| [Gazebo](../sim_gazebo_classic/README.md)                               | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다. </p><p><strong>지원 차량:</strong> 쿼드([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) 및 [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex48(T0) [일반 쿼드 델타 VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), 테일시터, 비행기, 로버, 잠수함 </p>                |
-| [FlightGear](../simulation/flightgear.md)                               | <p>물리적, 시각적으로 사실적인 시뮬레이션을 제공합니다. 특히 뇌우, 눈, 비과 우박을 포함한 다양한 기상 조건을 시뮬레이션할 수 있으며, 열과 다양한 유형의 대기 흐름을 시뮬레이션할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_flightgear.md)도 지원됩니다.</p> <p><strong>지원 차량:</strong> 비행기, 오토자이로, 로버</p>                                         |
-| [JSBSim](../simulation/jsbsim.md)                                       | <p>고급 비행 역학 모델 시뮬레이션을 제공합니다. 이것은 풍동 데이터를 기반으로 현실적인 비행 역학을 모델링할 수 있습니다.</p> <p><strong>지원 차량:</strong> 평면, 쿼드, 육각</p>                                         |
-| [jMAVSim](../simulation/jmavsim.md)                                     | *콥터* 유형의 차량을 비행할 수 있는 간단한 멀티콥터 시뮬레이터입니다. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md)에도 사용할 수 있습니다.</p><p><strong>지원 차량:</strong> 쿼드</p> |
-| [AirSim](../simulation/airsim.md)                                       | <p>물리적 및 시각적으로 사실적인 시뮬레이션을 제공하는 크로스 플랫폼 시뮬레이터입니다. 이 시뮬레이터는 리소스 집약적이며, 다른 시뮬레이터보다 강력한 컴퓨터가 필요합니다.</p><p><strong>지원 차량:</strong> Iris(MultiRotor 모델 및 X 구성의 PX4 QuadRotor 구성).</p>                                        |
-| [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>                                       |
-| [Ignition Gazebo](../sim_gazebo_gz/README.md)                           | <p>Ignition Gazebo는 인기 있는 로봇 공학 시뮬레이터 [Gazebo](./gazebo.md)에서 파생되었으며, 고급 렌더링, 물리학 및 센서 모델을 제공합니다.</p><p><strong>지원 차량:</strong> 쿼드</p>                                       |
+| 시뮬레이터                                                                   | 설명                                                                                                   |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [Gazebo](../sim_gazebo_gz/README.md)                                    | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다. </p><p><strong>지원 차량:</strong> 쿼드</p> |
+| [Gazebo Classic](../sim_gazebo_classic/README.md)                       | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다.</p><p><strong>지원 차량:</strong> 쿼드([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) 및 [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex48(T0) [일반 쿼드 델타 VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), 테일시터, 비행기, 로버, 잠수함 </p>                          |
+| [FlightGear](../simulation/flightgear.md)                               | <p>물리적, 시각적으로 사실적인 시뮬레이션을 제공합니다. 특히 뇌우, 눈, 비과 우박을 포함한 다양한 기상 조건을 시뮬레이션할 수 있으며, 열과 다양한 유형의 대기 흐름을 시뮬레이션할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_flightgear.md)도 지원됩니다.</p> <p><strong>지원 차량:</strong> 비행기, 오토자이로, 로버</p>                                                   |
+| [JSBSim](../simulation/jsbsim.md)                                       | <p>고급 비행 역학 모델 시뮬레이션을 제공합니다. 이것은 풍동 데이터를 기반으로 현실적인 비행 역학을 모델링할 수 있습니다.</p> <p><strong>지원 차량:</strong> 평면, 쿼드, 육각</p>                                                  |
+| [jMAVSim](../simulation/jmavsim.md)                                     | *콥터* 유형의 차량을 비행할 수 있는 간단한 멀티콥터 시뮬레이터입니다. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md)에도 사용할 수 있습니다.</p><p><strong>지원 차량:</strong> 쿼드</p>         |
+| [AirSim](../simulation/airsim.md)                                       | <p>물리적 및 시각적으로 사실적인 시뮬레이션을 제공하는 크로스 플랫폼 시뮬레이터입니다. 이 시뮬레이터는 리소스 집약적이며, 다른 시뮬레이터보다 강력한 컴퓨터가 필요합니다.</p><p><strong>지원 차량:</strong> Iris(MultiRotor 모델 및 X 구성의 PX4 QuadRotor 구성).</p>                                                 |
+| [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot. This simulator is implemented in C++ as a PX4 module directly in the Firmware [code](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih). </p><p><strong>Supported Vehicles:</strong> Plane, Quad, Tailsitter</p>                                                 |
 
 시뮬레이터를 설정 사용 방법에 대한 지침은 위에 링크를 참고하십시오.
 
@@ -79,7 +79,7 @@ A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autop
 
 시스템의 차이점은 UDP를 통해 연결되며, 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서도 실행됩니다.
 
-* PX4는 시뮬레이션 전용 모듈을 사용하여, 시뮬레이터의 로컬 TCP 포트 4560에 연결합니다. 그런 다음 시뮬레이터는 위에서 설명한 [시뮬레이터 MAVLink API](#simulator-mavlink-api)를 사용하여 PX4와 정보를 교환합니다. SITL 및 시뮬레이터의 PX4는 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서 실행할 수 있습니다. :::note 시뮬레이터는 또한 *microRTPS 브리지*([PX4-FastRTPS 브리지](../middleware/micrortps.md))를 사용하여 PX4와 직접 상호작용할 수 있습니다(즉, MAVLink가 아닌 [UORB 주제](../middleware/uorb.md)를 통하여). This approach *may* used by [Gazebo multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
+* PX4는 시뮬레이션 전용 모듈을 사용하여, 시뮬레이터의 로컬 TCP 포트 4560에 연결합니다. 그런 다음 시뮬레이터는 위에서 설명한 [시뮬레이터 MAVLink API](#simulator-mavlink-api)를 사용하여 PX4와 정보를 교환합니다. SITL 및 시뮬레이터의 PX4는 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서 실행할 수 있습니다. :::note 시뮬레이터는 또한 *microRTPS 브리지*([PX4-FastRTPS 브리지](../middleware/micrortps.md))를 사용하여 PX4와 직접 상호작용할 수 있습니다(즉, MAVLink가 아닌 [UORB 주제](../middleware/uorb.md)를 통하여). This approach *may* used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
 :::
 * PX4는 일반 MAVLink 모듈을 사용하여, MAVSDK 또는 ROS와 같은 외부 개발자 API와 지상국에 연결합니다.
   - 지상국은 PX4의 원격 UDP 포트를 수신합니다: `14550`
@@ -93,19 +93,24 @@ A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autop
 ### SITL 시뮬레이션 시작/구축
 
 빌드 시스템으로 SITL에서 PX4를 빌드하여 시뮬레이터를 시작/연결할 수 있습니다. 구문(단순화)은 다음과 같습니다.
+
 ```
 make px4_sitl simulator[_vehicle-model]
 ```
-where `simulator` is `gazebo`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([jMAVSim](../simulation/jmavsim.md) only supports multicopters, while [Gazebo](../sim_gazebo_classic/README.md) supports many different types).
+
+where `simulator` is `gz` (for Gazebo), `gazebo-classic`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([Gazebo](../sim_gazebo_gz/README.md) and [jMAVSim](../simulation/jmavsim.md) only support multicopters at time of writing, while [Gazebo Classic](../sim_gazebo_classic/README.md) supports many different types).
 
 아래에는 여러가지 예가 있으며, 각 시뮬레이터의 개별 페이지에는 더 많은 예제들이 있습니다.
 
 ```sh
-# Start Gazebo with plane
-make px4_sitl gazebo_plane
+# Start Gazebo with the x500 multicopter
+make px4_sitl gz_x500
 
-# Start Gazebo with iris and optical flow
-make px4_sitl gazebo_iris_opt_flow
+# Start Gazebo Classic with plane
+make px4_sitl gazebo-classic-classic_plane
+
+# Start Gazebo Classic with iris and optical flow
+make px4_sitl gazebo-classic-classic_iris_opt_flow
 
 # Start JMavSim with iris (default vehicle model)
 make px4_sitl jmavsim
@@ -115,6 +120,7 @@ make px4_sitl none_iris
 ```
 
 시뮬레이션은 환경 변수를 통하여 추가로 설정이 가능합니다.
+
 - `PX4_ESTIMATOR`: 사용할 추정기를 설정합니다. 가능한 옵션은 `ekf2`(기본값), `lpe`(더 이상 사용되지 않음)입니다. 시뮬레이션을 실행전에 `export PX4_ESTIMATOR=lpe`를 통하여 설정할 수 있습니다.
 
 여기에 설명된 구문은 단순화되었으며, *make*를 통해 구성할 수 있는 다른 옵션들이 많이 있습니다(예: IDE 또는 디버거에 연결하도록 설정). 자세한 내용은 [코드 작성 > PX4 빌드 타겟 만들기](../dev_setup/building_px4.md#px4-make-build-targets)를 참고하십시오.
@@ -123,7 +129,7 @@ make px4_sitl none_iris
 
 ### 실제보다 빠른 속도로 시뮬레이션 실행
 
-SITL은 jMAVSim 또는 Gazebo를 사용하여, 실시간보다 빠르거나 느리게 실행할 수 있습니다.
+SITL can be run faster or slower than realtime when using jMAVSim or Gazebo Classic.
 
 속도 계수는 환경 변수 `PX4_SIM_SPEED_FACTOR`를 사용합니다. 예를 들어, 실시간 속도의 2배로 jMAVSim 시뮬레이션을 실행하려면:
 ```
@@ -135,6 +141,7 @@ PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
 ```
 
 `EXPORT`를 사용하여 현재 세션의 모든 SITL 실행 요소를 적용할 수 있습니다.
+
 ```
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
@@ -150,13 +157,14 @@ make px4_sitl jmavsim
 
 ### 잠금단계시뮬레이션
 
-PX4 SITL과 시뮬레이터(jMAVSim 또는 Gazebo)는 *잠금단계*로 실행되도록 설정되었습니다. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
+PX4 SITL and the simulators (jMAVSim or Gazebo Classic) have been set up to run in *lockstep*. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
 :::note
 잠금단계를 사용하여 [실시간보다 빠르거나 느리게 시뮬레이션을 실행](#simulation_speed)할 수 있으며, 코드 단계별 실행을 위하여 일시 중지할 수 있습니다.
 :::
 
 잠금단계의 순서는 다음과 같습니다.
+
 1. 시뮬레이션은 타임스탬프 `time_usec`가 포함된 센서 메시지 [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)를 전송하여 PX4의 센서 상태와 시간을 업데이트합니다.
 1. PX4는 이것을 수신하고 상태 추정, 제어 등을 한 번 반복하고, 액추에이터 메시지 [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)를 전송합니다.
 1. 시뮬레이션은 액추에이터/모터 메시지를 수신후에, 물리적 시뮬레이션후에 PX4로 전송할 다음 센서 메시지를 계산합니다.
@@ -204,9 +212,9 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 
 ## 카메라 시뮬레이션
 
-PX4 supports capture of both still images and video from within the [Gazebo](../sim_gazebo_classic/README.md) simulated environment. This can be enabled/set up as described in [Gazebo > Video Streaming](../sim_gazebo_classic/README.md#video).
+PX4 supports capture of both still images and video from within the [Gazebo Classic](../sim_gazebo_classic/README.md) simulated environment. This can be enabled/set up as described in [Gazebo > Video Streaming](../sim_gazebo_classic/README.md#video).
 
-시뮬레이션 카메라는 [MAVLink 카메라 프로토콜](https://mavlink.io/en/protocol/camera.html)을 구현하는 gazebo 플러그인입니다.<!-- **PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
+The simulated camera is a gazebo classic plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html) <!-- **PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
 1. MAVLink 카메라와 함께 사용할 카메라 트리거 드라이버를 구성하려면 [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE)를 `3`으로 설정합니다. :::tip 이 모드에서 드라이버는 이미지 캡처가 요청시에 [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 자세한 내용은 [카메라](../peripherals/camera.md)를 참고하십시오.
 :::
 
