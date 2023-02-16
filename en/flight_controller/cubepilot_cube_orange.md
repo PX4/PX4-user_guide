@@ -111,7 +111,7 @@ USART2 | /dev/ttyS0 | TELEM1 (flow control)
 USART3 | /dev/ttyS1 | TELEM2 (flow control)
 UART4  | /dev/ttyS2 | GPS1
 USART6 | /dev/ttyS3 | PX4IO
-UART7  | /dev/ttyS4 | CONSOLE
+UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN
 UART8  | /dev/ttyS5 | GPS2
 
   
