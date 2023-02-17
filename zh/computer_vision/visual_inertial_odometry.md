@@ -36,7 +36,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 - 使用提供的线缆连接 [T265 Intel Realse 追踪摄像头](../peripherals/camera_t265_vio.md)。
 - 尽可能使镜头朝下安装相机（默认）。
-- The camera is very sensitive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+- 该相机对振动非常敏感，建议采用软连接安装（例如使用隔振海绵）。
 
 
 
@@ -103,7 +103,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 - 验证与飞控的连接。
   
 :::tip
-You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+您可以使用*QGroundControl *  中的[ MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)来验证是否收到` ODOMETRY `或` VISION_POSITION_ESTIMATE `消息（或检查是否存在 ` HEARTBEAT `消息，其组件ID为197（` MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY `）。
 :::
 
 - 在第一次飞行前 [确认 VIO 设置正确](#verify_estimate)！
@@ -116,12 +116,12 @@ You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol
 
 将相机连接到机载计算机并将其安装到框架：
 
-| 参数                                                                                                                                                                                                            | 外部位置估计的设置                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                    | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* according to your desired fusion model. |
-| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                      | Set to *Vision* to use the vision as the reference sensor for altitude estimation.                                                                 |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                    | 设置为测量的时间戳和 "实际" 捕获时间之间的差异。 有关详细信息，请参阅 [below](#tuning-EKF2_EV_DELAY)。                                                                              |
-| [EKF2_EV_POS_X](../advanced/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced/parameter_reference.md#EKF2_EV_POS_Z) | 设置视觉传感器相对于车身框架的位置。                                                                                                                                 |
+| 参数                                                                                                                                                                                                            | 外部位置估计的设置                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                    | 按照你期望的融合方式来设置 *视觉位置融合* 、 *视觉速度融合*、*视觉航向融合*以及*外部视觉系统旋转*。               |
+| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                      | 设置为 *Vision* 以使用视觉作为高度估计的主要来源。                                        |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                    | 设置为测量的时间戳和 "实际" 捕获时间之间的差异。 有关详细信息，请参阅 [below](#tuning-EKF2_EV_DELAY)。 |
+| [EKF2_EV_POS_X](../advanced/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced/parameter_reference.md#EKF2_EV_POS_Z) | 设置视觉传感器相对于车身框架的位置。                                                    |
 
 
 这些参数可以在*QGroundControl*>**Vehicle Setup > Parameters > EKF2**中设置（切记要使参数更改生效需要重启飞控）。
@@ -136,7 +136,7 @@ You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)是*相对于 IMU 测量值的视觉位置估算器的延迟* 。 换而言之，这是视觉系统时间戳和 IMU 时钟（ EKF2 “时基” ）记录的“实际”捕获时间之间的差异。
 
-从技术上讲，如果 MoCap 和（例如）ROS 计算机之间有正确的时间戳（而不仅仅是到达时间）和时间同步（例如 NTP ），则可以将其设置为0。 In reality, this may need some empirical tuning because delays in the communication chain are very setup-specific. 系统设置完全同步链的情况很少见!
+从技术上讲，如果 MoCap 和（例如）ROS 计算机之间有正确的时间戳（而不仅仅是到达时间）和时间同步（例如 NTP ），则可以将其设置为0。 实际应用中，这可能需要进行一些基于经验的调整，因为通信链路中的延迟与具体设置非常相关。 系统设置完全同步链的情况很少见!
 
 通过检查 IMU 速率和 EV 速率之间的偏移，可以从日志中获取对延迟的粗略估计：
 
@@ -155,7 +155,7 @@ You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol
 
 执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
 
-* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)
+* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* 中的 [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息。
 
 * 偏航机身，直到` ODOMETRY `消息的四元数非常接近单位四元数（w = 1，x = y = z = 0）。
   
@@ -193,7 +193,7 @@ You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol
     - 如果使用 [T265](../peripherals/camera_t265_vio.md)，请尝试将其软安装（soft-mounting，做好减震，此相机对高频振动非常敏感）。
 - **问题：** 启用 VIO 时产生了马桶效应。
   
-    - 确保相机的方向与启动文件中的变换匹配。 Use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
+    - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl* 中的 [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD (前右下)坐标系一致。
 - **问题：** 想使用视觉位置来做闭环，也想运行 GPS 。
   
     - 这确实很困难，因为当他们不同意时，就会混淆 EKF。 通过测试，仅使用视觉速度更为可靠（如果您想出一种使该配置可靠的方法，请告诉我们）。
