@@ -239,7 +239,7 @@ USB 이미지를 *UP Core*로 플래시하려면 :
 1. [보조 컴퓨터에 로그인](#login_mission_computer)합니다(위 설명 참조).
 1. 터미널에서 다음 명령어를 실행하여 이미지를 내부 메모리 (eMMC)에 복사합니다. 터미널은 깜박이는 프로세스동안에 여러가지 응답을 요청합니다.
    ```sh
-   cd ~/catkin_ws/src/px4vision_ros
+   cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 

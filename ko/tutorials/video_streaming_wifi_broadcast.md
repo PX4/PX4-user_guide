@@ -53,7 +53,7 @@ Alpha AWUS036ACH is a medium power card that uses a lot of current while transmi
 
 For **Raspberry PI** (UAV or ground) it must be directly connected to 5V BEC (or high current power adapter in case of ground pi) in one of two ways:
 
-- Make a custom USB cable ([cut `+5V` wire from USB plug and connect it to BEC])(https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
+- Make a custom USB cable [(cut `+5V` wire from USB plug and connect it to BEC)](https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
 - USB 포트 인근의 PCB 기판에서 <1>+5V</1> 선을 뽑아 BEC에 연결(동작 여부가 의심스럽다면 진행하지 마십시오 - 대신 자체 제작 케이블을 쓰십시오).
 
 You must also add a 470uF **low ESR capacitor** (like ESC has) between **card +5v and ground** to filter voltage spikes. You should integrate the capacitor with a custom USB cable. Without the capacitor you can get packet corruption or packet loss. 여러개의 접지선을 사용하면, [접지 루프](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29)가 나타날 수 있음을 명심하십시오.
@@ -72,7 +72,9 @@ You must also add a 470uF **low ESR capacitor** (like ESC has) between **card +5
 ### Using a Linux Laptop as GCS (Harder than using a RasPi)
 1. On **ground** Linux development computer:
    ```
-   sudo apt install libpcap-dev libsodium-dev python3-all python3-twisted
+   sudo apt install python3-all libpcap-dev libsodium-dev python3-pip python3-pyroute2 \
+            python3-future python3-twisted python3-serial iw virtualenv \
+            debhelper dh-python build-essential -y
    git clone -b stable https://github.com/svpcom/wfb-ng.git
    cd wfb-ng && make deb && sudo apt install ./deb_dist/wfb-ng*.deb
    ```
@@ -135,5 +137,7 @@ You can use any other Linux ARM board, but you need to use an Ethernet or USB ca
 
 ## 이론
 
-WFB-ng puts the WiFi cards into monitor mode. 이 모드를 사용하면 연관 없이 임의의 패킷을 송수신할 수 있으며, ACK 패킷을 기다릴 수 있습니다. [Analysis of Injection Capabilities and Media Access of IEEE 802.11 Hardware in Monitor Mode](https://github.com/svpcom/wfb-ng/blob/master/doc/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf) [802.11 timings](https://github.com/ewa/802.11-data)
+WFB-ng puts the WiFi cards into monitor mode. 이 모드를 사용하면 연관 없이 임의의 패킷을 송수신할 수 있으며, ACK 패킷을 기다릴 수 있습니다.
+- [Analysis of Injection Capabilities and Media Access of IEEE 802.11 Hardware in Monitor Mode](https://github.com/svpcom/wfb-ng/blob/master/doc/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf)
+- [802.11 timings](https://github.com/ewa/802.11-data)
 

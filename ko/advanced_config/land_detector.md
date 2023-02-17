@@ -13,7 +13,7 @@
 착륙 감지기 관련 매개변수는 접두사 [LNDMC](../advanced_config/parameter_reference.md#land-detector)가 붙어 있습니다(QGroundControl의 [매개변수 편집기](../advanced_config/parameters.md)에서 수정 가능합니다).
 
 :::tip
-착륙 관련 매개변수들은 [착륙 감지 상태](#states)편을 참고하십시오.
+Information about how the parameters affect landing can be found below in [Land Detector States](#mc-land-detector-states).
 :::
 
 각 기체에서 착륙 동작 개선용 미세 조정 핵심 매개변수는 다음과 같습니다:
@@ -25,44 +25,38 @@
 :::
 
 * [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 추진력. 제어 하강을 가능하게하기 위하여 설정되어야 합니다.
+* [MPC_LAND_CRWL](../advanced_config/parameter_reference.md#MPC_LAND_CRWL) - the vertical speed applied in the last stage of autonomous landing if the system has a distance sensor and it is present and working. Has to be set larger than LNDMC_Z_VEL_MAX.
 
 
-## 고정익 설정
-
-관련 매개변수는 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 접두어가 붙어있습니다. 아래의 두 개의 매개변수는 수시로 약간씩 튜닝하는 것이 좋습니다.
-
-* [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) -시스템이 여전히 착륙했다고 간주할 수 있는 최대 항속. 기본값 8m/s는 대기속도 센서의 정확도와 착륙 감지기의 시작을 안정적으로 절충합니다. 좋은 대기속도 센서는 이 파라미터 값을 낮출 수 있게 합니다.
-* [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - 시스템이 착륙하는 것으로 간주되는 최대 수평 속도
-* [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX)-시스템이 착륙한 것으로 간주되는 최대 수직 속도. 이 파라미터는 착륙 감지 시작을 조금 더 빠르거나 느리도록 조절하거나, 기체를 손으로 던져서 날릴 때 사용할 수 있습니다.
-
-
-<span id="states"></span>
-## 착륙 감지기 상태
-
-### 멀티콥터 착륙 감지
+### MC Land Detector States
 
 멀티콥터는 착륙 감지에 3개의 서로 다른 상태를 거치게 됩니다. 각각의 상태는 이전 상태의 조건에 더해 엄격한 제약조건을 가지게 됩니다. 센서 손실로 인해 조건이 만족되지 않는다면, 기본값으로 그 조건은 참이 됩니다. 예를 들어, [곡예 모드](../flight_modes/acro_mc.md)에서 자이로스코프 센서를 제외한 다른 센서가 활성화되지 않았으면, 착륙 감지는 추력 출력값과 시간에 의존합니다.
 
-다음 상태로 넘어가려면, 미리 정해진 시간동안 각 조건들이 참인 상태를 유지하여야 합니다. 만약에 조건중 하나라도 만족하지 않으면, 착륙 감지기는 즉시 현재 상태를 벗어납니다.
+In order to proceed to the next state, each condition has to be true for a third of the configured total land detector trigger time [LNDMC_TRIG_TIME](../advanced_config/parameter_reference.md#LNDMC_TRIG_TIME). If the vehicle is equipped with a distance sensor, but the distance to ground is currently not measurable (usually because it is too large), the trigger time is increased by a factor of 3.
+
+만약에 조건중 하나라도 만족하지 않으면, 착륙 감지기는 즉시 현재 상태를 벗어납니다.
 
 #### 접지
 
-아래의 조건들이 0.35초 동안 참이면 접지 상태에 도달합니다:
+Conditions for this state:
 
 - 수직 방향으로 움직임이 없음 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 수평 방향으로 움직임이 없음 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)-[MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, 호버 추력 추정치를 사용할 수 없는 경우 0.6)나 속도 설정점보다 낮은 추력 지상 속도는 0.9이지만 기체의 수직 이동이 없습니다.
+- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + (hover throttle - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6),
+- additional check if vehicle is currently in a height-rate controlled flight mode: the vehicle has to have the intent to descend (vertical velocity setpoint above LNDMC_Z_VEL_MAX).
+- additional check for vehicles with a distance sensor: current distance to ground is below 1m.
 
 기체가 위치나 속도 제어중에 지면 접촉을 감지하면,  위치 제어기는 기체의 x-y 축을 따르는 추력 벡터를 0으로 설정합니다.
 
 
 #### 착륙 예측
 
-다음 조건이 0.25초 동안 참이면 착륙 예측 상태에 도달합니다:
+Conditions for this state:
 
-- 접지 조건이 모두 참일 경우
+- all conditions of the [ground contact](#ground-contact) state are true
 - 기체 회전이 없을 경우 ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
 - 추력이 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`보다 낮을 경우
+- no freefall detected
 
 만약 기체가 추력과 각가속도만을 알고 있다면, 다음 상태로 진입하기 위해서는 기체의 추력이 낮아야 하고, 8초 동안 회전하지 않아야 합니다.
 
@@ -71,5 +65,25 @@
 
 #### 착륙
 
-다음 조건이 0.3초 동안 참이면 이 상태에 도달합니다:
-- 착륙 예측 조건이 모두 참인 경우
+Conditions for this state:
+- all conditions of the [maybe landed](#maybe-landed) state are true
+
+
+## Fixed-wing Configuration
+
+Tuning parameters for fixed-wing land detection:
+
+* [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) -시스템이 여전히 착륙했다고 간주할 수 있는 최대 항속. Has to be a tradeoff between airspeed sensing accuracy and triggering fast enough. 좋은 대기속도 센서는 이 파라미터 값을 낮출 수 있게 합니다.
+* [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - 시스템이 착륙하는 것으로 간주되는 최대 수평 속도
+* [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX)-시스템이 착륙한 것으로 간주되는 최대 수직 속도.
+* [LNDFW_XYACC_MAX](../advanced_config/parameter_reference.md#LNDFW_XYACC_MAX) - the maximal horizontal acceleration for the system to still be considered landed.
+* [LNDFW_TRIG_TIME](../advanced_config/parameter_reference.md#LNDFW_TRIG_TIME) - Trigger time during which the conditions above have to be fulfilled to declare a landing.
+
+:::note
+When FW launch detection is enabled ([FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON)), the vehicle will stay in "landed" state until takeoff is detected (which is purely based on acceleration and not velocity).
+:::
+
+
+## VTOL Land Detector
+
+The VTOL land detector is 1:1 the same as the MC land detector if the system is in hover mode. In FW mode, land detection is disabled.

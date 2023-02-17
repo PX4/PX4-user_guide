@@ -222,19 +222,12 @@ Parameter | Description
 [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT) | Failsafe action if no RC is available: Land mode, Hold mode, Return mode.
 [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode.
 
+### Mission Feasibility Checks
 
-### Mission Failsafe
+A number of checks are run to ensure that a mission can only be started if it is _feasible_.
+For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
 
-The Mission Failsafe checks prevent a previous mission being started at a new takeoff location or if it is too big (distance between waypoints is too great).
-The failsafe action is that the mission will not be run.
-
-The relevant parameters are shown below:
-
-Parameter | Description
---- | ---
-[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.
-[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | The mission will not be started if any distance between two subsequent waypoints is greater than this value.
-
+As these are not strictly speaking "failsafes" they are documented in [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### Traffic Avoidance Failsafe
 
