@@ -19,22 +19,22 @@
 
 ## 解锁并起飞
 
-❏ 手臂处于任何手动模式
+❏ 在任何手动模式下解锁
 
 ❏ 接合自动触发起飞
 
 ❏ 观察跟踪，转弯和正确的 RTL 性能
 
-❏ 接地后，旋翼机应在 2 秒内自动撤防（撤防时间由参数设置：[COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND)）
+❏ 接地后，旋翼机将在2秒内自动上锁（上锁时间由参数设置：[COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND)）
 
 
 
-## 预期成果
+## 预期结果
 
 * 当油门升高时，起飞应该是平稳的
 * 任务应该在第一次尝试时上传
 * 使用 Auto 时飞机应自动起飞
-* 着陆时，直升机不应在地面上反弹
+* 着陆时，飞机没有在地面上反弹
 
 
 
