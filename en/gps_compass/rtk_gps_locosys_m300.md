@@ -61,10 +61,11 @@ The pins on the 12-pin connector are numbered as shown below.
 
 ## Configuration
 
-For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other.
-The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
+This data can be acquired through serial conection by choosing the appropriate connection on a GCS such as QGround Control. The internal computer comes by default with Windows operating system installed on it meaning you can have QGC on it installed. 
 
-Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com) will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
+1. Be sure that the GPS serial port is not occupied by any other source or applications
+2. Have the Mushroom antenna connected to the provided ports on the module and place in on a stationary place. 
+3. Connect QGC to the serial port to have GPS data fed to it. 
 
 Once configured the receiver is used in the same way as any other [RTK GPS](../gps_compass/rtk_gps.md) (i.e. with respect to the Survey-in process).
 
