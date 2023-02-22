@@ -257,11 +257,16 @@ First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
 
-:::note
-You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
-:::
+  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
-![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+  ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+
+Then set the actuator outputs:
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
@@ -278,9 +283,6 @@ Ideally you should also do:
 * [Battery](../config/battery.md)
 * [Safety](../config/safety.md)
 
-You should not need to configure these:
-
-- [Actuators](../config/actuators.md)
 
 ## Tuning
 
