@@ -354,6 +354,7 @@ logger <command> [arguments...]
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
      [-x]        Enable/disable logging via Aux1 RC channel
+     [-a]        Log 1st armed until shutdown
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -371,6 +372,8 @@ logger <command> [arguments...]
    on            start logging now, override arming (logger must be running)
 
    off           stop logging now, override arming (logger must be running)
+
+   trigger_watchdog manually trigger the watchdog now
 
    stop
 
@@ -568,6 +571,26 @@ The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, e
 send_event <command> [arguments...]
  Commands:
    start         Start the background task
+
+   stop
+
+   status        print status info
+```
+## sensor_arispeed_sim
+Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+
+
+### Description
+
+
+
+<a id="sensor_arispeed_sim_usage"></a>
+
+### Usage
+```
+sensor_arispeed_sim <command> [arguments...]
+ Commands:
+   start
 
    stop
 
