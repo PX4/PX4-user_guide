@@ -373,6 +373,7 @@ logger <command> [arguments...]
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
      [-x]        Enable/disable logging via Aux1 RC channel
+     [-a]        Log 1st armed until shutdown
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -390,6 +391,8 @@ logger <command> [arguments...]
    on            start logging now, override arming (logger must be running)
 
    off           stop logging now, override arming (logger must be running)
+
+   trigger_watchdog manually trigger the watchdog now
 
    stop
 
@@ -598,6 +601,26 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
+## sensor_arispeed_sim
+Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+
+
+### Description
+
+
+
+<a id="sensor_arispeed_sim_usage"></a>
+
+### Usage
+```
+sensor_arispeed_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## sensor_baro_sim
 Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
 
@@ -778,20 +801,21 @@ tune_control <command> [arguments...]
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
-### Description
+### 描述
 
 Command-line tool to show work queue status.
 
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### 实现
 ```
 work_queue <command> [arguments...]
+ wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
