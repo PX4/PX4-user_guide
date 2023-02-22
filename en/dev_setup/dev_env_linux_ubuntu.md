@@ -7,7 +7,6 @@ This environment can be used to build PX4 for [most PX4 targets](../dev_setup/de
 * [Gazebo Simulation](../simulation/gazebo.md)
 * [Raspberry Pi](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
-* [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -33,7 +32,7 @@ They are intended to be run on *clean* Ubuntu LTS installations.
 
 Script | Description
 --- | ---
-**[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)** | Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
+**[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)** | Installs [Gazebo 9 or 11](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.
 **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!
 
 :::note
@@ -211,15 +210,6 @@ To install the development toolchain:
 * Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
 * The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
-
-
-<a id="fast_dds"></a>
-<a id="fast_rtps"></a>
-## Fast DDS installation
-
-[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is required if you're using PX4 with ROS2 (or some other RTPS/DDS system).
-
-Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
 
 
 ## Next Steps

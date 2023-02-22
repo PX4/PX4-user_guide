@@ -50,6 +50,7 @@ To setup ROS 2 for use with PX4 you will need to:
 - [Setup XRCE-DDS Agent & Client](#setup-xrce-dds-agent-client)
 - [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
 
+Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
 
 ### Install PX4
 
