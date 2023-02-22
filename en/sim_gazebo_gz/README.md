@@ -174,7 +174,7 @@ However, `make px4_sitl gz_<model>_<world>` won't work with them.
 
 Multi-Vehicle simulation is supported on Linux hosts.
 
-For more information see: [Multi-Vehicle Sim with Ignition Gazebo](../simulation/multi_vehicle_simulation_ignition_gazebo.md)
+For more information see: [Multi-Vehicle Sim with Ignition Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md)
 
 
 ## Further Information
