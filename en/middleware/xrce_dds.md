@@ -4,7 +4,7 @@
 XRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
 :::
 
-PX4 uses XRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were ROS 2 topics.
+PX4 uses XRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics.
 This provides a fast and reliable integration between PX4 and ROS2, and makes it much easier for ROS 2 applications to get vehicle information and send commands. 
 
 PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
