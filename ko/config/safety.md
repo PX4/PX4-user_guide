@@ -198,18 +198,11 @@ Parameters that only affect Fixed-wing vehicles:
 | [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | RC를 사용할 수 없는 경우 비상 안전조치 : 착륙 모드, 대기 모드, 귀환 모드.                     |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | RC를 사용할 수있는 경우 비상 안전조치 : 위치 모드, 고도 모드, 수동 모드, 귀환 모드, 착륙 모드, 대기 모드. |
 
+### Mission Feasibility Checks
 
-### 임무 실패 안전 장치
+A number of checks are run to ensure that a mission can only be started if it is _feasible_. For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
 
-임무 실패 안전 장치는 설정된 임무가 새로운 이륙 위치에서 시작되거나, 웨이포인트 거리가 너무 떨어지는 것을 방지합니다. 안전 장치는 임무가 실행되지 않도록 합니다.
-
-관련된 매개 변수는 다음과 같습니다.
-
-| 매개변수                                                                     | 설명                                                            |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| [MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | 현재 웨이포인트가 홈 위치에서 멀리 떨어진 경우 임무가 시작되지 않습니다.  값이 0 이하이면 비활성화됩니다. |
-| [MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | 두 웨이포인트 사이의 거리가 너무 크면, 임무가 시작되지 않습니다.                         |
-
+As these are not strictly speaking "failsafes" they are documented in [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### 교통 회피 안전 장치
 
