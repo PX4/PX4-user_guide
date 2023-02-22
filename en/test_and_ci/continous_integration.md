@@ -95,4 +95,4 @@ Note that QGroundControl normally gets metadata for [Events](../concept/events_i
 
 ## Other
 
-Jenkins also updates the PX4 ROS messages repository [PX4/px4_msgs](https://github.com/PX4/px4_msgs) anduploads the metadata to the [Amazon S3 bucket server](https://px4-travis.s3.amazonaws.com/).
+Jenkins also updates the PX4 ROS messages repository [PX4/px4_msgs](https://github.com/PX4/px4_msgs) and uploads the metadata to the [Amazon S3 bucket server](https://px4-travis.s3.amazonaws.com/).
