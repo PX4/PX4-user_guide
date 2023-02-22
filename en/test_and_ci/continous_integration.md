@@ -13,7 +13,7 @@ This document outlines how the different parts of the CI system are configured a
 
 ## Pull Requests
 
-Automated CI checks are fun for every [Pull-Request (PR)](https://github.com/PX4/PX4-Autopilot/pulls).
+Automated CI checks are run for every [Pull-Request (PR)](https://github.com/PX4/PX4-Autopilot/pulls).
 
 Most of the test are run using the Github workflows in [.github/workflows](https://github.com/PX4/PX4-Autopilot/tree/main/.github/workflows):
 
