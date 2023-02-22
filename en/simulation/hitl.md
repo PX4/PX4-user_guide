@@ -1,9 +1,9 @@
-# Hardware in the Loop Simulation \(HITL\)
+# Hardware in the Loop Simulation (HITL)
 
 Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware.
 This approach has the benefit of testing most of the actual flight code on the real hardware.
 
-PX4 supports HITL for multicopters (using jMAVSim or Gazebo) and VTOL (using Gazebo).
+PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (using Gazebo Classic).
 
 
 <a id="compatible_airframe"></a>
@@ -11,7 +11,7 @@ PX4 supports HITL for multicopters (using jMAVSim or Gazebo) and VTOL (using Gaz
 
 The current set of compatible airframes vs Simulators is:
 
-Airframe | `SYS_AUTOSTART` | Gazebo | jMAVSim
+Airframe | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim
 --- | --- | --- | --- | ---
 [HIL Airplane](../airframes/airframe_reference.md#simulation-plane) | 1000 | Y |
 [HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x) | 1001 | Y | Y
@@ -24,7 +24,7 @@ Airframe | `SYS_AUTOSTART` | Gazebo | jMAVSim
 ## HITL Simulation Environment
 
 With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware.
-JMAVSim or Gazebo (running on a development computer) are connected to the flight controller hardware via USB/UART.
+JMAVSim or Gazebo Classic (running on a development computer) are connected to the flight controller hardware via USB/UART.
 The simulator acts as gateway to share MAVLink data between PX4 and *QGroundControl*.
 
 :::note
@@ -33,13 +33,14 @@ For example, this configuration has been tested with PX4 running on a Raspberry 
 :::
 
 The diagram below shows the simulation environment:
+
 * A HITL configuration is selected (via *QGroundControl*) that doesn't start any real sensors.
-* *jMAVSim* or *Gazebo* are connected to the flight controller via USB.
+* *jMAVSim* or *Gazebo Classic* are connected to the flight controller via USB.
 * The simulator is connected to *QGroundControl* via UDP and bridges its MAVLink messages to PX4.
-* *Gazebo* and *jMAVSim* can also connect to an offboard API and bridge MAVLink messages to PX4.
+* *Gazebo Classic* and *jMAVSim* can also connect to an offboard API and bridge MAVLink messages to PX4.
 * (Optional) A serial connection can be used to connect Joystick/Gamepad hardware via *QGroundControl*.
 
-![HITL Setup - jMAVSim and Gazebo](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
+![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
 
 
 ## HITL vs SITL
@@ -90,16 +91,17 @@ Once configuration is complete, **close** *QGroundControl* and disconnect the fl
 
 Follow the appropriate setup steps for the specific simulator in the following sections.
 
-#### Gazebo
+#### Gazebo Classic
 
 :::note
 Make sure *QGroundControl* is not running!
 :::
 
-1. Build PX4 with Gazebo (in order to build the Gazebo plugins).
+1. Build PX4 with [Gazebo Classic](../sim_gazebo_classic/README.md) (in order to build the Gazebo Classic plugins).
+
    ```sh
    cd <Firmware_clone>
-   DONT_RUN=1 make px4_sitl_default gazebo
+   DONT_RUN=1 make px4_sitl_default gazebo-classic
    ```
 1. Open the vehicle model's sdf file (e.g. **Tools/simulation/gazebo/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
 1. Replace the `serialDevice` parameter (`/dev/ttyACM0`) if necessary.
@@ -116,13 +118,13 @@ Make sure *QGroundControl* is not running!
    source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
 
-   and run Gazebo in HITL mode:
+   and run Gazebo Classic in HITL mode:
 
    ```sh
    gazebo Tools/simulation/gazebo/sitl_gazebo/worlds/hitl_iris.world
    ```
 1. Start *QGroundControl*.
-   It should autoconnect to PX4 and Gazebo.
+   It should autoconnect to PX4 and Gazebo Classic.
 
 <a id="jmavsim_hitl_configuration"></a>
 #### jMAVSim (Quadrotor only)

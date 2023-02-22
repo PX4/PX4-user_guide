@@ -1,7 +1,6 @@
 # ROS (Robot Operating System)
 
 [ROS](http://www.ros.org/) is a general purpose robotics library that can be used with PX4 for drone application development.
-It is only officially supported on Linux platforms.
 
 ROS benefits from an active ecosystem of developers solving common robotics problems, and access to other software libraries written for Linux.
 It has been used, for example, as part of the PX4 [computer vision](../computer_vision/README.md) solutions, including [obstacle avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
@@ -21,12 +20,14 @@ PX4 supports both the "original" ROS and ROS 2, with the following configuration
 - **[ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md):** PX4 connects first via the [PX4-ROS 2 bridge](../ros/ros2_comm.md) and then via a second bridge ([ros1_bridge](https://github.com/ros2/ros1_bridge)) between ROS 2 and ROS 1.
 - **[ROS (1) via MAVROS](../ros/ros1.md):** PX4 and ROS (1) communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
 
+Note that ROS2 can be installed on Ubuntu Linux, macOS, Windows, while ROS1 is only available on Linux.
+Although it might work on the other platforms, PX4 primarily tests and documents ROS on _Linux_.
+
 
 ## ROS Support Roadmap
 
 Unveiled at the [PX4 Developer Summit 2020](https://www.youtube.com/watch?v=lZ8crGI16qA) (and [ROS World 2020](https://www.youtube.com/watch?v=8XRkzHqQSf0)), the PX4 Development team, announced the plans to support microROS.
 
-* microRTPS:  microRTPS bridge with Fast DDS (The current stable ROS 2 interface)
-* micro XRCE-DDS: DDS on PX4 (Next step!)
-* micro ROS: ROS 2 on the PX4 (Our Target!)
-
+* microRTPS:  microRTPS bridge with Fast DDS (The stable ROS 2 interface in PX4 v1.13 and earlier)
+* micro XRCE-DDS: DDS on PX4 (The current stable ROS 2 interface after PX4 v1.13 and in mainline)
+* micro ROS: ROS 2 running in PX4 - "microROS" (Our Target!)

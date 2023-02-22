@@ -229,7 +229,7 @@ microdds_client start -t udp -p 8888 -h 192.168.0.100
 ```
 
 :::note
-At time of writing there is no PX4 parameter for setting the address of the remote host on which the XRCE-DDS agent is running.
+At time of writing there is no PX4 parameter for setting the address of the remote host on which the XRCE-DDS agent is running ([PX4-Autopilot/21179](https://github.com/PX4/PX4-Autopilot/issues/21179)).
 Therefore for Ethernet connections you will _have_ to use a command to start the client.
 :::
 
