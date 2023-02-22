@@ -147,9 +147,11 @@ To run the XRCE-DDS agent in the workspace:
 
 ### Starting the Agent
 
-The agent is used to connect to the client over a particular channel, such as UDP, TCP, or a serial connection.
+The agent is used to connect to the client over a particular channel, such as UDP or a serial connection.
 The channel settings are specified when the agent is started, using command line options. 
-These are documented in the eProsima user guide: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). <!-- what options work? i.e. does PX4 allow CAN? -->
+These are documented in the eProsima user guide: [Micro XRCE-DDS Agent > Agent CLI](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html#agent-cli). 
+Note that the agent supports many channel options, but PX4 only supports UDP and serial connections.
+
 
 :::note
 You should create a single instance of the agent for each channel over which you need to connect.
@@ -161,11 +163,17 @@ For example, the PX4 simulator runs the XRCE-DDS client over UDP on port 8888, s
 MicroXRCEAgent udp4 -p 8888
 ```
 
-On RaspberryPi, if you're using a serial link and connected to the IO pins, you might connect using this command:
+When working with real hardware, the setup depends on the hardware, OS, and channel.
+For example, if you're using the RasPi `UART0` serial port, you might connect using this command (based on the information in [Raspberry Pi Documentation > Configuring UARTS](https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)):
 
 ```sh
 sudo MicroXRCEAgent serial --dev /dev/AMA0 -b 921600
 ```
+
+:::note
+For more information about setting up communications channels see [Pixhawk + Companion Setup > Serial Port setup](../companion_computer/pixhawk_companion.md#serial-port-setup), and sub-documents.
+:::
+
 
 ### Starting the Client
 
@@ -191,8 +199,12 @@ On flight controller hardware the client should be configured using the [Micro X
   Some setups might also need these parameters to be set:
 
   - [XRCE_DDS_KEY](../advanced_config/parameter_reference.md#XRCE_DDS_KEY): The XRCE-DDS key.
-    If you're working in a multi-client, single agent configuration, each client should have a unique key.
-  - [XRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#XRCE_DDS_DOM_ID): TBD.
+    If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key.
+    This is primarily important for multi-vehicle simulations, where all clients are connected in UDP to the same agent.
+    (See https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session , `uxr_init_session`.)
+  - [XRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#XRCE_DDS_DOM_ID): The DDS domain ID.
+    This provides a logical separation between DDS networks, and can be used to separate clients on different networks.
+    By default, ROS2 operates on ID 0.
 
 :::note
 Many ports are already have a default configuration.
@@ -205,17 +217,21 @@ To use these ports you must first disable the existing configuration:
   See [Serial port configuration](../peripherals/serial_configuration.md#serial-port-configuration).
 :::
 
-Once set, you may need to reboot PX4 for the parameters to take effect. They will then perist through subseqent reboots.
-
+Once set, you may need to reboot PX4 for the parameters to take effect.
+They will then perist through subsequent reboots.
 
 While not recommended, you can also start the [microdds-client](../modules/modules_system.md#microdds-client) using a command line.
 This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console).
-For example:
+For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888`.
 
 ```sh
-microdds_client start -t serial -d /dev/ttyS3 -b 921600
+microdds_client start -t udp -p 8888 -h 192.168.0.100
 ```
 
+:::note
+At time of writing there is no PX4 parameter for setting the address of the remote host on which the XRCE-DDS agent is running.
+Therefore for Ethernet connections you will _have_ to use a command to start the client.
+:::
 
 ## Supported uORB Messages
 
