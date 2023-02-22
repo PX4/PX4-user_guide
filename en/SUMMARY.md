@@ -84,7 +84,6 @@
 * [Flying](flying/README.md)
   * [First Flight Guidelines](flying/first_flight_guidelines.md)
   * [Flying 101](flying/basic_flying.md)
-    * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Missions](flying/missions.md)
     * [Package Delivery Mission](flying/package_delivery_mission.md)
   * [GeoFence](flying/geofence.md)
