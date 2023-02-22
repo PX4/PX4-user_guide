@@ -255,13 +255,18 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 First update the firmware and airframe:
 
 * [固件](../config/firmware.md)
-* [机架](../config/airframe.md)
+* [Airframe](../config/airframe.md)
 
-:::note
-You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
-:::
+  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
-![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+  ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+
+Then set the actuator outputs:
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
@@ -278,9 +283,6 @@ Ideally you should also do:
 * [电池](../config/battery.md)
 * [安全](../config/safety.md)
 
-You should not need to configure these:
-
-- [Actuators](../config/actuators.md)
 
 ## 调试
 
