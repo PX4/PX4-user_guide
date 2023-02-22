@@ -204,6 +204,12 @@ However this is not recommended because the default configuration is optimised f
 
 ## ROS2 Setup Example
 
+:::warning
+**This section is out of date!**
+It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported.
+We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+:::
+
 Prerequisites:
 
 - You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](../middleware/micrortps.md#client-px4-px4-autopilot).

@@ -55,6 +55,12 @@ The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-po
 <a id="with_dds"></a>
 ### Build and Test (RTPS/DDS)
 
+:::warning
+**This section is out of date!**
+It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported.
+We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+:::
+
 To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above).
 Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API.
 This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
