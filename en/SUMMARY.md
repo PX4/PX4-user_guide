@@ -559,7 +559,6 @@
     * [MAVLink Messaging](middleware/mavlink.md)
     * [XRCE-DDS (PX4-ROS2/DDS Bridge)](middleware/xrce_dds.md)
     * [❌ RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](middleware/micrortps.md)
-      * [❌ Manually Generate Client/Agent](middleware/micrortps_manual_code_generation.md)
   * [Modules & Commands](modules/modules_main.md)
     * [Commands](modules/modules_command.md)
     * [Communication](modules/modules_communication.md)
