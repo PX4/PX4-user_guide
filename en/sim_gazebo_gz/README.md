@@ -7,7 +7,7 @@ Ignition Gazebo supports a single frame (X500 quadcopter) and world (October 202
 [Ignition Gazebo](https://gazebosim.org/home) is an open source robotics simulator from the _Ignition Robotics Project_.
 It is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
 
-**Supported Vehicles:** Quadrotor
+**Supported Vehicles:** Quadrotor, Plane, VTOL
 
 @[youtube](https://youtu.be/eRzdGD2vgkU)
 
@@ -46,6 +46,8 @@ The supported vehicles and `make` commands are listed below (click on the links 
 Vehicle | Command
 --- | ---
 quadrotor(x500) | `make px4_sitl gz_x500`
+VTOL | `make px4_sitl gz_standard_vtol`
+plane | `make px4_sitl gz_rc_cessna`
 
 The commands above launch a single vehicle with the full UI.
 *QGroundControl* should be able to automatically connect to the simulated vehicle.

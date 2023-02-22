@@ -252,7 +252,7 @@ To flash the USB image to the *UP Core*:
 1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
    The terminal will prompt for a number of responses during the flashing process.
    ```sh
-   cd ~/catkin_ws/src/px4vision_ros
+   cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 
