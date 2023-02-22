@@ -1,6 +1,10 @@
 # ROS 2 오프보드 제어 예
 
 :::warning
+**This example is out of date!** It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported. We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+:::
+
+:::warning
 *오프보드* 제어는 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 할 수 있어야 합니다.
 :::
 
