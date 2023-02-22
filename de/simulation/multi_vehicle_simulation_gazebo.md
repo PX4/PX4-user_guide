@@ -9,7 +9,7 @@ This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL 
 
 To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the *Firmware* tree):
 ```
-Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
+Tools/gazebo/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
 - `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
@@ -56,7 +56,11 @@ The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 
 ### Build and Test (RTPS/DDS)
 
-To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
+:::warning
+**This section is out of date!** It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported. We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+:::
+
+To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
 
 :::note
 You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above and the `micrortps_agent` should be run in the different terminals for each vehicle. For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), for how to use the interaction with non-ROS2 DDS participant applications, or [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS2 nodes.
@@ -75,10 +79,10 @@ To build an example setup, follow the steps below:
    * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)
    * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
 
-1. Run `gazebo_sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
+1. Run `Tools/gazebo/sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
 
    ```bash
-   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
+   ./Tools/gazebo/sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
    ```
 
    :::note
@@ -237,16 +241,20 @@ The steps are:
    ```
    sudo apt install xmlstarlet
    ```
-1. Use *roslaunch* with the **multi_uav_mavros_sitl_sdf.launch** launch file:<model_file_name>
+1. Use *roslaunch* with the **multi_uav_mavros_sitl_sdf.launch** launch file: ```` roslaunch multi_uav_mavros_sitl_sdf.launch vehicle:=<model_file_name>
    ```
 
    :::note
    Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/PX4-SITL_gazebo/tree/master/models/plane) will be used by default.
-   This method is similar to using the xacro except that the SITL/Gazebo port number is automatically inserted by <em x-id="4">xmstarlet</em> for each spawned vehicle, and does not need to be specified in the SDF file.
+
+:::
+
+This method is similar to using the xacro except that the SITL/Gazebo port number is automatically inserted by _xmstarlet_ for each spawned vehicle, and does not need to be specified in the SDF file.
 
 To add a new vehicle, you need to make sure the model can be found (in order to spawn it in Gazebo), and PX4 needs to have an appropriate corresponding startup script.
 
-1. modify the <strong x-id="1">single_vehicle_spawn_sdf.launch</strong> file to point to the location of your model by changing the line below to point to your model:
+1. You can choose to do either of:
+   * modify the **single_vehicle_spawn_sdf.launch** file to point to the location of your model by changing the line below to point to your model:
      ```
 $(find px4)/Tools/simulation/gazebo/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf ``` :::note Ensure you set the `vehicle` argument even if you hardcode the path to your model.
 :::

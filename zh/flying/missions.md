@@ -1,20 +1,33 @@
 # 任务
 
+:::note
+This is a very high level introduction. For more detailed information see:
+
+- The [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) contains information about planning and executing missions.
+- [Mission mode](../flight_modes/mission.md) provides additional technical information about how mission mode works. :::
+
 ## 规划任务
 
 手动规划任务非常简单:
-- 切换到任务视图
-- Select the **Add Waypoint** ("plus") icon in the top left.
+- Open to the _Plan View_ and select the _Mission_ radio button
+- Select the **Takeoff** toolbar option then select the takeoff location on the map (set the takeoff altitude in the corresponding editor to a sensible value).
+- Select the **Add Waypoint** ("plus") toolbar icon.
 - 点击地图添加航点。
 - 使用右侧的航点列表修改航点参数和类型。底部的高度指示器提供每个航点的相对高度。
 - Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
 
 You can also use the *Pattern* tool to automate creation of survey grids.
 
-:::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![规划任务](../../assets/flying/planning_mission.jpg)
+
+### Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible. For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
+
+The checks are run when the mission is uploaded and immediately before it is run. If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+For more detail on the checks and possible actions, see: [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### 设置机体航向
 

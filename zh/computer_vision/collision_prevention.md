@@ -1,6 +1,6 @@
 # 防撞功能
 
-*Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
+*防撞*功能用于自动减速或制动，以免飞机撞上障碍物。
 
 防撞功能可以在多旋翼的[位置模式](../flight_modes/position_mc.md)中使能，并且可以使用来自外接配套计算机，外接支持 MAVLink 协议的测距仪，连接到飞控的测距仪或者以上任意组合的传感器数据。
 
@@ -16,32 +16,32 @@
 
 ## 综述
 
-*Collision Prevention* is enabled on PX4 by setting the parameter for minimum allowed approach distance ([CP_DIST](#CP_DIST)).
+通过设置参数（[CP_DIST](#CP_DIST)） 最小安全距离来启用 PX4 上的*防撞*功能。
 
 该功能需要外部系统提供的障碍物信息（发送的 MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息）和或一个连接到飞控的[距离传感器](../sensor/rangefinders.md)。
 
 :::note
-Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle. If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
+多个传感器可用于获取机身*周围*物体的信息并防撞。 如果多个数据源提供*相同*的方向数据，系统将使用离物体最小距离的数据。
 :::
 
 为了在靠近障碍物时减速，无人机限制了最大速度，并且在达到最小允许间距时停止移动。 为了远离（或与之平行的）障碍物，用户必须使无人机/无人车朝向不靠近障碍物的设定点移动。 如果存在一个”更好”的设定点，这个设定点在请求设定点的任何一侧，并且在固定的间隙内，算法将对设定点方向做最小的调整。
 
-Users are notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
+当*防撞功能*正在主动控制速度设定值，用户就会通过 *QGroundControl* 地面站收到通知。
 
 PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接到飞控上来防撞，可能需要按照[PX4 距离传感器](#rangefinder)中的说明描述来安装配置。 如果使用机载计算机提供障碍物信息，请参阅[机载计算机设置](#companion)。
 
 
 ## PX4 (软件) 设置
 
-Configure collision prevention by [setting the following parameters](../advanced_config/parameters.md) in *QGroundControl*:
+配置防撞功能需要通过 *QGroundControl* 地面站来[设置以下参数](../advanced_config/parameters.md)：
 
-| 参数                                                                                                         | 描述                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                     | 设置最小允许距离（无人机/无人车可以接近障碍物的最近距离）。 Set negative to disable *collision prevention*. <br>> **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. 确保一个安全距离。 |
-| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                  | 设置传感器和速度设定值跟踪延迟。 查看下面的 [延迟调整](#delay_tuning)。                                                                                                                                                              |
-| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | 如果在该方向上发现的障碍物较少，则设置无人机/无人车可能偏离的角度（在指令方向的两侧）。 请参阅下面的[制导调整](#angle_change_tuning)。                                                                                                                           |
-| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 设置为 1 可以使无人机/无人车在没有传感器覆盖的方向移动（默认值是0/`False`）。                                                                                                                                                              |
-| <span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                                                                                              |
+| 参数                                                                                                         | 描述                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                     | 设置最小允许距离（无人机/无人车可以接近障碍物的最近距离）。 设置为负值将禁用 *防撞* 功能。 <br>>**警告** 此值是相对传感器的距离，而不是相对机身或者螺旋桨外部的距离。 确保一个安全距离。 |
+| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                  | 设置传感器和速度设定值跟踪延迟。 查看下面的 [延迟调整](#delay_tuning)。                                                               |
+| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | 如果在该方向上发现的障碍物较少，则设置无人机/无人车可能偏离的角度（在指令方向的两侧）。 请参阅下面的[制导调整](#angle_change_tuning)。                            |
+| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 设置为 1 可以使无人机/无人车在没有传感器覆盖的方向移动（默认值是0/`False`）。                                                               |
+| <span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | 设置为 0 或 3 以启用位置模式下的防撞(默认是 4)。                                                                               |
 
 
 <span id="algorithm"></span>
@@ -63,7 +63,7 @@ Configure collision prevention by [setting the following parameters](../advanced
 <span id="data_loss"></span>
 ### 航程数据丢失
 
-If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning *No range data received, no movement allowed*. 这会导致强制将 xy 的速度设置为 0。 5秒没有收到任何数据，无人机会切换到 [保持模式](../flight_modes/hold.md)。 If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes/position_mc.md) (e.g. to *Altitude mode* or *Stabilized mode*).
+如果自驾仪超过0.5秒没有收到传感器的航程数据，自驾仪将会发出警告*没有航程数据，不允许移动*。 这会导致强制将 xy 的速度设置为 0。 5秒没有收到任何数据，无人机会切换到 [保持模式](../flight_modes/hold.md)。 如果想要再次移动机身，则需要禁止防撞功能，禁止防撞功能可以通过设置 [CP_DIST](#CP_DIST) 为负值或者切换到 [位置模式](../flight_modes/position_mc.md) 以外的模式（例如：切换到 *高度模式* 或者 *自稳模式*）。
 
 如果连接了多个传感器，但是其中有一个传感器失去连接，仍然能够在有传感器数据上报的视野（FOV）范围内飞行。 故障传感器的数据会失效，并且该传感器覆盖的区域会被视为未覆盖区域，意味着无法移动到该区域。
 
@@ -74,11 +74,11 @@ If the autopilot does not receive range data from any sensor for longer than 0.5
 <span id="delay_tuning"></span>
 ### CP_DELAY 延迟调整
 
-There are two main sources of delay which should be accounted for: *sensor delay*, and vehicle *velocity setpoint tracking delay*. 这两个延迟来源都可以通过 [CP_DELAY](#CP_DELAY) 这个参数来调整。
+要考虑的延迟的主要来源有两个：*传感器延迟* 和机身 *速度设定点跟踪延迟*。 这两个延迟来源都可以通过 [CP_DELAY](#CP_DELAY) 这个参数来调整。
 
-The *sensor delay* for distance sensors connected directly to the flight controller can be assumed to be 0. 对于外部视觉系统，传感器延迟可能高达 0.2秒。
+连接到飞控的距离传感器的 *传感器延迟* 可以假定为 0。 对于外部视觉系统，传感器延迟可能高达 0.2秒。
 
-Vehicle *velocity setpoint tracking delay* can be measured by flying at full speed in [Position mode](../flight_modes/position_mc.md), then commanding a stop. 然后可以从日志中测量实际速度和速度设置值之间的延迟。 跟踪延迟通常在 0.1 至 0.5秒之间，取决于机身尺寸和调试情况。
+无人机 *速度设定点跟踪延迟* 可以通过在 <0>位置模式</0> 下全速飞行，然后停止来测量。 然后可以从日志中测量实际速度和速度设置值之间的延迟。 跟踪延迟通常在 0.1 至 0.5秒之间，取决于机身尺寸和调试情况。
 
 :::tip
 如果车速在接近障碍物时发生振荡（即减速，加速，减速），则延迟设置太高。
@@ -110,9 +110,9 @@ Vehicle *velocity setpoint tracking delay* can be measured by flying at full spe
 
 特殊传感器文档</ 0>），并使用 CP_DIST </ 1>使能防撞功能。</li> 
   
-  - 修改驱动程序以设置方向。 This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
+  - 修改驱动程序以设置方向。 这个可以通过类似于 `SENS_CM8JL65_R_0` 参数的方式实现（也可以在关于传感器的*module.yaml*这个文件中写死方向，类似于这样:  `sf0x start -d ${SERIAL_DEV} -R 25` - 25是`ROTATION_DOWNWARD_FACING`）。
 
-- Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).</ul> 
+- 在距离传感器 UORB 主题（`distance_sensor_s.h_fov`）中设置 *视野* 的地方修改驱动代码。</ul> 
 
 :::tip
 您可以从 [功能 PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
@@ -125,23 +125,23 @@ Vehicle *velocity setpoint tracking delay* can be measured by flying at full spe
 
 如果使用机载计算机或者外部传感器，需要提供 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息流，该消息流反映检测到障碍物的时间和位置。
 
-The minimum rate at which messages *must* be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
+消息发送的最低频率*必须*由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
 
 :::note
 系统在初始测试时，无人机以 4m/s的速度移动，并且以 10Hz（视觉系统支持的最大速率）的频率发送`OBSTACLE_DISTANCE` 消息。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
 :::
 
-The tested companion software is the *local_planner* from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+配套的测试软件是 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 仓库中的 *local_planner*。 关于硬件和软件配置的更多信息请查看链接：[PX4/avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 <!-- hardware platform used for testing not readily available, so have removed -->
 
-The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
+软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 代码仓库的说明。 要发出 `OBSTACLE_DISTANCE`消息，必须使用*rqt_reconfigure*工具，并将参数`send_obstacles_fcu`设置为true。
 
 
 
 
 ## Gazebo设置
 
-*Collision Prevention* can also be tested using Gazebo. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
+*防撞*功能支持Gazebo仿真测试。 设置方法请遵照[PX4/avoidance](https://github.com/PX4/PX4-Avoidance)的说明。
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->

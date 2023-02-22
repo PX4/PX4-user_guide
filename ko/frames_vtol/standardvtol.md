@@ -1,6 +1,6 @@
 # 표준 VTOL
 
-**표준 VTOL**은 멀티콥터와 고정익 비행 제어가 _완전히 분리된_ [VTOL](../frames_vtol/README.md)입니다.
+**표준 VTOL**은 멀티콥터와 고정익간의 비행 제어가 _완전 분리된_ [VTOL](../frames_vtol/README.md)입니다.
 
 ![수직 기술: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png)
 
@@ -10,7 +10,7 @@
 
 ## 비디오
 
-이 섹션에는 표준 VTOL과 관련된 동영상이 포함되어 있습니다(모든 VTOL 유형에 적용되는 동영상은 [VTOL](../frames_vtol/README.md)에서 찾을 수 있음).
+이 섹션에는 표준 VTOL과 관련된 동영상이 포함되어 있습니다. 모든 VTOL 유형에 적용되는 동영상은 [VTOL](../frames_vtol/README.md)을 참고하십시오.
 
 ---
 

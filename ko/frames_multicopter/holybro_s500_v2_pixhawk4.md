@@ -246,7 +246,7 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 
 ## PX4 Configuration
 
-*QGroundControl*을 이용하여 PX4 자율비행 프로그램을 설치하고, QAV250 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드하여 설치](http://qgroundcontrol.com/downloads/) 합니다.
+*QGroundControl*을 이용하여 PX4 자율비행 프로그램을 설치하고, QAV250 프레임 설정과 보정 작업을 진행합니다. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
@@ -254,13 +254,18 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 먼저, 펌웨어와 기체 프레임을 업데이트 합니다.
 
 * [펌웨어](../config/firmware.md)
-* [기체](../config/airframe.md)
+* [Airframe](../config/airframe.md)
 
-:::note
-*Holybro S500* 기체 (**Quadrotor x > Holybro S500**)를 선택합니다.
-:::
+  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
-![QGroundContro l - HolyBro X500 기체 선택](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+  ![QGroundContro l - HolyBro X500 기체 선택](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+
+Then set the actuator outputs:
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 다음에는 필수 작업인 설정작업과 보정 작업을 진행합니다.
 
@@ -277,9 +282,6 @@ FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 예시로 
 * [배터리](../config/battery.md)
 * [안전 설정](../config/safety.md)
 
-You should not need to configure these:
-
-- [Actuators](../config/actuators.md)
 
 ## 튜닝
 

@@ -85,19 +85,40 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## fw_pos_control_l1
-소스: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/fw_pos_control_l1)
+## fw_path_navigation
+Source: [modules/fw_path_navigation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_path_navigation)
 
 
 ### 설명
-fw_pos_control_l1은 고정익 위치 컨트롤러입니다.
+fw_path_navigation is the fixed wing path navigation.
 
 
-<a id="fw_pos_control_l1_usage"></a>
+<a id="fw_path_navigation_usage"></a>
 
 ### 사용법
 ```
-fw_pos_control_l1 <command> [arguments...]
+fw_path_navigation <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
+## fw_rate_control
+Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+
+
+### 설명
+fw_rate_control is the fixed-wing rate controller.
+
+
+<a id="fw_rate_control_usage"></a>
+
+### 사용법
+```
+fw_rate_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode

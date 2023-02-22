@@ -31,16 +31,16 @@ make px4_sitl_default jmavsim___valgrind
 
 ## Start combinations
 
-SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo as simulation backend. This results in the start options below:
+SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend. This results in the start options below:
 
 ```sh
 make px4_sitl_default jmavsim
 make px4_sitl_default jmavsim___gdb
 make px4_sitl_default jmavsim___lldb
 
-make px4_sitl_default gazebo
-make px4_sitl_default gazebo___gdb
-make px4_sitl_default gazebo___lldb
+make px4_sitl_default gazebo-classic
+make px4_sitl_default gazebo-classic___gdb
+make px4_sitl_default gazebo-classic___lldb
 ```
 
 where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:

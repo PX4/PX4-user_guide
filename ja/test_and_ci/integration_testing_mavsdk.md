@@ -11,7 +11,7 @@ The instructions below explain how to setup and run the tests locally.
 ### Setup Developer Environment
 
 If you haven't done so already:
-- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported). Gazebo is required, and should be installed by default.
+- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported). [Gazebo Classic](../sim_gazebo_classic/README.md) is required, and should be installed by default.
 - [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
@@ -25,7 +25,7 @@ If you haven't done so already:
 To build PX4 source code for simulator testing, use:
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
+DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 ```
 
 ### Install the MAVSDK C++ Library

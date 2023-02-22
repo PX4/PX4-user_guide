@@ -99,6 +99,31 @@ adis16497 <command> [arguments...]
 
    status        print status info
 ```
+## adis16507
+Source: [drivers/imu/analog_devices/adis16507](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/analog_devices/adis16507)
+
+<a id="adis16507_usage"></a>
+
+### Usage
+```
+adis16507 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## bmi055
 Source: [drivers/imu/bosch/bmi055](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi055)
 
@@ -207,6 +232,31 @@ bmi088_i2c <command> [arguments...]
 
    status        print status info
 ```
+## bmi270
+Source: [drivers/imu/bosch/bmi270](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi270)
+
+<a id="bmi270_usage"></a>
+
+### Usage
+```
+bmi270 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## fxas21002c
 Source: [drivers/imu/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/fxas21002c)
 
@@ -268,6 +318,31 @@ fxos8701cq <command> [arguments...]
    regdump
 
    testerror
+
+   stop
+
+   status        print status info
+```
+## iam20680hp
+Source: [drivers/imu/invensense/iam20680hp](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iam20680hp)
+
+<a id="iam20680hp_usage"></a>
+
+### Usage
+```
+iam20680hp <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
 
    stop
 
@@ -517,6 +592,8 @@ icm42688p <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
+     [-C <val>]  Input clock frequency (Hz)
+                 default: 0
 
    stop
 
@@ -541,6 +618,8 @@ iim42652 <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
+                 default: 0
+     [-C <val>]  Input clock frequency (Hz)
                  default: 0
 
    stop

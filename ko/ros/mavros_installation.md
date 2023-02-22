@@ -7,7 +7,7 @@ MAVROS를 사용하여 모든 MAVLink 지원 자동 조종 장치와 통신할 �
 :::tip
 Ubuntu Linux에서 ROS로 PX4 시뮬레이션을 설정하는 가장 쉬운 방법은 표준 설치 스크립트를 사용하는 것입니다. 스크립트는 [Linux의 개발 환경 > ROS Gazebo](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)를 참고하십시오.
 
-The script automates the installation instructions covered in this topic, installing everything you need: PX4, ROS, the Gazebo simulator, and [MAVROS](../ros/mavros_installation.md).
+The script automates the installation instructions covered in this topic, installing everything you need: PX4, ROS, the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator, and [MAVROS](../ros/mavros_installation.md).
 :::
 
 :::warning

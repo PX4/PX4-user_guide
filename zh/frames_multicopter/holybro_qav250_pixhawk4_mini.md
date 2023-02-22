@@ -178,7 +178,8 @@ If you have to wire the system yourself, the diagram below shows all the connect
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
-First update the firmware and airframe:
+First update the firmware, airframe, and actuator mappings:
+
 - [固件](../config/firmware.md)
 - [机架](../config/airframe.md)
 
@@ -188,9 +189,10 @@ You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro Q
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
 :::
 
-Then update vehicle geometry and output mappings:
-
 - [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 

@@ -1,20 +1,33 @@
 # Missions
 
+:::note
+This is a very high level introduction. For more detailed information see:
+
+- The [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html) contains information about planning and executing missions.
+- [Mission mode](../flight_modes/mission.md) provides additional technical information about how mission mode works. :::
+
 ## Planning Missions
 
 Manually planning missions is straightforward:
-- Switch to the mission view
-- Select the **Add Waypoint** ("plus") icon in the top left.
+- Open to the _Plan View_ and select the _Mission_ radio button
+- Select the **Takeoff** toolbar option then select the takeoff location on the map (set the takeoff altitude in the corresponding editor to a sensible value).
+- Select the **Add Waypoint** ("plus") toolbar icon.
 - Click on the map to add waypoints.
 - Use the waypoint list on the right to modify the waypoint parameters/type The altitude indicator on the bottom provides a sense of the relative altitude of each waypoint.
 - Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
 
 You can also use the *Pattern* tool to automate creation of survey grids.
 
-:::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
+
+### Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible. For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
+
+The checks are run when the mission is uploaded and immediately before it is run. If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+For more detail on the checks and possible actions, see: [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### Setting Vehicle Yaw
 

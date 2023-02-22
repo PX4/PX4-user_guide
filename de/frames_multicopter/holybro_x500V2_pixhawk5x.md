@@ -176,33 +176,37 @@ That's it. The fully assembled kit is shown below (Depth camera not included in 
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame.
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-1. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
-1. Update the firmware and airframe:
+First update the firmware, airframe, and actuator mappings:
 
-   - [Firmware](../config/firmware.md)
-   - [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
+- [Firmware](../config/firmware.md)
+- [Airframe](../config/airframe.md)
 
-     ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
+  You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
 
-1. Then perform the mandatory setup/calibration:
-   - [Sensor Orientation](../config/flight_controller_orientation.md)
-   - [Compass](../config/compass.md)
-   - [Accelerometer](../config/accelerometer.md)
-   - [Level Horizon Calibration](../config/level_horizon_calibration.md)
-   - [Radio Setup](../config/radio.md)
-   - [Flight Modes](../config/flight_mode.md)
+  ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
 
-   Ideally you should also do:
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
-   - [ESC Calibration](../advanced_config/esc_calibration.md)
-   - [Battery](../config/battery.md)
-   - [Safety](../config/safety.md)
+Then perform the mandatory setup/calibration:
 
-   You should not need to configure these:
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Compass](../config/compass.md)
+- [Accelerometer](../config/accelerometer.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md)
+- [Radio Setup](../config/radio.md)
+- [Flight Modes](../config/flight_mode.md)
 
-   - [Actuators](../config/actuators.md)
+Ideally you should also do:
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery](../config/battery.md)
+- [Safety](../config/safety.md)
+
 
 ## Tuning
 

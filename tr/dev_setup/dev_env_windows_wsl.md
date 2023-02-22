@@ -6,7 +6,7 @@ This environment can be used to build PX4 for:
 
 - [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
 - [jMAVSim Simulation](../simulation/jmavsim.md)
-- [Gazebo Simulation](../simulation/gazebo.md)
+- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -44,11 +44,11 @@ The approach is similar to installing PX4 in your _own_ virtual machine, as desc
 
 ### Windows 10 GUI Support
 
-Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics features will not work. This includes Gazebo and jMAVSim rendered visualization, QGC for Linux running in WSL, `git` gui, etc.
+Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics features will not work. This includes Gazebo Classic and jMAVSim rendered visualization, QGC for Linux running in WSL, `git` gui, etc.
 
 Development is possible as you can still:
 - Build PX4 in WSL2 and flash it to boards using QGC from **Windows**.
-- Run simulations in [headless mode](../simulation/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`). Connect using QGC on Windows or in WSL.
+- Run simulations in [headless mode](../sim_gazebo_classic/README.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`). Connect using QGC on Windows or in WSL.
 
 :::note WSL2 GUI support is provided by the [Windows Subsystem for Linux GUI (WSLg)](https://github.com/microsoft/wslg). This is present in stable Windows 11 builds by default. It is not yet in stable Windows 10 (only insider previews). See the link for rollout information.
 :::
@@ -60,6 +60,7 @@ Development is possible as you can still:
 
 To install WSL2 with the default Ubuntu distribution on a new installation of Windows 11:
 
+1. Make sure your computer your computer's virtualization feature is enabled in the BIOS. It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively.
 1. Open _cmd.exe_ as administrator. This can be done by pressing the start key, typing `cmd`, right klicking on the _Command prompt_ entry and selecting **Run as administrator**.
 1. Execute the command `wsl --install` to run the installation routine for WSL.
 1. Reboot the computer.
@@ -102,7 +103,7 @@ Alternatively, after entering `exit` you can just close the prompt.
 ### Install PX4 Toolchain
 
 Next we download the PX4 source code within the WSL2 environment, and use the normal *Ubuntu installer script* to to set up the developer environment.
-This will install the toolchain for Gazebo simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
+This will install the toolchain for Gazebo Classic simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
 
 To install the development toolchain:
 
@@ -132,7 +133,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
    ```
 
 :::note
-This installs tools to build PX4 for Pixhawk, Gazebo and JMAVSim targets:
+This installs tools to build PX4 for Pixhawk, Gazebo Classic and JMAVSim targets:
 
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
