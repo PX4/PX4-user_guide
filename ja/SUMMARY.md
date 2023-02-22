@@ -193,6 +193,8 @@
       * [CUAV V5 nano (FMUv5)](flight_controller/cuav_v5_nano.md)
       * [CUAV Pixhack v3 (FMUv3)](flight_controller/pixhack_v3.md)
       * [Drotek Dropix (FMUv2)](flight_controller/dropix.md)
+      * [Holybro Kakute H7v2](flight_controller/kakuteh7v2.md)
+      * [Holybro Kakute H7mini](flight_controller/kakuteh7mini.md)
       * [Holybro Kakute F7](flight_controller/kakutef7.md)
       * [Holybro Kakute H7](flight_controller/kakuteh7.md)
       * [Holybro Durandal](flight_controller/durandal.md)
