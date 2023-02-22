@@ -177,7 +177,8 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 :::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-먼저, 펌웨어와 기체프레임을 업데이트 합니다.
+First update the firmware, airframe, and actuator mappings:
+
 - [펌웨어](../config/firmware.md)
 - [기체](../config/airframe.md)
 
@@ -187,9 +188,10 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
   ![QGC - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qgc_airframe_holybro_qav250.png)
 :::
 
-Then update vehicle geometry and output mappings:
-
 - [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
