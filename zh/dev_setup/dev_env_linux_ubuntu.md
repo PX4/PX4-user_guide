@@ -6,7 +6,6 @@ The following instructions set up a PX4 development environment on Ubuntu Linux 
 * [Gazebo Simulation](../simulation/gazebo.md)
 * [通用依赖](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
-* [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -28,11 +27,10 @@ The instructions should also work on other Debian Linux based systems, but this 
 
 Bash scripts are provided to help make it easy to install development environment for different target platforms. They are intended to be run on *clean* Ubuntu LTS installations.
 
-| Script                                                                                                                           | Description                                                                                                                                                                                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)**                                            | Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
-|
-| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!                                                                                                                                                                                  |
+| Script                                                                                                                           | Description                                                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)**                                            | Installs [Gazebo 9 or 11](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools. |
+| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!                                                                     |
 
 :::note
 The scripts *may* not work if installed "on top" of an existing system, or on a different Ubuntu release.
@@ -207,15 +205,11 @@ To install the development toolchain:
 * The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
 
+## ROS 2
 
-<a id="fast_dds"></a>
-<a id="fast_rtps"></a>
+PX4 dependencies for working with ROS 2 are included and built into firmware by default.
 
-## 模拟器依赖
-
-[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is required if you're using PX4 with ROS2 (or some other RTPS/DDS system).
-
-Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
+Information about ROS 2 development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md)
 
 
 ## Gazebo dependencies
