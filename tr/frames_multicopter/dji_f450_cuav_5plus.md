@@ -169,7 +169,7 @@ That's it! The final build is shown below:
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
-First update the firmware and airframe:
+First update the firmware, airframe, geometry, and outputs:
 
 - [Firmware](../config/firmware.md)
 - [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadcopter* airframe (**Quadrotor x > Generic Quadcopter**).
@@ -177,10 +177,10 @@ First update the firmware and airframe:
   ![QGroundControl - Select Generic Quadcopter](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_airframe_generic_quadx.png)
 :::
 
-Then update vehicle geometry and output mappings:
-
 - [Actuators](../config/actuators.md)
-
+  - Update the vehicle geometry to match the frame.
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
