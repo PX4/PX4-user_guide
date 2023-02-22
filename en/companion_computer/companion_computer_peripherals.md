@@ -11,7 +11,7 @@ There are a few devices that allow this communication bridge such as FTDI USB br
 
 :::note
 PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example).
-Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
+Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md).
 :::
 
 ### FTDI Devices

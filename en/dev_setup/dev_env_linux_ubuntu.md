@@ -211,6 +211,12 @@ To install the development toolchain:
 * The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
 
+## ROS 2
+
+PX4 dependencies for working with ROS 2 are included and built into firmware by default.
+
+Information about ROS 2 development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md)
+
 
 ## Next Steps
 
