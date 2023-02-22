@@ -60,6 +60,7 @@ Development is possible as you can still:
 
 To install WSL2 with the default Ubuntu distribution on a new installation of Windows 11:
 
+1. Make sure your computer your computer's virtualization feature is enabled in the BIOS. It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively.
 1. Open _cmd.exe_ as administrator. This can be done by pressing the start key, typing `cmd`, right klicking on the _Command prompt_ entry and selecting **Run as administrator**.
 1. Execute the command `wsl --install` to run the installation routine for WSL.
 1. Reboot the computer.
