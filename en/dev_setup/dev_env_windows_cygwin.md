@@ -66,7 +66,7 @@ The toolchain uses a specially configured console window (started by running the
    ```
    The console will then display:
 
-   ![jMAVSimOnWindows](../../assets/simulation/jmavsim_windows_cygwin.png)
+   ![jMAVSimOnWindows](../../assets/simulation/jmavsim/jmavsim_windows_cygwin.png)
 
 
 ## Next Steps
