@@ -120,19 +120,22 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## 仿真
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../sim_gazebo_classic/README.md). 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
+Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. 要做到这一点，你必须在启动模拟器时使用一个拥有测距仪的机体模型。
 
 iris 光流模型包括激光雷达测距仪：
+
 ```sh
-make px4_sitl gazebo_iris_opt_flow
+make px4_sitl gazebo-classic_iris_opt_flow
 ```
 
 typhoon_h480 包括一个声纳测距仪：
+
 ```sh
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 如果你需要使用一个不同的车辆，你可以在它的配置文件中包含此模型。 你可以看到如何在相应的 Iris 和 Typhoon 配置文件：
+
 - [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
   ```xml
     <include>
