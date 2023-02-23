@@ -20,11 +20,11 @@ Setup for the `payload_deliverer` module is covered in the documentation for the
 
 ![Package delivery architecture overview](../../assets/advanced_config/payload_delivery_mission_architecture.png)
 
-Package Delivery feature is centered around the [vehicle command](../msg_docs/vehicle_command.md) & [vehicle command ack](../msg_docs/vehicle_command_ack.md) messages.
+Package Delivery feature is centered around the [VehicleCommand](../msg_docs/VehicleCommand.md) & [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) messages.
 
 The central idea lies in having an entity that handles the `DO_GRIPPER` or `DO_WINCH` vehicle command, executes it and sends back an acknowledgement when the successful delivery is confirmed.
 
-Because PX4 automatically broadcasts the `vehicle_command` uORB message to a UART port configured to communicate in MAVLink as a [`COMMAND_LONG`](https://mavlink.io/en/messages/common.html#COMMAND_LONG) message, an external payload can receive the command and execute it.
+Because PX4 automatically broadcasts the `VehicleCommand` uORB message to a UART port configured to communicate in MAVLink as a [`COMMAND_LONG`](https://mavlink.io/en/messages/common.html#COMMAND_LONG) message, an external payload can receive the command and execute it.
 
 Likewise, since PX4 automatically translates the [`COMMAND_ACK`](https://mavlink.io/en/messages/common.html#COMMAND_ACK) message coming in from an external source through a UART port configured for MAVLink into a `vehicle_command_ack` uORB message, an external payload's acknowledgement for a successful package deployment can be received by PX4's `navigator` module.
 
