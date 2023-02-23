@@ -118,7 +118,7 @@ The console will print out status as PX4 loads the airframe-specific initialisat
 Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
 :::
 
-![Gazebo Classic UI](../../assets/simulation/gazebo/gazebo_follow.jpg)
+![Gazebo Classic UI](../../assets/simulation/gazebo_classic/gazebo_follow.jpg)
 
 You can bring it into the air by typing:
 
@@ -353,7 +353,6 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 The simulated camera is implemented in [PX4/PX4-SITL_gazebo/master/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp).
 :::
 
-
 ## Simulated Depth Camera
 
 The *Gazebo Classic* [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
@@ -368,7 +367,6 @@ You can simulate a quadrotor with a forward-facing depth camera using:
 make px4_sitl gazebo-classic_iris_depth_camera
 ```
 
-
 <a id="flight_termination"></a>
 
 ## Simulated Parachute/Flight Termination
@@ -377,7 +375,7 @@ make px4_sitl gazebo-classic_iris_depth_camera
 
 The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
 
-```sh
+```
 make px4_sitl gazebo-classic_if750a
 ```
 
@@ -416,18 +414,18 @@ make px4_sitl gazebo-classic_typhoon_h480
 
 Streaming can be paused/restarted using the Gazebo UI *Video ON/OFF* button..
 
-![Video ON/OFF button](../../assets/simulation/gazebo/sitl_video_stream.png)
+![Video ON/OFF button](../../assets/simulation/gazebo_classic/sitl_video_stream.png)
 
 
 ### How to View Gazebo Video
 
 The easiest way to view the SITL/Gazebo Classic camera video stream is in *QGroundControl*. Simply open **Application Settings > General** and set **Video Source** to *UDP h.264 Video Stream* and **UDP Port** to *5600*:
 
-![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo/qgc_gazebo_video_stream_udp.png)
+![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_udp.png)
 
 The video from Gazebo Classic should then display in *QGroundControl* just as it would from a real camera.
 
-![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
+![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo_classic/qgc_gazebo_video_stream_typhoon.jpg)
 
 :::note
 The Typhoon world is not very interesting.
