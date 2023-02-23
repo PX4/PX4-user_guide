@@ -70,10 +70,12 @@ ROS는 ROS2와 다른 환경이 필요하기 때문에 별도의 작업 공간�
 ROS(1) **및** ROS 2를 사용하려면(둘 다 필요합니다!):
 
 1. [PX4 Ubuntu Linux 개발 환경 설정](../dev_setup/dev_env_linux_ubuntu.md) - 기본 지침은 최신 버전의 PX4 소스를 다운로드하고 필요한 도구들을 설치합니다.
-1. **PX4 Autopilot** 프로젝트의 루트에서 새 터미널을 열고, PX4 Gazebo 시뮬레이션을 실행합니다.
+1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+
    ```sh
-   make px4_sitl_rtps gazebo
+   make px4_sitl_rtps gazebo-classic
    ```
+
    PX4가 시작되면, 터미널에 [NuttShell/System Console](../debug/system_console.md)이 표시됩니다.
 
 1. 다른 터미널에서 ROS 2 환경과 작업 공간을 소싱하고 `ros1_bridge`를 시작합니다(이렇게 하면 ROS 2와 ROS 노드가 서로 통신할 수 있음). 또한, `roscore`가 실행 중이거나 실행될 `ROS_MASTER_URI`를 설정합니다.
