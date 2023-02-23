@@ -88,4 +88,4 @@ vmount test yaw 30
 
 注意模拟的云台自身稳定，因此如果发送 MAVLink 命令，设置`stabilize`标志为`false`。
 
-![Gazebo 云台仿真](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo 云台仿真](../../assets/simulation/gazebo_classic/gimbal-simulation.png)
