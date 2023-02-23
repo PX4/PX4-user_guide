@@ -59,7 +59,7 @@ pxh>
 
 또한 [jMAVSim](https://github.com/PX4/jMAVSim) 시뮬레이터의 3D 보기를 보여주는 창이 나타납니다.
 
-![jMAVSim 3D 보기](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3D 보기](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 
 ## 하늘로 띄우기
