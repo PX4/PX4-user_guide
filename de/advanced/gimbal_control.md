@@ -88,4 +88,4 @@ vmount test yaw 30
 
 Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
 
-![Gazebo Gimbal Simulation](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo Gimbal Simulation](../../assets/simulation/gazebo_classic/gimbal-simulation.png)
