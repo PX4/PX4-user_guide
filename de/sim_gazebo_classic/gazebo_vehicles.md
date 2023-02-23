@@ -53,7 +53,7 @@ make px4_sitl gazebo-classic_iris_downward_depth_camera
 make px4_sitl gazebo-classic_solo
 ```
 
-![3DR Solo in Gazebo Classic](../../assets/simulation/gazebo/vehicles/solo.png)
+![3DR Solo in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/solo.png)
 
 
 <a id="typhoon_h480"></a>
@@ -64,7 +64,7 @@ make px4_sitl gazebo-classic_solo
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-![Typhoon H480 in Gazebo Classic](../../assets/simulation/gazebo/vehicles/typhoon.jpg)
+![Typhoon H480 in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/typhoon.jpg)
 
 :::note
 This target also supports [video streaming simulation](../sim_gazebo_classic/README.md#video-streaming).
@@ -82,7 +82,7 @@ This target also supports [video streaming simulation](../sim_gazebo_classic/REA
 make px4_sitl gazebo-classic_plane
 ```
 
-![Plane in Gazebo Classic](../../assets/simulation/gazebo/vehicles/plane.png)
+![Plane in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/plane.png)
 
 
 <a id="standard_plane_catapult"></a>
@@ -108,7 +108,7 @@ The plane will automatically be launched as soon as the vehicle is armed.
 make px4_sitl gazebo-classic_standard_vtol
 ```
 
-![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+![Standard VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/standard_vtol.png)
 
 <a id="tailsitter_vtol"></a>
 
@@ -118,7 +118,7 @@ make px4_sitl gazebo-classic_standard_vtol
 make px4_sitl gazebo-classic_tailsitter
 ```
 
-![Tailsitter VTOL in Gazebo Classic](../../assets/simulation/gazebo/vehicles/tailsitter.png)
+![Tailsitter VTOL in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/tailsitter.png)
 
 
 <a id="ugv"></a>
@@ -131,7 +131,7 @@ make px4_sitl gazebo-classic_tailsitter
 make px4_sitl gazebo-classic_rover
 ```
 
-![Rover in Gazebo Classic](../../assets/simulation/gazebo/vehicles/rover.png)
+![Rover in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/rover.png)
 
 ### Differential UGV
 
@@ -139,7 +139,7 @@ make px4_sitl gazebo-classic_rover
 make px4_sitl gazebo-classic_r1_rover
 ```
 
-![Rover in Gazebo Classic](../../assets/simulation/gazebo/vehicles/r1_rover.png)
+![Rover in Gazebo Classic](../../assets/simulation/gazebo_classic/vehicles/r1_rover.png)
 
 
 <a id="uuv"></a>
@@ -154,7 +154,7 @@ make px4_sitl gazebo-classic_r1_rover
 make px4_sitl gazebo-classic_uuv_hippocampus
 ```
 
-![Submarine/UUV](../../assets/simulation/gazebo/vehicles/hippocampus.png)
+![Submarine/UUV](../../assets/simulation/gazebo_classic/vehicles/hippocampus.png)
 
 <a id="usv"></a>
 
@@ -168,7 +168,7 @@ make px4_sitl gazebo-classic_uuv_hippocampus
 make px4_sitl gazebo-classic_boat
 ```
 
-![Boat/USV](../../assets/simulation/gazebo/vehicles/boat.png)
+![Boat/USV](../../assets/simulation/gazebo_classic/vehicles/boat.png)
 
 <a id="airship"></a>
 
@@ -182,4 +182,4 @@ make px4_sitl gazebo-classic_boat
 make px4_sitl gazebo-classic_cloudship
 ```
 
-![Airship](../../assets/simulation/gazebo/vehicles/airship.png)
+![Airship](../../assets/simulation/gazebo_classic/vehicles/airship.png)

@@ -11,8 +11,8 @@
 - [ROS/MAVROS 설치 가이드](../ros/mavros_installation.md): ROS(1)와 MAVROS로 PX4 개발 환경을 설정합니다.
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS/MAVROS 사용자 지정 메시지 전송](../ros/mavros_custom_messages.md)
-- [ROS Gazebo 시뮬레이션](../simulation/ros_interface.md)
-- [ROS Gazebo OctoMap 모델](../sim_gazebo_classic/gazebo_octomap.md)
+- [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
+- [Gazebo Classic OctoMap Models with ROS](../sim_gazebo_classic/gazebo_octomap.md)
 - [라즈베리파이 ROS 설치](../ros/raspberrypi_installation.md)
 - [외부 위치 추정(비전/모션 기반)](../ros/external_position_estimation.md)
 
@@ -21,4 +21,4 @@
 
 - [PX4 ROS 설정](../ros/README.md#ros-setups).
 - [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - 컴퓨터 비전을 위한 ROS + PX4 시뮬레이션 환경. [XTDrone 매뉴얼](https://www.yuque.com/xtdrone/manual_en)에는 시작하는 데 필요한 모든 내용이 포함되어 있습니다.
-- [Prometheus Autonomous Drone Project](https://github.com/amov-lab/Prometheus/blob/master/README_EN.md) - Prometheus는 ROS 1 기반의 BSD-3 라이선스를 받은 [AMOVLab](https://github.com/amov-lab)의 자율 드론 소프트웨어 패키지 컬렉션으로, 지능형 및 지도 작성, 위치 파악, 계획, 제어 및 표적 탐지와 같은 무인 항공기의 자율 비행은 Gazebo 시뮬레이터와 통합됩니다.
+- [Prometheus Autonomous Drone Project](https://github.com/amov-lab/Prometheus/blob/master/README_EN.md) - Prometheus is a ROS 1 based, BSD-3 licensed collection of autonomous drone software packages from [AMOVLab](https://github.com/amov-lab), which provides a full set of solutions for the intelligent and autonomous flight of drones, such as mapping, localization, planning, control, and target detection, fully integrated with the [Gazebo Classic](../sim_gazebo_classic/README.md) Simulator.

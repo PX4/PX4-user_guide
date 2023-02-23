@@ -12,47 +12,47 @@ The source code for supported worlds can be found on GitHub here: [PX4/PX4-SITL_
 
 [PX4/PX4-SITL_gazebo/tree/main/worlds/empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/empty.world)
 
-![empty](../../assets/simulation/gazebo/worlds/empty.png)
+![empty](../../assets/simulation/gazebo_classic/worlds/empty.png)
 
 ## Baylands
 
 [PX4/PX4-SITL_gazebo/tree/main/worlds/baylands.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/baylands.world)
 
-![Baylands World](../../assets/simulation/gazebo/worlds/baylands.jpg)
+![Baylands World](../../assets/simulation/gazebo_classic/worlds/baylands.jpg)
 
 ## KSQL Airport
 
 [PX4/PX4-SITL_gazebo/tree/main/worlds/ksql_airport.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/ksql_airport.world)
 
-![KSQL Airport World](../../assets/simulation/gazebo/worlds/ksql_airport.jpg)
+![KSQL Airport World](../../assets/simulation/gazebo_classic/worlds/ksql_airport.jpg)
 
 ## McMillan Airfield
 
 [PX4/PX4-SITL_gazebo/tree/main/worlds/mcmillan_airfield.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/mcmillan_airfield.world)
 
-![McMillan Airfield World](../../assets/simulation/gazebo/worlds/mcmillan_airfield.jpg)
+![McMillan Airfield World](../../assets/simulation/gazebo_classic/worlds/mcmillan_airfield.jpg)
 
 ## Safe Landing
 
 [PX4/PX4-SITL_gazebo/tree/main/worlds/safe_landing.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/safe_landing.world)
 
-![Safe Landing World](../../assets/simulation/gazebo/worlds/safe_landing.png)
+![Safe Landing World](../../assets/simulation/gazebo_classic/worlds/safe_landing.png)
 
 ## Sonoma Raceway
 
-[PX4/PX4-SITL_gazebo/tree/main/worlds/sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/sonoma_raceway.world) ![Sonoma_Raceway](../../assets/simulation/gazebo/worlds/sonoma_raceway.png)
+[PX4/PX4-SITL_gazebo/tree/main/worlds/sonoma_raceway.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/sonoma_raceway.world) ![Sonoma_Raceway](../../assets/simulation/gazebo_classic/worlds/sonoma_raceway.png)
 
 ## Warehouse
 
 [PX4/PX4-SITL_gazebo/tree/main/worlds/warehouse.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/warehouse.world)
 
-![Warehouse](../../assets/simulation/gazebo/worlds/warehouse.png)
+![Warehouse](../../assets/simulation/gazebo_classic/worlds/warehouse.png)
 
 ## Yosemite
 
 [PX4/PX4-SITL_gazebo/tree/main/worlds/yosemite.world](https://github.com/PX4/PX4-SITL_gazebo/blob/main/worlds/yosemite.world)
 
-![Yosemite](../../assets/simulation/gazebo/worlds/yosemite.jpg)
+![Yosemite](../../assets/simulation/gazebo_classic/worlds/yosemite.jpg)
 
 <a id="model_specific_worlds"></a>
 

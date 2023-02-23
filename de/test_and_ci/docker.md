@@ -1,6 +1,6 @@
 # PX4 Docker Containers
 
-Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Simulation](../sim_gazebo_classic/README.md) and [ROS](../simulation/ros_interface.md).
+Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
@@ -138,7 +138,7 @@ If everything went well you should be in a new bash shell now. Verify if everyth
 
 ```sh
 cd src/PX4-Autopilot    #This is <container_src>
-make px4_sitl_default gazebo
+make px4_sitl_default gazebo-classic
 ```
 
 
@@ -193,7 +193,7 @@ The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a use
 
 #### Graphics Driver Issues
 
-It's possible that running Gazebo will result in a similar error message like the following:
+It's possible that running Gazebo Classic will result in a similar error message like the following:
 
 ```sh
 libGL error: failed to load driver: swrast

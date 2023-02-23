@@ -63,7 +63,7 @@ Skip this step if you ticked the installer option to *clone the PX4 repository, 
    ```
    The console will then display:
 
-   ![jMAVSimOnWindows](../../assets/simulation/jmavsim_windows_cygwin.png)
+   ![jMAVSimOnWindows](../../assets/simulation/jmavsim/jmavsim_windows_cygwin.png)
 
 
 ## 다음 단계

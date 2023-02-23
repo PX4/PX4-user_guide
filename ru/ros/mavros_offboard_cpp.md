@@ -11,7 +11,7 @@ This example uses C++. A very similar example for Python can be found in [ROS/MA
 :::
 
 <video width="100%" autoplay="true" controls="true">
-    <source src="../../assets/simulation/gazebo_offboard.webm" type="video/webm">
+    <source src="../../assets/simulation/gazebo_classic/gazebo_offboard.webm" type="video/webm">
 </video>
 
 ## Code

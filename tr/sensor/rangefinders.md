@@ -120,19 +120,22 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## Simulation
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../sim_gazebo_classic/README.md). To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 The iris optical flow model includes a Lidar rangefinder:
+
 ```sh
-make px4_sitl gazebo_iris_opt_flow
+make px4_sitl gazebo-classic_iris_opt_flow
 ```
 
 The typhoon_h480 includes a sonar rangefinder:
+
 ```sh
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
+
 - [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
   ```xml
     <include>

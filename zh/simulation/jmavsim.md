@@ -59,7 +59,7 @@ pxh>
 
 It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
-![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d View](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 
 ## 使用/配置选项
