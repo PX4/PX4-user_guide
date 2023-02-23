@@ -229,7 +229,7 @@ To control applications, ROS2 applications:
 - subscribe to (listen to) telemetry topics published by PX4
 - publish to topics that cause PX4 to perform some action.
 
-The topics that you can use are defined in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), and you can get more information about their data in the [uORB Message Reference](../msg_docs/README.md). For example, [vehicle_global_position](../msg_docs/vehicle_global_position.md) can be used to get the vehicle global position, while [vehicle_command](../msg_docs/vehicle_command.md) can be used to command actions such as takeoff and land.
+The topics that you can use are defined in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), and you can get more information about their data in the [uORB Message Reference](../msg_docs/README.md). For example, [VehicleGlobalPosition](../msg_docs/VehicleGlobalPosition.md) can be used to get the vehicle global position, while [VehicleCommand](../msg_docs/VehicleCommand.md) can be used to command actions such as takeoff and land.
 
 The [ROS 2 Example applications](#ros-2-example-applications) examples below provide concrete examples of how to use these topics.
 
@@ -261,13 +261,13 @@ This is needed because the ROS2 default [Quality of Service (QoS) settings](http
 
 The ROS 2 [listener examples](https://github.com/PX4/px4_ros_com/tree/main/src/examples/listeners) in the [px4_ros_com](https://github.com/PX4/px4_ros_com) repo demonstrate how to write ROS nodes to listen to topics published by PX4.
 
-Here we consider the [sensor_combined_listener.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp) node under `px4_ros_com/src/examples/listeners`, which subscribes to the [sensor_combined](../msg_docs/sensor_combined.md#sensor-combined-uorb-message) message.
+Here we consider the [sensor_combined_listener.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp) node under `px4_ros_com/src/examples/listeners`, which subscribes to the [SensorCombined](../msg_docs/SensorCombined.md) message.
 
 :::note
 [Build ROS2 Workspace](#build-ros-2-workspace) shows how to build and run this example.
 :::
 
-The code first imports the C++ libraries needed to interface with the ROS 2 middleware and the header file for the `sensor_combined` message to which the node subscribes:
+The code first imports the C++ libraries needed to interface with the ROS 2 middleware and the header file for the `SensorCombined` message to which the node subscribes:
 
 ```cpp
 #include <rclcpp/rclcpp.hpp>
@@ -284,7 +284,7 @@ class SensorCombinedListener : public rclcpp::Node
 {
 ```
 
-This creates a callback function for when the `sensor_combined` uORB messages are received (now as XRCE-DDS messages), and outputs the content of the message fields each time the message is received.
+This creates a callback function for when the `SensorCombined` uORB messages are received (now as XRCE-DDS messages), and outputs the content of the message fields each time the message is received.
 
 ```cpp
 public:
@@ -316,7 +316,7 @@ public:
 The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`. This is needed because the default ROS2 QoS profile for subscribers is incompatible with the PX4 profile for publishers. For more information see: [ROS2 Subscriber QoS Settings](#ros2-subscriber-qos-settings),
 :::
 
-The lines below create a publisher to the `sensor_combined` uORB topic, which can be matched with one or more compatible ROS2 subscribers to the `fmu/sensor_combined/out` ROS2 topic.
+The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS2 subscribers to the `fmu/sensor_combined/out` ROS2 topic.
 
 ```cpp
 private:
@@ -487,7 +487,7 @@ hil_state: 0
 
 ### ros2 topic hz
 
-You can get statistics about the rates of messages using `ros2 topic hz`. For example, to get the rates for `sensor_combined`:
+You can get statistics about the rates of messages using `ros2 topic hz`. For example, to get the rates for `SensorCombined`:
 
 ```
 ros2 topic hz /fmu/out/sensor_combined

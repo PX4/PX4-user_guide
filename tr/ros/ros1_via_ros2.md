@@ -125,5 +125,5 @@ When using the `build_all.bash` script, it automatically opens and sources all t
 
 ## Creating a ROS (1) listener
 
-Since the creation of ROS nodes is a well known and documented process, we are going to leave this section out from this guide, and you can find an example of a ROS listener for `sensor_combined` messages the `ros1` branch of the `px4_ros_com` repository, under the following path `src/listeners/`.
+Since the creation of ROS nodes is a well known and documented process, we are going to leave this section out from this guide, and you can find an example of a ROS listener for `SensorCombined` messages the `ros1` branch of the `px4_ros_com` repository, under the following path `src/listeners/`.
 
