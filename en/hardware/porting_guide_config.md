@@ -1,6 +1,6 @@
 # PX4 Board Configuration (Kconfig)
 
-The PX4 Autopilot firmware can be configured at build time to adapt it for specialized applications (fixedwing, multicopter, rover or more), to enable new and experimental features (such as RTPS or UAVCANv1) or to save flash & RAM usage by disabling some drivers and subsystems.
+The PX4 Autopilot firmware can be configured at build time to adapt it for specialized applications (fixedwing, multicopter, rover or more), to enable new and experimental features (such as Cyphal) or to save flash & RAM usage by disabling some drivers and subsystems.
 This configuration is handled through *Kconfig*, which is the same [configuration system used by NuttX](../hardware/porting_guide_nuttx.md#nuttx-menuconfig-setup).
 
 The configuration options (often referred as "symbols" by the *kconfig* language) are defined in `Kconfig` files under the **/src** directory. 
@@ -37,9 +37,9 @@ Builds will silently ignore any missing or miss-spelled modules in the  `*.px4bo
 ## PX4 Kconfig Label Inheritance
 
 Each PX4 board must have a `default.px4board` configuration and can have an optional `bootloader.px4board configuration`.
-However you can add also separate configurations under a different label e.g. `rtps.px4board`.
-Note that by default the configuration of `rtps.px4board` inherits all settings set in `default.px4board`.
-When changing the `rtps.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
+However you can add also separate configurations under a different label e.g. `cyphal.px4board`.
+Note that by default the configuration of `cyphal.px4board` inherits all settings set in `default.px4board`.
+When changing the `cyphal.px4board` it only stores the delta of the Kconfig keys that are different compared to `default.px4board`, this is useful to simplify configurations management
 
 :::note
 When modifying a Kconfig key in `default.px4board` it will be modified in all derivative configurations of the same board that had the same config as well.
