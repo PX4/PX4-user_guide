@@ -1,7 +1,7 @@
 # Gazebo Classic Simulation
 
 :::warning
-_Gazebo Classic_ is supported up to Ubuntu Linux 20.04.
+_Gazebo Classic_ is supported with PX4 up to Ubuntu Linux 20.04.
 It has been superseded by [Gazebo](../sim_gazebo_gz/README.md) (which was [formerly known](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo)  as "Gazebo Ignition") for use on Ubuntu 22.04 and later.
 :::
 
