@@ -88,4 +88,4 @@ vmount test yaw 30
 
 시뮬레이션된 짐벌은 자체적으로 안정적이므로, MAVLink 명령을 보내는 경우 `stabilize` 플래그를 `false`로 설정합니다.
 
-![Gazebo 짐벌 시뮬레이션](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo 짐벌 시뮬레이션](../../assets/simulation/gazebo_classic/gimbal-simulation.png)
