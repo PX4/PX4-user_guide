@@ -475,6 +475,7 @@ microdds_client <command> [arguments...]
                  default: 8888
      [-l]        Restrict to localhost (use in combination with
                  ROS_LOCALHOST_ONLY=1)
+     [-c]        Use custom participant config (profile_name="px4_participant")
      [-n <val>]  Client DDS namespace
 
    stop
