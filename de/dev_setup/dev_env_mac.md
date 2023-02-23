@@ -3,10 +3,11 @@
 The following instructions set up a PX4 development environment for macOS. This environment can be used to build PX4 for:
 * Pixhawk and other NuttX-based hardware
 * [jMAVSim Simulation](../simulation/jmavsim.md)
-* [Gazebo Simulation](../sim_gazebo_classic/README.md)
+* [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::details
 Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
 2. Select *Terminal.app* and right-click on it, then choose **Duplicate**.
 3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
@@ -60,7 +61,7 @@ python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyr
 sudo -H python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 ```
 
-## Gazebo Simulation
+## Gazebo Classic Simulation
 
 First run the following commands:
 
@@ -73,7 +74,7 @@ brew link tbb@2020
 September 2021: The commands above are a workaround to this bug: [PX4-Autopilot#17644](https://github.com/PX4/PX4-Autopilot/issues/17644). They can be removed once it is fixed (along with this note).
 :::
 
-To install SITL simulation with Gazebo:
+To install SITL simulation with Gazebo Classic:
 
 ```sh
 brew install --cask temurin
