@@ -75,13 +75,14 @@ To install the toolchain:
 These notes are provided "for information only":
 - The script installs Gazebo Classic 9 on Ubuntu 18.04 and otherwise Gazebo Classic 11.
 - You can verify the NuttX installation by confirming the gcc version as shown:
-  ```bash
-   $arm-none-eabi-gcc --version
 
-   arm-none-eabi-gcc (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM/embedded-7-branch revision 255204]
-   Copyright (C) 2017 Free Software Foundation, Inc.
-   This is free software; see the source for copying conditions.  There is NO
-   warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  ```bash
+  $arm-none-eabi-gcc --version
+
+  arm-none-eabi-gcc (GNU Arm Embedded Toolchain 9-2020-q2-update) 9.3.1 20200408 (release)
+  Copyright (C) 2019 Free Software Foundation, Inc.
+  This is free software; see the source for copying conditions.  There is NO
+  warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   ```
 - You're going to need the PX4 source code anyway.
   But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/requirements.txt) and then run **ubuntu.sh**:
@@ -212,7 +213,7 @@ For installation instructions for the respective simulators see:
 - [Gazebo](#gazebo)
 
 :::note
-ROS desktop builds (i.e. installed with say, `ros-humble-desktop`) include specific versions of Gazebo and Gazebo classic by default.
+ROS desktop builds (i.e. installed with say, `ros-humble-desktop`) include specific versions of Gazebo and Gazebo Classic by default.
 For example, ROS2 "Humble" and "Rolling" come with Ignition Fortress, ROS2 "Foxy" comes with Gazebo Classic 11, and ROS1 "Melodic" comes with Gazebo 9. 
 
 PX4 supports specific versions of Gazebo, so you should follow the instructions above to install [Gazebo](#gazebo).
