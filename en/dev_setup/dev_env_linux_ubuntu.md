@@ -48,7 +48,7 @@ The scripts *may* not work if installed "on top" of an existing system, or on a 
 Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that includes [Gazebo Classic](../sim_gazebo_classic/README.md) and [jMAVSim](../simulation/jmavsim.md) simulators, and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
 
 :::warning
-ROS Melodic users should skip these instructions and follow the instructions at [ROS Melodic /Gazebo](#rosgazebo) (Gazebo Classic is installed by default, and there may be some conflicts).
+ROS Melodic users should jump to [ROS Melodic /Gazebo](#rosgazebo) (skip this section).
 :::
 
 To install the toolchain:
@@ -71,9 +71,8 @@ To install the toolchain:
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
 1. Restart the computer on completion.
 
-:::note
-These are additional "for your information" notes:
-
+:::details Additional notes
+These notes are provided "for information only":
 - The script installs Gazebo Classic 9 on Ubuntu 18.04 and otherwise Gazebo Classic 11.
 - You can verify the NuttX installation by confirming the gcc version as shown:
   ```bash
@@ -103,6 +102,7 @@ It is not installed by the [bash scripts](#bash-scripts) above (see [PX4-Autopil
 To install Gazebo:
 
 1. Follow the instructions above for installing [Gazebo Classic, JMAVSim and NuttX (Pixhawk) Targets](#gazebo-classic-jmavsim-and-nuttx-pixhawk-targets).
+   The NuttX components are optional, but you will need the simulator dependencies.
 2. Install Gazebo:
 
    ```sh
@@ -112,16 +112,9 @@ To install Gazebo:
     sudo apt-get install gz-garden
    ```
    
-   This will uninstall Gazebo-Classic on Ubuntu 22.02.
+   Note that installing `gz-garden` will uninstall Gazebo-Classic on Ubuntu 22.02.
 
 <!-- reproduced from the official [Gazebo "Garden"](https://gazebosim.org/docs/garden/install_ubuntu) installation instructions. -->
-
-
-:::note
-If you're working with ROS2 "Humble" or later (Ubuntu 22.04), Gazebo can alternatively be installed as part of the desktop builds, such as `ros-humble-desktop`.
-Note that ROS2 "Foxy" installs Gazebo Classic 11.
-:::
-
 
 <a id="raspberry-pi-hardware"></a>
 ## Raspberry Pi
@@ -206,6 +199,26 @@ Additional developer information for using PX4 on Raspberry Pi (including buildi
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
 
 
+## ROS 2
+
+Information about ROS 2 setup and development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md).
+
+Generally speaking if you're working with hardware and don't need to modify PX4 itself, then you do not need a PX4 development environment (dependencies for working with ROS 2 are included and built into PX4 firmware by default).
+
+You will need to install the normal development simulator environment in order to work with the PX4 simulator.
+For installation instructions for the respective simulators see:
+
+- [Gazebo Classic, JMAVSim and NuttX (Pixhawk) Targets](#gazebo-classic-jmavsim-and-nuttx-pixhawk-targets)
+- [Gazebo](#gazebo)
+
+:::note
+ROS desktop builds (i.e. installed with say, `ros-humble-desktop`) include specific versions of Gazebo and Gazebo classic by default.
+For example, ROS2 "Humble" and "Rolling" come with Ignition Fortress, ROS2 "Foxy" comes with Gazebo Classic 11, and ROS1 "Melodic" comes with Gazebo 9. 
+
+PX4 supports specific versions of Gazebo, so you should follow the instructions above to install [Gazebo](#gazebo).
+:::
+
+
 <a id="rosgazebo"></a>
 ## ROS Melodic/Gazebo Classic
 
@@ -217,7 +230,8 @@ ROS Melodic can *only* install on Ubuntu 18.04.
 
 To install the development toolchain:
 
-1. Download the script in a bash shell:
+1. Download the [ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh) script in a bash shell:
+
    ```bash
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
@@ -233,12 +247,6 @@ To install the development toolchain:
 * Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
 * The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
-
-## ROS 2
-
-PX4 dependencies for working with ROS 2 are included and built into firmware by default.
-
-Information about ROS 2 development with PX4 can be found in the [ROS 2 User Guide](../ros/ros2_comm.md).
 
 
 ## Next Steps
