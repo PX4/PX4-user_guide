@@ -1,8 +1,8 @@
-# cpuload (UORB message)
+# Cpuload (UORB message)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/cpuload.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Cpuload.msg)
 
 ```c
 uint64 timestamp		# time since system start (microseconds)

@@ -1,11 +1,11 @@
-# gripper (UORB message)
+# Gripper (UORB message)
 
-# Used to command an actuation in the gripper, which is mapped to a specific output in the mixer module
+# Used to command an actuation in the gripper, which is mapped to a specific output in the control allocation module
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/gripper.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Gripper.msg)
 
 ```c
-## Used to command an actuation in the gripper, which is mapped to a specific output in the mixer module
+## Used to command an actuation in the gripper, which is mapped to a specific output in the control allocation module
 
 uint64 timestamp
 

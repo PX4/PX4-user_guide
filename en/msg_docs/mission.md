@@ -1,8 +1,8 @@
-# mission (UORB message)
+# Mission (UORB message)
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/mission.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Mission.msg)
 
 ```c
 uint64 timestamp	# time since system start (microseconds)
