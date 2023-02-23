@@ -180,7 +180,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1,
 }
 ```
 
-설명에서 알 수 있듯이, 위의 코드는 비행 콘트롤러에 명령과 함께 `vehicle_command_publisher` 메시지를 보내는 목적으로 사용됩니다.
+As the description suggests, the above code serves the purpose of sending `VehicleCommand` messages with commands to the flight controller.
 
 ## 사용법
 
