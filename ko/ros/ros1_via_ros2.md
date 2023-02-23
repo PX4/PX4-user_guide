@@ -125,5 +125,5 @@ ROS(1) **및** ROS 2를 사용하려면(둘 다 필요합니다!):
 
 ## ROS(1) 리스너 생성
 
-ROS 노드 생성은 잘 알려져 있고 문서화된 프로세스이므로 이 섹션은 이 가이드에서 생략합니다. 다음 경로 `src/listeners/` 아래에서 `px4_ros_com` 저장소의 `ros1` 분기 `sensor_combined` 메시지에 대한 ROS 리스너의 예를 찾을 수 있습니다.
+Since the creation of ROS nodes is a well known and documented process, we are going to leave this section out from this guide, and you can find an example of a ROS listener for `SensorCombined` messages the `ros1` branch of the `px4_ros_com` repository, under the following path `src/listeners/`.
 
