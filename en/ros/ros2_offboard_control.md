@@ -192,7 +192,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1,
 }
 ```
 
-As the description suggests, the above code serves the purpose of sending `vehicle_command` messages with commands to the flight controller.
+As the description suggests, the above code serves the purpose of sending `VehicleCommand` messages with commands to the flight controller.
 
 ## Usage
 
