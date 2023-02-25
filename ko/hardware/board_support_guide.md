@@ -50,17 +50,9 @@ PX4는 일반적으로 상업적으로 사용 가능한 보드만 지원하므�
 
 ### VER 및 REV ID(하드웨어 개정 및 버전 감지)
 
-FMUv5 이상에는 전기 감지 메커니즘이 있습니다. 선택적 구성 데이터와 결합된 이 감지는 필수 장치 및 전원 공급 장치 구성과 관련하여 하드웨어 구성을 정의합니다. 제조업체는 Pixhawk 표준 보드를 출시하기 위하여 [boards@px4.io](mailto:boards@px4.io)에서 PX4 보드 유지 관리자로부터 VER 및 REV ID를 얻어야 합니다.
+FMUv5 이상에는 전기 감지 메커니즘이 있습니다. 선택적 구성 데이터와 결합된 이 감지는 필수 장치 및 전원 공급 장치 구성과 관련하여 하드웨어 구성을 정의합니다. Manufacturers must obtain the VER and REV ID from PX4 board maintainers by issuing a PR to ammend the [DS-018 Pixhawk standard](https://github.com/pixhawk/Pixhawk-Standards) for board versions and revisions.
 
-이 보드는 Pixhawk 표준과 100% 호환되기 때문에 VER 및 REV ID에 할당된 값은 해당 FMUv 버전의 기본값입니다.
-
-예를 들어 FMUv5의 값은 다음과 같습니다.
-
-| REV | VER | &nbsp;     |
-| --- | --- | ---------- |
-| 0   | 0   | FMUV5      |
-| 0   | 4   | FMUV5 Mini |
-
+Because these boards are 100% compliant with the Pixhawk standard, the values assigned for VER and REV ID are the defaults for that FMU Version.
 
 ## 지원 제조업체
 
