@@ -13,6 +13,7 @@ This code aims to foster an open and welcoming environment.
 This section contains information about contributing to PX4, including the source code, documentation, and translations, and their relevant licenses.
 * [Dev Call](../contribute/dev_call.md) - Discuss architecture, pull requests, impacting issues with the dev team
 * [Codeline Management](../contribute/code.md) - Work with PX4 code
+* [Ambassadors](./ambassadors.md) - Ambassadors who help the Community in Forum / Development
 * [Documentation](../contribute/docs.md) - Improve the docs
 * [Translation](../contribute/translation.md) - Translate using Crowdin
 * [Terminology/Notation](../contribute/notation.md)
