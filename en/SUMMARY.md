@@ -806,6 +806,7 @@
     - [External Position Estimation (Vision/Motion based)](ros/external_position_estimation.md)
 - [Community](contribute/index.md)
   - [Dev Call](contribute/dev_call.md)
+  - [Maintainers](contribute/maintainers.md)
   - [Support](contribute/support.md)
   - [Source Code Management](contribute/code.md)
     - [GIT Examples](contribute/git_examples.md)
