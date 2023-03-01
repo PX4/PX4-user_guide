@@ -113,7 +113,7 @@ To install Gazebo:
     sudo apt-get install gz-garden
    ```
    
-   Note that installing `gz-garden` will uninstall Gazebo-Classic on Ubuntu 22.02.
+   Note that installing `gz-garden` will uninstall Gazebo-Classic!
 
 <!-- reproduced from the official [Gazebo "Garden"](https://gazebosim.org/docs/garden/install_ubuntu) installation instructions. -->
 
