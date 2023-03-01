@@ -374,6 +374,10 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 The simulated camera is implemented in [PX4/PX4-SITL_gazebo/master/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp). 
 :::
 
+<!-- Simulated Depth Camera section removed 20230301.
+  Feature not yet available: https://github.com/PX4/PX4-user_guide/pull/2264#issuecomment-1441711189 
+-->
+<!-- 
 ## Simulated Depth Camera
 
 The *Gazebo Classic* [depth camera model](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/main/models/depth_camera/depth_camera.sdf.jinja) simulates an Intel® RealSense™ D455 stereo depth camera using the [Openni Kinect plugin](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#OpenniKinect).
@@ -388,6 +392,8 @@ You can simulate a quadrotor with a forward-facing depth camera using:
 ```sh
 make px4_sitl gazebo-classic_iris_depth_camera
 ```
+
+-->
 
 <a id="flight_termination"></a>
 ## Simulated Parachute/Flight Termination
