@@ -14293,13 +14293,6 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="COM_POS_FS_EPV">COM_POS_FS_EPV</strong> (FLOAT)</td>
- <td>Vertical position error threshold <p><strong>Comment:</strong> This is the vertical position error (EPV) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation).</p>   </td>
- <td>[0, ?] </td>
- <td>10.</td>
- <td>m</td>
-</tr>
-<tr>
  <td><strong id="COM_POS_LOW_EPH">COM_POS_LOW_EPH</strong> (FLOAT)</td>
  <td>EPH threshold for RTL <p><strong>Comment:</strong> Specify the threshold for triggering a warning for low local position accuracy. Additionally triggers a RTL if currently in Mission or Loiter mode. Local position has to be still declared valid, which is most of all depending on COM_POS_FS_EPH. Use this feature on systems with dead-reckoning capabilites (e.g. fixed-wing vehicles with airspeed sensor) to improve the user notification and failure mitigation when flying in GNSS-denied areas. Set to -1 to disable.</p>   </td>
  <td>[-1, ?] </td>
@@ -22096,7 +22089,7 @@ table {
 </tr>
 <tr>
  <td><strong id="PD_GRIPPER_TO">PD_GRIPPER_TO</strong> (FLOAT)</td>
- <td>Timeout for successful gripper actuation acknowledgement <p><strong>Comment:</strong> Maximum time Gripper will wait while the successful griper actuation isn't recognised. If the gripper has no feedback sensor, it will simply wait for this time before considering gripper actuation successful and publish a 'vehicle_command_ack' signaling successful gripper action</p>   </td>
+ <td>Timeout for successful gripper actuation acknowledgement <p><strong>Comment:</strong> Maximum time Gripper will wait while the successful griper actuation isn't recognised. If the gripper has no feedback sensor, it will simply wait for this time before considering gripper actuation successful and publish a 'VehicleCommandAck' signaling successful gripper action</p>   </td>
  <td>[0, ?] </td>
  <td>3</td>
  <td>s</td>
