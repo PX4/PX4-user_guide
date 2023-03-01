@@ -74,8 +74,10 @@ Jenkins uses the [PX4BuildBot](https://github.com/PX4BuildBot) account to upload
 
 An example commit can be found [here](https://github.com/PX4/PX4-user_guide/commit/a4ffaf5fc32df8650da614aa3129b3b90794584f).
 
-PX4 documentation is built separately using a separate Jenkins process following the above update (or any other other updates).
-The PX4 CI build process is defined in: [PX4-user_guide/Jenkinsfile](https://github.com/PX4/PX4-user_guide/blob/main/Jenkinsfile).
+The PX4 user guide is built when there are any changes to the [PX4-user_guide](https://github.com/PX4/PX4-user_guide) repo `main` or `v1.*` branches, including the addition of the metadata above.
+This ensures ensures that the "main" version of the documentation is always up to date.
+
+Note that the documentation build is also run using Jenkins CI, and is based on the definition in [PX4-user_guide/Jenkinsfile](https://github.com/PX4/PX4-user_guide/blob/main/Jenkinsfile).
 
 
 ## QGroundControl 
