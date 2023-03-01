@@ -1,88 +1,32 @@
 # ROS 2 Offboard Control Example
 
 :::warning
-**This example is out of date!**
-It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported.
-We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
-:::
-
-:::warning
 *Offboard* control is dangerous.
 If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
 :::warning
-ROS 2 interaction with PX4, done through the [*microRTPS* bridge](../ros/ros2_comm.md), requires that the user understands how the PX4 internals work!
-The same understanding is required for PX4 offboard control via ROS 2, where the user publishes directly to the required uORB topics (without any level of abstraction between ROS and PX4 data formats/conventions).
+ROS and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros).
+For example, for the body frame PX4 uses the Forward-Right-Down (FRD) frame, while ROS uses Forward-Left-Up (FLU).
 
-If you are unsure of PX4 internals work, we recommend that you instead use a workflow that depends on the MAVLink microservices and abstraction layer to execute offboard control or any other kind of interaction through the *microRTPS* bridge.
+There is no implicit conversion between frame types when topics are published or subscribed in PX4, so you will need to manage this in your own code!
 :::
 
-The following C++ example shows how to use the *microRTPS* bridge and the *px4_ros_com* package to do offboard position control from a ROS 2 node.
+The following C++ example shows how to do offboard position control from a ROS 2 node.
+
+It has been tested on Ubuntu 20.04 with ROS2 Foxy and PX4 `main` after PX4 v1.13.
 
 ## Requirements
 
-For this example, PX4 SITL is being used, so it is assumed, first of all, that the user has the simulation environment properly configured.
-Besides that:
+First set up ROS and the PX4 simulation environment as described in the [ROS 2 User Guide](..ros/ros2_comm.md).
 
-1. The user already has their ROS 2 environment properly configured
-   Check the [PX4-ROS 2 bridge](../ros/ros2_comm.md) document for details on how to do it.
-1. *px4_msgs* and *px4_ros_com* should be already on your colcon workspace `src` directory.
-   See the link in the previous point for details.
-1. `offboard_control_mode` and `trajectory_setpoint` messages are configured in the `urtps_bridge_topics.yaml` file both in the PX4-Autopilot and
-*px4_ros_com* package to be *received* in the Autopilot.
-
-   In *PX4-Autopilot/msg/tools/urtps_bridge_topics.yaml*:
-   ```yaml
-   - msg:     offboard_control_mode
-     receive: true
-   ...
-   - msg:     vehicle_command
-     receive: true
-   ...
-   - msg:     vehicle_local_position_setpoint
-     receive: true
-   - msg:     trajectory_setpoint # multi-topic / alias of vehicle_local_position_setpoint
-     base:    vehicle_local_position_setpoint
-     receive: true
-   ```
-
-   In *path_to_colcon_ws/src/px4_ros_com/templates/urtps_bridge_topics.yaml*:
-   ```yaml
-   - msg:     OffboardControlMode
-     receive: true
-   ...
-   - msg:     VehicleCommmand
-     receive: true
-   ...
-   - msg:     VehicleLocalPositionSetpoint
-     receive: true
-   - msg:     TrajectorySetpoint
-     base:    VehicleLocalPositionSetpoint
-     receive: true
-   ```
- 1. `vehicle_command` message is configured in the `urtps_bridge_topics.yaml` file both in the PX4-Autopilot and
- *px4_ros_com* package to *send* to the Autopilot.
-
-    In *PX4-Autopilot/msg/tools/urtps_bridge_topics.yaml*:
-    ```yaml
-    - msg:     vehicle_command
-      receive: true
-    ```
-
-    In *path_to_colcon_ws/src/px4_ros_com/templates/uorb_rtps_message_ids.yaml*:
-    ```yaml
-    - msg:     VehicleCommmand
-      receive: true
-    ```
-
-   :::note
-   At time of writing, the above topic is already configured to be sent.
-   :::
+The example uses the [OffboardControlMode](../msg_docs/OffboardControlMode.md), [TrajectorySetpoint](../en/msg_docs/TrajectorySetpoint.md) and [VehicleCommand](../msg_docs/VehicleCommand.md) messages.
+These are published as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) but you will need to add the [px4_msgs](https://github.com/PX4/px4_msgs) repo to your colcon workspace `src` directory to make these available to the ROS2 node.
+The instructions below show you how.
 
 ## Implementation
 
-The source code of the offboard control example can be found in [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
+The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
 Here are some details about the implementation:
 
@@ -94,7 +38,7 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("/fmu/timesyn
     });
 ```
 
-The above is required in order to obtain a synchronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
+The above is required in order to obtain a synchronized timestamp to be set and sent with the [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../en/msg_docs/TrajectorySetpoint.md) messages.
 
 ```cpp
 auto timer_callback = [this]() -> void {
@@ -122,7 +66,7 @@ auto timer_callback = [this]() -> void {
 
 The above is the main loop spinning on the ROS 2 node.
 It first sends 10 setpoint messages before sending the command to allow PX4 to change to offboard mode.
-At the same time, both `offboard_control_mode` and `trajectory_setpoint` messages are sent to the flight controller.
+At the same time, both `OffboardControlMode` and `TrajectorySetpoint` messages are sent to the flight controller.
 
 ```cpp
 /**
@@ -159,8 +103,8 @@ void OffboardControl::publish_trajectory_setpoint() const {
 }
 ```
 
-The above functions show how the fields on both `offboard_control_mode` and `trajectory_setpoint` messages can be set.
-Notice that the above example is applicable for offboard position control, where on the `offboard_control_mode` message, the `position` field is set to `true`, while all the others get set to `false`.
+The above functions show how the fields on both `OffboardControlMode` and `TrajectorySetpoint` messages can be set.
+Notice that the above example is applicable for offboard position control, where on the `OffboardControlMode` message, the `position` field is set to `true`, while all the others get set to `false`.
 Also, in this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
 
 :::tip
@@ -192,7 +136,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1,
 }
 ```
 
-As the description suggests, the above code serves the purpose of sending `VehicleCommand` messages with commands to the flight controller.
+As the description suggests, the above code serves the purpose of sending [VehicleCommand](../msg_docs/VehicleCommand.md) messages with commands to the flight controller.
 
 ## Usage
 
