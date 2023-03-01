@@ -63,7 +63,7 @@ In addition, if there are changes to the `main` branch Jenkins builds / deploys 
 
 ## PX4 Documentation
 
-Jenkins uses the [PX4BuildBot](https://github.com/PX4BuildBot) account to upload the following metadata to the [PX4-user_guide](https://github.com/PX4/PX4-user_guide) repo.
+Jenkins uses the [PX4BuildBot](https://github.com/PX4BuildBot) account to upload the following metadata to the [PX4-user_guide](https://github.com/PX4/PX4-user_guide) repo when the PX4-Autopilot `main` branch is altered.
 
 - `airframes_reference.md`: Markdown for [Airframes Reference Documentation](../airframes/airframe_reference.md)
 - `parameter_reference.md`: Markdown for [Parameter Reference Documentation](../advanced_config/parameter_reference.md)
