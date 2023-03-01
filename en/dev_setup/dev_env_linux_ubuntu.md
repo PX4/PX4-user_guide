@@ -1,6 +1,7 @@
 # Ubuntu Development Environment
 
-The following instructions set up a PX4 development environment on Ubuntu Linux 18.04 and 20.04.
+The following instructions set up a PX4 development environment on Ubuntu Linux 18.04, 20.04 and 22.04 (not fully supported).
+
 This environment can be used to build PX4 for [most PX4 targets](../dev_setup/dev_env.md#supported-targets):
 
 - Pixhawk and other NuttX-based hardware
@@ -36,7 +37,7 @@ They are intended to be run on *clean* Ubuntu LTS installations.
 
 Script | Description
 --- | ---
-**[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)** | Installs [Gazebo Classic](../sim_gazebo_classic/README.md) (version 9 on Ubuntu 18.04 - otherwise version 11) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.
+**[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh)** | Installs [Gazebo Classic](../sim_gazebo_classic/README.md) (version 9 on Ubuntu 18.04, version 11 on Ubuntu 20.04) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.
 **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!
 
 :::note
@@ -48,7 +49,7 @@ The scripts *may* not work if installed "on top" of an existing system, or on a 
 Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/setup/ubuntu.sh) script to set up a development environment that includes [Gazebo Classic](../sim_gazebo_classic/README.md) and [jMAVSim](../simulation/jmavsim.md) simulators, and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
 
 :::warning
-ROS Melodic users should jump to [ROS Melodic /Gazebo](#rosgazebo) (skip this section).
+ROS(1) users should jump to [ROS Melodic /Gazebo](#rosgazebo) (skip this section).
 :::
 
 To install the toolchain:
@@ -97,7 +98,7 @@ These notes are provided "for information only":
 
 ## Gazebo
 
-[Gazebo](../sim_gazebo_gz/README.md) is supported on Ubuntu 18.04, Ubuntu 20.04, and Ubuntu 22.04, and recommended for working with PX4 on Ubuntu 22.04 and later.
+[Gazebo](../sim_gazebo_gz/README.md) "Garden" is supported on Ubuntu 18.04, Ubuntu 20.04, and Ubuntu 22.04, and recommended for working with PX4 on Ubuntu 22.04 and later.
 It is not installed by the [bash scripts](#bash-scripts) above (see [PX4-Autopilot/#21090](https://github.com/PX4/PX4-Autopilot/issues/21090)), but can be installed manually.
 
 To install Gazebo:
@@ -113,7 +114,9 @@ To install Gazebo:
     sudo apt-get install gz-garden
    ```
    
-   Note that installing `gz-garden` will uninstall Gazebo-Classic!
+   :::note
+   Installing `gz-garden` will uninstall Gazebo-Classic!
+   """
 
 <!-- reproduced from the official [Gazebo "Garden"](https://gazebosim.org/docs/garden/install_ubuntu) installation instructions. -->
 
@@ -211,14 +214,6 @@ For installation instructions for the respective simulators see:
 
 - [Gazebo Classic, JMAVSim and NuttX (Pixhawk) Targets](#gazebo-classic-jmavsim-and-nuttx-pixhawk-targets)
 - [Gazebo](#gazebo)
-
-:::note
-ROS desktop builds (i.e. installed with say, `ros-humble-desktop`) include specific versions of Gazebo and Gazebo Classic by default.
-For example, ROS2 "Humble" and "Rolling" come with Ignition Fortress, ROS2 "Foxy" comes with Gazebo Classic 11, and ROS1 "Melodic" comes with Gazebo 9. 
-
-PX4 supports specific versions of Gazebo, so you should follow the instructions above to install [Gazebo](#gazebo).
-:::
-
 
 <a id="rosgazebo"></a>
 ## ROS Melodic/Gazebo Classic
