@@ -116,7 +116,7 @@ To install Gazebo:
    
    :::note
    Installing `gz-garden` will uninstall Gazebo-Classic!
-   """
+   :::
 
 <!-- reproduced from the official [Gazebo "Garden"](https://gazebosim.org/docs/garden/install_ubuntu) installation instructions. -->
 
