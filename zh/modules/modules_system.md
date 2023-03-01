@@ -690,9 +690,9 @@ Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
-- 读取传感器驱动的输出 (例如，`sensor_gyro` 等)。 如果存在多个同类型传感器，那个模块将进行投票和容错处理。 然后应用飞控板的旋转和温度校正（如果被启用）。 最终发布传感器数据：其中名为 `sensor_combined` 的主题被系统的许多部件所使用。
+- Read the output from the sensor drivers (`SensorGyro`, etc.). 如果存在多个同类型传感器，那个模块将进行投票和容错处理。 然后应用飞控板的旋转和温度校正（如果被启用）。 And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
 - Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started. 传感器驱动使用 ioctl 接口获取参数更新。 为了使这一功能正常运行，当 `sensors` 模块启动时传感器驱动必须已经处于运行状态。
-- Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
+- Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
