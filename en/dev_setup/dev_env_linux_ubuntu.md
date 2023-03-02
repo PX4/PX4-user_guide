@@ -57,7 +57,7 @@ To install the toolchain:
 
 :::details Additional notes
 These notes are provided "for information only":
-- If you want to use Gazebo on Ubuntu 20.08 you can add it manually.
+- If you want to use Gazebo on Ubuntu 20.04 you can add it manually.
   See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
 - You can verify the NuttX installation by confirming the gcc version as shown:
 
