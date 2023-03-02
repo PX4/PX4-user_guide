@@ -158,6 +158,39 @@ lightware_laser_serial <command> [arguments...]
 
    stop          Stop driver
 ```
+## lightware_sf45_serial
+Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
+
+
+### 설명
+
+Serial bus driver for the Lightware SF45/b Laser rangefinder.
+
+설정/사용 정보: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+
+### 예
+
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+```
+lightware_sf45_serial start -d /dev/ttyS1
+```
+드라이버를 중지합니다.
+```
+lightware_sf45_serial stop
+```
+
+<a id="lightware_sf45_serial_usage"></a>
+
+### 사용법
+```
+lightware_sf45_serial <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     -R <val>    Sensor rotation - downward facing by default
+
+   stop          Stop driver
+```
 ## ll40ls
 소스: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ll40ls)
 
