@@ -659,9 +659,9 @@ Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/m
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
-- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
+- Read the output from the sensor drivers (`SensorGyro`, etc.). 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
 - 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
-- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
+- Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
