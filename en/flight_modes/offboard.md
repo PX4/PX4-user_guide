@@ -2,8 +2,8 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink.
-The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
+The vehicle obeys a position, velocity or attitude setpoint provided by some source that is external to the flight stack.
+The setpoint may be provided via MAVLink (or a MAVLink API such as [MAVSDK](https://mavsdk.mavlink.io/)) or by [ROS2](../ros/ros2.md) running on a companion computer.
 
 :::tip
 Not all coordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. 
