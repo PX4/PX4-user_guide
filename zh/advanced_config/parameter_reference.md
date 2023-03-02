@@ -28234,6 +28234,39 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_SF45_CFG">SENS_EN_SF45_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for Lightware SF45 Rangefinder (serial) <p><strong>Comment:</strong> Configure on which serial port to run Lightware SF45 Rangefinder (serial).</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>6:</strong> UART 6</li>
+
+<li><strong>101:</strong> TELEM 1</li>
+
+<li><strong>102:</strong> TELEM 2</li>
+
+<li><strong>103:</strong> TELEM 3</li>
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+
+<li><strong>201:</strong> GPS 1</li>
+
+<li><strong>202:</strong> GPS 2</li>
+
+<li><strong>203:</strong> GPS 3</li>
+
+<li><strong>300:</strong> Radio Controller</li>
+
+<li><strong>301:</strong> Wifi Port</li>
+
+<li><strong>401:</strong> EXT2</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>102</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_SHT3X">SENS_EN_SHT3X</strong> (INT32)</td>
  <td>SHT3x temperature and hygrometer    <p><b>Reboot required:</b> true</p>
 </td>
@@ -29298,6 +29331,69 @@ table {
 <li><strong>401:</strong> EXT2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SF45_ORIENT_CFG">SF45_ORIENT_CFG</strong> (INT32)</td>
+ <td>Orientation upright or facing downward <p><strong>Comment:</strong> The SF45 mounted facing upward or downward on the frame</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Rotation upward</li>
+
+<li><strong>1:</strong> Rotation downward</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SF45_UPDATE_CFG">SF45_UPDATE_CFG</strong> (INT32)</td>
+ <td>Update rate in Hz <p><strong>Comment:</strong> The SF45 sets the update rate in Hz to allow greater resolution</p> <strong>参数对照:</strong><ul>
+<li><strong>1:</strong> 50hz</li>
+
+<li><strong>2:</strong> 100hz</li>
+
+<li><strong>3:</strong> 200hz</li>
+
+<li><strong>4:</strong> 400hz</li>
+
+<li><strong>5:</strong> 500hz</li>
+
+<li><strong>6:</strong> 625hz</li>
+
+<li><strong>7:</strong> 1000hz</li>
+
+<li><strong>8:</strong> 1250hz</li>
+
+<li><strong>9:</strong> 1538hz</li>
+
+<li><strong>10:</strong> 2000hz</li>
+
+<li><strong>11:</strong> 2500hz</li>
+
+<li><strong>12:</strong> 5000hz</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SF45_YAW_CFG">SF45_YAW_CFG</strong> (INT32)</td>
+ <td>Sensor facing forward or backward <p><strong>Comment:</strong> The usb port on the sensor indicates 180deg, opposite usb is forward facing</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Rotation forward</li>
+
+<li><strong>1:</strong> Rotation backward</li>
+
+<li><strong>2:</strong> Rotation right</li>
+
+<li><strong>3:</strong> Rotation left</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>0</td>
