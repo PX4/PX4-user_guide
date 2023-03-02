@@ -1,31 +1,22 @@
 # MAVROS
 
-[mavros](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS (1) package that enables MAVLink extendable communication between computers running ROS (1) for any MAVLink enabled autopilot, ground station, or peripheral. *MAVROS* is the "official" supported bridge between ROS (1) and the MAVLink protocol.
+[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS (1) package that enables MAVLink extendable communication between computers running ROS (1) for any MAVLink enabled autopilot, ground station, or peripheral. *MAVROS* is the "official" supported bridge between ROS (1) and the MAVLink protocol.
 
 While MAVROS can be used to communicate with any MAVLink-enabled autopilot, this documentation explains how to set up communication between the PX4 Autopilot and a ROS (1) enabled companion computer.
 
-:::tip
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo).
-
-The script automates the installation instructions covered in this topic, installing everything you need: PX4, ROS, the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator, and [MAVROS](../ros/mavros_installation.md). Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
-
 :::warning
-Note The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md). This documentation reflects the "old approach".
-:::
-
-## 安装
-
-- [mavros ROS Package Summary](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
-- [mavros source](https://github.com/mavlink/mavros/)
-- [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation)
+The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md). This documentation reflects the "old approach". Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
 
 ## Installation
 
-MAVROS can be installed either from source or binary. We recommend that developers use the source installation.
+:::note
+First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic). Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
 
 :::tip
 These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic* release.
 :::
+
+MAVROS can be installed either from source or binary. We recommend that developers use the source installation.
 
 ### 二进制安装 (Debian/Ubuntu)
 
@@ -132,3 +123,9 @@ The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show yo
 :::note
 If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
 :::
+
+## See Also
+
+- [mavros ROS Package Summary](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
+- [mavros source](https://github.com/mavlink/mavros/)
+- [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation)

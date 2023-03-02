@@ -1,32 +1,24 @@
 # ROS/MAVROS 설치 가이드
 
-[mavros](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)는 MAVLink 지원 자동조종장치, 지상국 또는 주변 장치에 대해 ROS(1)를 실행하는 컴퓨터 간에 MAVLink 확장 통신을 가능하게 하는 ROS(1) 패키지입니다. *MAVROS*는 ROS(1)와 MAVLink 프로토콜 간의 "공식" 지원 브리지입니다.
+[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS (1) package that enables MAVLink extendable communication between computers running ROS (1) for any MAVLink enabled autopilot, ground station, or peripheral. *MAVROS*는 ROS(1)와 MAVLink 프로토콜 간의 "공식" 지원 브리지입니다.
 
 MAVROS를 사용하여 모든 MAVLink 지원 자동 조종 장치와 통신할 수 있지만, PX4 자동조종장치와 ROS(1) 지원 컴퓨터 간의 통신 설정 방법을 설명합니다.
 
-:::tip
-Ubuntu Linux에서 ROS로 PX4 시뮬레이션을 설정하는 가장 쉬운 방법은 표준 설치 스크립트를 사용하는 것입니다. 스크립트는 [Linux의 개발 환경 > ROS Gazebo](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)를 참고하십시오.
-
-The script automates the installation instructions covered in this topic, installing everything you need: PX4, ROS, the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator, and [MAVROS](../ros/mavros_installation.md).
-:::
-
 :::warning
-Note PX4 개발 팀은 모든 사용자가 [ROS 2로 업그레이드](../ros/ros2.md)를 권장합니다. 이 문서는 "이전 접근 방식"을 설명합니다.
+The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md). 이 문서는 "이전 접근 방식"을 설명합니다.
 :::
-
-## 자료
-
-- [mavros ROS 패키지 요약](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
-- [mavros 소스](https://github.com/mavlink/mavros/)
-- [ROS Melodic 설치 방법](http://wiki.ros.org/melodic/Installation)
 
 ## 설치
 
-MAVROS는 소스나 실행파일로 설치할 수 있습니다. 개발자는 소스로 설치하는 것이 좋습니다.
+:::note
+First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic).
+:::
 
 :::tip
 이 지침은 [공식 설치 가이드](https://github.com/mavlink/mavros/tree/master/mavros#installation)를 단순화한 버전입니다. 이 문서에서는 *ROS Melodic* 배포판을 다룹니다.
 :::
+
+MAVROS는 소스나 실행파일로 설치할 수 있습니다. 개발자는 소스로 설치하는 것이 좋습니다.
 
 ### 바이너리 설치(Debian/Ubuntu)
 
@@ -128,3 +120,9 @@ The [MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md), will show yo
 :::note
 PX4와 MAVROS를 사용하는 예제 앱이 있으면, 문서에서 다운로드할 수 있도록 도와드릴 수 있습니다.
 :::
+
+## See Also
+
+- [mavros ROS 패키지 요약](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
+- [mavros 소스](https://github.com/mavlink/mavros/)
+- [ROS Melodic 설치 방법](http://wiki.ros.org/melodic/Installation)
