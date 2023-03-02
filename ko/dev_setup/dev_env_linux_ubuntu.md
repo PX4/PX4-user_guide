@@ -52,7 +52,7 @@ The environment setup scripts in the source usually work for recent PX4 releases
 
 :::details
 Additional notes These notes are provided "for information only":
-- If you want to use Gazebo on Ubuntu 20.08 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
+- If you want to use Gazebo on Ubuntu 20.04 you can add it manually. See [Gazebo > Installation](../sim_gazebo_gz/README.md#installation-ubuntu-linux).
 - 다음과 같이 gcc 버전을 확인하여 NuttX 설치를 확인할 수 있습니다.
 
   ```bash
