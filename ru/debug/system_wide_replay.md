@@ -96,7 +96,7 @@ You can stop it after there's an output like:
 INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 ```
 
-The parameters can be adjusted as well. They can be extracted from the log with the following \(install pyulog with `sudo pip install pyulog` first\):
+The parameters can be adjusted as well. They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
 ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
