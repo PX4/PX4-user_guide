@@ -24,7 +24,7 @@ MAVLink Shell은 직렬(USB/Telemetry) 또는 Wi-Fi(UDP/TCP)를 통하여 MAVLin
 <ol start="1">
 <li><em x-id="3">QGroundControl</em>을 종료합니다.</li>
 <li><p spaces-before="0">패키지를 설치합니다.
-<pre><code class="sh">   sudo pip3 install pymavlink pyserial
+<pre><code class="sh">   pip3 install --user pymavlink pyserial
 `</pre></li>
 1
 터미널(PX4-Autopilot 디렉토리)을 열고, 쉘을 시작합니다.
