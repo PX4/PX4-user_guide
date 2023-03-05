@@ -77,7 +77,7 @@ To install ROS 2 and its dependencies:
 1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
 
    ```sh
-   sudo pip3 install -U empy pyros-genmsg setuptools
+   pip3 install --user -U empy pyros-genmsg setuptools
    ```
 
 ### Setup XRCE-DDS Agent & Client
