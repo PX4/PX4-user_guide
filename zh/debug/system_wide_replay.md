@@ -95,7 +95,7 @@ ulog_params -i $replay -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/
 INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 ```
 
-参数也可以调整。 They can be extracted from the log with the following \(install pyulog with `sudo pip install pyulog` first\):
+参数也可以调整。 They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
 Optional: setup parameter overrides in the file <code>build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt</code>. This file should contain a list of <code><param_name> <value></code>, like:

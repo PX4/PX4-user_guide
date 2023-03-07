@@ -96,7 +96,7 @@ make px4_sitl none
 INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 ```
 
-매개변수도 조정할 수 있습니다. They can be extracted from the log with the following \(install pyulog with `sudo pip install pyulog` first\):
+매개변수도 조정할 수 있습니다. They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
 ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt

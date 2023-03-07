@@ -22,7 +22,7 @@ The easiest way to access shell is to use the [QGroundControl MAVLink Console](h
 1. 关闭 *QGroundControl*.
 1. 安装依赖项
    ```sh
-   sudo pip3 install pymavlink pyserial
+   pip3 install --user pymavlink pyserial
    ```
 1. Open terminal (in PX4-Autopilot directory) and start the shell:
    ```sh
