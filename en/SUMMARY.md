@@ -433,6 +433,7 @@
     - [Writing your First Application](modules/hello_sky.md)
     - [Application/Module Template](modules/module_template.md)
   - [Concepts](concept/index.md)
+    - [PX4 Core Components](concept/core_components.md)
     - [PX4 System Architecture](concept/px4_systems_architecture.md)
     - [PX4 Flight Stack Architecture](concept/architecture.md)
       - [Controller Diagrams](flight_stack/controller_diagrams.md)
