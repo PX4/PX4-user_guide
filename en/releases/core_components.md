@@ -24,6 +24,7 @@ Each core component must have:
 | IMU (Driver) |  |  |  |
 | Distance Sensor (Driver) |  |  |  |
 | Failure Injection (Driver) |  |  |  |
+| RTK GPS (Driver) | Heading estimate from dual RTK GPS | [Alex Klimaj](https://github.com/AlexKlimaj) |  |
 | Documentation |  |  |  |
 | Battery (Library) |  |  |  |
 | Flight Task (Library) |  |  |  |
@@ -52,6 +53,12 @@ Each core component must have:
 |  | Stabilized mode |  |  |
 |  |  |  |  |
 | Fixed wing |  |  |  |
-| VTOL |  |  |  |
+| Hybrid VTOL |  |  |  |
+|  | Altitude mode in hover |  |  |
+|  | Position mode in hover |  |  |
+|  | Auto mode in hover |  |  |
+|  | Quad-chute |  |  |
+|  | Pull/Tilter assist for forward acceleration in hover |  |  |
+|  | Weather vane (automatically aligning vehicle heading into wind) |  |  |
 | Boat |  |  |  |
 | Rover |  |  |  |
