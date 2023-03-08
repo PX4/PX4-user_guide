@@ -71,7 +71,7 @@ For each motor you can then set:
 - `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
 - `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
 - (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
-- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors) 
+- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
 - (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
 
 :::note
@@ -95,15 +95,23 @@ The motors have no configurable geometry:
 Swash plate servos: `3` | `4` <!-- 4 provides additional stability -->
 
   For each servo set:
-  
-  - `Angle`: Angle measured clockwise, with `0` pointing forwards.
-  - `Arm Length (relative)`: Radius from the center (top view). <!-- a shorter arm means same servo motion moves the plate more. This allows SW to compensate -->
-  - `Trim`: Offset individual servo positions (only needed in rare case where swash plate is not level when all servos are at the same position).
+
+  - `Angle`: Clockwise angle in degree on the swash plate circle at which the servo arm is attached starting from `0` pointing forwards.
+    Example for a typical setup where three servos are controlling the swash plate equally distributed over the circle (360° / 3 =) 120° apart each which results in the angles:
+
+    |#|Angle|
+    |---|---|
+    |Servo 1|60°|
+    |Servo 2|180°|
+    |Servo 3|300°|
+
+    <img width="700" alt="warning and requirement" src="../../assets/airframes/helicopter/swash_plate_servo_angles.png">
+  - `Arm Length (relative to each other)`: Radius from the swash plate center (top view). A shorter arm means the same servo motion moves the plate more. This allows the autopilot to compensate.
+  - `Trim`: Offset individual servo positions. This is only needed in rare case when the swash plate is not level even though all servos are centered.
 
 Additional settings:
 
-- `Yaw compensation scale based on collective pitch`: 0
-- `Yaw compensation scale based on throttle`: 0
+- `Yaw compensation scale based on collective pitch`: How much yaw is feed forward compensated based on the current collective pitch.
 - `Main rotor turns counter-clockwise`: `Disabled` (clockwise rotation) | `Enabled`
 - `Throttle spoolup time`: Set value (in seconds) greater than the achievable minimum motor spool up time.
   A larger value may improve user experience.
@@ -116,8 +124,8 @@ The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.
 Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
 ![Geometry motor: tailsitter vtol](../../assets/config/actuators/qgc_geometry_tailsitter_motors.png)
- 
-  
+
+
 #### Motor Geometry: VTOL Tiltrotor
 
 The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) is shown below (the approach for configuring other [VTOL tiltrotors](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor) will be similar).
@@ -217,7 +225,7 @@ In this case the things you need to know are:
 - Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
- 
+
 
 #### Control Surface Deflection Convention
 
@@ -281,7 +289,7 @@ Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**
 
 Similarly, a servo that moves:
 
-- between the upright and forward positions would have `min=0` and `max=90`. 
+- between the upright and forward positions would have `min=0` and `max=90`.
 - symmetrically 45 degrees around the upright position would have `min=-45` and `max=45`
 - between the upright and backward positions would have `min=-90` and `max=0`.
 :::
@@ -334,7 +342,7 @@ This makes it easy to use a particular output pin for almost any purpose.
 
 Some functions are only relevant to particular frames or output types, and will not be offered on others.
 
-Functions include: 
+Functions include:
 
 - `Disabled`: Output has no assigned function.
 - `Constant_Min`: Output set to constant minimum value (-1).
@@ -377,7 +385,7 @@ The functions are defined in source at [/src/lib/mixer_module/output_functions.y
 
 ## Actuator Testing
 
-The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings. 
+The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings.
 A slider is provided for each output defined in the [Actuator Outputs](#actuator-outputs) section.
 The slider example below shows the section for a typical VTOL Tiltrotor airframe.
 
@@ -486,7 +494,7 @@ For each motor:
    - Verify that the motor doesn't spin in this position.
    - If the motor spins, reduce the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
 2. Slowly move the slider up until it snaps to the _minimum_ position.
-   In this position the motor is set to the outputs `Minimum` value.  
+   In this position the motor is set to the outputs `Minimum` value.
    - Verify that the motor is spinning very slowly in this position.
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
