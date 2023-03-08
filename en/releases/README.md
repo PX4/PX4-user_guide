@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-List of the changes that went into each release, explaining the included features, bug fixes, deprecations and updates in detail.
+The release notes archive for each release contains a detailed list of included features, bug fixes, deprecations, and updates.
 
 * [v1.13](../releases/1.13.md)
 * [v1.12](../releases/1.12.md)
@@ -23,8 +23,7 @@ PX4 follows the following release schedule:
 
 <!-- TO BE DEFINED -->
 
-- `Major` releases: By consensus among Maintainers & Community
-- `minor` releases: Roughly every 6 months
+- `Major` or `minor` releases: Roughly every 6 months
 - `patch` releases: When critical bug-fix / hardware support is needed
 - `beta` releases: Every 1 week during beta testing phase
 
@@ -32,28 +31,16 @@ PX4 follows the following release schedule:
 
 There has been roughly 14 minor release in the past, with roughly 6 months ~ 1 year between new minor version releases. And there hasn't been any new major version releases yet.
 
-- [v1.13.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.13.0): June 22nd, 2022
-- [v1.12.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.12.0): July 11th, 2021
-- [v1.11.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.11.0): September 7th, 2020
-- [v1.10.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.10.0): December 17th, 2019
-- [v1.9.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.9.0): May 25, 2019
-- [v1.8.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.8.0): June 19th, 2018
-- [v1.7.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.7.0): December 15th, 2017
-- [v1.6.2](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.6.2): June 7th, 2017
-- [v1.5.1](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.5.1): December 7th, 2016
-- [v1.4.1](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.4.1): August 6th, 2016
-- [v1.3.1](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.3.1): May 22nd, 2016
-- [v1.2.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.2.0): February 21st, 2016
-- [v1.1.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.1.0): December 24th, 2015
-- [v1.0.0](https://github.com/PX4/PX4-Autopilot/releases/tag/v1.0.0): August 23rd, 2015
-
 ## Release Procedure
 
 ### Point release (Major/Minor change)
 
-Point releases are the ones where the major/minor version tag changes. It comes with major new features, hardware supports as well as refactors.
+Point releases are the ones where the major/minor version tag changes.
+They come with major new features, new hardware support, and general improvements.
 
-#### Initial branch out deadline
+#### Initial Branch-out
+
+Branch-out means when the `release/Major.minor` branch gets created off of the `main` branch of PX4-Autopilot.
 
 For the initial beta release of a new major/minor change, a "branch out deadline" gets set during the Maintainers Call.
 
@@ -83,26 +70,28 @@ And following changes are **not allowed**:
 
 During the beta testing, the procedure is:
 
-1. During the Maintainers call
+1. During the maintainers call
    1. Remaining issues for the next beta release gets discussed, and maintains make an effort to resolve all issues before the next beta release
    2. Discussion on certain PRs that may be worth to be included in the next beta gets discussed, and gets added to Project Board appropriately
 2. Test reports from users get collected as a Github Issue / Discord message / Flight Review log / Discuss forum post
-   1. If it is valid issue, the maintainer in charge of the sector creates / adds an Issue to keep track of it in the Project tracker and assign the next beta version to it's `patch version` field.
+   1. User-reported issues will be discussed by the maintainer team, and the maintainer in charge of the sector creates / adds an Issue to keep track of it in the Project tracker and assign the next beta version to it's `patch version` field.
 
 #### Maintainers Agreement before the release
 
-After numerous beta testings & before the official new major/minor release, PX4 Maintainers need to reach a consensus that the new version is release-able from each of their perspectives. This means (for each maintainer):
+Once the release branch reaches a mature state with reliable firmware builds and no major issues are reported, the maintainer team votes to promote the branch to a stable release.
 
-- The [core functionalities](core_components.md) they maintain has been tested, and has no major issues are found
+##### What should maintainers look for when making a decision?
+
+- The [core functionality](core_components.md) that they maintain has been tested, and has no major issues
 - All the outstanding issues/PRs with `patch version` as the last beta version are resolved
 
 #### Point release execution
 
-After the consensus from the Maintainers, the point release gets made:
+After the consensus from the maintainers, the point release gets made:
 
 1. The `patch version` of the last beta release (e.g. `M.m.0-beta9`) gets renamed to include the release name (e.g. `M.m.0/M.m.0-beta9`)
 2. New tag for the last beta release commit gets tagged (as `M.m.0`) by [Daniel](https://github.com/dagar)
-3. Release notes are prepared in Github side collaboratively by Maintainers
+3. Release notes are prepared in Github side collaboratively by maintainers
 4. Public new point release announcement gets made via Social media / Mailing list by [Ramon](https://github.com/mrpollo)
 
 ### Patch release

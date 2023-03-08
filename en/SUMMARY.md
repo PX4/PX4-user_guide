@@ -681,5 +681,6 @@
   * [Terminology/Notation](contribute/notation.md)
   * [Licenses](contribute/licenses.md)
 * [Releases](releases/README.md)
+  * [PX4 Core Components](releases/core_components.md)
   * [1.13](releases/1.13.md)
   * [1.12](releases/1.12.md)
