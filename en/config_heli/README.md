@@ -4,7 +4,7 @@ This section contains topics related to helicopter configuration and tuning.
 
 :::note
 Helicopters are less well-supported on than other types of vehicles.
-For example, PX4 does not support helicopters with coaxial or dual rotor types, and features such as RPM governor and autorotation. 
+For example, PX4 does not support helicopters with coaxial or dual rotor types, and features such as RPM governor and autorotation.
 We would welcome your [contribution](../contribute/README.md) of new features, new frame configurations, or other improvements.
 :::
 
@@ -12,12 +12,18 @@ We would welcome your [contribution](../contribute/README.md) of new features, n
 
 Supported helicopter configurations:
 
-- Single main rotor with any type of swash-plate and an ESC tail rotor.
+- Single main rotor with swash-plate controlled by up to 4 swash-plate servos and a mechanically uncoupled tail rotor driven by an ESC.
 
+:::note
+Mechanically coupled tails controlled by a servo can be flown by mapping the tail servo to the tail motor output and setting an adequate range and disarmed value for the servo. But the system currently assumes it's a separate motor.
+:::
+
+Supported flight opertaion:
+- Same as a multicopter. At the time of writing no autonomous/guided 3D flying with negative thrust is possible.
 
 ## Setup
 
-To setup and configure a helicopter: 
+To setup and configure a helicopter:
 
 1. Select the helicopter [Airframe](../config/airframe.md) in QGroundControl
 1. Configure actuator geometry: [Actuator Configuration and Testing > Geometry: Helicopter](../config/actuators.md#geometry-helicopter)
@@ -26,12 +32,14 @@ To setup and configure a helicopter:
 
    1. Assign the [motors and servos to the outputs](../config/actuators.md#actuator-outputs).
    1. Power the vehicle with a battery and use the [actuator testing sliders](../config/actuators.md#actuator-testing) to validate correct servo and motor assignment and direction.
-1. Using an RC in [Acro mode](../flight_modes/acro_mc.md), verify the correct movement of the swash-plate:
+1. Using an RC in [Acro mode](../flight_modes/acro_mc.md), verify the correct movement of the swash-plate. With most airframes you need to see the following:
 
    - Moving the roll stick to the right should tilt the swash-plate to the right.
    - Moving the pitch stick forward should tilt the swash-plate forward.
+
+   In case your airframe requires any phase lag angle offset this can simply be added to all swash-plate servo angles. Refer to the manufacturer's documentation for your airframe.
 1. Arm the vehicle and check the main rotor spins up slowly.
-   Adjust the throttle spoolup time as needed.
+   Adjust the throttle spoolup time as needed using the parameter [COM_SPOOLUP_TIME](../advanced_config/parameter_reference.md#COM_SPOOLUP_TIME).
    You can also adjust the throttle curve with the parameters [CA_HELI_THR_Cx](../advanced_config/parameter_reference.md#CA_HELI_THR_C0).
    The default is constant, maximum throttle (suitable for most setups).
 3. Disarm again and power off.
@@ -52,39 +60,50 @@ Attitude, velocity, and position controller tuning is then performed in the [sam
 
 Note that autotuning is not supported/tested (at time of writing).
 
+### Yaw Compensation
+
+Since the yaw torque compensation is crucial for a stable helicopter hover a rough configuration of it needs to be done first. For accurate tuning this chapter can be revisited once the rate controller is working as expected.
+
+Most importantly set the rotation direction of your main rotor which is by default clockwise when seen from above the airframe. In case yours turns counter-clockwise set [CA_HELI_YAW_CCW](../advanced_config/parameter_reference.md#CA_HELI_YAW_CCW) to 1.
+
+There are two parameters to compensate yaw for the main rotor's collective and throttle:
+[CA_HELI_YAW_CP_S](../advanced_config/parameter_reference.md#CA_HELI_YAW_CP_S)
+[CA_HELI_YAW_TH_S](../advanced_config/parameter_reference.md#CA_HELI_YAW_TH_S)
+
+A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction.
+
 ### Rate Controller
 
 The rate controller should be tuned in [Acro mode](../flight_modes/acro_mc.md), but can also be done in [Stabilized mode](../flight_modes/manual_stabilized_mc.md) if you cannot fly Acro mode.
 
-Start off with disabled rate controller gains, and only some feedforward:
+1. Start off with disabled rate controller gains, and only a small feed forward:
 
-```
-param set MC_ROLLRATE_P 0
-param set MC_ROLLRATE_I 0
-param set MC_ROLLRATE_D 0
-param set MC_ROLLRATE_FF 0.1
-param set MC_PITCHRATE_P 0
-param set MC_PITCHRATE_I 0
-param set MC_PITCHRATE_D 0
-param set MC_PITCHRATE_FF 0.1
-```
+   ```
+   param set MC_ROLLRATE_P 0
+   param set MC_ROLLRATE_I 0
+   param set MC_ROLLRATE_D 0
+   param set MC_ROLLRATE_FF 0.1
+   param set MC_PITCHRATE_P 0
+   param set MC_PITCHRATE_I 0
+   param set MC_PITCHRATE_D 0
+   param set MC_PITCHRATE_FF 0.1
+   ```
 
-Take off slowly and provide some roll and stick movements.
-Use the QGC tuning UI to check the response:
+2. Take off slowly and provide some roll and stick movements.
+   Use the QGC tuning UI to check the response:
 
-![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+   ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 
-Increase the FF gains until the response reaches the setpoint when giving a step input.
+   Increase the roll and pitch feed forward gains [MC_ROLLRATE_FF](../advanced_config/parameter_reference.md#MC_ROLLRATE_FF), [MC_PITCHRATE_FF](../advanced_config/parameter_reference.md#MC_PITCHRATE_FF) until the response reaches the setpoint when giving a step input.
 
-Then enable the PID gains.
-Start off with `P=FF/4`, `I=0.2` and `D=0.001`.
-Then increase the `P` and `D` gains as needed until it tracks well.
-It is expected that the `P` gain is considerably smaller than the `FF` gain.
-
-### Yaw Compensation
-
-There are two parameters to compensate yaw for the main rotor's collective and throttle.
-A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction.
-
-TODO: add log + explain
-
+3. Then enable the PID gains.
+   Start off with following values:
+   - [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P) a quarter of the value you found to work well as the corresponding feed forward value in the previous step. `P = FF / 4`
+   ```
+   param set MC_ROLLRATE_I 0.2
+   param set MC_PITCHRATE_I 0.2
+   param set MC_ROLLRATE_D 0.001
+   param set MC_PITCHRATE_D 0.001
+   ```
+   Then increase the `P` and `D` gains as needed until it tracks well.
+   It is expected that the `P` gain is considerably smaller than the `FF` gain.
