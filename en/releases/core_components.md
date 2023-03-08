@@ -45,6 +45,7 @@ Each core component must have:
 | MAVLink | | | |
 
 ### Vehicle types
+
 | Core component | Sub component | Maintainer | Tester |
 | Multirotor | Acro mode |  |  |
 |  | Stabilized mode |  |  |
