@@ -74,7 +74,7 @@ The vehicle should arm, ascend 5 metres, and then wait (perpetually).
 The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
 :::note
-PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)).
+PX4 publishes and subscribes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)).
 :::
 
 PX4 requires that the vehicle is already receiving setpoints before switching to offboard mode, and will switch out of offboard mode if the stream rate drops below approximately 2Hz.
