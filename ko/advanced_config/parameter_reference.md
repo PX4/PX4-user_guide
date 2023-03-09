@@ -15706,10 +15706,10 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td>Airspeed mode <p><strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Normal (use airspeed if available)</li>
+ <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Use airspeed in controller</li>
 
-<li><strong>1:</strong> Airspeed disabled</li> 
+<li><strong>1:</strong> Do not use airspeed in controller</li> 
 </ul>
   </td>
  <td></td>
@@ -15767,14 +15767,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_RMAX_NEG">FW_P_RMAX_NEG</strong> (FLOAT)</td>
- <td>Maximum negative / down pitch rate <p><strong>Comment:</strong> This limits the maximum pitch down up angular rate the controller will output (in degrees per second).</p>   </td>
+ <td>Maximum negative / down pitch rate setpoint    </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_P_RMAX_POS">FW_P_RMAX_POS</strong> (FLOAT)</td>
- <td>Maximum positive / up pitch rate <p><strong>Comment:</strong> This limits the maximum pitch up angular rate the controller will output (in degrees per second).</p>   </td>
+ <td>Maximum positive / up pitch rate setpoint    </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
@@ -15788,14 +15788,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_RLL_TO_YAW_FF">FW_RLL_TO_YAW_FF</strong> (FLOAT)</td>
- <td>Roll control to yaw control feedforward gain <p><strong>Comment:</strong> This gain can be used to counteract the "adverse yaw" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator (rudder, airbrakes, ...) to counteract this effect.</p>   </td>
+ <td>Roll control to yaw control feedforward gain <p><strong>Comment:</strong> This gain can be used to counteract the "adverse yaw" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator to counteract this effect.</p>   </td>
  <td>[0.0, ?] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
- <td>Maximum roll rate <p><strong>Comment:</strong> This limits the maximum roll rate the controller will output (in degrees per second).</p>   </td>
+ <td>Maximum roll rate setpoint    </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>70.0</td>
  <td>deg/s</td>
@@ -15879,7 +15879,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_Y_RMAX">FW_Y_RMAX</strong> (FLOAT)</td>
- <td>Maximum yaw rate <p><strong>Comment:</strong> This limits the maximum yaw rate the controller will output (in degrees per second).</p>   </td>
+ <td>Maximum yaw rate setpoint    </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>50.0</td>
  <td>deg/s</td>
@@ -15990,7 +15990,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
- <td>Altitude time constant factor for landing <p><strong>Comment:</strong> Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
+ <td>Altitude time constant factor for landing <p><strong>Comment:</strong> Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight. During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
  <td>[0.2, 1.0] (0.1)</td>
  <td>1.0</td>
  <td></td>
@@ -16066,7 +16066,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_LAUN_MOT_DEL">FW_LAUN_MOT_DEL</strong> (FLOAT)</td>
- <td>Motor delay <p><strong>Comment:</strong> Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate</p>   </td>
+ <td>Motor delay <p><strong>Comment:</strong> Start the motor(s) this amount of seconds after launch is detected.</p>   </td>
  <td>[0.0, 10.0] (0.5)</td>
  <td>0.0</td>
  <td>s</td>
@@ -16187,7 +16187,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
- <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for autonomous modes including altitude and position control.</p>   </td>
+ <td>Maximum roll angle <p><strong>Comment:</strong> The maximum roll angle setpoint for setpoint for a height-rate or altitude controlled mode.</p>   </td>
  <td>[35.0, 65.0] (0.5)</td>
  <td>50.0</td>
  <td>deg</td>
@@ -16218,14 +16218,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
- <td>Acro body y max rate <p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
+ <td>Acro body pitch max rate setpoint    </td>
  <td>[45, 720] </td>
  <td>90</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
- <td>Acro body z max rate <p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
+ <td>Acro body yaw max rate setpoint    </td>
  <td>[10, 180] </td>
  <td>45</td>
  <td>deg</td>
@@ -16239,23 +16239,9 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_BAT_SCALE_EN">FW_BAT_SCALE_EN</strong> (INT32)</td>
- <td>Whether to scale throttle by battery power level <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The fixed wing should constantly behave as if it was fully charged with reduced max thrust at lower battery percentages. i.e. if cruise speed is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>   </td>
+ <td>Enable throttle scale by battery level <p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_FLPS">FW_DTRIM_P_FLPS</strong> (FLOAT)</td>
- <td>Pitch trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever flaps are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_P_SPOIL">FW_DTRIM_P_SPOIL</strong> (FLOAT)</td>
- <td>Pitch trim increment for spoiler configuration <p><strong>Comment:</strong> This increment is added to the pitch trim whenever spoilers are fully deployed.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.</td>
  <td></td>
 </tr>
 <tr>
@@ -16268,13 +16254,6 @@ table {
 <tr>
  <td><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
  <td>Pitch trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="FW_DTRIM_R_FLPS">FW_DTRIM_R_FLPS</strong> (FLOAT)</td>
- <td>Roll trim increment for flaps configuration <p><strong>Comment:</strong> This increment is added to TRIM_ROLL whenever flaps are fully deployed.</p>   </td>
  <td>[-0.25, 0.25] (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -16323,7 +16302,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_PR_D">FW_PR_D</strong> (FLOAT)</td>
- <td>Pitch rate derivative gain <p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td>Pitch rate derivative gain <p><strong>Comment:</strong> Pitch rate differential gain.</p>   </td>
  <td>[0.0, 1.0] (0.005)</td>
  <td>0.</td>
  <td>%/rad/s</td>
@@ -16351,7 +16330,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
- <td>Pitch rate proportional gain <p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td>Pitch rate proportional gain    </td>
  <td>[0.0, 1.0] (0.005)</td>
  <td>0.08</td>
  <td>%/rad/s</td>
@@ -16386,7 +16365,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
- <td>Roll rate proportional Gain <p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td>Roll rate proportional Gain    </td>
  <td>[0.0, 1.0] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
@@ -16421,7 +16400,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
- <td>Yaw rate proportional gain <p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td>Yaw rate proportional gain    </td>
  <td>[0.0, 1.0] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
@@ -16438,7 +16417,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed is above this value, the TECS controller will try to decrease airspeed more aggressively.</p>   </td>
+ <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command.</p>   </td>
  <td>[0.5, 40] (0.5)</td>
  <td>20.0</td>
  <td>m/s</td>
@@ -16459,7 +16438,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
- <td>Cruise Airspeed (CAS) <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve if no other airspeed setpoint sources are present (e.g. through non-centered RC sticks).</p>   </td>
+ <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve.</p>   </td>
  <td>[0.5, 40] (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
@@ -16473,14 +16452,14 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MAX">FW_P_LIM_MAX</strong> (FLOAT)</td>
- <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
+ <td>Maximum pitch angle <p><strong>Comment:</strong> The maximum pitch angle setpoint setpoint for a height-rate or altitude controlled mode.</p>   </td>
  <td>[0.0, 60.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_P_LIM_MIN">FW_P_LIM_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for autonomous modes including altitude and position control.</p>   </td>
+ <td>Minimum pitch angle <p><strong>Comment:</strong> The minimum pitch angle setpoint for a height-rate or altitude controlled mode.</p>   </td>
  <td>[-60.0, 0.0] (0.5)</td>
  <td>-30.0</td>
  <td>deg</td>
@@ -16515,7 +16494,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_THR_TRIM">FW_THR_TRIM</strong> (FLOAT)</td>
- <td>Trim throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight. Most airframes have a value of 0.5-0.7.</p>   </td>
+ <td>Trim throttle <p><strong>Comment:</strong> This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.6</td>
  <td>norm</td>
@@ -16536,7 +16515,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
- <td>Maximum climb rate <p><strong>Comment:</strong> This is the best climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the default value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced. The setting of this parameter can be checked by commanding a positive altitude change of 100m in loiter, RTL or guided mode. If the throttle required to climb is close to THR_MAX and the aircraft is maintaining airspeed, then this parameter is set correctly. If the airspeed starts to reduce, then the parameter is set to high, and if the throttle demand required to climb and maintain speed is noticeably less than FW_THR_MAX, then either FW_T_CLMB_MAX should be increased or FW_THR_MAX reduced.</p>   </td>
+ <td>Maximum climb rate <p><strong>Comment:</strong> This is the maximum climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the trim value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced.</p>   </td>
  <td>[1.0, 15.0] (0.5)</td>
  <td>5.0</td>
  <td>m/s</td>
@@ -16613,7 +16592,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_T_SPDWEIGHT">FW_T_SPDWEIGHT</strong> (FLOAT)</td>
- <td>Speed <--> Altitude priority <p><strong>Comment:</strong> This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Note to Glider Pilots - set this parameter to 2.0 (The glider will adjust its pitch angle to maintain airspeed, ignoring changes in height).</p>   </td>
+ <td>Speed <--> Altitude priority <p><strong>Comment:</strong> This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Set to 2 for gliders.</p>   </td>
  <td>[0.0, 2.0] (1.0)</td>
  <td>1.0</td>
  <td></td>
@@ -18487,6 +18466,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CA_SV_CS0_FLAP">CA_SV_CS0_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 0 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS0_SPOIL">CA_SV_CS0_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 0 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CA_SV_CS0_TRIM">CA_SV_CS0_TRIM</strong> (FLOAT)</td>
  <td>Control Surface 0 trim <p><strong>Comment:</strong> Can be used to add an offset to the servo control.</p>   </td>
  <td>[-1.0, 1.0] </td>
@@ -18539,7 +18532,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -18549,10 +18542,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS1_FLAP">CA_SV_CS1_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 1 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS1_SPOIL">CA_SV_CS1_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 1 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -18609,7 +18620,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -18619,10 +18630,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS2_FLAP">CA_SV_CS2_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 2 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS2_SPOIL">CA_SV_CS2_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 2 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -18679,7 +18708,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -18689,10 +18718,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS3_FLAP">CA_SV_CS3_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 3 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS3_SPOIL">CA_SV_CS3_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 3 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -18749,7 +18796,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -18759,10 +18806,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS4_FLAP">CA_SV_CS4_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 4 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS4_SPOIL">CA_SV_CS4_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 4 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -18819,7 +18884,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -18829,10 +18894,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS5_FLAP">CA_SV_CS5_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 5 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS5_SPOIL">CA_SV_CS5_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 5 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -18889,7 +18972,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -18899,10 +18982,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS6_FLAP">CA_SV_CS6_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 6 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS6_SPOIL">CA_SV_CS6_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 6 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -18959,7 +19060,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -18969,10 +19070,28 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS7_FLAP">CA_SV_CS7_FLAP</strong> (FLOAT)</td>
+ <td>Control Surface 7 configuration as flap    </td>
+ <td>[-1.0, 1.0] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="CA_SV_CS7_SPOIL">CA_SV_CS7_SPOIL</strong> (FLOAT)</td>
+ <td>Control Surface 7 configuration as spoiler    </td>
+ <td>[-1.0, 1.0] </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -19029,7 +19148,7 @@ table {
 
 <li><strong>10:</strong> Right Flap</li>
 
-<li><strong>11:</strong> Airbrakes</li>
+<li><strong>11:</strong> Airbrake</li>
 
 <li><strong>12:</strong> Custom</li>
 
@@ -19039,7 +19158,11 @@ table {
 
 <li><strong>15:</strong> Single Channel Aileron</li>
 
-<li><strong>16:</strong> Steering Wheel</li> 
+<li><strong>16:</strong> Steering Wheel</li>
+
+<li><strong>17:</strong> Left Spoiler</li>
+
+<li><strong>18:</strong> Right Spoiler</li> 
 </ul>
   </td>
  <td></td>
@@ -20563,6 +20686,19 @@ table {
  <td>90</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="MODAL_IO_VLOG">MODAL_IO_VLOG</strong> (INT32)</td>
+ <td>UART ESC verbose logging  <strong>Values:</strong><ul>
+<li><strong>0:</strong> - Disabled</li>
+
+<li><strong>1:</strong> - Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[0, 1] </td>
+ <td>0</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## Magnetometer Bias Estimator
@@ -20693,7 +20829,7 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_GPSF_R">FW_GPSF_R</strong> (FLOAT)</td>
- <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter). Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.</p>   </td>
+ <td>GPS failure fixed roll angle <p><strong>Comment:</strong> Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter).</p>   </td>
  <td>[0.0, 30.0] (0.5)</td>
  <td>15.0</td>
  <td>deg</td>
@@ -24611,129 +24747,6 @@ table {
 </tr>
 </tbody></table>
 
-## Roboclaw
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Roboclaw Driver <p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>값:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>6:</strong> UART 6</li>
-
-<li><strong>101:</strong> TELEM 1</li>
-
-<li><strong>102:</strong> TELEM 2</li>
-
-<li><strong>103:</strong> TELEM 3</li>
-
-<li><strong>104:</strong> TELEM/SERIAL 4</li>
-
-<li><strong>201:</strong> GPS 1</li>
-
-<li><strong>202:</strong> GPS 2</li>
-
-<li><strong>203:</strong> GPS 3</li>
-
-<li><strong>300:</strong> Radio Controller</li>
-
-<li><strong>301:</strong> Wifi Port</li>
-
-<li><strong>401:</strong> EXT2</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## Roboclaw driver
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>이름</th><th>설명 </th><th>[Min, Max] (Incr.)</th><th>기본값</th><th>단위 </th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
- <td>Address of the Roboclaw <p><strong>Comment:</strong> The Roboclaw can be configured to have an address from 0x80 to 0x87, inclusive. It must be configured to match this parameter.</p> <strong>값:</strong><ul>
-<li><strong>128:</strong> 0x80</li>
-
-<li><strong>129:</strong> 0x81</li>
-
-<li><strong>130:</strong> 0x82</li>
-
-<li><strong>131:</strong> 0x83</li>
-
-<li><strong>132:</strong> 0x84</li>
-
-<li><strong>133:</strong> 0x85</li>
-
-<li><strong>134:</strong> 0x86</li>
-
-<li><strong>135:</strong> 0x87</li> 
-</ul>
-  </td>
- <td>[128, 135] </td>
- <td>128</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RBCLW_BAUD">RBCLW_BAUD</strong> (INT32)</td>
- <td>Roboclaw serial baud rate <p><strong>Comment:</strong> Baud rate of the serial communication with the Roboclaw. The Roboclaw must be configured to match this rate.</p> <strong>값:</strong><ul>
-<li><strong>2400:</strong> 2400 baud</li>
-
-<li><strong>9600:</strong> 9600 baud</li>
-
-<li><strong>19200:</strong> 19200 baud</li>
-
-<li><strong>38400:</strong> 38400 baud</li>
-
-<li><strong>57600:</strong> 57600 baud</li>
-
-<li><strong>115200:</strong> 115200 baud</li>
-
-<li><strong>230400:</strong> 230400 baud</li>
-
-<li><strong>460800:</strong> 460800 baud</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>[2400, 460800] </td>
- <td>2400</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RBCLW_COUNTS_REV">RBCLW_COUNTS_REV</strong> (INT32)</td>
- <td>Encoder counts per revolution <p><strong>Comment:</strong> Number of encoder counts for one revolution. The roboclaw treats analog encoders (potentiometers) as having 2047 counts per rev. The default value of 1200 corresponds to the default configuration of the Aion R1 rover.</p>   </td>
- <td>[1, ?] </td>
- <td>1200</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="RBCLW_READ_PER">RBCLW_READ_PER</strong> (INT32)</td>
- <td>Encoder read period <p><strong>Comment:</strong> How long to wait, in Milliseconds, between reading wheel encoder values over Uart from the Roboclaw</p>   </td>
- <td>[1, 1000] </td>
- <td>10</td>
- <td>ms</td>
-</tr>
-<tr>
- <td><strong id="RBCLW_WRITE_PER">RBCLW_WRITE_PER</strong> (INT32)</td>
- <td>Uart write period <p><strong>Comment:</strong> How long to wait, in Milliseconds, between writing actuator controls over Uart to the Roboclaw</p>   </td>
- <td>[1, 1000] </td>
- <td>10</td>
- <td>ms</td>
-</tr>
-</tbody></table>
-
 ## Rover Position Control
 
 <table>
@@ -24890,7 +24903,7 @@ table {
 </tr>
 <tr>
  <td><strong id="RWTO_MAX_THR">RWTO_MAX_THR</strong> (FLOAT)</td>
- <td>Max throttle during runway takeoff <p><strong>Comment:</strong> Can be used to test taxi on runway</p>   </td>
+ <td>Max throttle during runway takeoff    </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
@@ -32689,24 +32702,10 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
- <td>Approximate deceleration during back transition <p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
+ <td>Approximate deceleration during back transition <p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in an auto mode. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
  <td>[0.5, 10] (0.1)</td>
  <td>2.0</td>
  <td>m/s^2</td>
-</tr>
-<tr>
- <td><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
- <td>Delay in seconds before applying back transition throttle <p><strong>Comment:</strong> Set this to a value greater than 0 to give the motor time to spin down.</p>   </td>
- <td>[0, 10] (1)</td>
- <td>0.0</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
- <td>Output on airbrakes channel during back transition <p><strong>Comment:</strong> Used for airbrakes or with ESCs that have reverse thrust enabled on a separate channel. Airbrakes need to be enabled for your selected model/mixer.</p>   </td>
- <td>[0, 1] (0.01)</td>
- <td>0.0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
@@ -32724,7 +32723,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to hover flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>   </td>
+ <td>Target throttle value for the transition to hover flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
  <td>[-1, 1] (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -32738,7 +32737,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
- <td>Enable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This feature can be used to avoid the plane having to pitch down in order to move forward, and prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.</p> <strong>값:</strong><ul>
+ <td>Use fixed-wing actuation in hover to accelerate forward <p><strong>Comment:</strong> This feature can be used to avoid the plane having to pitch nose down in order to move forward. Prevents large, negative lift from pitching nose down into wind. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
 <li><strong>1:</strong> Enabled (except LANDING)</li>
@@ -32760,7 +32759,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td>Fixed-wing actuator thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is below VT_PITCH_MIN. Enabled via VT_FWD_THRUST_EN.</p>   </td>
+ <td>Fixed-wing actuation thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Enabled via VT_FWD_THRUST_EN.</p>   </td>
  <td>[0.0, 2.0] </td>
  <td>0.7</td>
  <td></td>
@@ -32778,21 +32777,21 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FW_DIFTHR_S_P">VT_FW_DIFTHR_S_P</strong> (FLOAT)</td>
- <td>Pitch differential thrust factor in forward flight <p><strong>Comment:</strong> Maps the pitch control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>Pitch differential thrust factor in forward flight <p><strong>Comment:</strong> Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
  <td>[0.0, 2.0] (0.1)</td>
  <td>1.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_DIFTHR_S_R">VT_FW_DIFTHR_S_R</strong> (FLOAT)</td>
- <td>Roll differential thrust factor in forward flight <p><strong>Comment:</strong> Maps the roll control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>Roll differential thrust factor in forward flight <p><strong>Comment:</strong> Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
  <td>[0.0, 2.0] (0.1)</td>
  <td>1.</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_FW_DIFTHR_S_Y">VT_FW_DIFTHR_S_Y</strong> (FLOAT)</td>
- <td>Yaw differential thrust factor in forward flight <p><strong>Comment:</strong> Maps the yaw control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
+ <td>Yaw differential thrust factor in forward flight <p><strong>Comment:</strong> Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.</p>   </td>
  <td>[0.0, 2.0] (0.1)</td>
  <td>0.1</td>
  <td></td>
@@ -32806,7 +32805,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_HMAX">VT_FW_QC_HMAX</strong> (INT32)</td>
- <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. Triggering a quadchute always means transitioning the vehicle to hover flight in which generally a lot of energy is consumed. At high altitudes there is therefore a big risk to deplete the battery and therefore crash. Currently, there is no automated re-transition to fixed wing mode implemented and therefore this parameter serves and an intermediate measure to increase safety. Setting this value to 0 deactivates the behavior (always enable quad-chute independently of altitude).</p>   </td>
+ <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.</p>   </td>
  <td>[0, ?] (1)</td>
  <td>0</td>
  <td>m</td>
@@ -32848,7 +32847,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_LND_PITCH_MIN">VT_LND_PITCH_MIN</strong> (FLOAT)</td>
- <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
+ <td>Minimum pitch angle during hover landing <p><strong>Comment:</strong> Overrides VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.</p>   </td>
  <td>[-10.0, 45.0] (0.1)</td>
  <td>-5.0</td>
  <td>deg</td>
@@ -32904,7 +32903,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_TILT_SPINUP">VT_TILT_SPINUP</strong> (FLOAT)</td>
- <td>Tilt actuator control value commanded when disarmed and during the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
+ <td>Tilt when disarmed and in the first second after arming <p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -32925,7 +32924,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
- <td>Duration of front transition phase 2 <p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>   </td>
+ <td>Duration of front transition phase 2 <p><strong>Comment:</strong> Time in seconds it takes to tilt form VT_TILT_TRANS to VT_TILT_FW.</p>   </td>
  <td>[0.1, 5.0] (0.01)</td>
  <td>0.5</td>
  <td>s</td>
