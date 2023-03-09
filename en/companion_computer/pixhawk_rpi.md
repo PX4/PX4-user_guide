@@ -1,20 +1,30 @@
-# Using the Raspberry Pi with the Pixhawk Controllers
+# Raspberry Pi Companion with Pixhawk
 
-This section describes how to connect the Pixhawk to the Raspberry Pi ("RPi"). Both the software setup and the wire connections between the hardware are presented. 
+This topic describes how to setup a Raspberry Pi ("RPi") companion companion running ROS2 on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.html) flight controller.
 
-There are different ways to connect the RPi with the Pixhawk:
+There are different models of Pixhawk and RPi.
+The article illustrates the setup using [Pixhawk Standard](../flight_controller/autopilot_pixhawk_standard.html) controllers, but the PX4 configuration for other controllers is likely to be similar (or use the same concepts).
+Similarly, there are several models of RaPi.
+This provides the main concepts, and is extensible to most configurations.
 
-1. Via Ethernet port.
+In addition, there are a number of different ways that RPi can be connected with a Pixhawk:
 
-2. Serial connection: via `TELEM` port or via `USB` port.
+1. Serial connection. This uses a serial port, typically `TELEM2`, or the `USB` port.
+1. Ethernet. Pixhawk controllers based on FMUv5x, 6x and later may have an inbuilt Ethernet port.
+   See [PX4 Ethernet > Supported Controllers](../advanced_config/ethernet_setup.md#supported-flight-controllers).
 
-The connection via `TELEM` port can be done with a FTDI Chip USB-to-serial adapter board or directly at the RPi's TX/RX pins. The following steps describes the connections using the TX/RX pins, since no additional board is required.
+This article covers in the first instance connecting the `TELEM2` port with the RPi's TX/RX pins.
+This is a simple configuration because you do not need to use an FTDI Chip USB-to-serial adapter board.
+Note that we hope to extend the document for other connection methods in future.
 
-There are different models of Pixhawk and RPi, therefore, the main concepts are covered and illustrated in order to give the user the necessary knowledge for any other configuration. The first step is the identification of the `TELEM 2` and the `USB` ports in the Pixhawk. The image illustrates the ports in the Pixhawk-6C Model.
+## Serial Connection
+
+
+The first step is the identification of the `TELEM 2` and the `USB` ports in the Pixhawk. The image illustrates the ports in the Pixhawk-6C Model.
 
 <img src="../../assets/companion_computer/pixhawk_rpi/pixhawk_6c.png" width="402" height="452" />
 
-## PX4 setup on Pixhawk
+## PX4 Setup on Pixhawk
 
 Connect the Pixhawk with the laptop/desktop via `USB` port and check, at the QGroundControl, if the firmware (PX4) is updated. 
 The firmware update can be done in the QGroundControl or following the next steps:
@@ -40,7 +50,7 @@ cd /PX4-Autopilot
 make px4_fmu-v6c_default upload
 ```
 
-## Ubuntu setup on RPi
+## Ubuntu Setup on RPi
 
 The following steps are required to have the Ubuntu 22.04 installed on the RPi. In the next section, the ROS 2 is going to be installed, so it is important the choice for the correct version of Ubuntu.
 
@@ -98,7 +108,7 @@ sudo pip3 install mavproxy
 sudo apt remove modemmanager
 ```
 
-## MAVlink communication
+## MAVlink Communication
 
 Connect the Pixhawk with the laptop via `USB` cable and change the following parameters in QGroundControl:
 
@@ -118,11 +128,21 @@ The connections listed below must be done:
 
 It is important to identify the correct pins in the hardware. The image illustrates the `TELEM2` pins in the Pixhawk-6C Model.
 
-<img src="../../assets/companion_computer/pixhawk_rpi/pixhawk_pins.png" width="914" height="360" /> 
 
-Ps.: The pins are numbered according to the following:
+`TELEM2` Port
 
-<img src="../../assets/companion_computer/pixhawk_rpi/pins_numbers.png" width="615" height="232" /> 
+Pins | Signal | Voltage
+--- | --- | ---
+1 (Red)   | VCC             | +5V
+2 (Black) | UART5_TX (out)  |  +3.3V
+3 (Black) | UART5_RX (in)   | +3.3V
+4 (Black) | UART5_CTS (in)  | +3.3V
+5 (Black) | UART5_RTS (out) | +3.3V
+6 (Black) | GND             | GND
+
+The pins are numbered right-to-left as shown (on all ports):
+
+![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png)
 
 The following image illustrates the correspondent pins at the RPi GPIO.
 
@@ -150,7 +170,7 @@ sudo mavproxy.py --master=/dev/ttyACM0 --baudrate 57600
 
 The steps above are important to double check that the hardware communication is done. In the sequence, we are going to move to the XRCE_DDS communication.
 
-## ROS setup on RPi
+## ROS Setup on RPi
 
 To install ROS 2 Humble you can follow the official tutorial, available in the website:
 
@@ -175,11 +195,11 @@ sudo make install
 sudo ldconfig /usr/local/lib/
 ```
 
-## XRCE_DDS communication
+## XRCE-DDS Communication
 
-If you want to use `TELEM1`, you have to stop mavlink and then activate the microdds_client. You can do that changing the parameters:
+If you want to use `TELEM1`, you have to stop MAVLink and then activate the microdds_client. You can do that changing the parameters:
 
-1. To disable mavlink on `TELEM1`,
+1. To disable MAVLink on `TELEM1`,
 
 ```
 MAV_0_CONFIG = 0
@@ -199,7 +219,7 @@ XRCE_DDS_0_CFG = TELEM2
 SER_TEL2_BAUD = 921600
 ```
 
-Ps.: At this moment, the Pixhawk must be connected with the laptop, via `USB`, so the QGroundControl can be used to change the parameters described above.
+PS.: At this moment, the Pixhawk must be connected with the laptop, via `USB`, so the QGroundControl can be used to change the parameters described above.
 
 To check the status of the microdds_client, run in the QGroundControl's MavlinkConsole: 
 
@@ -215,7 +235,17 @@ microdds_client start -t serial -d /dev/ttyS3 -b 921600
 
 In the command above we have used the `/dev/ttyS3` to establish the XRCE_DDS communication, since it is related to `TELEM2`, according to the table:
 
-<img src="../../assets/companion_computer/pixhawk_rpi/devs.png" width="360" height="353" /> 
+UART | Device | Port
+--- | --- | ---
+USART1 | /dev/ttyS0 | GPS
+USART2 | /dev/ttyS1 | TELEM3
+USART3 | /dev/ttyS2 | Debug Console
+UART4 | /dev/ttyS3 | UART4 & I2C
+UART5 | /dev/ttyS4 | TELEM2
+USART6 | /dev/ttyS5 | PX4IO/RC
+UART7 | /dev/ttyS6 | TELEM1
+UART8 | /dev/ttyS7 | GPS2
+
 
 To start the agent, run the following command in the RPi's terminal:
 
@@ -230,7 +260,7 @@ source /opt/ros/humble/setup.bash
 ros2 topic list
 ```
 
-To communicate simultaneously via both XRCE_DDS and MAVlink, we can keep the `TELEM2` connected via RX/TX and also connect Pixhawk `USB` at the RPi. 
+To communicate simultaneously via both XRCE-DDS and MAVLink, we can keep the `TELEM2` connected via RX/TX and also connect Pixhawk `USB` at the RPi. 
 
 Before disconnect the `USB` from laptop, remember to set the parameters:
 
@@ -241,13 +271,13 @@ XRCE_DDS_0_CFG = TELEM2
 SER_TEL2_BAUD = 921600
 ```
 
-The `TELEM2` is going to keep the XRCE_DDS communication with the microdds_client, as above, and the `USB` is going to keep the MAVlink communication. Remember to open a new RPi's terminal and run:
+The `TELEM2` is going to keep the XRCE_DDS communication with the microdds_client, as above, and the `USB` is going to keep the MAVLink communication. Remember to open a new RPi's terminal and run:
 
 ```
 sudo chmod a+rw /dev/ttyACM0
 sudo mavproxy.py --master=/dev/ttyACM0 --baudrate 57600
 ```
-This is a particular setup when we are looking for both offboard control, via XRCE_DDS with the RPi, and simultaneously to keep monitoring the drone via MAVlink with QGroundControl.
+This is a particular setup when we are looking for both offboard control, via XRCE_DDS with the RPi, and simultaneously to keep monitoring the drone via MAVLink with QGroundControl.
 Since the Pixhawk is connected with the RPi, a remote control via QGroundControl (in a ground station laptop) can be done using SSH and the mavros package, running in a new terminal:
 
 ```
@@ -256,4 +286,4 @@ sudo chmod a+rw /dev/ttyACM0
 roslaunch mavros px4.launch fcu_url:=/dev/ttyACM0 gcs_url:=udp://@laptop_IP
 ```
 
-Ps.: It is not possible to configure XRCE_DDS_0_CFG = USB (/dev/ttyACM0 port). So, the Pixhawk XRCE_DDS communication would not work on laptop via USB.
+PS.: It is not possible to configure XRCE_DDS_0_CFG = USB (/dev/ttyACM0 port). So, the Pixhawk XRCE_DDS communication would not work on laptop via USB.

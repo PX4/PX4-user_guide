@@ -324,6 +324,7 @@
     * [Pixhawk + Companion Setup](companion_computer/pixhawk_companion.md)
     * [Companion Computer Peripherals](companion_computer/companion_computer_peripherals.md)
     * [Holybro Pixhawk RPI CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
+    * [RasPi Pixhawk Companion](companion_computer/pixhawk_rpi.md)
 * [Development](development/development.md)
   * [Getting Started](dev_setup/getting_started.md)
     * [Recommended Hardware/Setup](dev_setup/config_initial.md)
