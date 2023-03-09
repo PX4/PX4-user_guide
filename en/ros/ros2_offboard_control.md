@@ -64,6 +64,12 @@ To build and run the example:
 1. Launch the example.
 
    ```
+   ros2 launch px4_ros_com offboard_control_launch.yaml
+   ```
+   
+   or
+   
+   ```
    ros2 run px4_ros_com offboard_control
    ```
 
