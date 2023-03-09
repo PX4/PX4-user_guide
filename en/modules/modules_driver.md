@@ -732,19 +732,19 @@ modal_io <command> [arguments...]
      -i <val>    ESC ID, 0-3
 
    rpm           Closed-Loop RPM test control request
-     -i <val>    ESC ID bitmask, 1-15
+     -i <val>    ESC ID, 0-3
      -r <val>    RPM, -32,768 to 32,768
      -n <val>    Command repeat count, 0 to INT_MAX
      -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
 
    pwm           Open-Loop PWM test control request
-     -i <val>    ESC ID bitmask, 1-15
+     -i <val>    ESC ID, 0-3
      -r <val>    Duty Cycle value, 0 to 800
      -n <val>    Command repeat count, 0 to INT_MAX
      -t <val>    Delay between repeated commands (microseconds), 0 to INT_MAX
 
    tone          Send tone generation request to ESC
-     -i <val>    ESC ID bitmask, 1-15
+     -i <val>    ESC ID, 0-3
      -p <val>    Period of sound, inverse frequency, 0-255
      -d <val>    Duration of the sound, 0-255, 1LSB = 13ms
      -v <val>    Power (volume) of sound, 0-100
@@ -1096,56 +1096,6 @@ rgbled <command> [arguments...]
    stop
 
    status        print status info
-```
-## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/roboclaw)
-
-
-### Description
-
-This driver communicates over UART with the [Roboclaw motor driver](http://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf).
-It performs two tasks:
-
-- Control the motors based on the `actuator_controls_0` UOrb topic.
-- Read the wheel encoders and publish the raw data in the `wheel_encoders` UOrb topic
-
-In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and
-your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. For Pixhawk 4,
-use the `UART & I2C B` port, which corresponds to `/dev/ttyS3`.
-
-### Implementation
-
-The main loop of this module (Located in `RoboClaw.cpp::task_main()`) performs 2 tasks:
-
- 1. Write `actuator_controls_0` messages to the Roboclaw as they become available
- 2. Read encoder data from the Roboclaw at a constant, fixed rate.
-
-Because of the latency of UART, this driver does not write every single `actuator_controls_0` message to the Roboclaw
-immediately. Instead, it is rate limited based on the parameter `RBCLW_WRITE_PER`.
-
-On startup, this driver will attempt to read the status of the Roboclaw to verify that it is connected. If this fails,
-the driver terminates immediately.
-
-### Examples
-
-The command to start this driver is:
-
-roboclaw start <device> <baud>
-
-- `<device>` is the name of the UART port. On the Pixhawk 4, this is `/dev/ttyS3`.
-- `<baud>` is the baud rate.
-
-All available commands are:
-
-- `$ roboclaw start <device> <baud>`
-- `$ roboclaw status`
-- `$ roboclaw stop`
-	
-<a id="roboclaw_usage"></a>
-### Usage
-```
-roboclaw <command> [arguments...]
- Commands:
 ```
 ## safety_button
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)

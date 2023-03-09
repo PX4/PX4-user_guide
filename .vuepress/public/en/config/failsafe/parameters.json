@@ -8528,17 +8528,17 @@
       "category": "Standard",
       "default": 0,
       "group": "FW Attitude Control",
-      "longDesc": "For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading",
+      "longDesc": "On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading",
       "name": "FW_ARSP_MODE",
       "shortDesc": "Airspeed mode",
       "type": "Int32",
       "values": [
         {
-          "description": "Normal (use airspeed if available)",
+          "description": "Use airspeed in controller",
           "value": 0
         },
         {
-          "description": "Airspeed disabled",
+          "description": "Do not use airspeed in controller",
           "value": 1
         }
       ]
@@ -8644,11 +8644,10 @@
       "default": 60.0,
       "group": "FW Attitude Control",
       "increment": 0.5,
-      "longDesc": "This limits the maximum pitch down up angular rate the controller will output (in degrees per second).",
       "max": 90.0,
       "min": 0.0,
       "name": "FW_P_RMAX_NEG",
-      "shortDesc": "Maximum negative / down pitch rate",
+      "shortDesc": "Maximum negative / down pitch rate setpoint",
       "type": "Float",
       "units": "deg/s"
     },
@@ -8658,11 +8657,10 @@
       "default": 60.0,
       "group": "FW Attitude Control",
       "increment": 0.5,
-      "longDesc": "This limits the maximum pitch up angular rate the controller will output (in degrees per second).",
       "max": 90.0,
       "min": 0.0,
       "name": "FW_P_RMAX_POS",
-      "shortDesc": "Maximum positive / up pitch rate",
+      "shortDesc": "Maximum positive / up pitch rate setpoint",
       "type": "Float",
       "units": "deg/s"
     },
@@ -8686,7 +8684,7 @@
       "default": 0.0,
       "group": "FW Attitude Control",
       "increment": 0.01,
-      "longDesc": "This gain can be used to counteract the \"adverse yaw\" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator (rudder, airbrakes, ...) to counteract this effect.",
+      "longDesc": "This gain can be used to counteract the \"adverse yaw\" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator to counteract this effect.",
       "min": 0.0,
       "name": "FW_RLL_TO_YAW_FF",
       "shortDesc": "Roll control to yaw control feedforward gain",
@@ -8698,11 +8696,10 @@
       "default": 70.0,
       "group": "FW Attitude Control",
       "increment": 0.5,
-      "longDesc": "This limits the maximum roll rate the controller will output (in degrees per second).",
       "max": 90.0,
       "min": 0.0,
       "name": "FW_R_RMAX",
-      "shortDesc": "Maximum roll rate",
+      "shortDesc": "Maximum roll rate setpoint",
       "type": "Float",
       "units": "deg/s"
     },
@@ -8863,11 +8860,10 @@
       "default": 50.0,
       "group": "FW Attitude Control",
       "increment": 0.5,
-      "longDesc": "This limits the maximum yaw rate the controller will output (in degrees per second).",
       "max": 90.0,
       "min": 0.0,
       "name": "FW_Y_RMAX",
-      "shortDesc": "Maximum yaw rate",
+      "shortDesc": "Maximum yaw rate setpoint",
       "type": "Float",
       "units": "deg/s"
     },
@@ -9064,7 +9060,7 @@
       "default": 1.0,
       "group": "FW Auto Landing",
       "increment": 0.1,
-      "longDesc": "Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.",
+      "longDesc": "Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight. During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.",
       "max": 1.0,
       "min": 0.2,
       "name": "FW_LND_THRTC_SC",
@@ -9175,7 +9171,7 @@
       "default": 0.0,
       "group": "FW Launch detection",
       "increment": 0.5,
-      "longDesc": "Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate",
+      "longDesc": "Start the motor(s) this amount of seconds after launch is detected.",
       "max": 10.0,
       "min": 0.0,
       "name": "FW_LAUN_MOT_DEL",
@@ -9397,7 +9393,7 @@
       "default": 50.0,
       "group": "FW Path Control",
       "increment": 0.5,
-      "longDesc": "The maximum roll angle setpoint for autonomous modes including altitude and position control.",
+      "longDesc": "The maximum roll angle setpoint for setpoint for a height-rate or altitude controlled mode.",
       "max": 65.0,
       "min": 35.0,
       "name": "FW_R_LIM",
@@ -9434,11 +9430,10 @@
       "category": "Standard",
       "default": 90.0,
       "group": "FW Rate Control",
-      "longDesc": "This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.",
       "max": 720.0,
       "min": 45.0,
       "name": "FW_ACRO_Y_MAX",
-      "shortDesc": "Acro body y max rate",
+      "shortDesc": "Acro body pitch max rate setpoint",
       "type": "Float",
       "units": "deg"
     },
@@ -9446,11 +9441,10 @@
       "category": "Standard",
       "default": 45.0,
       "group": "FW Rate Control",
-      "longDesc": "This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.",
       "max": 180.0,
       "min": 10.0,
       "name": "FW_ACRO_Z_MAX",
-      "shortDesc": "Acro body z max rate",
+      "shortDesc": "Acro body yaw max rate setpoint",
       "type": "Float",
       "units": "deg"
     },
@@ -9477,9 +9471,9 @@
       "category": "Standard",
       "default": 0,
       "group": "FW Rate Control",
-      "longDesc": "This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The fixed wing should constantly behave as if it was fully charged with reduced max thrust at lower battery percentages. i.e. if cruise speed is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.",
+      "longDesc": "This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery.",
       "name": "FW_BAT_SCALE_EN",
-      "shortDesc": "Whether to scale throttle by battery power level",
+      "shortDesc": "Enable throttle scale by battery level",
       "type": "Int32",
       "values": [
         {
@@ -9491,32 +9485,6 @@
           "value": 1
         }
       ]
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 0.0,
-      "group": "FW Rate Control",
-      "increment": 0.01,
-      "longDesc": "This increment is added to the pitch trim whenever flaps are fully deployed.",
-      "max": 0.25,
-      "min": -0.25,
-      "name": "FW_DTRIM_P_FLPS",
-      "shortDesc": "Pitch trim increment for flaps configuration",
-      "type": "Float"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 0.0,
-      "group": "FW Rate Control",
-      "increment": 0.01,
-      "longDesc": "This increment is added to the pitch trim whenever spoilers are fully deployed.",
-      "max": 0.25,
-      "min": -0.25,
-      "name": "FW_DTRIM_P_SPOIL",
-      "shortDesc": "Pitch trim increment for spoiler configuration",
-      "type": "Float"
     },
     {
       "category": "Standard",
@@ -9542,19 +9510,6 @@
       "min": -0.25,
       "name": "FW_DTRIM_P_VMIN",
       "shortDesc": "Pitch trim increment at minimum airspeed",
-      "type": "Float"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 0.0,
-      "group": "FW Rate Control",
-      "increment": 0.01,
-      "longDesc": "This increment is added to TRIM_ROLL whenever flaps are fully deployed.",
-      "max": 0.25,
-      "min": -0.25,
-      "name": "FW_DTRIM_R_FLPS",
-      "shortDesc": "Roll trim increment for flaps configuration",
       "type": "Float"
     },
     {
@@ -9643,7 +9598,7 @@
       "default": 0.0,
       "group": "FW Rate Control",
       "increment": 0.005,
-      "longDesc": "Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.",
+      "longDesc": "Pitch rate differential gain.",
       "max": 1.0,
       "min": 0.0,
       "name": "FW_PR_D",
@@ -9698,7 +9653,6 @@
       "default": 0.08,
       "group": "FW Rate Control",
       "increment": 0.005,
-      "longDesc": "Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.",
       "max": 1.0,
       "min": 0.0,
       "name": "FW_PR_P",
@@ -9767,7 +9721,6 @@
       "default": 0.05,
       "group": "FW Rate Control",
       "increment": 0.005,
-      "longDesc": "Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.",
       "max": 1.0,
       "min": 0.0,
       "name": "FW_RR_P",
@@ -9836,7 +9789,6 @@
       "default": 0.05,
       "group": "FW Rate Control",
       "increment": 0.005,
-      "longDesc": "Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.",
       "max": 1.0,
       "min": 0.0,
       "name": "FW_YR_P",
@@ -9850,7 +9802,7 @@
       "default": 20.0,
       "group": "FW TECS",
       "increment": 0.5,
-      "longDesc": "The maximal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed is above this value, the TECS controller will try to decrease airspeed more aggressively.",
+      "longDesc": "The maximal airspeed (calibrated airspeed) the user is able to command.",
       "max": 40.0,
       "min": 0.5,
       "name": "FW_AIRSPD_MAX",
@@ -9892,11 +9844,11 @@
       "default": 15.0,
       "group": "FW TECS",
       "increment": 0.5,
-      "longDesc": "The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve if no other airspeed setpoint sources are present (e.g. through non-centered RC sticks).",
+      "longDesc": "The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve.",
       "max": 40.0,
       "min": 0.5,
       "name": "FW_AIRSPD_TRIM",
-      "shortDesc": "Cruise Airspeed (CAS)",
+      "shortDesc": "Trim (Cruise) Airspeed",
       "type": "Float",
       "units": "m/s"
     },
@@ -9920,7 +9872,7 @@
       "default": 30.0,
       "group": "FW TECS",
       "increment": 0.5,
-      "longDesc": "The maximum pitch angle setpoint for autonomous modes including altitude and position control.",
+      "longDesc": "The maximum pitch angle setpoint setpoint for a height-rate or altitude controlled mode.",
       "max": 60.0,
       "min": 0.0,
       "name": "FW_P_LIM_MAX",
@@ -9934,7 +9886,7 @@
       "default": -30.0,
       "group": "FW TECS",
       "increment": 0.5,
-      "longDesc": "The minimum pitch angle setpoint for autonomous modes including altitude and position control.",
+      "longDesc": "The minimum pitch angle setpoint for a height-rate or altitude controlled mode.",
       "max": 0.0,
       "min": -60.0,
       "name": "FW_P_LIM_MIN",
@@ -10003,7 +9955,7 @@
       "default": 0.6,
       "group": "FW TECS",
       "increment": 0.01,
-      "longDesc": "This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight. Most airframes have a value of 0.5-0.7.",
+      "longDesc": "This is the throttle setting required to achieve FW_AIRSPD_TRIM during level flight.",
       "max": 1.0,
       "min": 0.0,
       "name": "FW_THR_TRIM",
@@ -10041,7 +9993,7 @@
       "default": 5.0,
       "group": "FW TECS",
       "increment": 0.5,
-      "longDesc": "This is the best climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the default value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced. The setting of this parameter can be checked by commanding a positive altitude change of 100m in loiter, RTL or guided mode. If the throttle required to climb is close to THR_MAX and the aircraft is maintaining airspeed, then this parameter is set correctly. If the airspeed starts to reduce, then the parameter is set to high, and if the throttle demand required to climb and maintain speed is noticeably less than FW_THR_MAX, then either FW_T_CLMB_MAX should be increased or FW_THR_MAX reduced.",
+      "longDesc": "This is the maximum climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the trim value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced.",
       "max": 15.0,
       "min": 1.0,
       "name": "FW_T_CLMB_MAX",
@@ -10187,7 +10139,7 @@
       "default": 1.0,
       "group": "FW TECS",
       "increment": 1.0,
-      "longDesc": "This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Note to Glider Pilots - set this parameter to 2.0 (The glider will adjust its pitch angle to maintain airspeed, ignoring changes in height).",
+      "longDesc": "This parameter adjusts the amount of weighting that the pitch control applies to speed vs height errors. Setting it to 0.0 will cause the pitch control to control height and ignore speed errors. This will normally improve height accuracy but give larger airspeed errors. Setting it to 2.0 will cause the pitch control loop to control speed and ignore height errors. This will normally reduce airspeed errors, but give larger height errors. The default value of 1.0 allows the pitch control to simultaneously control height and speed. Set to 2 for gliders.",
       "max": 2.0,
       "min": 0.0,
       "name": "FW_T_SPDWEIGHT",
@@ -13439,6 +13391,28 @@
       "decimalPlaces": 2,
       "default": 0.0,
       "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS0_FLAP",
+      "shortDesc": "Control Surface 0 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS0_SPOIL",
+      "shortDesc": "Control Surface 0 configuration as spoiler",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
       "longDesc": "Can be used to add an offset to the servo control.",
       "max": 1.0,
       "min": -1.0,
@@ -13526,7 +13500,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -13548,8 +13522,38 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS1_FLAP",
+      "shortDesc": "Control Surface 1 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS1_SPOIL",
+      "shortDesc": "Control Surface 1 configuration as spoiler",
+      "type": "Float"
     },
     {
       "category": "Standard",
@@ -13643,7 +13647,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -13665,8 +13669,38 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS2_FLAP",
+      "shortDesc": "Control Surface 2 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS2_SPOIL",
+      "shortDesc": "Control Surface 2 configuration as spoiler",
+      "type": "Float"
     },
     {
       "category": "Standard",
@@ -13760,7 +13794,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -13782,8 +13816,38 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS3_FLAP",
+      "shortDesc": "Control Surface 3 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS3_SPOIL",
+      "shortDesc": "Control Surface 3 configuration as spoiler",
+      "type": "Float"
     },
     {
       "category": "Standard",
@@ -13877,7 +13941,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -13899,8 +13963,38 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS4_FLAP",
+      "shortDesc": "Control Surface 4 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS4_SPOIL",
+      "shortDesc": "Control Surface 4 configuration as spoiler",
+      "type": "Float"
     },
     {
       "category": "Standard",
@@ -13994,7 +14088,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -14016,8 +14110,38 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS5_FLAP",
+      "shortDesc": "Control Surface 5 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS5_SPOIL",
+      "shortDesc": "Control Surface 5 configuration as spoiler",
+      "type": "Float"
     },
     {
       "category": "Standard",
@@ -14111,7 +14235,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -14133,8 +14257,38 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS6_FLAP",
+      "shortDesc": "Control Surface 6 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS6_SPOIL",
+      "shortDesc": "Control Surface 6 configuration as spoiler",
+      "type": "Float"
     },
     {
       "category": "Standard",
@@ -14228,7 +14382,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -14250,8 +14404,38 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS7_FLAP",
+      "shortDesc": "Control Surface 7 configuration as flap",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 2,
+      "default": 0.0,
+      "group": "Geometry",
+      "max": 1.0,
+      "min": -1.0,
+      "name": "CA_SV_CS7_SPOIL",
+      "shortDesc": "Control Surface 7 configuration as spoiler",
+      "type": "Float"
     },
     {
       "category": "Standard",
@@ -14345,7 +14529,7 @@
           "value": 10
         },
         {
-          "description": "Airbrakes",
+          "description": "Airbrake",
           "value": 11
         },
         {
@@ -14367,6 +14551,14 @@
         {
           "description": "Steering Wheel",
           "value": 16
+        },
+        {
+          "description": "Left Spoiler",
+          "value": 17
+        },
+        {
+          "description": "Right Spoiler",
+          "value": 18
         }
       ]
     },
@@ -16502,7 +16694,7 @@
       "default": 15.0,
       "group": "Mission",
       "increment": 0.5,
-      "longDesc": "Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter). Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.",
+      "longDesc": "Roll in degrees during the loiter after the vehicle has lost GPS in an auto mode (e.g. mission or loiter).",
       "max": 30.0,
       "min": 0.0,
       "name": "FW_GPSF_R",
@@ -23580,7 +23772,6 @@
       "default": 1.0,
       "group": "Runway Takeoff",
       "increment": 0.01,
-      "longDesc": "Can be used to test taxi on runway",
       "max": 1.0,
       "min": 0.0,
       "name": "RWTO_MAX_THR",
@@ -31295,40 +31486,13 @@
       "default": 2.0,
       "group": "VTOL Attitude Control",
       "increment": 0.1,
-      "longDesc": "The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint. For standard vtol and tiltrotors a controller is used to track this value during the transition.",
+      "longDesc": "The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in an auto mode. For standard vtol and tiltrotors a controller is used to track this value during the transition.",
       "max": 10.0,
       "min": 0.5,
       "name": "VT_B_DEC_MSS",
       "shortDesc": "Approximate deceleration during back transition",
       "type": "Float",
       "units": "m/s^2"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 0.0,
-      "group": "VTOL Attitude Control",
-      "increment": 1.0,
-      "longDesc": "Set this to a value greater than 0 to give the motor time to spin down.",
-      "max": 10.0,
-      "min": 0.0,
-      "name": "VT_B_REV_DEL",
-      "shortDesc": "Delay in seconds before applying back transition throttle",
-      "type": "Float",
-      "units": "s"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 0.0,
-      "group": "VTOL Attitude Control",
-      "increment": 0.01,
-      "longDesc": "Used for airbrakes or with ESCs that have reverse thrust enabled on a separate channel. Airbrakes need to be enabled for your selected model/mixer.",
-      "max": 1.0,
-      "min": 0.0,
-      "name": "VT_B_REV_OUT",
-      "shortDesc": "Output on airbrakes channel during back transition",
-      "type": "Float"
     },
     {
       "category": "Standard",
@@ -31362,7 +31526,7 @@
       "default": 0.0,
       "group": "VTOL Attitude Control",
       "increment": 0.01,
-      "longDesc": "standard vtol: pusher tailsitter, tiltrotor: main throttle Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking",
+      "longDesc": "standard vtol: pusher tailsitter, tiltrotor: main throttle",
       "max": 1.0,
       "min": -1.0,
       "name": "VT_B_TRANS_THR",
@@ -31392,9 +31556,9 @@
       "category": "Standard",
       "default": 0,
       "group": "VTOL Attitude Control",
-      "longDesc": "This feature can be used to avoid the plane having to pitch down in order to move forward, and prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.",
+      "longDesc": "This feature can be used to avoid the plane having to pitch nose down in order to move forward. Prevents large, negative lift from pitching nose down into wind. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.",
       "name": "VT_FWD_THRUST_EN",
-      "shortDesc": "Enable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down)",
+      "shortDesc": "Use fixed-wing actuation in hover to accelerate forward",
       "type": "Int32",
       "values": [
         {
@@ -31431,11 +31595,11 @@
       "category": "Standard",
       "default": 0.7,
       "group": "VTOL Attitude Control",
-      "longDesc": "Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is below VT_PITCH_MIN. Enabled via VT_FWD_THRUST_EN.",
+      "longDesc": "Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Enabled via VT_FWD_THRUST_EN.",
       "max": 2.0,
       "min": 0.0,
       "name": "VT_FWD_THRUST_SC",
-      "shortDesc": "Fixed-wing actuator thrust scale for hover forward flight",
+      "shortDesc": "Fixed-wing actuation thrust scale for hover forward flight",
       "type": "Float"
     },
     {
@@ -31469,7 +31633,7 @@
       "default": 1.0,
       "group": "VTOL Attitude Control",
       "increment": 0.1,
-      "longDesc": "Maps the pitch control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.",
+      "longDesc": "Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.",
       "max": 2.0,
       "min": 0.0,
       "name": "VT_FW_DIFTHR_S_P",
@@ -31482,7 +31646,7 @@
       "default": 1.0,
       "group": "VTOL Attitude Control",
       "increment": 0.1,
-      "longDesc": "Maps the roll control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.",
+      "longDesc": "Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.",
       "max": 2.0,
       "min": 0.0,
       "name": "VT_FW_DIFTHR_S_R",
@@ -31495,7 +31659,7 @@
       "default": 0.1,
       "group": "VTOL Attitude Control",
       "increment": 0.1,
-      "longDesc": "Maps the yaw control output in forward flight to the actuator differential thrust output. Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.",
+      "longDesc": "Differential thrust in forward flight is enabled via VT_FW_DIFTHR_EN.",
       "max": 2.0,
       "min": 0.0,
       "name": "VT_FW_DIFTHR_S_Y",
@@ -31521,7 +31685,7 @@
       "default": 0,
       "group": "VTOL Attitude Control",
       "increment": 1,
-      "longDesc": "Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. Triggering a quadchute always means transitioning the vehicle to hover flight in which generally a lot of energy is consumed. At high altitudes there is therefore a big risk to deplete the battery and therefore crash. Currently, there is no automated re-transition to fixed wing mode implemented and therefore this parameter serves and an intermediate measure to increase safety. Setting this value to 0 deactivates the behavior (always enable quad-chute independently of altitude).",
+      "longDesc": "Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.",
       "min": 0,
       "name": "VT_FW_QC_HMAX",
       "shortDesc": "Quad-chute maximum height",
@@ -31599,7 +31763,7 @@
       "default": -5.0,
       "group": "VTOL Attitude Control",
       "increment": 0.1,
-      "longDesc": "Overrides  VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.",
+      "longDesc": "Overrides VT_PITCH_MIN when the vehicle is in LAND mode (hovering). During landing it can be beneficial to allow lower minimum pitch angles as it can avoid the wings generating too much lift and preventing the vehicle from sinking at the desired rate.",
       "max": 45.0,
       "min": -10.0,
       "name": "VT_LND_PITCH_MIN",
@@ -31701,7 +31865,7 @@
     },
     {
       "category": "Standard",
-      "decimalPlaces": 3,
+      "decimalPlaces": 2,
       "default": 0.0,
       "group": "VTOL Attitude Control",
       "increment": 0.01,
@@ -31709,7 +31873,7 @@
       "max": 1.0,
       "min": 0.0,
       "name": "VT_TILT_SPINUP",
-      "shortDesc": "Tilt actuator control value commanded when disarmed and during the first second after arming",
+      "shortDesc": "Tilt when disarmed and in the first second after arming",
       "type": "Float"
     },
     {
@@ -31744,7 +31908,7 @@
       "default": 0.5,
       "group": "VTOL Attitude Control",
       "increment": 0.01,
-      "longDesc": "Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.",
+      "longDesc": "Time in seconds it takes to tilt form VT_TILT_TRANS to VT_TILT_FW.",
       "max": 5.0,
       "min": 0.1,
       "name": "VT_TRANS_P2_DUR",
