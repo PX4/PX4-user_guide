@@ -79,44 +79,6 @@ The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centr
 Note, this may not be the same as the position of the flight controller!
 :::
 
-#### Geometry: Helicopter
-
-The geometry for a [Generic Helicopter (with Tail ESC)](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_(tail_esc)) is shown below.
-
-This is the only helicopter configuration supported, and allows for a single main rotor with any type of swash-plate and an ESC tail rotor.
-
-![Geometry: helicopter](../../assets/config/actuators/qgc_geometry_helicopter.png)
-
-The motors have no configurable geometry:
-
-- `Rotor (Motor 1)`: The main rotor
-- `Yaw tail motor (Motor 2)`: The tail rotor
-
-Swash plate servos: `3` | `4` <!-- 4 provides additional stability -->
-
-  For each servo set:
-
-  - `Angle`: Clockwise angle in degree on the swash plate circle at which the servo arm is attached starting from `0` pointing forwards.
-    Example for a typical setup where three servos are controlling the swash plate equally distributed over the circle (360° / 3 =) 120° apart each which results in the angles:
-
-    |#|Angle|
-    |---|---|
-    |Servo 1|60°|
-    |Servo 2|180°|
-    |Servo 3|300°|
-
-    <img width="700" alt="warning and requirement" src="../../assets/airframes/helicopter/swash_plate_servo_angles.png">
-  - `Arm Length (relative to each other)`: Radius from the swash plate center (top view). A shorter arm means the same servo motion moves the plate more. This allows the autopilot to compensate.
-  - `Trim`: Offset individual servo positions. This is only needed in rare case when the swash plate is not level even though all servos are centered.
-
-Additional settings:
-
-- `Yaw compensation scale based on collective pitch`: How much yaw is feed forward compensated based on the current collective pitch.
-- `Main rotor turns counter-clockwise`: `Disabled` (clockwise rotation) | `Enabled`
-- `Throttle spoolup time`: Set value (in seconds) greater than the achievable minimum motor spool up time.
-  A larger value may improve user experience.
-
-
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
 The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
