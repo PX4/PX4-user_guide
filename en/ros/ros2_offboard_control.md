@@ -22,7 +22,8 @@ To subscribe to data coming from nodes that publish in a different frame (for ex
 
 ## Trying it out
 
-Follow the instructions in [ROS 2 User Guide](..ros/ros2_comm.md) to install PX4 and run the simulator, install ROS2, and start the XRCE-DDS Agent.
+Follow the instructions in [ROS 2 User Guide](..ros/ros2_comm.md) to install PX and run the simulator, install ROS2, and start the XRCE-DDS Agent.
+
 After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS2 Workspace](..ros/ros2_comm.md#build-ros-2-workspace) to run the example.
 
 To build and run the example:
@@ -64,12 +65,6 @@ To build and run the example:
 1. Launch the example.
 
    ```
-   ros2 launch px4_ros_com offboard_control_launch.yaml
-   ```
-   
-   or
-   
-   ```
    ros2 run px4_ros_com offboard_control
    ```
 
@@ -80,10 +75,11 @@ The vehicle should arm, ascend 5 metres, and then wait (perpetually).
 The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
 
 :::note
-PX4 publishes and subscribes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)).
+PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)).
 :::
 
-PX4 requires that the vehicle is already receiving setpoints before switching to offboard mode, and will switch out of offboard mode if the stream rate drops below approximately 2Hz.
+PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying.
+In addition, PX4 will switch out of offboard mode if the stream rate of `OffboardControlMode` messages drops below approximately 2Hz.
 The required behaviour is implemented by the main loop spinning in the ROS2 node, as shown below:
 
 ```cpp
@@ -111,7 +107,7 @@ timer_ = this->create_wall_timer(100ms, timer_callback);
 
 The loop runs on a 100ms timer.
 For the first 10 cycles it calls `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` to send [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../en/msg_docs/TrajectorySetpoint.md) messages to PX4.
-These messages are required in order for PX4 to switch to offboard mode, even though they are "ignored" because the vehicle is not in offboard mode.
+The `OffboardControlMode` messages are streamed so that PX4 will allow arming once it switches to offboard mode, while the `TrajectorySetpoint` messages are ignored (until the vehicle is in offboard mode).
 
 After 10 cycles `publish_vehicle_command()` is called to change to offboard mode, and `arm()` is called to arm the vehicle.
 After the vehicle arms and changes mode it starts tracking the position setpoints.
