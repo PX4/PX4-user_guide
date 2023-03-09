@@ -65,7 +65,6 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 `X`, `Y`, `Z` 위치는 _무게 중심_을 기준으로 [FRD 좌표계에 있습니다. ](#motor-position-coordinate-system). 이것은 비행 컨트롤러의 위치와 동일하지 않을 수 있습니다.
 :::
 
-
 #### 모터 지오메트리: VTOL Quadrotor Tailsitter
 
 [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)의 모터 구조는 아래에 나와 있습니다(다른 Tailsitter VTOL 차량을 구성하는 방법도 유사함).
@@ -160,7 +159,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 - 배율을 높이면 제어 표면의 처짐이 _감소_됩니다(역전될 때).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
- 
+
 
 #### 조종면 처짐 규칙
 

@@ -4,7 +4,7 @@
 
 这些模式为用户（飞行员）提供不同类型／级别的自动驾驶辅助，包括从起飞和着陆等常见任务的自动化，到更容易重新获得水平飞行及将飞行器保持在固定路径或位置的机制，等等。
 
-This topic provides an overview of the available the flight modes for different frame types: [multicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
 
 :::tip
 More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
@@ -40,7 +40,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. Manual mo
 * Manual-Acrobatic: [Acro](#acro-mode-fw)
 * Autonomous: [Hold](#hold_fw), [Return](#return-mode-fw), [Mission](#mission-mode-fw), [Takeoff](#takeoff-mode-fw), [Land](#land-mode-fw), [Offboard](#offboard-mode-fw)
 
-多旋翼:
+Multicopter/Helicopter:
 * Manual-Easy: [Position](#position-mode-mc), [Altitude](#altitude-mode-mc), [Manual/Stabilized](#manual-stabilized-mode-mc), [Orbit](#orbit-mode-mc)
 * Manual-Acrobatic: [Acro](#acro-mode-mc)
 * Autonomous: [Hold](#hold-mode-mc), [Return](#return-mode-mc), [Mission](#mission-mode-mc), [Takeoff](#takeoff-mode-mc), [Land](#land-mode-mc), [Follow Me](#follow-me-mode-mc), [Offboard](#offboard-mode-mc)
@@ -71,7 +71,7 @@ The icons below are used within the document:
 
 <a id="mc_flight_modes"></a>
 
-## 多旋翼
+## Multicopter / Helicopter
 
 
 ### Position Mode (MC)

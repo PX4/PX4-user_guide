@@ -4,7 +4,7 @@
 
 フライトモードはユーザー(パイロット) に離陸や着陸といった共通タスクの自動化から，水平保持機能や，経路保持，位置保持など，様々な方法・レベルでの操縦アシストを行います。
 
-This topic provides an overview of the available the flight modes for different frame types: [multicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
 
 :::tip
 More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
@@ -40,7 +40,7 @@ Fixed Wing:
 * Manual-Acrobatic: [Acro](#acro-mode-fw)
 * Autonomous: [Hold](#hold_fw), [Return](#return-mode-fw), [Mission](#mission-mode-fw), [Takeoff](#takeoff-mode-fw), [Land](#land-mode-fw), [Offboard](#offboard-mode-fw)
 
-Multicopter:
+Multicopter/Helicopter:
 * Manual-Easy: [Position](#position-mode-mc), [Altitude](#altitude-mode-mc), [Manual/Stabilized](#manual-stabilized-mode-mc), [Orbit](#orbit-mode-mc)
 * Manual-Acrobatic: [Acro](#acro-mode-mc)
 * Autonomous: [Hold](#hold-mode-mc), [Return](#return-mode-mc), [Mission](#mission-mode-mc), [Takeoff](#takeoff-mode-mc), [Land](#land-mode-mc), [Follow Me](#follow-me-mode-mc), [Offboard](#offboard-mode-mc)
@@ -71,7 +71,7 @@ The icons below are used within the document:
 
 <a id="mc_flight_modes"></a>
 
-## Multicopter
+## Multicopter / Helicopter
 
 
 ### Position Mode (MC)

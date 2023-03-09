@@ -4,7 +4,7 @@ Flight modes define how the autopilot responds to remote control input, and how 
 
 The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
 
-This topic provides an overview of the available the flight modes for different frame types: [multicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
 
 :::tip
 More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
@@ -40,7 +40,7 @@ Fixed Wing:
 * Manual-Acrobatic: [Acro](#acro-mode-fw)
 * Autonomous: [Hold](#hold_fw), [Return](#return-mode-fw), [Mission](#mission-mode-fw), [Takeoff](#takeoff-mode-fw), [Land](#land-mode-fw), [Offboard](#offboard-mode-fw)
 
-Multicopter:
+Multicopter/Helicopter:
 * Manual-Easy: [Position](#position-mode-mc), [Altitude](#altitude-mode-mc), [Manual/Stabilized](#manual-stabilized-mode-mc), [Orbit](#orbit-mode-mc)
 * Manual-Acrobatic: [Acro](#acro-mode-mc)
 * Autonomous: [Hold](#hold-mode-mc), [Return](#return-mode-mc), [Mission](#mission-mode-mc), [Takeoff](#takeoff-mode-mc), [Land](#land-mode-mc), [Follow Me](#follow-me-mode-mc), [Offboard](#offboard-mode-mc)
@@ -71,7 +71,7 @@ The icons below are used within the document:
 
 <a id="mc_flight_modes"></a>
 
-## Multicopter
+## Multicopter / Helicopter
 
 
 ### Position Mode (MC)

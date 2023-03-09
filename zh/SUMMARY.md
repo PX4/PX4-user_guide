@@ -134,6 +134,7 @@
     * [多旋翼定点飞行调参 (轨迹生成器)](config_mc/mc_trajectory_tuning.md)
       * [MC Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
     * [多旋翼竞速设置 ](config_mc/racer_setup.md)
+  * [Helicopter Config/Tuning](config_heli/README.md)
   * [固定翼形配置/调试](config_fw/README.md)
     * [固定翼 PID 调参指南](config_fw/pid_tuning_guide_fixedwing.md)
     * [固定翼高级调试指南](config_fw/advanced_tuning_guide_fixedwing.md)

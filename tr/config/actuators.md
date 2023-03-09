@@ -66,7 +66,6 @@ For each motor you can then set:
 The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system). Note, this may not be the same as the position of the flight controller!
 :::
 
-
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
 The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
@@ -161,7 +160,7 @@ Tuning the values is a low/level/advanced topic, and is generally only needed wh
 - Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
- 
+
 
 #### Control Surface Deflection Convention
 
