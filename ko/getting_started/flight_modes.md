@@ -4,7 +4,7 @@
 
 비행 모드는 이륙 및 착륙과 같은 일반적인 작업의 자동화뿐만 아니라, 수평 비행을 용이하게하기 위하여 고정된 경로나 위치에 기체를 유지하는 메커니즘에 이르기까지 조종사에게 다양한 유형의 자율비행 방법을 제공합니다.
 
-[멀티콥터](#multicopter)(MC), [고정익](#fixed-wing)(FW), [VTOL](#vertical-take-off-and-landing-vtol) 및 [로버/보트](#rover-boat) 등의 다양한 기체 유형에 적용되는 비행 모드의 개요에 대하여 설명합니다.
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
 
 :::tip
 비행 모드에 대한 자세한 정보는 [비행 &gt; 비행 모드](../flight_modes/README.md)를 참고하십시오.
@@ -40,7 +40,7 @@
 * 수동 곡예 : [곡예](#acro-mode-fw)
 * 자율 : [유지](#hold_fw), [복귀](#return-mode-fw), [미션](#mission-mode-fw), [이륙](#takeoff-mode-fw), [착륙](#land-mode-fw), [오프보드](#offboard-mode-fw)
 
-멀티콥터:
+Multicopter/Helicopter:
 * 수동 간편 : [위치](#position-mode-mc), [고도](#altitude-mode-mc), [수동/안정화](#manual-stabilized-mode-mc), [궤도](#orbit-mode-mc)
 * 수동 곡예 : [곡예](#acro-mode-mc)
 * 자율 : [유지](#hold-mode-mc), [복귀](#return-mode-mc), [미션](#mission-mode-mc), [이륙](#takeoff-mode-mc), [착륙](#land-mode-mc), [조종사 추적](#follow-me-mode-mc), [오프 보드](#offboard-mode-mc)
@@ -71,7 +71,7 @@
 
 <a id="mc_flight_modes"></a>
 
-## 멀티콥터
+## Multicopter / Helicopter
 
 
 ### 위치 모드 (멀티콥터)
