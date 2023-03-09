@@ -1,6 +1,6 @@
 # 水平平面校准
 
-You can use *Level Horizon Calibration* to compensate for small miss-alignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom).
+You can use *Level Horizon Calibration* to compensate for small misalignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom).
 
 :::tip
 Leveling the horizon is highly recommended, and will result in the best flight performance.

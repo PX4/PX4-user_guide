@@ -1,6 +1,6 @@
 # 수평 보정
 
-*수평 보정* 작업은 장치들의 미세한 방향 오차를 보정하고, *QGroundControl* 비행 시야의 수평(파란색이 위로, 녹색이 아래로 가게)을 보정합니다.
+You can use *Level Horizon Calibration* to compensate for small misalignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom).
 
 :::tip
 수평 보정을 강력히 권고합니다. 최고의 비행 성능을 나타낼 수 있습니다.
