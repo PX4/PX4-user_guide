@@ -469,6 +469,22 @@ Simply enter the following terminal command:
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
 ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 ```
+You can also customize the uri where the video stream is sent to, by [customizing the sitl_gazebo_classic parameters](jinja_override)
+
+
+### Customizing the sitl_gazebo_classic_parameters
+
+There is a list of parameters you can customize for every vehicle instance by creating a json file in 
+/tmp/px4_gazebo_jinja_parameters_${instance_id}.json
+
+With the instance id representing the instance of the vehicle in case of multi-sim simulation.
+
+mavlink_tcp_port: port the mavlink interface would connect to as tcp, default is 4560
+mavlink_udp_port: port the mavlink interface would connect to as udp, default is 14560
+gst_udp_host: ip to which the gstream rtp video stream gets sent to, default is "127.0.0.1"
+gst_udp_port: ip to which the gstream rtp video stream gets sent to, default is 5600
+video_uri: Mavlink camera URI for SITL, default is "udp://127.0.0.1:5600"
+serial_baudrate: Baudrate of Serial device for FMU, default is 921600
 
 ### Verbose Logging
 
