@@ -134,6 +134,7 @@
     * [MC Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md)
       * [MC Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
     * [Multicopter Racer Setup](config_mc/racer_setup.md)
+  * [Helicopter Config/Tuning](config_heli/README.md)
   * [Fixed Wing  Config/Tuning](config_fw/README.md)
     * [Fixedwing PID Tuning Guide](config_fw/pid_tuning_guide_fixedwing.md)
     * [Fixedwing Advanced Tuning Guide](config_fw/advanced_tuning_guide_fixedwing.md)

@@ -6,6 +6,7 @@ You can see a full list of the vehicle types and variants ("frames") that have b
 Select the frame based on what you need it for:
 - **Multicopters** offer precision hovering and vertical takeoff, at the cost of shorter and generally slower flight.
   PX4 has modes that make them easy to fly, and they are the most popular type of flying vehicle.
+- **Helicopters** similar to Multicopters, mechanically more complex, but more efficient.
 - **Fixed wing** airplanes offer longer and faster flight, and hence better coverage for ground surveys etc.
   However they are harder to fly and land than multicopters, and aren't suitable if you need to hover or fly very slowly (e.g. when surveying vertical structures).
 - **VTOL** (Vertical Takeoff and Landing) aircraft come in a number of types: tiltrotors, tailsitters, quadplanes etc.

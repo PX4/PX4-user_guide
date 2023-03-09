@@ -71,14 +71,13 @@ For each motor you can then set:
 - `Position Y`: [Y-position](#motor-position-coordinate-system), in metres.
 - `Position Z`: [Z-position](#motor-position-coordinate-system), in metres.
 - (Advanced) `Direction CCW`: Checkbox to indicate motor spins counter-clockwise (uncheck for clockwise).
-- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors) 
+- (Advanced) `Bidirectional`: Checkbox to indicate motor is [bidirectional](#bidirectional-motors)
 - (Advanced) `Slew Rate`: Refer to the [Control Surfaces Geometry](#control-surfaces-geometry) section for more information
 
 :::note
 The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centre of gravity_](#motor-position-coordinate-system).
 Note, this may not be the same as the position of the flight controller!
 :::
-
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
@@ -188,7 +187,7 @@ In this case the things you need to know are:
 - Increasing the scale will _reduce_ the deflection of the control surfaces (as it gets inverted).
 
 <!-- For more information see: []() (PX4 Dev Summit, 2022) -->
- 
+
 
 #### Control Surface Deflection Convention
 
@@ -252,7 +251,7 @@ Because **θ<sub>1</sub>** would more negative (smaller) than **θ<sub>0</sub>**
 
 Similarly, a servo that moves:
 
-- between the upright and forward positions would have `min=0` and `max=90`. 
+- between the upright and forward positions would have `min=0` and `max=90`.
 - symmetrically 45 degrees around the upright position would have `min=-45` and `max=45`
 - between the upright and backward positions would have `min=-90` and `max=0`.
 :::
@@ -305,7 +304,7 @@ This makes it easy to use a particular output pin for almost any purpose.
 
 Some functions are only relevant to particular frames or output types, and will not be offered on others.
 
-Functions include: 
+Functions include:
 
 - `Disabled`: Output has no assigned function.
 - `Constant_Min`: Output set to constant minimum value (-1).
@@ -348,7 +347,7 @@ The functions are defined in source at [/src/lib/mixer_module/output_functions.y
 
 ## Actuator Testing
 
-The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings. 
+The _Actuator Testing_ section in lower-right corner provides sliders that can be used to test (and determine) actuator and motor settings.
 A slider is provided for each output defined in the [Actuator Outputs](#actuator-outputs) section.
 The slider example below shows the section for a typical VTOL Tiltrotor airframe.
 
@@ -457,7 +456,7 @@ For each motor:
    - Verify that the motor doesn't spin in this position.
    - If the motor spins, reduce the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) section to below the level at which it still spins.
 2. Slowly move the slider up until it snaps to the _minimum_ position.
-   In this position the motor is set to the outputs `Minimum` value.  
+   In this position the motor is set to the outputs `Minimum` value.
    - Verify that the motor is spinning very slowly in this position.
    - If the motor is not spinning, or spinning too fast you will need to adjust the corresponding PWM `Disarmed` value in the [Actuator Outputs](#actuator-outputs) such that the motors barely spin.
 
