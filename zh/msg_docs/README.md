@@ -97,6 +97,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [ModeCompleted](ModeCompleted.md) — Mode completion result, published by an active mode. Note that this is not always published (e.g. when a user switches modes or on failsafe activation)
 - [MountOrientation](MountOrientation.md)
 - [NavigatorMissionItem](NavigatorMissionItem.md)
+- [NormalizedUnsignedSetpoint](NormalizedUnsignedSetpoint.md)
 - [NpfgStatus](NpfgStatus.md)
 - [ObstacleDistance](ObstacleDistance.md) — Obstacle distances in front of the sensor.
 - [OffboardControlMode](OffboardControlMode.md) — Off-board control mode
@@ -147,6 +148,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [TaskStackInfo](TaskStackInfo.md) — stack information for a single running process
 - [TecsStatus](TecsStatus.md)
 - [TelemetryStatus](TelemetryStatus.md)
+- [TiltrotorExtraControls](TiltrotorExtraControls.md)
 - [TimesyncStatus](TimesyncStatus.md)
 - [TrajectoryBezier](TrajectoryBezier.md) — Bezier Trajectory description. See also Mavlink TRAJECTORY msg The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
 - [TrajectorySetpoint](TrajectorySetpoint.md) — Trajectory setpoint in NED frame Input to PID position controller. Needs to be kinematically consistent and feasible for smooth flight. setting a value to NaN means the state should not be controlled
@@ -187,7 +189,6 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [VehicleTrajectoryBezier](VehicleTrajectoryBezier.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_bezier is used to send a smooth flight path from the companion computer / avoidance module to the position controller.
 - [VehicleTrajectoryWaypoint](VehicleTrajectoryWaypoint.md) — Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg The topic vehicle_trajectory_waypoint_desired is used to send the user desired waypoints from the position controller to the companion computer / avoidance module. The topic vehicle_trajectory_waypoint is used to send the adjusted waypoints from the companion computer / avoidance module to the position controller.
 - [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
-- [WheelEncoders](WheelEncoders.md)
 - [Wind](Wind.md)
 - [YawEstimatorStatus](YawEstimatorStatus.md)
 
