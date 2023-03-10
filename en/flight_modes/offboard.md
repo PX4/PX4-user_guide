@@ -2,8 +2,8 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The vehicle obeys position, velocity, or attitude setpoints provided by some source that is external to the flight stack, such as a companion computer.
-The setpoints may be provided using MAVLink (or a MAVLink API such as [MAVSDK](https://mavsdk.mavlink.io/)) or by [ROS2](../ros/ros2.md).
+The vehicle obeys position, velocity, acceleration, attitude, attitude rates or thrust/torques setpoints provided by some source that is external to the flight stack, such as a companion computer.
+The setpoints may be provided using MAVLink (or a MAVLink API such as [MAVSDK](https://mavsdk.mavlink.io/)) or by [ROS 2](../ros/ros2.md).
 
 PX4 requires that the external controller provides a continuous 2Hz "proof of life" signal, by streaming any of the supported MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) message.
 PX4 enables offboard control only after receiving the signal for more than a second, and will regain control if the signal stops.
@@ -19,9 +19,9 @@ PX4 enables offboard control only after receiving the signal for more than a sec
 
 ## Description
 
-Offboard mode is used for controlling vehicle movement and attitude, by setting position, velocity, or attitude setpoints.
+Offboard mode is used for controlling vehicle movement and attitude, by setting position, velocity, acceleration, attitude, attitude rates or thrust/torques setpoints.
 
-PX4 must recieve a stream of MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) at 2 Hz as proof that the external controller is healthy.
+PX4 must receive a stream of MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) at 2 Hz as proof that the external controller is healthy.
 The stream must be sent for at least a second before PX4 will arm in offboard mode, or switch to offboard mode when flying.
 If the rate falls below 2Hz while under external control PX4 will switch out of offboard mode after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)), and attempt to land or perform some other failsafe action. 
 The action depends on whether or not RC control is available, and is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
@@ -33,8 +33,68 @@ When using ROS2 the proof that the external source is alive is provided by a str
 In order to hold position in this case the vehicle must receive a stream of `OffboardControlMode` but would only need the `TrajectorySetpoint` once.
 
 Note that offboard mode only supports only a very limited set of MAVLink commands and messages.
-Operations, like taking off, landing, return to launch, mabe be best handled using the appropriate modes. 
+Operations, like taking off, landing, return to launch, may be best handled using the appropriate modes. 
 Operations like uploading, downloading missions can be performed in any mode.
+
+## ROS 2 Messages
+
+The following ROS 2 messages and their particular fields and field values are allowed for the specified frames.
+In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
+
+1. Controls at which level of the [PX4 control architecture](../en/flight_stack/controller_diagrams) the offboard setpoints must be injected and disables the bypassed controllers.
+2. Determines which valid estimates (position or velocity) are required.
+
+The fields of `OffboardControlMode`
+```
+# Off-board control mode
+
+uint64 timestamp		# time since system start (microseconds)
+
+bool position
+bool velocity
+bool acceleration
+bool attitude
+bool body_rate
+bool actuator
+```
+are ordered in terms of priority such that `position` takes precedence over all the other, `velocity` takes precedence over `acceleration` and the other below it, etc.
+Depending on the first non-zero value from top to bottom, the valid estimate required and the right setpoint message(s) are defined.
+
+| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | acturator field | required estimate | required message                                                                                                                |
+|--------------------------|:--------------:|:--------------:|:------------------:|:--------------:|:---------------:|:---------------:|:-----------------:|---------------------------------------------------------------------------------------------------------------------------------|
+| position (NED)           |     &check;    |        -       |          -         |        -       |        -        |        -        |      position     | TrajectorySetpoint                                                                                                              |
+| velocity (NED)           |     &cross;    |     &check;    |          -         |        -       |        -        |        -        |      velocity     | TrajectorySetpoint                                                                                                              |
+| acceleration (NED)       |     &cross;    |     &cross;    |       &check;      |        -       |        -        |        -        |      velocity     | TrajectorySetpoint                                                                                                              |
+| attitude (RFD)           |     &cross;    |     &cross;    |       &cross;      |     &check;    |        -        |        -        |        none       | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
+| body_rate (RFD)          |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &check;     |        -        |        none       | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
+| thrust and torque (RFD)  |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &cross;     |     &check;     |        none       | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+where &check; means that the bit is set, &cross; means that the bit is not set and - means that the bit is value is irrelevant.
+
+### Copter
+
+* [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
+  * The following input combinations are supported:
+    * Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
+    * Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
+    * Acceleration setpoint  (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
+  - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
+
+* [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
+  * The following input combination is supported:
+    * quaterion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
+  - The quaterion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The trust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
+
+* [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
+  * The following input combination is supported:
+    * `roll`, `pitch`, `yaw` and `thrust_body`.
+  - All the value are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
+
+* [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+  * The following input combination is supported:
+    * `xyz` for thrust and `xyz` for torque.
+  - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
+
+
 
 ## MAVLink Messages
 
