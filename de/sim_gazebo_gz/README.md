@@ -97,10 +97,10 @@ If both `PX4_GZ_MODEL_NAME` and `PX4_GZ_MODEL` are not given, then PX4 looks for
 - `PX4_SIMULATOR=GZ`: Sets the simulator, which for Gz must be `gz`.
   - This value should be [set for the selected airframe](#adding-new-worlds-and-models), in which case it does not need to be set as an argument.
 
-The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz). They are added to the Gazebo search `PATH` by [gazebo_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/gazebo_env.sh.in) during the simulation startup phase.
+The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-Autopilot/tree/main/Tools/simulation/gz). They are added to the Gazebo search `PATH` by [gz_env.sh.in](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/gz_bridge/gz_env.sh.in) during the simulation startup phase.
 
 :::note
-`gazebo_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl/rootfs/gazebo_env.sh`
+`gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
 :::
 
 ### Examples
