@@ -42,7 +42,8 @@ The following ROS 2 messages and their particular fields and field values are al
 In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
 
 1. Controls the level of the [PX4 control architecture](../en/flight_stack/controller_diagrams.md) at which offboard setpoints must be injected, and disables the bypassed controllers.
-1. Determines which valid estimates (position or velocity) are required.
+1. Determines which valid estimates (position or velocity) are required, and also which setpoint messages should be used.
+
 
 The `OffboardControlMode` message is defined as shown.
 
