@@ -42,10 +42,9 @@ The following ROS 2 messages and their particular fields and field values are al
 In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
 
 1. Controls the level of the [PX4 control architecture](../en/flight_stack/controller_diagrams.md) at which offboard setpoints must be injected, and disables the bypassed controllers.
+1. Determines which valid estimates (position or velocity) are required.
 
-2. Determines which valid estimates (position or velocity) are required.
-
-The fields of `OffboardControlMode`
+The `OffboardControlMode` message is defined as shown.
 
 ```
 # Off-board control mode
@@ -60,7 +59,7 @@ bool body_rate
 bool actuator
 ```
 
-are ordered in terms of priority such that `position` takes precedence over all the other, `velocity` takes precedence over `acceleration` and the other below it, etc.
+The fields are ordered in terms of priority such that `position` takes precedence over all the other, `velocity` takes precedence over `acceleration` and the other below it, etc.
 Depending on the first non-zero value from top to bottom, the valid estimate required and the right setpoint message(s) are defined.
 
 | desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | acturator field | required estimate | required message                                                                                                                |
@@ -72,7 +71,7 @@ Depending on the first non-zero value from top to bottom, the valid estimate req
 | body_rate (RFD)          |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &check;     |        -        |        none       | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
 | thrust and torque (RFD)  |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &cross;     |     &check;     |        none       | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
 
-where &check; means that the bit is set, &cross; means that the bit is not set and - means that the bit is value is irrelevant.
+where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
 ### Copter
 
