@@ -46,6 +46,7 @@ In addition to providing heartbeat functionality, `OffboardControlMode` has two 
 2. Determines which valid estimates (position or velocity) are required.
 
 The fields of `OffboardControlMode`
+
 ```
 # Off-board control mode
 
@@ -58,6 +59,7 @@ bool attitude
 bool body_rate
 bool actuator
 ```
+
 are ordered in terms of priority such that `position` takes precedence over all the other, `velocity` takes precedence over `acceleration` and the other below it, etc.
 Depending on the first non-zero value from top to bottom, the valid estimate required and the right setpoint message(s) are defined.
 
@@ -69,6 +71,7 @@ Depending on the first non-zero value from top to bottom, the valid estimate req
 | attitude (RFD)           |     &cross;    |     &cross;    |       &cross;      |     &check;    |        -        |        -        |        none       | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
 | body_rate (RFD)          |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &check;     |        -        |        none       | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
 | thrust and torque (RFD)  |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &cross;     |     &check;     |        none       | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+
 where &check; means that the bit is set, &cross; means that the bit is not set and - means that the bit is value is irrelevant.
 
 ### Copter
