@@ -82,7 +82,8 @@ where &check; means that the bit is set, &cross; means that the bit is not set a
   * The following input combinations are supported:
     * Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
     * Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
-    * Acceleration setpoint  (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
+    * Acceleration setpoint (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
+
   - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
 
 * [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
@@ -99,7 +100,6 @@ where &check; means that the bit is set, &cross; means that the bit is not set a
   * The following input combination is supported:
     * `xyz` for thrust and `xyz` for torque.
   - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
-
 
 
 ## MAVLink Messages
