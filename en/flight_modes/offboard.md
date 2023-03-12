@@ -59,8 +59,10 @@ bool body_rate
 bool actuator
 ```
 
-The fields are ordered in terms of priority such that `position` takes precedence over all the other, `velocity` takes precedence over `acceleration` and the other below it, etc.
-Depending on the first non-zero value from top to bottom, the valid estimate required and the right setpoint message(s) are defined.
+The fields are ordered in terms of priority such that `position` takes precedence over `velocity` and later fields, `velocity` takes precedence over `acceleration`, and so on.
+The first field that has a non-zero value (from top to bottom) defines what valid estimate is required in order to use offboard mode, and the setpoint message(s) that can be used.
+For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
+
 
 | desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | acturator field | required estimate | required message                                                                                                                |
 |--------------------------|:--------------:|:--------------:|:------------------:|:--------------:|:---------------:|:---------------:|:-----------------:|---------------------------------------------------------------------------------------------------------------------------------|
