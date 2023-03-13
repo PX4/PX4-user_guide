@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The vehicle obeys position, velocity, acceleration, attitude, attitude rates or thrust/torques setpoints provided by some source that is external to the flight stack, such as a companion computer.
+The vehicle obeys position, velocity, acceleration, attitude, attitude rates or thrust/torque setpoints provided by some source that is external to the flight stack, such as a companion computer.
 The setpoints may be provided using MAVLink (or a MAVLink API such as [MAVSDK](https://mavsdk.mavlink.io/)) or by [ROS 2](../ros/ros2.md).
 
 PX4 requires that the external controller provides a continuous 2Hz "proof of life" signal, by streaming any of the supported MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) message.
@@ -19,7 +19,7 @@ PX4 enables offboard control only after receiving the signal for more than a sec
 
 ## Description
 
-Offboard mode is used for controlling vehicle movement and attitude, by setting position, velocity, acceleration, attitude, attitude rates or thrust/torques setpoints.
+Offboard mode is used for controlling vehicle movement and attitude, by setting position, velocity, acceleration, attitude, attitude rates or thrust/torque setpoints.
 
 PX4 must receive a stream of MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) at 2 Hz as proof that the external controller is healthy.
 The stream must be sent for at least a second before PX4 will arm in offboard mode, or switch to offboard mode when flying.
@@ -32,7 +32,7 @@ In order to hold position in this case the vehicle must receive a stream of setp
 When using ROS2 the proof that the external source is alive is provided by a stream of [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages, while the actual setpoint is provided by publishing to one of the setpoint uORB topics, such as [TrajectorySetpoint](../en/msg_docs/TrajectorySetpoint.md).
 In order to hold position in this case the vehicle must receive a stream of `OffboardControlMode` but would only need the `TrajectorySetpoint` once.
 
-Note that offboard mode only supports only a very limited set of MAVLink commands and messages.
+Note that offboard mode only supports a very limited set of MAVLink commands and messages.
 Operations, like taking off, landing, return to launch, may be best handled using the appropriate modes. 
 Operations like uploading, downloading missions can be performed in any mode.
 
@@ -65,12 +65,11 @@ The first field that has a non-zero value (from top to bottom) defines what vali
 For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
 
 
-| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | acturator field | required estimate | required message                                                                                                                |
+| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | actuator field | required estimate | required message                                                                                                                |
 |--------------------------|:--------------:|:--------------:|:------------------:|:--------------:|:---------------:|:---------------:|:-----------------:|---------------------------------------------------------------------------------------------------------------------------------|
 | position (NED)           |     &check;    |        -       |          -         |        -       |        -        |        -        |      position     | `TrajectorySetpoint`                                                                                                              |
 | velocity (NED)           |     &cross;    |     &check;    |          -         |        -       |        -        |        -        |      velocity     | `TrajectorySetpoint`                                                                                                              |
 | acceleration (NED)       |     &cross;    |     &cross;    |       &check;      |        -       |        -        |        -        |      velocity     | `TrajectorySetpoint`                                                                                                              |
-
 | attitude (RFD)           |     &cross;    |     &cross;    |       &cross;      |     &check;    |        -        |        -        |        none       | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
 | body_rate (RFD)          |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &check;     |        -        |        none       | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
 | thrust and torque (RFD)  |     &cross;    |     &cross;    |       &cross;      |     &cross;    |     &cross;     |     &check;     |        none       | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
