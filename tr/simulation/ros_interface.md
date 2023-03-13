@@ -62,9 +62,9 @@ To run SITL wrapped in ROS the ROS environment needs to be updated, then launch 
 cd <PX4-Autopilot_clone>
 DONT_RUN=1 make px4_sitl_default gazebo-classic
 source ~/catkin_ws/devel/setup.bash    # (optional)
-source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 roslaunch px4 posix_sitl.launch
 ```
 
@@ -74,46 +74,66 @@ Include one of the above mentioned launch files in your own launch file to run y
 
 This section shows how the *roslaunch* instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
 
+You will need three terminals, in all of them the ros environment must be sourced.
+
 First start the simulator using the command below:
 
 ```sh
-no_sim=1 make px4_sitl_default gazebo-classic
+cd <PX4-Autopilot_clone>
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+roslaunch px4 px4.launch
 ```
 
 The console will look like this:
 
 ```sh
-[init] shell id: 46979166467136
-[init] task name: px4
+INFO  [px4] instance: 0
 
-______  __   __    ___
+______  __   __    ___ 
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
 | |     / /^\ \ \___  |
 \_|     \/   \/     |_/
 
-Ready to fly.
+px4 starting.
 
-
-INFO  LED::init
-729 DevObj::init led
-736 Added driver 0x2aba34001080 /dev/led0
-INFO  LED::init
-742 DevObj::init led
-INFO  Not using /dev/ttyACM0 for radio control input. Assuming joystick input via MAVLink.
-INFO  Waiting for initial data on UDP. Please start the flight simulator to proceed..
+INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
+INFO  [init] found model autostart file as SYS_AUTOSTART=10016
+INFO  [param] selected parameter default file parameters.bson
+INFO  [param] importing from 'parameters.bson'
+INFO  [parameters] BSON document size 295 bytes, decoded 295 bytes (INT32:12, FLOAT:3)
+INFO  [param] selected parameter backup file parameters_backup.bson
+INFO  [dataman] data manager file './dataman' size is 7866640 bytes
+etc/init.d-posix/rcS: 31: [: Illegal number: 
+INFO  [init] PX4_SIM_HOSTNAME: localhost
+INFO  [simulator_mavlink] Waiting for simulator to accept connection on TCP port 4560
 ```
 
-Now in a new terminal make sure you will be able to insert the Iris model through the Gazebo menus, to do this set your environment variables to include the appropriate `sitl_gazebo` folders.
+In the second terminal make sure you will be able to start gazebo with the world files defined in PX4-Autopilot. To do this set your environment variables to include the appropriate `sitl_gazebo-classic` folders.
 
 ```sh
 cd <PX4-Autopilot_clone>
-source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 ```
 
-Now start Gazebo Classic like you would when working with ROS and insert the Iris quadcopter model. Once the Iris is loaded it will automatically connect to the px4 app.
+Now start Gazebo Classic like you would when working with ROS
 
 ```sh
-roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo/sitl_gazebo/worlds/iris.world
+roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/empty.world
+```
+
+In the third terminal make sure you will be able to spawn the model with the sdf files defined in PX4-Autopilot. To do this set your environment variables to include the appropriate `sitl_gazebo-classic` folders.
+
+```sh
+cd <PX4-Autopilot_clone>
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
+```
+
+Now insert the Iris quadcopter model like you would when working with ROS. Once the Iris is loaded it will automatically connect to the px4 app.
+
+```sh
+rosrun gazebo_ros spawn_model -sdf -file $(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris/iris.sdf -model iris -x 0 -y 0 -z 0 -R 0 -P 0 -Y 0
 ```

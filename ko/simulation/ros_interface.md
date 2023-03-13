@@ -60,9 +60,9 @@ ROS에 래핑된 SITL을 실행하려면 ROS 환경을 업데이트한 다음, �
 cd <PX4-Autopilot_clone>
 DONT_RUN=1 make px4_sitl_default gazebo-classic
 source ~/catkin_ws/devel/setup.bash    # (optional)
-source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 roslaunch px4 posix_sitl.launch
 ```
 
@@ -72,46 +72,66 @@ roslaunch px4 posix_sitl.launch
 
 이 섹션에서는 이전에 제공된 *roslaunch* 지침이 실제로 어떻게 작동하는 지 설명합니다(시뮬레이션 및 ROS를 수동으로 시작하려면 지침을 따를 수 있습니다).
 
+You will need three terminals, in all of them the ros environment must be sourced.
+
 아래 명령어를 사용하여 시뮬레이터를 시작합니다.
 
 ```sh
-no_sim=1 make px4_sitl_default gazebo-classic
+cd <PX4-Autopilot_clone>
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+roslaunch px4 px4.launch
 ```
 
 콘솔 화면은 다음과 같이 나타납니다:
 
 ```sh
-[init] shell id: 46979166467136
-[init] task name: px4
+INFO  [px4] instance: 0
 
-______  __   __    ___
+______  __   __    ___ 
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
 | |     / /^\ \ \___  |
 \_|     \/   \/     |_/
 
-Ready to fly.
+px4 starting.
 
-
-INFO  LED::init
-729 DevObj::init led
-736 Added driver 0x2aba34001080 /dev/led0
-INFO  LED::init
-742 DevObj::init led
-INFO  Not using /dev/ttyACM0 for radio control input. Assuming joystick input via MAVLink.
-INFO  Waiting for initial data on UDP. Please start the flight simulator to proceed..
+INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
+INFO  [init] found model autostart file as SYS_AUTOSTART=10016
+INFO  [param] selected parameter default file parameters.bson
+INFO  [param] importing from 'parameters.bson'
+INFO  [parameters] BSON document size 295 bytes, decoded 295 bytes (INT32:12, FLOAT:3)
+INFO  [param] selected parameter backup file parameters_backup.bson
+INFO  [dataman] data manager file './dataman' size is 7866640 bytes
+etc/init.d-posix/rcS: 31: [: Illegal number: 
+INFO  [init] PX4_SIM_HOSTNAME: localhost
+INFO  [simulator_mavlink] Waiting for simulator to accept connection on TCP port 4560
 ```
 
-새 터미널에서 Gazebo 메뉴를 통해 Iris 모델을 삽입할 수 있는 지 확인하십시오. 이렇게 하려면, 적절한 `sitl_gazebo` 폴더를 포함하도록 환경 변수를 설정하십시오.
+In the second terminal make sure you will be able to start gazebo with the world files defined in PX4-Autopilot. To do this set your environment variables to include the appropriate `sitl_gazebo-classic` folders.
 
 ```sh
 cd <PX4-Autopilot_clone>
-source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 ```
 
-Now start Gazebo Classic like you would when working with ROS and insert the Iris quadcopter model. Iris가 로드되면 자동으로 px4 앱에 연결됩니다.
+Now start Gazebo Classic like you would when working with ROS
 
 ```sh
-roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo/sitl_gazebo/worlds/iris.world
+roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic/worlds/empty.world
+```
+
+In the third terminal make sure you will be able to spawn the model with the sdf files defined in PX4-Autopilot. To do this set your environment variables to include the appropriate `sitl_gazebo-classic` folders.
+
+```sh
+cd <PX4-Autopilot_clone>
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
+```
+
+Now insert the Iris quadcopter model like you would when working with ROS. Iris가 로드되면 자동으로 px4 앱에 연결됩니다.
+
+```sh
+rosrun gazebo_ros spawn_model -sdf -file $(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/iris/iris.sdf -model iris -x 0 -y 0 -z 0 -R 0 -P 0 -Y 0
 ```
