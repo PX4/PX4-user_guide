@@ -11,7 +11,7 @@ To find the most up-to-date maintainers list, visit [PX4-Autopilot README](https
 The weekly maintainers call discusses overall PX4 structure, community and ecosystem.
 You can find the relevant information below:
 
-* Time: Tuesday 17h00 CET, 11h00 EST, 08h00 PST ([subscribe to calendar](https://www.dronecode.org/calendar/)).
+* Time: Tuesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/)).
 * Place: [Dev-Call-Maintainers channel in Discord](https://discord.gg/RjxYXFSnj3).
 * Meeting note is published week before in [Discuss Forum - PX4 Coordination](https://discuss.px4.io/c/weekly-dev-call/px4-dev-call/39).
   Attendees are encouraged to add to the agenda as a reply before the meeting starts.
