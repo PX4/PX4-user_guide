@@ -15266,7 +15266,7 @@ table {
  <td><strong id="EKF2_MAG_YAWLIM">EKF2_MAG_YAWLIM</strong> (FLOAT)</td>
  <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetometer fusion.</p>   </td>
  <td>[0.0, 1.0] </td>
- <td>0.25</td>
+ <td>0.20</td>
  <td>rad/s</td>
 </tr>
 <tr>
