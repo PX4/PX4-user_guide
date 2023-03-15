@@ -4,7 +4,7 @@
 
 PX4 项目使用三分支 Git 模型：
 
-* [master](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
+* [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) 经过全面测试。 它是供飞行测试人员使用的。
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) 是最新发行版本。
 
