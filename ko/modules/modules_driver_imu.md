@@ -597,7 +597,7 @@ icm42688p <command> [arguments...]
    status        print status info
 ```
 ## l3gd20
-소스: [drivers/imu/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/l3gd20)
+Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm45686)
 
 <a id="icm42688p_usage"></a>
 
