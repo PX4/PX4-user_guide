@@ -4,7 +4,7 @@
 
 The PX4 project uses a three-branch Git branching model:
 
-* [master](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
+* [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) has been thoroughly tested. It's intended for flight testers.
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) points to the last release.
 
