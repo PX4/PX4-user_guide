@@ -551,7 +551,7 @@ icm42670p <command> [arguments...]
    status        print status info
 ```
 ## icm42688p
-Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm42688p)
+Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm45686)
 
 <a id="icm42688p_usage"></a>
 ### Usage
