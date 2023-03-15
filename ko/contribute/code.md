@@ -4,7 +4,7 @@
 
 PX4 프로젝트는 3가지 Git 분기 모델을 사용합니다.
 
-* [master](https://github.com/PX4/PX4-Autopilot/tree/master)는 기본적으로 불안정하며 빠르게 발전합니다.
+* [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta)는 철저한 테스트를 거쳤습니다. 비행 테스터를 위한 것입니다.
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable)은 최신 릴리스를 의미합니다.
 
