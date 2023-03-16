@@ -5,7 +5,7 @@
   </div>
 </div>
 
-The PX4 dev team and Community come together to discuss anything Community may be curious / having trouble about!
+The PX4 dev team and community come together to discuss any topic of interest to the community, ranging from sorting out issues to satisfying your curiosity.
 
 ## Who should attend:
 
