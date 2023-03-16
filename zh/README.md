@@ -101,8 +101,7 @@ The *Dronecode Calendar* shows important community events for platform users and
 * [澳大利亚 - 墨尔本/悉尼/霍巴特](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-
-日历默认为CET。
+The calendar default timezone is Central European Time (CET).
 
 :::
 
