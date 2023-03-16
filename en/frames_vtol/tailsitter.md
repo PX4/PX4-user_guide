@@ -73,9 +73,9 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 ---
 
-*PX4 Tailsitter prototype*  - Tailsitter takeoff, transition, landing. 
-<!-- provided by slack user xdwgood. Not yet got detail -->
-@[youtube](c3myer2n80M)
+[ax1800](http://www.uav-cas.ac.cn/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+<!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
+@[youtube](gjHj6YsxcZk)
 
 ### Quad
 
@@ -111,7 +111,7 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big>ax1800</big></div>
+    <div class="grid_item_heading"><big><a href="http://www.uav-cas.ac.cn/">ax1800</a></big></div>
     <div class="grid_text">
       <img title="ax1800" src="../../assets/airframes/vtol/xdwgood_ax1800/hero.jpg" />
     </div>
