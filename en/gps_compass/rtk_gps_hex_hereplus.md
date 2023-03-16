@@ -7,7 +7,7 @@ The [Here+ RTK GPS receiver](http://www.proficnc.com/content/12-here) is a small
 ## Purchase
 
 * [ProfiCNC](http://www.proficnc.com/gps/77-gps-module.html)
-* [Hex - China](http://www.hex.aero/shop/all/here-rtk-gnss-set/) (China)
+* [Hex](http://www.hex.aero/shop/all/here-rtk-gnss-set/)
 * [Other resellers](http://www.proficnc.com/stores)
 
 ## Configuration
