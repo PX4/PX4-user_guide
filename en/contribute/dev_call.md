@@ -23,7 +23,7 @@ This is a great opportunity to meet the team and contribute to the ongoing devel
 
 ## What gets discussed?
 
-The meeting note gets published week before the call on [PX4 Discuss - weekly-dev-call](https://discuss.px4.io/c/weekly-dev-call).
+We publish a forum post per meeting a week before the call on [PX4 Discuss - weekly-dev-call](https://discuss.px4.io/c/weekly-dev-call) and track the agenda write down the discussion for the day.
 
 We welcome any topics that you, as a community member may have questions about / want to discuss!
 
