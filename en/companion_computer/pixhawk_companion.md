@@ -33,12 +33,13 @@ If you're connecting using a serial port, wire the port according to the instruc
 All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
 
 :::warning
-Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels.
+Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. 
 Use a level shifter.
 In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
 :::
 
-The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
+The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below.
+This always works and is easy to set up.
 
 TELEM2 | | FTDI | &nbsp;
 --- | --- | --- | ---
@@ -51,7 +52,8 @@ TELEM2 | | FTDI | &nbsp;
 
 ### Serial Port Software setup on Linux
 
-On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`. If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device. 
+On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`.
+If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device. 
 
 Using `lsusb` we can get the vendor and product IDs.
 

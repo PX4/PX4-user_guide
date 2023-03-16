@@ -1,58 +1,133 @@
 # Raspberry Pi Companion with Pixhawk
 
-This topic describes how to setup a Raspberry Pi ("RPi") companion companion running ROS2 on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.html) flight controller.
+This topic describes how to setup a Raspberry Pi ("RPi") companion companion running ROS2 on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.html) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
 
-There are different models of Pixhawk and RPi.
-The article illustrates the setup using [Pixhawk Standard](../flight_controller/autopilot_pixhawk_standard.html) controllers, but the PX4 configuration for other controllers is likely to be similar (or use the same concepts).
-Similarly, there are several models of RaPi.
-This provides the main concepts, and is extensible to most configurations.
+These instructions should be readily extensible to other RPi and flight controller configurations.
 
-In addition, there are a number of different ways that RPi can be connected with a Pixhawk:
+:::note
+Other common ways to connect RaPi and Pixhawk are:
 
-1. Serial connection. This uses a serial port, typically `TELEM2`, or the `USB` port.
-1. Ethernet. Pixhawk controllers based on FMUv5x, 6x and later may have an inbuilt Ethernet port.
-   See [PX4 Ethernet > Supported Controllers](../advanced_config/ethernet_setup.md#supported-flight-controllers).
+- Ethernet.
+  Pixhawk controllers based on FMUv5x, 6x and later may have an inbuilt Ethernet port.
+  See [PX4 Ethernet > Supported Controllers](../advanced_config/ethernet_setup.md#supported-flight-controllers).
+- Serial connection to the RPI USB port.
+  This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board.
+  This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
+:::
 
-This article covers in the first instance connecting the `TELEM2` port with the RPi's TX/RX pins.
-This is a simple configuration because you do not need to use an FTDI Chip USB-to-serial adapter board.
-Note that we hope to extend the document for other connection methods in future.
-
+<!-- 
 ## Serial Connection
 
 
-The first step is the identification of the `TELEM 2` and the `USB` ports in the Pixhawk. The image illustrates the ports in the Pixhawk-6C Model.
+The first step is the identification of the `TELEM 2` and the `USB` ports in the Pixhawk.
+The image illustrates the ports in the Pixhawk-6C Model.
 
 <img src="../../assets/companion_computer/pixhawk_rpi/pixhawk_6c.png" width="402" height="452" />
+-->
 
-## PX4 Setup on Pixhawk
+## Wiring
 
-Connect the Pixhawk with the laptop/desktop via `USB` port and check, at the QGroundControl, if the firmware (PX4) is updated. 
-The firmware update can be done in the QGroundControl or following the next steps:
+### Serial connection
 
-Run in the terminal:
+First wire up the serial connection between the RPi and PX4 that is to be used for offboard control.
 
+This setup connects the Pixhawk `TELEM2` port, which is generally recommended for offboard control.
+It is initially configured in PX4 to use with MAVLink, which we will change later when setting up ROS 2.
+
+Connect the Pixhawk `TELEM2` `TX`/`RX`/`GND` pins to the complementary `RXD`/`TXD`/`Ground` pins on the RPi GPIO board:
+
+PX4 TELEM2 Pin | RPi GPIO Pin
+--- | ---
+UART5_TX (2) | RXD (GPIO 15 - pin 10)
+UART5_RX (3) | TXD (GPIO 14 - pin 8)
+GND (6)         | Ground (pin 6)
+
+The diagram shows Pixhawk `TELEM2` port pins on the left and RPi GPIO board pins on the right.
+The pins on the `TELEM2` port are normally numbered right-to-left as shown
+
+`TELEM2` | RPi GPIO
+--- | ---
+![Pin numbering showing left-most pin is pin 1](../../assets/companion_computer/pixhawk_rpi/pins_numbers.png) | ![](../../assets/companion_computer/pixhawk_rpi/rpi_gpio.png)
+
+:::note
+Almost all recent Pixhawk boards, such as the Pixhawk-6C, use the same connectors and pin numbers for correpsponding ports, as defined in the Pixhawk Connector Standard.
+You can check the specific board documentation to confirm the pin layout.
+
+The standard `TELEM2` pin assignments are shown below.
+
+Pins | Signal | Voltage
+--- | --- | ---
+1 (Red)   | VCC             | +5V
+2 (Black) | UART5_TX (out)  |  +3.3V
+3 (Black) | UART5_RX (in)   | +3.3V
+4 (Black) | UART5_CTS (in)  | +3.3V
+5 (Black) | UART5_RTS (out) | +3.3V
+6 (Black) | GND             | GND
+:::
+
+### TELEM1/Telemetry Radio
+
+The Pixhawk `TELEM1` port is preconfigured for connecting to a GCS via MAVLink over a telemetry radio.
+
+You can plug an [appropriate radio](../telemetry/README.md) into the Pixhawk `TELEM1` port and in most cases it should just work.
+Generally the other radio needs to be connected to the ground station USB port.
+If you have any issues, check the radio documentation.
+
+### Power Supply
+
+Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../en/power_module/README.md) to a port labeled `POWER` (or similar).
+
+The instructions for your flight controller will normally explain the recommended setup.
+For example:
+- [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
+- [Holybro Pixhawk 6C Wiring Quick Start > Power](../en/assembly/quick_start_pixhawk6c.md#power)
+
+Pixhawk controllers can supply power to a _small_ number of low-power peripherals, such as GPS modules and low-range telemetry radios.
+The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery. 
+Some power modules have a separate BEC included.
+
+:::warning
+Overloading your Pixhawk is a good way to destroy it.
+:::
+
+:::note
+During PX4 setup and configuration the USB connection with your ground station laptop is suffient to power the Pixhawk board, and your companion computer might be powered from a desktop charger.
+::: 
+
+## PX4 Setup
+
+### Installing PX4
+
+These instructions rely on PX4 code to support ROS2 that isn't yet in a release build (arrives in PX4 v1.14).
+You will therefore need to install a build off the current PX4-Autopilot `main` branch.
+
+Connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware to the "Master" version as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-master-beta-or-custom-firmware).
+
+:::note
+You can alternatively [setup a development environment](../dev_setup/dev_env.md), [build](../dev_setup/building_px4.md#building-for-nuttx) and [upload](../dev_setup/building_px4.md#uploading-firmware-flashing-the-board) the firmware manually.
+:::
+
+<!-- Keeping this line as record - this is only unexpected dependency:
 ```
-sudo apt -y install gcc-arm-none-eabi make stlink-tools
+sudo apt -y install stlink-tools
 ```
-
-Clone the last PX4 version and run the script setup:
-
-```
-git clone https://github.com/PX4/PX4-Autopilot.git --recursive 
-PX4-Autopilot/Tools/setup/ubuntu.sh
-```
-
-Build it on the Pixhawk. On Linux, the default name of a USB connection is `/dev/ttyACM0`:
+-->
+<!-- Keeping this because we might need it for updating linux instructions
+On Linux, the default name of a USB connection is `/dev/ttyACM0`:
 
 ```
 sudo chmod a+rw /dev/ttyACM0
 cd /PX4-Autopilot
 make px4_fmu-v6c_default upload
 ```
+-->
+
+
 
 ## Ubuntu Setup on RPi
 
-The following steps are required to have the Ubuntu 22.04 installed on the RPi. In the next section, the ROS 2 is going to be installed, so it is important the choice for the correct version of Ubuntu.
+The following steps are required to have the Ubuntu 22.04 installed on the RPi.
+In the next section, the ROS 2 is going to be installed, so it is important the choice for the correct version of Ubuntu.
 
 Prepare the Ubuntu 22.04's boot SD card following the official tutorial available in the Ubuntu website:
 
@@ -98,7 +173,8 @@ cd /
 ls /dev/ttyAMA0
 ```
 
-On RPi, the default name of a RX/TX connection is `/dev/ttyAMA0`. The same serial port is also available as `/dev/serial0`.
+On RPi, the default name of a RX/TX connection is `/dev/ttyAMA0`.
+The same serial port is also available as `/dev/serial0`.
 
 Next, install the mavproxy in the RPi's terminal:
 
@@ -118,7 +194,10 @@ XRCE_DDS_0_CFG = Disabled
 SER_TEL1_BAUD = 57600
 ```
 
-Next, connect the Pixhawk `TELEM2` pins TX/RX/Ground on RPi correspondent pins. We are going to leave the `TELEM1` port for a setup with a Radio Controller.
+<!-- Lets do the wiring setup first - moving this up to its own section.
+
+Next, connect the Pixhawk `TELEM2` pins TX/RX/Ground on RPi correspondent pins.
+We are going to leave the `TELEM1` port for a setup with a Radio Controller.
 
 The connections listed below must be done:
 
@@ -126,7 +205,8 @@ The connections listed below must be done:
 2. `TELEM2` RX -> RPi TXD (GPIO 14 - pin 8)
 3. `TELEM2` GND -> RPi Ground (pin 6)
 
-It is important to identify the correct pins in the hardware. The image illustrates the `TELEM2` pins in the Pixhawk-6C Model.
+It is important to identify the correct pins in the hardware.
+The image illustrates the `TELEM2` pins in the Pixhawk-6C Model.
 
 
 `TELEM2` Port
@@ -153,6 +233,8 @@ To supply the Pixhawk with 5 Volts is possible to follow with the connection of 
 Also, for this setup moment, the RPi is charged with 5 Volts via Power Supply (external source/charger). 
 
 Ps.: For an onboard setup, in the drone, it is not recommended to connect the `TELEM2` VCC to supply the RPi in the 5V power (pin 4). You can use your own power supply board to power the RPi baseboard. 
+
+--> 
 
 Next, run the mavproxy connection at `/dev/ttyAMA0`. In the RPi's terminal:
 
