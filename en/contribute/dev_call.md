@@ -1,13 +1,11 @@
-# Weekly Dev Call
+# Weekly Community Q&A Call (Previously "Dev Call")
 
 <div v-if="$themeConfig.px4_version != 'main'">
   <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/dev_call.html">can be found here</a>.</p>
   </div>
 </div>
 
-The PX4 dev team syncs up on platform technical details and in-depth analysis. 
-There is also space in the agenda to discuss pull requests, major impacting issues and Q&A.
-
+The PX4 dev team and community come together to discuss any topic of interest to the community, ranging from sorting out issues to satisfying your curiosity.
 
 ## Who should attend:
 
@@ -15,33 +13,20 @@ There is also space in the agenda to discuss pull requests, major impacting issu
 * Component maintainers
 * Test team lead
 * Dronecode members
-* Community members
+* Community members (you!)
 
 :::tip
-The dev call is open to all interested developers (not just the core dev team). 
+The Community Q&A call is open to all interested community members.
+
 This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
 :::
 
 ## What gets discussed?
 
-The first/main part of the meeting runs for 45 minutes and provides a high-level forum to discuss where the project is going. 
+We publish a forum post per meeting a week before the call on [PX4 Discuss - weekly-dev-call](https://discuss.px4.io/c/weekly-dev-call) and track the agenda write down the discussion for the day. We welcome any topics that you, as a community member may have questions about / want to discuss!
 
-This is where we discuss *contributions*, including issues/PRs that have the [dev call](https://github.com/PX4/PX4-Autopilot/labels/devcall5) label.
-We expect the proposer and the assigned reviewer to be on the call!
-
-:::note
-The main call is designed to support rapid/focused decision making.
-We don't expect deep technical discussions and we will not spend extended amounts of time on feature requests. 
-Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
-:::
-
-The second part of the meeting is for in-depth technical discussions and open ended questions.
-The core team/subsystem maintainers will be available for up to 45 additional minutes. 
-
+Please add your topics for discussion to the agenda before the meeting begins, by replying to the meeting note. This will help you formulate your questions more clearly, and allow us to think about them in advance.
 
 ## Schedule
-* TIME: Wednesday 17h00 CET, 11h00 EST, 08h00 PST ([subscribe to calendar](https://www.dronecode.org/calendar/))
-* **Join the call**: [https://meet.jit.si/PX4DeveloperCallWeekly](https://meet.jit.si/PX4DeveloperCallWeekly)
-
-* Agenda is published before the call on [PX4 Discuss - weekly-dev-call](https://discuss.px4.io//c/weekly-dev-call)
-* To nominate Issues and PRs for the call you can use the [Dev Call](https://github.com/PX4/PX4-Autopilot/labels/Dev%20Call) label to flag them for discussion.
+* TIME: Wednesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/))
+* **Join the call**: [https://discord.gg/BDYmr6FA6Q](https://discord.gg/BDYmr6FA6Q)
