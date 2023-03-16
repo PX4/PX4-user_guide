@@ -27,7 +27,8 @@ The meeting note gets published week before the call on [PX4 Discuss - weekly-de
 
 We welcome any topics that you, as a community member may have questions about / want to discuss!
 
-Please add your agendas as a reply to the meeting note before the meeting begins, as it helps clearing up confusion about your topic & will help you formulate the topic in a better manner.
+Please add your topics for discussion to the agenda before the meeting begins, by replying to the meeting note.
+This will help you formulate your questions more clearly, and allow us to think about them in advance.
 
 ## Schedule
 * TIME: Wednesday 17h00 CET ([subscribe to calendar](https://www.dronecode.org/calendar/))
