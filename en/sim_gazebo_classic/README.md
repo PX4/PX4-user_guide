@@ -472,20 +472,16 @@ gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video
 You can also customize the uri where the video stream is sent to, by [customizing the sitl_gazebo_classic parameters](jinja_override)
 
 
-### Customizing the sitl_gazebo_classic_parameters
+### Customising the SITL Gazebo Classic Parameters
 
-There is a list of parameters you can customize for every vehicle instance by creating a json file in 
-```
-./resources/px4_gazebo_jinja_parameters.json
-```
-or if you are running multiple vehicles, for each vehicle:
-```
-./resources/papx4_gazebo_jinja_parameters_{n}.json
-```
-where {n} represents the instance number
+SITL parameters can be specified for all vehicle instances or separately for every individual vehicle instance.
+These override the equivalent parameters in the main simulation jinja file.
 
+To customise the parameters for all vehicles, create the json file **./resources/px4_gazebo_jinja_parameters.json/**.
+To customize the parameters for a particular vehicle in a [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md), define a separate json file for each vehicle with the following name:
+**./resources/papx4_gazebo_jinja_parameters_`{n}`.json**, where `{n}` represents the instance number of the vehicle.
 
-With the instance id representing the instance of the vehicle in case of multi-sim simulation.
+The following SITL parameters can be specified in the files:
 
 - `mavlink_tcp_port`: port the MAVLink interface would connect to as TCP. Default is 4560.
 - `mavlink_udp_port`: port the MAVLink interface would connect to as UDP. Default is 14560.
@@ -494,9 +490,6 @@ With the instance id representing the instance of the vehicle in case of multi-s
 - `video_uri`: MAVLink camera URI for SITL. The default is `udp://127.0.0.1:5600`.
 - `serial_baudrate`: Baudrate of serial device for FMU. The default is 921600.
 - `cam_component_id`: MAVLink id of the camera. The default is 100.
-
-If any of these parameters is used in a jinja vehicle file, 
-the parameters defined in the jinja file will be replaced by parameter in the jinja file. 
 
 ### Verbose Logging
 
