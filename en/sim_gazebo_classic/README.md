@@ -487,13 +487,13 @@ where {n} represents the instance number
 
 With the instance id representing the instance of the vehicle in case of multi-sim simulation.
 
-mavlink_tcp_port: port the mavlink interface would connect to as tcp, default is 4560
-mavlink_udp_port: port the mavlink interface would connect to as udp, default is 14560
-gst_udp_host: ip to which the gstream rtp video stream gets sent to, default is "127.0.0.1"
-gst_udp_port: ip to which the gstream rtp video stream gets sent to, default is 5600
-video_uri: Mavlink camera URI for SITL, default is "udp://127.0.0.1:5600"
-serial_baudrate: Baudrate of Serial device for FMU, default is 921600
-cam_component_id: mavlink id of the camera, default 100
+- `mavlink_tcp_port`: port the MAVLink interface would connect to as TCP. Default is 4560.
+- `mavlink_udp_port`: port the MAVLink interface would connect to as UDP. Default is 14560.
+- `gst_udp_host`: ip to which the gstream rtp video stream gets sent to. Default is "127.0.0.1"
+- `gst_udp_port`: ip to which the gstream rtp video stream gets sent to. Default is 5600.
+- `video_uri`: MAVLink camera URI for SITL. The default is `udp://127.0.0.1:5600`.
+- `serial_baudrate`: Baudrate of serial device for FMU. The default is 921600.
+- `cam_component_id`: MAVLink id of the camera. The default is 100.
 
 If any of these parameters is used in a jinja vehicle file, 
 the parameters defined in the jinja file will be replaced by parameter in the jinja file. 
