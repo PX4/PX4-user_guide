@@ -14,13 +14,13 @@ One GNSS module comes with two antennas allowing for GPS heading using only one 
 
 The Unicore module talks the NMEA protocol extended with some proprietary Unicore sentences. The serial baudrate is 230400.
 
-In order to use it in PX4, the following parameters need to be set (parameters if connected to GPS 1):
+The following PX4 parameters [must be set](../advanced_config/parameters.md) (if connected to GPS 1):
 
 - [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) -> 230400
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) -> 6: NMEA
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) -> 6: NMEA
 
-## Enable GPS heading/yaw
+## Enable GPS Heading/Yaw
 
 The Unicore module comes with two antennas, a primary (right connector) and a secondary (left connector) antenna.
 
@@ -28,7 +28,7 @@ The Unicore module comes with two antennas, a primary (right connector) and a se
 - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) -> Set heading offset to 0 if the primary antenna is in the front. The angle increases clock-wise, so set the offset to 90 degrees if the primary antenna is on the right side of the vehicle (and the secondary on the left side).
 
 
-## RTK corrections
+## RTK Corrections
 
 :::note
 The RTK functionality has not been tested and verified yet.
@@ -37,7 +37,7 @@ The RTK functionality has not been tested and verified yet.
 
 ## Wiring
 
-The module comes with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the Pixhawk Connector Standard, such as [Pixhawk 6x](../flight_controller/pixhawk6x.md) and [Pixhawk 6c](../flight_controller/pixhawk6c.md).
+The module comes with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf), such as [Pixhawk 6x](../flight_controller/pixhawk6x.md) and [Pixhawk 6c](../flight_controller/pixhawk6c.md).
 
 The module can be used with one antenna or both antennas. If it is used with one antenna only, the right/primary antenna connector needs to be connected.
 
