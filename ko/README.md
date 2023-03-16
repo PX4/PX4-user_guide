@@ -103,7 +103,8 @@ PX4 코드는 [BSD 3-clause 라이센스](https://opensource.org/licenses/BSD-3-
 * [오스트레일리아 – 멜버른/시드니/호바트](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-달력의 기본 시간대는 유럽중앙시간대(CET)입니다.
+The calendar default timezone is Central European Time (CET).
+
 :::
 
 <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
@@ -113,9 +114,9 @@ PX4 코드는 [BSD 3-clause 라이센스](https://opensource.org/licenses/BSD-3-
 
 이 라이브러리에서 사용하는 다음 아이콘들은 별도의 라이센스를 적용합니다. 아래 그림을 참고하십시오.
 
-<img src="../assets/site/position_fixed.svg" title="요청된 위치 고정(예, GPS)" width="30px" /> *placeholder* 아이콘은 [www.flaticon.com](https://www.flaticon.com/ "Flaticon")의 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>에서 만들었으며, <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 라이센스를 적용합니다.
+<img src="../assets/site/position_fixed.svg" title="요청된 위치 고정(예, GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> *카메라 자동 모드* 아이콘은 [www.flaticon.com](https://www.flaticon.com/ "Flaticon")의 <a href="https://www.freepik.com" title="Freepik">Freepik</a>에서 만들었으며, <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a> 라이센스가 적용합니다.
+<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> *camera-automatic-mode* icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
 
 ## 운영 방법
