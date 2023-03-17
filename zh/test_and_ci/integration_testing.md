@@ -55,7 +55,7 @@ The **.test** files launch the corresponding Python tests defined in `integratio
 
 ## Write a New MAVROS Test (Python)
 
-This section explains how to write a new python test using ROS(1)/MAVROS, test it, and add it to the PX4 test suite.
+This section explains how to write a new python test using ROS 1/MAVROS, test it, and add it to the PX4 test suite.
 
 We recommend you review the existing tests as examples/inspiration ([integrationtests/python_src/px4_it/mavros/](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros)). The official ROS documentation also contains information on how to use [unittest](http://wiki.ros.org/unittest) (on which this test suite is based).
 
