@@ -1,4 +1,4 @@
-# 使用 ROS
+# ROS 1 with MAVROS
 
 [ROS](http://www.ros.org/) （机器人操作系统）是一种通用的机器人库，可与 PX4 一起用于 [离板控制 ](../ros/mavros_offboard.md)。 它使用 [MAVROS](../ros/mavros_installation.md) 节点与在硬件上运行或使用 [Gazebo 模拟器 ](../simulation/ros_interface.md) 的 PX4 进行通信。
 
@@ -7,7 +7,7 @@
 This section contains topics related to using the "original version of ROS" and the [MAVROS](../ros/mavros_installation.md) package to communicate with PX4 over [MAVLink](../middleware/mavlink.md) (MAVROS bridges ROS topics to MAVLink and PX4 conventions).
 
 The main topics covered are:
-- [ROS/MAVROS Installation Guide](../ros/mavros_installation.md): Setup a PX4 development environment with ROS (1) and MAVROS.
+- [ROS/MAVROS Installation Guide](../ros/mavros_installation.md): Setup a PX4 development environment with ROS 1 and MAVROS.
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS MAVROS Sending Custom Messages](../ros/mavros_custom_messages.md)
 - [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
