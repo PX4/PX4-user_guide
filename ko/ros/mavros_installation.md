@@ -1,8 +1,8 @@
 # ROS/MAVROS 설치 가이드
 
-[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS (1) package that enables MAVLink extendable communication between computers running ROS (1) for any MAVLink enabled autopilot, ground station, or peripheral. *MAVROS*는 ROS(1)와 MAVLink 프로토콜 간의 "공식" 지원 브리지입니다.
+[MAVROS](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS 1 package that enables MAVLink extendable communication between computers running ROS 1 for any MAVLink enabled autopilot, ground station, or peripheral. *MAVROS* is the "official" supported bridge between ROS 1 and the MAVLink protocol.
 
-MAVROS를 사용하여 모든 MAVLink 지원 자동 조종 장치와 통신할 수 있지만, PX4 자동조종장치와 ROS(1) 지원 컴퓨터 간의 통신 설정 방법을 설명합니다.
+While MAVROS can be used to communicate with any MAVLink-enabled autopilot, this documentation explains how to set up communication between the PX4 Autopilot and a ROS 1 enabled companion computer.
 
 :::warning
 The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md). 이 문서는 "이전 접근 방식"을 설명합니다.
