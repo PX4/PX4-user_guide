@@ -1,18 +1,18 @@
-# ROS (1) via ROS 2 Bridge (User Guide)
+# ROS 1 via ROS 2 Bridge (User Guide)
 
 :::warning
 **This example is out of date!**
 It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported.
-We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+We plan to retest and update it for the [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
 :::
 
-This topic explains how use ROS (1) with PX4, by bridging via [ROS 2](../ros/ros2.md).
+This topic explains how use ROS 1 with PX4, by bridging via [ROS 2](../ros/ros2.md).
 
-It provides an overview of the ROS-ROS2-PX4 architecture, along with instructions on how to install all the needed software and build ROS (1) applications.
+It provides an overview of the ROS 1-ROS 2-PX4 architecture, along with instructions on how to install all the needed software and build ROS 1 applications.
 It also covers how to run/setup ROS 2 and ROS 1 workspaces at the same time.
 
 :::note
-Generally you might use this setup rather than bridging [ROS (1) with MAVROS](../ros/ros1.md) if you want deeper access to PX4 than granted by MAVLink, or if you want to use both ROS2 and ROS (1) applications.
+Generally you might use this setup rather than bridging [ROS 1 with MAVROS](../ros/ros1.md) if you want deeper access to PX4 than granted by MAVLink, or if you want to use both ROS 2 and ROS 1 applications.
 :::
 
 :::note
@@ -26,7 +26,7 @@ The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2
 
 ## Overview
 
-The application pipeline for ROS (1) bridged over ROS 2 is shown below.
+The application pipeline for ROS 1 bridged over ROS 2 is shown below.
 
 ![Architecture with ROS](../../assets/middleware/micrortps/architecture_ros.png)
 
@@ -41,7 +41,7 @@ This branch also includes example listener and advertiser nodes.
 
 Follow the instructions in [ROS 2 User Guide > Installation & Setup](../ros/ros2_comm.md#installation-setup) to install ROS 2.
 
-### Build ROS (1) Workspace
+### Build ROS 1 Workspace
 
 Since the ROS requires a different environments from ROS to you will need to create a separate workspace.
 This will include the `ros` branch of `px4_ros_com` and `px4_msgs`, along with the `ros1_bridge`.
@@ -65,8 +65,8 @@ To create and build the workspace:
    $ source build_ros1_bridge.bash
    ```
    :::tip
-   You can also build both ROS (1) and ROS 2 workspaces with a single script: `build_all.bash`.
-   The most common way of using it, is by passing the ROS(1) workspace directory path and PX4 Autopilot directory path:
+   You can also build both ROS 1 and ROS 2 workspaces with a single script: `build_all.bash`.
+   The most common way of using it, is by passing the ROS 1 workspace directory path and PX4 Autopilot directory path:
    ```sh
    $ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
    ```
@@ -75,7 +75,7 @@ To create and build the workspace:
 
 As discussed in [ROS 2 User Guide > Sanity Check the Installation](../ros/ros2_comm.md#sanity-check-the-installation) a good way to verify the installation is to test that the bridge can communicate with PX4 by running it against the PX4 simulator. 
 
-To use ROS (1) **and** ROS 2 (you need both for this!):
+To use ROS 1 **and** ROS 2 (you need both for this!):
 
 1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
 1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
@@ -133,7 +133,7 @@ To use ROS (1) **and** ROS 2 (you need both for this!):
 When using the `build_all.bash` script, it automatically opens and sources all the required terminals, so you just have to run the respective apps in each terminal.
 :::
 
-## Creating a ROS (1) listener
+## Creating a ROS 1 listener
 
 Since the creation of ROS nodes is a well known and documented process, we are going to leave this section out from this guide, and you can find an example of a ROS listener for `SensorCombined` messages the `ros1` branch of the `px4_ros_com` repository, under the following path `src/listeners/`.
 

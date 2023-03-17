@@ -175,8 +175,8 @@ You will need to install the normal development [simulator environment](#simulat
 <a id="rosgazebo"></a>
 ## ROS/Gazebo Classic
 
-This section explains how to install [ROS1](../ros/README.md) with PX4.
-ROS1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
+This section explains how to install [ROS 1](../ros/README.md) with PX4.
+ROS 1 full desktop builds come with Gazebo Classic, so normally you will not install PX4 simulator dependencies yourself!
 
 ### ROS Noetic/Ubuntu 20.04
 
