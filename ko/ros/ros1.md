@@ -1,4 +1,4 @@
-# MAVROS 연동 ROS(1)
+# ROS 1 with MAVROS
 
 :::tip PX4 개발 팀은 사용자가 [ROS 2](../ros/ros2.md)로 마이그레이션할 것을 권장합니다(즉, 이 섹션 건너뛰기)!
 :::
@@ -8,7 +8,7 @@
 이 섹션에는 ROS의 원래 버전과 [MAVROS](../ros/mavros_installation.md) 패키지를 사용하여 [MAVLink](../middleware/mavlink.md)로 PX4 통신 관련 주제가 포함되어 있습니다(MAVROS는 ROS 주제를 MAVLink 및 PX4 규칙에 연결함).
 
 주요 주제는 다음과 같습니다.
-- [ROS/MAVROS 설치 가이드](../ros/mavros_installation.md): ROS(1)와 MAVROS로 PX4 개발 환경을 설정합니다.
+- [ROS/MAVROS Installation Guide](../ros/mavros_installation.md): Setup a PX4 development environment with ROS 1 and MAVROS.
 - [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md): Tutorial showing the main concepts related to writing a C++ MAVROS/ROS node.
 - [ROS/MAVROS 사용자 지정 메시지 전송](../ros/mavros_custom_messages.md)
 - [ROS with Gazebo Classic Simulation](../simulation/ros_interface.md)
