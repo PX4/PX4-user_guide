@@ -18,7 +18,7 @@ The table below shows what PX4 targets you can build on each OS.
 | **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                                                                                                 |    &check;     | &check; | &check; |
 | **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                                                                                                    |    &check;     | &check; | &check; |
 | **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                                                                                                 |    &check;     |         |         |
-| **Simulation:** ROS2 with Gazebo                                                                                                                                                                          |    &check;     |         |         |
+| **Simulation:** ROS 2 with Gazebo                                                                                                                                                                         |    &check;     |         |         |
 
 Experienced Docker users can also build with the containers used by our continuous integration system: [Docker Containers](../test_and_ci/docker.md)
 
