@@ -5,7 +5,7 @@ XRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware
 :::
 
 PX4 uses XRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics.
-This provides a fast and reliable integration between PX4 and ROS2, and makes it much easier for ROS 2 applications to get vehicle information and send commands. 
+This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands. 
 
 PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
 
@@ -24,7 +24,7 @@ In order for PX4 uORB topics to be shared on the DDS network you will need _XRCE
 
 The PX4 [microdds-client](../modules/modules_system.md#microdds-client) publishes to/from a defined set of uORB topics to the global DDS data space.
 
-The [eProsima XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS2 network.
+The [eProsima XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
 
 The agent itself has no dependency on client-side code and can be built and/or installed independent of PX4 or ROS.
 
@@ -35,20 +35,20 @@ Code that wants to subscribe/publish to PX4 does have a dependency on client-sid
 
 The PX4 [microdds-client](../modules/modules_system.md#microdds-client) is generated at build time and included in PX4 firmare by default.
 The agent has no dependency on client code.
-It can be built standalone or in a ROS2 workspace, or installed as a snap package on Ubuntu.
+It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
 
 When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/microdds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) into [microdds-client](../modules/modules_system.md#microdds-client).
 
 PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
 ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware.
-These can be included into a workspace by cloning the [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS2 workspace and switching to the appropriate branch.
+These can be included into a workspace by cloning the [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace and switching to the appropriate branch.
 Note that all code generation associated with the messages is handled by ROS 2.
 
 
 ## XRCE-DDS Agent Installation
 
-The XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS2 workspace.
+The XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace.
 All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
 
 :::note
@@ -100,9 +100,9 @@ At time of writing the stable of version installed from snap connects to PX4 but
 The development version, fetched using `--edge` above, does work.
 :::
 
-### Build/Run within ROS2 Workspace
+### Build/Run within ROS 2 Workspace
 
-The agent can be built and launched within a ROS2 workspace (or build standalone and launched from a workspace.
+The agent can be built and launched within a ROS 2 workspace (or build standalone and launched from a workspace.
 You must already have installed ROS 2 following the instructions in: [ROS 2 User Guide > Install ROS 2](../ros/ros2_comm.md#install-ros-2).
 
 To build the agent within ROS:
@@ -119,7 +119,7 @@ To build the agent within ROS:
    cd ~/px4_ros_xrce_dds_ws/src
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
-1. Source the ROS2 development environment, in this case "ROS 2 foxy", and compile the workspace using `colcon`:
+1. Source the ROS 2 development environment, in this case "ROS 2 Foxy", and compile the workspace using `colcon`:
 
    ```sh
    cd ..
@@ -204,7 +204,7 @@ On flight controller hardware the client should be configured using the [Micro X
     (See https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session , `uxr_init_session`.)
   - [XRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#XRCE_DDS_DOM_ID): The DDS domain ID.
     This provides a logical separation between DDS networks, and can be used to separate clients on different networks.
-    By default, ROS2 operates on ID 0.
+    By default, ROS 2 operates on ID 0.
 
 :::note
 Many ports are already have a default configuration.
@@ -244,7 +244,7 @@ While most releases should support a very similar set of messages, to be certain
 Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware in order to interpret the messages:
 
 - If you're using a main or release version of PX4 you can get these by cloning [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace (branches are provided for each release).
-- If you're creating your own new topic you will need to update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) and also copy the message definitions out of PX4 source tree into any ROS2 workspace that needs them.
+- If you're creating your own new topic you will need to update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) and also copy the message definitions out of PX4 source tree into any ROS 2 workspace that needs them.
   The messages must be in a folder named `px4_msgs/msg/`.
   
   :::note
@@ -258,11 +258,11 @@ Note that ROS 2/DDS needs to have the _same_ message definitions that were used 
   :::
 
 
-### PX4 ROS2 QoS Settings
+### PX4 ROS 2 QoS Settings
 
-PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS2 subscribers.
-So if ROS2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings.
-One example of which is shown in [ROS 2 User Guide > ROS2 Subscriber QoS Settings](../ros/ros2_comm.md#ros2-subscriber-qos-settings).
+PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers.
+So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings.
+One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros2-subscriber-qos-settings).
 
 PX4 uses the following QoS settings for publishers:
 
@@ -286,15 +286,15 @@ uxrQoS_t qos = {
 };
 ```
 
-ROS2 uses the following QoS settings (by default) for publishers and subscriptions: "keep last" for history with a queue size of 10, "reliable" for reliability, "volatile" for durability, and "system default" for liveliness.
+ROS 2 uses the following QoS settings (by default) for publishers and subscriptions: "keep last" for history with a queue size of 10, "reliable" for reliability, "volatile" for durability, and "system default" for liveliness.
 Deadline, lifespan, and lease durations are also all set to "default".
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
 ## Helpful Resources
 
-- [ROS2 in PX4: ROS2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
-- [PX4 ROS2 offboard tutorial](https://gist.github.com/julianoes/adbf76408663829cd9aed8d14c88fa29) (Github gist - JulianOes)
-- [ROS2 PX4 Offboard Tutorial](https://github.com/Jaeyoung-Lim/px4-offboard/blob/2d784532fd323505ac8a6e53bb70145600d367c4/doc/ROS2_PX4_Offboard_Tutorial.md) (Jaeyoung-Lim).
+- [ROS 2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
+- [PX4 ROS 2 offboard tutorial](https://gist.github.com/julianoes/adbf76408663829cd9aed8d14c88fa29) (Github gist - JulianOes)
+- [ROS 2 PX4 Offboard Tutorial](https://github.com/Jaeyoung-Lim/px4-offboard/blob/2d784532fd323505ac8a6e53bb70145600d367c4/doc/ROS2_PX4_Offboard_Tutorial.md) (Jaeyoung-Lim).
 
 
 
