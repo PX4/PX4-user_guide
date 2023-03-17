@@ -4,7 +4,7 @@ The following C++ example shows how to do position control in [offboard mode](..
 
 The example starts sending setpoints, enters offboard mode, arms, ascends to 5 metres, and waits. While simple, it shows the main principles of how to use offboard control and how to send vehicle commands.
 
-It has been tested on Ubuntu 20.04 with ROS2 Foxy and PX4 `main` after PX4 v1.13.
+It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 `main` after PX4 v1.13.
 
 :::warning
 *오프보드* 제어는 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 할 수 있어야 합니다.
@@ -18,9 +18,9 @@ This example publishes positions in the NED frame, as expected by PX4. To subscr
 
 ## Trying it out
 
-Follow the instructions in [ROS 2 User Guide](..ros/ros2_comm.md) to install PX and run the simulator, install ROS2, and start the XRCE-DDS Agent.
+Follow the instructions in [ROS 2 User Guide](..ros/ros2_comm.md) to install PX and run the simulator, install ROS 2, and start the XRCE-DDS Agent.
 
-After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS2 Workspace](..ros/ros2_comm.md#build-ros-2-workspace) to run the example.
+After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS 2 Workspace](..ros/ros2_comm.md#build-ros-2-workspace) to run the example.
 
 To build and run the example:
 
@@ -32,7 +32,7 @@ To build and run the example:
    cd ~/ws_offboard_control/src/
    ```
 
-1. Clone the [px4_msgs](https://github.com/PX4/px4_msgs) repo to the `/src` directory (this repo is needed in every ROS2 PX4 workspace!):
+1. Clone the [px4_msgs](https://github.com/PX4/px4_msgs) repo to the `/src` directory (this repo is needed in every ROS 2 PX4 workspace!):
 
    ```sh
    git clone https://github.com/PX4/px4_msgs.git
@@ -45,7 +45,7 @@ To build and run the example:
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. Source the ROS2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
 
    ```sh
    cd ..
@@ -73,7 +73,7 @@ The source code of the offboard control example can be found in [PX4/px4_ros_com
 :::note PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)).
 :::
 
-PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying. In addition, PX4 will switch out of offboard mode if the stream rate of `OffboardControlMode` messages drops below approximately 2Hz. The required behaviour is implemented by the main loop spinning in the ROS2 node, as shown below:
+PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying. In addition, PX4 will switch out of offboard mode if the stream rate of `OffboardControlMode` messages drops below approximately 2Hz. The required behaviour is implemented by the main loop spinning in the ROS 2 node, as shown below:
 
 ```cpp
 auto timer_callback = [this]() -> void {
