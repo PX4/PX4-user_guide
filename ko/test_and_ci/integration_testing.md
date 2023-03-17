@@ -51,7 +51,7 @@ make px4_sitl_default sitl_gazebo
 
 ## 신규 MAVROS 테스트 작성(Python)
 
-ROS(1)/MAVROS를 사용하여 새로운 파이썬 테스트를 PX4 테스트 스위트에 추가하는 방법을 설명합니다.
+This section explains how to write a new python test using ROS 1/MAVROS, test it, and add it to the PX4 test suite.
 
 기존 테스트를 예제([integrationtests/python_src/px4_it/mavros/](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros))를 검토하십시오. 공식 ROS 문서에는 [unittest](http://wiki.ros.org/unittest)(이 테스트 모음의 기반이 됨)를 사용 방법을 설명합니다.
 
