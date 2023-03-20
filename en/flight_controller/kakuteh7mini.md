@@ -82,6 +82,7 @@ Download the [holybro_kakuteh7mini_bootloader.hex](https://github.com/PX4/PX4-us
 :::note
 The bootloader may need to be flashed manually if the parameters do not save after the firmware setup.
 :::
+
 To build the bootloader for this target:
 
 ```
@@ -97,6 +98,7 @@ To enter DFU mode, hold the boot button down while connecting the USB cable to y
 #### dfu-util
 
 Erase all flash params using a mass erase.
+
 :::note
 This command may generate an error that can be ignored.
 :::
