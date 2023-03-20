@@ -80,6 +80,43 @@ Before the PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
 Download the [holybro_kakuteh7v2_bootloader.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakuteh7v2/holybro_kakuteh7v2_bootloader.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 
+### Building the bootloader
+
+:::note
+The bootloader may need to be flashed manually if the parameters do not save after the firmware setup.
+:::
+
+To build the bootloader for this target:
+
+```
+make holybro_kakuteh7v2_bootloader
+```
+
+### Flashing the bootloader
+
+#### Enter DFU mode
+
+To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board is powered up.
+
+#### dfu-util
+
+Erase all flash params using a mass erase.
+
+:::note
+This command may generate an error that can be ignored.
+:::
+
+```
+dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D ./build/holybro_kakuteh7v2_bootloader/holybro_kakuteh7v2_bootloader.bin
+```
+
+Enter DFU mode again and flash the board regularly.
+
+```
+dfu-util -a 0 --dfuse-address 0x08000000 -D ./build/holybro_kakuteh7v2_bootloader/holybro_kakuteh7v2_bootloader.bin
+
+```
+
 ## Building Firmware
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
