@@ -18,7 +18,7 @@ PX4 개발 *지원 플랫폼*은 다음과 같습니다.
 | **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                                                                                       |    &check;     | &check; | &check; |
 | **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                                                                                          |    &check;     | &check; | &check; |
 | **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                                                                                       |    &check;     |         |         |
-| **Simulation:** ROS2 with Gazebo                                                                                                                                                                |    &check;     |         |         |
+| **Simulation:** ROS 2 with Gazebo                                                                                                                                                               |    &check;     |         |         |
 
 숙련된 Docker 사용자는 지속적 통합 시스템 [Docker Containers](../test_and_ci/docker.md)컨테이너로 빌드할 수 있습니다.
 

@@ -57,13 +57,13 @@ The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 ### Build and Test (RTPS/DDS)
 
 :::warning
-**This section is out of date!** It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported. We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+**This section is out of date!** It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported. We plan to retest and update it for the [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
 :::
 
 To simulate multiple vehicles based on RTPS/DDS in Gazebo Classic, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
 
 :::note
-You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above and the `micrortps_agent` should be run in the different terminals for each vehicle. For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), for how to use the interaction with non-ROS2 DDS participant applications, or [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS2 nodes.
+You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above and the `micrortps_agent` should be run in the different terminals for each vehicle. For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), for how to use the interaction with non-ROS 2 DDS participant applications, or [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
 :::
 
 To build an example setup, follow the steps below:
@@ -99,7 +99,7 @@ To build an example setup, follow the steps below:
    micrortps_agent -t UDP -r 2026 -s 2025 -n vhcl3 &
    ```
 :::note
-In order to communicate with a specific instance of PX4 using ROS2, you must use the `-n <namespace>` option. For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0` (eg. `SensorCombined` data from `vhcl0` will be published on the topic `/vhcl0/fmu/sensor_combined/out`, while if one wants to send commands to the same vehicle, it has to publish to topic `/vhcl0/fmu/vehicle_command/in`). You can then subscribe and publish to just that vehicle's topics.
+In order to communicate with a specific instance of PX4 using ROS 2, you must use the `-n <namespace>` option. For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0` (eg. `SensorCombined` data from `vhcl0` will be published on the topic `/vhcl0/fmu/sensor_combined/out`, while if one wants to send commands to the same vehicle, it has to publish to topic `/vhcl0/fmu/vehicle_command/in`). You can then subscribe and publish to just that vehicle's topics.
 :::
 
 <a id="with_ros"></a>

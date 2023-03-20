@@ -1,6 +1,6 @@
 # ROS 2 User Guide
 
-The ROS2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
+The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
 
 This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
 
@@ -16,7 +16,7 @@ The XRCE-DDS middleware consists of a client running on PX4 and an agent running
 
 The PX4 [microdds-client](../modules/modules_system.md#microdds-client) is generated at build time and included in PX4 firmare by default. It includes both the "generic" XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/microdds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml). The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
 
-ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. You can include these by cloning the [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS2 workspace (branches in the repo correspond to the messages for different PX4 releases).
+ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. You can include these by cloning the [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
 
 Note that the XRCE-DDS _agent_ itself has no dependency on client-side code. It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
@@ -29,7 +29,7 @@ In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](htt
 
 ## Installation & Setup
 
-The supported platform for PX4 development is Ubuntu 20.04 (at time of writing), which means that you should use ROS2 "Foxy".
+The supported platform for PX4 development is Ubuntu 20.04 (at time of writing), which means that you should use ROS 2 "Foxy".
 
 :::warning
 Other platforms, such as Ubuntu 22.04 and ROS 2 "Humble", may work, but are not fully tested and officially supported by the PX4 dev team. <!-- Windows/Mac? -->
@@ -38,7 +38,7 @@ Other platforms, such as Ubuntu 22.04 and ROS 2 "Humble", may work, but are not 
 To setup ROS 2 for use with PX4 you will need to:
 
 - [Install PX4](#install-px4) (to use the PX4 simulator)
-- [Install ROS2](#install-ros-2)
+- [Install ROS 2](#install-ros-2)
 - [Setup XRCE-DDS Agent & Client](#setup-xrce-dds-agent-client)
 - [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
 
@@ -49,7 +49,7 @@ Other dependencies of the architecture that are installed automatically, such as
 You need to install the PX4 development toolchain in order to use the simulator.
 
 :::note
-The only dependency ROS2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
+The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
 :::
 
 Set up a PX4 development environment on Ubuntu in the normal way:
@@ -178,7 +178,7 @@ A naming convention for workspace folders can make it easier to manage workspace
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. Source the ROS2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
 
    ```sh
    cd ..
@@ -224,7 +224,7 @@ accelerometer_integral_dt: 4739
 
 ## Controlling a Vehicle
 
-To control applications, ROS2 applications:
+To control applications, ROS 2 applications:
 
 - subscribe to (listen to) telemetry topics published by PX4
 - publish to topics that cause PX4 to perform some action.
@@ -237,9 +237,9 @@ The [ROS 2 Example applications](#ros-2-example-applications) examples below pro
 
 This section contains information that may affect how you write your ROS code.
 
-### ROS2 Subscriber QoS Settings
+### ROS 2 Subscriber QoS Settings
 
-ROS2 code that subscribes to topics published by PX4 _must_ specify a appropriate (compatible) QoS setting in order to listen to topics. Specifically, nodes should subscribe using the ROS2 predefined QoS sensor data (from the [listener example source code](#ros-2-listener)):
+ROS 2 code that subscribes to topics published by PX4 _must_ specify a appropriate (compatible) QoS setting in order to listen to topics. Specifically, nodes should subscribe using the ROS 2 predefined QoS sensor data (from the [listener example source code](#ros-2-listener)):
 
 ```cpp
 ...
@@ -250,7 +250,7 @@ subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/o
 ...
 ```
 
-This is needed because the ROS2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4. Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS2 settings for subscribing are not! Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case).
+This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4. Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not! Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case).
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
@@ -264,7 +264,7 @@ The ROS 2 [listener examples](https://github.com/PX4/px4_ros_com/tree/main/src/e
 Here we consider the [sensor_combined_listener.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp) node under `px4_ros_com/src/examples/listeners`, which subscribes to the [SensorCombined](../msg_docs/SensorCombined.md) message.
 
 :::note
-[Build ROS2 Workspace](#build-ros-2-workspace) shows how to build and run this example.
+[Build ROS 2 Workspace](#build-ros-2-workspace) shows how to build and run this example.
 :::
 
 The code first imports the C++ libraries needed to interface with the ROS 2 middleware and the header file for the `SensorCombined` message to which the node subscribes:
@@ -313,10 +313,10 @@ public:
 ```
 
 :::note
-The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`. This is needed because the default ROS2 QoS profile for subscribers is incompatible with the PX4 profile for publishers. For more information see: [ROS2 Subscriber QoS Settings](#ros2-subscriber-qos-settings),
+The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`. This is needed because the default ROS 2 QoS profile for subscribers is incompatible with the PX4 profile for publishers. For more information see: [ROS 2 Subscriber QoS Settings](#ros2-subscriber-qos-settings),
 :::
 
-The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS2 subscribers to the `fmu/sensor_combined/out` ROS2 topic.
+The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS 2 subscribers to the `fmu/sensor_combined/out` ROS 2 topic.
 
 ```cpp
 private:
@@ -411,7 +411,7 @@ For a complete reference example on how to use Offboard control with PX4, see: [
 
 ## Using Flight Controller Hardware
 
-ROS2 with PX4 running on a flight controller is almost the same as working with PX4 on the simulator. The only difference is that you need to start both the agent _and the client_, with settings appropriate for the communication channel.
+ROS 2 with PX4 running on a flight controller is almost the same as working with PX4 on the simulator. The only difference is that you need to start both the agent _and the client_, with settings appropriate for the communication channel.
 
 For more information see [Starting XRCE-DDS](../middleware/xrce_dds.md#starting-xrce-dds).
 
@@ -421,7 +421,7 @@ ROS 2 needs to have the _same_ message definitions that were used to create the 
 
 If working on a custom build that has other messages, you would:
 - Update the [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) to add needed topics to the XRCE-DDS client in your PX4 firmware.
-- Copy the msg definitions out of the PX4 source tree into any ROS2 workspace that needs them. The messages must be in a folder named `px4_msgs/msg/`.
+- Copy the msg definitions out of the PX4 source tree into any ROS 2 workspace that needs them. The messages must be in a folder named `px4_msgs/msg/`.
 
 :::note
 Technically the messages must be in a folder defined by the type prefix in the yaml file: As you can see below, this is `px4_msgs::msg::`:
@@ -512,11 +512,11 @@ average rate: 247.485
 
 ### ros2 launch
 
-The `ros2 launch` command is used to start a ROS2 launch file. For example, above we used `ros2 launch px4_ros_com sensor_combined_listener.launch.py` to start the listener example.
+The `ros2 launch` command is used to start a ROS 2 launch file. For example, above we used `ros2 launch px4_ros_com sensor_combined_listener.launch.py` to start the listener example.
 
-You don't need to have a launch file, but they are very useful if you have a complex ROS2 system that needs to start several components.
+You don't need to have a launch file, but they are very useful if you have a complex ROS 2 system that needs to start several components.
 
-For information about launch files see [ROS2 Tutorials > Creating launch files](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
 
 
@@ -524,7 +524,7 @@ For information about launch files see [ROS2 Tutorials > Creating launch files](
 
 ### Missing dependencies
 
-The standard installation should include all the tools needed by ROS2.
+The standard installation should include all the tools needed by ROS 2.
 
 If any are missing, they can be added separately:
 - **`colcon`** build tools should be in the development tools. It can be installed using:
@@ -538,5 +538,5 @@ If any are missing, they can be added separately:
 
 ## Additional information
 
-- [ROS2 in PX4: ROS2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
+- [ROS 2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
 - [DDS and ROS middleware implementations](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)

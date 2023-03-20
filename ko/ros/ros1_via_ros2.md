@@ -1,15 +1,15 @@
-# ROS 2 Bridge를 통한 ROS(1)(사용 설명서)
+# ROS 1 via ROS 2 Bridge (User Guide)
 
 :::warning
-**This example is out of date!** It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported. We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+**This example is out of date!** It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported. We plan to retest and update it for the [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
 :::
 
-이 항목에서는 [ROS 2](../ros/ros2.md)로 브리지하여, PX4와 함께 ROS(1)를 사용하는 방법을 설명합니다.
+This topic explains how use ROS 1 with PX4, by bridging via [ROS 2](../ros/ros2.md).
 
-필요한 소프트웨어를 설치하고 ROS(1) 애플리케이션을 구축하는 방법과 ROS-ROS2-PX4 아키텍처에 대한 개요를 설명합니다. 또한, ROS 2 및 ROS 1 작업 공간을 동시에 설정하는 방법도 설명합니다.
+It provides an overview of the ROS 1-ROS 2-PX4 architecture, along with instructions on how to install all the needed software and build ROS 1 applications. 또한, ROS 2 및 ROS 1 작업 공간을 동시에 설정하는 방법도 설명합니다.
 
 :::note
-일반적으로 MAVLink에서 부여한 것보다 PX4에 더 깊이 액세스하려는 경우나 ROS2 및 ROS(1) 애플리케이션을 모두 사용하려는 경우 [ROS(1)와 MAVROS](../ros/ros1.md)를 연결하는 대신 이 설정을 사용할 수 있습니다.
+Generally you might use this setup rather than bridging [ROS 1 with MAVROS](../ros/ros1.md) if you want deeper access to PX4 than granted by MAVLink, or if you want to use both ROS 2 and ROS 1 applications.
 :::
 
 :::note
@@ -22,7 +22,7 @@ Note PX4 개발 팀은 모든 사용자가 [ROS 2로 업그레이드](../ros/ros
 
 ## 개요
 
-ROS 2를 통해 브리지된 ROS(1)의 애플리케이션 파이프라인은 다음과 같습니다.
+The application pipeline for ROS 1 bridged over ROS 2 is shown below.
 
 ![ROS를 사용한 아키텍처](../../assets/middleware/micrortps/architecture_ros.png)
 
@@ -35,7 +35,7 @@ ROS 2를 통해 브리지된 ROS(1)의 애플리케이션 파이프라인은 다
 
 [ROS 2 사용자 가이드 > 설치 및 설정](../ros/ros2_comm.md#installation-setup)을 참고하여 ROS 2를 설치합니다.
 
-### ROS (1) 작업 공간 빌드
+### Build ROS 1 Workspace
 
 ROS는 ROS2와 다른 환경이 필요하기 때문에 별도의 작업 공간을 만들어야 합니다. 여기에는 `ros1_bridge`와 함께 `px4_ros_com`와 `px4_msgs`의 `ros` 분기가 포함됩니다.
 
@@ -58,7 +58,7 @@ ROS는 ROS2와 다른 환경이 필요하기 때문에 별도의 작업 공간�
    $ source build_ros1_bridge.bash
    ```
 :::tip
-또한 단일 스크립트(`build_all.bash`)로 ROS(1) 및 ROS 2 작업 공간을 모두 빌드할 수 있습니다. 이것을 사용하는 가장 일반적인 방법은 ROS(1) 작업 공간 디렉토리 경로와 PX4 Autopilot 디렉토리 경로를 전달하는 것입니다.
+You can also build both ROS 1 and ROS 2 workspaces with a single script: `build_all.bash`. The most common way of using it, is by passing the ROS 1 workspace directory path and PX4 Autopilot directory path:
    ```sh
    $ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
    ```
@@ -67,7 +67,7 @@ ROS는 ROS2와 다른 환경이 필요하기 때문에 별도의 작업 공간�
 
 [ROS 2 사용자 가이드 > 설치 상태 확인](../ros/ros2_comm.md#sanity-check-the-installation) 설치를 확인하는 방법은 브리지가 PX4 시뮬레이터에서 PX4와 통신 여부를 테스트하는 것입니다.
 
-ROS(1) **및** ROS 2를 사용하려면(둘 다 필요합니다!):
+To use ROS 1 **and** ROS 2 (you need both for this!):
 
 1. [PX4 Ubuntu Linux 개발 환경 설정](../dev_setup/dev_env_linux_ubuntu.md) - 기본 지침은 최신 버전의 PX4 소스를 다운로드하고 필요한 도구들을 설치합니다.
 1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
@@ -123,7 +123,7 @@ ROS(1) **및** ROS 2를 사용하려면(둘 다 필요합니다!):
 `build_all.bash` 스크립트를 사용하면, 필요한 모든 터미널이 자동으로 열리고 소싱되므로 각 터미널에서 해당 앱을 실행하기만 하면 됩니다.
 :::
 
-## ROS(1) 리스너 생성
+## Creating a ROS 1 listener
 
 Since the creation of ROS nodes is a well known and documented process, we are going to leave this section out from this guide, and you can find an example of a ROS listener for `SensorCombined` messages the `ros1` branch of the `px4_ros_com` repository, under the following path `src/listeners/`.
 

@@ -18,7 +18,7 @@ The *supported platforms* for PX4 development are:
 | **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                                                                                                 |       X        |    X    |    X    |
 | **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                                                                                                    |       X        |    X    |    X    |
 | **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                                                                                                 |       X        |         |         |
-| **Simulation:** ROS2 with Gazebo                                                                                                                                                                          |       X        |         |         |
+| **Simulation:** ROS 2 with Gazebo                                                                                                                                                                         |       X        |         |         |
 
 不同操作系统的开发环境的安装请参阅：
 
