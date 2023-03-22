@@ -17062,7 +17062,7 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Heading/Yaw offset for dual antenna GPS <p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>[0, 360] </td>
  <td>0.</td>
@@ -20999,18 +20999,25 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="NAV_TRAFF_A_RADM">NAV_TRAFF_A_RADM</strong> (FLOAT)</td>
- <td>Set NAV TRAFFIC AVOID RADIUS MANNED <p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Manned Aviation</p>   </td>
+ <td><strong id="NAV_TRAFF_A_HOR">NAV_TRAFF_A_HOR</strong> (FLOAT)</td>
+ <td>Set NAV TRAFFIC AVOID horizontal distance <p><strong>Comment:</strong> Defines a crosstrack horizontal distance</p>   </td>
  <td>[500, ?] </td>
  <td>500</td>
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="NAV_TRAFF_A_RADU">NAV_TRAFF_A_RADU</strong> (FLOAT)</td>
- <td>Set NAV TRAFFIC AVOID RADIUS <p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Unmanned Aviation</p>   </td>
+ <td><strong id="NAV_TRAFF_A_VER">NAV_TRAFF_A_VER</strong> (FLOAT)</td>
+ <td>Set NAV TRAFFIC AVOID vertical distance    </td>
  <td>[10, 500] </td>
- <td>10</td>
+ <td>500</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="NAV_TRAFF_COLL_T">NAV_TRAFF_COLL_T</strong> (INT32)</td>
+ <td>Estimated time until collision <p><strong>Comment:</strong> Minimum acceptable time until collsion. Assumes constant speed over 3d distance.</p>   </td>
+ <td>[1, 900000000] </td>
+ <td>60</td>
+ <td>s</td>
 </tr>
 <tr>
  <td><strong id="WEIGHT_BASE">WEIGHT_BASE</strong> (FLOAT)</td>
@@ -32300,6 +32307,14 @@ table {
 </td>
  <td>[1, 125] </td>
  <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_PUB_ARM">UAVCAN_PUB_ARM</strong> (INT32)</td>
+ <td>publish Arming Status stream <p><strong>Comment:</strong> Enable UAVCAN Arming Status stream publication uavcan::equipment::safety::ArmingStatus</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
