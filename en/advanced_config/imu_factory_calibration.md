@@ -18,7 +18,7 @@ These values cannot be stored in the [frame configuration](../dev_airframes/addi
 ## Performing the Factory Calibration 
 
 1. Set the parameter [SYS_FAC_CAL_MODE](../advanced_config/parameter_reference.md#SYS_FAC_CAL_MODE) to 1.
-1. Perform all IMU calibrations: [accelerometer](accelerometer.md#performing-the-calibration) [gyroscope](gyroscope.md#performing-the-calibration) and [magnetometer](compass.md#performing-the-calibration)
+1. Perform all IMU calibrations: [accelerometer](../config/accelerometer.md#performing-the-calibration), [gyroscope](../config/gyroscope.md#performing-the-calibration) and [magnetometer](../config/compass.md#performing-the-calibration).
 1. Reboot the vehicle.
    This will write all `CAL_ACC*`, `CAL_GYRO*` and `CAL_MAG*` parameters into `/fs/mtd_caldata`.
 1. Set the parameter `SYS_FAC_CAL_MODE` back to 0 (default).

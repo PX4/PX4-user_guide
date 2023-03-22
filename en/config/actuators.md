@@ -54,12 +54,7 @@ Core geometry concepts and the configuration for a number of different frames ar
 
 #### Motor Geometry: Multicopter
 
-The image below shows the geometry setup for a multicopter frame with and without advanced settings.
-
-:::note
-Specifically this is the motor geometry for a [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) muticopter.
-Other multicopters frames are configured similarly.
-:::
+The image below shows the geometry setup for a quadrotor multicopter frame with and without advanced settings.
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 
@@ -81,7 +76,7 @@ Note, this may not be the same as the position of the flight controller!
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
-The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
+The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar). 
 
 Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 
