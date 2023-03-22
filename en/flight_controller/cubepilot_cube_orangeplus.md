@@ -1,11 +1,11 @@
-# CubePilot Cube Orange Flight Controller
+# CubePilot Cube Orange+ Flight Controller
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
-The [Cube Orange](https://www.cubepilot.com/#/cube/features) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
+The [Cube Orange+](https://www.cubepilot.com/#/cube/features) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Orange](../../assets/flight_controller/cube/orange/cube_orange_hero.jpg)
 
@@ -46,8 +46,8 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 ## Specifications
 
 * **Processor:**
-  * STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
-  * 400 MHz
+  * STM32H757 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  * 480 MHz
   * 1 MB RAM
   * 2 MB Flash \(fully accessible\)
 * **Failsafe co-processor:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
@@ -55,8 +55,8 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
   * 24 MHz
   * 8 KB SRAM
 * **Sensors:** (all connected via SPI)
-  * **Accelerometer:** (3) ICM20948, ICM20649, ICM20602
-  * **Gyroscope:** (3) ICM20948, ICM20649, ICM20602
+  * **Accelerometer:** (3) ICM42688p, ICM20948, ICM20649
+  * **Gyroscope:** (3) ICM42688p, ICM20948, ICM20649
   * **Compass:** (1) ICM20948
   * **Barometric Pressure Sensor:** (2) MS5611
 * **Operating Conditions:**
@@ -127,15 +127,18 @@ UART8  | /dev/ttyS5 | GPS2
 
 ## Building Firmware
 
-:::tip
-Most users will not need to build this firmware!
-It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::warning
+The firmware for Orange+ is not yet released as part of a release. It will be released once v1.14 is released.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target, open up the terminal and enter:
 ```
-make cubepilot_cubeorange
+make cubepilot_cubeorangeplus
 ```
+
+:::note
+The  Cube Orange+ is different from the Cube Orange. Due to a power feature of the STM32H757 it required [updates in NuttX](https://github.com/PX4/NuttX/pull/214) and therefore a new board config, bootloader, build target, etc. Therefore, the binaries are not compatible between Orange and Orange+.
+:::
 
 ## Further Information/Documentation
 

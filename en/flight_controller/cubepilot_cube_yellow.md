@@ -1,15 +1,11 @@
-# Cube Yellow Flight Controller
+# CubePilot Cube Yellow Flight Controller
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
-:::tip
-The PX4 dev team supports this flight controller as a footprint compatible replacement for Cube Black. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](https://pixhawk.org). This flight controller is not following the standard and uses a patented connector.
-:::
-
-The [Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
+The Cube Yellow flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Yellow](../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg)
 
@@ -41,7 +37,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 <span id="stores"></span>
 ## Where to Buy
 
-* [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
+* [Reseller list](https://www.cubepilot.com/#/reseller/list)
 
 ## Assembly
 

@@ -35,6 +35,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [CUAV Nora](../flight_controller/cuav_nora.md)
   - [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md)
   - [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md)
+  - [Cube Orange+](../flight_controller/cubepilot_cube_orangeplus.md) (CubePilot)
   - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
   - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
   - [Drotek Dropix (FMUv2)](../flight_controller/dropix.md)
