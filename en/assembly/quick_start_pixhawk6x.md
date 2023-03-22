@@ -44,7 +44,7 @@ If the controller cannot be mounted in the recommended/default orientation (e.g
 The _Pixhawk6X Standard Set_ & _Pixhawk6X Mini Set_ can be purchased with M8N or M9N GPS (10-pin connector) that should be connected to the **GPS1** port.
 These GNSS modules have an integrated compass, safety switch, buzzer and LED.
 
-A secondary [M8N or M9N GPS](https://shop.holybro.com/c/gps-systems_0428) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
+A secondary [M8N or M9N GPS](https://holybro.com/collections/gps) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
 
 The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
@@ -115,7 +115,7 @@ For more information about selecting a radio system, receiver compatibility, and
 The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required).
 The other radio is connected to your ground station computer or mobile device (usually by USB).
 
-Radios are also available for purchase on [Holybro's website](http://www.holybro.com/product-category/radio/) .
+Radios are also available for purchase on [Holybro's website](https://holybro.com/collections/telemetry-radios) .
 
 ## SD Card (Optional)
 

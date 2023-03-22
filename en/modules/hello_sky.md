@@ -286,7 +286,7 @@ The benefits of the PX4 hardware abstraction comes into play here!
 There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
 :::
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 Subscribing to a topic is straightforward:
 

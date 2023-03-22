@@ -216,7 +216,7 @@ For information about wiring and using this port see:
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
-* [Telemetry Radio Modules](http://www.holybro.com/product-category/radio/?orderby=date)
+* [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 

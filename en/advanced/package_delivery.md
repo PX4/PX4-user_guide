@@ -12,7 +12,7 @@ Winches are not yet supported.
 
 :::note
 The detailed documentation on how to setup a package delivery mission plan can be found [here](../flying/package_delivery_mission.md).
-Setup for the `payload_deliverer` module is covered in the documentation for the delivery mechanism, such as [Gripper](../peripherals/gripper.md#enable-payload-delivery-feature-gripper).
+Setup for the `payload_deliverer` module is covered in the documentation for the delivery mechanism, such as [Gripper](../peripherals/gripper.md#px4-configuration).
 :::
 
 
@@ -63,4 +63,4 @@ Also it implements the actual issue_command function, which will issue a vehicle
 
 This is a dedicated module that handles gripper / winch support, which is used for the standard [package delivery mission plan](../flying/package_delivery_mission.md).
 
-Setup for the `payload_deliverer` module is covered within setting up an actual package release mechanism setup documentation like [Gripper](../peripherals/gripper.md#enable-payload-delivery-feature-gripper).
+Setup for the `payload_deliverer` module is covered within setting up an actual package release mechanism setup documentation like [Gripper](../peripherals/gripper.md#px4-configuration).
