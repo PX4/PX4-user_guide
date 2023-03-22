@@ -115,6 +115,7 @@ Parameter | Description
 <span id="RWTO_MAX_THR"></span>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR) | Max throttle during runway takeoff
 <span id="RWTO_RAMP_TIME"></span>[RWTO_RAMP_TIME](../advanced_config/parameter_reference.md#RWTO_RAMP_TIME) | Throttle ramp up time
 <span id="RWTO_ROT_AIRSPD"></span>[RWTO_ROT_AIRSPD](../advanced_config/parameter_reference.md#RWTO_ROT_AIRSPD) | Airspeed threshold to start rotation (pitching up). If not configured by operator is set to 0.9*FW_TKO_AIRSPD.
+<span id="RWTO_ROT_TIME"></span>[RWTO_ROT_TIME](../advanced_config/parameter_reference.md#RWTO_ROT_TIME) | This is the time desired to linearly ramp in takeoff pitch constraints during the takeoff rotation.
 <span id="FW_TKO_AIRSPD"></span>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD) | Airspeed setpoint during the takeoff climbout phase (after rotation). If not configured by operator is set to FW_AIRSPD_MIN.
 <span id="RWTO_NUDGE"></span>[RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE) | Enable wheel controller nudging while on the runway
 <span id="FW_WING_SPAN"></span>[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN) | The wingspan of the vehicle. Used to prevent wingstrikes.
