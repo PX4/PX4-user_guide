@@ -8,7 +8,7 @@ While it can be controlled using traditional PWM input, it is designed to operat
 
 Multiple vendors sell ESC hardware that runs sapog firmware:
 * [Zubax Orel 20](https://zubax.com/products/orel_20)
-* [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
+* [Holybro Kotleta20](https://holybro.com/products/kotleta20)
 
 <style>
 #image_container {
@@ -30,7 +30,7 @@ Multiple vendors sell ESC hardware that runs sapog firmware:
   </div>
 
   <div class="image_column">
-    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 top" /><br><a href="https://shop.holybro.com/kotleta20_p1156.html">Holybro Kotleta20</a>
+    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 top" /><br><a href="https://holybro.com/products/kotleta20">Holybro Kotleta20</a>
   </div>
 
 </div>
@@ -105,7 +105,7 @@ The following video demonstrates the process:
 ### Manual ESC Enumeration using Sapog
 
 :::tip
-We recommend automated [Sapog ESC Enumeration using QGroundControl](#sapog-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
+We recommend automated [Sapog ESC Enumeration using QGroundControl](#automatic-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
 :::
 
 You can manually configure the ESC index and direction using the [DroneCAN GUI Tool](https://dronecan.github.io/GUI_Tool/Overview/).

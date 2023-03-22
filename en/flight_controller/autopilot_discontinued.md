@@ -9,6 +9,7 @@ These are *not supported* by the head revision of PX4 and are no longer no longe
 
 ## Autopilots
 
+- [Drotek DroPix](../flight_controller/dropix.md) (FMUv2)
 - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 - [CUAV v5](../flight_controller/cuav_v5.md) (Pixhawk FMUv5)
 - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
