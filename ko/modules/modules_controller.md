@@ -235,7 +235,7 @@ navigator <command> [arguments...]
 ### 설명
 L1 컨트롤러를 사용하여 그라운드 로버의 위치를 제어합니다.
 
-IMU_GYRO_RATEMAX에서 `actuator_controls_0` 메시지를 게시합니다.
+Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
 
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
@@ -272,7 +272,7 @@ rover_pos_control <command> [arguments...]
 ### 설명
 무인수중선(UUV)의 자세를 제어합니다.
 
-일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
+Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
 
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
@@ -306,7 +306,7 @@ uuv_att_control <command> [arguments...]
 
 
 ### 설명
-무인수중선(UUV)의 자세를 제어합니다. 일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
+무인수중선(UUV)의 자세를 제어합니다. Publishes `attitude_setpoint` messages.
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
  * 완전 수동: 롤, 피치, 요 및 스로틀 컨트롤이 액추에이터에 직접 전달됩니다.

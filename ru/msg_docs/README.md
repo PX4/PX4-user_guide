@@ -8,7 +8,6 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 
 - [ActionRequest](ActionRequest.md)
 - [ActuatorArmed](ActuatorArmed.md)
-- [ActuatorControls](ActuatorControls.md)
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
 - [ActuatorMotors](ActuatorMotors.md) — Motor control message
 - [ActuatorOutputs](ActuatorOutputs.md)
@@ -60,6 +59,7 @@ This topic lists the UORB messages available in PX4 (some of which may be may be
 - [FollowTargetStatus](FollowTargetStatus.md)
 - [GeneratorStatus](GeneratorStatus.md)
 - [GeofenceResult](GeofenceResult.md)
+- [GimbalControls](GimbalControls.md)
 - [GimbalDeviceAttitudeStatus](GimbalDeviceAttitudeStatus.md)
 - [GimbalDeviceInformation](GimbalDeviceInformation.md)
 - [GimbalDeviceSetAttitude](GimbalDeviceSetAttitude.md)

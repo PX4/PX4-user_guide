@@ -246,7 +246,7 @@ Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/ma
 ### 参数描述
 Controls the position of a ground rover using an L1 controller.
 
-Publishes `actuator_controls_0` messages at IMU_GYRO_RATEMAX.
+Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
 
 ### 实现
 Currently, this implementation supports only a few modes:
@@ -283,7 +283,7 @@ Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main
 ### Description
 Controls the attitude of an unmanned underwater vehicle (UUV).
 
-fw_att_control 是固定翼姿态控制器。
+Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
 
 ### 用法
 Currently, this implementation supports only a few modes:
@@ -317,7 +317,7 @@ Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main
 
 
 ### Description
-Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `actuator_controls_0` messages at a constant 250Hz.
+Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `attitude_setpoint` messages.
 ### Implementation
 Currently, this implementation supports only a few modes:
  * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators

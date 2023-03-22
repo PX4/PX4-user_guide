@@ -1,6 +1,6 @@
 # 기체
 
-PX4에는 단일 코드베이스를 통하여 상상 가능한 대부분의 차량 유형과프레임을 지원할 수 있는 유연한 [믹싱 시스템](../concept/mixing.md)이 있습니다.
+PX4 has a flexible [control allocation system](../concept/control_allocation.md) that allows it to support almost any imaginable vehicle type/frame through a single codebase:
 
 * **고정익:** 일반 비행기, 비행 날개, 역 V 꼬리 비행기 등
 * **멀티콥터:** 다양한 형태의 헬리콥터, 트리콥터, 쿼드콥터, 헥사로터, 12개 로봇 등

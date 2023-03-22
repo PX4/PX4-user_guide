@@ -16,7 +16,7 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They 
   - [Sensirion SDP3X Differential Pressure Sensor]([https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html))
   - [Holybro Digital Air Speed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
 - Based on [Venturi effect](https://en.wikipedia.org/wiki/Venturi_effect)
-  - [TFSLOT](./airspeed_tfslot.md) Venturi effect airspeed sensor.
+  - [TFSLOT](airspeed_tfslot.md) Venturi effect airspeed sensor.
 
 All the above sensors are connected via the I2C bus/port.
 
@@ -52,7 +52,7 @@ The selected sensor is then used to supply data to the estimator (EKF2). The EKF
 
 ### Sensor-specific Configuration
 
-Other than enabling the sensor, sensor-specific configuration is often not required. If it is needed, it should be covered in the appropriate sensor page (for example [TFSLOT > Configuration](./airspeed_tfslot.md\#configuration)).
+Other than enabling the sensor, sensor-specific configuration is often not required. If it is needed, it should be covered in the appropriate sensor page (for example [TFSLOT > Configuration](airspeed_tfslot.md#configuration)).
 
 The specific configuration for sensors that do not have a separate page is listed below:
 
