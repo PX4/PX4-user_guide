@@ -24,23 +24,24 @@ You should now be able to install PX4 firmware on the board.
 
 #### Download Bootloader Source
 
-Download and build the [source](https://github.com/PX4/PX4-Autopilot) via:
-```
-git clone --recursive  https://github.com/PX4/PX4-Autopilot.git
-cd PX4-Autopilot
-make <target> # For example: holybro_kakuteh7mini_bootloader
-```
-
-:::note
-If your flight controller does not have a bootloader target in the source, check the separate [Bootloader](https://github.com/PX4/Bootloader) repository
-:::
-
 Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
 ```
 git clone --recursive  https://github.com/PX4/Bootloader.git
 cd Bootloader
 make <target> # For example: omnibusf4sd_bl or kakutef7_bl
 ```
+
+:::note
+Some flight controllers (such as the Kakute H7 v2 and mini) have bootloader targets in the PX4 source instead of the separate Bootloader repository.
+
+Download and build the [source](https://github.com/PX4/PX4-Autopilot) via:
+```
+git clone --recursive  https://github.com/PX4/PX4-Autopilot.git
+cd PX4-Autopilot
+make <target> # For example: holybro_kakuteh7mini_bootloader
+```
+:::
+
 
 #### Flash Bootloader
 
