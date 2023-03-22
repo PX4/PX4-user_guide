@@ -79,7 +79,7 @@ The _launch detector_ is affected by the following parameters:
 
 Parameter | Description
 --- | ---
-<span id="LAUN_ALL_ON"></span>[LAUN_ALL_ON](../advanced_config/parameter_reference.md#LAUN_ALL_ON) | Enable automatic launch detection. If disabled motors spin up on arming already
+<span id="FW_LAUN_DETCN_ON"></span>[FW_LAUN_DETCN_ON](../advanced_config/parameter_reference.md#FW_LAUN_DETCN_ON) | Enable automatic launch detection. If disabled motors spin up on arming already
 <span id="FW_LAUN_AC_THLD"></span>[FW_LAUN_AC_THLD](../advanced_config/parameter_reference.md#FW_LAUN_AC_THLD) | Acceleration threshold (acceleration in body-forward direction must be above this value)
 <span id="FW_LAUN_AC_T"></span>[FW_LAUN_AC_T](../advanced_config/parameter_reference.md#FW_LAUN_AC_T) | Trigger time (acceleration must be above threshold for this amount of seconds)
 <span id="FW_LAUN_MOT_DEL"></span>[FW_LAUN_MOT_DEL](../advanced_config/parameter_reference.md#FW_LAUN_MOT_DEL) | Delay from launch detection to motor spin up
