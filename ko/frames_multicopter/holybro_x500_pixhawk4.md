@@ -16,8 +16,8 @@
 Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수 구성 요소가 포함되어 있습니다.
 
 * [Pixhawk 4 오토파일럿](../flight_controller/pixhawk4.md)
-* [Pixhawk 4 GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)
-* [전원 관리 - PM07](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
+* [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps)
+* [전원 관리 - PM07](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
 * [Holybro 모터 - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
 * [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
 * [프로펠러 - 1045x4](https://shop.holybro.com/propeller10452pair_p1155.html)
