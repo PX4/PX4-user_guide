@@ -14,7 +14,7 @@ This topic covers:
   - [PX4 MAVLink Serial Port Configuration](#px4-mavlink-serial-port-configuration)
   - [QGroundControl Setup Example](#qgroundcontrol-setup-example)
   - [MAVSDK-Python Setup Example](#mavsdk-python-setup-example)
-  - [ROS2 Setup Example](#ros2-setup-example)
+  - [ROS 2 Setup Example](#ros-2-setup-example)
 
 ## Supported Flight Controllers
 
@@ -187,55 +187,44 @@ can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port
 :::
 
 
-## ROS2 Setup Example
+## ROS 2 Setup Example
 
-:::warning
-**This section is out of date!** It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported. We plan to retest and update it for the [XRCE-DDS (PX4-ROS2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
+:::note
+Prerequisites:
+- You have a supported autopilot hardware running PX4 firmware that includes [XRCE-DDS](../middleware/xrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [microdds-client](../modules/modules_system.md#microdds-client) module by default.
+- [ROS 2](../ros/ros2_comm.md) has been set up correctly on the companion computer.
+- You have followed the Ethernet network and port setup as discussed at the top of this page.
 :::
 
-Prerequisites:
+To set up ROS 2:
 
-- You have a supported autopilot hardware with RTPS feature enabled firmware on it by using [this guide](../middleware/micrortps.md#client-px4-px4-autopilot).
-- [ROS2](../ros/ros2_comm.md#sanity-check-the-installation) has been set up correctly and [sanity check](../ros/ros2_comm.md#sanity-check-the-installation) has been confirmed.
-- You have followed the Ethernet network and port setup as discussed at the top of this page.
+1. Connect your flight controller and companion computer via Ethernet.
+2. [Start the micro XRCE-DDS client on PX4](../middleware/xrce_dds.md#starting-the-client), either manually or by customizing the system startup script. Note that you must use the IP address of the companion computer and the UDP port on which the agent is listening (the example configuration above sets the companion IP address to `192.168.0.1`, and the agent UDP port is set to `8888` in the next step).
+3. [Start the XRCE-DDS agent on the companion computer](../middleware/xrce_dds.md#starting-the-agent). For example, enter the following command in a terminal to start the agent listening on UDP port `8888`.
 
-In this example it is assumed that you have followed the example to set your IP addresses.
+   ```
+   MicroXRCEAgent udp4 -p 8888
+   ```
+4. Run a [listener node](../ros/ros2_comm.md#running-the-example) in a new terminal to confirm the connection is established:
 
-1. Connect your Flight controller via Ethernet
-2. Open **QGroundControl > Analyze Tools > MAVLink Console**
-3. Enter the command below to start the micro_rtps client on your flight controller. Note that the remote IP here is your companion computer IP. This by default starts the micrortps_client connected to UDP ports 2019 and 2020 To make changes you can take a look at [RTPS guide](../middleware/micrortps.md#client-px4-px4-autopilot)
    ```
-   micrortps_client start -t UDP -i <remote IP>
-   ```
-   An output like below is expected in the console:
-   ```
-   INFO  [micrortps_client] UDP transport: ip address: 192.168.0.1; recv port: 2019; send port: 2020
-   INFO  [micrortps_client] UDP transport: Trying to connect...
-   INFO  [micrortps_client] UDP transport: Connected to server!
-   ```
-5. Then we need to run the agent by typing the below commands in a new terminal on either our Linux computer. This will start the agent on `localhost` which is `127.0.0.1`.
-   ```
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ micrortps_agent start -t UDP
-   ```
-6. In a new terminal you can run a listener node to confirm the connection is established:
-   ```
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
+   source ~/ws_sensor_combined/install/setup.bash
+   ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
-If everything goes ok and there is an established connection you can see the output below in your terminal:
-```
-RECEIVED SENSOR COMBINED DATA
-=============================
-ts: 855801598
-gyro_rad[0]: -0.00339938
-gyro_rad[1]: 0.00440091
-gyro_rad[2]: 0.00513893
-gyro_integral_dt: 4997
-accelerometer_timestamp_relative: 0
-accelerometer_m_s2[0]: -0.0324082
-accelerometer_m_s2[1]: 0.0392213
-accelerometer_m_s2[2]: -9.77914
-accelerometer_integral_dt: 4997
-```
+   If everything is setup correctly, the following output should be displayed in the terminal:
+
+   ```
+   RECEIVED SENSOR COMBINED DATA
+   =============================
+   ts: 855801598
+   gyro_rad[0]: -0.00339938
+   gyro_rad[1]: 0.00440091
+   gyro_rad[2]: 0.00513893
+   gyro_integral_dt: 4997
+   accelerometer_timestamp_relative: 0
+   accelerometer_m_s2[0]: -0.0324082
+   accelerometer_m_s2[1]: 0.0392213
+   accelerometer_m_s2[2]: -9.77914
+   accelerometer_integral_dt: 4997
+   ```
