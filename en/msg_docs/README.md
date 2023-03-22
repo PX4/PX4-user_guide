@@ -9,7 +9,6 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [ActionRequest](ActionRequest.md)
 - [ActuatorArmed](ActuatorArmed.md)
-- [ActuatorControls](ActuatorControls.md)
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
 - [ActuatorMotors](ActuatorMotors.md) — Motor control message
 - [ActuatorOutputs](ActuatorOutputs.md)
@@ -64,6 +63,7 @@ scale errors, in-run bias and thermal drift (if thermal compensation is enabled 
 - [FollowTargetStatus](FollowTargetStatus.md)
 - [GeneratorStatus](GeneratorStatus.md)
 - [GeofenceResult](GeofenceResult.md)
+- [GimbalControls](GimbalControls.md)
 - [GimbalDeviceAttitudeStatus](GimbalDeviceAttitudeStatus.md)
 - [GimbalDeviceInformation](GimbalDeviceInformation.md)
 - [GimbalDeviceSetAttitude](GimbalDeviceSetAttitude.md)

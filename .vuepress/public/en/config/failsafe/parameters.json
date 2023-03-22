@@ -10840,7 +10840,7 @@
       "decimalPlaces": 0,
       "default": 0.0,
       "group": "GPS",
-      "longDesc": "Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover antenna is placed on the right side of the vehicle and the moving base antenna is on the left side.",
+      "longDesc": "Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).",
       "max": 360.0,
       "min": 0.0,
       "name": "GPS_YAW_OFFSET",
@@ -17014,24 +17014,35 @@
       "category": "Standard",
       "default": 500.0,
       "group": "Mission",
-      "longDesc": "Defines the Radius where NAV TRAFFIC AVOID is Called For Manned Aviation",
+      "longDesc": "Defines a crosstrack horizontal distance",
       "min": 500.0,
-      "name": "NAV_TRAFF_A_RADM",
-      "shortDesc": "Set NAV TRAFFIC AVOID RADIUS MANNED",
+      "name": "NAV_TRAFF_A_HOR",
+      "shortDesc": "Set NAV TRAFFIC AVOID horizontal distance",
       "type": "Float",
       "units": "m"
     },
     {
       "category": "Standard",
-      "default": 10.0,
+      "default": 500.0,
       "group": "Mission",
-      "longDesc": "Defines the Radius where NAV TRAFFIC AVOID is Called For Unmanned Aviation",
       "max": 500.0,
       "min": 10.0,
-      "name": "NAV_TRAFF_A_RADU",
-      "shortDesc": "Set NAV TRAFFIC AVOID RADIUS",
+      "name": "NAV_TRAFF_A_VER",
+      "shortDesc": "Set NAV TRAFFIC AVOID vertical distance",
       "type": "Float",
       "units": "m"
+    },
+    {
+      "category": "Standard",
+      "default": 60,
+      "group": "Mission",
+      "longDesc": "Minimum acceptable time until collsion. Assumes constant speed over 3d distance.",
+      "max": 900000000,
+      "min": 1,
+      "name": "NAV_TRAFF_COLL_T",
+      "shortDesc": "Estimated time until collision",
+      "type": "Int32",
+      "units": "s"
     },
     {
       "category": "Standard",
@@ -32002,5 +32013,40 @@
       ]
     }
   ],
+  "translation": {
+    "items": {
+      "parameters": {
+        "list": {
+          "items": {
+            "bitmask": {
+              "list": {
+                "key": "index",
+                "translate": [
+                  "description"
+                ]
+              }
+            },
+            "values": {
+              "list": {
+                "key": "value",
+                "translate": [
+                  "description"
+                ]
+              }
+            }
+          },
+          "key": "name",
+          "translate": [
+            "shortDesc",
+            "longDesc"
+          ],
+          "translate-global": [
+            "category",
+            "group"
+          ]
+        }
+      }
+    }
+  },
   "version": 1
 }
