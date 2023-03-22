@@ -1,6 +1,6 @@
 # PX4 Vision Autonomy Development Kit
 
-The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-vision/) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/multicopter-kit/PX4-Vision) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
@@ -14,7 +14,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 
 ## Where to Buy
 
-- [PX4 Vision Dev Kit (Discontinued)](https://shop.holybro.com/px4-vision_p1225.html?)
+- [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
 - [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
 
 ## Px4 Vision Guide Content
@@ -24,7 +24,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 - [First-time Setup](#first-time-setup)
 - [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
 - [Development using the Kit](#development-using-the-kit)
-- [Px4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
+- [PX4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
 - [Other Development Resources](#other-development-resources)
 - [How to get Technical Support](#how-to-get-technical-support)
 
@@ -52,8 +52,7 @@ Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.h
 
 ![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
-
+What's inside the PX4 Vision V1 can be found here in the [PX4 v1.13 Docs here](https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
 
 The PX4 Vision DevKit contains following components:
 - Core Components:
@@ -340,7 +339,7 @@ Modification of PX4 code is not *needed* to meet most computer vision use cases.
 
 ## PX4 Vision Carrier Board Pinouts
 
-The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
+Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5). The carrier board pinouts and other information are in the [downloads section](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
 
 ## Other Development Resources
 
@@ -350,7 +349,6 @@ The Carrier board pinouts can be download from [Holybro's website](http://www.ho
 - [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
 - [PX4 Avoidance software/documentation](https://github.com/PX4/PX4-Avoidance)
 - [Path Planning Interface](../computer_vision/path_planning_interface.md)
-- [Px4 Vision Carrier Board Pinouts](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
 ## How to get Technical Support
 

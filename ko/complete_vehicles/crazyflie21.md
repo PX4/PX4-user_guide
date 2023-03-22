@@ -48,7 +48,7 @@ Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다.
 * [부저 데크](https://store.bitcraze.io/collections/decks/products/buzzer-deck) 배터리 부족 또는 충전 완료와 같은 시스템 이벤트에 대한 오디오 피드백입니다.
 * [브레이크 아웃 데크](https://store.bitcraze.io/collections/decks/products/breakout-deck) : 납땜없이 하드웨어를 쉽게 테스트 가능한 확장 보드입니다.
 * [SD 카드 데크](https://store.bitcraze.io/collections/decks/products/sd-card-deck) : 마이크로 SD 카드는 고속의 온보드 로깅에 사용됩니다
-* [Logitech 조이스틱](https://www.logitechg.com/en-ch/product/f310-gamepad)
+* [Logitech 조이스틱](https://support.logi.com/hc/en-us/articles/360024326793--Getting-Started-Gamepad-F310)
 
 ## Crazyflie 2.1 조립
 
@@ -139,7 +139,7 @@ PX4 개발환경 설정후 Crazyflie 2.1에 PX4를 설치합니다.
 [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py)를 사용하여 Crazyflie 2.1(PX4로 깜박임)과 QGroundControl간의 무선 MAVlink 통신 링크를 설정합니다. *Cfbridge*를 사용하여 QGroundControl에서 crazyradio PA와 통신할 수 있습니다. [C 기반 cfbridge](https://github.com/dennisss/cfbridge)는 현재 데이터 손실 문제가 있으므로 **cfbridge.py**를 사용하는 것이 좋습니다.
 :::
 
-- USB 라디오를 사용을 위한 udev 권한을 설정 여부를 확인하십시오. [여기](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions)에 나열된 단계를 따라 컴퓨터를 **재 부팅**하십시오.
+- USB 라디오를 사용을 위한 udev 권한을 설정 여부를 확인하십시오. To do this, follow the steps listed [here](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/usb_permissions/) and **restart** your computer.
 - USB를 통해 Crazyradio PA를 연결합니다.
 - 아래의 방법으로 [로컬 Python 가상 환경](https://virtualenv.pypa.io/en/latest/)을 빌드합니다.
     ```

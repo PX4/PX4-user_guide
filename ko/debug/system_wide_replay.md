@@ -10,7 +10,7 @@ Replay is useful to test the effect of different parameter values based on real 
 
 식별된 모든 주제는 최대 속도로 기록되어야 합니다([로깅](../dev_log/logging.md) 참조). `ekf2`의 경우 이는 이미 기록된 주제의 기본 집합에 해당됩니다.
 
-재생된 모든 주제에는 자동으로 생성된 필드 `timestamp`인 단일 절대 타임스탬프만 포함되어야 합니다. 타임스탬프가 더 있는 경우 기본 타임스탬프와 관련하여 상대적이어야 합니다. 예는 [sensor_combined.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg)를 참고하십시오. 그 이유는 아래에서 설명합니다.
+재생된 모든 주제에는 자동으로 생성된 필드 `timestamp`인 단일 절대 타임스탬프만 포함되어야 합니다. 타임스탬프가 더 있는 경우 기본 타임스탬프와 관련하여 상대적이어야 합니다. For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg). 그 이유는 아래에서 설명합니다.
 
 
 ## 사용법

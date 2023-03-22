@@ -30,7 +30,7 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 
 ## Where to Buy
 
-[Pixhawk 4 전원 모듈 (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
+[Pixhawk 4 전원 모듈 (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
 
 
 ## 배선
@@ -42,4 +42,4 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 
 ## 추가 정보
 
-[빠른 시작 가이드](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)
+[Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro)

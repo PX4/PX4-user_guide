@@ -1,6 +1,6 @@
 # PX4 Vision Autonomy 개발 키트
 
-[*PX4 Vision Autonomy 개발 키트*](http://www.holybro.com/product/px4-vision/)는 자율 비행 컴퓨터 비전 개발을 위한 견고하고 저렴한 키트입니다.
+The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/multicopter-kit/PX4-Vision) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
 
 ![개요](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
@@ -14,7 +14,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 ## Where to Buy
 
-- [PX4 Vision Dev Kit (Discontinued)](https://shop.holybro.com/px4-vision_p1225.html?)
+- [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
 - [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
 
 ## Px4 비전 가이드 콘텐츠
@@ -24,7 +24,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 - [최초 설정](#first-time-setup)
 - [드론 회피 비행](#fly-the-drone-with-avoidance)
 - [키트 개발](#development-using-the-kit)
-- [Px4 비전 캐리어 보드 핀아웃](#px4-vision-carrier-board-pinouts)
+- [PX4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
 - [기타 개발 리소스](#other-development-resources)
 - [기술 지원 방법](#how-to-get-technical-support)
 
@@ -52,8 +52,7 @@ Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.h
 
 ![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
 
-What's inside the PX4 Vision V1 can be found here: [Top View](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg), [Side View ](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg), [Exploded View](../../assets/hardware/px4_vision_devkit/px4_exploded_view.png)
-
+What's inside the PX4 Vision V1 can be found here in the [PX4 v1.13 Docs here](https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
 
 PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - 핵심 구성 요소:
@@ -340,7 +339,7 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 
 ## PX4 Vision Carrier Board Pinouts
 
-캐리어 보드 핀아웃은 [Holybro 웹 사이트](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)에서 다운로드할 수 있습니다.
+Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5). The carrier board pinouts and other information are in the [downloads section](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
 
 ## 기타 개발 리소스
 
@@ -350,7 +349,6 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 - [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
 - [PX4 회피 소프트웨어 / 문서](https://github.com/PX4/PX4-Avoidance)
 - [경로 계획 인터페이스](../computer_vision/path_planning_interface.md)
-- [Px4 비전 캐리어 보드 핀아웃](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
 ## 기술 지원 방법
 

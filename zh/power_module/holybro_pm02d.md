@@ -1,6 +1,6 @@
 # Holybro PM02D Power Module
 
-This digital power module provides regulated power to flight controller and power distribution board, and sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.
+The Holybro PM02D digital power module provides regulated power to flight controller and power distribution board, and sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.
 
 The power module is connected using the I2C protocol. It is designed for flight controllers based on the Pixhawk FMUv5X and FMUv6X open standard, including the [Pixhawk 5X](../flight_controller/pixhawk5x.md).
 
@@ -28,7 +28,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 ## Where to Buy
 
-[Order from Holybro Store](https://shop.holybro.com/pm02d-power-module_p1285.html)
+[Order from Holybro Store](https://holybro.com/products/pm02d-power-module)
 
 ## Wiring/Connections
 

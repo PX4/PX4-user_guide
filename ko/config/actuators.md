@@ -42,11 +42,7 @@ _액추에이터 설정_ 보기는 기체의 특정 지오메트리를 사용자
 
 #### 모터 지오메트리: 멀티콥터
 
-아래 이미지는 고급 설정이 있거나 없는 멀티콥터 프레임의 지오메트리 설정을 나타냅니다.
-
-:::note
-특히 이것은 [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) 뮤티콥터의 모터 지오메트리입니다. 다른 멀티콥터 프레임도 유사하게 구성됩니다.
-:::
+The image below shows the geometry setup for a quadrotor multicopter frame with and without advanced settings.
 
 ![지오메트리 멀티콥터(QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 

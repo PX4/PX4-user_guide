@@ -43,11 +43,7 @@ Core geometry concepts and the configuration for a number of different frames ar
 
 #### Motor Geometry: Multicopter
 
-The image below shows the geometry setup for a multicopter frame with and without advanced settings.
-
-:::note
-Specifically this is the motor geometry for a [Quadrotor Wide](../airframes/airframe_reference.md#quadrotor-wide) muticopter. Other multicopters frames are configured similarly.
-:::
+The image below shows the geometry setup for a quadrotor multicopter frame with and without advanced settings.
 
 ![Geometry MC (QGC)](../../assets/config/actuators/qgc_actuators_mc_geometry_marked.png)
 

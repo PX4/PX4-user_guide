@@ -16,7 +16,7 @@ The following devices are supported:
 
 :::note
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the CAN or UART2 port.
-- 지원되는 장치는 [지원되는 GPS 및 나침반](../gps_compass/README.md#supported-gps-and-or-compass)을 참고하십시오.
+- Supported devices are also listed in [GPS/Compass > Supported GPS and/or Compass](../gps_compass/README.md#supported-gnss-and-or-compass).
 :::
 
 ## 설정
