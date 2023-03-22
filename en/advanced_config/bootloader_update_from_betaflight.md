@@ -1,4 +1,4 @@
-# Bootloader Flashing onto Betaflight Systems
+ Bootloader Flashing onto Betaflight Systems
 
 This page documents how to flash the PX4 bootloader onto boards preflashed with Betaflight (e.g. [OmnibusF4 SD](../flight_controller/omnibus_f4_sd.md) or [Kakute F7](../flight_controller/kakutef7.md)).
 
@@ -69,7 +69,7 @@ dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
 Reboot the flight controller and it let it boot without holding the boot button.
 
 :::note
-The Holybro Kakute H7 v2 and mini flight controllers may require running an additional command to erase flash params. This additional step may fix problems with parameter saving. The command may generate an error which can be ignored. Once completed, continue to flash the bootlader as previously mentioned.
+The Holybro Kakute H7 v2 and mini flight controllers may require running an additional command to erase flash params. This additional step may fix problems with parameter saving. The command may generate an error which can be ignored. Once completed, continue to flash the bootloader as previously mentioned.
 
 ```
 dfu-util -a 0 --dfuse-address:force:mass-erase:leave 0x08000000 -D  build/<target>/<target>.bin
