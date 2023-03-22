@@ -4,7 +4,7 @@
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://sky-drones.com/) for hardware support or compliance issues.
 :::
 
-[AIRLink](https://sky-drones.com/airlink>) stands for Artificial Intelligence & Remote Link. The unit includes a cutting-edge drone autopilot, AI mission computer and LTE/5Gs connectivity unit. AIRLink helps to reduce the time to market for new drone manufacturers from years and months down to weeks.
+[AIRLink](https://sky-drones.com/airlink) stands for Artificial Intelligence & Remote Link. The unit includes a cutting-edge drone autopilot, AI mission computer and LTE/5Gs connectivity unit. AIRLink helps to reduce the time to market for new drone manufacturers from years and months down to weeks.
 
 ![AIRLink](../../assets/flight_controller/airlink/airlink-main.jpg)
 
