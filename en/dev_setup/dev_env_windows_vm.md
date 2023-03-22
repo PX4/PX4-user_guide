@@ -24,7 +24,7 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
 
 1. Download [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
 1. Install it on your Windows system
-1. Download the desired version of [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop). 
+1. Download the desired version of [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop).
    (see [Linux Instructions Page](../dev_setup/dev_env_linux.md) for recommended Ubuntu version).
 1. Open *VMWare Player*.
 1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**

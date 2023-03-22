@@ -1,6 +1,6 @@
 # Airframes
 
-PX4 has a flexible [mixing system](../concept/mixing.md) that allows it to support almost any imaginable vehicle type/frame through a single codebase:
+PX4 has a flexible [control allocation system](../concept/control_allocation.md) that allows it to support almost any imaginable vehicle type/frame through a single codebase:
 
 * **Planes:** Normal planes, flying wings, inverted V-tail planes, etc.
 * **Multicopters:** Helicopters, tricopters, quadcopters, hexarotors, dodecarotors in many different geometries.
