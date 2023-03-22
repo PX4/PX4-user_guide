@@ -217,7 +217,7 @@ param set-default VT_B_TRANS_DUR 12
 param set-default VT_ELEV_MC_LOCK 0
 param set-default VT_FWD_THRUST_SC 1.2
 param set-default VT_F_TR_OL_TM 8
-param set-default VT_PSHER_RMP_DT 2
+param set-default VT_PSHER_SLEW 0.5
 param set-default VT_TRANS_MIN_TM 4
 param set-default VT_TYPE 2
 ```
