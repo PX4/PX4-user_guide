@@ -22,7 +22,6 @@ The boards in this category are:
 - [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
 - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
-- [Drotek DroPix](../flight_controller/dropix.md) (FMUv2)
 - [Holybro Kakute H7v2](../flight_controller/kakuteh7v2.md)
 - [Holybro Kakute H7mini](../flight_controller/kakuteh7mini.md)
 - [Holybro Kakute F7](../flight_controller/kakutef7.md)
