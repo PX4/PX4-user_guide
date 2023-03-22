@@ -45,13 +45,17 @@ Set the trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#F
 
 ### 권장 매개 변수(선택 사항)
 
-실속 위험이 실제적이므로 'QuadChute'([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT))로 불리는  '고정익 최소 고도'를 설정하는 것이 바람직합니다. 그러면, VTOL이 멀티콥터 모드로 다시 전환되고 특정 고도 아래에서 [복귀 모드](../flight_modes/return.md)가 시작됩니다. 이 값을 15 미터 또는 20 미터로 설정하여 멀티콥터가 실속에서 회복할 시간을 제공할 수 있습니다.
+Because the risk of stalling is real, it is recommended to set the 'fixed wing minimum altitude' aka 'quad-chute' threshold ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)).
+
+그러면, VTOL이 멀티콥터 모드로 다시 전환되고 특정 고도 아래에서 [복귀 모드](../flight_modes/return.md)가 시작됩니다. 이 값을 15 미터 또는 20 미터로 설정하여 멀티콥터가 실속에서 회복할 시간을 제공할 수 있습니다.
 
 이 모드에 대해 테스트된 위치 추정기는 EKF2입니다. [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP)을 변경하여 설정합니다.
 
 ## 대기속도 센서가 없는 첫 비행
 
-값은 위치 제어 비행에 적용됩니다 (예: [유지 모드](../flight_modes/hold.md) 또는 [임무 모드](../flight_modes/mission.md)). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the QuadChute threshold. 기준 비행과 같이, 이 비행은 풍속이 매우 작은 조건에서 수행되어야 합니다. 첫 비행의 경우 다음 사항들을 권장합니다.
+값은 위치 제어 비행에 적용됩니다 (예: [유지 모드](../flight_modes/hold.md) 또는 [임무 모드](../flight_modes/mission.md)). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
+
+기준 비행과 같이, 이 비행은 풍속이 매우 작은 조건에서 수행되어야 합니다. 첫 비행의 경우 다음 사항들을 권장합니다.
 
 - 같은 고도 유지
 - 웨이포인트를 충분히 넓고 급회전이 필요하지 않도록 설정하십시오.

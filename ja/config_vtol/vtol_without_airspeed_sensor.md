@@ -45,13 +45,17 @@ Set the minimum front transition time ([VT_TRANS_MIN_TM](../advanced_config/para
 
 ### Optional Recommended Parameters
 
-Because the risk of stalling is real, it is recommended to set the 'fixed wing minimum altitude' aka 'QuadChute' ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)). This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
+Because the risk of stalling is real, it is recommended to set the 'fixed wing minimum altitude' aka 'quad-chute' threshold ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)).
+
+This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
 
 The position estimator tested for this mode is EKF2, you can set this by changing the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
 
 ## First Flight Without Airspeed Sensor
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the QuadChute threshold. Like for the reference flight, this flight should be performed in very low wind conditions. For the first flight the following is recommended:
+The values apply to a position controlled flight (like [Hold mode](../flight_modes/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefore recommended that a mission is configured at a safe altitude, approximately 10m above the quad-chute threshold.
+
+Like for the reference flight, this flight should be performed in very low wind conditions. For the first flight the following is recommended:
 
 - Stay at one altitude
 - Set the waypoints wide enough and in such a fashion that no sharp turns are required

@@ -214,22 +214,26 @@ As these are not strictly speaking "failsafes" they are documented in [Mission M
 | ------------------------------------------------------------------------------ | ----------------------------------------- |
 | [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | 비상 안전 장치를 설정합니다 : 비활성화, 경고, 귀환 모드, 착륙 모드. |
 
-### QuadChute 안전 장치
+### Quad-chute Failsafe
 
-VTOL이 고정익 모드에서 더 이상 비행할 수 없는 경우의 안전 장치입니다. 푸셔 모터, 속도 센서 또는 제어 표면이 고장났을 가능성이 높습니다. 동작시 기체는 즉시 멀티콥터 모드로 전환됩니다. 차량이 [미션 모드](../flight_modes/mission.md)인 경우 안전 장치 [복귀 모드](../flight_modes/return.md)로 전환합니다.
+Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps because a pusher motor, airspeed sensor, or control surface, failed. If triggered, the vehicle will immediately switch to Hold mode and execute action defined in parameter [COM_QC_ACT](#COM_QC_ACT) .
 
 :::note
-쿼드슈트는 `param2`가 `1`로 설정된 MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) 메시지를 전송하여 실행할 수 있습니다.
+The quad-chute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
 :::
 
-아래의 표에서 쿼드슈트가 작동하는 시기를 제어하는 매개변수를 설명합니다.
+The parameters that control when the quad-chute will trigger are listed in the table below.
 
-| 매개변수                                                                       | 설명                                                                                  |
-| -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | 고정익 비행에 대한 고도 오류 음수의 최대 절대값 고도가 설정치 이하가 되면, 기체는 멀티콥터 모드로 다시 전환되고 원위치복귀 안전장치가 작동합니다. |
-| [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | 고정익 비행 최소 고도. 고정익 비행에서 고도가 이 값 아래로 떨어지면 차량은 멀티콥터 모드로 다시 전환되고 원위치 복귀 안전장치가 작동합니다.    |
-| [VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P)       | QuadChute가 작동하기 전의 최대 피치 각도. 이 이상에서 차량은 멀티콥터 모드로 다시 전환되고 원위치 복귀 안전장치가 작동합니다.        |
-| [VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R)       | QuadChute가 맞물리기 전의 최대 롤 각도. 이 이상에서 차량은 멀티콥터 모드로 다시 전환되고 원위치 복귀 안전장치가 작동합니다.         |
+| 매개변수                                                                                                         | 설명                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_QC_ACT"></a>[COM_QC_ACT](../advanced_config/parameter_reference.md#COM_QC_ACT)               | Defines automatic action taken after a quad-chute. Can be set to: Warning only, Return, Land, Hold.                                                                                                                                                                                                                                                                                    |
+| <a id="VT_FW_QC_HMAX"></a>[VT_FW_QC_HMAX](../advanced_config/parameter_reference.md#VT_FW_QC_HMAX)         | Maximum height above the ground (if available, otherwise above home if available, otherwise above the local origin) where triggering a quad-chute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.                                                                                                                 |
+| <a id="VT_QC_HR_ERROR_I"></a>[VT_QC_HR_ERROR_I](../advanced_config/parameter_reference.md#VT_QC_HR_ERROR_I) | Quad-chute uncommanded descent threshold. This is the threshold for integrated height rate error to trigger a uncommanded-descent quad-chute. Only checked in altitude-controlled fixed-wing flight. Additional conditions that have to be met for uncommanded descent detection are a positive (climbing) height rate setpoint and a negative (sinking) current height rate estimate. |
+| <a id="VT_QC_T_ALT_LOSS"></a>[VT_QC_T_ALT_LOSS](../advanced_config/parameter_reference.md#VT_QC_T_ALT_LOSS) | Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing                                                                                                                                                                                                                                                                                                 |
+ flight. Quad-chute triggers the current altitude is more than this value below the altitude at the beginning of the transition.
+<a id="VT_FW_MIN_ALT"></a>[VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | Minimum altitude above Home for fixed-wing flight. When the altitude drops below this value in fixed-wing flight the vehicle a quad-chute is triggered.
+<a id="VT_FW_QC_R"></a>[VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R) | Absolute roll threshold for quad-chute triggering in FW mode. 
+<a id="VT_FW_QC_P"></a>[VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P) | Absolute pitch threshold for quad-chute triggering in FW mode.
 
 
 ## 고장 감지기
