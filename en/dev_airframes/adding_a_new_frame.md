@@ -161,7 +161,7 @@ param set-default BAT1_N_CELLS 6
 param set-default FW_AIRSPD_MAX 30
 param set-default FW_AIRSPD_MIN 19
 param set-default FW_AIRSPD_TRIM 23
-param set-default FW_L1_R_SLEW_MAX 40
+param set-default FW_PN_R_SLEW_MAX 40
 param set-default FW_PSP_OFF 3
 param set-default FW_P_LIM_MAX 18
 param set-default FW_P_LIM_MIN -25
@@ -222,7 +222,7 @@ param set-default VT_TRANS_MIN_TM 4
 param set-default VT_TYPE 2
 ```
 
-Last of all, the file defines the control allocation parameters for the geometry and the parameters that set which outputs map to different motors and acutators.
+Last of all, the file defines the control allocation parameters for the geometry and the parameters that set which outputs map to different motors and servos.
 
 ```bash
 param set-default CA_AIRFRAME 2
