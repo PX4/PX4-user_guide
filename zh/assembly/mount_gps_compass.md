@@ -10,7 +10,7 @@ The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
 指南针可以安装在任何 [MAV_SENSOR_OR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION) 定义的标准的 MAVLink 方向中。 The orientation follows the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation).
 
-如果您正在使用普通的 [指南针校准](../config/compass.md) 进程（启用了 [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO)参数)，方向应该会被自动检测。 否则您可以在 [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) 中为最多三个指南针直接选择适当的值。
+If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) enabled), the orientation should be detected automatically. 否则您可以在 [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) 中为最多三个指南针直接选择适当的值。
 
 :::warning
 You must mount the compass in a supported orientation!
