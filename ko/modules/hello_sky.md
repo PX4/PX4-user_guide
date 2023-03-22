@@ -271,7 +271,7 @@ PX4 하드웨어 추상화의 이점이 여기에 있습니다!
 센서 드라이버와 어떤 식으로든 상호 작용할 필요가 없으며, 보드 또는 센서가 업데이트된 경우 앱을 업데이트할 필요도 없습니다.
 :::
 
-애플리케이션 간의 개별 메시지 채널을 [주제](../middleware/uorb.md)라고 합니다. 이 튜토리얼에서는 전체 시스템의 동기화된 센서 데이터를 보유하는 [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) 주제를 예로 설명합니다.
+애플리케이션 간의 개별 메시지 채널을 [주제](../middleware/uorb.md)라고 합니다. For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 주제 구독은 간단합니다.
 
