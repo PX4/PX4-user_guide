@@ -27,7 +27,7 @@ The main difference between the modules is that the M8N allows concurrent recept
 
 ## Where to Buy
 
-* [Holybro](https://shop.holybro.com/c/gps-systems_0428)
+* [Holybro](https://holybro.com/collections/gps)
 
 Note that there are variants for both M8N and M9N and also three different connectors.
 
