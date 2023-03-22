@@ -36,3 +36,5 @@ The boards in this category are:
 - [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (www.nxp.com)
 - [Sky-Drones AIRLink](../flight_controller/airlink.md)
 - [SPRacing SPRacingH7EXTREME](../flight_controller/spracingh7extreme.md)
+- [ThePeach FCC-K1](../flight_controller/thepeach_k1.md)
+- [ThePeach FCC-R1](../flight_controller/thepeach_r1.md)
