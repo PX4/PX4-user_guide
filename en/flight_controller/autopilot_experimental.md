@@ -4,14 +4,6 @@
 For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-## Community Supported Autopilots
-
-- [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
-- [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
-
-Boards in this category are fully supported, but are not following industry standards and might have sole-source supply chain risks.
-See the [list of Pixhawk standard boards](../flight_controller/autopilot_pixhawk_standard.md) for a list of products that are officially supported by PX4 and are following industry standards.
-
 ## Experimental Autopilots
 
 This category is for experimental autopilots (and autopilot "platforms") that are *not supported* by either the PX4 project team or by a manufacturer.
