@@ -82,8 +82,6 @@ The button can be released after the board is powered up.
 
 ##### dfu-util
 
-To flash the bootloader onto the flight controller:
-
 :::note
 The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
@@ -94,6 +92,8 @@ dfu-util -a 0 --dfuse-address:force:mass-erase:leave 0x08000000 -D  build/<targe
 The command may generate an error which can be ignored.
 Once completed, enter DFU mode again to complete the regular flashing.
 :::
+
+To flash the bootloader onto the flight controller:
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
