@@ -204,39 +204,44 @@ However this is not recommended because the default configuration is optimised f
 
 ## ROS 2 Setup Example
 
-Prerequisites:
-
-- You have a supported autopilot hardware with [XRCE-DDS feature](../middleware/xrce_dds.md) enabled firmware on it.
+:::note Prerequisites:
+- You have a supported autopilot hardware running PX4 firmware that includes [XRCE-DDS](../middleware/xrce_dds.md) middleware.
+  Note that PX4 v1.14 and later include the required [microdds-client](../modules/modules_system.md#microdds-client) module by default.
 - [ROS 2](../ros/ros2_comm.md) has been set up correctly on the companion computer.
 - You have followed the Ethernet network and port setup as discussed at the top of this page. 
+:::
 
-In this example it is assumed that you have followed the example to set your IP addresses.
+To set up ROS 2:
 
-1. Connect your Flight controller via Ethernet.
-2. [Start the micro XRCE-DDS client](../middleware/xrce_dds.md#starting-the-client), either manually or customizing the system startup script taking care of using the right IP address and UDP port adopted by the agent.
-3. Then we need to [run the agent](../middleware/xrce_dds.md#starting-the-agent) by typing the below commands in a new terminal on either our companion computer.
-   This will start the agent listening on UDP port `8888`.
+1. Connect your flight controller and companion computer via Ethernet.
+2. [Start the micro XRCE-DDS client on PX4](../middleware/xrce_dds.md#starting-the-client), either manually or by customizing the system startup script.
+   Note that you must use the IP address of the companion computer and the UDP port on which the agent is listening (the example configuration above sets the companion IP address to `192.168.0.1`, and the agent UDP port is set to `8888` in the next step).
+3. [Start the XRCE-DDS agent on the companion computer](../middleware/xrce_dds.md#starting-the-agent).
+   For example, enter the following command in a terminal to start the agent listening on UDP port `8888`.
+
    ```
    MicroXRCEAgent udp4 -p 8888
    ```
-4. In a new terminal you can run a [listener node](../ros/ros2_comm.md#running-the-example) to confirm the connection is established:
+4. Run a [listener node](../ros/ros2_comm.md#running-the-example) in a new terminal to confirm the connection is established:
+
    ```
    source ~/ws_sensor_combined/install/setup.bash
    ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
-If everything goes ok and there is an established connection you can see the output below in your terminal:
-```
-RECEIVED SENSOR COMBINED DATA
-=============================
-ts: 855801598
-gyro_rad[0]: -0.00339938
-gyro_rad[1]: 0.00440091
-gyro_rad[2]: 0.00513893
-gyro_integral_dt: 4997
-accelerometer_timestamp_relative: 0
-accelerometer_m_s2[0]: -0.0324082
-accelerometer_m_s2[1]: 0.0392213
-accelerometer_m_s2[2]: -9.77914
-accelerometer_integral_dt: 4997
-```
+   If everything is setup correctly, the following output should be displayed in the terminal:
+
+   ```
+   RECEIVED SENSOR COMBINED DATA
+   =============================
+   ts: 855801598
+   gyro_rad[0]: -0.00339938
+   gyro_rad[1]: 0.00440091
+   gyro_rad[2]: 0.00513893
+   gyro_integral_dt: 4997
+   accelerometer_timestamp_relative: 0
+   accelerometer_m_s2[0]: -0.0324082
+   accelerometer_m_s2[1]: 0.0392213
+   accelerometer_m_s2[2]: -9.77914
+   accelerometer_integral_dt: 4997
+   ```
