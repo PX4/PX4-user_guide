@@ -24,6 +24,17 @@ You should now be able to install PX4 firmware on the board.
 
 #### Download Bootloader Source
 
+Download and build the [source](https://github.com/PX4/PX4-Autopilot) via:
+```
+git clone --recursive  https://github.com/PX4/PX4-Autopilot.git
+cd PX4-Autopilot
+make <target> # For example: holybro_kakuteh7mini_bootloader
+```
+
+:::note
+If your flight controller does not have a bootloader target in the source, check the separate [Bootloader](https://github.com/PX4/Bootloader) repository
+:::
+
 Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
 ```
 git clone --recursive  https://github.com/PX4/Bootloader.git
@@ -55,6 +66,14 @@ dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
 ```
 
 Reboot the flight controller and it let it boot without holding the boot button.
+
+:::note
+The Holybro Kakute H7 v2 and mini flight controllers may require running an additional command to erase flash params. This additional step may fix problems with parameter saving. The command may generate an error which can be ignored. Once completed, continue to flash the bootlader as previously mentioned.
+
+```
+dfu-util -a 0 --dfuse-address:force:mass-erase:leave 0x08000000 -D  build/<target>/<target>.bin
+```
+:::
 
 ##### dfuse
 
