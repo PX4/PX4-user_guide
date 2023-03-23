@@ -76,5 +76,5 @@ The following topics explain how to set up companion computers for specific flig
 ## Additional Information
 
 - [Companion Computer Peripherals](../companion_computer/companion_computer_peripherals.md)
-- [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.html#fc-and-companion-computer)
+- [PX4 System Architecture > FC and Companion Computer](../concept/px4_systems_architecture.md#fc-and-companion-computer)
 
