@@ -12,10 +12,10 @@ PX4支持多种类型数传电台：
 * [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
   * [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
   * [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
-* XBee Serial Telemetry Radio
-  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 * CUAV Serial Telemetry Radio
   * [CUAV P8 Telemetry Radio](../telemetry/cuav_p8_radio.md)
+* XBee Serial Telemetry Radio
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md) (Discontinued)
 
 PX4 协议兼容 [SiK 电台](../telemetry/sik_radio.md)，并且可以即插即用（尽管你可能需要使用适当的连接器）。
 
