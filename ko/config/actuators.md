@@ -63,7 +63,7 @@ The image below shows the geometry setup for a quadrotor multicopter frame with 
 
 #### 모터 지오메트리: VTOL Quadrotor Tailsitter
 
-[VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)의 모터 구조는 아래에 나와 있습니다(다른 Tailsitter VTOL 차량을 구성하는 방법도 유사함).
+The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
 
 모터는 [멀티콥터 지오메트리](#motor-geometry-multicopter)와 동일한 구성 필드를 갖습니다.
 
