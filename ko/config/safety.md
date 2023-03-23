@@ -63,19 +63,19 @@ The RC Loss failsafe may be triggered if the RC transmitter link is lost in manu
 Generally you will only want to set the _Failsafe_ action:
 
 - The _RC Lost Timeout_ is the time after data stops updating before the link is considered lost. This must be kept short because the vehicle will continue to fly using the old RC data until the timeout triggers.
-- You may need to modify the [COM_RCL_ACT_T](#COM_RCL_ACT_T) parameter. This is a delay after the link is lost and before the failsafe action is triggered in which the vehicle waits in hold mode for the RC system to reconnect. This might be longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. It can be to zero so that the failsafe triggers immediately.
+- You may need to modify the [COM_FAIL_ACT_T](#COM_FAIL_ACT_T) parameter. This is a delay after the link is lost and before the failsafe action is triggered in which the vehicle waits in hold mode for the RC system to reconnect. This might be longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. It can be to zero so that the failsafe triggers immediately.
 
 :::tip PX4는 여러 임의의 다각형 및 원형 포함 및 제외 영역 ([Flying > GeoFence](../flying/geofence.md))이 있는 GeoFence를 지원합니다.
 :::
 
 Additional (and underlying) parameter settings are shown below.
 
-| 설정                                              | 매개변수                                                                         | 설명                                                                                                                                   |
-| ----------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| <a id="COM_RC_LOSS_T"></a> RC 연결불량 시간 초과          | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)   | Time after RC stops updating supplied data that the RC link is considered lost.                                                      |
-| <a id="COM_RCL_ACT_T"></a>RC Loss Action Timeout | [COM_RCL_ACT_T](../advanced_config/parameter_reference.md#COM_RCL_ACT_T)   | Timeout after RC link loss waiting to recover RC before the failsafe action is triggered. In this stage the vehicle is in hold mode. |
-| <a id="NAV_RCL_ACT"></a>안전장치 동작                | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)       | Disabled, Loiter, Return, Land, Disarm, Terminate.                                                                                   |
-| <a id="COM_RCL_EXCEPT"></a>RC 손실 예외              | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC 손실이 무시되는 모드를 설정합니다: 미션(기본값), 정지, 오프보드.                                                                                            |
+| 매개변수                                                                                                   | 설정                      | 설명                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <a id="COM_RC_LOSS_T"></a>[COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T)    | RC 연결불량 시간 초과           | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Time after RC stops updating supplied data that the RC link is considered lost. |
+| <a id="COM_FAIL_ACT_T"></a>[COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T)  | Failsafe Reaction Delay | Delay in seconds between failsafe condition triggered and failsafe reaction (RTL, Land, Hold).                                                               |
+| <a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)        | 안전장치 동작                 | Disabled, Loiter, Return, Land, Disarm, Terminate.                                                                                                           |
+| <a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC 손실 예외                | RC 손실이 무시되는 모드를 설정합니다: 미션(기본값), 정지, 오프보드.                                                                                                                    |
 
 ### 데이터 연결불량 안전장치
 
@@ -195,7 +195,6 @@ Parameters that only affect Fixed-wing vehicles:
 | 매개변수                                                                         | 설명                                                                 |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | 오프 보드 단락이후 안전장치 동작 지연 여부 설정.                                       |
-| [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | RC를 사용할 수 없는 경우 비상 안전조치 : 착륙 모드, 대기 모드, 귀환 모드.                     |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | RC를 사용할 수있는 경우 비상 안전조치 : 위치 모드, 고도 모드, 수동 모드, 귀환 모드, 착륙 모드, 대기 모드. |
 
 ### Mission Feasibility Checks
