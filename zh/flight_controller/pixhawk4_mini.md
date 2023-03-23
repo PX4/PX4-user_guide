@@ -1,6 +1,6 @@
-# Pixhawk 4 Mini
+# Holybro Pixhawk 4 Mini (Discontinued)
 
-*Pixhawk<sup>&reg;</sup> 4 Mini* 自动驾驶仪是为想办法利用 *Pixhawk 4* 的力量，但是使用的是较小的无人机的工程师和爱好者而设计的。 *Pixhawk 4 Mini* 使用 *Pixhawk 4* 相同的 FMU 处理器与储存资源，同时砍掉了通常不会使用的接口。 这使得 *Pixhawk 4 Mini* 足够小，可以装到 250mm 的穿越机上。
+*Pixhawk<sup>&reg;</sup> 4 Mini* 自动驾驶仪是为想办法利用 *Pixhawk 4* 的力量，但是使用的是较小的无人机的工程师和爱好者而设计的。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 这使得 *Pixhawk 4 Mini* 足够小，可以装到 250mm 的穿越机上。
 
 The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hobbyists who are looking to tap into the power of *Pixhawk 4* but are working with smaller drones. *Pixhawk 4 Mini* takes the FMU processor and memory resources from the *Pixhawk 4* while eliminating interfaces that are normally unused. This allows the *Pixhawk 4 Mini* to be small enough to fit in a 250mm racer drone.
 
@@ -48,7 +48,7 @@ Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Shee
 
 ## Where to Buy
 
-[在此下载](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf) *Pixhawk 4 Mini* 的 pinout。
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk4-mini).
 
 ## 接口
 
@@ -68,6 +68,7 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/PX4-user_gu
 ![Pixhawk 4 Mini Dimensions](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
 
 ## 额定电压
+
 *Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
 :::note
@@ -126,7 +127,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 ## 外部设备
 
-* [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [数字空速传感器](hhttps://holybro.com/products/digital-air-speed-sensor)
 * [数传电台模块](../telemetry/README.md)
 * [测距仪/距离传感器](../sensor/rangefinders.md)
 
