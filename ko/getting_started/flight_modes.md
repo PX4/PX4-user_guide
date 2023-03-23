@@ -357,7 +357,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
-[착륙 모드](../flight_modes/land.md)는 이륙 위치에 기체가 착륙합니다. 고정익의 착륙 원리와 설정 매개변수는 [고정익 착륙](../flying/fixed_wing_landing.md)을 참고하십시오.
+[착륙 모드](../flight_modes/land.md)는 이륙 위치에 기체가 착륙합니다. Fixed wing landing logic and parameters are explained in the topic: [Missin > Fixed Wing Mission Landing](../flight_modes/mission.md#fixed-wing-mission-landing).
 
 <a id="offboard_fw"></a>
 

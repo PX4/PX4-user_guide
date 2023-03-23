@@ -160,7 +160,7 @@ However the *default configuration* is tailored to suit the vehicle type, as des
 - 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
 - 否则直接飞到起始位置，并在半径上方圆环 [NAV_LOITER_RAD](#NAV_LOITER_RAD)。
 
-如果未跟随任务降落，且[ RTL_LAND_DELAY ](#RTL_LAND_DELAY)设置为 -1，则无人机将按照主题[着陆（固定翼）](../flying/fixed_wing_landing.md)中所述降落。
+If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Land Mode > Fixed-wing landing](../flight_modes/land.md#fixed-wing-fw).
 
 固定翼 [安全返回高度](#return_altitude) 仅取决于 [RTL_RETURN_ALT](#RTL_RETURN_ALT) (未使用 [RTL_CONE_ANG](#RTL_CONE_ANG) 定义的圆锥)
 
