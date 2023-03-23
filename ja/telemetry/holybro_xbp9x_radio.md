@@ -1,4 +1,4 @@
-# Holybro XBP9X Telemetry Radio
+# Holybro XBP9X Telemetry Radio (Discontinued)
 
 Holybro XBP9X radio can be configured easily using Digi’s free XCTU software or via Digi’s simplified AT or API command sets. The radio provides secure, reliable delivery of critical data between devices with 256-bit AES encryption.
 
@@ -18,9 +18,8 @@ With RF line-of-sight ranging up to 65 miles/100km and strong interference block
 - Fully certified for use in unlicensed 900 MHz band
 
 ## Where to Buy
-* [Holybro XBP9X Radio](https://shop.holybro.com/xbp9x-radio_p1268.html)
 
-
+Discontinued (no longer available at Holybro).
 
 ## Specifications
 
