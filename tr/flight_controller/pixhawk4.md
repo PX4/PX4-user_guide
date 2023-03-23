@@ -1,6 +1,6 @@
-# Pixhawk 4
+# Holybro Pixhawk 4 (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
@@ -51,7 +51,7 @@ Additional information can be found in the [Pixhawk 4 Technical Data Sheet](http
 
 ## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
+Order from [Holybro](https://holybro.com/products/pixhawk-4).
 
 
 ## Connectors
