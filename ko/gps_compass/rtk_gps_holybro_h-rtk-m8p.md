@@ -10,8 +10,8 @@ RTK를 사용하면 PX4는 일반 GPS에서 제공하는 것 보다 훨씬 더 �
 
 ## Where to Buy
 
-* [H-RTK M8P (Holybro 웹사이트)](https://shop.holybro.com/h-rtk-m8p_p1221.html)
-* [H-RTK 액서사리 (Holybro 웹사이트)](https://shop.holybro.com/c/h-rtk_0512)
+* [H-RTK M8P (GPS RTK Mounts)](https://holybro.com/products/gps-rtk-mounts)
+
 
 ## 설정
 
@@ -36,6 +36,6 @@ _QGroundControl_을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그�
 
 ## GPS 소품
 
-[H-RTK 소품 (Holybro 웹사이트)](https://shop.holybro.com/c/h-rtk_0512)
+[GPS Accessories (Holybro Website)](https://holybro.com/collections/gps-accessories)
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk_mount_3.png)
