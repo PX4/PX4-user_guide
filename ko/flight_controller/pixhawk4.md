@@ -1,6 +1,6 @@
-# Pixhawk 4
+# Holybro Pixhawk 4 (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 4*<sup>&reg;</sup>는 Holybro<sup>&reg;</sup>와 PX4 팀이 협력하여 설계 및 제작한 고급 자동조종장치입니다. PX4 v1.7 이상의 버전 실행에 최적화되어 있으며, 학계와 업계 개발자에게 적합합니다.
@@ -51,7 +51,7 @@
 
 ## Where to Buy
 
-[Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html)에서 주문 가능합니다.
+Order from [Holybro](https://holybro.com/products/pixhawk-4).
 
 
 ## 커넥터
