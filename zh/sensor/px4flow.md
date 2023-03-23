@@ -19,7 +19,7 @@ PX4FLOW 是一款 [光流](../sensor/optical_flow.md) 智能相机。 它的自�
 通过以下途径购买模块：
 
 * [Unmanned Tech](http://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (UK)
-* [Holybro](https://shop.holybro.com/px4flow-kit_p1035.html) (Germany & EU)
+* [Holybro](https://holybro.com/products/px4flow) (Germany & EU)
 * [Drotek](https://store-drotek.com/798-optical-flow-kit-px4flow.html)
 
 
