@@ -193,6 +193,7 @@
       * [雷迅 V5+ (FMUv5)](flight_controller/cuav_v5_plus.md)
       * [雷迅 V5 nano (FMUv5)](flight_controller/cuav_v5_nano.md)
       * [雷迅 Pixhack v3 (FMUv3)](flight_controller/pixhack_v3.md)
+      * [CubePilot Cube Orange+ (CubePilot)](flight_controller/cubepilot_cube_orangeplus.md)
       * [CubePilot Cube Orange (CubePilot)](flight_controller/cubepilot_cube_orange.md)
       * [CubePilot Cube Yellow (CubePilot)](flight_controller/cubepilot_cube_yellow.md)
       * [Holybro Kakute H7v2](flight_controller/kakuteh7v2.md)
