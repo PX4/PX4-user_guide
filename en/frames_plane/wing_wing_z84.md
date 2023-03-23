@@ -75,13 +75,13 @@ The images below give a rough idea about the assembly process, which is simple a
 
 ### Airframe Configuration
 
-Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Configuration](../en/config/airframe.md): 
+Select **Flying Wing > Generic Flying Wing** in the QGroundControl [Airframe Configuration](../config/airframe.md): 
 
 ![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png) 
 
 ### Actuator Mapping
 
-Set up the [Actuator Configuration](../en/config/actuators.md) to match the wiring for the ailerons and throttle as [indicated above](#wiring).
+Set up the [Actuator Configuration](../config/actuators.md) to match the wiring for the ailerons and throttle as [indicated above](#wiring).
 
 ![QGC - set the actuators](../../assets/airframes/fw/wing_wing/qgc_actuator_config.png)
 

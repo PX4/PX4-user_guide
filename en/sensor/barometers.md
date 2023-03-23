@@ -10,7 +10,7 @@ Generally barometers require no user configuration (or thought)!
 
 ## Hardware Options
 
-[Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.html) flight controllers include a barometer, as do [many others](../flight_controller/README.md).
+[Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) flight controllers include a barometer, as do [many others](../flight_controller/README.md).
 
 They are also present in other hardware:
 
