@@ -160,7 +160,7 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 임무 착륙이 정의된 경우 임무 착륙 시작 지점으로 직접 비행후 착륙합니다.
 - 그렇지 않으면, 홈 위치로 직접 비행하고 그 위 반경 [NAV_LOITER_RAD](#NAV_LOITER_RAD)에서 선회 비행합니다.
 
-임무 착륙을 따르지 않고 [RTL_LAND_DELAY](#RTL_LAND_DELAY)가 -1로 설정된 경우 기체는 [착륙 (고정익) ](../flying/fixed_wing_landing.md)에 설명된 방법으로 착륙합니다.
+If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Land Mode > Fixed-wing landing](../flight_modes/land.md#fixed-wing-fw).
 
 고정익[안전 복귀 고도](#return_altitude)는 [RTL_RETURN_ALT](#RTL_RETURN_ALT)에만 의존합니다 ([RTL_CONE_ANG](#RTL_CONE_ANG)로 정의된 원뿔은 사용되지 않음).
 
