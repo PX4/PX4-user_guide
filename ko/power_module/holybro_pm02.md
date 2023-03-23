@@ -34,4 +34,4 @@ Voltage and current measurement configured for 3.3V ADC
 
 ## Wiring/Connections
 
-배선 및 연결에 관련된 자세한 정보는 다음 문서에 있습니다: [Pixhawk 4 퀵 스타트](../assembly/quick_start_pixhawk4.html).
+Additional wiring and connection information can be found in: [Pixhawk 4 QuickStart](../assembly/quick_start_pixhawk4.md).
