@@ -1,6 +1,6 @@
-# Holybro Kakute F7
+# Holybro Kakute F7 (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입니다.
@@ -30,7 +30,6 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 ## 구매처
 
 보드는 아래의 상점들에서 구매할 수 있습니다.
-- [Holybro](https://shop.holybro.com/kakute-f7_p1104.html)
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
 :::tip
