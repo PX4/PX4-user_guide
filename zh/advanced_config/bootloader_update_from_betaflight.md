@@ -4,7 +4,8 @@
 
 There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source.
 
-<span id="betaflight_configurator"></span>
+<a id="betaflight_configurator"></a>
+
 ### 使用 Betaflight 配置器 更新 Bootloader
 
 To install the PX4 bootloader using the *Betaflight Configurator*:
