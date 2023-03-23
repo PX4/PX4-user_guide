@@ -214,7 +214,7 @@ The relevant parameters are shown below:
 
 ### Quad-chute Failsafe
 
-Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps because a pusher motor, airspeed sensor, or control surface, failed. If triggered, the vehicle will immediately switch to Hold mode and execute action defined in parameter [COM_QC_ACT](#COM_QC_ACT) .
+Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps because a pusher motor, airspeed sensor, or control surface, failed. If triggered, the vehicle will immediately switch to multicopter mode and execute action defined in parameter [COM_QC_ACT](#COM_QC_ACT) .
 
 :::note
 The quad-chute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
