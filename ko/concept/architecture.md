@@ -102,7 +102,7 @@ PX4는 POSIX-API(Linux, macOS, NuttX 또는 QuRT 등)를 제공하는 다양한 
   작업 대기열에서 모듈을 실행할 때의 이점은 RAM을 덜 사용하고 잠재적으로 작업 전환이 더 적은 것입니다. 단점은 *작업 대기열 작업*이 메시지를 잠자기 또는 폴링하거나 차단 IO(예: 파일 읽기)를 수행할 수 없는 것입니다. 장기 실행 작업(과중한 계산 수행)은 잠재적으로 별도의 작업 또는 최소한 별도의 작업 대기열에서 실행되어야 합니다.
 
 :::note
-작업 대기열에서 실행 중인 작업은 [`uorb top`](../modules/modules_communication.md#uorb)에 표시되지 않습니다(작업 대기열 자체만 볼 수 있음 - 예: `wq:lp_default`). 모든 활성 작업 대기열 항목을 표시하려면, [`work_queue status`](../modules/modules_system.md#work-queue)를 사용하십시오.
+Tasks running on a work queue do not show up in [`top`](../modules/modules_command.md#top) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). 모든 활성 작업 대기열 항목을 표시하려면, [`work_queue status`](../modules/modules_system.md#work-queue)를 사용하십시오.
 :::
 
 ### 백그라운드 작업
