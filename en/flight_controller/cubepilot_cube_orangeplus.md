@@ -7,7 +7,7 @@ Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or
 
 The [Cube Orange+](https://www.cubepilot.com/#/cube/features) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
-![Cube Orange](../../assets/flight_controller/cube/orange/cube_orange_hero.jpg)
+![Cube Orange](../../assets/flight_controller/cube/orangeplus/cubepilot_cube_orangeplus_standard_set.jpg)
 
 The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
 For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs for the frame of the vehicle.
@@ -21,23 +21,23 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 ## Key Features
 
-* 32bit STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
-* 32 bit STM32F103 failsafe co-processor
-* 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
-* Abundant connectivity options for additional peripherals (UART, I2C, CAN)
-* Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
-* Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed wing use)
-* Redundant power supply inputs and automatic failover
-* External safety switch
-* Multicolor LED main visual indicator
-* High-power, multi-tone piezo audio indicator
-* microSD card for high-rate logging over extended periods of time
+- 32bit STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
+- 32 bit STM32F103 failsafe co-processor
+- 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
+- Abundant connectivity options for additional peripherals (UART, I2C, CAN)
+- Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
+- Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed wing use)
+- Redundant power supply inputs and automatic failover
+- External safety switch
+- Multicolor LED main visual indicator
+- High-power, multi-tone piezo audio indicator
+- microSD card for high-rate logging over extended periods of time
 
 
-<span id="stores"></span>
+<a id="stores"></a>
 ## Where to Buy
 
-* [Reseller list](https://www.cubepilot.com/#/reseller/list)
+- [Reseller list](https://www.cubepilot.com/#/reseller/list)
 
 ## Assembly
 
@@ -45,47 +45,47 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 ## Specifications
 
-* **Processor:**
-  * STM32H757 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
-  * 480 MHz
-  * 1 MB RAM
-  * 2 MB Flash \(fully accessible\)
-* **Failsafe co-processor:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
-  * STM32F103 (32bit *ARM Cortex-M3*)
-  * 24 MHz
-  * 8 KB SRAM
-* **Sensors:** (all connected via SPI)
-  * **Accelerometer:** (3) ICM42688p, ICM20948, ICM20649
-  * **Gyroscope:** (3) ICM42688p, ICM20948, ICM20649
-  * **Compass:** (1) ICM20948
-  * **Barometric Pressure Sensor:** (2) MS5611
-* **Operating Conditions:**
-  * **Operating Temp:** -10C to 55C
-  * **IP rating/Waterproofing:** Not waterproof
-  * **Servo rail input voltage:** 3.3V / 5V
-  * **USB port input:**
-    * Voltage: 4V - 5.7V
-    * Rated current: 250 mA
-  * **POWER:**
-    * Input voltage: 4.1V - 5.7V
-    * Rated input current: 2.5A
-    * Rated input/output power: 14W
-* **Dimensions:**
+- **Processor:**
+  - STM32H757 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  - 480 MHz
+  - 1 MB RAM
+  - 2 MB Flash \(fully accessible\)
+- **Failsafe co-processor:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
+  - STM32F103 (32bit *ARM Cortex-M3*)
+  - 24 MHz
+  - 8 KB SRAM
+- **Sensors:** (all connected via SPI)
+  - **Accelerometer:** (3) ICM42688p, ICM20948, ICM20649
+  - **Gyroscope:** (3) ICM42688p, ICM20948, ICM20649
+  - **Compass:** (1) ICM20948
+  - **Barometric Pressure Sensor:** (2) MS5611
+- **Operating Conditions:**
+  - **Operating Temp:** -10C to 55C
+  - **IP rating/Waterproofing:** Not waterproof
+  - **Servo rail input voltage:** 3.3V / 5V
+  - **USB port input:**
+    - Voltage: 4V - 5.7V
+    - Rated current: 250 mA
+  - **POWER:**
+    - Input voltage: 4.1V - 5.7V
+    - Rated input current: 2.5A
+    - Rated input/output power: 14W
+- **Dimensions:**
   - **Cube:** 38.25mm x 38.25mm x 22.3mm
   - **Carrier:** 94.5mm x 44.3mm x 17.3mm
-* **Interfaces**
-  * IO Ports: 14 PWM servo outputs (8 from IO, 6 from FMU)
-  * 5x UART (serial ports), one high-power capable, 2x with HW flow control
-  * 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
-  * **R/C inputs:**
+- **Interfaces**
+  - IO Ports: 14 PWM servo outputs (8 from IO, 6 from FMU)
+  - 5x UART (serial ports), one high-power capable, 2x with HW flow control
+  - 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
+  - **R/C inputs:**
     - Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
     - Futaba S.BUS® compatible input and output
     - PPM-SUM signal input
-  * RSSI (PWM or voltage) input
-  * I2C
-  * SPI
-  * 3.3v ADC input
-  * Internal microUSB port and external microUSB port extension
+  - RSSI (PWM or voltage) input
+  - I2C
+  - SPI
+  - 3.3v ADC input
+  - Internal microUSB port and external microUSB port extension
 
 ## Pinouts and Schematics
 
@@ -128,7 +128,7 @@ UART8  | /dev/ttyS5 | GPS2
 ## Building Firmware
 
 :::warning
-The firmware for Orange+ is not yet released as part of a release. It will be released once v1.14 is released.
+The firmware for Orange+ will be present in releases from PX4 v1.14.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target, open up the terminal and enter:
@@ -137,7 +137,8 @@ make cubepilot_cubeorangeplus
 ```
 
 :::note
-The  Cube Orange+ is different from the Cube Orange. Due to a power feature of the STM32H757 it required [updates in NuttX](https://github.com/PX4/NuttX/pull/214) and therefore a new board config, bootloader, build target, etc. Therefore, the binaries are not compatible between Orange and Orange+.
+The firmware for Cube Orange+ and Cube Orange is not compatible.
+Due to a power feature of the STM32H757 it required [updates in NuttX](https://github.com/PX4/NuttX/pull/214) and therefore a new board config, bootloader, build target, etc.
 :::
 
 ## Further Information/Documentation
