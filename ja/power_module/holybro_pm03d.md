@@ -53,7 +53,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 ## Where to Buy
 
-[Order from Holybro Store](https://shop.holybro.com/pm03d-power-module_p1315.html)
+[Order from Holybro Store](https://holybro.com/products/pm03d-power-module)
 
 ## Wiring/Connections
 
