@@ -137,7 +137,7 @@ make cubepilot_cubeorangeplus
 ```
 
 :::note
-The firmware for Cube Orange+ and Cube Orange is not compatible.
+The firmware for Cube Orange+ and Cube Orange are not compatible.
 Due to a power feature of the STM32H757 it required [updates in NuttX](https://github.com/PX4/NuttX/pull/214) and therefore a new board config, bootloader, build target, etc.
 :::
 
