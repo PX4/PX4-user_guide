@@ -129,7 +129,7 @@ If using this feature, all other configuration should be setup up as normal (e.g
 
 ## Compass Configuration
 
-Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO), calibrate, and prioritise, all connected magnetometers.
+Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
 
 Further compass configuration should generally not be required.
 

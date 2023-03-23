@@ -127,7 +127,7 @@ GPS는 *yaw 출력이 장치에서 지원되는* 모듈 (예 : [Trimble MB-Two](
 
 ## 나침반 설정
 
-나침반 보정은 [나침반 설정](../config/compass.md)을 참고하십시오. The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO), calibrate, and prioritise, all connected magnetometers.
+나침반 보정은 [나침반 설정](../config/compass.md)을 참고하십시오. The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
 
 일반적으로 추가 나침반 설정은 필요하지 않습니다.
 
