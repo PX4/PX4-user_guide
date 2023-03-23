@@ -1,8 +1,8 @@
-# Holybro Kakute F7
+# Holybro Kakute F7 (Discontinued)
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The *Kakute F7* from Holybro is a flight controller board designed for racers.
@@ -32,7 +32,6 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## Where to Buy
 
 The board can be bought from one of the following shops (for example):
-- [Holybro](https://shop.holybro.com/kakute-f7_p1104.html) 
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
 :::tip

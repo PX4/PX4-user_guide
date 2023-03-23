@@ -39,7 +39,7 @@ Key Build Features:
 
 - [Turbo Timber Evolution PNP (includes motor, servos, esc, etc, all fully installed)](https://www.horizonhobby.com/product/turbo-timber-evolution-1.5m-pnp-includes-floats/EFL105275.html#)
 - [80A Plush-32 ESC](https://hobbyking.com/en_us/turnigy-plush-32-80a-2-6s-brushless-speed-controller-w-bec-rev1-1-0.html)
-- [Pixhawk 4 Mini](https://shop.holybro.com/pixhawk4-mini_p1120.html) (with GPS and Power module)
+- [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (with GPS and Power module)
 
 - [SIK telemetry radio](../telemetry/sik_radio.md)
 

@@ -1,8 +1,8 @@
-# Pixhawk 4 Mini
+# Holybro Pixhawk 4 Mini (Discontinued)
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hobbyists who are looking to tap into the power of *Pixhawk 4* but are working with smaller drones.
@@ -54,7 +54,7 @@ Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Shee
 
 ## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pixhawk4-mini).
 
 ## Interfaces
 
@@ -74,6 +74,7 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/PX4-user_gu
 ![Pixhawk 4 Mini Dimensions](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
 
 ## Voltage Ratings
+
 *Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
 :::note
@@ -136,7 +137,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [Digital Airspeed Sensor](hhttps://holybro.com/products/digital-air-speed-sensor)
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
