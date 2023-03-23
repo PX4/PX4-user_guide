@@ -2,7 +2,7 @@
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The [Holybro Kakute H7 mini](http://www.holybro.com/product/kakute-h7-mini/) flight controller is intended for lightweight frame builds (such as racers, etc.).
@@ -42,7 +42,7 @@ PX4 runs on the H7 mini v1.3 and later.
 ## Where to Buy
 
 The board can be bought from one of the following shops (for example):
-- [Holybro](https://shop.holybro.com/kakute-h7-mini_p1308.html)
+- [Holybro](https://holybro.com/products/kakute-h7-mini)
 
 ## Connectors and Pins
 

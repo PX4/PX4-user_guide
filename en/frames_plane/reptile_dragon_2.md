@@ -45,9 +45,9 @@ Key build features
 
 - [ARK6X FMU](https://arkelectron.com/product/arkv6x/)
 - [ARK6X carrier](https://arkelectron.com/product/ark-pixhawk-autopilot-bus-carrier/)
-- [Alternative FMU carrier: Pixhawk 5x Carrier board](https://shop.holybro.com/pixhawk-5x_p1279.html)
+- [Alternative FMU carrier: Holybro Pixhawk 5x Carrier board](https://holybro.com/products/pixhawk-baseboards)
 - [Holybro power module](https://holybro.com/products/pm02d-power-module)
-- [Holybro M9N GPS module](https://shop.holybro.com/holybro-m9n-gps_p1280.html)
+- [Holybro M9N GPS module](https://holybro.com/products/m9n-gps)
 - Holybro PWM breakout board
 - MS4525DO differential pressure module and pitot tube
 - [Caddx Vista FPV air unit](https://caddxfpv.com/products/caddx-vista-kit)

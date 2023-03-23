@@ -4,7 +4,7 @@ This page documents how to flash the PX4 bootloader onto boards preflashed with 
 
 There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source.
 
-<span id="betaflight_configurator"></span>
+<a id="betaflight_configurator"></a>
 ### Bootloader Update using Betaflight Configurator
 
 To install the PX4 bootloader using the *Betaflight Configurator*:

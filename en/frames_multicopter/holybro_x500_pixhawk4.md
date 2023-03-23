@@ -1,11 +1,15 @@
 # Holybro X500 + Pixhawk4 Build
 
+:::note
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md).
+This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
 ## Key information
 
-- **Full Kit:** [Holybro X500 Kit](https://shop.holybro.com/x500-kit_p1180.html)
-- **Frame:** [Holybro X500](https://shop.holybro.com/x500-frame-kit_p1178.html)
+- **Full Kit:** [Holybro X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 - **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
 - **Assembly time (approx.):** 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
@@ -13,14 +17,14 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ## Bill of materials
 
-The Holybro [X500 Kit](https://shop.holybro.com/x500-kit_p1180.html) includes almost all the required components:
+The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2) includes almost all the required components:
 
 * [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
 * [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps)
-* [Power Management - PM07](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
-* [Holybro Motors - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
-* [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
-* [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
+* [Power Management - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
+* Holybro Motors - 2216 KV880 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * Battery Strap
 * Power and Radio Cables
 * Wheelbase - 500 mm

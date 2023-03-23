@@ -14,7 +14,7 @@ The components needed for this build are:
 
 - Electronics:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
-  - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://shop.holybro.com/tekko32-f4-4in1-50a-esc_p1283.html)
+  - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://holybro.com/products/tekko32-f4-4in1-50a-esc)
    :::note
    You can select your own flight controller of choice, it just needs to support 8 DShot outputs.
    :::

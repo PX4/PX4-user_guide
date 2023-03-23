@@ -21,7 +21,7 @@ It can be freely reprogrammed to perform any other basic, efficient low-level co
 Order this module from:
 
 * [Unmanned Tech](http://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (UK)
-* [Holybro](https://shop.holybro.com/px4flow-kit_p1035.html) (Germany & EU)
+* [Holybro](https://holybro.com/products/px4flow) (Germany & EU)
 * [Drotek](https://store-drotek.com/798-optical-flow-kit-px4flow.html)
 
 

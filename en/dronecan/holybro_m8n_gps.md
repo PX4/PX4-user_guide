@@ -13,7 +13,7 @@ In addition, using DroneCAN means that the GPS and compass do not occupy any fli
 
 Order this module from:
 
-* [Holybro](https://shop.holybro.com/dronecan-m8n-m9n-gps_p1335.html) 
+* [Holybro](https://holybro.com/products/dronecan-m8n-gps) 
 
 ## Hardware Specifications
 

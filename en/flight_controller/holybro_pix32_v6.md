@@ -2,7 +2,7 @@
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pix32 v6*<sup>&reg;</sup> is the latest update to the pix32 v5 flight controllers. It is a variant of the Pixhawk 6C with a modular design and shares the same FMUv6C Target. It is comprised of a separate flight controller and carrier board which are connected by a [100 pin connector](https://docs.holybro.com/autopilot/pix32-v6/download). It is designed for those pilots who need a high power, flexible and customizable flight control system.
@@ -88,7 +88,7 @@ This flight controller is perfect for people that is looking for a affordable an
 
 ## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/pix32-v6_p1338.html).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
 <!---
 ## Assembly/Setup
@@ -188,7 +188,7 @@ For information about wiring and using this port see:
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
+* [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 * [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
