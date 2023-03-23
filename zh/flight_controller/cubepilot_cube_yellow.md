@@ -1,13 +1,9 @@
-# Cube Yellow Flight Controller
+# CubePilot Cube Yellow Flight Controller
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
-:::tip
-The PX4 dev team supports this flight controller as a footprint compatible replacement for Cube Black. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](https://pixhawk.org). This flight controller is not following the standard and uses a patented connector.
-:::
-
-The [Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
+The Cube Yellow flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Yellow](../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg)
 
@@ -38,7 +34,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 <span id="stores"></span>
 ## 在哪里买
 
-* [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
+* [Reseller list](https://www.cubepilot.com/#/reseller/list)
 
 ## 组装
 
@@ -102,16 +98,15 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                                     |
-| ------ | ---------- | ---------------------------------------- |
-| USART1 | /dev/ttyS0 | <!-- # IO DEBUG:/dev/ttyS0 -->
-|
-| USART2 | /dev/ttyS1 | TELEM1 (flow control)                    |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control)                    |
-| UART4  | /dev/ttyS3 | GPS1                                     |
-| USART6 | /dev/ttyS4 | PX4IO                                    |
-| UART7  | /dev/ttyS5 | CONSOLE                                  |
-| UART8  | /dev/ttyS6 | GPS2                                     |
+| UART   | 设备         | Port                  |
+| ------ | ---------- | --------------------- |
+| USART2 | /dev/ttyS0 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS1 | TELEM2 (flow control) |
+| UART4  | /dev/ttyS2 | GPS1                  |
+| USART6 | /dev/ttyS3 | PX4IO                 |
+| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN       |
+| UART8  | /dev/ttyS5 | GPS2                  |
+
   
 <!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/default.px4board -->
