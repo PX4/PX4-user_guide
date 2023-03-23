@@ -1,6 +1,6 @@
 # Pixhawk 4 배선 개요
 
-:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오. :::
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
 
 [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> 비행 콘트롤러 전원 공급방법과 주변 장치 연결방법을 설명합니다.
 
