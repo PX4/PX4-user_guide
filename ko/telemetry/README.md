@@ -12,10 +12,10 @@ PX4는 다양한 텔레메트리 라디오 타입을 지원합니다:
 * [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
   * [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
   * [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
-* XBee Serial Telemetry Radio
-  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 * CUAV Serial Telemetry Radio
   * [CUAV P8 Telemetry Radio](../telemetry/cuav_p8_radio.md)
+* XBee Serial Telemetry Radio
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md) (Discontinued)
 
 PX4는 [SiK 라디오](../telemetry/sik_radio.md) 프로토콜과 호환되며 즉시 사용할 수 있습니다. 적절한 커넥터를 변경해야 할 수도 있습니다.
 
