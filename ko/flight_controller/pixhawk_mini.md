@@ -1,6 +1,6 @@
-# 홀리브로 Pixhawk 미니
+# Holybro Pixhawk Mini (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오. :::
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
 
 홀리브로 *Pixhawk<sup>&reg;</sup> 미니* 자동조종장치는 Pixhawk의 차세대 제품입니다. 원래 Pixhawk의 약 1/3 크기이며 더 강력한 프로세서와 센서를 제공합니다.
 
@@ -62,7 +62,7 @@ Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4
 
 ## 구매처
 
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
+Discontinued.
 
 ## 커넥터 할당
 

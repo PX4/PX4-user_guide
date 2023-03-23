@@ -57,7 +57,7 @@ In order to configure the radios using the *PicoConfig* application (as describe
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_uart converter.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
 
-The diagnostic port uses a 4-position JST SH connector. If you use *PicoConfig* application or special diagnostic commands to config the radio, you should connect to this port. The diagnostic port is 3.3V logic level compatible. A USB-to-serial board is needed for connecting the radio to your computer. You can purchase a [Holybro UART to USB Converter](https://shop.holybro.com/gps-uart-to-usb-converter_p1234.html).
+The diagnostic port uses a 4-position JST SH connector. If you use *PicoConfig* application or special diagnostic commands to config the radio, you should connect to this port. The diagnostic port is 3.3V logic level compatible. A USB-to-serial board is needed for connecting the radio to your computer. You can purchase a [Holybro UART to USB Converter](https://holybro.com/products/uart-to-usb-converter).
 
 *Pico Config* will automatically detect and connect to the configuration port. Adjust the settings so that the baud rate matches PX4 (and the ground station).
 

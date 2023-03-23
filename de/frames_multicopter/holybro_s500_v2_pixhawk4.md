@@ -2,6 +2,10 @@
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
+:::note
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk. This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
 ## Key information
 
 - **Frame:** Holybro S500
@@ -12,9 +16,10 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ## Bill of materials
 
-The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-propeller1045_p1153.html) includes almost all the required components:
+The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-development-kit) includes almost all the required components:
 
-* Pixhawk 4 autopilot（PM07 not included)
+* A recent Pixhawk autopilot
+  - For this log it was Pixhawk 4 but far more recent versions are now included.
 * Power Management PM02（Assembled）
 * ARM adopts high strength plastics
 * Motors - 2216 KV880（ V2 Update）

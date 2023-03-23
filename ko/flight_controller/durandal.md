@@ -1,6 +1,6 @@
 # Holybro Durandal
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Durandal*<sup>&reg;</sup>는 성공적인 Holybro 비행 컨트롤러 제품군에 대한 최신 업데이트입니다. Holybro가 설계하고 개발하였습니다.

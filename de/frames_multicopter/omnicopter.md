@@ -12,7 +12,7 @@ The components needed for this build are:
 
 - Electronics:
   - Flight controller: [Holybro KakuteH7](../flight_controller/kakuteh7.md)
-  - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://shop.holybro.com/tekko32-f4-4in1-50a-esc_p1283.html) :::note
+  - Coupled with 2x [Tekko32 F4 4in1 ESCs](https://holybro.com/products/tekko32-f4-4in1-50a-esc) :::note
 You can select your own flight controller of choice, it just needs to support 8 DShot outputs.
 :::
   - GPS: [ZED-F9P](https://www.gnss.store/gnss-gps-modules/105-ublox-zed-f9p-rtk-gnss-receiver-board-with-sma-base-or-rover.html?search_query=ZED-F9P&results=11)

@@ -14,8 +14,8 @@ The guide explains the minimal additional setup required to get the vehicle read
 
 ## Where to Buy
 
+- [PX4 Vision Dev Kit v1.5](https://holybro.com/collections/multicopter-kit/products/px4-vision-dev-kit-v1-5)
 - [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
-- [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
 
 ## Px4 Vision Guide Content
 - [Warnings & Notifications](#warnings-and-notifications)

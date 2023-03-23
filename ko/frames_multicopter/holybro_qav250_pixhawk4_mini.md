@@ -1,8 +1,12 @@
-# HolyBro QAV250 + Pixhawk4-Mini 조립
+# Holybro QAV250 + Pixhawk 4 Mini Build (Discontinued)
 
-[Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립 학습에 최적의 키트입니다. [Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립 학습에 최적의 키트입니다. FPV 지원 유무에 따라 키트가 조금씩 달라집니다.
+:::note
+The _Holybro Pixhawk 4 Mini QAV250 Kit_ is no longer available.
 
-키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
+The instructions have been left here because very similar kits based on the Pix32 v6 are [available here](https://holybro.com/products/qav250-kit). These instructions can therefore still be followed (and might be updated to Pix32 v6).
+:::
+
+The complete kits include a carbon-fibre QAV250 racing frame, flight controller and almost all other components needed (except battery and receiver). FPV 지원 유무에 따라 키트가 조금씩 달라집니다. 키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
 주요 정보
 
@@ -18,9 +22,8 @@
 
 ## 부품 명세서
 
-Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)에는 필수 구성 요소가 포함되어 있습니다.
-* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
+The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes almost all required components:
+* [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md)
 * 전원 모듈 holybro
 * 조립된 ESC 전원 관리 보드
 * 모터- DR2205 KV2300
@@ -60,23 +63,22 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 
 ### 전자부품
 
-| 설명                                                                                                       | 수량 |
-| -------------------------------------------------------------------------------------------------------- | -- |
-| 모터- DR2205 KV2300                                                                                        | 4  |
-| 조립된 ESC 전원 관리 보드                                                                                         | 4  |
-| Holybro 전원 모듈                                                                                            | 1  |
-| Fr-sky D4R-II 수신기                                                                                        | 1  |
-| Pixhawk 4 mini                                                                                           | 1  |
-| Holybro GPS Neo-M8N                                                                                      | 1  |
-| Holybro [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html) | 1  |
-| 배터리 lumenier 1300 mAh 4S 14.8V                                                                           | 1  |
-| Vtx 5.8ghz                                                                                               | 1  |
-| FPV 카메라 (전체 키트 전용)                                                                                       | 1  |
+| 설명                                                                          | 수량 |
+| --------------------------------------------------------------------------- | -- |
+| 모터- DR2205 KV2300                                                           | 4  |
+| 조립된 ESC 전원 관리 보드                                                            | 4  |
+| Holybro 전원 모듈                                                               | 1  |
+| Fr-sky D4R-II 수신기                                                           | 1  |
+| Pixhawk 4 mini                                                              | 1  |
+| Holybro GPS Neo-M8N                                                         | 1  |
+| [Holybro Transceiver Telemetry Radio V3](../telemetry/holybro_sik_radio.md) | 1  |
+| 배터리 lumenier 1300 mAh 4S 14.8V                                              | 1  |
+| Vtx 5.8ghz                                                                  | 1  |
+| FPV 카메라 (전체 키트 전용)                                                          | 1  |
 
 아래의 이미지는 프레임과 전자 부품들을 나타냅니다.
 
 ![조립 전 QAV250 프레임 / Pixhawk 4 미니 전자 부품](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_and_electronics_components.jpg)
-
 
 
 ## 조립

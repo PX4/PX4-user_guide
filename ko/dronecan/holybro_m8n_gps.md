@@ -11,7 +11,7 @@ The GPS module uses the [DroneCAN](README.md) protocol for communication. DroneC
 
 Order this module from:
 
-* [Holybro](https://shop.holybro.com/dronecan-m8n-m9n-gps_p1335.html)
+* [Holybro](https://holybro.com/products/dronecan-m8n-gps)
 
 ## Hardware Specifications
 

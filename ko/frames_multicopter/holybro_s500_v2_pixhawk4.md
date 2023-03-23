@@ -2,6 +2,10 @@
 
 키트 조립법과 *QGroundControl*의 PX4 설정 방법을 설명합니다.
 
+:::note
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk. This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
 ## 주요 정보
 
 - **프레임:** Holybro S500
@@ -12,9 +16,10 @@
 
 ## 부품 명세서
 
-Holybro [S500 V2 키트](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-propeller1045_p1153.html)에는 필수 구성 요소가 포함되어 있습니다.
+The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-development-kit) includes almost all the required components:
 
-* Pixhawk 4 오토파일럿 (PM07 미포함)
+* A recent Pixhawk autopilot
+  - For this log it was Pixhawk 4 but far more recent versions are now included.
 * 전원 관리 PM02 (조립)
 * 고강도 플라스틱의 ARM
 * 모터 - 2216 KV880 (V2 업데이트)

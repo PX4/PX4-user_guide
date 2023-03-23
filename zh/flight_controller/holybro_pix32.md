@@ -1,9 +1,9 @@
-# Holybro pix32 Flight Controller
+# Holybro pix32 Flight Controller (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk-2_0460) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](https://nuttx.apache.org/) OS.
+The Holybro<sup>&reg;</sup> [pix32 autopilot](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![pix32](../../assets/flight_controller/holybro_pix32/pix32_hero.jpg)
 
@@ -52,14 +52,13 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ## Where to Buy
 
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
+[shop.holybro.com](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller)
 
 ### 配件
 
-* [数字空速传感器](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
+* [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
 * [Hobbyking<sup>&reg;</sup> Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
-* [Telemetry Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
-* [Telemetry Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
+* [HolyBro SiK Telemetry Radio (EU 433 MHz, US 915 MHz)](../telemetry/holybro_sik_radio.md)
 
 ## 编译固件
 

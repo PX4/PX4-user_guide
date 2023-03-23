@@ -1,6 +1,10 @@
 # Holybro X500 V2 (Pixhawk 5X 조립)
 
-이 페이지에서는 [Holybro X500 V2 ARF 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)를 조립 방법과 *QGroundControl*의 PX4 설정 방법을 설명합니다.
+:::note
+Holybro initially supplied this kit with a [Pixhawk 5X](../flight_controller/pixhawk5x.md), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
+This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits) and configuring PX4 using *QGroundControl*.
 
 ARF("거의 비행 준비 완료") 키트는 하드웨어 설정에 많은 시간을 할애하지 않고, 드론 개발에 입문자들이 간편하고 간단한 조립할 수 있습니다. 여기에는 프레임, 모터, ESC, 프로펠러 및 배전반이 포함됩니다.
 
@@ -8,7 +12,7 @@ ARF("거의 비행 준비 완료") 키트는 하드웨어 설정에 많은 시�
 
 ## 주요 정보
 
-- **키트:** [Holybro X500 V2 ARF 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)
+- **Kit:** [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits)
 - **비행 콘트롤러:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
 - **조립 시간(약):** 55분(프레임 25분, 자동조종장치 설치/설성은 30분)
 
@@ -16,7 +20,7 @@ ARF("거의 비행 준비 완료") 키트는 하드웨어 설정에 많은 시�
 
 ## 부품 명세서
 
-Holybro [X500 V2 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)에는 필수 부품들이 포함되어 있습니다.
+The Holybro [X500 V2 Kit](https://holybro.com/collections/x500-kits) includes almost all the required components:
 
 * X500V2 프레임 키트
   * 바디 - 풀 카본 파이버 탑 & 바닥판(144 x 144mm, 두께 2mm)
@@ -26,23 +30,23 @@ Holybro [X500 V2 키트](http://shop.holybro.com/x500-v2-kit_p1288.html)에는 �
   * 이중 10mm Ø 로드 x 250mm 롱 레일 마운팅 시스템
   * 2개의 배터리 스트랩이 있는 배터리 마운트
   * 설치용 수공구
-* [Holybro 모터 - 2216 KV880 x6](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
-* [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
-* [프로펠러 - 1045x4](https://shop.holybro.com/propeller10452pair_p1155.html)
+* Holybro Motors - 2216 KV880 x6 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * 배전반 – 배터리 및 배터리용 XT60 플러그 ESC &용 XT30 플러그 주변기기
 * 카메라 마운트(선택 사항 및 3D 파일은 [여기](http://www.holybro.com/3D_Print/Holybro_X500_V2_3D%20Print.rar)에서 다운로드할 수 있음)
 
-이 빌드의 다른 부품(**ARF 키트에 포함되지 않음**):
+Other parts in this build(**Not included in the ARF kit**):
 * [Pixhawk 5X 자동조종장치](../flight_controller/pixhawk5x.md)
-* [M8N GPS](http://shop.holybro.com/holybro-m8n-gps_p1094.html)
-* [전원 모듈 - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
-* [433/915 MHz 무선 텔레메트리](http://shop.holybro.com/sik-telemetry-radio-v3_p1103.html)
+* [M8N GPS](https://holybro.com/products/m8n-gps)
+* [전원 모듈 - PM02D](../power_module/holybro_pm02d.md)
+* [433/915 MHz 무선 텔레메트리](../telemetry/holybro_sik_radio.md)
 
 Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
 ## 키트 하드웨어
 
-프레임 및 자동조종장치 설치를 위한 하드웨어 목록입니다.
+This section lists all hardware for the frame and the autopilot installation.
 
 | 항목             | 설명                        | 수량 |
 | -------------- | ------------------------- | -- |
@@ -57,9 +61,9 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 | 플팻폼 보드         | 두께: 2mm                   | 1  |
 | 옷걸이 & 고무 링 개스킷 | 내부 구멍 직경 : 10mm 검정        | 8  |
 
- ![X500  V2 ARF 전체 패키지 내용](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
+ ![X500V2 ARF Kit Full Package Contents](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500_v2_whats_inside.png)
 
-   _그림 1_: X500 V2 ARF 키트 내부
+   _Figure 1_: X500 V2 ARF Kit what's inside
 
 ### 전자부품
 
@@ -74,7 +78,7 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
 ### 필요 공구
 
-조립을 위한 도구가 포함되어 있지만, 아래의 도구들도 필요할 수 있습니다.
+Tools are included to do the assembly, however you may need:
 
 - 전선 커터
 - 정밀 트위저
@@ -82,7 +86,7 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
 ## 조립
 
-예상 조립 시간은 55시간(프레임은 25분, 자동 조종 장치 설치/설정은 30분)입니다.
+Estimate time to assemble is 55 min (25 minutes for frame, 30 minutes for autopilot installation/configuration)
 
 1. Start by assembling the payload & battery holder. Push the rubbers into grippers (Do not use sharp items to push them in!). Next, pass the holders through the holder bars with the battery holder bases as Figure 3.
 
@@ -163,16 +167,17 @@ Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and recei
 
 1. Finally, you can connect the Pixhawk interfaces such as telemetry radio to 'TELEM1' and motors signal cables accordingly.
 
-자세한 내용은 [Pixhawk  5X 빠른 시작](../assembly/quick_start_pixhawk5x.md)을 참고하십시오.
+Please refer to [Pixhawk 5X Quick Start](../assembly/quick_start_pixhawk5x.md) for more information.
 
-조립이 완료되었습니다. 마지막으로 Pixhawk TV와 'TELEM1'에 도달하실 수 있습니다.
+That's it. The fully assembled kit is shown below (Depth camera not included in the kit):
 
-![키트 조립](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
+![Assembled Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
 
 ## PX4 Configuration
 
-:::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
@@ -191,7 +196,7 @@ First update the firmware, airframe, and actuator mappings:
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
 
-그리고, 설치후에 필수적인 설정 작업을 실시합니다.
+Then perform the mandatory setup/calibration:
 
 - [센서 방향](../config/flight_controller_orientation.md)
 - [나침반](../config/compass.md)
@@ -200,7 +205,7 @@ First update the firmware, airframe, and actuator mappings:
 - [라디오 설정](../config/radio.md)
 - [비행 모드](../config/flight_mode.md)
 
-다음 작업 역시 반드시 진행하여야 합니다.
+Ideally you should also do:
 
 - [ESC 보정](../advanced_config/esc_calibration.md)
 - [배터리](../config/battery.md)
@@ -209,10 +214,10 @@ First update the firmware, airframe, and actuator mappings:
 
 ## 튜닝
 
-기체 선택은 프레임의 *기본* 자동조종장치의 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
+Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
 For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## 감사의 글
 
-이 조립 설명서는 PX4 팀에서 제공하였습니다.
+This build log was provided by PX4 Team.

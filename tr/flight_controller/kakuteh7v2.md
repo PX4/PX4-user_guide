@@ -1,7 +1,7 @@
 # Holybro Kakute H7 V2
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The [Holybro Kakute H7 V2](http://www.holybro.com/product/kakute-h7-v2/) flight controller is full of features including integrated Bluetooth, HD camera plug, dual plug-and-play 4in1 ESC ports, 9V VTX ON/OFF Pit Switch, barometer, OSD, 6x UARTs, 128MB Flash for Logging (not supported with PX4 yet), 5V and 9V BEC, and bigger soldering pad with easy layout and much more.
@@ -39,7 +39,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## Where to Buy
 
 The board can be bought from one of the following shops (for example):
-- [Holybro](https://shop.holybro.com/kakute-h7-v2_p1344.html)
+- [Holybro](https://holybro.com/products/kakute-h7-v2)
 
 :::tip
 The *Kakute H7v2* is designed to work with the *Tekko32* 4-in-1 ESC and they can be bought in combination.

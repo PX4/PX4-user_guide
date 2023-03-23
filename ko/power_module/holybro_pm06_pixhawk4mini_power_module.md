@@ -23,7 +23,7 @@ This power module has integrated power distribution board and provides regulated
 
 ## Where to Buy
 
-[PM06 V2 Power Module](https://shop.holybro.com/micro-power-module-pm06_p1036.html) [PM06 V2-14S Power Module](https://shop.holybro.com/pm06-v2-14s-power-module_p1316.html)
+[PM06 V2 Power Module](https://holybro.com/collections/power-modules-pdbs/products/micro-power-module-pm06-v2)
 
 ## 배선
 

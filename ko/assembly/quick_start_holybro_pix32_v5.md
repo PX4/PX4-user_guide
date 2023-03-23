@@ -1,6 +1,6 @@
 # 픽스32 v5 배선 방법
 
-:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 이 설명서는 [Holybro Pix32v5](../flight_controller/holybro_pix32_v5.md)<sup>&reg;</sup> 비행 콘트롤러 전원공급 방법과 주요 주변장치 연결 방법을 설명합니다.

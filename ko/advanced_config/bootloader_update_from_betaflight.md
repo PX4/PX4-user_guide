@@ -4,7 +4,8 @@
 
 부트로더 설치에는 2가지 선택지가 있습니다: *Betaflight Configurator*를 이용하는 것(더 쉽습니다)과, 소스로 부터 빌드하는 방법이 있습니다.
 
-<span id="betaflight_configurator"></span>
+<a id="betaflight_configurator"></a>
+
 ### Betaflight Configurator로 부트로더 업데이트
 
 이제 보드에 PX4 펌웨어를 설치할 수 있습니다.

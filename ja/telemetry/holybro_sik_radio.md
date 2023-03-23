@@ -10,7 +10,7 @@ The radios can be either 915Mhz or 433Mhz and you should purchase the model whic
 
 ### Where to Buy
 
-* [Holybro SiK Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-set-v3_p1103.html?)
+* [Holybro SiK Telemetry Radio V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
 
 ### Features
 

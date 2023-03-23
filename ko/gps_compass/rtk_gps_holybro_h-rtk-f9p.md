@@ -10,8 +10,8 @@ RTK를 사용하여 PX4는 일반 GPS 보다 훨씬 더 정확한 센티미터 �
 
 ## Where to Buy
 
-* [H-RTK F9P (Holybro 웹사이트)](https://shop.holybro.com/h-rtk-f9p_p1226.html?)
-* [H-RTK Accessories (Holybro 웹사이트)](https://shop.holybro.com/c/h-rtk_0512)
+* [H-RTK F9P (Holybro 웹사이트)](https://holybro.com/products/h-rtk-f9p-gnss-series)
+* [H-RTK Accessories (Holybro 웹사이트)](https://holybro.com/collections/h-rtk-gps)
 
 ## 설정
 
@@ -40,6 +40,6 @@ The cables/connectors may need to be modified in order to connect to other fligh
 
 ## GPS 소품
 
-[H-RTK Mount (Holybro Website)](https://shop.holybro.com/spare-parts-gps-mount_p1228.html)
+[H-RTK Mount (Holybro Website)](https://holybro.com/products/gps-rtk-mounts)
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk_mount_3.png)

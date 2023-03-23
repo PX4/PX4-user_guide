@@ -14,7 +14,7 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They 
     - [Digital Differential Airspeed Sensor Kit](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html) (Drotek).
   - [EagleTree Airspeed MicroSensor V3](http://www.eagletreesystems.com/index.php?route=product/product&product_id=63) (eagletreesystems)
   - [Sensirion SDP3X Differential Pressure Sensor]([https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html))
-  - [Holybro Digital Air Speed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
+  - [Holybro Digital Air Speed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 - Based on [Venturi effect](https://en.wikipedia.org/wiki/Venturi_effect)
   - [TFSLOT](airspeed_tfslot.md) Venturi effect airspeed sensor.
 

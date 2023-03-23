@@ -1,11 +1,14 @@
 # Holybro X500 + Pixhawk4 조립
 
+:::note
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
 키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
 ## 주요 정보
 
-- **프레임:** Holybro X500
-- **비행 컨트롤러:** [Pixhawk 4](../flight_controller/pixhawk4.md)
+- **Full Kit:** [Holybro X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 - **조립 시간 (예상):** 2시간 (프레임 조립에 75분, 오토파일럿 설치 및 설정에 45분)
 - **조립 시간 (예상):** 3.75시간 (프레임 조립에 180분, 오토파일럿 설치 및 설정에 45분)
 
@@ -13,14 +16,14 @@
 
 ## 부품 명세서
 
-Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수 구성 요소가 포함되어 있습니다.
+The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2) includes almost all the required components:
 
 * [Pixhawk 4 오토파일럿](../flight_controller/pixhawk4.md)
 * [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps)
-* [전원 관리 - PM07](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
-* [Holybro 모터 - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
-* [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
-* [프로펠러 - 1045x4](https://shop.holybro.com/propeller10452pair_p1155.html)
+* [전원 관리 - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
+* Holybro Motors - 2216 KV880 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * 배터리 스트랩 - PM07
 * 전원 및 무선 조종기 케이블
 * 휠베이스 - 500 mm
@@ -51,14 +54,14 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 ### 전자부품
 
-| 항목                | 패키지 |
-| ----------------- | --- |
-| Pixhawk 4         | 16  |
-| Pixhawk4 GPS 모듈   | 1   |
-| I2C 스플리터 보드       | 2   |
-| 6 ~ 6 핀 케이블 (전원)  | 3   |
-| 4 ~ 4 핀 케이블 (CAN) | 2   |
-| 6 ~ 4 핀 케이블 (데이터) | 1   |
+| 항목                          | 패키지 |
+| --------------------------- | --- |
+| Pixhawk 4                   | 16  |
+| Pixhawk4 GPS 모듈             | 1   |
+| I2C 스플리터 보드                 | 2   |
+| 6 ~ 6 핀 케이블 (전원)            | 3   |
+| Holybro BLHeli S ESC 20A x4 | 2   |
+| 6 ~ 4 핀 케이블 (데이터)           | 1   |
 
 ### 필요 공구
 

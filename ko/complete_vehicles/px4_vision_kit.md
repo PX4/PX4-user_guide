@@ -14,8 +14,8 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 ## Where to Buy
 
+- [PX4 Vision Dev Kit v1.5](https://holybro.com/collections/multicopter-kit/products/px4-vision-dev-kit-v1-5)
 - [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
-- [PX4 Vision Dev Kit v1.5](https://shop.holybro.com/px4-vision-dev-kit-v15_p1342.html)
 
 ## Px4 비전 가이드 콘텐츠
 - [경고와 알림](#warnings-and-notifications)
