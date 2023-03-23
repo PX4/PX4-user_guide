@@ -35,4 +35,4 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 ![pm02d_pinout](../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png)
 
-Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.html).
+Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.md).
