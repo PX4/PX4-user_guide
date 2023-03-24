@@ -64,7 +64,7 @@ The `X`, `Y`, `Z` positions are in [FRD coordinate frame, relative to the _centr
 
 #### Motor Geometry: VTOL Quadrotor Tailsitter
 
-The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
+The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-tailsitter) is shown below (the approach for configuring other tailsitter VTOL vehicles will be similar).
 
 Motors have the same configuration fields as for the [multicopter geometry](#motor-geometry-multicopter).
 

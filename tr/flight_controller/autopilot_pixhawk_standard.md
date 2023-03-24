@@ -22,4 +22,4 @@ The boards in this category are:
 - [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 - [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
 - [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv3)
-- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv3)
+- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv3) - Discontinued by Holybro but supported by PX4
