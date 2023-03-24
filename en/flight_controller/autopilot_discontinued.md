@@ -5,7 +5,7 @@ For more information about PX4 project autopilot board support levels see: [px4.
 :::
 
 This category is for discontinued autopilots and complete vehicles.
-These are *not supported* by the head revision of PX4 and are no longer no longer being manufactured. 
+These are *not supported* by the head revision of PX4 and are no longer being manufactured. 
 
 ## Autopilots
 
