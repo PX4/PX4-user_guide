@@ -352,6 +352,7 @@
     * [jMAVSim Simulation](simulation/jmavsim.md)
       * [Multi-Vehicle Sim with JMAVSim](simulation/multi_vehicle_jmavsim.md)
     * [Gazebo Simulation](sim_gazebo_gz/README.md)
+      * [Vehicles](sim_gazebo_gz/gazebo_vehicles.md)
       * [Multi-Vehicle Sim](sim_gazebo_gz/multi_vehicle_simulation.md)
     * [Gazebo Classic Simulation](sim_gazebo_classic/README.md)
       * [Vehicles](sim_gazebo_classic/gazebo_vehicles.md)
