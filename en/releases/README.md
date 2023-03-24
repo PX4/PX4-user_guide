@@ -13,6 +13,10 @@ The full archive of releases for the PX4 autopilot project can be found on [GitH
 
 PX4 uses a Semantic versioning (`Major.minor.patch[-beta#]`) system ([Wikipedia article](https://en.wikipedia.org/wiki/Software_versioning)).
 
+:::note
+Semantic versioning will be adopted starting from `v2.0.0` (after `v1.14.x`). The releases before that didn't follow the strict Semantic versioning process.
+:::
+
 - Change in `Major`: Breaking changes
 - Change in `minor`: New non-breaking changes
 - Change in `patch`: All other non-breaking changes
@@ -21,11 +25,13 @@ PX4 uses a Semantic versioning (`Major.minor.patch[-beta#]`) system ([Wikipedia 
 
 PX4 follows the following release schedule:
 
-<!-- TO BE DEFINED -->
-
 - `Major` or `minor` releases: Roughly every 6 months
 - `patch` releases: When critical bug-fix / hardware support is needed
 - `beta` releases: Every 1 week during beta testing phase
+
+## Stakeholders
+
+The whole process depends on the contribution of the Maintainers. However, for the release process specifically, a 'Release manager' (referred below as well) will be the person in charge of overseeing the overall process.
 
 ### Past Major/Minor releases
 
@@ -38,6 +44,12 @@ There has been roughly 14 minor release in the past, with roughly 6 months ~ 1 y
 Point releases are the ones where the major/minor version tag changes.
 They come with major new features, new hardware support, and general improvements.
 
+#### Major or minor change?
+
+The decision on whether the upcoming release will involve a change in major version, or just a minor will be discussed during the weekly Maintainers meeting.
+
+If the general consensus agrees that the change for the upcoming release is big enough, the major version will be updated. Otherwise, only the minor version will be updated.
+
 #### Initial Branch-out
 
 Branch-out means when the `release/Major.minor` branch gets created off of the `main` branch of PX4-Autopilot.
@@ -47,8 +59,8 @@ For the initial beta release of a new major/minor change, a "branch out deadline
 The procedure is:
 
 1. Agreement on branch out deadline: By consensus during Maintainers call
-2. Publication in social media & mailing list about the branch out deadline: By [Ramon](https://github.com/mrpollo)
-3. Project board with the name for the new release gets created: By [Daniel](https://github.com/dagar)
+2. Publication in social media & mailing list about the branch out deadline:
+3. Project board with the name for the new release gets created:
    1. The board must include a `patch version` field (selectable)
 4. Until the branch out date
    1. All the PR/Issues that a contributor wants to finish before the deadline gets added to the Project Board: By Maintainers & during Maintainers call
@@ -61,7 +73,7 @@ On the branch out date, the `release/Major.minor` branch gets branched out and a
 Before the new major/minor release, the beta version gets released for a testing phase. During the beta testing phase following changes are **allowed**:
 
 - Critical bug fixes
-- New hardware supports
+- New hardware support
 
 And following changes are **not allowed**:
 
@@ -90,9 +102,9 @@ Once the release branch reaches a mature state with reliable firmware builds and
 After the consensus from the maintainers, the point release gets made:
 
 1. The `patch version` of the last beta release (e.g. `M.m.0-beta9`) gets renamed to include the release name (e.g. `M.m.0/M.m.0-beta9`)
-2. New tag for the last beta release commit gets tagged (as `M.m.0`) by [Daniel](https://github.com/dagar)
+2. New tag for the last beta release commit gets tagged (as `M.m.0`) by the 'Release manager'
 3. Release notes are prepared in Github side collaboratively by maintainers
-4. Public new point release announcement gets made via Social media / Mailing list by [Ramon](https://github.com/mrpollo)
+4. Public new point release announcement gets made via Social media / Mailing list by the 'Release manager'
 
 ### Patch release
 
