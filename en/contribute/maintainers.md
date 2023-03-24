@@ -87,9 +87,3 @@ And as always, don't hesitate to reach out if you need help with anything. We ar
 ### Point of Contact
 
 Regarding questions about the maintainer role, please contact **Ramon** in discord server or by [email](rroche@linuxfoundation.org).
-
-### Revision Notes
-
-| Date | Version | Description | Editor |
-|---|---|---|---|
-| Feb 28th 2023 | 1.0.0 | First revision updated in Documentation repository | Junwoo Hwang |
