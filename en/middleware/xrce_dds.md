@@ -180,17 +180,25 @@ For more information about setting up communications channels see [Pixhawk + Com
 The XRCE-DDS client module ([microdds-client](../modules/modules_system.md#microdds-client)) is included by default in all firmware and the simulator.
 This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
-On the simulator the client is automatically started on localhost UDP port 8888 using the default microdds namespace:
+The configuration can be done using the [Micro XRCE-DDS parameters](../advanced_config/parameter_reference.md#micro-xrce-dds):
 
-```
-microdds_client start -t udp -p 8888
-```
-
-On flight controller hardware the client should be configured using the [Micro XRCE-DDS parameters](../advanced_config/parameter_reference.md#micro-xrce-dds):
-
-- [XRCE_DDS_0_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_0_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
-  - [XRCE_DDS_UDP_PRT](../advanced_config/parameter_reference.md#XRCE_DDS_UDP_PRT):
-    If using an Ethernet connect, use this to specify the UDP port.
+- [XRCE_DDS_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
+  - [XRCE_DDS_PRT](../advanced_config/parameter_reference.md#XRCE_DDS_PRT):
+    If using an Ethernet connection, use this to specify the agent UDP listening port.
+    The default value is `8888`.
+  - [XRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#XRCE_DDS_AG_IP):
+    If using an Ethernet connection, use this to specify the IP address of the agent.
+    The IP address must be provided in `int32` format as PX4 does not support string parameters.
+    You can use [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/pr-micro-XRCE-DDS-allow-IP-parameter/Tools/convert_ip.py) to convert formats.
+    To obtain the `int32` version of an IP in decimal dot notation the command is
+    ```sh
+    python3 ./PX4-Autopilot/Tools/convert_ip.py <the IP address in decimal dot notation>
+    ```
+    To revert back from the `int32` version the command is
+    ```sh
+    python3 ./PX4-Autopilot/Tools/convert_ip.py -r <the IP address in int32 notation>
+    ```
+    The default value is `2130706433` which corresponds to the _localhost_ `127.0.0.1`.
   - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), [SER_URT6_BAUD](../advanced_config/parameter_reference.md#SER_URT6_BAUD) (and so on):
     If using a serial connection, the baud rate must be set using the `_BAUD` parameter associated with the serial port.
     For example, you'd set a value for `SER_TEL2_BAUD` if you are connecting to the companion using `TELEM2`.
@@ -201,7 +209,7 @@ On flight controller hardware the client should be configured using the [Micro X
   - [XRCE_DDS_KEY](../advanced_config/parameter_reference.md#XRCE_DDS_KEY): The XRCE-DDS key.
     If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key.
     This is primarily important for multi-vehicle simulations, where all clients are connected in UDP to the same agent.
-    (See https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session , `uxr_init_session`.)
+    (See the [official eprosima documentation](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
   - [XRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#XRCE_DDS_DOM_ID): The DDS domain ID.
     This provides a logical separation between DDS networks, and can be used to separate clients on different networks.
     By default, ROS 2 operates on ID 0.
@@ -218,20 +226,17 @@ To use these ports you must first disable the existing configuration:
 :::
 
 Once set, you may need to reboot PX4 for the parameters to take effect.
-They will then perist through subsequent reboots.
+They will then persist through subsequent reboots.
 
-While not recommended, you can also start the [microdds-client](../modules/modules_system.md#microdds-client) using a command line.
+You can also start the [microdds-client](../modules/modules_system.md#microdds-client) using a command line.
 This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console).
-For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888`.
+This methods is particularly useful when you need to set a custom client namespace.
+For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888` and to set the client namespace to `/drone/`.
 
 ```sh
-microdds_client start -t udp -p 8888 -h 192.168.0.100
+microdds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
-
-:::note
-At time of writing there is no PX4 parameter for setting the address of the remote host on which the XRCE-DDS agent is running ([PX4-Autopilot/21179](https://github.com/PX4/PX4-Autopilot/issues/21179)).
-Therefore for Ethernet connections you will _have_ to use a command to start the client.
-:::
+Options `-p` or `-h` are used to bypass `XRCE_DDS_PRT` and `XRCE_DDS_AG_IP`.
 
 ## Supported uORB Messages
 
