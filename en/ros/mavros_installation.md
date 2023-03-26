@@ -18,7 +18,7 @@ First install ROS and PX4 following the instructions in [Development Environment
 
 :::tip
 These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation).
-They cover the *ROS Melodic* release.
+They cover the *ROS Melodic and Noetic* releases.
 :::
 
 MAVROS can be installed either from source or binary.
