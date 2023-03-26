@@ -37,7 +37,7 @@ It is not required to *use* the simulators.
 
 ## Simulator MAVLink API
 
-All simulators communicate with PX4 using the Simulator MAVLink API.
+All simulators but Gazebo communicate with PX4 using the Simulator MAVLink API.
 This API defines a set of MAVLink messages that supply sensor data from the simulated world to PX4 and return motor and actuator values from the flight code that will be applied to the simulated vehicle.
 The image below shows the message flow.
 
@@ -61,6 +61,7 @@ Message | Direction | Description
 [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION) | Sim to PX4 | Contains the actual "simulated" vehicle position, attitude, speed etc. This can be logged and compared to PX4's estimates for analysis and debugging (for example, checking how well an estimator works for noisy (simulated) sensor inputs).
 [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW) | Sim to PX4 | The RAW values of the RC channels received.
 
+PX4 directly uses [Gazebo API](https://gazebosim.org/docs) to interface with [Gazebo](../sim_gazebo_gz/README.md) and MAVlink is not required.
 
 ## Default PX4 MAVLink UDP Ports
 
@@ -89,7 +90,7 @@ See [System Startup](../concept/system_startup.md) to learn more.
 
 ## SITL Simulation Environment
 
-The diagram below shows a typical SITL simulation environment for any of the supported simulators.
+The diagram below shows a typical SITL simulation environment for any of the supported simulators but Gazebo.
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 
@@ -99,7 +100,7 @@ The different parts of the system connect via UDP, and can be run on either the 
   Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above.
   PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.
   :::note
-  Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). <!-- need to fix up to [XRCE-DDS](../middleware/xrce_dds.md) but only if the multi vehicle doc below gets updated -->
+  Simulators can also use the *microdds bridge* ([XRCE-DDS](../middleware/xrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink).
   This approach *may* used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
   :::
 * PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS

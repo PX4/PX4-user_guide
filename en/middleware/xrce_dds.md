@@ -249,6 +249,9 @@ microdds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
 Options `-p` or `-h` are used to bypass `XRCE_DDS_PRT` and `XRCE_DDS_AG_IP`.
 
+On the simulator the client is automatically started on localhost UDP port 8888.
+Moreover, the startup scripts take into account [multi vehicle simulations](../ros/ros2_multi_vehicle.md) and their configuration.
+
 ## Supported uORB Messages
 
 The set of [PX4 uORB topics](../msg_docs/README.md) that are exposed through the client are set in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml).

@@ -4,18 +4,17 @@ This topic explains how to simulate multiple UAV vehicles using [Gazebo Classic]
 A different approach is used for simulation with and without ROS.
 
 
-<a id="no_ros"></a>
-## Multiple Vehicle with Gazebo Classic (No ROS)
+## Multiple Vehicle with Gazebo Classic
 
 To simulate multiple iris or plane vehicles in Gazebo Classic use the following commands in the terminal (from the root of the *Firmware* tree):
 ```
-Tools/gazebo/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
+Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
 - `<model>`: The [vehicle type/model](../sim_gazebo_classic/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
 - `<number_of_vehicles>`: The number of vehicles to spawn.
   Default is 3.
-  Maximum is 255.
+  Maximum is 254.
 - `<world>`: The [world](../sim_gazebo_classic/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
 - `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`).
   For example:
@@ -25,17 +24,18 @@ Tools/gazebo/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
    ```
    - Supported vehicle types are: `iris`, `plane`, `standard_vtol`, `rover`, `r1_rover` `typhoon_h480`.
    - The number after the colon indicates the number of vehicles (of that type) to spawn.
-   - Maximum number of vehicles is 255.
+   - Maximum number of vehicles is 254.
 
- - `<target>`: build target, e.g: `px4_sitl_default` (default), `px4_sitl_rtps`
- - `<label>` : specific label for model, e.g: `rtps`
+ - `<target>`: build target, e.g: `px4_sitl_default` (default), `px4_sitl_nolockstep`
+ - `<label>` : specific label for model, e.g: `rplidar`
 
-Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.).
-Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14540` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
+Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
+MAVLink system id 1 is skipped in order to have consistency among [namespaces](../ros/ros2_multi_vehicle.md#principle-of-operation).
+Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14541` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
 
 :::note
-The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network
-The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112)
+The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network (and the first one is skipped).
+The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS#L131)
 :::
 
 <a id="video_mc"></a>
@@ -55,21 +55,13 @@ The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-po
 
 
 <a id="with_dds"></a>
-### Build and Test (RTPS/DDS)
+### Build and Test (xrce-dds)
 
-:::warning
-**This section is out of date!**
-It relies on the [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), which is no longer supported.
-We plan to retest and update it for the [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
-:::
-
-To simulate multiple vehicles based on RTPS/DDS in Gazebo Classic, use the `Tools/gazebo/sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above).
-Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API.
-This builds and runs the `iris` model and **by default also starts the microRTPS client** (you can change the model using the `-m` parameter).
+`Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles based on xrce-dds in Gazebo Classic.
 
 :::note
-You will need to have installed or *eProsima Fast DDS* or ROS 2 Foxy or above and the `micrortps_agent` should be run in the different terminals for each vehicle.
-For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), for how to use the interaction with non-ROS 2 DDS participant applications, or [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
+You will need to have installed the xrce-dds dependencies.
+For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
 :::
 
 To build an example setup, follow the steps below:
@@ -78,41 +70,33 @@ To build an example setup, follow the steps below:
    ```bash
    cd Firmware_clone
    git submodule update --init --recursive
-   DONT_RUN=1 make px4_sitl_rtps gazebo-classic
+   DONT_RUN=1 make px4_sitl gazebo-classic
    ```
 
-1. Build the `micrortps_agent`
-   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)
-   * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
+1. Build the `micro xrce-dds agent` and the interface package following the [instructions here](../ros/ros2_comm.md).
 
-1. Run `Tools/gazebo/sitl_multiple_run.sh`.
+1. Run `Tools/simulation/gazebo-classic/sitl_multiple_run.sh`.
    For example, to spawn 4 vehicles, run:
 
    ```bash
-   ./Tools/gazebo/sitl_multiple_run.sh -t px4_sitl_rtps -m iris -n 4
+   ./Tools/simulation/gazebo-classic/sitl_multiple_run.sh -m iris -n 4
    ```
 
    :::note
-   Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), can receive data from a unique remote UDP port (2019, 2021, 2023, etc.), and transmit data to UDP port (2020, 2022, 2024, etc.).
+   Each vehicle instance is allocated a unique MAVLink system id (2, 3, 4, etc.).
+   MAVLink system id 1 is skipped.
    :::
 
-1. Run `micrortps_agent`.
-   For example, to connect 4 vehicles, run:
+2. Run `micro xrce-dds agent`. It will connect automatically to all four vehicles
 
    ```bash
-   micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0 &
-   micrortps_agent -t UDP -r 2022 -s 2021 -n vhcl1 &
-   micrortps_agent -t UDP -r 2024 -s 2023 -n vhcl2 &
-   micrortps_agent -t UDP -r 2026 -s 2025 -n vhcl3 &
+   MicroXRCEAgent udp4 -p 8888
    ```
    :::note
-   In order to communicate with a specific instance of PX4 using ROS 2, you must use the `-n <namespace>` option.
-   For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0` (eg. `SensorCombined` data from `vhcl0` will be published on the topic `/vhcl0/fmu/sensor_combined/out`, while if one wants to send commands to the same vehicle, it has to publish to topic `/vhcl0/fmu/vehicle_command/in`).
-   You can then subscribe and publish to just that vehicle's topics.
+   The simulator startup script automatically assign [unique namespaces](../ros/ros2_multi_vehicle.md) to each vehicle.
    :::
 
-<a id="with_ros"></a>
-## Multiple Vehicles with ROS and Gazebo Classic
+## Multiple Vehicles with MAVROS and Gazebo Classic
 
 This example demonstrates a setup that opens the Gazebo Classic client GUI showing two Iris vehicles in an empty world.
 You can then control the vehicles with *QGroundControl* and MAVROS in a similar way to how you would manage a single vehicle.
@@ -141,8 +125,8 @@ To build an example setup, follow the step below:
    ```
 1. Source your environment:
    ```
-   source Tools/simulation/gazebo/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
-   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/simulation/gazebo/sitl_gazebo
+   source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo
    ```
 
 1. Run launch file:
@@ -166,7 +150,7 @@ You can control the vehicles with *QGroundControl* or MAVROS in a similar way to
 
 For each simulated vehicle, the following is required:
 
-* **Gazebo Classic model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf).
+* **Gazebo Classic model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/PX4-SITL_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf).
   Currently, the model `xacro` file is assumed to end with **base.xacro**.
   This model should have an argument called  `mavlink_udp_port` which defines the UDP port on which Gazebo Classic will communicate with PX4 node.
   The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select.
@@ -279,7 +263,7 @@ To add a new vehicle, you need to make sure the model can be found (in order to 
    * modify the **single_vehicle_spawn_sdf.launch** file to point to the location of your model by changing the line below to point to your model:
 
      ```
-     $(find px4)/Tools/simulation/gazebo/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf
+     $(find px4)/Tools/simulation/gazebo/sitl_gazebo-classic/models/$(arg vehicle)/$(arg vehicle).sdf
      ```
      :::note
      Ensure you set the `vehicle` argument even if you hardcode the path to your model.
