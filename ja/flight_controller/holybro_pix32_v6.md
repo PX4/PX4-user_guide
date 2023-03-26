@@ -144,7 +144,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 Pix32 v6 uses analog power modules.
 
-Holybro makes various analog [power modules](../power_module) for different need.
+Holybro makes various analog [power modules](../power_module/README.md) for different need.
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
