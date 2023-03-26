@@ -4,7 +4,7 @@
 Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was previously known as Gazebo). See the [official blog post](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) for more information.
 :::
 
-[Gazebo](https://gazebosim.org/home) is an open source robotics simulator. It supersedes the older [Gazebo Classic](sim_gazebo_classic/gazebo.md) simulator, and is the only supported version of Gazebo for Ubuntu 22.04 and onwards.
+[Gazebo](https://gazebosim.org/home) is an open source robotics simulator. It supersedes the older [Gazebo Classic](../sim_gazebo_classic/README.md) simulator, and is the only supported version of Gazebo for Ubuntu 22.04 and onwards.
 
 **Supported Vehicles:** Quadrotor, Plane, VTOL
 
