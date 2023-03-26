@@ -32,7 +32,7 @@ Kinetic also supports Debian Jessie amd64 and arm64 (ARMv8).
 Use `apt-get` for installation:
 
 ```
-sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
+sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
 ```
 
 Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by running the `install_geographiclib_datasets.sh` script:
