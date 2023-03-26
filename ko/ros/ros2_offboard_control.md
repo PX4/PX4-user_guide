@@ -18,9 +18,9 @@ This example publishes positions in the NED frame, as expected by PX4. To subscr
 
 ## Trying it out
 
-Follow the instructions in [ROS 2 User Guide](..ros/ros2_comm.md) to install PX and run the simulator, install ROS 2, and start the XRCE-DDS Agent.
+Follow the instructions in [ROS 2 User Guide](../ros/ros2_comm.md) to install PX and run the simulator, install ROS 2, and start the XRCE-DDS Agent.
 
-After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS 2 Workspace](..ros/ros2_comm.md#build-ros-2-workspace) to run the example.
+After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS 2 Workspace](../ros/ros2_comm.md#build-ros-2-workspace) to run the example.
 
 To build and run the example:
 
