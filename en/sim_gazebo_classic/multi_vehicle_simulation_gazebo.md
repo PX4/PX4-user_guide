@@ -59,7 +59,7 @@ The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-po
 
 :::warning
 **This section is out of date!**
-It relies on the [PX4-Fast RTPS(DDS) Bridge](/middleware/micrortps.md), which is no longer supported.
+It relies on the [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), which is no longer supported.
 We plan to retest and update it for the [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md) in the near future.
 :::
 

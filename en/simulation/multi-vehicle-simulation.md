@@ -13,8 +13,8 @@ The choice of the simulator depends on the vehicle to be simulated, how "good" t
   It can also be used if different types of vehicles need to be simulated at the same time.
 - [Gazebo](sim_gazebo_gz/gazebo.md) is less accurate and less heavy-weight and supports many features that aren't available for FlightGear.
   It supports multiple vehicles simultaneously but, at the time of writing, only one frame (X500 quadcopter) is implemented in PX4.
-  Note, this is the successor of [Gazebo Classic](sim_gazebo_classic/gazebo.md) (below).
-- [Gazebo Classic](sim_gazebo_classic/gazebo.md) is less accurate and less heavy-weight and supports many features and vehicles that aren't available for FlightGear.
+  Note, this is the successor of [Gazebo Classic](../sim_gazebo_classic/README.md) (below).
+- [Gazebo Classic](../sim_gazebo_classic/README.md) is less accurate and less heavy-weight and supports many features and vehicles that aren't available for FlightGear.
   It can only simulate a single type of vehicle at a time, but it can simulate many more vehicles at a time than FlightGear.
   It can only be used with Ubuntu 20.04 and earlier.
 - JMAVSim is a very light-weight simulator that supports only quadcopters.
