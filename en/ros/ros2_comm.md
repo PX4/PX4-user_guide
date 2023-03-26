@@ -281,6 +281,45 @@ Note that ROS code does not have to set QoS settings when publishing (the PX4 se
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
 
+### ROS 2 & PX4 frame conventions
+
+The local/world and body frames used by ROS and PX4 are different.
+
+Frame | PX4 | ROS
+--- | --- | ---
+Body | FRD (X **F**orward, Y **R**ight, Z **D**own) | FLU (X **F**orward, Y **L**eft, Z **U**p)
+World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p)
+
+:::tip
+See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+:::
+
+Both frames are shown in the image below (FRD on the left/FLU on the right).
+
+![Reference frames](../../assets/lpe/ref_frames.png)
+
+The FRD (NED) conventions are adopted on **all** PX4 topics unless explicitly specified in the associated message definition.
+Therefore, ROS 2 nodes that want to interface with PX4 must take care of the frames conventions.
+
+- To rotate a vector from ENU to NED two basic rotations must be performed
+  - first a pi/2 rotation around the `Z`-axis (up),
+  - then a pi rotation around the `X`-axis (old East/new North).
+- To rotate a vector from NED to ENU two basic rotations must be performed
+  - first a pi/2 rotation around the `Z`-axis (down),
+  - then a pi rotation around the `X`-axis (old North/new East). Note that the two resulting operations are mathematically equivalent.
+- To rotate a vector from FLU to FRD a pi rotation around the `X`-axis (front) is sufficient.
+- To rotate a vector from FRD to FLU a pi rotation around the `X`-axis (front) is sufficient.
+
+Examples of vectors that require rotation are
+
+- all fields in [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) message; ENU to NED conversion is required before sending them.
+- all fields in [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) message; FLU to FRD conversion is required before sending them.
+
+Similarly to vectors, also quanternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion.
+
+[PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) provides the shared library [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/include/px4_ros_com/frame_transforms.h) to easily perform such conversions.
+
+
 ## ROS 2 Example Applications
 
 ### ROS 2 Listener
