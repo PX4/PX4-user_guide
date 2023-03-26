@@ -85,7 +85,7 @@ To set the above "example" configuration using the *QGroundControl*:
 1. Reboot the flight controller to apply the settings.
 
 Note that the above setup gives the flight controller an address on the Ethernet network.
-You also need to [configure the Ethernet port]((#px4-mavlink-serial-port-configuration) to use MAVLink.
+You also need to [configure the Ethernet port](#px4-mavlink-serial-port-configuration) to use MAVLink.
 
 
 ### Ubuntu Ethernet Network Setup

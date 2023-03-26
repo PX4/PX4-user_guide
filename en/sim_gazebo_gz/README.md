@@ -6,7 +6,7 @@ See the [official blog post](https://www.openrobotics.org/blog/2022/4/6/a-new-er
 :::
 
 [Gazebo](https://gazebosim.org/home) is an open source robotics simulator.
-It supersedes the older [Gazebo Classic](sim_gazebo_classic/gazebo.md) simulator, and is the only supported version of Gazebo for Ubuntu 22.04 and onwards.
+It supersedes the older [Gazebo Classic](../sim_gazebo_classic/README.md) simulator, and is the only supported version of Gazebo for Ubuntu 22.04 and onwards.
 
 **Supported Vehicles:** Quadrotor, Plane, VTOL
 
