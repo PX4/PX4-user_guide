@@ -186,6 +186,7 @@ First update the firmware, airframe, and actuator mappings:
 - [Actuators](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
+    The airframe is preconfigured with the motors on the **FMU PWM Out**.
   - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
