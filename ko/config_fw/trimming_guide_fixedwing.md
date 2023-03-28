@@ -11,7 +11,7 @@
 고정익을 적절히 트림하기 위해 사용할 수있는 매개변수가 있습니다. 트리밍 매개변수의 사용 사례에 대한 개요는 다음과 같습니다.
 
 - [RCx_TRIM](../advanced_config/parameter_reference.md#RC1_TRIM)은 RC 송신기에서 수신 신호에 트림을 적용합니다. 이 매개변수는 [RC 보정](../config/radio.md)중에 자동으로 설정됩니다.
-- [PWM_MAIN_TRIMx](../advanced_config/parameter_reference.md#PWM_MAIN_TRIM1)는 믹싱후 PWM 채널에 트림을 적용합니다. 이들은 비행 전에 제어 표면을 기본 각도로 미세하게 정렬하는 데 사용됩니다.
+- [CA_SV_CSx_TRIM](../advanced_config/parameter_reference.md#CA_SV_CS0_TRIM) applies trim to a control surfaces channel. 이들은 비행 전에 제어 표면을 기본 각도로 미세하게 정렬하는 데 사용됩니다.
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)는 피치 설정점에 오프셋을 적용합니다. 항공기가 순항 속도로 비행해야하는 공격 각도를 설정하는 데 사용됩니다.
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)은 속도 컨트롤러에서 측정된 대기 속도에 따라 출력을 조정하는 데 사용됩니다. 자세한 내용은 [대기속도 스케일링](../flight_stack/controller_diagrams.md#airspeed-scaling)을 참조하십시오.
 - [TRIM_ROLL](../advanced_config/parameter_reference.md#TRIM_ROLL), [TRIM_PITCH](../advanced_config/parameter_reference.md#TRIM_PITCH) 및 [TRIM_YAW](../advanced_config/parameter_reference.md#TRIM_YAW)는 믹싱 *전* 제어 신호에 트림을 적용합니다. 예를 들어. 엘리베이터용 서보가 두 개인 경우 `TRIM_PITCH`는 두 서보 모두에 트림을 적용합니다. 조종면이 정렬되어 있지만 수동 (안정화되지 않은) 비행 중에 기체가 피치/롤/요잉 업/다운/왼쪽/오른쪽 또는 안정된 비행 중에 제어 신호에 일정한 오프셋이 있는 경우에 사용됩니다.
@@ -26,12 +26,12 @@
 
 ## 고급 트리밍
 
-비대칭 익형에 의해 유도된 하향 피치 모멘트는 대기 속도에 따라 증가하고 플랩이 전개 될 때 현재 측정된 대기 속도와 플랩 위치에 따라 항공기를 다시 트리밍하여야 합니다. 이를 위해 대기속도의 쌍 선형 곡선 (아래 그림 참조) 함수와 플랩 상태의 피치 트림 증분 함수를 다음 매개변수를 사용하여 정의할 수 있습니다.
+비대칭 익형에 의해 유도된 하향 피치 모멘트는 대기 속도에 따라 증가하고 플랩이 전개 될 때 현재 측정된 대기 속도와 플랩 위치에 따라 항공기를 다시 트리밍하여야 합니다. For this purpose, a bilinear curve function of airspeed and a pitch trim increment function of the flaps state (see figure below) can be defined using the following parameters:
 
 - [FW*DTRIM*\[R/P/Y\]_\[VMIN/VMAX\]](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN)는 최소/최대 대기속도([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) 및 [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)로 정의 됨)에서 `TRIM_ROLL/PITCH/YAW`에 추가된 롤/피치/요 트림값입니다.
-- [FW_DTRIM_R_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_R_FLPS) and [FW_DTRIM_P_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_P_FLPS) are the roll/pitch trim value added to `TRIM_ROLL/PITCH/YAW` when the flaps are deployed.
+- [CA_SV_CSx_FLAP](../advanced_config/parameter_reference.md#CA_SV_CS0_FLAP) and [CA_SV_CSx_SPOIL](../advanced_config/parameter_reference.md#CA_SV_CS0_SPOIL) are the trimming values that are applied to these control surfaces if the flaps or the spoilers are fully deployed, respectively.
 
 ![Dtrim 곡선](../../assets/config/fw/fixedwing_dtrim.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/15AbscUF1kRdWMh8ONcCRu6QBwGbqVGfl/view?usp=sharing
 Request access from dev team. -->
 
-완벽하게 대칭인 기체는 피치 트림 증분만 필요하지만, 실제 기체는 완벽하게 대칭이 아니기 때문에 롤과 요 트림 증분이 필요한 경우도 있습니다.
+완벽하게 대칭인 기체는 피치 트림 증분만 필요하지만, 실제 기체는 완벽하게 대칭이 아니기 때문에 롤과 요 트림 증분이 필요한 경우도 있습니다. 
