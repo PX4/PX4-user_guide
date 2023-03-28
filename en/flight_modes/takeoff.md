@@ -104,7 +104,7 @@ The *runway takeoff mode* has the following phases:
 
 :::note
 For a smooth takeoff, the runway wheel controller possibly needs to be tuned.
-It consists of a rate controller (P-I-FF-controller with the parameters [FW_WR_P](../advanced_config/parameter_reference.md#FW_WR_P), [FW_WR_I](../advanced_config/parameter_reference.md#FW_WR_I), [FW_WR_FF](../advanced_config/parameter_reference.md#FW_WR_FF)) and an outer loop that calculates heading setpoints from course errors and can be tuned via [RWTO_L1_PERIOD](#RWTO_L1_PERIOD).
+It consists of a rate controller (P-I-FF-controller with the parameters [FW_WR_P](../advanced_config/parameter_reference.md#FW_WR_P), [FW_WR_I](../advanced_config/parameter_reference.md#FW_WR_I), [FW_WR_FF](../advanced_config/parameter_reference.md#FW_WR_FF)) and an outer loop that calculates heading setpoints from course errors and can be tuned via [RWTO_NPFG_PERIOD](#RWTO_NPFG_PERIOD).
 :::
 
 Runway takeoff important parameters:
@@ -121,7 +121,7 @@ Parameter | Description
 <span id="RWTO_NUDGE"></span>[RWTO_NUDGE](../advanced_config/parameter_reference.md#RWTO_NUDGE) | Enable wheel controller nudging while on the runway
 <span id="FW_WING_SPAN"></span>[FW_WING_SPAN](../advanced_config/parameter_reference.md#FW_WING_SPAN) | The wingspan of the vehicle. Used to prevent wingstrikes.
 <span id="FW_WING_HEIGHT"></span>[FW_WING_HEIGHT](../advanced_config/parameter_reference.md#FW_WING_HEIGHT) | The height of the wings above ground (ground clearance). Used to prevent wingstrikes.
-<span id="RWTO_L1_PERIOD"></span>[RWTO_L1_PERIOD](../advanced_config/parameter_reference.md#RWTO_L1_PERIOD) | L1 period while steering on runway. Increase for less aggressive response to course errors.
+<span id="RWTO_NPFG_PERIOD"></span>[RWTO_NPFG_PERIOD](../advanced_config/parameter_reference.md#RWTO_NPFG_PERIOD) | L1 period while steering on runway. Increase for less aggressive response to course errors.
 <span id="FW_FLAPS_TO_SCL"></span>[FW_FLAPS_TO_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_TO_SCL) | Flaps setpoint during takeoff
 
 
