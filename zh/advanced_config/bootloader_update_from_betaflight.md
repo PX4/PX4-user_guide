@@ -77,7 +77,7 @@ make <target> # For example: omnibusf4sd_bl or kakutef7_bl
 The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
 ```
-dfu-util -a 0 --dfuse-address:force:mass-erase:leave 0x08000000 -D  build/<target>/<target>.bin
+dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin
 ```
 
 The command may generate an error which can be ignored. Once completed, enter DFU mode again to complete the regular flashing. 飞控板上电后可以放开该按钮。
