@@ -176,7 +176,7 @@ PX4는 이전 웨이포인트에서 현재 목표까지 직선을 따라갈 것�
 기체는 허용 반경에 들어 오자마자 다음 웨이포인트로 전환합니다.
 - 멀티콥터의 경우 이 반경은 [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)로 정의됩니다.
 - 고정익의 경우 허용 반경은 "L1 거리"로 정의됩니다.
-  - L1 거리는 [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) 및 [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD)의 두 매개 변수와 현재지면 속도에서 계산됩니다.
+  - The L1 distance is computed from two parameters: [NPFG_DAMPING](../advanced_config/parameter_reference.md#NPFG_DAMPING) and [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD), and the current ground speed.
   - 기본적으로 약 70 미터입니다.
   - 방정식: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
 
