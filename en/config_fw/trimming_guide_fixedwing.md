@@ -15,7 +15,7 @@ An overview of those parameters and their use case is shown below:
 
 - [RCx_TRIM](../advanced_config/parameter_reference.md#RC1_TRIM) applies trim to the signal received from the RC transmitter. 
   These parameters are set automatically during [RC calibration](../config/radio.md).
-- [PWM_MAIN_TRIMx](../advanced_config/parameter_reference.md#PWM_MAIN_TRIM1) applies trim to a PWM channel, after mixing. 
+- [CA_SV_CSx_TRIM](../advanced_config/parameter_reference.md#CA_SV_CS0_TRIM) applies trim to a control surfaces channel. 
   These are used to finely align the control surfaces to default angles before flying.
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) applies an offset to the pitch setpoint. 
   This is used to set the angle of attack at which your aircraft needs to fly at cruise speed.
