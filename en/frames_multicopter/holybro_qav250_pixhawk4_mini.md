@@ -214,7 +214,9 @@ First update the firmware, airframe, and actuator mappings:
   :::
   
 - [Actuators](../config/actuators.md)
-  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Here is the main difference between the _discontinued_ Holybro Pixhawk 4 Mini QAV250 Kit and the new one based on the Pix32 v6.
+    - The default actuator configuration assumes that a flight controller with [I/O board](../hardware/reference_design.md#mainio-function-breakdown) such as the Pix32 v6 is used.
+    - The Pixhawk 4 Mini does not have the I/O board. Therefore, the actuator configuration MUST be updated: MAIN -> AUX.
   - Assign actuator functions to outputs to match your wiring.
   - Test the configuration using the sliders.
 
