@@ -10,16 +10,17 @@ This topic explains how the feature is set up and enabled in both modes.
 
 @[youtube](https://youtu.be/PrGt7pKj3tI)
 
+
 ## Limitations/Capabilities
 
 - The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).
-  
+
 :::note
 Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 :::
 
-<span id="offboard_mode"></span>
 
+<span id="offboard_mode"></span>
 ## Offboard Mode Avoidance
 
 PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
@@ -28,10 +29,10 @@ The desired route comes from a [ROS](../ros/README.md) node running on a compani
 
 The only required PX4-side setup is to put PX4 into *Offboard mode*.
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
+
 
 <span id="mission_mode"></span>
-
 ## Mission Mode Avoidance
 
 PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer.
@@ -41,18 +42,18 @@ PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), u
 Mission behaviour with obstacle avoidance enabled is *slightly different* to the original plan.
 
 The difference when avoidance is active are:
-
-- A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading. 
-  - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when obstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
+- A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading.
+  - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when obstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view.
 - PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as vehicle enters its acceptance radius).
-- If a waypoint is *inside* an obstacle it may unreachable (and the mission will be stuck). 
+- If a waypoint is *inside* an obstacle it may unreachable (and the mission will be stuck).
   - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
   - If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
-- The original mission speed (as set in *QGroundControl*/PX4) is ignored. The speed will be determined by the avoidance software: 
+- The original mission speed (as set in *QGroundControl*/PX4) is ignored. The speed will be determined by the avoidance software:
   - *local planner* mission speed is around 3 m/s.
   - *global planner* mission speed is around 1-1.5 m/s.
 
 If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes/hold.md).
+
 
 ### PX4 Configuration
 
@@ -64,12 +65,12 @@ Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/paramet
 
 ## Companion Computer Setup
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
 
-<span id="interface"></span>
 
+<span id="interface"></span>
 ## Obstacle Avoidance Interface
 
 PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
@@ -78,12 +79,8 @@ The interface (messages sent) between PX4 and the companion are *exactly* the sa
 
 ## Supported Hardware
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 <!-- ## Further Information -->
-
 <!-- @mrivi is expert! -->
 
-<!-- Issue with discussion : https://github.com/PX4/Devguide/issues/530 -->
-
-<!-- PR for mavlink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->

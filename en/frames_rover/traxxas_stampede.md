@@ -36,7 +36,7 @@ Tests showed that a better vibration insulation should be used, especially for t
 
 For this particular mounting we chose to use the clip supplied with the rover to attach the upper plate. 
 For this, two supports were 3D printed. 
-The CAD files are provided [here](https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
+The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
 :::warning
 It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual), which reduces power to 50%.
@@ -47,10 +47,10 @@ It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampe
 PWM Output | Actuator
 --- | ---
 MAIN2 | Steering servo
-MAIN4 | ESC input
+MAIN4 | Throttle (ESC input)
 
 :::note
-As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
+As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle).
 :::
 
 ## Configuration

@@ -14,7 +14,7 @@ This is similar to [compass calibration](../config/compass.md) except that you h
 :::
 
 :::note
-The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations.
+The calibration uses a least squares 'fit' algorithm that doesn't require you to have "perfect" 90 degree orientations.
 Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
 :::
 
@@ -48,5 +48,5 @@ You can then proceed to the next sensor.
 
 ## Further Information
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#accelerometer)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#accelerometer)
 * [PX4 Setup Video - @1m46s](https://youtu.be/91VGmdSlbo4?t=1m46s) (Youtube)

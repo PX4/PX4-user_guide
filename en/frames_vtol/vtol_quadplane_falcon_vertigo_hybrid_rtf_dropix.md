@@ -28,21 +28,22 @@ Almost everything you need is provided in the RTF kit (the links next to compone
   * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
   * Power Sensor  
   * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-* [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
+* Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
 * 4 x propeller 10”x 5” (quad motors)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
 * 1 x propeller 10” x 5” (pusher motor)
-* 1 x [ESC 30A](http://rctimer.com/product-146.html)
-* [Pusher motor power system](http://airtekhobbies.com/c283410.html)
+* 1 x ESC 30A
+* Pusher motor power system
 * Carbon fiber tubes and mounts
 * G10 motor mounts
 * 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
 * [Power distribution board and cable](https://store-drotek.com/453-apm-power-source-xt60.html)
 
-The kit does not come with a radio receiver or (optional) telemetry modules. For this build we used the following components:
+The kit does not come with a radio receiver or (optional) telemetry modules.
+For this build we used the following components:
 
-* [Receiver FR-SKY d4rII](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* [Telemetry 915 MHz modules](http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html)
+- Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
+- Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
 
 
 ## Tools needed 
@@ -259,7 +260,7 @@ The final assembly step is to check the vehicle is stable and that the motors ha
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="Quad motor order/directions" />
 
    :::note
-   If necessary the servo direction can be reversed using the `PWM_REV` parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
+   If necessary the servo direction can be reversed using the [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
    :::
  
 1. Check the vehicle is balanced around the expected centre of gravity

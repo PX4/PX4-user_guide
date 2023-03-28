@@ -5,7 +5,7 @@
 :::note
 This is the most environmentally realistic way to simulate multiple vehicles running PX4, and allows easy testing of multiple different types of vehicles. It is suitable for testing multi-vehicle support in *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/), etc.
 
-每个实例都应该有自己的启动脚本，可以代表完全不同的载具类型。 对于准备好的脚本，你应该看到以下视图。
+[Multi-Vehicle Simulation with Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo Classic. 对于准备好的脚本，你应该看到以下视图。
 
 ## 如何启动多机实例
 
@@ -34,7 +34,7 @@ Each instance should have its own startup script, which can represent a complete
 
 Ground stations such as *QGroundControl* connect to all instances using the normal UDP port 14550 (all traffic goes to the same port).
 
-The number of simultaneously running instances is limited mainly by computer resources. FlightGear is a single-thread application, but aerodynamics solvers consume a lot of memory. Therefore splitting to multiple computers and using a [multiplayer server](http://wiki.flightgear.org/index.php?title=Howto:Multiplayer) is probably required to run *many* vehicle instances.
+The number of simultaneously running instances is limited mainly by computer resources. FlightGear is a single-thread application, but aerodynamics solvers consume a lot of memory. Therefore splitting to multiple computers and using a [multiplayer server](https://wiki.flightgear.org/Howto:Multiplayer) is probably required to run *many* vehicle instances.
 
 ## 额外资源
 

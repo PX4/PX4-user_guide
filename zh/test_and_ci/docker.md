@@ -1,6 +1,6 @@
 # PX4 Docker 容器
 
-Docker 容器被提供用于完整的 [PX4 开发工具链](../setup/dev_env.md#supported-targets)，包括基于 NuttX 和 Linux 的硬件，[Gazebo Simulation](../simulation/gazebo.md) 和 [ROS](../simulation/ros_interface.md)。
+Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).
 
 本主题说明如何使用 [available docker containers](#px4_containers) 访问本地 Linux 计算机中的构建环境。
 
@@ -21,7 +21,7 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-可以使用 `latest` 标记访问最新版本：`px4io/px4-dev-ros:latest`（为 *hub.docker.com* 上的每个容器列出可用标记。 例如，*px4-dev-ros* 标签可以在 [here](https://hub.docker.com/r/px4io/px4-dev-ros/tags/)）。 That way, your build folder won't be owned by root after using docker.
+可以使用 `latest` 标记访问最新版本：`px4io/px4-dev-ros:latest`（为 *hub.docker.com* 上的每个容器列出可用标记。 However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
 
 ```sh
 ＃创建 docker 组（可能不是必需的）
@@ -31,11 +31,12 @@ sudo usermod -aG docker $ USER
 ＃在使用 docker 之前再次登录/注销！
 ```
 
+
 <a id="px4_containers"></a>
 
 ## 本地编辑层次结构
 
-The available containers are on [Github here](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
 使用容器的最简单方法是通过 [docker_run.sh](https://github.com/PX4/Firmware/blob/master/Tools/docker_run.sh) 帮助程序脚本。 此脚本将 PX4 构建命令作为参数（例如 `make tests`）。 For example, below you can see that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
@@ -43,7 +44,9 @@ The available containers are on [Github here](https://github.com/PX4/containers/
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
-    - px4io/px4-dev-ros2-foxy
+      - px4io/px4-dev-ros2-foxy
+  - px4io/px4-dev-ros2-rolling
+  - px4io/px4-dev-ros2-galactic
 
 
 The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-bionic:latest` (available tags are listed for each container on *hub.docker.com*. For example, the `px4io/px4-dev-nuttx-bionic` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-bionic/tags?page=1&ordering=last_updated)).
@@ -65,7 +68,7 @@ cd Firmware
 
 ### 助手脚本（docker_run.sh）
 
-The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
+The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
 
 下面的具体示例显示了如何打开 bash shell 并在主机上共享目录 **〜/src/Firmware**。
 
@@ -112,20 +115,28 @@ The concrete example below shows how to open a bash shell and share the director
 xhost +
 
 # Run docker and open bash shell
-sudo docker run -it --privileged \
+docker run -it --privileged \
 --env=LOCAL_USER_ID="$(id -u)" \
--v ~/src/Firmware:/src/firmware/:rw \
+-v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -e DISPLAY=:0 \
--p 14556:14556/udp \
---name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
+--network host \
+--name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
+
+:::note
+We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+:::
+
+:::note
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+:::
 
 运行模拟实例时，例如在 docker 容器内的 SITL 并通过 *QGroundControl* 从主机控制它，必须手动设置通信链接。 *QGroundControl* 的自动连接功能在此处不起作用。
 
 ```sh
-cd src/firmware    #This is &lt;container_src&gt;
-make px4_sitl_default gazebo
+cd src/PX4-Autopilot    #This is <container_src>
+make px4_sitl_default gazebo-classic
 ```
 
 
@@ -159,7 +170,7 @@ $ sudo docker rm 45eeb98f1dd9
 
 在这种情况下，必须安装主机系统的本机图形驱动程序。 下载正确的驱动程序并将其安装在容器中。
 
-In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
 
 ```sh
 <code>&lt;local_container_name&gt;</code>：正在创建的 docker 容器的名称 如果我们需要再次引用容器，以后可以使用它。
@@ -168,7 +179,7 @@ In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/en/S
 </code>
 
 :::note
-Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook). 
 :::
 
 ### 故障处理
@@ -182,7 +193,7 @@ The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a use
 
 #### 图形驱动问题
 
-It's possible that running Gazebo will result in a similar error message like the following:
+It's possible that running Gazebo Classic will result in a similar error message like the following:
 
 ```sh
 libGL error: failed to load driver: swrast
@@ -195,6 +206,7 @@ In that case the native graphics driver for your host system must be installed. 
 ```
 
 如果编译失败，则出现以下错误：
+
 
 <a id="virtual_machine"></a>
 

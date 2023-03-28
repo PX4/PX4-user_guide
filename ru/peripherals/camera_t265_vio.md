@@ -9,9 +9,9 @@ This camera is recommended, and is used in the [Visual Inertial Odometry (VIO) >
 ![Intel Realsense Tracking Camera T265 - Angled Image](../../assets/peripherals/camera_vio/t265_intel_realsense_tracking_camera_photo_angle.jpg)
 
 
-## Purchase Link
+## Where to Buy
 
-[Intel® RealSense™ Tracking Camera T265](https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html) (store.intelrealsense.com)
+[Intel® RealSense™ Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) (store.intelrealsense.com)
 
 
 ## Setup Instructions
@@ -20,7 +20,7 @@ The instructions in [Visual Inertial Odometry (VIO)](../computer_vision/visual_i
 
 At high level:
 - The [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between ROS and this camera. This node is only intended for use with this camera.
-- The camera should be mounted with lenses facing down (default). For other orientations modify [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) in the section below:
+- The camera should be mounted with lenses facing down (default). For other orientations modify [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch) in the section below:
     ```xml
     <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
         args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>
@@ -29,6 +29,8 @@ At high level:
    - the first three `args` specify *translation* x,y,z in metres from the center of flight controller to camera. For example, if the camera is 10cm in front of the controller and 4cm up, the first three numbers would be : [0.1, 0, 0.04,...]
    - the next three `args` specify rotation in radians (yaw, pitch, roll). So `[... 0, 1.5708, 0]` means pitch down by 90deg (facing the ground). Facing straight forward would be [... 0 0 0].
 - The camera is sensitive to high frequency vibrations! It should be soft-mounted with, for example, vibration isolation foam.
+
+
 <span id="launch_files"></span> Launch files are provided for a number of different scenarios.
 
 | Launch File                                                                                                 | Starts               | Description                                                      |

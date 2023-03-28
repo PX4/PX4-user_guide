@@ -63,7 +63,7 @@ Otherwise, the FlightGear crashes because of an unexpected definition of electri
 Rascal JSBsim variant.
 
 This variant does not have a direct `make` option but can be manually selected in the **rascal.json** configuration file (part of [PX4-FlightGear-Bridge](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)).
-Simply change `Rascal110-YASim` to `Rascal110-JSBSim` in [this file](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/blob/master/rascal.json#L2).
+Simply change `Rascal110-YASim` to `Rascal110-JSBSim` in [this file](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/blob/master/models/rascal.json#L2).
 
 <a id="autogyro"></a>
 ## Autogyro
@@ -111,7 +111,7 @@ This directory contains an control channel definition [JSON file](https://github
                 ["5","/controls/flight/aileron","-1"],
                 ["7","/controls/flight/elevator","-1"],
                 ["2","/controls/flight/rudder","1"],
-                ["4","/controls/engines/engine/throttle","1"]
+                ["4","/controls/engines/engine/throttle","1"] 
                 ]
 }
 ```
@@ -123,7 +123,7 @@ The file content meaning is as follows:
 * `Controls` - the most important part of the process of adding a vehicle. This section contains the mapping between the PX4 mixer file and [FlightGear property tree](http://wiki.flightgear.org/Property_tree).
   * The first number in a list selects a PX4 mixer output.
   * Path string is a FlightGear variable location in the property tree.
- * The last number in a list is a multiplier, allowing inversion or scaling of mixer input.
+ * The last number in a list is a multiplier, allowing inversion or scaling of mixer input. 
 
 After preparing all these files a new vehicle need to be included in the PX4 make system. 
 

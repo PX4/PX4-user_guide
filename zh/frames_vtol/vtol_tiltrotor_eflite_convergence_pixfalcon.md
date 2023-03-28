@@ -1,12 +1,28 @@
 # E-Flite Convergence 倾转旋翼 （Pixfalcon）
 
-E-Flite Convergence 这种机架可以通过PX4轻松变成具有完全自主飞行能力的垂直起降固定翼机型， 虽然空间受限，但是留给 Pixfalcon、GPS、接收机的空间也足够了
+The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a [Pixfalcon](../flight_controller/pixfalcon.md) flight controller with GPS and telemetry.
+
+:::note
+The original [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#purchase) section.
+:::
 
 @[youtube](https://youtu.be/E61P2f2WPNU)
 
-## 硬件连接
 
-Convergence 机架需要按照以下方式，与飞控 Pixfalcon 之间连接7路 PWM 信号（与 PX4 中的机身布局相匹配，左右方向是从飞机尾部向机头方向观察来确定的）
+## Where to Buy
+
+Vehicle frame options:
+- **WL Tech XK X450** - [Banggood](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
+- **JJRC M02** - [Banggood (AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [AliExpress](https://www.aliexpress.com/item/4001031497018.html)
+
+Flight controller options ():
+- [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
+- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md).
+- Any other compatible flight controller with small enough form-factor.
+
+## Hardware Setup
+
+The vehicle needs 7 PWM signals, which must be connected to the flight controller outputs as specified in [Airframe Reference > VTOL Tiltrotor > E-flite Convergence](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_e-flite_convergence). This mapping is reproduced below.
 
 | Port   | 接口定义  |
 | ------ | ----- |
@@ -19,28 +35,35 @@ Convergence 机架需要按照以下方式，与飞控 Pixfalcon 之间连接7�
 | MAIN 7 | 右翼升降舵 |
 | MAIN 8 | 左翼升降舵 |
 
-Pixfalcon 硬件可以安装在飞机原始的飞控安装位置
+Note that left and right in the reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
+
+<img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
+
+### Flight Controller
+
+The flight controller can be mounted at the same place the original autopilot was.
 
 ![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-接收机模块安装在飞机原本需要安装 FPV 图传的空间内
+### Telemetry Radio
+
+The telemetry module fits into the bay meant to hold FPV transmission gear.
 
 ![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
-对于GPS，我们在驾驶舱内泡沫上切出一块空间， 这样GPS可以放在机身内，良好内置不影响外观
+### GPS
+
+For the GPS we cut out a section of foam inside the "cockpit". That way the GPS can be put inside the body and is nicely stowed away without compromising the vehicle appearance.
 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
-## 配置
 
-在飞控校准之前（遥控、传感器、飞行模式），在 QGC 中的机架部分，选择 VTOL Tiltrotor 菜单栏下的 E-Flite Convergence 选项，并在之后重启
+## PX4 Configuration
 
-如果机架在 QGC 中无法显示，重新设置以下参数并重启
+Follow the [Standard Configuration](../config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
-- `SYS_AUTOSTART`: 13012
-- `SYS_AUTOCONFIG`: 1
-
-备注：
-
-- 记得为转换到固定翼模式分配一个转换开关
-- 默认启用永久稳定， 如果想在手动模式下控制固定翼模式飞行，把 VT_FW_PERM_STAB 设置为 0
+The particular settings that are relevant to this vehicle are:
+- [Airframe](../config/airframe.md)
+  - Select the airframe configuration **E-flite Convergence** under **VTOL Tiltrotor** and restart *QGroundControl*. ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
+- [Flight Modes/Switches](../config/flight_mode.md)
+  - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.

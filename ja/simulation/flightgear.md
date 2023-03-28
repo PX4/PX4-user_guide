@@ -49,11 +49,12 @@ For some models (e.g. those with electric engines) the daily build with the newe
    ```
 1. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
    ```
-   sudo chmod a+w /usr/share/games/flightgear/Protocols
+   sudo chmod a+w /usr/share/games/flightgear/Protocol
    ```
    Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
 
-Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).   
+Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).
+
 
 <a id="running"></a>
 
@@ -108,7 +109,7 @@ px4 starting.
 INFO  [px4] Calling startup script: /bin/sh etc/init.d-posix/rcS 0
 INFO  [param] selected parameter default file eeprom/parameters_1034
 I'm Mavlink to FlightGear Bridge
-Targed Bridge Freq: 200, send data every step: 1
+Target Bridge Freq: 200, send data every step: 1
 4
   5   -1
   7   -1
@@ -120,7 +121,6 @@ INFO  [simulator] Waiting for simulator to accept connection on TCP port 4560
 INFO  [simulator] Simulator connected on TCP port 4560.
 INFO  [commander] LED: open /dev/led0 failed (22)
 INFO  [commander] Mission #3 loaded, 9 WPs, curr: 8
-INFO  [init] Mixer: etc/mixers-sitl/plane_sitl.main.mix on /dev/pwm_output0
 INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote port 14550
 INFO  [airspeed_selector] No airspeed sensor detected. Switch to non-airspeed mode.
 INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
@@ -128,7 +128,7 @@ INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port
 INFO  [logger] logger started (mode=all)
 INFO  [logger] Start file log (type: full)
 INFO  [logger] Opened full log file: ./log/2020-04-28/22_03_36.ulg
-INFO  [mavlink] MAVLink only on localhost (set param MAV_BROADCAST = 1 to enable network)
+INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
 INFO  [px4] Startup script returned successfully
 pxh> StatsHandler::StatsHandler() Setting up GL2 compatible shaders
 Now checking for plug-in osgPlugins-3.4.1/osgdb_nvtt.so
@@ -181,18 +181,19 @@ FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 
 The example above starts the simulation on the [Honolulu international airport](http://wiki.flightgear.org/Suggested_airports)
 
+
 <a id="joystick"></a>
 
 ### Using a Joystick
 
-Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
 
 
 ## Extending and Customizing
 
-To extend or customize the simulation interface, edit the files in the **Tools/flightgear_bridge* folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
+To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
 
 ## Further Information

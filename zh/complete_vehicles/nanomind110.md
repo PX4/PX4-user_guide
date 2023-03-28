@@ -2,7 +2,7 @@
 
 ![nanomind 11](../../assets/hardware/hardware-nanomind110.png)
 
-### 概要 
+### 概要
 
 Nano size (110mm diagonal) ready-to-fly quad copter for indoor flight/racing. NanoMind uses MindRacer as flight controller, which runs full PX4/MindPX flight stack.
 
@@ -25,8 +25,8 @@ The user guide is [here](http://mindpx.net/assets/accessories/NanoMind_110_user_
 
 ### Where to buy
 
-NanoMind 110 is available at [AirMind<sup>&reg;</sup> Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+NanoMind 110 is available at [AirMind<sup>&reg;</sup> Store](https://airmind.mindpx.net/node/92). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ### 技术支持
 
-Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.

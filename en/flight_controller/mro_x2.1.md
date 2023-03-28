@@ -5,7 +5,8 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
-The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
+The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
@@ -63,19 +64,19 @@ has a much smaller footprint. Major differences are updated sensors and Rev 3 FM
 By default a mRo X2.1 might come preconfigured for ArduPilot<sup>&reg;</sup> rather than PX4. This 
 can be seen during firmware update when the board is recognized as FMUv2 instead of X2.1.
 
-In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip).
+In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip).
 If this correction is not carried out your compass direction will be wrong and the
 secondary IMU will not be detected. 
 
 The update steps are:
-1. Download and extract [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip).
+1. Download and extract [BL_Update_X21.zip](https://github.com/PX4/PX4-user_guide/raw/main/assets/hardware/BL_Update_X21.zip).
 2. Find the folder *BL_Update_X21*. This contains a **bin** file and a subfolder named **/etc** containing an **rc.txt** file
 3. Copy these files to your micro SD card's root directory and insert it into the mRO x2.1
 4. Power on the mRO x2.1 Wait for it to boot and then reboot 1 time.
 
 ## Availability
 
-This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm).
+This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm).
  
 ## Wiring Guide
 
@@ -110,4 +111,4 @@ USART6 | /dev/ttyS4 | PX4IO
 UART7 | /dev/ttyS5 | SERIAL5 CONSOLE
 UART8 | /dev/ttyS6 | SERIAL4
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->

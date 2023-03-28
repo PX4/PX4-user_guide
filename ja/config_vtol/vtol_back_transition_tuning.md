@@ -1,9 +1,5 @@
 # VTOL Back-transition Tuning
 
-:::note
-Some of the following features will be available in PX4 version 1.7 and are currently only available on the experimental development branch.
-:::
-
 When a VTOL performs a back-transition (transition from fixed wing mode to multicopter) it needs to slow down before the multicopter can take proper control. As of PX4 version 1.7, and on the current developer branch, the vehicle will consider the back-transition complete when the horizontal speed has reached multicopter cruise speed ([MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)) or when the back-transition duration ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) has passed (whichever comes first).
 
 ## Back-transition duration
@@ -28,6 +24,7 @@ A typical fixed wing propeller is not optimized to spin in reverse, when the thr
 
 Generally there are 2 ways a reverse-capable ESC can implement reverse thrust.
 
+
 ### Using throttle scaling (3D)
 
 Normally the throttle stick is used purely for forward thrust.
@@ -40,9 +37,10 @@ Support for 3D throttle scaling during back-transition requires *code support* i
 
 The amount of negative thrust during back transition can then be configured using the [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) parameter (set to a negative value between 0 and -1).
 
+
 ### On a control channel
 
-ESCs that use a separate control channel to control the motor direction (e.g. [Hobbywing Platinum series](http://a.hobbywing.com/category.php?id=44&filter_attr=6345.6346)) can use the airbrakes channel to apply reverse thrust during back-transition.
+ESCs that use a separate control channel to control the motor direction (e.g. [Hobbywing Platinum series](https://www.hobbywing.com/category.php?id=76&filter_attr=.0)) can use the airbrakes channel to apply reverse thrust during back-transition.
 
 Airframes that have been configured to support this behavior (like the DeltaQuad airframe) can be configured to do so by setting both [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT) to 1 and [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) to the desired throttle level to apply for active breaking. The values scale from 0 to 1, so a value of 0.7 equals 70% throttle.
 

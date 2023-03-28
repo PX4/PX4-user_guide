@@ -1,4 +1,4 @@
-# 视觉惯性里程计（VIO）
+# Visual Inertial Odometry (VIO)
 
 *视觉惯性里程计测距*（VIO）是一种[计算机视觉](../computer_vision/README.md)技术，用于估算3D*姿态*（local 位置和方向），相对于 *local* 起始位置的移动的机体 *速度*。 它通常用于在GPS不存在或不可靠的情况下（例如室内或在桥下飞行时）给载具导航。
 
@@ -6,7 +6,7 @@ VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/
 
 本节说明如何通过设置 PX4 和机载计算机来使用*已支持的* VIO 配置。
 
-<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <!-- https://youtu.be/gWtrka2mK7U -->
 
 :::tip
@@ -17,11 +17,13 @@ VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/
 Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。 PX4 本身并不关心消息源，通过 [MAVLink接口](../ros/external_position_estimation.md#px4-mavlink-integration) 提供消息就行。
 :::
 
-<span id="supported_setup"></span>
+<a id="supported_setup"></a>
+
 ## 支持的配置
 
 :::tip
 上面的[ Auterion 产品视频](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) 展示了一个无人机飞行使用了
+
 支持的设置</0>。 :::</p> 
 
 
@@ -34,7 +36,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 - 使用提供的线缆连接 [T265 Intel Realse 追踪摄像头](../peripherals/camera_t265_vio.md)。
 - 尽可能使镜头朝下安装相机（默认）。
-- 该相机对振动非常敏感，建议软安装（例如使用振动隔离海绵）。
+- 该相机对振动非常敏感，建议采用软连接安装（例如使用隔振海绵）。
 
 
 
@@ -101,13 +103,14 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 - 验证与飞控的连接。
   
 :::tip
-您可以使用*QGroundControl *  [ MAVLink检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)来验证是否收到` ODOMETRY `或` VISION_POSITION_ESTIMATE `消息（或检查是否存在 ` HEARTBEAT `消息，其组件ID为197（` MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY `）。
+您可以使用*QGroundControl *  中的[ MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)来验证是否收到` ODOMETRY `或` VISION_POSITION_ESTIMATE `消息（或检查是否存在 ` HEARTBEAT `消息，其组件ID为197（` MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY `）。
 :::
 
 - 在第一次飞行前 [确认 VIO 设置正确](#verify_estimate)！
 
-<span id="ekf2_tuning"></span> 
 
+
+<a id="ekf2_tuning"></a>
 
 ### PX4 调试
 
@@ -115,8 +118,8 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 | 参数                                                                                                                                                                                                            | 外部位置估计的设置                                                             |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                    | 设置 *视觉位置合成* 和 *视觉偏航合成*                                                |
-| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                    | 设置为 *Vision* 使用视觉作为高度估计的主要来源。                                         |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                    | 按照你期望的融合方式来设置 *视觉位置融合* 、 *视觉速度融合*、*视觉航向融合*以及*外部视觉系统旋转*。               |
+| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                      | 设置为 *Vision* 以使用视觉作为高度估计的主要来源。                                        |
 | [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                    | 设置为测量的时间戳和 "实际" 捕获时间之间的差异。 有关详细信息，请参阅 [below](#tuning-EKF2_EV_DELAY)。 |
 | [EKF2_EV_POS_X](../advanced/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced/parameter_reference.md#EKF2_EV_POS_Z) | 设置视觉传感器相对于车身框架的位置。                                                    |
 
@@ -125,14 +128,15 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 更多详情/附加信息，见： [ECL/EKF 概述 & 调试 > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)。
 
-<span id="tuning-EKF2_EV_DELAY"></span> 
 
+
+<a id="tuning-EKF2_EV_DELAY"></a>
 
 #### EKF2_EV_DELAY 调参
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)是*相对于 IMU 测量值的视觉位置估算器的延迟* 。 换而言之，这是视觉系统时间戳和 IMU 时钟（ EKF2 “时基” ）记录的“实际”捕获时间之间的差异。
 
-从技术上讲，如果 MoCap 和（例如）ROS 计算机之间有正确的时间戳（而不仅仅是到达时间）和时间同步（例如 NTP ），则可以将其设置为0。 实际上，由于通信链路的延迟非常特殊，这可能需要一些经验来调整。 系统设置完全同步链的情况很少见!
+从技术上讲，如果 MoCap 和（例如）ROS 计算机之间有正确的时间戳（而不仅仅是到达时间）和时间同步（例如 NTP ），则可以将其设置为0。 实际应用中，这可能需要进行一些基于经验的调整，因为通信链路中的延迟与具体设置非常相关。 系统设置完全同步链的情况很少见!
 
 通过检查 IMU 速率和 EV 速率之间的偏移，可以从日志中获取对延迟的粗略估计：
 
@@ -144,14 +148,14 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的 EKF 更新值。
 
-<span id="verify_estimate"></span> 
 
+<a id="verify_estimate"></a>
 
 ## 检查/校验 VIO 估计
 
 执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
 
-* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息
+* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* 中的 [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息。
 
 * 偏航机身，直到` ODOMETRY `消息的四元数非常接近单位四元数（w = 1，x = y = z = 0）。
   
@@ -189,7 +193,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
     - 如果使用 [T265](../peripherals/camera_t265_vio.md)，请尝试将其软安装（soft-mounting，做好减震，此相机对高频振动非常敏感）。
 - **问题：** 启用 VIO 时产生了马桶效应。
   
-    - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl*  [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD 坐标系统一致。
+    - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl* 中的 [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD (前右下)坐标系一致。
 - **问题：** 想使用视觉位置来做闭环，也想运行 GPS 。
   
     - 这确实很困难，因为当他们不同意时，就会混淆 EKF。 通过测试，仅使用视觉速度更为可靠（如果您想出一种使该配置可靠的方法，请告诉我们）。
@@ -209,4 +213,3 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 ## 更多信息
 
 - [ECL/EKF 概述 & 调试 > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [Snapdragon > 安装 > 安装 Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)

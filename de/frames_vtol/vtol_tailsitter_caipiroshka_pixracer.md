@@ -3,30 +3,29 @@
 The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
 
 :::note
-The *TBS Caipirinha* has been superceded and is no longer available. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). A number of other components have been updated in the parts list too.
+The *TBS Caipirinha* has been superseded and is no longer available. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). A number of other components have been updated in the parts list too.
 :::
 
 @[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
 ## Parts List
 
-* TBS Caipirinha Wing (no longer available - try [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)) 
-* Left and right 3D-printed motor mount (<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
+* TBS Caipirinha Wing (no longer available - try [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp))
+* Left and right 3D-printed motor mount (<a href="https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
 * CW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * CCW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 2x 1800 kV 120-180W motors
-  
   * [ePower 2208](https://www.galaxus.ch/en/s5/product/epower-22081400-fuer-2-3-lipo-imax-rc-electric-motors-8355913)
-  * [Armattan 2208 1800kV Multirotor Motor](https://www.amazon.com/Armattan-2208-1800kV-Multirotor-Motor/dp/B00UWLW0C8) <!-- equivalent replacement must match: kV (1800), motor size (2208) and number of LiPo cells (3S). -->
-
+  * [Armattan 2208 1800kV Multirotor Motor](https://www.amazon.com/Armattan-2208-1800kV-Multirotor-Motor/dp/B00UWLW0C8)
+    <!-- equivalent replacement must match: kV (1800), motor size (2208) and number of LiPo cells (3S). -->
 * 2x 20-30S ESC
-  
   * [GetFPV](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html)
 * BEC (3A, 5-5.3V) (only needed if you are using ESCs which cannot act as a 5V power supply for the output rail)
-* 3S 2200 mA LiPo battery 
+* 3S 2200 mA LiPo battery
   * Team Orion 3S 11.1V 50 C ([Hobbyshop store](https://www.hobbyshop.ch/modellbau-elektronik/akku/team-orion-lipo-2200-3s-11-1v-50c-xt60-ori60163.html))
 * [Pixracer autopilot board + power module](../flight_controller/pixracer.md)
 * [Digital airspeed sensor](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
+
 
 ## Assembly
 
@@ -73,6 +72,7 @@ Before mounting all the components to the wing, use tape to hold them in the app
 Switch to the configuration section in [QGroundControl](../config/airframe.md) and select the airframe tab. Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiroshka Duo Tailsitter* from the drop-down list.
 
 ![caipiroshka](../../assets/airframes/vtol/caipiroshka/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
+
 
 ## Servo Connections
 

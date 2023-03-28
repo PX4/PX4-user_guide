@@ -1,10 +1,10 @@
-# Simulation Debugging
+# 시뮬레이션 디버깅
 
-As the simulation is running on the host machine, all the desktop development tools are available.
+호스트 시스템에서 시뮬레이션이 실행 중이므로, 데스크탑 개발 도구를 사용할 수 있습니다.
 
-## CLANG Address Sanitizer (Mac OS, Linux)
+## CLANG 주소 새니타이저(Mac OS, Linux)
 
-The Clang address sanitizer can help to find alignment (bus) errors and other memory faults like segmentation faults. The command below sets the right compile options.
+Clang 주소 새니타이저는 정렬(버스) 오류 및 분할 오류와 같은 기타 메모리 오류를 찾는 데 도움이 됩니다. 아래 명령은 올바른 컴파일 옵션을 설정합니다.
 
 ```sh
 make clean # only required on first address sanitizer run after a normal build
@@ -17,33 +17,33 @@ PX4_ASAN=1 make px4_sitl jmavsim
 brew install valgrind
 ```
 
-or
+또는
 
 ```sh
 sudo apt-get install valgrind
 ```
 
-To use valgrind during the SITL simulation:
+SITL 시뮬레이션 중에 valgrind를 사용하려면:
 
 ```sh
 make px4_sitl_default jmavsim___valgrind
 ```
 
-## Start combinations
+## 조합 시작
 
-SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo as simulation backend. This results in the start options below:
+SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend. 그 결과 아래와 같은 시작 옵션이 나타납니다.
 
 ```sh
 make px4_sitl_default jmavsim
 make px4_sitl_default jmavsim___gdb
 make px4_sitl_default jmavsim___lldb
 
-make px4_sitl_default gazebo
-make px4_sitl_default gazebo___gdb
-make px4_sitl_default gazebo___lldb
+make px4_sitl_default gazebo-classic
+make px4_sitl_default gazebo-classic___gdb
+make px4_sitl_default gazebo-classic___lldb
 ```
 
-where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
+여기서 마지막 매개변수는 &lt;viewer\_model\_debugger&gt; 삼중항입니다(밑줄 3개를 사용하면 기본 "iris" 모델을 의미함). 그러면, 디버거가 시작되고 SITL 애플리케이션이 시작됩니다. 디버거 셸에서 실행을 중지하려면 `CTRL-C`를 입력합니다.
 
 ```sh
 Process 16529 stopped
@@ -57,60 +57,60 @@ libsystem_kernel.dylib`__read_nocancel:
 (lldb) 
 ```
 
-In order to not have the DriverFrameworks scheduling interfere with the debugging session `SIGCONT` should be masked in LLDB and GDB:
+DriverFrameworks 스케줄링이 디버깅 세션을 방해하지 않도록 하려면, `SIGCONT`를 LLDB 및 GDB에서 마스킹합니다.
 
 ```bash
 (lldb) process handle SIGCONT -n false -p false -s false
 ```
 
-Or in the case of GDB:
+또는 GDB의 경우:
 
 ```
 (gdb) handle SIGCONT noprint nostop
 ```
 
-After that the lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.
+그 후 lldb 또는 gdb 셸은 일반 세션처럼 작동합니다. LLDB/GDB 문서를 참고하십시오.
 
-The last parameter, the &lt;viewer\_model\_debugger&gt; triplet, is actually passed to make in the build directory, so
+마지막 매개변수인 &lt;viewer\_model\_debugger&gt; 트리플렛은 실제로 빌드 디렉토리에서 make에 전달되므로
 
 ```sh
 make px4_sitl_default jmavsim___gdb
 ```
 
-is equivalent with
+명령은 다음 명령과 같습니다.
 
 ```sh
 make px4_sitl_default   # Configure with cmake
 make -C build/px4_sitl_default jmavsim___gdb
 ```
 
-but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets is printed with the command
+A full list of the available make targets in the build directory can be obtained with:
 
 ```sh
 make help
 ```
 
-but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets is printed with the command
+그러나, 편의를 위해 &lt;viewer\_model\_debugger&gt; 삼중항만 있는 목록이 다음 명령으로 출력됩니다.
 
 ```sh
 make list_vmd_make_targets
 ```
 
-## Compiler optimization
+## 컴파일러 최적화
 
-It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring for `posix_sitl_*`. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
+`posix_sitl_*`에 대해 구성할 때 주어진 실행 파일 및/또는 모듈(cmake에서 `add_executable` 또는 `add_library`로 추가)에 대한 컴파일러 최적화를 억제할 수 있습니다. 이것은 디버거를 사용하여 코드를 단계별로 실행하거나, 그렇지 않으면 최적화 변수를 인쇄시에 편리합니다.
 
 To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
 
-For example,
+예를 들어,
 
 ```sh
 export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 ```
 
-The targets that can be matched with these regular expressions can be printed with the command:
+대상의 최적화를 억제합니다: 플랫폼\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, 예제\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB \\_tests 및 px4.
 
-The targets that can be matched with these regular expressions can be printed with the command:
+이러한 정규식과 일치할 수 있는 대상은 다음 명령으로 출력합니다.
 
 ```sh
 make -C build/posix_sitl_* list_cmake_targets

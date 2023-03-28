@@ -1,54 +1,54 @@
-# Pixhawk系列的配套计算机
+# Using a Companion Computer with Pixhawk Controllers
 
-Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只有一种：通过串口2 `TELEM 2`。 消息格式是MAVLINK。
+PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).
 
-## Pixhawk设置
-
-在 任何 [可配置的串口 ](https://docs.px4.io/en/peripherals/serial_configuration.html)上使能MAVLink消息。
-
-:::tip
-Typically the `TELEM 2` port is used for a companion computer.
-:::
-
-更多信息，请参考 [MAVLink Peripherals (GCS/OSD/Companion)](https://docs.px4.io/en/peripherals/mavlink_peripherals.html)。
-* [MAV_1_CONFIG](../advanced/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG`总是配置为 `TELEM 2` 端口)
-* [MAV_1_MODE](../advanced/parameter_reference.md#MAV_1_MODE) = `Onboard`
-* [SER_TEL2_BAUD](../advanced/parameter_reference.md#SER_TEL2_BAUD) = `921600`（建议在像日志流或FastRTPS之类的应用，使用 921600 或更高）
-
-For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md).
+See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
 
 
-## 配套计算机设置
+## Companion Computer Software
 
-按照以下说明连接串行端口。 所有 pixhawk 串行端口都以 3.3 v 电平工作，同时与5v 电平兼容。
+The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
 
-  * [MAVROS](../ros/mavros_installation.md) 与ros 节点通信
-  * C/C++ example code </0> 连接自定义代码
-  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](http://mavproxy.org) to route MAVLink between serial and UDP
+Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/README.md#companion-computer-software).
 
-## 硬件设置
+## Ethernet Setup
 
-安全的选择是使用 ftdi 芯片 usb 到串行适配器板和下面的接线方式。 这种方式有效且容易设置。
+Ethernet is the recommended connection, if supported by your flight controller. See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
 
-在 linux 上, usb ftdi 的默认名称将类似于 `\dev\ttyUSB0`。 如果您在 usb 或 arduino 上连接了第二个 ftdi, 它将注册为 `\dev\ttyUSB1`。 为了避免第一次插入和第二个插头之间的混淆, 我们建议您创建一个从 `ttyUSBx` 到友好名称的符号链接, 具体取决于 usb 设备的供应商和产品 ID。
+## Serial Port Setup
+
+These instructions explain how to setup the connection if you're not using Ethernet.
+
+### Pixhawk Configuration
+
+PX4 is configured by default to connect to a companion computer connected to the `TELEM 2` serial port. No additional PX4-side configuration should be required if you use this port
+
+To enable MAVLink to connect on another port see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
+
+### Serial Port Hardware Setup
+
+If you're connecting using a serial port, wire the port according to the instructions below. All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
+
+:::warning
+Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. Use a level shifter. In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
 :::
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-| TELEM2 |   | FTDI    | FTDI            |
-| ------ | - | ------- | --------------- |
-| 1      | 1 |         | DO NOT CONNECT! |
-| 2      | 2 | Tx (输出) | 5               |
-| 3      | 3 | Rx（输入）  | 4               |
-| 4      | 4 | CTS（输入） | 6               |
-| 5      | 5 | RTS（输出） | 2               |
-| 6      | 6 | GND     | 1               |
+| TELEM2  |   | FTDI    | &nbsp;          |
+| ------- | - | ------- | --------------- |
+| GND     | 1 |         | DO NOT CONNECT! |
+| RTS（输出） | 2 | Tx (输出) | 5               |
+| 3       | 3 | Rx（输入）  | 4               |
+| Rx（输入）  | 4 | CTS（输入） | 6               |
+| Tx (输出) | 5 | RTS（输出） | 2               |
+| CTS（输入） | 6 | GND     | 1               |
 
-## Linux系统上的软件设置
+### Serial Port Software setup on Linux
 
 On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`. If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device.
 
-Pixhawk 是 `Bus 003 Device 005: ID 26ac:0011`
+Using `lsusb` we can get the vendor and product IDs.
 
 ```sh
 $lsusb
@@ -66,9 +66,9 @@ $lsusb
     Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-最终，我们可以在文件中创建一个新的UDEV规则，文件名是`/etc/udev/rules.d/99-pixhawk.rules` 。 文件能把idVendor和idProduct改成你的。
+The Arduino is `Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC ACM)`
 
-最后, 在 **reboot** 后, 您可以确定您的设备名, 并将 `/dev/ttyPixhawk`替换掉在脚本中的 `/dev/ttyUSB0`。
+The Pixhawk is `Bus 003 Device 005: ID 26ac:0011`
 
 :::note
 If you do not find your device, unplug it, execute `lsusb`, plug it, execute `lsusb` again and see the added device.

@@ -2,178 +2,208 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-飞机遵守 MAVLink 提供的位置，速度或姿态设定值。 设定值可以由机载计算机上运行的 MAVLink API（例如 [MAVSDK](https://mavsdk.mavlink.io/) 或 [MAVROS](https://github.com/mavlink/mavros)）提供（通常通过串口或 wifi 连接）。
+The vehicle obeys position, velocity, acceleration, attitude, attitude rates or thrust/torque setpoints provided by some source that is external to the flight stack, such as a companion computer. The setpoints may be provided using MAVLink (or a MAVLink API such as [MAVSDK](https://mavsdk.mavlink.io/)) or by [ROS 2](../ros/ros2.md).
 
-:::tip
-并非所有设定值消息和无人机都支持 MAVLink 允许的所有坐标系和字段值。 请*仔细*阅读以下章节，确保仅使用支持的值。 还请注意，在进入模式之前和模式可操作时，设定点必须以 > 2Hz 的速率进行传输。
-:::
+PX4 requires that the external controller provides a continuous 2Hz "proof of life" signal, by streaming any of the supported MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) message. PX4 enables offboard control only after receiving the signal for more than a second, and will regain control if the signal stops.
 
 :::note
-
-* 此模式需要位置或位/姿信息 - 例如 GPS、光流、视觉惯性里程计、mocap 等。
-* 除了更改模式外， 禁止遥控器控制。
-* 使用此模式前必须先解锁。
-* 在启用此模式前，无人机必须已经收到**目标设定值数据流（> 2Hz）**。
-* 如果未以 > 2Hz的速率接收到目标设定值，则无人机将退出该模式。
-* 并非所有坐标帧和字段值 MAVLink都支持。
-:::
+- 此模式需要位置或位/姿信息 - 例如 GPS、光流、视觉惯性里程计、mocap 等。
+- 除了更改模式外， 禁止遥控器控制。
+- The vehicle must be already be receiving a stream of MAVLink setpoint messages or ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages before arming in offboard mode or switching to offboard mode when flying.
+- The vehicle will exit offboard mode if MAVLink setpoint messages or `OffboardControlMode` are not received at a rate of > 2Hz.
+- Not all coordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. :::
 
 ## 描述
 
-Offboard 模式主要用于控制飞机运动和姿态，目前仅支持 MAVLink 消息的一个有限子集（未来将支持更多）。
+Offboard mode is used for controlling vehicle movement and attitude, by setting position, velocity, acceleration, attitude, attitude rates or thrust/torque setpoints.
 
-其他操作, 如起飞、降落、返航，最好使用适当的模式来处理。 像上传、下载任务这样的操作可以在任何模式下执行。
+PX4 must receive a stream of MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) at 2 Hz as proof that the external controller is healthy. The stream must be sent for at least a second before PX4 will arm in offboard mode, or switch to offboard mode when flying. If the rate falls below 2Hz while under external control PX4 will switch out of offboard mode after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)), and attempt to land or perform some other failsafe action. The action depends on whether or not RC control is available, and is defined in the parameter [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
 
-在进入该模式之前，无人机必须收到设定值数据流，并且保持在该模式下（如果消息速率降至 2Hz 以下，无人机将停止）。 为了在此模式下保持位置，必须向无人机提供一个包含当前位置设定值的数据流。
+When using MAVLink the setpoint messages convey both the signal to indicate that the external source is "alive", and the setpoint value itself. In order to hold position in this case the vehicle must receive a stream of setpoints for the current position.
 
-Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算机或 GCS）。 如果连接丢失，在超时 ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) 后，无人机将尝试降落或执行其他故障失效保护操作。 该动作定义在参数 [COM_OBL_ACT](#COM_OBL_ACT) 和 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 中。
+When using ROS 2 the proof that the external source is alive is provided by a stream of [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages, while the actual setpoint is provided by publishing to one of the setpoint uORB topics, such as [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md). In order to hold position in this case the vehicle must receive a stream of `OffboardControlMode` but would only need the `TrajectorySetpoint` once.
 
-## 支持的消息
+Note that offboard mode only supports a very limited set of MAVLink commands and messages. Operations, like taking off, landing, return to launch, may be best handled using the appropriate modes. 像上传、下载任务这样的操作可以在任何模式下执行。
+
+## ROS 2 Messages
+
+The following ROS 2 messages and their particular fields and field values are allowed for the specified frames. In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
+
+1. Controls the level of the [PX4 control architecture](../flight_stack/controller_diagrams.md) at which offboard setpoints must be injected, and disables the bypassed controllers.
+1. Determines which valid estimates (position or velocity) are required, and also which setpoint messages should be used.
+
+
+The `OffboardControlMode` message is defined as shown.
+
+```
+# Off-board control mode
+
+uint64 timestamp        # time since system start (microseconds)
+
+bool position
+bool velocity
+bool acceleration
+bool attitude
+bool body_rate
+bool actuator
+```
+
+The fields are ordered in terms of priority such that `position` takes precedence over `velocity` and later fields, `velocity` takes precedence over `acceleration`, and so on. The first field that has a non-zero value (from top to bottom) defines what valid estimate is required in order to use offboard mode, and the setpoint message(s) that can be used. For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
+
+
+| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | actuator field | required estimate | required message                                                                                                                |
+| ------------------------ |:--------------:|:--------------:|:------------------:|:--------------:|:---------------:|:--------------:|:-----------------:| ------------------------------------------------------------------------------------------------------------------------------- |
+| position (NED)           |    &check;     |       -        |         -          |       -        |        -        |       -        |     position      | `TrajectorySetpoint`                                                                                                            |
+| velocity (NED)           |    &cross;     |    &check;     |         -          |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
+| acceleration (NED)       |    &cross;     |    &cross;     |      &check;       |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
+| attitude (RFD)           |    &cross;     |    &cross;     |      &cross;       |    &check;     |        -        |       -        |       none        | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
+| body_rate (RFD)          |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &check;     |       -        |       none        | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
+| thrust and torque (RFD)  |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &cross;     |    &check;     |       none        | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+
+where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
+
+### Copter
+
+* [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
+  * 支持以下输入组合：
+    * Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
+    * Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
+    * Acceleration setpoint (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
+
+  - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
+
+* [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
+  * The following input combination is supported:
+    * quaterion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
+  - The quaterion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The trust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
+
+* [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
+  * The following input combination is supported:
+    * `roll`, `pitch`, `yaw` and `thrust_body`.
+  - All the value are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
+
+* [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
+  * The following input combination is supported:
+    * `xyz` for thrust and `xyz` for torque.
+  - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
+
+
+## MAVLink Messages
+
+The following MAVLink messages and their particular fields and field values are allowed for the specified frames.
 
 ### 直升机/垂直起降
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  
-  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-    
+  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设置值 （仅 `x`，`y`，`z`）
-    * 速度设定值（仅 `vx`，`yy`，`vz`）
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
     * 加速度设定值（仅 `afx`，`afy`，`afz`）
-    * 位置设定值**和**速度设定值（速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
-    * 位置设定值**和**速度设定值**和**加速度（加速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
-  * * PX4 支持以下 `坐标系` 值（仅限）： [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
+    * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
+    * Position setpoint **and** velocity setpoint **and** acceleration (the velocity and the acceleration setpoints are used as feedforwards; the velocity setpoint is added to the output of the position controller and the result is used as the input to the velocity controller; the acceleration setpoint is added to the output of the velocity controller and the result used to compute the thrust vector).
+  - - PX4 supports the following  `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  
-  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-    
+  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
-    * 速度设定值（仅`vx`，`yy`，`vz`）
-    * *推力*设定值（仅`afx`，`afy`，`afz`）
-    
-:::note
-映射加速度设定值以创建正常的推力设定值（即不支持加速度设定值）。
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
+    * *Thrust* setpoint  (only `afx`, `afy`, `afz`)
+
+      :::note
+Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
 :::
-    
-    * 位置设定值**和**速度设定值（速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
-  * PX4 支持以下 `coordinate_frame` 值(仅限)： [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
+    * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
+  - PX4 支持以下  `coordinate_frame` 值(仅限)： [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
-  
-  * 支持以下输入组合： 
+  * 支持以下输入组合：
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的机身速率（`SET_ATTITUDE_TARGET` `.body_roll_rate` ，`.body_pitch_rate`，`.body_yaw_rate`）。
-
-* [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)
-  
-  * Allows to change the cruise speed when navigating with [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) or [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
 
 ### 固定翼
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  
-  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-    
+  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅` x `，` y `，` z `；速度和加速度设定值被忽略）。
-      
-      * 在`type_mask`中指定设定值的*type*（如果未设置这些位，无人机将以花朵状飞行）： :::note 下面的某些*设置点类型*值不是 MAVLink ` type_mask `字段标准的部分。
-:::
-        
+      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): :::note Some of the *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. :::
+
         值为：
-        
-        * 292：滑动设定值。 这会将 TECS 配置为空速优先于高度，以便在没有推力时使无人机滑行（即控制俯仰以调节空速）。 这相当于设置 `type_mask` 为 `POSITION_TARGET_TYPEMASK_Z_IGNORE`，`POSITION_TARGET_TYPEMASK_VZ_IGNORE`，`POSITION_TARGET_TYPEMASK_AZ_IGNORE`。 
-        * 4096：起飞设定值。
-        * 8192：降落设定值。
-        * 12288：悬停设定值（以设定值为中心绕圈飞行）。
-        * 16384：空闲设定值（油门为0， 横滚 / 俯仰为0）。
+        - 292：滑动设定值。 这会将 TECS 配置为空速优先于高度，以便在没有推力时使无人机滑行（即控制俯仰以调节空速）。 这相当于设置 `type_mask` 为 `POSITION_TARGET_TYPEMASK_Z_IGNORE`，`POSITION_TARGET_TYPEMASK_VZ_IGNORE`，`POSITION_TARGET_TYPEMASK_AZ_IGNORE`。
+        - 4096：起飞设定值。
+        - 8192：降落设定值。
+        - 12288：悬停设定值（以设定值为中心绕圈飞行）。
+        - 16384：空闲设定值（油门为0， 横滚 / 俯仰为0）。
   * PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  
-  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-    
+  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
-      
-      * 在`type_mask`中指定设定值的*type*（如果未设置这些位，无人机将以花朵状飞行）：
-        
+      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
+
 :::note
-下面的某些*设置点类型*值不是 MAVLink ` type_mask `字段标准的部分。
-:::
-        
+The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. :::
+
         值为：
-        
-        * 4096：起飞设定值。
-        * 8192：降落设定值。
-        * 12288：悬停设定值（以设定值为中心绕圈飞行）。
-        * 16384：空闲设定值（油门为0， 横滚 / 俯仰为0）。
-  * PX4 支持以下 `coordinate_frame` 值(仅限)： [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
+        - 4096：起飞设定值。
+        - 8192：降落设定值。
+        - 12288：悬停设定值（以设定值为中心绕圈飞行）。
+        - 16384：空闲设定值（油门为0， 横滚 / 俯仰为0）。
+  * PX4 支持以下  `coordinate_frame` 值(仅限)： [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
-  
-  * 支持以下输入组合： 
+  * 支持以下输入组合：
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。
     * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的机身速率（`SET_ATTITUDE_TARGET` `.body_roll_rate` ，`.body_pitch_rate`，`.body_yaw_rate`）。
-
-* [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)
-  
-  * Allows to change the cruise speed when navigating with [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) or [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-
-<!-- Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0.
-See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/PX4-Autopilot/pull/12311 -->
 
 ### 无人车
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  
-  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-    
+  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设置值 （仅 `x`，`y`，`z`）
-      
-      * 在 `type_mask` 中指定 *类型* 的设置点类型：
-      
+      * Specify the *type* of the setpoint in `type_mask`:
+
 :::note
-下面的 *设置点类型* 值不是 `type_mask` 字段的 MAVLink 标准的一部分。 ::
-      
-          值为：
-          
-          - 12288：悬停设定值(无人机停在足够接近设置点)。
-          
-    
-    * 速度设定值（仅 `vx`，`yy`，`vz`）
-  * PX4 支持坐标系（`coordinate_frame` 字段）： [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
+The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. ::
+
+        值为：
+
+        - 12288：悬停设定值（无人机足够接近设定值时会停止）。
+    * Velocity setpoint (only `vx`, `vy`, `vz`)
+  - PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  
-  * 支持以下输入组合（在 `type_mask` 中）： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
-    
+  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
-  * 在 `type_mask` 中指定设定值的 *type* （不是 MAVLink 标准的一部分）。 值为： 
-    * 下面的比特位没有置位，是正常表现。
-    * 12288：悬停设定值（无人机足够接近设定值时会停止）。
-  * PX4 支持坐标系（`corrdinate_frame`字段）：[MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
+  * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard). 值为：
+    - 下面的比特位没有置位，是正常表现。
+    - 12288：悬停设定值（无人机足够接近设定值时会停止）。
+  - PX4 支持坐标系（`corrdinate_frame`字段）：[MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
-  
-  * 支持以下输入组合： 
-    * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。 :::note 实际仅使用/提取了偏航设置。
+  * 支持以下输入组合：
+    * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。 :::note
+实际仅使用/提取了偏航设置。
 :::
 
 ## Offboard参数
 
-*Offboard 模式* 受以下参数影响：
+*Offboard mode* is affected by the following parameters:
 
-| 参数                                                                                                      | 描述                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | 丢失 Offboard 连接时的等待超时时间（以秒为单位），然后将触发 offboard 丢失的失效保护措施 (`COM_OBL_ACT` 和 `COM_OBL_RC_ACT`)                                                                            |
-| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)         | 在*没有* 连接到遥控器的情况下，如果丢失 offboard 控制，则切换换到该模式（值为 - 0：[降落](../flight_modes/land.md)，1：[保持](../flight_modes/hold.md)，2：[返航](../flight_modes/return.md)）。                  |
-| <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | 连接到遥控器的情况下，如果丢失 offboard 控制， 则切换到该模式 （取值为 - 0：*位置*，1：[高度](../flight_modes/altitude_mc.md)，2：*手动*，3：[返航](../flight_modes/return.md)，4：[降落](../flight_modes/land.md)）。 |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 如果使能，在多旋翼上移动摇杆（或者 VTOL 在多旋翼模式）讲控制权还给处于[位置模式](../flight_modes/position_mc.md)的无人机（除非无人机正在处理电池失效保护）。 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。                     |
+| 参数                                                                                                      | 描述                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="COM_OF_LOSS_T"></a>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | Time-out (in seconds) to wait when offboard connection is lost before triggering offboard lost failsafe (`COM_OBL_RC_ACT`)                                                                                           |
+| <a id="COM_OBL_RC_ACT"></a>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | Mode to switch to if offboard control is lost (Values are - 0: *Position*, 1: [Altitude](../flight_modes/altitude_mc.md), 2: *Manual*, 3: [Return ](../flight_modes/return.md), 4: [Land](../flight_modes/land.md)). |
+| <a id="COM_RC_OVERRIDE"></a>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 控制多旋翼（或者多旋翼模式下的 VOTL）的摇杆移动量来切换到 [位置模式](../flight_modes/position_mc.md)。 默认情况下未启用此功能。                                                                                                                                 |
+| <a id="COM_RC_STICK_OV"></a>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | 导致发射机切换到 [位置模式](../flight_modes/position_mc.md) 的摇杆移动量（如果 [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) 已启用）。                                                                                                                |
+| <a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT)   | Specify modes in which RC loss is ignored and the failsafe action not triggered. Set bit `2` to ignore RC loss in Offboard mode.                                                                                     |
+
 
 ## 开发者资源
 
-通常，开发人员不直接在 MAVLink 层工作，而是使用机器人 API，例如 [ MAVSDK ](https://mavsdk.mavlink.io/) 或 [ ROS ](http://www.ros.org/)（它们提供了开发人员友好的 API，并负责管理和维护） 连接，发送消息和监视响应 - 使用 *Offboard 模式* 和 MAVLink 的细节。
+Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink).
 
 以下资源可能对开发者有用：
 
-* [基于 Linux 的 Offboard 控制](../ros/offboard_control.md) （PX4 开发指南）
-* [MAVROS Offboard 控制示例](../ros/mavros_offboard.md) （PX4 开发指南）
+* [Offboard Control from Linux](../ros/offboard_control.md)
+* [ROS/MAVROS Offboard Example (C++)](../ros/mavros_offboard_cpp.md)
+* [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md)

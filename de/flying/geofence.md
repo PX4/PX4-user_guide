@@ -26,7 +26,7 @@ The GeoFence is planned in *QGroundControl* alongside the mission and rally poin
 
 ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
 
 In summary:
 1. Open *QGroundControl > Plan View*.

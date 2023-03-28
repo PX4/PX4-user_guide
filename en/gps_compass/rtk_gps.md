@@ -5,7 +5,7 @@
 :::note
 GPS can also be used as a source of yaw/heading information:
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
-- [GPS that Output Yaw](../gps_compass/README.md#gps-that-output-yaw).
+- Some GPS output yaw (see table below).
 :::
 
 
@@ -13,22 +13,29 @@ GPS can also be used as a source of yaw/heading information:
 
 PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS, and products that incorporate them.
 
-The RTK compatible devices below have been tested.
+The RTK compatible devices below that are expected to work with PX4 (it omits discontined devices).
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
+It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-GPS | [Yaw Output](#rtk-gps-that-output-yaw) | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md)
-:--- | :---: | :---:
-[CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | 
-[Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md) | | 
-[Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | | 
-[Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P) | | 
-[Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) | | 
-[Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | 
-[Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | 
-[SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | | &check;
-[SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) | | &check;
-[mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/mr-m10020-a.htm) | | &check;
-[Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)  | &check; | 
+GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [DroneCAN](../dronecan/README.md) | PPK
+:--- | :---: | :---: | :---: | :---:
+[ARK RTK GPS](../dronecan/ark_rtk_gps.md) | | &check; | &check; |
+[CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | | |
+[CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md) | | | | &check;
+[CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | | &check; | | 
+[Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md) | | | |
+[Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | | | |
+[Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P) | | | |
+[CubePilot Here3](https://www.cubepilot.org/#/here/here3) | | | &check; |
+[Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | |&check; | |
+[Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
+[Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | | |
+[LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | | | |
+[LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | &check; | | |
+[SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | | &check; | |
+[SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | | &check; | |
+[mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) | | &check; | |
+[Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)  | &check; | | |
 
 :::note
 Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
@@ -52,9 +59,12 @@ At time of writing this use case has not been tested.
 
 #### Rover RTK Module (Vehicle)
 
-Connect the vehicle-based module to the flight controller's GPS port (in the same way as any other GPS module).
+The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
 
-The actual cables/connectors required will depend on the flight controller and selected RTK module (see [documentation for the selected device](#supported-rtk-devices) for more information).
+Most are connected via the flight controller's GPS port, in the same way as any other GPS module.
+Some are connected to the [CAN](../can/README.md) bus (i.e. using [DroneCAN](../dronecan/README.md)).
+
+See [documentation for the selected device](#supported-rtk-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
 
 #### Base RTK Module (Ground)
 
@@ -93,13 +103,13 @@ The RTK GPS connection is essentially plug and play:
    The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
 
    You can track the progress by clicking the RTK GPS status icon.
-   
+
    ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
 1. Once Survey-in completes:
 
    - The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
-   
+
      ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
    - Vehicle GPS switches to RTK mode.
@@ -114,7 +124,7 @@ The following settings may need to be changed (using *QGroundControl*).
 
 #### RTK GPS settings
 
-The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
+The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
 ![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
@@ -131,8 +141,8 @@ The MAVLink2 protocol must be used because it makes more efficient use of lower-
 This should be enabled by default on recent builds.
 
 To ensure MAVLink2 is used:
-* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)).
-* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html))
+* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html)).
+* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html))
 
 
 #### Tuning
@@ -154,7 +164,6 @@ See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) s
 ### Vehicle Setup Example
 
 The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](../frames_multicopter/dji_flamewheel_450.md) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
-
 
 
 ## Further Information

@@ -62,8 +62,8 @@ screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 
 Then start command mode:
 
-:::note DO
-NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
+:::note
+DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
 :::
 
 

@@ -4,27 +4,32 @@
   "main": "index.js",
   "repository": "https://github.com/PX4/px4_user_guide.git",
   "license": "CC-BY-4.0",
-  "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.6.0",
-    "@vuepress/plugin-google-analytics": "^1.6.0",
-    "@vuepress/plugin-medium-zoom": "^1.6.0",
-    "lodash.debounce": "^4.0.8",
-    "vuepress": "^1.5.4",
-    "vuepress-plugin-redirect": "^1.2.5"
-  },
   "scripts": {
-    "ununtu_copyworker": "./.vuepress/scripts/worker_copy.sh",
-    "windows_copyworker": "./.vuepress/scripts/worker_copy.bat",
+    "ununtu_copyworker": "cp .vuepress/scripts/* node_modules/@vuepress/core/lib/node/build/",
+    "windows_copyworker": "xcopy /f /y \".vuepress/scripts/*\" \"node_modules/@vuepress/core/lib/node/build/\"",
     "docs:buildwin": "set NODE_OPTIONS=--max_old_space_size=8192 && vuepress build .",
+    "docs:buildfast_windows": "yarn windows_copyworker && yarn docs:buildwin",
     "docs:build_ubuntu": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build .",
     "docs:buildfast_ubuntu": "yarn ununtu_copyworker && yarn docs:build_ubuntu",
     "docs:dev": "vuepress dev . ",
     "docs:buildnorm": "vuepress build .",
-    "docs:build": "yarn docs:build_ubuntu"
+    "docs:sitemap": "python3 ./scripts/gen_sitemap.py",
+    "docs:build": "yarn docs:buildfast_ubuntu",
+    "start": "yarn docs:dev",
+    "linkcheck":"vuepress check-md . > linkinfo_check-md.log 2>&1"
   },
   "dependencies": {
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-google-analytics": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "lodash.debounce": "^4.0.8",
     "markdown-it-video": "^0.6.3",
+    "vuepress": "^1.8.2",
     "vuepress-plugin-mathjax": "^1.2.8",
-    "vuepress-plugin-right-anchor": "^0.4.4"
+    "vuepress-plugin-redirect": "^1.2.5",
+    "vuepress-plugin-right-anchor": "^0.4.9"
+  },
+  "devDependencies": {
+    "vuepress-plugin-check-md": "^0.0.2"
   }
 }

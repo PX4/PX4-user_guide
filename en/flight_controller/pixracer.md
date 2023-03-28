@@ -6,7 +6,7 @@ Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or 
 :::
 
 The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes.
-In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
+In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built WiFi, new sensors, convenient full servo headers, CAN and supports 2M flash.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
@@ -37,7 +37,6 @@ Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-Pix
 
 Accessories include:
 * [Digital airspeed sensor](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
-* [HKPilot Transceiver Telemetry Radio Set V2 (915Mhz - US Telemetry)](https://hobbyking.com/en_us/hkpilot-transceiver-telemetry-radio-set-v2-915mhz.html)
 * [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 
 ## Kit
@@ -53,17 +52,27 @@ The Pixracer is designed to use a separate avionics power supply. This is necess
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. 
 This frees it of the need of any desktop system.
 
-::note ToDo
-Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
-:::
-
 * [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
+
+:::note
+Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
+Setup and telemetry are supported.
+:::
+
+## Assembly
+
+See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
 
 
 ## Wiring Diagrams
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
+
+:::note
+If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port.
+For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
+:::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
@@ -163,7 +172,7 @@ Pin | Signal | Volt
 
 #### Debug Port
 
-This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
+This is a [Pixhawk Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -189,15 +198,15 @@ UART4 | |
 UART7 | CONSOLE
 UART8 | SERIAL4
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Schematics
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
 The following PDF files are provided for *convenience only*:
-* [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
-* [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
+* [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
+* [pixracer-r14.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
 
 ## Building Firmware
@@ -211,6 +220,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make px4_fmu-v4_default
 ```
+
 
 ## Credits
 

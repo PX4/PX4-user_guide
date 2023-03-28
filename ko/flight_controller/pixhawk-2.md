@@ -1,165 +1,167 @@
-# Hex Cube Black Flight Controller
+# Hex Cube Black 비행 컨트롤러
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://cubepilot.org/#/home)에 문의하십시오.
 :::
 
 :::tip
-The [Cube Orange](../cubepilot_cube_orange.md) is the successor to this product. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](../autopilot_pixhawk_standard.md). This flight controller is not following the standard and uses a patented connector.
+[Cube Orange](cubepilot_cube_orange.md)는이 제품의 후속 제품입니다. 그러나, [Pixhawk 표준](autopilot_pixhawk_standard.md)과 같은 산업 표준에 기반한 제품을 사용하는 것이 바람직합니다. 이 비행 컨트롤러는 표준을 따르지 않으며, 특허받은 커넥터를 사용합니다.
 :::
 
-The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+[Hex Cube Black](http://www.proficnc.com/61-system-kits2) 비행 컨트롤러(이전의 Pixhawk 2.1)는 주로 상용 시스템 제조업체를 위한 자동조종장치입니다. [Pixhawk-project](https://pixhawk.org/) **FMUv3** 개방형 하드웨어 설계를 기반으로 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
-![Cube Black](../../assets/flight_controller/cube/cube_black_hero.png)
+![큐브 블랙](../../assets/flight_controller/cube/cube_black_hero.png)
 
-The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs form the frame of the vehicle.
+배선을 줄이고 신뢰성을 높이며 조립을 쉽게하기 위해 도메인 별 캐리어 보드와 함께 사용하도록 설계되었습니다. 예를 들어, 상용 검사 기체 캐리어보드에는 보조 컴퓨터용 연결이 포함될 수 있는 반면, 레이서 용 캐리어보드는 기체 프레임을 형성하는 ESC를 포함할 수 있습니다.
 
-Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
+Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 고정 IMU는 참조 백업용으로 사용됩니다.
 
 :::note
-The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
+제조업체 [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)에는 [큐브 색상 간의 차이점](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours) 뿐만 아니라 자세한 정보를 제공합니다.
 :::
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
 :::
 
-## Key Features
 
-- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> core with FPU
-- 168 MHz / 252 MIPS 
-- 256 KB RAM
-- 2 MB Flash \(fully accessible\)
-- 32 bit STM32F103 failsafe co-processor
-- 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
-- Abundant connectivity options for additional peripherals (UART, I2C, CAN)
-- Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
-- Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed wing use)
-- Redundant power supply inputs and automatic failover
-- External safety switch
-- Multicolor LED main visual indicator
-- High-power, multi-tone piezo audio indicator
-- microSD card for high-rate logging over extended periods of time
+## 주요 특징
+
+* 32 비트 STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> 코어 (FPU 포함)
+* 168 MHz / 252 MIPS
+* 256 KB RAM
+* 2MB 플래시 \(완전 액세스 가능\)
+* 32 비트 STM32F103 failsafe 코프로세서
+* 14 개 PWM/서보 출력(페일세이프 및 수동 오버라이드 포함 8 개, 보조, 고전력 호환 6 개)
+* 추가 주변 장치(UART, I2C, CAN) 다양한 연결 옵션
+* 전용 프로세서 및 독립형 전원 공급 장치(고정익 적용)로 비행중 복구 및 수동 오버라이드 통합 백업 시스템
+* 백업 시스템은 믹싱을 통합하여 일관된 자동조종장치와 수동 오버라이드 믹싱 모드를 제공합니다(고정익 적용).
+* 중복 전원공급장치 및 자동 장애 조치
+* 외부 안전 스위치
+* 다색 LED 주시각 표시기
+* 고전력 멀티톤 피에조 오디오 표시기
+* 장기간 고속 로깅용 microSD 카드
+
 
 <span id="stores"></span>
-
-## Where to Buy
+## 구매처
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
+## 조립
 
-[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+[Cube 배선 퀵 스타트](../assembly/quick_start_cube.md)
 
-## Specifications
 
-### Processor
+## 사양
 
-- 32bit STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
-- 168 MHz / 252 MIPS 
-- 256 KB RAM
-- 2 MB Flash (fully accessible)
-- 32 bit STM32F103 failsafe co-processor
+### 프로세서
 
-### Sensors
+* 32 비트 STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) 코어 (FPU 포함)
+* 168 MHz / 252 MIPS
+* 256 KB RAM
+* 2MB 플래시 (완전 액세스 가능)
+* 32 비트 STM32F103 failsafe 코프로세서
 
-- TBA
+### 센서
 
-### Interfaces
+* TBA
 
-- 5x UART (serial ports), one high-power capable, 2x with HW flow control
-- 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
-- Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
-- Futaba S.BUS® compatible input and output
-- PPM sum signal input
-- RSSI (PWM or voltage) input
-- I2C
-- SPI
-- 3.3v ADC input
-- Internal microUSB port and external microUSB port extension
+### 인터페이스
 
-### Power System and Protection
+* 5x UART (직렬 포트), 1 개의 고전력 지원, 2x (HW 흐름 제어 포함)
+* 2x CAN (하나는 내부 3.3V 트랜시버, 하나는 확장 커넥터에 있음)
+* Spektrum DSM / DSM2 / DSM-X® Satellite 호환 입력
+* Futaba S.BUS® 호환 입력 및 출력
+* PPM 합계 신호 입력
+* RSSI (PWM 또는 전압) 입력
+* I2C
+* SPI
+* 3.3v ADC 입력
+* 내부 microUSB 포트 및 외부 microUSB 포트 확장
 
-- Ideal diode controller with automatic failover
-- Servo rail high-power (max. 10V) and high-current (10A+) ready
-- All peripheral outputs over-current protected, all inputs ESD protected
+### 전력 시스템 및 보호
 
-### Voltage Ratings
+* 자동 복구 기능의 이상적인 다이오드 컨트롤러
+* ervo 레일 고출력 (최대 10V) 및 고전류 (10A +) 준비
+* 모든 주변 장치 출력 과전류 보호, 모든 입력 ESD 보호
 
-Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
 
-#### Normal Operation Maximum Ratings
+### 정격 전압
 
-Under these conditions all power sources will be used in this order to power the system
+Pixhawk 는 3 개의 전원이 공급되는 경우에는 전원 공급 장치의 3중 중복이 가능합니다. 세 개의 레일은 전원 모듈 입력, 서보 레일 입력과 USB 입력입니다.
 
-- Power module input (4.8V to 5.4V)
-- Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
-- USB power input (4.8V to 5.4V)
+#### 정상 작동 최대 정격 전압
 
-#### Absolute Maximum Ratings
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+- 전원 모듈 입력 (4.8V ~ 5.4V)
+- 서보 레일 입력 (4.8V ~ 5.4V) **수동 오버라이드의 경우 최대 10V이지만 전력 모듈 입력이 없는 경우 자동 조종 장치 부품은 5.7V 이상에서 전원이 꺼집니다.**
+- USB 전원 입력 (4.8V ~ 5.4V)
 
-- Power module input (4.1V to 5.7V, 0V to 20V undamaged)
-- Servo rail input (4.1V to 5.7V, 0V to 20V)
-- USB power input (4.1V to 5.7V, 0V to 6V)
+#### 절대 최대 정격 전압
 
-## Pinouts and Schematics
+아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
 
-Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
+- 전원 모듈 입력(4.1V ~ 5.7V, 0V ~ 20V 손상되지 않음)
+- 서보 레일 입력(4.1V ~ 5.7V, 0V ~ 20V)
+- USB 전원 입력(4.1V ~ 5.7V, 0V ~ 6V)
 
-## Ports
 
-### Top-Side (GPS, TELEM etc)
+## 핀배열과 회로도
 
-![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
+보드 설계도와 문서는 [The Cube Project](https://github.com/proficnc/The-Cube)를 참고하십시오.
+
+## 포트
+
+### 위쪽 (GPS, TELEM 등)
+
+![큐브 포트-상단 (GPS, TELEM 등) 및 메인/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
 <span id="serial_ports"></span>
+### 시리얼 포트 매핑
 
-### Serial Port Mapping
+| UART   | 장치         | 포트                           |
+| ------ | ---------- | ---------------------------- |
+| USART1 | /dev/ttyS0 | <!-- IO debug? -->
+|
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어)               |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)               |
+| UART4  | /dev/ttyS3 | GPS1                         |
+| USART6 | /dev/ttyS4 | PX4IO                        |
+| UART7  | /dev/ttyS5 | 콘솔                           |
+| UART8  | /dev/ttyS6 | <!-- unknown -->
 
-
-
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | <!-- IO debug? -->    |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | PX4IO                 |
-| UART7  | /dev/ttyS5 | CONSOLE               |
-| UART8  | /dev/ttyS6 | <!-- unknown -->      |
-
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-
+|<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 <!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART):  **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
-### Debug Ports
 
-![Cube Debug Ports](../../assets/flight_controller/cube/cube_ports_debug.jpg)
+### 디버그 포트
 
-### USB/SDCard Ports
+![큐브 디버그 포트](../../assets/flight_controller/cube/cube_ports_debug.jpg)
 
-![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
+### USB/SDCard 포트
 
-## Building Firmware
+![큐브 USB/SDCard 포트 ](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+## 펌웨어 빌드
+
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) :
+```
+make px4_fmu-v3_default
+```
 
-    make px4_fmu-v3_default
-    
+## 이슈
 
-## Issues
+Cube Black의 CAN1과 CAN2의 실크 스크린이 뒤집힙니다 (CAN1은 CAN2이고 그 반대의 경우도 마찬가지임).
 
-CAN1 and CAN2 silk screen on the Cube Black are flipped (CAN1 is CAN2 and vice versa).
+## 추가 정보 및 문서
 
-## Further Information/Documentation
-
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
-- Cube Docs (Manufacturer): 
-  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
-  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
-  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
+- [Cube 배선 퀵 스타트](../assembly/quick_start_cube.md)
+- Cube 문서 (제조사) :
+  - [큐브 모듈 개요](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [큐브 사용 설명서](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [미니 캐리어 보드](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)

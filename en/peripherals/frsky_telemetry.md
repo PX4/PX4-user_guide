@@ -15,7 +15,7 @@ FrSky telemetry requires:
 * An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
 * A cable to connect the FrSky receiver Smart Port (SPort) to a flight controller UART.
 
-First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the reciever and the flight controller.
+First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the receiver and the flight controller.
 
 Then set up FrSky telemetry by separately connecting the SPort on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
 
@@ -38,7 +38,7 @@ Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
 
 If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins.
 <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
-Discussion of that here: https://github.com/PX4/px4_user_guide/pull/755#pullrequestreview-464046128 -->
+Discussion of that here: https://github.com/PX4/PX4-user_guide/pull/755#pullrequestreview-464046128 -->
 
 Then [configure PX4](#configure).
 
@@ -121,7 +121,7 @@ S-Port receivers transmit the following messages from PX4 (from [here](https://g
 - **Hdg:** Heading (degrees - North is 0°).
 - **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
 - **VSpd:** Vertical speed (cm/s).
-- **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 21 - Rattitude, 25 - Takeoff, 29 - Land, 30 - Follow Me.
+- **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
 - **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
 
 :::note
@@ -130,8 +130,8 @@ The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A
 
 <!-- FYI: 
 Values of FRSKY_ID_TEMP1 and FRSKY_ID_TEMP1 set: 
-- https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
-- https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237 
+- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
+- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237 
 Lua map of flight modes:
 - https://github.com/ilihack/LuaPilot_Taranis_Telemetry/blob/master/SCRIPTS/TELEMETRY/LuaPil.lua#L790
 -->
@@ -260,4 +260,4 @@ You will need to connect via a UART to S.PORT adapter board, or a [ready-made ca
 For additional information, see the following links:
 * [FrSky Taranis Telemetry](https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry)
 * [Taranis X9D: Setting Up Telemetry](https://www.youtube.com/watch?v=x14DyvOU0Vc) (Video Tutorial)
-* [Px4 FrSky Telemetry Setup with Pixhawk2 and X8R Receiver](http://discuss.px4.io/t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362) (DIY Cables)
+* [Px4 FrSky Telemetry Setup with Pixhawk2 and X8R Receiver](https://discuss.px4.io//t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362) (DIY Cables)

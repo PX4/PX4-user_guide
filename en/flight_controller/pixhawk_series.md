@@ -2,7 +2,7 @@
 
 [Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities.
 
-Pixhawk is the reference hardware platform for PX4, and runs PX4 on the [NuttX](http://nuttx.org) OS.
+Pixhawk is the reference hardware platform for PX4, and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
 
@@ -32,11 +32,13 @@ The PX4 maintenance and test teams maintain and support these standard boards.
 :::
 
 The list of boards supported by the PX4 project is reproduced below:
+* [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md) (FMUv5X)
 * [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 * [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
 * [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
 * [mRo Pixracer](../flight_controller/pixracer.md)  (FMUv4)
 * [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
+* [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
 * [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
 * [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
 * [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
@@ -72,7 +74,7 @@ PX4 *users* generally do not need to know very much about FMU versions:
   - Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
 
   :::note
-  The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata).
+  The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata).
   In order to fit PX4 into this limited space, many modules are disabled by default.
   You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
   :::
@@ -85,7 +87,20 @@ At very high level, the main differences are:
 - **FMUv3:** Identical to FMUv2, but usable flash doubled to 2MB ([Hex Cube Black](../flight_controller/pixhawk-2.md),[CUAV Pixhack v3](../flight_controller/pixhack_v3.md),[mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md))
 - **FMUv4:** Increased RAM. Faster CPU. More serial ports. No IO processor ([Pixracer](../flight_controller/pixracer.md))
 - **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
-- **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
+- **FMUv5:** New processor (F7).
+  Much faster.
+  More RAM.
+  More CAN buses.
+  Much more configurable.
+  ([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
+- **FMUv5X:** New processor (F7).
+  Much faster, Modular design.
+  More reliable.
+  More Redundancy.
+  More RAM.
+  More CAN buses.
+  Much more configurable & customizable
+  .([Pixhawk 5X](../flight_controller/pixhawk5x.md), Skynode)
 
 <span id="licensing-and-trademarks"></span>
 ### Licensing and Trademarks

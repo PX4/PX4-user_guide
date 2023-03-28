@@ -4,6 +4,7 @@ PX4 enables terminal access to the system through the [MAVLink Shell](../debug/m
 
 This page explains the main differences and how the console/shell are used.
 
+
 <a id="console_vs_shell"></a>
 
 ## System Console vs. Shells
@@ -27,6 +28,7 @@ The `dmesg` command is now available through the shell on some boards, enabling 
 There can be several shells, either running on a dedicated UART, or via MAVLink. Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
 
 The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board). The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
+
 
 <a id="using_the_console"></a>
 

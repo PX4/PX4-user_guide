@@ -41,8 +41,7 @@ Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
 ## Publishing
 
 Publishing a topic can be done from anywhere in the system, including interrupt context (functions called by the `hrt_call` API).
-However, advertising a topic is only possible outside of interrupt context.
-A topic has to be advertised in the same process as it's later published.
+However, the topic needs to be advertised and published outside of an interrupt context (at least once) before it can be published in an interrupt context.
 
 ## Listing Topics and Listening in
 
@@ -134,7 +133,7 @@ Having multiple instances is useful for example if the system has several sensor
 Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
 
 The full API is documented in
-[platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp).
+[platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 ## Message/Field Deprecation

@@ -14,4 +14,6 @@
 
 [フライトモード](../getting_started/flight_modes.md) — 手動・操縦アシスト・自動操縦用のフライトモードについて．
 
-[フライトの報告](../getting_started/flight_reporting.md) — デバッグ・分析のための詳細なフライトログのダウンロード方法について．
+[Payloads & Cameras](../payloads/README.md)
+
+[Flight Reporting](../getting_started/flight_reporting.md) — Download detailed flight logs for debugging and analysis.

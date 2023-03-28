@@ -6,7 +6,7 @@
 
 A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
 
-MR210 uses MindRacer as flight controller. MR210 is a fully modularized, stackable RTF racing drone. The soldering-free SEP/WEP sockets allow pilots to quickly replace broken parts without the needs for soldering iron. Pilots can further easily customize the build by adding-to or replacing stacking parts to make a more powerful drone.
+MR210 uses MindRacer as flight controller.  MR210 is a fully modularized, stackable RTF racing drone. The soldering-free SEP/WEP sockets allow pilots to quickly replace broken parts without the needs for soldering iron. Pilots can further easily customize the build by adding-to or replacing stacking parts to make a more powerful drone.
 
 ### Highlights
 
@@ -25,8 +25,8 @@ The user guide is [here](http://mindpx.net/assets/accessories/MR210usermanual_pd
 
 ### Where to buy
 
-MindRacer 210 is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer 210 is available at [AirMind Store](https://airmind.mindpx.net/node/78). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ### Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.

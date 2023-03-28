@@ -8,10 +8,10 @@ Using RTK allows PX4 to get its position with centimeter-level accuracy, which i
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_all_label.jpg)
 
-## 购买
+## Where to Buy
 
-* [H-RTK F9P (Holybro Website)](https://shop.holybro.com/h-rtk-f9p_p1226.html?)
-* [H-RTK Accessories (Holybro Website)](https://shop.holybro.com/c/h-rtk_0512)
+* [H-RTK F9P (Holybro Website)](https://holybro.com/products/h-rtk-f9p-gnss-series)
+* [H-RTK Accessories (Holybro Website)](https://holybro.com/collections/h-rtk-gps)
 
 ## 配置
 
@@ -19,7 +19,9 @@ RTK设置和使用在px4上通过 _QGroundControl_ 很大程度上可以即插�
 
 ## 接线和连接
 
-All H-RTK GNSS models come with a GH 10-pin connector/cable that is compatible with [Pixhawk 4](../flight_controller/pixhawk4.md).
+H-RTK Helical models come with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the Pixhawk Connector Standard, such as [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 5x](../flight_controller/pixhawk5x.md).
+
+The H-RTK Rover Lite comes in two version. The standard version comes with 10 pin connector for the `GPS1` port. The "2nd GPS" version comes with 6 pin connector for the `GPS2` port. This is used as a secondary GPS for [Dual GPS Systems](../gps_compass/README.md#dual_gps).
 
 :::note
 The cables/connectors may need to be modified in order to connect to other flight controller boards (see [Pin Map](#pin-map) below).
@@ -27,7 +29,9 @@ The cables/connectors may need to be modified in order to connect to other fligh
 
 ## Pin Map
 
-![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_pinmap.jpg)
+![h-rtk-f9p_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_helical_pinmap.jpg)
+
+![h-rtk-f9p_helical_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_lite_pinmap.jpg)
 
 
 ## Specification and Model Comparison
@@ -36,6 +40,6 @@ The cables/connectors may need to be modified in order to connect to other fligh
 
 ## GPS Accessories
 
-[H-RTK Mount (Holybro Website)](https://shop.holybro.com/spare-parts-gps-mount_p1228.html)
+[H-RTK Mount (Holybro Website)](https://holybro.com/products/gps-rtk-mounts)
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk_mount_3.png)

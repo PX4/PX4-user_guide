@@ -1,12 +1,12 @@
 # Parameters & Configurations
 
-PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for mixers and startup scripts) to store its configuration.
+PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
 
 This section discusses the *param* subsystem in detail.
-It covers how to list, save and load parameters, and how to define them.
+It covers how to list, save and load parameters, and how to define them and make them available to ground stations.
 
 :::tip
-[System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages. 
+[System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
 :::
 
 
@@ -43,7 +43,7 @@ You can use `param show-for-airframe` to show all parameters that have changed f
 
 ### Exporting and Loading Parameters
 
-You can save any parameters that have been *touched* since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have been changed, even if they have been changed back to their default).
+You can save any parameters that have been *changed* (that are different from airframe defaults).
 
 The standard `param save` command will store the parameters in the current default file:
 ```sh
@@ -77,8 +77,20 @@ param save
 param import /fs/microsd/vtol_param_backup  
 ```
 
+## Creating/Defining Parameters
 
-## Parameter Names
+Parameters definitions have two parts:
+- [Parameter metadata](#parameter-metadata) specifies the default value for each parameter in firmware along with other metadata for presentation (and editing) of parameters in ground control stations and documentation.
+- [C/C++ Code](#c-c-api) that provides access to get and/or subscribe to parameter values from within PX4 modules and drivers.
+
+Several approaches are described below for writing both the metadata and code.
+Where possible code should use newer [YAML metadata](#yaml-metadata) and [C++ API](#c-api) over the older C parameter/code definitions, as these are more flexible and robust.
+
+Parameter metadata is [compiled into the firmware](#publishing-parameter-metadata-to-a-gcs),
+and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
+
+
+### Parameter Names
 
 Parameter names must be no more than 16 ASCII characters.
 
@@ -87,7 +99,7 @@ By convention, every parameter in a group should share the same (meaningful) str
 The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
 
 
-## C / C++ API
+### C / C++ API
 
 There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
 
@@ -101,17 +113,26 @@ In addition, the C++ version has also better type-safety and less overhead in te
 The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.
 
 
-### C++ API
+#### C++ API
 
-The C++ API provides macros to declare parameters as *class attributes*. 
+The C++ API provides macros to declare parameters as *class attributes*.
 You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update.
 Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. 
 In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
-First include **px4_platform_common/module_params.h** in the class header for your module or driver (to get the `DEFINE_PARAMETERS` macro):
-```cpp
-#include <px4_platform_common/module_params.h>
-```
+First include the required needed headers in the class header for your module or driver:
+- **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+  ```cpp
+  #include <px4_platform_common/module_params.h>
+  ```
+- **parameter_update.h** to access the uORB `parameter_update` message:
+  ```cpp
+  #include <uORB/topics/parameter_update.h>
+  ```
+- **Subscription.hpp** for the uORB C++ subscription API:
+  ```cpp
+  #include <uORB/Subscription.hpp>
+  ```
 
 Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes.
 The names of the parameters must be the same as their parameter metadata definitions.
@@ -125,49 +146,31 @@ private:
 
 	/**
 	 * Check for parameter changes and update them if needed.
-	 * @param parameter_update_sub uorb subscription to parameter_update
 	 */
-	void parameters_update(int parameter_update_sub, bool force = false);
+	void parameters_update();
 
 	DEFINE_PARAMETERS(
 		(ParamInt<px4::params::SYS_AUTOSTART>) _sys_autostart,   /**< example parameter */
 		(ParamFloat<px4::params::ATT_BIAS_MAX>) _att_bias_max  /**< another parameter */
 	)
+	
+	// Subscriptions
+	uORB::SubscriptionInterval _parameter_update_sub{ORB_ID(parameter_update), 1_s};
+	
 };
 ```
 
+
 Update the cpp file with boilerplate to check for the uORB message related to parameter updates.
 
-First include the header to access the uORB parameter_update message:
-```cpp
-#include <uORB/topics/parameter_update.h>
-```
-Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped. 
-`parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
-```cpp
-# Subscribe to parameter_update message
-int parameter_update_sub = orb_subscribe(ORB_ID(parameter_update));
-...
-# Unsubscribe to parameter_update messages
-orb_unsubscribe(parameter_update_sub);
-```
-
-Call `parameters_update(parameter_update_sub);` periodically in code to check if there has been an update (this is boilerplate):
-```cpp
-void Module::parameters_update(int parameter_update_sub, bool force)
+Call `parameters_update();` periodically in code to check if there has been an update:
+```cpp 
+void Module::parameters_update()
 {
-	bool updated;
-	struct parameter_update_s param_upd;
+	if (_parameter_update_sub.updated()) {
+		parameter_update_s param_update;
+		_parameter_update_sub.copy(&param_update);
 
-	// Check if any parameter updated
-	orb_check(parameter_update_sub, &updated);
-
-	// If any parameter updated copy it to: param_upd
-	if (updated) {
-		orb_copy(ORB_ID(parameter_update), parameter_update_sub, &param_upd);
-	}
-
-	if (force || updated) {
 		// If any parameter updated, call updateParams() to check if
 		// this class attributes need updating (and do so). 
 		updateParams();
@@ -175,12 +178,10 @@ void Module::parameters_update(int parameter_update_sub, bool force)
 }
 ```
 In the above method:
-- `orb_check()` tells us if there is *any* update to the `param_update` uORB message (but not what parameter is affected) and sets the `updated` bool.
-- If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_upd`)
+- `_parameter_update_sub.updated()` tells us if there is *any* update to the `param_update` uORB message (but not what parameter is affected).
+- If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_update`), to clear the pending update.
 - Then we call `ModuleParams::updateParams()`.
-  This "under the hood" checks if the specific parameter attributes listed in our `DEFINE_PARAMETERS` list need updating, and then does so if needed.
-- This example doesn't call `Module::parameters_update()` with `force=True`.
-  If you had other values that needed to be set up a common pattern is to include them in the function, and call it once with `force=True` during initialisation.
+  This "under the hood" updates all parameter attributes listed in our `DEFINE_PARAMETERS` list.
 
 The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
 
@@ -188,7 +189,7 @@ The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can
 The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
 :::
 
-### C API
+#### C API
 
 The C API can be used within both modules and drivers.
 
@@ -221,7 +222,7 @@ param_get(my_param_handle, &my_param);
 ```
 
 
-## Parameter Metadata
+### Parameter Metadata
 
 PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
 
@@ -232,14 +233,52 @@ Correct metadata is critical for good user experience in a ground station.
 Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible).
 Typically it is stored alongside its associated module. 
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information used by ground stations.
+The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information [used by ground stations](#publishing-parameter-metadata-to-a-gcs).
 
 :::warning
 After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
 :::
 
 
-### c Parameter Metadata
+#### YAML Metadata
+
+:::note
+At time of writing YAML parameter definitions cannot be used in *libraries*.
+:::
+
+YAML meta data is intended as a full replacement for the **.c** definitions.
+It supports all the same metadata, along with new features like multi-instance definitions.
+
+- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
+- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
+- A YAML file is registered in the cmake build system by adding
+  ```
+  MODULE_CONFIG
+  	module.yaml
+  ```
+  to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
+
+
+#### Multi-Instance (Templated) YAML Meta Data
+
+Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) (templated parameter code is not supported).
+
+The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`.
+For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+```
+MY_PARAM_${i}_RATE:
+            description:
+                short: Maximum rate for instance ${i}
+```
+
+The following YAML definitions provide the start and end indexes. 
+- `num_instances` (default 1): Number of instances to generate (>=1)
+- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
+
+For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
+
+
+#### c Parameter Metadata
 
 The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
 
@@ -275,7 +314,7 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 The `PARAM_DEFINE_*` macro at the end specifies the type of parameter (`PARAM_DEFINE_FLOAT` or `PARAM_DEFINE_INT32`), the name of the parameter (which must match the name used in code), and the default value in firmware.
 
 The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station.
-The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)).
+The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)).
 
 ```cpp
 /**
@@ -294,38 +333,34 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
  */
 ```
 
-### YAML Metadata
+## Publishing Parameter Metadata to a GCS
+
+Parameter metadata is collected into a JSON or XML file during each PX4 build.
+
+For most flight controllers (as most have enough FLASH available), the JSON file is xz-compressed and stored within the generated binary.
+The file is then shared to ground stations using the [MAVLink Component Information Protocol](https://mavlink.io/en/services/component_information.html).
+This ensures that parameter metadata is always up-to-date with the code running on the vehicle.
+
+Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`.
+This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
+The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
 
 :::note
-At time of writing YAML parameter definitions cannot be used in *libraries*.
+You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 :::
 
-YAML meta data is intended as a full replacement for the **.c** definitions. 
-It supports all the same metadata, along with new features like multi-instance definitions.
+:::note
+The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is not present on the vehicle.
+It may also be used as a fallback to avoid a very slow download over a low-rate telemetry link.
+:::
 
-- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
-- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
+Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
 
+The XML file of the master branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component information service (this approach predates the existence of the component information protocol).
 
-#### Multi-Instance (Templated) Meta Data
-
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
-
-The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`.
-For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
-```
-MY_PARAM_${i}_RATE:
-            description:
-                short: Maximum rate for instance ${i}
-```
-
-The following YAML definitions provide the start and end indexes. 
-- `num_instances` (default 1): Number of instances to generate (>=1)
-- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
-
-For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)
 
 ## Further Information
 
 - [Finding/Updating Parameters](../advanced_config/parameters.md)
 - [Parameter Reference](../advanced_config/parameter_reference.md)
+- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)

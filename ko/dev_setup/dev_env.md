@@ -1,27 +1,30 @@
-# 파일 및 코드 설치
+# 파일 및 코드 설치개발자 환경 설정 (툴체인)
 
-PX4 코드는 [Linux](../setup/dev_env_linux.md) 또는 [Mac OS](../setup/dev_env_mac.md)에서 개발할 수 있습니다. [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) 에디션을 권장하며, [모든 PX4 대상](#supported-targets) 빌드 및 대부분의 [시뮬레이터](../simulation/README.md)와 [ROS](../ros/README.md) 사용이 가능하기 때문입니다.
+PX4 개발 *지원 플랫폼*은 다음과 같습니다.
+- [Ubuntu Linux](../dev_setup/dev_env_linux_ubuntu.md)(권장)
+- [Mac OS](../dev_setup/dev_env_mac.md)
+- [Windows (10/11)](../dev_setup/dev_env_windows_wsl.md)
+
 
 ## 지원 대상
 
-아래 표는 각 OS에서 구축 할 수 있는 PX 대상을 보여줍니다.
+아래 표는 각 OS에서 구축 가능한 PX 대상을 보여줍니다.
 
-| 대상                                                                                                                                                                                                                                                                | Linux (Ubuntu) | Mac | Windows |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:---:|:-------:|
-| **NuttX 기반 하드웨어**: [Pixhawk 시리즈](https://docs.px4.io/en/flight_controller/pixhawk_series.html), [Crazyflie](https://docs.px4.io/en/flight_controller/crazyflie2.html), [Intel® Aero Ready to Fly Drone](https://docs.px4.io/en/flight_controller/intel_aero.html) |       X        |  X  |    X    |
-| [Qualcomm Snapdragon Flight 하드웨어](../flight_controller/snapdragon_flight.md)                                                                                                                                                                                      |       X        |     |         |
-| **Linux 기반 하드웨어**: [Raspberry Pi 2/3](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html), [Parrot Bebop](https://docs.px4.io/en/flight_controller/bebop.html)                                                                                     |       X        |     |         |
-| **시뮬레이션**: [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                                                                                               |       X        |  X  |    X    |
-| **시뮬레이션:** [Gazebo SITL](../simulation/gazebo.md)                                                                                                                                                                                                                 |       X        |  X  |         |
-| **시뮬레이션**: [Gazebo ROS](../simulation/ros_interface.md)                                                                                                                                                                                                           |       X        |     |         |
+| 대상                                                                                                                                                                                              | Linux (Ubuntu) |   Mac   |   윈도우   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:-------:|:-------:|
+| **NuttX 기반 하드웨어:** [Pixhawk 시리즈](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) |    &check;     | &check; | &check; |
+| **Linux 기반 하드웨어:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md)                                                                                                              |    &check;     |         |         |
+| **시뮬레이션:** [jMAVSim SITL](../simulation/jmavsim.md)                                                                                                                                             |    &check;     | &check; | &check; |
+| **Simulation:** [Gazebo SITL](../sim_gazebo_gz/README.md)                                                                                                                                       |    &check;     | &check; | &check; |
+| **Simulation:** [Gazebo Classic SITL](../sim_gazebo_classic/README.md)                                                                                                                          |    &check;     | &check; | &check; |
+| **Simulation:** [ROS with Gazebo Classic](../simulation/ros_interface.md)                                                                                                                       |    &check;     |         |         |
+| **Simulation:** ROS 2 with Gazebo                                                                                                                                                               |    &check;     |         |         |
 
+숙련된 Docker 사용자는 지속적 통합 시스템 [Docker Containers](../test_and_ci/docker.md)컨테이너로 빌드할 수 있습니다.
 
-## 개발 환경
+## 다음 단계
 
-개발 환경 설치는 아래에서 다룹니다.
-
-  * [Mac OS](../dev_setup/dev_env_mac.md)
-  * [Linux](../dev_setup/dev_env_linux.md)
-  * [Windows](../dev_setup/dev_env_windows.md)
-
-Docker에 익숙하다면 준비된 컨테이너 중 하나인 [Docker Containers](../test_and_ci/docker.md)를 사용할 수도 있습니다.
+위의 명령줄 도구 모음 중 하나를 설정하고, 다음 단계를 실행합니다.
+- [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
+- [PX4 소프트웨어를 구축](../dev_setup/building_px4.md)합니다.

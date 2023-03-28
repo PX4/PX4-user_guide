@@ -1,18 +1,18 @@
-# MAVSDK 통합 시험
+# MAVSDK 통합 테스트
 
-PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 시험을 진행할 수 있습니다.
+PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 테스트를 할 수 있습니다.
 
-시험 절차는 이제부터 근본적으로 SITL을 대상으로 개발하며, 지속 통합 체계(CI)에서 실행합니다. 그러나, 실제 시험도 일반화할 수 있습니다.
+테스트는 주로 SITL에 대해 개발되고, CI(지속적 통합)에서 실행됩니다. 앞으로, 모든 플랫폼/하드웨어으로 일반화할 계획입니다.
 
-시스템 영역(예: `/usr/lib` 또는 `/usr/local/lib`)에 MAVSDK C++ 라이브러리를 설치해야 시험을 진행할 수 있습니다.
+아래 지침은 로컬에서 테스트를 설정하고 진행하는 방법을 설명합니다.
 
-## MAVSDK C++ 라이브러리 설치
+## 전제 조건
 
-### 모든 PX4 시험 절차 실행
+### 개발 환경 설정
 
-바이너리를 그대로 설치하거나 소스코드를 컴파일하여 설치하십시오:
-- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported). Gazebo is required, and should be installed by default.
-- [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
+아직 하지 않은 경우:
+- [Linux](../dev_setup/dev_env_linux_ubuntu.md) 또는 [MacOS](../dev_setup/dev_env_mac.md)용 개발 도구 모음을 설치합니다(Windows는 지원되지 않음). [Gazebo Classic](../sim_gazebo_classic/README.md) is required, and should be installed by default.
+- [PX4 소스 코드 받기](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -20,34 +20,34 @@ PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 시�
   ```
 
 
-### Build PX4 for Testing
+### 테스트용 PX4 빌드
 
-PX4 코드를 빌드하려면 다음 명령을 내리십시오:
+시뮬레이터 테스트를 위한 PX4를 빌드하려면 다음 명령어를 실행하십시오.
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests 
+DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 ```
 
-### Install the MAVSDK C++ Library
+### MAVSDK C++ 라이브러리 설치
 
-SITL 시험을 [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json)에 지정한대로 실행하려면 다음 명령을 내리십시오:
+테스트에는 시스템에 설치된 MAVSDK C++ 라이브러리가 필요합니다(예: `/usr/lib` 또는 `/usr/local/lib`).
 
-모든 가능한 명령행 인자를 살펴보려면 다음 내용을 살펴보십시오:
-- [MAVSDK > Installation > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp): Install as a prebuilt library on supported platforms (recommended)
-- [MAVSDK > Contributing > Building from Source](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp): Build  C++ library from source.
+바이너리 또는 소스에서 설치:
+- [MAVSDK > C++ > C++ QuickStart](https://mavsdk.mavlink.io/main/en/cpp/quickstart.html): Install as a prebuilt library on supported platforms (recommended)
+- [MAVSDK > C++ Guide > Building from Source](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html): Build  C++ library from source.
 
-## PX4 코드 준비
+## 모든 PX4 테스트 실행
 
-활용 용어:
+[sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json)에 정의된 대로 모든 SITL 테스트를 실행하려면 다음을 실행하십시오.
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10
 ```
 
-This will list all of the tests and then run them sequentially.
+그러면, 모든 테스트가 나열되고 순차적으로 실행됩니다.
 
 
-To see all possible command line arguments use the `-h` argument:
+가능한 모든 명령줄 인수를 보려면 `-h` 인수를 사용하십시오.
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py -h
@@ -74,17 +74,17 @@ optional arguments:
   --verbose             enable more verbose output
 ```
 
-## 구현상 참고
+## 단일 테스트 실행
 
-Run a single test by specifying the `model` and test `case` as command line options. For example, to test flying a tailsitter in a mission you might run:
+`모델` 및 테스트 `케이스`를 명령줄 옵션으로 지정하여, 단일 테스트를 실행합니다. 예를 들어, 임무에서 테일시터 비행을 테스트하려면, 다음을 실행합니다.
 
 ```bash
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10 --model tailsitter --case 'Fly square Multicopter Missions including RTL'
 ```
 
-The easiest way to find out the current set of models and their associated test cases is to run all PX4 tests [as shown above](#run-all-px4-tests) (note, you can then cancel the build if you wish to test just one).
+현재 모델 세트와 관련 테스트 사례를 찾는 가장 용이한 방법은 [위에 표시된 대로](#run-all-px4-tests) 모든 PX4 테스트를 실행하는 것입니다(참고로 하나만 테스트하려는 경우 빌드를 취소할 수 있습니다).
 
-At time of writing the list generated by running all tests is:
+이 문서 작성 시점에서 모든 테스트를 실행하여 생성된 목록은 다음과 같습니다.
 ```
 About to run 39 test cases for 3 selected models (1 iteration):
   - iris:
@@ -132,21 +132,21 @@ About to run 39 test cases for 3 selected models (1 iteration):
 ```
 
 
-## Notes on implementation
+## 구현 참고 사항
 
-- The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python.
+- 테스트는 Python으로 작성된 테스트 스크립트 [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/mavsdk_test_runner.py)와 호출됩니다.
 
-  In addition to MAVSDK, this runner starts `px4` as well as Gazebo for SITL tests, and collects the logs of these processes.
-- The test runner is a C++ binary that contains:
-  - The [main](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
-  - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.h).
-  - The actual tests using the abstraction around MAVSDK as e.g. [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp).
-  - The tests use the [catch2](https://github.com/catchorg/Catch2) unit testing framework. The reasons for using this framework are:
-      - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#assertion-placement)).
-      - Dependency management is easier because *catch2* can just be included as a header-only library.
-      - *Catch2* supports [tags](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags), which allows for flexible composition of tests.
+  MAVSDK 외에도 `px4`와 Gazebo for SITL 테스트를 시작하고 이러한 프로세스의 로그를 수집합니다.
+- 테스트 실행기는 다음을 포함하는 C++ 바이너리입니다.
+  - 인수를 구문 분석하는 [main](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_main.cpp) 함수입니다.
+  - [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.h)라는 MAVSDK에 대한 추상화입니다.
+  - MAVSDK에 대한 추상화를 사용한 실제 테스트. 예:  [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp).
+  - 테스트는 [catch2](https://github.com/catchorg/Catch2) 단위 테스트 프레임워크를 사용합니다. 이 프레임워크를 사용하는 이유는 다음과 같습니다.
+      - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/main/docs/advanced.md#assertion-placement)).
+      - *catch2*를 헤더 전용 라이브러리로 포함할 수 있기 때문에, 종속성 관리가 용이합니다.
+      - *Catch2* supports [tags](https://github.com/catchorg/Catch2/blob/devel/docs/test-cases-and-sections.md#tags), which allows for flexible composition of tests.
 
 
-Terms used:
-- "model": This is the selected Gazebo model, e.g. `iris`.
-- "test case": This is a [catch2 test case](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md).
+사용된 용어:
+- "모델": 선택한 Gazebo 모델입니다. 예: `iris`.
+- "테스트 케이스": [catch2 테스트 케이스](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md)입니다.

@@ -11,6 +11,7 @@ Key information:
 
 Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly. After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
 
+
 ## Bill of Materials
 
 The actual plane looks roughly like as shown in the image above (other similar models will work just fine - this is a Multiplex Fun Cub). The minimal equipment required is:
@@ -26,6 +27,7 @@ The actual plane looks roughly like as shown in the image above (other similar m
 - Aluminum frame for mounting the quad motors (10x10mm square tube, 1mm wall thickness)
 - TOW is ~2.3kg with a 4200mAh 4S battery
 
+
 ## Structure
 
 The structure is made out of aluminum booms as shown below.
@@ -37,8 +39,7 @@ The structure is made out of aluminum booms as shown below.
 The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
 
 :::tip
-The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
-:::
+The servo direction can be reversed using the [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu). :::
 
 | Port   | 接口定义                    |
 | ------ | ----------------------- |
@@ -64,6 +65,8 @@ Configure the frame as shown in QGroundControl below (do not forget to click **A
 
 @[youtube](https://youtu.be/4K8yaa6A0ks)
 
+
 ## 技术支持
 
 If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+

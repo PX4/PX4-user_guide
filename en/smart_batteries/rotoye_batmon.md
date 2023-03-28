@@ -14,7 +14,7 @@ Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Auto
 ![Pre-assembled Rotoye smart battery](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## Purchase
+## Where to Buy
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon kits, custom smart-batteries, and accessories
 
@@ -44,7 +44,7 @@ More details can be found [here](https://github.com/rotoye/batmon_reader)
    ```
 1. [Build and upload the firmware](../dev_setup/building_px4.md) for your target board
 
-### Configure Parmeters
+### Configure Parameters
 
 In *QGroundControl*:
 1. Set the following [parameters](../advanced_config/parameters.md):
@@ -52,7 +52,7 @@ In *QGroundControl*:
    - `SENS_EN_BAT` to `true`, 
    - `BAT_SMBUS_MODEL` to `3:Rotoye`
 1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)
-1. Start the [batt_smbus driver](../modules/modules_driver.html) in the console.
+1. Start the [batt_smbus driver](../modules/modules_driver.md) in the console.
    For example, to run two BatMons on the same bus:
    ```sh 
    batt_smbus start -X -b 1 -a 11 # External bus 1, address 0x0b  

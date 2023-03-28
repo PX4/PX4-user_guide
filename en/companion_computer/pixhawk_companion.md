@@ -1,36 +1,36 @@
-# Companion Computer for Pixhawk Series
+# Using a Companion Computer with Pixhawk Controllers
 
-Interfacing a companion computer (Raspberry Pi, Odroid, Tegra K1) to Pixhawk-family boards always works the same way: They are interfaced using a serial port to `TELEM 2`, the port intended for this purpose.
-The message format on this link is [MAVLink](https://mavlink.io/en/).
+PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).
 
-## Pixhawk Setup
-
-Enable MAVLink on any [configurable serial port](../peripherals/serial_configuration.md).
-
-:::tip
-Typically the `TELEM 2` port is used for a companion computer.
-:::
-
-To set up the default companion computer message stream on `TELEM 2`, set the following parameters:
-* [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG` is often used to map the `TELEM 2` port)
-* [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = `Onboard`
-* [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` (921600 or higher recommended for applications like log streaming or FastRTPS)
-
-For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md).
+See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
 
 
-## Companion Computer Setup
+## Companion Computer Software
 
-In order to receive MAVLink, the companion computer needs to run some software talking to the serial port. 
-The most common options are:
+The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
 
-  * [MAVROS](../ros/mavros_installation.md) to communicate to ROS nodes
-  * [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) to connect custom code
-  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](https://ardupilot.org/mavproxy/) to route MAVLink between serial and UDP
+Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/README.md#companion-computer-software).
 
-## Hardware setup
+## Ethernet Setup
 
-Wire the serial port according to the instructions below. All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
+Ethernet is the recommended connection, if supported by your flight controller.
+See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
+
+## Serial Port Setup
+
+These instructions explain how to setup the connection if you're not using Ethernet.
+
+### Pixhawk Configuration
+
+PX4 is configured by default to connect to a companion computer connected to the `TELEM 2` serial port.
+No additional PX4-side configuration should be required if you use this port
+
+To enable MAVLink to connect on another port see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
+
+### Serial Port Hardware Setup
+
+If you're connecting using a serial port, wire the port according to the instructions below.
+All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
 
 :::warning
 Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels.
@@ -40,7 +40,7 @@ In most cases the accessible hardware serial ports already have some function (m
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-TELEM2 | | FTDI | &nbsp 
+TELEM2 | | FTDI | &nbsp;
 --- | --- | --- | ---
 1 | +5V (red)| | DO NOT CONNECT!
 2 | Tx  (out)| 5 | FTDI RX (yellow) (in)
@@ -49,7 +49,7 @@ TELEM2 | | FTDI | &nbsp
 5 | RTS (out)| 2 | FTDI CTS (brown) (in)
 6 | GND     | 1 | FTDI GND (black)
 
-## Software setup on Linux
+### Serial Port Software setup on Linux
 
 On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`. If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device. 
 

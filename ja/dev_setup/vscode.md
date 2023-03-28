@@ -10,7 +10,7 @@ There are a number of reasons to use VSCode for PX4 development:
 This topic explains how to setup the IDE and start developing.
 
 :::note
-There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode)) so the setup process is as simple as adding the project folder.
+There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) so the setup process is as simple as adding the project folder.
 :::
 
 ## Preconditions
@@ -32,7 +32,7 @@ You must already have installed the command line [PX4 developer environment](../
    ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
 1. A number of notifications/prompts may appear in the bottom right corner
 
-:::tip
+   :::tip
 If the prompts disappear, click the little "alarm" icon on the right of the bottom blue bar.
 :::
 
@@ -73,8 +73,9 @@ To debug PX4 on SITL:
 
 1. Then choose your debug target (e.g. *Debug SITL (Gazebo Iris)*) from the top bar debug dropdown (purple box).
 
-:::note
-The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar). For example, to debug SITL targets, your build target must include SITL.
+   :::note
+The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar).
+For example, to debug SITL targets, your build target must include SITL.
 :::
 1. Start debugging by clicking the debug "play" arrow (next to the debug target in the top bar - pink box).
 
@@ -82,7 +83,7 @@ While debugging you can set breakpoints, step over code, and otherwise develop a
 
 ### Hardware Debugging
 
-The instructions in [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.html) explain how to connect to the SWD interface on common flight controllers (for example, using the Dronecode or Blackmagic probes).
+The instructions in [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md) explain how to connect to the SWD interface on common flight controllers (for example, using the Dronecode or Blackmagic probes).
 
 After connecting to the SWD interface, hardware debugging in VSCode is then the same as for [SITL Debugging](#debugging_sitl) except that you select a debug target appropriate for your debugger type (and firmware) - e.g. `jlink (px4_fmu-v5)`.
 
@@ -91,6 +92,7 @@ To see the `jlink` option you must have selected a [cmake target for building fi
 :::
 
 ![Image showing hardware targets with options for the different probes](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
+
 
 <a id="code completion"></a>
 
@@ -101,3 +103,13 @@ In order for the code completion to work (and other IntelliSense magic) you need
 Once that is done you don't need to do anything else; the toolchain will automatically offer you symbols as you type.
 
 ![IntelliSense](../../assets/toolchain/vscode/vscode_intellisense.jpg)
+
+## Troubleshooting
+
+This section includes guidance on setup and build errors.
+
+### Ubuntu 18.04: "Visual Studio Code is unable to watch for file changes in this large workspace"
+
+This error surfaces on startup. On some systems, there is an upper-limit of 8192 file handles imposed on applications, which means that VSCode might not be able to detect file modifications in `/PX4-Autopilot`.
+
+You can increase this limit to avoid the error, at the expense of memory consumption. Follow the [instructions here](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc). A value of 65536 should be more than sufficient.

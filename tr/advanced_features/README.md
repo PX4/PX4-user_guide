@@ -4,7 +4,7 @@ This section contains topics related to some of the more advanced features of th
 
 * [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
 * [Air Traffic Avoidance: UTM](../advanced_features/traffic_avoidance_utm.md)
-* [Computer Vision](../computer_vision/README.md) 
+* [Computer Vision](../computer_vision/README.md)
   * [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) (needs companion computer)
   * [Safe Landing](../computer_vision/safe_landing.md) (needs companion computer)
   * [Collision Prevention](../computer_vision/collision_prevention.md) (can use companion computer or sensors on flight controller)

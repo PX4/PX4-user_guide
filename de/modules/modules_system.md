@@ -1,10 +1,12 @@
 # Modules Reference: System
 
 ## battery_simulator
-Source: [modules/simulator/battery_simulator](https://github.com/PX4/Firmware/tree/master/src/modules/simulator/battery_simulator)
+Source: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
 
 
 ### Description
+
+
 
 <a id="battery_simulator_usage"></a>
 
@@ -19,7 +21,7 @@ battery_simulator <command> [arguments...]
    status        print status info
 ```
 ## battery_status
-Source: [modules/battery_status](https://github.com/PX4/Firmware/tree/master/src/modules/battery_status)
+Source: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/battery_status)
 
 
 ### Description
@@ -30,6 +32,7 @@ The provided functionality includes:
 
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
+
 
 <a id="battery_status_usage"></a>
 
@@ -44,10 +47,12 @@ battery_status <command> [arguments...]
    status        print status info
 ```
 ## camera_feedback
-Source: [modules/camera_feedback](https://github.com/PX4/Firmware/tree/master/src/modules/camera_feedback)
+Source: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/camera_feedback)
 
 
 ### Description
+
+
 
 <a id="camera_feedback_usage"></a>
 
@@ -62,7 +67,7 @@ camera_feedback <command> [arguments...]
    status        print status info
 ```
 ## commander
-Source: [modules/commander](https://github.com/PX4/Firmware/tree/master/src/modules/commander)
+Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/commander)
 
 
 ### Description
@@ -78,7 +83,7 @@ commander <command> [arguments...]
      [-h]        Enable HIL mode
 
    calibrate     Run sensor calibration
-     mag|accel|gyro|level|esc|airspeed Calibration type
+     mag|baro|accel|gyro|level|esc|airspeed Calibration type
      quick       Quick calibration (accel only, not recommended)
 
    check         Run preflight checks
@@ -87,6 +92,7 @@ commander <command> [arguments...]
      [-f]        Force arming (do not run preflight checks)
 
    disarm
+     [-f]        Force disarming (disarm in air)
 
    takeoff
 
@@ -95,25 +101,32 @@ commander <command> [arguments...]
    transition    VTOL transition
 
    mode          Change flight mode
-     manual|acro|offboard|stabilized|rattitude|altctl|posctl|auto:mission|auto:l
-                 oiter|auto:rtl|auto:takeoff|auto:land|auto:precland Flight mode
+     manual|acro|offboard|stabilized|altctl|posctl|auto:mission|auto:loiter|auto
+                 :rtl|auto:takeoff|auto:land|auto:precland Flight mode
+
+   pair
 
    lockdown
-     [off]       Turn lockdown off
+     on|off      Turn lockdown on or off
+
+   set_ekf_origin
+     lat, lon, alt Origin Latitude, Longitude, Altitude
+
+   lat|lon|alt   Origin latitude longitude altitude
+
+   poweroff      Power off board (if supported)
 
    stop
 
    status        print status info
 ```
 ## dataman
-Source: [modules/dataman](https://github.com/PX4/Firmware/tree/master/src/modules/dataman)
+Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/dataman)
 
 
 ### Description
 Module to provide persistent storage for the rest of the system in form of a simple database through a C API. Multiple backends are supported:
 - a file (eg. on the SD card)
-- FLASH (if the board supports it)
-- FRAM
 - RAM (this is obviously not persistent)
 
 It is used to store structured data of different types: mission waypoints, mission state and geofence polygons. Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible.
@@ -122,6 +135,7 @@ It is used to store structured data of different types: mission waypoints, missi
 Reading and writing a single item is always atomic. If multiple items need to be read/modified atomically, there is an additional lock per item type via `dm_lock`.
 
 **DM_KEY_FENCE_POINTS** and **DM_KEY_SAFE_POINTS** items: the first data element is a `mission_stats_entry_s` struct, which stores the number of items for these types. These items are always updated atomically in one transaction (from the mavlink mission manager). During that time, navigator will try to acquire the geofence item lock, fail, and will not check for geofence violations.
+
 
 <a id="dataman_usage"></a>
 
@@ -133,21 +147,16 @@ dataman <command> [arguments...]
      [-f <val>]  Storage file
                  values: <file>
      [-r]        Use RAM backend (NOT persistent)
-     [-i]        Use FLASH backend
 
- The options -f, -r and -i are mutually exclusive. If nothing is specified, a
- file 'dataman' is used
-
-   poweronrestart Restart dataman (on power on)
-
-   inflightrestart Restart dataman (in flight)
+ The options -f and -r are mutually exclusive. If nothing is specified, a file
+ 'dataman' is used
 
    stop
 
    status        print status info
 ```
 ## dmesg
-Source: [systemcmds/dmesg](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dmesg)
+Source: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dmesg)
 
 
 ### Description
@@ -170,11 +179,12 @@ dmesg <command> [arguments...]
      [-f]        Follow: wait for new messages
 ```
 ## esc_battery
-Source: [modules/esc_battery](https://github.com/PX4/Firmware/tree/master/src/modules/esc_battery)
+Source: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/esc_battery)
 
 
 ### Description
 This implements using information from the ESC status and publish it as battery status.
+
 
 <a id="esc_battery_usage"></a>
 
@@ -188,11 +198,32 @@ esc_battery <command> [arguments...]
 
    status        print status info
 ```
-## gyro_fft
-Source: [examples/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/examples/gyro_fft)
+## gyro_calibration
+Source: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_calibration)
 
 
 ### Description
+Simple online gyroscope calibration.
+
+
+<a id="gyro_calibration_usage"></a>
+
+### Usage
+```
+gyro_calibration <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## gyro_fft
+Source: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/gyro_fft)
+
+
+### Description
+
 
 <a id="gyro_fft_usage"></a>
 
@@ -207,7 +238,7 @@ gyro_fft <command> [arguments...]
    status        print status info
 ```
 ## heater
-Source: [drivers/heater](https://github.com/PX4/Firmware/tree/master/src/drivers/heater)
+Source: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater)
 
 
 ### Description
@@ -228,7 +259,7 @@ heater <command> [arguments...]
    status        print status info
 ```
 ## land_detector
-Source: [modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/modules/land_detector)
+Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/land_detector)
 
 
 ### Description
@@ -260,7 +291,7 @@ land_detector <command> [arguments...]
    status        print status info
 ```
 ## load_mon
-Source: [modules/load_mon](https://github.com/PX4/Firmware/tree/master/src/modules/load_mon)
+Source: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/load_mon)
 
 
 ### Description
@@ -281,7 +312,7 @@ load_mon <command> [arguments...]
    status        print status info
 ```
 ## logger
-Source: [modules/logger](https://github.com/PX4/Firmware/tree/master/src/modules/logger)
+Source: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
 
 
 ### Description
@@ -323,6 +354,7 @@ logger <command> [arguments...]
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
      [-x]        Enable/disable logging via Aux1 RC channel
+     [-a]        Log 1st armed until shutdown
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -334,17 +366,99 @@ logger <command> [arguments...]
      [-p <val>]  Poll on a topic instead of running with fixed rate (Log rate
                  and topic intervals are ignored if this is set)
                  values: <topic_name>
+     [-c <val>]  Log rate factor (higher is faster)
+                 default: 1.0
 
    on            start logging now, override arming (logger must be running)
 
    off           stop logging now, override arming (logger must be running)
+
+   trigger_watchdog manually trigger the watchdog now
+
+   stop
+
+   status        print status info
+```
+## mag_bias_estimator
+Source: [modules/mag_bias_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mag_bias_estimator)
+
+
+### Description
+Online magnetometer bias estimator.
+
+<a id="mag_bias_estimator_usage"></a>
+
+### Usage
+```
+mag_bias_estimator <command> [arguments...]
+ Commands:
+   start         Start the background task
+
+   stop
+
+   status        print status info
+```
+## manual_control
+Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/manual_control)
+
+
+### Description
+Module consuming manual_control_inputs publishing one manual_control_setpoint.
+
+
+<a id="manual_control_usage"></a>
+
+### Usage
+```
+manual_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## microdds_client
+Source: [modules/microdds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/microdds_client)
+
+
+### Description
+MicroDDS Client used to communicate uORB topics with an Agent over serial or UDP.
+
+### Examples
+```
+microdds_client start -t serial -d /dev/ttyS3 -b 921600
+microdds_client start -t udp -h 127.0.0.1 -p 15555
+```
+
+<a id="microdds_client_usage"></a>
+
+### Usage
+```
+microdds_client <command> [arguments...]
+ Commands:
+   start
+     [-t <val>]  Transport protocol
+                 values: serial|udp, default: udp
+     [-d <val>]  serial device
+                 values: <file:dev>
+     [-b <val>]  Baudrate (can also be p:<param_name>)
+                 default: 0
+     [-h <val>]  Host IP
+                 values: <IP>, default: 127.0.0.1
+     [-p <val>]  Remote Port
+                 default: 8888
+     [-l]        Restrict to localhost (use in combination with
+                 ROS_LOCALHOST_ONLY=1)
+     [-c]        Use custom participant config (profile_name="px4_participant")
+     [-n <val>]  Client DDS namespace
 
    stop
 
    status        print status info
 ```
 ## netman
-Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/systemcmds/netman)
+Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman)
 
 
   ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
@@ -361,19 +475,20 @@ netman <command> [arguments...]
  Commands:
    show          Display the current persistent network settings to the console.
 
-   update        Check SD card for network.cfg and update network persistent
-                 network settings.
+   update        Check SD card for net.cfg and update network persistent network
+                 settings.
 
    save          Save the current network parameters to the SD card.
      [-i <val>]  Set the interface name
                  default: eth0
 ```
 ## pwm_input
-Source: [drivers/pwm_input](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input)
+Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/pwm_input)
 
 
 ### Description
 Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
+
 
 <a id="pwm_input_usage"></a>
 
@@ -383,21 +498,20 @@ pwm_input <command> [arguments...]
  Commands:
    start
 
-   test          prints PWM capture info.
-
    stop
 
    status        print status info
 ```
 ## rc_update
-Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modules/rc_update)
+Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
 ### Description
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_setpoint`.
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
+
 
 <a id="rc_update_usage"></a>
 
@@ -412,7 +526,7 @@ rc_update <command> [arguments...]
    status        print status info
 ```
 ## replay
-Source: [modules/replay](https://github.com/PX4/Firmware/tree/master/src/modules/replay)
+Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
 
 
 ### Description
@@ -424,7 +538,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
 
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+The replay procedure is documented on the [System-wide Replay](https://docs.px4.io/main/en/debug/system_wide_replay.html) page.
 
 <a id="replay_usage"></a>
 
@@ -443,7 +557,7 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-Source: [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
+Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/events)
 
 
 ### Description
@@ -463,20 +577,101 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
+## sensor_arispeed_sim
+Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
+
+
+### Description
+
+
+
+<a id="sensor_arispeed_sim_usage"></a>
+
+### Usage
+```
+sensor_arispeed_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_baro_sim
+Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
+
+
+### Description
+
+
+
+<a id="sensor_baro_sim_usage"></a>
+
+### Usage
+```
+sensor_baro_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_gps_sim
+Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
+
+
+### Description
+
+
+
+<a id="sensor_gps_sim_usage"></a>
+
+### Usage
+```
+sensor_gps_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_mag_sim
+Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
+
+
+### Description
+
+
+
+<a id="sensor_mag_sim_usage"></a>
+
+### Usage
+```
+sensor_mag_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## sensors
-Source: [modules/sensors](https://github.com/PX4/Firmware/tree/master/src/modules/sensors)
+Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
 
 
 ### Description
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
-- Read the output from the sensor drivers (`sensor_gyro`, etc.). If there are multiple of the same type, do voting and failover handling. Then apply the board rotation and temperature calibration (if enabled). And finally publish the data; one of the topics is `sensor_combined`, used by many parts of the system.
+- Read the output from the sensor drivers (`SensorGyro`, etc.). If there are multiple of the same type, do voting and failover handling. Then apply the board rotation and temperature calibration (if enabled). And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
 - Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started.
-- Do sensor consistency checks and publish the `sensors_status_imu` topic.
+- Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
+
 
 <a id="sensors_usage"></a>
 
@@ -491,12 +686,33 @@ sensors <command> [arguments...]
 
    status        print status info
 ```
+## tattu_can
+Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/tattu_can)
+
+
+### Description
+Driver for reading data from the Tattu 12S 16000mAh smart battery.
+
+
+<a id="tattu_can_usage"></a>
+
+### Usage
+```
+tattu_can <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## temperature_compensation
-Source: [modules/temperature_compensation](https://github.com/PX4/Firmware/tree/master/src/modules/temperature_compensation)
+Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/temperature_compensation)
 
 
 ### Description
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
+
 
 <a id="temperature_compensation_usage"></a>
 
@@ -518,7 +734,7 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-Source: [systemcmds/tune_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control)
+Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/tune_control)
 
 
 ### Description
@@ -527,7 +743,7 @@ Command-line tool to control & test the (external) tunes.
 
 Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
 
-Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc
 
 ### Examples
 
@@ -558,12 +774,13 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## work_queue
-Source: [systemcmds/work_queue](https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue)
+Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
 
 
 ### Description
 
 Command-line tool to show work queue status.
+
 
 <a id="work_queue_usage"></a>
 

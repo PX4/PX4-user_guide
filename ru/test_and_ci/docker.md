@@ -1,6 +1,6 @@
 # PX4 Docker Containers
 
-Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Simulation](../simulation/gazebo.md) and [ROS](../simulation/ros_interface.md).
+Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
@@ -22,7 +22,7 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-The default installation requires that you invoke *Docker* as the root user (i.e. using `sudo`). However, for building the PX4 firwmare we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
+The default installation requires that you invoke *Docker* as the root user (i.e. using `sudo`). However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). That way, your build folder won't be owned by root after using docker.
 
 ```sh
 # Create docker group (may not be required)
@@ -32,11 +32,12 @@ sudo usermod -aG docker $USER
 # Log in/out again before using docker!
 ```
 
+
 <a id="px4_containers"></a>
 
 ## Container Hierarchy
 
-The available containers are on [Github here](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy).
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
 These allow testing of various build targets and configurations (the included tools can be inferred from their names). The containers are hierarchial, such that containers have the functionality of their parents. For example, below you can see that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
@@ -44,7 +45,9 @@ These allow testing of various build targets and configurations (the included to
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
-    - px4io/px4-dev-ros2-foxy
+      - px4io/px4-dev-ros2-foxy
+  - px4io/px4-dev-ros2-rolling
+  - px4io/px4-dev-ros2-galactic
 
 
 The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-bionic:latest` (available tags are listed for each container on *hub.docker.com*. For example, the `px4io/px4-dev-nuttx-bionic` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-bionic/tags?page=1&ordering=last_updated)).
@@ -66,7 +69,7 @@ cd PX4-Autopilot
 
 ### Helper Script (docker_run.sh)
 
-The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
+The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
 
 For example, to build SITL you would call (from within the **/PX4-Autopilot** directory):
 
@@ -119,15 +122,23 @@ docker run -it --privileged \
 -v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -e DISPLAY=:0 \
--p 14570:14570/udp \
---name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
+--network host \
+--name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
+
+:::note
+We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+:::
+
+:::note
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+:::
 
 If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:
 
 ```sh
 cd src/PX4-Autopilot    #This is <container_src>
-make px4_sitl_default gazebo
+make px4_sitl_default gazebo-classic
 ```
 
 
@@ -161,14 +172,14 @@ docker rm 45eeb98f1dd9
 
 When running a simulation instance e.g. SITL inside the docker container and controlling it via *QGroundControl* from the host, the communication link has to be set up manually. The autoconnect feature of *QGroundControl* does not work here.
 
-In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
 :::note
-Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook). 
 :::
 
 ### Troubleshooting
@@ -182,7 +193,7 @@ The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a use
 
 #### Graphics Driver Issues
 
-It's possible that running Gazebo will result in a similar error message like the following:
+It's possible that running Gazebo Classic will result in a similar error message like the following:
 
 ```sh
 libGL error: failed to load driver: swrast
@@ -195,6 +206,7 @@ In that case the native graphics driver for your host system must be installed. 
 ```
 
 More information on this can be found [here](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
+
 
 <a id="virtual_machine"></a>
 

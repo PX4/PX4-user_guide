@@ -1,30 +1,30 @@
-# Module Template for Full Applications
+# 전체 애플리케이션을 위한 모듈 템플릿
 
-An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priorit with other tasks on the work queue). In most cases a work queue task can be used, as this minimizes resource usage.
+An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priority with other tasks on the work queue). 대부분은, 리소스 최소화를 위하여 작업 대기열을 사용합니다.
 
 :::note
-[Architectural Overview > Runtime Environment](../concept/architecture.md#runtime-environment) provides more information about tasks and work queue tasks.
+[구조 개요 > 런타임 환경](../concept/architecture.md#runtime-environment)은 작업 및 작업 대기열 작업에 대한 자세한 정보를 제공합니다.
 :::
 
 :::note
-All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
+[첫 번째 응용 프로그램 자습서](../modules/hello_sky.md)에서 배운 내용은 전체 응용 프로그램 작성과 관련이 있습니다.
 :::
 
-## Work Queue Task
+## 작업 대기열 작업
 
-PX4-Autopilot contains a template for writing a new application (module) that runs as a *work queue task*: [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item).
+`ModuleBase` 외에도 작업은 `ScheduledWorkItem`([ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp)에 포함)에서 파생되어야 합니다.
 
-A work queue task application is just the same as an ordinary (task) application, except that it needs to specify that it is a work queue task, and schedule itself to run during initialisation.
+작업 대기열 작업 응용 프로그램은 작업 대기열 작업임을 지정하고 초기화중에 실행되도록 예약해야 한다는 점을 제외하고 일반(작업) 응용 프로그램과 동일합니다.
 
-The example shows how. In summary:
-1. Specify the dependency on the work queue library in the cmake definition file ([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/CMakeLists.txt)):
+예제는 방법을 설명합니다. 요약:
+1. cmake 정의 파일([CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/CMakeLists.txt))에서 작업 대기열 라이브러리에 대한 종속성을 지정합니다.
    ```
    ...
    DEPENDS
       px4_work_queue
    ```
-1. In addition to `ModuleBase`, the task should also derive from `ScheduledWorkItem` (included from [ScheduledWorkItem.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp))
-1. Specify the queue to add the task to in the constructor initialisation. The [work_item](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/WorkItemExample.cpp#L42) example adds itself to the `wq_configurations::test1` work queue as shown below:
+1. `ScheduledWorkItem::Run()` 메서드를 구현하여 "작업"을 수행합니다.
+1. 생성자 초기화에서 작업을 추가할 대기열을 지정합니다. [work_item](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/work_item/WorkItemExample.cpp#L42) 예제는 아래와 같이 `wq_configurations::test1` 작업 대기열에 추가됩니다.
    ```cpp
    WorkItemExample::WorkItemExample() :
        ModuleParams(nullptr),
@@ -34,26 +34,26 @@ The example shows how. In summary:
    ```
 
 :::note
-The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+사용 가능한 작업 대기열(`wq_configurations`)은 [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49)에 나열됩니다.
 :::
 
-1. Implement the `ScheduledWorkItem::Run()` method to perform "work".
-1. Implement the `task_spawn` method, specifying that the task is a work queue (using the `task_id_is_work_queue` id.
-1. Schedule the work queue task using one of the scheduling methods (in the example we use `ScheduleOnInterval` from within the `init` method).
+1. `ScheduledWorkItem::Run()` 메서드를 구현하여 "작업"을 수행합니다.
+1. `task_spawn` 메서드를 구현하여 작업이 작업 대기열임을 지정합니다(`task_id_is_work_queue` ID 사용).
+1. 예약 방법 중 하나를 사용하여 작업 대기열 작업을 예약합니다(예제에서는 `init` 방법 내에서 `ScheduleOnInterval` 사용).
 
 
 
-## Tasks
+## 작업
 
-PX4/PX4-Autopilot contains a template for writing a new application (module) that runs as a task on its own stack: [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/master/src/templates/template_module).
+문서: `PRINT_MODULE_*` 메서드는 두 가지 용도로 사용됩니다(API는 [소스 코드](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)에 문서화됨):
 
-The template demonstrates the following additional features/aspects that are required or are useful for a full application:
+템플릿은 전체 애플리케이션에 필요하거나 유용한 다음과 같은 추가 기능/측면을 보여줍니다.
 
-- Accessing parameters and reacting to parameter updates.
-- uORB subscriptions and waiting for topic updates.
-- Controlling the task that runs in the background via `start`/`stop`/`status`. The `module start [<arguments>]` command can then be directly added to the [startup script](../concept/system_startup.md).
-- Command-line argument parsing.
-- Documentation: the `PRINT_MODULE_*` methods serve two purposes (the API is documented [in the source code](https://github.com/PX4/Firmware/blob/v1.8.0/src/platforms/px4_module.h#L381)):
-  - They are used to print the command-line usage when entering `module help` on the console.
-  - They are automatically extracted via script to generate the [Modules & Commands Reference](../modules/modules_main.md) page.
+- 매개변수에 액세스하고 매개변수 업데이트에 반응합니다.
+- uORB 구독 및 주제 업데이트 대기 중입니다.
+- `시작`/`중지`/`상태`를 통해 백그라운드에서 실행되는 작업을 제어합니다. 그런 다음 `module start [<arguments>]` 명령을 직접 추가할 수 있습니다. [시작 스크립트](../concept/system_startup.md).
+- 명령줄 인수 구문 분석.
+- 문서: `PRINT_MODULE_*` 메서드는 두 가지 용도로 사용됩니다(API는 [소스 코드](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)에 문서화됨):
+  - 콘솔에서 `module help`를 입력할 때 명령줄 사용법을 인쇄합니다.
+  - 스크립트를 통해 자동으로 추출되어 [모듈 & 명령 참조](../modules/modules_main.md) 페이지.
 

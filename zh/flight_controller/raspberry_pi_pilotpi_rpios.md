@@ -138,7 +138,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code.
+This is all you need to do just to build the latest code. 
 :::
 
 #### 为 Raspberry Pi OS 交叉编译
@@ -195,7 +195,7 @@ rm -rf build/scumaker_pilotpi_default
 
 只是为了编译代码，则可以执行：
 
-您需要检查这些额外项目才能使您机体正常工作。
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 混控器在 `pilotpi_xx.conf` 文件中启用：
 
@@ -220,17 +220,13 @@ It is also possible to just compile the code with command:
 
 示例输出
 
-#### 混控器文件
+#### Actuator Configuration
 
-Mixer file is defined in `pilotpi_xx.conf`:
+First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-```sh
-mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
-```
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
 
-All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
-
-#### 外部罗盘
+#### External Compass
 
 In the startup script(`*.config`), you will find
 

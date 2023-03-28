@@ -126,19 +126,19 @@ See the manufacturer's flight controller setup guide for additional information.
 Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other.
 The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
 
-If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
+If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spectrum-bind).
 
 ## Set Signal-Loss Behaviour
 
 RC receivers have different ways of indicating signal loss:
 - Output nothing (automatically detected by PX4)
-- Output a low throttle value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
+- Output a low throttle value (you can [configure PX4 to detect this](../config/radio.md#rc-loss-detection)).
 - Output the last received signal (PX4 cannot handle this case!)
 
 Choose a receiver that can emit nothing (preferred) when RC is lost, or a low throttle value.
 This behaviour may require hardware configuration of the receiver (check the manual). 
 
-For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
 
 
 ## Related Topics

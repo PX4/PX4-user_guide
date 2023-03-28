@@ -1,7 +1,6 @@
-# Holybro Pixhawk Mini
+# Holybro Pixhawk Mini (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
-:::
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::
 
 The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
@@ -12,12 +11,10 @@ The Pixhawk Mini is based on the PX4 open-hardware project and has been optimize
 Wiring information is available [below](#wiring).
 
 :::note
-This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
-:::
+This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini. :::
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
-:::
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams. :::
 
 ## Specifications
 
@@ -28,7 +25,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 **Sensors:**
 
-- **Accel/Gyro/Mag:** MPU9250 
+- **Accel/Gyro/Mag:** MPU9250
   - [deprecated](https://github.com/PX4/PX4-Autopilot/pull/7618) by the PX4 firmware
 - **Accel/Gyro:** ICM20608
 - **Barometer:** MS5611
@@ -63,9 +60,9 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
-## Purchase
+## Where to Buy
 
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
+Discontinued.
 
 ## Connector assignments
 
@@ -77,7 +74,7 @@ Key features of the Pixhawk Mini are:
 
 - Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
 - 8 PWM/servo outputs
-- Multiple connectivity options for additional peripherals (UART, I2C, CAN)
+- Multiple connectivity options for additional peripherals (UART,  I2C, CAN)
 - Redundant power supply inputs and automatic failover
 - Integrated safety switch and optional external safety button for easy motor activation
 - Multicolor LED indicator
@@ -99,30 +96,30 @@ The Pixhawk Mini is shipped with new **GPS module**:
 
 The *Pixhawk Mini* is shipped with the following contents:
 
-| Component                                                          | Image                                                                                                                                |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Pixhawk Mini Autopilot                                             | ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                                |
-| GPS module                                                         | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
-| Quad Power Distribution Board                                      | ![Quad Power Distribution Board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png) |
-| 8 Channel PWM Breakout board                                       | ![8 Channel PWM Breakout board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png)   |
-| 4-pin cable (for I2C)                                              | ![4-pin cable (for I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                           |
-| RC-in cable for PPM/SBUS                                           | ![RC-in cable for PPM/SBUS](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                        |
-| 6 to 6/4 ‘Y’ adapter for GPS and additional I2C devices            | ![6 to 6/4 ‘Y’ adapter](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png)               |
-| 6 pin cable (2) (for power distribution board and for compass/gps) | ![6 pin cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                                     |
-| 6 pin JST to DF13 for legacy telemetry radio                       | ![6 pin JST to DF13](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)                    |
-| Safety switch                                                      | ![Safety switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                                 |
-| 8 Channel PWM Breakout cable                                       | ![8 Channel PWM Breakout cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)    |
-| Mounting foam                                                      | ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                                |
-| I2C breakout board ? - not listed parts on handout                 |  -                                                                                                                                   |
-   
+| Component                                                             | Image                                                                                                                                |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Pixhawk Mini Autopilot                                                | ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                                |
+| GPS module                                                            | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
+| Quad Power Distribution Board                                         | ![Quad Power Distribution Board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png) |
+| 8 Channel PWM Breakout board                                          | ![8 Channel PWM Breakout board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png)   |
+| 4-pin cable (for I2C)                                                 | ![4-pin cable (for I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                           |
+| RC-in cable for PPM/SBUS                                              | ![RC-in cable for PPM/SBUS](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                        |
+| 6 to 6/4 ‘Y’ adapter for GPS and additional I2C devices               | ![6 to 6/4 ‘Y’ adapter](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png)               |
+| 6 pin cable (2)    (for power distribution board and for compass/gps) | ![6 pin cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                                     |
+| 6 pin JST to DF13 for legacy telemetry radio                          | ![6 pin JST to DF13](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)                    |
+| Safety switch                                                         | ![Safety switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                                 |
+| 8 Channel PWM Breakout cable                                          | ![8 Channel PWM Breakout cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)    |
+| Mounting foam                                                         | ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                                |
+| I2C breakout board ? - not listed  parts on handout                   |  -                                                                                                                                   |
+  
 
 ## Optional accessories
 
-- Telemetry Radio Sets: 915 MHz (USA), 433 MHz (European) :::note When installing the 3DR telemetry radios, use the connectors that come with Pixhawk Mini, rather than those that come with the radios.
+- Telemetry Radio Sets: 915 MHz (USA), 433 MHz (European) :::note
+When installing the 3DR telemetry radios, use the connectors that come with Pixhawk Mini, rather than those that come with the radios.
 :::
 
 - 3DR 10S Power Module
-
 - WiFi Telemetry Radio
 - Digital Airspeed Sensor
 
@@ -166,7 +163,7 @@ Pixhawk Mini features an advanced processor and sensor technology from ST Microe
 
 ## Known issues
 
-- Some Pixhawk Minis have a [hardware defect](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917) that makes the internal MPU9250 IMU unreliable. 
+- Some Pixhawk Minis have a [hardware defect](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917) that makes the internal MPU9250 IMU unreliable.
   - The problem is only present in older hardware revisions, because [it was fixed at some point by the manufacturer](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-372393609).
   - To check whether a specific board is affected or not, leave the board disconnected for some time, then power it on and try to start the mpu9250 driver from the PX4 command line. If the board is affected, the driver will not start.
   - The MPU9250 is [disabled by default](https://github.com/PX4/PX4-Autopilot/pull/7618) on the PX4 firmware.
@@ -174,12 +171,10 @@ Pixhawk Mini features an advanced processor and sensor technology from ST Microe
   - When using an external GPS, [this is not a problem](https://github.com/PX4/PX4-Autopilot/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
 
 <span id="wiring"></span>
-
 ## Wiring Quick Start
 
 :::warning
-The *Pixhawk Mini* is no longer manufactured or available from 3DR.
-:::
+The *Pixhawk Mini* is no longer manufactured or available from 3DR. :::
 
 This quick start guide shows how power the [Pixhawk Mini](../flight_controller/pixhawk_mini.md) and connect its most important peripherals.
 
@@ -202,8 +197,7 @@ The *Pixhawk Mini* should be mounted on the frame using vibration-damping foam p
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
-:::
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md). :::
 
 ### GPS + Compass
 
@@ -215,13 +209,13 @@ NOTE - INSERT IMAGE SHOWING BOTH PORTS? OR FRONT-FACING image of GPS&I2C
 
 The compass must be calibrated before it is first used: [Compass Calibration](../config/compass.md)
 
+
 ### Power
 
 The image below shows typical power-supply wiring when using *Pixhawk Mini* in a Quadcopter. This uses the *Quad Power Distribution Board* that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
 
 :::note
-The *Quad Power Distribution Board* includes a power module (PM) that is suitable for batteries <= 4S. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power.
-:::
+The *Quad Power Distribution Board* includes a power module (PM) that is suitable for batteries <= 4S. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power. :::
 
 ![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
@@ -233,21 +227,25 @@ The control signals come from MAIN OUT. In this case there is only one control c
 
 The Pixhawk Mini output rail (MAIN OUT) cannot power attached devices (and does not need to in the circuit as shown). For vehicles where MAIN OUT is attached to devices that draw power (e.g. a servo used in a plane) then you will need to power the rail using a BEC (battery elimination circuit). The included breakout board allows one channel to provide power on the other outputs.
 
+
+
 ### Radio Control
 
 Pixhawk Mini supports many different radio receiver models:
 
 - Spektrum and DSM receivers connect to the **SPKT/DSM** input.
-  
-    <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
+
+  <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
 
 - PPM-SUM and S.BUS receivers connect to the **RCIN** port.
-  
-    <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
+
+  <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RCIN** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+
+
 
 ### Safety switch (optional)
 
@@ -255,14 +253,18 @@ The controller has an integrated safety switch that you can use for motor activa
 
 ![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg) 
 
+
 ### Telemetry Radios
+
+
 
 ### Motors
 
 The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
 :::caution
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
+Make sure to use the correct mapping for your vehicle.
 :::
 
 :::tip
@@ -274,11 +276,13 @@ Notes:
 * The output rail must be separately powered, as discussed in the [Power](#power) section above.
 * Pixhawk Mini cannot be used for QuadPlane VTOL airframes. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
 
+
 <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
 
 ### Other Peripherals
 
 The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
+
 
 ### Configuration
 
@@ -289,13 +293,12 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ## Building Firmware
 
 :::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
-:::
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected. :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
-
-    make px4_fmu-v2_default
-    
+```
+make px4_fmu-v3_default
+```
 
 ## Debug Port
 

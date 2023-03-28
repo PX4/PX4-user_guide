@@ -1,26 +1,27 @@
-# Modules Reference: Template
+# 모듈 참고: 템플릿
 
 ## module
-Source: [templates/module](https://github.com/PX4/Firmware/tree/master/src/templates/module)
+소스: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/master/src/templates/template_module)
 
 
-### Description
-Section that describes the provided module functionality.
+### 설명
+제공된 모듈 기능을 설명하는 섹션입니다.
 
-This is a template for a module running as a task in the background with start/stop/status functionality.
+시작/중지/상태 기능이 있는 백그라운드에서 작업으로 실행되는 모듈의 템플릿입니다.
 
-### Implementation
-Section describing the high-level implementation of this module.
+### 구현
+이 모듈의 상위 수준 구현을 설명하는 섹션입니다.
 
-### Examples
-CLI usage example:
+### 예
+CLI 사용 예:
 ```
 module start -f -p 42
 ```
 
+
 <a id="module_usage"></a>
 
-### Usage
+### 사용법
 ```
 module <command> [arguments...]
  Commands:
@@ -34,15 +35,16 @@ module <command> [arguments...]
    status        print status info
 ```
 ## work_item_example
-Source: [examples/work_item](https://github.com/PX4/Firmware/tree/master/src/examples/work_item)
+소스: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item)
 
 
-### Description
-Example of a simple module running out of a work queue.
+### 설명
+작업 대기열에서 실행되는 간단한 모듈의 예입니다.
+
 
 <a id="work_item_example_usage"></a>
 
-### Usage
+### 사용법
 ```
 work_item_example <command> [arguments...]
  Commands:

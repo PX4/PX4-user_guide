@@ -1,7 +1,6 @@
 # SPRacingH7EXTREME (PX4 Edition)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.seriouslypro.com) for hardware support or compliance issues.
-:::
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.seriouslypro.com) for hardware support or compliance issues. :::
 
 The [SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
 
@@ -14,8 +13,7 @@ There is also a 12 pin stacking connector which provides 4 more motor outputs, S
 ![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
-:::
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md). :::
 
 ## 主要特性
 

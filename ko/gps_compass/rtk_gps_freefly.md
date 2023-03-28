@@ -1,84 +1,84 @@
 # Freefly Systems RTK GPS
 
-The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/freefly-rtk-gps) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation. The modules can act as either rovers (when installed on an aircraft) or base stations (when plugged into a computer).
+[Freefly Systems RTK GPS 모듈](https://store.freeflysystems.com/products/rtk-gps-ground-station)은 매우 안정적인 내비게이션을 제공하는 Freefly Systems의 다중 대역 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. 모듈은 로버(항공기에 설치된 경우) 또는 기지국(컴퓨터에 연결된 경우)으로 작동할 수 있습니다.
 
-Main features include:
-- Multiband (L1/L2) receiver (u-blox ZED-F9P)
-- Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
-- Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
+주요 특징은 다음과 같습니다.
+- Multiband (L1/L2) 수신기 (u-blox ZED-F9P)
+- 최대 4 개의 GNSS(GPS, Galileo, GLONASS, BeiDou) 동시 수신
+- 내장형 자력계(IST8310), 기압계(BMP388), RGB LED, 안전 스위치 및 안전 LED
 
 :::note
-This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P was added in PX4 v1.9).
+이 모듈은 PX4 v1.9 이상에서 사용할 수 있습니다 (u-blox ZED-F9P에 대한 지원은 PX4 v1.9에서 추가됨).
 :::
 
-![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
+![FreeFly GPS 모듈](../../assets/hardware/gps/freefly_gps_module.jpg)
 
 
-## Purchase
+## Where to Buy
 
-* [Freefly Store](https://store.freeflysystems.com/products/freefly-rtk-gps)
+* [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 
-## Kit Contents
+## 키트 내용물
 
-An RTK GPS kit includes:
-- 2x GPS modules with antennas
-- 3m USB C to A cable
-- Magnetic quick-mount for base station module (1/4-20 thread for tripod mounting)
-- Screws to mount onto a Freefly AltaX
+RTK GPS 키트에는 다음 내용물들이 포함됩니다.
+- 안테나가 있는 GPS 모듈 2개
+- 3m USB C to A 케이블
+- 베이스 스테이션 모듈용 마그네틱 퀵 마운트 (삼각대 마운트용 1/ 4-20 스레드)
+- Freefly AltaX에 장착하는 나사
 
 
-## Configuration
+## 설정
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
+*QGroundControl*을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그앤플레이입니다 \(자세한 내용은 [RTK GPS](../advanced_features/rtk-gps.md) 참조).
 
-For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
+기체의 경우 PX4가 전송속도 매개변수 [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD)를 115200 8N1로 설정하여야 합니다.
 
-## Wiring and Connections
+## 배선
 
-The Freefly RTK GPS comes with an 8 pin JST-GH connector that can be plugged into a PixHawk autopilot. For use as a base station, the module has a USB-C connector
+Freefly RTK GPS는 PixHawk 자동조종장치에 연결할 수있는 8핀 JST-GH 커넥터와 함께 제공됩니다. 모듈에는 베이스 스테이션용  USB-C 커넥터가 있습니다.
 
-### Pinout
+### 핀배열
 
-The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 8-pin JST-GH cable.
+Freefly GPS 핀배열은 아래와 같습니다. [Hex Cube](../flight_controller/pixhawk-2.md) 및 [PixRacer](../flight_controller/pixracer.md)와 같은 자동조종장치의 경우에는 1-1 8핀 JST-GH 케이블만 있으면됩니다.
 
-| Pin | Freefly GPS |
-| --- | ----------- |
-| 1   | VCC_5V      |
-| 2   | GPS_RX      |
-| 3   | GPS_TX      |
-| 4   | I2C_SCL     |
-| 5   | I2C_SDA     |
-| 6   | BUTTON      |
-| 7   | BUTTON_LED  |
-| 8   | GND         |
+| 핀 | Freefly GPS |
+| - | ----------- |
+| 1 | VCC_5V      |
+| 2 | GPS_RX      |
+| 3 | GPS_TX      |
+| 4 | I2C_SCL     |
+| 5 | I2C_SDA     |
+| 6 | BUTTON      |
+| 7 | BUTTON_LED  |
+| 8 | GND         |
 
-## Specification
+## 사양
 
-- u-blox ZED-F9P GPS Receiver
-  - Ultracap backup power for fast (hot-start) restarts
-  - EMI shield over receiver for improved EMI immunity
-- IST8310 Magnetometer
-- Safety-switch and safety LED
-- RGB LEDs for status indication
-  - NCP5623CMUTBG I2C Driver
-- BMP388 Baro on I2C bus
-- External, active antenna (Maxtena M7HCT)
-  - SMA connector
-- STM32 MCU for future CAN-based communication
-  - FW updates through USB connector
-- Connectivity:
+- u-blox ZED-F9P GPS 수신기
+  - 빠른 (핫 스타트) 재시작을 위한 Ultracap 백업 전원
+  - 향상된 EMI 내성을 위한 수신기를 통한 EMI 차폐
+- IST8310 자력계
+- 안전 스위치 및 안전 LED
+- 상태표시용 RGB LED
+  - NCP5623CMUTBG I2C 드라이버
+- I2C 버스의 BMP388 기압계
+- 외부 활성 안테나(Maxtena M7HCT)
+  - SMA 커넥터
+- 미래의 CAN 기반 통신을 위한 STM32 MCU
+  - USB 커넥터를 통한 펨웨어 업데이트
+- 연결성:
   - USB-C
-  - 2-way USB Switch to MCU and F9P
-  - SMA for active antenna (20mA max)
-  - 4-pin JST-GH CAN Bus (dronecode compliant)
-  - 8-pin JST-GH UART/I2C -** Power:
-  - Input from either (diode OR'd):
+  - MCU 및 F9P에 대한 양방향 USB 스위치
+  - 활성 안테나용 SMA (최대 20mA)
+  - 4핀 JST-GH CAN 버스(드론코드 준수)
+  - 8핀 JST-GH UART/I2C -** Power:
+  - 입력 (다이오드 OR'd) :
   - USB (5V)
-  - CAN (4.7 to 25.2V)
-  - (4.7 to 25.2V)
-  - Power consumption <1W
+  - CAN (4.7 ~ 25.2V)
+  - (4.7 ~ 25.2V)
+  - 전력 소모 1W 이하
 
-## More Information
+## 추가 정보
 
-More information can be found on [Freefly's Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)
+자세한 정보는 [Freefly Wiki](https://freefly.gitbook.io/freefly-public/products/rtk-gps)를 참고하십시오.
   

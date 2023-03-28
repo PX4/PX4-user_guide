@@ -4,48 +4,131 @@
 
 PX4 项目使用三分支 Git 模型：
 
-* [master](https://github.com/PX4/PX4-Autopilot/tree/master) 默认是不稳定版本， 用于快速开发。
+* [main](https://github.com/PX4/PX4-Autopilot/tree/main) is by default unstable and sees rapid development.
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta) 经过全面测试。 它是供飞行测试人员使用的。
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable) 是最新发行版本。
 
-我们试着 [通过重置保留线性历史](https://www.atlassian.com/git/tutorials/rewriting-history)，并且避免 [Github flow](https://guides.github.com/introduction/flow/)。 然而，由于全球团队和快速的发展，我们可能有时会进行合并。
+We try to retain a [linear history through rebases](https://www.atlassian.com/git/tutorials/rewriting-history) and avoid the [Github flow](https://docs.github.com/en/get-started/quickstart/github-flow). 然而，由于全球团队和快速的发展，我们可能有时会进行合并。
 
-要贡献新功能，[注册Github](https://help.github.com/articles/signing-up-for-a-new-github-account/)，然后 [fork](https://help.github.com/articles/fork-a-repo/) 仓库，[创建一个新分支](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/)，添加您的更改，最后 [发送拉取请求](https://help.github.com/articles/using-pull-requests/)。 更改将在通过我们的 [持续整合](https://en.wikipedia.org/wiki/Continuous_integration) 测试时合并。
+To contribute new functionality, [sign up for Github](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account), then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository), add your [changes as commits](#commits-and-commit-messages), and finally [send a pull request](#pull-requests). 更改将在通过我们的 [持续整合](https://en.wikipedia.org/wiki/Continuous_integration) 测试时合并。
 
 所有代码贡献都必须在许可的 [BSD 3 条款的许可证 ](https://opensource.org/licenses/BSD-3-Clause) 下进行，不得对其使用施加任何进一步的限制。
 
-## 代码样式格式
+## Code Style
 
-PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有效版本是
-* [astyle 2.06](https://sourceforge.net/projects/astyle/files/astyle/astyle%202.06/)（推荐）
-* [astyle 3.0](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0/)
-* [astyle 3.01](https://sourceforge.net/projects/astyle/files/) (recommended)
+PX4 uses the [Google C++ style guide](https://google.github.io/styleguide/cppguide.html), with the following (minimal) modifications:
 
-一旦安装完毕，格式化可以使用 `.工具/astyle/check_code_style_all.sh`。 一个干净的 master 分支的输出应该是 `格式检查通过`。 如果做到这一点，`制作格式`将来可以自动检查和格式化所有文件。
+### Tabs
 
-## 源文件
+- Tabs are used for indentation (equivalent to 8 spaces).
+- Spaces are used for alignment.
 
-鼓励PX4开发者创建适当的源文档。
+### Line Length
+
+- Maximum line length is 120 characters.
+
+### File Extensions
+
+- Source files use extension `*.cpp` instead of `*.cc`.
+
+### Function and Method Names
+
+- `lowerCamelCase()` is used for functions and methods to *visually* distinguish them from `ClassConstructors()` and `ClassNames`.
+
+### Class Privacy Keywords
+
+- *zero* spaces before `public:`, `private:`, or `protected:` keywords.
+
+### Example Code Snippet
+
+```cpp
+class MyClass {
+public:
+
+        /**
+         * @brief Description of what this function does.
+         *
+         * @param[in] input_param Clear description of the input [units]
+         * @return Whatever we are returning [units]
+         */
+        float doSomething(const float input_param) const {
+                const float in_scope_variable = input_param + kConstantFloat;
+                return in_scope_variable * private_member_variable_;
+        }
+
+        void setPrivateMember(const float private_member_variable) { private_member_variable_ = private_member_variable; }
+
+        /**
+         * @return Whatever we are "getting" [units]
+         */
+        float getPrivateMember() const { return private_member_variable_; }
+
+private:
+
+        // Clear description of the constant if not completely obvious from the name [units]
+        static constexpr float kConstantFloat = ...;  
+
+        // Clear description of the variable if not completely obvious from the name [units]
+        float private_member_variable_{...};
+};
+```
+
+## 提交和提交消息
+
+PX4 developers are encouraged to create appropriate in-source documentation.
 
 :::note
-Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+Source-code documentation standards are not enforced, and the code is currently inconsistently documented.
+We'd like to do better!
 :::
 
 Currently we have two types of source-based documentation:
 - `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
-  - API 记录在 [源代码](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)。
-  - 使用的良好例子包括在 [应用程序/模块模板](../apps/module_template.md) 以及从模块引用链接的文件。
-* 我们鼓励其它源文档 *添加必要的值*。
+  - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381).
+  - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
+- We encourage other in-source documentation *where it adds value/is not redundant*.
 
-:::tip
+  :::tip
 Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
-  - 不要添加可以从 C++ 实体名称零碎地推断出的文档。
-  - 通常您可能想要添加关于 corner cases 和错误处理的信息。
-  - [Doxgyen](http://www.doxygen.nl/)如果需要文件，应使用标签：`@class`，`@file`，`@param`，`@return`，`@var`，`@see`，`@note`，`@note`。 一个很好的用法例子是 [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h)。
+  - Do not add documentation that can trivially be inferred from C++ entity names.
+  - ALWAYS specify units of variables, constants, and input/return parameters where they are defined.
+  - Commonly you may want to add information about corner cases and error handling.
+  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/events/send_event.h).
 
-## 提交和提交消息
+Please avoid "magic numbers", for example, where does this number in the conditional come from? What about the multiplier on yaw stick input?
+
+```cpp
+if (fabsf(yaw_stick_normalized_input) < 0.1f) {
+        yaw_rate_setpoint = 0.0f;
+}
+else {
+        yaw_rate_setpoint = 0.52f * yaw_stick_normalized_input;
+}
+```
+
+Instead, define the numbers as named constants with appropriate context in the header:
+
+```cpp
+// Deadzone threshold for normalized yaw stick input
+static constexpr float kYawStickDeadzone = 0.1f;
+
+// [rad/s] Deadzone threshold for normalized yaw stick input
+static constexpr float kMaxYawRate = math::radians(30.0f);
+```
+
+and update the source implementation.
+```cpp
+if (fabsf(yaw_stick_normalized_input) < kYawStickDeadzone) {
+        yaw_rate_setpoint = 0.0f;
+}
+else {
+        yaw_rate_setpoint = kMaxYawRate * yaw_stick_normalized_input;
+}
+```
+
+## Commits and Commit Messages
 
 Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
 
@@ -67,6 +150,18 @@ Please use descriptive, multi-paragraph commit messages for all non-trivial chan
 已上报：名字 <email@px4.io>
 ```
 
-本提交指南基于 Linux Kernel 和 Linus Torvald 维护的 [项目的最佳做法](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)。
+**Use **`git commit -s`** to sign off on all of your commits.** This will add `signed-off-by:` with your name and email as the last line.
 
 This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
+
+## Pull Requests
+
+Github [Pull Requests (PRs)](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) are the primary mechanism used to submit new functionality and bug fixes to PX4.
+
+They include the new set of [commits](#commits-and-commit-messages) in your branch (relative the main branch), and a description of the changes.
+
+The description should include:
+- An overview of what the changes deliver; enough to understand the broad purpose of the code
+- Links to related issues or supporting information.
+- Information about what testing of the PR funcitonality has been done, with links to flight logs.
+- Where possible, the results from general [Test Flights](../test_and_ci/test_flights.md) both before and after the change.

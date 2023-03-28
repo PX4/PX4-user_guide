@@ -2,86 +2,80 @@
 
 通过配置和调整[参数](../advanced_config/parameter_reference.md)可以影响PX4的表现（例如: [多轴无人机的PID增益](../config_mc/pid_tuning_guide_multicopter.md)、校准信息等）。
 
-你可以在*QGroundControl 参数* 界面查找和修改任何与载具相关的参数。在屏幕上方的工具条中点击 齿轮 图标，然后在侧边栏中选择 参数(parameter)。 通过单击边栏中的顶部菜单 * 齿轮 * 图标, 然后 * 参数(Parameters) *, 就可以访问参数设置的页面。
+The *QGroundControl Parameters* screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the top menu *Gear* icon and then *Parameters* in the sidebar.
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+大多数常用的参数可以通过[基本设置](../config/README.md)中的专用配置界面更方便的设置。 The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 :::
 
 :::warning
-While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+虽然又写参数可以在飞行中更改，但是不建议这样做（除非指南中又明确说明）。
 :::
 
 <span id="finding"></span>
-
 ## 查找参数
 
 You can search for a parameter by entering a term in the *Search* field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
 
-![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
+![参数搜索](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
 You can also browse the parameters by group by clicking on the buttons to the left (in the image below the *Battery Calibration* group is selected).
 
-![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+![参数界面](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 :::tip
-If you can't find an expected parameter, see the [next section](#missing).
+如果找不到想要的参数，请参阅[下一节](#missing)。
 :::
 
 <span id="missing"></span>
-
 ## 找不到的参数
 
-Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
+参数通常不可见，因为它们要么以其他参数为条件，要么不存在于固件中（见下文）。
 
-### 受条件限制的参数
+### 条件参数
 
-A parameter may not be displayed if it is conditional on another parameter that is not enabled.
+如果一个参数是以未启用的另一个参数为条件，则该参数不会被显示。
 
-You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. In particular [serial port configuration parameters](../peripherals/serial_configuration.md) depend on what service is assigned to a serial port.
+您通常可以通过搜索 [完整的参数参考](../advanced_config/parameter_reference.md) 和其他文档来找到条件参数。 尤其是[串口配置参数](../peripherals/serial_configuration.md)，它依赖于分配给串口的服务。
+
 
 ### 固件中没有的参数
 
-A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
+参数可能不在固件中，因为您使用了不同版本的 PX4，或者因为您构建的固件中没有包含相关的模块。
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+每个PX4版本都添加了新参数，现有参数有时被删除或重命名。 You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. 您还可以在源代码和发布说明中查找参数。
 
-The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
-
-- 检查你的控制板是否可以升级到包含了所有模块的FMUv3固件：[固件 > FMUv2 Bootloader 升级](../config/firmware.md#bootloader)
-- 如果你的控制板只能运行FMUv2固件，你就要引入确实的模块后[重生成PX4](../dev_setup/building_px4.md)。 在[boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)文件中看到注释掉的模块: 
-        DRIVERS
-            adc
-            #barometer # 全部支持的气压计驱动
-            barometer/ms5611
-            #batt_smbus
-            #camera_capture :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. 找到可以移除的模块需要一些试错， 还取决于你要求载具达到哪些使用案例。
+参数可能不在固件中的另一个原因是如果其关联的模块没有被包含。 This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. 解决此问题有两种方法：
+- Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
+- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules ``` :::note
+You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash.
+Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 :::
 
 <span id="changing"></span>
-
 ## 更改参数
 
-To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
+要更改参数的值，请单击组或搜索列表中的参数行。 单击后屏幕侧边会显示一个对话框，您在其中更改参数的值（这个对话框还提供了该参数的额外细节信息——包括是否需要重启才能使参数生效）。
 
-![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
+![更改参数值](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 :::note
-When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. 根据参数，您可能需要重新启动飞控才能使更改生效。
 :::
 
-## 工具（Tools）菜单
+## 工具
 
 You can select additional options from the **Tools** menu on the top right hand side of the screen.
 
-![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
+![工具菜单](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
-**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
 
-**Reset all to defaults** <br />Reset all parameters to their original default values.
+**Refresh** <br>Refresh the parameter values by re-requesting all of them from the vehicle.
 
-**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
+**Reset all to defaults** <br>Reset all parameters to their original default values.
 
-**Clear RC to Param** <br />This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+**Load from file / Save to file** <br>Load parameters from an existing file or save your current parameter settings to a file.
 
-**Reboot Vehicle** <br />Reboot the vehicle (required after changing some parameters).
+**Clear RC to Param** <br>This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+
+**Reboot Vehicle** <br>Reboot the vehicle (required after changing some parameters).

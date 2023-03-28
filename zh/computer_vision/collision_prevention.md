@@ -16,7 +16,7 @@
 
 ## 综述
 
-通过设置参数（[CP_DIST](#CP_DIST)） 最小安全距离来使能 PX4 上的*防撞*功能。
+通过设置参数（[CP_DIST](#CP_DIST)） 最小安全距离来启用 PX4 上的*防撞*功能。
 
 该功能需要外部系统提供的障碍物信息（发送的 MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息）和或一个连接到飞控的[距离传感器](../sensor/rangefinders.md)。
 
@@ -30,20 +30,21 @@
 
 PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接到飞控上来防撞，可能需要按照[PX4 距离传感器](#rangefinder)中的说明描述来安装配置。 如果使用机载计算机提供障碍物信息，请参阅[机载计算机设置](#companion)。
 
+
 ## PX4 (软件) 设置
 
-配置防撞功能需要通过 [QGroundControl](../advanced_config/parameters.md) 地面站来设置以下参数：
+配置防撞功能需要通过 *QGroundControl* 地面站来[设置以下参数](../advanced_config/parameters.md)：
 
-| 参数                                                                                                  | 描述                                                                                                   |
-| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | 设置最小允许距离（无人机/无人车可以接近障碍物的最近距离）。 设置为负值将禁用 *防撞* 功能。   
->**警告** 此值是相对传感器的距离，而不是相对机身或者螺旋桨的外部距离。 确保一个安全距离。 |
-| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | 设置传感器和速度设定值跟踪延迟。 查看下面的 [延迟调整](#delay_tuning)。                                                        |
-| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | 如果在该方向上发现的障碍物较少，则设置无人机/无人车可能偏离的角度（在指令方向的两侧）。 请参阅下面的[制导调整](#angle_change_tuning)。                     |
-| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 设置为 1 可以使无人机/无人车在没有传感器覆盖的方向移动（默认值是0/`False`）。                                                        |
+| 参数                                                                                                         | 描述                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                     | 设置最小允许距离（无人机/无人车可以接近障碍物的最近距离）。 设置为负值将禁用 *防撞* 功能。 <br>>**警告** 此值是相对传感器的距离，而不是相对机身或者螺旋桨外部的距离。 确保一个安全距离。 |
+| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                  | 设置传感器和速度设定值跟踪延迟。 查看下面的 [延迟调整](#delay_tuning)。                                                               |
+| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | 如果在该方向上发现的障碍物较少，则设置无人机/无人车可能偏离的角度（在指令方向的两侧）。 请参阅下面的[制导调整](#angle_change_tuning)。                            |
+| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 设置为 1 可以使无人机/无人车在没有传感器覆盖的方向移动（默认值是0/`False`）。                                                               |
+| <span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | 设置为 0 或 3 以启用位置模式下的防撞(默认是 4)。                                                                               |
+
 
 <span id="algorithm"></span>
-
 ## 算法描述
 
 所有传感器的数据融合到机身周围的 36 个扇区中，每个扇区包含传感器数据和上次观测时间信息，或者指示该扇区没有可用数据。 当控制无人机向特定的方向移动时，就会检查该方向半球内的所有扇区，以查看此次移动是否会使机身靠近任何障碍物。 如果是这样，无人机的速度就会受到限制。
@@ -58,11 +59,11 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 
 根据边余量的大小，邻近的扇区比命令扇区“更好”，则可以按 [CP_GUIDE_ANG](#CP_GUIDE_ANG) 指定的角度修改请求输入的方向。 这有助于微调用户输入，以“引导”机身绕过障碍物，而不是卡在障碍物上。
 
-<span id="data_loss"></span>
 
+<span id="data_loss"></span>
 ### 航程数据丢失
 
-如果自驾仪超过 0.5秒没有收到传感器的航程数据，自驾仪将会发出警告*没有航程数据，不允许移动*。 这会导致强制将 xy 的速度设置为 0。 5秒没有收到任何数据，无人机会切换到 [保持模式](../flight_modes/hold.md)。 如果想要机身再次移动，则需要禁止防撞功能，禁止防撞功能可以通过设置 [CP_DIST](#CP_DIST) 为负值或者切换到 [位置模式](../flight_modes/position_mc.md) 以外的模式（例如：切换到 *高度模式* 或者 *自稳模式*）。
+如果自驾仪超过0.5秒没有收到传感器的航程数据，自驾仪将会发出警告*没有航程数据，不允许移动*。 这会导致强制将 xy 的速度设置为 0。 5秒没有收到任何数据，无人机会切换到 [保持模式](../flight_modes/hold.md)。 如果想要再次移动机身，则需要禁止防撞功能，禁止防撞功能可以通过设置 [CP_DIST](#CP_DIST) 为负值或者切换到 [位置模式](../flight_modes/position_mc.md) 以外的模式（例如：切换到 *高度模式* 或者 *自稳模式*）。
 
 如果连接了多个传感器，但是其中有一个传感器失去连接，仍然能够在有传感器数据上报的视野（FOV）范围内飞行。 故障传感器的数据会失效，并且该传感器覆盖的区域会被视为未覆盖区域，意味着无法移动到该区域。
 
@@ -71,21 +72,19 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 :::
 
 <span id="delay_tuning"></span>
-
 ### CP_DELAY 延迟调整
 
-延迟的主要来源有两个：*传感器延迟* 和机身 *速度设定点跟踪延迟*。 这两个延迟来源都可以通过 [CP_DELAY](#CP_DELAY) 这个参数来调整。
+要考虑的延迟的主要来源有两个：*传感器延迟* 和机身 *速度设定点跟踪延迟*。 这两个延迟来源都可以通过 [CP_DELAY](#CP_DELAY) 这个参数来调整。
 
 连接到飞控的距离传感器的 *传感器延迟* 可以假定为 0。 对于外部视觉系统，传感器延迟可能高达 0.2秒。
 
-无人机 *速度设定点跟踪延迟* 可以通过在 <0>位置模式</0> 下全速飞行，然后停止这种方式来测量。 然后可以从日志中测量实际速度和速度设置值之间的延迟。 跟踪延迟通常在 0.1 至 0.5秒之间，取决于机身尺寸和调试情况。
+无人机 *速度设定点跟踪延迟* 可以通过在 <0>位置模式</0> 下全速飞行，然后停止来测量。 然后可以从日志中测量实际速度和速度设置值之间的延迟。 跟踪延迟通常在 0.1 至 0.5秒之间，取决于机身尺寸和调试情况。
 
 :::tip
 如果车速在接近障碍物时发生振荡（即减速，加速，减速），则延迟设置太高。
 :::
 
 <span id="angle_change_tuning"></span>
-
 ### CP_GUIDE_ANG 制导调试
 
 取决于机身，环境类型和飞行员技能，可能需要不同数量的制导。 将 [CP_GUIDE_ANG](#CP_GUIDE_ANG) 参数设置为 0 将禁用制导，从而使得无人机只能在正确的方向上移动。 增大此参数将使无人机选择最佳方向来避开障碍物，从而更容易飞过狭窄的间隙，并与物体周围保持最小间距。
@@ -93,52 +92,58 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 如果该参数设置太小，机身在靠近障碍物时可能会感觉“卡住”， 因为只允许以最小距离远离障碍物移动。 如果该参数设置太大，机身可能会感觉它朝着飞手未指示的方向“滑动”远离障碍物。 从测试来看，尽管不同的车辆可能有不同的要求，但是 30度是一个很好的平衡点。
 
 :::note
-制导功能绝不会把无人机/无人车引导到没有传感器数据的方向。 如果只有一个距离传感器指向前方时无人机感到“卡住”，这可能是因为由于缺乏信息，制导无法安全地调整方向。
+制导功能绝不会把无人机/无人车引导到没有传感器数据的方向。
+如果只有一个距离传感器指向前方时无人机感到“卡住”，这可能是因为由于缺乏信息，制导无法安全地调整方向。
 :::
 
 <span id="rangefinder"></span>
-
 ## PX4 距离传感器
 
 使用 [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) 红外距离传感器对PX4的防撞功能来说“开箱即用”，最少的额外配置就可以使用。
-
-- 首先，[连接和配置传感器](../sensor/cm8jl65_ir_distance_sensor.md), 使能防撞功能（如上所述，使用 [CP_DIST](#CP_DIST) 参数）。
+- 首先，[连接和配置传感器](../sensor/cm8jl65_ir_distance_sensor.md),  使能防撞功能（如上所述，使用 [CP_DIST](#CP_DIST) 参数）。
 - 使用参数 [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) 设置传感器方向。
 
-其他传感器的使能需要修改驱动代码来设置传感器方向和视觉范围。
 
-- 在特定端口上连接并配置距离传感器（请参阅特殊传感器文档</ 0>），并使用 CP_DIST </ 1>使能防撞功能。</li> 
-    
-    - 修改驱动程序以设置方向。 这个可以通过类似于 `SENS_CM8JL65_R_0` 参数的方式实现（也可以在关于传感器的*module.yaml*这个文件中写死方向，类似于这样: `sf0x start -d ${SERIAL_DEV} -R 25` - 25是`ROTATION_DOWNWARD_FACING`）。
-    - 在距离传感器 UORB 主题（`distance_sensor_s.h_fov`）中设置 *视野* 的地方修改驱动代码。</ul> 
-    
+其他传感器的使能需要修改驱动代码来设置传感器方向和视觉范围。
+- 在特定端口上连接并配置距离传感器（请参阅
+
+
+特殊传感器文档</ 0>），并使用 CP_DIST </ 1>使能防撞功能。</li> 
+  
+  - 修改驱动程序以设置方向。 这个可以通过类似于 `SENS_CM8JL65_R_0` 参数的方式实现（也可以在关于传感器的*module.yaml*这个文件中写死方向，类似于这样:  `sf0x start -d ${SERIAL_DEV} -R 25` - 25是`ROTATION_DOWNWARD_FACING`）。
+
+- 在距离传感器 UORB 主题（`distance_sensor_s.h_fov`）中设置 *视野* 的地方修改驱动代码。</ul> 
+
 :::tip
 您可以从 [功能 PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
 :::
-    
-    
 
-<span id="companion"></span>
+<span id="companion"></span> 
 
-    
-    ## 机载计算机设置
-    
-    如果使用机载计算机或者外部传感器，需要提供 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息流，该消息流反映检测到障碍物的时间和位置。
-    
-    消息发送的最低频率 *必须* 由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
-    
+
+## 机载计算机设置
+
+如果使用机载计算机或者外部传感器，需要提供 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息流，该消息流反映检测到障碍物的时间和位置。
+
+消息发送的最低频率*必须*由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
+
 :::note
 系统在初始测试时，无人机以 4m/s的速度移动，并且以 10Hz（视觉系统支持的最大速率）的频率发送`OBSTACLE_DISTANCE` 消息。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
 :::
-    
-    配套的测试软件是 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 仓库中的 *local_planner*。 关于硬件和软件配置的更多信息请查看链接：[PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
-    
-    软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 仓库的说明。 要发出 `OBSTACLE_DISTANCE` 消息，必须使用 *rqt_reconfigure* 工具，并将参数 `send_obstacles_fcu` 设置为true。
-    
-    ## Gazebo设置
-    
-    *防撞*功能支持Gazebo仿真测试。 请参阅 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 的配置说明。
-    
-    <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
-    
-    <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+
+配套的测试软件是 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 仓库中的 *local_planner*。 关于硬件和软件配置的更多信息请查看链接：[PX4/avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+<!-- hardware platform used for testing not readily available, so have removed -->
+
+软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/PX4-Avoidance) 代码仓库的说明。 要发出 `OBSTACLE_DISTANCE`消息，必须使用*rqt_reconfigure*工具，并将参数`send_obstacles_fcu`设置为true。
+
+
+
+
+## Gazebo设置
+
+*防撞*功能支持Gazebo仿真测试。 设置方法请遵照[PX4/avoidance](https://github.com/PX4/PX4-Avoidance)的说明。
+
+<!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
+<!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+
+

@@ -6,11 +6,13 @@ Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or
 :::
 
 :::tip
-The [Cube Orange](../cubepilot_cube_orange.md) is the successor to this product. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](../autopilot_pixhawk_standard.md). This flight controller is not following the standard and uses a patented connector.
+The [Cube Orange](cubepilot_cube_orange.md) is the successor to this product.
+We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](autopilot_pixhawk_standard.md).
+This flight controller is not following the standard and uses a patented connector.
 :::
 
 The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![Cube Black](../../assets/flight_controller/cube/cube_black_hero.png)
 
@@ -135,7 +137,7 @@ USART6 | /dev/ttyS4 | PX4IO
 UART7  | /dev/ttyS5 | CONSOLE
 UART8  | /dev/ttyS6 | <!-- unknown -->
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 <!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART):  **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
 

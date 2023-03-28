@@ -19,7 +19,6 @@ The user can still use the yaw stick to demand a yaw rate even while the weather
 In [Mission mode](../flight_modes/mission.md) the weather vane feature will always be active when the parameter is enabled. Any yaw angle commanded in a mission will be ignored.
 
 <span id="configuration"></span>
-
 ## Configuration
 
 This functionality is configured using the [WV_* parameters](../advanced_config/parameter_reference.md#WV_EN).
@@ -29,6 +28,7 @@ This functionality is configured using the [WV_* parameters](../advanced_config/
 | [WV_EN](../advanced_config/parameter_reference.md#WV_EN)                 | Enable weather vane.                                                         |
 | [WV_ROLL_MIN](../advanced_config/parameter_reference.md#WV_ROLL_MIN)   | Minimum roll angle setpoint for weathervane controller to demand a yaw-rate. |
 | [WV_YRATE_MAX](../advanced_config/parameter_reference.md#WV_YRATE_MAX) | Maximum yawrate the weathervane controller is allowed to demand.             |
+
 
 ## How Does it Work?
 

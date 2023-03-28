@@ -47,6 +47,26 @@ The supported vehicles and `make` commands are listed below (click on the links 
 
 The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
+## Running JSBSim with ROS
+
+To run JSBSim with ROS:
+
+1. Clone the `px4-jsbsim-bridge` package into your catkin workspace:
+   ```
+   cd <path_to_catkin_ws>/src
+   git clone https://github.com/Auterion/px4-jsbsim-bridge.git
+   ```
+1. Build the  `jsbsim_bridge` catkin package:
+   ```
+   catkin build jsbsim_bridge
+   ```
+:::note
+You must have already set MAVROS in your workspace (if not, follow the instructions in the [MAVROS installation guide](../ros/mavros_installation.md)).
+:::
+1. So start JSBSim through ROS using the launch file as shown:
+   ```
+   roslaunch jsbsim_bridge px4_jsbsim_bridge.launch
+   ```
 
 ## Further Information
 

@@ -1,18 +1,18 @@
-# PX4 참조 비행체 제어 장치 설계
+# PX4 참조 비행 콘트롤러 디자인
 
-PX4 참조 설계는 비행체 제어 장치의 [픽스호크 계열](../flight_controller/pixhawk_series.md)입니다. 2011년 처음 출시했으며, 현재 설계는 5번째 [세대](#reference_design_generations)입니다(6세대 보드 설계는 진행중).
+PX4 참조 디자인은 비행 콘트롤러의 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)입니다. 2011년에 처음 출시된 이 디자인은 현재 5세대 [세대](#reference_design_generations)입니다(6세대 보드 디자인 진행 중).
 
 ## 바이너리 호환성
 
-제각각의 설계에 따라 제조한 모든 보드는 잠재 바이너리 호환성을 지니고 있습니다(예: 동일한 펌웨어 실행 가능). 2018년도부터는 호환성을 검증하고 인증하는 바이너리 호환성 시험 기반을 제공합니다.
+특정 디자인으로 제조된 모든 보드는 바이너리 호환이 되어야 합니다(즉, 동일한 펌웨어를 실행하여야 함). 2018년부터 우리는 이 호환성을 확인하고 인증할 수 있는 바이너리 호환성 테스트 제품군을 제공할 것입니다.
 
-FMU 1~3 세대는 공개 하드웨어로 설계했으나, 4~5세대에서는 핀 출력과 전원 공급장치 명세 정보만 제공합니다(설계도는 각 제조사에서 만듦). 좀 더 우수한 호환성을 확보하기 위해, FMUv6 및 이후 버전에서는 완전한 참조 설계 모델로 돌아올 예정입니다.
+FMU 1~3세대는 개방형 하드웨어로 설계되었으나, FMU 4세대와 5세대는 핀아웃 및 전원 공급 사양만 제공했습니다(개략도는 개별 제조업체에서 작성하였습니다). 우수한 호환성을 위하여 FMUv6 이상은 완전한 참조 디자인 모델링합니다.
 
 <a id="reference_design_generations"></a>
 
-## 참조 설계 세대
+## 레퍼런스 디자인 세대
 
-* FMUv1: 개발 보드 \(STM32F407, 128 KB RAM, 1MB flash, [설계도](https://github.com/PX4/Hardware/tree/master/FMUv1)\) (PX4에서 더이상 지원하지 않음)
+* FMUv1: 개발 보드 \(STM32F407, 128KB RAM, 1MB 플래시, [설계도](https://github.com/PX4/Hardware/tree/master/FMUv1)\)(PX4에서 더 이상 지원하지 않음)
 * FMUv2: 픽스호크 \(STM32F427, 168 MHz, 192 KB RAM, 1MB flash, [설계도](https://github.com/PX4/Hardware/tree/master/FMUv2)\)
 * FMUv3: 2MB 플래시를 장착한 픽스호크 변형 버전 \(3DR 픽스호크 2 \(Solo\), Hex 픽스호크 2.1, Holybro Pixfalcon, 3DR Pixhawk Mini, STM32F427, 168 MHz, 256 KB RAM, 2 MB flash, [설계도](https://github.com/PX4/Hardware/tree/master/FMUv3_REV_D)\)
 * FMUv4: 픽스레이서 \(STM32F427, 168 MHz, 256 KB RAM, 2 MB flash, [핀 출력도](https://docs.google.com/spreadsheets/d/1raRRouNsveQz8cj-EneWG6iW0dqGfRAifI91I2Sr5E0/edit#gid=1585075739)\)
@@ -21,28 +21,26 @@ FMU 1~3 세대는 공개 하드웨어로 설계했으나, 4~5세대에서는 핀
 * FMUv6: 개발 중, 최종 명칭 미정, 6s 변형 \(STM32H7, 400 MHz, 2 MB RAM,  2 MB flash\)과 6i 변형 \(i.MX RT1050, 600 MHz, 512 KB RAM, 외장 플래시\)
 
 
-## 주요/입출력 기능 해부
+## 메인 IO 기능 분석
 
-아래 그림에서는 픽스호크 계열 비행체 제어 장치의 FMU와 I/O 보드간 버스 구분과 담당 기능을 나타냅니다(보드는 단일 물리 모듈에 들어갑니다).
+아래 다이어그램은 Pixhawk 시리즈 비행 콘트롤러의  FMU와 I/O 보드간 기능과 버스 분할을 나타냅니다(보드는 단일 물리적 모듈에 통합됨).
 
-![PX4 주요/입출력 기능 해부](../../assets/diagrams/px4_fmu_io_functions.png)
+![PX4 메인/IO 기능 분석](../../assets/diagrams/px4_fmu_io_functions.png)
 
 <!-- Draw.io version of file can be found here: https://drive.google.com/file/d/1H0nK7Ufo979BE9EBjJ_ccVx3fcsilPS3/view?usp=sharing -->
 
-일부 픽스호크 계열 조종 장치는 입출력보드 없이 만들어 공간과 복잡도를 출이거나, 각 보드 용도를 알맞게 개선했습니다.
-
-입출력 보드의 기능은 [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) 매개변수 설정으로 끌 수 있습니다. 입출력 보드의 기능을 끄면:
-- 메인 믹서 파일을 FMU로 불러옵니다(따라서 "메인" 출력은 [에어프레임 참고](../airframes/airframe_reference.md)에서 AUX로 표기한 포트로 나타냅니다). AUX 믹서 파일은 불러오지 않으므로, 이 파일에 지정한 출력 핀은 사용하지 않습니다.
-- RC 입력은 입출력 보드가 아닌 FMU로 바로 들어갑니다.
-
-입출력 보드를 장착하지 않은 비행체 제어 장치에는 `MAIN` 포트가 있지만, `AUX`포트는 *없습니다*. 따라서 `AUX` 포트를 활용하지 않는 [에어프레임](../airframes/airframe_reference.md)에서만 사용할 수 있거나 덜 핵심적인 목적으로 활용할 수 있습니다(예: RC 전달). 대부분의 멀티콥터와 *완전* 자동화 기체(원격 조정을 통한 안전 항해 기능을 뺌)는 모터와 핵심부를 제어하는 `MAIN` 포트만을 사용하기 때문에 이 목적으로만 활용할 수 있습니다.
-
-:::warning
-입출력 보드가 빠진 비행체 제어 장치는 핵심 비행 제어부와 모터를 `AUX`포트에 연결하는 [에어프레임](../airframes/airframe_reference.md)에서 사용할 수 없습니다(`AUX` 포트가 없기 때문).
-:::
+일부 Pixhawk 시리즈 컨트롤러는 공간이나 복잡성을 줄이기 위하여 특정 보드 의 기능 향상을 위하여 I/O 보드 없이 제작됩니다. In this case [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) is set to `0` so that the I/O driver is not started. You can also set `SYS_USE_IO` to `0` to disable the I/O on a flight controller where it is present but not needed (in order to slightly reduce the CPU load).
 
 :::note
-I/O 보드가없는 제조업체 비행 컨트롤러 변형은 종종 I/O 보드가 포함 된 버전의 "소형"으로 명명됩니다. 예 : _Pixhawk 4_ **미니 ** _, _CUAV v5**나노**_.
+I/O 보드가 없는 제조업체 비행 콘트롤러 변형은 종종 I/O 보드를 포함하는 버전의 "소형"으로 명명됩니다. 예 : _Pixhawk 4_ **미니**_, _CUAV v5**나노**_.
 :::
 
-대부분의 PX4 PWM 출력은 믹서의  `MAIN` 또는 `AUX` 포트에 대응합니다. 일부 드문 경우, Dshot ESC, 카메라 촬영 핀을 FMU 핀에 직접 연결합니다(예: 비행체 제어 장치에 입출력 보드가 붙어있는지 여부에 따라 `MAIN`핀 또는 `AUX`핀 *어디로든* 출력함).
+Build targets that must run on flight controllers with an I/O board map the FMU outputs to `AUX` and the I/0 outputs to `MAIN` (see diagram above). If the target is run on hardware where I/O board is not present or has been disabled, the PWM MAIN outputs will not be present. You might see this, for example, by running  `px4_fmu-v5_default` on [Pixhawk 4](../flight_controller/pixhawk4.md) (with IO) and [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (without I/O).
+
+:::warning
+On [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) this results in a mismatch between the `MAIN` label screenprinted on the flight controller and the  `AUX` bus shown during [Actuator Configuration](../config/actuators.md).
+:::
+
+Note that if a build target is only ever intended to run on a flight controller that does not have an I/0 board, then the FMU outputs are mapped to `MAIN` (for example, the `px4_fmu-v4_default` target for [Pixracer](../flight_controller/pixracer.md)).
+
+PX4 PWM outputs are mapped to either `MAIN` or `AUX` ports in [Actuator Configuration](../config/actuators.md).

@@ -8,7 +8,7 @@ The console should be used for debugging if the system won't boot. The [MAVLink 
 
 ## System Console vs. Shells
 
-The console is made available through a (board-specific) UART that can be connected to a computer USB port using a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable. This allows the console to be accessed using a terminal application.
+The console is made available through a (board-specific) UART that can be connected to a computer USB port using a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable. This allows the console to be accessed using a terminal application.
 
 Pixhawk controller manufacturers are expected to expose the console UART and SWD (JTAG) debug interfaces through a dedicated *debug port* that complies with the [Pixhawk Connector Standard](#pixhawk_debug_port). Unfortunately some boards predate this standard or a non-compliant.
 
@@ -26,26 +26,23 @@ The system console can be accessed through the Dronecode probe or an FTDI cable.
 - [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 
-- [Snapdragon Flight](../flight_controller/snapdragon_flight.md):
-  - [FTDI](../flight_controller/snapdragon_flight_advanced.md#over-ftdi)
-  - [Console Debug](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitorconsole)
 
 <a id="pixhawk_debug_port"></a>
 
 ### Connecting via FTDI 3.3V Cable
 
-连接控制台连接后，请使用您选择的默认串口工具或下面描述的默认工具：
+Flight controllers that adhere to the Pixhawk Connector standard use the [Pixhawk Standard Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf).
 
 在 Ubuntu 上安装 screen （mac os 已经安装了它）：
 
-| Pixracer / Pixhawk v3 | -         | FTDI | -             |
-| --------------------- | --------- | ---- | ------------- |
-| 2                     | + 5v (红色) |      | N/C           |
-| 2                     | UART7 Tx  | 5    | FTDI RX （黄色）  |
-| 3                     | UART7 Rx  | 4    | FTDI TX （橙色）  |
-| 4（黑）                  | SWDIO     |      | N/C           |
-| 6                     | SWCLK     |      | N/C           |
-| 6                     | GND       | 1    | FTDI GND (黑色) |
+| Connecting via FTDI 3.3V Cable | -         | FTDI | -             |
+| ------------------------------ | --------- | ---- | ------------- |
+| 2                              | + 5v (红色) |      | N/C           |
+| 2                              | UART7 Tx  | 5    | FTDI RX （黄色）  |
+| 3                              | UART7 Rx  | 4    | FTDI TX （橙色）  |
+| 4（黑）                           | SWDIO     |      | N/C           |
+| 6                              | SWCLK     |      | N/C           |
+| 6                              | GND       | 1    | FTDI GND (黑色) |
 
 ## 打开控制台
 
@@ -60,7 +57,6 @@ sudo apt-get install screen
 ```
 
 * 串口：pixhawk v1/pixracer 使用 57600 波特率
-* 串口：骁龙飞控使用115200波特率
 
 Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
 

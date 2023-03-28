@@ -11,12 +11,11 @@ The directory structure/layout is shown below.
 
 Directory/File(s) | Description
 --- | ---
-`/etc/` | Extra config (+ mixers). See [System Startup > Replacing the System Startup](../concept/system_startup.md#replacing-the-system-startup).
-`/etc/mixers/` | [Mixers](../concept/mixing.md)
+`/etc/` | Extra config. See [System Startup > Replacing the System Startup](../concept/system_startup.md#replacing-the-system-startup).
 `/log/` | Full [flight logs](../dev_log/logging.md)
 `/mission_log/` | Reduced flight logs
-`/fw/` | [UAVCAN](../uavcan/README.md) firmware
-`/uavcan.db/` | UAVCAN DB + logs
+`/fw/` | [DroneCAN](../dronecan/README.md) firmware
+`/uavcan.db/` | DroneCAN DNA server DB + logs
 `/params` | Parameters (if not in FRAM/FLASH)
 `/dataman` | Mission storage file
 `/fault_<datetime>.txt` | Hardfault files

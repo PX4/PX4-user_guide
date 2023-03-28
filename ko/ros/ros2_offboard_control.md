@@ -1,139 +1,148 @@
-# ROS 2 Offboard Control Example
+# ROS 2 오프보드 제어 예
+
+The following C++ example shows how to do position control in [offboard mode](../flight_modes/offboard.md) from a ROS 2 node.
+
+The example starts sending setpoints, enters offboard mode, arms, ascends to 5 metres, and waits. While simple, it shows the main principles of how to use offboard control and how to send vehicle commands.
+
+It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 `main` after PX4 v1.13.
 
 :::warning
-*Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*오프보드* 제어는 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 할 수 있어야 합니다.
 :::
 
-:::warning ROS
-2 interaction with PX4 through the [*microRTPS* bridge](../middleware/micrortps.md) requires that the user understands how the PX4 internals work! The same understanding is required for PX4 offboard control via ROS 2, where the user publishes directly to the required uORB topics (without any level of abstraction between ROS and PX4 data formats/conventions).
+:::note ROS
+and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). There is no implicit conversion between frame types when topics are published or subscribed!
 
-If you are unsure of PX4 internals work, we recommend that you instead use a workflow that depends on the MAVLink microservices and abstraction layer to execute offboard control or any other kind of interaction through the *microRTPS* bridge.
+This example publishes positions in the NED frame, as expected by PX4. To subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) library.
 :::
 
-The following C++ example shows how to use the *microRTPS* bridge to do offboard position control from a ROS 2 node.
+## Trying it out
 
-## Requirements
+Follow the instructions in [ROS 2 User Guide](../ros/ros2_comm.md) to install PX and run the simulator, install ROS 2, and start the XRCE-DDS Agent.
 
-For this example, PX4 SITL is being used, so it is assumed, first of all, that the user has the simulation environment properly configured. Besides that:
+After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS 2 Workspace](../ros/ros2_comm.md#build-ros-2-workspace) to run the example.
 
-1. The user already has their ROS 2 environment properly configured Check the [PX4-ROS 2 bridge](../ros/ros2_comm.md) document for details on how to do it.
-1. `px4_msgs` and `px4_ros_com` should be already on your colcon workspace. See the link in the previous point for details.
-1. `offboard_control_mode` and `position_setpoint_triplet` messages are configured in the `uorb_rtps_message_ids.yaml` file both in the PX4-Autopilot and *px4_ros_com* package to be *received* in the Autopilot.
+To build and run the example:
 
-   In *PX4-Autopilot/msg/tools/uorb_rtps_message_ids.yaml*:
-   ```yaml
-     - msg: offboard_control_mode
-       id: 44
-       receive: true
-     ...
-     - msg: position_setpoint_triplet
-       id: 51
-       receive: true
+1. Open a new terminal.
+1. Create and navigate into a new colcon workspace directory using:
+
+   ```sh
+   mkdir -p ~/ws_offboard_control/src/
+   cd ~/ws_offboard_control/src/
    ```
 
-   In *path_to_colcon_ws/src/px4_ros_com/templates/uorb_rtps_message_ids.yaml*:
-   ```yaml
-     - id: 44
-       msg: OffboardControlMode
-       receive: true
-     ...
-     - id: 51
-       msg: PositionSetpointTriplet
-       receive: true
+1. Clone the [px4_msgs](https://github.com/PX4/px4_msgs) repo to the `/src` directory (this repo is needed in every ROS 2 PX4 workspace!):
+
+   ```sh
+   git clone https://github.com/PX4/px4_msgs.git
+   # checkout the matching release branch if not using PX4 main.
    ```
 
-:::note
-At time of writing, the above topics are already configured to be received.
+1. Clone the example repository [px4_ros_com](https://github.com/PX4/px4_ros_com) to the `/src` directory:
+
+   ```sh
+   git clone https://github.com/PX4/px4_ros_com.git
+   ```
+
+1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+
+   ```sh
+   cd ..
+   source /opt/ros/foxy/setup.bash
+   colcon build
+   ```
+
+1. Source the `local_setup.bash`:
+
+   ```sh
+   source install/local_setup.bash
+   ```
+1. Launch the example.
+
+   ```
+   ros2 run px4_ros_com offboard_control
+   ```
+
+The vehicle should arm, ascend 5 metres, and then wait (perpetually).
+
+## 구현
+
+The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
+
+:::note PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)).
 :::
 
-## Implementation
-
-The source code of the offboard control example can be found in [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/master/src/examples/offboard/offboard_control.cpp).
-
-Here are some details about the implementation:
+PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying. In addition, PX4 will switch out of offboard mode if the stream rate of `OffboardControlMode` messages drops below approximately 2Hz. The required behaviour is implemented by the main loop spinning in the ROS 2 node, as shown below:
 
 ```cpp
-timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_PubSubTopic",
-    10,
-    [this](const px4_msgs::msg::Timesync::UniquePtr msg) {
-        timestamp_.store(msg->timestamp);
-    });
-```
+auto timer_callback = [this]() -> void {
 
-The above is required in order to obtain a syncronized timestamp to be set and sent with the `offboard_control_mode` and `position_setpoint_triplet` messages.
+    if (offboard_setpoint_counter_ == 10) {
+        // Change to Offboard mode after 10 setpoints
+        this->publish_vehicle_command(VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1, 6);
 
-```cpp
-        auto timer_callback = [this]() -> void {
-        if (offboard_setpoint_counter_ == 100) {
-                // Change to Offboard mode after 100 setpoints
-                this->publish_vehicle_command(VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1, 6);
+        // Arm the vehicle
+        this->arm();
+    }
 
-                // Arm the vehicle
-                this->arm();
-        }
+    // OffboardControlMode needs to be paired with TrajectorySetpoint
+    publish_offboard_control_mode();
+    publish_trajectory_setpoint();
 
-        // offboard_control_mode needs to be paired with position_setpoint_triplet
-        publish_offboard_control_mode();
-        publish_position_setpoint_triplet();
-
-        // stop the counter after reaching 100
-        if (offboard_setpoint_counter_ < 101) {
-                offboard_setpoint_counter_++;
-        }
+    // stop the counter after reaching 11
+    if (offboard_setpoint_counter_ < 11) {
+        offboard_setpoint_counter_++;
+    }
 };
-timer_ = this->create_wall_timer(10ms, timer_callback);
+timer_ = this->create_wall_timer(100ms, timer_callback);
 ```
 
-The above is the main loop spining on the ROS 2 node. It first sends 100 setpoint messages before sending the command to change to offboard mode At the same time, both `offboard_control_mode` and `position_setpoint_triplet` messages are sent to the flight controller.
+The loop runs on a 100ms timer. For the first 10 cycles it calls `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` to send [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4. The `OffboardControlMode` messages are streamed so that PX4 will allow arming once it switches to offboard mode, while the `TrajectorySetpoint` messages are ignored (until the vehicle is in offboard mode).
+
+After 10 cycles `publish_vehicle_command()` is called to change to offboard mode, and `arm()` is called to arm the vehicle. After the vehicle arms and changes mode it starts tracking the position setpoints. The setpoints are still sent in every cycle so that the vehicle does not fall out of offboard mode.
+
+The implementations of the `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` methods are shown below. These publish the [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4 (respectively).
+
+The `OffboardControlMode` is required in order to inform PX4 of the _type_ of offboard control behing used. Here we're only using _position control_, so the `position` field is set to `true` and all the other fields are set to `false`.
 
 ```cpp
 /**
  * @brief Publish the offboard control mode.
  *        For this example, only position and altitude controls are active.
  */
-void OffboardControl::publish_offboard_control_mode() const {
+void OffboardControl::publish_offboard_control_mode()
+{
     OffboardControlMode msg{};
-    msg.timestamp = timestamp_.load();
-    msg.ignore_thrust = true;
-    msg.ignore_attitude = true;
-    msg.ignore_bodyrate_x = true;
-    msg.ignore_bodyrate_y = true;
-    msg.ignore_bodyrate_z = true;
-    msg.ignore_position = false;
-    msg.ignore_velocity = true;
-    msg.ignore_acceleration_force = true;
-    msg.ignore_alt_hold = true;
-
+    msg.position = true;
+    msg.velocity = false;
+    msg.acceleration = false;
+    msg.attitude = false;
+    msg.body_rate = false;
+    msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
     offboard_control_mode_publisher_->publish(msg);
-}
-
-/**
- * @brief Publish position setpoint triplets.
- *        For this example, it sends position setpoint triplets to make the
- *        vehicle hover at 5 meters.
- */
-void OffboardControl::publish_position_setpoint_triplet() const {
-    PositionSetpointTriplet msg{};
-    msg.timestamp = timestamp_.load();
-    msg.current.timestamp = timestamp_.load();
-    msg.current.type = PositionSetpoint::SETPOINT_TYPE_POSITION;
-    msg.current.x = 0.0;
-    msg.current.y = 0.0;
-    msg.current.z = -5.0;
-    msg.current.cruising_speed = -1.0;
-    msg.current.position_valid = true;
-    msg.current.alt_valid = true;
-    msg.current.valid = true;
-
-    position_setpoint_triplet_publisher_->publish(msg);
 }
 ```
 
-The above functions exemplify how the fields on both `offboard_control_mode` and `position_setpoint_triplet` messages can be set. Notice that the above example is applicable for offboard position control, where on the `offboard_control_mode` message, the `ignore_position` field is set to `true`, while all the others get set to `false`, and in the `position_setpoint_triplet`, on the `current` setpoint, `valid`, `alt_valid` and `position_valid` are set to `true`. Also, in this case, `x`, `y` and `z` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
+`TrajectorySetpoint` provides the position setpoint. In this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
 
-:::tip
-The position is already being published in the NED coordinate frame for simplicity, but in the case of the user wanting to subscribe to data coming from other nodes, and since the standard frame of reference in ROS/ROS 2 is ENU, the user can use the available helper functions in the [`frame_transform` library](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp).
-:::
+```cpp
+/**
+ * @brief Publish a trajectory setpoint
+ *        For this example, it sends a trajectory setpoint to make the
+ *        vehicle hover at 5 meters with a yaw angle of 180 degrees.
+ */
+void OffboardControl::publish_trajectory_setpoint()
+{
+    TrajectorySetpoint msg{};
+    msg.position = {0.0, 0.0, -5.0};
+    msg.yaw = -3.14; // [-PI:PI]
+    msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
+    trajectory_setpoint_publisher_->publish(msg);
+}
+```
+
+The `publish_vehicle_command()` sends [VehicleCommand](../msg_docs/VehicleCommand.md) messages with commands to the flight controller. We use it above to change the mode to offboard mode, and also in `arm()` to arm the vehicle. While we don't call `disarm()` in this example, it is also used in the implementation of that function.
 
 ```cpp
 /**
@@ -142,10 +151,9 @@ The position is already being published in the NED coordinate frame for simplici
  * @param param1    Command parameter 1
  * @param param2    Command parameter 2
  */
-void OffboardControl::publish_vehicle_command(uint16_t command, float param1,
-                          float param2) const {
+void OffboardControl::publish_vehicle_command(uint16_t command, float param1, float param2)
+{
     VehicleCommand msg{};
-    msg.timestamp = timestamp_.load();
     msg.param1 = param1;
     msg.param2 = param2;
     msg.command = command;
@@ -154,26 +162,19 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1,
     msg.source_system = 1;
     msg.source_component = 1;
     msg.from_external = true;
-
+    msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
     vehicle_command_publisher_->publish(msg);
 }
 ```
 
-As the description suggests, the above code serves the purpose of sending `vehicle_command_publisher` messages with commands to the flight controller.
-
 :::note
-By the time of writing, `vehicle_command_publisher` is also already configured to be received.
+[VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
 :::
 
-## Usage
 
-After building the colcon workspace, and after starting PX4 SITL and both the microRTPS bridge client and agent:
+<!--
 
-```sh
-$ source path_to_colcon_workspace/install/setup.bash
-$ ros2 run px4_ros_com offboard_control
-```
-
-## Demo with PX4 SITL and Gazebo
+## Demo with PX4 SITL and Gazebo Classic
 
 @[youtube](https://youtu.be/Nbc7fzxFlYo)
+-->

@@ -1,175 +1,179 @@
-# RPi PilotPi Shield
+# 라즈베리파이 PilotPi 실드
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](mailto:lhf2613@gmail.com)에 문의하십시오.
 :::
 
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+이 비행 콘트롤러에 대한 PX4는 [테스트 단계](../flight_controller/autopilot_experimental.md)입니다.
 :::
 
-The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
+*PilotPi* 실드는 라즈베리파이에서 직접 PX4 자동조종장치를 실행하는 솔루션입니다. 리눅스와 PX4 측면에서 지속적으로 업데이트되고 있는, 저비용 고확장성의 플랫폼입니다. 모든 구성 요소가 라즈베리파이와 PX4 커뮤니티의 업스트림 지원을 제공하므로, 독점 드라이버가 필요하지 않습니다. PCB와 회로도도 오픈 소스입니다.
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
-## Quick Summary
+## 요약
 
-* Supported RPi boards:
-  * Raspberry Pi 2B/3B/3B+/4B
-* Supported OS:
-  * Raspberry Pi OS
-  * Ubuntu Server (armhf/arm64)
-* Accelerometer / Gyro:
+* 지원 라즈베리파이 보드:
+  * 라즈베리파이 2B/3B/3B+/4B
+* 지원 운영체제:
+  * 라즈베리파이 OS
+  * 우분투 서버 (armhf/arm64)
+* 가속도계/자이로
   * ICM42688P
-* Magnetometer:
+* 자력계:
   * IST8310
-* Barometer:
+* 기압계:
   * MS5611
 * PWM:
   * PCA9685
 * ADC:
   * ADS1115
-* Power:
-  * 3~6S battery with built-in voltage sensing.
-  * Power the Pi through USB cable
-* Availability: *preparing for shipping*
+* 전원:
+  * 전압감지기능이 내장 3~6S 배터리.
+  * USB 케이블 전원 공급
+* 구매처: *배송 준비중*
 
-## Connectivity
+## 연결성
 
-Shield provides:
+Shield는 다음을 제공합니다.
 
-* 16x PWM outputting channels
-* GPS connector
-* Telemetry connector
-* External I2C bus connector (**Note:** conflicts with CSI camera)
-* RC input port (SBUS)
-* 3x ADC channels range 0~5V
-* 2\*8 2.54mm unused GPIO connector
+* PWM 출력 채널 16개
+* GPS 커넥터
+* 텔레메트리 커넥터
+* 외부 I2C 버스 커넥터(**참고:** CSI 카메라와 충돌)
+* RC 입력 포트(SBUS)
+* ADC 채널 범위 0 ~ 5V 3개
+* 2\*8 2.54mm 미사용 GPIO 커넥터
 
-Direct accessible from RPi:
+라즈베리파이 직접 액세스
 
-* 4x USB connector
-* CSI connector(**Note:** conflict with external I2C bus)
-* etc.
+* USB 커넥터 4개
+* CSI 커넥터(**참고:** 외부 I2C 버스와 충돌)
+* 기타
 
-## Recommended Wiring
+## 권장 배선
 
-![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
+![PilotPi PowerPart 배선](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
-![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
+![PilotPi SensorPart 배선](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
-## Pinout
+## 핀배열
 
 :::warning
-It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+구형 GH1.25 커넥터를 사용합니다.
+배선은 Pixhawk 2.4.8과 호환됩니다.
 :::
 
-### Connectors
+### 커넥터
 
-#### GPS connector
+#### GPS 커넥터
 
-Mapped to `/dev/ttySC0`
+`/dev/ttySC0`에 매핑됨
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | NC     | +3v3 |
-| 5   | NC     | +3v3 |
-| 6   | GND    | GND  |
+| 핀 | 신호  | 전압   |
+| - | --- | ---- |
+| 1 | VCC | +5V  |
+| 2 | TX  | +3V3 |
+| 3 | RX  | +3V3 |
+| 4 | NC  | +3V3 |
+| 5 | NC  | +3V3 |
+| 6 | GND | GND  |
 
-#### Telemetry connector
+#### 텔레메트리 커넥터
 
-Mapped to `/dev/ttySC1`
+`/dev/ttySC1`에 매핑됨
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | CTS    | +3v3 |
-| 5   | RTS    | +3v3 |
-| 6   | GND    | GND  |
+| 핀 | 신호  | 전압   |
+| - | --- | ---- |
+| 1 | VCC | +5V  |
+| 2 | TX  | +3V3 |
+| 3 | RX  | +3V3 |
+| 4 | CTS | +3V3 |
+| 5 | RTS | +3V3 |
+| 6 | GND | GND  |
 
-#### External I2C connector
+#### 외부 I2C 커넥터
 
-Mapped to `/dev/i2c-0`
+`/dev/i2c-0`에 매핑됨
 
-| Pin | Signal | Volt          |
-| --- | ------ | ------------- |
-| 1   | VCC    | +5V           |
-| 2   | SCL    | +3v3(pullups) |
-| 3   | SDA    | +3v3(pullups) |
-| 4   | GND    | GND           |
+| 핀 | 신호  | 전압       |
+| - | --- | -------- |
+| 1 | VCC | +5V      |
+| 2 | SCL | +3v3(풀업) |
+| 3 | SDA | +3v3(풀업) |
+| 4 | GND | GND      |
 
-#### RC & ADC2/3/4
+#### RC 및 ADC2/3/4
 
-RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
+RC는 RX 라인의 신호 인버터 스위치로 `/dev/ttyAMA0`에 매핑됩니다.
 
-| Pin | Signal | Volt     |
-| --- | ------ | -------- |
-| 1   | RC     | +3V3~+5V |
-| 2   | VCC    | +5V      |
-| 3   | GND    | GND      |
+| 핀 | 신호  | 전압         |
+| - | --- | ---------- |
+| 1 | RC  | +3V3 ~ +5V |
+| 2 | VCC | +5V        |
+| 3 | GND | GND        |
 
-- ADC1 is internally connected to voltage divider for battery voltage monitoring.
-- ADC2 is left unused.
-- ADC3 can be connected to an analog airspeed sensor.
-- ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
+- ADC1은 배터리 전압 모니터링을 위해 전압 분배기에 내부적으로 연결됩니다.
+- ADC2는 사용되지 않습니다.
+- ADC3는 아날로그 속도 센서에 연결할 수 있습니다.
+- ADC4에는 시스템 전압 레벨을 모니터링하기 위하여 ADC와 VCC 사이에 점퍼 캡이 있습니다.
 
-| Pin | Signal | Volt   |
-| --- | ------ | ------ |
-| 1   | ADCx   | 0V~+5V |
-| 2   | VCC    | +5V    |
-| 3   | GND    | GND    |
+| 핀 | 신호   | 전압       |
+| - | ---- | -------- |
+| 1 | ADCx | 0V ~ +5V |
+| 2 | VCC  | +5V      |
+| 3 | GND  | GND      |
 
-:::note ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::note
+ADC 3과 4는 대체 VCC 소스가 있습니다.
+'Vref' 스위치가 켜져 있으면 'VCC' 핀이 REF5050에 의해 구동됩니다.
 :::
 
-#### Unused GPIO available on top of the board
+#### 보드 상단의 미사용 GPIO
 
-| Shield Pin | BCM | WiringPi | RPi Pin |
-| ---------- | --- | -------- | ------- |
-| 1          | 3V3 | 3v3      | 3V3     |
-| 2          | 5V  | 5V       | 5V      |
-| 3          | 4   | 7        | 7       |
-| 4          | 14  | 15       | 8       |
-| 5          | 17  | 0        | 11      |
-| 6          | 27  | 2        | 13      |
-| 7          | 22  | 3        | 15      |
-| 8          | 23  | 4        | 16      |
-| 9          | 7   | 11       | 26      |
-| 10         | 5   | 21       | 29      |
-| 11         | 6   | 22       | 31      |
-| 12         | 12  | 26       | 32      |
-| 13         | 13  | 23       | 33      |
-| 14         | 16  | 27       | 36      |
-| 15         | 26  | 25       | 37      |
-| 16         | GND | GND      | GND     |
+| 실드 핀 | BCM | WiringPi | RPi 핀 |
+| ---- | --- | -------- | ----- |
+| 1    | 3V3 | 3V3      | 3V3   |
+| 2    | 5V  | 5V       | 5V    |
+| 3    | 4   | 7        | 7     |
+| 4    | 14  | 15       | 8     |
+| 5    | 17  | 0        | 11    |
+| 6    | 27  | 2        | 13    |
+| 7    | 22  | 3        | 15    |
+| 8    | 23  | 4        | 16    |
+| 9    | 7   | 11       | 26    |
+| 10   | 5   | 21       | 29    |
+| 11   | 6   | 22       | 31    |
+| 12   | 12  | 26       | 32    |
+| 13   | 13  | 23       | 33    |
+| 14   | 16  | 27       | 36    |
+| 15   | 26  | 25       | 37    |
+| 16   | GND | GND      | GND   |
 
-### Switches
+### 스위치
 
-#### RC Inverter
+#### RC 인버터
 
-This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
+이 스위치는 RX 라인의 신호 극성을 결정합니다. `UART_RX = SW xor RC_INPUT`
 
-* On: suitable with SBUS (signal inverted)
-* Off: preserved
+* 켜짐: SBUS (신호 반전)에 적합
+* 꺼짐: 보존됨
 
 #### Vref
 
-ADC 3 & 4 will have VCC driven by:
-* Vref output from REF5050 if on
-* 5V pin directly from RPi if off
+ADC 3과 4는 다음에 의해 구동되는 VCC를 갖습니다.
+* 켜진 경우 REF5050에서 Vref 출력
+* 꺼져있는 경우 라즈베리파이에서 직접 5V 핀
 
-#### Boot Mode
+#### 부팅 모드
 
-This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
+이 스위치는 Pin22(BCM25)에 연결됩니다. 시스템 rc 스크립트는 해당 값을 확인하고, PX4가 시스템 부팅시 시작 여부를 결정합니다.
 
-* On: start PX4 automatically
-* Off: don' t start PX4
+* 켜짐: 자동으로 PX4 시작
+* 꺼짐: PX4를 시작하지 않습니다.
 
-## Developer Quick Start
+## 개발자 가이드
 
-Refer to specific instructions for the OS running on your RPi:
+라즈베리파이 OS에 대한 특정 지침을 참고하십시오.
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
-- [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
+- [우분투 서버 (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)

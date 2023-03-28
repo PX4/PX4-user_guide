@@ -2,23 +2,27 @@
 
 The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
+:::note
+RC Control is enabled by default, but a [joystick](../config/joystick.md) may be enabled instead (or as a fallback) using the [parameter](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE).
+:::
+
 ## Binding the Receiver
 
 Before you can calibrate the radio system the receiver and transmitter must be connected/bound.
 The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions). 
 
 :::note
-If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spektrum_bind).
+If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spectrum-bind).
 :::
 
 :::note
 If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
 :::
 
-<span id="rc_loss_detection"></span>
+
 ## RC Loss Detection
 
-PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc_loss_failsafe).
+PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc-loss-failsafe).
 
 RC receivers have different ways of indicating signal loss:
 - Output nothing (automatically detected by PX4)
@@ -67,7 +71,7 @@ As well as calibrating your control sticks and other transmitter controls, there
 
 <img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
-<span id="spektrum_bind"></span>
+
 ### Spectrum Bind
 
 Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a *Spektrum* receiver you can put it in *bind mode* using *QGroundControl* as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
@@ -157,6 +161,6 @@ You can clear all parameter/tuning channel mappings by selecting menu **Tools > 
 
 ## Further Information
 
-* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
+* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/master/en/SetupView/Radio.html)
 * [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
 * [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.

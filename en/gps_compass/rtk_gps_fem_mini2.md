@@ -1,7 +1,7 @@
 # Femtones MINI2 Receiver
 
 [MINI2 Receiver](http://www.femtomes.com) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning.
-It is intended for applications that requre high-precision positioning (e.g. navigation and mapping, etc.).
+It is intended for applications that require high-precision positioning (e.g. navigation and mapping, etc.).
 
 The receiver is connected to PX4 via a serial port (UART) and may be configured over Ethernet using a standard web browser.
 
@@ -21,7 +21,7 @@ The following firmware options need to be selected when buying the device:
 - RTK
 - BASE 
 
-## Purchase
+## Where to Buy
 
 Contact [Femtones](http://www.femtomes.com) directly for sales quote:
 - **Email:** [sales@femtomes.com](mailto:sales@femtomes.com)
@@ -54,11 +54,11 @@ Once configured the receiver is used in the same way as any other [RTK GPS](../g
 
 The MINI2 incorporates the following components:
 
-- [FB672](http://www.femtomes.com/FB672_EN.html): Compact, dual antenna, dual frequency GNSS OEM board (delivers centimeter accurate position and precise heading).
+- [FB672](http://www.femtomes.com/en/FB672.php): Compact, dual antenna, dual frequency GNSS OEM board (delivers centimeter accurate position and precise heading).
 
   ![FB672](../../assets/hardware/gps/rtk_fem_fb_1.jpg)
 
-- [FB6A0](http://www.femtomes.com/FB6A0_EN.html): Compact, quadruple frequency GNSS OEM board (delivers centimeter-accurate positioning)
+- [FB6A0](http://www.femtomes.com/en/FB6A0.php): Compact, quadruple frequency GNSS OEM board (delivers centimeter-accurate positioning)
 
   ![FB6A0](../../assets/hardware/gps/rtk_fem_fb_2.jpg)
 

@@ -1,40 +1,67 @@
-# 완성된 기체들
+# 완제품 기체
 
-This section contains information about complete vehicles that run PX4.
+이 섹션에서는 PX4 실행이 가능한 완제품 기체에 대하여 설명합니다. 바로 사용할 수 있는 상업용 차량, 자체 개발의 기반이 될 수 있는 드론 "플랫폼", 부품에서 무인 차량 조립 키트가 나열되어 있습니다.
 
-:::note
-This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4 io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목들을 참고할 수 있습니다.
 :::
 
-- PX4를 네이티브 버전으로 구동할 수 있는 소비자용 드론들 / "out of the box": 
-  - 멀티콥터 
-    - [Teal One](https://tealdrones.com/teal-one/)
-    - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
-    - [ModalAI m500](https://modalai.com/products/voxl-m500)
-  - VTOL 
-    - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
+## 완전 조립품(PX4 사전 설치됨)
 
-- (다른 비행 스택을 적용했으나) PX4로 업데이트 받을 수 있는 소비자용 드론들:
-  
-  - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
+이 섹션에는 PX4가 설치된 상태에서 즉시 비행 가능한 완전 조립품으로 판매되는 차량을 설명합니다.
+
+* Autogyro
+  * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
+* 멀티콥터
+  * [Teal One](https://tealdrones.com/teal-one/)
+  * [ModalAI m500](https://www.modalai.com/collections/development-drones/products/voxl-m500)
+  * [ModalAI Sentinel](https://www.modalai.com/products/sentinel-development-drone)
+* VTOL
+  * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
+
+## 완전 조립품(PX4 사전 설치됨)
+
+This section lists fully assembled vehicles where you can update the software to run PX4.
+
+- 멀티콥터
   - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
-  - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
+  - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
+- 수중 차량
+  - [BlueROV2](../frames_sub/bluerov2.md)
 
-- (벤더가 지원하는) 커스텀 버전의 PX4를 구동하는 소비자용 드론들:
-  
-  - Multicopter 
-    - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus.html)
-    - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
-    - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
-    - [Airlango Mystic](http://airlango.com/products/)
-    - [Airdog II](https://px4.io/portfolio/airdog-ii/)
-    - [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
-  - 고정익: 
-    - [Sentera PXH](https://px4.io/portfolio/sentera-phx/)
-  - VTOL 
-    - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
-    - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
-- Drone Development Kits 
-  - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
-- Drone Reference Platforms 
-  - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) (Discontinued)
+## 드론 개발 키트/참조 플랫폼
+
+이 섹션에는 추가 개발을 위한 플랫폼 키트를 설명합니다. 완전히 조립품이거나 부분 조립품들입니다.
+
+- [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - PX4 컴퓨터 비전 개발을 위한 멀티콥터
+
+## UAV 키트
+
+이 섹션에는 PX4 호환 차량 제작 키트들을 설명합니다(배터리 및 RC 컨트롤러 제외).
+
+:::note
+키트는 개별 구성 부품보다 드론 제작에 대해 더 자세하게 소개합니다.
+작동 부품을 사용하여 적절하게 튜닝된 기체를 비행할 수 있습니다.
+:::
+
+* 멀티콥터
+  * [PX4 Development Kit - X500 V2](https://holybro.com/collections/x500-kits) ([holybro.com](https://holybro.com/))
+  * [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
+  * [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
+  * [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
+  * [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
+
+## 완전 조립품(PX4 최적화 가능)
+
+이 섹션에는 PX4의 *맞춤* 버전(공급업체에서 지원)을 실행하는 소비자용 차량을 설명합니다. "바닐라" PX4를 실행하기 위히여 필요에 따라 업데이트할 수 있습니다.
+
+* 멀티콥터
+  * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
+  * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
+  * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
+  * [Airlango Mystic](http://airlango.com/products/)
+  * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
+* 고정익
+  * [Sentera PXH](https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
+* VTOL
+  * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
+  * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)

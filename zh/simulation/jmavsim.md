@@ -59,7 +59,7 @@ pxh>
 
 It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
-![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d View](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 
 ## 使用/配置选项
@@ -76,11 +76,17 @@ pxh> commander takeoff
 
 ## 多飞行器仿真
 
-### 指定起飞位置
-
 有一个特殊的平台可以模拟一个通过 Wifi 进行连接的无人机。
 
+### 指定起飞位置
+
 模拟器会跟真实的该类无人机一样在当地网络中广播自己的位置信息等。
+
+### 更改仿真的时间流速
+
+你可以单独启动 JMAVSim 和 PX4:
+
+此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
 ```
 export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
@@ -88,53 +94,30 @@ export PX4_HOME_ALT=28.5
 make px4_sitl_default jmavsim
 ```
 
-### 更改仿真的时间流速
+### 模拟一个 Wifi 无人机
 
-你可以单独启动 JMAVSim 和 PX4:
+JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
 
 ```
 ./Tools/jmavsim_run.sh
 make px4_sitl none
 ```
 
-此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
+如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
 
 <a id="joystick"></a>
 
-### 模拟一个 Wifi 无人机
-
-JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
-
-
 ### 单独启动 JMAVSim 和 PX4
 
-如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
-
-```sh
-make broadcast jmavsim
-```
-
 在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
+
 
 ### 分别启动 JMAVSim 和 PX4
 
 此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
 
-```
-[init] shell id: 140735313310464
-[init] task name: px4
-
-______  __   __    ___ 
-| ___ \ \ \ / /   /   |
-| |_/ /  \ V /   / /| |
-|  __/   /   \  / /_| |
-| |     / /^\ \ \___  |
-\_|     \/   \/     |_/
-
-Ready to fly.
-
-
-pxh>
+```sh
+make broadcast jmavsim
 ```
 
 要使用没有jMAVSim图形界面的仿真，请设置如下环境变量 `HEADLESS=1`
@@ -142,9 +125,21 @@ pxh>
 ### 无航向模式
 
 JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+
+```
+./Tools/simulation/jmavsim/jmavsim_run.sh -l
+make px4_sitl none
+```
+
+This allows a faster testing cycle (restarting jMAVSim takes significantly more time).
+
+### java.long.NoClassDefFoundError
+
+To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
+
 
 ## 扩展和定制
 
@@ -191,10 +186,10 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:566)
 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 ```
 
-如果遇到类似错误，可以尝试如下解决方法：
+并注释下面所指示的一行：
 
 
-### An illegal reflective access operation has occured
+### An illegal reflective access operation has occurred
 
 This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
 
@@ -230,7 +225,7 @@ at me.drton.jmavsim.Simulator.(Simulator.java:157)
 at me.drton.jmavsim.Simulator.main(Simulator.java:678)
 ```
 
-并注释下面所指示的一行：
+If you see this error, try this workaround:
 
 Edit the **accessibility.properties** file:
 ```
@@ -242,4 +237,18 @@ and comment out the line indicated below:
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). The fix was found in [askubuntu.com](https://askubuntu.com/questions/695560).
+For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
+
+### Exception in thread "main" java.lang.UnsupportedClassVersionError:
+When compiling jMAVsim, you might encounter the following error:
+
+```
+Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
+```
+
+This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
+
+To fix it under macOS, we recommend installing OpenJDK through homebrew
+```sh
+brew install --cask adoptopenjdk16
+```

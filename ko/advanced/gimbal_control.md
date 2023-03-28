@@ -1,98 +1,91 @@
-# 짐벌 제어 설정
+# Gimbal Configuration
 
-기체에 카메라(또는 다른 장치)를 달아 장착하는 짐벌을 제어하려면, 어떻게 제어할 지, PX4가 어떻게 명령을 내릴지 설정해야합니다. 여기서는 설정 방법을 설명합니다.
+This page explains how to configure and control a gimbal that has an attached camera (or any other payload).
 
-PX4에는 제각각의 입출력 방식을 가진 일반 마운트/짐벌 제어 드라이버가 있습니다.
-- 입력에서는 (임무 수행이나 조사 활동시) RC나 MAVLink 명령 중 짐벌 제어 방식을 정의합니다.
-- 출력에서는 MAVLink 명령 또는 비행 제어 장치 AUX PWM 포트 중 어떤 방식으로 짐벌을 연결할 지 정의합니다. 어떤 입력 방식이든 출력을 처리할 용도로 선택할 수 있으며, 두 방식 모두 매개변수로 구성해야합니다.
+## Overview
 
-## 매개변수
+PX4 contains a generic mount/gimbal control driver that supports different input and output methods:
 
-[마운트](../advanced_config/parameter_reference.md#mount) 매개변수는 마운트 드라이버 구성애 활용합니다.
+- The input method defines the protocol used to command a gimbal mount that is managed by PX4. This might be an RC controller, a MAVLink command sent by a GCS, or both — automatically switching between them.
+- The output method defines how PX4 communicates with the connected gimbal. The recommended protocol is MAVLink v2, but you can also connect directly to a flight controller PWM output port.
 
-가장 중요한 부분은 입력([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)) 상태와 출력([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) 상태입니다. 기본적으로 입력은 꺼져있으며 드라이버를 실행하지 않습니다. 입력 상태를 선택하고 나면, 기체 구동을 다시 시작하여 마운트 드라이버를 시작하십시오.
+PX4 takes the input signal and routes/translates it to be sent through to the output. Any input method can be selected to drive any output.
 
-입력 상태를 `AUTO`(자동)로 설정하면, 가장 최근의 입력 상태로 자동으로 전환합니다. MAVLink에서 RC로 전환하려면, 스틱을 크게 움직여야 합니다.
+Both the input and output are configured using parameters. The input is set using the parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN). By default this is set to `Disabled (-1)` and the driver does not run. After selecting the input mode, reboot the vehicle to start the mount driver.
 
-## AUX 출력
+You should set `MNT_MODE_IN` to one of: `RC (1)`, `MAVlink gimbal protocol v2 (4)` or `Auto (0)` (the other options are deprecated). If you select `Auto (0)`, the gimbal will automatically select either RC or or MAVLink input based on the latest input. Note that the auto-switch from MAVLink to RC requires a large stick motion!
 
-MAVLink 짐벌 동작을 켜려면 우선 [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) 매개변수 값을 `MAVLINK_DO_MOUNT`로, [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) 매개변수 값을 `MAVLINK`로 설정하십시오.
+The output is set using the [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) parameter. By default the output is set to a PXM port (`AUX (0)`). If the [MAVLink Gimbal Protocol v2](https://mavlink.io/en/services/gimbal_v2.html) is supported by your gimbal, you should instead select `MAVLink gimbal protocol v2 (2)`.
 
-짐벌은 \[MAVLink 주변 기기 (GCS/OSD/보조)\](../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) 에서 다루는 방법과 같이 *어떤 여분의 직렬 포트*에든 연결할 수 있습니다([직렬 포트 구성](../peripherals/serial_configuration.md#serial-port-configuration)도 참고).
+The full list of parameters for setting up the mount driver can be found in [Parameter Reference > Mount](../advanced_config/parameter_reference.md#mount). The relevant settings for a number of common gimbal configurations are described below.
 
-일반 구성은 비행 제어장치의 TELEM2 포트(TELEM2가 비어있다고 가정)에 짐벌을 직렬 연결하는 방식입니다. 이 구성을 진행하려면 다음과 같이 설정해야합니다:
-- [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) 매개변수 값을 **TELEM2**로 설정하십시오( `MAV_1_CONFIG`를 이미 보조 컴퓨터에서 쓰는 경우 `MAV_2_CONFIG` 매개변수를 활용하십시오).
-- [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) 매개변수 값을 **NORMAL**로 설정하십시오
-- [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 매개변수 값을 제조사 권장 전송율(baud rate)로 설정하십시오
+## MAVLink 짐벌(MNT_MODE_OUT=MAVLINK)
 
-이 절차를 거치고 나면, 사용자는 [MAV_CMD_DO_MOUNT_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONTROL) 매개변수와 [MAV_CMD_DO_MOUNT_CONFIGURE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONFIGURE) 매개변수로 짐벌을 제어할 수 있습니다.
+Each physical gimbal device on the system must have its own high level gimbal manager, which is discoverable by a ground station using the MAVLink gimbal protocol. The ground station sends high level [MAVLink Gimbal Manager](https://mavlink.io/en/services/gimbal_v2.html#gimbal-manager-messages) commands to the manager of the gimbal it wants to control, and the manager will in turn send appropriate lower level "gimbal device" commands to control the gimbal.
+
+PX4 can be configured as the gimbal manager to control a single gimbal device (which can either be physically connected or be a MAVLink gimbal that implements the [gimbal device interface](https://mavlink.io/en/services/gimbal_v2.html#gimbal-device-messages)).
+
+To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVlink gimbal protocol v2` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLink gimbal protocol v2`.
+
+짐벌은 \[MAVLink 주변 기기 (GCS/OSD/보조)\](../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) 에서 다루는 방법과 같이 *어떤 여분의 직렬 포트*에든 연결할 수 있습니다([직렬 포트 구성](../peripherals/serial_configuration.md#serial-port-configuration)도 참고). For example, if the `TELEM2` port on the flight controller is unused you can connect it to the gimbal and set the following PX4 parameters:
+- [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG)에서 **TELEM2**까지(`MAV_1_CONFIG`가 이미 보조 컴퓨터에 사용되고 있는 경우(예: `MAV_2_CONFIG` 사용))
+- [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE)에서 **NORMAL**로
+- 제조업체 권장 전송 속도에 대한 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD).
+
+### Multiple Gimbal Support
+
+PX4 can automatically create a gimbal manager for a connected PWM gimbal or the first MAVLink gimbal device with the same system id it detects on any interface. It does not automatically create gimbal manager for any other MAVLink gimbal devices that it detects.
+
+You can support additional gimbals provided that they:
+
+- implement the gimbal _manager_ protocol
+- Are visible to the ground station and PX4 on the MAVLink network. This may require that traffic forwarding be configured between PX4, the GCS, and the gimbal.
+- Each gimbal must have a unique component id. For a PWM connected gimbal this will be the component ID of the autopilot
 
 
-## 비행 제어장치의 짐벌 (MNT_MODE_OUT=AUX)
+## Gimbal on FC PWM Output (MNT_MODE_OUT=AUX)
 
-`MNT_MODE_OUT=AUX`로 설정하여 짐벌을 비행 제어장치 AUX 포트에 연결할 수 있습니다.
+The gimbal can also be controlled by connecting it to up to three flight controller PWM ports and setting the output mode to `MNT_MODE_OUT=AUX`.
 
-믹서 파일은 출력 핀 대응 정의에 필요하며 [mount mixer](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/mount.aux.mix)는 자동으로 선택합니다(이 명령으로 비행 기체 프레임 구성에서 제공하는 AUX 믹서 설정을 무시합니다).
+The output pins that are used to control the gimbal are set in the [Acuator Configuration > Outputs](../config/actuators.md#actuator-outputs) by selecting any three unused Actuator Outputs and assigning them the following output functions:
+- `Gimbal Roll`: Output controls gimbal roll.
+- `Gimbal Pitch`: Output controls Gimbal pitch.
+- `Gimbal Yaw`: Output controls Gimbal pitch.
 
-출력 할당은 다음과 같습니다:
-- **AUX1**: 상하 회전각(Pitch)
-- **AUX2**: 좌우 회전각(Roll)
-- **AUX3**: 방위 회전각(Yaw)
-- **AUX4**: 촬영/복귀
+For example, you might have the following settings to assign the gimbal roll, pitch and yaw to AUX1-3 outputs.
 
-### 믹서 구성 맞춤설정
+![Gimbal Actuator config](../../assets/config/actuators/qgc_actuators_gimbal.png)
 
-:::tip
-믹서의 작동 및 믹서 파일의 형식에 대한 설명은 [믹싱과 액츄에이터](../concept/mixing.md)를 확인하십시오.
-:::
-
-출력은 SD 카드의 `etc/mixers/mount.aux.mix` [믹서 파일을 만들어](../concept/system_startup.md#starting-a-custom-mixer) 원하는 대로 개별 설정할 수 있습니다.
-
-태풍 H480 모델은 사전 구성 후 모의 설정한 짐벌이 딸려옵니다.
-
-```
-# roll
-M: 1
-O:      10000  10000      0 -10000  10000
-S: 2 0  10000  10000      0 -10000  10000
-
-# pitch
-M: 1
-O:      10000  10000      0 -10000  10000
-S: 2 1  10000  10000      0 -10000  10000
-
-# yaw
-M: 1
-O:      10000  10000      0 -10000  10000
-S: 2 2  10000  10000      0 -10000  10000
-```
-
+The PWM values to use for the disarmed, maximum and minimum values can be determined in the same way as other servo, using the [Actuator Test sliders](../config/actuators.md#actuator-testing) to confirm that each slider moves the appropriate axis, and changing the values so that the gimbal is in the appropriate position at the disarmed, low and high position in the slider. The values may also be provided in gimbal documentation.
 
 ## SITL
 
-모의 설정 짐벌을 실행하려면 다음 명령을 활용하십시오:
+The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 model](../sim_gazebo_classic/gazebo_vehicles.md#typhoon-h480-hexrotor) comes with a preconfigured simulated gimbal.
 
-다른 모듈 또는 모의 시험 환경에 설치한 마운트 드라이버를 시험하려면, 드라이버가 실행 중인지 확인(`vmount start` 명령 활용)하고, 매개변수를 구성하십시오.
+실행하려면 다음을 사용하십시오.
+
 ```
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-다른 모델 또는 모의 시험 환경에 설치한 마운트 드라이버를 시험하려면, 드라이버가 실행 중인지 확인(`vmount start` 명령 활용)하고, 매개변수를 구성하십시오.
-
+다른 모델이나 시뮬레이터에서 마운트 드라이버를 테스트하려면 `vmount start`를 사용하여 드라이버가 실행되는 지 확인한 다음, 해당 매개변수를 설정하십시오.
 
 ## 시험
-이 드라이버는 간단한 시험 명령어를 제공합니다. 먼저 `vmount stop`으로 동작을 멈추어야합니다. 아래는 SITL에서의 시험 방법을 설명하지만, 이 명령어가 실제 장비에서도 작동합니다.
 
-다음 명령으로 시작하십시오(매개 변수값을 바꿀 필요는 없습니다):
+The driver provides a simple test command — it needs to be stopped first with `vmount stop`. 다음은 SITL에서의 테스트 방법을 설명합니다. 이 명령은 실제 장치에서도 작동합니다.
+
+다음을 사용하여 시뮬레이션을 시작합니다(이를 위해 매개변수를 변경할 필요는 없음).
+
 ```
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
-참고로 모의 환경 짐벌은 자체적으로 안정 상태로 돌아갑니다. 따라서 MAVLink 명령을 보낼 경우 `stabilize` 플래그를 `false`로 설정하십시오.
+
+예를 들어 시동 여부를 확인하십시오. `commander takeoff` 명령어를 실행한 다음, 다음 명령을 사용하여 짐벌(예)을 제어합니다:
+
 ```
 vmount test yaw 30
 ```
 
-참고로 모의 환경 짐벌은 스스로 안정 상태로 돌아갑니다. 따라서 MAVLink 명령을 보낸다면 `stabilize` 플래그를 `false`로 설정하십시오.
+시뮬레이션된 짐벌은 자체적으로 안정적이므로, MAVLink 명령을 보내는 경우 `stabilize` 플래그를 `false`로 설정합니다.
 
-![Gazebo 짐벌 모의 시험](../../assets/simulation/gazebo/gimbal-simulation.png)
-
+![Gazebo 짐벌 시뮬레이션](../../assets/simulation/gazebo_classic/gimbal-simulation.png)

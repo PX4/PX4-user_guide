@@ -2,10 +2,10 @@
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-*Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. 
+*Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers.
 It was designed and developed by Holybro.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
@@ -28,21 +28,23 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## Quick Summary
 
 #### Technical Specifications
+
 - Main FMU Processor: STM32H743
   - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
 - IO Processor: STM32F100
   - 32 Bit Arm ® Cortex® -M3, 24MHz, 8KB SRAM
 - On-board sensors
   - Accel/Gyro: ICM-20689
-  - Accel/Gyro: BMI088
+  - Accel/Gyro: BMI088 or ICM20602
   - Mag: IST8310
   - Barometer: MS5611
 - GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
 #### Interfaces
+
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
-- 6 dedicated PWM/Capture inputs on FMU 
+- 6 dedicated PWM/Capture inputs on FMU
 - Dedicated R/C input for Spektrum / DSM
 - Dedicated R/C input for CPPM and S.Bus
 - Dedicated S.Bus servo output and analog / PWM RSSI input
@@ -80,12 +82,12 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - FCC
 - RoHS compliant (lead-free)
 
-For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
+For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
 <span id="purchase"></span>
-## Purchase
+## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
 
 
 <span id="connections"></span>
@@ -116,7 +118,7 @@ All dimensions are in millimeters.
 
 ![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
-<!-- 
+<!--
 ## Voltage Ratings
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
@@ -133,7 +135,7 @@ Under these conditions all power sources will be used in this order to power the
 1. **USB** input (4.75V to 5.25V)
 -->
 
-<!-- 
+<!--
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
@@ -173,7 +175,7 @@ UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
 ## Debug Port
@@ -206,7 +208,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 ## Pinouts
 
 *Durandal* pinouts are listed below.
-These can also be downloaded from [here](http://www.holybro.com/manual/Durandal-Pinouts.pdf).
+These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### Top Pinouts
 
@@ -420,5 +422,5 @@ Pin | Signal | Volt
 ## Further info
 
 - [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
-- [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
-- [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
+- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)

@@ -1,33 +1,40 @@
-# ULog File Format
+# ULog 파일 형식
 
-ULog is the file format used for logging system data.
+ULog is the file format used for logging messages. The format is self-describing, i.e. it contains the format and [uORB](../middleware/uorb.md) message types that are logged. This document is meant to be the ULog File Format Spec Documentation. It is intended especially for anyone who is interested in writing a ULog parser / serializer and needs to decode / encode files.
 
-The format is self-describing, i.e. it contains the format and message types that are logged.
+PX4 uses ULog to log uORB topics as messages related to (but not limited to) the following sources:
+- **Device inputs:** Sensors, RC input, etc.
+- **Internal states:** CPU load, attitude, EKF state, etc.
+- **String messages:** `printf` statements, including `PX4_INFO()` and `PX4_ERR()`.
 
-It can be used for logging device inputs (sensors, etc.), internal states (cpu load, attitude, etc.) and printf log messages.
+The format uses [little endian](https://en.wikipedia.org/wiki/Endianness) memory layout for all binary types (the least significant byte (LSB) of data type is placed at the lowest memory address).
 
-The format uses Little Endian for all binary types.
+## 데이터 형식
 
-## Data types
+The following binary types are used for logging. They all correspond to the types in C.
 
-The following binary types are used. They all correspond to the types in C:
+| 형식                  | 바이트 크기 |
+| ------------------- | ------ |
+| int8_t, uint8_t   | 1      |
+| int16_t, uint16_t | 2      |
+| int32_t, uint32_t | 4      |
+| int64_t, uint64_t | 8      |
+| float               | 4      |
+| double              | 8      |
+| bool, char          | 1      |
 
-| Type                | Size in Bytes |
-| ------------------- | ------------- |
-| int8_t, uint8_t   | 1             |
-| int16_t, uint16_t | 2             |
-| int32_t, uint32_t | 4             |
-| int64_t, uint64_t | 8             |
-| float               | 4             |
-| double              | 8             |
-| bool, char          | 1             |
+Additionally the types can be used as an array: e.g. `float[5]`.
 
-Additionally all can be used as an array, eg. `float[5]`. In general all strings (`char[length]`) do not contain a `'\0'` at the end. String comparisons are case sensitive.
+Strings (`char[length]`) do not contain the termination NULL character `'\0'` at the end.
 
+:::note
+String comparisons are case sensitive, which should be taken into account when comparing message names when [adding subscriptions](#a-subscription-message).
+:::
 
-## File structure
+## ULog File Structure
 
-The file consists of three sections:
+ULog files have the following three sections:
+
 ```
 ----------------------
 |       Header       |
@@ -38,9 +45,13 @@ The file consists of three sections:
 ----------------------
 ```
 
-### Header Section
+A description of each section is provided below.
 
-The header is a fixed-size section and has the following format (16 bytes):
+
+### 헤더 섹션
+
+헤더는 고정 크기 섹션이며, 다음 형식(16바이트)을 갖습니다.
+
 ```
 ----------------------------------------------------------------------
 | 0x55 0x4c 0x6f 0x67 0x01 0x12 0x35 | 0x01         | uint64_t       |
@@ -48,180 +59,331 @@ The header is a fixed-size section and has the following format (16 bytes):
 ----------------------------------------------------------------------
 ```
 
-Version is the file format version, currently 1. Timestamp is a `uint64_t` integer, denotes the start of the logging in microseconds.
+- **File Magic (7 Bytes):** File type indicator that reads "ULogXYZ where XYZ is the magic bytes sequence `0x01 0x12 0x35`"
+- **Version (1 Byte):** File format version (currently 1)
+- **Timestamp (8 Bytes):** `uint64_t` integer that denotes when the logging started in microseconds.
 
+### Definition & Data Section Message Header
 
-### Definitions Section
+The _Definitions and Data_ sections contain a number of **messages**. Each message is preceded by this header:
 
-Variable length section, contains version information, format definitions, and (initial) parameter values.
-
-The Definitions and Data sections consist of a stream of messages. Each starts with this header:
 ```c
 struct message_header_s {
-    uint16_t msg_size;
-    uint8_t msg_type
+  uint16_t msg_size;
+  uint8_t msg_type;
 };
 ```
 
-`msg_size` is the size of the message in bytes without the header (`hdr_size`= 3 bytes). `msg_type` defines the content and is one of the following:
+- `msg_size` is the size of the message in bytes without the header.
+- `msg_type` defines the content, and is a single character.
 
-- 'B': Flag bitset message.
-  ```
-  struct ulog_message_flag_bits_s {
-      uint8_t compat_flags[8];
-      uint8_t incompat_flags[8];
-      uint64_t appended_offsets[3]; ///&#060; file offset(s) for appended data if appending bit is set
-  };
-  ```
-  This message **must** be the first message, right after the header section, so that it has a fixed constant offset.
-
-  - `compat_flags`: compatible flag bits. None of them is currently defined and all must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set.
-  - `incompat_flags`: incompatible flag bits. The LSB bit of index 0 is set to one if the log contains appended data and at lease one of the `appended_offsets` is non-zero. All other bits are undefined und must be set to 0. If a parser finds one of these bits set, it must refuse to parse the log. This can be used to introduce breaking changes that existing parsers cannot handle.
-  - `appended_offsets`: File offsets (0-based) for appended data. If no data is appended, all offsets must be zero. This can be used to reliably append data for logs that may stop in the middle of a message.
-
-    A process appending data should do:
-    - set the relevant `incompat_flags` bit,
-    - set the first `appended_offsets` that is 0 to the length of the log file,
-    - then append any type of messages that are valid for the Data section.
-
-  It is possible that there are more fields appended at the end of this message in future ULog specifications. This means a parser must not assume a fixed length of this message. If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored.
+:::note
+Message sections below are prefixed with the character that corresponds to it's `msg_type`.
+:::
 
 
-- 'F': format definition for a single (composite) type that can be logged or used in another definition as a nested type.
-  ```
-  struct message_format_s {
-  struct message_header_s header;
-  char format[header.msg_size-hdr_size];
+### 정의 섹션
+
+The definitions section contains basic information such as software version, message format, initial parameter values, and so on.
+
+The message types in this section are:
+1. [Flag Bits](#b-flag-bits-message)
+2. [Format Definition](#f-format-message)
+3. [Information](#i-information-message)
+4. [Multi Information](#m-multi-information-message)
+5. [Parameter](#p-parameter-message)
+6. [Default Parameter](#q-default-parameter-message)
+
+
+#### 'B': Flag Bits Message
+
+:::note
+This message must be the **first message** right after the header section, so that it has a fixed constant offset from the start of the file!
+:::
+
+This message provides information to the log parser whether the log is parsable or not.
+
+```c
+struct ulog_message_flag_bits_s {
+  struct message_header_s header; // msg_type = 'B'
+  uint8_t compat_flags[8];
+  uint8_t incompat_flags[8];
+  uint64_t appended_offsets[3]; // file offset(s) for appended data if appending bit is set
 };
-  ```
-  `format`: plain-text string with the following format: `message_name:field0;field1;` There can be an arbitrary amount of fields (at least 1), separated by `;`. A field has the format: `type field_name` or `type[array_length] field_name` for arrays (only fixed size arrays are supported). `type` is one of the basic binary types or a `message_name` of another format definition (nested usage). A type can be used before it's defined. There can be arbitrary nesting but no circular dependencies.
+```
 
-  Some field names are special:
-  - `timestamp`: every logged message (`message_add_logged_s`) must include a timestamp field (does not need to be the first field). Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`. The unit is always microseconds, except for `uint8_t` it's milliseconds. A log writer must make sure to log messages often enough to be able to detect wrap-arounds and a log reader must handle wrap-arounds (and take into account dropouts). The timestamp must always be monotonic increasing for a message serie with the same `msg_id`.
-  - Padding: field names that start with `_padding` should not be displayed and their data must be ignored by a reader. These fields can be inserted by a writer to ensure correct alignment.
+- `compat_flags`: compatible flag bits
+  - These flags indicate the presence of features in the log file that are compatible with any ULog parser.
+  - `compat_flags[0]`: *DEFAULT_PARAMETERS* (Bit 0): if set, the log contains [default parameters message](#q-default-parameter-message)
 
-    If the padding field is the last field, then this field will not be logged, to avoid writing unnecessary data. This means the `message_data_s.data` will be shorter by the size of the padding. However the padding is still needed when the message is used in a nested definition.
+  The rest of the bits are currently not defined and must be set to 0. 이 비트는 향후 기존 파서와 호환되는 ULog 변경에 사용할 수 있습니다. For example, adding a new message type can be indicated by defining a new bit in the standard, and existing parsers will ignore the new message type. 이는 알 수 없는 비트 중 하나가 설정되어 있으면, 파서가 해당 비트를 무시할 수 있음을 의미합니다.
+- `incompat_flags`: 비호환성 플래그 비트값.
+  - `incompat_flags[0]`: *DATA_APPENDED* (Bit 0): if set, the log contains appended data and at least one of the `appended_offsets` is non-zero.
 
-- 'I': information message.
-  ```c
-  struct message_info_s {
-  struct message_header_s header;
+  The rest of the bits are currently not defined and must be set to 0. 이것은 기존 파서가 처리할 수 없는 주요 변경 사항을 도입하는 데 사용할 수 있습니다. For example, when an old ULog parser that didn't have the concept of *DATA_APPENDED* reads the newer ULog, it would stop parsing the log as the log will contain out-of-spec messages / concepts. If a parser finds any of these bits set that isn't specified, it must refuse to parse the log.
+- `appended_offsets`: File offset (0-based) for appended data. 데이터가 추가되지 않은 경우에는 모든 오프셋은 0이어야 합니다. 이것은 메시지 중간에 멈출 수 있는 로그에 대한 데이터를 안정적으로 추가할 수 있습니다. For example, crash dumps.
+
+  데이터를 추가하는 프로세스는 다음과 같습니다.
+  - set the relevant `incompat_flags` bit
+  - set the first `appended_offsets` that is currently 0 to the length of the log file without the appended data, as that is where the new data will start
+  - append any type of messages that are valid for the Data section.
+
+향후 ULog 사양에서 이 메시지 끝에 추가 필드가 존재할 수 있습니다. 이것은 파서가 이 메시지의 고정된 길이를 가정해서는 안 된다는 것을 의미합니다. If the `msg_size` is bigger than expected (currently 40), any additional bytes must be ignored/discarded.
+
+#### 'F': Format Message
+
+Format message defines a single message name and it's inner fields in a single string.
+
+```c
+struct message_format_s {
+  struct message_header_s header; // msg_type = 'F'
+  char format[header.msg_size];
+};
+```
+
+- `format` is a plain-text string with the following format: `message_name:field0;field1;`
+  - There can be an arbitrary amount of fields (minimum 1), separated by `;`.
+
+A `field` has the format: `type field_name`, or for an array: `type[array_length] field_name` is used (only fixed size arrays are supported).
+
+A `type` is one of the [basic binary types](#data-types) or a `message_name` of another format definition (nested usage).
+- 유형은 정의되기 전에 사용할 수 있습니다.
+  - e.g. The message `MessageA:MessageB[2] msg_b` can come before the `MessageB:uint_8[3] data`
+- There can be arbitrary nesting but **no circular dependencies**
+  - e.g. `MessageA:MessageB[2] msg_b` & `MessageB:MessageA[4] msg_a`
+
+일부 필드 이름은 특별합니다.
+- `timestamp`: every [Subscription Message](#a-subscription-message) must include a timestamp field
+  - 유형은 `uint64_t`(현재 유일하게 사용됨), `uint32_t`, `uint16_t` 또는 `uint8_t`일 수 있습니다.
+  - The unit is always microseconds, except for in `uint8_t` where the unit is in milliseconds.
+  - 타임스탬프는 `msg_id`가 동일한 메시지 시리즈에 대해 항상 단조 증가해야 합니다.
+  - Optionally, when using a small timestamp datatype such as `uint8_t`, the log writer must make sure to log messages often enough to be able to detect **wrap-arounds** (when the timestamp overflows the data type and goes back to 0)
+  - In that case, the log reader must handle wrap-arounds as well, and take into account dropouts.
+- `_padding{}`: field names that start with `_padding` (e.g. `_padding[3]`) should not be displayed and their data must be ignored by a reader.
+  - 이 필드는 올바른 정렬을 보장하기 위하여 작성자가 삽입할 수 있습니다.
+  - If the padding field is the last field, then this field may not be logged, to avoid writing unnecessary data.
+  - 즉, `message_data_s.data`가 패딩 크기만큼 짧아집니다.
+  - 그러나 메시지가 중첩 정의에서 사용될 때 패딩은 여전히 필요합니다.
+
+#### 'I': Information Message
+
+The Information message defines a dictionary type definition `key` : `value` pair for any information, including but not limited to Hardware version, Software version, Build toolchain for the software, etc.
+
+```c
+struct ulog_message_info_header_s {
+  struct message_header_s header; // msg_type = 'I'
   uint8_t key_len;
   char key[key_len];
-  char value[header.msg_size-hdr_size-1-key_len]
+  char value[header.msg_size-1-key_len]
 };
-  ```
-  `key` is a plain string, as in the format message (can also be a custom type), but consists of only a single field without ending `;`, eg. `float[3] myvalues`. `value` contains the data as described by `key`.
+```
 
-  Note that an information message with a certain key must occur at most once in the entire log. Parsers can store information messages as a dictionary.
+- `key_len`: Length of the key value
+- `key`: Contains the key string. eg. `char[value_len] sys_toolchain_ver`
+- `value`: Contains the data (with the length `value_len`) corresponding to the `key` e.g. `9.4.0`.
 
-  Predefined information messages are:
+:::note
+A key : value pair defined in the Information message should be unique. Meaning there shouldn't be more than one definition with the same key value!
+:::
 
-| key                                 | Description                                 | Example for value  |
-| ----------------------------------- | ------------------------------------------- | ------------------ |
-| char[value_len] sys_name          | Name of the system                          | "PX4"              |
-| char[value_len] ver_hw            | Hardware version (board)                    | "PX4FMU_V4"        |
-| char[value_len] ver_hw_subtype    | Board subversion (variation)                | "V2"               |
-| char[value_len] ver_sw            | Software version (git tag)                  | "7f65e01"          |
-| char[value_len] ver_sw_branch     | git branch                                  | "master"           |
-| uint32_t ver_sw_release           | Software version (see below)                | 0x010401ff         |
-| char[value_len] sys_os_name       | Operating System Name                       | "Linux"            |
-| char[value_len] sys_os_ver        | OS version (git tag)                        | "9f82919"          |
-| uint32_t ver_os_release           | OS version (see below)                      | 0x010401ff         |
-| char[value_len] sys_toolchain     | Toolchain Name                              | "GNU GCC"          |
-| char[value_len] sys_toolchain_ver | Toolchain Version                           | "6.2.1"            |
-| char[value_len] sys_mcu           | Chip name and revision                      | "STM32F42x, rev A" |
-| char[value_len] sys_uuid          | Unique identifier for vehicle (eg. MCU ID)  | "392a93e32fa3"...  |
-| char[value_len] log_type          | Type of the log (full log if not specified) | "mission"          |
-| char[value_len] replay              | File name of replayed log if in replay mode | "log001.ulg"       |
-| int32_t time_ref_utc              | UTC Time offset in seconds                  | -3600              |
+파서는 정보 메시지를 사전으로 저장할 수 있습니다.
 
-  The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is major, BB is minor, CC is patch and TT is the type. Type is defined as following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta version, `>= 192`: RC version, `== 255`: release version. So for example 0x010402ff translates into the release version v1.4.2.
+사전 정의된 정보 메시지는 다음과 같습니다.
 
-  This message can also be used in the Data section (this is however the preferred section).
+| 키                                   | 설명                      | 예제 값               |
+| ----------------------------------- | ----------------------- | ------------------ |
+| `char[value_len] sys_name`          | 시스템 이름                  | "PX4"              |
+| `char[value_len] ver_hw`            | 하드웨어 버전 (보드)            | "PX4FMU_V4"        |
+| `char[value_len] ver_hw_subtype`    | 보드 하위 버전(변형판)           | "V2"               |
+| `char[value_len] ver_sw`            | 소프트웨어 버전(git tag)       | "7f65e01"          |
+| `char[value_len] ver_sw_branch`     | git branch              | "master"           |
+| `uint32_t ver_sw_release`           | 소프트웨어 버전 (아래 참고)        | 0x010401ff         |
+| `char[value_len] sys_os_name`       | 운영체제 이름                 | "Linux"            |
+| `char[value_len] sys_os_ve`r        | 운영체제 버전 (git tag)       | "9f82919"          |
+| `uint32_t ver_os_release`           | 운영체제 버전 (아래 참고)         | 0x010401ff         |
+| `char[value_len] sys_toolchain`     | 툴체인 이름                  | "GNU GCC"          |
+| `char[value_len] sys_toolchain_ver` | 툴체인 버전                  | "6.2.1"            |
+| `char[value_len] sys_mcu`           | 칩 이름과 버전                | "STM32F42x, rev A" |
+| `char[value_len] sys_uuid`          | 차량 고유 식별자(예: MCU ID)    | "392a93e32fa3"...  |
+| `char[value_len] log_type`          | 로그 형식(지정하지 않으면 전체 기록)   | "mission"          |
+| `char[value_len] replay`            | 재생 모드인 경우 재생된 로그의 파일 이름 | "log001.ulg"       |
+| `int32_t time_ref_utc`              | UTC 시간 오프셋(초)           | -3600              |
+
+:::note
+`value_len` represents the data size of the `value`. This is described in the `key`.
+:::
+
+- The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is **major**, BB is **minor**, CC is patch and TT is the **type**.
+  - **Type** is defined as following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta version, `>= 192`: RC version, `== 255`: release version.
+  - For example, `0x010402FF` translates into the release version v1.4.2.
+
+이 메시지는 데이터 섹션에서도 사용할 수 있습니다(그러나 선호하는 섹션임).
+
+#### 'M': Multi Information Message
+
+Multi information message serves the same purpose as the information message, but for long messages or multiple messages with the same key.
+
+```c
+struct ulog_message_info_multiple_header_s {
+  struct message_header_s header; // msg_type = 'M'
+  uint8_t is_continued; // can be used for arrays
+  uint8_t key_len;
+  char key[key_len];
+  char value[header.msg_size-2-key_len]
+};
+```
+
+* `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
+
+파서는 다중 메시지를 로그에서 발생하는 메시지와 동일한 순서를 사용하여 2D 목록으로 저장할 수 있습니다.
+
+#### 'P': Parameter Message
+
+Parameter message in the _Definitions_ section defines the parameter values of the vehicle when logging is started. It uses the same format as the [Information Message](#i-information-message).
+
+```c
+struct message_info_s {
+  struct message_header_s header; // msg_type = 'P'
+  uint8_t key_len;
+  char key[key_len];
+  char value[header.msg_size-1-key_len]
+};
+```
+
+If a parameter dynamically changes during runtime, this message can also be [used in the Data section](#messages-shared-with-the-definitions-section) as well.
+
+The data type is restricted to `int32_t` and `float`.
+
+#### 'Q': Default Parameter Message
+
+The default parameter message defines the default value of a parameter for a given vehicle and setup.
+
+```c
+struct ulog_message_parameter_default_header_s {
+  struct message_header_s header; // msg_type = 'Q'
+  uint8_t default_types;
+  uint8_t key_len;
+  char key[key_len];
+  char value[header.msg_size-2-key_len]
+};
+```
+
+* `default_types`는 비트 필드이며 값이 속한 그룹을 정의합니다.
+  * 최소한 하나의 비트가 설정되어야 합니다.
+    * `1<<0`:: 시스템 전체 기본값
+    * `1<<1`: 현재 설정(예: 기체)의 기본값
+
+로그에는 모든 매개변수에 대한 기본값이 포함되어 있지 않을 수 있습니다. 이러한 경우 기본값은 매개변수 값과 같고, 다른 기본 유형은 독립적으로 처리됩니다.
+
+This message can also be used in the Data section, and the data type is restricted to `int32_t` and `float`.
+
+This section ends before the start of the first [Subscription Message](#a-subscription-message) or [Logging](#l-logged-string-message) message, whichever comes first.
 
 
-- 'M': information message multi.
+### 데이터 섹션
+
+The message types in the _Data_ section are:
+
+1. [Subscription](#a-subscription-message)
+2. [Unsubscription](#r-unsubscription-message)
+3. [Logged Data](#d-logged-data-message)
+4. [Logged String](#l-logged-string-message)
+5. [Tagged Logged String](#c-tagged-logged-string-message)
+6. [Synchronization](#s-synchronization-message)
+7. [Dropout Mark](#o-dropout-message)
+8. [Information](#i-information-message)
+9. [Multi Information](#m-multi-information-message)
+10. [Parameter](#p-parameter-message)
+11. [Default Parameter](#q-default-parameter-message)
+
+#### `A`: Subscription Message
+
+Subscribe a message by name and give it an id that is used in [Logged data Message](#d-logged-data-message). This must come before the first corresponding [Logged data Message](#d-logged-data-message).
+
+```c
+struct message_add_logged_s {
+  struct message_header_s header; // msg_type = 'A'
+  uint8_t multi_id;
+  uint16_t msg_id;
+  char message_name[header.msg_size-3];
+};
+```
+
+- `multi_id`: 동일한 메시지 형식에 여러 인스턴스가 있을 수 있습니다(예: 시스템에 동일한 유형의 센서가 두 개 있는 경우). 기본 및 첫 번째 인스턴스는 0이어야 합니다.
+- `msg_id`: unique id to match [Logged data Message](#d-logged-data-message) data. 처음 사용할 때는 이것을 0으로 설정한 다음 증가시켜야 합니다.
+  - The same `msg_id` must not be used twice for different subscriptions.
+- `message_name`: 구독할 메시지 이름입니다. Must match one of the [Format Message](#f-format-message) definitions.
+
+#### `R`: Unsubscription Message
+
+Unsubscribe a message, to mark that it will not be logged anymore (not used currently).
+
+```c
+struct message_remove_logged_s {
+  struct message_header_s header; // msg_type = 'R'
+  uint16_t msg_id;
+};
+```
+
+#### 'D': Logged Data Message
+
+```c
+struct message_data_s {
+  struct message_header_s header; // msg_type = 'D'
+  uint16_t msg_id;
+  uint8_t data[header.msg_size-2];
+};
+```
+
+- `msg_id`: as defined by a [Subscription Message](#a-subscription-message)
+- `data` contains the logged binary message as defined by [Format Message](#f-format-message)
+
+패딩 필드의 특수 처리에 대해서는 위를 참고하십시오.
+
+#### 'L': Logged String Message
+
+Logged string message, i.e. `printf()` output.
+
+```c
+struct message_logging_s {
+  struct message_header_s header; // msg_type = 'L'
+  uint8_t log_level;
+  uint64_t timestamp;
+  char message[header.msg_size-9]
+};
+```
+
+* `timestamp`: in microseconds
+* `log_level`: same as in the Linux kernel:
+
+| 이름      | 레벨  | 설명            |
+| ------- | --- | ------------- |
+| EMERG   | '0' | 시스템 사용 불가     |
+| ALERT   | '1' | 즉시 조치         |
+| CRIT    | '2' | 임계 조건         |
+| ERR     | '3' | 오류 조건         |
+| WARNING | '4' | 경고 조건         |
+| NOTICE  | '5' | 정상적이지만 중요한 상태 |
+| INFO    | '6' | 정보 제공         |
+| DEBUG   | '7' | 디버그 수준 메시지    |
+
+#### 'C': Tagged Logged String Message
+
+```c
+struct message_logging_tagged_s {
+  struct message_header_s header; // msg_type = 'C'
+  uint8_t log_level;
+  uint16_t tag;
+  uint64_t timestamp;
+  char message[header.msg_size-9]
+};
+```
+
+* `tag`: 기록된 메시지 문자열의 소스를 나타내는 ID입니다. 시스템 아키텍처에 따라 프로세스, 스레드 또는 클래스를 나타낼 수 있습니다.
+  * For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the `tag` attribute of struct as follows:
+
   ```c
-  struct ulog_message_info_multiple_header_s {
-      uint8_t is_continued; ///&#060; can be used for arrays
-      uint8_t key_len;
-      char key[key_len];
-      char value[header.msg_size-hdr_size-2-key_len]
-  };
-  ```
-  The same as the information message, except that there can be multiple messages with the same key (parsers store them as a list). The `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key. Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
-
-- 'P': parameter message. Same format as `message_info_s`. If a parameter dynamically changes during runtime, this message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
-
-This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
-
-
-### Data Section
-
-The following messages belong to this section:
-- 'A': subscribe a message by name and give it an id that is used in `message_data_s`. This must come before the first corresponding `message_data_s`.
-  ```c
-  struct message_add_logged_s {
-      struct message_header_s header;
-      uint8_t multi_id;
-      uint16_t msg_id;
-      char message_name[header.msg_size-hdr_size-3];
-  };
-  ```
-  `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. The default and first instance must be 0. `msg_id`: unique id to match `message_data_s` data. The first use must set this to 0, then increase it. The same `msg_id` must not be used twice for different subscriptions, not even after unsubscribing. `message_name`: message name to subscribe to. Must match one of the `message_format_s` definitions.
-
-- 'R': unsubscribe a message, to mark that it will not be logged anymore (not used currently).
-  ```c
-  struct message_remove_logged_s {
-      struct message_header_s header;
-      uint16_t msg_id;
-  };
-  ```
-
-- 'D': contains logged data.
-  ```
-  struct message_data_s {
-      struct message_header_s header;
-      uint16_t msg_id;
-      uint8_t data[header.msg_size-hdr_size];
-  };
-  ```
-  `msg_id`: as defined by a `message_add_logged_s` message. `data` contains the logged binary message as defined by `message_format_s`. See above for special treatment of padding fields.
-
-- 'L': Logged string message, i.e. printf output.
-  ```
-  struct message_logging_s {
-      struct message_header_s header;
-      uint8_t log_level;
-      uint64_t timestamp;
-      char message[header.msg_size-hdr_size-9]
-  };
-  ```
-  `timestamp`: in microseconds, `log_level`: same as in the Linux kernel:
-
-| Name    | Level value | Meaning                          |
-| ------- | ----------- | -------------------------------- |
-| EMERG   | '0'         | System is unusable               |
-| ALERT   | '1'         | Action must be taken immediately |
-| CRIT    | '2'         | Critical conditions              |
-| ERR     | '3'         | Error conditions                 |
-| WARNING | '4'         | Warning conditions               |
-| NOTICE  | '5'         | Normal but significant condition |
-| INFO    | '6'         | Informational                    |
-| DEBUG   | '7'         | Debug-level messages             |
-
-- 'C': Tagged Logged string message
-  ```
-  struct message_dropout_s {
-      struct message_header_s header;
-      uint16_t duration;
-  };
-  ```
-  `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture. For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the tag attribute of `message_logging_tagged_s` struct as follows:
-
-  ```
-enum class ulog_tag : uint16_t {
+  enum class ulog_tag : uint16_t {
     unassigned,
     mavlink_handler,
     ppk_handler,
@@ -232,77 +394,92 @@ enum class ulog_tag : uint16_t {
     io_service,
     cbuf,
     ulg
+  };
+  ```
+
+* `timestamp`: in microseconds
+* `log_level`: same as in the Linux kernel:
+
+| 이름      | 레벨  | 설명            |
+| ------- | --- | ------------- |
+| EMERG   | '0' | 시스템 사용 불가     |
+| ALERT   | '1' | 즉시 조치         |
+| CRIT    | '2' | 임계 조건         |
+| ERR     | '3' | 오류 조건         |
+| WARNING | '4' | 경고 조건         |
+| NOTICE  | '5' | 정상적이지만 중요한 상태 |
+| INFO    | '6' | 정보 제공         |
+| DEBUG   | '7' | 디버그 수준 메시지    |
+
+#### 'S': Synchronization message
+
+Synchronization message so that a reader can recover from a corrupt message by searching for the next sync message.
+
+```c
+struct message_sync_s {
+  struct message_header_s header; // msg_type = 'S'
+  uint8_t sync_magic[8];
 };
-  ```
+```
 
-  `timestamp`: in microseconds `log_level`: same as in the Linux kernel:
+* `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
-| Name    | Level value | Meaning                          |
-| ------- | ----------- | -------------------------------- |
-| EMERG   | '0'         | System is unusable               |
-| ALERT   | '1'         | Action must be taken immediately |
-| CRIT    | '2'         | Critical conditions              |
-| ERR     | '3'         | Error conditions                 |
-| WARNING | '4'         | Warning conditions               |
-| NOTICE  | '5'         | Normal but significant condition |
-| INFO    | '6'         | Informational                    |
-| DEBUG   | '7'         | Debug-level messages             |
+#### 'O': Dropout message
 
-- 'S': synchronization message so that a reader can recover from a corrupt message by searching for the next sync message (not used currently).
-  ```
-  struct message_sync_s {
-      struct message_header_s header;
-      uint8_t sync_magic[8];
-  };
-  ```
-  `sync_magic`: to be defined.
+Mark a dropout (lost logging messages) of a given duration in ms.
 
-- 'O': mark a dropout (lost logging messages) of a given duration in ms. Dropouts can occur e.g. if the device is not fast enough.
-  ```
-  struct message_dropout_s {
-    struct message_header_s header;
-    uint16_t duration;
-  };
-  ```
+장치가 충분히 빠르지 않은 경우에는 손실이 발생할 수 있습니다.
 
-- 'I': information message. See above.
+```c
+struct message_dropout_s {
+  struct message_header_s header; // msg_type = 'O'
+  uint16_t duration;
+};
+```
 
-- 'M': information message multi. See above.
+#### Messages shared with the Definitions Section
 
-- 'P': parameter message. See above.
+Since the Definitions and Data Sections use the same message header format, they also share the same messages listed below:
 
+- [Information Message](#i-information-message).
+- [Multi Information Message](#m-multi-information-message)
+- [Parameter Message](#p-parameter-message)
+  - For the _Data_ section, the Parameter Message is used when the parameter value changes
+- [Default Parameter Message](#q-default-parameter-message)
 
-## Requirements for Parsers
+## 파서 요구 사항
 
-A valid ULog parser must fulfill the following requirements:
-- Must ignore unknown messages (but it can print a warning).
-- Parse future/unknown file format versions as well (but it can print a warning).
-- Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of `ulog_message_flag_bits_s` message), meaning the log contains breaking changes that the parser cannot handle.
-- A parser must be able to correctly handle logs that end abruptly, in the middle of a message. The unfinished message should just be discarged.
-- For appended data: a parser can assume the Data section exists, i.e. the offset points to a place after the Definitions section.
+유효한 ULog 파서는 요구 사항은 다음과 같습니다.
 
-  Appended data must be treated as if it was part of the regular Data section.
+- Must ignore unknown messages (but it can print a warning)
+- 미래의/알 수 없는 파일 형식 버전도 구문 분석합니다(하지만 경고를 인쇄할 수 있음).
+- Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of [Flag Bits Message](#b-flag-bits-message)), meaning the log contains breaking changes that the parser cannot handle.
+- 파서는 메시지 중간에 갑자기 끝나는 로그를 올바르게 처리할 수 있어야 합니다. 완료되지 않은 메시지는 무시하여야 합니다.
+- 추가된 데이터의 경우: 파서는 데이터 섹션이 존재한다고 가정할 수 있습니다. 즉 오프셋은 정의 섹션 뒤의 위치를 가리킵니다.
+  - 추가된 데이터는 일반 데이터 섹션의 일부인 것처럼 처리하여야 합니다.
 
+## Known Parser Implementations
 
-## Known Implementations
-
-- PX4 Firmware: C++
-  - [logger module](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
-  - [replay module](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
-  - [hardfault_log module](https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log): append hardfault crash data.
-- [pyulog](https://github.com/PX4/pyulog): python, ULog parser library with CLI scripts.
-- [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.
-- [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis): Python, log plotter and 3D visualization tool based on pyulog.
-- [MAVLink](https://github.com/mavlink/mavlink): Messages for ULog streaming via MAVLink (note that appending data is not supported, at least not for cut off messages).
-- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, ULog streaming via MAVLink and minimal parsing for GeoTagging.
-- [mavlink-router](https://github.com/01org/mavlink-router): C++, ULog streaming via MAVLink.
-- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
-- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. Supports ULog since version 2.1.3.
-- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
+- PX4-오토파일럿: C++
+  - [로거 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/logger)
+  - [재생 모듈](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
+  - [hardfault_log 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log): hardfault 충돌 데이터를 추가합니다.
+- [pyulog](https://github.com/PX4/pyulog): python, CLI 스크립트가 있는 ULog 파서 라이브러리
+- [FlightPlot](https://github.com/PX4/FlightPlot): 자바, 로그 플로터
+- [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis): Python, pyulog 기반의 로그 플로터 및 3D 시각화 도구입니다.
+- [MAVLink](https://github.com/mavlink/mavlink): MAVLink를 통한 ULog 스트리밍용 메시지(적어도 잘린 메시지의 경우 데이터 추가는 지원되지 않습니다.)
+- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, MAVLink를 통한 ULog 스트리밍 및 GeoTagging에 대한 최소한의 구문 분석
+- [mavlink-router](https://github.com/01org/mavlink-router): C++, MAVLink를 통한 ULog 스트리밍
+- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, MAVLink를 통한 ULog 스트리밍 및 플로팅 및 분석용 파서
+- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): 로그 및 시계열을 플롯하는 C++/Qt 응용 프로그램입니다. 버전 2.1.3부터 ULog를 지원합니다.
+- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog 리더 및 파서는 JSON 개체 형식의 로그를 출력합니다.
 
 
-## File Format Version History
+## 파일 형식 버전 이력
 
-### Changes in version 2
+### 버전 2의 변경 사항
 
-Addition of `ulog_message_info_multiple_header_s` and `ulog_message_flag_bits_s` messages and the ability to append data to a log. This is used to add crash data to an existing log. If data is appended to a log that is cut in the middle of a message, it cannot be parsed with version 1 parsers. Other than that forward and backward compatibility is given if parsers ignore unknown messages.
+* Addition of [Multi Information Message](#m-multi-information-message) and [Flag Bits Message](#b-flag-bits-message) and the ability to append data to a log.
+  * 기존 로그에 충돌 데이터를 추가하는 데 사용됩니다.
+  * 메시지 중간에 잘린 로그에 데이터가 추가되면, 버전 1 파서로 파싱할 수 없습니다.
+* 그 외의 파서가 알 수 없는 메시지를 무시하면, 순방향 및 역방향 호환성이 제공됩니다.

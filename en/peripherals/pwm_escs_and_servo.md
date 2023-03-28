@@ -58,9 +58,16 @@ On an opto-isolated ESC **without** BEC, the +5V line might need to be connected
 In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC. 
 
 
-## PWM Configuration
+## PX4 Configuration
 
-The PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
+Configure the outputs using the following parameters:
+- [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) (IO) and/or [PWM_AUX_RATE](../advanced_config/parameter_reference.md#PWM_AUX_RATE) (FMU): Set to the highest frame rate supported by the connected ESC, in Hz.
+- [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MIN](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAX](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAX](../advanced_config/parameter_reference.md#PWM_AUX_MAX): Set to the normal PWM range, nominally `1000` to `2000`.
+- [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG): Set to `0` in order to disable DShot.
+
+Then perform [ESC Calibration](../advanced_config/esc_calibration.md).
+
+Additional  PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
 
 
 ## Troubleshooting
@@ -91,7 +98,7 @@ See the first section of this page explains for other power connection considera
 
 Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
 
-PX4 sends a value of [PWM_DISARMED](../advanced_config/parameter_reference.md#PWM_DISARMED) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. 
+PX4 sends a value of [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. 
 
 This value should be set correctly for the ESC (correct values vary between roughly 1200 and 900 us). 
 
@@ -99,7 +106,7 @@ This value should be set correctly for the ESC (correct values vary between roug
 
 Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on. 
 
-PX4 flight stack sends the [PWM_DISARMED](../advanced_config/parameter_reference.md#PWM_DISARMED) pulse idle/disarmed pulse right after power on.
+PX4 flight stack sends the [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse idle/disarmed pulse right after power on.
 Provided this is configured correctly, ESCs will not time out.
 
 ### Valid Pulse Shape, Voltage and Update Rate

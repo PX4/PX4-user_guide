@@ -1,26 +1,26 @@
-# PilotPi with Raspberry Pi OS
+# 라즈베리 파이 OS 기반 파일럿파이
 
-## Developer Quick Start
+## 개발자 가이드
 
-### OS Image
+### 운영체제 이미지
 
-The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
+항상 최신의 공식 [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) 이미지를 사용하는 것을 권장합니다.
 
-To install you must already have a working SSH connection to RPi.
+설치를 위히 라즈베리파이에 SSH 연결이 가능하여야 합니다.
 
-### Setting up Access (Optional)
+### 접근 설정 (선택 사항)
 
-#### Hostname and mDNS
+#### 호스트명과 mDNS
 
-mDNS helps you connect to your RasPi with hostname instead of IP address.
+mDNS 사용하면, IP 주소 대신 호스트명으로 라즈베리파이에 연결할 수 있습니다.
 
 ```sh
 sudo raspi-config
 ```
 
-Navigate to **Network Options > Hostname**. Set and exit. You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
+**Network Options > Hostname**로 이동하십시오. 설정하고 종료합니다. [비밀번호 없는 인증](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)도 설정 가능합니다.
 
-### Setting up OS
+### 운영체제 설정
 
 #### config.txt
 
@@ -28,7 +28,7 @@ Navigate to **Network Options > Hostname**. Set and exit. You may want to setup 
 sudo nano /boot/config.txt
 ```
 
-Replace the file with:
+파일을 다음의 내용으로 변경합니다.
 
 ```sh
 # enable sc16is752 overlay
@@ -51,55 +51,55 @@ dtoverlay=miniuart-bt
 sudo raspi-config
 ```
 
-**Interfacing Options > Serial > login shell = No > hardware = Yes**. Enable UART but without a login shell on it.
+**Interfacing Options > Serial > login shell = No > hardware = Yes**. 로그인 셸없이 UART를 활성화합니다.
 
 ```sh
 sudo nano /boot/cmdline.txt
 ```
 
-Append `isolcpus=2` after the last word. The whole file would be:
+마지막 단어 뒤에 `isolcpus=2`를 추가합니다. 전체 파일은 다음과 같습니다.
 
 ```sh
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
 
-This tells the Linux kernel not to schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+이것은 리눅스 커널이 CPU 코어 2에서 프로세스를 예약하지 않도록 지시합니다. 나중에 해당 코어에서 PX4를 수동으로 실행합니다.
 
-Reboot and SSH onto your RasPi.
+재부팅하고 라즈베리파이에 SSH로 로그인합니다.
 
-Check UART interface:
+UART 인터페이스를 확인합니다.
 
 ```sh
 ls /dev/tty*
 ```
 
-There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
+`/dev/ttyAMA0`, `/dev/ttySC0` 및 `/dev/ttySC1` 파일이 있어야합니다.
 
-Check I2C interface:
+I2C 인터페이스를 확인합니다.
 
 ```sh
 ls /dev/i2c*
 ```
 
-There should be `/dev/i2c-0` and `/dev/i2c-1`
+`/dev/i2c-0` 와 `/dev/i2c-1` 파일이 있어야 합니다.
 
-Check SPI interface
+SPI 인터페이스를 확인합니다.
 
 ```sh
 ls /dev/spidev*
 ```
 
-There should be `/dev/spidev0.0`.
+`/dev/spidev0.0` 파일이 있어야 합니다.
 
 #### rc.local
 
-In this section we will configure the auto-start script in **rc.local**.
+이 섹션에서는 **rc.local** 자동 시작 스크립트를 설정합니다.
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
-Append below content to the file above `exit 0`:
+`exit 0` 줄 위에 아래 내용을 추가합니다.
 
 ```sh
 echo "25" > /sys/class/gpio/export
@@ -111,16 +111,16 @@ fi
 echo "25" > /sys/class/gpio/unexport
 ```
 
-Save and exit.
+저장후 종료합니다.
 
 :::note
-Don't forget to turn off the switch when it is not needed.
+필요 없는 경우에는 스위치를 꺼는 것을 잊지 마십시오.
 :::
 
-#### CSI camera
+#### CSI 카메라
 
 :::note
-Enable CSI camera will stop anything works on I2C-0.
+Enable CSI 카메라는 I2C-0에서 작동하는 모든 것을 중지합니다.
 :::
 
 ```sh
@@ -129,111 +129,106 @@ sudo raspi-config
 
 **Interfacing Options > Camera**
 
-### Building the code
+### 코드 빌드
 
-To get the *very latest* version onto your computer, enter the following command into a terminal:
+터미널에 다음 명령을 실행하여 *최신* 버전의 소스를 복제하십시오.
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code.
+최신 코드를 빌드하는 과정입니다. 
 :::
 
-#### Cross build for Raspberry Pi OS
+#### Raspberry Pi OS용 크로스 빌드
 
-Set the IP (or hostname) of your RPi using:
+다음을 사용하여 라즈베리파이의 IP(또는 호스트 이름)를 설정합니다.
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-or
+또는
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
 ```
 
-Build the executable file:
+실행 파일을 빌드하십시오.
 
 ```sh
 cd PX4-Autopilot
 make scumaker_pilotpi_default
 ```
 
-Then upload it with:
+다음 명령으로 업로드하십시오.
 
 ```sh
 make scumaker_pilotpi_default upload
 ```
 
-Connect over ssh and run it with:
+ssh에서 다음을 명령어를 실행하십시오.
 
 ```sh
 cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-Now PX4 is started with multi-rotor configuration.
+이제 PX4는 다중로터 설정으로 시작합니다.
 
-If you encountered the similar problem executing `bin/px4` on your Pi as following:
+라즈베리파이에서 `bin/px4`를 실행시 다음과 같은 유사한 문제가 발생한 경우:
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-Then you should compile with docker instead.
+docker로 컴파일하여야 합니다.
 
-Before proceeding to next step, clear the existing building at first:
+다음 단계로 진행하기 전에 먼저 기존 빌드를 삭제합니다.
 
 ```sh
 rm -rf build/scumaker_pilotpi_default
 ```
 
-### Alternative build method (using docker)
+### 대체 빌드 방법 (도커 사용)
 
-The following method can provide the same tool-sets deployed in CI.
+다음 방법은 CI에 배포된 동일한 도구 세트를 제공할 수 있습니다.
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
-Execute the command in PX4-Autopilot folder:
+PX4-Autopilot 폴더에서 다음 명령을 실행합니다.
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주소를 설정하여야합니다.
 :::
 
-:::note
-If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. 업로드하지 않고도 컴파일할 수 있습니다. `upload` 대상을 제거하십시오.
 :::
 
-It is also possible to just compile the code with command:
+다음 명령으로 코드를 컴파일합니다.
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_default"
 ```
 
-### Post-configuration
+### 사후 설정
 
-You need to check these extra items to get your vehicle work properly.
+기체가 제대로 작동하려면 이러한 추가 항목을 확인하여야 합니다.
 
-#### Mixer file
+#### Actuator Configuration
 
-Mixer file is defined in `pilotpi_xx.conf`:
+First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-```sh
-mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
-```
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
 
-All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
+#### External Compass
 
-#### External compass
-
-In the startup script(`*.config`), you will find
+시작 스크립트(`*. config`)에서 다음을 찾을 수 있습니다.
 
 ```sh
 # external GPS & compass
@@ -242,7 +237,7 @@ gps start -d /dev/ttySC0 -i uart -p ubx -s
 #ist8310 start -X
 ```
 
-Uncomment the correct one for your case. Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
+사용자의 환경에 맞추어 주석을 적절하게 제거하십시오. GPS 모듈과 함께 제공되는 나침반이 확실하지 않습니까? 다음 명령을 실행하고 출력을 확인합니다.
 
 ```sh
 sudo apt-get update
@@ -250,7 +245,7 @@ sudo apt-get install i2c-tools
 i2cdetect -y 0
 ```
 
-Sample output:
+샘플 출력:
 
 ```
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
@@ -264,8 +259,8 @@ Sample output:
 70: -- -- -- -- -- -- -- --
 ```
 
-`1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
+`1e`는 HMC5883 기반 나침반이 외부 I2C 버스에 장착되어 있음을 나타냅니다. 마찬가지로, IST8310의 값은 `0e`입니다.
 
 :::note
-Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+일반적으로 그중 하나에 나타납니다. 외부 I2C 버스에 연결된 경우 다른 장치도 여기에 같이 표시됩니다. (`/dev/i2c-0`)
 :::

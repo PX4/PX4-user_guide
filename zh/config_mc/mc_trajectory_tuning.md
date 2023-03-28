@@ -1,60 +1,74 @@
 # 多旋翼设定值调整（轨迹生成器）
 
-本文概述了改变*用户体验*的多旋翼参数如何调整：比如机体对摇杆的响应快慢，执行任务过程中的方向改变快慢，最大速度等。
+This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc.
 
-换言之，本话题解释了如何调整那些影响生成*期望值*的参数，而不是那些影响机体*跟踪*期望值的参数。
+In other words, this topic explains how to tune the parameters that affect the value of a *desired setpoint* rather than those that affect how well the vehicle *tracks* the setpoint).
 
 生成这些设定点的算法称为“轨迹生成器”。
 
 :::warning
+
 本指南适用于高级用户/专家。
 :::
 
 :::tip
-在做任何本文所述的调校*之前*，请先按照[多旋翼 PID 调整指南](../config_mc/pid_tuning_guide_multicopter.md)中的说明进行操作。 请不要试图通过调整这些参数来修复错误的轨迹或抖动。
+Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the tuning described here. 请不要试图通过调整这些参数来修复错误的轨迹或抖动。
 :::
 
 ## 综述
 
-P/PID控制器的输入是飞行器尝试跟踪的*期望设定值*。 [PID 调参](../config_mc/pid_tuning_guide_multicopter.md)（“底层调参”）旨在减少期望设定值和机体状态估计值之间的误差。
+The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID 调参](../config_mc/pid_tuning_guide_multicopter.md)（“底层调参”）旨在减少期望设定值和机体状态估计值之间的误差。
 
-发送给 P/PID 控制器的*期望设定值*本身是根据摇杆位置（在遥控模式下）或任务指令的*要求设定值*计算的。 要求设定值可能会改变得很快（例如，如果用户“一下子”将摇杆从零移动到最大值）。 如果缓慢调整相应的目标设定值, 飞行器的特性就会更好。
+The *desired setpoint* passed to the P/PID controller is itself calculated from a *demanded setpoint* based on a stick position (in RC modes) or from a mission command. 要求设定值可能会改变得很快（例如，如果用户“一下子”将摇杆从零移动到最大值）。 如果缓慢调整相应的目标设定值, 飞行器的特性就会更好。
 
-*期望值调试* ("高层调试") 用来映射 *要求* 和 *目的* 期望值之间的关系- 比如在目的期望值和要求期望值之间加个“斜率”.
+*Setpoint value tuning* ("higher level tuning") is used to specify the mapping between the *demanded* and the *desired* setpoints - i.e. defining the "ramp" at which the desired setpoint follows the demanded setpoint.
 
 :::tip
-P/PID 增益<0>整定不当会导致机体不稳定。 *设定值*整定不当不会导致机体不稳定，但可能会导致产生非常大的加加速度或对设定值变化地响应不灵敏。 :::</p> 
+P/PID 增益<0>整定不当会导致机体不稳定。 Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes. :::</p>
 
-<span id="modes"></span>
+<a id="modes"></a>
 
 ## 飞行模式轨迹支持
 
 [任务模式](../flight_modes/mission.md)始终使用[加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md)轨迹。
 
-[位置模式](../flight_modes/position_mc.md)支持下文列出的所有[轨迹类型](#trajectory_implementation)。 默认情况下使用加加速度限制型<0>轨迹；若要使用其他轨迹类型可以利用 [MPC_POS_MOD](../advanced_config/parameter_reference.md#MPC_POS_MODE) 设置。</p> 
+[Position mode](../flight_modes/position_mc.md) supports the [implementations](#position-mode-implementations) listed below. It uses the acceleration based mapping by default; other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-[定高模式](../flight_modes/altitude_mc.md)同样使用 [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) 所指的[轨迹类型](#trajectory_implementation)，但*仅*用于平滑垂直分量（即仅在控制高度时使用）。
+[Altitude mode](../flight_modes/altitude_mc.md) similarly supports the [implementations](#altitude-mode-implementations) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
 
 其他模式不支持轨迹调整。
 
-<span id="trajectory_implementation"></span>
 
-## 轨迹实现
 
-下表*概述*了不同类型的轨迹实现：
+## Position Mode Implementations
 
-- [加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md) （默认） 
-  - 当需要平滑运动时使用（例如：航拍、测绘、货运）。
-  - 生成对称平滑 S-曲线，使加加速度和加速度的极限始终得到保证。
-  - 可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
-  - 通过设置 `MPC_POS_MODE=3` 在位置模式中启用。
-- [旋转速率型](../config_mc/mc_slew_rate_type_trajectory.md) 
-  - 当快速响应比平滑运动更重要时使用（例如：位置保持状态下的激烈飞行)。
-  - 这是一个简单的实现方法，在这种情况下，加加速度和加速度通过旋转速率进行限制。
-  - 它允许基于用户意图的不对称配置（平稳加速和快速停止）。 
-  - 加加速度和加速度限制不是硬性约束。
-  - 通过设置 `MPC_POS_MODE=1` 在位置模式中启用。
-- **简单位置控制** 
-  - 将摇杆直接映射为速度设置值而不进行平滑处理。
-  - 对速度控制调整非常有用。
-  - 通过设置 `MPC_POS_MODE=0` 在位置模式中启用。
+The following list provides an *overview* of the different implementations of how the stick input is interpreted and turned into trajectory setpoints:
+
+- Acceleration based (Default) 
+    - Horizontal stick input mapped to acceleration setpoints.
+  - Intuitive stick feel because it's like pushing the vehicle around.
+  - No unexpected tilt changes upon reaching travel speed velocity.
+  - Vertical stick input mapped with jerk-limited trajectory.
+  - Set in position mode using `MPC_POS_MODE=4`.
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
+    - Used when smooth motion is required (e.g.: filming, mapping, cargo).
+  - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+  - May not be suitable for vehicles/use-cases that require a faster response - e.g. race quads.
+  - Set in position mode using `MPC_POS_MODE=3`.
+- **Simple position control** 
+    - Sticks map directly to velocity setpoints without smoothing.
+  - Useful for velocity control tuning.
+  - Set in position mode using `MPC_POS_MODE=0`.
+
+
+
+## Altitude Mode Implementations
+
+Analogously to [position mode implementations](#position-mode-implementations) these are the implementations for interpreting vertical stick input:
+
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
+    - Smoothed vertical input.
+  - Set in altitude mode with `MPC_POS_MODE` 3 or 4.
+- **Simple altitude control** 
+    - Unsmoothed vertical input.
+  - Set in altitude mode only when using `MPC_POS_MODE=0`.

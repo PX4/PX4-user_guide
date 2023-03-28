@@ -59,6 +59,6 @@ Before you ask us to create a new language, please find a few other people to he
 
 ## Getting Help
 
-The *Crowdin* interface is self explanatory, but there is plenty of additional information on the [knowledgeable](https://support.crowdin.com/) and [feedback tool](https://crowdin.uservoice.com/forums/31787-collaborative-translation-tool).
+The *Crowdin* interface is self explanatory, but there is plenty of additional information on the [knowledgeable](https://support.crowdin.com/).
 
 You can also ask for help from translators and developers in the Dronecode community using [our support channels](../contribute/support.md).

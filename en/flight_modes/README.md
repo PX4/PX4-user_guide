@@ -87,8 +87,8 @@ th {
         <li>Pitch stick controls altitude (same as <a href="#altitude_fw">Altitude</a>).</li>
         <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a> (same as <a href="#stabilized_fw">Stabilized</a>).</li>
         <li>Throttle sets airspeed (same as <a href="#altitude_fw">Altitude</a>).</li> 
-        <li>Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
-        <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
+        <li>Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
      </ul></li>
    </ul>
   </p>
@@ -116,7 +116,7 @@ th {
       <ul>
        <li>Pitch stick controls altitude.</li>
        <li>Throttle stick controls the airspeed of the aircraft (as for centered RPY sticks).</li>
-       <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
+       <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
     </ul>
   </li>
   </ul>
@@ -139,7 +139,7 @@ th {
    <li>Pitch stick controls pitch angle.</li>
    <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>.</li>
    <li>Throttle stick controls throttle.</li>
-   <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
+   <li>Yaw stick adds an additional yaw rate setpoint (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
 </ul>
  </td>
 </tr>
@@ -153,7 +153,7 @@ th {
  <td>M</td>
  <td></td>
  <td><p>RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.</p>
-<p>RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.</p></td>
+<p>RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to control allocation.</p></td>
 </tr>
 
 
@@ -165,7 +165,7 @@ th {
  <td>M</td>
  <td>M</td>
  <td></td>
- <td><p>RC mode where stick input is sent directly to the output mixer (for "fully" manual control).</p>
+ <td><p>RC mode where stick input is sent directly to control allocation (for "fully" manual control).</p>
    <p>This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
    </p>
   </td>
@@ -244,12 +244,12 @@ th {
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td><p>RC mode where RPT sticks control <em>speed</em> in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
+ <td><p>RC mode where roll, pitch, throttle sticks control movement in corresponding axes/directions. Centered sticks level vehicle and hold it to fixed altitude and position against wind.
   <ul>
     <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
     <li>Outside center:
       <ul>
-       <li>Roll/Pitch sticks control speed over ground in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.</li>
+       <li>Roll/Pitch sticks control horizontal acceleration over ground in the vehicle's left-right and forward-back directions (respectively).</li>
        <li>Throttle stick controls speed of ascent-descent.</li>
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
       </ul>
@@ -323,34 +323,6 @@ th {
 </td>
 </tr>
 
-
-<tr id="rattitude_mc">
- <td><a href="../flight_modes/rattitude_mc.html">Rattitude</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
- </td>
- <td>S or S<sub>rate</sub></td>
- <td>S<sub>rate</sub></td>
- <td>M</td>
- <td></td>
- <td>
- <p>RC mode that allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired. Centered sticks level vehicle.
-  <ul>
-    <li>Sticks within mode's threshold (like <a href="#manual_stabilized_mc">Manual/Stabilized mode</a>).
-      <ul>
-       <li>Centered RP sticks level vehicle. Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
-      </ul>
-    </li>
-    <li>Sticks outside threshold (like <a href="#acro_mc">Acro mode</a>): 
-      <ul>
-       <li>RPY stick inputs control the rate of angular rotation around the respective axes.</li>
-      </ul>
-    </li>
-  </ul>
- </p>
-</td>
-</tr>
-
-
 <tr id="acro_mc">
  <td><a href="../flight_modes/acro_mc.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
@@ -360,7 +332,7 @@ th {
  <td>M</td>
  <td></td>
  <td><p>RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.</p> 
-  <p>RC RPY stick inputs control the rate of angular rotation around the respective axes. Throttle is passed directly to the output mixer.  When sticks are centered the vehicle will stop rotating, but remain in its current orientation (e.g. possibly inverted) and moving according to its current momentum.</p>
+  <p>RC RPY stick inputs control the rate of angular rotation around the respective axes. Throttle is passed directly to control allocation.  When sticks are centered the vehicle will stop rotating, but remain in its current orientation (e.g. possibly inverted) and moving according to its current momentum.</p>
  </td>
 </tr>
 
@@ -444,7 +416,7 @@ Key for understanding the table is as follows:
 
 Symbol | Description
 --- | ---
-M | Manual control via RC sticks. RC input is sent directly to the output mixer.
+M | Manual control via RC sticks. RC input is sent directly to control allocation.
 S | Assistance from autopilot to stabilize the attitude. RC input is required. Position of RC stick maps to the orientation of vehicle.
 S<sub>rate</sub> |  Assistance from autopilot to stabilize the attitude rate. RC input is required. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 S<sup>+</sup> | Assistance from autopilot to hold position or altitude against wind. RC input is required.
@@ -457,4 +429,3 @@ Auto | This mode is automatic (RC control is disabled by default except to chang
 Abbreviations:
   * RPY: Roll, Pitch, Yaw
   * RPT: Roll, Pitch Throttle
-

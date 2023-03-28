@@ -1,146 +1,157 @@
 # RTK GPS
 
-*RTK GPS* devices can be accurate to centimeter-level, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
+PX4에서는 *RTK GPS* 장치의 센티미터 수준의 정확도로 정밀측량이 가능합니다.
 
-:::note GPS
-can also be used as a source of yaw/heading information:
-
-- [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
-- [GPS that Output Yaw](../gps_compass/README.md#gps-that-output-yaw).
+:::note GPS는 요/방향 정보의 소스로 사용할 수 있습니다.
+- [듀얼 u-blox F9P를 사용한 RTK GPS 헤딩](../gps_compass/u-blox_f9p_heading.md).
+- 일부 GPS 출력 요 (아래 표 참조).
 :::
 
-## Supported RTK Devices
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS, and products that incorporate them.
+## 지원되는 RTK 장치
 
-The RTK compatible devices below have been tested. The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
+PX4는 [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) 및 [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS와 통합 제품을 지원합니다.
 
-| GPS                                                                                                                         | [Yaw Output](#rtk-gps-that-output-yaw) | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md) |
-|:--------------------------------------------------------------------------------------------------------------------------- |:--------------------------------------:|:------------------------------------------------------------:|
-| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                      |                                        |                                                              |
-| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                    |                                        |                                                              |
-| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                              |                                        |                                                              |
-| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                                                  |                                        |                                                              |
-| [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)                                                                     |                                        |                                                              |
-| [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                       |                                        |                                                              |
-| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                       |                                        |                                                              |
-| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                                                |                                        |                           &check;                            |
-| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) |                                        |                           &check;                            |
-| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/mr-m10020-a.htm)                                     |                                        |                           &check;                            |
-| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                                                  |                &check;                 |                                                              |
+PX4에서 작동하는 RTK 호환 장치(단종 된 장치 제외)는 아래와 같습니다. 표는 편요각를 출력하는 장치를 나타내며 두 개의 장치를 사용하여 편요각를 제공할 수 있습니다. It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
+
+| GPS                                                                                        | 편요각 출력  | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [DroneCAN](../dronecan/README.md) |   PPK   |
+|:------------------------------------------------------------------------------------------ |:-------:|:------------------------------------------------------------:|:---------------------------------:|:-------:|
+| [ARK RTK GPS](../dronecan/ark_rtk_gps.md)                                                  |         |                           &check;                            |              &check;              |         |
+| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                     |         |                                                              |                                   |         |
+| [CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md)                                      |         |                                                              |                                   | &check; |
+| [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md)                             |         |                           &check;                            |                                   |         |
+| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                   |         |                                                              |                                   |         |
+| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                             |         |                                                              |                                   |         |
+| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                 |         |                                                              |                                   |         |
+| [CubePilot Here3](https://www.cubepilot.org/#/here/here3)                                  |         |                                                              |              &check;              |         |
+| [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)           |         |                           &check;                            |                                   |         |
+| [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                |         |                                                              |                                   |         |
+| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                      |         |                                                              |                                   |         |
+| [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                                    |         |                                                              |                                   |         |
+| [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                                    | &check; |                                                              |                                   |         |
+| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)               |         |                           &check;                            |                                   |         |
+| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) |         |                           &check;                            |                                   |         |
+| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)        |         |                           &check;                            |                                   |         |
+| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                 | &check; |                                                              |                                   |         |
 
 :::note
-Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
+일부 RTK 모듈은 특정 기능(베이스 또는 로버)으로만 사용할 수 있는 반면, 다른 모듈은 서로 교환하여 사용할 수 있습니다.
 :::
 
-## Positioning Setup/Configuration
+## 포지셔닝 설정
 
-RTK positioning requires a *pair* of [RTK GPS devices](#supported-rtk-devices): a "base" for the ground station and a "rover" for the vehicle.
+RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView &gt; 일반 설정 &gt; RTK GPS **)에서 지정됩니다.
 
-In addition you will need:
-
-- A *laptop/PC* with QGroundControl (QGroundControl for Android/iOS do not support RTK)
-- A vehicle with a WiFi or Telemetry radio link to the laptop.
+추가로 다음과 같은 것들이 필요합니다.
+- QGroundControl 실행 가능한 *노트북/PC* (Android/iOS 용 QGroundControl은 RTK를 지원하지 않음)
+- 노트북에 WiFi 또는 원격 텔레메트리 링크가 있는 기체.
 
 :::note
-*QGroundControl* with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules. At time of writing this use case has not been tested.
+기본 모듈이있는 *QGroundControl*은 이론적으로 여러 기체/로버 모듈에 RTK GPS를 활성화 가능합니다. 이 문서 작성 시점에서 이것의 사용 사례는 테스트되지 않았습니다.
 :::
 
-### Hardware Setup
 
-#### Rover RTK Module (Vehicle)
+### 하드웨어 설정
 
-Connect the vehicle-based module to the flight controller's GPS port (in the same way as any other GPS module).
+#### 로버 RTK 모듈 (차량)
 
-The actual cables/connectors required will depend on the flight controller and selected RTK module (see [documentation for the selected device](#supported-rtk-devices) for more information).
+필요한 연결 방법과 케이블/커넥터는 선택한 RTK 모듈과 [비행 콘트롤러](../flight_controller/README.md)에 따라 달라집니다.
 
-#### Base RTK Module (Ground)
+대부분은 다른 GPS 모듈과 같은 방식으로 비행 콘트롤러의 GPS 포트를 통해 연결됩니다. Some are connected to the [CAN](../can/README.md) bus (i.e. using [DroneCAN](../dronecan/README.md)).
 
-Connect the base module to *QGroundControl* via USB. The base module must not be moved while it is being used.
+See [documentation for the selected device](#supported-rtk-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
+
+#### 기본 RTK 모듈 (접지)
+
+USB를 통해 기본 모듈을 *QGroundControl*에 연결합니다. 기본 모듈을 사용하는 동안 이동하면 안됩니다.
 
 :::tip
-Choose a position where the base module won't need to be moved, has a clear view of the sky, and is well separated from any buildings. Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+기본 모듈을 이동할 필요가 없는 하늘이 잘 보이고 건물과 잘 분리된 위치를 선택하십시오.
+삼각대를 사용하거나 지붕에 장착하여 기본 GPS의 위치를 높이는 것이 도움이되는 경우가 많이 있습니다.
 :::
 
-#### Telemetry Radio/WiFi
+#### 텔레메트리 라디오/WiFi
 
-The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
+기체 지상제어용 노트북은 [wifi 또는 무선 텔레메트리 링크](../telemetry/README.md)를 통하여 연결하여야 합니다.
 
-The link *must* use the MAVLink 2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
+링크는 채널을 보다 효율적으로 사용할 수 있도록 *반드시* MAVLink 2 프로토콜을 사용하여야 합니다. 기본적으로 설정되어야 하지만, 그렇지 않은 경우에는 아래 [MAVLink2 설정 방법](#mavlink2)을 따르십시오.
 
-### RTK Connection Process
 
-The RTK GPS connection is essentially plug and play:
+### RTK 연결 프로세스
 
-1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
-2. Start the vehicle and make sure it is connected to *QGroundControl*.
-    
+RTK GPS 연결은 기본적으로 플러그앤플레이입니다.
+
+1. *QGroundControl*을 실행하고 USB를 통하여 기본 RTK GPS를 지상국에 연결합니다. 장치가 자동으로 인식됩니다.
+1. 차량의 시동을 걸고 *QGroundControl*에 연결되어 있는지 확인하십시오.
+
 :::tip
-*QGroundControl* displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
+*QGroundControl*은 RTK GPS 장치가 연결되어 있는 동안 상단 아이콘 표시줄에 RTK GPS 상태 아이콘을 표시합니다 (일반 GPS 상태 아이콘 추가). RTK가 설정되는 동안 아이콘은 빨간색으로 표시되고, RTK GPS가 활성화되면 흰색으로 바뀝니다. 아이콘을 클릭하여 현재 상태와 RTK 정확도를 확인할 수 있습니다.
 :::
+1. 그런 다음 *QGroundControl*은 RTK 설정 프로세스( "Survey-In"이라고 함)를 시작합니다.
 
-3. *QGroundControl* then starts the RTK setup process (known as "Survey-In").
-    
-    Survey-In is a startup procedure to get an accurate position estimate of the base station. The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
-    
-    You can track the progress by clicking the RTK GPS status icon.
-    
-    ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
+   Survey-In은 기지국의 정확한 위치 추정치를 획득을 위한 시작 절차입니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다 ([RTK 설정](#rtk-gps-settings)에 지정된 최소 시간 및 정확도에 도달하면 종료됨).
 
-4. Once Survey-in completes:
+   RTK GPS 상태 아이콘을 클릭하여 진행 상황을 추적할 수 있습니다.
 
-- The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
-    
-    ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
+   ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
-- Vehicle GPS switches to RTK mode. The new mode is displayed in the *normal* GPS status icon (`3D RTK GPS Lock`):
-    
-    ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+1. Survey-in이 완료되면 :
 
-### Optional PX4 Configuration
+   - RTK GPS 아이콘이 흰색으로 변경되고, *QGroundControl*이 위치 데이터를 기체에 스트리밍하기 시작합니다.
+
+     ![RTK 스트리밍](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
+
+   - 기체의 GPS가 RTK 모드로 전환됩니다. 새 모드는 *일반* GPS 상태 아이콘 (`3D RTK GPS 잠금`)에 표시됩니다.
+
+     ![RTK GPS 상태](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+
+
+### 선택적 PX4 구성
 
 The following settings may need to be changed (using *QGroundControl*).
 
-#### RTK GPS settings
+#### RTK GPS 설정
 
-The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
+The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
-![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
+![RTK GPS 설정](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
-These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
+이러한 설정은 RTK GPS 설정 프로세스 ( "Survey-In) 완료를 위한 최소 기간과 최소 정확도를 정의합니다.
 
 :::tip
-You can save and reuse a base position in order to save time: perform Survey-In once, select *Use Specified Base Position* and press **Save Current Base Position** to copy in the values for the last survey. The values will then persist across QGC reboots until they are changed.
+시간을 절약하기 위해 기본 위치를 저장하고 재사용 할 수 있습니다. Survey-In을 한 번 수행하고 *지정된 기본 위치 사용*을 선택한 다음 **현재 기본 위치 저장**을 눌러 값을 복사합니다. 그러면 값이 변경시까지 QGC 재부팅시에도 유지됩니다.
 :::
 
 #### MAVLink2
 
-The MAVLink2 protocol must be used because it makes more efficient use of lower-bandwidth channels. This should be enabled by default on recent builds.
+MAVLink2 프로토콜은 낮은 대역폭 채널을 보다 효율적으로 사용하기 때문에 사용하여야합니다. 이것은 최근 빌드에서 기본적으로 활성화되어야 합니다.
 
-To ensure MAVLink2 is used:
+MAVLink2가 사용되는 지 확인하려면 :
+* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html)).
+* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html))
 
-- Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)).
-- Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html))
 
-#### Tuning
+#### 튜닝
 
-You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
+GPS 정확도를 센티미터가 아닌 미터 단위로 가정하여 기본 매개변수가 조정되므로 일부 매개변수를 조정하여야 할 수도 있습니다. 예를 들어 [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE)와 [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE)를 0.2로 줄일 수 있습니다.
 
-#### Dual Receivers
 
-A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
+#### 이중 수신기
+
+두 번째 GPS 수신기는 백업으로 사용할 수 있습니다 (RTK 또는 비 RTK). [EKF2 GPS 설정](../advanced_config/tuning_the_ecl_ekf.md#gps) 섹션을 참고하십시오.
+
 
 <!--
-
 - Video demonstration would be nice.
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
-### Vehicle Setup Example
+### 기체 설정 예
 
-The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](../frames_multicopter/dji_flamewheel_450.md) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
+[거리 센서 및 RTK GPS가 있는 DJI Flamewheel 450](../frames_multicopter/dji_flamewheel_450.md)에서는 Here + RTK GPS와 Pixhawk 3 Pro를 사용한 기체 설정 방법에 대하여 설명합니다.
 
-## Further Information
 
-- [RTK-GPS (PX4-Integration)](../advanced/rtk_gps.md): Developer information about integrating RTK-GPS support into PX4.
-- [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
+## 추가 정보
+
+- [RTK-GPS (PX4-Integration)](../advanced/rtk_gps.md) : RTK-GPS 지원을 PX4에 통합에 대한 개발자 정보입니다.
+- [실시간 운동학](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)

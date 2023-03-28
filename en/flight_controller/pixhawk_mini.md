@@ -1,8 +1,8 @@
-# Holybro Pixhawk Mini
+# Holybro Pixhawk Mini (Discontinued)
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk.
@@ -67,9 +67,9 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
-## Purchase
+## Where to Buy
 
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
+Discontinued.
 
 ## Connector assignments
 
@@ -325,7 +325,7 @@ It is pre-built and automatically installed by *QGroundControl* when appropriate
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
-make px4_fmu-v2_default
+make px4_fmu-v3_default
 ```
 
 ## Debug Port

@@ -58,7 +58,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Other Characteristics:
   * Operating temperature: -20 ~ 80°c（Measured value）
   
-## Purchase
+## Where to Buy
 
 <!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
@@ -149,7 +149,7 @@ The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
 Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 
-For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+For more information see [Using JTAG for hardware debugging](#using-jtag-for-hardware-debugging).
 :::
 
 ## Serial Port Mapping
@@ -164,7 +164,7 @@ USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
 UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="optional-hardware"></span>
 ## Peripherals
@@ -196,7 +196,7 @@ CUAV adopts some differentiated designs and is incompatible with some hardware, 
 
 The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 
-The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-v2-pro/en/#enable) can also be used, and is compatible with other flight controllers.
+The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) can also be used, and is compatible with other flight controllers.
 
 <span id="compatibility_jtag"></span>
 #### Using JTAG for hardware debugging

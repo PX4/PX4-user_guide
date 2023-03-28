@@ -1,7 +1,7 @@
 # Modules Reference: Communication
 
 ## frsky_telemetry
-Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/frsky_telemetry)
+Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/frsky_telemetry)
 
 FrSky Telemetry support. Auto-detects D or S.PORT protocol.
 <a id="frsky_telemetry_usage"></a>
@@ -23,7 +23,7 @@ frsky_telemetry <command> [arguments...]
    status
 ```
 ## mavlink
-Source: [modules/mavlink](https://github.com/PX4/Firmware/tree/master/src/modules/mavlink)
+Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mavlink)
 
 
 ### Description
@@ -69,20 +69,20 @@ mavlink <command> [arguments...]
                  default: 57600
      [-r <val>]  Maximum sending data rate in B/s (if 0, use baudrate / 20)
                  default: 0
+     [-p]        Enable Broadcast
      [-u <val>]  Select UDP Network Port (local)
                  default: 14556
      [-o <val>]  Select UDP Network Port (remote)
                  default: 14550
-     [-t <val>]  Partner IP (broadcasting can be enabled via MAV_BROADCAST
-                 param)
+     [-t <val>]  Partner IP (broadcasting can be enabled via -p flag)
                  default: 127.0.0.1
      [-m <val>]  Mode: sets default streams and rates
                  values: custom|camera|onboard|osd|magic|config|iridium|minimal|
-                 extvision|extvisionmin|gimbal, default: normal
+                 extvision|extvisionmin|gimbal|uavionix, default: normal
      [-n <val>]  wifi/ethernet interface name
                  values: <interface_name>
      [-c <val>]  Multicast address (multicasting can be enabled via
-                 MAV_BROADCAST param)
+                 MAV_{i}_BROADCAST param)
                  values: Multicast address in the range
                  [239.0.0.0,239.255.255.255]
      [-f]        Enable message forwarding to other Mavlink instances
@@ -92,6 +92,11 @@ mavlink <command> [arguments...]
      [-Z]        Force hardware flow control always off
 
    stop-all      Stop all instances
+
+   stop          Stop a running instance
+     [-u <val>]  Select Mavlink instance via local Network Port
+     [-d <val>]  Select Mavlink instance via Serial Device
+                 values: <file:dev>
 
    status        Print status for all instances
      [streams]   Print all enabled streams
@@ -106,43 +111,8 @@ mavlink <command> [arguments...]
    boot_complete Enable sending of messages. (Must be) called as last step in
                  startup script.
 ```
-## micrortps_client
-Source: [modules/micrortps_bridge/micrortps_client](https://github.com/PX4/Firmware/tree/master/src/modules/micrortps_bridge/micrortps_client)
-
-<a id="micrortps_client_usage"></a>
-### Usage
-```
-micrortps_client <command> [arguments...]
- Commands:
-   start
-     [-t <val>]  Transport protocol
-                 values: UART|UDP, default: UART
-     [-d <val>]  Select Serial Device
-                 values: <file:dev>, default: /dev/ttyACM0
-     [-b <val>]  Baudrate (can also be p:<param_name>)
-                 default: 460800
-     [-p <val>]  Poll timeout for UART in ms
-     [-l <val>]  Limit number of iterations until the program exits
-                 (-1=infinite)
-                 default: 10000
-     [-w <val>]  Time in ms for which each iteration sleeps
-                 default: 1
-     [-r <val>]  Select UDP Network Port for receiving (local)
-                 default: 2019
-     [-s <val>]  Select UDP Network Port for sending (remote)
-                 default: 2020
-     [-i <val>]  Select IP address (remote)
-                 values: <x.x.x.x>, default: 127.0.0.1
-     [-f]        Activate UART link SW flow control
-     [-h]        Activate UART link HW flow control
-     [-v]        Add more verbosity
-
-   stop
-
-   status
-```
 ## uorb
-Source: [systemcmds/uorb](https://github.com/PX4/Firmware/tree/master/src/systemcmds/uorb)
+Source: [systemcmds/uorb](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/uorb)
 
 
 ### Description

@@ -1,6 +1,6 @@
 # DShot ESCs
 
-DShot is an alternative ESC protocol that has several advantages over PWM or OneShot:
+DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
 - Reduced latency.
 - Increased robustness via a checksum.
 - No need for ESC calibration as the protocol uses digital encoding.
@@ -9,6 +9,7 @@ DShot is an alternative ESC protocol that has several advantages over PWM or One
 - Other useful commands are supported.
 
 This topic shows how to connect and configure DShot ESCs.
+
 
 <span id="wiring"></span>
 ## Wiring/Connections
@@ -22,19 +23,18 @@ If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../ad
 :::note
 A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively. DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
 
-To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs. Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
+To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
+
+Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
 
 Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 :::
 
 :::note FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs.
+
+FMUv5x and FMUv6x based boards support DShot only on the a group of channels 1 to 4, and a second group of channels 5 and 6. If DShot is enabled on either of these groups, each channel within the group will only output DShot. While DShot is enabled on either or both groups, normal PWM is supported on any channels which are not in the DShot enabled groups(s).
 :::
 
-:::tip
-You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port).
-:::
-
-<span id="configuration"></span>
 ## 配置
 
 :::warning
@@ -49,6 +49,7 @@ Then connect the battery and arm the vehicle. The ESCs should initialize and the
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)), reverse them by sending an [ESC Command](#commands).
 - Adjust [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) so that the motors spin at lowest throttle (but the vehicle does not take off).
 
+
 <span id="commands"></span>
 ## ESC Commands
 
@@ -58,11 +59,6 @@ The most important ones are:
 - Make the first motor beep (helps with identifying motors):
   ```
   dshot beep1 -m 1
-  ```
-- Permanently reverse the spin direction of the first motor:
-  ```
-  dshot reverse -m 1
-  dshot save -m 1
   ```
 - Retrieve ESC information (requires telemetry, see below):
   ```
@@ -79,6 +75,20 @@ The most important ones are:
   INFO  [dshot] LED 2: unsupported
   INFO  [dshot] LED 3: unsupported
   ```
+  - Permanently reverse the spin direction of the first motor:
+  ```
+  dshot reverse -m 1
+  dshot save -m 1
+  ```
+  Retrieving ESC information after the `dshot reverse -m 1` command  without the `dshot save -m 1` command will show:
+  ```
+  Rotation Direction: reversed
+  ```
+  after saving it with `dshot save -m 1` command, reversed direction will become new normal direction:
+  ```
+  Rotation Direction: normal
+  ```
+  To change direction again new `dshot reverse -m 1` command needs to be sent.
 
 ## Telemetry
 
@@ -102,4 +112,12 @@ dshot esc_info -m 1
 
 :::tip
 You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
+:::
+
+:::tip
+Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled. The resulting error is:
+```
+ERROR [dshot] No data received. If telemetry is setup correctly, try again.
+```
+Check manufacturer documentation for confirmation/details.
 :::

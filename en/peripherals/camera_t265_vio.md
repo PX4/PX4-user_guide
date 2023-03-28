@@ -9,9 +9,9 @@ This camera is recommended, and is used in the [Visual Inertial Odometry (VIO) >
 ![Intel Realsense Tracking Camera T265 - Angled Image](../../assets/peripherals/camera_vio/t265_intel_realsense_tracking_camera_photo_angle.jpg)
 
 
-## Purchase Link
+## Where to Buy
 
-[Intel® RealSense™ Tracking Camera T265](https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html) (store.intelrealsense.com)
+[Intel® RealSense™ Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) (store.intelrealsense.com)
 
 
 ## Setup Instructions
@@ -22,7 +22,7 @@ At high level:
 - The [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between ROS and this camera.
   This node is only intended for use with this camera.
 - The camera should be mounted with lenses facing down (default).
-  For other orientations modify [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) in the section below:
+  For other orientations modify [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch) in the section below:
     ```xml
     <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
         args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>

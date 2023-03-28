@@ -1,69 +1,72 @@
 # FunCub QuadPlane (Pixhawk)
 
-The Fun Cub QuadPlane VTOL is a standard tailplane aircraft (the Multiplex FunCub) that has been retrofitted with a QuadCopter system.
+Fun Cub QuadPlane VTOL은 쿼드콥터로 개조된 표준 테일 플레인 항공기(Multiplex FunCub)입니다.
 
-Key information:
+주요 정보:
 
-- **Frame:** Multiplex FunCub
-- **Flight controller:** Pixhawk
+- **기체:** Multiplex FunCub
+- **비행 컨트롤러:** Pixhawk
 
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
-Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly. After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
+수정되지 않은 Fun Cub는 가격이 비교적 저렴하며, 비행방법도 비교적 쉬운 편입니다. 조립 후의 비행기는 비교적 무겁우며, 비행이 간단하지 않습니다. 비행 기능은 우수하지만, 전진 비행시에는 약 75 %의 추진력이 필요합니다.
 
-## Bill of Materials
 
-The actual plane looks roughly like as shown in the image above (other similar models will work just fine - this is a Multiplex Fun Cub). The minimal equipment required is:
+## 부품 명세서
 
-- Multiplex FunCub (or similar)
-- Pixhawk or compatible
-- Digital airspeed sensor
-- 900 kV motors (e.g. Iris propulsion set - motors and ESC)
-- 10" props for quad motors (10x45 or 10x47)
-- 10" prop for fixed-wing motor (10×7)
-- GPS module
-- 4S battery
-- Aluminum frame for mounting the quad motors (10x10mm square tube, 1mm wall thickness)
-- TOW is ~2.3kg with a 4200mAh 4S battery
+실제 평면도는 위의 이미지와 비슷합니다 (다른 유사한 모델도 잘 작동합니다. 이것은 Multiplex Fun Cub입니다). 필요한 최소 장비는 다음과 같습니다.
 
-## Structure
+- Multiplex FunCub (또는 유사 제품)
+- Pixhawk 또는 호환 제품
+- 디지털 풍속 센서
+- 900kV 모터(예 : Iris 추진 세트 - 모터 및 ESC)
+- 쿼드 모터용 10 " 프로펠러(10x45 또는 10x47)
+- 고정익 모터용 10" 프로펠러(10 × 7)
+- GPS 모듈
+- 4S 배터리
+- 쿼드 모터 장착용 알루미늄 프레임 (10x10mm 사각 튜브, 벽 두께 1mm)
+- TOW는 4200mAh 4S 배터리로 중량은 약  2.3kg입니다.
 
-The structure is made out of aluminum booms as shown below.
 
-![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![Fun Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
+## 구조
 
-## Wiring
+구조는 아래와 같은 알루미늄 재질로 만들어집니다.
 
-The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
+![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![un Cub  vtom 장착 프레임](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
+
+## 배선
+
+Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면 배치된" 방향과 같음).
 
 :::tip
-The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
-:::
+서보 방향은 *QGroundControl*의 PWM_OUTPUT 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 반전될 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목). :::
 
-| Port   | Connection              |
-| ------ | ----------------------- |
-| MAIN 1 | Front right motor (CCW) |
-| MAIN 2 | Back left motor (CCW)   |
-| MAIN 3 | Front left motor (CW)   |
-| MAIN 4 | Back right motor (CW)   |
-| AUX 1  | Left aileron TODO       |
-| AUX 2  | Right aileron           |
-| AUX 3  | Elevator                |
-| AUX 4  | Rudder                  |
-| AUX 5  | Throttle                |
+| 포트     | 연결               |
+| ------ | ---------------- |
+| MAIN 1 | 전방 우측(반시계 방향)    |
+| MAIN 2 | 후방 좌측 모터(반시계 방향) |
+| MAIN 3 | 전방 좌측 모터(시계 방향)  |
+| MAIN 4 | 후방 우측 모터(시계 방향)  |
+| AUX 1  | 좌측 보조익 TODO      |
+| AUX 2  | 우측 보조익           |
+| AUX 3  | 승강타              |
+| AUX 4  | 방향타              |
+| AUX 5  | 스로틀              |
 
-For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
+배선과 설정에 관한 자세한 지침은 다음을 참조하십시오. [표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
-## Airframe Configuration
+## 기체 설정
 
-Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
+아래 QGroundControl에 표시된대로 기체를 설정합니다 (맨 위의 **적용 및 다시 시작**을 클릭하는 것을 잊지 마십시오).
 
-![QCG - Select Fun Cub Quad firmware](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
+![QCG - Fun Cub Quad 펌웨어 선택](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
-## Video
+## 비디오
 
-@[youtube](https://youtu.be/4K8yaa6A0ks)
+@[유투브](https://youtu.be/4K8yaa6A0ks)
 
-## Support
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+## 지원
+
+VTOL 변환 또는 구성에 대한 질문이 있으시면 <https://discuss.px4.io/c/px4/vtol>을 방문하십시오.
+

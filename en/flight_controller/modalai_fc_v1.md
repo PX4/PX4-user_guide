@@ -26,11 +26,11 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | Memory           | 256Kb FRAM   |
 |                  | 2Mbit Flash  |
 |                  | 512Kbit SRAM |
-| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1) |
+| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1) |
 | IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1) |
 |                  | ICM-42688 (SPI2) |
 |                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6) |
-| Barometer        | [BMP388](https://www.bosch-sensortec.com/bst/products/all_products/bmp388) (I2C4) |
+| Barometer        | [BMP388](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/) (I2C4) |
 | Secure Element   | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
 | microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards) |
 | Inputs           | GPS/Mag |
@@ -53,7 +53,7 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
 
-## PX4 Firwmare Compatibility
+## PX4 Firmware Compatibility
 
 *Flight Core v1* is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
@@ -69,7 +69,6 @@ This board supported in QGroundControl 4.0 and later.
 ## Availability
 
 - [Flight Core Complete Kit](https://modalai.com/flight-core)
-- [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (only)
 - [Flight Core integrated with VOXL Companion Computer on a single PCB](https://modalai.com/flight-core)
 - [Flight Core integrated with VOXL Companion Computer and Obstacle Avoidance Cameras (VOXL Flight Deck)](https://modalai.com/flight-deck) ([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
 - [Flight Core assembled with VOXL and cameras](https://shop.modalai.com/products/voxl-flight-deck-r1)
@@ -135,7 +134,7 @@ USART6 | /dev/ttyS5 | RC (J12)
 UART7 | /dev/ttyS6 | TELEM1 (J5)
 UART8 | /dev/ttyS7 | N/A
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 

@@ -1,6 +1,6 @@
 # 机架
 
-PX4有一个灵活的[混合系统](../concept/mixing.md), 它允许通过单个代码库支持任何可以想象到的飞行器类型/帧:
+PX4 has a flexible [control allocation system](../concept/control_allocation.md) that allows it to support almost any imaginable vehicle type/frame through a single codebase:
 
 * **固定翼飞机:**普通飞机, 飞翼, 倒V尾飞机等。
 * **多旋翼:**直升机,三轴,四轴,六轴,dodecarotors等许多不同的几何图形。

@@ -59,7 +59,7 @@ pxh>
 
 It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
-![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d View](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 
 ## Taking it to the Sky
@@ -75,6 +75,12 @@ pxh> commander takeoff
 You can use *QGroundControl* to fly a mission or to connect to a [joystick](#joystick).
 
 ## Usage/Configuration Options
+
+Options that apply to all simulators are covered in the top level [Simulation](../simulation/README.md#sitl-simulation-environment) topic (some of these may be duplicated below).
+
+### Simulating Sensor/Hardware Failure
+
+[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
 
 ### Set Custom Takeoff Location
 
@@ -103,7 +109,7 @@ For more information see: [Simulation > Run Simulation Faster than Realtime](../
 
 ### Using a Joystick
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 
 ### Simulating a Wifi Drone
@@ -121,7 +127,7 @@ The simulator broadcasts its address on the local network as a real drone would 
 You can start JMAVSim and PX4 separately:
 
 ```
-./Tools/jmavsim_run.sh -l
+./Tools/simulation/jmavsim/jmavsim_run.sh -l
 make px4_sitl none
 ```
 
@@ -133,6 +139,7 @@ To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
+
 
 ## Multi-Vehicle Simulation
 
@@ -182,7 +189,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 This error should no longer occur once the jMAVSim submodule is [updated to newer jar libs](https://github.com/PX4/jMAVSim/pull/119) and Java 11 or Java 14 should work fine.
 
 
-### An illegal reflective access operation has occured
+### An illegal reflective access operation has occurred
 
 This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
 
@@ -230,4 +237,18 @@ and comment out the line indicated below:
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). The fix was found in [askubuntu.com](https://askubuntu.com/questions/695560).
+For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
+
+### Exception in thread "main" java.lang.UnsupportedClassVersionError:
+When compiling jMAVsim, you might encounter the following error:
+
+```
+Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
+```
+
+This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, version 60 to jdk 16 etc.
+
+To fix it under macOS, we recommend installing OpenJDK through homebrew
+```sh
+brew install --cask adoptopenjdk16
+```

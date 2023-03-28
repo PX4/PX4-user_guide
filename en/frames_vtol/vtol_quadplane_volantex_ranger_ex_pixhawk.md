@@ -37,7 +37,7 @@ The conversion is designed to minimize impact on the aerodynamics and provide ad
 -   GPS
 
 For a full parts list with links to Hobbyking EU and International warehouse see:
-[QuadRanger-VTOL-partslist](http://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
+[QuadRanger-VTOL-partslist](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
 
 The image below depicts the parts required for one wing.
 

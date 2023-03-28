@@ -60,16 +60,16 @@ where:
 - `<bus number>` is the bus number to which the device is connected 
 
 :::note
-Bus number `-b <bus number>` does not match the bus numbering on the autopilot.
-After running the command, the driver shows the bus number corresponding to the label on the box.
+The bus number in code `-b <bus number>` may not match the bus labels on the autopilot.
+For example, when using CUAV V5+ or CUAV Nano:
 
-When using CUAV V5+ or CUAV Nano:
-
-bus label | -b number
+Autopilot label | -b number
 --- | ---
-1 | -X -b 4  |
-2 | -X -b 2  |
-3 | -X -b 1  |
+I2C1 | -X -b 4  |
+I2C2 | -X -b 2  |
+I2C3 | -X -b 1  |
+
+The `pcf8583 start` command outputs the corresponding autopilot bus name/label for each bus number.
 :::
 
 ### Testing
@@ -78,7 +78,7 @@ You can verify the counter is working using several methods
 
 #### PX4 (NuttX) MAVLink Console
 
-The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputing. 
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputting. 
 
 To check the status of the TFRPM01 driver run the command: 
 ```
@@ -87,7 +87,7 @@ pcf8583 status
 If the driver is running, the I²C port will be printed along with other basic parameters of the running instance.
 If the driver is not running it can be started started using theprocedure described above. 
 
-The [listener](../middleware/modules_command.html#listener) command allows you to monitor RPM UORB messages from the running driver. 
+The [listener](../modules/modules_command.md#listener) command allows you to monitor RPM UORB messages from the running driver. 
 ```
 listener rpm
 ```
@@ -107,7 +107,6 @@ Usually, sensors can be used without configuration, but the RPM values should co
 If needed, the following parameters should be tweaked:
 
 * [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — pooling interval between readout the counted number
-* [PCF8583_ADDR](../advanced_config/parameter_reference.md#PCF8583_ADDR) — I2C sensor address
 * [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — Counter value where the counted number should be reset to zero.
 * [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
 

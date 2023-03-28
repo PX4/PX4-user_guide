@@ -1,6 +1,10 @@
 # Omnibus F4 SD
 
 :::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
+
+:::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the manufacturer for support or compliance issues.
 :::
@@ -158,7 +162,7 @@ USART1 | /dev/ttyS0 | SerialRX
 USART4 | /dev/ttyS1 | TELEM1
 USART6 | /dev/ttyS2 | GPS
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## RC Telemetry
 
@@ -208,7 +212,7 @@ The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-S
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
 Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
-Download the [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+Download the [omnibusf4sd_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## Building Firmware
 
@@ -219,7 +223,8 @@ make omnibus_f4sd_default
 
 ## Installing PX4 Firmware
 
-The firmware can be installed in any of the normal ways: 
+The firmware can be installed in any of the normal ways:
+
 - Build and upload the source
   ```
   make omnibus_f4sd_default upload
@@ -236,7 +241,6 @@ Parameter | Setting
 --- | ---
 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag.
 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.
-[MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
 
 ## Further Info

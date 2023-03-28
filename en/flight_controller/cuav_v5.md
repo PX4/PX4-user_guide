@@ -1,17 +1,17 @@
 # CUAV v5 (Discontinued)
 
 :::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
+
+:::warning
 PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
-:::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
-:::
-
 *CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 
-The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. 
-It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. 
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design.
+It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS, and is fully compatible with PX4 firmware.
 It is intended primarily for academic and commercial developers.
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5.jpg)
@@ -51,7 +51,7 @@ It is intended primarily for academic and commercial developers.
   * Operating temperature: -20 ~ 80°C （Measured value）
 
 
-## Purchase
+## Where to Buy
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
@@ -124,7 +124,7 @@ USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
 UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Peripherals
 

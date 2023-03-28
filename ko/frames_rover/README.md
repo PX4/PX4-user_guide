@@ -1,11 +1,47 @@
-# 로버 프레임 (UGV)
+# Rovers (UGVs)
 
-PX4는 무인 지상 기체 (UGV)에 대한 기본 지원을 제공합니다. 지원되는 구성의 전체 세트는 [기체 프레임 참고문헌> 로버](../airframes/airframe_reference.md#rover)에서 확인할 수 있습니다.
+PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.
 
-이 절에서는 여러 UGV 프레임을 조립하고 구성하는 빌드 로그/지침을 다룹니다.
+This section contains build logs/instructions for assembling as well as configuring a number of UGV frames.
 
-## Videos
+![Traxxas Rover Picture](../../assets/airframes/rover/traxxas_stampede_vxl/final_side.jpg)
 
-[Traxxas Stampede ](../frames_rover/traxxas_stampede.md)
+## Rover Types
 
-@[youtube](https://youtu.be/N3HvSKS3nCw)
+PX4 supports rovers with:
+
+- **Differential steering**: direction is controlled by moving the left- and right-side wheels at different speeds. This kind of steering commonly used on a military tank of the wheels left and right.
+- **Ackermann steering**: direction is controlled by pointing wheels in the direction of travel ([ackermann geometry](https://en.wikipedia.org/wiki/Ackermann_steering_geometry) compensates for the fact that wheels on the inside and outside of the turn move at different rates). This kind of steering is used on most commercial vehicles, including cars, trucks etc.
+
+The supported frames can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
+
+
+## How to Configure a Rover
+
+Using [control allocation](../config/actuators.md), it is straightforward to setup a rover.
+
+For vehicles with Ackermann steering:
+
+1. In the [Airframe](../config/airframe.md) configuration, select the *Generic Ground Vehicle*.
+1. Set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter to **Rover (Ackermann)** (5).
+1. Follow the [Actuators document](../config/actuators.md) to map the steering and throttle outputs as displayed.
+
+For vehicles with Differential steering:
+
+1. In the [Airframe](../config/airframe.md) configuration, select either the _Aion Robotics R1 UGV_ or _NXP Cup car: DF Robot GPX_
+1. Set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter to **Rover (Differential)** (6).
+1. Follow the [Actuators document](../config/actuators.md) to map the left and right motors and throttle outputs.
+
+
+## Simulation
+
+[Gazebo Classic](../sim_gazebo_classic/README.md) provides simulations for both types of steering:
+
+- Ackermann: [ackermann rover](../sim_gazebo_classic/gazebo_vehicles.md#ackermann-ugv)
+- Differential: [r1 rover](../sim_gazebo_classic/gazebo_vehicles.md#differential-ugv)
+
+## 비디오
+
+This video shows the [Traxxas Stampede Rover](../frames_rover/traxxas_stampede.md) (an Ackermann vehicle).
+
+@[유투브](https://youtu.be/N3HvSKS3nCw)

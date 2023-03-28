@@ -7,11 +7,13 @@ This quick start guide shows how to power the [CUAV V5+](../flight_controller/cu
 
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
+
 ## Wiring Chart Overview
 
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
+
 
 | Main interface  | Function                                                                                                                                                                                           |
 |:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,7 +31,6 @@ The image below shows how to connect the most important sensors and peripherals 
 | TELEM1/TELEM2   | Connect to the Telemetry System.                                                                                                                                                                   |
 | DSM/SBUS/RSSI   | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
 
-
 :::note
 For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
 :::
@@ -40,6 +41,7 @@ For more interface information, please read [V5+ Manual](http://manual.cuav.net/
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
 :::
 
+
 ## GPS + Compass + Safety Switch + LED
 
 The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
@@ -48,10 +50,10 @@ The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, saf
 Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
 :::
 
-The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
+The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 
 :::note
-If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
+If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html), please use the cable to connect to the flight control CAN interface.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
@@ -89,7 +91,8 @@ The supplied power module is unfused. Power **must** be turned off while connect
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
 :::note
-The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+The power module is not a power source for peripherals connected to the PWM outputs.
+If you're connecting servos/actuators you will need to separately power them using a BEC.
 :::
 
 ## Telemetry System (Optional)
@@ -101,10 +104,9 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <span id="sd_card"></span>
-
 ## SD Card (Optional)
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
+An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
 
 ## Motors
 
@@ -112,15 +114,17 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
+
 ## Pinouts
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
+
 ## Further Information
 
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
-- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf) (CUAV)
+- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)  (CUAV)
 - [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html) (CUAV)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
-- [CUAV Github](https://github.com/cuav) (CUAV)
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)  (CUAV)
+- [CUAV Github](https://github.com/cuav)  (CUAV)
 - [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE) (CUAV)

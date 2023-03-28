@@ -4,11 +4,12 @@
 This supersedes the *Aerotenna uLanding Radar* (discontinued) but uses the same driver/setup.
 :::
 
-The *Ainstein* [US-D1 Standard Radar Altimeter](https://ainstein.ai/drone-makers-drone-service-providers/us-d1/) is a compact microwave rangefinder that has been optimised for use on UAVs. With a sensing range of about 40 metres, it is useful for applications including terrain following, precision hovering (e.g. for photography), anti-collision sensing etc. Particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+The *Ainstein* [US-D1 Standard Radar Altimeter](https://ainstein.ai/drone-makers-drone-service-providers/us-d1/) is a compact microwave rangefinder that has been optimised for use on UAVs. With a sensing range of about 50 metres, it is useful for applications including terrain following, precision hovering (e.g. for photography), anti-collision sensing etc. Particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water). The user manual can be found [here](https://ainstein.ai/wp-content/uploads/2022/04/US-D1-Technical-User-Manual.pdf).
 
 ![Ainstein US-DA](../../assets/hardware/sensors/ainstein/us_d1_hero.jpg)
 
 The rangefinder is not automatically included in most firmware, and hence cannot be used just by setting a parameter through *QGroundControl* (as is possible with some other rangefinders). To use it you will need to add the driver to firmware and update a configuration file to start the driver on boot. The sections below explain how.
+
 
 ## Hardware Setup
 
@@ -22,8 +23,7 @@ US-D1 can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3,
 
 :::note
 If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
-
-    drivers/distance_sensor/ulanding
-    
-
+```
+CONFIG_DRIVERS_DISTANCE_SENSOR_ULANDING_RADAR=y
+```
 :::

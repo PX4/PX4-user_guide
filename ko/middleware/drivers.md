@@ -1,37 +1,37 @@
-# Driver Development
+# 드라이버 개발
 
-NuttX device drivers are based on the [Device](https://github.com/PX4/Firmware/tree/master/src/lib/drivers/device) framework.
+PX4 장치 드라이버는 [장치](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/drivers/device) 프레임워크를 기반으로 합니다.
 
-## Creating a Driver
+## 드라이버 생성
 
-PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
+PX4는 [uORB](../middleware/uorb.md)의 데이터를 거의 독점적으로 사용합니다. 일반적인 주변 장치 유형에 대한 드라이버는 올바른 uORB 메시지(예: 자이로, 가속도계, 압력 센서 등)를 게시하여야 합니다.
 
-The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/Firmware/tree/master/src/drivers)).
+새 드라이버를 만드는 가장 좋은 방법은 템플릿과 유사한 드라이버로 시작하는 것입니다([src/drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers) 참조).
 
 :::note
-More detailed information about working with specific I/O busses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/README.md) section.
+More detailed information about working with specific I/O buses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/README.md) section.
 :::
 
 :::note
-Publishing the correct uORB topics is the only pattern that drivers *must* follow.
+올바른 uORB 주제를 게시하는 것은 드라이버가 *준수해야* 하는 유일한 패턴입니다.
 :::
 
-## Core Architecture
+## 핵심 아키텍처
 
-PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
+PX4는 [반응형 시스템](../concept/architecture.md)이며, [uORB](../middleware/uorb.md) 게시/구독을 사용하여 메시지를 전송합니다. 파일 핸들은 시스템의 핵심 작업에 필요하지 않거나 사용되지 않습니다. 두 가지 주요 API가 사용됩니다.
 
-* The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on.
-* The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
+* PX4가 실행되는 시스템에 따라 파일, 네트워크 또는 공유 메모리 백엔드가 있는 게시/구독 시스템.
+* 장치를 열거하고 구성을 가져오거나 설정할 수 있는 전역 장치 레지스트리. 이것은 연결 목록이나 파일 시스템에 대한 매핑처럼 간단할 수 있습니다.
 
-## Device IDs
+## 장치 ID
 
-PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
+PX4는 장치 ID를 사용하여 시스템 전체에서 개별 센서를 일관되게 식별합니다. 이러한 ID는 구성 매개변수에 저장되며, 센서 보정 값을 일치시키고 어떤 센서가 어떤 로그 파일 항목에 기록되는 지 결정합니다.
 
-The order of sensors (e.g. if there is a `/dev/mag0` and an alternate `/dev/mag1`) does not determine priority - the priority is instead stored as part of the published uORB topic.
+센서의 순서(예: `/dev/mag0` 및 대체 `/dev/mag1`가 있는 경우)는 우선순위를 결정하지 않습니다. 높은 우선순위는 대신 게시된 uORB 주제입니다.
 
-### Decoding example
+### 디코딩 예제
 
-For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
+시스템에 3개의 자력계가 있는 경우에는 비행 로그(.px4log)를 사용하여 매개변수를 덤프합니다. 세 개의 매개변수는 센서 ID를 인코딩하고, `MAG_PRIME`은 어떤 자력계가 기본 센서로 선택되었는 지 식별합니다. 각 MAGx_ID는 24비트 숫자이며, 수동 디코딩을 하가 위하여 왼쪽에 0을 채워야 합니다.
 
 
 ```
@@ -41,7 +41,7 @@ CAL_MAG2_ID = 263178.0
 CAL_MAG_PRIME = 73225.0
 ```
 
-This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will show up in the log file as `IMU.MagX`.
+이것은 주소 `0x1E`의 버스 1, I2C를 통해 연결된 외부 HMC5983입니다. 로그 파일에 `IMU.MagX`로 표시됩니다.
 
 ```
 # device ID 73225 in 24-bit binary:
@@ -51,7 +51,7 @@ This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will
 HMC5883   0x1E    bus 1 I2C
 ```
 
-This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It will show up in the log file as `IMU1.MagX`.
+이것은 SPI, 버스 1, 슬레이브 선택 슬롯 5를 통하여 연결된 내부 HMC5983입니다. 로그 파일에 `IMU1.MagX`로 표시됩니다.
 
 ```
 # device ID 66826 in 24-bit binary:
@@ -61,7 +61,7 @@ This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It w
 HMC5883   dev 5   bus 1 SPI
 ```
 
-And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. It will show up in the log file as `IMU2.MagX`.
+그리고 이것은 SPI, 버스 1, 슬레이브 선택 슬롯 4를 통하여 연결된 내부 MPU9250 자력계입니다. 로그 파일에 `IMU2.MagX`로 표시됩니다.
 
 ```
 # device ID 263178 in 24-bit binary:
@@ -71,9 +71,9 @@ And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave se
 MPU9250   dev 4   bus 1 SPI
 ```
 
-### Device ID Encoding
+### 장치 ID 인코딩
 
-The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
+장치 ID는 이 형식에 따른 24비트 숫자입니다. 첫 번째 필드는 위의 디코딩 예에서 최하위 비트입니다.
 
 ```C
 struct DeviceStructure {
@@ -83,7 +83,7 @@ struct DeviceStructure {
   uint8_t devtype;   // device class specific device type
 };
 ```
-The `bus_type` is decoded according to:
+`bus_type`은 다음과 같이 디코딩됩니다.
 
 ```C
 enum DeviceBusType {
@@ -94,7 +94,7 @@ enum DeviceBusType {
 };
 ```
 
-and `devtype` is decoded according to:
+`devtype`은 다음과 같이 디코딩됩니다.
 
 ```C
 #define DRV_MAG_DEVTYPE_HMC5883  0x01
@@ -115,17 +115,17 @@ and `devtype` is decoded according to:
 #define DRV_RNG_DEVTYPE_LL40LS   0x32
 ```
 
-## Debugging
+## 디버깅
 
-For general debugging topics see: [Debugging/Logging](../debug/README.md).
+일반적인 디버깅 주제는 [디버깅/로깅](../debug/README.md)을 참고하십시오.
 
-### Verbose Logging
+### 상세 로깅
 
-Drivers (and other modules) output minimally verbose logs strings by default (e.g. for `PX4_DEBUG`, `PX4_WARN`, `PX4_ERR`, etc.).
+드라이버(및 기타 모듈)는 기본적으로 최소한의 자세한 로그 문자열을 출력합니다(예: `PX4_DEBUG`, `PX4_WARN`, `PX4_ERR` 등).
 
-Log verbosity is defined at build time using the `RELEASE_BUILD` (default), `DEBUG_BUILD` (verbose) or `TRACE_BUILD` (extremely verbose) macros.
+로그 상세도는 빌드 시 `RELEASE_BUILD`(기본값), `DEBUG_BUILD`(상세) 또는 `TRACE_BUILD`(매우 상세) 매크로를 사용하여 정의됩니다.
 
-Change the logging level using `COMPILE_FLAGS` in the driver `px4_add_module` function (**CMakeLists.txt**). The code fragment below shows the required change to enable DEBUG_BUILD level debugging for a single module or driver.
+드라이버 `px4_add_module` 함수(**CMakeLists.txt**)에서 `COMPILE_FLAGS`를 사용하여 로깅 수준을 변경합니다. 아래 코드 조각은 단일 모듈 또는 드라이버에 대해 DEBUG_BUILD 수준 디버깅을 활성화하에 필요한 변경 사항을 나타냅니다.
 
 ```
 px4_add_module(
@@ -145,5 +145,5 @@ px4_add_module(
 ```
 
 :::tip
-Verbose logging can also be enabled on a per-file basis, by adding `#define DEBUG_BUILD` at the very top of a .cpp file (before any includes).
+자세한 로깅은 .cpp 파일의 맨 위에(포함하기 전에) `#define DEBUG_BUILD`를 추가하여 파일별로 활성화할 수 있습니다.
 :::

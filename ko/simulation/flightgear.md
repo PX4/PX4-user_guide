@@ -1,14 +1,14 @@
-# FlightGear Simulation
+# FlightGear 시뮬레이션
 
-[FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
+[FlightGear](https://www.flightgear.org/)는 강력한 [FDM 엔진](http://wiki.flightgear.org/Flight_Dynamics_Model)이 탑재된 비행 시뮬레이터입니다. FlightGear는 다양한 기상 조건에서 회전익기를 시뮬레이션합니다. 이것이 원래 [ThunderFly s.r.o.](https://www.thunderfly.cz/)에서 FlightGear를 개발한 이유입니다.
 
-This page describes FlightGear's single-vehicle use in SITL. For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../simulation/multi_vehicle_flightgear.md).
+이 페이지는 SITL에서 FlightGear의 단일 차량 시뮬레이션에 대하여 설명합니다. 다중 차량 사용에 대한 정보는 [FlightGear를 사용한 다중 차량 시뮬레이션](../simulation/multi_vehicle_flightgear.md)을 참고하십시오.
 
-**Supported Vehicles:** Autogyro, Plane, Rover.
+**지원 차량:** 오토자이로, 고정익, 로버
 
-@[youtube](https://youtu.be/iqdcN5Gj4wI)
+@[유투브](https://youtu.be/iqdcN5Gj4wI)
 
-[![Mermaid Graph ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+[![인어 그래프 ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
 
 <!-- Original mermaid graph
@@ -19,81 +19,82 @@ graph LR;
 -->
 
 :::note
-See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+시뮬레이터, 시뮬레이션 환경 및 시뮬레이션 설정(예: 지원 차량)에 정보는 [시뮬레이션](../simulation/README.md)을 참고하십시오.
 :::
 
 <a id="installation"></a>
 
-## Installation (Ubuntu Linux)
+## 설치(우분투 리눅스)
 
 :::note
-These instructions were tested on Ubuntu 18.04
+이 매뉴얼은 Ubuntu 18.04에서 테스트되었습니다.
 :::
 
-1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Install FlightGear:
+1. 일반적인 [Ubuntu LTS/Debian Linux 개발 환경](../dev_setup/dev_env_linux_ubuntu.md)을 설치합니다.
+1. FlightGear를 설치합니다.
    ```sh
    sudo add-apt-repository ppa:saiarcot895/flightgear
    sudo apt update
    sudo apt install flightgear
    ```
-   This installs the latest stable FlightGear version from the PAA repository along with the FGdata package.
+   위 명령어들은 FGdata 패키지와 함께 PAA 리포지토리에서 최신 안정적인 FlightGear 버전이 설치됩니다.
 
 :::tip
-For some models (e.g. those with electric engines) the daily build with the newest features may be necessary. Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+일부 모델(예: 전기 엔진이 장착된 모델)의 경우 최신 기능으로 매일 빌드해야 할 수 있습니다. [일일 빌드 PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge)를 사용하여 설치합니다.
 :::
 
-1. Check that you are able to run FlightGear:
+1. FlightGear를 실행 여부를 확인하십시오.
    ```
    fgfs --launcher
    ```
-1. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
+1. FlightGear 설치 디렉토리의 **Protocols** 폴더의 쓰기 권한을 설정합니다.
    ```
    sudo chmod a+w /usr/share/games/flightgear/Protocols
    ```
-   Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
+   이 폴더에 PX4-FlightGear-Bridge 통신 정의 파일을 저장하기 때문에, 권한 설정이 필요합니다.
 
-Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).   
+추가 설치 방법은 [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA)를 참고하십시오.
+
 
 <a id="running"></a>
 
-## Running the Simulation
+## 시뮬레이션 실행
 
-Run a simulation by starting PX4 SITL, specifying the airframe configuration of your choice.
+선택한 기체 구성을 지정하고, PX4 SITL을 시작하여 시뮬레이션을 실행합니다.
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a plane simulation :
+가장 편리한 방법은 PX4 *PX4-Autopilot* 저장소의 루트 디렉토리에서 터미널을 열고 원하는 대상에 대해 `make`를 호출하는 것입니다. 예를 들어 평면 시뮬레이션을 시작하려면 다음 명령어를 실행하십시오.
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl_nolockstep flightgear_rascal
 ```
 
-The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
+지원되는 차량과 `make` 명령은 아래에 나열되어 있습니다(차량 이미지를 보려면 링크를 클릭하십시오).
 
-| Vehicle                                                                  | Command                                      |
-| ------------------------------------------------------------------------ | -------------------------------------------- |
-| [Standard Plane](../simulation/flightgear_vehicles.md#standard_plane)    | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| 차량                                                                  | 명령어                                          |
+| ------------------------------------------------------------------- | -------------------------------------------- |
+| [표준 항공기](../simulation/flightgear_vehicles.md#standard_plane)       | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackerman 차량 (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [오토자이로 ](../simulation/flightgear_vehicles.md#autogyro)             | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
-The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
+위의 명령은 전체 UI로 단일 차량을 시작합니다. *QGroundControl*은 시뮬레이션 차량에 자동으로 연결할 수 있어야 합니다.
 
 :::note
-For the full list of FlightGear build targets (highlighted) run:
+FlightGear 빌드 대상(강조 표시됨)의 전체 목록을 보려면 다음 명령어를 실행하십시오.
 ```
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 ```
-For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
+추가 정보는 [FlightGear 차량](../simulation/flightgear_vehicles.md)을 참고하십시오(여기에는 "지원되지 않는" 차량 및 새 차량 추가에 대한 정보가 포함됨).
 :::
 
 :::note
-The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+[파일 및 코드 설치](../dev_setup/dev_env.md) 가이드는 빌드 오류가 발생하면 참고하십시오.
 :::
 
-## Taking it to the Sky
+## 하늘로 띄우기
 
-The `make` commands mentioned above first build PX4 and then run it along with the FlightGear simulator.
+위에서 언급한 `make` 명령은 먼저 PX4를 빌드후, FlightGear 시뮬레이터를 실행합니다.
 
-Once the PX4 has started it will launch the PX4 shell as shown below. You must select enter to get the command prompt.
+PX4가 시작되면 아래와 같은 PX4 셸이 시작됩니다. 명령 프롬프트를 표시하려면 Enter를 입력합니다.
 
 ```
 ______  __   __    ___
@@ -108,7 +109,7 @@ px4 starting.
 INFO  [px4] Calling startup script: /bin/sh etc/init.d-posix/rcS 0
 INFO  [param] selected parameter default file eeprom/parameters_1034
 I'm Mavlink to FlightGear Bridge
-Targed Bridge Freq: 200, send data every step: 1
+Target Bridge Freq: 200, send data every step: 1
 4
   5   -1
   7   -1
@@ -120,7 +121,6 @@ INFO  [simulator] Waiting for simulator to accept connection on TCP port 4560
 INFO  [simulator] Simulator connected on TCP port 4560.
 INFO  [commander] LED: open /dev/led0 failed (22)
 INFO  [commander] Mission #3 loaded, 9 WPs, curr: 8
-INFO  [init] Mixer: etc/mixers-sitl/plane_sitl.main.mix on /dev/pwm_output0
 INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote port 14550
 INFO  [airspeed_selector] No airspeed sensor detected. Switch to non-airspeed mode.
 INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
@@ -128,7 +128,7 @@ INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port
 INFO  [logger] logger started (mode=all)
 INFO  [logger] Start file log (type: full)
 INFO  [logger] Opened full log file: ./log/2020-04-28/22_03_36.ulg
-INFO  [mavlink] MAVLink only on localhost (set param MAV_BROADCAST = 1 to enable network)
+INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
 INFO  [px4] Startup script returned successfully
 pxh> StatsHandler::StatsHandler() Setting up GL2 compatible shaders
 Now checking for plug-in osgPlugins-3.4.1/osgdb_nvtt.so
@@ -137,64 +137,65 @@ PX4 Communicator: PX4 Connected.
 pxh>
 ```
 
-The console will print out status as PX4 loads the airframe-specific initialization and parameter files, wait for (and connect to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm. At this point, you should see a FlightGear window with some view of aircraft.
+콘솔은 PX4가 기체별 초기화 및 매개변수 파일을 로드할 때 상태를 출력하고 시뮬레이터를 기다린후 연결합니다. [ecl/EKF]가 `GPS 융합을 시작`한다는 정보가 인쇄되면 차량은 시동 준비가 된 것입니다. 이 시점에서 항공기가 약간 보이는 FlightGear 창이 표시되어야 합니다.
 
 
 :::note
-You can change the view by pressing **Ctrl+V**.
+**Ctrl+V**를 눌러 보기를 변경할 수 있습니다.
 :::
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
 
-You can bring it into the air by typing:
+다음을 입력하여 공중에 띄울 수 있습니다.
 
 ```sh
 pxh> commander takeoff
 ```
 
-## Usage/Configuration Options
+## 사용법/설정 옵션
 
-You can tune your FG installation/settings by the following environment variables:
+다음 환경 변수로 FG 설치/설정을 조정할 수 있습니다.
 
-- `FG\_BINARY` - absolute path to FG binary to run. (It can be an AppImage)
-- `FG\_MODELS\_DIR` - absolute path to the folder containing the manually-downloaded aircraft models which should be used for simulation.
-- `FG\_ARGS\_EX` - any additional FG parameters.
+- `FG\_BINARY` - 실행할 FG 바이너리의 절대 경로입니다. (AppImage일 수 있음)
+- `FG\_MODELS\_DIR` - 수동으로 다운로드한 항공기 모델이 포함된 폴더의 절대 경로입니다.
+- `FG\_ARGS\_EX` - 추가 FG 매개변수.
 
 <a id="frame_rate"></a>
 
-### Display the frame rate
+### 프레임 속도 표시
 
-In FlightGear you can display the frame rate by enabling it in: **View > View Options > Show frame rate**.
+FlightGear에서 **보기 > 보기 옵션 > 프레임 속도 표시**에서 프레임 속도를 표시할 수 있습니다.
 
 <a id="custom_takeoff_location"></a>
 
-### Set Custom Takeoff Location
+### 사용자 지정 이륙 위치 설정
 
-Takeoff location in SITL FlightGear can be set using additional variables. Setting the variable will override the default takeoff location.
+SITL FlightGear의 이륙 위치는 추가 변수를 사용하여 설정할 수 있습니다. 변수를 설정하면 기본 이륙 위치가 무시됩니다.
 
-The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`. Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
+설정할 수 있는 변수는 `--airport`, `--runway`, `--offset-distance`입니다. 다른 옵션은 [FlightGear 위키](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)를 참고하십시오.
 
-For example:
+예:
 ```
 FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
 
-The example above starts the simulation on the [Honolulu international airport](http://wiki.flightgear.org/Suggested_airports)
+위의 예는 [호놀룰루 국제공항](http://wiki.flightgear.org/Suggested_airports) 시뮬레이션입니다.
+
 
 <a id="joystick"></a>
 
-### Using a Joystick
+### 조이스틱 사용법
 
-Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+조이스틱과 썸 조이스틱은 *QGroundControl*을 통하여 지원됩니다([설정 방법은 여기](../simulation/README.md#joystick-gamepad-integration)).
 
-The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
-
-
-## Extending and Customizing
-
-To extend or customize the simulation interface, edit the files in the **Tools/flightgear_bridge* folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
+FlightGear의 조이스틱 입력은 비활성화 되어야 합니다. 그렇지 않으면 FG 조이스틱 입력과 PX4 명령 사이에 "경합 조건"이 발생합니다.
 
 
-## Further Information
+## 확장 및 사용자 정의
 
-* [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
+To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder. 코드는 Github의 [PX4-FlightGear-Bridge 저장소](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)를 참고하십시오.
+
+
+## 추가 정보
+
+* [PX4-FlightGear-Bridge 추가 정보](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)

@@ -1,99 +1,98 @@
-# Holybro pix32 Flight Controller
+# Holybro pix32 Flight Controller (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk-2_0460) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](http://nuttx.org) OS.
+The Holybro<sup>&reg;</sup> [pix32 autopilot](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. 이 보드는 하드웨어 버전 Pixhawk 2.4.6을 기반으로합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
 ![pix32](../../assets/flight_controller/holybro_pix32/pix32_hero.jpg)
 
-As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
+CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
 
 :::tip
-The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
+Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되는 소프트웨어입니다. 커넥터와 호환되지는 않지만, 3DR Pixhawk 또는 mRo Pixhawk와 물리적으로 매우 유사합니다.
 :::
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Key Features
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
-  * CPU: 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
+## 주요 특징
+
+* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  * CPU: FPU가있는 32 비트 STM32F427 코어 텍스<sup>&reg;</sup> M4 코어
   * RAM: 168 MHz/256 KB
   * Flash: 2 MB
-* Failsafe System-on-Chip: STM32F103
-* Sensors: 
-  * ST Micro L3GD20 3-axis 16-bit gyroscope
-  * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
-  * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
-  * MEAS MS5611 barometer
-* Dimensions/Weight 
-  * Size: 81x44x15mm
-  * Weight: 33.1g
-* GPS: u-blox<sup>&reg;</sup> super precision Neo-7M with compass
-* Input Voltage: 2~10s (7.4~37V)
+* 페일세이프 시스템 온칩 : STM32F103
+* 센서:
+  * ST Micro L3GD20 3축 16비트 자이로스코프
+  * ST Micro LSM303D 3축 14비트 가속도계/자력계
+  * Invensense<sup>&reg;</sup> MPU 6000 3축 가속도계/자이로스코프
+  * MEAS MS5611 기압계
+* 크기/중량
+  * 크기: 81x44x15mm
+  * 중량: 33.1g
+* GPS : 나침반 내장 u-blox<sup>&reg;</sup> 초정밀 Neo-7M
+* 입력 전압 : 2 ~ 10s (7.4 ~ 37V)
 
-### Connectivity
+### 연결성
 
-* 1x I2C
-* 2x CAN
-* 3.3 and 6.6V ADC inputs
-* 5x UART (serial ports), one high-power capable, 2x with HW flow control
-* Spektrum DSM / DSM2 / DSM-X® Satellite compatible input up to DX8 (DX9 and above not supported)
-* Futaba<sup>&reg;</sup> S.BUS compatible input and output
-* PPM sum signal
-* RSSI (PWM or voltage) input
+* I2C 1개
+* CAN 2 개
+* 3.3 및 6.6V ADC 입력
+* UART (직렬 포트) 5개, 1 개의 고전력 지원, 2x (HW 흐름 제어 포함)
+* 최대 DX8의 Spektrum DSM/DSM2/DSM-X® Satellite 호환 입력(DX9 이상은 지원되지 않음)
+* Futaba<sup>&reg;</sup> S.BUS 호환 입력 및 출력
+* PPM 합계 신호
+* RSSI (PWM 또는 전압) 입력
 * SPI
-* External microUSB port
-* Molex PicoBlade connectors
+* 외부 microUSB 포트
+* Molex PicoBlade 커넥터
 
-## Purchase
+## Where to Buy
 
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
+[shop.holybro.com](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller)
 
-### Accessories
+### 소품
 
-* [Digital airspeed sensor](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
-* [Hobbyking<sup>&reg;</sup> Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
-* [Telemetry Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
-* [Telemetry Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
+* [디지털 풍속 센서](https://holybro.com/products/digital-air-speed-sensor)
+* [Hobbyking<sup>&reg;</sup> Wifi 텔레메트리](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
+* [HolyBro SiK Telemetry Radio (EU 433 MHz, US 915 MHz)](../telemetry/holybro_sik_radio.md)
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+```
+make px4_fmu-v2_default
+```
 
-    make px4_fmu-v2_default
-    
+## 디버그 포트
 
-## Debug Port
+[3DR Pixhawk 1 &gt; 디버그 포트](../flight_controller/pixhawk.md#debug-ports)를 참고하십시오.
 
-See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports).
 
-## Pinouts and Schematics
+## 핀배열과 회로도
 
-The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
+이 보드는 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv2** 개방형 하드웨어 설계에 기반합니다.
 
-* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+* [FMUv2 + IOv2 회로도](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 회로도 및 레이아웃
 
-:::note
-As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+:::note CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
 :::
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | IO 디버그         |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  |            |                |
+| UART7  | 콘솔         |                |
+| UART8  | SERIAL4    |                |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->

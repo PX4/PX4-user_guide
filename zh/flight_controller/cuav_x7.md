@@ -20,17 +20,17 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Support USB_HS, download logs faster (PX4 not yet supported)
 * Support more dshot output
 * Support IMU heating, make the sensor work better
-* Dedicated uavcan battery port
+* Dedicated CAN battery port
 * 3 sets of IMU sensors
 * Car-grade RM3100 compass
 * High performance processor
 
 :::tip
-The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
 :::
 
 
-## Quick Summary{#quick-Summary}
+## Quick Summary
 
 * Main FMU Processor: STM32H743
 * 内置传感器：
@@ -47,8 +47,8 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
    * 2 GPS ports(GPS and UART4 ports)
    * 4 i2c buses(Two i2c dedicated ports)
    * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
-   * 2  ADC intput
+   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
+   * 2  ADC input
    * 1 USB ports
 * 电源系统
   * 输入电压：4.3~5.4V
@@ -66,9 +66,11 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
 When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
 :::
 
-## 采购
+## Where to Buy
 
-[CUAV Store](https://store.cuav.net)<\br> [CUAV aliexpress](https://www.aliexpress.com/item/4001042683738.html?spm=a2g0o.detail.1000060.2.1ebb2a9d3WDryi&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=f0df2481-1c0a-44eb-92a4-9c11c6cb3d06&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:f0df2481-1c0a-44eb-92a4-9c11c6cb3d06,tpp_buckets:668%230%23131923%2320_668%23808%234094%23518_668%23888%233325%2319_668%234328%2319934%23630_668%232846%238115%23807_668%232717%237566%23827_668%231000022185%231000066058%230_668%233468%2315607%2376)
+[CUAV Store](https://store.cuav.net)
+
+[CUAV aliexpress](https://www.aliexpress.com/item/4001042683738.html?spm=a2g0o.detail.1000060.2.1ebb2a9d3WDryi&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=f0df2481-1c0a-44eb-92a4-9c11c6cb3d06&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:f0df2481-1c0a-44eb-92a4-9c11c6cb3d06,tpp_buckets:668%230%23131923%2320_668%23808%234094%23518_668%23888%233325%2319_668%234328%2319934%23630_668%232846%238115%23807_668%232717%237566%23827_668%231000022185%231000066058%230_668%233468%2315607%2376)
 
 ## Connections (Wiring)
 
@@ -145,8 +147,6 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
 
 Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
-
-For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 :::
 
 ## 支持的平台/机身

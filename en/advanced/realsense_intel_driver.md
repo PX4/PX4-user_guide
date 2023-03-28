@@ -20,7 +20,7 @@ The tutorial is ordered in the following way: In a first part it is shown how to
 ## Installing Ubuntu 14.04.3 LTS in Virtual Box
 
 - Create a new Virtual Machine (VM): Linux 64-Bit.
-- Download the iso file of Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](http://www.ubuntu.com/download/desktop)).
+- Download the iso file of Ubuntu 14.04.3 LTS: ([ubuntu-14.04.3-desktop-amd64.iso](https://ubuntu.com/download/desktop)).
 - Installation of Ubuntu:
   - During the installation procedure leave the following two options unchecked:
     - Download updates while installing 
