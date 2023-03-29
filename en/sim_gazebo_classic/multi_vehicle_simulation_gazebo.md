@@ -55,7 +55,7 @@ The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github
 
 
 <a id="with_dds"></a>
-### Build and Test (xrce-dds)
+### Build and Test (XRCE-DDS)
 
 `Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles based on xrce-dds in Gazebo Classic.
 
