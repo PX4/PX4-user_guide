@@ -14,17 +14,21 @@ The only requirements are
 
 In simulation each PX4 instance receives an unique `px4_instance` number starting from `0`.
 This value is used to assign a unique value to [XRCE_DDS_KEY](../advanced_config/parameter_reference.md#XRCE_DDS_KEY):
+
 ```sh
 param set XRCE_DDS_KEY $((px4_instance+1))
 ```
+
 :::note
 By doing so, `XRCE_DDS_KEY` will always coincide with [MAV_COMP_ID](../advanced_config/parameter_reference.md#MAV_COMP_ID).
 :::
 
 Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/xrce_dds.md#customizing-the-topic-namespace) in the form `px4_$px4_instance` is added:
+
 ```sh
 microdds_ns="-n px4_$px4_instance"
 ```
+
 :::note
 The environment variable `PX4_MICRODDS_NS`, if set, will override the above mentioned namespace behavior.
 :::
@@ -43,7 +47,8 @@ The default client configuration in simulation is summarized as follows
 
 ## Adjusting the `target_system` value
 
-PX4 accepts [VehicleCommand](../msg_docs/VehicleCommand.md) messages only if their `target_system` field is zero (broadcast communication) or coincides with `MAV_COMP_ID`. In all other situations, the messages are ignored.
+PX4 accepts [VehicleCommand](../msg_docs/VehicleCommand.md) messages only if their `target_system` field is zero (broadcast communication) or coincides with `MAV_COMP_ID`.
+In all other situations, the messages are ignored.
 Therefore, when ROS 2 nodes want to send `VehicleCommand` to PX4, they must ensure that the messages are filled with the appropriate `target_system` value.
 
 For example, if you want to send a command to your third vehicle, which has `px4_instance=2`, you need to set `target_system=3` in all your `VehicleCommand` messages.
