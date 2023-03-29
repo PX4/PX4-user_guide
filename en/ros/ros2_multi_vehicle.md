@@ -20,7 +20,7 @@ param set XRCE_DDS_KEY $((px4_instance+1))
 ```
 
 :::note
-By doing so, `XRCE_DDS_KEY` will always coincide with [MAV_COMP_ID](../advanced_config/parameter_reference.md#MAV_COMP_ID).
+By doing so, `XRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
 :::
 
 Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/xrce_dds.md#customizing-the-topic-namespace) in the form `px4_$px4_instance` is added:
@@ -47,7 +47,7 @@ The default client configuration in simulation is summarized as follows:
 
 ## Adjusting the `target_system` value
 
-PX4 accepts [VehicleCommand](../msg_docs/VehicleCommand.md) messages only if their `target_system` field is zero (broadcast communication) or coincides with `MAV_COMP_ID`.
+PX4 accepts [VehicleCommand](../msg_docs/VehicleCommand.md) messages only if their `target_system` field is zero (broadcast communication) or coincides with `MAV_SYS_ID`.
 In all other situations, the messages are ignored.
 Therefore, when ROS 2 nodes want to send `VehicleCommand` to PX4, they must ensure that the messages are filled with the appropriate `target_system` value.
 
