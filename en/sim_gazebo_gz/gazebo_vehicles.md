@@ -50,7 +50,6 @@ make px4_sitl gz_rc_cessna
 
 ## VTOL
 
-<a id="standard_vtol"></a>
 ### Standard VTOL
 
 ```sh
