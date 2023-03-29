@@ -4,6 +4,11 @@ The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, al
 
 This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
 
+:::note
+The [XRCE-DDS](../middleware/xrce_dds.md) middleware middleware is supported in releases from **PX4 v1.14** **PX4 v1.13** does not support ROS 2 via [XRCE-DDS](../middleware/xrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
+<!-- remove this when there are PX4 v1.14 docs for some months -->
+:::
+
 ## 개요
 
 The application pipeline for ROS 2 is very straightforward, thanks to the use of the [XRCE-DDS](../middleware/xrce_dds.md) communications middleware.
@@ -151,8 +156,7 @@ This section shows how create a ROS 2 workspace hosted in your home directory (m
 The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace. The example is run using `ros2 launch`.
 
 :::note
-The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
-:::
+The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
 
 
 #### Building the Workspace
@@ -167,8 +171,9 @@ To create and build the workspace:
    cd ~/ws_sensor_combined/src/
    ```
 
-:::note
-A naming convention for workspace folders can make it easier to manage workspaces. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
+   :::note
+A naming convention for workspace folders can make it easier to manage workspaces.
+:::
 
 1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the the version of PX4 we are running):
 
