@@ -304,40 +304,47 @@ Therefore,
   
   Each (`topic`,`type`) pairs defines
 
-  1. A new subscription or publication depending on the list it is added.
-  2. The topic _base name_, which MUST coincide with the desired uORB topic name that you want to publish/subscribe.
+  1. A new subscription or publication depending on the list to which it is added.
+  2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe.
      It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it.
      `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
   3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). 
-     By default it is set to
+     By default it is set to:
+     
       - `/fmu/out/` for topics that are _published_ by PX4.
-      - `/fmu/in/` for topics that are _subscirbed_ by PX4.
-  4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, ecc) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
+      - `/fmu/in/` for topics that are _subscribed_ by PX4.
+  4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
 
-  You can arbitrary change the configuration.
+  You can arbitrarily change the configuration.
   For example, you could use different default namespaces or use a custom package to store the message definitions. 
   :::
 
 
 ### Customizing the topic namespace
 
-Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
+Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line. This technique can be used both in simulation and real vehicles.
+ - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line.
+   This technique can be used both in simulation and real vehicles.
  - Only in simulation, where the client is automatically started, a custom namespace can be provided setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
 
 
 :::note
 Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml).
-Therefore, commands like
+Therefore, commands like:
+
 ```sh
 microdds_client start -n uav_1
 ```
+
 or
+
 ```sh
 PX4_MICRODDS_NS=uav_1 make px4_sitl gz_x500
 ```
-will generate topics under the namespaces
+
+will generate topics under the namespaces:
+
 ```sh
 /uav_1/fmu/in/  # for subscribers
 /uav_1/fmu/out/ # for publishers
