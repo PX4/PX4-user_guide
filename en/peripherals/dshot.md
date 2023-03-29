@@ -1,6 +1,7 @@
 # DShot ESCs
 
 DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):
+
 - Reduced latency.
 - Increased robustness via a checksum.
 - No need for ESC calibration as the protocol uses digital encoding.
@@ -18,17 +19,17 @@ DShot ESCs are connected and wired the same way as [PWM ESCs](pwm_escs_and_servo
 
 If using a Pixhawk flight controller that only has a MAIN port, connect the pins according to the [airframe reference](../airframes/airframe_reference.md) for your vehicle.
 
-If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) and connect your ESCs to the AUX-labeled outputs *as though they were labeled MAIN*.
+If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) and connect your ESCs to the AUX-labeled outputs *as though they were labeled MAIN*. 
 
 :::note
 A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively.
-DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
+DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the port labelled `MAIN` in the [airframe reference](../airframes/airframe_reference.md). 
 
-To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
+To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs. 
 
-Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
+Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available. 
 
-Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
+Developers might alternatively modify the [Actuator Configuration](../config/actuators.md) so that motor outputs are on the AUX port rather than MAIN.
 :::
 
 :::note
@@ -46,16 +47,14 @@ While DShot is enabled on either or both groups, normal PWM is supported on any 
 Remove propellers before changing ESC configuration parameters!
 :::
 
-Enable DShot with the [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG) parameter (if the parameter does not exist, the board does not support DShot).
+Enable DShot for your required outputs in the [Actuator Configuration](../config/actuators.md).
 
 DShot comes with different speed options: *DShot150*, *DShot300*, *DShot600* and *DShot1200*, where the number indicates the speed in kilo-bits/second.
-You should set the parameter to the highest speed supported by your ESC (according to its datasheet) and then reboot the vehicle.
+You should set the parameter to the highest speed supported by your ESC (according to its datasheet).
 
 Then connect the battery and arm the vehicle.
 The ESCs should initialize and the motors turn in the correct directions.
-- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)), reverse them by sending an [ESC Command](#commands).
-- Adjust [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) so that the motors spin at lowest throttle (but the vehicle does not take off).
-
+- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** options (or reverse them by sending an [ESC Command](#commands)).
 
 <span id="commands"></span>
 ## ESC Commands
@@ -64,6 +63,7 @@ Commands can be sent to the ESC via the [MAVLink shell](../debug/mavlink_shell.m
 See [here](../modules/modules_driver.md#dshot) for a full reference of the supported commands.
 
 The most important ones are:
+
 - Make the first motor beep (helps with identifying motors):
   ```
   dshot beep1 -m 1
@@ -101,6 +101,7 @@ The most important ones are:
 ## Telemetry
 
 Some ESCs are capable of sending telemetry back to the flight controller, including:
+
 - temperature
 - voltage
 - current
@@ -114,6 +115,7 @@ To enable this feature (on ESCs that support it):
 1. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
 
 After a reboot you can check if telemetry is working (make sure the battery is connected) using:
+
 ```
 dshot esc_info -m 1
 ```
