@@ -37,21 +37,27 @@ This allows for greater flexibility and customization.
 - First follow the installation instructions for [Gazebo](../sim_gazebo_gz/README.md).
 - Then configure your system for [ROS 2 / PX4 operations](../ros/ros2_comm.md#installation-setup).
 - In different terminals manually start a multi vehicle simulation.
-  This example spawns 2 X500 Quadrotors and a fixed wing.
+  This example spawns 2 X500 Quadrotors and a fixed wing:
+
   ```sh
   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4 -i 1
   ```
+  
   ```sh
   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL_POSE="0,1" PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4 -i 2
   ```
+  
   ```sh
   PX4_SYS_AUTOSTART=4004 PX4_GZ_MODEL_POSE="0,2" PX4_GZ_MODEL=rc_cessna ./build/px4_sitl_default/bin/px4 -i 3
   ```
-- Start the agent
+  
+- Start the agent:
+
   ```sh
   MicroXRCEAgent udp4 -p 8888
   ```
-- The agent will automatically connect to all clients and running `ros2 topic list` will return
+- The agent will automatically connect to all clients and running `ros2 topic list` will return:
+- 
   ```
   /parameter_events
   /px4_1/fmu/in/obstacle_distance
