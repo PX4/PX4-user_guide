@@ -30,13 +30,13 @@ microdds_ns="-n px4_$px4_instance"
 ```
 
 :::note
-The environment variable `PX4_MICRODDS_NS`, if set, will override the above mentioned namespace behavior.
+The environment variable `PX4_MICRODDS_NS`, if set, will override the namespace behavior described above.
 :::
 
-The first instance (`px4_instance=0`) does not have an additional namespace in order to be consistent with the default behavior of the xrce-dds client on real vehicle.
+The first instance (`px4_instance=0`) does not have an additional namespace in order to be consistent with the default behavior of the `xrce-dds` client on a real vehicle.
 This mismatch can be fixed by manually using `PX4_MICRODDS_NS` on the first instance or by starting adding vehicles from index `1` instead of `0` (this is the default behavior adopted by [sitl_multiple_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/gazebo-classic/sitl_multiple_run.sh) for Gazebo Classic).
 
-The default client configuration in simulation is summarized as follows
+The default client configuration in simulation is summarized as follows:
 
 | `PX4_MICRODDS_NS` | `px4_instance` | `XRCE_DDS_KEY`   | client namespace      |
 |-------------------|----------------|------------------|-----------------------|
