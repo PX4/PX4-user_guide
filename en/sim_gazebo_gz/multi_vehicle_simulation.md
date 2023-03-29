@@ -37,7 +37,7 @@ This allows for greater flexibility and customization.
 - First follow the installation instructions for [Gazebo](../sim_gazebo_gz/README.md).
 - Then configure your system for [ROS 2 / PX4 operations](../ros/ros2_comm.md#installation-setup).
 - In different terminals manually start a multi vehicle simulation.
-  This example spawns 2 x500 quadrotors and a fixed wing
+  This example spawns 2 X500 Quadrotors and a fixed wing.
   ```sh
   PX4_SYS_AUTOSTART=4001 PX4_GZ_MODEL=x500 ./build/px4_sitl_default/bin/px4 -i 1
   ```
