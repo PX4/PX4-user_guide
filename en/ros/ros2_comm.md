@@ -281,7 +281,7 @@ Note that ROS code does not have to set QoS settings when publishing (the PX4 se
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
 
-### ROS 2 & PX4 frame conventions
+### ROS 2 & PX4 Frame Conventions
 
 The local/world and body frames used by ROS and PX4 are different.
 
@@ -301,10 +301,12 @@ Both frames are shown in the image below (FRD on the left/FLU on the right).
 The FRD (NED) conventions are adopted on **all** PX4 topics unless explicitly specified in the associated message definition.
 Therefore, ROS 2 nodes that want to interface with PX4 must take care of the frames conventions.
 
-- To rotate a vector from ENU to NED two basic rotations must be performed
+- To rotate a vector from ENU to NED two basic rotations must be performed:
+
   - first a pi/2 rotation around the `Z`-axis (up),
   - then a pi rotation around the `X`-axis (old East/new North).
-- To rotate a vector from NED to ENU two basic rotations must be performed
+- To rotate a vector from NED to ENU two basic rotations must be performed:
+- 
   - first a pi/2 rotation around the `Z`-axis (down),
   - then a pi rotation around the `X`-axis (old North/new East). Note that the two resulting operations are mathematically equivalent.
 - To rotate a vector from FLU to FRD a pi rotation around the `X`-axis (front) is sufficient.
@@ -545,7 +547,7 @@ Therefore,
   For example, you could use different default namespaces or use a custom package to store the message definitions. 
   :::
 
-## Customizing the topic namespace
+## Customizing the Topic Namespace
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
 
@@ -555,15 +557,20 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 
 :::note
 Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml).
-Therefore, commands like
+Therefore, commands like:
+
 ```sh
 microdds_client start -n uav_1
 ```
+
 or
+
 ```sh
 PX4_MICRODDS_NS=uav_1 make px4_sitl gz_x500
 ```
-will generate topics under the namespaces
+
+will generate topics under the namespaces:
+
 ```sh
 /uav_1/fmu/in/  # for subscribers
 /uav_1/fmu/out/ # for publishers
