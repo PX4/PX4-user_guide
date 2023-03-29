@@ -241,7 +241,7 @@ They will then persist through subsequent reboots.
 
 You can also start the [microdds-client](../modules/modules_system.md#microdds-client) using a command line.
 This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console).
-This methods is particularly useful when you need to set a custom client namespace.
+This method is useful when you need to set a custom client namespace, as no parameter is provided for this purpose.
 For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888` and to set the client namespace to `/drone/`.
 
 ```sh
