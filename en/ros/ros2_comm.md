@@ -16,6 +16,11 @@ For a more detailed and visual explanation on how to use PX4 with ROS 2 see thes
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 :::
 
+:::warning
+XRCE-DDS is not supported as a ROS 2 middleware in PX4 v1.13.
+In PX4 v1.13 use [MicroRTPS](../middleware/micrortps.md) as described below.
+:::
+
 ## Overview
 
 The application pipeline for ROS 2 is very straightforward, thanks to the native communications middleware (DDS/RTPS).
