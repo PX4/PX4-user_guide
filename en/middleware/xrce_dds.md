@@ -180,6 +180,10 @@ For more information about setting up communications channels see [Pixhawk + Com
 The XRCE-DDS client module ([microdds-client](../modules/modules_system.md#microdds-client)) is included by default in all firmware and the simulator.
 This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
+:::note
+The simulator automatically starts the client on localhost UDP port `8888` using the default microdds namespace.
+:::
+
 The configuration can be done using the [Micro XRCE-DDS parameters](../advanced_config/parameter_reference.md#micro-xrce-dds):
 
 - [XRCE_DDS_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
