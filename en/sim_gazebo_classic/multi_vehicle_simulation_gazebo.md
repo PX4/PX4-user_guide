@@ -60,7 +60,7 @@ The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github
 `Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles based on xrce-dds in Gazebo Classic.
 
 :::note
-You will need to have installed the xrce-dds dependencies.
+You will need to have installed the XRCE-DDS dependencies.
 For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
 :::
 
@@ -87,13 +87,14 @@ To build an example setup, follow the steps below:
    MAVLink system id 1 is skipped.
    :::
 
-2. Run `micro xrce-dds agent`. It will connect automatically to all four vehicles
+2. Run `MicroXRCEAgent`.
+   It will automatically connect to all four vehicles:
 
    ```bash
    MicroXRCEAgent udp4 -p 8888
    ```
    :::note
-   The simulator startup script automatically assign [unique namespaces](../ros/ros2_multi_vehicle.md) to each vehicle.
+   The simulator startup script automatically assigns a [unique namespace](../ros/ros2_multi_vehicle.md) to each vehicle.
    :::
 
 ## Multiple Vehicles with MAVROS and Gazebo Classic

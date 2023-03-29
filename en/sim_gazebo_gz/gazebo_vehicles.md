@@ -1,6 +1,6 @@
 # Gazebo Vehicles
 
-This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
+This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation, and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).
 
 Supported vehicle types include: mutirotor, VTOL, Plane.
 
@@ -9,15 +9,14 @@ The [Gazebo](../sim_gazebo_gz/README.md) page shows how to install Gazebo.
 :::
 
 ## Multicopter
-<a id="x500-quadrotor"></a>
-### x500 quadrotor
+
+### X500 Quadrotor
 
 ```sh
 make px4_sitl gz_x500
 ```
 
-<a id="x500-quadrotor-with-visual-odometry"></a>
-### x500 quadrotor with visual odometry
+### X500 Quadrotor with Visual Odometry
 
 ```sh
 make px4_sitl gz_x500_vision
@@ -25,8 +24,7 @@ make px4_sitl gz_x500_vision
 
 ![x500 in Gazebo](../../assets/simulation/gazebo/vehicles/x500.png)
 
-<a id="x500-quadrotor-with-depth-camera"></a>
-### x500 quadrotor with Depth Camera
+### X500 Quadrotor with Depth Camera
 
 These models have a depth camera attached, modelled on the OAK-D.
 
