@@ -429,6 +429,13 @@ Source: [modules/microdds_client](https://github.com/PX4/PX4-Autopilot/tree/rele
 
 
 ### Description
+
+:::warning
+XRCE-DDS is not supported in PX4 v1.13.
+This feature (and module) can only be used in PX4 v1.14 (and later).
+In PX4 v1.13 use [MicroRTPS](../middleware/micrortps.md).
+:::
+
 MicroDDS Client used to communicate uORB topics with an Agent over serial or UDP.
 
 ### Examples
