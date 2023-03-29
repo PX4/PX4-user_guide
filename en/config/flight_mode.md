@@ -101,7 +101,7 @@ The video below shows how this is done with the *FrSky Taranis* transmitter.
 <!-- @[youtube](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->
 @[youtube](https://youtu.be/TFEjEQZqdVA)
 
-The *QGroundControl* configuration is then as [described above](#single-channel-flight-mode-selection).
+The *QGroundControl* configuration is then [as described above](#flight-mode-selection).
 
 
 ## Further Information
