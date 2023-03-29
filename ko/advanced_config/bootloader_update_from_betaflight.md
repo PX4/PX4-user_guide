@@ -81,7 +81,7 @@ DFU는 플래싱으로 덮어쓸 수 없으며 플래싱이 실패하더라도, 
 The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
 
 ```
-dfu-util -a 0 --dfuse-address:force:mass-erase:leave 0x08000000 -D  build/<target>/<target>.bin
+dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin
 ```
 
 The command may generate an error which can be ignored. Once completed, enter DFU mode again to complete the regular flashing.
