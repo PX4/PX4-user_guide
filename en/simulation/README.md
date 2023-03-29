@@ -37,7 +37,7 @@ It is not required to *use* the simulators.
 
 ## Simulator MAVLink API
 
-All simulators but Gazebo communicate with PX4 using the Simulator MAVLink API.
+All simulators except for Gazebo communicate with PX4 using the Simulator MAVLink API.
 This API defines a set of MAVLink messages that supply sensor data from the simulated world to PX4 and return motor and actuator values from the flight code that will be applied to the simulated vehicle.
 The image below shows the message flow.
 
@@ -61,7 +61,7 @@ Message | Direction | Description
 [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION) | Sim to PX4 | Contains the actual "simulated" vehicle position, attitude, speed etc. This can be logged and compared to PX4's estimates for analysis and debugging (for example, checking how well an estimator works for noisy (simulated) sensor inputs).
 [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW) | Sim to PX4 | The RAW values of the RC channels received.
 
-PX4 directly uses [Gazebo API](https://gazebosim.org/docs) to interface with [Gazebo](../sim_gazebo_gz/README.md) and MAVlink is not required.
+PX4 directly uses the  [Gazebo API](https://gazebosim.org/docs) to interface with [Gazebo](../sim_gazebo_gz/README.md) and MAVlink is not required.
 
 ## Default PX4 MAVLink UDP Ports
 
@@ -90,7 +90,7 @@ See [System Startup](../concept/system_startup.md) to learn more.
 
 ## SITL Simulation Environment
 
-The diagram below shows a typical SITL simulation environment for any of the supported simulators but Gazebo.
+The diagram below shows a typical SITL simulation environment for any of the supported simulators that use MAVLink (i.e. all of them except Gazebo).
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 

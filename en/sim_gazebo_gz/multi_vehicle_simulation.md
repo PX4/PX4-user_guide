@@ -56,8 +56,8 @@ This allows for greater flexibility and customization.
   ```sh
   MicroXRCEAgent udp4 -p 8888
   ```
-- The agent will automatically connect to all clients and running `ros2 topic list` will return:
-- 
+  The agent will automatically connect to all clients.
+-  Run `ros2 topic list` to see the topic list, which should look like this:
   ```
   /parameter_events
   /px4_1/fmu/in/obstacle_distance
