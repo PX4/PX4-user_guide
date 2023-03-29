@@ -183,28 +183,35 @@ This must be started with appropriate settings for the communication channel tha
 The configuration can be done using the [Micro XRCE-DDS parameters](../advanced_config/parameter_reference.md#micro-xrce-dds):
 
 - [XRCE_DDS_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
+- If using an Ethernet connection:
   - [XRCE_DDS_PRT](../advanced_config/parameter_reference.md#XRCE_DDS_PRT):
-    If using an Ethernet connection, use this to specify the agent UDP listening port.
+    Use this to specify the agent UDP listening port.
     The default value is `8888`.
   - [XRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#XRCE_DDS_AG_IP):
-    If using an Ethernet connection, use this to specify the IP address of the agent.
+    Use this to specify the IP address of the agent.
     The IP address must be provided in `int32` format as PX4 does not support string parameters.
-    You can use [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/pr-micro-XRCE-DDS-allow-IP-parameter/Tools/convert_ip.py) to convert formats.
-    To obtain the `int32` version of an IP in decimal dot notation the command is
-    ```sh
-    python3 ./PX4-Autopilot/Tools/convert_ip.py <the IP address in decimal dot notation>
-    ```
-    To revert back from the `int32` version the command is
-    ```sh
-    python3 ./PX4-Autopilot/Tools/convert_ip.py -r <the IP address in int32 notation>
-    ```
     The default value is `2130706433` which corresponds to the _localhost_ `127.0.0.1`.
+    
+    You can use [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/pr-micro-XRCE-DDS-allow-IP-parameter/Tools/convert_ip.py) to convert between the formats:
+    
+    - To obtain the `int32` version of an IP in decimal dot notation the command is:
+    
+      ```sh
+      python3 ./PX4-Autopilot/Tools/convert_ip.py <the IP address in decimal dot notation>
+      ```
+    - To get the IP address in decimal dot notation from the `int32` version:
+    
+      ```sh
+      python3 ./PX4-Autopilot/Tools/convert_ip.py -r <the IP address in int32 notation>
+      ```
+    
+- If using a serial connection:
   - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), [SER_URT6_BAUD](../advanced_config/parameter_reference.md#SER_URT6_BAUD) (and so on):
-    If using a serial connection, the baud rate must be set using the `_BAUD` parameter associated with the serial port.
+    Use the `_BAUD` parameter associated with the serial port to set the baud rate.
     For example, you'd set a value for `SER_TEL2_BAUD` if you are connecting to the companion using `TELEM2`.
     For more information see [Serial port configuration](../peripherals/serial_configuration.md#serial-port-configuration).
 
-  Some setups might also need these parameters to be set:
+- Some setups might also need these parameters to be set:
 
   - [XRCE_DDS_KEY](../advanced_config/parameter_reference.md#XRCE_DDS_KEY): The XRCE-DDS key.
     If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key.
