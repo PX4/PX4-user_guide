@@ -29,13 +29,15 @@ The vehicle needs 7 PWM signals for the motors and control surfaces:
 - Tilt servos (right/left)
 - Elevons (left/right)
 
-These can be configured in the [Actuators Configuration](../config/actuators.md) by following the instructions for VTOL tiltrotor geometry and output configuration.
+These can be wired to flight controller outputs more-or-less in any way you want (though outputs for motors should be grouped together, and so on).
+
+The outputs are configured in the [Actuators Configuration](../config/actuators.md) by following the instructions for VTOL tiltrotor geometry and output configuration.
 Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) frame.
 
 Note that left and right in the configuration screen and frame reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
 
-
 <img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
+
 
 ### Flight Controller
 
