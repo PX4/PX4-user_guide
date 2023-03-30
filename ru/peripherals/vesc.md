@@ -36,16 +36,13 @@ Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a bat
 
 ### PX4 Configuration
 
-(Optional) Set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed.
-
-:::note
-Some systems will not benefit from this behavior, e.g. glider drones).
-:::
+Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
 ## Troubleshooting
 
 See [DroneCAN Troubleshooting](README.md#troubleshooting).
 
 ## Further Information
+
 * [VESC Project ESCs](https://vesc-project.com/)
 * [Benjamin Vedder's blog](http://vedder.se) (project owner)
