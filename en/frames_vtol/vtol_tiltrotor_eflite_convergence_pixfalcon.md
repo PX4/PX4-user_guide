@@ -24,7 +24,13 @@ Flight controller options ():
 
 ## Hardware Setup
 
-The vehicle needs 7 PWM signals, which must be connected to the flight controller outputs as specified in [Airframe Reference > VTOL Tiltrotor > E-flite Convergence](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_e-flite_convergence). 
+The vehicle needs 7 PWM signals for the motors and control surfaces:
+- Motor (left/right/back)
+- Tilt servos (right/left)
+- Elevons (left/right)
+
+These can be configured in the [Actuators Configuration](../config/actuators.md) by following the instructions for VTOL tiltrotor geometry and output configuration.
+Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) frame.
 This mapping is reproduced below.
 
 Port | Connection 
