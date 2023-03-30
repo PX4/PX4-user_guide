@@ -195,20 +195,6 @@ In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set t
 
 If you don't have access to a thrust stand, you can also tune the modeling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values. If it is too low you'll notice oscillations at higher throttle values.
 
-<!-- TODO
-### Velocity & Position Controller
-The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
-turn off all [higher-level position controller tuning gains](../config_mc/mc_trajectory_tuning.md).
-
-- [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
-- [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000
-- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000
-- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000
-- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000
-- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0
-- [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
- -->
-
 
 <span id="airmode"></span>
 ### Airmode & Mixer Saturation
