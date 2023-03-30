@@ -3,8 +3,7 @@
 [E-Flite 컨버전스](https://youtu.be/HNedXQ_jhYo) PX4의 자율 비행이 가능한 VTOL로 변환할 수 있습니다. 공간은 충분하지 않지만, GPS, 텔레메트리를 장착하기에는 [Pixfalcon](../flight_controller/pixfalcon.md) 비행 콘트롤러의 공간은 충분합니다.
 
 :::note
-오리지널 [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) 프레임과 [Pixfalcon](../flight_controller/pixfalcon.md)은 단종되었습니다. 대안은 [구매](#purchase) 섹션을 참고하십시오.
-:::
+오리지널 [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) 프레임과 [Pixfalcon](../flight_controller/pixfalcon.md)은 단종되었습니다. 대안은 [구매](#purchase) 섹션을 참고하십시오. :::
 
 @[유투브](https://youtu.be/E61P2f2WPNU)
 
@@ -22,22 +21,19 @@
 
 ## 하드웨어 설정
 
-차량에는 [기체 정의서 &gt; VTOL 틸트로터 &gt; E-flite Convergence](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_e-flite_convergence)에 지정된 대로 비행 콘트롤러 출력에 연결되어야 하는 7개의 PWM 신호가 필요합니다. 출력 매핑은 아래와 같습니다.
+The vehicle needs 7 PWM signals for the motors and control surfaces:
+- Motor (left/right/back)
+- Tilt servos (right/left)
+- Elevons (left/right)
 
-| 포트     | 연결       |
-| ------ | -------- |
-| MAIN 1 | 우측 모터    |
-| MAIN 2 | 좌측 모터    |
-| MAIN 3 | 후면 모터    |
-| MAIN 4 | 없음       |
-| MAIN 5 | 우측 틸트 서보 |
-| MAIN 6 | 좌측 틸트 서보 |
-| MAIN 7 | 우측 엘레본   |
-| MAIN 8 | 좌측 엘레본   |
+These can be wired to flight controller outputs more-or-less in any way you want (though outputs for motors should be grouped together, and so on).
 
-참조에서 왼쪽과 오른쪽은 실제 비행기 내부의 인간 조종사의 관점에서 정의됩니다(또는 아래 표시된 것처럼 위에서 볼 때).
+The outputs are configured in the [Actuators Configuration](../config/actuators.md) by following the instructions for VTOL tiltrotor geometry and output configuration. Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) frame.
+
+Note that left and right in the configuration screen and frame reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
 
 <img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
+
 
 ### 비행 콘트롤러
 
