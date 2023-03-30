@@ -312,7 +312,7 @@ Therefore, ROS 2 nodes that want to interface with PX4 must take care of the fra
 - To rotate a vector from FLU to FRD a pi rotation around the `X`-axis (front) is sufficient.
 - To rotate a vector from FRD to FLU a pi rotation around the `X`-axis (front) is sufficient.
 
-Examples of vectors that require rotation are
+Examples of vectors that require rotation are:
 
 - all fields in [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) message; ENU to NED conversion is required before sending them.
 - all fields in [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) message; FLU to FRD conversion is required before sending them.
@@ -491,10 +491,14 @@ For more information see [Starting XRCE-DDS](../middleware/xrce_dds.md#starting-
 
 ROS 2 needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware in order to interpret the messages.
 The definition are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) and they are automatically synchronized by CI on the `main` and release branches.
+Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics.
 Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
-- If you're creating your own new topics e/o uORB messages you will need to update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), clone the the interface package and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders. Assuming that PX4-Autopilot is in your home directory `~` while `px4_msgs` is in `~/px4_ros_com/src/`, then the command can be
+- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree.
+  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
+  Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
+
   ```sh
   rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
   cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
@@ -509,8 +513,9 @@ Therefore,
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line. This technique can be used both in simulation and real vehicles.
- - Only in simulation, where the client is automatically started, a custom namespace can be provided setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
+ - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line.
+   This technique can be used both in simulation and real vehicles.
+ - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
 
 
 :::note

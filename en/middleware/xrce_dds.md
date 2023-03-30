@@ -267,7 +267,7 @@ Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
 - If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree.
-  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), clone the the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
+  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
   Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
 
   ```sh
@@ -287,7 +287,7 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 
  - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line.
    This technique can be used both in simulation and real vehicles.
- - a custom namespace can be provided for simulations (only) by setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
+ - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
 
 
 :::note
