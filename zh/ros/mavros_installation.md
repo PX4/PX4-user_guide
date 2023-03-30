@@ -13,7 +13,7 @@ The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2
 First install ROS and PX4 following the instructions in [Development Environment on Linux > ROS/Gazebo Classic](../dev_setup/dev_env_linux_ubuntu.md#ros-gazebo-classic). Kinetic 同样支持 Debian Jessie amd64 和 arm64（ARMv8）。
 
 :::tip
-These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic* release.
+These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic and Noetic* releases.
 :::
 
 MAVROS can be installed either from source or binary. We recommend that developers use the source installation.
@@ -22,10 +22,10 @@ MAVROS can be installed either from source or binary. We recommend that develope
 
 The ROS repository has binary packages for Ubuntu x86, amd64 (x86\_64) and armhf (ARMv7). Kinetic also supports Debian Jessie amd64 and arm64 (ARMv8).
 
-如果这是你第一次使用wstool你需要初始化你的代码文件夹。
+Use `apt-get` for installation, where `${ROS_DISTRO}` below should resolve to `kinetic` or `noetic`, depending on your version of ROS:
 
 ```
-sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
+sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
 ```
 
 Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by running the `install_geographiclib_datasets.sh` script:

@@ -83,7 +83,7 @@ FrSky Taranis에서 이 프로세스는 두 개의 실제 스위치 위치의 �
 
 아래 비디오는 *FrSky Taranis* 송신기로 어떻게 동작하는 지 보여줍니다.<!-- \[youtube\](https://youtu.be/scqO7vbH2jo) Video has gone private and is no longer available --><!-- @\[youtube\](https://youtu.be/BNzeVGD8IZI?t=427) - video showing how to set the QGC side - at about 7mins and 3 secs -->@https://youtu.be/TFEjEQZqdVA
 
-The *QGroundControl* configuration is then as [described above](#single-channel-flight-mode-selection).
+The *QGroundControl* configuration is then [as described above](#flight-mode-selection).
 
 
 ## 추가 정보

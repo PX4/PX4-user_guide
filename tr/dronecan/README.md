@@ -117,7 +117,7 @@ Upon boot the flight controller will automatically transfer the firmware onto th
 
 **Q**: The motors don't spin until throttle is increased.
 
-**A**: Check that the `UAVCAN_ESC_IDLT` is set to `1`.
+**A**: Use [Acutator > Actuator Testing](../config/actuators.md#actuator-testing) to confirm that the motor outputs are set to the correct minimum values.
 
 ## Useful Links
 

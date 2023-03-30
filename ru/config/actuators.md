@@ -82,7 +82,7 @@ The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airfram
 
 #### Motor Geometry: Standard VTOL
 
-The motor geometry for a [Generic Standard Quadplane VTOL Tiltrotor](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
+The motor geometry for a [Generic Standard Quadplane VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
@@ -264,7 +264,7 @@ Functions include:
 - `Constant_Max`: Output is set to constant maximum value (+1).
 - `Motor 1` to `Motor 12`: Output is indicated motor. Only motors allowed for airframe are displayed.
 - `Servo 1` to `Servo 8`: Servo output. These are further assigned a specific meaning based on airframe, such as "tilt servo", "left aileron".
-- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: [MAVLink Payload output](../payloads/README.md#cargo-drones-actuator-payloads).
+- `Offboard Acutator Set 1` to `Offboard Acutator Set 6`: [Payloads > Generic Actuator Control with MAVLink](../payloads/README.md#generic-actuator-control-with-mavlink).
 - `Landing Gear`: Output is landing gear.
 - `Parachute`: Output is parachute. The minimum value is sent in normal use and the maximum value is emitted when a failsafe is triggered.
 - `RC Roll`: Output is passthrough roll from RC ([RC_MAP_ROLL](../advanced_config/parameter_reference.md#RC_MAP_ROLL) maps an RC channel to this output). An RC channel is mapped to the output using .
@@ -272,7 +272,7 @@ Functions include:
 - `RC Throttle`: Output is passthrough throttle from RC ([RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE) maps an RC channel to this output).
 - `RC Yaw`: Output is yaw from RC ([RC_MAP_YAW](../advanced_config/parameter_reference.md#RC_MAP_YAW) maps an RC channel to this output).
 - `RC Flaps`: Output is flaps from RC ([RC_MAP_FLAPS](../advanced_config/parameter_reference.md#RC_MAP_FLAPS) maps an RC channel to this output).
-- `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/README.md#cargo-drones-actuator-payloads)
+- `RC AUXn` to `RC AUX1`: Outputs used for [arbitrary payloads triggered by RC passthrough](../payloads/README.md#generic-actuator-control-with-rc)
 - `Gimbal Roll`: Output controls gimbal roll.
 - `Gimbal Pitch`: Output controls Gimbal pitch.
 - `Gimbal Yaw`: Output controls Gimbal pitch.
