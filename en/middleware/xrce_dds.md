@@ -324,7 +324,7 @@ Therefore,
   :::
 
 
-### Customizing the topic namespace
+## Customizing the Topic Namespace
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
 
@@ -355,7 +355,7 @@ will generate topics under the namespaces:
 ```
 :::
 
-### PX4 ROS 2 QoS Settings
+## PX4 ROS 2 QoS Settings
 
 PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers.
 So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings.
