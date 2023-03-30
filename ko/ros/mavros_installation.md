@@ -15,7 +15,7 @@ First install ROS and PX4 following the instructions in [Development Environment
 :::
 
 :::tip
-이 지침은 [공식 설치 가이드](https://github.com/mavlink/mavros/tree/master/mavros#installation)를 단순화한 버전입니다. 이 문서에서는 *ROS Melodic* 배포판을 다룹니다.
+이 지침은 [공식 설치 가이드](https://github.com/mavlink/mavros/tree/master/mavros#installation)를 단순화한 버전입니다. They cover the *ROS Melodic and Noetic* releases.
 :::
 
 MAVROS는 소스나 실행파일로 설치할 수 있습니다. 개발자는 소스로 설치하는 것이 좋습니다.
@@ -24,10 +24,10 @@ MAVROS는 소스나 실행파일로 설치할 수 있습니다. 개발자는 소
 
 ROS 저장소에는 Ubuntu x86, amd64(x86\_64) 및 armhf(ARMv7)용 바이너리 패키지가 있습니다. Kinetic은 Debian Jessie amd64 및 arm64(ARMv8)도 지원합니다.
 
-`apt-get` 명령어를 사용하여 설치하십시오.
+Use `apt-get` for installation, where `${ROS_DISTRO}` below should resolve to `kinetic` or `noetic`, depending on your version of ROS:
 
 ```
-sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
+sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
 ```
 
 그런 다음, `install_geographiclib_datasets.sh` 스크립트를 실행하여 [GeographicLib](https://geographiclib.sourceforge.io/) 데이터세트를 설치합니다.
