@@ -276,51 +276,8 @@ Therefore,
   ```
   
   :::note
-  Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) completely defines the pairing between PX4 message and topics and the ROS 2 ones.
-  It is structured as follows:
-  ```
-  publications:
-
-    - topic: /fmu/out/collision_constraints
-      type: px4_msgs::msg::CollisionConstraints
-
-    ...  
-
-    - topic: /fmu/out/vehicle_odometry
-      type: px4_msgs::msg::VehicleOdometry
-
-    - topic: /fmu/out/vehicle_status
-      type: px4_msgs::msg::VehicleStatus
-
-    - topic: /fmu/out/vehicle_trajectory_waypoint_desired
-      type: px4_msgs::msg::VehicleTrajectoryWaypoint
-
-  subscriptions:
-
-    - topic: /fmu/in/offboard_control_mode
-      type: px4_msgs::msg::OffboardControlMode
-
-    ...
-
-    - topic: /fmu/in/vehicle_trajectory_waypoint
-      type: px4_msgs::msg::VehicleTrajectoryWaypoint
-  ```
-  
-  Each (`topic`,`type`) pairs defines
-
-  1. A new subscription or publication depending on the list to which it is added.
-  2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe.
-     It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it.
-     `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
-  3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). 
-     By default it is set to:
-     
-      - `/fmu/out/` for topics that are _published_ by PX4.
-      - `/fmu/in/` for topics that are _subscribed_ by PX4.
-  4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
-
-  You can arbitrarily change the configuration.
-  For example, you could use different default namespaces or use a custom package to store the message definitions. 
+  Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
+  For more information see [DDS Topics YAML](#dds-topics-yaml) below.
   :::
 
 
@@ -386,6 +343,59 @@ uxrQoS_t qos = {
 ROS 2 uses the following QoS settings (by default) for publishers and subscriptions: "keep last" for history with a queue size of 10, "reliable" for reliability, "volatile" for durability, and "system default" for liveliness.
 Deadline, lifespan, and lease durations are also all set to "default".
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
+
+
+## DDS Topics YAML
+
+The PX4 yaml file [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) defines the set of PX4 uORB topics that are built into firmware and published.
+More precisely, it completely defines the relationship/pairing between PX4 uORB and ROS 2 messages.
+  
+The file is structured as follows:
+
+```
+publications:
+
+  - topic: /fmu/out/collision_constraints
+    type: px4_msgs::msg::CollisionConstraints
+
+  ...  
+
+  - topic: /fmu/out/vehicle_odometry
+    type: px4_msgs::msg::VehicleOdometry
+
+  - topic: /fmu/out/vehicle_status
+    type: px4_msgs::msg::VehicleStatus
+
+  - topic: /fmu/out/vehicle_trajectory_waypoint_desired
+    type: px4_msgs::msg::VehicleTrajectoryWaypoint
+
+subscriptions:
+
+  - topic: /fmu/in/offboard_control_mode
+    type: px4_msgs::msg::OffboardControlMode
+
+  ...
+
+  - topic: /fmu/in/vehicle_trajectory_waypoint
+    type: px4_msgs::msg::VehicleTrajectoryWaypoint
+```
+
+Each (`topic`,`type`) pairs defines:
+
+1. A new subscription or publication depending on the list to which it is added.
+2. The topic _base name_, which **must** coincide with the desired uORB topic name that you want to publish/subscribe.
+   It is identified by the last token in `topic:` that starts with `/` and does not contains any `/` in it.
+   `vehicle_odometry`, `vehicle_status` and `offboard_control_mode` are examples of base names.
+3. The topic [namespace](https://design.ros2.org/articles/topic_and_service_names.html#namespaces). 
+   By default it is set to:
+     
+    - `/fmu/out/` for topics that are _published_ by PX4.
+    - `/fmu/in/` for topics that are _subscribed_ by PX4.
+4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
+
+You can arbitrarily change the configuration.
+For example, you could use different default namespaces or use a custom package to store the message definitions. 
+
 
 ## Helpful Resources
 
