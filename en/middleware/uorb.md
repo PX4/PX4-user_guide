@@ -127,6 +127,7 @@ sensor_combined                      0    6  242   636 1
 ```
 The columns are: topic name, multi-instance index, number of subscribers, publishing frequency in Hz, number of lost messages per second (for all subscribers combined), and queue size.
 
+
 ## Multi-instance
 
 uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`.
