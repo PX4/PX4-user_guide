@@ -12,7 +12,7 @@ The only requirements are
 
 ## Principle of operation
 
-In simulation each PX4 instance receives an unique `px4_instance` number starting from `0`.
+In simulation each PX4 instance receives a unique `px4_instance` number starting from `0`.
 This value is used to assign a unique value to [XRCE_DDS_KEY](../advanced_config/parameter_reference.md#XRCE_DDS_KEY):
 
 ```sh
