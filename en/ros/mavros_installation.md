@@ -18,7 +18,7 @@ First install ROS and PX4 following the instructions in [Development Environment
 
 :::tip
 These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation).
-They cover the *ROS Melodic* release.
+They cover the *ROS Melodic and Noetic* releases.
 :::
 
 MAVROS can be installed either from source or binary.
@@ -29,10 +29,10 @@ We recommend that developers use the source installation.
 The ROS repository has binary packages for Ubuntu x86, amd64 (x86\_64) and armhf (ARMv7).
 Kinetic also supports Debian Jessie amd64 and arm64 (ARMv8).
 
-Use `apt-get` for installation:
+Use `apt-get` for installation, where `${ROS_DISTRO}` below should resolve to `kinetic` or `noetic`, depending on your version of ROS:
 
 ```
-sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras
+sudo apt-get install ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
 ```
 
 Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by running the `install_geographiclib_datasets.sh` script:
