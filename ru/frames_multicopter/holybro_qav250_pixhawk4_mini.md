@@ -150,7 +150,7 @@ Test motor directions with propellers removed.
 
 The "basic" frame build is now complete (though if you need them, you can find more information about connecting components in the [Pixhawk 4 Wiring Quickstart](../assembly/quick_start_pixhawk4.md)).
 
-If you have the "basic" version of the kit, you can now jump ahead to instructions on how to [Install/Configure PX4](#configure).
+If you have the "basic" version of the kit, you can now jump ahead to instructions on how to [Install/Configure PX4](#px4-configuration).
 
 
 ### FPV Assembly
@@ -194,7 +194,7 @@ You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro Q
 - [Actuators](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
-    - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#mainio-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
+    - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#main-io-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
     - The Pix32 v6 has an I/O board, so you can assign to either AUX or MAIN.
   - Test the configuration using the sliders.
 
