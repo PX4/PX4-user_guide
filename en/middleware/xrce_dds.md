@@ -330,7 +330,7 @@ Custom topic namespaces can be applied at build time (changing [dds_topics.yaml]
 
  - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line.
    This technique can be used both in simulation and real vehicles.
- - Only in simulation, where the client is automatically started, a custom namespace can be provided setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
+ - a custom namespace can be provided for simulations (only) by setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
 
 
 :::note
