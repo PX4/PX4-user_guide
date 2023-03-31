@@ -14765,7 +14765,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_ARSP_THR">EKF2_ARSP_THR</strong> (FLOAT)</td>
- <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion.</p>   </td>
+ <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion. Note: side slip fusion is currently not supported for tailsitters.</p>   </td>
  <td>[0.0, ?] </td>
  <td>0.0</td>
  <td>m/s</td>
@@ -16577,7 +16577,7 @@ table {
  <td><strong id="FW_T_I_GAIN_THR">FW_T_I_GAIN_THR</strong> (FLOAT)</td>
  <td>Integrator gain throttle <p><strong>Comment:</strong> This is the integrator gain on the throttle part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
  <td>[0.0, 2.0] (0.05)</td>
- <td>0.3</td>
+ <td>0.1</td>
  <td></td>
 </tr>
 <tr>
@@ -16933,7 +16933,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 5] </td>
+ <td>[0, 6] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -17003,7 +17003,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 5] </td>
+ <td>[0, 6] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -17320,8 +17320,15 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="CA_HELI_YAW_CP_O">CA_HELI_YAW_CP_O</strong> (FLOAT)</td>
+ <td>Offset for yaw compensation based on collective pitch <p><strong>Comment:</strong> This allows to specify which collective pitch command results in the least amount of rotor drag. This is used to increase the accuracy of the yaw drag torque compensation based on collective pitch by aligning the lowest rotor drag with zero compensation. For symmetric profile blades this is the command that results in exactly 0° collective blade angle. For lift profile blades this is typically a command resulting in slightly negative collective blade angle. tail_output += CA_HELI_YAW_CP_S * abs(collective_pitch - CA_HELI_YAW_CP_O)</p>   </td>
+ <td>[-2, 2] (0.1)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="CA_HELI_YAW_CP_S">CA_HELI_YAW_CP_S</strong> (FLOAT)</td>
- <td>Scale for yaw compensation based on collective pitch <p><strong>Comment:</strong> This allows to add a proportional factor of the collective pitch command to the yaw command. A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction. tail_output += CA_HELI_YAW_CP_S * collective_pitch</p>   </td>
+ <td>Scale for yaw compensation based on collective pitch <p><strong>Comment:</strong> This allows to add a proportional factor of the collective pitch command to the yaw command. A negative value is needed when positive thrust of the tail rotor rotates the vehicle opposite to the main rotor turn direction. tail_output += CA_HELI_YAW_CP_S * abs(collective_pitch - CA_HELI_YAW_CP_O)</p>   </td>
  <td>[-2, 2] (0.1)</td>
  <td>0.0</td>
  <td></td>
@@ -20784,7 +20791,15 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="XRCE_DDS_0_CFG">XRCE_DDS_0_CFG</strong> (INT32)</td>
+ <td><strong id="XRCE_DDS_AG_IP">XRCE_DDS_AG_IP</strong> (INT32)</td>
+ <td>Micro DDS Agent IP address <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for micro DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>2130706433</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="XRCE_DDS_CFG">XRCE_DDS_CFG</strong> (INT32)</td>
  <td>Serial Configuration for Micro XRCE-DDS <p><strong>Comment:</strong> Configure on which serial port to run Micro XRCE-DDS.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
 
@@ -20828,17 +20843,17 @@ table {
 </tr>
 <tr>
  <td><strong id="XRCE_DDS_KEY">XRCE_DDS_KEY</strong> (INT32)</td>
- <td>XRCE DDS key <p><strong>Comment:</strong> XRCE DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
+ <td>XRCE DDS Session key <p><strong>Comment:</strong> XRCE DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td></td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="XRCE_DDS_UDP_PRT">XRCE_DDS_UDP_PRT</strong> (INT32)</td>
+ <td><strong id="XRCE_DDS_PRT">XRCE_DDS_PRT</strong> (INT32)</td>
  <td>Micro DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for micro DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
 </td>
- <td></td>
+ <td>[0, 65535] </td>
  <td>8888</td>
  <td></td>
 </tr>
@@ -20868,15 +20883,8 @@ table {
 </tr>
 <tr>
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
- <td>Maximal horizontal distance from home to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the home position.</p>   </td>
- <td>[0, 10000] (100)</td>
- <td>900</td>
- <td>m</td>
-</tr>
-<tr>
- <td><strong id="MIS_DIST_WPS">MIS_DIST_WPS</strong> (FLOAT)</td>
- <td>Maximal horizontal distance between waypoint <p><strong>Comment:</strong> Failsafe check to prevent running missions which are way too big. Set a value of zero or less to disable. The mission will not be started if any distance between two subsequent waypoints is greater than MIS_DIST_WPS.</p>   </td>
- <td>[0, 10000] (100)</td>
+ <td>Maximal horizontal distance from current position to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the current position.</p>   </td>
+ <td>[-1, 10000] (100)</td>
  <td>900</td>
  <td>m</td>
 </tr>
@@ -21244,20 +21252,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="MNT_OB_LOCK_MODE">MNT_OB_LOCK_MODE</strong> (FLOAT)</td>
- <td>Mixer value for selecting a locking mode <p><strong>Comment:</strong> if required for the gimbal (only in AUX output mode)</p>   </td>
- <td>[-1.0, 1.0] </td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="MNT_OB_NORM_MODE">MNT_OB_NORM_MODE</strong> (FLOAT)</td>
- <td>Mixer value for selecting normal mode <p><strong>Comment:</strong> if required by the gimbal (only in AUX output mode)</p>   </td>
- <td>[-1.0, 1.0] </td>
- <td>-1.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="MNT_OFF_PITCH">MNT_OFF_PITCH</strong> (FLOAT)</td>
  <td>Offset for pitch channel output in degrees    </td>
  <td>[-360.0, 360.0] </td>
@@ -21540,6 +21534,13 @@ table {
  <td>[0.1, ?] </td>
  <td>0.3</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_LAND_RADIUS">MPC_LAND_RADIUS</strong> (FLOAT)</td>
+ <td>User assisted landing radius <p><strong>Comment:</strong> When user assisted descent is enabled (see MPC_LAND_RC_HELP), this parameter controls the maximum position adjustment allowed from the original landing point.</p>   </td>
+ <td>[0, ?] </td>
+ <td>1000.</td>
+ <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
@@ -32845,14 +32846,14 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_FW_MIN_ALT">VT_FW_MIN_ALT</strong> (FLOAT)</td>
- <td>QuadChute Altitude <p><strong>Comment:</strong> Minimum altitude for fixed wing flight, when in fixed wing the altitude drops below this altitude the vehicle will transition back to MC mode and enter failsafe RTL</p>   </td>
+ <td>Quad-chute altitude <p><strong>Comment:</strong> Minimum altitude for fixed-wing flight. When the vehicle is in fixed-wing mode and the altitude drops below this altitude (relative altitude above local origin), it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT.</p>   </td>
  <td>[0.0, 200.0] (1)</td>
  <td>0.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="VT_FW_QC_HMAX">VT_FW_QC_HMAX</strong> (INT32)</td>
- <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwhise above home if available, otherwise above the local origin) where triggering a quadchute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.</p>   </td>
+ <td>Quad-chute maximum height <p><strong>Comment:</strong> Maximum height above the ground (if available, otherwise above Home if available, otherwise above the local origin) where triggering a quad-chute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.</p>   </td>
  <td>[0, ?] (1)</td>
  <td>0</td>
  <td>m</td>
@@ -32880,14 +32881,14 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to fixed wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
+ <td>Target throttle value for the transition to fixed-wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_F_TR_OL_TM">VT_F_TR_OL_TM</strong> (FLOAT)</td>
- <td>Airspeed less front transition time (open loop) <p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
+ <td>Airspeed-less front transition time (open loop) <p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
  <td>[1.0, 30.0] (0.5)</td>
  <td>6.0</td>
  <td>s</td>
@@ -32924,7 +32925,7 @@ table {
  <td><strong id="VT_QC_T_ALT_LOSS">VT_QC_T_ALT_LOSS</strong> (FLOAT)</td>
  <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 50] (1)</td>
- <td>10.0</td>
+ <td>20.0</td>
  <td>m</td>
 </tr>
 <tr>
