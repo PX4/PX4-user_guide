@@ -64,7 +64,7 @@ The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are po
 
 ## 针脚定义
 
-Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
+Download *Pixhawk 4* pinouts from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf).
 
 :::note
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
@@ -155,5 +155,5 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 FMUv5参考设计</0 >。</li> 
   
   - [Pixhawk 4  快速接线指南](../assembly/quick_start_pixhawk4.md)
-- [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
-- [Pixhawk 4 快速入门指南（PDF）](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)</ul>
+- [Pixhawk 4 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 Quick Start Guide](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-quickstartguide.pdf) (Holybro)</ul>
