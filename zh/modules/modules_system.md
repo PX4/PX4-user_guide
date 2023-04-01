@@ -469,10 +469,9 @@ microdds_client <command> [arguments...]
                  values: <file:dev>
      [-b <val>]  Baudrate (can also be p:<param_name>)
                  default: 0
-     [-h <val>]  Host IP
-                 values: <IP>, default: 127.0.0.1
-     [-p <val>]  Remote Port
-                 default: 8888
+     [-h <val>]  Agent IP. If not provided, defaults to XRCE_DDS_AG_IP
+                 values: <IP>
+     [-p <val>]  Agent listening port. If not provided, defaults to XRCE_DDS_PRT
      [-l]        Restrict to localhost (use in combination with
                  ROS_LOCALHOST_ONLY=1)
      [-c]        Use custom participant config (profile_name="px4_participant")
