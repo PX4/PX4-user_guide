@@ -130,22 +130,6 @@ If using this feature, all other configuration should be setup up as normal (e.g
 
 Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
 
-Further compass configuration should generally not be required.
-
-:::note
-All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
-:::
-
-### Disable a Compass
-
-As stated above, generally no further configuration should be required.
-
-That said, developers can disable internal compasses if desired using the compass parameters. These are prefixed with [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
-
-To disable an internal compass:
-- Use [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to determine which compasses are internal. A compass is internal if `CAL_MAGn_ROT==1`.
-- Then use [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) to disable the compass. This can also be used to change the relative priority of a compass.
-
 
 ## Developer Information
 
