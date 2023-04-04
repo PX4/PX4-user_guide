@@ -1,6 +1,6 @@
 # Holybro Unicore UM982 GPS
 
-The [Holybro Unicore UM982 GPS](http://www.holybro.com/product/TODO/) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro.
+The [Holybro Unicore UM982 GPS](https://holybro.com/products/h-rtk-um982) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro.
 
 The module is based on the [Unicore UM982 GNSS module](https://en.unicorecomm.com/products/detail/24) which supports RTK positioning as well as dual-antenna heading calculation.
 
@@ -8,7 +8,7 @@ One GNSS module comes with two antennas allowing for GPS heading using only one 
 
 ## Where to Buy
 
-* [Holybro Website](https://shop.holybro.com/TODO)
+* [Holybro Website](https://holybro.com/products/h-rtk-um982)
 
 ## Configuration
 
@@ -36,7 +36,3 @@ The module comes with both GH 10-pin & 6-pin cables that are compatible with the
 
 The module can be used with one antenna or both antennas. If it is used with one antenna only, the right/primary antenna connector needs to be connected.
 
-
-## Accessories
-
-TODO
