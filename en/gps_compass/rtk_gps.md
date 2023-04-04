@@ -30,6 +30,7 @@ GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) 
 [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | |&check; | |
 [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | | |
+[Holybro Unicore GPS](../gps_compass/gps_holybro_unicore.md) | &check; | | |
 [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | | | |
 [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | &check; | | |
 [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | | &check; | |
