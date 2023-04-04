@@ -8,7 +8,7 @@ One GNSS module comes with two antennas allowing for GPS heading using only one 
 
 ## Where to Buy
 
-* [H-RTK F9P (Holybro Website)](https://shop.holybro.com/TODO)
+* [Holybro Website](https://shop.holybro.com/TODO)
 
 ## Configuration
 
@@ -18,7 +18,6 @@ The following PX4 parameters [must be set](../advanced_config/parameters.md) (if
 
 - [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) -> 230400
 - [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) -> 6: NMEA
-- [GPS_1_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL) -> 6: NMEA
 
 ## Enable GPS Heading/Yaw
 
@@ -27,13 +26,9 @@ The Unicore module comes with two antennas, a primary (right connector) and a se
 - [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) -> Set bit 7 (128) to enable GPS yaw fusion, so to use the GPS heading
 - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) -> Set heading offset to 0 if the primary antenna is in the front. The angle increases clock-wise, so set the offset to 90 degrees if the primary antenna is on the right side of the vehicle (and the secondary on the left side).
 
-
 ## RTK Corrections
 
-:::note
-The RTK functionality has not been tested and verified yet.
-:::
-
+RTK works the same way as uBlox F9P modules. RTCMv3 corrections as sent by QGroundControl from an RTK GPS base station are consumed by the Unicore module which should then change fix type to RTK float or RTK fixed.
 
 ## Wiring
 
