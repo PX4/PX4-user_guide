@@ -11,22 +11,22 @@ DShot is an alternative ESC protocol that has several advantages over [PWM](../p
 
 This topic shows how to connect and configure DShot ESCs.
 
-
 <span id="wiring"></span>
 ## Wiring/Connections
 
 DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md).
-The only difference is that they can only be connected to the FMU (PWM AUX bus), and usually only to some subset of pins.
-
-The FMU outputs are set in the [Actuator Configuration](../config/actuators.md) `PWM AUX` actuator outputs tab, and the UI makes it obvious which outputs can be set as DShot.
-You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
+The only difference is that they can only be connected to the FMU, and usually only to some subset of pins.
 
 :::note
-Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), matching the names of the actuator configution screen.
-Controllers with no IO board usually label the PWM port as `MAIN` (FMU), which will not match the actuator UI.
-In either case, the FMU outputs are configured in the `PWM AUX` actuator outputs tab.
+You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
 :::
 
+Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), and these match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen.
+For these kinds of boards you will connect the DShot ESC to the AUX port.
+
+Controllers that don't have an IO board usually label the (single) output port as MAIN, and this is where you will connect your DShot ESC.
+If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs.
+However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
 
 ## Configuration
 
