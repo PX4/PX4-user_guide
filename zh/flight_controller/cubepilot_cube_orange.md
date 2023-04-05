@@ -18,7 +18,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 
 ## 主要特性
 
-- 32bit STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
+- 32bit STM32H753VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
 - 32 bit STM32F103 failsafe co-processor
 - 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
 - Abundant connectivity options for additional peripherals (UART, I2C, CAN)
@@ -44,7 +44,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 ## 产品规格
 
 - **处理器:**
-  - STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  - STM32H753VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   - 400 MHz
   - 1 MB RAM
   - 2 MB Flash \(fully accessible\)
@@ -113,10 +113,6 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/default.px4board -->
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/nuttx-config/nsh/defconfig#L188-L197 -->
 
-
-### Debug Ports
-
-![Cube Debug Ports](../../assets/flight_controller/cube/cube_ports_debug.jpg)
 
 ### USB/SDCard Ports
 
