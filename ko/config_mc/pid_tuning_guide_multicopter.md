@@ -195,20 +195,6 @@ PWM과 정적 추력간의 매핑은 배터리 전압에 따라 크게 달라집
 
 스러스트 스탠드에 접근할 수 없는 경우, 경험적으로 모델링 요소를 조정할 수 있습니다. 0.3부터 시작하여 한 번에 0.1 씩 늘립니다. 너무 높으면, 낮은 스로틀 값에서 진동이 감지되기 시작합니다. 너무 낮으면, 더 높은 스로틀 값에서 진동이 나타납니다.
 
-<!-- TODO
-### Velocity & Position Controller
-The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
-turn off all [higher-level position controller tuning gains](../config_mc/mc_trajectory_tuning.md).
-
-- [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
-- [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000
-- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000
-- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000
-- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000
-- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0
-- [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
- -->
-
 
 <span id="airmode"></span>
 ### 에어 모드 & 믹서 포화

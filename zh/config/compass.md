@@ -58,9 +58,33 @@ Notes:
 - The calibration is immediately applied to the data (no reboot is required) but is saved to the calibration parameters after disarming the vehicle only (the calibration is lost if no arming/disarming sequence is performed between calibration and shutdown).
 - The amplitude and the speed of the partial rotations done in step 1 can affect the calibration quality. However, 2-3 oscillations of ~30 degrees in every direction is usually enough.
 
+
+## Additional Calibration/Configuration
+
+The process above will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
+
+Further compass configuration should generally not be required.
+
+:::note
+All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
+:::
+
+### Disable a Compass
+
+As stated above, generally no further configuration should be required.
+
+That said, developers can disable internal compasses if desired using the compass parameters. These are prefixed with [CAL_MAGx_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
+
+To disable an internal compass:
+
+- Use [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to determine which compasses are internal. A compass is internal if `CAL_MAGn_ROT==1`.
+- Then use [CAL_MAGx_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) to disable the compass. This can also be used to change the relative priority of a compass.
+
+
 ## 更多信息：
 
-* [Peripherals > GPS & Compass > Compass Configuration](../gps_compass/README.md#compass-configuration)
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#compass)
-* [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
-* [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)
+- [Peripherals > GPS & Compass](../gps_compass/README.md)
+- [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)
+- [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#compass)
+- [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
+

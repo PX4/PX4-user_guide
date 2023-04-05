@@ -64,7 +64,7 @@ Order from [Holybro](https://holybro.com/products/pixhawk-4).
 
 ## 핀배열
 
-*Pixhawk 4* 핀배열은 [여기](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)에서 다운로드 하십시오.
+Download *Pixhawk 4* pinouts from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf).
 
 :::note
 커넥터 핀 할당은 왼쪽에서 오른쪽입니다(즉, 핀 1은 가장 왼쪽에있는 핀). 예외는 [디버그 포트](#debug_port)입니다. 예외는 [디버그 포트](#debug_port)입니다. 아래에 표시된 것처럼 1번 핀이 맨 오른쪽에 있습니다.
@@ -152,5 +152,5 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://github.com
 - [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 - [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
 - [Pixhawk 4 배선 퀵스타트](../assembly/quick_start_pixhawk4.md)
-- [Pixhawk 4 핀배열](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
-- [Pixhawk 4 빠른 시작 가이드 (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+- [Pixhawk 4 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 Quick Start Guide](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-quickstartguide.pdf) (Holybro)

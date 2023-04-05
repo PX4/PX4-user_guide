@@ -129,22 +129,6 @@ GPS는 *yaw 출력이 장치에서 지원되는* 모듈 (예 : [Trimble MB-Two](
 
 나침반 보정은 [나침반 설정](../config/compass.md)을 참고하십시오. The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
 
-일반적으로 추가 나침반 설정은 필요하지 않습니다.
-
-:::note
-All external compasses are given the same priority by default, which is higher than the priority shared by all internal compasses.
-:::
-
-### 이중 나침반
-
-위에서 언급한 것처럼, 추가 설정이 필요하지 않습니다.
-
-개발자는 원하는 경우에는 나침반 매개변수를 사용하여 내부 나침반을 비활성화할 수 있습니다. 매개변수 이름은 [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_ID)로 시작합니다 (여기서 `x=0-3`).
-
-내부 나침반을 비활성화 하려면 :
-- 내부 나침반을 확인하려면 [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT)을 사용하십시오. `CAL_MAGn_ROT == 1`  나침반은 내장 나침반입니다.
-- 그런 다음 [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO)를 사용하여 나침반을 비활성화하십시오. 나침반의 상대적 우선 순위 변경시에도 사용할 수 있습니다.
-
 
 ## 개발자 정보
 

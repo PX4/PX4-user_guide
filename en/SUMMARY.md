@@ -647,7 +647,6 @@
       * [ROS 2 User Guide](ros/ros2_comm.md)
       * [ROS 2 Offboard Control Example](ros/ros2_offboard_control.md)
       * [ROS 2 Multi Vehicle Simulation](ros/ros2_multi_vehicle.md)
-    * [ROS 1 via ROS 2 Bridge](ros/ros1_via_ros2.md)
     * [ROS 1 with MAVROS](ros/ros1.md)
       * [ROS/MAVROS Installation Guide](ros/mavros_installation.md)
       * [ROS/MAVROS Offboard Example (C++)](ros/mavros_offboard_cpp.md)

@@ -30,7 +30,7 @@ Missions are usually created in a ground control station (e.g. [QGroundControl](
    - On copters PX4 will treat a takeoff item as a normal waypoint if already flying.
 1. 미션이 저장되고 PX4가 착륙한 경우 :
    - 헬리콥터에서 PX4는 [미션/비행 계획](../flying/missions.md)을 실행합니다. 임무에 `이륙` 명령이 없는 경우 PX4는 현재 단계에서 나머지 비행 계획을 실행하기 전에 기체를 최소 고도로 상승시킵니다.
-   - 고정익 차량에서는 PX4가 자동으로 이륙하지 않습니다 (자동조종장치가 움직임 부족을 감지하고 스로틀을 0으로 설정합니다). If the currently active waypoint is a Takeoff, the system will automatically takeoff (see [FW Takeoff/Landing in Mission](#fixed-wing-mission-takeoff-landing)).
+   - 고정익 차량에서는 PX4가 자동으로 이륙하지 않습니다 (자동조종장치가 움직임 부족을 감지하고 스로틀을 0으로 설정합니다). If the currently active waypoint is a Takeoff, the system will automatically takeoff (see [FW Takeoff/Landing in Mission](#fw-mission-takeoff)).
 1. 저장된 임무가 없거나 PX4가 모든 임무 명령 실행을 완료한 경우 :
    * 비행하면 기체는 배회합니다.
    * 착륙하면 기체는 "대기"합니다.

@@ -150,7 +150,7 @@ The Holybro [QAV250 Kit](https://holybro.com/products/qav250-kit) kits includes 
 
 이제 "기본" 프레임 빌드가 완료되었습니다 (필요한 경우, [Pixhawk 4 Wiring 퀵 스타트](../assembly/quick_start_pixhawk4.md)에서 구성 요소 연결에 대한 자세한 정보를 참조).
 
-"기본" 버전의 키트가있는 경우, [PX4 설치/설정](#configure) 방법에 관한 지침으로 이동할 수 있습니다.
+If you have the "basic" version of the kit, you can now jump ahead to instructions on how to [Install/Configure PX4](#px4-configuration).
 
 
 ### FPV 조립
@@ -193,7 +193,7 @@ First update the firmware, airframe, and actuator mappings:
 - [Actuators](../config/actuators.md)
   - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
   - Assign actuator functions to outputs to match your wiring.
-    - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#mainio-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
+    - For the Pixhawk 4 Mini, and other controllers that do not have an [I/O board](../hardware/reference_design.md#main-io-function-breakdown), you will need to assign actuators to outputs on the `PWM AUX` tab in the configuration screen.
     - The Pix32 v6 has an I/O board, so you can assign to either AUX or MAIN.
   - Test the configuration using the sliders.
 
