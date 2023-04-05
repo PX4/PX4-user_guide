@@ -64,7 +64,7 @@
 
 중요한 매개 변수는 다음과 같습니다.
 
-- Enable One-Shot (set [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
+- Enable One-Shot or DShot by selecting the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md).
 - 수동/안정화 모드의 최대 롤, 피치 및 요 속도를 설정합니다 : [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) 및 [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). 최대 기울기 각도는 [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX)로 설정합니다.
 - 최소 추력 [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN)은 0으로 설정합니다.
 
@@ -108,7 +108,7 @@ PID 튜닝을 전에 ESC를 먼저 튜닝하십시오.
 - 소프트웨어 및 센서 칩의 [저역 통과 필터](../config_mc/filter_tuning.md)는 지연시간 증가분을 상쇄하여 노이즈 필터링을 원활하게 합니다.
 - PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
 - IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오. IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
-- PWM 출력 신호 : One-Shot을 활성화하여 지연 시간을 줄입니다 ([PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) = 0).
+- PWM output signal: enable the One-Shot protocol to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 ### 필터 튜닝
 

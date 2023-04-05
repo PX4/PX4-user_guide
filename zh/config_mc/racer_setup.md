@@ -64,7 +64,7 @@ Go through the [Basic Configuration Guide](../config/README.md). In particular, 
 
 These parameters are important:
 
-- Enable One-Shot (set [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
+- Enable One-Shot or DShot by selecting the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md).
 - 设置手动/稳定模式的最大滚动、pitch-和 yaw 速率为 所希望： [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) 和 [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX) 最大倾斜角度是用 [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX) 配置的。
 - 最小推力 [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) 应该设置为 0。
 
@@ -108,7 +108,7 @@ It is *crucial* to reduce the control latency as much as possible! A lower laten
 - [Low-pass filters](../config_mc/filter_tuning.md) in software and on the sensor chip trade off increased latency for improved noise filtering.
 - PX4 软件内部：传感器信号需要从驱动程序中读取，然后通过控制器传递到输出驱动器。
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). 要避免IO 延迟，请禁用 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) 并将电机连接到 AUX 引脚。
-- PWM output signal: enable One-Shot to reduce latency ([PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE)=0).
+- PWM output signal: enable the One-Shot protocol to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 ### Filter Tuning
 
