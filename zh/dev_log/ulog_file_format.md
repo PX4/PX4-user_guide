@@ -466,7 +466,6 @@ Since the Definitions and Data Sections use the same message header format, they
   - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): append hardfault crash data.
 - [pyulog](https://github.com/PX4/pyulog)：Python，使用 CLI 脚本的 Ulog 解析库。
 - [FlightPlot](https://github.com/PX4/FlightPlot): Java，日志绘图仪。
-- [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis)：Python，日志绘图仪和基于 pyulog 的三维可视化工具。
 - [MAVLink](https://github.com/mavlink/mavlink)：通过 MAVLink 进行 ULog 流的消息 (注意，不支持追加数据，至少不支持截断消息)。
 - [QGroundControl](https://github.com/mavlink/qgroundcontrol)：C++，通过 MAVLink 的 Ulog 流和最小的 GeoTagging。
 - [mavlink-router](https://github.com/01org/mavlink-router)：C++，通过 MAVLink 的 ULog 流。
