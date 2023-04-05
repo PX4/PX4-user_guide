@@ -23,8 +23,8 @@ You may want to check the actuator configuration screen to see what pins are ava
 
 :::note
 Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), matching the names of the actuator configution screen.
-Controllers with no IO board, screenprint the PWM port as `MAIN` (FMU), which will not match the actuator UI.
-Irrespective, the FMU outputs are configured in the `PWM AUX` actuator outputs tab.
+Controllers with no IO board usually label the PWM port as `MAIN` (FMU), which will not match the actuator UI.
+In either case, the FMU outputs are configured in the `PWM AUX` actuator outputs tab.
 :::
 
 
