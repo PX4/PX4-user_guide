@@ -50,5 +50,5 @@ To calibrate the ESCs:
 :::note
 High-quality controllers come with a factory calibration.
 In *theory* this means that they can be configured by just setting the [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN1)/[PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN1) and [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX1)/[PWM_AUX_MAXn](../advanced_config/parameter_reference.md#PWM_AUX_MAX1) parameters to the values provided in the ESC technical specification.
-In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
+In practice the input range may differ even on high quality controllers, which is why calibration is recommended. 
 :::
