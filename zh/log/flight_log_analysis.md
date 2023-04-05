@@ -117,19 +117,6 @@ Name (multi id, message size in bytes)    number of data points, total bytes
  vehicle_status (0, 45)                       294      13230
 ```
 
-### pyFlightAnalysis
-
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) 是一个跨平台的 PX4 飞行日志 (ulog) 可视化分析工具，灵感来源于 [FlightPlot](#flightplot)。
-
-主要特性：
-
-* 用于显示数据的动态筛选器
-* 无人机姿态和位置三维可视化
-* Easily replay with _pyqtgraph_'s ROI (Region Of Interest)
-* 基于 Python 的，跨平台的。
-
-![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
-
 ### FlightPlot
 
 [FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).

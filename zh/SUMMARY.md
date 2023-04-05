@@ -241,6 +241,7 @@
       * [LOCOSYS Hawk A1 GNSS](gps_compass/gps_locosys_hawk_a1.md)
       * [Hex Here2](gps_compass/gps_hex_here2.md)
       * [Holybro M8N & M9N GPS](gps_compass/gps_holybro_m8n_m9n.md)
+      * [Holybro Unicore GPS](gps_compass/gps_holybro_unicore.md)
       * [Sky-Drones SmartAP GPS](gps_compass/gps_smartap.md)
     * [RTK GPS](gps_compass/rtk_gps.md)
       * [ARK RTK GPS](dronecan/ark_rtk_gps.md)
