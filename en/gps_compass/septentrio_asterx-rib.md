@@ -8,7 +8,7 @@ Inertial sensor integration of the AsteRx-i family offers a full attitude soluti
 The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet, on board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
 
 
-![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/AsteRX-m3+RIB-board.png)
+![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/asterx_m3_and_rib_board.png)
 
 
 ## Key Features
@@ -38,7 +38,7 @@ Other PX4 supported devices from Septentrio:
 
 ## Interfaces
 
-![Septentrio Robotics Interface Board Fritzing drawing](../../assets/hardware/gps/septentrio_sbf/RIB.png "Septentrio Robotics Interface Board Fritzing drawing")
+![Septentrio Robotics Interface Board Fritzing drawing](../../assets/hardware/gps/septentrio_sbf/rib.png)
 
 ### USB
 _Connector type: micro-USB type B._
@@ -79,7 +79,7 @@ On-board diodes prevent short circuits. The interface board provides the 3V3 sup
 
 ## Hardware setup
 
-![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/RIB_wiring.png)
+![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/rib_wiring.png)
 
 1. Make sure the receiver is powered with at least 3.3V.
    You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
@@ -122,11 +122,11 @@ The included GNSS receiver control and analysis software [RxTools](https://web.s
 
 The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to monitor the receiver operation during the job at hand.
 
-![Illustrative image for Septentrio mosaic-H GNSS Receiver Module Web User Interface (WebUI)]( ../../assets/hardware/gps/septentrio_sbf/Septentrio-mosaic-X5-H-T-CLAS-GNSS-Module-Receiver-WebUI.png "Septentrio web user interface")
+![Illustrative image for Septentrio mosaic-H GNSS Receiver Module Web User Interface (WebUI)]( ../../assets/hardware/gps/septentrio_sbf/septentrio_mosaic_a5_h_t_clas_gnss_module_receiverwebui.png)
 
 ## PX4 setup
 
-![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/QGC_param.png "QGroundControl parameter settings")
+![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/qgc_param.png)
 
 
 ### Single antenna

@@ -98,7 +98,7 @@ _Connector type: GH connector, 1.25mm pitch, 4way. Mating connector housing: GHR
 :::warning
 Make sure the JST cable is wired correctly (since this is not a standard cable):
 
-![Wiring of JST cable](../../assets/hardware/gps/septentrio_sbf/JST-cable.png "Wiring of JST cable")
+![Wiring of JST cable](../../assets/hardware/gps/septentrio_sbf/jst_cable.png)
 
 :::
 
@@ -139,11 +139,11 @@ The receiver includes an intuitive web user interface for easy operation and mon
 receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to
 monitor the receiver operation during the job at hand.
 
-![Septentrio web user interface]( ../../assets/hardware/gps/septentrio_sbf/Septentrio-mosaic-X5-H-T-CLAS-GNSS-Module-Receiver-WebUI.png)
+![Septentrio web user interface]( ../../assets/hardware/gps/septentrio_sbf/septentrio_mosaic_a5_h_t_clas_gnss_module_receiverwebui.png)
 
 ## PX4 setup
 
-![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/QGC_param.png)
+![QGroundControl parameter settings](../../assets/hardware/gps/septentrio_sbf/qgc_param.png)
 
 ### Single antenna
 
