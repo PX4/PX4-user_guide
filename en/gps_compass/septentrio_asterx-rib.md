@@ -1,14 +1,11 @@
 # AsteRx OEM with Robotics Interface Board
 
-Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers. Septentrio OEM receivers deliver accurate and
+Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers.
+Septentrio OEM receivers deliver accurate and reliable positions to demanding industrial applications in a small, light-weight form factor. 
+We also offer several dual antenna receivers providing heading & pitch or heading & roll angles ideal for autonomous navigation or machine control.
+Inertial sensor integration of the AsteRx-i family offers a full attitude solution (heading, pitch and roll) synchronized with accurate positioning.
 
-reliable positions to demanding industrial applications in a small, light-weight form factor. We also offer several dual
-antenna receivers providing heading & pitch or heading & roll angles ideal for autonomous navigation or machine control.
-Inertial sensor integration of the AsteRx-i family offers a full attitude solution (heading, pitch and roll)
-synchronized with accurate positioning.
-
-The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet,
-on board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
+The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet, on board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
 
 
 ![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/AsteRX-m3+RIB-board.png)
@@ -46,26 +43,25 @@ Other PX4 supported devices from Septentrio:
 ### USB
 _Connector type: micro-USB type B._
 
-The micro USB type B connector can be attached to a PC to power the receiver and to communicate with it over its USB
-port.
+The micro USB type B connector can be attached to a PC to power the receiver and to communicate with it over its USB port.
 
 ### 44-pin header
 _Connector type: SAMTEC TMM-122-03-S-D, 2-mm pitch._
 
-The 44-pin header can be used to connect multiple GPIO devices. Please refer to
-the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw)
-for the pinout.
+The 44-pin header can be used to connect multiple GPIO devices.
+Please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) for the pinout.
 
 ### LED's
 
-The LED pins can be used to monitor the receiver status. They can be used to drive external LEDs (max drive current
-10mA). It is assumed that the LED lights when the electrical level of the corresponding pin is high. The general-purpose
-LED (GPLED pin) is configured with the setLEDMode command.
+The LED pins can be used to monitor the receiver status.
+They can be used to drive external LEDs (max drive current 10mA).
+It is assumed that the LED lights when the electrical level of the corresponding pin is high.
+The general-purpose LED (GPLED pin) is configured with the setLEDMode command.
 
 ### Log Button Header
 
-Putting a jumper on the LOG Button header (.100” vertical header) is equivalent to pressing a “log button”. The
-interface board takes care of debouncing.
+Putting a jumper on the LOG Button header (.100” vertical header) is equivalent to pressing a “log button”.
+The interface board takes care of debouncing.
 
 ### PPS/Event Header
 
@@ -85,52 +81,46 @@ On-board diodes prevent short circuits. The interface board provides the 3V3 sup
 
 ![Septentrio Robotics Interface Board wiring diagram](../../assets/hardware/gps/septentrio_sbf/RIB_wiring.png)
 
-1. Make sure the receiver is powered with at least 3.3V. You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
-2. Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board.
-3. Connect the 44-pin cable to the AsteRx-i3 D board on RIB and connect the 10-pin JST connector to the `GPS MODULE` port on the Pixhawk 4 as shown in the diagram above.
-4. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
+1. Make sure the receiver is powered with at least 3.3V.
+   You can use the micro USB connector or the open ended supply (labeled "PWR & GND") on the 44 pin cable for this.
+3. Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board.
+4. Connect the 44-pin cable to the AsteRx-i3 D board on RIB and connect the 10-pin JST connector to the `GPS MODULE` port on the Pixhawk 4 as shown in the diagram above.
+5. In the web interface or with Rx Tools, set the receiver's baut rate to 115200 **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the default value).
 
 
 :::note 
-PX4 will ensure that the GNSS module is automatically configured however, if you have a dual antenna setup, it
-is required to set the layout as accurately as possible in the web app.
+PX4 will ensure that the GNSS module is automatically configured.
+However, if you have a dual antenna setup, you will need to set the layout as accurately as possible in the web app.
 :::
 
 ### Dual antenna
 
-The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS
-antennas.
+The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS antennas.
 
 ![Multi-antenna attitude determination setup.]( ../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png)
 
 To enable multi-antenna attitude determination, follow the following procedure:
 
-1. Attach two antennas to your vehicle, using cables of approximately the same length. The default antenna configuration
-   is as depicted in the figure. It consists in placing the antennas aligned with the longitudinal axis of the vehicle,
-   main antenna behind aux1. For best accuracy, try to maximize the distance between the antennas, and avoid significant
-   height difference between the antenna ARPs.
-2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle
-   frame, or the main-aux1 baseline may not be exactly parallel or perpendicular to the
-   longitudinal axis of the vehicle. This leads to offsets in the computed attitude angles.
+1. Attach two antennas to your vehicle, using cables of approximately the same length.
+   The default antenna configuration is as depicted in the figure.
+   It consists in placing the antennas aligned with the longitudinal axis of the vehicle, main antenna behind AUX1.
+   For best accuracy, try to maximize the distance between the antennas, and avoid significant height difference between the antenna ARPs.
+2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle frame, or the main-aux1 baseline may not be exactly parallel or perpendicular to the longitudinal axis of the vehicle.
+   This leads to offsets in the computed attitude angles.
    These offsets can be compensated for with the **setAttitudeOffset** command.
 
 :::note 
-For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm /
-19.7in or more)
+For optimal heading results, the two antennas should be seperated by at least 30cm / 11.8 in (ideally 50cm / 19.7in or more)
 
-For additional configuration of the dual antenna setup, please refer to
-our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrsh) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsl)
+For additional configuration of the dual antenna setup, please refer to our [Knowledge Base](https://support.septentrio.com/l/858493/2022-04-19/xgrsh) or the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsl)
 :::
 
 ### Web app
 
-mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and data messages. The
-included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrss)
-allows receiver configuration, monitoring as well as data logging and analysis.
+mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and data messages.
+The included GNSS receiver control and analysis software [RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrss) allows receiver configuration, monitoring as well as data logging and analysis.
 
-The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the
-receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to
-monitor the receiver operation during the job at hand.
+The receiver includes an intuitive web user interface for easy operation and monitoring allowing you to control the receiver from any mobile device or computer. The web interface also uses easy-to-read quality indicators ideal to monitor the receiver operation during the job at hand.
 
 ![Illustrative image for Septentrio mosaic-H GNSS Receiver Module Web User Interface (WebUI)]( ../../assets/hardware/gps/septentrio_sbf/Septentrio-mosaic-X5-H-T-CLAS-GNSS-Module-Receiver-WebUI.png "Septentrio web user interface")
 
@@ -149,7 +139,6 @@ Edit the following parameters in the GPS tab:
   or SBF)
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD): 115200 8N1
 
-
 Go to **Tools > Reboot Vehicle**
 
 ### Dual antenna
@@ -166,6 +155,5 @@ Edit the following parameters in the GPS tab:
 Go to **Tools > Reboot Vehicle**
 
 :::tip 
-If you want more detailed information about the AsteRx and the Robotics Interface Board, please refer to
-the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrsz) page.
+If you want more detailed information about the AsteRx and the Robotics Interface Board, please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) or the [Septentrio Support](https://support.septentrio.com/l/858493/2022-04-19/xgrsz) page.
 :::
