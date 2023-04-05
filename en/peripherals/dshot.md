@@ -21,10 +21,11 @@ The only difference is that they can only be connected to the FMU, and usually o
 You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
 :::
 
-Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), and these match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen.
-For these kinds of boards you will connect the DShot ESC to the AUX port.
+Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), respectively.
+These match the `PWM AUX` and `PWM MAIN` output tabs on the actuator configuration screen.
+For these controllers connect the DShot ESC to the `AUX` port.
 
-Controllers that don't have an IO board usually label the (single) output port as MAIN, and this is where you will connect your DShot ESC.
+Controllers that don't have an IO board usually label the (single) output port as `MAIN`, and this is where you will connect your DShot ESC.
 If the controller without IO has its own firmware, the actuator assignment will be to the matching `PWM MAIN` outputs.
 However if the same firmware is used for hardware with/without the IO board, such as for the Pixhawk 4 and Pixhawk 4 Mini, then actuator assignment tab used is the same in both cases: `PWM AUX` (i.e. not matching the port label `MAIN` in the "mini" case).
 
