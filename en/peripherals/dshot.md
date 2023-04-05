@@ -15,31 +15,18 @@ This topic shows how to connect and configure DShot ESCs.
 <span id="wiring"></span>
 ## Wiring/Connections
 
-DShot ESCs are connected and wired the same way as [PWM ESCs](pwm_escs_and_servo.md), and you can switch between these protocols just by changing software parameters (ESCs automatically detect the selected protocol on startup).
+DShot ESC are wired the same way as [PWM ESCs](pwm_escs_and_servo.md).
+The only difference is that they can only be connected to the FMU (PWM AUX bus), and usually only to some subset of pins.
 
-If using a Pixhawk flight controller that only has a MAIN port, connect the pins according to the [airframe reference](../airframes/airframe_reference.md) for your vehicle.
-
-If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) and connect your ESCs to the AUX-labeled outputs *as though they were labeled MAIN*. 
-
-:::note
-A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively.
-DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the port labelled `MAIN` in the [airframe reference](../airframes/airframe_reference.md). 
-
-To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs. 
-
-Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available. 
-
-Developers might alternatively modify the [Actuator Configuration](../config/actuators.md) so that motor outputs are on the AUX port rather than MAIN.
-:::
+The FMU outputs are set in the [Actuator Configuration](../config/actuators.md) `PWM AUX` actuator outputs tab, and the UI makes it obvious which outputs can be set as DShot.
+You may want to check the actuator configuration screen to see what pins are available for DShot on your controller before wiring up!
 
 :::note
-FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
-The other pins cannot be used as motor/servo outputs.
-
-FMUv5x and FMUv6x based boards support DShot only on the a group of channels 1 to 4, and a second group of channels 5 and 6.
-If DShot is enabled on either of these groups, each channel within the group will only output DShot.
-While DShot is enabled on either or both groups, normal PWM is supported on any channels which are not in the DShot enabled groups(s).
+Pixhawk controllers with both an FMU and an IO board usually label them as `AUX` (FMU) and `MAIN` (IO), matching the names of the actuator configution screen.
+Controllers with no IO board, screenprint the PWM port as `MAIN` (FMU), which will not match the actuator UI.
+Irrespective, the FMU outputs are configured in the `PWM AUX` actuator outputs tab.
 :::
+
 
 ## Configuration
 
@@ -54,7 +41,8 @@ You should set the parameter to the highest speed supported by your ESC (accordi
 
 Then connect the battery and arm the vehicle.
 The ESCs should initialize and the motors turn in the correct directions.
-- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** options (or reverse them by sending an [ESC Command](#commands)).
+- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)) you can reverse them in the UI using the **Set Spin Direction** option (this option appears after you select DShot and assign motors).
+  You can also reverse motors by sending an [ESC Command](#commands).
 
 <span id="commands"></span>
 ## ESC Commands

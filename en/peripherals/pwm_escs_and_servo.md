@@ -106,8 +106,9 @@ This value should be set correctly for the ESC (correct values vary between roug
 
 Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on.
 
-PX4 flight stack sends the [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse idle/disarmed pulse right after power on. 
-Provided this is configured correctly, ESCs will not time out.
+PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out.
+Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
+
 
 ### Valid Pulse Shape, Voltage and Update Rate
 
