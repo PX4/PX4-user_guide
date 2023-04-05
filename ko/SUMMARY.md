@@ -645,7 +645,6 @@
     * [ROS 2](ros/ros2.md)
       * [ROS 2 사용자 가이드](ros/ros2_comm.md)
       * [ROS 2 Offboard Control Example](ros/ros2_offboard_control.md)
-    * [ROS 1 via ROS 2 Bridge](ros/ros1_via_ros2.md)
     * [ROS 1 with MAVROS](ros/ros1.md)
       * [ROS/MAVROS 설치 가이드](ros/mavros_installation.md)
       * [ROS/MAVROS Offboard Example (C++)](ros/mavros_offboard_cpp.md)
