@@ -92,9 +92,7 @@ See the first section of this page explains for other power connection considera
 
 Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
 
-PX4 sends a value of [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly.
-
-This value should be set correctly for the ESC (correct values vary between roughly 1200 and 900 us).
+PX4 sends a pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
 
 ### Timeout
 
