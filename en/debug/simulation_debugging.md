@@ -167,7 +167,7 @@ You can also start your simulation, and _then_ attach `gdb`:
    attach [PID on px4]
    ```
    
-   You should now have a GDB interface to debug with
+   You should now have a GDB interface to debug with.
 
 ## Compiler optimization
 
