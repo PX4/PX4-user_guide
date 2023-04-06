@@ -100,6 +100,41 @@ is printed with the command
 make list_vmd_make_targets
 ```
 
+## Attaching GDB to running SITL
+
+You can also start your simulation, and THEN attach gdb to it. 
+
+1. 
+    In one terminal screen enter the command to start your simulation 
+    `make px4_sitl_default gazebo`
+
+    As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text.
+    It will list the location of your px4 bin file to use later. 
+
+    ```
+    SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
+
+    ______  __   __    ___ 
+    | ___ \ \ \ / /   /   |
+    | |_/ /  \ V /   / /| |
+    |  __/   /   \  / /_| |
+    | |     / /^\ \ \___  |
+    \_|     \/   \/     |_/
+
+    px4 starting.
+
+    INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
+    INFO  [init] found model autostart file as SYS_AUTOSTART=10015
+
+    ```
+
+2. 
+    Open another terminal and type
+
+    `sudo gdb [px4 bin file path (from step 1) here]`
+
+    ex: `sudo gdb /home/atlas/px4/base/PX4-Autopilot/build/px4_sitl_default/bin/px4`
+
 ## Compiler optimization
 
 It is possible to suppress compiler optimization for given executables and/or
