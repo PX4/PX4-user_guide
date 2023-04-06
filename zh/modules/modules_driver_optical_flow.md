@@ -1,6 +1,6 @@
 # Modules Reference: Optical Flow (Driver)
 ## thoneflow
-Source: [drivers/optical_flow/thoneflow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/thoneflow)
+Source: [drivers/optical_flow/thoneflow](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/optical_flow/thoneflow)
 
 
 ### 说明
@@ -9,7 +9,7 @@ Serial bus driver for the ThoneFlow-3901U optical flow sensor.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_TFLOW_CFG parameter.
 
-设置/使用 信息： https://docs.px4.io/en/sensor/thoneflow.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/pmw3901.html#thone-thoneflow-3901u
 
 ### 示例
 

@@ -5,11 +5,11 @@
 
 ## Overview
 
-A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode. Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior. The `activate()` method is called when switching to the task and allows to initialize its state and take over gently from the passed over setpoints the previous task was just applying.
+A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode. Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior. The `activate()` method is called when switching to the task and allows to initialize its state and take over gently from the passed over setpoints the previous task was just applying.
 
 {% youtube %}
 
-By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks) named after the task, and the source files are named with the prefix "FlightTask".
+By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks) named after the task, and the source files are named with the prefix "FlightTask".
 
 :::note
 Video overviews from PX4 developer summits are [provided below](#video).
@@ -20,7 +20,7 @@ Video overviews from PX4 developer summits are [provided below](#video).
 
 The instructions below might be used to create a task named *MyTask*:
 
-1. Create a directory for the new flight task in [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks). By convention the directory is named after the task, so we will call it **/MyTask**.
+1. Create a directory for the new flight task in [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager/tasks). By convention the directory is named after the task, so we will call it **/MyTask**.
    ```
    mkdir PX4-Autopilot/src/modules/flight_mode_manager/tasks/MyTask
    ```
@@ -29,7 +29,7 @@ The instructions below might be used to create a task named *MyTask*:
    - FlightTaskMyTask.hpp
    - FlightTaskMyTask.cpp
 3. Update **CMakeLists.txt** for the new task
-   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
+   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
    - Update the copyright to the current year
      ```cmake   
      ############################################################################
@@ -73,7 +73,7 @@ The instructions below might be used to create a task named *MyTask*:
    bool FlightTaskMyTask::activate(vehicle_local_position_setpoint_s last_setpoint)
    {
      bool ret = FlightTask::activate(last_setpoint);
-     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was succesful
+     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was successful
      return ret;
    }
 
@@ -83,7 +83,7 @@ The instructions below might be used to create a task named *MyTask*:
      return true;
    }
    ```
-5. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/CMakeLists.txt#L40):
+5. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/CMakeLists.txt#L40):
    ```
    list(APPEND flight_tasks_to_add
       Orbit
@@ -93,7 +93,7 @@ The instructions below might be used to create a task named *MyTask*:
 6. Update a flight mode to ensure that the task is called. Usually a parameter is used to select when a particular flight task should be used.
 
    For example, to enable our new `MyTask` in multicopter Position mode:
-   - Update `MPC_POS_MODE` ([mc_pos_control_params.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mc_pos_control/mc_pos_control_params.c#L706-L721)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
+   - Update `MPC_POS_MODE` ([mc_pos_control_params.c](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mc_pos_control/mc_pos_control_params.c#L706-L721)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
      ```
      ...
      * @value 4 Acceleration based input
@@ -102,7 +102,7 @@ The instructions below might be used to create a task named *MyTask*:
      */
      PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
      ```
-   - Add a case for your new option in the switch for the parameter [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) to enable the task when `_param_mpc_pos_mode` has the right value.
+   - Add a case for your new option in the switch for the parameter [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) to enable the task when `_param_mpc_pos_mode` has the right value.
      ```cpp
      ...
      // manual position control
@@ -144,4 +144,4 @@ A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Gr
 
 @[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 
-The relevent section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec). The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.
+The relevant section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec). The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.

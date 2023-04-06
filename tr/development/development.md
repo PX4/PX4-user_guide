@@ -2,8 +2,9 @@
 
 Bu bölümde, yeni araç türlerinin ve varyantlarının nasıl destekleneceği, uçuş algoritmalarının nasıl değiştirileceği, yeni modların nasıl ekleneceği, yeni donanımın nasıl entegre edileceği ve uçuş kontrolcüsünün dışından PX4 ile nasıl iletişim kurulacağı açıklanmaktadır.
 
-::: tip
-Bu bölüm, yazılım geliştiriciler ve (yeni) donanım entegre etmek isteyen mühendisler içindir. Mevcut donanımlarla çalışıp PX4'ü sadece uçuş için kullanmak istiyorsanız bu bölümü incelemenize gerek yoktur.
+:::tip
+This section is for software developers and (new) hardware integrators.
+Mevcut donanımlarla çalışıp PX4'ü sadece uçuş için kullanmak istiyorsanız bu bölümü incelemenize gerek yoktur.
 :::
 
 Bu rehber ile birlikte:

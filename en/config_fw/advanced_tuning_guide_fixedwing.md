@@ -41,7 +41,7 @@ Use throttle to adjust airspeed and pitch to keep level flight.
 
 Set the following parameters:
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the desired trim airspeed flown during the maneuver.
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - set to the throttle required to fly at trim airspeed.
+- [FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM) - set to the throttle required to fly at trim airspeed.
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - set to the pitch angle required to maintain level flight.
 
 #### 2nd: Airspeed & Throttle Limits
@@ -79,9 +79,9 @@ Furthermore, these two values define the height rate limits commanded by the use
 
 ### L1 Controller Tuning (Position)
 
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
+All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control). 
 
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking point ahead of the aircraft it's following.
+- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking point ahead of the aircraft it's following. 
   A value of 25 meters works for most aircraft.
   A value of 16-18 will still work, and provide a sharper response.
   Shorten slowly during tuning until response is sharp without oscillation.

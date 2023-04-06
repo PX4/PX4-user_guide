@@ -1,6 +1,6 @@
 # Distance Sensors (Rangefinders)
 
-Distance sensors provide distance measurement that can be used for [terrain following](../flying/terrain_following_holding.md#terrain_following), [terrain holding](../flying/terrain_following_holding.md#terrain_hold) (i.e. precision hovering for photography), improved landing behaviour ([range aid](../flying/terrain_following_holding.md#range_aid)), warning of regulatory height limits, collision prevention, etc.
+Distance sensors provide distance measurement that can be used for [terrain following](../flying/terrain_following_holding.md#terrain_following), [terrain holding](../flying/terrain_following_holding.md#terrain_hold) (i.e. precision hovering for photography), improved landing behaviour ([conditional range aid](../advanced_config/tuning_the_ecl_ekf.md#conditional-range-aiding)), warning of regulatory height limits, collision prevention, etc.
 
 This section lists the distance sensors supported by PX4 (linked to more detailed documentation), the [generic configuration](#configuration) required for all rangefinders, [testing](#testing), and [simulation](#simulation) information.
 More detailed setup and configuration information is provided in the topics linked below (and sidebar).
@@ -11,9 +11,9 @@ More detailed setup and configuration information is provided in the topics link
 
 ### ARK Flow
 
-[ARK Flow](../uavcan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m.
+[ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m.
 It can be connected to the flight controller via its CAN1 port, allowing additional sensors to connect through its CAN2 port.
-It runs PX4 firmware, supports [UAVCAN](../uavcan/README.md) [Firmware Updating](../uavcan/node_firmware.md), and is packed into a tiny form factor.
+It supports [DroneCAN](../dronecan/README.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
 
 
 ### Holybro ST VL53L1X Lidar
@@ -75,7 +75,7 @@ It must be connected to a UART/serial bus.
 
 ### Avionics Anonymous UAVCAN Laser Altimeter Interface 
 
-The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../uavcan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [UAVCAN](../uavcan/README.md) bus, a more robust interface than I2C.
+The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [CAN](../can/README.md) bus via [DroneCAN](../dronecan/README.md), a more robust interface than I2C.
 
 <span id="configuration"></span>
 ## Configuration/Setup
@@ -89,13 +89,13 @@ The generic configuration that is *common to all distance sensors*, covering bot
 
 ### Generic Configuration
 
-The common rangefinder configuration is specified using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters.
+The common rangefinder configuration is specified using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters.
 These include (non exhaustively):
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - offset of the rangefinder from the vehicle centre of gravity in X, Y, Z directions.
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - A value of 0 degrees (default) corresponds to the range finder being exactly aligned with the vehicle vertical axis (i.e. straight down), while 90 degrees indicates that the range finder is pointing forward.
   Simple trigonometry is used to calculate the distance to ground if a non-zero pitch is used.
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - approximate delay of data reaching the estimator from the sensor.
-- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependant noise scaler.
+- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependent noise scaler.
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Measurement noise for range finder fusion
 
 
@@ -140,22 +140,25 @@ For more information see: [Development > Debugging/Logging > Sensor/Topic Debugg
 
 ## Simulation
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../simulation/gazebo.md).
+Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator.
 To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 The iris optical flow model includes a Lidar rangefinder:
+
 ```sh
-make px4_sitl gazebo_iris_opt_flow
+make px4_sitl gazebo-classic_iris_opt_flow
 ```
 
 The typhoon_h480 includes a sonar rangefinder:
+
 ```sh
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 If you need to use a different vehicle you can include the model in its configuration file.
 You can see how in the respective Iris and Typhoon configuration files:
-- [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
+
+- [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
   ```xml
     <include>
       <uri>model://lidar</uri>
@@ -173,7 +176,7 @@ You can see how in the respective Iris and Typhoon configuration files:
       </axis>
     </joint>
    ```
-- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
+- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/main/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
   ```xml
     <include>
       <uri>model://sonar</uri>

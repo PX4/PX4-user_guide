@@ -1,9 +1,9 @@
 # Holybro Pix32 v5
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-[Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup>는 Holybro<sup>&reg;</sup>에서 설계 제작한 고급 비행 컨트롤러입니다. PX4 펌웨어 실행에 최적화 되어 있으며, 연구와 상업용 개발자들에게 적합합니다. [Pixhawk-project](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계를 기반으로 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다. Pixhawk4의 변형 버전으로 간주할 수 있습니다.
+[Pix32 v5](https://holybro.com/products/pix32-v5)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>. PX4 펌웨어 실행에 최적화 되어 있으며, 연구와 상업용 개발자들에게 적합합니다. [Pixhawk-project](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계를 기반으로 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다. Pixhawk4의 변형 버전으로 간주할 수 있습니다.
 
 Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시스템을 위하여 설계되었습니다. 별도의 비행 컨트롤러와 캐리어 보드로 구성되며 100핀 커넥터로 연결됩니다. 이 디자인은 사용자가 Holybro에서 만든베이스 보드를 선택하거나 사용자가 정의할 수 있습니다.
 
@@ -62,11 +62,11 @@ Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시�
   * FCC
   * RoHS 준수(무연)
 
-추가적인 정보는 [Pix32 V5  기술 데이트시트](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)를 참고하십시오.
+Additional information can be found in the [Pix32 V5 Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-## 구매처
+## Where to Buy
 
-[Holybro](https://shop.holybro.com/pix32-v5_p1218.html)에서 주문 가능 합니다.
+Order from [Holybro website](https://holybro.com/products/pix32-v5).
 
 ## 조립 및 설정
 
@@ -77,9 +77,7 @@ Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시�
 
 ## 핀배열
 
-핀배열 다운로드 :
-- [*pix32 v5* 베이스보드](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
-- [*pix32 v5* 미니 베이스보드](http://www.holybro.com/manual/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
+[*pix32 v5* and mini baseboard](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 
 ## 크기
 
@@ -124,7 +122,7 @@ make holybro_pix32v5_default
 
 ![FMU 디버그 포트 다이어그램](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Horizontal.jpg)
 
-핀배열은 표준 [Pixhawk 디버그 커넥터 핀배열](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)을 사용합니다. 배선 정보는 다음을 참조하십시오.
+The pinout uses the standard [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). 배선 정보는 다음을 참조하십시오.
 - [시스템 콘솔 > Pixhawk 디버그 포트](../debug/system_console.md#pixhawk_debug_port).
 
 
@@ -142,8 +140,8 @@ make holybro_pix32v5_default
 
 ## 추가 정보
 
-- [Pix32 v5  기술 데이터 시트](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
-- [Pix32 v5 핀아웃](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
-- [Pix32 v5 기본 보드 회로도](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
-- [Pix32 v5 미니 기본 보드 회로도](http://www.holybro.com/manual/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
+- [Pix32 v5  기술 데이터 시트](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
+- [Pix32 v5 핀아웃](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
+- [Pix32 v5 기본 보드 회로도](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
+- [Pix32 v5 미니 기본 보드 회로도](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
 - [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

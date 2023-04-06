@@ -13,7 +13,7 @@
 * 适用于期望平台的 [PX4 开发工具链](../setup/dev_env.md) 。
 * 从 Github [下载 PX4 源代码](../setup/building_px4.md#get_px4_code) 。
 
-源码[PX4-Autopilot/src/examples/px4_simple_app ](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app)目录包含本教程的完整版本，如果遇到困难可以查看。
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * 重命名 (或删除) **px4_simple_app** 目录。
 
 ## 最小的应用程序
@@ -137,9 +137,8 @@
    - `MAIN`块列出了模块的入口点，它将命令注册到 NuttX，以便可以从 PX4 shell 或 SITL 控制台调用它。
 
 :::tip
-`px4_add_module()` 的格式可从 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)中查看. <!-- NEED px4_version -->
-
-:::
+The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
+   为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
 :::note
 如果您对`px4_add_module`指定`DYNAMIC`选项，则会在 POSIX 平台上创建一个动态库而不是静态库（这些可以在无需重新编译 PX4 的情况下加载，并作为二进制文件而不是源代码共享给其他人）。 您的应用程序不会成为内置命令，而是生成一个名为`examples__px4_simple_app.px4mod`的文件。 您可以通过在运行时使用以下`dyn`命令加载文件来运行您的命令：`dyn ./examples__px4_simple_app.px4mod`
@@ -157,22 +156,17 @@
 
 应用程序的编写至此完成。 为了运行它，您首先需要确保它是作为 PX4 的一部分构建的。 应用程序被将依据目标的适当板级*cmake*文件添加到编译/固件中：
 
-* jMAVSim 仿真器：`make px4_sitl_default jmavsim`
-* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)
-* Pixracer (px4/fmu-v4):
+* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
+* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
+* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
+* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
-[PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)</li> 
-  
-  * 其它板的*cmake*文件可以在[PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards) 中找到</ul> 
-
-要启用将应用程序编译到固件中，请在*cmake*文件中的某处为您的应用程序创建一个新行：
-
-
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
-    examples/px4_simple_app
+examples  --->
+    [x] PX4 Simple app  ----
 ```
-
 
 :::note
 该行已经存在于大多数文件中，因为固件中默认包含这些示例。
@@ -186,11 +180,7 @@
 * 其它板: [构建代码](../dev_setup/building_px4.md#building-for-nuttx)
 
 
-
-
 ## 测试应用（硬件）
-
-
 
 ### 将固件上传至飞控板
 
@@ -201,16 +191,11 @@
 
 在您重启飞控板之前，它应该打印一些编译消息，并在最后打印：
 
-
-
 ```sh
 Loaded firmware for X,X, waiting for the bootloader...
 ```
 
-
 一旦飞控板被重启并完成了固件的上传，命令行界面将输出：
-
-
 
 ```sh
 Erase  : [====================] 100.0%
@@ -221,23 +206,15 @@ Rebooting.
 [100%] Built target upload
 ```
 
-
-
-
 ### 连接至控制台
 
 现在通过串口或USB连接到[系统控制台](../debug/system_console.md)。 按**ENTER**将调出 shell 提示：
-
-
 
 ```sh
 nsh>
 ```
 
-
 输入“help”并按回车键
-
-
 
 ```sh
 nsh> help
@@ -261,20 +238,14 @@ Builtin Apps:
   serdis
 ```
 
-
 请注意，`px4_simple_app`现在是可用命令的一部分。 通过键入`px4_simple_app`并输入回车启动它：
-
-
 
 ```sh
 nsh> px4_simple_app
 Hello Sky!
 ```
 
-
 该应用程序现在已正确注册到系统中，并且可以扩展以实际执行实用的任务。
-
-
 
 ## 测试应用（SITL）
 
@@ -282,17 +253,12 @@ Hello Sky!
 
 输入`px4_simple_app`来运行这个最小的应用程序。
 
-
-
 ```sh
 pxh> px4_simple_app
 INFO  [px4_simple_app] Hello Sky!
 ```
 
-
 现在可以扩展该应用程序以实际执行实用的任务
-
-
 
 
 ## 订阅传感器数据
@@ -301,11 +267,9 @@ INFO  [px4_simple_app] Hello Sky!
 
 :::tip PX4 硬件抽象的好处在这里发挥作用！ 无需以任何方式与传感器驱动程序交互，如果板或传感器更新，也无需更新您的应用程序。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
-应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 对于本教程，我们感兴趣的主题是[sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg)，它拥有了整个系统的同步传感器数据。
+应用程序之间的每个消息通道称为[主题](../middleware/uorb.md)。 For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 订阅主题很简单：
-
-
 
 ```cpp
 #include <uORB/topics/sensor_combined.h>
@@ -313,12 +277,9 @@ INFO  [px4_simple_app] Hello Sky!
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-
 `sensor_sub_fd`是一个主题句柄，它可以用于非常有效地执行阻塞等待新数据。 当前线程进入休眠状态，一旦有新数据可用就会被调度器自动唤醒，等待时不消耗任何 CPU 周期。 为此，我们使用[poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX 系统调用。
 
 添加`poll()`到订阅看起来像（*伪代码，在下面可查找完整的实现*）：
-
-
 
 ```cpp
 #include <poll.h>
@@ -348,32 +309,21 @@ while (true) {
 }
 ```
 
-
 再次编译应用程序可以输入：
-
-
 
 ```sh
 make
 ```
 
-
-
-
 ### 测试 uORB 消息订阅
 
 最后一步是通过在 nsh shell 中键入以下内容来启动您的应用程序作为后台进程/任务：
-
-
 
 ```sh
 px4_simple_app &
 ```
 
-
 您的应用程序将在控制台中显示 5 个传感器值（译者注：需要使用后面的完整示例中的代码，如果使用上面的伪代码会连续输出并无法退出），然后退出：
-
-
 
 ```sh
 [px4_simple_app] Accelerometer:   0.0483          0.0821          0.0332
@@ -384,12 +334,9 @@ px4_simple_app &
 [px4_simple_app] Accelerometer:   0.0489          0.0804          0.0328
 ```
 
-
 :::tip
 [完整应用程序的模块模板](../modules/module_template.md)可用于编写可从命令行控制的后台进程。
 :::
-
-
 
 ## 发布数据
 
@@ -401,8 +348,6 @@ px4_simple_app &
 
 接口非常简单：初始化要发布的主题`struct`并发布主题：
 
-
-
 ```c
 #include <uORB/topics/vehicle_attitude.h>
 ..
@@ -412,23 +357,15 @@ memset(&att, 0, sizeof(att));
 orb_advert_t att_pub_fd = orb_advertise(ORB_ID(vehicle_attitude), &att);
 ```
 
-
 在主循环中，随时发布信息：
-
-
 
 ```c
 orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 ```
 
-
-
-
 ## 完整的示例代码
 
-下面是[完整的示例代码](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c)：
-
-
+The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c) is now:
 
 ```c
 /****************************************************************************
@@ -562,27 +499,19 @@ int px4_simple_app_main(int argc, char *argv[])
 }
 ```
 
-
-
-
 ## 运行完整的示例
 
 最后运行你的应用程序：
-
-
 
 ```sh
 px4_simple_app
 ```
 
-
-如果您启动*QGroundControl*，您可以检查实时图中的传感器值（[Analyze> MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) ）。
-
-
+If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
 
 ## 总结
 
-本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 请记住，[此处](https://github.com/PX4/PX4-Autopilot/tree/master/msg/)提供了 uORB 消息/主题的完整列表并且可通过标题查寻，以供参考。
+本教程涵盖了所有开发基本 PX4 自动驾驶仪应用程序的内容。 Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
 
 此处可找到更多信息和故障排除/常见陷阱：[uORB](../middleware/uorb.md)。
 

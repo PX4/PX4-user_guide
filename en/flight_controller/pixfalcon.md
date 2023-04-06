@@ -6,7 +6,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
@@ -71,7 +71,7 @@ UART1 | /dev/ttyS0 | IO Debug
 USART2 | /dev/ttyS1 | TELEM1 (No flow control)
 UART4 | /dev/ttyS2 | GPS
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Key Links
 

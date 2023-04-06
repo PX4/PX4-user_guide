@@ -79,10 +79,12 @@ The following parameters must be set to use external position information with E
 
 Parameter | Setting for External Position Estimation
 --- | ---
-[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* accoring to your desired fusion model.
-[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | Set to *Vision* to use the vision a primary source for altitude estimation.
+[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* according to your desired fusion model.
+[EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) | Set to *Vision* to use the vision as the reference source for altitude estimation.
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY).
 [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor (or MoCap markers) with respect to the robot's body frame.
+
+You can also disable GNSS, baro and range finder fusion using [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL), [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) and [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL), respectively.
 
 :::tip
 Reboot the flight controller in order for parameter changes to take effect.
@@ -293,7 +295,7 @@ Be sure to perform the following checks before your first flight:
 
 * Set the PX4 parameter `MAV_ODOM_LP` to 1.
   PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages.
-* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)
+* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)
   In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
 * At this point the body frame is aligned with the reference frame of the external pose system.
   If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still have a pitch or roll offset.

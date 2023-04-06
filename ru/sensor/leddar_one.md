@@ -4,6 +4,7 @@
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
 
+
 ## Hardware Setup
 
 LeddarOne can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
@@ -19,18 +20,18 @@ Build a cable following your board and pinout and LeddarOne pinout (shown below)
 | 5   | TX        |
 | 6   | -         |
 
+
 ## Parameter Setup
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
 :::note
 If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
-
-    CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y
-    
-
+```
+CONFIG_DRIVERS_DISTANCE_SENSOR_LEDDAR_ONE=y
+```
 :::
 
 ## Further Information
 
-* [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf)
+* [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2021/04/Spec-Sheet_LeddarOne_V10.0_EN-1.pdf)

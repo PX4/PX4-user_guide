@@ -12,11 +12,11 @@ PX4 supports a number of types of telemetry radios:
 * [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
   * [ARK Electron Microhard Serial Telemetry Radio](../telemetry/ark_microhard_serial.md)
   * [Holybro Microhard P900 Telemetry Radio](../telemetry/holybro_microhard_p900_radio.md)
-* XBee Serial Telemetry Radio
-  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 * CUAV Serial Telemetry Radio
   * [CUAV P8 Telemetry Radio](../telemetry/cuav_p8_radio.md)
-
+* XBee Serial Telemetry Radio
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md) (Discontinued)
+  
 PX4 is protocol compatible with [SiK Radio](../telemetry/sik_radio.md) and will generally work out of the box (though you may need to change/use an appropriate connector).
 
 WiFi telemetry typically has shorter range, higher data rates, and makes it easier to support FPV/video feeds.
@@ -25,5 +25,5 @@ One benefit of WiFi radios is that you only need to purchase a single radio unit
 :::note
 PX4 does not support connecting an LTE USB module to the flight controller (and sending MAVLink traffic via the Internet).
 You can however connect an LTE module to a companion computer and use it to route MAVLink traffic from the flight controller.
-For more information see: [Companion Computer Peripherals > Data Telephony](../peripherals/companion_computer_peripherals.md#data_telephony).
+For more information see: [Companion Computer Peripherals > Data Telephony](../companion_computer/companion_computer_peripherals.md#data_telephony).
 :::

@@ -29,10 +29,10 @@ Voltage and current measurement configured for 3.3V ADC
 - Molex 6 Position Connector 15 cm
 - GH 6 Position Connector 15 cm
 
-## Purchase
+## Where to Buy
 
-[Order from Holybro Store](https://shop.holybro.com/power-modulepm02-v3_p1185.html)
+[Order from Holybro Store](https://holybro.com/collections/power-modules-pdbs/products/pm02-v3-12s-power-module)
 
 ## Wiring/Connections
 
-Additional wiring and connection information can be found in: [Pixhawk 4 QuickStart](../assembly/quick_start_pixhawk4.html).
+Additional wiring and connection information can be found in: [Pixhawk 4 QuickStart](../assembly/quick_start_pixhawk4.md).

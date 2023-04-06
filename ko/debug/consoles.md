@@ -4,6 +4,7 @@ PX4에서는 [MAVLink 쉘](../debug/mavlink_shell.md)과 [시스템 콘솔](../d
 
 이 페이지에서는 콘솔과 쉘 사용 방법과 주요 차이점을 설명합니다.
 
+
 <a id="console_vs_shell"></a>
 
 ## 시스템 콘솔과 셸의 차이점
@@ -27,6 +28,7 @@ PX4 *시스템 콘솔*은 시스템에 대한 낮은 수준의 액세스, 디버
 전용 UART에서 실행되거나, MAVLink로 실행되는 여러 셸이 있을 수 있습니다. MAVLink가 더 많은 유연성을 제공하므로, 현재 [MAVLink Shell](../debug/mavlink_shell.md)만 사용됩니다.
 
 [시스템 콘솔](../debug/system_console.md)은 시스템이 부팅되지 않을 때 사용됩니다(보드의 전원을 껐다 켤 때 시스템 부팅 로그를 표시함). [MAVLink Shell](../debug/mavlink_shell.md)은 설정이 훨씬 용이하므로, 대부분의 디버깅에 사용됩니다.
+
 
 <a id="using_the_console"></a>
 

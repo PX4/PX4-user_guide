@@ -6,10 +6,10 @@ In addition to providing precise position information, the MB-Two can estimate h
 
 ![MB-Two Hero image](../../assets/hardware/gps/rtk_trimble_two_gnss_hero.jpg)
 
+
 ## Required Firmware Options
 
 The following firmware options need to be selected when buying the device:
-
 - \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\] for 20Hz position updates and RTK support, 1cm horizontal and 2cm vertical position accuracy
 - \[L\] LBAND
 - \[D\] DUO - Dual Antenna Heading
@@ -20,7 +20,6 @@ The following firmware options need to be selected when buying the device:
 The Trimble MB-Two requires two dual-frequency (L1/L2) antennas. A good example is the [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (which can be bought, for instance, from [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
 
 The antenna connector type on the device is MMCX. Suitable cables for the above antennas (SMA connector) can be found here:
-
 - [30 cm version](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
 - [45 cm version](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 
@@ -57,7 +56,7 @@ The `GPS_YAW_OFFSET` is the angle made by the *baseline* (the line between the t
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the Trimple will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
-To activate heading fusion for the attitude estimation, set the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to enable *GPS yaw fusion*.
+To activate heading fusion for the attitude estimation, set the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter to enable *Dual antenna heading*.
 
 :::note
 See also: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)

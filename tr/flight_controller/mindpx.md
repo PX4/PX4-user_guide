@@ -24,7 +24,6 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 ![](../../assets/hardware/hardware-mindpx-specs.png)
 
 * Main System-on-Chip: STM32F427
-  
   * CPU: 32bits, 168 MHz ARM Cortex<sup>&reg;</sup> M4 with FPU
   * RAM: 256 KB SRAM
   * 2MB Flash
@@ -32,14 +31,14 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
   * MEAS MS5611 barometer
   * InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
 
+
 * Highlighted features:
-  
   * CNC processed aluminum alloy case, light and solid
   * Built-in isolated IMU redundancy
   * Total 16 PWM output channel (8 main + 8 aux)
   * 1 extra I2C port for flow connection.
   * 1 extra USB port for companion computer connection (built-in UART-to-USB converter)
-  * Exposed debug port for development 
+  * Exposed debug port for development
 
 ## Quick Start
 
@@ -68,6 +67,7 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 |  7   |        TF card slot        |  15  |     Tricolor Light     |
 |  8   |  NRF/SPI(Remote Control)   |  16  |         Looper         |
 
+
 ### Radio Receiver
 
 MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SBUS/DSM/DSM2/DSMX. MindPX also support FrSky<sup>&reg;</sup> bi-direction telemetry D and S.Port.
@@ -81,9 +81,9 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
-
-    make airmind_mindpx-v2_default
-    
+```
+make airmind_mindpx-v2_default
+```
 
 ### Companion PC connection
 
@@ -113,8 +113,8 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | ?             |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.

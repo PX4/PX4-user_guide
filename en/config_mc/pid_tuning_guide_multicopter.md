@@ -62,7 +62,7 @@ The derivative term (**D**) is on the feedback path in order to avoid an effect 
 :::tip
 For more information see:
 - [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
-- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
+- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_form) (Wikipedia)
 :::
 
 ##### Parallel Form
@@ -228,26 +228,12 @@ Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_sign
 
 In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7. 
 
-[THR_MDL_FAC_Calculation]: https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb
 
 If you don't have access to a thrust stand, you can also tune the modeling factor empirically.
 Start off with 0.3 and increase it by 0.1 at a time.
 If it is too high, you will start to notice oscillations at lower throttle values.
 If it is too low you'll notice oscillations at higher throttle values.
-
-<!-- TODO
-### Velocity & Position Controller
-The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
-turn off all [higher-level position controller tuning gains](../config_mc/mc_trajectory_tuning.md).
-
-- [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
-- [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000
-- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000
-- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000
-- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000
-- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0
-- [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
- -->
 
 
 <span id="airmode"></span>
@@ -260,6 +246,7 @@ It can happen that one of the motor commands becomes negative, for example for a
 This is a mixer saturation.
 It is physically impossible for the vehicle to execute these commands (except for reversible motors).
 PX4 has two modes to resolve this:
+
 - Either by reducing the commanded torque for roll such that none of the motor commands is below zero (Airmode disabled).
   In the extreme case where the commanded thrust is zero, it means that no attitude correction is possible anymore, which is why a minimum thrust is always required for this mode.
 - Or by increasing (boosting) the commanded thrust, such that none of the motor commands is negative (Airmode enabled).
@@ -284,4 +271,3 @@ If mixing becomes saturated towards the upper bound the commanded thrust is redu
 This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
-

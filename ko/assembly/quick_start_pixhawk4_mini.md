@@ -1,6 +1,6 @@
 # Pixhawk 4 Mini 배선 퀵스타트
 
-:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 [*Pixhawk 4<sup>&reg;</sup> Mini*](../flight_controller/pixhawk4_mini.md) 비행 콘트롤러 전원공급 방법과 주변장치 연결 방법을 설명합니다.
@@ -37,7 +37,8 @@
 모듈의 통합 안전 스위치는 *기본적으로* 활성화됩니다. 활성화된 상태에서 PX4의 차량 시동이 가능합니다. 안전 스위치를 1초간 길게 누르면 비활성화됩니다. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다. 조종기나 지상국 프로그램에서 기체 시동을 끌 수 없는 상황에서 유용합니다.
 :::
 
-## 전원 
+
+## 전원
 
 PMB(Power Management Board)는 배전 보드와 전원 모듈로 사용됩니다. *Pixhawk 4 Mini* 및 ESC에 조정 전력을 제공하고, 배터리의 전압과 전류 정보를 자동조종장치에 전송합니다.
 
@@ -46,17 +47,16 @@ PMB(Power Management Board)는 배전 보드와 전원 모듈로 사용됩니다
 ![Pixhawk 4 - 전원 관리 보드](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
 
 :::note
-위의 이미지는 단일 ESC와 단일 서보의 연결만을 나타냅니다. 나머지 ESC와 서보를 비슷하게 연결합니다.
+위의 이미지는 단일 ESC와 단일 서보의 연결만을 나타냅니다.
+나머지 ESC와 서보를 비슷하게 연결합니다.
 :::
 
-| 핀 또는 커넥터 | 기능                                                       |
-| -------- | -------------------------------------------------------- |
-| B+       | ESC에 전원을 공급하기 위해 ESC B +에 연결                             |
-| GND      | ESC 접지에 연결                                               |
-| PWR      | JST-GH 6 핀 커넥터, 5V 3A 출력  
-을 *Pixhawk 4 Min * 전원에 연결</0> |
-| BAT      | 전원 입력, 2 ~ 12S LiPo 배터리에 연결                              |
-
+| 핀 또는 커넥터 | 기능                           |
+| -------- | ---------------------------- |
+| B+       | ESC에 전원을 공급하기 위해 ESC B +에 연결 |
+| GND      | ESC 접지에 연결                   |
+| PWR      | JST-GH 6 핀 커넥터, 5V 3A 출력     |
+| BAT      | 전원 입력, 2 ~ 12S LiPo 배터리에 연결  |
 
 *Pixhawk 4 Mini* **POWER** 포트의 핀배열은 아래와 같습니다. 전류 신호는 기본적으로 0~120A에 대하여 0~3.3V의 아날로그 전압을 제공하여야 합니다. 전압 신호는 기본적으로 0~60V에 대하여 0~3.3V의 아날로그 전압을 제공하여야 합니다. VCC 라인은 최소 3A 연속을 제공해야하며, 기본적으로 5.1V로 설정되어야 합니다. 5V 보다 낮은 전압은 권장되지 않습니다.
 
@@ -69,7 +69,6 @@ PMB(Power Management Board)는 배전 보드와 전원 모듈로 사용됩니다
 | 5(black) | GND     | 접지    |
 | 6(black) | GND     | 접지    |
 
-
 :::note
 고정익 또는 자동차로 사용하는 경우 **MAIN-OUT**의 8 핀 전원 (+) 레일에 러더, 엘레 본 등의 서보를 구동을 위한 별도의 전원을 공급하여야 합니다. 전원 레일을 BEC가 장착된 ESC 또는 독립형 5V BEC 또는 2S LiPo 배터리에 연결하여야 합니다. 서보에 제공되는 전압이 적절한 지 체크하십시오.
 :::
@@ -77,10 +76,10 @@ PMB(Power Management Board)는 배전 보드와 전원 모듈로 사용됩니다
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
 :::note
-키트의 전원모듈을 사용하면 [전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html)에서 *셀 수*를 설정하여하며, *전압 분배기*의 보정은 필요하지 않습니다. 다른 전원모듈(예 : Pixracer의 모듈)을 사용하는 경우에는 *전압 분배기*를 업데이트하여야 합니다.
+Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/master/en/SetupView/Power.html) but you won't need to calibrate the *voltage divider*. 다른 전원모듈(예 : Pixracer의 모듈)을 사용하는 경우에는 *전압 분배기*를 업데이트하여야 합니다.
 :::
 
-## 무선 조종 
+## 무선 조종
 
 무선 조종기(RC)는 기체를 *수동*으로 조작합니다. PX4 자율 비행 모드에는 RC는 필수 요구 사항은 아닙니다.
 
@@ -89,18 +88,19 @@ PMB(Power Management Board)는 배전 보드와 전원 모듈로 사용됩니다
 아래 지침은 여러 종류의 수신기를 *Pixhawk 4 Mini*에 연결한는 방법을 설명합니다.
 
 - Spektrum/DSM 수신기는 **DSM/SBUS RC** 입력에 연결합니다.
-    
-    ![Pixhawk 4 Mini - Spektrum 수신기용 라디오 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
+
+  ![Pixhawk 4 Mini - Spektrum 수신기용 라디오 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
 
 - PPM 수신기는 **PPM RC** 입력 포트에 연결합니다.
-    
-    ![Pixhawk 4 Mini - PPM 수신기용 라디오 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)
+
+  ![Pixhawk 4 Mini - PPM 수신기용 라디오 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)
 
 - *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 케이블만 사용합니다.
 
 무선 시스템 선택, 수신기 호환성 및 송신기/수신기 바인딩에 대한 자세한 내용은 [원격 제어 송신기 & 수신기](../getting_started/rc_transmitter_receiver.md)를 참고하십시오.
 
-## 무선 텔레메트리(선택 사항) 
+
+## 무선 텔레메트리(선택 사항)
 
 무선 텔레메트리는 지상국 프로그램의 비행 차량 통신 제어용입니다(예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
@@ -115,7 +115,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 ![Pixhawk 4 Mini - SD 카드](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
 
 :::tip
-자세한 내용은 [기본 개념> SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## 모터
@@ -127,12 +127,14 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 :::
 
 :::caution
-매핑이 프레임별로 일정하지지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력의 스로틀에 의존할 수 없음). 해당 기체의 프레임의 정확한 모터 연결 여부를 확인하십시오.
+매핑이 프레임별로 일정하지지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력의 스로틀에 의존할 수 없음).
+해당 기체의 프레임의  정확한 모터 연결 여부를 확인하십시오.
 :::
 
 ## 기타 주변 장치
 
 많이 사용하지 않는 부품들의 배선과 조립 방법은 개별 [주변 장치](../peripherals/README.md)를 참고하십시오.
+
 
 ## 설정
 
@@ -140,8 +142,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
-<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
+<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. --> 
 
 ## 추가 정보
-
 - [*Pixhawk 4 Mini*](../flight_controller/pixhawk4_mini.md)

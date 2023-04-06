@@ -5,19 +5,18 @@
 비교적 작은 하드웨어와 어셈블리 변경이 최적의 비행  튜닝 게인에 영향을 미치므로,  새로운 기체 설정에 튜닝이 권장됩니다. 예를 들어, 새로운 ESC 또는 모터에는 다른 튜닝 게인이 필요합니다.
 :::
 
-:::tip
-일반적으로 적절한 [지원되는 기체 구성](../airframes/airframe_reference.md#copter) ([QGroundControl >기체 ](../config/airframe.md)에서 선택)을 사용하는 경우 기본 튜닝을 통해 기체를 안전하게 비행할 수 있습니다. _최고의_ 성능을 얻으려면 새 기체를 튜닝하는 것이 좋습니다. For example, different ESCs or motors change the optimal tuning gains.
+Generally if you're using an appropriate [supported frame configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely. 모든 새 차량 설정이 _최고의_ 성능을 얻을 수 있도록 조정하는 것이 좋습니다. 상대적으로 작은 하드웨어와 조립품 변경이 최적의 비행을 위해 필요한 조정 이득에 영향을 줄 수 있기 때문입니다. For example, different ESCs or motors change the optimal tuning gains.
 
 
 ## 소개
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
+PX4는 **P**roportional, **I**ntegral, **D**erivative (PID) 컨트롤러를 사용합니다 (보편화된 제어 기술).
 
-The _QGroundControl_ **PID Tuning** setup provides real-time plots of the vehicle setpoint and response curves. The goal of tuning is to set the P/I/D values such that the _Response_ curve matches the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
+_QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 실시간 플롯을 제공합니다. 튜닝의 목표는 _Response_ 곡선이 _Setpoint_ 곡선과 최대한 가깝게 일치하도록 P/I/D 값을 설정하는 것입니다 (예 : 오버슈트없는 빠른 응답).
 
-![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+![QGC 속도 컨트롤러 튜닝 UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 
-The controllers are layered, which means a higher-level controller passes its results to a lower-level controller. The lowest-level controller is the **rate controller**, followed by the **attitude controller**, and finally the **velocity & position controller**. The PID tuning needs to be done in this same order, starting with the rate controller, as it will affect all other controllers.
+컨트롤러는 계층화되어 있어 상위 수준의 컨트롤러 결과를 하위 수준의 컨트롤러로 전달합니다. 가장 낮은 수준의 컨트롤러는 **속도 컨트롤러**, **태도 컨트롤러**, 마지막으로 **속도 & 위치 컨트롤러** 입니다. PID 튜닝은 다른 모든 컨트롤러에 영향을 미치므로 속도 컨트롤러부터 시작하여 동일한 순서로 수행해야합니다.
 
 컨트롤러는 계층화되어 있어 상위 수준의 컨트롤러 결과를 하위 수준의 컨트롤러로 전달합니다. 가장 낮은 수준의 컨트롤러는 **속도 컨트롤러**, **태도 컨트롤러**, 마지막으로 **속도 & 위치 컨트롤러** 입니다.
 
@@ -30,20 +29,20 @@ The controllers are layered, which means a higher-level controller passes its re
 
 ## 전제 조건:
 
-- You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle. This should give you a vehicle that already flies.
-- You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
-- If using PWM output: [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN) is set correctly. It needs to be set low, but such that the **motors never stop** when the vehicle is armed.
+- You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle. 이것은 이미 비행한 기체를 제공할 것입니다.
+- [ESC 보정](../advanced_config/esc_calibration.md)을 완료하여야 합니다.
+- PWM 출력을 사용하는 경우: [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)이 올바르게 설정되었습니다. 차량을 낮게 설정해야 하지만, 차량이 무장을 했을 때 ** 모터들은 절대 멈추지 않습니다</p>
 
-  This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
-  - Remove propellers
-  - Arm the vehicle and lower the throttle to the minimum
-  - Tilt the vehicle to all directions, about 60 degrees
-  - Check that no motors turn off
+  [곡예 모드](../flight_modes/acro_mc.md) 또는 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md)에서 테스트할 수 있습니다.
+  - 프로펠러 제거
+  - 기체에 시동을 걸고 스로틀을 최소로 내립니다.
+  - 차량을 모든 방향으로 60도 정도 기울입니다.
+  - 모터가 꺼져 있는 지 확인합니다.</li>
 - PWM 출력을 사용하는 경우 : [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)이 올바르게 설정되었습니다. 낮게 설정해야하지만 기체 시동시에는 **모터가 절대 멈추지 않도록**합니다.
-- Disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) before tuning a vehicle (there is an options for this in the PID tuning screen).
+- 기체 튜닝전에 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)를 비활성화하십시오 (PID 튜닝 화면에 이에 대한 옵션이 있습니다).</ul>
 
 :::warning
-Poorly tuned vehicles are likely to be unstable, and easy to crash. Make sure to have assigned a [Kill switch](../config/safety.md#emergency-switches).
+잘못 튜닝된 기체는 불안정하고 충돌 가능성이 높아집니다. [킬 스위치](../config/safety.md#emergency-switches)를 지정했는 지 확인하십시오.
 :::
 
 ## 튜닝 절차

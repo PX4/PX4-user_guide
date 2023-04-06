@@ -1,18 +1,15 @@
-# Windows Development Environment
+# Windows Development Environment (Cygwin-based)
 
 The following instructions explain how to set up a (Cygwin-based) PX4 development environment on Windows 10. This environment can be used to build PX4 for:
 * Pixhawk and other NuttX-based hardware
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 
-
 :::warning
-The current version of this toolchain does not work with the master codeline (though it does with stable versions). The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) is a highly recommended Windows 11 (only) alternative, and is likely to become the supported Windows solution in the near future.
+This setup is an [unsupported windows development environment](../advanced/dev_env_unsupported.md).
+
+The toolchain was previously recommended, but does not work with PX4 v1.12 and later due to packaging issues. The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.
 :::
 
-
-:::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
-:::
 
 <a id="installation"></a>
 
@@ -66,15 +63,16 @@ Skip this step if you ticked the installer option to *clone the PX4 repository, 
    ```
    The console will then display:
 
-   ![jMAVSimOnWindows](../../assets/simulation/jmavsim_windows_cygwin.png)
+   ![jMAVSimOnWindows](../../assets/simulation/jmavsim/jmavsim_windows_cygwin.png)
 
 
 ## Next Steps
 
 Once you have finished setting up the command-line toolchain:
 
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 - Continue to the [build instructions](../dev_setup/building_px4.md).
+
 
 <a id="usage_instructions"></a>
 

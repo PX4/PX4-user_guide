@@ -11,11 +11,11 @@ PX4 컨트롤러의 튜닝 방법에 대한 자세한 정보를 제공합니다.
 ## 튜닝 단계
 
 :::note
-안전상의 이유로 기본 게인은 낮은 값으로 설정됩니다. 적절한 제어 응답을 얻기 위해서는 게인 값을 적절하게 증가시켜야 합니다.
+안전상의 이유로 기본 게인은 낮은 값으로 설정됩니다.
+적절한 제어 응답을 얻기 위해서는 게인 값을 적절하게 증가시켜야 합니다.
 :::
 
 튜닝시 준수할 일반적인 사항은 아래와 같습니다.
-
 - 큰 이득은 위험한 진동을 발생시킬 수 있으므로, 모든 이득은 매우 천천히 증가시켜야합니다! 일반적으로 반복당 이득을 20~30%씩 증가시키고, 최종 미세 조정을 위해 5~10%로 줄입니다.
 - 매개변수를 변경하기 전에 착륙시키십시오. 스로틀을 천천히 증가시키고 진동을 점검하십시오.
 - 호버링 추력 지점을 중심으로 기체를 조정하고, [추력 곡선 매개 변수](#thrust-curve)를 사용하여 추력 비선형성 또는 높은 추력 진동을 설명합니다.
@@ -39,13 +39,14 @@ PX4는 단일 "혼합" 구현([병렬](#parallel-form) 및 [표준](#standard-fo
 
 사용자는 다른 형식의 비례 이득을 "1"로 설정하여 사용되는 형식을 선택할 수 있습니다 (즉, 아래 다이어그램에서 병렬 형식의 경우 **K**을 1로 설정하거나 **P** 표준 형식의 경우 1로 설정하여 K 또는 P 블록을 한 줄로 바꿉니다).
 
-![PID_Mixed](../../assets/mc_pid_tuning/PID_algorithm_Mixed.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
-
+![PID_Mixed](../../assets/mc_pid_tuning/PID_algorithm_Mixed.png)
+<!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
 - *G(s)*는 기체의 각속도를 나타냅니다.
 - *r*은 속도 설정점입니다.
 - *y*는 신체 각속도 (자이로로 측정)입니다.
 - *e*는 속도 설정값과 측정 속도 사이의 오류입니다.
 - *u*는 PID 컨트롤러의 출력입니다.
+
 
 두 가지 형식이 아래에 기술되어 있습니다.
 
@@ -55,9 +56,8 @@ PX4는 단일 "혼합" 구현([병렬](#parallel-form) 및 [표준](#standard-fo
 
 :::tip
 자세한 내용은 아래의 내용을 참조하십시오.
-
-- [모든 PID 컨트롤러가 같지 않습니다.](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
-- [PID 컨트롤러 > 표준 대 병렬 (이상적인) PID 형식](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
+- [모든 PID 컨트롤러가 같지 않습니다.](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com)
+- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_form) (Wikipedia)
 :::
 
 ##### 병렬 형식
@@ -72,24 +72,22 @@ PX4는 단일 "혼합" 구현([병렬](#parallel-form) 및 [표준](#standard-fo
 
 ![PID_Standard](../../assets/mc_pid_tuning/PID_algorithm_Standard.png)
 
+
 #### 속도 PID 튜닝
 
 PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
-
 - Roll 속도 제어 ([MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I), [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D), [MC_ROLLRATE_K](../advanced_config/parameter_reference.md#MC_ROLLRATE_K))
 - Pitch 속도 제어 ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Yaw 속도 제어 ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
 속도 콘트롤러는 [곡예 모드](../flight_modes/acro_mc.md)와 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md)에서 튜닝할 수 있습니다.
-
-- *곡예 모드* 는 비행 조종이 어렵습니다. 이 모드를 선택하는 경우 모든 스틱 엑스포를 비활성화하십시오. 
+- *곡예 모드* 는 비행 조종이 어렵습니다. 이 모드를 선택하는 경우 모든 스틱 엑스포를 비활성화하십시오.
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
 - *수동/안정 모드*는 비행이 용이하지만, 자세 또는 속도 컨트롤러에 어느 정도의 튜닝이 필요한지 확인하는 것이 어렵습니다.
 
 기체 비행이 되지 않는 경우:
-
 - 첫 이륙 시도시 (비행하지 않는 지점까지) 강한 진동이 있으면, 이륙이 성공할 때 까지 **P**와 **D** 게인을 줄입니다.
 - RC 움직임에 대한 반응이 미미하면 **P** 게인을 높입니다.
 
@@ -98,33 +96,28 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 ##### 비례 이득 (P/K)
 
 비례 이득은 추적 오류를 최소화하는 데 사용됩니다 (아래에서 **P** 또는 **K**를 참조하기 위하여 **P**를 사용합니다). 빠른 응답을 담당하므로 가능한 높게 설정하여야 하지만, 진동이 발생하지 않아야 합니다.
-
 - **P** 게인이 너무 높은 경우, 고주파 진동이 나타납니다.
-- **P** 게인이 너무 낮은 경우: 
+- **P** 게인이 너무 낮은 경우:
   - 기체가 입력 변화에 느리게 반응합니다.
   - *곡예 모드*에서는 기체가 표류하므로, 레벨을 유지를 위하여 지속적으로 수정하여야 합니다.
 
 ##### 미분 이득 (D)
 
 **D** 미분 게인은 속도 댐핑에 사용됩니다. 오버 슈트를 제거하기 위하여 적절하게 높은 값으로 설정합니다.
-
 - **D** 게인이 너무 높은 경우 : **D** 항이 소음을 증폭하기 때문에, 모터가 경련을 일으키고 뜨거워집니다.
 - **D** 게인이 너무 낮은 경우 : 스텝 입력 후 오버 슈트가 나타납니다.
 
 일반적인 값은 다음과 같습니다.
-
-- 표준 형식 (**P** = 1) : **K** 값에 대하여 0.01 (4 "레이서)에서 0.04 (500 크기) 사이 
+- 표준 형식 (**P** = 1) : **K** 값에 대하여 0.01 (4 "레이서)에서 0.04 (500 크기) 사이
 - 병렬 형식 (**K** = 1) : **P** 값에 따라 0.0004에서 0.005 사이
 
 ##### 적분 이득 (I)
 
 **I** (적분) 이득은 오류 메모리를 유지합니다. **I** 항은 원하는 비율에 얼마 동안 도달하지 않으면 증가합니다. 중요하지만 (특히 *곡예 모드*를 비행시) 너무 높게 설정해서는 안 됩니다.
-
 - I 게인이 너무 높으면 느린 진동이 나타납니다.
 - I 게인이 너무 낮은 경우 : 차량을 한쪽으로 약 45도 기울이고 그대로 유지하여 *곡예 모드*에서 테스트하는 것이 가장 좋습니다. 같은 각도를 유지하여야 합니다. 뒤로 드리프트하면 **I** 게인을 늘립니다. 더 긴 시간 동안 원하는 속도와 실제 속도 사이에 오프셋이 있을 때 낮은 **I** 게인도 로그에 표시됩니다.
 
 일반적인 값은 다음과 같습니다.
-
 - 표준 형식 (**P** = 1) : **K** 값에 대하여 0.5 (VTOL 평면), 1 (500 크기) 및 8 (4 "레이서) 사이,
 - 평행 형식 (**K** = 1) : **P**가 약 0.15 인 경우 0.3에서 0.5 사이 피치 게인은 일반적으로 롤 게인보다 약간 높아야 합니다.
 
@@ -146,10 +139,10 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 다음은 극단적인 스텝 입력을 생성하는 몇 번의 플립으로 롤 속도를 추적하는 좋은 예입니다. 기체에 아주 적은 양의 오버 슈트가 발생하는 것을 볼 수 있습니다. ![롤 레이트 추적 플립](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
 
+
 ### 자세 컨트롤러
 
 이것은 방향과 아래의 튜닝 매개변수를 사용하여 기체의 비율의 출력을 제어합니다.
-
 - Roll 제어 ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
 - Pitch 제어([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
 - Yaw 제어 ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
@@ -159,10 +152,10 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 자세 컨트롤러를 튜닝시에는 *수동/안정 모드*로 비행하고 **P** 게인을 점진적으로 증가시킵니다. 진동이나 오버슈트가 나타나는 것은 게인이 너무 높은 것입니다.
 
 아래의 매개변수를 조정할 수 있습니다. 세 축의 최대 회전 속도를 결정합니다.
-
 - 최대 롤 회전속도([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
 - 최대 피치 회전 속도 ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
 - 최대 요 회전 속도 ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
+
 
 ### 추력 곡선
 
@@ -176,13 +169,12 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 모터 제어 신호 (예 : PWM)에서 예상 추력으로의 매핑은 기본적으로 선형입니다. `THR_MDL_FAC`를 1로 설정하면 2 차가됩니다. 그 사이의 값은 둘의 선형 보간을 사용합니다. 일반적인 값은 0.3 ~ 0.5 입니다.
 
-If you have a [thrust stand](https://www.tytorobotics.com/pages/series-1580-1585) <!-- RCbenchmark Series 1580/1585 Test Stand --> (or can otherwise 
+If you have a [thrust stand](https://www.tytorobotics.com/pages/series-1580-1585) <!-- RCbenchmark Series 1580/1585 Test Stand --> *measure* thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. `actuator_output`이라고하는 PX4의 모터 명령은 사용중인 각 ESC에 대한 PWM, Dshot, UAVCAN 명령 일 수 있습니다. [This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data. 이 플롯에 표시된 곡선은 &alpha; k, 실제 단위 (kgf 및 &mu;s)로 추력과 PWM을 표시합니다. 곡선 맞춤 문제를 단순화하기 위해 &alpha;를 추정하지 않고도 `k`를 찾기 위해 0과 1 사이의 데이터를 정규화 할 수 있습니다(&alpha; = 1, 데이터가 정규화 될 때).
 
-*measure* thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. `actuator_output`이라고하는 PX4의 모터 명령은 사용중인 각 ESC에 대한 PWM, Dshot, UAVCAN 명령 일 수 있습니다. [이 노트북](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)은 이전에 측정 된 추력과 PWM 데이터에서 추력 모델 계수 `THR_MDL_FAC`를 계산하는 방법을 설명합니다. 이 플롯에 표시된 곡선은 &alpha; k, 실제 단위 (kgf 및 &mu;s)로 추력과 PWM을 표시합니다. 곡선 맞춤 문제를 단순화하기 위해 &alpha;를 추정하지 않고도 `k`를 찾기 위해 0과 1 사이의 데이터를 정규화 할 수 있습니다(&alpha; = 1, 데이터가 정규화 될 때).
+[![추력 곡선 보상](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 
-[![추력 곡선 보상](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
-
-:::note PWM과 정적 추력간의 매핑은 배터리 전압에 따라 크게 달라집니다.
+:::note
+PWM과 정적 추력간의 매핑은 배터리 전압에 따라 크게 달라집니다.
 :::
 
 이 실험의 또 다른 방법은 정규화된 모터 명령과 추력 값의 산점도를 만들고 `THR_MDL_FAC` 매개변수로 실험하여 추력 곡선을 반복적으로 조정하는 것입니다. 해당 그래프의 예는 아래와 같습니다.
@@ -203,22 +195,8 @@ If you have a [thrust stand](https://www.tytorobotics.com/pages/series-1580-1585
 
 스러스트 스탠드에 접근할 수 없는 경우, 경험적으로 모델링 요소를 조정할 수 있습니다. 0.3부터 시작하여 한 번에 0.1 씩 늘립니다. 너무 높으면, 낮은 스로틀 값에서 진동이 감지되기 시작합니다. 너무 낮으면, 더 높은 스로틀 값에서 진동이 나타납니다.
 
-<!-- TODO
-### Velocity & Position Controller
-The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
-turn off all [higher-level position controller tuning gains](../config_mc/mc_trajectory_tuning.md).
-
-- [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
-- [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000
-- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000
-- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000
-- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000
-- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0
-- [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
- -->
 
 <span id="airmode"></span>
-
 ### 에어 모드 & 믹서 포화
 
 속도 컨트롤러는 세 축 (roll, pitch 및 yaw)에 대한 토크 명령과 스칼라 추력값을 출력하며, 이는 개별 모터 추력 명령으로 변환하여야 합니다. 이 단계를 믹싱이라고 합니다.
@@ -227,15 +205,20 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 
 - 롤에 대한 명령된 토크를 줄여 모터 명령이 0 미만이 되지 않도록합니다 (에어 모드 비활성화 됨). 명령된 추력이 0 인 극단적인 경우에는 더 이상 자세 보정이 가능하지 않으므로이 모드에 항상 최소 추력이 필요합니다.
 - 또는 명령된 추력을 증가시켜 모터 명령이 음수값이 되지 않도록 합니다(에어 모드 활성화). 이것은 낮은 스로틀이나 제로 스로틀에서도 자세/속도를 정확하게 추적할 수 있는 큰 장점이 있습니다. 일반적으로 비행 성능을 향상시킵니다.
-  
+
   그러나, 이는 스로틀이 0으로 감소하더라도 기체가 계속 상승하도록 총추력을 증가시킵니다. 잘 조정되고 올바르게 작동하는 기체에는 제외하고, 너무 높은 P 조정 이득으로 인하여 기체가 강하게 진동할 때 발생할 수 있습니다.
 
 두 모드는 두 모터에 대한 2D 그림과 롤 <span style="color:#9673A6">r</span>에 대한 토크 명령은 아래에 표시되어 있습니다. 왼쪽 모터에서는 <span style="color:#9673A6">r</span>이 명령된 추력에 추가되고, 오른쪽 모터에서는 차감됩니다. 모터 추력은 <span style="color:#6A9153">녹색</span>입니다. Airmode를 활성화하면 명령된 추력이 <span style="color:#B85450">b</span> 만큼 증가합니다. 비활성화되면, <span style="color:#9673A6">r</span>이 감소합니다.
 
-![Airmode](../../assets/mc_pid_tuning/MC_PID_tuning-Airmode.svg) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
+![Airmode](../../assets/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
+<!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
      On the first Tab
 -->
 
 혼합이 상한선으로 포화되면, 명령된 추력이 감소되어 모터가 100 % 이상의 추력을 전달하지 않도록 합니다. 이 동작은 Airmode 로직과 유사하며 Airmode 활성화 여부에 관계없이 적용됩니다.
 
 기체 비행이 성공적이면 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) 매개변수를 통하여 에어 모드를 활성화 할 수 있습니다.
+
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb
+
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb

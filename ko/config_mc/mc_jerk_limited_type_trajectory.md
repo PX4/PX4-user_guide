@@ -11,9 +11,8 @@ The jerk-limited type is not used *by default* in position mode. 더 빠른 응�
 ## 궤적 생성기
 
 아래의 그래프는 다음과 같은 제약 조건을 가진 일반적인 저크 제한 프로필을 나타냅니다.
-
 - `jMax`: 최대 저크
-- `a0`: 초기 가속도 
+- `a0`: 초기 가속도
 - `aMax`: 최대 가속도
 - `a3`: 마지막 가속도 (항상 0)
 - `v0`: 초기 속도
@@ -32,12 +31,10 @@ In manual position mode, the sticks are mapped to velocity where a full XY-stick
 ### 제약 조건
 
 XY 평면
-
 - `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax`: [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)
 
 Z축
-
 - `jMax`: [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax` (상향 운동): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
 - `aMax` (하향 운동): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
@@ -49,18 +46,15 @@ In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/paramet
 ### 제약 조건
 
 XY 평면
-
 - `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax`: [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR)
 
 Z축
-
 - `jMax`: [MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax` (상향 운동): [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
 - `aMax` (하향 운동): [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
 웨이 포인트에 근접시 속도 증가 거리 :
-
 - [MPC_XY_TRAJ_P](../advanced_config/parameter_reference.md#MPC_XY_TRAJ_P)
 
 ### 관련 매개변수

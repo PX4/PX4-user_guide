@@ -9,9 +9,9 @@
 ![Intel Realsense 추적 카메라 T265 - 각진 이미지](../../assets/peripherals/camera_vio/t265_intel_realsense_tracking_camera_photo_angle.jpg)
 
 
-## 구매 링크
+## Where to Buy
 
-[Intel® RealSense™ 추적 카메라 T265](https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html) (store.intelrealsense.com)
+[Intel® RealSense™ Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) (store.intelrealsense.com)
 
 
 ## 설정 방법
@@ -29,6 +29,8 @@
    - 처음 세 개의 `인수`는 비행 컨트롤러의 중심에서 카메라까지의 미터 단위로 *변환* x, y, z를 지정합니다. 예를 들어 카메라가 컨트롤러 앞 10cm, 위쪽 4cm 인 경우 처음 세 숫자는 [0.1, 0, 0.04, ...]입니다.
    - 다음 세 개의 `인수`는 라디안 (요, 피치, 롤)으로 회전을 지정합니다. 따라서 `[... 0, 1.5708, 0]`은 90도 내림(지면을 향함)을 의미합니다. 정면을 바라보는 것은 [... 0 0 0]입니다.
 - 카메라는 고주파 진동에 민감합니다! 방진 폼을 사용하여 장착하여야 합니다.
+
+
 <span id="launch_files"></span> 다양한 시나리오에 대한 실행 파일이 제공됩니다.
 
 | 실행 파일                                                                                                       | 시작                   | 설명                               |

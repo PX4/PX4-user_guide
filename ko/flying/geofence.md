@@ -26,7 +26,7 @@ GeoFence는 미션 및 랠리 포인트와 함께 *QGroundControl*에서 계획�
 
 ![GeoFence 계획](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-GeoFence 계획은 [Plan View > GeoFence](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html) (QGroundControl 사용자 가이드)에 자세하게 문서화되어 있습니다.
+GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
 
 요약
 1. *QGroundControl > 평면도 *를 오픈합니다.

@@ -64,7 +64,7 @@ LeddarOne LiDAR 직렬 버스 드라이버입니다.
 
 대부분의 보드는 SENS_LEDDAR1_CFG 매개변수를 사용하여, 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-설정/사용 정보: https://docs.px4.io/master/en/sensor/leddar_one.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/leddar_one.html
 
 ### 예
 
@@ -98,7 +98,7 @@ leddar_one <command> [arguments...]
 
 Lightware SFxx 시리즈 LIDAR 거리 측정기용 I2C 버스 드라이버: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
-설정/사용 정보: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 
 <a id="lightware_laser_i2c_usage"></a>
 
@@ -132,7 +132,7 @@ LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c 레이저 거리 측정기용 �
 
 대부분의 보드는 SENS_SF0X_CFG 매개변수를 사용하여 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-설정/사용 정보: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 
 ### 예
 
@@ -158,6 +158,39 @@ lightware_laser_serial <command> [arguments...]
 
    stop          Stop driver
 ```
+## lightware_sf45_serial
+Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
+
+
+### 설명
+
+Serial bus driver for the Lightware SF45/b Laser rangefinder.
+
+설정/사용 정보: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+
+### 예
+
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
+```
+lightware_sf45_serial start -d /dev/ttyS1
+```
+드라이버를 중지합니다.
+```
+lightware_sf45_serial stop
+```
+
+<a id="lightware_sf45_serial_usage"></a>
+
+### 사용법
+```
+lightware_sf45_serial <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     -R <val>    Sensor rotation - downward facing by default
+
+   stop          Stop driver
+```
 ## ll40ls
 소스: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ll40ls)
 
@@ -168,7 +201,7 @@ LidarLite 거리 측정기를 위한 I2C 버스 드라이버입니다.
 
 센서/드라이버는 매개변수 SENS_EN_LL40LS를 사용하여 활성화합니다.
 
-설정/사용 정보: https://docs.px4.io/master/en/sensor/lidar_lite.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
@@ -245,10 +278,12 @@ mb12xx <command> [arguments...]
 
 
 ### 설명
+
 장치와의 통신을 처리하고, uORB를 통해 거리를 게시하는 초음파 거리 측정기 드라이버입니다.
 
 ### 구현
-이 드라이버는 NuttX 작업으로 구현됩니다. 이 구현은 work_queue에서 지원되지 않는 UART를 통해 메시지에 대한 폴링이 필요하기 때문에 선택되었습니다. 이 드라이버는 실행되는 동안 지속적으로 범위 측정을 수행합니다. 잘못된 판독값을 감지하는 간단한 알고리즘은 게시중인 데이터의 품질을 개선하기 위하여 드라이버 수준에서 구현됩니다. 드라이버는 센서 데이터가 유효하지 않거나 불안정하다고 판단되는 경우에는, 데이터를 게시하지 않습니다.
+
+This driver is implemented as a NuttX task. 이 구현은 work_queue에서 지원되지 않는 UART를 통해 메시지에 대한 폴링이 필요하기 때문에 선택되었습니다. 이 드라이버는 실행되는 동안 지속적으로 범위 측정을 수행합니다. 잘못된 판독값을 감지하는 간단한 알고리즘은 게시중인 데이터의 품질을 개선하기 위하여 드라이버 수준에서 구현됩니다. 드라이버는 센서 데이터가 유효하지 않거나 불안정하다고 판단되는 경우에는, 데이터를 게시하지 않습니다.
 
 <a id="pga460_usage"></a>
 
@@ -300,6 +335,7 @@ srf02 <command> [arguments...]
 
   센서/드라이버는 SENS_EN_HXSRX0X 매개변수를 사용하여 활성화합니다.
 
+
 <a id="srf05_usage"></a>
 
 ### 사용법
@@ -328,7 +364,7 @@ TeraRanger 거리 측정기를 위한 I2C 버스 드라이버입니다.
 
 센서/드라이버는 SENS_EN_TRANGER 매개변수를 사용하여 활성화합니다.
 
-설정/사용 정보: https://docs.px4.io/master/en/sensor/rangefinders.html#teraranger-rangefinders
+Setup/usage information: https://docs.px4.io/main/en/sensor/rangefinders.html#teraranger-rangefinders
 
 <a id="teraranger_usage"></a>
 
@@ -352,6 +388,31 @@ teraranger <command> [arguments...]
 
    status        print status info
 ```
+## tf02pro
+Source: [drivers/distance_sensor/tf02pro](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tf02pro)
+
+<a id="tf02pro_usage"></a>
+
+### 사용법
+```
+tf02pro <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 16
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop
+
+   status        print status info
+```
 ## tfmini
 소스: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/tfmini)
 
@@ -362,7 +423,7 @@ Benewake TFmini LiDAR용 직렬 버스 드라이버입니다.
 
 대부분의 보드는 SENS_TFMINI_CFG 매개변수를 사용하여 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-설정/사용 정보: https://docs.px4.io/master/en/sensor/tfmini.html
+Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
 
 ### 예
 

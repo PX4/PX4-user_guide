@@ -10,37 +10,36 @@ PX4 has a number of safety features to protect and recover your vehicle if somet
 
 ## Failsafe Actions
 
-Each failsafe defines its own set of actions.
-Some of the more common failsafe actions are:
+When a failsafe is triggered, the default behavior (for most failsafes) is to enter Hold for [COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) seconds before performing an associated failsafe action.
+This gives the user time to notice what is happening and override the failsafe if needed.
+In most cases this can be done by using RC or a GCS to switch modes (note that during the failsafe-hold, moving the RC sticks does not trigger an override).
+
+The list below shows the set of all failsafe actions, ordered in increasing severity.
+Note that different types of failsafe may not support all of these actions.
 
 Action | Description
 --- | ---
-<a id="action_none"></a>None/Disabled | No action (the failsafe will be ignored).
-<a id="action_warning"></a>Warning | A warning message will be sent to *QGroundControl*.
+<a id="action_none"></a>None/Disabled | No action. The failsafe will be ignored.
+<a id="action_warning"></a>Warning | A warning message will be sent (i.e. to *QGroundControl*).
 <a id="action_hold"></a>[Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
 <a id="action_return"></a>[Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return-mode-settings) (below).
 <a id="action_land"></a>[Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
+<a id="action_disarm"></a>Disarm | Stops the motors immediately.
 <a id="action_flight_termination"></a>[Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
-<a id="action_lockdown"></a>Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill-switch).
 
-:::note
-It is possible to recover from a failsafe action (if the cause is fixed) by switching modes.
-For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
-:::
+If multiple failsafes are triggered, the more severe action is taken.
+For example if both RC and GPS are lost, and manual control loss is set to [Return mode](#action_return) and GCS link loss to [Land](#action_land), Land is executed.
 
-:::note
-If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored.
-Instead the action is determined by separate system level and vehicle specific code.
-This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+:::tip
+The exact behavior when different failsafes are triggered can be tested with the [Failsafe State Machine Simulation](safety_simulation.md).
 :::
 
 ## QGroundControl Safety Setup
 
-The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar).
-This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
+The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* icon, **Vehicle Setup**, and then **Safety** in the sidebar).
+This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the triggered actions *Return* and *Land*.
 
-![Safety Setup (QGC)](../../assets/qgc/setup/safety/safety_setup.png)
-
+![Safety Setup(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
 ### Low Battery Failsafe
 
@@ -65,21 +64,31 @@ Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_referen
 
 ### RC Loss Failsafe
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions).
+The RC Loss failsafe may be triggered if the RC transmitter link is lost in manual modes (by default RC loss does not trigger the failsafe in missions, hold mode, or offboard mode).
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
+
+Generally you will only want to set the _Failsafe_ action:
+
+- The _RC Lost Timeout_ is the time after data stops updating before the link is considered lost.
+  This must be kept short because the vehicle will continue to fly using the old RC data until the timeout triggers.
+- You may need to modify the [COM_FAIL_ACT_T](#COM_FAIL_ACT_T) parameter.
+  This is a delay after the link is lost and before the failsafe action is triggered in which the vehicle waits in hold mode for the RC system to reconnect.
+  This might be longer for long-range flights so that intermittent connection loss doesn't immediately invoke the failsafe. 
+  It can be to zero so that the failsafe triggers immediately.
 
 :::note
 PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc-loss-detection).
 :::
 
-The settings and underlying parameters are shown below.
+Additional (and underlying) parameter settings are shown below.
 
-Setting | Parameter | Description
+Parameter | Setting | Description
 --- | --- | ---
-RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger.
-Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Disabled, Loiter, Return, Land, Terminate, Lockdown.
-RC Loss Exceptions | [COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard.
+<a id="COM_RC_LOSS_T"></a>[COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Time after RC stops updating supplied data that the RC link is considered lost.
+<a id="COM_FAIL_ACT_T"></a>[COM_FAIL_ACT_T](../advanced_config/parameter_reference.md#COM_FAIL_ACT_T) | Failsafe Reaction Delay | Delay in seconds between failsafe condition triggered and failsafe reaction (RTL, Land, Hold).
+<a id="NAV_RCL_ACT"></a>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Failsafe Action | Disabled, Loiter, Return, Land, Disarm, Terminate.
+<a id="COM_RCL_EXCEPT"></a>[COM_RCL_EXCEPT](../advanced_config/parameter_reference.md#COM_RCL_EXCEPT) | RC Loss Exceptions | Set the modes in which RC loss is ignored: Mission (default), Hold, Offboard.
 
 ### Data Link Loss Failsafe
 
@@ -92,7 +101,7 @@ The settings and underlying parameters are shown below.
 Setting | Parameter | Description
 --- | --- | ---
 Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger.
-Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Hold mode, Return mode, Land mode, Terminate, Lockdown.
+Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Hold mode, Return mode, Land mode, Disarm, Terminate.
 
 
 ### Geofence Failsafe
@@ -146,7 +155,7 @@ Loiter Altitude | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RT
 Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | If return with loiter then land is selected you can also specify how long the vehicle will hold.
 
 :::note
-The return behavour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY).
+The return behaviour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY).
 If negative the vehicle will land immediately.
 Additional information can be found in [Return mode](../flight_modes/return.md).
 :::
@@ -181,25 +190,23 @@ The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/paramet
 * `1`: Remote control *not* available.
   Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
 
-Fixed Wing vehicles additionally have a parameter ([NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)) for defining how long they will loiter (circle) after losing position before attempting to land.
+Fixed-wing vehicles and VTOLs in fixed-wing flight additionally have a parameter ([FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT)) that defines how long they will loiter (circle with a constant roll angle ([FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R)) at the current altitude) after losing position before attempting to land.
+If VTOLs have are configured to switch to hover for landing ([NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)) then they will first transition and then descend.
 
-The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
+The relevant parameters for all vehicles shown below.
 
 Parameter | Description
 --- | ---
 [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.
 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC.
-[CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR) | Circuit breaker for position error check (disables error checks in all modes).
 
 
-Parameters that only affect Fixed Wing vehicles:
+Parameters that only affect Fixed-wing vehicles:
 
 Parameter | Description
 --- | ---
-[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable.
-[NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P) | Fixed pitch angle while circling.
-[NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R) | Fixed roll/bank angle while circling.
-[NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | Thrust while circling.
+[FW_GPSF_LT](../advanced_config/parameter_reference.md#FW_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into land or flight termination). Set to 0 to disable.
+[FW_GPSF_R](../advanced_config/parameter_reference.md#FW_GPSF_R) | Fixed roll/bank angle while circling.
 
 
 ### Offboard Loss Failsafe
@@ -212,22 +219,14 @@ The relevant parameters are shown below:
 Parameter | Description
 --- | ---
 [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T) | Delay after loss of offboard connection before the failsafe is triggered.
-[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT) | Failsafe action if no RC is available: Land mode, Hold mode, Return mode.
 [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode.
 
+### Mission Feasibility Checks
 
-### Mission Failsafe
+A number of checks are run to ensure that a mission can only be started if it is _feasible_.
+For example, the checks ensures that the first waypoint isn't too far away, and that the mission flight path doesn't conflict with any geofences.
 
-The Mission Failsafe checks prevent a previous mission being started at a new takeoff location or if it is too big (distance between waypoints is too great).
-The failsafe action is that the mission will not be run.
-
-The relevant parameters are shown below:
-
-Parameter | Description
---- | ---
-[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.
-[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | The mission will not be started if any distance between two subsequent waypoints is greater than this value.
-
+As these are not strictly speaking "failsafes" they are documented in [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### Traffic Avoidance Failsafe
 
@@ -239,24 +238,27 @@ Parameter | Description
 --- | ---
 [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode.
 
-### QuadChute Failsafe
+### Quad-chute Failsafe
 
-Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps because a pusher motor, airspeed sensor or control surface failed.
-If triggered, the vehicle will immediately switch to multicopter mode.
-If the vehicle was in [Mission mode](../flight_modes/mission.md) it enters failsafe [Return mode](../flight_modes/return.md).
+Failsafe for when a VTOL vehicle can no longer fly in fixed-wing mode, perhaps because a pusher motor, airspeed sensor, or control surface, failed.
+If triggered, the vehicle will immediately switch to multicopter mode and execute action defined in parameter [COM_QC_ACT](#COM_QC_ACT) .
 
 :::note
-The quadchute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
+The quad-chute can also be triggered by sending a MAVLINK [MAV_CMD_DO_VTOL_TRANSITION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_VTOL_TRANSITION) message with `param2` set to `1`.
 :::
 
-The parameters that control when the quadchute will trigger are listed in the table below.
+The parameters that control when the quad-chute will trigger are listed in the table below.
 
 Parameter | Description
 --- | ---
-[VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Maximum negative altitude error for fixed wing flight. If the altitude drops more than this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.
-[VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | Minimum altitude for fixed wing flight. When the altitude drops below this value in fixed wing flight the vehicle will transition back to MC mode and enter failsafe RTL.
-[VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P) | Maximum pitch angle before QuadChute engages. Above this the vehicle will transition back to MC mode and enter failsafe RTL.
-[VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R) | Maximum roll angle before QuadChute engages. Above this the vehicle will transition back to MC mode and enter failsafe RTL.
+<a id="COM_QC_ACT"></a>[COM_QC_ACT](../advanced_config/parameter_reference.md#COM_QC_ACT) | Defines automatic action taken after a quad-chute. Can be set to: Warning only, Return, Land, Hold.
+<a id="VT_FW_QC_HMAX"></a>[VT_FW_QC_HMAX](../advanced_config/parameter_reference.md#VT_FW_QC_HMAX) |Maximum height above the ground (if available, otherwise above home if available, otherwise above the local origin) where triggering a quad-chute is possible. At high altitudes there is a big risk to deplete the battery and therefore crash if quad-chuting there.
+<a id="VT_QC_HR_ERROR_I"></a>[VT_QC_HR_ERROR_I](../advanced_config/parameter_reference.md#VT_QC_HR_ERROR_I) | Quad-chute uncommanded descent threshold. This is the threshold for integrated height rate error to trigger a uncommanded-descent quad-chute. Only checked in altitude-controlled fixed-wing flight. Additional conditions that have to be met for uncommanded descent detection are a positive (climbing) height rate setpoint and a negative (sinking) current height rate estimate.
+<a id="VT_QC_T_ALT_LOSS"></a>[VT_QC_T_ALT_LOSS](../advanced_config/parameter_reference.md#VT_QC_T_ALT_LOSS) | Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing
+ flight. Quad-chute triggers the current altitude is more than this value below the altitude at the beginning of the transition.
+<a id="VT_FW_MIN_ALT"></a>[VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT) | Minimum altitude above Home for fixed-wing flight. When the altitude drops below this value in fixed-wing flight the vehicle a quad-chute is triggered.
+<a id="VT_FW_QC_R"></a>[VT_FW_QC_R](../advanced_config/parameter_reference.md#VT_FW_QC_R) | Absolute roll threshold for quad-chute triggering in FW mode. 
+<a id="VT_FW_QC_P"></a>[VT_FW_QC_P](../advanced_config/parameter_reference.md#VT_FW_QC_P) | Absolute pitch threshold for quad-chute triggering in FW mode.
 
 
 ## Failure Detector
@@ -269,7 +271,7 @@ During **flight**, the failure detector can be used to trigger [flight terminati
 Failure detection during flight is deactivated by default (enable by setting the parameter: [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM)).
 :::
 
-During **takeoff** the failure detector [attitude trigger](#attitude-trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions).
+During **takeoff** the failure detector [attitude trigger](#attitude-trigger) invokes the [disarm action](#action_disarm) if the vehicle flips (disarm kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions).
 Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
 
 The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), and [Manual (FW)](../flight_modes/manual_fw.md)).
@@ -345,11 +347,9 @@ This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.)
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 
-
 ### Return Switch
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
-
 
 ## Other Safety Settings
 
@@ -366,4 +366,4 @@ Parameter | Description
 
 ## Further Information
 
-* [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
+* [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/master/en/SetupView/Safety.html)

@@ -11,7 +11,8 @@ Before "fixing" the problem you should first check that the Z setpoint tracks th
 :::
 
 :::note
-While it is possible to remove the barometer from the altitude estimate (i.e. only use altitude from the GPS), this is not recommended. GPS is inaccurate in many environments, and particularly in urban environments where you have signal reflections off buildings.
+While it is possible to remove the barometer from the altitude estimate (i.e. only use altitude from the GPS), this is not recommended.
+GPS is inaccurate in many environments, and particularly in urban environments where you have signal reflections off buildings.
 :::
 
 ## Airflow Analysis
@@ -28,8 +29,9 @@ Aim for a barometer altitude drop of less than 2 metres at maximum horizontal sp
 
 ## Dynamic Calibration
 
-After modifying the hardware, you can then use the [EKF2*PCOEF**](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity. For more information see [ECL/EKF Overview & Tuning > Correction for Static Pressure Position Error](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error).
+After modifying the hardware, you can then use the [EKF2\_PCOEF\_*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity. For more information see [ECL/EKF Overview & Tuning > Correction for Static Pressure Position Error](../advanced_config/tuning_the_ecl_ekf.md#correction-for-static-pressure-position-error).
 
 :::note
-The approach works well if the relationship between the error due to static pressure and the velocity varies linearly. If the vehicle has a more complex aerodynamic model it will be less effective.
+The approach works well if the relationship between the error due to static pressure and the velocity varies linearly. 
+If the vehicle has a more complex aerodynamic model it will be less effective.
 :::

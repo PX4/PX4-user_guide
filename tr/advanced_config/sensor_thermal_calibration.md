@@ -5,7 +5,7 @@ PX4 contains functionality to calibrate and compensate rate gyro, accelerometer 
 This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
 
 :::note
-After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal" `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
 :::
 
 :::note
@@ -13,7 +13,6 @@ At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not ye
 :::
 
 <span id="test_setup"></span>
-
 ## Test Setup/Best Practice
 
 The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
@@ -29,22 +28,20 @@ It possible to perform the calibration without a commercial-grade environment ch
 Using this sort of setup it is possible to heat a board to ~70C. Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. If in doubt, check the safe operating range with your manufacturer.
 
 :::tip
-To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor.
+To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
 :::
 
 <span id="calibration_procedures"></span>
-
 ## Calibration Procedures
 
 PX4 supports two calibration procedures:
-
 * [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
 * [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. This method allows users to visually check the quality of the data and curve-fit.
 
 The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
 
-<span id="onboard_calibration"></span>
 
+<span id="onboard_calibration"></span>
 ### Onboard Calibration Procedure
 
 Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup.
@@ -60,10 +57,9 @@ To perform and onboard calibration:
 7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. The completion percentage is printed to the system console during calibration. [^3]
 8. When the calibration completes, remove power, allow the board to cool to a temperature that is within the calibration range before performing the next step.
 9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via *QGroundControl*. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
-10. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup. 
+8. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
 
 <span id="offboard_calibration"></span>
-
 ### Offboard Calibration Procedure
 
 Offboard calibration is run on a development computer using data collected during the calibration test. This method provides a way to visually check the quality of data and curve fit.
@@ -71,24 +67,24 @@ Offboard calibration is run on a development computer using data collected durin
 To perform an offboard calibration:
 
 1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
-3. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) parameters to defaults.
-4. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
-5. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
-6. Cold soak the board to the minimum temperature it will be required to operate in.
-7. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
-8. Remove power and extract the .ulog file.
-9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script: 
-        sh
-        python process_sensor_caldata.py <full path name to .ulog file> This will generate a 
-    
-    **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
-10. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
-11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-12. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
+1. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) parameters to defaults.
+1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot.
+1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
+1. Cold soak the board to the minimum temperature it will be required to operate in.
+1. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
+1. Remove power and extract the .ulog file.
+1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script:
+   ```sh
+   python process_sensor_caldata.py <full path name to .ulog file>
+   ```
+   This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
+1. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
+1. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
+1. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+
 
 <span id="implementation"></span>
-
 ## Implementation Detail
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
@@ -104,21 +100,20 @@ The inertial rate gyro and accelerometer sensor offsets are calculated using a 3
 ### Calibration Parameter Storage
 
 With the existing parameter system implementation we are limited to storing each value in the struct as a separate entry. To work around this limitation the following logical naming convention is used for the [thermal compensation parameters](../advanced_config/parameter_reference.md#thermal-compensation):
-
-    TC_[type][instance]_[cal_name]_[axis]
-    
+```
+TC_[type][instance]_[cal_name]_[axis]
+```
 
 Where:
-
 * `type`: is a single character indicating the type of sensor where `G` = rate gyroscope, `A` = accelerometer and `B` = barometer.
 * `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
 * `cal_name`: is a string identifying the calibration value. It has the following possible values:
-    
-    * `Xn`: Polynomial coefficient where n is the order of the coefficient, e.g. `X3 * (temperature - reference temperature)**3`.
-    * `SCL`: scale factor.
-    * `TREF`: reference temperature (deg C).
-    * `TMIN`: minimum valid temperature (deg C).
-    * `TMAX`: maximum valid temperature (deg C).
+
+  * `Xn`: Polynomial coefficient where n is the order of the coefficient, e.g. `X3 * (temperature - reference temperature)**3`.
+  * `SCL`: scale factor.
+  * `TREF`: reference temperature (deg C).
+  * `TMIN`: minimum valid temperature (deg C).
+  * `TMAX`: maximum valid temperature (deg C).
 
 * `axis`: is an integer 0,1 or 2 indicating that the calibration data is for X,Y or Z axis in the board frame of reference. For the barometric pressure sensor, the `axis` suffix is omitted.
 
@@ -130,19 +125,19 @@ Examples:
 ### Calibration Parameter Usage
 
 The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](../modules/modules_system.md#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
-
-    delta = measured_temperature - reference_temperature
-    
+```
+delta = measured_temperature - reference_temperature
+```
 
 The delta temperature is then used to calculate a offset, where:
-
-    offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
-    
+```
+offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
+```
 
 The offset and temperature scale factor are then used to correct the sensor measurement where:
-
-    corrected_measurement = (raw_measurement - offset) * scale_factor
-    
+```
+corrected_measurement = (raw_measurement - offset) * scale_factor
+```
 
 If the temperature is above the test range set by the `*_TMIN` and `*_TMAX` parameters, then the measured temperature will be clipped to remain within the limits.
 
@@ -162,10 +157,8 @@ If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` para
 
 Scale factors are assumed to be temperature invariant due to the difficulty associated with measuring these at different temperatures. This limits the usefulness of the accelerometer calibration to those sensor models with stable scale factors. In theory with a thermal chamber or IMU heater capable of controlling IMU internal temperature to within a degree, it would be possible to perform a series of 6 sided accelerometer calibrations and correct the accelerometers for both offset and scale factor. Due to the complexity of integrating the required board movement with the calibration algorithm, this capability has not been included.
 
-* * *
 
+---
 [^1]: The [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) and [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) parameters are reset to 0 when the calibration is started.
-
-[^2]: Calibration of the barometric pressure sensor offsets requires a stable air pressure environment. The air pressure will change slowly due to weather and inside buildings can change rapidly due to external wind fluctuations and HVAC system operation.[&#8617;](#fnref2:2){.footnote-backref}
-
-[^3]: Care must be taken when warming a cold soaked board to avoid formation of condensation on the board that can cause board damage under some circumstances.[&#8617;](#fnref2:3){.footnote-backref}
+[^2]: Calibration of the barometric pressure sensor offsets requires a stable air pressure environment. The air pressure will change slowly due to weather and inside buildings can change rapidly due to external wind fluctuations and HVAC system operation.
+[^3]: Care must be taken when warming a cold soaked board to avoid formation of condensation on the board that can cause board damage under some circumstances.

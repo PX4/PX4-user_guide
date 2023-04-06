@@ -18,7 +18,7 @@
 1. **업로드 필요** 버튼을 선택하여 랠리 포인트 ([미션](../flying/missions.md) 및 [지오 펜스](../flying/geofence.md)와 함께)를 기체에 업로드합니다.
 
 :::tip
-자세한 문서는 *QGroundControl 사용자 가이드* : [계획보기-랠리 포인트](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html)를 참고하십시오.
+More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/master/en/PlanView/PlanRallyPoints.html).
 :::
 
 ## 안전 지점 사용법

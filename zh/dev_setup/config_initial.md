@@ -4,7 +4,9 @@
 
 ## 基本设备
 
-:::tip PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups. A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+:::tip
+PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
+A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
 :::
 
 飞机配置流程：
@@ -26,7 +28,7 @@
 
 ## 飞机配置
 
-Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) for a **desktop OS**.
+Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 To configure the vehicle:
 1. 下载并安装 [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)。

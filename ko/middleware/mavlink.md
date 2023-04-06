@@ -16,7 +16,7 @@ PX4는 *MAVLink*를 사용하여 *QGroundControl*등의 지상국과 통신하�
 
 PX4 includes the [mavlink/mavlink](https://github.com/mavlink/mavlink) repo as a submodule under [/src/modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink), and generates the MAVLink 2 C header files at build time.
 
-There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/). The dialect that is built is specified using the variable `MAVLINK_DIALECT` in [/src/modules/mavlink/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/CMakeLists.txt#L34); by default this is [development.xml](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/development.xml). The files are generated into the build directory: `/build/<build target>/mavlink/`.
+There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/). There are are number of XML dialect files in [/mavlink/messages/1.0/](https://github.com/mavlink/mavlink/blob/master/message_definitions/v1.0/). The files are generated into the build directory: `/build/<build target>/mavlink/`.
 
 In order to add your message we recommend that you create your messages in a new dialect file in the same directory, for example `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0/custom_messages.xml`, and set `MAVLINK_DIALECT` to build the new file. This dialect file should include `development.xml`.
 
@@ -125,7 +125,7 @@ mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
 :::tip
 You can use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
 
-To see the message on *QGroundControl* you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/), and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
+To see the message on *QGroundControl* you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/), and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/master/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
 :::
 
 ## 사용자 지정 MAVLink 메시지 수신
@@ -195,15 +195,16 @@ For example when using MAVLink to interface PX4 with an embedded device, the mes
 An alternative - and temporary - solution is to re-purpose debug messages. Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields. See [this tutorial](../debug/debug_values.md). for an example usage of debug messages.
 
 :::note
-This solution is not efficient as it sends character string over the network and involves comparison of strings. It should be used for development only!
+This solution is not efficient as it sends character string over the network and involves comparison of strings.
+It should be used for development only!
 :::
 
 ## Testing
 
-Ultimately you'll want to test your new MAVLink interface is working by providing the corresponding ground station or MAVSDK implemention. As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/recieved as you expect.
+Ultimately you'll want to test your new MAVLink interface is working by providing the corresponding ground station or MAVSDK implementation. As a first step, and while debugging, commonly you'll just want to confirm that any messages you've created are being sent/received as you expect.
 
 There are several approaches you can use to view traffic:
-- Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect. This allows you to inspect MAVLink traffic on an IP interface - for example between *QGroundControl* or MAVSDK and your real or simulated verson of PX4.
+- Create a [Wireshark MAVLink plugin](https://mavlink.io/en/guide/wireshark.html) for your dialect. This allows you to inspect MAVLink traffic on an IP interface - for example between *QGroundControl* or MAVSDK and your real or simulated version of PX4.
 - [Log uORB topics](../dev_log/logging.md) associate with your MAVLink message.
 - View received messages in the QGroundControl [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html). For the messages to appear you will need to [Build QGroundControl](https://dev.qgroundcontrol.com/master/en/getting_started/) including a pre-built C library that contains your custom messages.
   - QGC uses a pre-built C library that must be located at [/qgroundcontrol/libs/mavlink/include/mavlink](https://github.com/mavlink/qgroundcontrol/tree/master/libs/mavlink/include/mavlink) in the QGC source. By default this is pre-included as a submodule from https://github.com/mavlink/c_library_v2 but you can [generate your own MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html)

@@ -39,7 +39,7 @@
    :::note
 仔细测试并密切监视震动情况。
 :::
-1. 回收 ulog 并使用 python 脚本 [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) 来验证补偿参数。
+1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
    ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```

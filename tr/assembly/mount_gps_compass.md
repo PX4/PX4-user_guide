@@ -1,14 +1,16 @@
-# Mounting the GPS/Compass
+# Mounting a GPS/Compass
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. The diagram below shows the heading marker on the Pixhawk 4 and compass.
+GPS/Compasses should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. If mounted in this way you can immediately proceed to [compass calibration](../config/compass.md#performing-the-calibration).
+
+The diagram below shows the heading marker on the Pixhawk 4 and compass.
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
 ## Compass Orientation
 
-The compass can also be mounted in any other _supported_ orientation, where the supported orientations can be seen in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT), and have the same meaning as used for [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation).
+The compass can be mounted in any of the standard MAVLink orientations defined in [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION). The orientation follows the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation).
 
-If you're using the normal [Compass Calibration](../config/compass.md) process the parameter [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO) is enabled, and the orientation should be detected automatically.
+If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) enabled), the orientation should be detected automatically. Otherwise you can directly select the appropriate value in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) for up to three compasses.
 
 :::warning
 You must mount the compass in a supported orientation!

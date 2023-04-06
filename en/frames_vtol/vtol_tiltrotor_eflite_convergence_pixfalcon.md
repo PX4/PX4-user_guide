@@ -11,7 +11,7 @@ Alternatives are provided in the [Purchase](#purchase) section.
 @[youtube](https://youtu.be/E61P2f2WPNU)
 
 
-## Purchase
+## Where to Buy
 
 Vehicle frame options:
 - **WL Tech XK X450** - [Banggood](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
@@ -24,23 +24,20 @@ Flight controller options ():
 
 ## Hardware Setup
 
-The vehicle needs 7 PWM signals, which must be connected to the flight controller outputs as specified in [Airframe Reference > VTOL Tiltrotor > E-flite Convergence](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_e-flite_convergence).
-This mapping is reproduced below. 
+The vehicle needs 7 PWM signals for the motors and control surfaces:
+- Motor (left/right/back)
+- Tilt servos (right/left)
+- Elevons (left/right)
 
-Port | Connection
---- | --- 
-MAIN 1 | Motor right
-MAIN 2 | Motor left
-MAIN 3 | Motor back
-MAIN 4 | empty
-MAIN 5 | Tilt servo right
-MAIN 6 | Tilt servo left
-MAIN 7 | Elevon right
-MAIN 8 | Elevon left
+These can be wired to flight controller outputs more-or-less in any way you want (though outputs for motors should be grouped together, and so on).
 
-Note that left and right in the reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
+The outputs are configured in the [Actuators Configuration](../config/actuators.md) by following the instructions for VTOL tiltrotor geometry and output configuration.
+Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) frame.
+
+Note that left and right in the configuration screen and frame reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
 
 <img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
+
 
 ### Flight Controller
 
@@ -64,7 +61,7 @@ That way the GPS can be put inside the body and is nicely stowed away without co
 
 ## PX4 Configuration
 
-Follow the [Standard Configuration](config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
+Follow the [Standard Configuration](../config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 The particular settings that are relevant to this vehicle are:
 - [Airframe](../config/airframe.md)
@@ -72,8 +69,3 @@ The particular settings that are relevant to this vehicle are:
     ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
 - [Flight Modes/Switches](../config/flight_mode.md)
   - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.
-
-:::note
-By default permanent stabilization is enabled.
-To fly "fully manual" in fixed-wing mode, set [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB) to `0`.
-:::

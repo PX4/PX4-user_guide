@@ -53,7 +53,7 @@
 
 
 
-## 구매처
+## Where to Buy
 
 * [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
@@ -74,7 +74,7 @@ make mro_ctrl-zero-f7
 
 ### 콘솔 포트
 
-[PX4 시스템 콘솔](../debug/system_console.md)은 아래에 나열된 핀을 사용하여 `USART7`에서 실행됩니다. 이것은 [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) 케이블(5V 허용)에 연결하도록 설계된 표준 직렬 핀배열입니다.
+[PX4 시스템 콘솔](../debug/system_console.md)은 아래에 나열된 핀을 사용하여 `USART7`에서 실행됩니다. This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
 | mRo control zero f7 |             | FTDI              |
 | ------------------- | ----------- | ----------------- |
@@ -112,8 +112,8 @@ FMU 디버깅 [SWD 포트](../debug/swd_debug.md)(JTAG)는 아래와 같은 TC20
 | UART8  | /dev/ttyS5 | 직렬 포트 여분(일반적으로 FrSky 원격 측정용)               |
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
 
 
 

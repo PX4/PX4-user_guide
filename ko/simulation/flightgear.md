@@ -53,7 +53,8 @@ graph LR;
    ```
    이 폴더에 PX4-FlightGear-Bridge 통신 정의 파일을 저장하기 때문에, 권한 설정이 필요합니다.
 
-추가 설치 방법은 [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA)를 참고하십시오.   
+추가 설치 방법은 [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA)를 참고하십시오.
+
 
 <a id="running"></a>
 
@@ -108,7 +109,7 @@ px4 starting.
 INFO  [px4] Calling startup script: /bin/sh etc/init.d-posix/rcS 0
 INFO  [param] selected parameter default file eeprom/parameters_1034
 I'm Mavlink to FlightGear Bridge
-Targed Bridge Freq: 200, send data every step: 1
+Target Bridge Freq: 200, send data every step: 1
 4
   5   -1
   7   -1
@@ -120,7 +121,6 @@ INFO  [simulator] Waiting for simulator to accept connection on TCP port 4560
 INFO  [simulator] Simulator connected on TCP port 4560.
 INFO  [commander] LED: open /dev/led0 failed (22)
 INFO  [commander] Mission #3 loaded, 9 WPs, curr: 8
-INFO  [init] Mixer: etc/mixers-sitl/plane_sitl.main.mix on /dev/pwm_output0
 INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote port 14550
 INFO  [airspeed_selector] No airspeed sensor detected. Switch to non-airspeed mode.
 INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
@@ -181,6 +181,7 @@ FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 
 위의 예는 [호놀룰루 국제공항](http://wiki.flightgear.org/Suggested_airports) 시뮬레이션입니다.
 
+
 <a id="joystick"></a>
 
 ### 조이스틱 사용법
@@ -192,7 +193,7 @@ FlightGear의 조이스틱 입력은 비활성화 되어야 합니다. 그렇지
 
 ## 확장 및 사용자 정의
 
-시뮬레이션 인터페이스를 확장하거나 사용자 정의를 위하여 **Tools/flightgear_bridge* 폴더에서 파일을 편집합니다. 코드는 Github의 [PX4-FlightGear-Bridge 저장소](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)를 참고하십시오.
+To extend or customize the simulation interface, edit the files in the **Tools/simulation/flightgear/flightgear_bridge** folder. 코드는 Github의 [PX4-FlightGear-Bridge 저장소](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)를 참고하십시오.
 
 
 ## 추가 정보

@@ -5,10 +5,11 @@
 S.Bus 이외의 RC 유형의 경우 수신기는 직렬 포트에 직접 연결하거나 USB-TTY 직렬 케이블(예: PL2302 USB-직렬 TTL 변환기)을 통하여 USB에 연결할 수 있습니다.
 
 :::note
-S.Bus 수신기(또는 인코더 - 예: Futaba, RadioLink 등)의 경우에는 일반적으로 [신호 인버터 회로](#signal_inverter_circuit)를 통하여 수신기와 장치를 연결 하지만, 이 외의 경우에는 설정이 동일합니다.
+For an S.Bus receiver (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
 :::
 
 그런 다음, 아래와 같이 기기에서 [PX4 RC 드라이버를 시작](#start_driver)합니다.
+
 
 <a id="start_driver"></a>
 
@@ -20,6 +21,7 @@ rc_input start -d /dev/ttyS2
 ```
 
 기타 드라이버 사용 정보는 [rc_input](../modules/modules_driver.md#rc-input)을 참고하십시오.
+
 
 <a id="signal_inverter_circuit"></a>
 

@@ -28,16 +28,17 @@ The behaviour can be configured using the parameters below.
 
 Parameter | Description
 --- | ---
-<span id="MIS_LTRMIN_ALT"></span>[MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude).
+<a id="NAV_MIN_LTR_ALT"></a>[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | This is the minimum altitude above Home the system will always obey in Loiter (Hold) mode if switched into this mode without specifying an altitude (e.g. through Loiter switch on RC).
+
 <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes/position_mc.md). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.
 <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).
 
-<!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/loiter.cpp#L61 -->
+<!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/loiter.cpp#L61 -->
 
-## Fixed Wing (FW)
+## Fixed-wing (FW)
 
 The aircraft circles around the GPS hold position at the current altitude.
-The vehicle will first ascend to `MIS_LTRMIN_ALT` if the mode is engaged below this altitude.
+The vehicle will first ascend to `NAV_MIN_LTR_ALT` if the mode is engaged below this altitude (by default disabled).
 
 RC stick movement is ignored.
 
@@ -46,11 +47,11 @@ The behaviour can be configured using the parameters below.
 Parameter | Description
 --- | ---
 [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The radius of the loiter circle.
-[MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude).
+[NAV_MIN_LTR_ALT](../advanced_config/parameter_reference.md#NAV_MIN_LTR_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude).
 
 
 ## VTOL
 
-A VTOL follows the HOLD behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
+A VTOL follows the HOLD behavior and parameters of [Fixed-wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
 <!-- this maps to AUTO_LOITER in flight mode state machine -->

@@ -1,6 +1,6 @@
 # Durandal Wiring Quick Start
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
@@ -34,7 +34,8 @@ More information about available ports can be found here: [Durandal > Pinouts](.
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
 :::tip
-The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+The board has internal vibration-isolation.
+Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
 :::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
@@ -56,7 +57,7 @@ You can use a power module or power distribution board to power motors/servos an
 <span id="pm02_v3"></span>
 ### PM02 v3 Power Module
 
-The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *Durandal*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
+The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *Durandal*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
 
 Connect the output of the *Power Module* as shown.
 
@@ -85,14 +86,10 @@ The power module has the following characteristics/limits:
   - 6pin MLX cable (1)
   - 6pin GH cable (1)
 
-:::note
-See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
-:::
-
 <span id="pm07"></span>
 ### Pixhawk 4 Power Module (PM07)
 
-The [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html) can be bundled/used with *Durandal*. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
+The [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) can be bundled/used with *Durandal*. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
 
 This is wired up in the same way as described in the [Pixhawk 4 Quick Start > Power](../assembly/quick_start_pixhawk4.md#power) documentation.
 
@@ -108,7 +105,7 @@ It has the following characteristics/limits:
   - 80mm XT60 connector wire (1)
 
 :::note
-See also [PM07 Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro).
+See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
 :::
 
 ### Battery Configuration
@@ -156,7 +153,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## Motors
@@ -200,7 +197,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ## Further information
 
 - [Durandal Overview](../flight_controller/durandal.md)
-- [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
-- [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf) (Holybro)
+- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
 - [Durandal_MB_H743sch.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal Schematics)
 - [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/master/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)

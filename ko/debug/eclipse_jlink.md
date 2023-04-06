@@ -14,7 +14,7 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 ### PX4
 
 일반 지침에 따라 PX4를 설정합니다.
-- 플랫폼에 대한 [PX4 개발자 환경/도구 체인 설정](../dev_setup/dev_env.md)(예: Linux의 경우 [Ubuntu LTS/Debian Linux의 개발 환경](../dev_setup/dev_env_linux_ubuntu.md) 참조).
+- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [PX4를 다운로드](../dev_setup/building_px4.md)하고, 선택적으로 명령줄에서 빌드합니다.
 
 ### Eclipse
@@ -44,8 +44,9 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
    - 우상단의 *Open Perspective*라는 작은 아이콘을 클릭하고, *Packs* Perspective를 엽니다. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - **모두 업데이트** 버튼을 클릭합니다.
 
-:::tip
-이것은 10분정도의 시간이 소요됩니다. 누락된 패키지에 대한 오류를 무시하십시오.
+     :::tip
+이것은 10분정도의 시간이 소요됩니다.
+누락된 패키지에 대한 오류를 무시하십시오.
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
@@ -60,13 +61,35 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 1. 그런 다음, *GDB SEGGER J-Link 디버깅*을 선택한 다음, 왼쪽 상단의 **새 구성** 버튼을 선택합니다. ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
 1. 빌드 구성을 설정합니다.
    - 이름을 지정하고 *C/C++ 애플리케이션*을 해당 **.elf** 파일로 설정합니다.
-   - *자동 빌드 비활성화* 선택합니다. :::note 디버그 세션을 시작하기 전에, 명령줄에서 대상을 빌드하여야 합니다.
+   - *자동 빌드 비활성화* 선택합니다. :::note
+디버그 세션을 시작하기 전에, 명령줄에서 대상을 빌드하여야 합니다.
 :::
 
    ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
 1. *디버거* 및 *시작* 탭은 수정할 필요가 없습니다(아래 스크린샷으로 설정을 확인하기만 하면 됩니다).
 
    ![Eclipse: GDB Segger 디버깅 설정: 디버거 탭](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger 디버깅 설정: 시작 탭](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
+
+## SEGGER Task-aware debugging
+Task-aware debugging (also known as [thread-aware debugging](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/thread-aware-debugging/)) allows you to show the context of all running threads/tasks instead of just the stack current task. This is quite useful since PX4 tends to run many different tasks.
+
+To enable this feature for use in Eclipse:
+
+1. You first need to enable `CONFIG_DEBUG_TCBINFO` in the NuttX configuration for your build (to expose the TCB offsets).
+    - Open a terminal in the root of your PX4-Autopilot source code
+    - In the terminal, open `menuconfig` using the appropriate make target for the build. This will be something like:
+      ```
+      make px4_fmu-v5_default boardguiconfig
+      ```
+      (See [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) for more information) on using the config tools).
+   - Ensure that the *Enable TCBinfo struct for debug* is selected as shown: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
+1. Compile the **jlink-nuttx.so** library in the terminal by running the following command in the terminal: `make jlink-nuttx`
+1. Modify Eclipse to use this libary. In the *J-Link GDB Server Setup* configuration, update **Other options** to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, as shown in the image below.
+
+   ![Eclipse: GDB Segger Debug config RTOS aware: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware.png)
+1. When running the debugger you should see now multiple threads instead of just one:
+
+   ![Eclipse: GDB Segger Debug config RTOS aware: debug session](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware_tasks.png)
 
 
 ## 문제 해결

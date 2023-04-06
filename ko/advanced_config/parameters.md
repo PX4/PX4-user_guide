@@ -5,7 +5,7 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 *QGroundControl 매개변수* 화면은 기체와 관련된 **매개변수**를 검색하고 수정합니다. 상단 메뉴의 *톱니 바퀴* 아이콘을 클릭한 다음 좌측 메뉴의 *매개변수*를 클릭합니다.
 
 :::note
-일반적인 매개변수들은 [기본 설정](../config/README.md) 설정 화면에서 수정합니다. *매개변수* 화면은 신규 기체를 튜닝하거나 일반적이지 않은 매개변수를 수정시에 사용합니다.
+일반적인 매개변수들은 [기본 설정](../config/README.md) 설정 화면에서 수정합니다. :::note 일반적인 매개변수들은 [기본 설정](../config/README.md) 설정 화면에서 수정합니다.
 :::
 
 :::warning
@@ -13,7 +13,6 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 :::
 
 <span id="finding"></span>
-
 ## 매개변수 검색
 
 *검색* 필드에 이름을 입력하여 매개변수를 검색합니다. 검색은 입력된 문자열을 포함하는 모든 매개변수의 이름과 설명을 나열합니다(검색을 초기화하려면 **지우기** 버튼를 클릭합니다).
@@ -29,7 +28,6 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 :::
 
 <span id="missing"></span>
-
 ## 누락된 매개변수
 
 매개변수는 일반적으로 다른 매개변수에 조건부이거나 펌웨어에 없기 때문에 표시되지 않습니다 (아래 참조).
@@ -40,6 +38,7 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 
 일반적으로 [전체 매개변수 참조](../advanced_config/parameter_reference.md) 및 기타 문서를 검색하여 조건부 매개변수를 찾을 수 있습니다. 특히 [직렬 포트 구성 매개변수](../peripherals/serial_configuration.md)는 직렬 포트에 할당된 서비스에 따라 달라집니다.
 
+
 ### 펌웨어에 없는 매개변수
 
 다른 버전의 PX4를 사용 중이거나 관련 모듈이 포함되지 않은 빌드인 경우에는 매개 변수가 펌웨어에 없을 수도 있습니다.
@@ -47,13 +46,13 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 각 PX4 버전에 새로운 매개변수가 추가되고 기존 매개변수가 제거되거나 이름이 변경될 수 있습니다. 대상 버전에 대한 [전체 매개 변수 참조](../advanced_config/parameter_reference.md)를 검토하여 매개변수 *존재 여부*를 확인할 수 있습니다. 소스 트리 및 릴리스 정보에서 매개 변수를 검색할 수 있습니다.
 
 매개 변수가 펌웨어에 존재하지 않는 경우는 관련 모듈이 포함되지 않은 경우입니다. 이것은 (특히) *FMUv2 펌웨어*의 문제로, PX4가 1MB의 사용 가능한 플래시를 기준으로 많은 모듈을 생략합니다. 이 문제를 해결 방법으로 두 가지 옵션이 있습니다.
-
 - 모든 모듈을 포함하는 FMUv3 펌웨어를 실행하도록 보드를 업데이트 할 수 있는지 확인하십시오. [펌웨어 > FMUv2 부트 로더 업데이트](../config/firmware.md#bootloader)
-- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You need reconfigure the PX4 firmware itself through make px4_fmuv2_default boardconfig where you can enabled/disable modules ``` :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+- 보드에서 FMUv2 펌웨어 만 실행할 수있는 경우에는 누락된 모듈을 활성화한 상태에서 [PX4를 다시 빌드](../dev_setup/building_px4.md)하여야 합니다. 모듈을 활성화/비활성화할 수 있는 make px4_fmuv2_default boardconfig를 통해 PX4 펌웨어 자체를 재구성하여야 합니다. ``` :::note
+재구축된 펌웨어를 1MB 플래시에 맞추기 위해 다른 모듈을 비활성가 필요할 할 수 있습니다.
+제거할 모듈을 찾으려면 시행 착오가 수반되며, 기체의 요구 사항에 따라 달라집니다.
 :::
 
 <span id="changing"></span>
-
 ## 매개변수 변경
 
 매개변수를 변경하려면 그룹 또는 검색 목록에서 매개변수를 클릭하십시오. 그러면 값을 수정하는 사이드 대화 상자가 열립니다 (이 대화 상자는 매개변수에 대한 추가 세부 정보- 변경 사항을 적용하기 위해서는 재부팅하여야 하는 지를 알려줍니다.)
@@ -69,6 +68,7 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하
 화면의 오른쪽 상단의 **도구** 메뉴에서 추가 옵션을 선택할 수 있습니다.
 
 ![도구 메뉴](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
+
 
 **새로 고침** <br />모든 매개변수를 기체로부터 재로딩합니다.
 

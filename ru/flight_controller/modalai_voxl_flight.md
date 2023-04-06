@@ -31,7 +31,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | Compute DSP           | Hexagon compute DSP (cDSP) 825MHz                                                                                                                                                                                                                                  |
 | Sensor DSP            | Hexagon sensor DSP (sDSP) 700MHz                                                                                                                                                                                                                                   |
 | Video                 | 4k30 Video Capture h.264/5 w/ 720p FPV                                                                                                                                                                                                                             |
-| Camera Interaces      | Support for MIPI-CSI2, USB UVC, HDMI                                                                                                                                                                                                                               |
+| Camera Interfaces     | Support for MIPI-CSI2, USB UVC, HDMI                                                                                                                                                                                                                               |
 | Wi-Fi                 | Pre-certified Wi-Fi module [QCNFA324 FCC ID:PPD-QCNFA324](https://fccid.io/PPD-QCNFA324), QCA6174A modem, 802.11ac 2x2 Dual-band, Bluetooth 4.2 (dual-mode)                                                                                                        |
 | 4G LTE                | [Optional add-on module](https://www.modalai.com/collections/voxl-add-ons/products/voxl-lte)                                                                                                                                                                       |
 | Microhard pDDL        | [Optional add-on module](https://www.modalai.com/collections/voxl-add-ons/products/voxl-microhard-modem-usb-hub)                                                                                                                                                   |
@@ -50,7 +50,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | Memory           | 256Kb FRAM                                                                                                                                                      |
 |                  | 2Mbit Flash                                                                                                                                                     |
 |                  | 512Kbit SRAM                                                                                                                                                    |
-| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1)                                                                                    |
+| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/main/boards/modalai/fc-v1)                                                                                      |
 | IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
 |                  | ICM-42688 (SPI2)                                                                                                                                                |
 |                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
@@ -80,7 +80,7 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 [3D STEP File](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
 
 
-## PX4 Firwmare Compatibility
+## PX4 Firmware Compatibility
 
 *VOXL Flight* is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
@@ -185,7 +185,7 @@ make modalai_fc-v1
 | UART7  | /dev/ttyS6 | TELEM1 (J1010)                          |
 | UART8  | /dev/ttyS7 | N/A                                     |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 

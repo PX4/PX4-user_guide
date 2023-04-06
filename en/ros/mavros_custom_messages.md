@@ -2,9 +2,9 @@
 
 :::warning
 This article has been tested against:
-- **Ubuntu:** 18.04
-- **ROS:** Melodic
-- **PX4 Firmware:** 1.9.0
+- **Ubuntu:** 20.04
+- **ROS:** Noetic
+- **PX4 Firmware:** v1.13
 
 However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
 :::
@@ -54,7 +54,9 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
        void keyboard_cb(const std_msgs::Char::ConstPtr &req)
         {
             std::cout << "Got Char : " << req->data <<  std::endl;
-            UAS_FCU(m_uas)->send_message_ignore_drop(req->data);
+            mavlink::common::msg::KEY_COMMAND kc {};
+            kc.command = req->data;
+            UAS_FCU(m_uas)->send_message_ignore_drop(kc);
         }
     };
     }   // namespace extra_plugins
@@ -90,7 +92,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
 ## PX4 Changes
 
-1. Inside **common.xml** (in **PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions**), add your MAVLink message as following (same procedure as for MAVROS section above):
+1. Inside **common.xml** (in **PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0**), add your MAVLink message as following (same procedure as for MAVROS section above):
    ```xml
    ...
      <message id="229" name="KEY_COMMAND">
@@ -100,33 +102,21 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ...
    ```
 
-1. Remove *common*, *standard* directories in (**PX4-Autopilot/mavlink/include/mavlink/v2.0**).
-   ```sh
-   rm -r common
-   rm -r standard
-   ```
-1. Git clone "mavlink_generator" to any directory you want and execute it.
-   ```sh
-   git clone https://github.com/mavlink/mavlink mavlink-generator
-   cd mavlink-generator
-   python mavgenerate.py
-   ```
-
-1. You will see a "MAVLink Generator" popup:
-   - For *XML*, "Browse" to **/PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions/standard.xml**.
-   - For Out, "Browse" to **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**.
-   - Select Language **C**
-   - Select Protocol **2.0**
-   - Check *Validate*
-
-   Then, press **Generate**.
-   You will see *common*, and *standard* directories created in **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**.
+   :::warning
+   Make sure that the **common.xml** files in the following directories are exactly the same:
+   - `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0`
+   - `workspace/src/mavlink/message_definitions/v1.0`
+   are exactly the same.
+   :::
 
 1. Make your own uORB message file **key_command.msg** in (PX4-Autopilot/msg). For this example the "key_command.msg" has only the code:
    ```
+   uint64 timestamp # time since system start (microseconds)
    char cmd
    ```
-   Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include
+
+   Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include:
+
    ```cmake
    set(
    ...
@@ -185,8 +175,8 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
 1. Make your own uORB topic subscriber just like any example subscriber module.
    For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver).
-   In this directory, create two files **CMakeLists.txt**, **key_receiver.cpp**.
-   Each one looks like following.
+   In this directory, create three files **CMakeLists.txt**, **key_receiver.cpp**, **Kconfig**
+   Each one looks like the following.
 
    -CMakeLists.txt
 
@@ -199,7 +189,6 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
        SRCS
            key_receiver.cpp
        DEPENDS
-           platforms__common
 
        )
    ```
@@ -207,9 +196,9 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    -key_receiver.cpp
 
    ```
-   #include <px4_config.h>
-   #include <px4_tasks.h>
-   #include <px4_posix.h>
+   #include <px4_platform_common/px4_config.h>
+   #include <px4_platform_common/tasks.h>
+   #include <px4_platform_common/posix.h>
    #include <unistd.h>
    #include <stdio.h>
    #include <poll.h>
@@ -226,12 +215,13 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
        int key_sub_fd = orb_subscribe(ORB_ID(key_command));
        orb_set_interval(key_sub_fd, 200); // limit the update rate to 200ms
 
-       px4_pollfd_struct_t fds[1];
-       fds[0].fd = key_sub_fd, fds[0].events = POLLIN;
+       px4_pollfd_struct_t fds[] = {
+           { .fd = key_sub_fd,   .events = POLLIN },
+       };
 
        int error_counter = 0;
 
-       while(true)
+	   for (int i = 0; i < 10; i++)
        {
            int poll_ret = px4_poll(fds, 1, 1000);
 
@@ -256,7 +246,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
                {
                    struct key_command_s input;
                    orb_copy(ORB_ID(key_command), key_sub_fd, &input);
-                   PX4_INFO("Recieved Char : %c", input.cmd);
+                   PX4_INFO("Received Char : %c", input.cmd);
                 }
            }
        }
@@ -264,12 +254,27 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    }
    ```
 
+   -Kconfig
+
+   ```
+    menuconfig MODULES_KEY_RECEIVER
+	bool "key_receiver"
+	default n
+	---help---
+		Enable support for key_receiver
+
+   ```
+
    For a more detailed explanation see the topic [Writing your first application](../modules/hello_sky.md).
 
-1. Lastly add your module in the **default.px4board** file correspondent to your board in **PX4-Autopilot/boards/**.
-   For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.px4board**:
-   ```CONFIG_MODULES_KEY_RECEIVER=y
-    ```
+1. Lastly, add your module in the **default.px4board** file correspondent to your board in **PX4-Autopilot/boards/**.
+   For example:
+   -for the Pixhawk 4, add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.px4board**:
+   -for the SITL, add the following code in **PX4-Autopilot/boards/px4/sitl/default.px4board**
+
+   ```
+    CONFIG_MODULES_KEY_RECEIVER=y
+   ```
 
 Now you are ready to build all your work!
 
@@ -282,6 +287,7 @@ Now you are ready to build all your work!
    Edit "px4.launch" as below.
    If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below.
    But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0".
+   And if you are using the SITL to connect to your terminal, you have to replace "/dev/ttyACM0:57600" with "udp://:14540@127.0.0.1:14557".
    Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
 
 1. Write your IP address at "xxx.xx.xxx.xxx"
@@ -294,11 +300,22 @@ Now you are ready to build all your work!
 
 ### Build for PX4
 
+1. Clean the previously built PX4-Autopilot directory. In the root of **PX4-Autopilot** directory:
+    ```sh
+    make clean
+    ```
+
 1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards). 
 
-    For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
+    For example:
+    
+    - to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
     ```sh
     make px4_fmu-v5_default upload
+    ```
+    - to build for SITL execute the following command in the root of the PX4-Autopilot directory (using jmavsim simulation):
+    ```sh
+    make px4_sitl jmavsim
     ```
 
 ## Running the Code

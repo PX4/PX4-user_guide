@@ -17,7 +17,7 @@ Windows 개발자는 Linux를 게스트 운영 체제로 사용하는 가상 머
 
 ## 사용 설명
 
-시스템에서 PX4 실행을 위한 가상 머신을 설정하는 방법에는 여러 가지가 있습니다. 이 가이드는 VMWare 설정 방법을 설명합니다. VMWare 성능은 기본 사용(펌웨어 구축)에는 적절하지만, ROS 또는 Gazebo를 실행하는 경우에는 적절하지 않습니다.
+시스템에서 PX4 실행을 위한 가상 머신을 설정하는 방법에는 여러 가지가 있습니다. 이 가이드는 VMWare 설정 방법을 설명합니다. VMWare performance is acceptable for basic usage (building Firmware) but not for running ROS or Gazebo Classic.
 
 1. [VMWare 플레이어](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)를 다운로드합니다.
 1. 윈도우 시스템에 설치합니다.
@@ -25,8 +25,9 @@ Windows 개발자는 Linux를 게스트 운영 체제로 사용하는 가상 머
 1. *VMWare 플레이어*를 실행합니다.
 1. 가상 머신 설정에서 3D 가속 사용: **VM > 설정 > 하드웨어 > 디스플레이 > 3D 그래픽 가속화**
 
-:::note
-이 옵션은 jMAVSim 및 Gazebo와 같은 3D 시뮬레이션 실행에 필요합니다. 가상 환경에 Linux를 설치하기 전에 이 작업을 수행하는 것이 좋습니다.
+   :::note
+This option is required to properly run 3D simulation environments like jMAVSim and Gazebo Classic.
+가상 환경에 Linux를 설치하기 전에 이 작업을 수행하는 것이 좋습니다.
 :::
 1. 새 가상 머신을 생성하는 메뉴를 선택합니다.
 1. 가상 머신 생성 마법사에서 다운로드한 Ubuntu ISO 이미지를 설치 매체로 선택하면, 사용하려는 운영 체제가 자동으로 감지됩니다.
@@ -34,7 +35,7 @@ Windows 개발자는 Linux를 게스트 운영 체제로 사용하는 가상 머
 1. 마법사가 종료시 새 가상 머신을 실행하고, 설정 지침에 따라 Ubuntu를 설치합니다. 모든 설정은 호스트 운영 체제에서 사용하기 위한 것이므로, 네트워크 공격의 위험을 증가시키지 않는 화면 보호기 및 로컬 워크스테이션 보안 기능을 비활성화할 수 있습니다.
 1. 새 가상 머신이 부팅되면, 게스트 운영체제에 *VMWare 도구 드라이버 및 도구 확장*을 설치하여야 합니다. 이렇게 하면 다음과 같은 VM 사용의 성능과 유용성들이 향상됩니다.
     * 크게 향상된 그래픽 성능
-    * USB 포트 할당(대상 업로드에 중요), 적절한 마우스 휠 스크롤, 사운드 지원과 같은 하드웨어 장치 사용에 대한 적절한 지원
+    * Proper support for hardware device usage like USB port allocation (important for target upload), proper mouse wheel scrolling, sound support
     * 창 크기에 따른 게스트 디스플레이 해상도 조정
     * 호스트 시스템 클립보드 공유
     * 호스트 시스템 파일 공유

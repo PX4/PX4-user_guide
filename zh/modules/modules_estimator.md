@@ -1,11 +1,12 @@
 # 模块参考：估计器
 
 ## AttitudeEstimatorQ
-Source: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/attitude_estimator_q)
+Source: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/attitude_estimator_q)
 
 
 ### 描述
 Attitude and position estimator using an Extended Kalman Filter. It is used for Multirotors and Fixed-Wing.
+
 
 <a id="AttitudeEstimatorQ_usage"></a>
 
@@ -21,11 +22,12 @@ AttitudeEstimatorQ <command> [arguments...]
    status        打印状态信息
 ```
 ## wind_estimator
-The documentation can be found on the [tuning_the_ecl_ekf](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html) page.
+Source: [modules/airspeed_selector](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airspeed_selector)
 
 
 ### 描述
 This module provides a single airspeed_validated topic, containing indicated (IAS), calibrated (CAS), true airspeed (TAS) and the information if the estimation currently is invalid and if based sensor readings or on groundspeed minus windspeed. Supporting the input of multiple "raw" airspeed inputs, this module automatically switches to a valid sensor in case of failure detection. For failure detection as well as for the estimation of a scale factor from IAS to CAS, it runs several wind estimators and also publishes those.
+
 
 <a id="airspeed_estimator_usage"></a>
 
@@ -41,15 +43,16 @@ airspeed_estimator <command> [arguments...]
    status        打印状态信息
 ```
 ## ekf2
-源码：[modules/ekf2](https://github.com/PX4/Firmware/tree/master/src/modules/ekf2)
+Source: [modules/ekf2](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/ekf2)
 
 
 ### 描述
 基于扩展卡尔曼滤波器的姿态和位置估计器。 该模块同时应用于多旋翼和固定翼飞机。
 
-Source: [modules/wind_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/wind_estimator)
+The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html) page.
 
 This module runs a combined wind and airspeed scale factor estimator. If provided the vehicle NED speed and attitude it can estimate the horizontal wind components based on a zero sideslip assumption. This makes the estimator only suitable for fixed wing vehicles. If provided an airspeed measurement this module also estimates an airspeed scale factor based on the following model: measured_airspeed = scale_factor * real_airspeed.
+
 
 <a id="ekf2_usage"></a>
 
@@ -66,11 +69,12 @@ ekf2 <command> [arguments...]
    status        打印状态信息
 ```
 ## local_position_estimator
-源码：[modules/local_position_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/local_position_estimator)
+Source: [modules/local_position_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/local_position_estimator)
 
 
 ### 参数描述
 基于扩展卡尔曼滤波器的姿态和位置估计器。
+
 
 <a id="local_position_estimator_usage"></a>
 
@@ -92,10 +96,11 @@ local_position_estimator &lt;command&gt; [arguments...]
    status        打印状态信息
 ```
 ## mc_hover_thrust_estimator
-Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_hover_thrust_estimator)
+Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_hover_thrust_estimator)
 
 
 ### 参数描述
+
 
 <a id="mc_hover_thrust_estimator_usage"></a>
 

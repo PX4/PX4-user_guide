@@ -1,1 +1,1 @@
-<Redirect to="../uavcan/pomegranate_systems_pm" />
+<Redirect to="../dronecan/pomegranate_systems_pm" />

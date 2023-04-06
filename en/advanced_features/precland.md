@@ -25,7 +25,7 @@ The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT]
 If the target is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
 
 :::note
-If using an offboard positioning system PX4 assumes that the target is visible when it is recieving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
+If using an offboard positioning system PX4 assumes that the target is visible when it is receiving MAVLink [LANDING_TARGET](https://mavlink.io/en/messages/common.html#LANDING_TARGET) messages.
 :::
 
 #### Opportunistic Mode
@@ -93,7 +93,7 @@ When switching to the mode in this way, the precision landing is always "require
 At time of writing is no _convenient_ way to directly invoke precision landing (other than commanding return mode):
 - *QGroundControl* does not provide it as a UI option.
 - [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) only works in missions.
-- [MAV_CMD_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MODE) should work, but you will need to determine the appropriate base and custom modes used by PX4 to represent the precision landing mode.
+- [MAV_CMD_DO_SET_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_MODE) should work, but you will need to determine the appropriate base and custom modes used by PX4 to represent the precision landing mode.
 :::
 
 
@@ -131,7 +131,7 @@ Precision landing requires the modules `irlock` and `landing_target_estimator`.
 These are included in PX4 firmware by default, for most flight controllers.
 
 They are not included by default on FMUv2-based controllers.
-On these, and other boards where they are not included, you can add them by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. as done here for FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)):
+On these, and other boards where they are not included, you can add them by setting the following keys to 'y' in the relevant configuration file for your flight controller (e.g. as done here for FMUv5: [PX4-Autopilot/boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)):
 
 ```
 CONFIG_DRIVERS_IRLOCK=y
@@ -176,14 +176,15 @@ If you observe slow sideways oscillations of the vehicle while doing a precision
 
 ## Simulation
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [Gazebo Classic](../sim_gazebo_classic/README.md).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
+
 ```
-make px4_sitl gazebo_iris_irlock
+make px4_sitl gazebo-classic_iris_irlock
 ```
 
-You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
+You can change the location of the beacon either by moving it in the Gazebo Classic GUI or by changing its location in the [Gazebo world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/iris_irlock.world#L42).
 
 
 ## Operating Principles

@@ -1,7 +1,6 @@
 # Holybro Durandal
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
-:::
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
 
 *Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
 
@@ -24,6 +23,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## 概览
 
 #### Technical Specifications
+
 - Main FMU Processor: STM32H743
   - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
 - IO 处理器：STM32F100
@@ -37,6 +37,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 
 #### 接口
+
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
 - FMU上有6个专用PWM/Capture输入
 - Dedicated R/C input for Spektrum / DSM
@@ -76,12 +77,13 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - FCC
 - RoHS compliant (lead-free)
 
-For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
+For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
 <span id="purchase"></span>
-## 采购
+## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
+
 
 <span id="connections"></span>
 ## Connections
@@ -165,7 +167,7 @@ make holybro_durandal-v1_default
 | UART8  | /dev/ttyS6 | PX4IO         |
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
 ## Debug调试端口
@@ -195,7 +197,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## 针脚定义
 
-*Durandal* pinouts are listed below. These can also be downloaded from [here](http://www.holybro.com/manual/Durandal-Pinouts.pdf).
+*Durandal* pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### Top Pinouts
 
@@ -218,7 +220,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚         | 信号      | 电压    |
 | ---------- | ------- | ----- |
-| 2          | VDD_3V3 | +3.3V |
+| 1（红）       | VDD_3V3 | +3.3V |
 | 2 (yellow) | DSM_IN  | +3.3V |
 | 3 (black)  | GND     | GND   |
 
@@ -226,7 +228,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚        | 信号   | 电压    |
 | --------- | ---- | ----- |
-| 2         | VCC  | +5V   |
+| 1（红）      | VCC  | +5V   |
 | 2 (black) | SCL4 | +3.3V |
 | 3 (black) | SDA4 | +3.3V |
 | 4 (black) | GND  | GND   |
@@ -235,7 +237,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚        | 信号    | 电压    |
 | --------- | ----- | ----- |
-| 2         | VCC   | +5V   |
+| 1（红）      | VCC   | +5V   |
 | 2 (black) | CAN H | +3.3V |
 | 3 (black) | CAN L | +3.3V |
 | 4 (black) | GND   | GND   |
@@ -246,7 +248,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚         | 信号                  | 电压    |
 | ---------- | ------------------- | ----- |
-| 2          | VCC                 | +5V   |
+| 1（红）       | VCC                 | +5V   |
 | 2 (black)  | TX (out)            | +3.3V |
 | 3 (black)  | RX (in)             | +3.3V |
 | 4 (black)  | SCL1                | +3.3V |
@@ -257,39 +259,36 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 9 (black)  | BUZZER              | +5V   |
 | 10 (black) | GND                 | GND   |
 
-
 <span id="telem4_i2cb"></span>
 #### TELEM4 I2CB ports
 
 | 针脚        | 信号       | 电压    |
 | --------- | -------- | ----- |
-| 2         | VCC      | +5V   |
+| 1（红）      | VCC      | +5V   |
 | 2 (black) | TX (out) | +3.3V |
 | 3 (black) | RX (in)  | -     |
 | 4 (black) | SCL2     | -     |
 | 5 (black) | SDA2     | +3.3V |
 | 6 (black) | GND      | GND   |
 
-
 <span id="telem1_2_3"></span>
 #### TELEM3, TELEM2, TELEM1 port
 
 | 针脚        | 信号       | 电压    |
 | --------- | -------- | ----- |
-| 2         | VCC      | +5V   |
+| 1（红）      | VCC      | +5V   |
 | 2 (black) | TX (out) | +3.3V |
 | 3 (black) | RX (in)  | +3.3V |
 | 4 (black) | CTS（输入）  | +3.3V |
 | 5 (black) | RTS（输出）  | +3.3V |
 | 6 (black) | GND      | GND   |
 
-
 <span id="power"></span>
 #### POWER port
 
 | 针脚        | 信号  | 电压    |
 | --------- | --- | ----- |
-| 2         | VCC | +5V   |
+| 1（红）      | VCC | +5V   |
 | 2 (black) | VCC | +5V   |
 | 3 (black) | 电流  | +3.3V |
 | 4 (black) | 电压  | +3.3V |
@@ -343,7 +342,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚        | 信号    | 电压    |
 | --------- | ----- | ----- |
-| 2         | VCC   | +5V   |
+| 1（红）      | VCC   | +5V   |
 | 2 (black) | CAN H | +3.3V |
 | 3 (black) | CAN L | +3.3V |
 | 4 (black) | GND   | GND   |
@@ -352,7 +351,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚         | 信号             | 电压                       |
 | ---------- | -------------- | ------------------------ |
-| 2          | VCC            | +5V                      |
+| 1（红）       | VCC            | +5V                      |
 | 2 (black)  | FMU_CAP6       | +3.3V                    |
 | 3 (black)  | FMU_CAP5       | +3.3V                    |
 | 4 (black)  | FMU_CAP4       | +3.3V                    |
@@ -362,7 +361,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 8 (black)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
 | 9 (black)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
 | 10 (black) | GND            | GND                      |
-
 
 <span id="warn_sensor"></span>
 
@@ -379,7 +377,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚        | 信号    | 电压    |
 | --------- | ----- | ----- |
-| 2         | VT    | +3.3V |
+| 1（红）      | VT    | +3.3V |
 | 2 (black) | TX    | +3.3V |
 | 3 (black) | RX    | +3.3V |
 | 4 (black) | SWDIO | +3.3V |
@@ -391,7 +389,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚        | 信号   | 电压    |
 | --------- | ---- | ----- |
-| 2         | VCC  | +5V   |
+| 1（红）      | VCC  | +5V   |
 | 2 (black) | SCK  | +3.3V |
 | 3 (black) | MISO | +3.3V |
 | 4 (black) | MOSI | +3.3V |
@@ -404,7 +402,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 | 针脚        | 信号   | 电压    |
 | --------- | ---- | ----- |
-| 2         | VBUS | +5V   |
+| 1（红）      | VBUS | +5V   |
 | 2 (black) | DM   | +3.3V |
 | 3 (black) | DP   | +3.3V |
 | 4 (black) | GND  | GND   |
@@ -413,5 +411,5 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 ## 更多信息
 
 - [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
-- [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
-- [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
+- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)

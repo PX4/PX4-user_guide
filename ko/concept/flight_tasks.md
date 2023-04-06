@@ -72,7 +72,7 @@
    bool FlightTaskMyTask::activate(vehicle_local_position_setpoint_s last_setpoint)
    {
      bool ret = FlightTask::activate(last_setpoint);
-     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was succesful
+     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was successful
      return ret;
    }
 
@@ -144,4 +144,4 @@ PX4 v1.9의 비행 모드 작동 방식 설명(Dennis Mannhart, Matthias Grob).
 
 @[유투브](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 
-이 비디오의 관련 섹션은 (9분 20초) PX4 v11.1의 비행 작업 업데이트입니다. [슬라이드는 이 PDF을 참고하십시오.](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - 슬라이드 9와 12가 관련이 있습니다.
+The relevant section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec). [슬라이드는 이 PDF을 참고하십시오.](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - 슬라이드 9와 12가 관련이 있습니다.

@@ -51,7 +51,7 @@ Useful peripheral hardware includes:
 * [Buzzer deck](https://store.bitcraze.io/collections/decks/products/buzzer-deck) Audio feedback on system events, like low battery or charging completed.
 * [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): Expansion board that gives you the ability to test new hardware easily without soldering.
 * [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): High speed onboard logging to a micro SD card
-* [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad)
+* [Logitech Joystick](https://support.logi.com/hc/en-us/articles/360024326793--Getting-Started-Gamepad-F310)
 
 ## Assemble Crazyflie 2.1
 
@@ -107,7 +107,7 @@ After setting up the PX4 development environment, follow these steps to install 
    The yellow LED should start blinking indicating bootloader mode. 
    Then the red LED should turn on indicating that the flashing process has started.
 1. Wait for completion.
-1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
+1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Sensors.html).
 
 ## Flashing Original Bitcraze Firmware
 
@@ -124,7 +124,7 @@ After setting up the PX4 development environment, follow these steps to install 
    sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D cf2loader-1.0.bin
    ``` 
    When powering on the Crazyflie 2.1 the yellow LED should blink.
-1. Install the latest Bitcraze Crazyflie 2.1 Firmware using [this](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#latest-fw) tutorial.
+1. Install the latest Bitcraze Crazyflie 2.1 Firmware using [this](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#update-fw) tutorial.
 
 ## Wireless Setup Instructions
 
@@ -146,7 +146,7 @@ We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/
 The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
 :::
 
-- Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
+- Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/usb_permissions/) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
 - Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method:
     ```

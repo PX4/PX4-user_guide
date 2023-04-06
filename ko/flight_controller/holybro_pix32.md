@@ -1,9 +1,9 @@
-# Holybro pix32 비행 컨트롤러
+# Holybro pix32 Flight Controller (Discontinued)
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
-Holybro<sup>&reg;</sup> [pix32 자동조종장치](https://shop.holybro.com/c/pixhawk-2_0460)("Pixhawk 2"라고도하며 이전에 HKPilot32라고도 함)는 [Pixhawk<sup>&reg;</sup>-프로젝트](https://pixhawk.org/) **FMUv2** 개방형 하드웨어 디자인을 기반으로합니다. 이 보드는 하드웨어 버전 Pixhawk 2.4.6을 기반으로합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
+The Holybro<sup>&reg;</sup> [pix32 autopilot](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. 이 보드는 하드웨어 버전 Pixhawk 2.4.6을 기반으로합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
 ![pix32](../../assets/flight_controller/holybro_pix32/pix32_hero.jpg)
 
@@ -17,19 +17,20 @@ Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되�
 이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
+
 ## 주요 특징
 
-* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   * CPU: FPU가있는 32 비트 STM32F427 코어 텍스<sup>&reg;</sup> M4 코어
   * RAM: 168 MHz/256 KB
   * Flash: 2 MB
 * 페일세이프 시스템 온칩 : STM32F103
-* 센서: 
+* 센서:
   * ST Micro L3GD20 3축 16비트 자이로스코프
   * ST Micro LSM303D 3축 14비트 가속도계/자력계
   * Invensense<sup>&reg;</sup> MPU 6000 3축 가속도계/자이로스코프
   * MEAS MS5611 기압계
-* 크기/중량 
+* 크기/중량
   * 크기: 81x44x15mm
   * 중량: 33.1g
 * GPS : 나침반 내장 u-blox<sup>&reg;</sup> 초정밀 Neo-7M
@@ -49,16 +50,15 @@ Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되�
 * 외부 microUSB 포트
 * Molex PicoBlade 커넥터
 
-## 구매처
+## Where to Buy
 
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
+[shop.holybro.com](https://holybro.com/collections/autopilot-flight-controllers/products/pix32pixhawk-flight-controller)
 
 ### 소품
 
-* [디지털 풍속 센서](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
+* [디지털 풍속 센서](https://holybro.com/products/digital-air-speed-sensor)
 * [Hobbyking<sup>&reg;</sup> Wifi 텔레메트리](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
-* [텔레메트리 Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
-* [텔레메트리 Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
+* [HolyBro SiK Telemetry Radio (EU 433 MHz, US 915 MHz)](../telemetry/holybro_sik_radio.md)
 
 ## 펌웨어 빌드
 
@@ -66,13 +66,14 @@ Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되�
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
-
-    make px4_fmu-v2_default
-    
+```
+make px4_fmu-v2_default
+```
 
 ## 디버그 포트
 
 [3DR Pixhawk 1 &gt; 디버그 포트](../flight_controller/pixhawk.md#debug-ports)를 참고하십시오.
+
 
 ## 핀배열과 회로도
 
@@ -94,4 +95,4 @@ Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되�
 | UART7  | 콘솔         |                |
 | UART8  | SERIAL4    |                |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->

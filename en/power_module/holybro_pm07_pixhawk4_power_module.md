@@ -15,7 +15,7 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 - **UBEC 5v output current:** 3A
 - **UBEC input voltage:** 2~12s LiPo
 - **Dimensions:** 68 x 50 x 8 mm
-- **Mounting Holes:** 45 x 45mm
+- **Mounting Holes:** 45 x 45 mm
 - **Weight:** 36g
 
 ## Package Contents
@@ -24,14 +24,14 @@ This module can be purchased as bundle with [Pixhawk 4](../assembly/quick_start_
 
 - PM07 board
 - 80mm XT60 connector wire (installed)
-- Electrolytic capacito: 220uF 63V (installed)
+- Electrolytic capacitor: 220uF 63V (installed)
 - 2x JST GH 10P Cable
 - JST GH 8P Cable
 - 2x JST GH 6P Cable
 
-## Purchase
+## Where to Buy
 
-[Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
+[Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07)
 
 
 ## Wiring/Connections
@@ -43,4 +43,4 @@ Wiring and connection information can be found in: [Pixhawk 4 > Power](../assemb
 
 ## Further Information
 
-[Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)
+[Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro)

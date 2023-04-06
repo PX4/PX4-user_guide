@@ -14,6 +14,6 @@
 
 [飞行模式](../getting_started/flight_modes.md) — 手动、辅助、全自动的控制模式。
 
-[Payloads & Cameras](../payloads/README.md)
+[载荷 & 相机](../payloads/README.md)
 
-[Flight Reporting](../getting_started/flight_reporting.md) — Download detailed flight logs for debugging and analysis.
+[飞行报告](../getting_started/flight_reporting.md) — 下载详细的飞行日志用于调试分析。

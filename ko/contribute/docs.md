@@ -4,8 +4,8 @@ PX4 사용자 가이드에 대한 기여를 매우 환영합니다. 간단한 �
 
 이 항목에서는 변경 사항을 적용하고 테스트하는 방법을 설명합니다. 마지막에는 기본 스타일 가이드가 있습니다.
 
-::: tip
-Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요합니다.
+:::tip
+Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
 <a id="github_changes" ></a>
@@ -23,6 +23,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 1. Github 페이지 편집기 아래에 별도의 분기를 생성하라는 메시지가 표시되고 *풀 요청*을 제출하라는 안내가 표시됩니다.
 
 문서 팀은 요청을 검토하고, 병합하거나 업데이트하기 위하여 귀하와 협력할 것입니다.
+
 
 <a id="big_changes" ></a>
 
@@ -43,7 +44,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 
 1. [https://git-scm.com/downloads](https://git-scm.com/downloads)에서 git 프로그램을 다운로드합니다.
 1. 아직 Github에 [가입](https://github.com/join)하지 않은 경우에는 가입합니다.
-1. Github에서 [PX4 사용자 가이드 저장소](https://github.com/PX4/px4_user_guide)의 복사본(포크)을 만듭니다([지침 참고](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
+1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. 복사된 저장소를 로컬 컴퓨터에 복제합니다.
    ```sh
    cd ~/wherever/
@@ -117,8 +118,8 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
    yarn docs:buildwin
    ```
 
-::: tip
-`yarn docs:dev`를 사용하여 *변경할 때* 변경 사항을 미리 봅니다(문서가 매우 빠르게 업데이트되고 제공됨). 풀 요청을 제출전에 `docs:build`를 사용하여 빌드하여야 합니다. 이렇게 하면 `docs:dev`를 사용할 때 표시되지 않는 문제를 강조하여 표시할 수 있습니다.
+:::tip
+Use `yarn docs:dev` to preview changes *as you make them* (documents are updated and served very quickly). 풀 요청을 제출전에 `docs:build`를 사용하여 빌드하여야 합니다. 이렇게 하면 `docs:dev`를 사용할 때 표시되지 않는 문제를 강조하여 표시할 수 있습니다.
 :::
 
 ### 소스 코드 구조
@@ -136,7 +137,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 * 모든 페이지는 **/en**이라는 적절한 이름의 하위 폴더에 있어야 합니다(예: 이 페이지는 **en/contribute/** 폴더에 있음).
   - 이렇게 하면 다른 페이지와 이미지가 항상 동일한 상대 수준이므로 연결이 더 용이해집니다.
 * 책의 _구조_는 **SUMMARY.md**에 정의되어 있습니다.
-  - 가이드에 새 페이지를 추가하는 경우 이 파일에도 항목을 추가하여야 합니다. :::tip 이것은 사이드바를 정의하는 "표준 vuepress" 방식이 아닙니다(요약 파일은 [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js)에서 가져옴).
+  - 가이드에 새 페이지를 추가하는 경우 이 파일에도 항목을 추가하여야 합니다. :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
 :::
 * 이미지는 **/assets**의 하위 폴더에 저장하여야 합니다. 이것은 콘텐츠 폴더에서 두 개의 폴더 아래에 있으므로, 이미지를 추가하면 다음과 같이 참조하게 됩니다.
   ```
@@ -184,7 +185,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
   - 재현하기 위해 개발자 전문 지식이 필요한 "실험적" 작업
 - 비행: 표준 차량 비행과 관련된 콘텐츠(비행 모드, 무장, 이륙, 착륙)
 - 기본 설정: 모든 차량이 수행해야 하는 설정
-- 고급 설정: 차량 유형 또는 일부 사용자 세그먼트에 적용되는 특별한 설정입니다.
+- Advanced configuration: Configuration that is specific to a vehicle type, or some segment of users.
 - 주변 장치: 사용할 수 있는 다양한 하드웨어에 관련된 문서입니다.
   - 여기에는 기본 설정에서 다루지 않는 하드웨어에 대한 설정 및 구성 정보를 포함합니다.
 - 기본 조립: 자동 조종 장치 및 주요 주변 장치의 조립

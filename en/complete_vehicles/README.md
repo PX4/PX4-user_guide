@@ -16,7 +16,8 @@ This section lists vehicles that are sold fully assembled and ready to fly (RTF)
   * [ThunderFly TF-G2](https://www.thunderfly.cz/tf-g2.html)
 * Multicopter
   * [Teal One](https://tealdrones.com/teal-one/)
-  * [ModalAI m500](https://modalai.com/products/voxl-m500)
+  * [ModalAI m500](https://www.modalai.com/collections/development-drones/products/voxl-m500)
+  * [ModalAI Sentinel](https://www.modalai.com/products/sentinel-development-drone)
 * VTOL
   * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
@@ -47,6 +48,7 @@ They allow you to use parts that are known to work, and to fly a vehicle that is
 :::
 
 * Multicopter
+  * [PX4 Development Kit - X500 V2](https://holybro.com/collections/x500-kits) ([holybro.com](https://holybro.com/))
   * [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
   * [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
   * [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
@@ -64,7 +66,7 @@ These may or may not be updatable to run "vanilla" PX4.
   * [Airlango Mystic](http://airlango.com/products/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
 * Fixed Wing:
-  * [Sentera PXH](https://sentera.shop/products/sentera-phx-complete-system)
+  * [Sentera PXH](https://sentera.shop/collections/drone-systems-sensors/products/broad-acre-package) (Broad Acre Package)
 * VTOL
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
   * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)

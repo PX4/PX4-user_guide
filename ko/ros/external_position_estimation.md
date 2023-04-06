@@ -27,7 +27,9 @@ PX4는 외부 위치 정보를 얻기 위하여, 다음 MAVLink 메시지를 사
 
 EKF2는 `vehicle_visual_odometry` 주제만 구독하므로, 처음 두 메시지만 처리할 수 있습니다. MoCap 시스템은 EKF2와 함께 작동하기 위해 이러한 메시지를 생성하여야 합니다. 주행 거리 측정 메시지는 선형 속도도 PX4로 전송 가능한 유일한 메시지입니다. LPE 추정기는 두 주제를 모두 구독하므로, 위의 모든 메시지를 처리할 수 있습니다.
 
-:::tip EFK2는 PX4에서 사용하는 기본 추정기입니다. LPE보다 테스트 및 지원이 더 잘 되므로, 우선적으로 사용하여야 합니다.
+:::tip
+EFK2는 PX4에서 사용하는 기본 추정기입니다.
+LPE보다 테스트 및 지원이 더 잘 되므로, 우선적으로 사용하여야 합니다.
 :::
 
 메시지는 30Hz(공분산을 포함하는 경우)와 50Hz 사이에서 스트리밍되어야 합니다. 메시지 비율이 너무 낮으면, EKF2가 외부 비전 메시지를 융합하지 않습니다.
@@ -63,12 +65,14 @@ z_{mav} = - y_{mocap}
 
 EKF2와 함께 외부 위치 정보를 사용하려면, 다음 매개변수를 설정하여야 합니다. *QGroundControl* > **차량 설정 > 매개변수 > EKF2**에서 설정할 수 있습니다.
 
-| 매개변수                                                                                                                                                                                                                               | 외부 위치 추정 설정                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | 원하는 융합 모델에 따라 *시력 위치 융합*, *시력 융합*, *시각 요 융합* 및 *외부 시야 회전*을 설정합니다.               |
-| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                                         | 고도 추정을 위한 기본 소스로 비전을 사용하려면, *Vision*으로 설정하십시오.                                  |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | 측정 타임스탬프와 "실제" 캡처 시간 간의 차이로 설정합니다. 자세한 정보는 [아래](#tuning-EKF2_EV_DELAY)를 참고하십시오. |
-| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | 로봇의 몸체 프레임을 기준으로 비전 센서(또는 MoCap 마커)의 위치를 설정합니다.                                 |
+| 매개변수                                                                                                                                                                                                                               | 외부 위치 추정 설정                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* according to your desired fusion model. |
+| [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Set to *Vision* to use the vision as the reference source for altitude estimation.                                                                 |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | 측정 타임스탬프와 "실제" 캡처 시간 간의 차이로 설정합니다. 자세한 정보는 [아래](#tuning-EKF2_EV_DELAY)를 참고하십시오.                                                                    |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | 로봇의 몸체 프레임을 기준으로 비전 센서(또는 MoCap 마커)의 위치를 설정합니다.                                                                                                    |
+
+You can also disable GNSS, baro and range finder fusion using [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL), [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) and [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL), respectively.
 
 :::tip
 매개변수 변경 사항을 적용하려면, 비행 콘트롤러를 재부팅하십시오.
@@ -136,6 +140,7 @@ ROS는 외부 포즈 정보를 제공하는 데 *필수*되지 않지만, 이미
 VIO와 MoCap 시스템은 포즈 데이터를 얻는 방법이 다르며, 자체 설정과 주제가 있습니다.
 
 특정 시스템에 대한 설정은 [아래](#setup_specific_systems)에서 설명합니다. 다른 시스템의 경우에는 공급업체의 설정 문서를 참고하십시오.
+
 
 <a id="relaying_pose_data_to_px4"></a>
 
@@ -248,7 +253,7 @@ MAVROS는 `/mavros/vision_pose/pose`에 게시된 포즈 데이터를 PX4로 릴
 첫 비행 전에 다음을 확인하십시오.
 
 * PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 포즈를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 다시 스트리밍합니다.
-* *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)로 이러한 MAVLink 메시지를 확인할 수 있습니다. 이를 위하여, `ODOMETRY` 메시지의 쿼터니언이 단위 쿼터니언에 매우 가까워질 때까지 차량을 요잉합니다. (w=1, x=y=z=0)
+* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
 * 이 시점에서 몸체 프레임은 외부 포즈 시스템의 기준 프레임과 정렬됩니다. 차량을 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 프레임에 여전히 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고, 좌표 프레임을 다시 확인하십시오.
 * 정렬되면 지면에서 차량을 들어올릴 수 있으며, 위치의 z 좌표가 감소하는 것을 볼 수 있습니다. 차량을 앞쪽으로 움직이면, 위치의 x 좌표가 증가합니다. 차량을 오른 쪽으로 이동하면, y 좌표는 증가합니다. 외부 포즈 시스템에서 선형 속도도 전송하는 경우에는, 선형 속도를 확인하여야 합니다. 선형 속도가 *FRD* 몸체 프레임 참조 프레임으로 표현되는 지 확인합니다.
 * PX4 매개변수 `MAV_ODOM_LP`를 0로 재설정합니다. PX4는 이 메시지의 스트리밍을 중지합니다.

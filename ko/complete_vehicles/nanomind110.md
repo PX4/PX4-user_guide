@@ -1,4 +1,4 @@
-## NanoMind 110 
+## NanoMind 110
 
 ![nanomind 11
 ](../../assets/hardware/hardware-nanomind110.png)
@@ -26,8 +26,8 @@
 
 ### 구매처
 
-NanoMind 110은 [AirMind<sup>&reg;</sup> Store](http://drupal.xitronet.com/?q=catalog)에서 구입할 수 있습니다. Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
+NanoMind 110 is available at [AirMind<sup>&reg;</sup> Store](https://airmind.mindpx.net/node/92). Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
 ### 지원
 
-자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 <support@mindpx.net>에 이메일을 보내십시오.
+자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 [support@mindpx.net](mailto:support@mindpx.net)에 이메일을 보내십시오.

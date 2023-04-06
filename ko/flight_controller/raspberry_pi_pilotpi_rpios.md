@@ -138,7 +138,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-최신 코드를 빌드하는 과정입니다.
+최신 코드를 빌드하는 과정입니다. 
 :::
 
 #### Raspberry Pi OS용 크로스 빌드
@@ -195,7 +195,7 @@ rm -rf build/scumaker_pilotpi_default
 
 다음 방법은 CI에 배포된 동일한 도구 세트를 제공할 수 있습니다.
 
-docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 PX4-Autopilot 폴더에서 다음 명령을 실행합니다.
 
@@ -220,17 +220,13 @@ mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주
 
 기체가 제대로 작동하려면 이러한 추가 항목을 확인하여야 합니다.
 
-#### 믹서 파일
+#### Actuator Configuration
 
-믹서 파일은 `pilotpi_xx.conf`에 정의되어 있습니다.
+First set the [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) parameter for your vehicle.
 
-```sh
-mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
-```
+You will then be able to assign outputs using the normal [Actuator Configuration](../config/actuators.md) configuration screen (an output tab will appear for the RasPi PWM output driver).
 
-사용 가능한 모든 믹서는 `etc/mixers`에 저장됩니다. 직접 만들 수도 있습니다.
-
-#### 외부 나침반
+#### External Compass
 
 시작 스크립트(`*. config`)에서 다음을 찾을 수 있습니다.
 

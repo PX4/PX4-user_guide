@@ -3,7 +3,7 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
 :::
 
-[ mRo-X2.1 자동 조종 장치](http://www.mRobotics.io/)는  Pixhawk<sup>&reg;</sup> - 프로젝트 **FMUv2** 오픈 하드웨어 디자인을 기반으로합니다. PX4를 [NuttX](https://nuttx.apache.org/) OS에서 실행합니다.</p> 
+[ mRo-X2.1 자동 조종 장치](http://www.mRobotics.io/)는  Pixhawk<sup>&reg;</sup> - 프로젝트 **FMUv2** 오픈 하드웨어 디자인을 기반으로합니다. PX4를 [NuttX](https://nuttx.apache.org/) OS에서 실행합니다.
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
@@ -13,14 +13,14 @@
 
 ## 요약
 
-* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   * CPU : STM32F427VIT6 ARM<sup>&reg;</sup> 마이크로 컨트롤러 - 개정판 3
   * IO: STM32F100C8T6 ARM<sup>&reg;</sup> 마이크로 컨트롤러
-* 센서: 
+* 센서:
   * Invensense<sup>&reg;</sup> MPU9250 9DOF
   * Invensense ICM-20602 6DOF
   * MEAS MS5611 기압계
-* 크기/중량 
+* 크기/중량
   * 크기: 36mm x 50mm (수직, 수평 또는 헤더가 설치되지 않은 상태로 주문 가능)
   * 장착 지점 : 직경 30.5mm x 30.5mm 3.2mm
   * 중량: 10.9g
@@ -29,13 +29,14 @@
 
 ![Mro Pixhawk 1과 X2.1 비교](../../assets/flight_controller/mro/px1_x21.jpg)
 
+
 ## 연결성
 
 * 2.54mm 헤더 :
 * I2C가 장착 된 GPS(UART4)
 * CAN 버스
 * RC 입력
-* PPM 입력 
+* PPM 입력
 * Spektrum 입력
 * RSSI 입력
 * sBus 입력
@@ -57,10 +58,9 @@
 
 기본적으로 mRo X2.1은 PX4가 아닌 ArduPilot<sup>&reg;</sup> 용으로 미리 설정되어 제공될 수 있습니다. 이는 보드가 X2.1 대신 FMUv2로 인식될 때 펌웨어 업데이트 중에 나타납니다.
 
-이 경우 [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip)을 사용하여 부트로더를 업데이트하여합니다 이 캘리브레이션을 수행하지 않으면 나침반 방향이 잘못되어 보조 IMU는 감지되지 않을 수 있습니다.
+이 경우 [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip)을 사용하여 부트로더를 업데이트하여합니다 이 캘리브레이션을 수행하지 않으면 나침반 방향이 잘못되어 보조 IMU는 감지되지 않을 수 있습니다. 이 캘리브레이션을 수행하지 않으면 나침반 방향이 잘못되어 보조 IMU는 감지되지 않을 수 있습니다.
 
 업데이트 단계는 다음과 같습니다.
-
 1. [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip)을 다운로드하고 압축을 해제하십시오.
 2. *BL_Update_X21* 폴더를 찾으십시오. 여기에는 **rc.txt** 파일이 들어있는 **bin** 파일과 **/etc** 하위 폴더가 있습니다
 3. 이 파일을 마이크로 SD 카드의 루트 디렉토리에 복사하여 mRO x2.1에 삽입하십시오.
@@ -80,13 +80,14 @@
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
-
-    make mro_x21_default
-    
+```
+make mro_x21_default
+```
 
 ## 회로도
 
 이 보드는 mRo 하드웨어 저장수 [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf)에 문서화되어 있습니다.
+
 
 ## 시리얼 포트 매핑
 
@@ -100,4 +101,4 @@
 | UART7  | /dev/ttyS5 | SERIAL5 콘솔 |
 | UART8  | /dev/ttyS6 | SERIAL4    |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->

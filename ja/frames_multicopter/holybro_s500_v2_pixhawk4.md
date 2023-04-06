@@ -2,6 +2,10 @@
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
+:::note
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md), but at time of writing this has been upgraded to a more recent Pixhawk. This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
 ## Key information
 
 - **Frame:** Holybro S500
@@ -12,9 +16,10 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ## Bill of materials
 
-The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-propeller1045_p1153.html) includes almost all the required components:
+The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-development-kit) includes almost all the required components:
 
-* Pixhawk 4 autopilot（PM07 not included)
+* A recent Pixhawk autopilot
+  - For this log it was Pixhawk 4 but far more recent versions are now included.
 * Power Management PM02（Assembled）
 * ARM adopts high strength plastics
 * Motors - 2216 KV880（ V2 Update）
@@ -28,7 +33,8 @@ The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-pr
 * Wheelbase:480mm
 
 :::note
-No LiPo battery is included. In addition, we use a FrSky Taranis controller.
+No LiPo battery is included. 
+In addition, we use a FrSky Taranis controller.
 :::
 
 ## Hardware
@@ -242,8 +248,8 @@ Fully assembled, the kit looks as shown below:
 
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
-<span id="configure"></span>
-## Install/Configure PX4
+
+## PX4 Configuration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
@@ -256,11 +262,16 @@ First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
 
-:::note
-You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
-:::
+  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
-![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/S500_airframe.jpg)
+  ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+
+Then set the actuator outputs:
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
 
@@ -277,11 +288,12 @@ Ideally you should also do:
 * [Battery](../config/battery.md)
 * [Safety](../config/safety.md)
 
+
 ## Tuning
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
-For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## Acknowledgements
 

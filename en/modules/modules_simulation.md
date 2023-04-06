@@ -1,15 +1,15 @@
 # Modules Reference: Simulation
 
-## sih
-Source: [modules/sih](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sih)
+## simulator_sih
+Source: [modules/simulation/simulator_sih](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/simulator_sih)
 
 
 ### Description
-This module provide a simulator for quadrotors and fixed-wings running fully
+This module provides a simulator for quadrotors and fixed-wings running fully
 inside the hardware autopilot.
 
 This simulator subscribes to "actuator_outputs" which are the actuator pwm
-signals given by the mixer.
+signals given by the control allocation module.
 
 This simulator publishes the sensors signals corrupted with realistic noise
 in order to incorporate the state estimator in the loop.
@@ -22,10 +22,10 @@ Most of the variables are declared global in the .hpp file to avoid stack overfl
 
 
 
-<a id="sih_usage"></a>
+<a id="simulator_sih_usage"></a>
 ### Usage
 ```
-sih <command> [arguments...]
+simulator_sih <command> [arguments...]
  Commands:
    start
 

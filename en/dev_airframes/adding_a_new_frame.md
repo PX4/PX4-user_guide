@@ -1,243 +1,283 @@
-# Adding a New Airframe Configuration
+# Adding a Frame Configuration
 
-PX4 uses canned airframe configurations as starting point for airframes.
-The configurations are defined in [config files](#config-file) that are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) folder.
-The config files reference [mixer files](#mixer-file) that describe the physical configuration of the system, and which are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/mixers) folder.
+PX4 [frame configuration files](#configuration-file-overview) are shell scripts that set up some (or all) of the parameters, controllers and apps needed for a particular vehicle frame, such as a quadcopter, ground vehicle, or boat.
+These scripts are executed when the corresponding [airframe is selected and applied](../config/airframe.md) in _QGroundControl_.
 
-Adding a configuration is straightforward: create a new config file in the [init.d/airframes folder](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d/airframes) (prepend the filename with an unused autostart ID), add the name of your new airframe config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section, then [build and upload](../dev_setup/building_px4.md) the software.
+The configuration files that are compiled into firmware for NuttX targets are located in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder (configuration files for POSIX simulators are stored in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix/airframes)).
+The folder contains both complete and full configurations for specific vehicles, and partial "generic configurations" for different vehicle types.
+The generic configurations are often used as the starting point for creating new configuration files.
 
-Developers who do not want to create their own configuration can instead customize existing configurations using text files on the microSD card, as detailed on the [custom system startup](../concept/system_startup.md) page.
+In addition, a frame configuration file can also be loaded from an SD card.
+
+:::note
+You can also "tweak" the current frame configuration using text files on the SD card.
+This is covered in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) page.
+:::
 
 :::note
 To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
 :::
 
+## Developing a Frame Configuration
+
+The recommended process for developing a new frame configuration is:
+
+1. Start by selecting an appropriate "generic configuration" for the target vehicle type in QGC, such as _Generic Quadcopter_.
+1. Configure the [geometry and actuator outputs](../config/actuators.md).
+1. Perform other [basic configuration](../config/README.md).
+1. Tune the vehicle.
+1. Run the [`param show-for-airframe`](../modules/modules_command.md#param) console command to list the parameter difference compared to the original generic airfame.
+
+Once you have the parameters you can create a new frame configuration file by copying the configuration file for the generic configuration, and appending the new parameters.
+
+Alternatively you can just append the modified parameters to the startup configuration files described in [System Startup > Customizing the System Startup](../concept/system_startup.md#customizing-the-system-startup) ("tweaking the generic configuration").
+
+## How to add a Configuration to Firmware
+
+To add a frame configuration to firmware:
+
+1. Create a new config file in the [init.d/airframes](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d/airframes) folder.
+   - Give it a short descriptive filename and prepend the filename with an unused autostart ID (for example, `1033092_superfast_vtol`).
+   - Update the file with configuration parameters and apps (see section above).
+1. Add the name of the new frame config file to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/CMakeLists.txt) in the relevant section for the type of vehicle
+1. [Build and upload](../dev_setup/building_px4.md) the software.
+
+## How to add a Configuration to an SD Card
+
+A frame configuration file to be launched from SD card is the same as one stored in firmware.
+
+To make PX4 launch with a frame configuration, renamed it to `rc.autostart` and copy it to the SD card at `/ext_autostart/rc.autostart`.
+PX4 will find any linked files in firmware.
+
+
 ## Configuration File Overview
 
-The configuration in the config and mixer files consists of several main blocks:
+The configuration file consists of several main blocks:
 
-* Airframe documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*).
-* Vehicle-specific parameter settings, including [tuning gains](#tuning-gains).
-* The controllers and apps it should start, e.g. multicopter or fixed wing controllers, land detectors etc.
-* The physical configuration of the system (e.g. a plane, wing or multicopter). This is called a [mixer](../concept/mixing.md).
+- Documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*).
+ Airframe-specific parameter settings
+  - The configuration and geometry using [control allocation](../concept/control_allocation.md) parameters
+  - [Tuning gains](#tuning-gains)
+- The controllers and apps it should start, such as multicopter or fixed wing controllers, land detectors etc.
 
 These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
 
 :::note
-New airframe files are only automatically added to the build system after a clean build (run `make clean`).
+New frame configuration files are only automatically added to the build system after a clean build (run `make clean`).
 :::
 
-<a id="config-file"></a>
-### Config File
+### Example - Generic Quadcopter Frame Config
 
-A typical configuration file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)).
+The configuration file for a generic Quad X copter is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/4001_quad_x)).
+This is very simple, because it defines only the minimal setup common to all quadcopters.
 
-The first section is the airframe documentation.
-This is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
-```bash
+The first line is a shebang, which tells the NuttX operating system (on which PX4 runs) that the configuration file is an executable shell script.
+```
 #!/bin/sh
+```
+
+This is followed by the frame documentation.
+The `@name`, `@type` and `@class` are used to identify and group the frame in the [API Reference](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) and QGroundControl Airframe Selection.
+
+```
+# @name Generic Quadcopter
 #
-# @name Wing Wing (aka Z-84) Flying Wing
-#
-# @url https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html
-#
-# @type Flying Wing
-# @class Plane
-#
-# @output MAIN1 left aileron
-# @output MAIN2 right aileron
-# @output MAIN4 throttle
-#
-# @output AUX1 feed-through of RC AUX1 channel
-# @output AUX2 feed-through of RC AUX2 channel
-# @output AUX3 feed-through of RC AUX3 channel
+# @type Quadrotor x
+# @class Copter
 #
 # @maintainer Lorenz Meier <lorenz@px4.io>
 #
+```
+
+The next line imports generic parameters that are appropriate for all vehicles of the specified type (see [init.d/rc.mc_defaults](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rc.mc_defaults)).
+
+```
+. ${R}etc/init.d/rc.mc_defaults
+```
+
+Finally the file lists the control allocation parameters (starting with `CA_` that define the default geometry for the frame.
+These may be modified for your frame geometry in the [Actuators Configuration](../config/actuators.md), and output mappings may be added.
+
+```
+param set-default CA_ROTOR_COUNT 4
+param set-default CA_ROTOR0_PX 0.15
+param set-default CA_ROTOR0_PY 0.15
+param set-default CA_ROTOR1_PX -0.15
+param set-default CA_ROTOR1_PY -0.15
+param set-default CA_ROTOR2_PX 0.15
+param set-default CA_ROTOR2_PY -0.15
+param set-default CA_ROTOR2_KM -0.05
+param set-default CA_ROTOR3_PX -0.15
+param set-default CA_ROTOR3_PY 0.15
+param set-default CA_ROTOR3_KM -0.05
+```
+
+### Example - Babyshark VTOL Complete Vehicle
+
+A more complicated configuration file for a complete vehicle is provided below.
+This is the configuration for the Baby Shark [Standard VTOL](../frames_vtol/standardvtol.md) ([original file here](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13014_vtol_babyshark)).
+
+The shebang and documentation sections are similar to those for the generic frame, but here we also document what `outputs` are mapped to each motor and actuator.
+Note that these outputs are documentation only; the actual mapping is done using parameters.
+
+```bash
+#!/bin/sh
+#
+# @name BabyShark VTOL
+#
+# @type Standard VTOL
+# @class VTOL
+#
+# @maintainer Silvan Fuhrer <silvan@auterion.com>
+#
+# @output Motor1 motor 1
+# @output Motor2 motor 2
+# @output Motor3 motor 3
+# @output Motor4 motor 4
+# @output Motor5 Pusher motor
+# @output Servo1 Ailerons
+# @output Servo2 A-tail left
+# @output Servo3 A-tail right
+#
 # @board px4_fmu-v2 exclude
 # @board bitcraze_crazyflie exclude
+# @board holybro_kakutef7 exclude
 #
 ```
 
-The next section specifies vehicle-specific parameters, including [tuning gains](#tuning-gains):
-```bash
-. ${R}etc/init.d/rc.fw_defaults
-
-param set-default BAT_N_CELLS 2
-param set-default FW_AIRSPD_MAX 15
-param set-default FW_AIRSPD_MIN 10
-param set-default FW_AIRSPD_TRIM 13
-param set-default FW_R_TC 0.3
-param set-default FW_P_TC 0.3
-param set-default FW_L1_DAMPING 0.74
-param set-default FW_L1_PERIOD 16
-param set-default FW_LND_ANG 15
-param set-default FW_LND_FLALT 5
-param set-default FW_LND_HHDIST 15
-param set-default FW_LND_HVIRT 13
-param set-default FW_LND_TLALT 5
-param set-default FW_THR_LND_MAX 0
-param set-default FW_PR_FF 0.35
-param set-default FW_RR_FF 0.6
-param set-default FW_RR_P 0.04
-
-param set-default PWM_MAIN_DISARM 1000
-```
-
-Set frame type ([MAV_TYPE](https://mavlink.io/en/messages/common.html#MAV_TYPE)):
-```bash
-# Configure this as plane
-set MAV_TYPE 1
-```
-
-Set the [mixer](#mixer-file) to use:
-```bash
-# Set mixer
-set MIXER wingwing
-```
-
-Configure PWM outputs (specify the outputs to drive/activate, and the levels).
-```bash
-set PWM_OUT 4
-```
-
-:::warning
-If you want to reverse a channel, never do this on your RC transmitter or with e.g `RC1_REV`.
-The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal).
-Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
-:::
-
-<a id="mixer-file"></a>
-### Mixer File
-
-:::note
-First read [Concepts > Mixing](../concept/mixing.md).
-This provides background information required to interpret this mixer file.
-:::
-
-A typical mixer file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)).
-A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`).
-
-The mixer file contains several blocks of code, each of which refers to one actuator or ESC.
-So if you have e.g. two servos and one ESC, the mixer file will contain three blocks of code.
-
-:::note
-The plugs of the servos / motors go in the order of the mixers in this file.
-:::
-
-So MAIN1 would be the left aileron, MAIN2 the right aileron, MAIN3 is empty (note the Z: zero mixer) and MAIN4 is throttle (to keep throttle on output 4 for common fixed wing configurations).
-
-A mixer is encoded in normalized units from -10000 to 10000, corresponding to -1..+1.
-
-```
-M: 2
-O:      10000  10000      0 -10000  10000
-S: 0 0  -6000  -6000      0 -10000  10000
-S: 0 1   6500   6500      0 -10000  10000
-```
-
-Where each number from left to right means:
-
-* M: Indicates two scalers for two control inputs.
-  It indicates the number of control inputs the mixer will receive.
-* O: Indicates the output scaling (\*1 in negative, \*1 in positive), offset (zero here), and output range (-1..+1 here).  
-  * If you want to invert your PWM signal, the signs of the output scalings have to be changed:
-    ```
-    O:      -10000  -10000      0 -10000  10000
-    ```
-  * This line can (and should) be omitted completely if it specifies the default scaling:
-    ```
-    O:      10000  10000   0 -10000  10000
-    ```
-* S: Indicates the first input scaler: It takes input from control group #0 (Flight Control) and the first input (roll).
-  It scales the roll control input * 0.6 and reverts the sign (-0.6 becomes -6000 in scaled units).
-  It applies no offset (0) and outputs to the full range (-1..+1)
-* S: Indicates the second input scaler: It takes input from control group #0 (Flight Control) and the second input (pitch). \
-  It scales the pitch control input * 0.65.
-  It applies no offset (0) and outputs to the full range (-1..+1)
-
-:::note
-In short, the output of this mixer would be SERVO = ( (roll input \* -0.6 + 0)  \* 1 + (pitch input \* 0.65 + 0)  \* 1 ) \* 1 + 0
-:::
-
-Behind the scenes, both scalers are added, which for a flying wing means the control surface takes maximum 60% deflection from roll and 65% deflection from pitch.
-
-The complete mixer looks like this:
-
+As for the generic frame, we then include the generic VTOL defaults.
 
 ```bash
-Delta-wing mixer for PX4FMU
-===========================
+. ${R}etc/init.d/rc.vtol_defaults
+```
 
-Designed for Wing Wing Z-84
+Then we define configuration parameters and [tuning gains](#tuning-gains):
 
-This file defines mixers suitable for controlling a delta wing aircraft using
-PX4FMU. The configuration assumes the elevon servos are connected to PX4FMU
-servo outputs 0 and 1 and the motor speed control to output 3. Output 2 is
-assumed to be unused.
+```
+param set-default MAV_TYPE 22
 
-Inputs to the mixer come from channel group 0 (vehicle attitude), channels 0
-(roll), 1 (pitch) and 3 (thrust).
+param set-default BAT1_N_CELLS 6
 
-See the README for more information on the scaler format.
+param set-default FW_AIRSPD_MAX 30
+param set-default FW_AIRSPD_MIN 19
+param set-default FW_AIRSPD_TRIM 23
+param set-default FW_PN_R_SLEW_MAX 40
+param set-default FW_PSP_OFF 3
+param set-default FW_P_LIM_MAX 18
+param set-default FW_P_LIM_MIN -25
+param set-default FW_RLL_TO_YAW_FF 0.1
+param set-default FW_RR_P 0.08
+param set-default FW_R_LIM 45
+param set-default FW_R_RMAX 50
+param set-default FW_THR_TRIM 0.65
+param set-default FW_THR_MIN 0.3
+param set-default FW_THR_SLEW_MAX 0.6
+param set-default FW_T_HRATE_FF 0
+param set-default FW_T_SINK_MAX 15
+param set-default FW_T_SINK_MIN 3
+param set-default FW_YR_P 0.15
 
-Elevon mixers
--------------
-Three scalers total (output, roll, pitch).
+param set-default IMU_DGYRO_CUTOFF 15
+param set-default MC_PITCHRATE_MAX 60
+param set-default MC_ROLLRATE_MAX 60
+param set-default MC_YAWRATE_I 0.15
+param set-default MC_YAWRATE_MAX 40
+param set-default MC_YAWRATE_P 0.3
 
-The scaling factor for roll inputs is adjusted to implement differential travel
-for the elevons.
+param set-default MPC_ACC_DOWN_MAX 2
+param set-default MPC_ACC_HOR_MAX 2
+param set-default MPC_ACC_UP_MAX 3
+param set-default MC_AIRMODE 1
+param set-default MPC_JERK_AUTO 4
+param set-default MPC_LAND_SPEED 1
+param set-default MPC_MAN_TILT_MAX 25
+param set-default MPC_MAN_Y_MAX 40
+param set-default COM_SPOOLUP_TIME 1.5
+param set-default MPC_THR_HOVER 0.45
+param set-default MPC_TILTMAX_AIR 25
+param set-default MPC_TKO_RAMP_T 1.8
+param set-default MPC_TKO_SPEED 1
+param set-default MPC_VEL_MANUAL 3
+param set-default MPC_XY_CRUISE 3
+param set-default MPC_XY_VEL_MAX 3.5
+param set-default MPC_YAWRAUTO_MAX 40
+param set-default MPC_Z_VEL_MAX_UP 2
 
-This first block of code is for Servo 0...
+param set-default NAV_ACC_RAD 3
 
-M: 2
-O:      10000  10000      0 -10000  10000
-S: 0 0  -6000  -6000      0 -10000  10000
-S: 0 1   6500   6500      0 -10000  10000
+param set-default SENS_BOARD_ROT 4
 
-And this is for Servo 1...
+param set-default VT_ARSP_BLEND 10
+param set-default VT_ARSP_TRANS 21
+param set-default VT_B_DEC_MSS 1.5
+param set-default VT_B_TRANS_DUR 12
+param set-default VT_ELEV_MC_LOCK 0
+param set-default VT_FWD_THRUST_SC 1.2
+param set-default VT_F_TR_OL_TM 8
+param set-default VT_PSHER_SLEW 0.5
+param set-default VT_TRANS_MIN_TM 4
+param set-default VT_TYPE 2
+```
 
-M: 2
-O:      10000  10000      0 -10000  10000
-S: 0 0  -6000  -6000      0 -10000  10000
-S: 0 1  -6500  -6500      0 -10000  10000
+Last of all, the file defines the control allocation parameters for the geometry and the parameters that set which outputs map to different motors and servos.
 
-Note that in principle, you could implement left/right wing asymmetric mixing, but in general the two blocks of code will be numerically equal, and just differ by the sign of the third line (S: 0 1), since to roll the plane, the two ailerons must move in OPPOSITE directions.
-The signs of the second lines (S: 0 0) are indentical, since to pitch the plane, both servos need to move in the SAME direction.
+```bash
+param set-default CA_AIRFRAME 2
+param set-default CA_ROTOR_COUNT 5
+param set-default CA_ROTOR0_PX 1
+param set-default CA_ROTOR0_PY 1
+param set-default CA_ROTOR1_PX -1
+param set-default CA_ROTOR1_PY -1
+param set-default CA_ROTOR2_PX 1
+param set-default CA_ROTOR2_PY -1
+param set-default CA_ROTOR2_KM -0.05
+param set-default CA_ROTOR3_PX -1
+param set-default CA_ROTOR3_PY 1
+param set-default CA_ROTOR3_KM -0.05
+param set-default CA_ROTOR4_AX 1.0
+param set-default CA_ROTOR4_AZ 0.0
 
-Output 2
---------
-This mixer is empty.
+param set-default CA_SV_CS_COUNT 3
+param set-default CA_SV_CS0_TYPE 15
+param set-default CA_SV_CS0_TRQ_R 1.0
+param set-default CA_SV_CS1_TRQ_P 0.5000
+param set-default CA_SV_CS1_TRQ_R 0.0000
+param set-default CA_SV_CS1_TRQ_Y -0.5000
+param set-default CA_SV_CS1_TYPE 13
+param set-default CA_SV_CS2_TRQ_P 0.5000
+param set-default CA_SV_CS2_TRQ_Y 0.5000
+param set-default CA_SV_CS2_TYPE 14
 
-Z:
+param set-default PWM_MAIN_FUNC1 201
+param set-default PWM_MAIN_FUNC2 202
+param set-default PWM_MAIN_FUNC3 105
+param set-default PWM_MAIN_FUNC4 203
+param set-default PWM_MAIN_FUNC5 101
+param set-default PWM_MAIN_FUNC6 102
+param set-default PWM_MAIN_FUNC7 103
+param set-default PWM_MAIN_FUNC8 104
 
-Motor speed mixer
------------------
-Two scalers total (output, thrust).
-
-This mixer generates a full-range output (-1 to 1) from an input in the (0 - 1)
-range.  Inputs below zero are treated as zero.
-
-M: 1
-O:      10000  10000      0 -10000  10000
-S: 0 3      0  20000 -10000 -10000  10000
-
+param set-default PWM_MAIN_TIM0 50
+param set-default PWM_MAIN_DIS1 1500
+param set-default PWM_MAIN_DIS2 1500
+param set-default PWM_MAIN_DIS3 1000
+param set-default PWM_MAIN_DIS4 1500
 ```
 
 ## Adding a New Airframe Group
 
-Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html) and in the *Airframe Reference* documentation ([PX4 DevGuide](../airframes/airframe_reference.md) and [PX4 UserGuide](../airframes/airframe_reference.md)).
+Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html) and in the [Airframe Reference](../airframes/airframe_reference.md).
 Every group has a name, and an associated svg image which shows the common geometry, number of motors, and direction of motor rotation for the grouped airframes.
 
 The airframe metadata files used by *QGroundControl* and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
 
-For a new airframe belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at
-[ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d).
+For a new frame belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at
+[ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d).
 
 If the airframe is for a **new group** you additionally need to:
-1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
-1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): 
-   ```
+1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/PX4-user_guide/tree/master/assets/airframes/types)
+1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): 
+   ```python
    def GetImageName(self):
        """
        Get parameter group image base name (w/o extension)
@@ -247,7 +287,7 @@ If the airframe is for a **new group** you additionally need to:
        elif (self.name == "Flying Wing"):
            return "FlyingWing"
         ...
-	...
+    ...
        return "AirframeUnknown"
    ```
 1. Update *QGroundControl*:
@@ -266,19 +306,19 @@ If the airframe is for a **new group** you additionally need to:
    The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
    :::
 
-
 ## Tuning Gains
 
 The following topics explain how to tune the parameters that will be specified in the config file:
 
+* [Autotuning](../config/autotune.md)
 * [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
 * [Fixed Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
 * [VTOL Configuration](../config_vtol/README.md)
 
 
-## Add New Airframe to QGroundControl
+## Add Frame to QGroundControl
 
-To make a new airframe available for section in the *QGroundControl* [airframe configuration](../config/airframe.md):
+To make a new airframe available for section in the *QGroundControl* [frame configuration](../config/airframe.md):
 
 1. Make a clean build (e.g. by running `make clean` and then `make px4_fmu-v5_default`)
 1. Open QGC and select **Custom firmware file...** as shown below:
@@ -290,4 +330,4 @@ To make a new airframe available for section in the *QGroundControl* [airframe c
 1. Press **OK** to start flashing the firmware.
 1. Restart *QGroundControl*.
 
-The new airframe will then be available for selection in *QGroundControl*.
+The new frame will then be available for selection in *QGroundControl*.

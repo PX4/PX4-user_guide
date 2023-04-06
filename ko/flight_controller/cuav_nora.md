@@ -3,7 +3,7 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.cuav.net)에 문의하십시오.
 :::
 
-[Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> 비행 컨트롤러는 고성능 자동조종장치입니다. 산업용 드론과 대형 대형 드론에 적합합니다. 주로 상용 제조업체에 공급됩니다.
+The [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. 산업용 드론과 대형 대형 드론에 적합합니다. 주로 상용 제조업체에 공급됩니다.
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora.png)
 
@@ -20,13 +20,13 @@ Nora는 CUAV X7의 변종입니다. 통합 마더 보드(소프트와 하드 보
 * USB_HS 지원, 로그 다운로드 속도 향상(PX4는 아직 지원되지 않음)
 * 더 많은 dshot 출력 지원
 * IMU 가열 지원, 센서 작동 개선
-* 전용 uavcan 배터리 포트
+* Dedicated CAN battery port
 * IMU 센서 3 세트
 * 자동차 등급 RM3100 나침반
 * 고성능 프로세서
 
 :::tip
-제조업체 [CUAV 문서](https://doc.cuav.net/x7/en/nora.html)는 Nora의 표준입니다. 가장 정확한 최신 정보를 포함하고 있습니다.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora. 가장 정확한 최신 정보를 포함하고 있습니다.
 :::
 
 
@@ -47,8 +47,8 @@ Nora는 CUAV X7의 변종입니다. 통합 마더 보드(소프트와 하드 보
    * 2 개의 GPS 포트(GPS 및 UART4 포트)
    * i2c 버스 4 개(i2c 전용 포트 2 개)
    * CAN 버스 포트 2 개
-   * 2개의 전원 포트(전원 A는 일반적인 adc 인터페이스, 전원 C는 uavcan 배터리 인터페이스)
-   * 2개의 ADC 입력
+   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
+   * 2  ADC input
    * USB 포트 1 개
 * 전원시스템
   * 전원: 4.3~5.4V
@@ -62,10 +62,12 @@ Nora는 CUAV X7의 변종입니다. 통합 마더 보드(소프트와 하드 보
   * 온도 보상 지원
   * 내부 충격 흡수
 
-:::note PX4 펌웨어를 실행하면, 8개의 PWM 출력만 작동합니다. 나머지 6 개의 PWM 포트는 여전히 조정중입니다(따라서 작성시 VOLT와 호환되지 않음).
+:::note
+PX4 펌웨어를 실행하면, 8개의 PWM 출력만 작동합니다.
+나머지 6 개의 PWM 포트는 여전히 조정중입니다(따라서 작성시 VOLT와 호환되지 않음).
 :::
 
-## 구매처
+## Where to Buy
 
 - [CUAV 상점](https://store.cuav.net)<\br>
 - [CUAV 알리익스프레스](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
@@ -73,7 +75,7 @@ Nora는 CUAV X7의 변종입니다. 통합 마더 보드(소프트와 하드 보
 
 ## 배선
 
-[CUAV Nora 배선 개요](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+[CUAV Nora 배선 퀵 스타트](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
 ## 크기와 핀배열
 
@@ -149,6 +151,6 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 
 ## 추가 정보
 
-* [빠른 시작](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+* [빠른 시작](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 * [CUAV 문서](http://doc.cuav.net)
 * [nora 회로도](https://github.com/cuav/hardware/tree/master/X7_Autopilot)

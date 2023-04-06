@@ -59,7 +59,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 
 
-## Purchase
+## Where to Buy
 
 * [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
@@ -83,7 +83,7 @@ make mro_ctrl-zero-f7
 ### Console Port
 
 The [PX4 System Console](../debug/system_console.md) runs on `USART7` using the pins listed below.
-This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/en/products/detail/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
 mRo control zero f7 | | FTDI | 
 --- | --- | --- | ---
@@ -121,8 +121,8 @@ UART7 | /dev/ttyS4 | CONSOLE
 UART8 | /dev/ttyS5  | Free serial port (typically for FrSky telemetry)
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
 
 
 

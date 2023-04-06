@@ -4,10 +4,8 @@
 
 :::note
 이 지침은 일반 사용자에게는 권장되지 않습니다. 기본 설정은 아래의 지침을 참고하십시오.
-
-- [비행 컨트롤러 방향 ](../config/flight_controller_orientation.md)
-- [수평 보정](../config/level_horizon_calibration.md)
-:::
+* [비행 컨트롤러 방향 ](../config/flight_controller_orientation.md)
+* [수평 보정](../config/level_horizon_calibration.md) :::
 
 기체가 계속 쏠린다면(멀티로터에서 종종 볼 수 있지만, 다른 기체에도 해당됨), RC 송신기의 트리머를 활용하기 보다는 오프셋 각도 매개변수를 미세 조정하여 트리밍하는 것이 좋습니다. 이 방법은 자율 비행시 항공기가 트리밍을 유지합니다.
 
@@ -17,6 +15,7 @@
 
 1. QGroundControl에서 다음 메뉴를 오픈합니다: **설정 > 매개변수 > 센서 보정**.
 2. 아래와 같이 매개변수 값을 변경합니다.![비행 제어장치 방향 QGC v2 ](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
+
 
 ## 매개변수 정보
 
@@ -53,13 +52,14 @@
 - 24 = Pitch 90°
 - 25 = Pitch 270°
 
+
 **SENS_BOARD_X_OFF**
 
 PX4FMU의 X축 또는 Roll 축을 중심의 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계반대 방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
 
 **SENS_BOARD_Y_OFF**
 
-PX4FMU의 Y축 또는 Pitch 축을 중심의 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계 반대방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
+PX4FMU의 Y축 또는 Pitch 축을 중심의 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계반대 방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
 
 **SENS_BOARD_Z_OFF**
 

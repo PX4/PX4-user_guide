@@ -2,8 +2,7 @@
 
 이 섹션은 ECL EKF 알고리즘에 관한 질문에 대한 답변들입니다.
 
-:::tip
-*PX4 Developer Summit 2019*의 [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) 비디오 (Dr. Paul Riseborough) 추정기에 대한 개요와 2018년과 2019년의 주요 변경 사항과 2020년의 개선 사항을 설명합니다.
+Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html) :::note The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag).
 :::
 
 ## ECL EKF는 무엇입니까?
@@ -19,7 +18,7 @@ ECL(Estimation and Control Library)은 EKF(Extended Kalman Filter) 알고리즘�
 * 기체 프레임 자기장 바이어스 - X,Y,Z \(gauss\)
 * 풍속 - 북쪽, 동쪽 \(m/s\)
 
-EKF는 IMU와 관련된 각 측정에서 다른 시간 지연을 허용하기 위하여, 지연된 '융합 시간 지평'에서 실행됩니다. 각 센서의 데이터는 FIFO 버퍼링되고, EKF에 의해 버퍼에서 검색되어 적절한 시간에 사용됩니다. 각 센서에 대한 지연 보상은 [EKF2 _*_DELAY](../advanced_config/parameter_reference.md#ekf2) 매개변수로 제어합니다.
+EKF는 IMU와 관련된 각 측정에서 다른 시간 지연을 허용하기 위하여, 지연된 '융합 시간 지평'에서 실행됩니다. 각 센서의 데이터는 FIFO 버퍼링되고, EKF에 의해 버퍼에서 검색되어 적절한 시간에 사용됩니다. The delay compensation for each sensor is controlled by the [EKF2_\*\_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
 
 보완 필터는 버퍼링 된 IMU 데이터를 사용하여 '퓨전 시간 수평선'에서 현재 시간으로 상태를 전달하는 데 사용됩니다. 이 필터의 시간 상수는 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 및 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 매개변수로 제어합니다.
 
@@ -46,7 +45,7 @@ EKF는 상태 예측에만 IMU 데이터를 사용합니다. IMU 데이터는 EK
 
 IMU와 자력계의 갯수와 자동조종장치의 CPU 용량에 따라 EKF 다중 인스턴스를 실행이 가능합니다. 이는 광범위한 센서 오류에 대한 보호를 제공하며, 서로 다른 센서 조합을 사용하는 EKF 인스턴스에서 달성됩니다. EKF 인스턴스의 내부 일관성을 비교함으로써 EKF 선택기는 최상의 데이터 일관성으로 EKF와 센서 조합을 결정할 수 있습니다. 이를 통하여 IMU 바이어스의 갑작스런 변화, 포화 또는 고착된 데이터 등과 같은 오류를 감지하고 격리할 수 있습니다.
 
-총 EKF 인스턴스 수는 [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) 및 [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG)에서 선택한 IMU 수와 자력계 수의 곱이며 공식은 다음과 같습니다.
+총 EKF 인스턴스 수는 [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) 및 [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG)에서 선택한 IMU 수와 자력계 수의 곱이며  공식은 다음과 같습니다.
 
 > N_instances = MAX([EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) , 1) x MAX([EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) , 1)
 
@@ -68,16 +67,16 @@ IMU와 자력계의 갯수와 자동조종장치의 CPU 용량에 따라 EKF 다
 다중 EKF 인스턴스에 대한 설정은 다음 매개변수로 제어됩니다.
 
 * [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) : IMU 센서 다양성 (예 : [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) > 1)으로 다중 EKF 인스턴스를 실행하는 경우 0으로 설정합니다.
-  
+
   1 (단일 EKF 작동의 기본값)로 설정하면 센서 모듈이 EKF에서 사용하는 IMU 데이터를 선택합니다. 이것은 센서의 데이터 손실에 대한 보호 기능를 제공하지만, 잘못된 센서 데이터에 대해서는 보호하지 않습니다. 0으로 설정하면 센서 모듈이 선택하지 않습니다.
 
 * [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) : 자력계 센서 다양성 (예 : [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) > 1)으로 다중 EKF 인스턴스를 실행하는 경우 0으로 설정합니다.
-  
+
   1 (단일 EKF 작동의 기본값)로 설정하면 센서 모듈이 EKF에서 사용하는 자력계 데이터를 선택합니다. 이것은 센서의 데이터 손실에 대한 보호 기능를 제공하지만, 잘못된 센서 데이터에 대해서는 보호하지 않습니다. 0으로 설정하면 센서 모듈이 선택하지 않습니다.
 
 * [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) : 이 매개변수는 다중 EKF에서 사용하는 IMU 센서의 수를 지정합니다. `EKF2_MULTI_IMU` <= 1이면 첫 번째 IMU 센서만 사용됩니다. [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1이면 센서 모듈에서 선택한 센서가됩니다. `EKF2_MULTI_IMU`> = 2이면 지정된 수의 IMU 센서에 대해 최대 4 개 또는 존재하는 IMU 수까지 별도의 EKF 인스턴스가 실행됩니다.
 
-* [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) : 이 매개변수는 다중 EKF에서 사용하는 자력계 센서의 수를 지정합니다. `EKF2_MULTI_MAG` <= 1이면 첫 번째 자력계 센서만 사용됩니다. [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1이면 센서 모듈에서 선택한 센서가 사용됩니다. `EKF2_MULTI_MAG`> = 2이면 별도의 EKF 인스턴스가 지정된 수의 자력계 센서에 대해 최대 4 개 또는 존재하는 자력계의 수보다 작은 수에 대하여 실행됩니다.
+* [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG): This parameter specifies the number of magnetometer sensors used by the multiple EKF's If `EKF2_MULTI_MAG` <= 1, then only the first magnetometer sensor will be used. [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1이면 센서 모듈에서 선택한 센서가 사용됩니다. `EKF2_MULTI_MAG`> = 2이면 별도의 EKF 인스턴스가 지정된 수의 자력계 센서에 대해 최대 4 개 또는 존재하는 자력계의 수보다 작은 수에 대하여 실행됩니다.
 
 :::note
 다중 EKF 인스턴스 비행 로그의 [EKF2 재생](../debug/system_wide_replay.md#ekf2-replay)은 지원되지 않습니다. EKF 재생을 위해 녹화를 활성화하려면 [단일 EKF 인스턴스](#running-a-single-ekf-instance)를 활성화하도록 매개변수를 설정하여야 합니다.
@@ -95,87 +94,131 @@ EKF에는 다양한 센서 측정 조합으로 작동하는 여러가지 모드�
 
 ### 자력계
 
-최소 5Hz 속도의 3축 본체 고정 자력계 데이터 (또는 외부 비전 시스템 포즈 데이터)가 필요합니다. 자력계 데이터는 두 가지 방법으로 사용할 수 있습니다.
+최소 5Hz 속도의 3축 본체 고정 자력계 데이터 (또는 외부 비전 시스템 포즈 데이터)가 필요합니다.
 
-* 자력계는 기울기 추정과 자기 편각을 사용하여 요 각도를 측정합니다. 이 요 각도는 EKF에서 관찰로 사용됩니다. 이 방법은 정확도가 떨어지고, 본체 필드 오프셋의 학습을 허용하지 않지만, 자기 이상과 대규모 스타트업 자이로 바이어스에 더 강력합니다. 지상에서 시동에 사용되는 기본 방법입니다.
-* XYZ 자력계 판독 값은 별도의 관측치로 사용됩니다. 이 방법은 더 정확하고 본체 프레임 오프셋을 학습할 수 있지만, 지구 자기장 환경이 느리게 변하고 심각한 외부 자기 이상이있을 때 성능이 저하된다고 가정합니다.
+자력계 데이터는 두 가지 방법으로 사용할 수 있습니다.
 
-이러한 모드를 선택하는 데 사용되는 로직은 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 매개변수로 설정됩니다.
+- 자력계는 기울기 추정과 자기 편각을 사용하여 요 각도를 측정합니다. The yaw angle is then used as an observation by the EKF.
+  - 이 방법은 정확도가 떨어지고, 본체 필드 오프셋의 학습을 허용하지 않지만, 자기 이상과 대규모 스타트업 자이로 바이어스에 더 강력합니다.
+  - 지상에서 시동에 사용되는 기본 방법입니다.
+- XYZ 자력계 판독 값은 별도의 관측치로 사용됩니다.
+  - This method is more accurate but requires that the magnetometer biases are correctly estimated.
+    - The biases are observable while the drone is rotating and the true heading is observable when the vehicle is accelerating (linear acceleration).
+    - Since the biases can change and are only observable when moving, it is safer to switch back to heading fusion when not moving.
+  - It assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
+  - This is the default method used when the vehicle is moving.
 
-이 옵션은 [이중 안테나 GPS에서 yaw](#yaw_measurements)를 사용하여 교체하거나 IMU와 GPS 속도 데이터를 사용하여 [차량 움직임에서 요를 추정](#yaw_from_gps_velocity)하여 자력계 없이 작동할 수 있습니다.
+이러한 모드를 선택하는 데 사용되는 로직은 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 매개변수로 설정됩니다. The default 'Automatic' mode (`EKF2_MAG_TYPE=0`) is recommended as it uses the more robust magnetometer yaw on the ground, and more accurate 3-axis magnetometer when moving. Setting '3-axis' mode all the time (`EKF2_MAG_TYPE=2`) is more error-prone, and requires that all the IMUs are well calibrated.
+
+The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw-measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw-from-gps-velocity).
 
 ### 고도
 
-고도 데이터 소스 - GPS, 기압, 거리 측정기 또는 최소 5Hz 속도의 외부 비전이 필요합니다.
+A source of height data - GPS, barometric pressure, range finder, external vision or a combination of those at a minimum rate of 5Hz is required.
 
-:::note
-높이 데이터의 기본 소스는 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수에 의해 제어됩니다.
-:::
+If none of the selected measurements are present, the EKF will not start. 이러한 측정이 감지되면, EKF는 상태를 초기화하고 틸트와 요 정렬을 완료합니다. 틸트와 요 정렬이 완료되면 EKF는 추가 센서 데이터를 사용할 수 있는 모드로 전환할 수 있습니다.
 
-이러한 측정 값이 없으면, EKF가 시작되지 않습니다. 이러한 측정이 감지되면, EKF는 상태를 초기화하고 틸트와 요 정렬을 완료합니다. 틸트와 요 정렬이 완료되면 EKF는 추가 센서 데이터를 사용할 수 있는 모드로 전환할 수 있습니다.
+Each height source can be enabled/disabled using its dedicated control parameter:
+
+- [GNSS/GPS](#gnss-gps): [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL)
+- [Barometer](#barometer): [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL)
+- [Range finder](#range-finder): [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL)
+- [External vision](#external-vision-system): Enabled when [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) is set to "Vision"
+
+Over the long term the height estimate follows the "reference source" of height data. This reference is defined by the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter.
+
+#### Typical configurations
+
+|                           | [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) | [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) |
+| ------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Outdoor (default)         | 7 (Lon/lat/alt/vel)                                                        | 1 (enabled)                                                                  | 1 ([conditional](#conditional-range-aiding))                               | 1 (GNSS)                                                                 |
+| Indoor (non-flat terrain) | 0 (disabled)                                                               | 1 (enabled)                                                                  | 1 ([conditional](#conditional-range-aiding))                               | 2 (range)                                                                |
+| Indoor (flat terrain)     | 0 (disabled)                                                               | 1 (enabled)                                                                  | 2 ([always enabled](#range-height-fusion))                                 | 2 (range)                                                                |
+| External vision           | As required                                                                | As required                                                                  | As required                                                                | 3 (vision)                                                               |
+
+### Barometer
+
+Enable/disable using [EKF2_BARO_CTRL](../advanced_config/parameter_reference.md#EKF2_BARO_CTRL) as a source for [Height](#height) data.
+
+Note that data from only one barometer is fused, even if multiple barometers are available. The barometer with the highest [CAL_BAROx_PRIO](../advanced_config/parameter_reference.md#CAL_BARO0_PRIO) priority value is selected first, falling back to the next highest priority barometer if a sensor fault is detected. If barometers have equal-highest priorities, the first detected is used. A barometer can be completely disabled as a possible source by setting its `CAL_BAROx_PRIO` value to `0` (disabled).
+
+See [Height](#height) more details about the configuration of height sources.
 
 #### 정압 위치 오차 보정
 
-기압 고도는 차량 풍속과 방향으로 인한 공기 역학적 장애로 인해 발생하는 오류가 존재합니다. 이것은 항공학에서 *정압 위치 오류*로 알려져 있습니다. ECL/EKF2 추정기 라이브러리를 사용하는 EKF2 모듈은 풍속 상태 추정이 활성화된 경우, 오류 보상 방법을 제공합니다.
+기압 고도는 차량 풍속과 방향으로 인한 공기 역학적 장애로 인해 발생하는 오류가 존재합니다. 기압 고도는 차량 풍속과 방향으로 인한 공기 역학적 장애로 인해 발생하는 오류가 존재합니다. ECL/EKF2 추정기 라이브러리를 사용하는 EKF2 모듈은 풍속 상태 추정이 활성화된 경우, 오류 보상 방법을 제공합니다.
 
 고정익에서 작동하는 플랫폼의 경우 풍속 상태 추정에는 [대기속도](#airspeed) 또는 [Synthetic Sideslip](#synthetic-sideslip) 융합이 활성화되어 있어야 합니다.
 
 멀티콥터의 경우 [Drag Specific Forces](#mc_wind_estimation_using_drag)의 융합을 활성화하고 조정하여 필요한 풍속 상태 추정치를 제공할 수 있습니다.
 
-EKF2 모듈은 오류를 높이 추정치로 변환하기 전에, 기압에서 더하거나 빼는 동적 압력의 비율을 지정하는 신체 고정 타원체로 오류를 모델링합니다. 이 기능을 사용하는 방법에 대한 정보는 아래의 매개변수 문서를 참조하십시오.
+The EKF2 module models the error as a body fixed ellipsoid that specifies the fraction of dynamic pressure that is added to/subtracted from the barometric pressure - before it is converted to a height estimate.
 
-* [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
-* [EKF2_PCOEF_XN](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN)
-* [EKF2_PCOEF_YP](../advanced_config/parameter_reference.md#EKF2_PCOEF_YP)
-* [EKF2_PCOEF_YN](../advanced_config/parameter_reference.md#EKF2_PCOEF_YN)
-* [EKF2_PCOEF_Z](../advanced_config/parameter_reference.md#EKF2_PCOEF_Z)
+A good tuning is obtained as follows:
 
-### GPS
+1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
+2. Extract the `.ulg` log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html)
+
+:::note
+The same log file can be used to tune the [multirotor wind estimator](#mc_wind_estimation_using_drag).
+:::
+3. Use the log with the [baro_static_pressure_compensation_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/baro_static_pressure_compensation) Python script to obtain the optimal set of parameters.
+
+Tuning parameters:
+
+- [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
+- [EKF2_PCOEF_XN](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN)
+- [EKF2_PCOEF_YP](../advanced_config/parameter_reference.md#EKF2_PCOEF_YP)
+- [EKF2_PCOEF_YN](../advanced_config/parameter_reference.md#EKF2_PCOEF_YN)
+- [EKF2_PCOEF_Z](../advanced_config/parameter_reference.md#EKF2_PCOEF_Z)
+
+#### Barometer bias compensation
+
+A barometer at a constant altitude is subject to drift in its measurements due to changes in the ambient pressure environment or variations of the sensor temperature. To compensate for this measurement error, EKF2 estimates the bias using GNSS height (if available) a "non drifting" reference. No tuning is required.
+
+### GNSS/GPS
 
 #### 위치 및 속도 측정
 
-아래의 조건이 충족되면 GPS를 사용하여 위치와 속도를 측정합니다.
+GPS measurements will be used for position and velocity if the following conditions are met:
 
-* GPS 사용은 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수로 활성화됩니다.
+* GPS use is enabled via setting of the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
 * GPS 품질 검사를 통과하였습니다. 이 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 및 `EKF2_REQ _*` 매개변수에 의해 제어됩니다.
-* GPS 고도는 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수 설정을 통해 EKF에서 직접 사용할 수 있습니다.
 
-<span id="yaw_measurements"></span>
+For more details about the configuration of height sources, [click here](#height).
 
 #### 방향(Yaw) 측정
 
-[Trimble MB-Two RTK GPS 수신기](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx)와 같은 GPS 수신기는 방향 측정을 제공하여 자력계를 대체할 수 있습니다. 이것은 자기 이상이 강한 환경이나 지구의 자기장이 높은 기울기를 갖는 환경에서 매우 유용합니다. [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개 변수에서 비트 위치 7을 1 (128 추가)로 설정하면 GPS 방향측정을 사용할 수 있습니다.
-
-<span id="yaw_from_gps_velocity"></span>
+Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data. This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination. Use of GPS yaw measurements is enabled by setting bit position 3 to 1 (adding 8) in the [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter.
 
 #### GPS 방향 측정
 
-EKF는 상태가 북동향 속도 및 편요각인 여러 3상 EKF(Extended Kalman Filter)를 사용하는 추가 다중 가설 필터를 내부적으로 실행합니다. 이러한 개별 요각 추정값은 GSF(Gaussian Sum Filter)를 사용하여 결합됩니다. 개별 3상 EKF는 IMU와 GPS 수평 속도 데이터(선택 사항인 대기 속도 데이터 포함)를 사용하며 요각 또는 자력계 측정에 대한 사전 지식에 의존하지 않습니다. 이것은 메인 필터에서 yaw에 대한 백업을 제공하며, 이륙후 탐색 손실이 자력계의 yaw 추정치가 좋지 않을 때, 메인 24 상태 EKF에 대한 yaw를 재설정하는 데 사용됩니다. 이로 인하여, GCS에서 `긴급 요 재설정 - 자기계 사용 중지` 메시지 정보 메시지가 표시됩니다.
+The EKF runs an additional multi-hypothesis filter internally that uses multiple 3-state Extended Kalman Filters (EKF's) whose states are NE velocity and yaw angle. These individual yaw angle estimates are then combined using a Gaussian Sum Filter (GSF). The individual 3-state EKF's use IMU and GPS horizontal velocity data (plus optional airspeed data) and do not rely on any prior knowledge of the yaw angle or magnetometer measurements. This provides a backup to the yaw from the main filter and is used to reset the yaw for the main 24-state EKF when a post-takeoff loss of navigation indicates that the yaw estimate from the magnetometer is bad. This will result in an `Emergency yaw reset - magnetometer use stopped` message information message at the GCS.
 
-이 추정기의 데이터는 EKF2 재생 로깅이 활성화된 경우 기록되며 `yaw_estimator_status` 메시지에서 조회 가능합니다. 개별 3상 EKF yaw 추정기의 개별 yaw 추정치는 `yaw` 필드에 있습니다. GSF 결합 yaw 추정치는 `yaw_composite` 필드에 있습니다. GSF yaw 추정값의 분산은 `yaw_variance` 필드에 있습니다. 모든 각도는 라디안을 사용합니다. GSF의 개별 3상 EKF 출력에 적용하는 가중치는 `weight` 필드에 있습니다.
+Data from this estimator is logged when ekf2 replay logging is enabled and can be viewed in the `yaw_estimator_status` message. The individual yaw estimates from the individual 3-state EKF yaw estimators are in the `yaw` fields. The GSF combined yaw estimate is in the `yaw_composite` field. The variance for the GSF yaw estimate is in the `yaw_variance` field. All angles are in radians. Weightings applied by the GSF to the individual 3-state EKF outputs are in the`weight` fields.
 
-이는 또한 이륙후 약간의 수평 이동을 수행하여 yaw를 관찰할 수있는 경우에는 자력계 데이터 또는 yaw 측정 이중 GPS 수신기 없이 작동할 수 있습니다. 이 기능을 사용하려면 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE)을 `없음` (5)으로 설정하여 자력계 사용을 비활성화합니다. 기체가 요를 관찰 가능하도록 충분히 수평 이동을 수행하면 주 24상 EKF가 요를 GSF 추정에 맞춰 정렬하고 GPS 사용을 시작합니다.
+This also makes it possible to operate without any magnetometer data or dual antenna GPS receiver for yaw provided some horizontal movement after takeoff can be performed to enable the yaw to become observable. To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to `none` (5) to disable magnetometer use. Once the vehicle has performed sufficient horizontal movement to make the yaw observable, the main 24-state EKF will align it's yaw to the GSF estimate and commence use of GPS.
 
 #### 이중 수신기
 
-GPS 수신기의 데이터는 보고된 정확도를 기반으로 데이터에 가중치를 부여하는 알고리즘을 사용하여 혼합할 수 있습니다 (두 수신기가 동일한 속도로 데이터를 출력하고 동일한 정확도를 사용하는 경우가 가장 효과적입니다). 또한, 이 메커니즘은 수신기의 데이터가 손실된 경우 자동 장애 조치를 제공합니다 (예를 들어, 표준 GPS를보다 정확한 RTK 수신기에 대한 백업으로 사용할 수 있음). This is controlled by the [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter.
+Data from GPS receivers can be blended using an algorithm that weights data based on reported accuracy (this works best if both receivers output data at the same rate and use the same accuracy). The mechanism also provides automatic failover if data from a receiver is lost (it allows, for example, a standard GPS to be used as a backup to a more accurate RTK receiver). This is controlled by the [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter.
 
-The [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracy metrics are used to decide how much each receiver output contributes to the blended solution. Where different receiver models are used, it is important that the [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter is set to a value that uses accuracy metrics that are supported by both receivers. 예를 들어, 두 수신기의 드라이버가 `vehicle_gps_position` 메시지의 `s_variance_m_s` 필드에 비교 가능한 값을 게시하지 않는 한 비트 위치 0을 `true`로 설정하지 마십시오. 정확도가 정의되는 방식(예: CEP 대 1- 시그마 등)이 다르므로, 제조업체가 다른 수신기에서는 정확하지 않을 수 있습니다.
+The [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracy metrics are used to decide how much each receiver output contributes to the blended solution. Where different receiver models are used, it is important that the [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) parameter is set to a value that uses accuracy metrics that are supported by both receivers. For example do not set bit position 0 to `true` unless the drivers for both receivers publish values in the `s_variance_m_s` field of the `vehicle_gps_position` message that are comparable. This can be difficult with receivers from different manufacturers due to the different way that accuracy is defined, e.g. CEP vs 1-sigma, etc.
 
-설치 중에 다음 항목들을 확인하여야 합니다.
+The following items should be checked during setup:
 
 * 두 번째 수신기의 데이터가 있는 지 확인합니다. 이는 `vehicle_gps_position_1`으로 기록되며 `listener vehicle_gps_position -i 1` 명령을 사용하여 *nsh 콘솔*을 통해 연결되었을 때 확인할 수 있습니다. [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 매개변수를 올바르게 설정하여야 합니다.
-* 각 수신기에서 `s_variance_m_s`, `eph` 및 `epv` 데이터를 확인하고 사용할 수있는 정확도 메트릭을 결정합니다. If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 3 is recommended. Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 2. 비트 위치 2는 GPS가 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수를 사용하여 기본 고도 소스로 선택되었고 두 수신기 모두 합리적인 `epv` 데이터를 출력하는 경우에만 설정됩니다.
+* 각 수신기에서 `s_variance_m_s`, `eph` 및 `epv` 데이터를 확인하고 사용할 수있는 정확도 메트릭을 결정합니다. If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 3 is recommended. Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [SENS_GPS_MASK](../advanced_config/parameter_reference.md#SENS_GPS_MASK) to 2. Bit position 2 would only be set if the GPS had been selected as the reference height source with the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter and both receivers output sensible `epv` data.
 * 혼합 수신기 데이터의 출력은 `ekf_gps_position`으로 기록되며, `listener ekf_gps_position` 명령을 사용하여 nsh 터미널을 연결하여 확인할 수 있습니다.
 * 수신기가 다른 속도로 출력하는 경우에는 혼합 출력은 더 느린 수신기의 속도로 결정됩니다. 가능한 경우 수신기는 동일한 속도로 출력하도록 설정하는 것이 바람직합니다.
 
 #### GNSS 성능 요구 사항
 
-ECL 탐색을 위한 GNSS 데이터를 허용하려면 [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (기본적으로 10 초)에 정의 된 일정 기간 동안 특정 최소 요구 사항을 충족하여야 합니다.
+For the ECL to accept GNSS data for navigation, certain minimum requirements need to be satisfied over a period of time, defined by [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (10 seconds by default).
 
-최소값은 [EKF2_REQ _*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) 매개변수에 정의되어 있으며, 각 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 매개변수를 사용하여 활성화/비활성화 할 수 있습니다.
+Minima are defined in the [EKF2_REQ_\*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be enabled/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
 
-아래의 표는 GNSS 데이터에서 직접 보고되거나 계산된 다양한 메트릭과 ECL에서 사용할 데이터에 필요한 최소치를 나타냅니다. 또한 *평균값*은 표준 GNSS 모듈(예 : u-blox M8 시리즈)에서 합리적으로 얻을 수있는 일반적인 값(양호/허용되는 값)을 나타냅니다.
+The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL. In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. u-blox M8 series) - i.e. values that are considered good/acceptable.
 
 | 메트릭             | 최소 요구 사항                                                                                    | 평균   | 단위  | 참고                                                                                                              |
 | --------------- | ------------------------------------------------------------------------------------------- | ---- | --- | --------------------------------------------------------------------------------------------------------------- |
@@ -191,81 +234,151 @@ ECL 탐색을 위한 GNSS 데이터를 허용하려면 [EKF2_REQ_GPS_H](../advan
 | vspd            | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 보고된 GNSS 수직 속도의 필터링 크기.                                                                                         |
 
 :::note
-`hpos_drift_rate`, `vpos_drift_rate` 및 `hspd`는 10초 동안 계산되며 `ekf2_gps_drift` 토픽에 게시됩니다. `ekf2_gps_drift`는 로그에 기록되지 않습니다!
+The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
 :::
 
 ### 거리 측정기
 
-지면까지의 거리 측정기는 단일 상태 필터에서 높이 기준을 기준으로 지형의 수직 위치를 추정합니다.
+[Range finder](../sensor/rangefinders.md) distance to ground is used by a single state filter to estimate the vertical position of the terrain relative to the height datum.
 
-높이가 0인 기준으로 사용할 수 있는 평평한 표면에서 작동하는 경우 EKF에서 직접 범위 파인더 데이터를 사용하여 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수를 2로 설정하여 높이를 추정 할 수 있습니다.
+The fusion modes of operation are controlled by [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL):
+
+1. [Conditional range aiding](#conditional-range-aiding)
+1. [Range height fusion](#range-height-fusion)
+
+For more details about the configuration of height sources, [click here](#height).
+
+#### Conditional range aiding
+
+Conditional range finder fusion (a.k.a. *Conditional range aid*) activates the range finder fusion for height estimation during low speed/low altitude operation (in addition to the other active height sources). If the range finder is set as the reference height source (using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)), the other active height sources such as baro and GNSS altitude will adjust their measurement to match the readings of the range finder over time. When the conditions are not met to start range aiding, a secondary reference is automatically selected.
+
+:::note
+Switching between height references causes the absolute altitude estimate to drift over time.
+This isn't an issue when flying in position mode but can be problematic if the drone is supposed to fly a mission at a specific GNSS altitude.
+If the absolute altitude drift is unwanted, it is recommended to set the GNSS altitude as the height reference, even when using conditional range aid.
+:::
+
+It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
+
+Range aid may also be used to improve altitude hold when the vehicle is stationary.
+
+:::tip
+[Terrain Hold](../flying/terrain_following_holding.md#terrain_hold) is recommended over *Range Aid* for terrain holding. This is because terrain hold uses the normal ECL/EKF estimator for determining height, and this is generally more reliable than a distance sensor in most conditions.
+:::
+
+*Conditional range aid* is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) = "Enabled (conditional mode)" (1).
+
+It is further configured using the `EKF2_RNG_A_` parameters:
+- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizontal speed, above which range aid is disabled.
+- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
+
+#### Range height fusion
+
+PX4 allows you to continuously fuse the range finder as a source of height (in any flight mode/vehicle type). This may be useful for applications when the vehicle is *guaranteed* to only fly over a near-flat surface (e.g. indoors).
+
+When using a distance sensor as a height source, fliers should be aware:
+
+- Flying over obstacles can lead to the estimator rejecting rangefinder data (due to internal data consistency checks), which can result in poor altitude holding while the estimator is relying purely on accelerometer estimates.
+
+  :::note
+This scenario might occur when a vehicle ascends a slope at a near-constant height above ground, because the rangefinder altitude does not change while that estimated from the accelerometer does.
+The EKF performs innovation consistency checks that take into account the error between measurement and current state as well as the estimated variance of the state and the variance of the measurement itself.
+If the checks fail the rangefinder data will be rejected, and the altitude will be estimated from the accelerometer and the other selected height sources (GNSS, baro, vision), if enabled and available
+After 5 seconds of inconsistent data if the distance sensor is the active source oh height data, the estimator resets the height state to match the current distance sensor data.
+If one or more other sources of height are active, the range finder is declared faulty and the estimator continues to estimate its height using the other sensors.
+The measurements might also become consistent again, for example, if the vehicle descends, or if the estimated height drifts to match the measured rangefinder height.
+:::
+
+- The local NED origin will move up and down with ground level.
+- Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data. This again leads to poor altitude hold.
+
+The feature is enabled by setting [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) to  "Enabled" (2). To make the range finder the height reference when active, set: [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) to "Range sensor".
+
+:::tip
+To enable the range finder fusion only when the drone is stationary (in order to benefit from a better altitude estimate during takeoff and landing) but not fuse the range finder the rest of the time, use the [conditional mode](#conditional-range-aiding) (1) of [EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL).
+:::
+
+#### Range Finder Obstruction Detection
+
+The EKF can detect whether the rangefinder path-to-ground is obstructed (perhaps by a payload) using a kinematic consistency check between the vertical velocity estimate and the numerical derivative of the range finder data. If the range finder is statistically inconsistent with EKF2, the sensor is rejected for the rest of the flight unless the statistical test passes again for at least 1 second at a vertical speed of 0.5m/s or more.
+
+The check is only enabled when the rangefinder is not used as the primary height source, and is only active while the vehicle is not moving horizontally (as it assumes a static ground height).
+
+For effective obstruction detection, the range finder noise parameter needs to be tightly tuned using flight data. The kinematic consistency gate parameter can then be adjusted to obtain the desired fault detection sensitivity.
+
+Tuning parameters:
+
+- [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE)
+- [EKF2_RNG_K_GATE](../advanced_config/parameter_reference.md#EKF2_RNG_K_GATE)
 
 ### 대기속도
 
-EAS(Equivalent Airspeed) 데이터는 [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR)을 양수 값으로 설정하여 풍속을 추정하고 GPS 손실시 드리프트 감소에 사용할 수 있습니다. 대기 속도 데이터는 [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR)에 대해 양의 값으로 설정된 임계 값을 초과하고 차량 유형이 회전익이 아닌 경우에 사용됩니다.
+Equivalent Airspeed (EAS) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) to a positive value. Airspeed data will be used when it exceeds the threshold set by a positive value for [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and the vehicle type is not rotary wing.
 
 ### 합성 사이드슬립
 
-고정익 플랫폼은 바람 속도 추정을 개선하기 위하여 가정된 측면 슬립 관측을 이용하여 풍속 센서없이 풍속 추정이 가능합니다. [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) 매개변수를 1로 설정하면 활성화됩니다.
+Fixed wing platforms can take advantage of an assumed sideslip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor. This is enabled by setting the [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) parameter to 1.
 
-<span id="mc_wind_estimation_using_drag"></span>
+<a id="mc_wind_estimation_using_drag"></a>
 
 ### 항력을 사용한 멀티콥터 바람 추정
 
-멀티콥터 플랫폼은 풍속의 북쪽/동쪽 속도를 추정하기 위하여 X 및 Y 본체축의 대기 속도와 항력 사이의 관계를 활용할 수 있습니다. 이는 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 5를 true로 설정하여 활성화됩니다. 본체의 X축과 Y축의 속도와 특정 힘(IMU 가속)간의 관계는 X와 Y 방향에서 비행에 대한 탄도 계수를 설정하는 [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) 및 [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) 매개변수에 의해 제어됩니다. 특정 힘의 관찰 소음은 [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) 매개변수로 설정됩니다.
+Multi-rotor platforms can take advantage of the relationship between airspeed and drag force along the X and Y body axes to estimate North/East components of wind velocity. This is enabled by setting bit position 5 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to `true`.
 
-[위치 모드](../flight_modes/position_mc.md)에서 기체를 휴식과 최대 속도 사이에서 반복적으로 앞/뒤로 비행하고 [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X)를 조정하여 `ekf2_innovations_0drag_innov [0] `의 해당 혁신 시퀀스가 되도록 조정할 수 있습니다. 그런 다음 `ekf2_innovations_0.drag_innov [1]` 혁신 시퀀스를 최소화하기 위하여 [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y)의 조정으로 오른쪽/왼쪽 이동에 대하여 반복됩니다. 이 테스트가 정지 상태에서 수행되면 튜닝이 더 쉽습니다.
+The relationship between airspeed and specific force (IMU accelerometer measurements) along the X and Y body axes is controlled by the [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X), [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) and [EKF2_MCOEF](../advanced_config/parameter_reference.md#EKF2_MCOEF) parameters which set the ballistic coefficients for flight in the X and Y directions, and the momentum drag produced by the propellers, respectively. The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) parameter.
 
-[SDLOG_MODE = 1](../advanced_config/parameter_reference.md#SDLOG_MODE) 및 [SDLOG_PROFILE = 2](../advanced_config/parameter_reference.md#SDLOG_PROFILE)를 사용하여 부팅에서 드롭 아웃없이 데이터를 기록 할 수 있고 개발 환경에 액세스할 수 있고 코드를 빌드할 수 있는 경우 *한 번* 비행하고 비행 로그의 [EKF2 Replay](../debug/system_wide_replay.md#ekf2-replay)를 통해 튜닝을 수행하는 것이 좋습니다.
+A good tuning is obtained as follows:
 
-:::note
-아중 EKF 인스턴스가 있는 비행 로그의 기록 및 [EKF2 재생](../debug/system_wide_replay.md#ekf2-replay)은 지원되지 않습니다. EKF 재생을 위해 녹화를 활성화하려면 [단일 EKF 인스턴스](#running-a-single-ekf-instance)를 활성화하도록 매개변수를 설정하여야 합니다.
+1. Fly once in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards/left/right/up/down between rest and maximum speed (best results are obtained when this testing is conducted in still conditions).
+2. Extract the **.ulg** log file using, for example, [QGroundControl: Analyze > Log Download](https://docs.qgroundcontrol.com/master/en/analyze_view/log_download.html) :::note The same **.ulg** log file can also be used to tune the [static pressure position error coefficients](#correction-for-static-pressure-position-error).
 :::
+3. Use the log with the [mc_wind_estimator_tuning.py](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/ekf2/EKF/python/tuning_tools/mc_wind_estimator) Python script to obtain the optimal set of parameters.
 
 ### 광류
 
-다음 조건이 충족되면 [광류](../sensor/optical_flow.md) 데이터가 사용됩니다.
+[Optical flow](../sensor/optical_flow.md) data will be used if the following conditions are met:
 
 * 유효한 거리 센서 데이터를 사용할 수 있습니다.
 * [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 1이 참입니다.
 * 유량 센서가 반환하는 품질 메트릭이 [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) 매개변수로 설정된 최소 요구 사항보다 큽니다.
 
-<span id="ekf2_extvis"></span>
+### 외부 비전 시스템
 
-### 외부 비전 시스템 
-
-외부 비전 시스템을 이용하여 위치, 속도 또는 방향 측정(예 : Vicon)을 할 수 있습니다.
+Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
 * [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 3이 참이면 외부 비전 시스템의 수평 위치 데이터가 사용됩니다.
-* [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수가 3으로 설정된 경우 외부 비전 시스템의 수직 위치 데이터가 사용됩니다.
+* External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3. For more details about the configuration of height sources, [click here](#height).
 * [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 8이 참이면 외부 비전 시스템의 속도 데이터가 사용됩니다.
 * [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 4가 참인 경우 외부 비전 시스템의 방향 데이터가 요 추정에 사용됩니다.
 * [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 6이 참인 경우 외부 비전 참조 프레임 오프셋이 추정되고 외부 비전 시스템 데이터를 회전하는 데 사용됩니다.
 
-비트 4(`EV_YAW`) 또는 비트 6(`EV_ROTATE`)은 true로 설정하여야 하고, 둘 다 함께 설정해서는 안 됩니다. 외부 비전 시스템과 함께 사용할 때, 다음 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 값이 지원됩니다.
+Either bit 4 (`EV_YAW`) or bit 6 (`EV_ROTATE`) should be set to true, but not both together. Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
 
-| EKF_AID_MASK 값 | 비트 설정                         | 설명                                             |
-| ---------------- | ----------------------------- | ---------------------------------------------- |
-| 321              | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**추천**)                  |
-| 73               | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*비추천*, 대신 `EV_VEL`을 추천함) |
-| 24               | EV_POS + EV_YAW             | Heading w.r.t. 외부 비전 프레임                       |
-| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                           |
-| 272              | EV_VEL + EV_YAW             | Heading w.r.t. 외부 비전 프레임                       |
-| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                           |
-| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. 외부 비전 프레임                       |
-| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                           |
+| EKF_AID_MASK 값 | 비트 설정                         | 설명                       |
+| ---------------- | ----------------------------- | ------------------------ |
+| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North     |
+| 24               | EV_POS + EV_YAW             | Heading w.r.t. 외부 비전 프레임 |
+| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North     |
+| 272              | EV_VEL + EV_YAW             | Heading w.r.t. 외부 비전 프레임 |
+| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. 외부 비전 프레임 |
+| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North     |
 
-EKF는 시각적 포즈 추정에서 불확실성을 고려합니다. 이 불확실성 정보는 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지의 공분산 필드를 통해 전송하거나, 매개변수 [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) 및 [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE)을 통해 설정할 수 있습니다. . [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD)를 사용하여 불확실성 원인을 선택할 수 있습니다.
+:::tip
+When using external vision in combination with [GNSS fusion](#gps), it is recommended to use `EV_VEL` and not `EV_POS` in order to prevent the two position-fixing sources from fighting against each other.
+:::
+
+The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
 ## ECL 라이브러리 EKF를 어떻게 사용합니까?
 
-ecl EKF를 사용하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 2로 설정하십시오.
+Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
 
 ## 다른 추정치들과 비교하여 ecl EKF의 장단점은 무엇입니까?
 
-모든 추정기와 마찬가지로 성능의 대부분은 센서 특성과 일치하도록 튜닝이 좌우합니다. 튜닝은 정확성과 견고성 사이의 절충안이며 대부분의 사용자의 요구를 충족하는 튜닝을 시도했지만, 튜닝 변경이 필요한 응용 프로그램이 있을 것입니다.
+Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.
 
-이러한 이유로 `attitude_estimator_q` + `local_position_estimator`의 레거시 조합과 관련된 정확성에 대한 주장은 이루어지지 않았으며, 최적의 추정기 선택은 애플리케이션의 튜닝에 따라 달라집니다.
+For this reason, no claims for accuracy relative to the legacy combination of `attitude_estimator_q` + `local_position_estimator` have been made and the best choice of estimator will depend on the application and tuning.
 
 ### 단점
 
@@ -284,26 +397,26 @@ ecl EKF를 사용하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_refer
 
 ## EKF 성능을 어떻게 확인합니까?
 
-EKF 출력, 상태 및 상태 데이터는 비행 중에 SD 카드에 기록되는 여러 uORB 토픽에 게시됩니다. 다음 가이드에서는 데이터가 *.ulog 파일 형식*을 사용하여 기록되었다고 가정합니다. **.ulog** 형식 데이터는 [PX4 pyulog 라이브러리](https://github.com/PX4/pyulog)를 사용하여 Python에서 구문 분석이 가능합니다.
+EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the *.ulog file format*. The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-대부분의 EKF 데이터는 .ulog 파일에 기록된 [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg) 및 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) uORB 메시지에서 조회할 수 있습니다.
+Most of the EKF data is found in the [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg) and [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) uORB messages that are logged to the .ulog file.
 
-분석 플롯과 메타 데이터를 자동으로 생성하는 Python 스크립트는 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/process_logdata_ekf.py)를 참고 하십시오. 이 스크립트 파일을 사용하려면 `Tools/ecl_ekf` 디렉토리로 이동하고 `python process_logdata_ekf.py<log_file.ulg>`을 입력합니다. 이렇게하면 성능 메타 데이터가 **<log_file> .mdat.csv**라는 csv 파일에 저장되고 `<log_file>.pdf`라는 pdf 파일에 플롯됩니다.
+A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/process_logdata_ekf.py). To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`. This saves performance metadata in a csv file named **<log_file>.mdat.csv** and plots in a pdf file named `<log_file>.pdf`.
 
-디렉토리의 여러 로그 파일은 [batch\_process\_logdata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py) 스크립트를 사용하여 분석할 수 있습니다. 이 작업이 완료되면 성능 메타 데이터 파일을 처리하여 [batch\_process\_metadata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py) 스크립트를 사용하여 로그 모집단에서 추정기 성능에 대한 통계적 평가를 제공할 수 있습니다.
+Multiple log files in a directory can be analysed using the [batch\_process\_logdata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py) script. When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch\_process\_metadata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
 
 ### 출력 데이터
 
-* 태도 출력 데이터는 [vehicle\_attitude](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude.msg) 메시지에서 조회할 수 있습니다.
-* 로컬 위치 출력 데이터는 [vehicle\_local\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position.msg) 메시지에서 조회할 수 있습니다.
-* 글로벌 \(WGS-84\) 출력 데이터는 [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) 메시지에 있습니다.
-* 풍속 출력 데이터는 [wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/master/msg/wind_estimate.msg) 메시지에서 조회할 수 있습니다.
+* Attitude output data is found in the [VehicleAttitude](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitude.msg) message.
+* Local position output data is found in the [VehicleLocalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleLocalPosition.msg) message.
+* Global \(WGS-84\) output data is found in the [VehicleGlobalPosition](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleGlobalPosition.msg) message.
+* Wind velocity output data is found in the [Wind.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg) message.
 
 ### 상태
 
-[estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 states\[32\]를 참조하십시오. 상태\[32\]에 대한 인덱스 맵은 다음과 같습니다.
+Refer to states\[32\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg). The index map for states\[32\] is as follows:
 
-* \[0 ... 3\] 쿼터니언
+* \[0 ...
 * \[4 ... 6\] 속도 NED \(m/s\)
 * \[7 ... 9\] 위치 NED \(m\)
 * \[10 ... 12\] IMU delta angle bias XYZ \(rad\)
@@ -315,9 +428,9 @@ EKF 출력, 상태 및 상태 데이터는 비행 중에 SD 카드에 기록되�
 
 ### 상태 분산
 
-[estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 공분산\[28\]을 참조하십시오. 상태\[28\]에 대한 공분산은 다음과 같습니다.
+Refer to covariances\[28\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg). The index map for covariances\[28\] is as follows:
 
-* \[0 ... 3\] 쿼터니언
+* \[0 ...
 * \[4 ... 6\] 속도 NED \(m/s\)^2
 * \[7 ... 9\] 위치 NED \(m^2\)
 * \[10 ... 12\] IMU delta angle bias XYZ \(rad^2\)
@@ -329,17 +442,17 @@ EKF 출력, 상태 및 상태 데이터는 비행 중에 SD 카드에 기록되�
 
 ### 관찰 혁신 & 혁신 분산
 
-관찰 `estimator_innovations`, `estimator_innovation_variances` 및 `estimator_innovation_test_ratios` 메시지 필드는 [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)에 정의되어 있습니다. 메시지는 모두 동일한 필드 이름과 유형을 가지며, 단위는 다를 수 있습니다.
+The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [EstimatorInnovations.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg). The messages all have the same field names/types (but different units).
 
 :::note
-메시지는 동일한 필드 정의에서 생성되기 때문에 동일한 필드를 갖습니다. `#TOPICS` 줄 ([파일](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg) 끝에 있음)은 생성할 메시지 집합의 이름을 나열합니다.
+The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg)) lists the names of the set of messages to be created):
 
-    # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
-    
-
+```
+# TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
+```
 :::
 
-일부 관찰은 다음과 같습니다.
+Some of the observations are:
 
 * 자력계 XYZ (gauss, gauss^2) : `mag_field[3]`
 * Yaw angle (rad, rad^2) : `heading`
@@ -350,40 +463,41 @@ EKF 출력, 상태 및 상태 데이터는 비행 중에 SD 카드에 기록되�
 * 드래그 특정력 ((m/s)^2): `drag`
 * 속도 및 위치 혁신 : 센서 당
 
-또한, 각 센서에는 수평 및 수직 위치 및 속도(해당되는 경우)에 대한 자체 필드가 있습니다. 이들은 대부분 자체 문서화되어 있으며, 아래에서 재현되어 있습니다.
+In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate). These are largely self documenting, and are reproduced below:
 
-    # GPS
-    float32[2] gps_hvel # horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
-    float32    gps_vvel # vertical GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
-    float32[2] gps_hpos # horizontal GPS position innovation (m) and innovation variance (m**2)
-    float32    gps_vpos # vertical GPS position innovation (m) and innovation variance (m**2)
-    
-    # External Vision
-    float32[2] ev_hvel  # horizontal external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
-    float32    ev_vvel  # vertical external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
-    float32[2] ev_hpos  # horizontal external vision position innovation (m) and innovation variance (m**2)
-    float32    ev_vpos  # vertical external vision position innovation (m) and innovation variance (m**2)
-    
-    # Fake Position and Velocity
-    float32[2] fake_hvel  # fake horizontal velocity innovation (m/s) and innovation variance ((m/s)**2)
-    float32    fake_vvel  # fake vertical velocity innovation (m/s) and innovation variance ((m/s)**2)
-    float32[2] fake_hpos  # fake horizontal position innovation (m) and innovation variance (m**2)
-    float32    fake_vpos  # fake vertical position innovation (m) and innovation variance (m**2)
-    
-    # Height sensors
-    float32 rng_vpos  # range sensor height innovation (m) and innovation variance (m**2)
-    float32 baro_vpos # barometer height innovation (m) and innovation variance (m**2)
-    
-    # Auxiliary velocity
-    float32[2] aux_hvel # horizontal auxiliar velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
-    float32    aux_vvel # vertical auxiliar velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
-    
+```
+# GPS
+float32[2] gps_hvel # horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32    gps_vvel # vertical GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32[2] gps_hpos # horizontal GPS position innovation (m) and innovation variance (m**2)
+float32    gps_vpos # vertical GPS position innovation (m) and innovation variance (m**2)
+
+# External Vision
+float32[2] ev_hvel  # horizontal external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32    ev_vvel  # vertical external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32[2] ev_hpos  # horizontal external vision position innovation (m) and innovation variance (m**2)
+float32    ev_vpos  # vertical external vision position innovation (m) and innovation variance (m**2)
+
+# Fake Position and Velocity
+float32[2] fake_hvel    # fake horizontal velocity innovation (m/s) and innovation variance ((m/s)**2)
+float32    fake_vvel    # fake vertical velocity innovation (m/s) and innovation variance ((m/s)**2)
+float32[2] fake_hpos    # fake horizontal position innovation (m) and innovation variance (m**2)
+float32    fake_vpos    # fake vertical position innovation (m) and innovation variance (m**2)
+
+# Height sensors
+float32 rng_vpos    # range sensor height innovation (m) and innovation variance (m**2)
+float32 baro_vpos   # barometer height innovation (m) and innovation variance (m**2)
+
+# Auxiliary velocity
+float32[2] aux_hvel # horizontal auxiliary velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
+float32    aux_vvel # vertical auxiliary velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
+```
 
 ### 출력 보완 필터
 
-출력 보완 필터는 융합 시간 지평선에서 현재 시간으로 상태를 전달합니다. 융합 시간 지평에서 측정된 각도, 속도 및 위치 추적 오류의 크기를 확인하려면 `ekf2_innovations` 메시지의 `output_tracking_error [3]`를 참조하십시오.
+The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to `output_tracking_error[3]` in the `ekf2_innovations` message.
 
-인덱스 맵은 다음과 같습니다.
+The index map is as follows:
 
 * [0] 각도 추적 오류 크기 (rad)
 * [1] 속도 추적 오류 크기 (m/s). 속도 추적 시간 상수는 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 매개변수를 사용하여 조정할 수 있습니다. 이 매개변수를 줄이면 정상 상태 오류가 줄어들지만, NED 속도 출력에서 관찰 노이즈가 증가합니다.
@@ -391,18 +505,18 @@ EKF 출력, 상태 및 상태 데이터는 비행 중에 SD 카드에 기록되�
 
 ### EKF 오류
 
-EKF에는 악조건 상태와 공분산 업데이트에 대한 내부 오류 검사가 포함되어 있습니다. [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 filter\_fault\_flags를 참조하십시오.
+The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the `filter_fault_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### 관측 오류
 
-관찰 오류는 두 가지 범주로 나눌 수 있습니다.
+There are two categories of observation faults:
 
 * 데이터 손실. 이에 대한 예는 반환을 제공이 되지 않는 범위 측정기입니다.
 * 상태 예측과 센서 관찰의 차이인 혁신은 과도합니다. 예를 들어 과도한 진동으로 인한 큰 수직 위치 오류가 발생하여 기압계 높이 측정이 거부됩니다.
 
-이 두 가지 모두 EKF가 센서 관찰을 사용하여 상태 재설정을 시도할 수 있을만큼 오랫동안 관찰 데이터가 거부될 수 있습니다. 모든 관찰에는 혁신에 적용된 통계적 신뢰 검사가 있습니다. 검사를위한 표준 편차의 수는 각 관찰 유형에 대한 `EKF2 _*_GATE` 매개변수에 의해 제어됩니다.
+Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
 
-테스트 수준은 다음과 같이 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)에서 사용할 수 있습니다.
+Test levels are  available in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) as follows:
 
 * `mag_test_ratio` : 혁신 테스트 한계에 대한 가장 큰 자력계 혁신 구성 요소의 비율
 * `vel_test_ratio` : 혁신 테스트 한계에 대한 가장 큰 속도 혁신 구성 요소의 비율
@@ -411,145 +525,145 @@ EKF에는 악조건 상태와 공분산 업데이트에 대한 내부 오류 검
 * `tas_test_ratio` : 혁신 테스트 한계에 대한 실제 대기 속도 혁신의 비율
 * `hagl_test_ratio` : 혁신 테스트 한계에 대한 지상 혁신 높이의 비율
 
-각 센서에 대한 이진 통과/실패 요약은 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 Innovation\_check\_flags를 참조하십시오.
+For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### GPS 품질 검사
 
-EKF는 GPS 지원을 시작하기 전에, 여러 가지 GPS 품질 검사를 실시합니다. 이 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 및 `EKF2_REQ _*` 매개변수에 의해 제어됩니다. 이러한 검사의 통과/실패 상태는 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) .gps\_check\_fail\_flags 메시지에 기록됩니다. 이 정수는 모든 필수 GPS 검사가 통과되면 0이 됩니다. EKF가 GPS 정렬을 시작하지 않는 경우 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 비트 마스크 정의 `gps_check_fail_flags`의 정수 값을 확인하십시오.
+The EKF applies a number of GPS quality checks before commencing GPS aiding. 이 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 및 `EKF2_REQ _*` 매개변수에 의해 제어됩니다. The pass/fail status for these checks is logged in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).gps\_check\_fail\_flags message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).
 
 ### EKF 수치 오류
 
-EKF는 모든 계산에 대해 단정밀도 부동 소수점 연산을 사용하고, 처리 요구 사항을 줄이기 위해 공분산 예측을 유도하고 방정식을 업데이트하기 위하여 1 차 근사치를 사용합니다. 즉, EKF를 다시 조정하여 공분산 행렬 연산이 상태 추정에서 발산 또는 심각한 오류를 유발할 수 있을 만큼 나쁘게되는 조건을 만날 수 있습니다.
+The EKF uses single precision floating point operations for all of its computations and first order approximations for derivation of the covariance prediction and update equations in order to reduce processing requirements. This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
 
-이를 방지하기 위하여 모든 공분산 및 상태 업데이트 단계에는 다음의 오류 감지와 수정 단계가 포함됩니다.
+To prevent this, every covariance and state update step contains the following error detection and correction steps:
 
-* 혁신 분산이 관찰 분산보다 작거나 (불가능한 음의 상태 분산이 필요함) 공분산 업데이트가 모든 상태에 대해 음의 분산을 생성하는 경우 : 
+* 혁신 분산이 관찰 분산보다 작거나 (불가능한 음의 상태 분산이 필요함) 공분산 업데이트가 모든 상태에 대해 음의 분산을 생성하는 경우 :
   * 상태 및 공분산 업데이트를 건너 뜁니다.
   * 공분산 행렬의 해당 행과 열이 재설정됩니다.
-  * 실패는 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) filter\_fault\_flags 메시지에 기록됩니다.
+  * The failure is recorded in the [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg) `filter_fault_flags` message
 * 상태 분산(공분산 행렬의 대각선)은 음이 아닌 값으로 제한됩니다.
 * 상태 차이에는 상한값이 적용됩니다.
 * 공분산 행렬에 대칭이 적용됩니다.
 
-필터를 다시 조정 한 후, 특히 노이즈 변수 감소 튜닝후에는 `estimator_status.gps_check_fail_flags`의 값이 0으로 유지되는 지 확인하여야 합니다.
+After re-tuning the filter, particularly re-tuning that involve reducing the noise variables, the value of `estimator_status.gps_check_fail_flags` should be checked to ensure that it remains zero.
 
 ## 높이 추정치가 다른 경우 어떻게 하여야 합니까?
 
-비행 중 EKF 높이가 GPS 및 고도계 측정 값에서 벗어나는 가장 일반적인 원인은 진동으로 인한 IMU 측정치의 클리핑 또는 앨리어싱입니다. 이것이 발생하는 경우, 데이터에서 다음 징후가 분명하여야 합니다.
+The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data
 
-* [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\]과[estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\]는 같은 부호를 가집니다.
-* [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 는 1.0보다 큽니다.
+* [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel\_pos\_innov\[2\] and  [EstimatorInnovations](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorInnovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
+* [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt\_test\_ratio will be greater than 1.0
 
-권장되는 첫 번째 단계는 효과적인 격리 장착 시스템을 사용하여 자동조종장치가 기체에서 격리되었는지 확인하는 것입니다. 절연 마운트에는 6 개의 자유도가 있으므로 6 개의 공진 주파수가 존재합니다. 일반적으로 절연 마운트에있는 자동조종장치의 6 개의 공진 주파수는 자동조종장치 역학과의 상호 작용을 방지하고 모터 주파수보다 낮게 유지되도록 25Hz 이상이어야 합니다.
+The recommended first step is to ensure that the autopilot is isolated from the airframe using an effective isolation mounting system. An isolation mount has 6 degrees of freedom, and therefore 6 resonant frequencies. As a general rule, the 6 resonant frequencies of the autopilot on the isolation mount should be above 25Hz to avoid interaction with the autopilot dynamics and below the frequency of the motors.
 
-절연 마운트는 공진 주파수가 모터 또는 프로펠러 블레이드 통과 주파수와 일치하는 경우 진동을 악화시킬 수 있습니다.
+An isolation mount can make vibration worse if the resonant frequencies coincide with motor or propeller blade passage frequencies.
 
-EKF는 아래의 매개변수를 변경하여 진동으로 인한 높이 발산에 대한 내성을 강화할 수 있습니다.
+The EKF can be made more resistant to vibration induced height divergence by making the following parameter changes:
 
 * 기본 높이 센서에 대한 혁신 게이트의 가치를 두 배로 늘립니다. 기압 높이를 사용하는 경우 이는 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)입니다.
 * 처음에는 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 값을 0.5로 증가시킵니다. 발산이 여전히 발생하는 경우 0.1씩 더 증가하지만 1.0을 초과하지 않는 것이 좋습니다.
 
-이러한 변화의 영향으로 EKF는 GPS 수직 속도와 기압 오류에 더 민감하게 반응합니다.
+Note that the effect of these changes will make the EKF more sensitive to errors in GPS vertical velocity and barometric pressure.
 
 ## 위치 추정치가 다른 경우 어떻게 하여야 합니까?
 
-위치 차이의 가장 일반적인 원인은 다음과 같습니다.
+The most common causes of position divergence are:
 
-* 높은 진동 수준. 
+* 높은 진동 수준.
   * 자동조종장치의 기계적 격리를 개선합니다.
   * [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE)와 [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) 증가시키면 도움이 될 수 있지만, EKF가 GPS 결함에 더 취약해집니다.
-* 큰 자이로 바이어스 오프셋. 
+* 큰 자이로 바이어스 오프셋.
   * 자이로를 다시 튜닝합니다. 과도한 온도 감도를 확인하십시오 (콜드 스타트에서 예열하는 동안 > 3도/초 바이어스 변화). 온도 변화 속도를 늦추기 위하여 절연체의 영향을받는 경우 센서를 교체하십시오.
-* 잘못된 요 정렬 
+* 잘못된 요 정렬
   * 자력계 보정과 정렬을 확인합니다.
   * QGC가 15도 이내인 지 확인하십시오.
-* 낮은 GPS 정확도 
+* 낮은 GPS 정확도
   * 간섭을 확인합니다.
   * 분리 및 차폐 개선
   * 비행 위치에서 GPS 신호 방해와 반사경 확인 \(고층 빌딩 근처\)
 * GPS 손실
 
-이들 중 어느 것이 주요 원인인지 확인하려면 EKF 데이터에 대한 체계적인 로그 분석이 필요합니다.
+Determining which of these is the primary cause requires a methodical approach to analysis of the EKF log data:
 
-* 속도 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio 플롯합니다.
-* 수평 위치 혁신 테스트 비율 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).pos\_test\_ratio 플롯합니다.
-* 높이 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 플롯합니다.
-* 자력계 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).mag\_test\_ratio 플롯합니다.
-* GPS 수신기 보고 속도 정확도 - [vehicle\_gps\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_gps_position.msg).s\_variance\_m\_s를 플롯합니다.
-* IMU 델타 각도 상태 추정값 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).states\[10\],states\[11\] 및 states\[12\] 를 플로팅합니다.
-* EKF 내부 고주파 진동 메트릭을 플로팅합니다. 
-  * Delta angle coning vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[0\]
-  * High frequency delta angle vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[1\]
-  * High frequency delta velocity vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[2\]
+* Plot the velocity innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel\_test\_ratio
+* Plot the horizontal position innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).pos\_test\_ratio
+* Plot the height innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).hgt\_test\_ratio
+* Plot the magnetometer innovation test ratio - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).mag\_test\_ratio
+* Plot the GPS receiver reported speed accuracy - [SensorGps.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorGps.msg).s\_variance\_m\_s
+* Plot the IMU delta angle state estimates - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).states\[10\], states\[11\] and states\[12\]
+* EKF 내부 고주파 진동 메트릭을 플로팅합니다.
+  * Delta angle coning vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[0\]
+  * High frequency delta angle vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[1\]
+  * High frequency delta velocity vibration - [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vibe\[2\]
 
-정상 작동 중에 모든 테스트 비율은 성공적인 비행에서 아래 예에 표시된 것처럼 이보다 가끔 스파이크만 0.5 미만으로 유지되어야합니다.
+During normal operation, all the test ratios should remain below 0.5 with only occasional spikes above this as shown in the example below from a successful flight:
 
-![위치, 속도, 높이 및 자력계 테스트 비율](../../assets/ecl/test_ratios_-_successful.png)
+![Position, Velocity, Height and Magnetometer Test Ratios](../../assets/ecl/test_ratios_-_successful.png)
 
-다음 플롯은 절연성이 우수한 멀티콥터에 대한 EKF 진동 메트릭을 나타냅니다. 착륙 충격과 이착륙시 증가된 진동을 볼 수 있습니다. 최대 임계 값에 대한 구체적인 조언을 제공하기 위해 이러한 메트릭으로 수집된 데이터가 충분하지 않습니다.
+The following plot shows the EKF vibration metrics for a multirotor with good isolation. The landing shock and the increased vibration during takeoff and landing can be seen. Insufficient data has been gathered with these metrics to provide specific advice on maximum thresholds.
 
-![진동 메트릭 - 성공](../../assets/ecl/vibration_metrics_-_successful.png)
+![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
 
-IMU 샘플링 주파수 (대부분의 보드에서 1kHz)에 가까운 주파수에서 진동이 존재하면 고주파 진동 메트릭에 표시되지 않는 데이터에 오프셋이 나타나므로, 위의 진동 메트릭은 제한된 값입니다. 앨리어싱 오류를 감지하는 유일한 방법은 관성 탐색 정확도에 미치는 영향과 혁신 수준의 상승입니다.
+The above vibration metrics are of limited value as the presence of vibration at a frequency close to the IMU sampling frequency (1 kHz for most boards) will cause offsets to appear in the data that do not show up in the high frequency vibration metrics. The only way to detect aliasing errors is in their effect on inertial navigation accuracy and the rise in innovation levels.
 
-큰 위치 및 속도 테스트 비율을 생성하는 것 외에도 1.0 이상에서 다른 오류 메커니즘은 다른 방식으로 다른 테스트 비율에 영향을 미칩니다.
+In addition to generating large position and velocity test ratios of &gt; 1.0, the different error mechanisms affect the other test ratios in different ways:
 
 ### 과도한 진동 여부 결정
 
-높은 진동 수준은 일반적으로 수평 구성 요소뿐 아니라 수직 위치 및 속도 혁신에 영향을 미칩니다. 자력계 테스트 수준은 약간만 영향을받습니다.
+High vibration levels normally affect vertical position and velocity innovations as well as the horizontal components. Magnetometer test levels are only affected to a small extent.
 
-\(여기에 나쁜 진동을 보여주는 예제 플롯 삽입\)
+\(insert example plots showing bad vibration here\)
 
 ### 과도한 자이로 바이어스 결정
 
-큰 자이로 바이어스 오프셋은 일반적으로 비행 중 5E-4보다 큰 델타 각도 바이어스 값의 변화를 특징으로합니다(약 3도/ 초에 해당). 또한 요 축이 영향을받는 경우 자력계 테스트 비율이 크게 증가 할 수 있습니다. 고도는 일반적으로 극단적인 경우를 제외하고 영향을 받지 않습니다. 비행 전에 필터가 안정된 시간을 제공하는 경우 최대 초당 5도의 스위치 온 바이어스 값을 허용할 수 있습니다. 비행 사전 점검은 위치가 다른 경우 무장을 방지하여야 합니다.
+Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time settle before flying. Pre-flight checks performed by the commander should prevent arming if the position is diverging.
 
-\(여기에 잘못된 자이로 바이어스를 보여주는 예제 플롯 삽입\)
+\(insert example plots showing bad gyro bias here\)
 
 ### 낮은 요 정확도 결정
 
-잘못된 요 정렬은 관성 항법과 GPS로 계산된 속도 방향의 불일치로 인하여 기체가 움직이기 시작하면 속도 테스트 비율을 급속하게 증가시킵니다. 자력계 혁신은 약간의 영향을 받습니다. 고도는 일반적으로 영향을받지 않습니다.
+Bad yaw alignment causes a velocity test ratio that increases rapidly when the vehicle starts moving due inconsistency in the direction of velocity calculated by the inertial nav and the GPS measurement. Magnetometer innovations are slightly affected. Height is normally unaffected.
 
-\(여기에 잘못된 요 정렬을 보여주는 예제 플롯 삽입\)
+\(insert example plots showing bad yaw alignment here\)
 
 ### 낮은 GPS 정확도 결정
 
-낮은 GPS 정확도는 일반적으로 혁신의 증가와 함께 수신기의 보고된 속도 오류의 증가를 동반합니다. 다중 경로, 모호화와 간섭으로 인한 일시적인 오류가 더 일반적인 원인입니다. 다음은 멀티콥터가 위치 이탈을 시작하여 스틱을 사용하여 수정하여야 하는 일시적인 GPS 정확도 손실의 예입니다. [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio가 1보다 크게 증가하면 GP 속도가 다른 측정과 일치하지 않아 거부되었음을 나타냅니다.
+Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg).vel\_test\_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
 
-![GPS 글리치 - 테스트 비율](../../assets/ecl/gps_glitch_-_test_ratios.png)
+![GPS glitch - test ratios](../../assets/ecl/gps_glitch_-_test_ratios.png)
 
-이것은 GPS 수신기가 GPS 오류일 가능성을 나타내는 속도 정확도를 보고를 동반합니다.
+This is accompanied with rise in the GPS receivers reported velocity accuracy which indicates that it was likely a GPS error.
 
-![GPS Glitch - 보고된 수신기 정확도](../../assets/ecl/gps_glitch_-_reported_receiver_accuracy.png)
+![GPS Glitch - reported receiver accuracy](../../assets/ecl/gps_glitch_-_reported_receiver_accuracy.png)
 
-또한, GPS 수평 속도 혁신과 혁신 분산을 살펴보면이 GPS '글리치'이벤트에 수반되는 북쪽 속도 혁신의 큰 스파이크를 볼 수 있습니다.
+If we also look at the GPS horizontal velocity innovations and innovation variances, we can see the large spike in North velocity innovation that accompanies this GPS 'glitch' event.
 
-![GPS Glitch - 속도 혁신](../../assets/ecl/gps_glitch_-_velocity_innovations.png)
+![GPS Glitch - velocity innovations](../../assets/ecl/gps_glitch_-_velocity_innovations.png)
 
 ### GPS 데이터 손실 결정
 
-GPS 데이터 손실은 속도와 위치 혁신 테스트 비율 '플랫 라이닝'으로 표시됩니다. 이 현상이 발생하면, `vehicle_gps_position`의 다른 GPS 상태 데이터에서 자세한 정보를 확인하십시오.
+Loss of GPS data will be shown by the velocity and position innovation test ratios 'flat-lining'. If this occurs, check the other GPS status data in `vehicle_gps_position` for further information.
 
-아래의 플롯은 NED GPS 속도 혁신을 보여줍니다. `ekf2_innovations_0.vel_pos_innov[0 ... 2]`, GPS NE 위치 혁신 `ekf2_innovations_0.vel_pos_innov[3 ... 4]`와 Baro 수직 위치 혁신 `ekf2_innovations_0.vel_pos_innov[5]`은 SITL Gazebo를 사용하여 시뮬레이션 된 VTOL 비행에서 생성되었습니다.
+The following plot shows the NED GPS velocity innovations `ekf2_innovations_0.vel_pos_innov[0 ... 2]`, the GPS NE position innovations `ekf2_innovations_0.vel_pos_innov[3 ... 4]` and the Baro vertical position innovation `ekf2_innovations_0.vel_pos_innov[5]` generated from a simulated VTOL flight using SITL Gazebo.
 
-시뮬레이션 된 GPS는 73 초에 잠금을 잃도록 만들어졌습니다. GPS가 손실후의 NED 속도 혁신과 NE 위치 혁신 '플랫 라인'에 유의하십시오. GPS 데이터 없이 10 초 후에 EKF는 마지막으로 알려진 위치를 사용하여 정적 위치 모드로 되돌아 가고 NE 위치 혁신이 다시 변경되기 시작합니다.
+The simulated GPS was made to lose lock at 73 seconds. Note the NED velocity innovations and NE position innovations 'flat-line' after GPS is lost. Note that after 10 seconds without GPS data, the EKF reverts back to a static position mode using the last known position and the NE position innovations start to change again.
 
-![GPS 데이터 손실 - SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
+![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
 
 ### 기압계 지면 효과 보상
 
-기체가 착륙중 지면에 가까울 때 공중으로 다시 올라가는 경향이 있는 경우 가장 가능성이 높은 원인은 기압계 지면 효과입니다.
+If the vehicle has the tendency during landing to climb back into the air when close to the ground, the most likely cause is barometer ground effect.
 
-이것은 프로펠러에 의해 아래로 밀린 공기가 지면에 닿아 드론 아래에 고압 영역을 생성시 발생합니다. 그 결과 기압 고도가 낮아져 원치 않는 상승 명령이 내려집니다. 아래 그림은지면 효과가 있는 일반적인 상황을 나타냅니다. 기압계 신호가 비행의 시작과 끝에서 어떻게 감소하는 지 주목하십시오.
+This is caused when air pushed down by the propellers hits the ground and creates a high pressure zone below the drone. The result is a lower reading of pressure altitude, leading to an unwanted climb being commanded. The figure below shows a typical situation where the ground effect is present. Note how the barometer signal dips at the beginning and end of the flight.
 
-![기압계 지면 효과](../../assets/ecl/gnd_effect.png)
+![Barometer ground effect](../../assets/ecl/gnd_effect.png)
 
-이 문제를 해결하면, *지상 효과 보정*을 활성화 할 수 있습니다.
+You can enable *ground effect compensation* to fix this problem:
 
-* 플롯에서 이륙 또는 착륙중 기압계 하락의 크기를 추정합니다. 위의 플롯에서 착륙중 약 6 미터의 기압계 딥을 읽을 수 있습니다.
-* 그런 다음 [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) 매개변수를 해당 값으로 설정하고 10% 여백을 추가하십시오. 따라서, 이 경우 6.6 미터 값이 좋은 출발점이 됩니다.
+- 플롯에서 이륙 또는 착륙중 기압계 하락의 크기를 추정합니다. 위의 플롯에서 착륙중 약 6 미터의 기압계 딥을 읽을 수 있습니다.
+- 그런 다음 [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) 매개변수를 해당 값으로 설정하고 10% 여백을 추가하십시오. 따라서, 이 경우 6.6 미터 값이 좋은 출발점이 됩니다.
 
-지형 추정치를 사용할 수 있는 경우 (예 : 기체에 거리 측정기가 장착되어 있음) 지면 효과 보상을 활성화해야 하는 위의 지상 고도 [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT)를 추가로 지정할 수 있습니다. 지형 추정을 사용할 수 없는 경우에는 이 매개변수는 효과가 없으며 시스템은 휴리스틱을 사용하여지면 효과 보정을 활성화 여부를 결정합니다.
+If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated. If no terrain estimate is available this parameter will have no effect and the system will use heuristics to determine if ground effect compensation should be activated.
 
 ## 추가 정보
 

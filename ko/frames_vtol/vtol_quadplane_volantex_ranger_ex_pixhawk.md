@@ -1,6 +1,6 @@
-# Volantex Ranger-Ex QuadPlane VTOL (Pixhawk)
+# Volantex Ranger-Ex QuadPlane VTOL(Pixhawk)
 
-QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 기반의 표준 꼬리 비행기입니다. Ranger-Ex는 비행법이 간편한 범용적인 FPV 플랫폼입니다. HobbyKing에서 구매할 수 있으며, Quanum Observer로 제품명이 변경되었습니다. 플라스틱 동체와 2m EPO 날개는 탑재 하중이 높은 견고한 기체입니다.
+QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 기반의 표준 꼬리 비행기입니다. Ranger-Ex는 비행법이 간단한 범용적인 FPV 플랫폼입니다. HobbyKing에서 구매할 수 있으며, Quanum Observer로 제품명이 변경되었습니다. 플라스틱 동체와 2m EPO 날개는 탑재 하중이 높은 견고한 기체입니다.
 
 주요 정보:
 
@@ -9,25 +9,26 @@ QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 �
 
 ![쿼드레인저](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
-VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. 제안하는 쿼드 설정은 7.5kg의 추력을 제공하며 기체는 약 4.5kg의 총 중량으로 비행할 수 있습니다. FPV 장비와 카메라를 탑재에 충분한 하중 용량이 남아 있습니다.
+VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. 제안하는 쿼드 설정은 7.5kg의 추력을 제공하며, 기체는 약 4.5kg의 총 중량으로 비행 가능합니다. FPV 장비와 카메라를 탑재에 충분한 하중 용량을 가지고 있습니다.
 
-변환은 공기 역학에 미치는 영향을 최소화하고 추가 강도를 제공하여 날개 굴곡을 최소화하도록 설계되었습니다.
+변환은 공기 역학에 미치는 영향을 최소화하고, 추가 강도를 제공하여 날개 굴곡을 최소화하도록 설계되었습니다.
+
 
 ## 부품 명세서
 
 - Volantex Ranger-Ex 혹은 Quanum Observer
 - 1200KV 530W 모터
 - 30A 속도 컨트롤러
-- 4s 배터리
+- 4S 배터리
 - APC Electric 11x5 프로펠러
 
 ## 변환 키트
 
-- 필요한 기본 부품은 다음과 같습니다.
-- Pixhawk 호환 제품
-- 디지털 풍속 센서
-- 3DR 호환 전원 모듈
-- GPS
+-   필요한 기본 부품은 다음과 같습니다.
+-   Pixhawk 호환 제품
+-   디지털 풍속 센서
+-   3DR 호환 전원 모듈
+-   GPS
 
 Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [QuadRanger-VTOL-partslist](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)를 참조하십시오.
 
@@ -35,30 +36,30 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 
 ![쿼드레인저 부품](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
-변환에 필요한 도구는 다음과 같습니다.
+  변환에 필요한 도구는 다음과 같습니다.
 
-- Dremel 또는 유사한 회전 도구
-- 취미용 칼
-- UHU POR 접착제
-- CA 접착제
-- 줄자
-- 테이프
+-   Dremel 또는 유사한 회전 도구
+-   취미용 칼
+-   UHU POR 접착제
+-   CA 접착제
+-   줄자
+-   테이프
 
 ![쿼드레인저 변환 도구](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_conversion_tools.jpg)
 
 ## 날개 변환
 
-전체 조립 방법은 아래 비디오를 참고하십시오.
+전체 조립 방법은 아래의 비디오를 참고하십시오.
 
 :::note
-이 변환 조립 방법은 이전 변환으로 인한 손상을 보여주는 날개에서 수행됩니다.
+이 변환 조립 방법은 이전 변환으로 인한 손상을 보여주는 날개에서 수행됩니다. 
 :::
 
 @[유투브](https://youtu.be/l_ppJ_HhAUQ)
 
 800mm 사각 탄소 튜브를 570mm와 230mm 길이로 자릅니다.
 
-고정된 깊이를 유지하기 위해 회전 도구를 사용하여 1.5cm 깊이의 스티로폼 날개에 슬롯을 만듭니다. 슬롯은 230mm 정사각형 탄소 튜브 1 개의 길이, 깊이 및 너비를 유지하여야 합니다. 아래 표시된 위치에 있어야합니다.
+고정된 깊이를 유지하기 위하여, 회전 도구를 사용하여 1.5cm 깊이의 스티로폼 날개에 슬롯을 만듭니다. 슬롯은 230mm 정사각형 탄소 튜브 1 개의 길이, 깊이 및 너비를 유지하여야 합니다. 아래 표시된 위치에 있어야합니다.
 
 ![QuadRanger 탄소 튜브 슬롯](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_carbon_tube_slot.jpg)
 
@@ -88,11 +89,13 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉�
 | AUX 4  | 방향타           |
 | AUX 5  | 스로틀           |
 
+
 :::note
-서보 방향은 QGroundControl의 PWM\_OUTPUT 그룹 (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)에서 PWM\_REV 매개 변수를 사용하여 변경할 수 있습니다.
+서보 방향은 QGroundControl의 PWM\_OUTPUT 그룹 (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)에서 PWM\_REV 매개 변수를 사용하여 변경 가능합니다.
 :::
 
-배선 및 설정에 관한 자세한 지침은 다음을 참조하십시오.[표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md)
+배선 및 설정에 관한 자세한 지침은 [표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
+
 
 ## 설정
 
@@ -100,6 +103,8 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉�
 
 ![QGC - 표준 VTOL용 펌웨어 선택](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
+
 ## 지원
 
 VTOL 변환 또는 구성에 대한 질문이 있으시면 <https://discuss.px4.io/c/px4/vtol>을 방문하십시오.
+

@@ -14,7 +14,7 @@
   * INIT과 OFF
     * pwm 출력은 무장 해제된 값으로 설정됩니다.
   * RAMP
-    * pwm 출력은 무장 해제된 값에서 최소값으로 램프합니다.
+    * pwm outputs ramp from disarmed values to min values.
   * ON
     * pwm 출력은 제어 값에 따라 설정됩니다.
 

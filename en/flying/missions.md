@@ -13,10 +13,21 @@ Manually planning missions is straightforward:
 You can also use the *Pattern* tool to automate creation of survey grids.
 
 :::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
+For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html).
 :::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
+
+### Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible.
+For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
+
+The checks are run when the mission is uploaded and immediately before it is run.
+If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+
+For more detail on the checks and possible actions, see: [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### Setting Vehicle Yaw
 

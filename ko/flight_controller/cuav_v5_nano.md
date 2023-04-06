@@ -14,7 +14,6 @@ V5 nano는 [CUAV V5+](../flight_controller/cuav_v5_plus.md)와 유사하지만 �
 :::
 
 주요 기능은 다음과 같습니다.
-
 - [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 설계 표준과 호환되며, 외부 인터페이스에 [Pixhawk 커넥터 표준](https://pixhawk.org/pixhawk-connector-standard/)을 적용합니다.
 - 더 안정적이고 신뢰할 수 있는 센서와 함께 FMU v3보다 고급 프로세서, RAM 및 플래시 메모리.
 - PX4와 펌웨어 호환.
@@ -24,19 +23,19 @@ V5 nano는 [CUAV V5+](../flight_controller/cuav_v5_plus.md)와 유사하지만 �
 이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
+
 ### 요약
 
 메인 FMU 프로세서: STM32F765◦32 비트 Arm® Cortex®-M7, 216MHz, 2MB 메모리, 512KB RAM
 
 * 내장 센서 :
-  
   * 가속도/자이로: ICM-20689
   * 가속도/자이로: ICM-20602
   * 가속/자이로: BMI055
   * 자력계 : IST8310
   * 기압계: MS5611
+
 * 인터페이스 : 8개의 PWM 출력
-  
   * FMU의 전용 PWM/캡처 입력 3 개
   * CPPM 전용 RC 입력
   * Spektrum/DSM 및 S.Bus 전용 R/C 입력
@@ -44,25 +43,22 @@ V5 nano는 [CUAV V5+](../flight_controller/cuav_v5_plus.md)와 유사하지만 �
   * 범용 시리얼 포트 4개
   * I2C 포트 3개
   * SPI 버스 4개
-  * 2개의 CAN 버스 
+  * 2개의 CAN 버스
   * 배터리 전압/전류에 대한 아날로그 입력
   * 2개의 추가 아날로그 입력
   * nARMED 지원
-* 전원 시스템: 파워 브릭 입력: 4.75 ~ 5.5V
 
+* 전원 시스템: 파워 브릭 입력: 4.75 ~ 5.5V
 * USB 전원 입력: 4.75~5.25V
 
 * 중량과 크기
-  
   * 크기: 60*40*14mm
-* 기타 특성: 
+* 기타 특성:
   * 작동 온도: -20 ~ 85°c (측정치)
 
-## 구매처
 
-<!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
-[CUAV 알리익스프레스](https://www.aliexpress.com/item/33050770314.html?storeId=3257035&spm=2114.12010612.8148356.9.dbe6790bjW2hpH)(국제 사용자)
+## Where to Buy<!-- \[CUAV Store\](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->[CUAV 알리익스프레스](https://www.aliexpress.com/item/33050770314.html?storeId=3257035&spm=2114.12010612.8148356.9.dbe6790bjW2hpH)(국제 사용자)
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail) (중국 본토 사용자)
 
@@ -71,14 +67,15 @@ Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 :::
 
 <span id="connection"></span>
-
 ## 배선
 
-[V5 nano 배선 개요](../assembly/quick_start_cuav_v5_nano.md)
+[V5 nano 배선 퀵 스타트](../assembly/quick_start_cuav_v5_nano.md)
+
 
 ## 핀배열
 
 [여기](http://manual.cuav.net/V5-Plus.pdf)에서 **V5 nano** 핀아웃을 다운로드하세요.
+
 
 ## 펌웨어 빌드
 
@@ -86,12 +83,11 @@ Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
-
-    make px4_fmu-v5_default
-    
+```
+make px4_fmu-v5_default
+```
 
 <span id="debug_port"></span>
-
 ## 디버그 포트
 
 [PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다. 보드에는 I/O 디버그 인터페이스가 없습니다.
@@ -109,7 +105,6 @@ Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 | 5 (흑) | FMU_SWCLK    | +3.3V |
 | 6 (흑) | GND          | GND   |
 
-
 제품 패키지에는 `DSU7` 포트에 연결할 수 있는 편리한 디버그 케이블이 포함되어 있습니다. 이렇게 하면, [PX4 시스템 콘솔](../debug/system_console.md)을 컴퓨터 USB 포트에 연결하기 위한 FTDI 케이블과 SWD/JTAG 디버깅에 사용되는 SWD 핀이 분리됩니다. 제공된 디버그 케이블이 SWD 포트 `Vref` 핀 (1)에 연결되지 않습니다.
 
 ![CUAV 디버그 케이블](../../assets/flight_controller/cuav_v5_nano/cuav_nano_debug_cable.jpg)
@@ -117,7 +112,7 @@ Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 :::warning SWD
 Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다!
 
-일부 JTAG 어댑터(SEGGER J-Link)는 Vref 전압을 사용하여 SWD 라인의 전압을 설정합니다. *Segger Jlink*에 직접 연결하려면 JTAG에 `Vtref`를 제공(즉, 3.3V 및 * NOT </ 0> 5V 제공)하는 `DSM`/`SBUS`/`RSSI`로 표시된 커넥터의 핀 4에서 3.3 볼트를 사용하는 것이 좋습니다.</p> 
+일부 JTAG 어댑터(SEGGER J-Link)는 Vref 전압을 사용하여 SWD 라인의 전압을 설정합니다. *Segger Jlink*에 직접 연결하려면 JTAG에 `Vtref`를 제공(즉, 3.3V 및 * NOT </> 5V 제공)하는 `DSM`/`SBUS`/`RSSI`로 표시된 커넥터의 핀 4에서 3.3 볼트를 사용하는 것이 좋습니다.
 
 더 자세한 내용은 [하드웨어 디버깅에 JTAG 사용](#using-jtag-for-hardware-debugging)을 참고하십시오.
 :::
@@ -134,8 +129,7 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 | UART7  | /dev/ttyS5 | 디버깅 콘솔                     |
 | UART8  | /dev/ttyS6 | 연결되지 않음 (PX4IO 없음)         |
 
-
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## 정격 전압
 
@@ -149,12 +143,13 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 서보파워레일은 FMU에 의해 전원이 공급되지 않으며, 전원을 제공하지도 않습니다. 그러나, **+**로 표시된 핀은 모두 공통이며, BEC는 서보전원레일에 전원을 공급하기 위하여 모든 서보 핀 세트에 연결될 수 있습니다.
 :::
 
+
 ## 과전류 보호
 
 *V5 nano*에는 단락보호 기능이 있습니다.
 
-<span id="Optional-hardware"></span>
 
+<span id="Optional-hardware"></span>
 ## 주변 장치
 
 * [디지털 대기속도 센서](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
@@ -170,7 +165,6 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 CUAV는 몇 가지 차별화된 디자인을 채택하고, 아래에서 설명하는 일부 하드웨어와 호환되지 않습니다.
 
 <span id="compatibility_gps"></span>
-
 #### Neo v2.0 GPS는 다른 장치와 호환되지 않습니다.
 
 *CUAV V5+*와 *CUAV V5 nano*와 함께 사용하도록 권장되는 *Neo v2.0 GPS*는 다른 Pixhawk 비행 컨트롤러(특히, 부저 부분이 호환되지 않으며 안전 스위치에 문제가 있을 수 있습니다.)
@@ -178,7 +172,6 @@ CUAV는 몇 가지 차별화된 디자인을 채택하고, 아래에서 설명�
 UAVCAN [NEO V2 PRO GNSS 수신기](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)도 사용할 수 있으며, 다른 비행 컨트롤러와 호환됩니다.
 
 <span id="compatibility_jtag"></span>
-
 #### 하드웨어 디버깅에 JTAG 사용
 
 `DSU7` FMU 디버그 핀 1은 CPU의 3.3V가 아닌 5V입니다.
@@ -188,12 +181,12 @@ UAVCAN [NEO V2 PRO GNSS 수신기](http://doc.cuav.net/gps/neo-series-gnss/en/ne
 *Segger Jlink*에 직접 연결하려면 디버그 커넥터(`Vtref`)의 핀 1로 3.3 볼트의 DSM/SBUS/RSSI 핀 4를 사용하는 것이 좋습니다.
 
 <span id="compatibility_pm2"></span>
-
 #### PM2는 비행 컨트롤러에 전원을 공급할 수 없습니다.
 
 `PM2`는 배터리 전압과 전류만 측정 할 수 있고, 비행 컨트롤러에 전원을 공급할 수 **없습니다**.
 
-:::warning PX4는이 인터페이스를 지원하지 않습니다.
+:::warning
+PX4는이 인터페이스를 지원하지 않습니다.
 :::
 
 ## 알려진 문제
@@ -201,11 +194,10 @@ UAVCAN [NEO V2 PRO GNSS 수신기](http://doc.cuav.net/gps/neo-series-gnss/en/ne
 아래 문제는 처음 나타나는 *배치번호*를 나타냅니다. 배치번호는 V01 뒤의 4 자리 생산날짜이며 비행 컨트롤러 측면의 스티커에 표시되어 있습니다. 예를 들어, 일련 번호 Batch V011904((V01은 V5의 번호, 1904는 생산날짜, 즉 배치번호)입니다.
 
 <span id="pin1_unfused"></span>
-
 #### SBUS/DSM/RSSI 인터페이스 Pin1 언퓨즈
 
 :::warning
-이것은 안전에 관련된 문제입니다.
+이것은 안전에 관련된 문제입니다. 
 :::
 
 SBUS/DSM/RSSI 인터페이스에 다른 장비(RC 수신기 제외)를 연결하지 마십시오. 장비가 손상될 수 있습니다!
@@ -215,7 +207,7 @@ SBUS/DSM/RSSI 인터페이스에 다른 장비(RC 수신기 제외)를 연결하
 
 ## 추가 정보
 
-* [V5 nano 매뉴얼](http://manual.cuav.net/V5-nano.pdf) (CUAV)
+* [V5 nano 매뉴얼](http://manual.cuav.net/V5-nano.pdf)  (CUAV)
 * [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 * [CUAV Github](https://github.com/cuav) (CUAV)
 * [DJI FlameWheel450에서 CUAV v5 nano를 사용하는 기체 빌드 로그](../frames_multicopter/dji_f450_cuav_5nano.md)

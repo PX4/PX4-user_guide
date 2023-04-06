@@ -8,7 +8,7 @@ Tailsitters are typically mechanically less complex than [other types of VTOL](.
 
 <div class="grid_wrapper two_column">
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-duo-tailsitter">VTOL Duo Tailsitter</a></big></div>
+    <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Duo Tailsitter</a></big></div>
     <div class="grid_text">
     Two rotor VTOL that uses elevons to flip from hover into fixed-wing flight.<br><br>
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL Duo Tailsitter" alt="wingtraone" /> 
@@ -21,8 +21,8 @@ Tailsitters are typically mechanically less complex than [other types of VTOL](.
     </div>
   </div>
 <div class="grid_item">
-  <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-quad-tailsitter">VTOL Quad Tailsitter</a></big></div>
-  Four rotor VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
+  <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Tailsitter</a></big></div>
+  VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
   <div class="grid_text">
   <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
   <ul>
@@ -34,14 +34,15 @@ Tailsitters are typically mechanically less complex than [other types of VTOL](.
 </div>
 </div>
 
-Duo Tailsitters are generally more efficient in cruise flight (4 smaller propellers are less efficient than 2 larger ones) and physically more compact. However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition. Quad tailsitters are easier to fly in hover mode, and more stable in windy conditions.
+Duo Tailsitters are generally more efficient in cruise flight (4 smaller propellers are less efficient than 2 larger ones) and physically more compact. However as they are aerodynamically much more complex in hover mode, they are much harder to tune for both hover and transition. Quad tailsitters are easier to fly in hover mode, and more stable in windy conditions. Both are supported using the same aiframe type in PX4.
 
 ## Setup/Flying
 
 VTOL setup and flying are covered in the [VTOL](../frames_vtol/README.md) parent topic.
 
 :::note
-The instructions are essentially the same for all VTOL. The main frame-specific differences are the motor wiring (see [VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) and [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)), and some aspects of tuning the configuration.
+The instructions are essentially the same for all VTOL.
+The main frame-specific differences are the motor wiring, and some aspects of tuning the configuration.
 :::
 
 ## Build Logs
@@ -68,9 +69,9 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 ---
 
-*PX4 Tailsitter prototype*  - Tailsitter takeoff, transition, landing. 
-<!-- provided by slack user xdwgood. Not yet got detail -->
-@[youtube](c3myer2n80M)
+[ax1800](http://www.uav-cas.ac.cn/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+<!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
+@[youtube](gjHj6YsxcZk)
 
 ### Quad
 
@@ -78,7 +79,7 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
 
 ---
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
 @[youtube](https://youtu.be/pWt6uoqpPIw)
 
@@ -105,13 +106,13 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big>ax1800</big></div>
+    <div class="grid_item_heading"><big><a href="http://www.uav-cas.ac.cn/">ax1800</a></big></div>
     <div class="grid_text">
       <img title="ax1800" src="../../assets/airframes/vtol/xdwgood_ax1800/hero.jpg" />
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/tech-data/">UAV Works VALAQ Patrol Tailsitter</a></big></div>
+    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/valaq_patrol_technical_data/">UAV Works VALAQ Patrol Tailsitter</a></big></div>
     <div class="grid_text">
       <img title="UAV Works VALAQ Patrol Tailsitter" src="../../assets/airframes/vtol/uav_works_valaq_patrol/hero.jpg" />
     </div>

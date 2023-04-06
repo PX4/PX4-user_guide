@@ -115,6 +115,20 @@ function loadSimulation(json_file_name) {
         }
         */
 
+        // change style for bidirectional edges
+        const edgeMap = new Map();
+        var i = 0;
+        while(i<graph.links.length) {
+            var curr_source = graph.links[i].source;
+            var curr_target = graph.links[i].target;
+            if (edgeMap.has(curr_target + curr_source) == true) {
+                graph.links.splice(i,1);
+                graph.links[edgeMap.get(curr_target + curr_source)].style = "dot-dashed";
+            }
+            else
+                edgeMap.set(curr_source + curr_target, i++);
+        }
+
         // explanation for the following syntax: https://bost.ocks.org/mike/join/
         link = svg.append("g")
             .attr("class", "links")
@@ -125,6 +139,7 @@ function loadSimulation(json_file_name) {
             .attr("stroke", function(d) { return d.color; })
             .style("stroke-dasharray", function(d) {
                 if (d.style == "dashed") return "3, 3";
+                if (d.style == "dot-dashed") return "3, 3, 9, 3";
                 return "1, 0";
             });
 

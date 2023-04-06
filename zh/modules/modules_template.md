@@ -1,7 +1,7 @@
 # 模块参考: 模板
 
 ## 模块
-Source: [templates/module](https://github.com/PX4/Firmware/tree/master/src/templates/module)
+Source: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module)
 
 
 ### 描述
@@ -17,6 +17,7 @@ CLI 命令行用法示例：
 ```
 module start -f -p 42
 ```
+
 
 <a id="module_usage"></a>
 
@@ -35,11 +36,12 @@ module <command> [arguments...]
    status        print status info
 ```
 ## work_item_example
-Source: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item)
+Source: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item)
 
 
 ### 参数描述
 Example of a simple module running out of a work queue.
+
 
 <a id="work_item_example_usage"></a>
 

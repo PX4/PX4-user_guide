@@ -14,8 +14,8 @@ Hardware for the SiK radio can be obtained from various manufacturers/stores in 
 
 * [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
 * [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
-* <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
-* <del><em>3DR Telemetry Radio</em></del> (Discontinued)
+* <del>*HKPilot Telemetry Radio*</del> (Discontinued)
+* <del>*3DR Telemetry Radio*</del> (Discontinued)
 
 ## Setup/Configuration
 
@@ -23,11 +23,13 @@ The ground station-based radio is connected via USB (essentially plug-n-play).
 
 The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
 
+
 ## Firmware Update
 
 Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware. You may need to update older hardware with new firmware, for example to gain support for MAVLink 2.
 
-You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
+You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
+
 
 ## Advanced Setup/Configuration
 

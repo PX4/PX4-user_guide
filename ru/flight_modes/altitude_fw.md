@@ -6,7 +6,7 @@ The *Altitude* flight mode makes it easier for users to control vehicle altitude
 
 The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed.
 
-The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+The throttle input controls airspeed.  Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
 
 When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
 
@@ -18,20 +18,18 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 RC/manual mode like Stabilized mode but with altitude stabilization (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
 
-* Centered Roll/Pitch/Yaw inputs (inside deadband): 
+* Centered Roll/Pitch/Yaw inputs (inside deadband):
   * Autopilot levels vehicle/wings and maintains altitude.
-  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
-* Outside center: 
+  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at trim throttle ([FW_THR_TRIM](../advanced_config/parameter_reference.md#FW_THR_TRIM)), increasing or decreasing throttle as needed to climb or descend).
+* Outside center:
   * Pitch stick controls altitude.
   * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
   * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
   * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
 
 :::note
-
 * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
-:::
+* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy. :::
 
 ## Parameters
 
@@ -57,11 +55,12 @@ The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href
           The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW L1 Control parameters.
         </td></tr> </tbody> </table> 
         
-        <!-- 
+        <p spaces-before="0">
+          <!-- 
 FW notes: 
 FW position controller is basically 2 independent pieces
-
 * L1 is for navigation - determines the roll and yaw needed to achieve the desired waypoint (or loiter)
 * TECS is for speed and height control - determines throttle and elevator position needed to achieve the commanded altitude and airspeed
 Overall that gives you an attitude setpoint (roll, pitch, yaw) and throttle which is sent off to the attitude controller
 -->
+        </p>

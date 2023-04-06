@@ -8,14 +8,15 @@
 
 잘 설계된 기체는 비행 콘트롤러 장착된 근방의 진동의 구조적 공명 진폭을 감쇠시킵니다. 몇몇 비행 콘트롤러는 반진동 폼을 사용하여 기체에 장착하여야 합니다. 민감한 장치들은 충분히 감당할 수 있는 수준까지 진동을 줄이기 위하여 추가적인 방법이 필요합니다.
 
+
 ## 진동 분석
 
 [로그 분석의 비행 검토 &gt; 진동](../log/flight_review.md#vibration)에서 로그를 사용하여 진동으로 인한 문제를 분석하는 방법을 설명합니다.
 
+
 ## 기초적인 진동 해결 방법
 
 간단한 몇 가지의 단계로 진동을 줄일 수 있습니다:
-
 - 모든 장비(랜딩 기어, GPS 지지대 등)가 기체에 단단히 고정되어 있는 지 확인하십시오.
 - 균형 잡힌 프로펠러를 사용하십시오.
 - 고품질의 프로펠러, 모터, ESC와 기체 프레임을 사용하십시오. 품질에서 큰 차이가 발생합니다.
@@ -25,6 +26,6 @@
 ## 참고
 
 유용한 참고사항들입니다.
-
 - [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (ebook, 무료)
 - [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (preview).
+

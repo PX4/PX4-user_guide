@@ -1,14 +1,13 @@
-# Holybro  Kakute F7
+# Holybro Kakute F7 (Discontinued)
 
 :::warning
 PX4 does not manufacture this (or any) autopilot.
-Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
-
 
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -33,7 +32,6 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## Where to Buy
 
 The board can be bought from one of the following shops (for example):
-- [Holybro](https://shop.holybro.com/kakute-f7_p1104.html) 
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
 :::tip
@@ -75,7 +73,7 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
 Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
-Download the [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+Download the [kakutef7_bl.hex](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## Building Firmware
 
@@ -97,12 +95,13 @@ The firmware can be installed in any of the normal ways:
 
 ## Configuration
 
+If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment you can use the [Actuator](../config/actuators.md) configuration UI to set the motor ordering appropriately.
+
 In addition to the [basic configuration](../config/README.md), the following parameters are important:
 
 Parameter | Setting
 --- | ---
 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag.
-[MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
 
 ## Serial Port Mapping
@@ -116,7 +115,7 @@ UART4 | /dev/ttyS3 | GPS1
 USART6 | /dev/ttyS4 | RC SBUS
 UART7 | /dev/ttyS5 | ESC telemetry (DShot)
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Debug Port
 
@@ -135,4 +134,3 @@ The  [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
 These are shown below.
 
 ![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
-

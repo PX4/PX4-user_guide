@@ -60,7 +60,7 @@
       ****************************************************************************/
      ```
 
-   * 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 있어야 합니다!
+   * 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
 
      ```c
      /**
@@ -137,7 +137,7 @@
    - `MAIN` 블록은 PX4 셸 또는 SITL 콘솔에서 호출할 수 있도록 NuttX에 명령을 등록하는 모듈의 진입점을 나열합니다.
 
 :::tip
-`px4_add_module()` 형식은 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)에 설명되어 있습니다. <!-- NEED px4_version -->
+기본 함수의 이름은 `<module_name>_main`이어야 하며 표시된 대로 모듈에서 출력하여야 합니다. <!-- NEED px4_version -->
 
 :::
 
@@ -162,10 +162,11 @@
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
 * 다른 보드의 *cmake* 파일은 [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에서 찾을 수 있습니다.
 
-애플리케이션을 펌웨어로 컴파일하려면 *cmake* 파일에 애플리케이션에 대한 새로운 행을 만드십시오.
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
-    examples/px4_simple_app
+examples  --->
+    [x] PX4 Simple app  ----
 ```
 
 :::note
@@ -265,10 +266,12 @@ INFO  [px4_simple_app] Hello Sky!
 
 유용한 작업을 수행하려면, 애플리케이션이 입력을 구독하고 출력(예: 모터 또는 서보 명령)을 게시해야 합니다.
 
-:::tip PX4 하드웨어 추상화의 이점이 여기에 있습니다! 센서 드라이버와 어떤 식으로든 상호 작용할 필요가 없으며, 보드 또는 센서가 업데이트된 경우 앱을 업데이트할 필요도 없습니다.
+:::tip
+PX4 하드웨어 추상화의 이점이 여기에 있습니다!
+센서 드라이버와 어떤 식으로든 상호 작용할 필요가 없으며, 보드 또는 센서가 업데이트된 경우 앱을 업데이트할 필요도 없습니다.
 :::
 
-애플리케이션 간의 개별 메시지 채널을 [주제](../middleware/uorb.md)라고 합니다. 이 튜토리얼에서는 전체 시스템의 동기화된 센서 데이터를 보유하는 [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) 주제를 예로 설명합니다.
+애플리케이션 간의 개별 메시지 채널을 [주제](../middleware/uorb.md)라고 합니다. For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 주제 구독은 간단합니다.
 
@@ -366,7 +369,8 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## 전체 예제 코드
 
-[전체 예제 코드](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c)는 다음과 같습니다:
+:::tip
+`px4_add_module()` 형식은 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)에 설명되어 있습니다.
 
 ```c
 /****************************************************************************
@@ -508,7 +512,7 @@ int px4_simple_app_main(int argc, char *argv[])
 px4_simple_app
 ```
 
-*QGroundControl*의 실시간 플롯([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html))에서 센서 값을 확인할 수 있습니다.
+If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
 
 ## 마무리
 

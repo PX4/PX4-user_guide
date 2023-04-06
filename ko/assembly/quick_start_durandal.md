@@ -1,6 +1,6 @@
 # Durandal 배선 개요
 
-:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 [Drundal](../flight_controller/durandal.md)<sup>&reg;</sup> 비행 콘트롤러의 전원공급 방법과 주요 주변장치 연결 방법을 설명합니다.
@@ -34,7 +34,8 @@ Durandal은 전원 모듈(*PM02 V3*, *PM07* 및 *Pixhawk 4 GPS / Compass*)이 �
 콘트롤러를 공간의 제약 등으로 권장 방향으로 장착할 수없는 경우에는 실제 장착한 방향을 프로그램에서 설정하여야 합니다. [비행 콘트롤러 방향](../config/flight_controller_orientation.md).
 
 :::tip
-이 보드에는 내부진동 차단 기능을 제공합니다. 콘트롤러 진동 차단 스티로폼을 사용하여 장착하시 마십시오. 일반인 양면 테이프로 장착하여도 충분합니다.
+이 보드에는 내부진동 차단 기능을 제공합니다.
+콘트롤러 진동 차단 스티로폼을 사용하여 장착하시 마십시오. 일반인 양면 테이프로 장착하여도 충분합니다.
 :::
 
 ## GPS + 나침반 + 부저 + 안전 스위치 + LED
@@ -56,7 +57,7 @@ GPS/나침반은 차량 전방 표식을 사용하여 가능한 전자 장치들
 <span id="pm02_v3"></span>
 ### PM02 v3 전원 모듈
 
-[전원 모듈 (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html)은 *Durandal*과 함께 번들로 제공될 수 있습니다. 비행 콘트롤러에 배터리의 전력을 공급합니다.
+The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *Durandal*. 비행 콘트롤러에 배터리의 전력을 공급합니다.
 
 그림과 같이 *전원 모듈*의 출력을 연결합니다.
 
@@ -85,14 +86,10 @@ GPS/나침반은 차량 전방 표식을 사용하여 가능한 전자 장치들
   - 6 핀 MLX 케이블 (1 개)
   - 6 핀 GH 케이블 (1 개)
 
-:::note
-[PM02v3 전원 모듈 설명서](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro)도 참고하십시오.
-:::
-
 <span id="pm07"></span>
 ### Pixhawk 4 전원 모듈 (PM07)
 
-[Pixhawk 4 전원 모듈 (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)은 *Durandal*과 함께 번들로 제공될 수 있습니다. 전원 모듈 및 배전 보드 역할을 수행하여 배터리의 조정된 전력을 비행 콘트롤러와 ESC에 제공합니다.
+The [Pixhawk 4 Power Module (PM07)](https://holybro.com/collections/power-modules-pdbs/products/pixhawk-4-power-module-pm07) can be bundled/used with *Durandal*. 전원 모듈 및 배전 보드 역할을 수행하여 배터리의 조정된 전력을 비행 콘트롤러와 ESC에 제공합니다.
 
 이것은 [ Pixhawk 4 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power)에 설명된 것과 동일 방식으로 연결합니다.
 
@@ -108,7 +105,7 @@ GPS/나침반은 차량 전방 표식을 사용하여 가능한 전자 장치들
   - 80mm XT60 커넥터 와이어 (1 개)
 
 :::note
-[PM07 빠른 시작 안내서](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)도 참고하십시오.
+See also [PM07 Quick Start Guide](https://docs.holybro.com/power-module-and-pdb/power-module/pm07-quick-start-guide) (Holybro).
 :::
 
 ### 배터리 설정
@@ -156,7 +153,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 ![Durandal - SD 카드](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
 :::tip
-자세한 내용은 [기본 개념 &gt; SD 카드(이동식 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참고하십시오.
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory).
 :::
 
 ## 모터
@@ -200,7 +197,7 @@ QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/v
 ## 추가 정보
 
 - [Durandal 개요](../flight_controller/durandal.md)
-- [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
-- [Durandal 핀 배열](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf) (Holybro)
+- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)
 - [Durandal_MB_H743sch.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal 회로도)
 - [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/master/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)

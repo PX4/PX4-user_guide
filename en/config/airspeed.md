@@ -10,8 +10,8 @@ The airspeed calibration needs to read a stable baseline with 0 airspeed in orde
 Unlike most other sensor drivers, the airspeed sensor drivers are not automatically started.
 Before calibration they must be [enabled via the corresponding parameter](../advanced_config/parameters.md):
 - Sensirion SDP3X ([SENS_EN_SDP3X](../advanced_config/parameter_reference.md#SENS_EN_SDP3X))
-- TE MS4525 ([SENS_EN_MS4525](../advanced_config/parameter_reference.md#SENS_EN_MS4525))
-- TE MS5525 ([SENS_EN_MS5525](../advanced_config/parameter_reference.md#SENS_EN_MS5525))
+- TE MS4525 ([SENS_EN_MS4525DO](../advanced_config/parameter_reference.md#SENS_EN_MS4525DO))
+- TE MS5525 ([SENS_EN_MS5525DS](../advanced_config/parameter_reference.md#SENS_EN_MS5525DS))
 - Eagle Tree airspeed sensor ([SENS_EN_ETSASPD](../advanced_config/parameter_reference.md#SENS_EN_ETSASPD))
 :::
 
@@ -44,4 +44,4 @@ To calibrate the airspeed sensor:
 
 ## Further Information
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#airspeed)

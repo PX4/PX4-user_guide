@@ -14,7 +14,7 @@
 ![FreeFly GPS 모듈](../../assets/hardware/gps/freefly_gps_module.jpg)
 
 
-## 구매
+## Where to Buy
 
 * [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 

@@ -2,12 +2,12 @@
 
 Drone APIs let you write code to control and integrate with PX4-powered vehicles, without having to understand intimate details of the vehicle and flight stack, or having to think about safety-critical behaviour.
 
-For example, you might want to create new "smart" flight modes, or custom geofence modes, or integrate new hardware. Drone APIs allow you to do this using high level instructions in your programming language of choice, and the code can then run on-vehicle in a [companion computer](../companion_computer/pixhawk_companion.md) or from a ground station. Under the the hood the APIs communicate with PX4 using [MAVLink](../middleware/mavlink.md) or [RTPS](../middleware/micrortps.md).
+For example, you might want to create new "smart" flight modes, or custom geofence modes, or integrate new hardware. Drone APIs allow you to do this using high level instructions in your programming language of choice, and the code can then run on-vehicle in a [companion computer](../companion_computer/README.md) or from a ground station. Under the the hood the APIs communicate with PX4 using [MAVLink](../middleware/mavlink.md) or [XRCE-DDS](../middleware/xrce_dds.md).
 
 PX4 supports the following SDKs/Robotics tools:
 - [MAVSDK](https://mavsdk.mavlink.io/)
-- [ROS2](../ros/README.md)
-- [ROS1](../ros/README.md)
+- [ROS 2](../ros/README.md)
+- [ROS 1](../ros/README.md)
 
 ## What API should I use?
 
@@ -33,9 +33,9 @@ The main difference are:
   - Many pre-existing libraries: useful for code-reuse.
   - Supports C++ and Python libraries
   - Runs on Linux
-  - ROS2 is the latest version, which connects via DDS.
+  - ROS 2 is the latest version, which connects via DDS.
     - DDS interface layer allows deep integration into any aspect of PX4 that is exposed as a UORB topic (almost everything).
     - Can provide much lower latency.
-    - Still under development. At time of writing requires a deeper understanding of PX4 than ROS1
-  - ROS1 is older version that can connect over MAVLink or via ROS2. Users are encouraged to update to ROS2 for new projects.
+    - Still under development. At time of writing requires a deeper understanding of PX4 than ROS 1
+  - ROS 1 is the older version that can connect over MAVLink or via ROS 2. Users are encouraged to update to ROS 2 for new projects.
 

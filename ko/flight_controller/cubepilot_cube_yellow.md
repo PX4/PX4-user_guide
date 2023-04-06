@@ -1,12 +1,9 @@
-# Cube Yellow 비행 콘트롤러
+# CubePilot Cube Yellow Flight Controller
 
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://cubepilot.org/#/home)에 문의하십시오.
 :::
 
-:::tip PX4 개발팀은이 비행 컨트롤러를 Cube Black의 풋프린트 호환 대체품으로 지원합니다. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](https://pixhawk.org). 이 비행 컨트롤러는 표준을 따르지 않으며, 특허받은 커넥터를 사용합니다.
-:::
-
-[Cube Yellow](http://www.proficnc.com/61-system-kits2) 비행 컨트롤러는 주로 상용 시스템 제조업체를 위한 자동조종장치입니다.
+The Cube Yellow flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Yellow](../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg)
 
@@ -33,14 +30,15 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 * 고전력 멀티톤 피에조 오디오 표시기
 * 장기간 고속 로깅용 microSD 카드
 
+
 <span id="stores"></span>
 ## 구매처
 
-* [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
+* [Reseller list](https://www.cubepilot.com/#/reseller/list)
 
 ## 조립
 
-[큐브 배선 개요](../assembly/quick_start_cube.md)
+[Cube 배선 퀵 스타트](../assembly/quick_start_cube.md)
 
 ## 사양
 
@@ -100,20 +98,19 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ## 시리얼 포트 매핑
 
-| UART   | 장치         | 포트                                       |
-| ------ | ---------- | ---------------------------------------- |
-| USART1 | /dev/ttyS0 | <!-- # IO DEBUG:/dev/ttyS0 -->
-|
-| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어)                           |
-| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)                           |
-| UART4  | /dev/ttyS3 | GPS1                                     |
-| USART6 | /dev/ttyS4 | PX4IO                                    |
-| UART7  | /dev/ttyS5 | 콘솔                                       |
-| UART8  | /dev/ttyS6 | GPS2                                     |
+| UART   | 장치         | 포트              |
+| ------ | ---------- | --------------- |
+| USART2 | /dev/ttyS0 | TELEM1 (흐름 제어)  |
+| USART3 | /dev/ttyS1 | TELEM2 (흐름 제어)  |
+| UART4  | /dev/ttyS2 | GPS1            |
+| USART6 | /dev/ttyS3 | PX4IO           |
+| UART7  | /dev/ttyS4 | CONSOLE/ADSB-IN |
+| UART8  | /dev/ttyS5 | GPS2            |
+
   
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/default.px4board -->
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/default.px4board -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
 
 
 ### 디버그 포트
@@ -141,7 +138,7 @@ Cube의 CAN1과 CAN2의 실크 스크린이 뒤집힙니다. CAN1은 CAN2이고 
 
 ## 추가 정보 및 문서
 
-- [큐브 배선 개요](../assembly/quick_start_cube.md)
+- [Cube 배선 퀵 스타트](../assembly/quick_start_cube.md)
 - 큐브 문서 (제조사) :
   - [큐브 모듈 개요](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [큐브 사용 설명서](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)

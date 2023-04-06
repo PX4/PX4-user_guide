@@ -8,7 +8,7 @@ The approximate range with output power set to 1W is 8km (5miles) when using def
 
 ![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
 
-## Purchase:
+## Where to Buy
 
 * [1W 900MHz Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (vehicle)
 * [1W 900MHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (ground station)
@@ -35,7 +35,8 @@ Connect the ground radio to the ground station via USB C. The radio does not nee
 The radios are default-configured to use peer-to-peer mode and a baud rate of 57600. This allows them to connect to the PX4 `TELEM1` port and *QGroundControl* **without any further configuration**.
 
 :::note
-You can use a different baud rate, mode or flight controller port. The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
+You can use a different baud rate, mode or flight controller port.
+The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
 :::
 
 [Microhard Serial Telemetry Radios > Configuration](../telemetry/microhard_serial.md#configuration) explains how to configure the radios, *QGroundControl*, and PX4.

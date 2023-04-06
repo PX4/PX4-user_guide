@@ -1,12 +1,10 @@
 # Modules Reference: Command
 
 ## actuator_test
-Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/actuator_test)
+Source: [systemcmds/actuator_test](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/actuator_test)
 
 
 Utility to test actuators.
-
-Note: this is only used in combination with SYS_CTRL_ALLOC=1.
 
 WARNING: remove all props before using this command.
 
@@ -30,7 +28,7 @@ actuator_test <command> [arguments...]
    iterate-servos Iterate all servos deflecting one after the other
 ```
 ## bl_update
-Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
+Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bl_update)
 
 Utility to flash the bootloader from a file
 <a id="bl_update_usage"></a>
@@ -42,8 +40,18 @@ bl_update [arguments...]
 
    <file>        Bootloader bin file
 ```
+## bsondump
+Source: [systemcmds/bsondump](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/bsondump)
+
+read BSON from a file and print in human form
+<a id="bsondump_usage"></a>
+### Usage
+```
+bsondump [arguments...]
+     <file>      File name
+```
 ## dumpfile
-Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
+Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dumpfile)
 
 Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
 <a id="dumpfile_usage"></a>
@@ -53,7 +61,7 @@ dumpfile [arguments...]
      <file>      File to dump
 ```
 ## dyn
-Source: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
+Source: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/dyn)
 
 
 ### Description
@@ -73,7 +81,7 @@ dyn [arguments...]
      [arguments...] Arguments to the module
 ```
 ## failure
-Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
+Source: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/failure)
 
 
 ### Description
@@ -100,7 +108,7 @@ failure [arguments...]
                  default: 0
 ```
 ## gpio
-Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
+Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/gpio)
 
 
 ### Description
@@ -144,7 +152,7 @@ gpio [arguments...]
      [--force]   Force (ignore board gpio list)
 ```
 ## hardfault_log
-Source: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
+Source: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log)
 
 Hardfault utility
 
@@ -155,23 +163,33 @@ Used in startup scripts to handle hardfaults
 ```
 hardfault_log <command> [arguments...]
  Commands:
-   check         Check if there's an uncommited hardfault
+   check         Check if there's an uncommitted hardfault
 
-   rearm         Drop an uncommited hardfault
+   rearm         Drop an uncommitted hardfault
 
    fault         Generate a hardfault (this command crashes the system :)
      [0|1]       Hardfault type: 0=divide by 0, 1=Assertion (default=0)
 
-   commit        Write uncommited hardfault to /fs/microsd/fault_%i.txt (and
+   commit        Write uncommitted hardfault to /fs/microsd/fault_%i.txt (and
                  rearm, but don't reset)
 
    count         Read the reboot counter, counts the number of reboots of an
-                 uncommited hardfault (returned as the exit code of the program)
+                 uncommitted hardfault (returned as the exit code of the
+                 program)
 
    reset         Reset the reboot counter
 ```
+## hist
+Source: [systemcmds/hist](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hist)
+
+Command-line tool to show the px4 message history. There are no arguments.
+<a id="hist_usage"></a>
+### Usage
+```
+hist [arguments...]
+```
 ## i2cdetect
-Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
+Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/i2cdetect)
 
 Utility to scan for I2C devices on a particular bus.
 <a id="i2cdetect_usage"></a>
@@ -182,7 +200,7 @@ i2cdetect [arguments...]
                  default: 1
 ```
 ## led_control
-Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
+Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/led_control)
 
 
 ### Description
@@ -233,7 +251,7 @@ led_control <command> [arguments...]
                  default: 2
 ```
 ## listener
-Source: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
+Source: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/topic_listener)
 
 
 Utility to listen on uORB topics and print the data to the console.
@@ -254,7 +272,7 @@ listener <command> [arguments...]
                  default: 0
 ```
 ## mfd
-Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
+Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mft)
 
 Utility interact with the manifest
 <a id="mfd_usage"></a>
@@ -264,54 +282,8 @@ mfd <command> [arguments...]
  Commands:
    query         Returns true if not existed
 ```
-## mixer
-Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)
-
-
-### Description
-Load or append mixer files to the ESC driver.
-
-Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
-
-<a id="mixer_usage"></a>
-### Usage
-```
-mixer <command> [arguments...]
- Commands:
-   load
-     <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
-
-   append
-     <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
-```
-## motor_test
-Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
-
-
-Utility to test motors.
-
-WARNING: remove all props before using this command.
-
-<a id="motor_test_usage"></a>
-### Usage
-```
-motor_test <command> [arguments...]
- Commands:
-   test          Set motor(s) to a specific output value
-     [-m <val>]  Motor to test (1...8, all if not specified)
-     [-p <val>]  Power (0...100)
-                 default: 0
-     [-t <val>]  Timeout in seconds (default=no timeout)
-                 default: 0
-     [-i <val>]  driver instance
-                 default: 0
-
-   stop          Stop all motors
-
-   iterate       Iterate all motors starting and stopping one after the other
-```
 ## mtd
-Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
+Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/mtd)
 
 Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
 <a id="mtd_usage"></a>
@@ -336,7 +308,7 @@ mtd <command> [arguments...]
                  /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
-Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
+Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/nshterm)
 
 Start an NSH shell on a given port.
 
@@ -350,7 +322,7 @@ nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
 ```
 ## param
-Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
+Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/param)
 
 
 ### Description
@@ -389,9 +361,6 @@ param <command> [arguments...]
      [<file>]    File name (use default if not given)
 
    save          Save params to a file
-     [<file>]    File name (use default if not given)
-
-   dump          Dump params from a file
      [<file>]    File name (use default if not given)
 
    select        Select default file
@@ -448,8 +417,34 @@ param <command> [arguments...]
    find          Show index of a param
      <param>     param name
 ```
+## payload_deliverer
+Source: [modules/payload_deliverer](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/payload_deliverer)
+
+
+### Description
+Handles payload delivery with either Gripper or a Winch with an appropriate timeout / feedback sensor setting,
+and communicates back the delivery result as an acknowledgement internally
+
+
+<a id="payload_deliverer_usage"></a>
+### Usage
+```
+payload_deliverer <command> [arguments...]
+ Commands:
+   start
+
+   gripper_test  Tests the Gripper's release & grabbing sequence
+
+   gripper_open  Opens the gripper
+
+   gripper_close Closes the gripper
+
+   stop
+
+   status        print status info
+```
 ## perf
-Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
+Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/perf)
 
 Tool to print performance counters
 <a id="perf_usage"></a>
@@ -462,82 +457,8 @@ perf [arguments...]
 
  Prints all performance counters if no arguments given
 ```
-## pwm
-Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
-
-
-### Description
-This command is used to configure PWM outputs for servo and ESC control.
-
-The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
-
-It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided
-by the airframe config if specified). `pwm status` shows the current settings (the trim value is an offset
-and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
-
-The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the
-minimum value they should spin.
-
-Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use
-`pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
-
-The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
-
-Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
-
-### Examples
-Set the PWM rate for all channels to 400 Hz:
-```
-pwm rate -a -r 400
-```
-
-Test the outputs of eg. channels 1 and 3, and set the PWM value to 1200 us:
-```
-pwm arm
-pwm test -c 13 -p 1200
-```
-
-
-<a id="pwm_usage"></a>
-### Usage
-```
-pwm <command> [arguments...]
- Commands:
-   arm           Arm output
-
-   disarm        Disarm output
-
-   status        Print current configuration of all channels
-
-   rate          Configure PWM rates
-     -r <val>    PWM Rate in Hz (0 = Oneshot, otherwise 50 to 400Hz)
-
-   oneshot       Configure Oneshot125 (rate is set to 0)
-
-   min           Set Minimum PWM value
-
-   max           Set Maximum PWM value
-
- The commands 'min' and 'max' require a PWM value:
-     -p <val>    PWM value (eg. 1100)
-
- The commands 'rate', 'oneshot', 'min', 'max' additionally require to specify
- the channels with one of the following commands:
-     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
-                 1=first)
-     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-     [-g <val>]  Select channels by group (eg. 0, 1, 2. use 'pwm status' to show
-                 groups)
-     [-a]        Select all channels
-
- These parameters apply to all commands:
-     [-d <val>]  Select PWM output device
-                 values: <file:dev>, default: /dev/pwm_output0
-     [-v]        Verbose output
-     [-e]        Exit with 1 instead of 0 on error
-```
 ## reboot
-Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
+Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/reboot)
 
 Reboot the system
 <a id="reboot_usage"></a>
@@ -548,7 +469,7 @@ reboot [arguments...]
      [lock|unlock] Take/release the shutdown lock (for testing)
 ```
 ## sd_bench
-Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
+Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_bench)
 
 Test the speed of an SD Card
 <a id="sd_bench_usage"></a>
@@ -567,7 +488,7 @@ sd_bench [arguments...]
      [-v]        Verify data and block number
 ```
 ## sd_stress
-Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_stress)
+Source: [systemcmds/sd_stress](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/sd_stress)
 
 Test operations on an SD Card
 <a id="sd_stress_usage"></a>
@@ -580,7 +501,7 @@ sd_stress [arguments...]
                  default: 100
 ```
 ## serial_passthru
-Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/serial_passthru)
+Source: [systemcmds/serial_passthru](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/serial_passthru)
 
 Pass data from one device to another.
 
@@ -599,7 +520,7 @@ serial_passthru [arguments...]
      [-t]        Track the External devices baudrate on internal device
 ```
 ## system_time
-Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
+Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/system_time)
 
 
 ### Description
@@ -624,7 +545,7 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/top)
 
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
@@ -634,7 +555,7 @@ top [arguments...]
    once          print load only once
 ```
 ## usb_connected
-Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
+Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/usb_connected)
 
 Utility to check if USB is connected. Was previously used in startup scripts.
 A return value of 0 means USB is connected, 1 otherwise.
@@ -644,7 +565,7 @@ A return value of 0 means USB is connected, 1 otherwise.
 usb_connected [arguments...]
 ```
 ## ver
-Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/ver)
 
 Tool to print various version information
 <a id="ver_usage"></a>

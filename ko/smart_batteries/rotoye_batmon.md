@@ -12,7 +12,7 @@
 ![사전 조립된 Rotoye 스마트 배터리](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## 구매
+## Where to Buy
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon 키트, 맞춤형 스마트 배터리 및 액세서리
 
@@ -42,7 +42,7 @@ Rotoye Batmon 시스템은 I2C 핀이 있는 XT-90 배터리 커넥터와 광절
    ```
 1. 대상 보드의 [펌웨어 빌드 및 업로드](../dev_setup/building_px4.md)
 
-### 매개변수 설정
+### Configure Parameters
 
 *QGroundControl* 에서:
 1. 다음 [매개변수](../advanced_config/parameters.md)를 설정합니다.

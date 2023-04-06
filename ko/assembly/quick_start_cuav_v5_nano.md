@@ -7,11 +7,12 @@
 
 ![Nano Hero Image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
+
 ## 배선 개요
 
 아래의 이미지는 주요 센서와 주변 장치(모터 및 서보 출력 제외)들의 연결 방법을 설명합니다. 다음 섹션에서 각 장치에 대하여 자세히 설명합니다.
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
 
 | 인터페이스           | 기능                                                                                                                  |
 |:--------------- |:------------------------------------------------------------------------------------------------------------------- |
@@ -29,18 +30,17 @@
 | TELEM1/TELEM2   | 텔레메트리에 연결합니다.                                                                                                       |
 | DSM/SBUS/RSSI   | DSM, SBUS, RSSI 신호 입력 인터페이스, DSM 인터페이스는 DSM 위성 수신기에 연결 가능, SBUS 인터페이스는 SBUS 원격 제어 수신기에 연결 가능, 신호 강도 반환 모듈용 RSSI 포함. |
 
-
 :::note
 자세한 인터페이스는 [V5 nano 매뉴얼](http://manual.cuav.net/V5-nano.pdf)을 참고하십시오.
 :::
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
 :::note
 콘트롤러를 권장 기본 방향으로 장착 할 수 없는 경우(예 : 공간 제약으로 인해) 실 장착 방향을 자동항법장치 프로그램에서 설정하여야합니다. [비행 콘트롤러 방향](../advanced_features/rtk-gps.md)
 :::
 
-## GPS + 나침반 + 안전 스위치 + LED 
+## GPS + 나침반 + 안전 스위치 + LED
 
 권장 GPS 모듈은 GPS, 나침반, 안전 스위치, 부저 및 LED가 포함된 *Neo v2 GPS*입니다.
 
@@ -50,21 +50,24 @@
 
 The GPS/Compass module should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow). 케이블을 사용하여 비행 제어 GPS에 연결합니다.
 
-:::note CAN
-GPS를 사용하는 경우 케이블을 사용하여 비행 제어 CAN 인터페이스에 연결하십시오.
+:::note
+CAN GPS를 사용하는 경우 케이블을 사용하여 비행 제어 CAN 인터페이스에 연결하십시오.
 :::
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
+
 
 ## 안전 스위치
 
 V5+에 제공되는 전용 안전 스위치는 권장 *Neo v2 GPS* (안전 스위치 내장)를 사용하지 않는 경우에만 사용합니다.
 
-GPS 없이 비행시에는 차량 시동 스위치를 `GPS1` 포트에 직접 연결하여야합니다 (이전 6 핀 GPS를 사용하는 경우에는, 라인 변경에 관련된 하단 인터페이스 매뉴얼을 참고하십시오).
+GPS 없이 비행시에는 차량 시동 스위치를 `GPS1` 포트에 직접 연결하여야합니다 (이전 6 핀 GPS를 사용하는 경우에는,  라인 변경에 관련된 하단 인터페이스 매뉴얼을 참고하십시오).
+
 
 ## 부저
 
 권장 *Neo v2 GPS*를 사용하지 않으면, 부저가 작동하지 않을 수 있습니다.
+
 
 ## 무선 조종
 
@@ -72,11 +75,13 @@ GPS 없이 비행시에는 차량 시동 스위치를 `GPS1` 포트에 직접 �
 
 아래 그림은 원격 수신기에 액세스하는 방법을 보여줍니다 (키트에서 S.BUS 케이블을 찾으십시오)
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
+
 
 ## Spektrum Satellite 수신기
 
 V5 nano에는 전용 DSM 케이블이 있습니다. Spektrum 위성 수신기는 비행 컨트롤러 DSM/SBUS/RSSI 인터페이스에 연결하여야합니다.
+
 
 ## 전원
 
@@ -86,10 +91,11 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 제공된 전원 모듈은 퓨즈가 없습니다. 주변 장치를 연결하는 동안 전원을 **반드시** 꺼야 합니다.
 :::
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
 :::note
-전원 모듈은 PWM 출력에 연결된 주변 장치에 전원 자체를 공급하지 않습니다. 서보/액추에이터를 연결하는 경우에는 BEC를 사용하여 별도로 전원을 공급하여야 합니다.
+전원 모듈은 PWM 출력에 연결된 주변 장치에 전원 자체를 공급하지 않습니다.
+서보/액추에이터를 연결하는 경우에는 BEC를 사용하여 별도로 전원을 공급하여야 합니다. 
 :::
 
 ## 텔레메트리(선택 사항)
@@ -98,23 +104,26 @@ V5 nano키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포
 
 통신 채널은 텔레메트리를 통하여 이루어집니다. 차량 기반 라디오는 **TELEM1** 또는 **TELEM2** 포트에 연결합니다. 이 포트에 연결되어있는 경우에는 추가 설정이 필요하지 않습니다. 다른 라디오는 지상국 컴퓨터 또는 모바일 장치에 USB를 통하여 연결합니다.
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
+
 
 <span id="sd_card"></span>
-
 ## SD 카드(선택 사항)
 
-[SD 카드](../getting_started/px4_basic_concepts.md#sd_cards)가 제조 공장에서 삽입되어 있습니다. 추가 작업이 필요 없습니다.
+An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory) is inserted in the factory (you do not need to do anything).
+
 
 ## 모터
 
 모터/서보는 [기체 규격](../airframes/airframe_reference.md)에 지정된 순서대로 MAIN 및 AUX 포트에 연결됩니다.
 
-![빠른 시작](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+![퀵 스타트](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+
 
 ## 핀배열
 
 ![V5 nano pinouts](../../assets/flight_controller/cuav_v5_nano/v5_nano_pinouts.png)
+
 
 ## 추가 정보
 

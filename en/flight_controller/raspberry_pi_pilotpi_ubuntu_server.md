@@ -14,7 +14,7 @@ Both armhf and arm64 arch are supported.
 #### armhf
 
 - [Ubuntu Server 18.04.5 for RPi2](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi2.img.xz)
-- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz.zsync)
+- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz)
 - [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi4.img.xz)
 - [Ubuntu Server 20.04.1 for RPi 2/3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
 
@@ -268,7 +268,7 @@ make scumaker_pilotpi_default upload
 
 #### Alternative build method for armhf (using docker)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in firmware folder:
 
@@ -312,7 +312,7 @@ make scumaker_pilotpi_arm64 upload
 
 #### Alternative build method for arm64 (using docker)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in `PX4-Autopilot` folder:
 
@@ -321,7 +321,7 @@ Execute the command in `PX4-Autopilot` folder:
 ```
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 :::
 
 :::note

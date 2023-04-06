@@ -1,13 +1,13 @@
-# Airframe Setup
+# Frame Setup
 
-After installing firmware you need to select the [airframe configuration](../airframes/airframe_reference.md) that best matches your vehicle.
+After installing firmware you need to select the vehicle [frame configuration](../airframes/airframe_reference.md) that best matches your vehicle.
 
 :::note
-Select the airframe configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration.
-Otherwise select the closest "Generic" frame option.
+Select the configuration for your vehicle brand and model, if one exists, as this should be tuned well enough to fly following standard configuration. 
+Otherwise select the closest "Generic" frame option. 
 :::
 
-## Set the Airframe
+## Set the Frame
 
 To set the airframe:
 
@@ -28,5 +28,5 @@ To set the airframe:
 
 ## Further Information
 
-* [QGroundControl User Guide > Airframe](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
+* [QGroundControl User Guide > Airframe](https://docs.qgroundcontrol.com/master/en/SetupView/Airframe.html)
 * [PX4 Setup Video - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)

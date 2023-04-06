@@ -29,20 +29,18 @@ FMU 1~3세대는 개방형 하드웨어로 설계되었으나, FMU 4세대와 5�
 
 <!-- Draw.io version of file can be found here: https://drive.google.com/file/d/1H0nK7Ufo979BE9EBjJ_ccVx3fcsilPS3/view?usp=sharing -->
 
-일부 Pixhawk 시리즈 컨트롤러는 공간이나 복잡성을 줄이기 위하여 특정 보드 의 기능 향상을 위하여 I/O 보드 없이 제작됩니다.
-
-I/O 보드는 매개변수 [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO)에서 비활성화됩니다. I/O 보드가 비활성화된 경우:
-- MAIN 믹서 파일은 FMU에 로드됩니다(그래서 [기체 정의서](../airframes/airframe_reference.md)에 나열된 "MAIN" 출력이 AUX라고 표시된 포트에 나타납니다). AUX 믹서 파일이 로드되지 않으므로, 이 파일에 정의된 출력이 사용되지 않습니다.
-- RC 입력은 IO 보드를 통하지 않고 FMU로 직접 입력됩니다.
-
-I/O 보드가 없는 비행 콘트롤러에는 `MAIN` 포트가 있지만, `AUX` 포트는 *없습니다*. 따라서, `AUX` 포트를 사용하지 않거나 비필수적인 목적(예: RC 전달)으로만 사용하는 [기체](../airframes/airframe_reference.md)에만 사용할 수 있습니다. 일반적으로 모터/필수 제어용으로 `MAIN` 포트만 사용하기 때문에, 대부분의 멀티콥터와 *완전* 자율주행 차량(RC 제어를 사용하는 안전 조종사 없음)에 사용할 수 있습니다.
-
-:::warning
-I/O 보드가 없는 비행 콘트롤러는 `AUX` 포트가 없기 때문에, 모든 `AUX` 포트를 필수 비행 제어 또는 모터에 매핑하는 [기체](../airframes/airframe_reference.md)에서 사용할 수 없습니다.
-:::
+일부 Pixhawk 시리즈 컨트롤러는 공간이나 복잡성을 줄이기 위하여 특정 보드 의 기능 향상을 위하여 I/O 보드 없이 제작됩니다. In this case [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) is set to `0` so that the I/O driver is not started. You can also set `SYS_USE_IO` to `0` to disable the I/O on a flight controller where it is present but not needed (in order to slightly reduce the CPU load).
 
 :::note
 I/O 보드가 없는 제조업체 비행 콘트롤러 변형은 종종 I/O 보드를 포함하는 버전의 "소형"으로 명명됩니다. 예 : _Pixhawk 4_ **미니**_, _CUAV v5**나노**_.
 :::
 
-대부분의 PX4 PWM 출력은 믹서의 `MAIN` 또는 `AUX` 포트에 매핑됩니다. 카메라 트리거링 및 Dshot ESC를 포함한 몇 가지 특별한 경우에는 FMU 핀에 직접 매핑됩니다. 예를 들면, 비행 컨트롤러에 I/O 보드 여부에 따라 `MAIN` 또는 `AUX`로 **출력됩니다.
+Build targets that must run on flight controllers with an I/O board map the FMU outputs to `AUX` and the I/0 outputs to `MAIN` (see diagram above). If the target is run on hardware where I/O board is not present or has been disabled, the PWM MAIN outputs will not be present. You might see this, for example, by running  `px4_fmu-v5_default` on [Pixhawk 4](../flight_controller/pixhawk4.md) (with IO) and [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (without I/O).
+
+:::warning
+On [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) this results in a mismatch between the `MAIN` label screenprinted on the flight controller and the  `AUX` bus shown during [Actuator Configuration](../config/actuators.md).
+:::
+
+Note that if a build target is only ever intended to run on a flight controller that does not have an I/0 board, then the FMU outputs are mapped to `MAIN` (for example, the `px4_fmu-v4_default` target for [Pixracer](../flight_controller/pixracer.md)).
+
+PX4 PWM outputs are mapped to either `MAIN` or `AUX` ports in [Actuator Configuration](../config/actuators.md).

@@ -9,7 +9,8 @@
 :::
 
 :::note
-일반적으로 레이서는 일부 센서(예 : GPS)들을 사용하지 않을 수도 있습니다. 결과적으로 사용 가능한 안전 장치 옵션은 적어지는 것입니다.
+일반적으로 레이서는 일부 센서(예 : GPS)들을 사용하지 않을 수도 있습니다.
+결과적으로 사용 가능한 안전 장치 옵션은 적어지는 것입니다.
 :::
 
 ## 빌드 옵션
@@ -25,7 +26,6 @@
 레이서에는 일반적으로 중량 중가 문제와 충돌시 파손 문제로 인하여 GPS가 없습니다 (GPS + 외부 자력계는 자기 간섭을 피하기 위해 고전류에서 멀리 떨어진 GPS 마스트에 배치해야합니다. 이는 쉽게 파손될 수 있음을 의미합니다.)
 
 그러나 GPS를 추가시에는 초보자들에게 이로운 점이 몇 가지 있습니다.
-
 - 위치 유지모드에서 기체가 한 곳에 머물 수 있습니다. 방향을 잃거나 브레이크가 필요한 경우에 매우 편리합니다. 또한 안전하게 착륙할 수 있습니다.
 - [귀환 모드](../flight_modes/return.md) 스위치 또는 RC 손실 또는 배터리 부족시의 안전 장치로 사용할 수 있습니다.
 - 충돌시의 마지막 위치를 파악할 수 있습니다.
@@ -52,12 +52,9 @@
 무게 중심이 추력 중심에서 최대한 가까워야 합니다. 좌우 균형은 일반적으로 문제가 되지 않지만, 전후 균형은 문제가 될 수 있습니다. 배터리의 적당한 위치를 표시하여 항상 같은 위치에 장착하는 것이 좋습니다.
 
 :::note
-적분항는 불균형 설정을 나타내는 것이며, 용자 정의 믹서는 더 정확하게 나타낼 수 있습니다. 그러나 기체 설정으로 불균형을 수정하는 방법이 제일 좋습니다.
+적분항는 불균형 설정을 나타내는 것이며, 용자 정의 믹서는 더 정확하게 나타낼 수 있습니다.
+그러나 기체 설정으로 불균형을 수정하는 방법이 제일 좋습니다.
 :::
-
-### 모터 순서
-
-[Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588)과 같은 4-in-1 ESC의 모터 순서는 PX4의 모터 순서와 다릅니다. PX4에서는 [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) 매개변수로 모터 순서를 변경할 수 있습니다. 4-in-1 ESC에서 일반적으로 사용되는 Betaflight/Cleanflight 모터 순서을 선택할 수 있습니다.
 
 ## 소프트웨어 설정
 
@@ -67,7 +64,7 @@
 
 중요한 매개 변수는 다음과 같습니다.
 
-- Enable One-Shot (set [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
+- Enable One-Shot or DShot by selecting the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md).
 - 수동/안정화 모드의 최대 롤, 피치 및 요 속도를 설정합니다 : [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) 및 [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). 최대 기울기 각도는 [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX)로 설정합니다.
 - 최소 추력 [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN)은 0으로 설정합니다.
 
@@ -76,7 +73,6 @@
 GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를 사용할 수 있습니다. 그렇지 않으면 자력계나 기압계를 사용하지 않는 Q 자세 추정기로 전환하여야 합니다.
 
 이를 선택하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP)을 1로 설정하고 다음의 매개변수를 변경하십시오.
-
 - 시스템에 자력계가 없는 경우 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)를 0으로 설정하십시오.
 - 시스템에 기압계가 없는 경우 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO)를 0으로 설정하십시오.
 - Q 추정기를 설정합니다. [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP)를 0으로, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC)를 0.4로, [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS)를 0으로 설정합니다. 필요한 경우에 차후에 튜닝할 수 있습니다.
@@ -85,17 +81,19 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 
 [RC 손실 및 배터리 안전 장치](../config/safety.md)를 설정합니다. GPS를 사용하지 않는 경우 안전 장치를 **잠금**으로 설정하면 모터가 꺼집니다. 차량이 시동이 켜지면 리모컨을 꺼서 프로펠러를 제거한 다음에, 벤치에서 RC 손실을 테스트합니다.
 
-Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arming-switch). 테스트하고 연습을 충분히 하여야 합니다.
+Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arm-disarm-switch). 테스트하고 연습을 충분히 하여야 합니다.
+
 
 ### PID 튜닝
 
-:::note PID
-튜닝을 전에 ESC를 먼저 튜닝하십시오.
+:::note
+PID 튜닝을 전에 ESC를 먼저 튜닝하십시오.
 :::
 
 이 시점에서 첫 번째 테스트 비행을 준비하여야 합니다.
 
 기체의 기본 설정으로 비행이 가능하면, [기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)의 첫 번째 과정을 수행합니다. 기체는 **저 조율**하여야 합니다 (**P** 및 **D** 게인은 낮게 설정함). 컨트롤러에서 발생하는 진동이 없어야합니다. 잡음으로 해석되어 질 수 있습니다 (기본 이득이 충분할 수 있음). 이것은 [필터 튜닝](#filter-tuning)에 중요합니다 (나중에 두 번째 PID 튜닝이 있습니다).
+
 
 ### 제어 지연
 
@@ -106,12 +104,11 @@ Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [armi
 :::
 
 지연 시간에 영향을 미치는 요인은 다음과 같습니다.
-
 - 부드러운 기체 또는 부드러운 진동 장착은 지연 시간을 증가시킵니다 (필터 역할을 함).
 - 소프트웨어 및 센서 칩의 [저역 통과 필터](../config_mc/filter_tuning.md)는 지연시간 증가분을 상쇄하여 노이즈 필터링을 원활하게 합니다.
 - PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
-- IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
-- PWM 출력 신호 : One-Shot을 활성화하여 지연 시간을 줄입니다 ([PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) = 0).
+- IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오. IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
+- PWM output signal: enable the One-Shot protocol to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 ### 필터 튜닝
 

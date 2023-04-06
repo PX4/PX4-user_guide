@@ -1,17 +1,19 @@
-# Mounting the GPS/Compass
+# Mounting a GPS/Compass
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. The diagram below shows the heading marker on the Pixhawk 4 and compass.
+GPS/Compasses should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. If mounted in this way you can immediately proceed to [compass calibration](../config/compass.md#performing-the-calibration).
 
-![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
+아래 다이어그램은 Pixhawk 4와 나침반의 전방 마커를 나타냅니다.
 
-## Compass Orientation
+![Pixhawk 4 -- 나침반/GPS 연결 ](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-The compass can also be mounted in any other _supported_ orientation, where the supported orientations can be seen in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT), and have the same meaning as used for [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation).
+## 나침반 방향
 
-If you're using the normal [Compass Calibration](../config/compass.md) process the parameter [CAL_MAG_ROT_AUTO](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO) is enabled, and the orientation should be detected automatically.
+The compass can be mounted in any of the standard MAVLink orientations defined in [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION). The orientation follows the same frame convention as when [orienting the flight controller](../config/flight_controller_orientation.md#calculating-orientation).
+
+If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) enabled), the orientation should be detected automatically. Otherwise you can directly select the appropriate value in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) for up to three compasses.
 
 :::warning
-You must mount the compass in a supported orientation!
+지원되는 방향으로 나침반을 장착하여야 합니다!
 
-If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, PX4 will detect the closest supported value. This will result in errors/warnings, even if the calibration appeared to succeed.
+지원되지 않는 방향(예: `Yaw 30`)에 나침반을 장착하면 PX4는 지원되는 가장 근사치를 감지합니다. 보정이 성공한 것처럼 보이더라도, 오류/경고가 표시될 수 있습니다.
 :::

@@ -2,9 +2,9 @@
 
 :::warning
 이 문서는 다음 환경에서 테스트하였습니다.
-- **Ubuntu:** 18.04
-- **ROS:** Melodic
-- **PX4 펌웨어:** 1.9.0
+- **Ubuntu:** 20.04
+- **ROS:** Noetic
+- **PX4 Firmware:** v1.13
 
 그러나 이러한 단계는 상당히 일반적이므로 수정이 거의 없이 다른 배포판/버전에서 작동합니다.
 :::
@@ -54,7 +54,9 @@
        void keyboard_cb(const std_msgs::Char::ConstPtr &req)
         {
             std::cout << "Got Char : " << req->data <<  std::endl;
-            UAS_FCU(m_uas)->send_message_ignore_drop(req->data);
+            mavlink::common::msg::KEY_COMMAND kc {};
+            kc.command = req->data;
+            UAS_FCU(m_uas)->send_message_ignore_drop(kc);
         }
     };
     }   // namespace extra_plugins
@@ -90,7 +92,7 @@
 
 ## PX4 수정사항
 
-1. **common.xml** 내부(**PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions**)에서 다음과 같이 MAVLink 메시지를 추가합니다(MAVROS 섹션과 동일한 절차).
+1. Inside **common.xml** (in **PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0**), add your MAVLink message as following (same procedure as for MAVROS section above):
    ```xml
    ...
      <message id="229" name="KEY_COMMAND">
@@ -100,32 +102,20 @@
    ...
    ```
 
-1. (**PX4-Autopilot/mavlink/include/mavlink/v2.0**)에서 *공통*, *표준* 디렉토리를 제거합니다.
-   ```sh
-   rm -r common
-   rm -r standard
-   ```
-1. Git은 "mavlink_generator"를 원하는 디렉토리에 복제하고 실행합니다.
-   ```sh
-   git clone https://github.com/mavlink/mavlink mavlink-generator
-   cd mavlink-generator
-   python mavgenerate.py
-   ```
-
-1. "MAVLink Generator" 팝업이 표시됩니다.
-   - *XML*의 경우 **/PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions/standard.xml**으로 "찾아보기"합니다.
-   - Out의 경우 **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**으로 "찾아보기"합니다.
-   - **C** 언어를 선택합니다.
-   - 프로토콜 **2.0**을 선택합니다.
-   - *Validate*를 체크합니다.
-
-   **Generate**를 누릅니다. **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**에서 생성된 *공통* 및 *표준* 디렉토리를 볼 수 있습니다.
+:::warning
+Make sure that the **common.xml** files in the following directories are exactly the same:
+   - `PX4-Autopilot/src/modules/mavlink/mavlink/message_definitions/v1.0`
+   - `workspace/src/mavlink/message_definitions/v1.0` are exactly the same.
+:::
 
 1. (PX4-Autopilot/msg)에서 자신만의 uORB 메시지 파일 **key_command.msg**를 만듭니다. 이 예에서 "key_command.msg"에는 다음 코드만 있습니다.
    ```
+   uint64 timestamp # time since system start (microseconds)
    char cmd
    ```
-   그런 다음 **CMakeLists.txt**(**PX4-Autopilot/msg**)에 다음을 포함합니다.
+
+   Then, in **CMakeLists.txt** (in **PX4-Autopilot/msg**), include:
+
    ```cmake
    set(
    ...
@@ -181,7 +171,7 @@
    }
    ```
 
-1. 예제 구독자 모듈처럼 자신만의 uORB 주제 구독자를 생성합니다. 이 예에서는 (/PX4-Autopilot/src/modules/key_receiver)에서 모델을 생성할 수 있습니다. 이 디렉토리에서 두 개의 파일 **CMakeLists.txt**, **key_receiver.cpp**를 생성합니다. 각각은 다음과 같습니다.
+1. 예제 구독자 모듈처럼 자신만의 uORB 주제 구독자를 생성합니다. 이 예에서는 (/PX4-Autopilot/src/modules/key_receiver)에서 모델을 생성할 수 있습니다. In this directory, create three files **CMakeLists.txt**, **key_receiver.cpp**, **Kconfig** Each one looks like the following.
 
    -CMakeLists.txt
 
@@ -194,7 +184,6 @@
        SRCS
            key_receiver.cpp
        DEPENDS
-           platforms__common
 
        )
    ```
@@ -202,9 +191,9 @@
    -key_receiver.cpp
 
    ```
-   #include <px4_config.h>
-   #include <px4_tasks.h>
-   #include <px4_posix.h>
+   #include <px4_platform_common/px4_config.h>
+   #include <px4_platform_common/tasks.h>
+   #include <px4_platform_common/posix.h>
    #include <unistd.h>
    #include <stdio.h>
    #include <poll.h>
@@ -221,12 +210,13 @@
        int key_sub_fd = orb_subscribe(ORB_ID(key_command));
        orb_set_interval(key_sub_fd, 200); // limit the update rate to 200ms
 
-       px4_pollfd_struct_t fds[1];
-       fds[0].fd = key_sub_fd, fds[0].events = POLLIN;
+       px4_pollfd_struct_t fds[] = {
+           { .fd = key_sub_fd,   .events = POLLIN },
+       };
 
        int error_counter = 0;
 
-       while(true)
+       for (int i = 0; i < 10; i++)
        {
            int poll_ret = px4_poll(fds, 1, 1000);
 
@@ -251,7 +241,7 @@
                {
                    struct key_command_s input;
                    orb_copy(ORB_ID(key_command), key_sub_fd, &input);
-                   PX4_INFO("Recieved Char : %c", input.cmd);
+                   PX4_INFO("Received Char : %c", input.cmd);
                 }
            }
        }
@@ -259,21 +249,33 @@
    }
    ```
 
+   -Kconfig
+
+   ```
+    menuconfig MODULES_KEY_RECEIVER
+    bool "key_receiver"
+    default n
+    ---help---
+        Enable support for key_receiver
+
+   ```
+
    자세한 설명은 [첫 번째 지원서 작성](../modules/hello_sky.md) 항목을 참고하십시오.
 
-1. 마지막으로 **PX4-Autopilot/boards/**의 보드에 해당하는 **default.cmake** 파일에 모듈을 추가합니다. 예를 들어, Pixhawk 4의 경우에는 **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**에 다음 코드를 추가합니다.
-    ```
+1. Lastly, add your module in the **default.px4board** file correspondent to your board in **PX4-Autopilot/boards/**. For example: -for the Pixhawk 4, add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.px4board**: -for the SITL, add the following code in **PX4-Autopilot/boards/px4/sitl/default.px4board**
 
-MODULES
-        ...
+   ```
+    CONFIG_MODULES_KEY_RECEIVER=y
+   ```
 
-key_receiver
-        ... In your workspace enter: `catkin build`.
-1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). 
-   Edit "px4.launch" as below.
-   If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below.
-   But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0".
-   Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
+MODULES ...
+
+## Building
+
+### Build for ROS
+
+1. In your workspace enter: `catkin build`.
+1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". And if you are using the SITL to connect to your terminal, you have to replace "/dev/ttyACM0:57600" with "udp://:14540@127.0.0.1:14557". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
 
 1. Write your IP address at "xxx.xx.xxx.xxx"
    ```xml
@@ -285,11 +287,22 @@ key_receiver
 
 ### ROS 빌드
 
+1. Clean the previously built PX4-Autopilot directory. In the root of **PX4-Autopilot** directory:
+    ```sh
+    make clean
+    ```
+
 1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
-    For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
+    For example:
+
+    - to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
     ```sh
     make px4_fmu-v5_default upload
+    ```
+    - to build for SITL execute the following command in the root of the PX4-Autopilot directory (using jmavsim simulation):
+    ```sh
+    make px4_sitl jmavsim
     ```
 
 ## 빌드

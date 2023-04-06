@@ -1,11 +1,11 @@
 # System-wide Replay
-Based on ORB messages, it's possible to record and replay arbitrary parts of the
-system.
 
-Replay is useful to test the effect of different parameter values based on real
-data, compare different estimators, etc.
+Based on ORB messages, it's possible to record and replay arbitrary parts of the system.
+
+Replay is useful to test the effect of different parameter values based on real data, compare different estimators, etc.
 
 ## Prerequisites
+
 The first thing that needs to be done is to identify the module or modules that should be replayed.
 Then, identify all the inputs to these modules, i.e. subscribed ORB topics.
 For system-wide replay, this consists of all hardware input: sensors, RC input, MAVLink commands and file system.
@@ -15,23 +15,21 @@ For `ekf2` this is already the case with the default set of logged topics.
 
 It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`.
 Should there be more timestamps, then they must be relative with respect to the main timestamp.
-For an example, see [sensor_combined.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg).
+For an example, see [SensorCombined.msg](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg).
 Reasons for this are given below.
 
 
 ## Usage
 
-- First, choose the file to replay, and build the target (from within the
-  PX4-Autopilot directory):
+- First, choose the file to replay, and build the target (from within the PX4-Autopilot directory):
+  
   ```sh
   export replay=<absolute_path_to_log_file.ulg>
   make px4_sitl_default
   ```
-  This will create the output in a separate build directory
-  `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds).
+  This will create the output in a separate build directory `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds).
   It's possible to choose any posix SITL build target for replay, the build system knows through the `replay` environment variable that it's in replay mode.
-- Add ORB publisher rules file in
-  `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`.
+- Add ORB publisher rules file in `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`.
   This file defines which module is allowed to publish which messages.
   It has the following format:
   ```
@@ -45,27 +43,33 @@ Reasons for this are given below.
 
   For replay, we only want the `replay` module to be able to publish the previously identified list of topics.
   So for replaying `ekf2`, the rules file looks like this:
+  
   ```
   restrict_topics: sensor_combined, vehicle_gps_position, vehicle_land_detected
   module: replay
   ignore_others: true
   ```
+  
   This allows that the modules, which usually publish these topics, don't need to be disabled for replay.
 
 - Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt`.
   This file should contain a list of `<param_name> <value>`, like:
+  
   ```
   EKF2_GB_NOISE 0.001
   ```
+  
   By default, all parameters from the log file are applied.
   When a parameter changed during recording, it will be changed as well at the right time during replay.
   A parameter in the `replay_params.txt` will override the value and changes to it from the log file will not be applied.
 - Optional: copy `dataman` missions file from the SD card to the build directory.
   Only necessary if a mission should be replayed.
 - Start the replay:
+
   ```sh
   make px4_sitl_default jmavsim
   ```
+  
   This will automatically open the log file, apply the parameters and start to replay.
   Once done, it will be reported and the process can be exited.
   Then the newly generated log file can be analyzed, it has `_replayed` appended to its file name.
@@ -74,6 +78,7 @@ Reasons for this are given below.
   It's possible to connect via QGC and e.g. view the changing attitude during replay.
 
 - Finally, unset the environment variable, so that the normal build targets are used again:
+
   ```sh
   unset replay
   ```
@@ -89,6 +94,12 @@ Reasons for this are given below.
 ## EKF2 Replay
 
 This is a specialization of the system-wide replay for fast EKF2 replay.
+
+:::note
+The recording and replay of flight logs with [multiple EKF instances](../advanced_config/tuning_the_ecl_ekf.md#running-multiple-ekf-instances) is not supported.
+To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](../advanced_config/tuning_the_ecl_ekf.md#running-a-single-ekf-instance).
+:::
+
 It will automatically create the ORB publisher rules and works as following:
 
 * Optionally set `SDLOG_MODE` to 1 to start logging from boot
@@ -107,11 +118,13 @@ You can stop it after there's an output like:
 INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 ```
 
-The parameters can be adjusted as well. They can be extracted from the log with \(install pyulog with `sudo pip install pyulog` first\):
+The parameters can be adjusted as well.
+They can be extracted from the log with the following \(install pyulog with `pip install --user pyulog` first\):
 
 ```
 ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
 ```
+
 Then edit the parameters in the file as needed and restart the replay process with `make px4_sitl none`. 
 This will create a new log file.
 

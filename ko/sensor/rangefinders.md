@@ -1,6 +1,6 @@
 # 거리 센서 (거리 측정기)
 
-거리 센서는 [지형 추적](../flying/terrain_following_holding.md#terrain_following), [지형 유지](../flying/terrain_following_holding.md#terrain_hold) (예 : 사진 촬영을 위한 정밀 호버링), 향상된 착륙 동작([거리 지원](../flying/terrain_following_holding.md#range_aid)), 규제 높이 제한 경고, 충돌 방지 등에서 사용할 수있는 거리측정 기능을 제공합니다.
+Distance sensors provide distance measurement that can be used for [terrain following](../flying/terrain_following_holding.md#terrain_following), [terrain holding](../flying/terrain_following_holding.md#terrain_hold) (i.e. precision hovering for photography), improved landing behaviour ([conditional range aid](../advanced_config/tuning_the_ecl_ekf.md#conditional-range-aiding)), warning of regulatory height limits, collision prevention, etc.
 
 이 섹션에는 PX4에서 지원하는 거리 센서(더 자세한 문서에 링크됨), 모든 거리 측정기에 필요한 [일반 설정](#configuration), [테스트](#testing)와 [시뮬레이션](#simulation)을 설명합니다. 보다 자세한 설정과 정보는 아래 링크(및 사이드 바)를 참고하십시오.
 
@@ -9,9 +9,10 @@
 
 ## 지원되는 거리 측정기
 
-### ARK Flow 
+### ARK Flow
 
-[ARK Flow](../uavcan/ark_flow.md)는 8cm에서 30m까지의 거리를 측정할 수 있는 오픈 소스 ToF(Time-of-Flight) 및 광학 흐름 센서 모듈입니다. CAN1 포트를 통해 비행 콘트롤러에 연결할 수 있으므로, CAN2 포트를 통해 추가 센서를 연결할 수 있습니다. PX4 펌웨어를 실행하고 [UAVCAN](../uavcan/README.md) [펌웨어 업데이트](../uavcan/node_firmware.md)를 지원하며 소형 폼 팩터에 담겨 있습니다.
+[ARK Flow](../dronecan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. CAN1 포트를 통해 비행 콘트롤러에 연결할 수 있으므로, CAN2 포트를 통해 추가 센서를 연결할 수 있습니다. It supports [DroneCAN](../dronecan/README.md), runs [PX4 DroneCAN Firmware](../dronecan/px4_cannode_fw.md), and is packed into a tiny form factor.
+
 
 ### Holybro ST VL53L1X Lidar
 
@@ -41,17 +42,21 @@ PX4 supports: SF11/c and SF/LW20. PX4 can also be used with the following discon
 
 PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
 
+
 ### Ainstein US-D1 Standard Radar Altimeter
 
 The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+
 
 ### LeddarOne
 
 [LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
+
 ### TFmini
 
 The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
+
 
 ### PSK-CM8JL65-CC5
 
@@ -59,10 +64,9 @@ The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm
 
 ### Avionics Anonymous UAVCAN Laser Altimeter Interface
 
-The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../uavcan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [UAVCAN](../uavcan/README.md) bus, a more robust interface than I2C.
+The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../dronecan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [CAN](../can/README.md) bus via [DroneCAN](../dronecan/README.md), a more robust interface than I2C.
 
 <span id="configuration"></span>
-
 ## 설정
 
 Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
@@ -71,15 +75,16 @@ The hardware and software setup that is *specific to each distance sensor* is co
 
 The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
 
+
 ### 일반 설정
 
-The common rangefinder configuration is specified using [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters. These include (non exhaustively):
-
+The common rangefinder configuration is specified using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) parameters. These include (non exhaustively):
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - 기체 무게 중심에서 X, Y, Z 방향의 오프셋
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - 0도 (기본값) 값은 기체 수직 축 (즉, 아래로 똑바로 아래)에 정확히 정렬된 거리 측정기에 해당하고, 90도는 거리 측정기가 앞을 향하고 있음을 나타냅니다. 0이 아닌 피치가 사용되는 경우 간단한 삼각법을 사용하여 지면까지의 거리를 계산합니다.
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - 센서에서 추정기에 도달하는 데이터의 대략적인 지연.
-- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - 범위 파인더 범위 종속 노이즈 스케일러.
+- [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependent noise scaler.
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - 거리 측정기 융합을 위한 측정 노이즈
+
 
 ## 시험
 
@@ -96,15 +101,13 @@ The messages that are sent depend on the vehicle configuration. You will only ge
 To view the rangefinder output:
 
 1. Open the menu **Q > Select Tool > Analyze Tools**:
-    
-    ![QGC 분석 도구 메뉴](../../assets/qgc/analyze/menu_analyze_tool.png)
 
-2. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. 그러면, 도구가 결과를 플로팅합니다. ![QGC DISTANCE_SENSOR 값 분석](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
+   ![QGC 분석 도구 메뉴](../../assets/qgc/analyze/menu_analyze_tool.png)
+1. Select the message `DISTANCE_SENSOR`, and then check the plot checkbox against `current_distance`. 그러면, 도구가 결과를 플로팅합니다. ![QGC DISTANCE_SENSOR 값 분석](../../assets/qgc/analyze/qgc_analyze_tool_distance_sensor.png)
 
 ### QGroundControl MAVLink 콘솔
 
 You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
-
 ```sh
 listener distance_sensor 5
 ```
@@ -115,55 +118,57 @@ The *QGroundControl MAVLink Console* works when connected to Pixhawk or other Nu
 
 For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
 
+
 ## 시뮬레이션
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../simulation/gazebo.md). To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Lidar and sonar rangefinders can be used in the [Gazebo Classic](../sim_gazebo_classic/README.md) simulator. To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 The iris optical flow model includes a Lidar rangefinder:
 
 ```sh
-make px4_sitl gazebo_iris_opt_flow
+make px4_sitl gazebo-classic_iris_opt_flow
 ```
 
 The typhoon_h480 includes a sonar rangefinder:
 
 ```sh
-make px4_sitl gazebo_typhoon_h480
+make px4_sitl gazebo-classic_typhoon_h480
 ```
 
 If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
 
-- [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf) 
-        xml
-        <include>
-          <uri>model://lidar</uri>
-          <pose>-0.12 0 0 0 3.1415 0</pose>
-        </include>
-        <joint name="lidar_joint" type="revolute">
-          <child>lidar::link</child>
-          <parent>iris::base_link</parent>
-          <axis>
-            <xyz>0 0 1</xyz>
-            <limit>
-              <upper>0</upper>
-              <lower>0</lower>
-            </limit>
-          </axis>
-        </joint> 
-
-- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145) 
-        xml
-        <include>
-          <uri>model://sonar</uri>
-        </include>
-        <joint name="sonar_joint" type="revolute">
-          <child>sonar_model::link</child>
-          <parent>typhoon_h480::base_link</parent>
-          <axis>
-            <xyz>0 0 1</xyz>
-            <limit>
-              <upper>0</upper>
-              <lower>0</lower>
-            </limit>
-          </axis>
-        </joint>
+- [iris_opt_flow.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
+  ```xml
+    <include>
+      <uri>model://lidar</uri>
+      <pose>-0.12 0 0 0 3.1415 0</pose>
+    </include>
+    <joint name="lidar_joint" type="revolute">
+      <child>lidar::link</child>
+      <parent>iris::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+   ```
+- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/main/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
+  ```xml
+    <include>
+      <uri>model://sonar</uri>
+    </include>
+    <joint name="sonar_joint" type="revolute">
+      <child>sonar_model::link</child>
+      <parent>typhoon_h480::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+  ```

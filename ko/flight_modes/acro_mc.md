@@ -4,11 +4,11 @@
 
 *아크로 모드*는 뒤집기, 롤 및 루프등과 같은 곡예 비행을 위한 RC 모드입니다.
 
-롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등)과 현재 모멘텀에 따라 움직입니다.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to control allocation. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등)과 현재 모멘텀에 따라 움직입니다.
 
 ![수동 곡예 비행](../../assets/flight_modes/manual_acrobatic_MC.png)
 
-<!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
+<!-- image above incorrect: https://github.com/PX4/PX4-user_guide/issues/182 -->
 
 ## 기술적 설명
 
@@ -31,17 +31,16 @@ RC RPY 스틱 입력은 각 축의 회전 각속도를 제어합니다. 스틱�
 
 $$\mathrm {y} = r(f \cdot x ^ 3 + x(1-f)) (1-g)/(1-g | x |)$$, 여기서 `f = MC_ACRO_EXPO` 또는 `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` 또는 `MC_ACRO_SUPEXPOY`, `r`은 최대 속도입니다.
 
-[여기](https://www.desmos.com/calculator/yty5kgurmc)에서 관계를 실험할 수 있습니다.
-:::
+[여기](https://www.desmos.com/calculator/yty5kgurmc)에서 관계를 실험할 수 있습니다. :::
 
 ## 매개 변수
 
-| 매개 변수                                                                                                     | 설명                                                                                                                                                                                    |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="MC_ACRO_EXPO"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO)         | 롤 및 피치에 대한 스틱 입력 곡선 모양을 조정하기 위한 아크로 모드 "지수"요소. 값 : 0 순수 선형 입력 곡선 1 순수 입방 입력 곡선. Default: 0.69.                                                                                        |
-| <span id="MC_ACRO_EXPO_Y"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO_Y)       | 요에 대한 스틱 입력 곡선 모양을 조정하기 위한 아크로 모드 "지수"계수. 값 : 0 순수 선형 입력 곡선 1 순수 입방 입력 곡선. Default: 0.69.                                                                                             |
-| <span id="MC_ACRO_SUPEXPO"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPO)      | 롤 및 피치 축 (`MC_ACRO_EXPO`을 사용하여 조정 됨)에 대한 스틱 입력 곡선 모양을 다듬기 위한 아크로 모드 "SuperExpo" 요소. 값 : 0 Pure Expo 기능, 직관적인 스틱 느낌을 위한 0.7 합리적인 모양 향상, 0.95 최대에 가까운 굽은 입력 곡선만 효과가 있습니다. Default: 0.7. |
+| 매개 변수                                                                                                               | 설명                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="MC_ACRO_EXPO"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO)             | 롤 및 피치에 대한 스틱 입력 곡선 모양을 조정하기 위한 아크로 모드 "지수"요소. 값 : 0 순수 선형 입력 곡선 1 순수 입방 입력 곡선. Default: 0.69.                                                                                        |
+| <span id="MC_ACRO_EXPO_Y"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO_Y)         | 요에 대한 스틱 입력 곡선 모양을 조정하기 위한 아크로 모드 "지수"계수. 값 : 0 순수 선형 입력 곡선 1 순수 입방 입력 곡선. Default: 0.69.                                                                                             |
+| <span id="MC_ACRO_SUPEXPO"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPO)       | 롤 및 피치 축 (`MC_ACRO_EXPO`을 사용하여 조정 됨)에 대한 스틱 입력 곡선 모양을 다듬기 위한 아크로 모드 "SuperExpo" 요소. 값 : 0 Pure Expo 기능, 직관적인 스틱 느낌을 위한 0.7 합리적인 모양 향상, 0.95 최대에 가까운 굽은 입력 곡선만 효과가 있습니다. Default: 0.7. |
 | <span id="MC_ACRO_SUPEXPOY"></span>[MC_ACRO_SUPEXPOY](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPOY) | 요 축에 대한 스틱 입력 곡선 모양을 다듬기 위한 아크로 모드 "SuperExpo"요소 (`MC_ACRO_EXPO_Y`를 사용하여 조정됨). 값 : 0 Pure Expo 기능, 직관적인 스틱 느낌을 위한 0.7 합리적인 모양 향상, 0.95 최대에 가까운 굽은 입력 곡선만 효과가 있습니다. Default: 0.7.      |
-| <span id="MC_ACRO_P_MAX"></span>[MC_ACRO_P_MAX](../advanced_config/parameter_reference.md#MC_ACRO_P_MAX)       | 최대 아크로 피치 속도. 기본값 : 초당 2 회전 (720.0 deg/s).                                                                                                                                            |
-| <span id="MC_ACRO_R_MAX"></span>[MC_ACRO_R_MAX](../advanced_config/parameter_reference.md#MC_ACRO_R_MAX)       | 최대 아크로 롤 속도. 기본값 : 초당 2 회전 (720.0 deg/s).                                                                                                                                             |
-| <span id="MC_ACRO_Y_MAX"></span>[MC_ACRO_Y_MAX](../advanced_config/parameter_reference.md#MC_ACRO_Y_MAX)       | 최대 아크로 요율. 기본값 : 초당 1.5 회전 (540.0 deg/s).                                                                                                                                             |
+| <span id="MC_ACRO_P_MAX"></span>[MC_ACRO_P_MAX](../advanced_config/parameter_reference.md#MC_ACRO_P_MAX)          | 최대 아크로 피치 속도. 기본값 : 초당 2 회전 (720.0 deg/s).                                                                                                                                            |
+| <span id="MC_ACRO_R_MAX"></span>[MC_ACRO_R_MAX](../advanced_config/parameter_reference.md#MC_ACRO_R_MAX)          | 최대 아크로 롤 속도. 기본값 : 초당 2 회전 (720.0 deg/s).                                                                                                                                             |
+| <span id="MC_ACRO_Y_MAX"></span>[MC_ACRO_Y_MAX](../advanced_config/parameter_reference.md#MC_ACRO_Y_MAX)          | 최대 아크로 요율. 기본값 : 초당 1.5 회전 (540.0 deg/s).                                                                                                                                             |

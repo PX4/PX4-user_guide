@@ -11,7 +11,7 @@ PX4의 ROS 기반 통합 테스트 방법을 설명합니다.
 ## 전제 조건
 
 * [jMAVSim 시뮬레이터](../simulation/jmavsim.md)
-* [Gazebo 시뮬레이터](../simulation/gazebo.md)
+* [Gazebo Classic Simulator](../sim_gazebo_classic/README.md)
 * [ROS와 MAVROS](../simulation/ros_interface.md)
 
 ## 테스트 실행
@@ -51,7 +51,7 @@ make px4_sitl_default sitl_gazebo
 
 ## 신규 MAVROS 테스트 작성(Python)
 
-ROS(1)/MAVROS를 사용하여 새로운 파이썬 테스트를 PX4 테스트 스위트에 추가하는 방법을 설명합니다.
+This section explains how to write a new python test using ROS 1/MAVROS, test it, and add it to the PX4 test suite.
 
 기존 테스트를 예제([integrationtests/python_src/px4_it/mavros/](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros))를 검토하십시오. 공식 ROS 문서에는 [unittest](http://wiki.ros.org/unittest)(이 테스트 모음의 기반이 됨)를 사용 방법을 설명합니다.
 
@@ -113,13 +113,13 @@ ROS(1)/MAVROS를 사용하여 새로운 파이썬 테스트를 PX4 테스트 스
    - 시뮬레이터를 시작합니다.
         ```sh
         cd <PX4-Autopilot_clone>
-        source Tools/setup_gazebo.bash
+        source Tools/simulation/gazebo/setup_gazebo.bash
         roslaunch launch/mavros_posix_sitl.launch
         ```
     - 테스트를 실행합니다(새로운 쉘에서).
         ```
         cd <PX4-Autopilot_clone>
-        source Tools/setup_gazebo.bash
+        source Tools/simulation/gazebo/setup_gazebo.bash
         rosrun px4 mavros_new_test.py
         ```
 

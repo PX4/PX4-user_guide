@@ -5,8 +5,7 @@ A typical autopilot "minimal" system running PX4 consists of a flight controller
 This section contains topics that explain how to assemble such a system for different [flight controllers](../flight_controller/README.md).
 
 :::tip
-Quickstart guides are only provided for a few controllers. Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation.
-:::
+Quickstart guides are only provided for a few controllers. Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation. :::
 
 * See [Peripherals](../peripherals/README.md) for information about connecting sensors and other peripherals (e.g. airspeed sensor for planes).
 * See [Airframe Builds](../airframes/README.md) for complete assembly examples on different vehicle frames.

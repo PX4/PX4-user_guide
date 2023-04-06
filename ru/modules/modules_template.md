@@ -1,7 +1,7 @@
 # Modules Reference: Template
 
 ## module
-Source: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/master/src/templates/template_module)
+Source: [templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/main/src/templates/template_module)
 
 
 ### Description
@@ -17,6 +17,7 @@ CLI usage example:
 ```
 module start -f -p 42
 ```
+
 
 <a id="module_usage"></a>
 
@@ -34,11 +35,12 @@ module <command> [arguments...]
    status        print status info
 ```
 ## work_item_example
-Source: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item)
+Source: [examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/work_item)
 
 
 ### Description
 Example of a simple module running out of a work queue.
+
 
 <a id="work_item_example_usage"></a>
 

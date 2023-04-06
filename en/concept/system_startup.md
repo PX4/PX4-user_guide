@@ -1,15 +1,15 @@
 # System Startup
 
 The PX4 startup is controlled by shell scripts.
-On NuttX they reside in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) folder - some of these are also used on Posix (Linux/MacOS).
-The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix).
+On NuttX they reside in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d) folder - some of these are also used on Posix (Linux/MacOS).
+The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/main/ROMFS/px4fmu_common/init.d-posix).
 
 All files starting with a number and underscore (e.g. `10000_airplane`) are predefined airframe configurations.
 They are exported at build-time into an `airframes.xml` file which is parsed by [QGroundControl](http://qgroundcontrol.com) for the airframe selection UI.
 Adding a new configuration is covered [here](../dev_airframes/adding_a_new_frame.md).
 
 The remaining files are part of the general startup logic.
-The first executed file is the [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
+The first executed file is the [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
 
 The following sections are split according to the operating system that PX4 runs on.
 
@@ -68,34 +68,50 @@ The resulting boot log has detailed information about the boot sequence and shou
 
 #### Common boot failure causes
 
-  * For custom applications: The system was out of RAM. Run the `free` command to see the amount of free RAM.
-  * A software fault or assertion resulting in a stack trace
+- For custom applications: The system was out of RAM. Run the `free` command to see the amount of free RAM.
+- A software fault or assertion resulting in a stack trace
 
 ### Replacing the System Startup
 
-In most cases customizing the default boot is the better approach, which is documented below. If the complete boot should be replaced, create a file `/fs/microsd/etc/rc.txt`, which is located in the `etc` folder on the microSD card. If this file is present nothing in the system will be auto-started.
+The whole boot can be replaced by creating a file `/etc/rc.txt` on the microSD card with a new configuration (nothing in the old configuration will be auto-started, and if the file is empty, nothing at all will be started).
+
+Customizing the default boot is almost always a better approach.
+This is documented below.
 
 ### Customizing the System Startup
 
-The best way to customize the system startup is to introduce a [new airframe configuration](../dev_airframes/adding_a_new_frame.md).
-If only tweaks are wanted (like starting one more application or just using a different mixer) special hooks in the startup can be used.
+The best way to customize the system startup is to introduce a [new frame configuration](../dev_airframes/adding_a_new_frame.md).
+The frame configuration file can be included in the firmware or on an SD Card.
+
+If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
+
+- [/etc/config.txt](#customizing-the-configuration-config-txt): modify parameter values
+- [/etc/extras.txt](#starting-additional-applications-extras-txt): start applications
+
+The files are described below.
 
 :::warning
-The system boot files are UNIX FILES which require UNIX LINE ENDINGS. If editing on Windows use a suitable editor.
+The system boot files are UNIX FILES which require UNIX LINE ENDINGS.
+If editing on Windows use a suitable editor.
 :::
 
-There are three main hooks. Note that the root folder of the microsd card is identified by the path `/fs/microsd`.
-
-* /fs/microsd/etc/config.txt
-* /fs/microsd/etc/extras.txt
-* /fs/microsd/etc/mixers/NAME_OF_MIXER
+:::note
+These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`.
+:::
 
 #### Customizing the Configuration (config.txt)
 
-The `config.txt` file can be used to modify shell variables.
+The `config.txt` file can be used to modify parameters.
 It is loaded after the main system has been configured and *before* it is booted.
 
-#### Starting additional applications
+For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
+
+```
+param set-default PWM_MAIN_DIS3 1000
+param set-default PWM_MAIN_MIN3 1120
+```
+
+#### Starting Additional Applications (extras.txt)
 
 The `extras.txt` can be used to start additional applications after the main system boot.
 Typically these would be payload controllers or similar optional custom components.
@@ -106,35 +122,16 @@ Typically the system does not stream mavlink messages after boot failure, in thi
 :::
 
 The following example shows how to start custom applications:
-  * Create a file on the SD card `etc/extras.txt` with this content:
-    ```
-    custom_app start
-    ```
-  * A command can be made optional by gating it with the `set +e` and `set -e` commands:
-    ```
-    set +e
-    optional_app start      # Will not result in boot failure if optional_app is unknown or fails
-    set -e
+- Create a file on the SD card `etc/extras.txt` with this content:
+  ```
+  custom_app start
+  ```
+- A command can be made optional by gating it with the `set +e` and `set -e` commands:
 
-    mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
-    ```  
+  ```
+  set +e
+  optional_app start      # Will not result in boot failure if optional_app is unknown or fails
+  set -e
 
-#### Starting a custom mixer
-
-By default the system loads the mixer from `/etc/mixers`. 
-If a file with the same name exists in `/fs/microsd/etc/mixers` this file will be loaded instead.
-This allows to customize the mixer file without the need to recompile the Firmware.
-
-##### Example
-
-The following example shows how to add a custom aux mixer:
-  * Create a file on the SD card, `etc/mixers/gimbal.aux.mix` with your mixer content.
-  * Then to use it, create an additional file `etc/config.txt` with this content:
-    ```
-    set MIXER_AUX gimbal
-    set PWM_AUX_OUT 1234
-    set PWM_AUX_DISARMED 1500
-    set PWM_AUX_MIN 1000
-    set PWM_AUX_MAX 2000
-    set PWM_AUX_RATE 50
-    ```
+  mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
+  ```

@@ -20,15 +20,15 @@
    ```
 1. 첫 번째 인스턴스를 시작합니다.
    ```
-   ./Tools/jmavsim_run.sh -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -l
    ```
 1. 인스턴스에 대한 *시뮬레이션* TCP 포트를 지정하여 후속 인스턴스를 시작합니다.
    ```
-   ./Tools/jmavsim_run.sh -p 4561 -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -p 4560 -l
    ```
    포트는 `[0, N-1]`의 `i`에 대하여 `4560+i`로 설정되어야 합니다.
 
-*QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances). The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instnaces (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.
+*QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances). The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instances (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.
 
 *MAVSDK* 또는 *MAVROS*와 같은 개발자 API는 `14540`(첫 번째 인스턴스)에서 `14549</1까지 순차적으로 할당된 PX4 원격 UDP 포트에서 수신 대기합니다.
 추가 인스턴스 <em x-id="3">모두</em>는 <code>14549` 포트에 연결됩니다.

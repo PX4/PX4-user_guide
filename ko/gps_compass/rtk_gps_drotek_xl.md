@@ -4,9 +4,9 @@
 
 <img src="../../assets/hardware/gps/rtk_base_drotek_xl_rtk_gps.jpg" width="300px" /> <img src="../../assets/hardware/gps/rtk_rover_drotek_xl_rtk_gps.jpg" width="300px" />
 
-## 구매처
+## Where to Buy
 
-[Drotek XL RTK](https://store-drotek.com/881-DP0503.html) (drotek.com) 
+[Drotek XL RTK](https://store-drotek.com/881-DP0503.html) (drotek.com)
 
 ## 설정
 

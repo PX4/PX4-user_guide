@@ -1,6 +1,6 @@
-# Pixhawk 4
+# Holybro Pixhawk 4 (Discontinued)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
@@ -15,17 +15,17 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## 总览
 
-* 主 FMU 处理器：STM32F765 
+* 主 FMU 处理器：STM32F765
   * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
-* IO 处理器：STM32F100 
+* IO 处理器：STM32F100
   * 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
-* 板载传感器： 
+* 板载传感器：
   * 加速度计 / 陀螺仪：ICM-20689
-  * Accel/Gyro: BMI055 or ICM20602 
+  * Accel/Gyro: BMI055 or ICM20602
   * 磁力计：IST8310
   * 气压计：MS5611
 * GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-* 接口： 
+* 接口：
   * 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
   * FMU 上有 3 路专用 PWM/Capture 输入
   * 用于 CPPM 的专用遥控输入
@@ -36,21 +36,23 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 4 路 SPI 总线
   * 多达 2 路 CAN 总线用于带串口的电调
   * 两路电池电压 / 电流模拟输入口
-* 电源系统： 
+* 电源系统：
   * 电源模块输出：4.9~5.5V
   * USB 电源输入：4.75~5.25V
   * 舵机轨道输入：0~36V
-* 重量和尺寸： 
+* 重量和尺寸：
   * 重量：15.8g
   * 尺寸：44x84x12mm
-* 其它特性： 
+* 其它特性：
   * 工作温度：-40 ~ 85°C
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
-## 采购
 
-中国大陆用户请从官方代理商 [思动智能](https://thone.io/) 的淘宝店 [地面售货站](https://dimianzhan.taobao.com/) 购买。境外用户从 [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html) 购买。
+## Where to Buy
+
+Order from [Holybro](https://holybro.com/products/pixhawk-4).
+
 
 ## 连接器
 
@@ -62,7 +64,7 @@ The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are po
 
 ## 针脚定义
 
-Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
+Download *Pixhawk 4* pinouts from [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf).
 
 :::note
 Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
@@ -95,21 +97,21 @@ The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not po
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
-
-1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
-2. **USB** 输入电压（4.75 v 至 5.25 v）
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+1. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
-2. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
-3. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
 
 ## 组装 / 设置
 
 The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+
 
 ## 编译固件
 
@@ -118,21 +120,21 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+```
+make px4_fmu-v5_default
+```
 
-    make px4_fmu-v5_default
-    
 
 <span id="debug_port"></span>
-
 ## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the *Pixhawk 4* casing.
 
 ![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
-The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug). For wiring information see:
+The pinout uses the standard [Pixhawk debug connector pinout](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf). For wiring information see:
+- [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
 
-* [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
 
 ## 外部设备
 
@@ -140,15 +142,18 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.or
 * [数传电台模块](../telemetry/README.md)
 * [测距仪/距离传感器](../sensor/rangefinders.md)
 
+
 ## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
+
 ## 更多信息
 
-* [Pixhawk 4 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-* FMUv5参考设计</0 >。</li> 
+- [Pixhawk 4 技术数据表](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+-
+FMUv5参考设计</0 >。</li> 
   
-  * [Pixhawk 4 快速接线指南](../assembly/quick_start_pixhawk4.md)
-  * [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
-  * [Pixhawk 4 快速入门指南（PDF）](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)</ul>
+  - [Pixhawk 4  快速接线指南](../assembly/quick_start_pixhawk4.md)
+- [Pixhawk 4 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 Quick Start Guide](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Pixhawk4-quickstartguide.pdf) (Holybro)</ul>

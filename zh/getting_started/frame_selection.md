@@ -1,19 +1,18 @@
-# Vehicle Selection
+# 载具选择
 
-PX4 supports air, surface, and submersible vehicles. You can see a full list of the vehicle types and variants ("frames") that have been tested/tuned for use with PX4 here: [Airframe Reference](../airframes/airframe_reference.md).
+PX4支持空中，表面（地面，水面）以及水下载具。 您可以在[机架参考](../airframes/airframe_reference.md)中查看已经经过PX4测试/调整过的载具类型或及其变种（“框架”）。
 
-Select the frame based on what you need it for:
-
-- **Multicopters** offer precision hovering and verticle takeoff, at the cost of shorter and generally slower flight. PX4 has modes that make them easy to fly, and they are the most popular type of flying vehicle.
-- **Fixed wing** airplanes offer longer and faster flight, and hence better coverage for ground surveys etc. However they are harder to fly and land than multicopters, and aren't suitable if you need to hover or fly very slowly (e.g. when surveying vertical structures).
-- **VTOL** (Vertical Takeoff and Landing) aircraft come in a number of types: tiltrotors, tailsitters, quadplanes etc. They offer the best of both worlds: take off in vertical mode like a multicopter and then transition in forward flight like an airplane. They are often more expensive than either multicopters and fixed wing aircraft, and harder to build and tune.
+选择何种机架取决于您需要用来做什么：
+- **Multicopters** offer precision hovering and vertical takeoff, at the cost of shorter and generally slower flight. PX4有可以让它们很容易飞的模式，并且它们是最受欢迎的飞行器。
+- **Helicopters** similar to Multicopters, mechanically more complex, but more efficient.
+- **Fixed wing** airplanes offer longer and faster flight, and hence better coverage for ground surveys etc. 但是它们比多旋翼更难飞行和降落，并且如果您需要悬停或飞得很慢时，它们就不再合适（例如在勘测垂直建筑时）。
+- **VTOL** (Vertical Takeoff and Landing) aircraft come in a number of types: tiltrotors, tailsitters, quadplanes etc. 它们拥有二者（多旋翼和固定翼）优点：能够像多旋翼那样垂直起飞然后转变到像固定翼飞机那样向前飞行。 它们通常比多旋翼和固定翼更加昂贵，并且更难组装和调试。
 - **Airships/Balloons** are lighter-than-air vehicles that typically offer high altitude long duration flight, often at the cost of having limited (or no) control over speed and direction of flight.
-- **Rovers** are car-like ground vehicles. They are simple to control and often fun to use.
+- **Rovers** are car-like ground vehicles. 它们很容易控制，而且常常很有趣。
 - **Boats** are water-surface vehicles.
 - **Submersibles** are underwater vehicles.
 
 :::note
 The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
 
-![Frame Selection](../../assets/qgc/setup/airframe/airframe_px4.jpg)
-:::
+![机架选择](../../assets/qgc/setup/airframe/airframe_px4.jpg) :::

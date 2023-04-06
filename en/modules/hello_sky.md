@@ -15,7 +15,7 @@ You will require the following:
 * [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
 * [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck. 
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck. 
 * Rename (or delete) the **px4_simple_app** directory. 
 
 ## Minimal Application
@@ -87,7 +87,7 @@ This consists of a single *C* file and a *cmake* definition (which tells the too
      ```
      
      :::tip
-	 The main function must be named `<module_name>_main` and exported from the module as shown.
+     The main function must be named `<module_name>_main` and exported from the module as shown.
      :::
 	 
      :::tip
@@ -145,7 +145,7 @@ This consists of a single *C* file and a *cmake* definition (which tells the too
    - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
    
    :::tip
-   The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
+   The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/main/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
    :::
    
    :::note
@@ -169,16 +169,16 @@ The application is now complete.
 In order to run it you first need to make sure that it is built as part of PX4.
 Applications are added to the build/firmware in the appropriate board-level *px4board* file for your target: 
 
-* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.px4board)
-* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.px4board)
-* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.px4board)
-* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)
+* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/sitl/default.px4board)
+* Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v2/default.px4board)
+* Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v4/default.px4board)
+* *px4board* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/main/boards)
 
-To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4_menuconfig setup) `make px4_fmu-v4_default boardconfig`:
+To enable the compilation of the application into the firmware add the corresponding Kconfig key `CONFIG_EXAMPLES_PX4_SIMPLE_APP=y` in the *px4board* file or run [boardconfig](../hardware/porting_guide_config.md#px4-menuconfig-setup) `make px4_fmu-v4_default boardconfig`:
 
 ```
-    examples  --->
-        [x] PX4 Simple app  ----
+examples  --->
+    [x] PX4 Simple app  ----
 ```
 
 :::note
@@ -286,7 +286,7 @@ The benefits of the PX4 hardware abstraction comes into play here!
 There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
 :::
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [SensorCombined](https://github.com/PX4/PX4-Autopilot/blob/main/msg/SensorCombined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 Subscribing to a topic is straightforward:
 
@@ -387,7 +387,7 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## Full Example Code
 
-The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c) is now:
+The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/main/src/examples/px4_simple_app/px4_simple_app.c) is now:
 
 ```c
 /****************************************************************************
@@ -529,12 +529,12 @@ And finally run your app:
 px4_simple_app
 ```
 
-If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)).
+If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)).
 
 ## Wrap-Up
 
 This tutorial covered everything needed to develop a basic PX4 autopilot application.
-Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/master/msg/) and that the headers are well documented and serve as reference.
+Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/main/msg/) and that the headers are well documented and serve as reference.
 
 Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
 

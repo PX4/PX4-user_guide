@@ -5,7 +5,7 @@ The *Events Interface* provides a system-wide API for notification of events, wh
 The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
 
 :::note
-The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12. There will be an intermediate period where [both approaches are supported](#Backward-compatibility).
+The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
 :::
 
 ## Usage
@@ -88,7 +88,7 @@ Events can have a fixed set of arguments that can be inserted into the message o
 Valid types: `uint8_t`, `int8_t`, `uint16_t`, `int16_t`, `uint32_t`, `int32_t`, `uint64_t`, `int64_t` and `float`.
 
 You can also use enumerations as arguments:
-- PX4-specific/custom enumerations for events should be defined in [src/lib/events/enums.json](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/events/enums.json), and can then be used as event argument in the form of `events::send<events::px4::enums::my_enum_t>(...)`.
+- PX4-specific/custom enumerations for events should be defined in [src/lib/events/enums.json](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/events/enums.json), and can then be used as event argument in the form of `events::send<events::px4::enums::my_enum_t>(...)`.
 - MAVLink "common" events are defined in [mavlink/libevents/events/common.json](https://github.com/mavlink/libevents/blob/master/events/common.json) and can be used as event argument in the form of `events::send<events::common::enums::my_enum_t>(...)`.
 
 #### Text format
@@ -112,7 +112,7 @@ Text format for event message description:
       - m_v: vertical distance in meters
       - m^2: area in m^2
       - m/s: speed in m/s
-      - C: temperature in degrees celcius
+      - C: temperature in degrees celsius
   - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
 
 ## Logging

@@ -14,7 +14,6 @@ The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), 
 :::
 
 Some of its main features include:
-
 - Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
 - More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
 - Firmware-compatible with PX4.
@@ -24,19 +23,19 @@ Some of its main features include:
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
+
 ### 概览
 
 Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 
 * 内置传感器：
-  
   * 加速度计 / 陀螺仪：ICM-20689
   * 加速度计 / 陀螺仪：ICM-20602
   * 加速度计 / 陀螺仪：BMI055
   * 磁力计：IST8310
   * 气压计：MS5611
+
 * Interfaces: 8 PWM outputs
-  
   * FMU上有3个专用PWM/Capture输入
   * 用于 CPPM 的专用遥控输入
   * Dedicated R/C input for Spektrum / DSM and S.Bus
@@ -44,25 +43,22 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
   * 4个通用串行口
   * 3 个 I2C 接口
   * 4路SPI总线
-  * 2 CAN Buses 
+  * 2 CAN Buses
   * 电池电压 / 电流模拟输入口
   * 2 additional analog inputs
   * Supports nARMED
-* Power System: Power Brick Input: 4.75~5.5V
 
+* Power System: Power Brick Input: 4.75~5.5V
 * USB 电源输入：4.75~5.25V
 
 * 重量和尺寸:
-  
-  * Dimensions: 60*40*14mm
-* 其它特性: 
+  * Dimensions: 60\*40\*14mm
+* 其它特性:
   * 工作温度：-20 ~ 85°C （实测值）
 
-## 购买
 
-<!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
-[CUAV Aliexpress](https://www.aliexpress.com/item/33050770314.html?storeId=3257035&spm=2114.12010612.8148356.9.dbe6790bjW2hpH) (international users)
+## Where to Buy<!-- \[CUAV Store\](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->[CUAV Aliexpress](https://www.aliexpress.com/item/33050770314.html?storeId=3257035&spm=2114.12010612.8148356.9.dbe6790bjW2hpH) (international users)
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail) (China Mainland users)
 
@@ -71,14 +67,15 @@ Autopilot may be purchased with included Neo GPS module
 :::
 
 <span id="connection"></span>
-
 ## Connections (Wiring)
 
 [V5 nano Wiring Quickstart](../assembly/quick_start_cuav_v5_nano.md)
 
+
 ## 针脚定义
 
 Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+
 
 ## 编译固件
 
@@ -87,12 +84,11 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
-
-    make px4_fmu-v5_default
-    
+```
+make px4_fmu-v5_default
+```
 
 <span id="debug_port"></span>
-
 ## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
@@ -109,7 +105,6 @@ The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-de
 | 4（黑） | FMU_SWDIO      | +3.3V |
 | 6    | FMU_SWCLK      | +3.3V |
 | 6    | GND            | GND   |
-
 
 The product package includes a convenient debug cable that can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
@@ -135,8 +130,7 @@ For more information see [Using JTAG for hardware debugging](#using-jtag-for-har
 | UART7  | /dev/ttyS5 | Debug Console                         |
 | UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
 
-
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## 额定电压
 
@@ -150,12 +144,13 @@ The `PM2` connector cannot not be used for powering the *V5 nano* (see [this iss
 The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 :::
 
+
 ## Over Current Protection
 
 The *V5 nano* has no over current protection.
 
-<span id="Optional-hardware"></span>
 
+<span id="Optional-hardware"></span>
 ## 外部设备
 
 * [数字空速传感器](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
@@ -171,7 +166,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
 <span id="compatibility_gps"></span>
-
 #### Neo v2.0 GPS not compatible with other devices
 
 The *Neo v2.0 GPS* that is recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
@@ -179,7 +173,6 @@ The *Neo v2.0 GPS* that is recommended for use with *CUAV V5+* and *CUAV V5 nano
 The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) can also be used, and is compatible with other flight controllers.
 
 <span id="compatibility_jtag"></span>
-
 #### Using JTAG for hardware debugging
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
@@ -189,12 +182,12 @@ Some JTAG probes use this voltage to set the IO levels when communicating to the
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
 <span id="compatibility_pm2"></span>
-
 #### PM2 cannot power the flight controller
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
-:::warning PX4 does not support this interface.
+:::warning
+PX4 does not support this interface.
 :::
 
 ## 已知的问题
@@ -202,11 +195,10 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 The issues below refer to the *batch number* in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
 <span id="pin1_unfused"></span>
-
 #### SBUS / DSM / RSSI interface Pin1 unfused
 
 :::warning
-This is a safety issue.
+This is a safety issue. 
 :::
 
 Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!
@@ -216,7 +208,7 @@ Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI 
 
 ## 更多信息
 
-* [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
-* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
-* [CUAV Github](https://github.com/cuav) (CUAV)
+* [V5 nano manual](http://manual.cuav.net/V5-nano.pdf)  (CUAV)
+* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)  (CUAV)
+* [CUAV Github](https://github.com/cuav)  (CUAV)
 * [Airframe build-log using CUAV v5 nano on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)

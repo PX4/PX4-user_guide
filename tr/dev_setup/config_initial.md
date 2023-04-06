@@ -4,7 +4,9 @@ Geliştiricilerin aşağıda açıklanan temel ekipmanları (veya benzerlerini) 
 
 ## Temel Ekipman:
 
-:::tip PX4 burada bahsedilenlerden çok daha geniş bir ekipman setiyle de kullanılabilir ancak yeni geliştiricilerin standart kurulumlardan faydalanmaları daha kullanışlı olacaktır. A Taranis RC + Note 4 tablet kullanarak cebinizi yakmayan oldukça ucuz bir kit oluşturabilirsiniz.
+:::tip
+PX4 burada bahsedilenlerden çok daha geniş bir ekipman setiyle de kullanılabilir ancak yeni geliştiricilerin standart kurulumlardan faydalanmaları daha kullanışlı olacaktır.
+A Taranis RC + Note 4 tablet kullanarak cebinizi yakmayan oldukça ucuz bir kit oluşturabilirsiniz.
 :::
 
 Tavsiye edilen ekipmanlar:
@@ -26,7 +28,7 @@ Tavsiye edilen ekipmanlar:
 
 ## Araç Yapılandırması
 
-Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) for a **desktop OS**.
+Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 Aracı yapılandırmak için:
 1. Geliştirme platformunuz için [QGroundControl Günlük Sürüm](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)'ü indirin.

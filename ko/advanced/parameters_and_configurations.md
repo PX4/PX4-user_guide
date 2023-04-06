@@ -1,11 +1,11 @@
 # 매개변수와 설정
 
-PX4는 *param 하위 시스템*(`float` 및 `int32_t` 값의 플랫 테이블)과 텍스트 파일(믹서 및 시작 스크립트용)로 설정을 저장합니다.
+PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
 
 이 섹션에서는 *param* 하위 시스템을 자세히 설명합니다. 매개변수를 나열, 저장 및 로드하는 방법과 매개변수를 정의하고 지상국에서 사용하는 방법을 설명합니다.
 
 :::tip
-[시스템 시작](../concept/system_startup.md)과 [기체 구성](../dev_airframes/adding_a_new_frame.md)은 다른 페이지에 자세히 설명합니다.
+[System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
 :::
 
 
@@ -232,8 +232,8 @@ PX4는 확장 매개변수 메타데이터 시스템을 사용하여 사용자�
 
 YAML 메타 데이터는 **.c** 정의를 대체합니다. 다중 인스턴스 정의와 같은 새로운 기능과 함께 동일한 메타데이터를 모두 지원합니다.
 
-- YAML 매개변수 메타데이터 스키마는 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에 있습니다.
-- 사용되는 YAML 정의의 예는 MAVLink 매개변수 정의에서 찾을 수 있습니다: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
+- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml).
+- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml).
 - YAML 파일은 다음을 추가하여 cmake 빌드 시스템에 등록됩니다.
   ```
   MODULE_CONFIG
@@ -244,7 +244,7 @@ YAML 메타 데이터는 **.c** 정의를 대체합니다. 다중 인스턴스 �
 
 #### 다중 인스턴스(템플릿) YAML 메타 데이터
 
-템플릿 매개변수 정의는 [YAML 매개변수 정의](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에서 지원됩니다(템플릿 매개변수 코드는 지원되지 않음).
+Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml) (templated parameter code is not supported).
 
 YAML을 사용하면 `${i}`를 사용하여 매개변수 이름, 설명 등에 인스턴스 번호를 정의할 수 있습니다. 예를 들어 아래는 MY_PARAM_1_RATE, MY_PARAM_2_RATE 등을 생성합니다.
 ```
@@ -257,7 +257,7 @@ MY_PARAM_${i}_RATE:
 - `num_instances`(기본값 1): 생성할 인스턴스 수(>=1)
 - `instance_start`(기본값 0): 첫 번째 인스턴스 번호입니다. 0이면 `${i}`가 [0, N-1]`로 확장됩니다.
 
-전체 예는 MAVLink 매개변수 정의([/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml))를 참조하십시오.
+For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/module.yaml)
 
 
 #### c 매개변수 메타데이터
@@ -295,7 +295,7 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 
 끝에 있는 `PARAM_DEFINE_*` 매크로는 매개변수 유형(`PARAM_DEFINE_FLOAT` 또는 `PARAM_DEFINE_INT32`), 매개변수 이름(이름과 일치해야 함 코드에서 사용됨) 및 펌웨어의 기본값입니다.
 
-주석 블록의 행은 모두 선택 사항이며, 주로 지상국에서 표시 및 편집 옵션을 제어합니다. 각 줄의 목적은 아래에 설명되어 있습니다.(자세한 내용은 [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) 참조).
+주석 블록의 행은 모두 선택 사항이며, 주로 지상국에서 표시 및 편집 옵션을 제어합니다. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml)).
 
 ```cpp
 /**
@@ -320,17 +320,17 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 
 대부분의 비행 컨트롤러(대부분의 FLASH가 충분히 사용 가능)의 경우 JSON 파일은 xz 압축되어 생성된 바이너리 내에 저장됩니다. 그런 다음 파일은 [MAVLink 구성 요소 정보 프로토콜](https://mavlink.io/en/services/component_information.html)을 사용하여 지상국과 공유됩니다. 이렇게 하면 매개변수 메타데이터가 차량에서 실행되는 코드와 함께 항상 최신 상태를 유지합니다.
 
-메모리가 제한된 비행 콘트롤러 대상의 바이너리는 매개변수 메타데이터를 바이너리에 저장하지 않고, `px4-travis.s3.amazonaws.com`에 저장된 동일한 데이터를 참조합니다. 이는 예를 들어 [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)에 적용됩니다. 메타데이터는 모든 빌드 대상에 대하여 [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml)를 사용하여 업로드합니다(따라서 매개변수가 마스터에 병합된 후에만 사용할 수 있음).
+메모리가 제한된 비행 콘트롤러 대상의 바이너리는 매개변수 메타데이터를 바이너리에 저장하지 않고, `px4-travis.s3.amazonaws.com`에 저장된 동일한 데이터를 참조합니다. 이는 예를 들어 [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)에 적용됩니다. The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/main/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
 
 :::note
-메모리가 제한된 보드는 [cmake 정의 파일](https://github.com/PX4/PX4-Autopilot/blob/release/1.12/boards/omnibus/f4sd/default.cmake#L11)에 `CONSTRAINED_MEMORY`를 지정하기 때문에 식별할 수 있습니다.
+You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 :::
 
 :::note
 매개변수 메타데이터가 차량에 없는 경우 `px4-travis.s3.amazonaws.com`의 메타데이터가 사용됩니다. 또한 저속 텔레메트리 통신에서 느린 다운로드를 방지하기 위한 대체 수단으로 사용될 수 있습니다.
 :::
 
-FLASH 제한 보드에서 자체 개발시에 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/component_information/CMakeLists.txt#L41)에서 URL을 조정하여 다른 서버를 지정할 수 있습니다.
+Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
 
 마스터 분기의 XML 파일은 CI를 통해 QGC 소스 트리에 복사되고, 구성 요소 정보 서비스를 통해 사용할 수 있는 메타데이터가 없는 경우의 대체 수단으로 사용됩니다(이 접근 방식은 구성 요소 정보 프로토콜이 존재하기 이전).
 
@@ -339,4 +339,4 @@ FLASH 제한 보드에서 자체 개발시에 [여기](https://github.com/PX4/PX
 
 - [매개변수 검색 및수정](../advanced_config/parameters.md)
 - [매개변수 정의서](../advanced_config/parameter_reference.md)
-- [매개변수 구현](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/param.h#L129)(`.get()`, `.commit()` 및 기타 메소드에 대한 정보)
+- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)

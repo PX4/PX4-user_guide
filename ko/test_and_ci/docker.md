@@ -1,6 +1,6 @@
 # PX4 도커 컨테이너
 
-도커 컨테이너는 NuttX 및 Linux 기반 하드웨어, [Gazebo 시뮬레이션](../simulation/gazebo.md) 및 [ROS](../simulation/ros_interface.md)를 포함한 전체 [PX4 개발 툴체인](../dev_setup/dev_env.md#supported-targets)을 제공됩니다.
+Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).
 
 [도커 컨테이너](#px4_containers)를 사용하여 Linux 컴퓨터에서 빌드하는 방법을 설명합니다.
 
@@ -22,7 +22,7 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-기본 설치에서는 루트 사용자로 *Docker*를 호출하여야 합니다(예: `sudo` 사용). 그러나 PX4 펌웨어를 빌드하려면 [도커를 루트가 아닌 일반 사용자 계정을 사용](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user)하는 것이 좋습니다. 그렇게하면, docker를 사용한 후 빌드 폴더를 관리자가 소유하지 않습니다.
+기본 설치에서는 루트 사용자로 *Docker*를 호출하여야 합니다(예: `sudo` 사용). However, for building the PX4 firmware we suggest to [use docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user). 그렇게하면, docker를 사용한 후 빌드 폴더를 관리자가 소유하지 않습니다.
 
 ```sh
 # Create docker group (may not be required)
@@ -32,11 +32,12 @@ sudo usermod -aG docker $USER
 # Log in/out again before using docker!
 ```
 
+
 <a id="px4_containers"></a>
 
 ## 컨테이너 계층
 
-사용 가능한 컨테이너는 [Github](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy)에 있습니다.
+The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
 이를 통하여 다양한 빌드 대상 및 구성을 테스트할 수 있습니다(포함된 도구는 이름에서 유추할 수 있음). 컨테이너는 상위 컨테이너의 기능을 갖도록 계층적입니다. 예를 들어, 아래에서 nuttx 빌드 도구(`px4-dev-nuttx-focal`)가 있는 도커 컨테이너에는 ROS 2가 포함되어 있지 않지만, 시뮬레이션 컨테이너에는 포함되어 있습니다.
 
@@ -44,7 +45,9 @@ sudo usermod -aG docker $USER
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
-    - px4io/px4-dev-ros2-foxy
+      - px4io/px4-dev-ros2-foxy
+  - px4io/px4-dev-ros2-rolling
+  - px4io/px4-dev-ros2-galactic
 
 
 가장 최신 버전은 `latest` 태그를 사용하여 액세스할 수 있습니다. `px4io/px4-dev-nuttx-bionic:latest` (사용 가능한 태그는 *hub.docker.com*의 각 컨테이너에 나열되어 있습니다.)
@@ -118,15 +121,23 @@ docker run -it --privileged \
 -v ~/src/PX4-Autopilot:/src/PX4-Autopilot/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 -e DISPLAY=:0 \
--p 14570:14570/udp \
---name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
+--network host \
+--name=px4-ros px4io/px4-dev-ros2-foxy:2022-07-31 bash
 ```
+
+:::note
+We use the host network mode to avoid conflicts between the UDP port access control when using QGroundControl on the same system as the docker container.
+:::
+
+:::note
+If you encounter the error "Can't open display: :0", `DISPLAY` may need to be set to a different value. On Linux (XWindow) hosts you can change `-e DISPLAY=:0` to `-e DISPLAY=$DISPLAY`. On other hosts you might iterate the value of `0` in  `-e DISPLAY=:0` until the "Can't open display: :0" error goes away.
+:::
 
 모든 것이 잘 실행되면, 새로운 bash 쉘이 실행됩니다. 예를 들어 SITL을 실행하여 모든 것이 작동하는 지 확인하십시오.
 
 ```sh
 cd src/PX4-Autopilot    #This is <container_src>
-make px4_sitl_default gazebo
+make px4_sitl_default gazebo-classic
 ```
 
 
@@ -160,14 +171,15 @@ docker rm 45eeb98f1dd9
 
 시뮬레이션 인스턴스를 실행시에는 도커 컨테이너 내부의 SITL과 호스트에서 *QGroundControl*을 통해 제어하려면 네트워크를 수동으로 설정하여야 합니다. *QGroundControl*에 자동으로 연결되지 않습니다.
 
-*QGroundControl*에서 [설정](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html)으로 이동하여 네트워크를 선택합니다. ::: 포트는 사용된 [구성](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)에 따라 다릅니다. 예: SITL 구성을 위한 포트 14570 IP 주소는 도커 컨테이너 중 하나이며, 기본 네트워크는 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 찾을 수 있습니다(컨테이너 이름이 `mycontainer`라고 가정).
+In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) and select Comm Links. ::: ::: 포트는 사용된 [구성](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)에 따라 다릅니다. IP 주소는 도커 컨테이너 중 하나이며, 기본 네트워크는 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 찾을 수 있습니다(컨테이너 이름이 `mycontainer`라고 가정).
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
 :::note
-위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함). 이렇게 하면 호스트 컴퓨터의 사용자가 컨테이너에서 만든 파일에 접근할 수 없는 권한 오류가 나타납니다.
+위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함). 
+:::
 
 ### 문제 해결
 
@@ -180,7 +192,7 @@ $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}
 
 #### 그래픽 드라이버 문제
 
-Gazebo를 실행하면 다음과 같은 유사한 오류 메시지가 나타날 수 있습니다.
+It's possible that running Gazebo Classic will result in a similar error message like the following:
 
 ```sh
 libGL error: failed to load driver: swrast
@@ -193,6 +205,7 @@ libGL error: failed to load driver: swrast
 ```
 
 이에 대한 자세한 내용은 [여기](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/)를 참고하십시오.
+
 
 <a id="virtual_machine"></a>
 

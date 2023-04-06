@@ -1,195 +1,277 @@
-# ROS 2 사용 설명서(PX4-ROS 2 브리지)
+# ROS 2 User Guide
 
-PX4에서 ROS 2를 설정하고 사용하는 방법을 설명합니다.
+The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
 
-필요한 소프트웨어를 설치하고 ROS 2 애플리케이션을 구축하는 방법에 대한 지침과 ROS2-PX4 브리지 아키텍처 및 애플리케이션 파이프라인에 대한 개요를 제공합니다.
+This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
 
-:::note PX4 Autopilot의 Fast DDS 인터페이스는 DDS 도메인(ROS 노드 포함)에서 실행 및 연결된 모든 애플리케이션에서 활용할 수 있습니다.
-
-ROS 2 없이 *microRTPS 브리지* 사용 방법은 [RTPS/DDS 인터페이스 섹션](../middleware/micrortps.md)을 참고하십시오.
-:::
-
-:::note ROS
-2에서 PX4를 사용하는 방법에 대한 보다 자세하고 시각적인 설명은 PX4 유지 관리자의 다음 프레젠테이션을 참조하십시오.
-1. [ROS World 2020 - ROS 2 및 PX4 시작하기](https://www.youtube.com/watch?v=qhLATrkA_Gw)
-1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
+:::note
+The [XRCE-DDS](../middleware/xrce_dds.md) middleware middleware is supported in releases from **PX4 v1.14** **PX4 v1.13** does not support ROS 2 via [XRCE-DDS](../middleware/xrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
+<!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
 ## 개요
 
-ROS 2의 애플리케이션 파이프라인은 기본 통신 미들웨어(DDS/RTPS) 덕분에 매우 간단합니다. [microRTPS Bridge](../middleware/micrortps.md)는 PX4에서 실행되는 클라이언트와 ROS 컴퓨터에서 실행되는 에이전트로 구성되며, UORB와 ROS 2간의 양방향 메시지 변환을 제공합니다. 이를 통하여, PX4 UORB 데이터에 직접 게시 및 구독하는 ROS 2 리스너 또는 광고주 노드를 생성할 수 있습니다! 이것을 아래 다이어그램에서 설명합니다.
+The application pipeline for ROS 2 is very straightforward, thanks to the use of the [XRCE-DDS](../middleware/xrce_dds.md) communications middleware.
 
-![ROS 2를 사용한 아키텍처](../../assets/middleware/micrortps/architecture_ros2.png)
+![Architecture XRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
-ROS 2는 [`px4_msgs`](https://github.com/PX4/px4_msgs) 및 [`px4_ros_com`](https://github.com/PX4/px4_ros_com) 패키지를 사용하여 일치하는 메시지 정의가 클라이언트와 에이전트 코드를 생성하는 데 사용되는지 확인하고(중요함), ROS 코드를 빌드시에는 PX4가 있어야 합니다.
-- `px4_msgs` contains PX4 ROS message definitions. When this project is built it generates the corresponding ROS 2-compatible typesupport, used by ROS 2 nodes, and IDL files, used by `fastddsgen` to generate the microRTPS agent code.
-- `px4_ros_com` contains the microRTPS agent code templates for the agent publishers and subscribers. The build process runs a `fastddsgen` instance to generate the code for the `micrortps_agent`, which compiles into a single executable.
+<!-- doc source: https://docs.google.com/drawings/d/1WcJOU-EcVOZRPQwNzMEKJecShii2G4U3yhA3U6C4EhE/edit?usp=sharing -->
 
-PX4 Autopilot 프로젝트는 (마스터 분기에서) 변경될 때마다, 새 메시지 정의로 [`px4_msgs`](https://github.com/PX4/px4_msgs)를 자동으로 업데이트합니다.
+The XRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial, UDP, TCP or custom link. The agent acts as a proxy for the client to publish and subscribe to topics in the global DDS data space.
 
-:::note ROS
-애플리케이션에 액세스할 수 있는 uORB 주제의 하위 집합은 [px4_msgs/msg](https://github.com/PX4/px4_msgs/tree/master/msg)에 위치합니다.
-:::
+The PX4 [microdds-client](../modules/modules_system.md#microdds-client) is generated at build time and included in PX4 firmare by default. It includes both the "generic" XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/microdds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml). The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
 
-PX4 firmware contains the microRTPS client based on its build-time message definitions.
+ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. You can include these by cloning the [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
 
-:::note
-Astute readers will note that the generated agent might not have been built with that same set of definitions (unless they were both built of the same 'master' commit).
+Note that the XRCE-DDS _agent_ itself has no dependency on client-side code. It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
-PX4에서 ROS 2를 설정하려면 다음이 필요합니다.
-
-[Fast DDS 설치 가이드](../dev_setup/fast-dds-installation.md)에 따라 **Fast RTPS(DDS) 2.0.0**(이상) 및 **Fast-RTPS-Gen 1.0.4**를 설치합니다.
-1. Create also a branch per release in both `px4_ros_com` and `px4_msgs`, so both the message definitions and agent code match the ones present on the PX4/client side by the time of the release.
-2. Have an initial message exchange of the bridge configuration, using the messages structs MD5SUMs to verify if the messages definitions are the same, and if not, disable their stream and warn the user.
-:::
+You will normally need to start both the client and agent when using ROS 2. Note that the XRCE-DDS client is built into firmware by default but not started automatically except for simulator builds.
 
 :::note
-최신 종속성을 확인하려면 가이드를 확인하십시오. While microRTPS client is the same, the IDL files used by ROS 2 are slightly different from the [ROS-independent files generated in PX4 builds](../middleware/micrortps.md). The other detail is that the "normal" PX4 build doesn't use `fastddsgen` with typesupport for ROS 2 networks - and that's also one of the main reasons we have a separate microRTPS agent in `px4_ros_com`, which is completely compatible with ROS 2 networks. We use the `px4_msg` to generate appropriate IDL files for the `micrortps_agent` in `px4_ros_com`.
+In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com). This repo is no longer needed, but does contain useful examples.
 :::
 
 
 ## 설치 및 설정
 
-To setup ROS 2 for use with PX4 you will need to:
-- [Fast DDS 설치](#install-fast-dds)
-- [ROS2 설치](#install-ros-2)
-- [ROS 2 작업 공간 빌드](#build-ros-2-workspace)
-- [설치 상태 확인](#sanity-check-the-installation)(선택 사항)
+The supported platform for PX4 development is Ubuntu 20.04 (at time of writing), which means that you should use ROS 2 "Foxy".
 
-### Fast DDS 설치
-
-ROS 2와 해당 종속성을 설치합니다.
-
-이 섹션에서는 *홈 디렉토리*에서 호스팅되는 ROS 2 작업 공간을 만드는 방법을 보여줍니다(필요에 따라 명령을 수정하여 소스 코드를 다른 곳에 배치). `px4_ros_com` 및 `px4_msg` 패키지가 작업 영역 폴더에 복제한 다음, 스크립트를 사용하여 작업 영역을 빌드합니다.
+:::warning
+Other platforms, such as Ubuntu 22.04 and ROS 2 "Humble", may work, but are not fully tested and officially supported by the PX4 dev team. <!-- Windows/Mac? -->
 :::
+
+To setup ROS 2 for use with PX4 you will need to:
+
+- [Install PX4](#install-px4) (to use the PX4 simulator)
+- [ROS2 설치](#install-ros-2)
+- [Setup XRCE-DDS Agent & Client](#setup-xrce-dds-agent-client)
+- [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
+
+Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
+
+### Install PX4
+
+You need to install the PX4 development toolchain in order to use the simulator.
+
+:::note
+The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
+:::
+
+Set up a PX4 development environment on Ubuntu in the normal way:
+
+1. [Setup the development environment for Ubuntu](../dev_setup/dev_env_linux_ubuntu.md)
+1. [Download PX4 source](../dev_setup/building_px4.md)
 
 
 ### ROS2 설치
 
-<!-- what other toolchain needed? e.g. for ROS - gcc? does it all come with the ROS setup? -->
-
-:::note
-빌드 프로세스는 다른 환경 구성을 소싱하는 빌드 프로세스의 여러 단계에 해당하는 콘솔에서 새 탭을 엽니다. ::: :::warning If ROS_DOMAIN_ID is set in environment variables from ROS2 tutorial, you need to unset ROS_DOMAIN_ID for connection between ROS2 and microRTPS-agent. ::: To install ROS 2 and its dependencies:
+To install ROS 2 and its dependencies:
 
 1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
-1. ROS 2 브리지 패키지 `px4_ros_com`와 `px4_msgs`를 `/src` 디렉토리에 복제합니다. `master` 분기는 기본적으로 복제됩니다.
-
-   ```sh
-   $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
-   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
-   ```
-
-1. **`eigen3_cmake_module`** is also required, since Eigen3 is used on the transforms library:
-
-   ```sh
-   $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
-   $ source build_ros2_workspace.bash
-   ```
-
+   - You can install _either_ the desktop (`ros-foxy-desktop`) or bare-bones (`ros-foxy-ros-base`) version
+   - You should additionally install the development tools (`ros-dev-tools`)
 1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
 
    ```sh
-   sudo pip3 install -U empy pyros-genmsg setuptools
+   pip3 install --user -U empy pyros-genmsg setuptools
    ```
 
+### Setup XRCE-DDS Agent & Client
+
+For ROS 2 to communicate with PX4, a XRCE-DDS client must be running on PX4, connected to an XRCE-DDS agent running on the companion computer.
+
+#### Setup the Agent
+
+The agent can be installed onto the companion computer in a [number of ways](../middleware/xrce_dds.md#xrce-dds-agent-installation-usage). Below we show how to build the agent "standalone" from source and connect to a client running on the PX4 simulator.
+
+To setup and start the agent:
+
+1. Open a terminal.
+1. Enter the following commands to fetch and build the agent from source:
+
+   ```sh
+   git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+   cd Micro-XRCE-DDS-Agent
+   mkdir build
+   cd build
+   cmake ..
+   make
+   sudo make install
+   sudo ldconfig /usr/local/lib/
+   ```
+
+1. Start the agent with settings for connecting to the XRCE-DDS client running on the simulator:
+
+   ```sh
+   MicroXRCEAgent udp4 -p 8888
+   ```
+
+The agent is now running, but you won't see much until we start PX4 (in the next step).
+
+:::note
+You can leave the agent running in this terminal!
+Note that only one agent is allowed per connection channel.
+:::
+
+#### Start the Client
+
+The PX4 simulator starts the XRCE-DDS client automatically, connecting to UDP port 8888 on the local host.
+
+To start the simulator (and client):
+
+1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
+1. Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+
+   ```sh
+   make px4_sitl gazebo-classic
+   ```
+
+The agent and client are now running they should connect.
+
+The PX4 terminal displays the [NuttShell/PX4 System Console](../debug/system_console.md) output as PX4 boots and runs. As soon as the agent connects the output should include `INFO` messages showing creation of data writers:
+
+```
+...
+INFO  [microdds_client] synchronized with time offset 1675929429203524us
+INFO  [microdds_client] successfully created rt/fmu/out/failsafe_flags data writer, topic id: 83
+INFO  [microdds_client] successfully created rt/fmu/out/sensor_combined data writer, topic id: 168
+INFO  [microdds_client] successfully created rt/fmu/out/timesync_status data writer, topic id: 188
+...
+```
+
+The XRCE-DDS agent terminal should also start to show output, as equivalent topics are created in the DDS network:
+
+```
+...
+[1675929445.268957] info     | ProxyClient.cpp    | create_publisher         | publisher created      | client_key: 0x00000001, publisher_id: 0x0DA(3), participant_id: 0x001(1)
+[1675929445.269521] info     | ProxyClient.cpp    | create_datawriter        | datawriter created     | client_key: 0x00000001, datawriter_id: 0x0DA(5), publisher_id: 0x0DA(3)
+[1675929445.270412] info     | ProxyClient.cpp    | create_topic             | topic created          | client_key: 0x00000001, topic_id: 0x0DF(2), participant_id: 0x001(1)
+...
+```
 
 ### ROS 2 작업 공간 빌드
 
-This section shows how create a ROS 2 workspace hosted in your *home directory* (modify the commands as needed to put the source code elsewhere). The `px4_ros_com` and `px4_msg` packages are cloned to a workspace folder, and then a script is used to build the workspace.
+This section shows how create a ROS 2 workspace hosted in your home directory (modify the commands as needed to put the source code elsewhere).
 
-:::tip
-모든 스크립트 옵션은 `--help` 인수를 사용하여 출력합니다. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
+The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace. The example is run using `ros2 launch`.
+
+:::note
+The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
+
+
+#### Building the Workspace
 
 To create and build the workspace:
 
-1. Create a workspace directory using:
+1. Open a new terminal.
+1. Create and navigate into a new workspace directory using:
+
    ```sh
-   $ mkdir -p ~/px4_ros_com_ros2/src
-   ```
-1. **PX4 Autopilot** 프로젝트의 루트에서 새 터미널을 열고, PX4 Gazebo 시뮬레이션을 실행합니다.
-   ```sh
-   make px4_sitl_rtps gazebo
-   ```
-1. *새* 터미널에서 ROS 2 작업 공간을 `소싱`한 다음 UDP를 전송 프로토콜로 사용하여 `micrortps_agent` 데몬을 시작합니다.
-   ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ micrortps_agent -t UDP
+   mkdir -p ~/ws_sensor_combined/src/
+   cd ~/ws_sensor_combined/src/
    ```
 
-
-:::tip
-All script options can be listed by calling it with the `--help` argument. In particular the `--verbose` argument shows the full *colcon* build output.
+   :::note
+A naming convention for workspace folders can make it easier to manage workspaces.
 :::
 
-:::note
-The `px4_ros_com/scripts` directory contains multiple scripts for building different kinds of workspaces.
-:::
-
-
-### 설치 상태 확인
-
-One way to check that the installation/setup succeeded is to test that the bridge can communicate with PX4. We can do this by running the bridge against PX4 running in the simulator.
-
-1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
-1. 작업 공간을 빌드합니다.
-   ```sh
-   colcon build --symlink-install --event-handlers console_direct+
-   ```
-   Once PX4 has fully started the terminal will display the [NuttShell/System Console](../debug/system_console.md). Note also that PX4 SITL will automatically start the `micrortps_client` connected to UDP ports 2019 and 2020.
-1. On a *new* terminal, `source` the ROS 2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:
-   ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ micrortps_agent -t UDP
-   ```
-1. Open a new terminal and start a "listener" using the provided launch file:
-   ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-   $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
-   ```
-
-   If the bridge is working correctly you will be able to see the data being printed on the terminal/console where you launched the ROS listener:
+1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the the version of PX4 we are running):
 
    ```sh
-   RECEIVED DATA FROM SENSOR COMBINED
-   ================================
-   ts: 870938190
-   gyro_rad[0]: 0.00341645
-   gyro_rad[1]: 0.00626475
-   gyro_rad[2]: -0.000515705
-   gyro_integral_dt: 4739
-   accelerometer_timestamp_relative: 0
-   accelerometer_m_s2[0]: -0.273381
-   accelerometer_m_s2[1]: 0.0949186
-   accelerometer_m_s2[2]: -9.76044
-   accelerometer_integral_dt: 4739
+   git clone https://github.com/PX4/px4_msgs.git
+   git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-You can also verify the rate of the message using `ros2 topic hz`. E.g. in the case of `sensor_combined` use `ros2 topic hz /fmu/sensor_combined/out`:
+1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+
    ```sh
-   average rate: 248.187
-    min: 0.000s max: 0.012s std dev: 0.00147s window: 2724
-   average rate: 248.006
-    min: 0.000s max: 0.012s std dev: 0.00147s window: 2972
-   average rate: 247.330
-    min: 0.000s max: 0.012s std dev: 0.00148s window: 3212
-   average rate: 247.497
-    min: 0.000s max: 0.012s std dev: 0.00149s window: 3464
-   average rate: 247.458
-    min: 0.000s max: 0.012s std dev: 0.00149s window: 3712
-   average rate: 247.485
-    min: 0.000s max: 0.012s std dev: 0.00148s window: 3960
+   cd ..
+   source /opt/ros/foxy/setup.bash
+   colcon build
    ```
+
+   This builds all the folders under `/src` using the "foxy" toolchain.
+
+#### Running the Example
+
+To run the executables that you just built, you need to source `local_setup.bash`. This provides access to the "environment hooks" for the current workspace. In other words, it makes the executables that were just built available in the current terminal.
+
+In the same terminal:
+
+1. Source the `local_setup.bash` (you should also source `setup.bash` if in a new terminal).
+
+   ```sh
+   source install/local_setup.bash
+   ```
+1. Now launch the example. Note here that we use `ros2 launch`, which is described below.
+
+   ```
+   ros2 launch px4_ros_com sensor_combined_listener.launch.py
+   ```
+
+If this is working you should see data being printed on the terminal/console where you launched the ROS listener:
+
+```sh
+RECEIVED DATA FROM SENSOR COMBINED
+================================
+ts: 870938190
+gyro_rad[0]: 0.00341645
+gyro_rad[1]: 0.00626475
+gyro_rad[2]: -0.000515705
+gyro_integral_dt: 4739
+accelerometer_timestamp_relative: 0
+accelerometer_m_s2[0]: -0.273381
+accelerometer_m_s2[1]: 0.0949186
+accelerometer_m_s2[2]: -9.76044
+accelerometer_integral_dt: 4739
+```
+
+## Controlling a Vehicle
+
+To control applications, ROS 2 applications:
+
+- subscribe to (listen to) telemetry topics published by PX4
+- publish to topics that cause PX4 to perform some action.
+
+The topics that you can use are defined in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), and you can get more information about their data in the [uORB Message Reference](../msg_docs/README.md). For example, [VehicleGlobalPosition](../msg_docs/VehicleGlobalPosition.md) can be used to get the vehicle global position, while [VehicleCommand](../msg_docs/VehicleCommand.md) can be used to command actions such as takeoff and land.
+
+The [ROS 2 Example applications](#ros-2-example-applications) examples below provide concrete examples of how to use these topics.
+
+## Compatibility Issues
+
+This section contains information that may affect how you write your ROS code.
+
+### ROS 2 Subscriber QoS Settings
+
+ROS 2 code that subscribes to topics published by PX4 _must_ specify a appropriate (compatible) QoS setting in order to listen to topics. Specifically, nodes should subscribe using the ROS 2 predefined QoS sensor data (from the [listener example source code](#ros-2-listener)):
+
+```cpp
+...
+rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
+auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
+
+subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/out/sensor_combined", qos,
+...
+```
+
+This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4. Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not! Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case).
+
+<!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
 
 ## ROS 2 예제 애플리케이션
 
-### ROS 2 리스너 생성
+### ROS 2 Listener
 
-With the `px4_ros_com` built successfully, one can now take advantage of the generated *microRTPS* agent app and also from the generated sources and headers of the ROS 2 msgs from `px4_msgs`, which represent a one-to-one matching with the uORB counterparts.
+The ROS 2 [listener examples](https://github.com/PX4/px4_ros_com/tree/main/src/examples/listeners) in the [px4_ros_com](https://github.com/PX4/px4_ros_com) repo demonstrate how to write ROS nodes to listen to topics published by PX4.
 
-그런 다음 일반 `rclcpp::Node` 기본 클래스의 하위 클래스인 `SensorCombinedListener` 클래스를 생성합니다.
+Here we consider the [sensor_combined_listener.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp) node under `px4_ros_com/src/examples/listeners`, which subscribes to the [SensorCombined](../msg_docs/SensorCombined.md) message.
 
-이것은 `sensor_combined` uORB 메시지가 수신될 때(현재는 RTPS/DDS 메시지로) 콜백 함수를 생성하고 메시지가 수신될 때마다 메시지 필드의 내용을 출력합니다.
+:::note
+[Build ROS 2 Workspace](#build-ros-2-workspace) shows how to build and run this example.
+:::
+
+The code first imports the C++ libraries needed to interface with the ROS 2 middleware and the header file for the `SensorCombined` message to which the node subscribes:
 
 ```cpp
 #include <rclcpp/rclcpp.hpp>
@@ -206,15 +288,17 @@ class SensorCombinedListener : public rclcpp::Node
 {
 ```
 
-`SensorCombinedListener` 클래스를 ROS 노드로 인스턴스화하는 작업은 `main` 함수에서 수행됩니다.
+This creates a callback function for when the `SensorCombined` uORB messages are received (now as XRCE-DDS messages), and outputs the content of the message fields each time the message is received.
 
 ```cpp
 public:
-    explicit SensorCombinedListener() : Node("sensor_combined_listener") {
-        subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>(
-            "SensorCombined_PubSubTopic",
-            10,
-            [this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
+    explicit SensorCombinedListener() : Node("sensor_combined_listener")
+    {
+        rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
+        auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
+
+        subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/out/sensor_combined", qos,
+        [this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
             std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
             std::cout << "RECEIVED SENSOR COMBINED DATA"   << std::endl;
             std::cout << "============================="   << std::endl;
@@ -232,7 +316,11 @@ public:
     }
 ```
 
-ROS 2 광고주 노드는 DDS/RTPS 네트워크(따라서 PX4 Autopilot)에 데이터를 게시합니다.
+:::note
+The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`. This is needed because the default ROS 2 QoS profile for subscribers is incompatible with the PX4 profile for publishers. For more information see: [ROS 2 Subscriber QoS Settings](#ros2-subscriber-qos-settings),
+:::
+
+The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS 2 subscribers to the `fmu/sensor_combined/out` ROS 2 topic.
 
 ```cpp
 private:
@@ -255,8 +343,9 @@ int main(int argc, char *argv[])
 }
 ```
 
+This particular example has an associated launch file at [launch/sensor_combined_listener.launch.py](https://github.com/PX4/px4_ros_com/blob/main/launch/sensor_combined_listener.launch.py). This allows it to be launched using the [`ros2 launch`](#ros2-launch) command.
 
-### ROS 2 광고주 만들기
+### ROS 2 Advertiser
 
 그런 다음 코드는 일반 `rclcpp::Node` 기본 클래스의 하위 클래스인 `DebugVectAdvertiser` 클래스를 생성합니다.
 
@@ -318,107 +407,140 @@ int main(int argc, char *argv[])
 }
 ```
 
-
 ### 오프보드 제어
 
 For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros/ros2_offboard_control.md).
 
+## Using Flight Controller Hardware
 
-## 수동 작업 공간 설정(참고용)
+ROS 2 with PX4 running on a flight controller is almost the same as working with PX4 on the simulator. The only difference is that you need to start both the agent _and the client_, with settings appropriate for the communication channel.
 
-:::note
-This is provided to help you better understand the build process and how to include the ROS1 workspace. It is not needed to build or use ROS 2. It additionally includes instructions for building the `ros1_bridge` package, which is used in [ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md).
-:::
+For more information see [Starting XRCE-DDS](../middleware/xrce_dds.md#starting-xrce-dds).
 
-This section describes the process to *manually* setup your workspace and build the `px4_ros_com`, `px4_msgs`, and `ros1_bridge` package. The topic effectively explains the operation of the `build_ros2_workspace.bash` script in the [installation instructions](#build-ros-2-workspace)).
+## Custom uORB Topics
 
+ROS 2 needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. These are automatically exported to [PX4/px4_msgs](https://github.com/PX4/px4_msgs) for main and release builds, and you can just clone them into your workspace.
 
-**To build the ROS 2 workspace only:**
-
-1. `cd`를 `px4_ros_com_ros2` 디렉토리에 넣고 ROS 2 환경을 소싱합니다. 이전 작업 공간이 이전에 설정되었다는 메시지가 표시되더라도 신경 쓰지 마십시오.
-
-   ```sh
-   source /opt/ros/foxy/setup.bash
-   ```
-
-2. ROS 2 작업 영역에 빌드할 수 있도록 `ros1_bridge` 패키지를 복제합니다.
-
-   ```sh
-   git clone https://github.com/ros2/ros1_bridge.git -b dashing ~/px4_ros_com_ros2/src/ros1_bridge
-   ```
-
-To build both ROS 2 and ROS (1) workspaces (replacing the previous steps):
-
-1. `cd` into `px4_ros_com_ros2` dir and source the ROS 2 environment. Don't mind if it tells you that a previous workspace was set before:
-
-   ```sh
-   source /opt/ros/foxy/setup.bash
-   ```
-
-1. Clone the `ros1_bridge` package so it can be built on the ROS 2 workspace:
-
-   ```sh
-   git clone https://github.com/ros2/ros1_bridge.git -b dashing ~/px4_ros_com_ros2/src/ros1_bridge
-   ```
-
-1. Build the `px4_ros_com` and `px4_msgs` packages, excluding the `ros1_bridge` package:
-
-   ```sh
-   colcon build --symlink-install --packages-skip ros1_bridge --event-handlers console_direct+
-   ```
+If working on a custom build that has other messages, you would:
+- Update the [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) to add needed topics to the XRCE-DDS client in your PX4 firmware.
+- Copy the msg definitions out of the PX4 source tree into any ROS 2 workspace that needs them. The messages must be in a folder named `px4_msgs/msg/`.
 
 :::note
-`--event-handlers console_direct+` only serve the purpose of adding verbosity to the `colcon` build process, and can be removed if one wants a more "quiet" build.
+Technically the messages must be in a folder defined by the type prefix in the yaml file: As you can see below, this is `px4_msgs::msg::`:
+
+  ```yaml
+  - topic: /fmu/out/vehicle_odometry
+    type: px4_msgs::msg::VehicleOdometry
+  ```
+
 :::
 
-1. Then build the ROS(1) packages side. First open a **new** terminal window and source the ROS(1) environment that was installed on the system:
+## ros2 CLI
 
-   ```sh
-   source /opt/ros/melodic/setup.bash
-   ```
+The [ros2 CLI](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools.html) is a useful tool for working with ROS. You can use it, for example, to quickly check whether topics are being published, and also inspect them in detail if you have `px4_msg` in the workspace. The command also lets you launch more complex ROS systems via a launch file. A few possibilities are demonstrated below.
 
-1. Build the `px4_ros_com` and `px4_msgs` packages on the ROS end (using the terminal opened in the previous step):
+### ros2 topic list
 
-   ```sh
-   cd ~/px4_ros_com_ros1 && colcon build --symlink-install --event-handlers console_direct+
-   ```
-
-1. Open another new terminal and then source the environments and workspaces in the order listed below:
-
-   ```sh
-   source ~/px4_ros_com_ros1/install/setup.bash
-   source ~/px4_ros_com_ros2/install/setup.bash
-   ```
-
-1. Finally, build the `ros1_bridge`:
-
-   ```sh
-   cd ~/px4_ros_com_ros2 && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure --event-handlers console_direct+
-   ```
-
-:::note
-The build process may consume a lot of memory resources. On a resource limited machine, reduce the number of jobs being processed in parallel (e.g. set environment variable `MAKEFLAGS=-j1`). For more details on the build process, see the build instructions on the [ros1_bridge](https://github.com/ros2/ros1_bridge) package page.
-:::
-
-
-### 작업 공간 청소
-
-**clean_all.bash** 스크립트(**px4_ros_com/scripts**에 있음)는 이 정리 프로세스를 쉽게 하기 위해 제공되며, 이 스크립트는 위에 나열된 모든 작업 공간 옵션 (ROS 2, ROS 1 및 둘 다)을 정리할 수 있습니다.
-
-이를 사용하는 가장 일반적인 방법은 ROS(1) 작업 공간 디렉토리 경로를 전달하는 것입니다(일반적으로 기본 경로에 없기 때문에).
-
-The **clean_all.bash** script (in **px4_ros_com/scripts**) is provided to ease this cleaning process, this script can be used to clean all of the workspace options listed above (ROS 2, ROS 1, and Both)
-
-The most common way of using it is by passing it the ROS (1) workspace directory path (since it's usually not on the default path):
+Use `ros2 topic list` to list the topics visible to ROS 2:
 
 ```sh
-$ source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
+ros2 topic list
 ```
 
-:::tip
-Like the build scripts, the `clean_all.bash` script also has a `--help` guide.
-:::
+If PX4 is connected to the agent, the result will be a list of topic types:
+
+```
+/fmu/in/obstacle_distance
+/fmu/in/offboard_control_mode
+/fmu/in/onboard_computer_status
+...
+```
+
+Note that the workspace does not need to build with `px4_msgs` for this to succeed; topic type information is part of the message payload.
+
+### ros2 topic echo
+
+Use `ros2 topic echo` to show the details of a particular topic.
+
+Unlike with `ros2 topic list`, for this to work you must be in a workspace has built the `px4_msgs` and sourced `local_setup.bash` so that ROS can interpret the messages.
+
+```sh
+ros2 topic echo /fmu/out/vehicle_status
+```
+
+The command will echo the topic details as they update.
+
+```
+---
+timestamp: 1675931593364359
+armed_time: 0
+takeoff_time: 0
+arming_state: 1
+latest_arming_reason: 0
+latest_disarming_reason: 0
+nav_state_timestamp: 3296000
+nav_state_user_intention: 4
+nav_state: 4
+failure_detector_status: 0
+hil_state: 0
+...
+---
+```
+
+### ros2 topic hz
+
+You can get statistics about the rates of messages using `ros2 topic hz`. For example, to get the rates for `SensorCombined`:
+
+```
+ros2 topic hz /fmu/out/sensor_combined
+```
+
+The output will look something like:
+
+```sh
+average rate: 248.187
+  min: 0.000s max: 0.012s std dev: 0.00147s window: 2724
+average rate: 248.006
+  min: 0.000s max: 0.012s std dev: 0.00147s window: 2972
+average rate: 247.330
+  min: 0.000s max: 0.012s std dev: 0.00148s window: 3212
+average rate: 247.497
+  min: 0.000s max: 0.012s std dev: 0.00149s window: 3464
+average rate: 247.458
+  min: 0.000s max: 0.012s std dev: 0.00149s window: 3712
+average rate: 247.485
+  min: 0.000s max: 0.012s std dev: 0.00148s window: 3960
+```
+
+### ros2 launch
+
+The `ros2 launch` command is used to start a ROS 2 launch file. For example, above we used `ros2 launch px4_ros_com sensor_combined_listener.launch.py` to start the listener example.
+
+You don't need to have a launch file, but they are very useful if you have a complex ROS 2 system that needs to start several components.
+
+For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+
+
+
+## Troubleshooting
+
+### Missing dependencies
+
+The standard installation should include all the tools needed by ROS 2.
+
+If any are missing, they can be added separately:
+- **`colcon`** build tools should be in the development tools. It can be installed using:
+  ```sh
+  $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
+   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
+  ```
+- The Eigen3 library used by the transforms library should be in the both the desktop and base packages. It can be installed using:
+  ```sh
+  $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
+   $ source build_ros2_workspace.bash
+  ```
 
 ## 추가 정보
 
-* [DDS와 ROS 미들웨어 구현](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)
+- [ROS 2 in PX4: Technical Details of a Seamless Transition to XRCE-DDS](https://www.youtube.com/watch?v=F5oelooT67E) - Pablo Garrido & Nuno Marques (youtube)
+- [DDS와 ROS 미들웨어 구현](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)

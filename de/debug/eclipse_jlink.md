@@ -14,7 +14,7 @@ This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.g
 ### PX4
 
 Setup PX4 by following the normal guidelines:
-- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platofrm (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
+- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platform (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
 - [Download PX4](../dev_setup/building_px4.md) and optionally build it on the command line.
 
 ### Eclipse
@@ -44,8 +44,9 @@ For more information, see: [https://gnu-mcu-eclipse.github.io/debug/jlink/instal
    - Click the small icon on the top right called *Open Perspective* and open the *Packs* perspective. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - Click the **update all** button.
 
-:::tip
-This takes a VERY LONG TIME (10 minutes). Ignore all the errors about missing packages that pop up.
+     :::tip
+This takes a VERY LONG TIME (10 minutes).
+Ignore all the errors about missing packages that pop up.
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
@@ -60,13 +61,35 @@ This takes a VERY LONG TIME (10 minutes). Ignore all the errors about missing pa
 1. Then select *GDB SEGGER J-Link Debugging* and then the **New config** button on the top left. ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
 1. Setup build config:
    - Give it a name and set  the *C/C++ Application* to the corresponding **.elf** file.
-   - Choose *Disable Auto build* :::note Remember that you must build the target from the command line before starting a debug session.
+   - Choose *Disable Auto build* :::note
+Remember that you must build the target from the command line before starting a debug session.
 :::
 
    ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
 1. The *Debugger* and *Startup* tabs shouldn’t need any modifications (just verify your settings with the screenshots below)
 
    ![Eclipse: GDB Segger Debug config: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger Debug config: startup tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
+
+## SEGGER Task-aware debugging
+Task-aware debugging (also known as [thread-aware debugging](https://www.segger.com/products/debug-probes/j-link/tools/j-link-gdb-server/thread-aware-debugging/)) allows you to show the context of all running threads/tasks instead of just the stack current task. This is quite useful since PX4 tends to run many different tasks.
+
+To enable this feature for use in Eclipse:
+
+1. You first need to enable `CONFIG_DEBUG_TCBINFO` in the NuttX configuration for your build (to expose the TCB offsets).
+    - Open a terminal in the root of your PX4-Autopilot source code
+    - In the terminal, open `menuconfig` using the appropriate make target for the build. This will be something like:
+      ```
+      make px4_fmu-v5_default boardguiconfig
+      ```
+      (See [PX4 Menuconfig Setup](../hardware/porting_guide_config.md#px4-menuconfig-setup) for more information) on using the config tools).
+   - Ensure that the *Enable TCBinfo struct for debug* is selected as shown: ![NuttX: Menuconfig: CONFIG_DEBUG_TCBINFO](../../assets/debug/nuttx_tcb_task_aware.png)
+1. Compile the **jlink-nuttx.so** library in the terminal by running the following command in the terminal: `make jlink-nuttx`
+1. Modify Eclipse to use this libary. In the *J-Link GDB Server Setup* configuration, update **Other options** to include `-rtos /home/<PX4 path>/Tools/jlink-nuttx.so`, as shown in the image below.
+
+   ![Eclipse: GDB Segger Debug config RTOS aware: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware.png)
+1. When running the debugger you should see now multiple threads instead of just one:
+
+   ![Eclipse: GDB Segger Debug config RTOS aware: debug session](../../assets/debug/eclipse_settings_debug_config_gdb_segger_task_aware_tasks.png)
 
 
 ## Troubleshooting

@@ -3,7 +3,7 @@
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 :::
 
-The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
+The [Nora](https://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora.png)
 
@@ -20,13 +20,13 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Support USB_HS, download logs faster (PX4 not yet supported)
 * Support more dshot output
 * Support IMU heating, make the sensor work better
-* Dedicated uavcan battery port
+* Dedicated CAN battery port
 * 3 sets of IMU sensors
 * Car-grade RM3100 compass
 * High performance processor
 
 :::tip
-The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
 :::
 
 
@@ -47,8 +47,8 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canon
    * 2 GPS ports(GPS and UART4 ports)
    * 4 i2c buses(Two i2c dedicated ports)
    * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
-   * 2  ADC intput
+   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
+   * 2  ADC input
    * 1 USB ports
 * Power System:
   * Power: 4.3~5.4V
@@ -63,10 +63,11 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canon
   * Internal shock absorption
 
 :::note
-When it runs PX4 firmware, only 8 PWM outputs work. The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
+When it runs PX4 firmware, only 8 PWM outputs work.
+The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 :::
 
-## Purchase
+## Where to Buy
 
 - [CUAV Store](https://store.cuav.net)<\br>
 - [CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
@@ -74,7 +75,7 @@ When it runs PX4 firmware, only 8 PWM outputs work. The remaining 6 PWM ports ar
 
 ## Connections (Wiring)
 
-[CUAV nora Wiring Quickstart](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+[CUAV nora Wiring Quickstart](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
 ## Size and Pinouts
 
@@ -152,6 +153,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Further info
 
-* [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
+* [Quick start](https://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 * [CUAV docs](http://doc.cuav.net)
 * [nora schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)

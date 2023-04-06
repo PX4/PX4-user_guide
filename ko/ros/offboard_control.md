@@ -18,7 +18,7 @@ MAVLink 메시지로 오프보드 모드를 활성화할 수 있으므로, 이 �
 
 ### 보조 컴퓨터 인터페이스 활성화
 
-보조 컴퓨터에 연결하는 직렬 포트에서 MAVLink를 활성화합니다([보조 컴퓨터 설정](../companion_computer/pixhawk_companion.md) 참조).
+Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
 
 ## 하드웨어 설정
 
@@ -50,10 +50,9 @@ A small computer mounted onto the vehicle connected to the autopilot through a U
 Small low power examples:
 * [Odroid C1+](https://www.hardkernel.com/shop/odroid-c1/) 또는 [Odroid XU4](https://magazine.odroid.com/odroid-xu4)
 * [라즈베리파이](https://www.raspberrypi.org/)
-* [인텔 에디슨](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
 몇가지 저전력 보드를 예로 들면:
-* [인텔 NUC](http://www.intel.com/content/www/us/en/nuc/overview.html)
+* [인텔 NUC](https://www.intel.com/content/www/us/en/products/details/nuc.html)
 * [Gigabyte Brix](http://www.gigabyte.com/products/list.aspx?s=47&ck=104)
 * [Nvidia Jetson TX2](https://developer.nvidia.com/embedded/jetson-tx2)
 
@@ -68,7 +67,7 @@ graph TD;
 
 ### 온보드 프로세서 및 ROS에 대한 Wi-Fi 링크(***권장***)
 
-A small computer mounted onto the vehicle connected to the autopilot through a UART to USB adapter while also having a WiFi link to a ground station running ROS. This can be any of the computers from the above section coupled with a WiFi adapter. For example, the Intel NUC D34010WYB has a PCI Express Half-Mini connector which can accommodate an [Intel Wifi Link 5000](http://www.intel.com/products/wireless/adapters/5000/) adapter.
+A small computer mounted onto the vehicle connected to the autopilot through a UART to USB adapter while also having a WiFi link to a ground station running ROS. This can be any of the computers from the above section coupled with a WiFi adapter.
 
 [![Mermaid graph: ROS](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgc3ViZ3JhcGggR3JvdW5kICBTdGF0aW9uXG4gIGduZFtST1MgRW5hYmxlZCBDb21wdXRlcl0gLS0tIHFnY1txR3JvdW5kQ29udHJvbF1cbiAgZW5kXG4gIGduZCAtLU1BVkxpbmsvVURQLS0-IHdbV2lGaV07XG4gIHFnYyAtLU1BVkxpbmstLT4gdztcbiAgc3ViZ3JhcGggVmVoaWNsZVxuICBjb21wW0NvbXBhbmlvbiBDb21wdXRlcl0gLS1NQVZMaW5rLS0-IHVhcnRbVUFSVCBBZGFwdGVyXVxuICB1YXJ0IC0tLSBBdXRvcGlsb3RcbiAgZW5kXG4gIHcgLS0tIGNvbXAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbiAgc3ViZ3JhcGggR3JvdW5kICBTdGF0aW9uXG4gIGduZFtST1MgRW5hYmxlZCBDb21wdXRlcl0gLS0tIHFnY1txR3JvdW5kQ29udHJvbF1cbiAgZW5kXG4gIGduZCAtLU1BVkxpbmsvVURQLS0-IHdbV2lGaV07XG4gIHFnYyAtLU1BVkxpbmstLT4gdztcbiAgc3ViZ3JhcGggVmVoaWNsZVxuICBjb21wW0NvbXBhbmlvbiBDb21wdXRlcl0gLS1NQVZMaW5rLS0-IHVhcnRbVUFSVCBBZGFwdGVyXVxuICB1YXJ0IC0tLSBBdXRvcGlsb3RcbiAgZW5kXG4gIHcgLS0tIGNvbXAiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ)
 

@@ -103,5 +103,5 @@ For more information see [Bootloader Update](../advanced_config/bootloader_updat
 
 ## Further Information
 
-* [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
+* [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
 * [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)

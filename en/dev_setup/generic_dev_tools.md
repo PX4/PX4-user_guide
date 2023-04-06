@@ -4,7 +4,7 @@ This section lists useful additional development tools that are not part of the 
 
 ## Ground Control Software
 
-Download and install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html).
+Download and install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html).
 
 :::tip
 The *daily build* includes development tools that hidden in release builds. 
@@ -25,5 +25,5 @@ The following IDEs also work (but are not recommended unless you're an expert):
 * [Qt Creator IDE](../dev_setup/qtcreator.md): Popular cross-platform open-source IDE.
 
 :::note
-There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project) in the source tree.
+There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/main/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/main/Firmware.sublime-project) in the source tree.
 :::

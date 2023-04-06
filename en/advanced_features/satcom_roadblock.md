@@ -8,7 +8,7 @@ Given good signal quality, users can expect a latency between 10 to 15 seconds.
 ## Overview
 
 The following components are needed for the satellite communication link:
-* A [RockBlock 9603](https://www.rock7.com/products/rockblock-9603-compact-plug-play-satellite-transmitter) module connected to a Pixhawk flashed with the PX4 Autopilot.
+* A [RockBlock 9603 Iridium Satellite Modem](https://www.iridium.com/products/rock-seven-rockblock-9603/) module connected to a Pixhawk flashed with the PX4 Autopilot.
 * A message relay server running Ubuntu Linux.
 * A ground station computer running *QGroundControl* on Ubuntu Linux
 
@@ -19,7 +19,7 @@ The full system architecture is shown below:
 :::note
 The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04. 
 - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-- The [RockBlock MK2](https://www.rock7.com/products/rockblock-iridium-9602-satellite-modem) module can also be used. 
+- The [RockBlock MK2](https://www.groundcontrol.com/us/product/rockblock-9602-satellite-modem/) module can also be used. 
   The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
 :::
 
@@ -48,7 +48,7 @@ The module can either use the internal antenna or an external one connected to t
 To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) the position of a small RF link cable needs to changed. 
 If an external antenna is used always make sure that the antenna is connected to the module before powering it up to avoid damage to the module.
 
-The default baud rate of the module is 19200. However, the PX4 *iridiumsbd* driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](https://www.rock7.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
+The default baud rate of the module is 19200. However, the PX4 *iridiumsbd* driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](https://www.groundcontrol.com/en/wp-content/uploads/2022/02/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
 
 1. Connect to the module with using a 19200/8-N-1 setting and check if the communication is working using the command: `AT`. 
    The response should be: `OK`.
@@ -156,7 +156,7 @@ To setup the ground station:
    git clone https://github.com/acfloria/SatComInfrastructure.git
    ```
 1. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
-1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (daily build).
+1. [Install *QGroundControl*](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (daily build).
 1. Add a UDP connection in QGC with the parameters:
 
    * Listening port: 10000

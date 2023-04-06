@@ -8,9 +8,9 @@ The radios can be either 915Mhz or 433Mhz and you should purchase the model whic
 
 <img src="../../assets/hardware/telemetry/holybro_sik_radio_v3.png" width="600px" title="Sik Telemetry Radio" />
 
-### Purchase:
+### Where to Buy
 
-* [Holybro SiK Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-set-v3_p1103.html?)
+* [Holybro SiK Telemetry Radio V3](https://holybro.com/collections/telemetry-radios/products/sik-telemetry-radio-v3)
 
 ### Features
 
@@ -34,7 +34,6 @@ The radios can be either 915Mhz or 433Mhz and you should purchase the model whic
 * FT230X USB to BASIC UART IC
 
 ### LEDs Indicators Status
-
 The radios have 2 status LEDs, one red and one green. The interpretation of the different LED states are:
 
 * Green LED blinking - searching for another radio
@@ -45,12 +44,10 @@ The radios have 2 status LEDs, one red and one green. The interpretation of the 
 <img src="../../assets/hardware/telemetry/holybro_sik_telemetry_label.jpg" width="500px" title="Pixhawk5x Upright Image" />
 
 ### Connecting to Flight Controller
-
-Use the 6 pin JST-GH connector that come with the radio to connect the radio to your flight controller's “Telem 1” (“Telem 2” can also be used but the default recommendation is “Telem1”).
+Use the 6 pin JST-GH connector that come with the radio to connect the radio to your flight controller's  “Telem 1” (“Telem 2” can also be used but the default recommendation is “Telem1”).
 
 ### Connecting to a PC or Ground Station
-
-Connecting the radio to your Windows PC or Ground Station is as simple as connecting the micro/type-C USB cable (Type-C adapter included with the radio) to your PC/Ground Station.
+Connecting the radio to your Windows PC or Ground Station is as simple as connecting the micro/type-C USB cable  (Type-C adapter included with the radio) to your PC/Ground Station.
 
 The necessary drivers should be installed automatically and the radio will appear as a new “USB Serial Port” in the Windows Device Manager under Ports (COM & LPT). The Mission Planner’s COM Port selection drop-down should also contain the same new COM port.
 

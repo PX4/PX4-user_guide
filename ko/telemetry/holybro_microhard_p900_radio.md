@@ -24,7 +24,7 @@ The transmit power is software selectable from 100mW to 1W, with range up to 40 
 * Separate diagnostics port, transparent remote diagnostics and online network control
 
 
-## Purchase:
+## Where to Buy
 
 * [Holybro Microhard P900 Telemetry Radio (100mW - 1W)](http://www.holybro.com/product/microhard-p900-radio/)
 
@@ -47,7 +47,8 @@ This radio has a internal USB to UART converter, the ground radio can be connect
 Holybro Microhard P900 Radios have been configured to point-to-point operating mode and 57600 serial baud rate in the factory. This allows them to connect to the PX4 `TELEM1` port and *QGroundControl* **without any further configuration**.
 
 :::note
-You can use a different baud rate, mode or flight controller port. The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
+You can use a different baud rate, mode or flight controller port.
+The only "requirement" is that the ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
 :::
 
 [Microhard Serial Telemetry Radios > Configuration](../telemetry/microhard_serial.md#configuration) explains how to configure the radios, *QGroundControl*, and PX4.
@@ -56,7 +57,7 @@ In order to configure the radios using the *PicoConfig* application (as describe
 
 <img src="../../assets/hardware/telemetry/holybro_microhard_uart converter.png" width="500px" title="Holybro Microhard P900 Diagnosis" />
 
-The diagnostic port uses a 4-position JST SH connector. If you use *PicoConfig* application or special diagnostic commands to config the radio, you should connect to this port. The diagnostic port is 3.3V logic level compatibile. A USB-to-serial board is needed for connecting the radio to your computer. You can purchase a [Holybro UART to USB Converter](https://shop.holybro.com/gps-uart-to-usb-converter_p1234.html).
+The diagnostic port uses a 4-position JST SH connector. If you use *PicoConfig* application or special diagnostic commands to config the radio, you should connect to this port. The diagnostic port is 3.3V logic level compatible. A USB-to-serial board is needed for connecting the radio to your computer. You can purchase a [Holybro UART to USB Converter](https://holybro.com/products/uart-to-usb-converter).
 
 *Pico Config* will automatically detect and connect to the configuration port. Adjust the settings so that the baud rate matches PX4 (and the ground station).
 

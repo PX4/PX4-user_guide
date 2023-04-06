@@ -17,9 +17,9 @@ It supports multiple modes such as point-to-point, point-to-multipoint, and rela
 - Independent power supply for more stable operation
 - USB Type-C port, integrated USB to UART converter
 
-## Purchase
+## Where to Buy
 
-* [CUAV store](https://store.cuav.net/shop/cuav-p8-radio-uav-telemetry/)
+* [CUAV store](https://www.cuav.net/en/p8-2/)
 * [CUAV alibaba](https://www.alibaba.com/product-detail/Free-shipping-CUAV-UAV-P8-Radio_1600324379418.html?spm=a2747.manage.0.0.2dca71d2bY4B0M)
 
 ## PX4 Configuration
@@ -53,12 +53,12 @@ On some flight controllers, or if used with a different serial port, you may nee
 
 Connect the CUAV P8 Radio to the `TELEM1`/`TELEM2` interface of the flight controller and use a battery or BEC to power the module. The required cables are included in the package.
 
-:::tip CUAV
-P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC.
+:::tip
+CUAV P8 Radio does not support power supply from the flight controller, it needs to be connected to a 12~60v battery or BEC.
 :::
 
 ## More information
 
 [P8 manual](http://manual.cuav.net/data-transmission/p8-radio/p8-user-manual-en.pdf)
 
-[CUAV P8 Radio](https://doc.cuav.net/data-transmission/p8-radio/en/) (Offical Guide)
+[CUAV P8 Radio](https://doc.cuav.net/data-transmission/p8-radio/en/) (Official Guide)

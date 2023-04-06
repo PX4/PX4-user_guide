@@ -23,11 +23,13 @@ The ground station-based radio is connected via USB (essentially plug-n-play).
 
 The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
 
+
 ## Firmware Update
 
 Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware. You may need to update older hardware with new firmware, for example to gain support for MAVLink 2.
 
-You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
+You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
+
 
 ## Advanced Setup/Configuration
 

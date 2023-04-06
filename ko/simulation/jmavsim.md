@@ -59,7 +59,7 @@ pxh>
 
 또한 [jMAVSim](https://github.com/PX4/jMAVSim) 시뮬레이터의 3D 보기를 보여주는 창이 나타납니다.
 
-![jMAVSim 3D 보기](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3D 보기](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 
 ## 하늘로 띄우기
@@ -127,7 +127,7 @@ make broadcast jmavsim
 JMAVSim과 PX4를 별도로 시작할 수 있습니다.
 
 ```
-./Tools/jmavsim_run.sh -l
+./Tools/simulation/jmavsim/jmavsim_run.sh -l
 make px4_sitl none
 ```
 
@@ -189,7 +189,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 jMAVSim 하위 모듈이 [최신 jar 라이브러리로 업데이트](https://github.com/PX4/jMAVSim/pull/119)되고, Java 11 또는 Java 14가 제대로 실행되면 이 오류가 더 이상 발생하지 않습니다.
 
 
-### An illegal reflective access operation has occured
+### An illegal reflective access operation has occurred
 
 이 경고는 무시할 수 있습니다(경고가 나타나도, 시뮬레이션은 정상적으로 작동함).
 

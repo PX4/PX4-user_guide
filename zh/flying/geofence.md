@@ -15,7 +15,7 @@ PX4提供了两个独立的机制来指定围栏：
 
 设置中还包括越界时的故障保护动作。 可能只是一个警告通知，但更常见的是机体会立即[返回](../flight_modes/return.md)一个安全位置。
 
-有关更多信息，请参阅：[安全 > 地理围栏故障保护。](../config/safety.md#geofence-failsafe)
+For more information see: [Safety > GeoFence Failsafe](../config/safety.md#geofence-failsafe).
 
 ## 地理围栏规划
 
@@ -25,11 +25,11 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 
 ![围栏规划](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-围栏规划在[规划视图 > 地理围栏](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html)中有完整记录（QGroundControl 用户指南）
+GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/master/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
 
 总结：
-1. 打开*QGroundControl > 规划视图*。
-1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![围栏规划](../../assets/qgc/plan_geofence/geofence_editor.jpg)
+1. Open *QGroundControl > Plan View*.
+1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![地理围栏规划](../../assets/qgc/plan_geofence/geofence_editor.jpg)
 1. 选择多边形围栏或圆形围栏按钮，可将添加所需基本类型的围栏到地图中。 这也在编辑器中增加了此类围栏的条目。
 1. 在地图上调整围栏的形状和位置。
    - 围栏中心的圆点可以用来调整围栏的位置。

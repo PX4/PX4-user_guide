@@ -29,7 +29,7 @@ The instructions below might be used to create a task named *MyTask*:
    - FlightTaskMyTask.hpp
    - FlightTaskMyTask.cpp
 3. Update **CMakeLists.txt** for the new task
-   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
+   - Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/CMakeLists.txt#L40):
    - Update the copyright to the current year
      ```cmake   
      ############################################################################
@@ -73,7 +73,7 @@ The instructions below might be used to create a task named *MyTask*:
    bool FlightTaskMyTask::activate(vehicle_local_position_setpoint_s last_setpoint)
    {
      bool ret = FlightTask::activate(last_setpoint);
-     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was succesful
+     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was successful
      return ret;
    }
 
@@ -83,7 +83,7 @@ The instructions below might be used to create a task named *MyTask*:
      return true;
    }
    ```
-5. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/CMakeLists.txt#L40):
+5. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
    ```
    list(APPEND flight_tasks_to_add
       Orbit
@@ -144,4 +144,4 @@ A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Gr
 
 @[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
 
-The relevent section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec). The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.
+The relevant section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec). The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.

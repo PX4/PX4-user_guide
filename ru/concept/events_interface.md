@@ -5,7 +5,7 @@ The *Events Interface* provides a system-wide API for notification of events, wh
 The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
 
 :::note
-The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12. There will be an intermediate period where [both approaches are supported](#Backward-compatibility).
+The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12. There will be an intermediate period where [both approaches are supported](#backward-compatibility).
 :::
 
 ## Usage
@@ -112,7 +112,7 @@ Text format for event message description:
       - m_v: vertical distance in meters
       - m^2: area in m^2
       - m/s: speed in m/s
-      - C: temperature in degrees celcius
+      - C: temperature in degrees celsius
   - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
 
 ## Logging

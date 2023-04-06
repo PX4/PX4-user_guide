@@ -1,11 +1,11 @@
 # Parameters & Configurations
 
-PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for mixers and startup scripts) to store its configuration.
+PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for startup scripts) to store its configuration.
 
 This section discusses the *param* subsystem in detail. It covers how to list, save and load parameters, and how to define them and make them available to ground stations.
 
 :::tip
-[System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages.
+[System startup](../concept/system_startup.md) and the way that [frame configuration](../dev_airframes/adding_a_new_frame.md) startup scripts work are detailed on other pages.
 :::
 
 
@@ -324,7 +324,7 @@ For most flight controllers (as most have enough FLASH available), the JSON file
 Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`. This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md). The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
 
 :::note
-You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/release/1.12/boards/omnibus/f4sd/default.pxboard)).
+You can identify memory constrained boards because they specify `CONFIG_BOARD_CONSTRAINED_FLASH=y` in their [px4board definition file](https://github.com/PX4/PX4-Autopilot/blob/main/boards/omnibus/f4sd/default.px4board).
 :::
 
 :::note

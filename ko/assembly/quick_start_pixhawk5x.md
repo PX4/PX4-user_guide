@@ -1,6 +1,6 @@
 # 홀리브로 픽스호크 5X 배선 개요
 
-:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 [Pixhawk<sup>&reg;</sup> 5X](../flight_controller/pixhawk5x.md) 비행 콘트롤러의 전원 공급 방법과 주요 주변 장치 연결 방법에 대하여 설명합니다.
@@ -35,7 +35,7 @@ Pixhawk 5 표준 세트
 
 _Pixhawk5X 표준 세트_는 **GPS1** 포트에 연결하는 M8N 또는 M9N GPS(10핀 커넥터)와 함께 구입할 수 있습니다. 이 GNSS 모듈에는 나침반, 안전 스위치, 부저 및 LED가 통합되어 있습니다.
 
-보조 [M8N 또는 M9N GPS](https://shop.holybro.com/c/gps-systems_0428)(6핀 커넥터)는 별도로 구매하여 **GPS2** 포트에 연결할 수 있습니다.
+A secondary [M8N or M9N GPS](https://holybro.com/collections/gps) (6-pin connector) can be purchased separately and connected to the **GPS2** port.
 
 The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.md) as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
@@ -106,7 +106,7 @@ PM02D 전원 모듈은 **2~6S** 배터리를 지원하며, 보드의 입력을 L
 
 기체의 텔레메트리를 **TELEM1** 포트에 연결합니다. 이 포트에 연결된 경우에는 추가 설정이 필요하지 않습니다. 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 USB를 통하여 연결됩니다.
 
-무선 조종기는 [Holybro 웹사이트](http://www.holybro.com/product-category/radio/)에서 구매할 수 있습니다.
+Radios are also available for purchase on [Holybro's website](https://holybro.com/collections/telemetry-radios) .
 
 
 
@@ -116,7 +116,8 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 <img src="../../assets/flight_controller/pixhawk5x/pixhawk5x_sd_slot.jpg" width="420px" title="Pixhawk5x standard set" />
 
-SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/px4_basic_concepts.md#sd_cards), 임무 수행 및 UAVCAN 버스 하드웨어를 위하여 사용하는 것이 좋습니다. 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
+:::tip
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory). 아래 그림과 같이 SD 카드(Pixhawk  5X 키트에 포함됨)를 *Pixhawk 5X*에 삽입합니다.
 
 
 
@@ -144,7 +145,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/px4_
 
 ![Pixhawk 5X Pinout1](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.png)
 
-[여기](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) 또는 [여기](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf)에서 *Pixhawk 5X* 핀배열을 다운로드할 수 있습니다.
+You can also download *Pixhawk 5X* pinouts from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
 
 
@@ -159,9 +160,8 @@ QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config
 ## 추가 정보
 
 - [Pixhawk 5X](../flight_controller/pixhawk5x.md) (PX4 개요 페이지)
-- [Pixhawk 5X 개요 & 스펙](http://www.holybro.com/manual/Holybro_Pixhawk5X_Spec_Overview.pdf) (홀리브로)
-- [Pixhawk  5X 핀아웃](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf) (홀리브로)
-- [PM02D 파워 모듈 매뉴얼](http://www.holybro.com/manual/Holybro_PM02D_Power_Module_Manual.pdf) (홀리브로)
+- [Pixhawk 5X Overview & Specification](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
+- [Pixhawk 5X Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
 - [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340).
 - [Pixhawk Autopilot FMUv5X 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf).
 - [Pixhawk Autopilot FMUv5X 버스 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).

@@ -11,13 +11,15 @@ PX4は、シミュレートされたターゲットとハードウェアの両�
 
 ## PX4ソースコードをダウンロードする
 
-PX4のソースコードは，Githubの [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) に保存されています． *最新のバージョン* を取得するには、コンソールに次のコマンドを入力します。
+PX4のソースコードは，Githubの [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) に保存されています．
+
+To get the *very latest* ("main") version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::ノート 最新のコードをビルドするために必要なのはこれだけです [GITの例 > PX4への貢献](../contribute/git_examples.md#contributing_code) ではPX4への貢献にgitを使用することについて、より多くの情報を提供します。
+:::ノート 最新のコードをビルドするために必要なのはこれだけです If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
 ## 最初のビルド (jMAVSimシミュレータを使用)
@@ -49,9 +51,10 @@ QGroundControlでシミュレーションすることは、車両の実際の動
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4は[Gazebo Simulation](../simulation/gazebo.md)と[AirSim Simulation](../simulation/airsim.md)を含む多くの[シミュレータ](../simulation/README.md)で使用できます． これらも *make*で起動されます。
+:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../simulation/airsim.md). これらも *make*で起動されます。
+
 ```
-make px4_sitl gazebo
+make px4_sitl gazebo-classic
 ```
 :::
 
@@ -74,21 +77,26 @@ make px4_fmu-v5_default
 ```
 
 ビルドターゲット `px4_fmu-v4` の最初の部分は、特定のフライトコントローラハードウェアのファームウェアを示します。 次のリストは、 [Pixhawk 標準](../flight_controller/autopilot_pixhawk_standard.md) ボードのビルドコマンドを示しています。
-* [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
-* [Pixhawk 4](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
-* [Pixhawk ](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
-* [Pixhawk ](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
-* [Pixhawk ](../flight_controller/pixracer.md): `make px4_fmu-v5_default`
-* [Pixhawk 3](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v5_default`
-* [Pixhawk ](../flight_controller/pixhawk_mini.md): `make px4_fmu-v5_default`
-* [Pixhawk 2 (Cube Black)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
-* [mRO Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (2MB Flashをサポート)
-* [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
-* [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
-* [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::警告 You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md): `make px4_fmu-v6c_default`
+- [Holybro Pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md): `make px4_fmu-v6c_default`
+- [Holybro Pixhawk 5X (FMUv5X)](../flight_controller/pixhawk5x.md): `make px4_fmu-v5x_default`
+- [Pixhawk 4 (FMUv5)](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
+- [Pixhawk 4 Mini (FMUv5)](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+- [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+- [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+- [Pixracer (FMUv4)](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
+- [Pixhawk 3](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v5_default`
+- [Pixhawk ](../flight_controller/pixhawk_mini.md): `make px4_fmu-v5_default`
+- [Pixhawk 2 (Cube Black) (FMUv3)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
+- [mRo Pixhawk (FMUv3)](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
+- [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
+- [Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
+- [Dropix (FMUv2)](../flight_controller/dropix.md): `make px4_fmu-v2_default`
+- [Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 :::
-* Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
+- Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
 Pixhawk NuttX 以外のフライトコントローラ(および他のすべてのボード)用のビルドコマンドは、個々の [フライトコントローラボード](../flight_controller/README.md) のドキュメントに記載されています。
 
@@ -158,7 +166,7 @@ MacOSでは、実行中のすべてのプロセスでデフォルトで最大256
 ```
 
 解決策は、開いているファイルの最大許容数を増やすことです (e.g. to 300)． 以下の方法をmacOS *ターミナル* 上で試すことができます．
-- このスクリプトを実行する [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
+- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/mac_set_ulimit.sh), or
 - 次のコマンドを入力します。
   ```sh
   ulimit -S -n 300
@@ -206,7 +214,7 @@ If you have already installed these dependencies this may be because there is mo
 
 You should be able to fix this by explicitly installing the dependencies as shown:
 ```
-pip3 install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+pip3 install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
 
@@ -223,7 +231,7 @@ make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
 
 - **VENDOR:** The manufacturer of the board: `px4`, `aerotenna`, `airmind`, `atlflight`, `auav`, `beaglebone`, `intel`, `nxp`, etc. The vendor name for Pixhawk series boards is `px4`.
 - **MODEL:** The *board model* "model": `sitl`, `fmu-v2`, `fmu-v3`, `fmu-v4`, `fmu-v5`, `navio2`, etc.
-- **VARIANT:** Indicates particular configurations: e.g. `rtps`, `lpe`, which contain components that are not present in the `default` configuration. Most commonly this is `default`, and may be omitted.
+- **VARIANT:** Indicates particular configurations: e.g. `bootloader`, `cyphal`, which contain components that are not present in the `default` configuration. Most commonly this is `default`, and may be omitted.
 
 :::tip
 You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
@@ -234,29 +242,30 @@ make list_config_targets
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
-- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
+- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
 
 :::tip
-`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, gazebo, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
+`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
 :::
 - **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters.
 - **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
-- **WORLD:** (Gazebo only). Set a the world ([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../simulation/gazebo.md#set_world).
+- **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
+
 ```sh
 make px4_sitl list_vmd_make_targets
 ```
 :::
 
 Notes:
-- Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo` is equivalent to `gazebo_iris` or `gazebo_iris_none`.
-- You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo___gdb` is equivalent to `gazebo_iris_gdb`.
-- You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/jmavsim_run.sh -l`.
+- Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
+- You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
+- You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
 
 
-The `VENDOR_MODEL_VARIANT` options map to particular *px4board* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)).
+The `VENDOR_MODEL_VARIANT` options map to particular *px4board* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/main/boards/px4/fmu-v5/default.px4board)).
 
 Additional make targets are discussed in relevant sections:
 - `bloaty_compare_master`: [Binary Size Profiling]()

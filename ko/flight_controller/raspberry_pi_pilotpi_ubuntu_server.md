@@ -1,7 +1,8 @@
 # 우분투 서버 기반 파일럿파이
 
 :::warning
-라즈베리파이 4B의 우분투 서버는 많은 전류를 소비하고 많은 열을 발생합니다. 이 하드웨어를 사용시에는 고열 방출과 고전력 소비 환경을 고려하여 설계되었습니다.
+라즈베리파이 4B의 우분투 서버는 많은 전류를 소비하고 많은 열을 발생합니다.
+이 하드웨어를 사용시에는 고열 방출과 고전력 소비 환경을 고려하여 설계되었습니다.
 :::
 
 ## 개발자 가이드
@@ -13,7 +14,7 @@ armhf와 arm64 arch가 모두 지원됩니다.
 #### armhf
 
 - [Ubuntu Server 18.04.5 for RPi2](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi2.img.xz)
-- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz.zsync)
+- [Ubuntu Server 18.04.5 for RPi3](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi3.img.xz)
 - [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-armhf+raspi4.img.xz)
 - [Ubuntu Server 20.04.1 for RPi 2/3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
 
@@ -300,7 +301,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
 
 :::note
-최신 코드를 빌드하는 과정입니다.
+최신 코드를 빌드하는 과정입니다. 
 :::
 
 
@@ -361,7 +362,7 @@ make scumaker_pilotpi_default upload
 
 #### armhf용 대체 빌드 방법 (도커 사용)
 
-docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 firmware 폴더에서 다음 명령을 실행합니다.
 
@@ -419,7 +420,7 @@ make scumaker_pilotpi_arm64 upload
 
 #### arm64용 대체 빌드 방법 (도커 사용)
 
-docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
+If you are compiling for the first time with docker, please refer to the [official docs](../test_and_ci/docker.md#prerequisites).
 
 `PX4-Autopilot` 폴더에서 다음 명령을 실행합니다.
 
@@ -431,7 +432,7 @@ docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/doc
 
 
 :::note
-mDNS는 docker에서 지원하지 않습니다. 업로드시 마다 IP 주소를 설정하여야 합니다.
+mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주소를 설정하여야합니다.
 :::
 
 :::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. `upload` 대상을 제거하면, 업로드하지 않고도 컴파일할 수 있습니다.

@@ -14,7 +14,7 @@ This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P w
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
 
-## 购买
+## Where to Buy
 
 * [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 

@@ -1,10 +1,12 @@
 # 모듈 참조: 시스템
 
 ## battery_simulator
-소스: [modules/simulator/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/battery_simulator)
+Source: [modules/simulation/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/battery_simulator)
 
 
 ### 설명
+
+
 
 <a id="battery_simulator_usage"></a>
 
@@ -31,6 +33,7 @@ battery_simulator <command> [arguments...]
 ### 구현
 자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
 
+
 <a id="battery_status_usage"></a>
 
 ### 사용법
@@ -48,6 +51,8 @@ battery_status <command> [arguments...]
 
 
 ### 설명
+
+
 
 <a id="camera_feedback_usage"></a>
 
@@ -131,6 +136,7 @@ C API를 통해 간단한 데이터베이스 형태로 시스템에 영구 저�
 
 **DM_KEY_FENCE_POINTS** 및 **DM_KEY_SAFE_POINTS** 항목: 첫 번째 데이터 요소는 이러한 유형의 항목 수를 저장하는 `mission_stats_entry_s` 구조체입니다. 이러한 항목은 항상 하나의 트랜잭션에서 원자적으로 업데이트됩니다(mavlink Mission Manager에서). 그 시간 동안 내비게이터는 지오펜스 항목 잠금을 획득하려고 시도하지만, 실패하며 지오펜스 위반을 확인하지 않습니다.
 
+
 <a id="dataman_usage"></a>
 
 ### 사용법
@@ -179,6 +185,7 @@ dmesg <command> [arguments...]
 ### 설명
 ESC 상태의 정보를 사용하여 구현하고, 배터리 상태를 게시합니다.
 
+
 <a id="esc_battery_usage"></a>
 
 ### 사용법
@@ -198,6 +205,7 @@ esc_battery <command> [arguments...]
 ### 설명
 간단한 온라인 자이로스코프 교정.
 
+
 <a id="gyro_calibration_usage"></a>
 
 ### 사용법
@@ -215,6 +223,7 @@ gyro_calibration <command> [arguments...]
 
 
 ### 설명
+
 
 <a id="gyro_fft_usage"></a>
 
@@ -345,6 +354,7 @@ logger <command> [arguments...]
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
      [-x]        Enable/disable logging via Aux1 RC channel
+     [-a]        Log 1st armed until shutdown
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -362,6 +372,8 @@ logger <command> [arguments...]
    on            start logging now, override arming (logger must be running)
 
    off           stop logging now, override arming (logger must be running)
+
+   trigger_watchdog manually trigger the watchdog now
 
    stop
 
@@ -388,6 +400,7 @@ Source: [modules/manual_control](https://github.com/PX4/PX4-Autopilot/tree/maste
 
 ### 사용법
 Module consuming manual_control_inputs publishing one manual_control_setpoint.
+
 
 <a id="manual_control_usage"></a>
 
@@ -425,12 +438,13 @@ microdds_client <command> [arguments...]
                  values: <file:dev>
      [-b <val>]  Baudrate (can also be p:<param_name>)
                  default: 0
-     [-h <val>]  Host IP
-                 values: <IP>, default: 127.0.0.1
-     [-p <val>]  Remote Port
-                 default: 15555
+     [-h <val>]  Agent IP. If not provided, defaults to XRCE_DDS_AG_IP
+                 values: <IP>
+     [-p <val>]  Agent listening port. If not provided, defaults to XRCE_DDS_PRT
      [-l]        Restrict to localhost (use in combination with
                  ROS_LOCALHOST_ONLY=1)
+     [-c]        Use custom participant config (profile_name="px4_participant")
+     [-n <val>]  Client DDS namespace
 
    stop
 
@@ -468,6 +482,7 @@ Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src
 ### Description
 Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
 
+
 <a id="pwm_input_usage"></a>
 
 ### 사용법
@@ -489,6 +504,7 @@ The rc_update module handles RC channel mapping: read the raw input channels (`i
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
+
 
 <a id="rc_update_usage"></a>
 
@@ -515,7 +531,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
 
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+The replay procedure is documented on the [System-wide Replay](https://docs.px4.io/main/en/debug/system_wide_replay.html) page.
 
 <a id="replay_usage"></a>
 
@@ -554,11 +570,33 @@ send_event <command> [arguments...]
 
    status        print status info
 ```
-## sensor_baro_sim
-Source: [modules/simulator/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_baro_sim)
+## sensor_arispeed_sim
+Source: [modules/simulation/sensor_airspeed_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_airspeed_sim)
 
 
 ### Description
+
+
+
+<a id="sensor_arispeed_sim_usage"></a>
+
+### Usage
+```
+sensor_arispeed_sim <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## sensor_baro_sim
+Source: [modules/simulation/sensor_baro_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_baro_sim)
+
+
+### Description
+
+
 
 <a id="sensor_baro_sim_usage"></a>
 
@@ -573,10 +611,12 @@ sensor_baro_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_gps_sim
-Source: [modules/simulator/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_gps_sim)
+Source: [modules/simulation/sensor_gps_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_gps_sim)
 
 
 ### Description
+
+
 
 <a id="sensor_gps_sim_usage"></a>
 
@@ -591,10 +631,12 @@ sensor_gps_sim <command> [arguments...]
    status        print status info
 ```
 ## sensor_mag_sim
-Source: [modules/simulator/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/sensor_mag_sim)
+Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/simulation/sensor_mag_sim)
 
 
 ### Description
+
+
 
 <a id="sensor_mag_sim_usage"></a>
 
@@ -616,12 +658,13 @@ Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/m
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
-- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
+- Read the output from the sensor drivers (`SensorGyro`, etc.). 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). And finally publish the data; one of the topics is `SensorCombined`, used by many parts of the system.
 - 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
-- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
+- Do sensor consistency checks and publish the `SensorsStatusImu` topic.
 
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
+
 
 <a id="sensors_usage"></a>
 
@@ -643,6 +686,7 @@ Source: [drivers/tattu_can](https://github.com/PX4/PX4-Autopilot/tree/master/src
 ### Description
 Driver for reading data from the Tattu 12S 16000mAh smart battery.
 
+
 <a id="tattu_can_usage"></a>
 
 ### Usage
@@ -661,6 +705,7 @@ Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/
 
 ### Description
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
+
 
 <a id="temperature_compensation_usage"></a>
 
@@ -691,7 +736,7 @@ Command-line tool to control & test the (external) tunes.
 
 Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
 
-Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc
 
 ### Examples
 
@@ -725,13 +770,14 @@ tune_control <command> [arguments...]
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
-### Description
+### 설명
 
 Command-line tool to show work queue status.
 
+
 <a id="work_queue_usage"></a>
 
-### Usage
+### 사용법
 ```
 work_queue <command> [arguments...]
  Commands:

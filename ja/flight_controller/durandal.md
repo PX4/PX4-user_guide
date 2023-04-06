@@ -1,6 +1,6 @@
 # Holybro Durandal
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
@@ -24,6 +24,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## Quick Summary
 
 #### Technical Specifications
+
 - Main FMU Processor: STM32H743
   - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
 - IO Processor: STM32F100
@@ -37,6 +38,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 
 #### Interfaces
+
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
 - 6 dedicated PWM/Capture inputs on FMU
 - Dedicated R/C input for Spektrum / DSM
@@ -76,12 +78,13 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - FCC
 - RoHS compliant (lead-free)
 
-For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
+For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
 <span id="purchase"></span>
-## Purchase
+## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
+
 
 <span id="connections"></span>
 ## Connections
@@ -167,7 +170,7 @@ make holybro_durandal-v1_default
 | UART8  | /dev/ttyS6 | PX4IO         |
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
 ## Debug Port
@@ -197,7 +200,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Pinouts
 
-*Durandal* pinouts are listed below. These can also be downloaded from [here](http://www.holybro.com/manual/Durandal-Pinouts.pdf).
+*Durandal* pinouts are listed below. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### Top Pinouts
 
@@ -259,7 +262,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 9 (black)  | BUZZER              | +5V   |
 | 10 (black) | GND                 | GND   |
 
-
 <span id="telem4_i2cb"></span>
 #### TELEM4 I2CB ports
 
@@ -272,7 +274,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 5 (black) | SDA2     | +3.3V |
 | 6 (black) | GND      | GND   |
 
-
 <span id="telem1_2_3"></span>
 #### TELEM3, TELEM2, TELEM1 port
 
@@ -284,7 +285,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 4 (black) | CTS (in)  | +3.3V |
 | 5 (black) | RTS (out) | +3.3V |
 | 6 (black) | GND       | GND   |
-
 
 <span id="power"></span>
 #### POWER port
@@ -365,7 +365,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 | 9 (black)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
 | 10 (black) | GND            | GND                      |
 
-
 <span id="warn_sensor"></span>
 
 :::warning
@@ -415,5 +414,5 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 ## Further info
 
 - [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
-- [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
-- [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
+- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)

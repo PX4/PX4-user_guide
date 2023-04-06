@@ -11,9 +11,8 @@ The jerk-limited type is not used *by default* in position mode. 但它可能不
 ## 轨迹生成器
 
 下图显示了具有如下约束的典型加加速度限制剖面：
-
 - `jMax`：最大抖动
-- `a0`：初始加速度 
+- `a0`：初始加速度
 - `aMax`：最大加速度
 - `a3`：最终加速度（始终为 0）
 - `v0`：初始速度
@@ -32,12 +31,10 @@ In manual position mode, the sticks are mapped to velocity where a full XY-stick
 ### 约束
 
 XY平面：
-
 - `jMax`：[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax`: [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)
 
 Z轴：
-
 - `jMax`：[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax`（上升动作）：[MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
 - `aMax`（下降动作）：[MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
@@ -49,18 +46,15 @@ In auto mode, the desired velocity is [MPC_XY_CRUISE](../advanced_config/paramet
 ### 约束
 
 XY平面：
-
 - `jMax`：[MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax`：[MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR)
 
 Z轴：
-
 - `jMax`：[MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax`（上升动作）：[MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
 - `aMax`（下降动作）：[MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
 渐进某个航点时的距离-速度增益：
-
 - [MPC_XY_TRAJ_P](../advanced_config/parameter_reference.md#MPC_XY_TRAJ_P)
 
 ### 相关参数

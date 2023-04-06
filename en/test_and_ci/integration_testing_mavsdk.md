@@ -13,7 +13,7 @@ The instructions below explain how to setup and run the tests locally.
 
 If you haven't done so already:
 - Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported).
-  Gazebo is required, and should be installed by default.
+  [Gazebo Classic](../sim_gazebo_classic/README.md) is required, and should be installed by default.
 - [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
@@ -27,7 +27,7 @@ If you haven't done so already:
 To build PX4 source code for simulator testing, use:
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
+DONT_RUN=1 make px4_sitl gazebo-classic mavsdk_tests
 ```
 
 ### Install the MAVSDK C++ Library
@@ -35,12 +35,12 @@ DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
 The tests need the MAVSDK C++ library installed system-wide (e.g. in `/usr/lib` or `/usr/local/lib`).
 
 Install either from binaries or source:
-- [MAVSDK > Installation > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp): Install as a prebuilt library on supported platforms (recommended)
-- [MAVSDK > Contributing > Building from Source](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp): Build  C++ library from source.
+- [MAVSDK > C++ > C++ QuickStart](https://mavsdk.mavlink.io/main/en/cpp/quickstart.html): Install as a prebuilt library on supported platforms (recommended)
+- [MAVSDK > C++ Guide > Building from Source](https://mavsdk.mavlink.io/main/en/cpp/guide/build.html): Build  C++ library from source.
 
 ## Run All PX4 Tests
 
-To run all SITL tests as defined in [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json), do:
+To run all SITL tests as defined in [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/configs/sitl.json), do:
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10
@@ -137,18 +137,18 @@ About to run 39 test cases for 3 selected models (1 iteration):
 
 ## Notes on implementation
 
-- The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python.
+- The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python.
 
   In addition to MAVSDK, this runner starts `px4` as well as Gazebo for SITL tests, and collects the logs of these processes.
 - The test runner is a C++ binary that contains:
-  - The [main](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
-  - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.h).
-  - The actual tests using the abstraction around MAVSDK as e.g. [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp).
+  - The [main](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
+  - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/autopilot_tester.h).
+  - The actual tests using the abstraction around MAVSDK as e.g. [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/test/mavsdk_tests/test_multicopter_mission.cpp).
   - The tests use the [catch2](https://github.com/catchorg/Catch2) unit testing framework.
     The reasons for using this framework are:
-      - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/master/docs/advanced.md#assertion-placement)).
+      - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/main/docs/advanced.md#assertion-placement)).
       - Dependency management is easier because *catch2* can just be included as a header-only library.
-      - *Catch2* supports [tags](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags), which allows for flexible composition of tests.
+      - *Catch2* supports [tags](https://github.com/catchorg/Catch2/blob/devel/docs/test-cases-and-sections.md#tags), which allows for flexible composition of tests.
 
 
 Terms used:

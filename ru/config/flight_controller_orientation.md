@@ -19,23 +19,21 @@ For example, the vehicles shown below have rotations around the z-axis (i.e. yaw
 :::note
 For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor configuration (i.e. relative to the vehicle during, takeoff, hovering, landing) for all sensor calibrations.
 
-The axis are normally relative to the orientation of the vehicle during steady forward flight. For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions).
-:::
+The axis are normally relative to the orientation of the vehicle during steady forward flight. For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions). :::
 
 ## Setting the Orientation
 
 To set the orientations:
 
 1. Start *QGroundControl* and connect the vehicle.
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-3. Select the **Set Orientations** button. <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
-4. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
-    
-    <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />
+1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+1. Select the **Set Orientations** button. <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+1. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
 
-5. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
+   <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />
+1. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
+1. Press **OK**.
 
-6. Press **OK**.
 
 ## Fine Tuning
 
@@ -44,4 +42,4 @@ You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) 
 ## Further Information
 
 * [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#flight_controller_orientation)

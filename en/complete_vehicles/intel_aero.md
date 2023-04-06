@@ -185,7 +185,7 @@ To enable the rangefinder set the [SENS_LEDDAR1_CFG](../advanced_config/paramete
 The Lidar Lite is not recommended for use with *Intel Aero Ready to Fly Drone*® due to measurements spikes.
 :::
 
-The following instructions are for a [Lidar Lite](../sensor/rangefinders.md#lidar-lite) V3 connected via I2C. The Intel® Aero Ready to Fly Drone has two ports with I2C: One labled COMPASS and the other TELEMETRY. 
+The following instructions are for a [Lidar Lite](../sensor/rangefinders.md#lidar-lite) V3 connected via I2C. The Intel® Aero Ready to Fly Drone has two ports with I2C: One labelled COMPASS and the other TELEMETRY. 
 The pinout for both of them can be found below. 
 We recommend using the TELEMETRY port as it is not being used. 
 If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). 
@@ -237,4 +237,6 @@ In addition, the following parameter values should be set in the flight controll
 Parameter | Value
 --- | ---
 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2
-[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2
+[EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) | 2
+[EKF2_RNG_CTRL](../advanced_config/parameter_reference.md#EKF2_RNG_CTRL) | 2
+[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | 0

@@ -1,12 +1,12 @@
 # 贡献
 
-<div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/">can be found here</a>.</p>
+<div v-if="$themeConfig.px4_version != 'main'">
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p>. <p>The latest version <a href="https://docs.px4.io/main/en/contribute/">can be found here</a>.</p>
   </div>
 </div>
 
 :::tip
-We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/master/CODE_OF_CONDUCT.md). This code aims to foster an open and welcoming environment.
+We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/main/CODE_OF_CONDUCT.md). This code aims to foster an open and welcoming environment.
 :::
 
 This section contains information about contributing to PX4, including the source code, documentation, and translations, and their relevant licenses.

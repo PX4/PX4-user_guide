@@ -7,7 +7,7 @@
 
 ## PX4 설정
 
-[AirSim용 PX4 설정](https://microsoft.github.io/AirSim/px4_setup.html)에서는 [SITL](https://microsoft.github.io/AirSim/px4_sitl.html) 및 [HITL](https://microsoft.github.io/AirSim/px4_setup.html#setting-up-px4-hardware-in-loop)을 모두 사용하여 AirSim과 함께 PX4를 사용하는 방법을 설명합니다.
+[PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup/) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl/) and [HITL](https://microsoft.github.io/AirSim/px4_setup/#setting-up-px4-hardware-in-loop).
 
 
 ## 비디오
@@ -33,4 +33,4 @@
 ## 추가 정보
 
 * [AirSim 문서](https://microsoft.github.io/AirSim/)
-* [AirSim을 사용한 자율 드론 검사 시뮬레이션](https://github.com/generalized-intelligence/GAAS/tree/master/demo/case_study_1?fbclid=IwAR2JO0LPesA5z313sA2QGm1t01bb4wn0Xpz_JkD7Z1s3nombJWHyTZdLuMA)(GAAS(Generalized Autonomy Aviation System) 프로젝트의 사례 연구).
+* [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://gaas.gitbook.io/guide/case-study/using-airsim-to-simulate-aircraft-inspection-by-autonomous-drones) (Case Study from Generalized Autonomy Aviation System (GAAS) project).

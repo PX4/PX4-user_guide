@@ -22,7 +22,7 @@
 - PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
 - 최대 자이로 게시 속도 ([IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)로 설정됨). 속도가 높을수록 지연 시간이 줄어들지만 증간된 연산량으로 인하여 다른 프로세스를 방해할 수 있습니다. 4kHz 이상은 STM32H7 프로세서 이상의 컨트롤러에서만 권장됩니다 (2kHz 값은 성능이 낮은 프로세서의 최대치입니다).
 - IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
-- PWM 출력 신호 : 대기 시간을 줄이기 위하여 [Dshot](.../en/peripherals/dshot.md) 또는 One-Shot ([PWM_AUX_RATE = 0](../advanced_config/parameter_reference.md#PWM_AUX_RATE) 또는 [PWM_MAIN_RATE = 0](../advanced_config/parameter_reference.md#PWM_MAIN_RATE))을 활성화합니다.
+- PWM output signal: enable [Dshot](../peripherals/dshot.md) or One-Shot to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 아래에서는 저역 통과 필터의 효과에 대하여 설명합니다.
 
@@ -30,8 +30,9 @@
 
 다음은 PX4 컨트롤러의 필터링 파이프 라인입니다.
 - 자이로 센서용 온칩 DLPF. 비활성화가 가능한 모든 칩에서 비활성화됩니다 (그렇지 않은 경우, 차단 주파수가 칩의 최고 수준으로 설정됨).
-- 로터 블레이드 통과 주파수의 고조파와 같은 협대역 노이즈를 필터링을 위한 자이로 센서 데이터의 노치 필터입니다. 이 필터는 [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) 및 [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ)를 사용하여 설정할 수 있습니다.
-- 자이로 센서 데이터에 대한 저주파 통과 필터. [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) 매개변수로 설정할 수 있습니다. :::note 샘플링과 필터링은 항상 전체 원시 센서 속도(일반적으로 IMU에 따라 8kHz)에서 수행됩니다.
+- 로터 블레이드 통과 주파수의 고조파와 같은 협대역 노이즈를 필터링을 위한 자이로 센서 데이터의 노치 필터입니다. This filter can be configured using [IMU_GYRO_NF0_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) and [IMU_GYRO_NF0_FRQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ).
+- 자이로 센서 데이터에 대한 저주파 통과 필터. It can be configured with the  [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter. :::note
+샘플링과 필터링은 항상 전체 원시 센서 속도(일반적으로 IMU에 따라 8kHz)에서 수행됩니다.
 :::
 - D-term에 대한 별도의 저역 통과 필터. D-term은 노이즈에 가장 취약하지만 대기 시간이 약간 증가해도 성능에 나쁜 영향을 주지 않습니다. 이러한 이유로 D-term에는 별도로 구성 가능한 저역 통과 필터 [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF)가 있습니다.
 - 모터 출력의 슬루 레이트 필터 ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). 일반적으로 사용되지 않습니다.
@@ -72,17 +73,18 @@
 
 먼저 낮은 D-term 필터값 ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30)을 사용하면서 10Hz 단위로 자이로 필터 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF)를 조정합니다. 로그를 [Flight Review](https://logs.px4.io)에 업로드하여 *Actuator Controls FFT* 플롯을 비교합니다. 노이즈가 눈에 띄게 증가하기 전에 차단 주파수를 설정하십시오 (60Hz 주변 및 그 이상의 주파수).
 
-그런 다음 동일한 방식으로 D-term 필터 (`IMU_DGYRO_CUTOFF`)를 조정합니다. `IMU_GYRO_CUTOFF`와 `IMU_DGYRO_CUTOFF`가 차이가 많이 나면, 성능에 부정적인 영향을 미칠 수 있습니다 (그 차이는 중요합니다. 예 : D = 15, gyro = 80).
+그런 다음 동일한 방식으로 D-term 필터 (`IMU_DGYRO_CUTOFF`)를 조정합니다. Note that there can be negative impacts on performance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
 
 다음은 세 가지 다른 `IMU_DGYRO_CUTOFF` 필터값 (40Hz, 70Hz, 90Hz)에 대한 예입니다. 90Hz에서는 일반적인 소음이 증가하기 시작하므로 (특히 롤의 경우) 차단 주파수 70Hz가 안전합니다. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
 
 :::note
-y 축 스케일이 다를 수 있으므로 다른 차량간에 플롯을 비교할 수 없습니다. 동일한 기체에서 일관적이며 비행 시간과는 무관합니다.
+y 축 스케일이 다를 수 있으므로 다른 차량간에 플롯을 비교할 수 없습니다.
+동일한 기체에서 일관적이며 비행 시간과는 무관합니다.
 :::
 
-아래 다이어그램에 표시된 것과 같이 비행 플롯에 상당한 저주파 스파이크가 나타되는 경우에는 노치 필터를 사용하여 제거할 수 있습니다. 이 경우 [IMU_GYRO_NF_FREQ = 32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) 및 [IMU_GYRO_NF_BW = 5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) 설정을 사용할 수 있습니다 (이 스파이크는 평소보다 좁습니다). 저역 통과 필터와 노치 필터는 독립적으로 조정할 수 있습니다 (즉, 저역 통과 필터를 조정하기 전에 노치 필터를 설정할 필요는 없습니다).
+아래 다이어그램에 표시된 것과 같이 비행 플롯에 상당한 저주파 스파이크가 나타되는 경우에는 노치 필터를 사용하여 제거할 수 있습니다. In this case you might use the settings: [IMU_GYRO_NF0_FRQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_FRQ) and [IMU_GYRO_NF0_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF0_BW) (note, this spike is narrower than usual). 저역 통과 필터와 노치 필터는 독립적으로 조정할 수 있습니다 (즉, 저역 통과 필터를 조정하기 전에 노치 필터를 설정할 필요는 없습니다).
 
-![IMU_GYRO_NF_FREQ=32 IMU_GYRO_NF_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
+![IMU_GYRO_NF0_FRQ=32 IMU_GYRO_NF0_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
 
 ## 추가 팁
 

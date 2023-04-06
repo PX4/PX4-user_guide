@@ -2,7 +2,8 @@
 
 PX4 기반의 기체는 보조 컴퓨터에 연결된 카메라를 사용하여 비디오 스트리밍을 제공합니다. GStreamer는인터넷으로 *QGroundControl*에 비디오를 전송합니다.
 
-:::note PX4에 연결된 카메라에서 직접 비디오를 스트리밍 할 수 없습니다.
+:::note
+PX4에 연결된 카메라에서 직접 비디오를 스트리밍 할 수 없습니다.
 :::
 
 보조 컴퓨터와 *QGroundControl*을 실행하는 시스템 모두에 *GStreamer* 패키지를 설치하여야 합니다.
@@ -27,8 +28,6 @@ QGC로 비디오 스트리밍을 설정하고 사용하려면 :
 
    ![QGC에서의 실시간 동영상 전송 화면](../../assets/videostreaming/qgc-screenshot.png)
 
+## Gazebo Classic Simulation
 
-
-## 가제보 시뮬레이션
-
-Gazebo는 시뮬레이션 환경에서 비디오 스트리밍을 지원합니다. 자세한 내용은 [가제보 시뮬레이션 > 비디오 스트리밍](../simulation/gazebo.md#video-streaming)을 참고하십시오.
+[Gazebo Classic](../sim_gazebo_classic/README.md) supports video streaming from within the simulated environment. For more information see [Gazebo Classic Simulation > Video Streaming](../sim_gazebo_classic/README.md#video-streaming).

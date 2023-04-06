@@ -12,7 +12,7 @@ At time of writing you can only use Batmon by [building a custom branch of PX4](
 ![Pre-assembled Rotoye smart battery](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
-## Purchase
+## Where to Buy
 
 [Rotoye Store](https://rotoye.com/batmon/): Batmon kits, custom smart-batteries, and accessories
 
@@ -42,7 +42,7 @@ More details can be found [here](https://github.com/rotoye/batmon_reader)
    ```
 1. [Build and upload the firmware](../dev_setup/building_px4.md) for your target board
 
-### Configure Parmeters
+### Configure Parameters
 
 In *QGroundControl*:
 1. Set the following [parameters](../advanced_config/parameters.md):

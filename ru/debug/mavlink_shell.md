@@ -14,7 +14,7 @@ The [QGroundControl MAVLink Console](#qgroundcontrol) is the easiest way to acce
 
 ### QGroundControl MAVLink Console
 
-The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
+The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
 
 ### mavlink_shell.py
 
@@ -22,7 +22,7 @@ You can also access the shell in a terminal using the **mavlink_shell.py** scrip
 1. Shut down *QGroundControl*.
 1. Install dependencies:
    ```sh
-   sudo pip3 install pymavlink pyserial
+   pip3 install --user pymavlink pyserial
    ```
 1. Open terminal (in PX4-Autopilot directory) and start the shell:
    ```sh

@@ -10,7 +10,7 @@ There are a number of reasons to use VSCode for PX4 development:
 This topic explains how to setup the IDE and start developing.
 
 :::note
-There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode)) so the setup process is as simple as adding the project folder.
+There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/main/.vscode)) so the setup process is as simple as adding the project folder.
 :::
 
 ## Preconditions
@@ -32,7 +32,7 @@ You must already have installed the command line [PX4 developer environment](../
    ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
 1. A number of notifications/prompts may appear in the bottom right corner
 
-:::tip
+   :::tip
 If the prompts disappear, click the little "alarm" icon on the right of the bottom blue bar.
 :::
 
@@ -73,8 +73,9 @@ To debug PX4 on SITL:
 
 1. Then choose your debug target (e.g. *Debug SITL (Gazebo Iris)*) from the top bar debug dropdown (purple box).
 
-:::note
-The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar). For example, to debug SITL targets, your build target must include SITL.
+   :::note
+The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar).
+For example, to debug SITL targets, your build target must include SITL.
 :::
 1. Start debugging by clicking the debug "play" arrow (next to the debug target in the top bar - pink box).
 
@@ -91,6 +92,7 @@ To see the `jlink` option you must have selected a [cmake target for building fi
 :::
 
 ![Image showing hardware targets with options for the different probes](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
+
 
 <a id="code completion"></a>
 

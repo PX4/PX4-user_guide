@@ -30,20 +30,21 @@
 
 PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를 위해 비행 컨트롤러에 장착된 거리 센서를 사용하는 경우 [PX4 거리 센서](#rangefinder)에 설명된대로 부착하고 설정하여야 합니다. 보조 컴퓨터를 사용하여 장애물 정보를 제공하는 경우에는 [보조 컴퓨터 설정](#companion)을 참조하십시오.
 
+
 ## PX4 소프트웨어 설정
 
 *QGroundControl*에서 [다음 매개 변수를 설정](../advanced_config/parameters.md)하여 충돌 방지를 설정합니다.
 
-| 매개변수                                                                                                | 설명                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | 최소 허용 거리 (기체가 장애물에 접근할 수있는 가장 가까운 거리)를 설정합니다. *충돌 방지*를 비활성화하려면 음수로 설정하십시오.   
-> **Warning** 이 값은 기체 또는 프로펠러 외부가 아닌 센서까지의 거리입니다. 충분한 거리를 남겨 두십시오! |
-| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | 센서 및 속도 설정점 추적 지연을 설정합니다. 아래의 [지연 조정](#delay_tuning)을 참조하십시오.                                                                                    |
-| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | 해당 방향에서 장애물이 적을 경우 기체가 이탈할 수있는 각도 (명령된 방향의 양쪽으로)를 설정합니다. 아래의 [가이던스 튜닝](#angle_change_tuning)을 참조하십시오.                                            |
-| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 기체가 센서 범위 외부의 방향으로 이동할 수 있도록 하려면 1로 설정합니다 (기본값은 0/`False`).                                                                                      |
+| 매개변수                                                                                                       | 설명                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)                     | 최소 허용 거리 (기체가 장애물에 접근할 수있는 가장 가까운 거리)를 설정합니다. *충돌 방지*를 비활성화하려면 음수로 설정하십시오. **Warning** 이 값은 기체 또는 프로펠러 외부가 아닌 센서까지의 거리입니다. 충분한 거리를 남겨 두십시오! |
+| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)                  | 센서 및 속도 설정점 추적 지연을 설정합니다. 아래의 [지연 조정](#delay_tuning)을 참조하십시오.                                                                               |
+| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)    | 해당 방향에서 장애물이 적을 경우 기체가 이탈할 수있는 각도 (명령된 방향의 양쪽으로)를 설정합니다. 아래의 [가이던스 튜닝](#angle_change_tuning)을 참조하십시오.                                       |
+| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 기체가 센서 범위 외부의 방향으로 이동할 수 있도록 하려면 1로 설정합니다 (기본값은 0/`False`).                                                                                 |
+| <span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)    | Set to 0 or 3 to enable Collision Prevention in Position Mode (default is 4).                                                               |
+
 
 <span id="algorithm"></span>
-
 ## 알고리즘 설명
 
 모든 센서의 데이터는 기체 주변의 36 개 섹터의 내부 표현으로 통합되며, 각 섹터에는 센서 데이터와 마지막 관찰 시점에 대한 정보 또는 해당 섹터에 대한 데이터를 사용할 수 없다는 표시가 포함됩니다. 기체가 특정 방향으로 이동하도록 명령을 받으면, 해당 방향의 반구에있는 모든 섹터를 확인하여 이동으로 인하여 기체가 장애물에 더 가까워 지는지 확인합니다. 그러한 경우에는, 차량 속도가 제한됩니다.
@@ -58,11 +59,11 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 
 명령된 섹터에 인접한 섹터가 상당한 여백 만큼 '더 나은' 경우, 요청된 입력 방향은 [CP_GUIDE_ANG](#CP_GUIDE_ANG)에 지정된 각도까지 수정할 수 있습니다. 이는 장애물에 걸리지 않고 장애물 주변으로 차량을 '안내'하기 위하여 사용자 입력을 미세 조정하는 데 도움이 됩니다.
 
-<span id="data_loss"></span>
 
+<span id="data_loss"></span>
 ### 범위 데이터 손실
 
-자동항법장치가 0.5 초 이상 센서로부터 범위 데이터를 수신하지 못하면 *수신된 범위 데이터 없음, 이동 허용 없음* 경고 메시지를 출력합니다. 이렇게하면 xy의 속도 설정값이 0이 됩니다. 5초 동안 데이터를 수신하지 않으면 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. 기체가 다시 움직일 수 있도록 하려면 매개 변수 [CP_DIST](#CP_DIST)를 음수로 설정하거나 [위치 모드](../flight_modes/position_mc.md) 이외의 모드(예 : *고도 모드* 또는 *안정화 모드*)로 전환하여 충돌 방지를 비활성화하여야 합니다. 
+자동항법장치가 0.5 초 이상 센서로부터 범위 데이터를 수신하지 못하면 *수신된 범위 데이터 없음, 이동 허용 없음* 경고 메시지를 출력합니다. 이렇게하면 xy의 속도 설정값이 0이 됩니다. 5초 동안 데이터를 수신하지 않으면 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. 기체가 다시 움직일 수 있도록 하려면 매개 변수 [CP_DIST](#CP_DIST)를 음수로 설정하거나 [위치 모드](../flight_modes/position_mc.md) 이외의 모드(예 : *고도 모드* 또는 *안정화 모드*)로 전환하여 충돌 방지를 비활성화하여야 합니다.
 
 여러 센서가 연결되어 있고, 그 중 하나와의 연결이 끊어진 경우에도 보고 센서의 시야 (FOV) 내부를 비행할 수 있습니다. 결함이 있는 센서의 데이터가 만료되고, 이 센서가 포함하는 영역이 커버되지 않은 것으로 처리되므로 그 곳으로 이동할 수 없습니다.
 
@@ -71,7 +72,6 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 :::
 
 <span id="delay_tuning"></span>
-
 ### CP_DELAY 지연 튜닝
 
 고려해야 할 두 가지 주요 지연 원인은 *센서 지연*과 기체 *속도 설정점 추적 지연*입니다. 두 지연 소스 모두 [CP_DELAY](#CP_DELAY) 매개변수를 사용하여 튜닝됩니다.
@@ -85,30 +85,28 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 :::
 
 <span id="angle_change_tuning"></span>
-
 ### CP_GUIDE_ANG 가이던스 튜닝
 
 차량, 환경 유형 및 조종사의 기술에 따라 각기 다른 가이던스가 필요할 수 있습니다. [CP_GUIDE_ANG](#CP_GUIDE_ANG) 매개 변수를 0으로 설정하면 안내가 비활성화되어 기체가 명령된 방향으로만 정확하게 이동합니다. 이 매개 변수를 높이면 기체가 장애물을 피할 수 있는 최적의 방향을 선택할 수 있으므로 좁은 틈새를 더 쉽게 통과하고 물체를 돌아 다니는 동안 최소 거리를 정확하게 유지할 수 있습니다.
 
-이 매개 변수가 너무 작으면 장애물에 가까워 졌을 때 기체가 '고착'된 느낌을 받을 수 있습니다. 장애물에서 멀어지는 이동만 허용되기 때문입니다. 매개 변수가 너무 크면 운전자가 지시하지 않은 방향으로 기체가 장애물에서 멀어지는 것처럼 느껴질 수 있습니다. 테스트에서 30도는 적절한 값이지만, 기체마다 값이 달라질 수 있습니다.
+이 매개 변수가 너무 작으면 장애물에 가까워 졌을 때 기체가  '고착'된 느낌을 받을 수 있습니다. 장애물에서 멀어지는 이동만 허용되기 때문입니다. 매개 변수가 너무 크면 운전자가 지시하지 않은 방향으로 기체가 장애물에서 멀어지는 것처럼 느껴질 수 있습니다. 테스트에서 30도는 적절한 값이지만,  기체마다 값이 달라질 수 있습니다.
 
 :::note
-가이던스 기능은 센서 데이터가 없는 방향으로 기체를 이동시키지 않습니다. 단 하나의 거리 센서만 전방을 향하고 있는 상태에서 기체가 '고착'된 느낌이 드는 경우, 이는 정보 부족으로 인하여 가이던스가 방향을 안전하게 조정할 수 없기 때문일 수 있습니다.
+가이던스 기능은 센서 데이터가 없는 방향으로 기체를 이동시키지 않습니다.
+단 하나의 거리 센서만 전방을 향하고 있는 상태에서 기체가 '고착'된 느낌이 드는 경우, 이는 정보 부족으로 인하여 가이던스가 방향을 안전하게 조정할 수 없기 때문일 수 있습니다.
 :::
 
 <span id="rangefinder"></span>
-
 ## PX4 거리 센서
 
 작성 시점에 PX4를 사용하면 최소한의 추가 설정으로 충돌 방지용으로 [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR 거리 센서를 사용할 수 있습니다.
-
 - 먼저 [센서를 장착 설정](../sensor/cm8jl65_ir_distance_sensor.md)하고 충돌 방지를 활성화합니다 (위에서 설명한대로 [CP_DIST](#CP_DIST) 사용).
 - [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0)을 사용하여 센서 방향을 설정합니다.
 
-다른 센서를 활성화 할 수 있지만, 이를 위해서는 센서 방향과 시야를 설정하기 위하여 드라이버 코드를 수정하여야 합니다.
 
+다른 센서를 활성화 할 수 있지만, 이를 위해서는 센서 방향과 시야를 설정하기 위하여 드라이버 코드를 수정하여야 합니다.
 - 특정 포트에 거리 센서를 연결 설정하고 ([센서 별 문서](../sensor/rangefinders.md) 참조) [CP_DIST](#CP_DIST)를 사용하여 충돌 방지를 활성화합니다.
-- 방향을 설정하려면 드라이버를 수정하십시오. 이 작업은 `SENS_CM8JL65_R_0` 매개 변수를 모방하여 수행하여야 합니다 (센서 *module.yaml* 파일의 방향을 `sf0x start -d와 같은 것으로 하드 코딩 할 수도 있습니다). $ {SERIAL_DEV} -R 25 ` -여기서 25는 `ROTATION_DOWNWARD_FACING`과 같습니다).
+- 방향을 설정하려면 드라이버를 수정하십시오. 이 작업은 `SENS_CM8JL65_R_0` 매개 변수를 모방하여 수행하여야 합니다 (센서 *module.yaml* 파일의 방향을 `sf0x start -d와 같은 것으로 하드 코딩 할 수도 있습니다). $ {SERIAL_DEV} -R 25` -여기서 25는 `ROTATION_DOWNWARD_FACING`과 같습니다).
 - 거리 센서 UORB 주제 (`distance_sensor_s.h_fov`)에서 *시야*를 설정하도록 드라이버를 수정합니다.
 
 :::tip
@@ -116,7 +114,6 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 :::
 
 <span id="companion"></span>
-
 ## 보조 컴퓨터 설정
 
 보조 컴퓨터 또는 외부 센서를 사용하는 경우 장애물이 감지된 시기와 위치를 반영하는 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 메시지 스트림을 제공하여야 합니다.
@@ -127,14 +124,17 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 시스템의 초기 테스트에서는 `OBSTACLE_DISTANCE` 메시지가 10Hz (비전 시스템에서 지원하는 최대 속도)에서 방출되는 4m/s로 움직이는 기체를 사용하였습니다. 시스템은 상당히 빠른 속도와 낮은 주파수 거리 업데이트에서 잘 작동 할 수 있습니다.
 :::
 
-테스트한 보조 소프트웨어는 [PX4 장애물 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 저장소의 *local_planner*입니다. 하드웨어와 소프트웨어 설정에 대한 자세한 내용은 [PX4 장애물 회피 > 하드웨어에서 실행](https://github.com/PX4/avoidance#run-on-hardware)을 참조하십시오. <!-- hardware platform used for testing not readily available, so have removed -->
+The tested companion software is the *local_planner* from the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. For more information on hardware and software setup see: [PX4/PX4-Avoidance > Run on Hardware](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
+<!-- hardware platform used for testing not readily available, so have removed -->
 
-하드웨어와 소프트웨어는 [ PX4 장애물 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 저장소에 설명된 대로 설정하여야 합니다. `OBSTACLE_DISTANCE` 메시지를 내보내려면 *rqt_reconfigure* 도구를 사용하고 매개 변수 `send_obstacles_fcu`를 true로 설정하여야 합니다.
+The hardware and software should be set up as described in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo. `OBSTACLE_DISTANCE` 메시지를 내보내려면 *rqt_reconfigure* 도구를 사용하고 매개 변수 `send_obstacles_fcu`를 true로 설정하여야 합니다.
+
 
 ## 가제보 설정
 
-*충돌 방지*는 Gazebo를 사용하여 테스트할 수 있습니다. 설정 방법은 <0 PX4 장애물 회피</a>를 참조하십시오.
+*충돌 방지*는 Gazebo를 사용하여 테스트할 수 있습니다. See [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) for setup instructions.
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
-
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+
+

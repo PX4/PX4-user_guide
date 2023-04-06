@@ -4,14 +4,14 @@ This page documents how to flash the PX4 bootloader onto boards preflashed with 
 
 There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source.
 
-<span id="betaflight_configurator"></span>
+<a id="betaflight_configurator"></a>
 ### Bootloader Update using Betaflight Configurator
 
 To install the PX4 bootloader using the *Betaflight Configurator*:
 1. You should have downloaded already the pre-built bootloader binary (this depends on the board you want to flash).
 1. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
    :::tip
-   If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here]( https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
+   If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
    :::
 1. Connect the board to your PC and start the Configurator.
 1. Press the **Load Firmware [Local]** button
@@ -24,7 +24,39 @@ You should now be able to install PX4 firmware on the board.
 
 #### Download Bootloader Source
 
-Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
+Flight controllers that have bootloader PX4-Autopilot `make` targets, can build the bootloader from the PX4-Autopilot source. 
+The list of controllers for which this applies can be obtained by running the following `make` command, and noting the make targets that end in `_bootloader`
+
+```
+$make list_config_targets
+
+...
+cuav_nora_bootloader
+cuav_x7pro_bootloader
+cubepilot_cubeorange_bootloader
+holybro_durandal-v1_bootloader
+holybro_kakuteh7_bootloader
+matek_h743-mini_bootloader
+matek_h743-slim_bootloader
+modalai_fc-v2_bootloader
+mro_ctrl-zero-classic_bootloader
+mro_ctrl-zero-h7_bootloader
+mro_ctrl-zero-h7-oem_bootloader
+mro_pixracerpro_bootloader
+px4_fmu-v6u_bootloader
+px4_fmu-v6x_bootloader
+```
+
+To build for these flight controllers, download and build the [PX4-Autopilot source](https://github.com/PX4/PX4-Autopilot), and then make the target using the following commands:
+
+```bash
+git clone --recursive  https://github.com/PX4/PX4-Autopilot.git
+cd PX4-Autopilot
+make <target> # For example: holybro_kakuteh7mini_bootloader
+```
+
+For other flight controllers download and build the [Bootloader source](https://github.com/PX4/Bootloader) and then make using the appropriate targets:
+
 ```
 git clone --recursive  https://github.com/PX4/Bootloader.git
 cd Bootloader
@@ -49,6 +81,19 @@ To enter DFU mode, hold the boot button down while connecting the USB cable to y
 The button can be released after the board is powered up.
 
 ##### dfu-util
+
+:::note
+The [Holybro Kakute H7 v2](../flight_controller/kakuteh7v2.md) and mini flight controllers may require that you first run an additional command to erase flash parameters (in order to fix problems with parameter saving):
+
+```
+dfu-util -a 0 --dfuse-address 0x08000000:force:mass-erase:leave -D build/<target>/<target>.bin
+```
+
+The command may generate an error which can be ignored.
+Once completed, enter DFU mode again to complete the regular flashing.
+:::
+
+To flash the bootloader onto the flight controller:
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin

@@ -1,8 +1,7 @@
 # ESC Calibration
 
 :::note
-These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md) ([DShot](../peripherals/dshot.md) and [UAVCAN](../uavcan/escs.md) ESCs do not require calibration).
-:::
+These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md) and [OneShot ESCs](../peripherals/oneshot.md). [DShot](../peripherals/dshot.md) and [CAN](../can/README.md) ESCs ([DroneCAN](../dronecan/escs.md)/Cyphal) do not require calibration. :::
 
 Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC). The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
 
@@ -19,31 +18,28 @@ The system must include a power module (PX4 uses the measured voltage to determi
 To calibrate the ESCs:
 
 1. Remove the propellers.
-    
+
 :::warning
 Never attempt ESC calibration with props on.
-    
-    The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
-:::
 
-2. Disconnect the battery and connect the flight controller via USB (only).
+   The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed. :::
+1. Disconnect the battery and connect the flight controller via USB (only).
+1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
-3. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
-    
-    ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
+   ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
-4. Connect the battery when prompted:
-    
-    ![ESC Calibration step 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
-    
-    The calibration will begin automatically:
-    
-    ![ESC Calibration step 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
+1. Connect the battery when prompted:
 
-5. Once the calibration complete you will be prompted to disconnect the battery.
-    
-    ![ESC Calibration step 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
+   ![ESC Calibration step 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
+
+   The calibration will begin automatically:
+
+   ![ESC Calibration step 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
+
+1. Once the calibration complete you will be prompted to disconnect the battery.
+
+   ![ESC Calibration step 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
+
 
 :::note
-High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAXn](../advanced_config/parameter_reference.md#PWM_AUX_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
-:::
+High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN1)/[PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN1) and [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX1)/[PWM_AUX_MAXn](../advanced_config/parameter_reference.md#PWM_AUX_MAX1) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended. :::

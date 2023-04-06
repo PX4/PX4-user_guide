@@ -10,7 +10,7 @@ This is ideal for survey drones, agricultural drones and other application scena
 
 ![C-RTK 9Ps](../../assets/hardware/gps/cuav_9ps/c-rtk9s.jpg)
 
-## Purchase
+## Where to Buy
 
 [cuav Store](https://store.cuav.net/shop/c-rtk-9ps/)
 

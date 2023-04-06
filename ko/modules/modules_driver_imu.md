@@ -103,6 +103,32 @@ adis16497 <command> [arguments...]
 
    status        print status info
 ```
+## adis16507
+Source: [drivers/imu/analog_devices/adis16507](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/analog_devices/adis16507)
+
+<a id="adis16507_usage"></a>
+
+### 사용법
+```
+adis16507 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## bmi055
 소스: [drivers/imu/bosch/bmi055](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi055)
 
@@ -111,6 +137,34 @@ adis16497 <command> [arguments...]
 ### 사용법
 ```
 bmi055 <command> [arguments...]
+ Commands:
+   start
+     [-A]        Accel
+     [-G]        Gyro
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
+## bmi085
+Source: [drivers/imu/bosch/bmi085](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi085)
+
+<a id="bmi085_usage"></a>
+
+### 사용법
+```
+bmi085 <command> [arguments...]
  Commands:
    start
      [-A]        Accel
@@ -186,6 +240,32 @@ bmi088_i2c <command> [arguments...]
 
    status        print status info
 ```
+## bmi270
+Source: [drivers/imu/bosch/bmi270](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/bosch/bmi270)
+
+<a id="bmi270_usage"></a>
+
+### 사용법
+```
+bmi270 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## fxas21002c
 소스: [drivers/imu/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/fxas21002c)
 
@@ -249,6 +329,32 @@ fxos8701cq <command> [arguments...]
    regdump
 
    testerror
+
+   stop
+
+   status        print status info
+```
+## iam20680hp
+Source: [drivers/imu/invensense/iam20680hp](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iam20680hp)
+
+<a id="iam20680hp_usage"></a>
+
+### 사용법
+```
+iam20680hp <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
 
    stop
 
@@ -353,6 +459,10 @@ icm20689 <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
+
+   regdump
+
+   testerror
 
    stop
 
@@ -487,7 +597,7 @@ icm42688p <command> [arguments...]
    status        print status info
 ```
 ## l3gd20
-소스: [drivers/imu/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/l3gd20)
+Source: [drivers/imu/invensense/icm45686](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/icm45686)
 
 <a id="icm42688p_usage"></a>
 
@@ -500,17 +610,41 @@ l3gd20 <command> [arguments...]
      [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
+     [-C <val>]  Input clock frequency (Hz)
+                 default: 0
 
-   regdump
+   stop
 
-   testerror
+   status        print status info
+```
+## iim42652
+Source: [drivers/imu/invensense/iim42652](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/iim42652)
+
+<a id="iim42652_usage"></a>
+
+### 사용법
+```
+iim42652 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select pin (for internal SPI) or index (for external SPI)
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+     [-C <val>]  Input clock frequency (Hz)
+                 default: 0
 
    stop
 
@@ -521,7 +655,7 @@ l3gd20 <command> [arguments...]
 
 <a id="l3gd20_usage"></a>
 
-### 사용법
+### Usage
 ```
 lsm303d <command> [arguments...]
  Commands:
@@ -578,15 +712,14 @@ lsm9ds1 <command> [arguments...]
 mpu6000 <command> [arguments...]
  Commands:
    start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 57
      [-R <val>]  Rotation
                  default: 0
 
@@ -620,6 +753,58 @@ mpu9520 <command> [arguments...]
 
    status        print status info
 ```
+## mpu9250
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
+
+<a id="mpu9250_usage"></a>
+
+### 사용법
+```
+mpu9250 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-M]        Enable Magnetometer (AK8963)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
+## mpu9250_i2c
+Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/imu/invensense/mpu9250)
+
+<a id="mpu9250_i2c_usage"></a>
+
+### 사용법
+```
+mpu9250_i2c <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 104
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## mpu9520_i2c
 소스: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
 
@@ -630,39 +815,15 @@ mpu9520 <command> [arguments...]
 mpu9520_i2c <command> [arguments...]
  Commands:
    start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 57
-     [-R <val>]  Rotation
-                 default: 0
-
-   stop
-
-   status        print status info
-```
-## mpu9520_i2c
-Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
-
-<a id="mpu9520_i2c_usage"></a>
-
-### Usage
-```
-mpu9520_i2c <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 57
      [-R <val>]  Rotation
                  default: 0
 

@@ -11,12 +11,14 @@ Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulati
 
 The SIH can be used by new PX4 users to get familiar with PX4 and the different modes and features, and of course to learn to fly a quadrotor or an airplane with the real RC controller.
 
-The quadrotor dynamic model is described in this [pdf report](https://github.com/PX4/PX4-user_guide/raw/master/assets/simulation/SIH_dynamic_model.pdf).
+The quadrotor dynamic model is described in this [pdf report](https://github.com/PX4/PX4-user_guide/raw/main/assets/simulation/SIH_dynamic_model.pdf).
 
 The aerodynamic model for the fixed-wing airplane is inspired from the PhD thesis:
+
 > "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Nahon, Meyer, McGill University, PhD thesis, 2016.
 
 The model for the tailsitter vehicle is inspired from the Master thesis:
+
 > "Modeling and control of a flying wing tailsitter unmanned aerial vehicle." Chiappinelli, Romain, supervised by Nahon, Meyer, McGill University, Masters thesis, 2018.
 
 Furthermore, the physical parameters representing the vehicle (such as mass, inertia, and maximum thrust force) can easily be modified from the [SIH parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
@@ -25,7 +27,7 @@ Furthermore, the physical parameters representing the vehicle (such as mass, ine
 
 ## 标准安装
 
-To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board). you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
+To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board). you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/master/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
 
 - SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
 - SIH for quadrotor supported from PX4 v1.9.
@@ -38,7 +40,8 @@ Running the SIH is as easy as selecting an airframe. Plug the autopilot to the d
 When the SIH airframe is selected, the module `sih` starts by itself, the vehicle should be displayed on the ground control station map.
 
 :::warning
-The airplane needs to takeoff in manual mode at full throttle. Also, if the airplane hits the floor the state estimator might lose its fix.
+The airplane needs to takeoff in manual mode at full throttle.
+Also, if the airplane hits the floor the state estimator might lose its fix.
 :::
 
 ## 设置显示
@@ -52,7 +55,7 @@ To display the simulated vehicle:
 1. Unplug and replug the hardware autopilot (allow a few seconds for it to boot).
 1. Start jMAVSim by calling the script **jmavsim_run.sh** from a terminal:
    ```
-   ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -o
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -o
    ```
    where the flags are
    - `-q` to allow the communication to *QGroundControl* (optional).
@@ -62,7 +65,7 @@ To display the simulated vehicle:
    - add a flag `-a` to display an aircraft or '-t' to display a tailsitter. If this flag is not present a quadrotor will be displayed by default.
 1. After few seconds, *QGroundControl* can be opened again.
 
-At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC __Fly__ view.
+At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC _Fly_ view.
 
 
 ## 鸣谢

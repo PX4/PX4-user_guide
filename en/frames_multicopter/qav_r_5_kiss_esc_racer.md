@@ -6,7 +6,7 @@ It also provides information on the (optional) FPV setup.
 
 Key information:
 
-- **Frame:** Lumenier QAV-R 5"
+- **Frame:** [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
 - **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
 
 @[youtube](https://youtu.be/wMYgqvsNEwQ)
@@ -18,6 +18,7 @@ Key information:
 ## Parts List
 
 ### Vehicle (needed for flying)
+
 * Autopilot: [Pixracer](../flight_controller/pixracer.md) from [AUAV](https://store.mrobotics.io/mRo-PixRacer-R14-Official-p/auav-pxrcr-r14-mr.htm) including ESP8266  WiFi- and [ACSP5](https://store.mrobotics.io/product-p/auav-acsp5-mr.htm)  power-module
 * Frame:  [Lumenier QAV-R 5"](http://www.getfpv.com/qav-r-fpv-racing-quadcopter-5.html)
 * Motors:  [Lumenier RX2206-11 2350KV](http://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
@@ -33,7 +34,7 @@ Key information:
 ### FPV (optional)
 
 * Camera: [RunCam Swift RR Edition](https://www.getfpv.com/runcam-swift-rotor-riot-special-edition-ir-block-black.html) **includes must-have high quality wide angle lens from GoPro!**
-* Video Tx: [ImmersionRC Tramp HV 5.8GHz 600mW](http://www.getfpv.com/fpv/video-transmitters/immersionrc-tramp-hv-5-8ghz-video-tx.html)
+* Video Tx: [ImmersionRC Tramp HV 5.8GHz 600mW](https://www.getfpv.com/immersionrc-tramp-hv-5-8ghz-video-tx-us-version.html) (Discontinued).
 * Video Antennas: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
 * FPV voltage source plug: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html)
 
@@ -44,9 +45,8 @@ These parts cover the sending side for standard FPV 5.8GHz analog FM video. You 
 ## Assembling the Basic Frame
 
 I assembled the basic center plate and the arms like shown in this video between 09:25 and 13:26:
-<p align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/7SIpJccXZjM?start=565&end=806" frameborder="0" allowfullscreen></iframe>
-</p>
+
+@[youtube](https://youtu.be/7SIpJccXZjM)
 
 I mounted the four motors to the frame with the cables coming out towards the center of the frame.
 I used two of the longer motor screws that come with the frame for each motor and put them in the two holes which are further apart.
@@ -54,6 +54,7 @@ I used two of the longer motor screws that come with the frame for each motor an
 ## Building the Power Train
 
 The KISS ESCs are known for their good performance but they also come with two disadvantages:
+
 - The software they use is not open source (unlike BLHeli)
 - There is no hardware package with pre-soldered wires and/or plugs (to my knowledge)
 
@@ -75,6 +76,7 @@ Heatshrinking the ESCs, the power module and the free floating uninsulated wire 
 :::
 
 ### Motors
+
 First I cut all three motor cables to directly fit when the ESCs are mounted on the arms shifted towards the center but still let enough slack to allow easy placement of the parts and not produce any tension on the cables.
 Then I soldered them in the order they come out of the motor to the output contacts of the ESCs which are oriented with the switching MOS-FETs facing upwards to get good air cooling during flight.
 Choosing this cable order resulted in all the motors spinning counter-clockwise in my tests and I switched where necessary the direction of rotation by bridging the dedicated [JP1 solder jumper](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) to conform the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x).
@@ -82,6 +84,7 @@ Choosing this cable order resulted in all the motors spinning counter-clockwise 
 ![Power motor connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
 
 ### Power Module
+
 First I soldered the XT60 connector which comes with the frame to the labeled battery side of the *ACSP5 power module* that was shipped with the Pixracer and added the elco capacitor delivered with the power module with the correct polarity to the same side.
 
 ![ACSP5 power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
@@ -169,6 +172,7 @@ I took the GPS cable which fits the connector of the used GPS and came with the 
 Sadly the pin assignment was completely wrong and I rewired the connector again using tweezers according to the [3DR Pixhawk Mini user manual](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) GPS port.
 
 #### Pixracer GPS/I2C Port
+
 | Pin  | Assignment |
 | ---- | ---------- |
 | 1    | GND        |
@@ -179,6 +183,7 @@ Sadly the pin assignment was completely wrong and I rewired the connector again 
 | 6    | +5V        |
 
 #### M8N 3DR Pixhawk mini GPS Connector
+
 | Pin     | Assignment | Connect to Pixracer Pin |
 | ------- | ---------- | ----------------------- |
 | 1 (red) | SCL        | 3                       |
@@ -217,30 +222,60 @@ I mounted it like you can see in the next picture. The two screws and nuts to lo
 
 ![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## Software Configuration
+## PX4 Configuration
+
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame.
+[Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 :::warning
 Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration.
 Better safe than sorry!
 :::
 
-For general configuration instruction please see [Basic Configuration](../config/README.md).
 
-For this build I pulled the latest PX4 master because it supports the "FMU as task" improvements (included and enabled by default since PX4 v1.7) and flashed it to the Pixracer. I used [QGC](http://qgroundcontrol.com/) daily build to configure the following:
-- Choose the [Generic 250 Racer configuration](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) Airframe
-- Calibrate the sensors
-- Set the battery to 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V
-- Calibrate the voltage devider through typing in the current accurate voltmeter measurement
-- Calibrate the RC cannels with the Taranis already configured for two additional switch inputs.
-  One switch in the top right corner of the Taranis front plate for the mode switch and the other switch in the top left corner of the front plate as arm switch.
-- You can also set up an arming switch.
+First update the firmware, airframe, and actuator mappings:
+
+- [Firmware](../config/firmware.md)
+- [Airframe](../config/airframe.md)
+
+  You will need to select the *Generic 250 Racer* airframe (**Quadrotor x > Generic 250 Racer**).
+
+  ![QGC airframe selection of generic 250 racer](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/qgc_airframe_generic_250_racer.png)
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry.
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
+
+Then perform the mandatory setup/calibration:
+
+* [Sensor Orientation](../config/flight_controller_orientation.md)
+* [Compass](../config/compass.md)
+* [Accelerometer](../config/accelerometer.md)
+* [Level Horizon Calibration](../config/level_horizon_calibration.md)
+* [Radio Setup](../config/radio.md)
+* [Flight Modes](../config/flight_mode.md)
+
+Ideally you should also do:
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery](../config/battery.md)
+  - 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V (or appropriate values for your battery).
+- [Safety](../config/safety.md)
 
 
 ### Tuning
 
-Here's the general [Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) with instructions on all the basics.
+Airframe selection sets *default* autopilot parameters for the frame.
+These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
-### Log Examples
+For instructions on how, start from [Autotune](../config/autotune.md).
+
+## Log Examples
 
 [Log in FPV acro flight (maximum values: 108km/h speed, 85A total current draw)](https://logs.px4.io/plot_app?log=9c311942-bc7c-4b0c-8be8-eeb64fa8192c)
 

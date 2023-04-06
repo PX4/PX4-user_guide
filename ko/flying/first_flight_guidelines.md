@@ -31,5 +31,4 @@
 드론을 통제 할 수 없는 경우에는, 가능한 한 빨리 빈 공간에 착륙시키는 것이 좋습니다.
 
 :::note
-It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). 안전 스위치를 사용하여 경우 즉시 복귀하거나 드론을 재빨리 착륙시킬 수 있습니다.
-:::
+It can be useful to [set a safety switch on your transmitter](../config/safety.md#emergency-switches). 안전 스위치를 사용하여 경우 즉시 복귀하거나 드론을 재빨리 착륙시킬 수 있습니다. :::

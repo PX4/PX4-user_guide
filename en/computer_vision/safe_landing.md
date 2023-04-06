@@ -30,11 +30,11 @@ Safe landing is enabled within PX4 by [setting](../advanced_config/parameters.md
 
 ## Companion Computer Setup
 
-Companion-side setup and configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+Companion-side setup and configuration is provided in the [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) Github repo.
 
 This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the *safe landing planner* (which provides companion-side support for this feature):
-* [Simulation setup](https://github.com/PX4/avoidance#safe-landing-planner)
-* [Harware setup](https://github.com/PX4/avoidance#safe-landing-planner-1)
+* [Simulation setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+* [Hardware setup](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)
 
 The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
 
@@ -50,11 +50,11 @@ Note however that the safe landing planner only uses information in Point 0 of t
 
 ## Supported Hardware
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
 
 ## Further Information
 
 * [Vision and offboard control interfaces](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 Developer Summit 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
-* [PX4/avoidance](https://github.com/PX4/avoidance)
-  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+* [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance)
+  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner)
+  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/PX4-Avoidance#safe-landing-planner-1)

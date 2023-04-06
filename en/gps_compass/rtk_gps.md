@@ -17,9 +17,9 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 It also highlights devices that connect via the CAN bus, and those which support PPK (Post-Processing Kinematic).
 
-GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) | PPK
+GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [DroneCAN](../dronecan/README.md) | PPK
 :--- | :---: | :---: | :---: | :---:
-[ARK RTK GPS](../uavcan/ark_rtk_gps.md) | | &check; | &check; |
+[ARK RTK GPS](../dronecan/ark_rtk_gps.md) | | &check; | &check; |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | | |
 [CUAV C-RTK2 ](../gps_compass/rtk_gps_cuav_c-rtk2.md) | | | | &check;
 [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | | &check; | | 
@@ -30,10 +30,13 @@ GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) 
 [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | |&check; | |
 [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | | |
+[Holybro Unicore GPS](../gps_compass/gps_holybro_unicore.md) | &check; | | |
+[LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | | | |
+[LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | &check; | | |
 [Septentrio AsteRx-RIB](../gps_compass/septentrio_asterx-rib.md) |  &check;   |Septentrio dual antenna heading | |&check;
 [Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md) |  &check;   |Septentrio dual antenna heading | |&check;
 [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | | &check; | |
-[SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) | | &check; | |
+[SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | | &check; | |
 [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) | | &check; | |
 [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)  | &check; | | |
 
@@ -62,9 +65,9 @@ At time of writing this use case has not been tested.
 The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
 
 Most are connected via the flight controller's GPS port, in the same way as any other GPS module.
-Some are connected to the [UAVCAN](../uavcan/README.md) bus.
+Some are connected to the [CAN](../can/README.md) bus (i.e. using [DroneCAN](../dronecan/README.md)).
 
-See [documentation for the selected device](#supported-rtk-devices) and [UAVCAN](../uavcan/README.md) for more information on wiring and configuration.
+See [documentation for the selected device](#supported-rtk-devices) and [DroneCAN](../dronecan/README.md) for more information on wiring and configuration.
 
 #### Base RTK Module (Ground)
 
@@ -124,7 +127,7 @@ The following settings may need to be changed (using *QGroundControl*).
 
 #### RTK GPS settings
 
-The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
+The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
 ![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
@@ -141,8 +144,8 @@ The MAVLink2 protocol must be used because it makes more efficient use of lower-
 This should be enabled by default on recent builds.
 
 To ensure MAVLink2 is used:
-* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)).
-* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html))
+* Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html)).
+* Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/master/en/SetupView/Parameters.html))
 
 
 #### Tuning

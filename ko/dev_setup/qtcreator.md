@@ -20,7 +20,7 @@ Qt Creator는 클릭 가능한 기호, 전체 코드베이스의 자동 완성, 
 
 ### 리눅스용 Qt Creator
 
-Qt Creator를 시작하기 전에, [프로젝트 파일](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator)을 생성하여야 합니다.
+Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
 
 ```sh
 cd ~/src/PX4-Autopilot
@@ -41,7 +41,7 @@ Windows는 Qt Creator를 사용한 PX4 개발에 대해 테스트되지 않았�
 
 ### Mac OS용 Qt Creator
 
-Qt Creator를 시작하기 전에, [프로젝트 파일](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator)을 생성하여야 합니다.
+Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
 
 ```sh
 cd ~/src/PX4-Autopilot

@@ -35,7 +35,7 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 
 ## 发布
 
-发布主题可以在系统中的任何位置完成，包括中断上下文（由 `hrt_call` API 调用的函数）。 但是，仅在中断上下文之外才能为主题做广播。 一个主题必须与以后发布的过程相同。
+发布主题可以在系统中的任何位置完成，包括中断上下文（由 `hrt_call` API 调用的函数）。 However, the topic needs to be advertised and published outside of an interrupt context (at least once) before it can be published in an interrupt context.
 
 ## 主题列表和监听（Listener）
 
@@ -121,7 +121,7 @@ uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独�
 
 确保不要再同一个主题上弄混 `orb_advertise_multi` 和`orb_advertise`
 
-完整的 API 记录在 [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp) 中。
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/main/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 

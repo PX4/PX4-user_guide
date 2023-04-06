@@ -30,7 +30,7 @@ Other useful information can be found in the [FAQ](https://github.com/beagleboar
 Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
 :::
 
-The latest OS images at time of updating this document is [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz).
+The latest OS images at time of updating this document is [bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz).
 
 
 ## Cross Compiler Build (Recommend)
@@ -58,8 +58,15 @@ connmanctl>services
 #(at this point you should see your network SSID appear.)
 connmanctl>agent on
 connmanctl>connect <SSID>
+	Enter Passphrase
 connmanctl>quit
 ```
+
+:::note
+The format of the `<SSID>` above is normally the text 'wifi' followed by a string of other characters.
+After entering the command you will be prompted to enter the wifi password.
+:::
+
 ### SSH root Login on Beaglebone
 
 Root login can be enabled on the board with:
@@ -82,11 +89,11 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
       
    1. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts** and copy the public SSH key to the board for password-less SSH access:
       ```
-      ssh-copy-id root@beaglebone
+      ssh-copy-id debian@beaglebone
       ```
    1. Alternatively you can use the beaglebone's IP directly:
       ```
-      ssh-copy-id root@<IP>
+      ssh-copy-id debian@<IP>
       ```
    1. When prompted if you trust: yes
    1. Enter root password
@@ -94,43 +101,56 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
    1. Toolchain download
       1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*.
          Here is an example of using soft link to select which version of the toolchain you want to use:
-         ```
+	 
+         ```sh
          mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
          chmod -R 777 /opt/bbblue_toolchain
+         cd /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
          ```
-         ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). 
+         The ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](https://www.linaro.org/downloads/#gnu_and_llvm). 
 
          :::tip
          GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*.
          General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
-		 :::
+         :::
    
-         Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
+         Download and unpack [gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf.tar.xz](https://snapshots.linaro.org/gnu-toolchain/13.0-2022.06-1/arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
          
-         Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).         
+         Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
          
+         ```sh
+         wget https://snapshots.linaro.org/gnu-toolchain/13.0-2022.06-1/arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf.tar.xz
+         tar -xf gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf.tar.xz
+         ```
          :::tip
-		 The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
-		 :::
+         The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+         :::
          
-         General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*. 
+         As a general rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*. 
 
       1. Add it to the PATH in ~/.profile as shown below
+  
          ```sh
-         export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
+         export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-13.0.0-2022.06-x86_64_arm-linux-gnueabihf/bin
          ```
          :::note
          Logout and Login to apply the change, or execute the same line on your current shell.
-		 :::
-         
-         Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions.
-         
-         You may have to edit the upload target to match with your setup:
+         :::
+
+      1. Setup other dependencies by downloading the PX4 source code and then running the setup scripts:
          ```
+         git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+	 bash ./Tools/setup/ubuntu.sh --no-nuttx --no-sim-tools
+	 ```
+	 
+         You may have to edit the upload target to match with your setup:
+         ```sh
          nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
          
-         #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
+         # in row 37 change debian@beaglebone.lan TO root@beaglebone (or root@<IP>)
          ```
+	 
+         See the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions for additional information.
    
 ### Cross Compile and Upload
 
@@ -153,7 +173,7 @@ sudo ./bin/px4 -s px4.config
 Currently *librobotcontrol* requires root access.
 :::
 
-<span id="native_builds"></span>
+<a id="native_builds"></a>
 ## Native Builds (optional)
 
 You can also natively build PX4 builds directly on the BeagleBone Blue.

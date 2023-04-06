@@ -9,7 +9,8 @@
 :::
 
 :::note
-穿越机通常会少一些传感器（比如：GPS）。 因此，他的保护性选项有所缺失。
+穿越机通常会少一些传感器（比如：GPS）。
+因此，他的保护性选项有所缺失。
 :::
 
 ## 构建选项
@@ -25,7 +26,6 @@
 穿越机通常没有GPS，因为它会增加重量且再发生撞击时候更容易被损坏（一个GPS+外部磁罗盘需要被放置在GPS杆上来避免大电流对磁罗盘的影响，因此也就意味着它更容易被损坏）。
 
 但是增加GPS也有一些好处，尤其是对于初学者。
-
 - 你可以让飞机进入定位状态，飞行器将会待在一个地方。 当你失去方向或者需要刹车时候，这会是有用的。 它通常也可以被用来安全降落。
 - [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
 - 当发生事故时，你将有飞机最后的位置，方便寻找飞机。
@@ -45,19 +45,16 @@
 
 虽然没有单一最好的方法，但如果您使用高质量的组件，您会遇到更少的振动问题。 例如在 [QAV-R 5" 中使用的 KISS ESC 穿越机](../frames_multicopter/qav_r_5_kiss_esc_racer.md)。
 
-确保您使用调平衡过的桨叶。
+Make sure to use **balanced props**.
 
 ### 重心
 
 确保重心尽可能靠近推力中心。 左右平衡通常不是问题，但前后平衡可能是一个问题。 您可以移动电池直到重心配置正确后再机架上标记它，这样您就可以始终正确放置电池。
 
 :::note
-虽然积分项可以解决不平衡的安装，但是一个自定义的混控器可以处理的更好。 然而，最好还是将不平衡问题在飞行器安装阶段解决掉。
+虽然积分项可以解决不平衡的安装，但是一个自定义的混控器可以处理的更好。
+然而，最好还是将不平衡问题在飞行器安装阶段解决掉。
 :::
-
-### 电机顺序
-
-如果您计划使用一个四合一的 ESC, 例如 [Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588), 你会注意到它使用了不同于PX4使用的电机安装顺序。 PX4 允许您通过 [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) 参数更改飞控固件中的电机顺序。 您通常可以选择 Betaflight/Cleanflight的电机安装顺序，它是在四合一电调中的常用顺序。
 
 ## 软件设置
 
@@ -67,7 +64,7 @@ Go through the [Basic Configuration Guide](../config/README.md). In particular, 
 
 These parameters are important:
 
-- Enable One-Shot (set [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
+- Enable One-Shot or DShot by selecting the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md).
 - 设置手动/稳定模式的最大滚动、pitch-和 yaw 速率为 所希望： [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) 和 [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX) 最大倾斜角度是用 [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX) 配置的。
 - 最小推力 [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) 应该设置为 0。
 
@@ -76,7 +73,6 @@ These parameters are important:
 If you use a GPS you can skip this section and use the default estimator. Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
 
 To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to 1, and change the following parameters:
-
 - 如果系统没有磁罗盘，设置 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) 至 0。
 - 如果系统没有气压计，设置 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) 到 0。
 - Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. 如果您愿意，您可以稍后调整这些。
@@ -85,7 +81,8 @@ To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#S
 
 Configure [RC loss and low battery failsafe](../config/safety.md). If you do not use a GPS, set the failsafe to **Lockdown**, which turns off the motors. Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
 
-Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arming-switch). Test it and train to use it!
+Make sure to assign a [kill switch](../config/safety.md#kill-switch) or an [arming switch](../config/safety.md#arm-disarm-switch). Test it and train to use it!
+
 
 ### PX4 调试
 
@@ -97,21 +94,21 @@ At this point you should be ready for a first test flight.
 
 Assuming the vehicle is able to fly using the default settings, we then do a first pass of [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). The vehicle needs to be **undertuned** (the **P** and **D** gains should be set too low), such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough). This is important for the [filter tuning](#filter-tuning) (there will be a second PID tuning round later).
 
+
 ### 控制延迟
 
-*控制延迟* 是从飞机受到物理干扰出到电机做出相应反应的延迟。
+The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
 
 :::tip
 It is *crucial* to reduce the control latency as much as possible! A lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
 :::
 
 这些因素影响到延迟：
-
 - 软机架或软振动隔离装置会增加延迟(它们充当了滤波器)。
 - [Low-pass filters](../config_mc/filter_tuning.md) in software and on the sensor chip trade off increased latency for improved noise filtering.
 - PX4 软件内部：传感器信号需要从驱动程序中读取，然后通过控制器传递到输出驱动器。
-- IO chip (MAINpins) 添加了大约5.4ms的延迟相对于使用 AUX pins的延迟时间(这不适用于 *Pixracer* 或 *Omnibus F4*, 但适用于Pixhawk)。 要避免IO 延迟，请禁用 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) 并将电机连接到 AUX 引脚。
-- PWM output signal: enable One-Shot to reduce latency ([PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE)=0).
+- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). 要避免IO 延迟，请禁用 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) 并将电机连接到 AUX 引脚。
+- PWM output signal: enable the One-Shot protocol to reduce latency. The protocol is selected for a group of outputs during [Actuator Configuration](../config/actuators.md).
 
 ### Filter Tuning
 

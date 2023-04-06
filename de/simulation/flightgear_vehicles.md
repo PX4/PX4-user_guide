@@ -51,7 +51,8 @@ make px4_sitl_nolockstep flightgear_rascal-electric
 ```
 
 :::note
-This variant needs the latest FlightGear code (sources at least from 26 April 2020). Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.
+This variant needs the latest FlightGear code (sources at least from 26 April 2020).
+Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.
 :::
 
 ### Rascal 110 JSBsim
@@ -72,6 +73,7 @@ make px4_sitl_nolockstep flightgear_tf-g1
 
 ![TF-G1 in FlightGear](../../assets/simulation/flightgear/vehicles/tf-g1.jpg)
 
+
 <a id="ugv"></a>
 
 ## Ackerman vehicle (UGV/Rover)
@@ -85,6 +87,7 @@ make px4_sitl_nolockstep flightgear_tf-r1
 ```
 
 ![TF-R1 rover in FlightGear](../../assets/simulation/flightgear/vehicles/tf-r1_towing.jpg)
+
 
 <a id="quadrotor"></a>
 
@@ -105,7 +108,7 @@ A new vehicle model needs to be included as a git submodule into [PX4-FlightGear
                 ["5","/controls/flight/aileron","-1"],
                 ["7","/controls/flight/elevator","-1"],
                 ["2","/controls/flight/rudder","1"],
-                ["4","/controls/engines/engine/throttle","1"]
+                ["4","/controls/engines/engine/throttle","1"] 
                 ]
 }
 ```

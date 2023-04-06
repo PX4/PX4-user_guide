@@ -24,16 +24,16 @@ To start multiple instances (on separate ports):
    ```
 1. Start the first instance in the same terminal (this will run in the foreground):
    ```
-   ./Tools/jmavsim_run.sh -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -l
    ```
 1. Open a new terminal for each subsequent instance, specifying the *simulation* TCP port for the instance:
    ```
-   ./Tools/jmavsim_run.sh -p 4560 -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -p 4560 -l
    ```
    The port should be set to `4560+i` where `i` iterates for each instance (from `0` to `N-1`)
  
 *QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances).
-The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instnaces (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.  
+The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instances (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.  
 
 Developer APIs such as *MAVSDK* or *MAVROS* can connect to individual instances by listening on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`.
 Additional instances *all* connect to port `14549`.

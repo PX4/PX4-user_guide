@@ -23,11 +23,13 @@ SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조
 
 기체의 장치는 비행 제어장치의 `TELEM1` 포트에 연결하며, 보통 추가 설정은 하지 않습니다.
 
+
 ## 펌웨어 업데이트
 
 대부분의 [공급업체](#vendors)에서 제공하는 하드웨어는 최신 펌웨어에 설정되어 있습니다. 구형 하드웨어에서 MAVLink 2 추가하기 위하여, 새 펌웨어로 업데이트하여야 합니다.
 
-*QGroundControl*에서 무선통신장치 펌웨어를 업데이트 가능합니다. [QGroundControl 사용자 안내서 &gt; 펌웨어 불러오기](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)를 참고하십시오.
+You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/master/en/SetupView/Firmware.html).
+
 
 ## 고급 설정
 

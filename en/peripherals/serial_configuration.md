@@ -35,7 +35,8 @@ All the serial drivers/ports are configured in the same way:
 
    :::note
    Configuration parameter names follow the pattern `*_CONFIG` or `*_CFG` (*QGroundControl* only displays the parameters for services/drivers that are present in firmware).
-     At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [RTPS_CONFIG](../advanced_config/parameter_reference.md#RTPS_CONFIG), [RTPS_MAV_CONFIG](../advanced_config/parameter_reference.md#RTPS_MAV_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG).
+   
+   At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG), [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG), [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [XRCE_DDS_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_CFG), [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG), [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG), [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG), [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG), [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
    :::
 1. Reboot the vehicle in order to make the additional configuration parameters visible.
 1. Set the baud rate parameter for the selected port to the desired value.
@@ -53,10 +54,9 @@ For example, it is not possible to start a MAVLink instance on a specific serial
 At time of writing there is no user feedback about conflicting ports.
 :::
 
-
 ## Troubleshooting
 
-<span id="parameter_not_in_firmware"></span>
+<a id="parameter_not_in_firmware"></a>
 ### Configuration Parameter Missing from *QGroundControl*
 
 *QGroundControl* only displays the parameters for services/drivers that are present in firmware.
@@ -67,7 +67,7 @@ PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_cont
 Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
 :::
 
-You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. 
+You can include the missing driver in firmware by enabling the driver in the **default.px4board** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/main/boards/px4) you want to build for. 
 For example, to enable the SRF02 driver, you would a the following line to the px4board.
 ```
 CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
@@ -77,7 +77,6 @@ An easier method would be using boardconfig which launches a GUI where you can e
 To launch boardconfig type `make <vendor>_<board>_<label> boardconfig`
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
-
 
 ## Further Information
 

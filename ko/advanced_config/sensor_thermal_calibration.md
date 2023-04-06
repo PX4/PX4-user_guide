@@ -13,7 +13,6 @@ PX4에는 센서 바이어스에 대한 센서 온도 변화의 영향에 대해
 :::
 
 <span id="test_setup"></span>
-
 ## 테스트 설정 / 모범 사례
 
 다음 섹션에 설명된 [교정 절차](#calibration_procedures)는 보드가 최저 작동에서 최고 작동 / 최고 작동 상태로 가열되므로 *환경 챔버* (온도 및 습도 제어 환경)에서 이상적으로 실행됩니다. 보정을 시작전에 보드를 *냉각*합니다 (최소 온도로 냉각하고 평형에 도달하도록 허용).
@@ -29,22 +28,20 @@ PX4에는 센서 바이어스에 대한 센서 온도 변화의 영향에 대해
 이러한 종류의 설정을 사용하여 보드를 약 70C까지 가열할 수 있습니다. 일화적인 증거는 많은 일반적인 보드가 부작용 없이 이 온도로 가열될 수 있음을 시사합니다. 확실하지 않은 경우에는, 제조업체에 안전 작동 범위를 확인하십시오.
 
 :::tip
-온보드 열 보정 상태를 확인하려면 MAVlink 콘솔(또는 NuttX 콘솔)을 사용하여 센서에서 보고된 내부 온도를 확인하십시오.
+온보드 열 보정 상태를 확인하려면 MAVlink 콘솔(또는 NuttX 콘솔)을 사용하여 센서에서 보고된 내부 온도를 확인하십시오. 
 :::
 
 <span id="calibration_procedures"></span>
-
 ## 교정 절차
 
 PX4는 두 가지 보정 절차를 지원합니다.
-
 * [온보드](#onboard_calibration) - 보드 자체에서 보정합니다. 이 방법을 사용하려면 테스트 설정으로 달성할 수있는 온도 상승 양에 대한 지식이 필요합니다.
 * [오프 보드](#offboard_calibration) - 보정 매개변수는 보정중 수집된 로그 정보를 기반으로 개발 컴퓨터에서 계산합니다. 이 방법으로 사용자는 데이터의 품질과 곡선 맞춤을 시각적으로 확인할 수 있습니다.
 
 오프 보드 접근 방식은 더 복잡하고 느리지만, 테스트 설정에 대한 지식이 덜 필요하고 검증하기가 용이합니다.
 
-<span id="onboard_calibration"></span>
 
+<span id="onboard_calibration"></span>
 ### 온보드 교정 절차
 
 온보드 보정은 전적으로 장치에서 실행됩니다. 테스트 설정으로 달성할 수있는 온도 상승 양에 대한 지식이 필요합니다.
@@ -60,10 +57,9 @@ PX4는 두 가지 보정 절차를 지원합니다.
 7. 보드를 고정 [^2]으로 유지한 체로 전원을 공급하고 `SYS_CAL_TDEL` 매개변수로 지정된 온도 상승을 달성 할 수있을 만큼 충분히 높은 온도로 예열합니다. 완료율은 보정중 시스템 콘솔에 표시됩니다. [^3]
 8. 보정이 완료되면 전원을 제거하고, 다음 단계를 수행하기 전에 보정 범위 내의 온도로 보드를 냉각합니다.
 9. `commander calibrate accel`을 사용하거나 *QGroundControl*을 통하여 시스템 콘솔을 통해 6 포인트 가속 보정을 수행합니다. 보드를 처음 설정하는 경우에는 자이로와 자력계 보정도 수행하여야 합니다.
-10. 보정중 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란스럽고 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 센서 보정 후 비행하기 전에 항상 보드에 전원을 다시 공급해야합니다. 
+8. 보정중 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란스럽고 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 센서 보정 후 비행하기 전에 항상 보드에 전원을 다시 공급해야합니다.
 
 <span id="offboard_calibration"></span>
-
 ### 오프보드 교정 절차
 
 오프보드 보정은 보정 테스트 중에 수집된 데이터를 사용하여 개발 컴퓨터에서 실행됩니다. 이 방법은 데이터 품질과 곡선 맞춤을 시각적으로 제공합니다.
@@ -71,24 +67,25 @@ PX4는 두 가지 보정 절차를 지원합니다.
 오프보드 보정을 수행하려면 :
 
 1. 보정전에 프레임 유형이 설정되어 있는 지 확인하십시오. 그렇지 않으면, 보드가 설정시 보정 매개변수가 손실될 수 있습니다.
-2. 보드 전원을 켜고 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 및 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 매개변수를 `1`으로 설정합니다.
-3. 모든 [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) 및 [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) 매개변수를 기본값으로 설정합니다.
-4. [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 매개변수를 2로 설정하여 부팅에서 데이터 로깅을 활성화합니다. 
-5. *열 교정*(비트 2)에 대한 [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 확인란을 설정하여 교정에 필요한 원시 센서 데이터를 기록합니다.
-6. 보드를 작동에 필요한 최소 온도로 냉각합니다.
-7. 전원을 공급하고 보드를 <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>로 유지하고, 필요한 최대 작동 온도까지 천천히 올립니다. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
-8. 전원을 제거하고 .ulog 파일을 추출하십시오.
-9. **Firmware/Tools** 디렉토리에서 터미널 창을 열고 Python 보정 스크립트를 실행합니다. 
-        sh
-        python process_sensor_caldata.py <full path name to .ulog file> 그러면 측정된 데이터와 각 센서의 곡선 맞춤을 보여주는 
-    
-    **.pdf** 파일과 보정 매개변수가 포함된 **.params** 파일이 생성됩니다.
-10. 보드에 전원을 공급하고 *QGroundControl*을 연결하고 *QGroundControl*을 사용하여 생성된 **.params** 파일의 매개변수를 보드로 로드합니다. 매개변수의 갯수가 많이지므로, 로드 시간이 길어질 수 있습니다.
-11. 매개변수 로드가 완료된 후 `SDLOG_MODE`를 1로 설정하여 일반 로깅을 다시 활성화하고 전원을 제거하십시오.
-12. *QGroundControl*을 사용하여 보드에 전원을 공급하고 일반적인 가속도계 센서 보정을 수행합니다. 보드의 교정 온도 범위 내에서, 이 단계를 수행하여야 합니다. 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란할 수 있고, 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 이 단계 후에는 보드에 전원을 공급하여야 합니다.
+1. 보드 전원을 켜고 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 및 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 매개변수를 `1`으로 설정합니다.
+1. 모든 [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) 및 [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) 매개변수를 기본값으로 설정합니다.
+1. [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 매개변수를 2로 설정하여 부팅에서 데이터 로깅을 활성화합니다.
+1. *열 교정*(비트 2)에 대한 [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 확인란을 설정하여 교정에 필요한 원시 센서 데이터를 기록합니다.
+1. 보드를 작동에 필요한 최소 온도로 냉각합니다.
+1. 전원을 공급하고 보드를 [^2]로 유지하고, 필요한 최대 작동 온도까지 천천히 올립니다. [^3]
+1. 전원을 제거하고 .ulog 파일을 추출하십시오.
+1. **Firmware/Tools** 디렉토리에서 터미널 창을 열고 Python 보정 스크립트를 실행합니다.
+   ```sh
+   sh
+     python process_sensor_caldata.py
+   ```
+   **.pdf** 파일과 보정 매개변수가 포함된 **.params** 파일이 생성됩니다.
+1. 보드에 전원을 공급하고 *QGroundControl*을 연결하고 *QGroundControl*을 사용하여 생성된 **.params** 파일의 매개변수를 보드로 로드합니다. 매개변수의 갯수가 많이지므로, 로드 시간이 길어질 수 있습니다.
+1. 매개변수 로드가 완료된 후 `SDLOG_MODE`를 1로 설정하여 일반 로깅을 다시 활성화하고 전원을 제거하십시오.
+1. *QGroundControl*을 사용하여 보드에 전원을 공급하고 일반적인 가속도계 센서 보정을 수행합니다. 보드의 교정 온도 범위 내에서, 이 단계를 수행하여야 합니다. 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란할 수 있고, 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 이 단계 후에는 보드에 전원을 공급하여야 합니다.
+
 
 <span id="implementation"></span>
-
 ## 구현 상세
 
 교정은 내부 온도 범위에서 센서 값의 변화를 측정하고 데이터에 대해 다항식 맞춤을 수행하여 센서 데이터를 수정에 사용하는 계수 세트 (매개변수로 저장됨)를 계산하는 프로세스를 의미합니다. 보상은 온도에 따른 오프셋 변경을 수정하기 위하여 센서 판독 값에서 차감되는 오프셋을 계산하기 위해 내부 온도를 사용하는 프로세스를 의미합니다.
@@ -104,21 +101,20 @@ PX4는 두 가지 보정 절차를 지원합니다.
 ### 교정 매개변수 저장
 
 기존 매개변수 시스템 구현에서는 구조체의 각 값을 별도의 항목으로 저장하는 것으로 제한됩니다. 이 제한을 해결하기 위하여 다음 논리적 명명 규칙이 [열 보상 매개변수](../advanced_config/parameter_reference.md#thermal-compensation)에 사용됩니다.
-
-    TC_[type][instance]_[cal_name]_[axis]
-    
+```
+TC_[type][instance]_[cal_name]_[axis]
+```
 
 여기서:
-
 * `type` : 센서 유형을 나타내는 단일 문자입니다. 여기서 `G` = 속도 자이로 스코프, `A` = 가속도계 및 `B` = 기압계.
 * `instance` : 정수 0,1 또는 2로 동일한 `type`의 센서를 최대 3 개까지 보정할 수 있습니다.
 * `cal_name` : 교정치 식별 문자열입니다. 다음의 값을 가질 수 있습니다.
-    
-    * `Xn` : n은 계수의 차수인 다항식 계수입니다. `X3*(온도 - 기준 온도)** 3`.
-    * `SCL` : 축척 비율.
-    * `TREF` : 기준 온도(deg C).
-    * `TMIN` : 최소 유효 온도(deg C).
-    * `TMAX` : 최대 유효 온도(deg C).
+
+  * `Xn` : n은 계수의 차수인 다항식 계수입니다. `X3*(온도 - 기준 온도)** 3`.
+  * `SCL` : 축척 비율.
+  * `TREF` : 기준 온도(deg C).
+  * `TMIN` : 최소 유효 온도(deg C).
+  * `TMAX` : 최대 유효 온도(deg C).
 
 * `axis` : 보정 데이터가 기준 보드 프레임의 X, Y 또는 Z 축을 나타내는 정수 0,1 또는 2입니다. 기압 센서의 경우 `axis` 접미사가 생략됩니다.
 
@@ -130,19 +126,19 @@ PX4는 두 가지 보정 절차를 지원합니다.
 ### 교정 매개 변수 사용법
 
 열 오프셋에 대한 수정(교정 매개변수 사용)은 [센서 모듈](../modules/modules_system.md#sensors)에서 수행됩니다. 측정 온도에서 기준 온도를 차감하여 다음과 같은 델타 온도를 얻습니다.
-
-    delta = measured_temperature - reference_temperature
-    
+```
+delta = measured_temperature - reference_temperature
+```
 
 그런 다음 델타 온도를 사용하여 오프셋을 계산합니다.
-
-    offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
-    
+```
+offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
+```
 
 오프셋 및 온도 스케일 계수는 아래의 경우의 센서 측정을 수정하는 데 사용됩니다.
-
-    corrected_measurement = (raw_measurement - offset) * scale_factor
-    
+```
+corrected_measurement = (raw_measurement - offset) * scale_factor
+```
 
 온도가 `*_TMIN` 및 `*_TMAX` 매개변수로 설정된 테스트 범위를 초과하면 측정 온도가 제한 범위 내에 유지되도록 클리핑됩니다.
 
@@ -156,16 +152,14 @@ PX4는 두 가지 보정 절차를 지원합니다.
 
 `TC_G_ENABLE` 매개변수를 1로 설정하여 자이로 열 보정을 활성화한 경우 커맨더 제어 자이로 보정을 수행할 수 있지만, 필요한 양만큼 보정 곡선을 위아래로 이동하는 데 사용됩니다. 각도 속도 오프셋을 제로화합니다. X0 계수를 조정하여 이를 달성합니다.
 
-`TC_A_ENABLE` 매개변수를 1로 설정하여 가속 열 보상을 활성화한 경우, 커맨더 제어 6 점 가속 교정을 계속 수행할 수 있지만 `*OFF`를 조정하는 대신 `CAL` 매개 변수 그룹의 `*SCALE` 매개변수,이 매개변수는 기본값과 열 보상 `X0` 및 `SCL` 매개변수로 설정됩니다. 
+`TC_A_ENABLE` 매개변수를 1로 설정하여 가속 열 보상을 활성화한 경우, 커맨더 제어 6 점 가속 교정을 계속 수행할 수 있지만 `*OFF`를 조정하는 대신 `CAL` 매개 변수 그룹의 `*SCALE` 매개변수,이 매개변수는 기본값과 열 보상 `X0` 및 `SCL` 매개변수로 설정됩니다.
 
 ### 제한 사항
 
 스케일 팩터는 서로 다른 온도에서 측정이 어려움으로 인하여 온도가 변하지 않는 것으로 간주됩니다. 이는 가속도계 교정의 유용성을 안정적인 스케일 팩터를 가진 센서 모델로 제한합니다. 이론적으로 IMU 내부 온도를 어느 정도 제어 가능한 열 챔버 또는 IMU 히터를 사용하면 일련의 6면 가속도계 교정을 수행하고 오프셋과 배율 계수 모두에 대해 가속도계를 수정할 수 있습니다. 필요한 보드 이동을 교정 알고리즘과 통합하는 것이 복잡하기 때문에 이 기능은 포함되지 않았습니다.
 
-* * *
 
+---
 [^1]: 보정이 시작되면 [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) 및 [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) 매개변수가 0으로 재설정됩니다.
-
-[^2]: 기압 센서 오프셋을 보정하려면 안정적인 기압 환경이 필요합니다. 기압은 날씨에는 느리게 변하고 건물 내부에서는 외부 바람과 HVAC 작동으로 인해 빠르게 변할 수 있습니다.[&#8617;](#fnref2:2){.footnote-backref}
-
-[^3]: 일부 상황에서 결로로 인하여 보드를 손상을 방지하기 위하여 냉각한 보드를 데울 때주의하여야합니다.[&#8617;](#fnref2:3){.footnote-backref}
+[^2]: 기압 센서 오프셋을 보정하려면 안정적인 기압 환경이 필요합니다. 기압은 날씨에는 느리게 변하고 건물 내부에서는 외부 바람과 HVAC 작동으로 인해 빠르게 변할 수 있습니다.
+[^3]: 일부 상황에서 결로로 인하여 보드를 손상을 방지하기 위하여 냉각한 보드를 데울 때주의하여야합니다.

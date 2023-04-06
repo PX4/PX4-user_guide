@@ -1,6 +1,6 @@
 # Holybro Pixhawk 5X
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 5X*<sup>&reg;</sup> is the latest update to the successful family of Pixhawk® flight controllers designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team.
@@ -103,9 +103,9 @@ The Pixhawk® 5X is perfect for developers at corporate research labs, startups,
 * Other Characteristics:
   * Operating & storage temperature: -40 ~ 85°c
 
-## Purchase
+## Where to Buy
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-5x_p1279.html).
+Order from [Holybro](https://holybro.com/products/pixhawk-5x).
 
 ## Assembly/Setup
 
@@ -126,7 +126,7 @@ Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
 
 Notes:
 - The [camera capture pin](../peripherals/camera.md#camera-capture) (`PI0`) is pin 2 on the AD&IO port, marked above as `FMU_CAP1`.
-- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](../../assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf).
+- *Pixhawk 5X* pinouts can be downloaded in PDF from from [here](https://github.com/PX4/PX4-user_guide/blob/main/assets/flight_controller/pixhawk5x/pixhawk5x_pinout.pdf) or [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf).
 
 
 ## Serial Port Mapping
@@ -188,7 +188,7 @@ make px4_fmu-v5x_default
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port.
 
-The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md,d#pixhawk-debug-full-10-pin-sh-debug-port) interface defined in the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) interface (JST SM10B connector).
+The pinouts and connector comply with the [Pixhawk Debug Full](../debug/swd_debug.md#pixhawk-debug-full-10-pin-sh-debug-port) interface defined in the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) interface (JST SM10B connector).
 
 | Pin      | Signal           | Volt  |
 | -------- | ---------------- | ----- |
@@ -210,8 +210,8 @@ For information about wiring and using this port see:
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
-* [Telemetry Radio Modules](http://www.holybro.com/product-category/radio/?orderby=date)
+* [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
+* [Telemetry Radio Modules](https://holybro.com/collections/telemetry-radios?orderby=date)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 
@@ -223,9 +223,8 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 ## Further info
 
 - [Pixhawk 5X Wiring QuickStart](../assembly/quick_start_pixhawk5x.md)
-- [Pixhawk 5X Overview & Specification](http://www.holybro.com/manual/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
-- [Pixhawk 5X Pinouts](http://www.holybro.com/manual/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
-- [PM02D Power Module Manual](http://www.holybro.com/manual/Holybro_PM02D_Power_Module_Manual.pdf) (Holybro)
+- [Pixhawk 5X Overview & Specification](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Spec_Overview.pdf) (Holybro)
+- [Pixhawk 5X Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pixhawk5X_Pinout.pdf) (Holybro)
 - [FMUv5X reference design pinout](https://docs.google.com/spreadsheets/d/1Su7u8PHp-Y1AlLGVuH_I8ewkEEXt_bHHYBHglRuVH7E/edit#gid=562580340).
 - [Pixhawk Autopilot FMUv5X Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-011%20Pixhawk%20Autopilot%20v5X%20Standard.pdf).
 - [Pixhawk Autopilot Bus Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf).

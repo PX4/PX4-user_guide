@@ -1,7 +1,7 @@
 # 模块参考：控制器
 
 ## ODULE_NAM
-Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
+Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
 
 
 ### 描述
@@ -21,7 +21,7 @@ ODULE_NAM <command> [arguments...]
    status        打印状态信息
 ```
 ## fw_att_control
-This implements the multicopter attitude and rate controller. It takes attitude setpoints (`vehicle_attitude_setpoint`) or rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+Source: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control)
 
 
 ### 描述
@@ -31,6 +31,7 @@ This implements the airship attitude and rate controller. Ideally it would take 
 
 ### 参数描述
 To reduce control latency, the module directly polls on the gyro topic published by the IMU driver.
+
 
 <a id="airship_att_control_usage"></a>
 
@@ -45,11 +46,12 @@ airship_att_control <command> [arguments...]
    status        print status info
 ```
 ## fw_pos_control_l1
-源码：[modules/fw_pos_control_l1](https://github.com/PX4/Firmware/tree/master/src/modules/fw_pos_control_l1)
+Source: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/flight_mode_manager)
 
 
 ### 参数描述
 This implements the setpoint generation for all modes. It takes the current mode state of the vehicle as input and outputs setpoints for controllers.
+
 
 <a id="flight_mode_manager_usage"></a>
 
@@ -70,11 +72,12 @@ fw_pos_control_l1 <command> [arguments...]
    status        print status info
 ```
 ## mc_att_control
-源码：[modules/mc_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/mc_att_control)
+Source: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_att_control)
 
 
 ### 描述
 fw_att_control is the fixed wing attitude controller.
+
 
 <a id="fw_att_control_usage"></a>
 
@@ -89,24 +92,40 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## mc_pos_control
-The controller has two loops: a P loop for angular error and a PID loop for angular rate error.
+## fw_path_navigation
+Source: [modules/fw_path_navigation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_path_navigation)
 
 
 ### 描述
-fw_pos_control_l1 is the fixed wing position controller.
+fw_path_navigation is the fixed wing path navigation.
 
-<a id="fw_pos_control_l1_usage"></a>
+
+<a id="fw_path_navigation_usage"></a>
 
 ### 用法
 ```
-mc_pos_control <command> [arguments...]
+fw_path_navigation <command> [arguments...]
  Commands:
    start
+     [vtol]      VTOL mode
 
    stop
 
-   status        打印状态信息
+   status        print status info
+```
+## fw_rate_control
+Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+
+
+### 参数描述
+fw_rate_control is the fixed-wing rate controller.
+
+
+<a id="fw_rate_control_usage"></a>
+
+### 用法
+```
+fw_rate_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -116,7 +135,7 @@ mc_pos_control <command> [arguments...]
    status        print status info
 ```
 ## mc_att_control
-https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
+Source: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_att_control)
 
 
 ### 参数描述
@@ -128,33 +147,12 @@ The different internal modes are implemented as separate classes that inherit fr
 
 https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
 
+
 <a id="mc_att_control_usage"></a>
-
-### 用法
-```
-mc_att_control <command> [arguments...]
- Commands:
-   start
-     [vtol]      VTOL mode
-
-   stop
-
-   status        print status info
-```
-## navigator
-Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_pos_control)
-
-
-### 参数描述
-The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
-
-The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
-
-<a id="mc_pos_control_usage"></a>
 
 ### 实现
 ```
-mc_pos_control <command> [arguments...]
+mc_att_control <command> [arguments...]
  navigator <command> [arguments...]
  Commands:
    start
@@ -167,18 +165,41 @@ mc_pos_control <command> [arguments...]
 
    status        print status info
 ```
-## mc_rate_control
-Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_rate_control)
+## navigator
+Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_pos_control)
 
 
 ### 用法
+The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
+
+The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+
+<a id="mc_pos_control_usage"></a>
+
+### 参数描述
+```
+mc_pos_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
+## mc_rate_control
+Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/mc_rate_control)
+
+
+### 实现
 This implements the multicopter rate controller. It takes rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
 
 The controller has a PID loop for angular rate error.
 
+
 <a id="mc_rate_control_usage"></a>
 
-### 参数描述
+### 用法
 ```
 mc_rate_control <command> [arguments...]
  Commands:
@@ -190,16 +211,17 @@ mc_rate_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/navigator)
+Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/navigator)
 
 
-### 实现
+### 参数描述
 Module that is responsible for autonomous flight modes. This includes missions (read from dataman), takeoff and RTL. It is also responsible for geofence violation checking.
 
 ### 示例
 The different internal modes are implemented as separate classes that inherit from a common base class `NavigatorMode`. The member `_navigation_mode` contains the current active mode.
 
 Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), which are then used by the position controller.
+
 
 <a id="navigator_usage"></a>
 
@@ -218,13 +240,13 @@ navigator <command> [arguments...]
    status        print status info
 ```
 ## rover_pos_control
-CLI 命令行用法示例：
+Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rover_pos_control)
 
 
 ### 参数描述
 Controls the position of a ground rover using an L1 controller.
 
-Publishes `actuator_controls_0` messages at IMU_GYRO_RATEMAX.
+Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
 
 ### 实现
 Currently, this implementation supports only a few modes:
@@ -241,9 +263,10 @@ rover_pos_control status
 rover_pos_control stop
 ```
 
+
 <a id="rover_pos_control_usage"></a>
 
-### 用法
+### Usage
 ```
 rover_pos_control <command> [arguments...]
  Commands:
@@ -254,13 +277,13 @@ rover_pos_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_att_control
-CLI 命令行用法示例：
+Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_att_control)
 
 
-### 参数描述
+### Description
 Controls the attitude of an unmanned underwater vehicle (UUV).
 
-fw_att_control 是固定翼姿态控制器。
+Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
 
 ### 用法
 Currently, this implementation supports only a few modes:
@@ -276,6 +299,7 @@ uuv_att_control status
 uuv_att_control stop
 ```
 
+
 <a id="uuv_att_control_usage"></a>
 
 ### Usage
@@ -289,11 +313,11 @@ uuv_att_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_pos_control
-Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/uuv_pos_control)
+Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uuv_pos_control)
 
 
 ### Description
-Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `actuator_controls_0` messages at a constant 250Hz.
+Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `attitude_setpoint` messages.
 ### Implementation
 Currently, this implementation supports only a few modes:
  * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
@@ -319,15 +343,15 @@ uuv_pos_control <command> [arguments...]
    status        print status info
 ```
 ## vtol_att_control
-Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vtol_att_control)
+Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/vtol_att_control)
 
 
-### Description
+### 描述
 fw_att_control is the fixed wing attitude controller.
 
 <a id="vtol_att_control_usage"></a>
 
-### Usage
+### 实现
 ```
 vtol_att_control <command> [arguments...]
  Commands:

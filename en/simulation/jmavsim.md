@@ -58,7 +58,7 @@ pxh>
 
 It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
-![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d View](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 
 ## Taking it to the Sky
@@ -125,7 +125,7 @@ The simulator broadcasts its address on the local network as a real drone would 
 You can start JMAVSim and PX4 separately:
 
 ```
-./Tools/jmavsim_run.sh -l
+./Tools/simulation/jmavsim/jmavsim_run.sh -l
 make px4_sitl none
 ```
 
@@ -189,7 +189,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 This error should no longer occur once the jMAVSim submodule is [updated to newer jar libs](https://github.com/PX4/jMAVSim/pull/119) and Java 11 or Java 14 should work fine.
 
 
-### An illegal reflective access operation has occured
+### An illegal reflective access operation has occurred
 
 This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
 

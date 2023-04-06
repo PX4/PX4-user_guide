@@ -10,10 +10,11 @@ The following models are supported by PX4, and can be connected to either the I2
 
 ### Available
 
-| Model                                                                                  | Range (m) | Bus               | 参数描述                                                            |
-| -------------------------------------------------------------------------------------- | --------- | ----------------- | --------------------------------------------------------------- |
-| [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120       | Serial or I2C bus |                                                                 |
-| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)                                | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
+| Model                                                      | Range (m) | Bus               | 参数描述                                                            |
+| ---------------------------------------------------------- | --------- | ----------------- | --------------------------------------------------------------- |
+| [SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100       | Serial or I2C bus |                                                                 |
+| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)    | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
+
 
 ### Discontinued
 
@@ -26,6 +27,7 @@ The following models are no longer available from the manufacturer.
 | [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | Serial or I2C                                                             |
 | SF10/C                                                                                             | 100m | Serial or I2C                                                             |
 | LW20/B                                                                                             | 50   | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications |
+
 
 ## I2C Setup
 
@@ -55,6 +57,7 @@ Some older revisions cannot be used with PX4. Specifically they may be miss-conf
 
 Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) parameter to match the rangefinder model and then reboot.
 
+
 ## Serial Setup
 
 <a id="serial_hardware_setup"></a>
@@ -79,4 +82,4 @@ Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF
 
 ## 更多信息
 
-- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx)
+- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx) 

@@ -60,7 +60,7 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 
 
 
-## Purchase
+## Where to Buy
 
 <!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
@@ -141,7 +141,7 @@ USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
 UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Voltage Ratings
 

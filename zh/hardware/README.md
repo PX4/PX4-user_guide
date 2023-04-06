@@ -11,9 +11,8 @@ This section contains topics about integrating PX4 with *new* autopilot and peri
 * [Telemetry Radio/Modems](../data_links/telemetry.md) and other communications links
 * [Sensor and Actuator I/O](../sensor_bus/README.md)
 * [RTK GPS (Integration)](../advanced/rtk_gps.md)
-* [Gimbal \(Mount\) Control Setup](../advanced/gimbal_control.md)
-* [Companion Computers](../companion_computer/pixhawk_companion.md)
+
 
 :::tip
-Other sections show how to *use* and *configure* supported [autopilot](../flight_controller/README.md) and [peripheral](../peripherals/README.md) hardware.
+Other sections show how to *use* and *configure* supported [autopilot](../flight_controller/README.md), [companion computer](../companion_computer/README.md) and [peripheral](../peripherals/README.md) hardware.
 :::

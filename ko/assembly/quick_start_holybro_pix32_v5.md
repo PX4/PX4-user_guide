@@ -1,6 +1,6 @@
 # 픽스32 v5 배선 방법
 
-:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 이 설명서는 [Holybro Pix32v5](../flight_controller/holybro_pix32_v5.md)<sup>&reg;</sup> 비행 콘트롤러 전원공급 방법과 주요 주변장치 연결 방법을 설명합니다.
@@ -9,7 +9,7 @@
 
 ## 포장 개봉
 
-Pix32 v5는 *pix32 v5 베이스 보드*, 전원 모듈 *PM02 V3*과 [Pixhawk 4 GPS/Compass](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)(UBLOX NEO-M8N)를 포함한 다양한 액세서리와 함께 번들로 판매됩니다.
+Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 Base board*, power module *PM02 V3*, and the [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps) (UBLOX NEO-M8N).
 
 *PM02 V3* 전원 모듈과 *Pixhawk 4 GPS/Compass*의 상자 내용물은 다음과 같습니다. 상자에는 핀 배치 가이드 및 전원 모듈 지침과 베이스 보드(아래 회로도에는 표시되지 않음)가 포함되어 있습니다.
 
@@ -22,7 +22,7 @@ Pix32 v5는 *pix32 v5 베이스 보드*, 전원 모듈 *PM02 V3*과 [Pixhawk 4 G
 ![Pix32 v5 배선 개요](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_wiring_overview.jpg)
 
 :::tip
-사용 가능한 포트에 대한 자세한 내용은 [여기](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)를 참고하십시오.
+More information about available ports can be found [here](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf).
 :::
 
 ## 콘트롤러 장착 및 장착 방향
@@ -36,12 +36,13 @@ Pix32 v5는 *pix32 v5 베이스 보드*, 전원 모듈 *PM02 V3*과 [Pixhawk 4 G
 :::
 
 :::tip
-보드에는 내부 진동 차단 기능이 있습니다. 콘트롤러 진동 차단 스티로폼을 사용하여 장착하시 마십시오. 일반적인 양면 테이프로 장착하여도 충분합니다.
+보드에는 내부 진동 차단 기능이 있습니다.
+콘트롤러 진동 차단 스티로폼을 사용하여 장착하시 마십시오. 일반적인 양면 테이프로 장착하여도 충분합니다.
 :::
 
 ## GPS + 나침반 + 부저 + 안전 스위치 + LED
 
-Pix32 v5은 나침반, 안전 스위치, 부저 및 LED가 통합된 [Pixhawk 4 GPS 모듈](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)에 최적화되어 있습니다. 10핀 케이블을 사용하여 **GPS 포트**에 연결합니다.
+Pix32 v5 is designed to work well with the [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps), which has an integrated compass, safety switch, buzzer and LED. 10핀 케이블을 사용하여 **GPS 포트**에 연결합니다.
 
 ![Pix32 v5 (GPS 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.jpg)
 
@@ -58,7 +59,7 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
 <span id="pm02_v3"></span>
 ### PM02 v3 전원 모듈
 
-[전원 모듈 (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html)은 *pix32 v5*와 함께 번들로 제공될 수 있습니다. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
+The [Power Module (PM02 v3)](../power_module/holybro_pm02.md) can be bundled with *pix32 v5*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
 
 그림과 같이 *전원 모듈*을 연결합니다.
 
@@ -86,9 +87,6 @@ GPS/나침반은 차량 전방 표식를 사용하여 가능하면 전자 장치
   - 6 핀 MLX 케이블 (1)
   - 6 핀 GH 케이블 (1)
 
-:::note
-[PM02v3 전원 모듈 설명서](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro)를 참고하십시오.
-:::
 
 ### 배터리 설정
 
@@ -154,7 +152,7 @@ SanDisk Extreme U3 32GB를 사용하는 것을 [적극 권장](../dev_log/loggin
 
 ## 핀배열
 
-[Pix32 v5 핀배열](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) (Holybro)
+[Pix32 v5 Pinouts](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf) (Holybro)
 
 ## 설정
 
@@ -167,8 +165,8 @@ QuadPlane에 대한 자세한 설정 방법은 [QuadPlane VTOL 설정](../config
 ## 추가 정보
 
 - [Pix32 v5 개요](../flight_controller/holybro_pix32_v5.md) (개요 페이지)
-- [Pix32 v5  기술 데이터 시트](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
-- [Pix32 v5 핀배열](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
-- [Pix32 v5 기본 회로도](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
+- [Pix32 v5  기술 데이터 시트](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
+- [Pix32 v5 핀배열](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
+- [Pix32 v5 기본 회로도](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
 - [Pix32 v5 기본 구성 요소 레이아웃](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf)
 - [FMUv5 레퍼런스 디자인 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

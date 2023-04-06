@@ -24,9 +24,6 @@ Wiring is exactly the same as for [PWM ESCs](../peripherals/pwm_escs_and_servo.m
 
 ### PX4 Configuration
 
-To enable OneShot set the following parameters:
-- [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG): Set to `0` in order to _disable_ DShot (so you can use OneShot)
-- [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE)/[PWM_AUX_RATE](../advanced_config/parameter_reference.md#PWM_AUX_RATE): Set to `0` to enable OneShot 125 for all MAIN (IO) and AUX (FMU) ESC outputs, respectively.
-- [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MIN](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAX](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAX](../advanced_config/parameter_reference.md#PWM_AUX_MAX): set to the normal PWM range, nominally `1000` to `2000`. These are scaled internally to output appropriate pulse-widths for Oneshot.
+To enable OneShot select the protocol for a group of outputs during [Actuator Configuration](../config/actuators.md). Note that the output range values are set to values in the normal PWM range (nominally `1000` to `2000`). These are scaled internally to output appropriate pulse-widths for Oneshot.
 
-Then perform [ESC Calibration](../advanced_config/esc_calibration.md).
+Then perform [ESC Calibration](../advanced_config/esc_calibration.md). 

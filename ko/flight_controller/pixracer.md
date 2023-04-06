@@ -13,8 +13,8 @@ Pixhawk<sup>&reg;</sup> XRacer 보드 제품군은 소형 레이싱 쿼드와 �
 
 ## 주요 특징
 
-* 메인 시스템 온 칩 : [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
-  * CPU : 단정밀도 FPU의 180MHz ARM Cortexex<sup>&reg;</sup> M4
+* 메인 시스템 온 칩 : [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
+  * CPU : 단정밀도 FPU의 180MHz ARM Cortexex<sup>&reg;</sup>  M4
   * RAM : 256KB SRAM (L1)
 * 표준 FPV 폼 팩터 : 36x36mm, 표준 30.5mm 구멍 패턴
 * Invensense<sup>&reg;</sup> ICM-20608 가속 / 자이로 (4KHz) / MPU9250 가속 / 자이로 / 마그 (4KHz)
@@ -27,12 +27,12 @@ Pixhawk<sup>&reg;</sup> XRacer 보드 제품군은 소형 레이싱 쿼드와 �
 * OneShot PWM 출력 (구성 가능)
 * 옵션 : 안전 스위치 및 부저
 
+
 ## 구매처
 
 Pixracer는 [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm)에서 사용할 수 있습니다.
 
 액세서리에는 다음이 포함됩니다.
-
 * [디지털 대기속도 센서](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
 * [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 
@@ -52,19 +52,21 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 * [맞춤형 ESP8266 MAVLink 펌웨어](https://github.com/dogmaphobic/mavesp8266)
 
 :::note
-Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled). Setup and telemetry are supported.
+Firmware upgrade is not yet enabled over WiFi (it is supported by the default bootloader but not yet enabled).
+Setup and telemetry are supported.
 :::
 
 ## Assembly
 
-See the [Pixracer Wiring Quickstart](../assembly/quick_start_pixracer.md)
+[Pixracer 배선 퀵 스타트](../assembly/quick_start_pixracer.md)를 참고하십시오
+
 
 ## Wiring Diagrams
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
 :::note
-If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. For more information see: [Pixracer Wiring Quickstart > External Telemetry](../assembly/quick_start_pixracer.md#external-telemetry)
+If using `TELEM2` for an external telemetry module you will need to configure it as a MAVLink serial port. 더 자세한 정보는 이곳을 참고하십시오: [Pixracer 배선 퀵 스타트 > 외부 텔레메트리](../assembly/quick_start_pixracer.md#external-telemetry)
 :::
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
@@ -77,6 +79,7 @@ If using `TELEM2` for an external telemetry module you will need to configure it
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
+
 ## Connectors
 
 All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
@@ -88,6 +91,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 ![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
 
 ![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
+
 
 #### TELEM1, TELEM2+OSD 포트
 
@@ -162,7 +166,7 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 
 #### 디버그 포트
 
-This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
+This is a [Pixhawk Debug Port](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) (JST SM06B connector).
 
 | 핀     | 신호               | 전압    |
 | ----- | ---------------- | ----- |
@@ -174,9 +178,8 @@ This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#d
 | 6 (흑) | GND              | GND   |
 
 For information about wiring and using this port see:
-
-* [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port)(참고, FMU 콘솔은 UART7에 매핑됨).
-* [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
+- [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port)(참고, FMU 콘솔은 UART7에 매핑됨).
+- [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
 
 ## Serial Port Mapping
 
@@ -189,16 +192,16 @@ For information about wiring and using this port see:
 | UART7  | 콘솔         |                |
 | UART8  | SERIAL4    |                |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Schematics
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
 The following PDF files are provided for *convenience only*:
-
-* [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
+* [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
 * [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 또는 RC14는 SDCard 소켓 옆에 인쇄됩니다.
+
 
 ## Building Firmware
 
@@ -207,9 +210,10 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
+```
+make px4_fmu-v4_default
+```
 
-    make px4_fmu-v4_default
-    
 
 ## Credits
 

@@ -36,7 +36,7 @@ Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on
 Connect the flight controller to your ground station via USB (as WiFi is not yet fully set up).
 
 Using *QGroundControl*:
-- [Load recent PX4 firwmare onto the flight controller](../config/firmware.md).
+- [Load recent PX4 firmware onto the flight controller](../config/firmware.md).
 - [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266.
   Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
 - [Configure MAVLink](../peripherals/mavlink_peripherals.md) on the corresponding serial port in order to receive telemetry and transmit commands over the ESP8266.
@@ -96,7 +96,7 @@ You should now see HUD movement on your QGC computer via wireless link and be ab
 ![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
 
 :::tip
-If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection).
+If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/master/en/Support/troubleshooting_qgc.html#waiting_for_connection).
 :::
 
 

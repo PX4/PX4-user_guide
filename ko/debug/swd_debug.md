@@ -35,7 +35,7 @@ This connector may come with your flight controller or debug probe. Other option
 
 ### Holybro Pixhawk Debug Adapter
 
-The [Holybro Pixhawk Debug Adapter](https://shop.holybro.com/pixhawk-debug-adapter_p1318.html) is _highly recommended_ when debugging controllers that use one of the Pixhawk-standard debug connectors.
+The [Holybro Pixhawk Debug Adapter](https://holybro.com/products/pixhawk-debug-adapter) is _highly recommended_ when debugging controllers that use one of the Pixhawk-standard debug connectors.
 
 It is the easiest way to connect:
 - Flight controllers that use either the [Pixhawk Debug Full](#pixhawk_debug_port_10_pin_sh) (10-pin SH) or [Pixhawk Debug Mini](#pixhawk-debug-mini-6-pin-sh-debug-port) (6-pin SH) debug port, and
@@ -65,7 +65,8 @@ You can also create custom cables for connecting to different boards or probes:
 - Connect the `SWO` pin, if present.
 
 :::tip
-Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers. This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.
+Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers.
+This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.
 :::
 
 <a id="debug_ports"></a>
@@ -80,7 +81,7 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 
 <a id="port_information"></a>
 
-| 자동조종장치                                                                              | 커넥터                                                                                                                                                                                                                                         |
+| 오토파일럿                                                                               | 커넥터                                                                                                                                                                                                                                         |
 | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md#debug-port) (FMUv5x)         | [Pixhawk Debug Full](#pixhawk-debug-full-10-pin-sh-debug-port)                                                                                                                                                                              |
 | [Holybro Durandal](../flight_controller/durandal.md#debug-port)                     | [Pixhawk Debug Mini](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                          |
@@ -91,6 +92,8 @@ The debug port location and pinouts for a subset of autopilots are linked below:
 | [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                         | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
 | [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)                      | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
 | [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                             | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: *mRo Pixhawk*, *HobbyKing HKPilot32*).                                                                                                                                     |
+
+
 
 <a id="pixhawk_standard_debug_ports"></a>
 
@@ -150,6 +153,7 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 ![6-pin JST SH Cable](../../assets/debug/cable_6pin_jst_sh.jpg)
 
+
 <a id="pixhawk_debug_port_10_pin_sh"></a>
 
 ### Pixhawk Debug Full (10-Pin SH Debug Port)
@@ -186,6 +190,7 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 The following section outlines some popular debug probes and adaptors for connecting them to autopilots running PX4.
 
+
 <a id="segger_jlink_edu_mini"></a>
 
 ### Segger JLink EDU Mini Debug Probe
@@ -209,7 +214,7 @@ The pin mapping to connect the J-Link Edu Mini to [Pixhawk Debug Mini](#pixhawk_
 From the table above you can infer the connections for autopilots that do not use the standard port.
 :::
 
-<!-- Image of SWD cable and connector to debug port? --> 
+<!-- Image of SWD cable and connector to debug port? -->
 
 
 <a id="dronecode_probe"></a>
@@ -238,6 +243,7 @@ The [Black Magic Probe](https://github.com/blacksphere/blackmagic/wiki) is much 
 
 Adapters can be purchased separately:
 - [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
+
 
 <a id="debugging_topics"></a>
 

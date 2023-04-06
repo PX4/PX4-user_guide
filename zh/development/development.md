@@ -2,7 +2,9 @@
 
 本章节讲述了如何支持新的无人机/无人车类型及变种，如何修改飞行算法，如何添加新的飞行模式，如何集成新的硬件，如何通过外部飞控和PX4通信。
 
-::: 提示 本节适用于软件开发者和 (新) 硬件集成商。 如果要构建现有的机身或者PX4已有的，可以跳过此章节。
+:::tip
+This section is for software developers and (new) hardware integrators.
+如果要构建现有的机身或者PX4已有的，可以跳过此章节。
 :::
 
 它解释了如何：
@@ -21,7 +23,7 @@
 
 ## 开发者可用的关键链接
 
-- [Support](../contribute/support.md): Get help using the [discussion boards](https://discuss.px4.io//) and other support channels.
-- [Weekly Dev Call](../contribute/dev_call.md): A great opportunity to meet the PX4 dev team and discuss platform technical details (including pull requests, major issues, general Q&A).
-- [Licences](../contribute/licenses.md): What you can do with the code (free to use and modify under terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)!)
-- [Contributing](../contribute/README.md): How to work with our [source code](../contribute/code.md).
+- [支持](../contribute/support.md): 使用 [讨论板](https://discuss.px4.io//) 和其他支持渠道获得帮助。
+- [每周Dev 呼叫](../contribute/dev_call.md): 一个很好的机会来与PX4 dev 团队讨论平台技术细节(包括拉取请求)。 主要、问题、通用 Q&A。
+- [许可证](../contribute/licenses.md): 你可以做什么代码(自由使用和修改允许的条件 [BSD 3条款许可证](https://opensource.org/licenses/BSD-3-Clause)!)
+- [贡献](../contribute/README.md): 如何使用我们的 [源代码](../contribute/code.md)。

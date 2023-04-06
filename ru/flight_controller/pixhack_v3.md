@@ -15,17 +15,18 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
+
 ## Quick Summary
 
-* Microprocessor: 
+* Microprocessor:
   * STM32F427
   * STM32F100 (Failsafe co-processor)
-* Sensors: 
+* Sensors:
   * Accelerometers (3): LS303D, MPU6000, MPU9250/hmc5983
   * Gyroscopes (3): L3GD20, MPU6000, MPU9250
   * Compass (2): LS303D, MPU9250
   * Barometer (2): MS5611 X2
-* Interfaces: 
+* Interfaces:
   * MAVLink UART (2)
   * GPS UART (2)
   * DEBUG UART (1)
@@ -35,21 +36,20 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   * CAN BUS (1)
   * ADC IN: 3.3V X1 , 6.6V X1
   * PWM OUT: 8 PWM IO + 4 IO
-* Power System: 
+* Power System:
   * PM POWER IN: 4.5 ~ 5.5 V
   * USB POWER IN: 5.0 V +- 0.25v
-* Weight and Dimensions: 
+* Weight and Dimensions:
   * Weight: 63g
   * Width: 68mm
   * Thickness: 17mm
   * Length: 44mm
-* Other Characteristics: 
+* Other Characteristics:
   * Operating temperature: -20 ~ 60°C
 
 ## Availability
 
 The board can be purchased from:
-
 * [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
 * [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
@@ -60,9 +60,9 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
-
-    make px4_fmu-v3_default
-    
+```
+make px4_fmu-v3_default
+```
 
 ## Pinouts and Schematics
 

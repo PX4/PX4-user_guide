@@ -1,1 +1,1 @@
-<Redirect to="../uavcan/avanon_laser_interface" />
+<Redirect to="../dronecan/avanon_laser_interface" />

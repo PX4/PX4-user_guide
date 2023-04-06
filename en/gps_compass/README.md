@@ -36,23 +36,29 @@ Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#co
 [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) | M8P | HMC5983 | &check; | | |
 [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) | M8P | ICM20948 | &check; | | |
 [Drotek DP0804](https://store-drotek.com/920-DP0804.html) (and other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass)) | M9N | LIS3MDL | | | |
-[Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) | F9P | RM3100 | &check; | | &check; |
+[Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) | F9P | RM3100 | &check; | | &check; |
 [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md) | M8U | LIS3MDL | &check; | | |
 [Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future. | &check; | &cross; | | | |
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 | &check; | &check; | | |
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P | IST8310 | &check; | | |
-[Holybro Micro M8N GPS](https://shop.holybro.com/micro-m8n-gps_p1009.html) | M8N | IST8310 | | | |
-[Holybro Nano Ublox M8 5883 GPS](https://shop.holybro.com/nano-ublox-m8-5883-gps-module_p1236.html) | UBX-M8030 | QMC5883 | | | |
-[Holybro M8N GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) | M8N | IST8310 | | | |
-[Holybro M9N GPS](http://www.holybro.com/product/holybro-m9n-gps/) | M9N | IST8310 | | | |
+[Holybro DroneCAN M8N GPS](../dronecan/holybro_m8n_gps.md) | M8N | BMM150 | | | |
+[Holybro Micro M8N GPS](https://holybro.com/products/micro-m8n-gps) | M8N | IST8310 | | | |
+[Holybro Nano Ublox M8 5883 GPS](https://holybro.com/products/nano-m8-5883-gps-module) | UBX-M8030 | QMC5883 | | | |
+[Holybro M8N GPS](../gps_compass/gps_holybro_m8n_m9n.md) | M8N | IST8310 | | | |
+[Holybro M9N GPS](../gps_compass/gps_holybro_m8n_m9n.md) | M9N | IST8310 | | | |
 [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | &check; | | &check;|
 [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | F9P | IST8310 | &check; | | |
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | M8P | IST8310 | &check; | | |
+[Holybro Unicore GPS](../gps_compass/gps_holybro_unicore.md) | UM982 | IST8310 | &check; | &check; | |
 [Hobbyking u-blox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) | M8N | &check; | | | |
+[LOCOSYS Hawk A1 GNSS receiver](../gps_compass/gps_locosys_hawk_a1.md) | MC-1612-V2b | optional | &cross; | | | 
+[LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | MC-1612-V2b |  | &cross; | | | 
+[LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | MC-1612-V2b | IST8310 | &cross; | | | 
 [mRo GPS u-blox Neo-M8N Dual Compass](https://store.mrobotics.io/product-p/m10034-8308.htm) | M8N | LIS3MDL, IST8308 | | | |
 [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) | F9P | &cross; | &check; | | &check; |
 [Septentrio AsteRx-RIB](../gps_compass/septentrio_asterx-rib.md) |        AsteRx        | &check; | &check; | &check; | Septentrio dual antenna heading | &check; |
 [Septentrio mosaic-go](../gps_compass/septentrio_mosaic-go.md) | mosaic X5 / mosaic H | &check; | &check; | &check; | Septentrio dual antenna heading | &check; |
+[Sky-Drones SmartAP GPS](../gps_compass/gps_smartap.md) | M8N | HMC5983, IST8310, LIS3MDL | | | |
 [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | F9P |  &cross; | &check; | | &check; |
 [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md) | F9P | &cross; | &check; | &check; | | |
 [Zubax GNSS 2](https://zubax.com/products/gnss_2) | MAX-M8Q | LIS3MDL | | | |
@@ -75,7 +81,7 @@ Instructions for connecting the GPS (and compass, if present) are usually provid
 
 [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers typically have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device).
 
-The [ARK GPS](../uavcan/ark_gps.md), [ARK RTK GPS](../uavcan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
+The [ARK GPS](../dronecan/ark_gps.md), [ARK RTK GPS](../dronecan/ark_rtk_gps.md), [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CUAV C-RTK2](../gps_compass/rtk_gps_cuav_c-rtk.md), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [DroneCAN](../dronecan/README.md).
 
 
 :::warning
@@ -131,37 +137,16 @@ When using GPS for yaw fusion you will need to configure the following parameter
 Parameter | Setting
 --- | ---
 [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) |  The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
-[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | Set bit position 7 "GPS yaw fusion" to `1` (i.e. add 128 to the parameter value).
-
+[EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) | Set bit position 3 "Dual antenna heading" to `1` (i.e. add 8 to the parameter value).
 
 :::tip
 If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
 
-
 ## Compass Configuration
 
 Compass calibration is covered in: [Compass Configuration](../config/compass.md).
-The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#CAL_MAG_ROT_AUTO), calibrate, and prioritise, all connected magnetometers.
-
-Further compass configuration should generally not be required.
-
-:::note
-All external compasses are given the same priority by default, which is higher than the prority shared by all internal compasses.
-:::
-
-### Disable a Compass
-
-As stated above, generally no further configuration should be required.
-
-That said, developers can disable internal compasses if desired using the compass parameters.
-These are prefixed with [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
-
-To disable an internal compass:
-- Use [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to determine which compasses are internal.
-  A compass is internal if `CAL_MAGn_ROT==1`.
-- Then use [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) to disable the compass.
-  This can also be used to change the relative priority of a compass.
+The process is straightforward and will autodetect, [set default rotations](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT), calibrate, and prioritise, all connected magnetometers.
 
 
 ## Developer Information
@@ -169,6 +154,6 @@ To disable an internal compass:
 - GPS/RTK-GPS
   - [RTK-GPS](../advanced/rtk_gps.md)
   - [GPS driver](../modules/modules_driver.md#gps)
-  - [UAVCAN Example](../uavcan/README.md)
+  - [DroneCAN Example](../dronecan/README.md)
 - Compass
-  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (Compasses)
+  - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/magnetometer) (Compasses)

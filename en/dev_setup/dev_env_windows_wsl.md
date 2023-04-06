@@ -1,19 +1,21 @@
-# Windows WSL2-Based Development Environment
+# Windows Development Environment (WSL2-Based)
 
-The following instructions explain how to set up a PX4 development environment on Windows 11, running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
+The following instructions explain how to set up a PX4 development environment on Windows 10 or Windows 11 (preferred), running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).
 
 This environment can be used to build PX4 for:
-* [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
-* [jMAVSim Simulation](../simulation/jmavsim.md)
-* [Gazebo Simulation](../simulation/gazebo.md)
 
-:::note
-This setup can also be used on Windows 10, with some [caveats](#windows-10-gui-support).
+- [Pixhawk and other NuttX-based hardware](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
+- [jMAVSim Simulation](../simulation/jmavsim.md)
+- [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
+
+:::tip
+This setup is supported by the PX4 dev team.
+The environment should in theory be able to build any target that can be built on Ubuntu.
+The list above are those targets that have been tested.
 :::
 
-:::warning
-This setup is currently an [unsupported windows development environment](../advanced/dev_env_unsupported.md).
-We are considering whether, and at what point, this setup might become the _recommended_ Windows development environment.
+:::note
+This setup be used on Windows 10, with some [caveats](#windows-10-gui-support).
 :::
 
 ## Overview
@@ -28,9 +30,10 @@ With this environment developers can:
   QGC for Linux connects automatically to the simulation.
 
 _QGroundControl for Windows_ is additionally required if you need to:
+
 - [Update firmware](#flash-a-flight-control-board) on a real vehicle.
 - Monitor a real vehicle.
-  Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#connect-qgroundcontrol-on-windows-to-wsl-simulation).
+  Note that you can also use it to monitor a simulation, but you must manually [connect to the simulation running in WSL](#qgroundcontrol-on-windows).
 
 
 :::note
@@ -45,12 +48,13 @@ The benefit of WSL2 is that its virtual machine is deeply integrated into Window
 
 ### Windows 10 GUI Support
 
-Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics features will not work. 
-This includes Gazebo and jMAVSim rendered visualization, QGC for Linux running in WSL, `git` gui, etc.
+Windows 10 builds do not yet support GUIs for WSL2 apps, so windowed, graphics features will not work.
+This includes Gazebo Classic and jMAVSim rendered visualization, QGC for Linux running in WSL, `git` gui, etc.
 
 Development is possible as you can still:
-- Build PX4 in WSL2 and flash it to boards using `QGC for Windows`.
-- Run simulations in [headless mode](../simulation/gazebo.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`), and connect using `QGC for Windows`.
+- Build PX4 in WSL2 and flash it to boards using QGC from **Windows**.
+- Run simulations in [headless mode](../sim_gazebo_classic/README.md#headless-mode) (by prefixing the `make` command with `HEADLESS=1`).
+  Connect using QGC on Windows or in WSL.
 
 :::note
 WSL2 GUI support is provided by the [Windows Subsystem for Linux GUI (WSLg)](https://github.com/microsoft/wslg).
@@ -66,6 +70,7 @@ See the link for rollout information.
 
 To install WSL2 with the default Ubuntu distribution on a new installation of Windows 11:
 
+1. Make sure your computer your computer's virtualization feature is enabled in the BIOS. It's usually referred as "Virtualization Technology", "Intel VT-x" or "AMD-V" respectively.
 1. Open _cmd.exe_ as administrator.
    This can be done by pressing the start key, typing `cmd`, right klicking on the _Command prompt_ entry and selecting **Run as administrator**.
 1. Execute the command `wsl --install` to run the installation routine for WSL.
@@ -88,47 +93,61 @@ All operations to install and build PX4 must be done within a WSL Shell (you can
 To open a WSL shell:
 
 1. Open a command prompt:
+
    - Press the Windows **Start** key.
    - Type `cmd` and press **Enter** to open the prompt.
 1. To start WSL and access the WSL shell, execute the command:
+
    ```
    wsl
    ```
 
 :::note
 Enter the following commands to first close the WSL shell, and then shut down WSL:
+
 ```
 exit
 wsl --shutdown
 ````
+
 Alternatively, after entering `exit` you can just close the prompt.
-::: 
+:::
 
 ### Install PX4 Toolchain
 
 Next we download the PX4 source code within the WSL2 environment, and use the normal *Ubuntu installer script* to to set up the developer environment.
-This will install the toolchain for Gazebo simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
+This will install the toolchain for Gazebo Classic simulation, JMAVSim simulation and Pixhawk/NuttX hardware.
 
 To install the development toolchain:
 
 1. [Open a WSL2 Shell](#opening-a-wsl-shell) (if it is still open you can use the same one that was used to install WSL2).
 1. Execute the command `cd ~` to switch to the home folder of WSL for the next steps.
+
    :::warning
    This is important!
    If you work from a location outside of the WSL file system you'll run into issues such as very slow execution and access right/permission errors.
    :::
 
-1. Download PX4 source code using `git` (which is already installed in WSL2):
+1. Download the PX4 source code using `git` (which is already installed in WSL2):
+
    ```bash
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
+
+   :::note
+   The environment setup scripts in the source usually work for recent PX4 releases.
+   If working with an older version of PX4 you may need to [get the source code specific to your release](../contribute/git_examples.md#get-a-specific-release).
+   :::
+
 1. Run the **ubuntu.sh** installer script and acknowledge any prompts as the script progresses:
+
    ```bash
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
 
    :::note
-   This installs tools to build PX4 for Pixhawk, Gazebo and JMAVSim targets.
+   This installs tools to build PX4 for Pixhawk, Gazebo Classic and JMAVSim targets:
+
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
    - Other Linux build targets are untested (you can try these by entering the appropriate commands in [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) into the WSL shell).
    :::
@@ -147,7 +166,7 @@ To install the development toolchain:
    ```
    make px4_sitl
    ```
-   
+
 For more build options see [Building PX4 Software](../dev_setup/building_px4.md).
 
 
@@ -158,7 +177,7 @@ VS Code running on Windows is well integrated with WSL.
 To set up the integration:
 1. [Download](https://code.visualstudio.com/) and install Visual Studio Code (VS Code) on Windows,
 2. Open _VS Code_.
-3. Install the extension called [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (marketplace) 
+3. Install the extension called [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (marketplace)
 4. [Open a WSL shell](#opening-a-wsl-shell)
 5. In the WSL shell, switch to the PX4 folder:
    ```
@@ -169,17 +188,17 @@ To set up the integration:
    code .
    ```
    This will open the IDE fully integrated with the WSL shell.
-   
+
    Make sure you always open the PX4 repository in the Remote WSL mode.
 
 7. Next time you want to develop WSL2 you can very easily open it again in Remote WSL mode by selecting **Open Recent** (as shown below).
    This will start WSL for you.
 
    ![](../../assets/toolchain/vscode/vscode_wsl.png)
-   
+
    Note however that the IP address of the WSL virtual machine will have changed, so you won't be able to monitor simulation from QGC for Windows (you can still monitor using QGC for Linux)
-   
-   
+
+
 
 ## QGroundControl
 
@@ -217,26 +236,17 @@ Install [QGroundControl on Windows](https://docs.qgroundcontrol.com/master/en/ge
 These steps describe how you can connect to the simulation running in the WSL:
 
 1. [Open a WSL shell](#opening-a-wsl-shell)
-2. Check the IP address of the WSL virtual machine by running the command `ip address`:
+2. Check the IP address of the WSL virtual machine by running the command `ip addr | grep eth0`:
    ```bash
-   $ ip address
-   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-       link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-       inet 127.0.0.1/8 scope host lo
-          valid_lft forever preferred_lft forever
-       inet6 ::1/128 scope host
-          valid_lft forever preferred_lft forever
-   ...
+   $ ip addr | grep eth0
+
    6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-       link/ether 00:15:5d:fb:f5:10 brd ff:ff:ff:ff:ff:ff
-       inet 172.28.202.135/20 brd 172.28.207.255 scope global eth0
-          valid_lft forever preferred_lft forever
-       inet6 fe80::215:5dff:fefb:f510/64 scope link
-          valid_lft forever preferred_lft forever
+       inet 172.18.46.131/20 brd 172.18.47.255 scope global eth0
    ```
-   Copy the address of the `eth` interface to the clipboard. In this case: `172.28.202.135`.
+   Copy the first part of the `eth0` interface `inet` address to the clipboard.
+   In this case: `172.18.46.131`.
 3. In QGC go to **Q > Application Settings > Comm Links**
-4. Add a UDP Link called "WSL" to port 18570 of the IP address copied before.
+4. Add a UDP Link called "WSL" to port `18570` of the IP address copied above.
 5. Save it and connect to it.
 
 :::note
@@ -245,7 +255,7 @@ You will have to update the WSL comm link in QGC every time WSL restarts (becaus
 
 ## Flash a Flight Control Board
 
-Flashing a custom built PX4 binary has to be done using QGroundControl for Windows since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
+Flashing a custom built PX4 binary has to be done using [QGroundControl for Windows](#qgroundcontrol-on-windows) since WSL2 does not natively offer direct access to serial devices like Pixhawk boards.
 
 Do the following steps to flash your custom binary built in WSL:
 

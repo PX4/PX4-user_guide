@@ -11,14 +11,16 @@ PX4는 시뮬레이션 대상과 하드웨어 대상을 콘솔이나 IDE에서 �
 
 ## PX4 소스 코드 다운로드
 
-PX4 소스 코드는 Github의 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소에 저장되어 있습니다. *최신* 버전을 컴퓨터에 다운로드하려면 터미널에 다음 명령을 실행하십시오.
+PX4 소스 코드는 Github의 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소에 저장되어 있습니다.
+
+To get the *very latest* ("main") version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-이것이 최신 코드를 빌드하기 위해 필요합니다. [GIT 예제 > PX4에 코드 기여](../contribute/git_examples.md#contributing_code)는 PX4에 기여하기 위해 git을 사용 방법을 설명합니다.
+이것이 최신 코드를 빌드하기 위해 필요합니다. If needed you can also [get the source code specific to a particular release](../contribute/git_examples.md#get-a-specific-release). [GIT Examples](../contribute/git_examples.md) provides a lot more information working with releases and contributing to PX4.
 :::
 
 ## 최초 빌드 (jMAVSim 시뮬레이션 활용)
@@ -51,9 +53,10 @@ Flying the simulation with the ground control station is closer to the real oper
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). These are also started with *make* - e.g.
+:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo](../sim_gazebo_gz/README.md), [Gazebo Classic](../sim_gazebo_classic/README.md) and [AirSim](../simulation/airsim.md). These are also started with *make* - e.g.
+
 ```
-make px4_sitl gazebo
+make px4_sitl gazebo-classic
 ```
 NuttX 또는 Pixhawk 기반 보드용으로 빌드하려면, **PX4-Autopilot** 디렉토리로 이동한 다음 보드용 빌드 타겟으로 `make`를 호출하십시오.
 
@@ -76,21 +79,25 @@ A successful run will end with similar output to:
 ```
 
 The first part of the build target `px4_fmu-v4` indicates the firmware for a particular flight controller hardware. The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
-* [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
-* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
-* [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
-* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
-* [Pixracer](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
-* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
-* [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
-* [Pixhawk 2 (Cube Black)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (2MB Flash 지원)
-* [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
-* [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
-* [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning 이 보드(예: [CI/docker](../test_and_ci/docker.md)에서 사용하는 것과 동일)를 빌드하거나 빌드에서 모듈을 제거하려면 지원되는 GCC 버전을 **반드시** 사용하여야 합니다. PX4가 보드의 1MB 플래시 제한에 가깝기 때문에, 지원되지 않는 GCC로 빌드가 실패할 수 있습니다.
-:::
-* 2MB 플래시가 있는 Pixhawk 1: `make px4_fmu-v3_default`
+
+- [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
+- [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md): `make px4_fmu-v6c_default`
+- [Holybro Pix32 v6 (FMUv6C)](../flight_controller/holybro_pix32_v6.md): `make px4_fmu-v6c_default`
+- [Holybro Pixhawk 5X (FMUv5X)](../flight_controller/pixhawk5x.md): `make px4_fmu-v5x_default`
+- [Pixhawk 4 (FMUv5)](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
+- [Pixhawk 4 Mini (FMUv5)](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+- [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+- [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+- [Pixracer (FMUv4)](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
+- [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
+- [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
+- [Pixhawk 2 (Cube Black) (FMUv3)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
+- [mRo Pixhawk (FMUv3)](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
+- [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
+- [Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
+- [Dropix (FMUv2)](../flight_controller/dropix.md): `make px4_fmu-v2_default`
+- [Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. PX4가 보드의 1MB 플래시 제한에 가깝기 때문에, 지원되지 않는 GCC로 빌드가 실패할 수 있습니다. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
+- 2MB 플래시가 있는 Pixhawk 1: `make px4_fmu-v3_default`
 
 Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
 
@@ -208,7 +215,7 @@ You may need to install it using:
 
 You should be able to fix this by explicitly installing the dependencies as shown:
 ```
-pip3 install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+pip3 install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
 
@@ -225,7 +232,7 @@ make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
 
 - **공급업체:** 보드 제조업체: `px4`, `aerotenna`, `airmind`, `atlflight` , `auav`, `beaglebone`, `intel`, `nxp` 등 Pixhawk 시리즈 보드의 공급업체 이름은 `px4`입니다.
 - **모델:** *보드 모델* "모델": `sitl`, `fmu-v2`, `fmu-v3< /2>, <code>fmu-v4`, `fmu-v5`, `navio2` 등
-- **변종:** 특정 구성을 나타냅니다. 예: `rtps`, `lpe`, `기본` 구성에 없는 구성요소를 포함합니다. 가장 일반적으로 이것은 `기본값`이며 생략 가능합니다.
+- **VARIANT:** Indicates particular configurations: e.g. `bootloader`, `cyphal`, which contain components that are not present in the `default` configuration. 가장 일반적으로 이것은 `기본값`이며 생략 가능합니다.
 
 :::tip
 You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
@@ -236,26 +243,26 @@ make list_config_targets
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
-- **VIEWER:** 이것은 `gazebo`, `jmavsim`, `none`을 실행하고 연결할 시뮬레이터("뷰어")입니다. <!-- , ?airsim -->
+- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gz`, `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
 
 :::tip
-`none`은 PX4를 시작하고 시뮬레이터(jmavsim, 전망대 또는 기타 시뮬레이터)를 기다리면, 사용할 수 있습니다. 예를 들어, `make px4_sitl none_iris`는 시뮬레이터 없이(그러나 홍채 기체가 있는) PX4를 시작합니다.
-:::
+`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, Gazebo, Gazebo Classic, or some other simulator). 예를 들어, `make px4_sitl none_iris`는 시뮬레이터 없이(그러나 홍채 기체가 있는) PX4를 시작합니다. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
 - **모델:** 사용할 *기체* 모델(예: `iris`(*기본*), `rover` , `tailsitter` 등), 시뮬레이터에 의해 로드됩니다. 환경 변수 `PX4_SIM_MODEL`은 선택한 모델로 설정되며, 이 모델은 [시작 스크립트](../simulation/README.md#startup-scripts)에서 적절한 매개변수 선택합니다.
 - **디버거:** 사용할 디버거: `없음`(*기본*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 자세한 내용은 [시뮬레이션 디버깅](../debug/simulation_debugging.md)을 참고하십시오.
-- **WORLD:** (Gazebo 만). 로드되는 세계([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds))를 설정합니다. 기본값은 [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world)입니다. 자세한 내용은 [전망대 > 특정 세계 로드](../simulation/gazebo.md#set_world)를 참고하십시오.
+- **WORLD:** (Gazebo Classic only). Set the world ([PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo/worlds](https://github.com/PX4/PX4-SITL_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo Classic > Loading a Specific World](../sim_gazebo_classic/README.md#set_world).
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
+
 ```sh
 make px4_sitl list_vmd_make_targets
 ```
 Notes:
 
 Notes:
-- `CONFIGURATION_TARGET`과 `VIEWER_MODEL_DEBUGGER`에 있는 대부분의 값에는 기본값이 있으므로 선택사항입니다. 예를 들어, `gazebo`는 `gazebo_iris` 또는 `gazebo_iris_none`과 같습니다.
-- 두 개의 다른 설정 사이에 기본값을 지정하려는 경우에는, 세 개의 밑줄을 사용할 수 있습니다. 예를 들어, `gazebo___gdb`는 `gazebo_iris_gdb`와 동일합니다.
-- `VIEWER_MODEL_DEBUGGER`에 `없음` 값을 사용하여 PX4를 시작하고 시뮬레이터를 실행할 수 있습니다. 예를 들어 `make px4_sitl_default none`을 사용하여 PX4를 시작하고, `./Tools/jmavsim_run.sh -l`을 사용하여 jMAVSim을 시작합니다.
+- `CONFIGURATION_TARGET`과 `VIEWER_MODEL_DEBUGGER`에 있는 대부분의 값에는 기본값이 있으므로 선택사항입니다. For example, `gazebo-classic` is equivalent to `gazebo-classic_iris` or `gazebo-classic_iris_none`.
+- 두 개의 다른 설정 사이에 기본값을 지정하려는 경우에는, 세 개의 밑줄을 사용할 수 있습니다. For example, `gazebo-classic___gdb` is equivalent to `gazebo-classic_iris_gdb`.
+- `VIEWER_MODEL_DEBUGGER`에 `없음` 값을 사용하여 PX4를 시작하고 시뮬레이터를 실행할 수 있습니다. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/simulation/jmavsim/jmavsim_run.sh -l`.
 
 
 The `VENDOR_MODEL_VARIANT` options map to particular *px4board* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.px4board** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.px4board](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.px4board)).

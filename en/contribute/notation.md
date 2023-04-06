@@ -50,7 +50,7 @@ $$L$$ | Lift force.
 $$g$$ | Gravity.
 $$l,m,n$$ | Moments around coordinate axis x,y and z.
 $$\boldsymbol{\mathrm{M}}$$ | Moment vector $\boldsymbol{\mathrm{M}} = [l \quad m \quad n]^T$
-$$M$$ | Mach number. Can be neglected for scale aircrafts.
+$$M$$ | Mach number. Can be neglected for scale aircraft.
 $$\boldsymbol{\mathrm{q}}$$ | Vector part of Quaternion.
 $$\boldsymbol{\mathrm{\tilde{q}}}$$ | Hamiltonian attitude quaternion. $\boldsymbol{\mathrm{\tilde{q}}} = (q_0, q_1, q_2, q_3) = (q_0, \boldsymbol{\mathrm{q}})$.<br> $\boldsymbol{\mathrm{\tilde{q}}}{}$ describes the attitude relative to the local frame $\ell{}$. To represent a vector in local frame given a vector in body frame, the following operation can be used:  $\boldsymbol{\mathrm{\tilde{v}}}^\ell = \boldsymbol{\mathrm{\tilde{q}}} \, \boldsymbol{\mathrm{\tilde{v}}}^b \, \boldsymbol{\mathrm{\tilde{q}}}^*{}$ (or $\boldsymbol{\mathrm{\tilde{q}}}^{-1}{}$ instead of $\boldsymbol{\mathrm{\tilde{q}}}^*{}$ if $\boldsymbol{\mathrm{\tilde{q}}}{}$ is not unitary). $\boldsymbol{\mathrm{\tilde{v}}}{}$ represents a *quaternionized* vector: $\boldsymbol{\mathrm{\tilde{v}}} = (0,\boldsymbol{\mathrm{v}})$
 $$\boldsymbol{\mathrm{R}}_\ell^b$$ | Rotation matrix. Rotates a vector from frame $\ell{}$ to frame $b{}$. $$\boldsymbol{\mathrm{v}}^b = \boldsymbol{\mathrm{R}}_\ell^b \boldsymbol{\mathrm{v}}^\ell$$

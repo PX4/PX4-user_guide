@@ -51,7 +51,8 @@ make px4_sitl_nolockstep flightgear_rascal-electric
 ```
 
 :::note
-이 변종에는 최신 FlightGear 코드가 필요합니다(적어도 2020년 4월 26일부터 출처). 그렇지 않으면, 전기 엔진의 예기치 않은 정의로 인하여 FlightGear가 충돌합니다.
+이 변종에는 최신 FlightGear 코드가 필요합니다(적어도 2020년 4월 26일부터 출처).
+그렇지 않으면, 전기 엔진의 예기치 않은 정의로 인하여 FlightGear가 충돌합니다.
 :::
 
 ### Rascal 110 JSBsim
@@ -72,6 +73,7 @@ make px4_sitl_nolockstep flightgear_tf-g1
 
 ![FlightGear의 TF-G1](../../assets/simulation/flightgear/vehicles/tf-g1.jpg)
 
+
 <a id="ugv"></a>
 
 ## Ackerman 차량 (UGV/Rover)
@@ -85,6 +87,7 @@ make px4_sitl_nolockstep flightgear_tf-r1
 ```
 
 ![FlightGear의 TF-R1 로버](../../assets/simulation/flightgear/vehicles/tf-r1_towing.jpg)
+
 
 <a id="quadrotor"></a>
 
@@ -105,7 +108,7 @@ make px4_sitl_nolockstep flightgear_tf-r1
                 ["5","/controls/flight/aileron","-1"],
                 ["7","/controls/flight/elevator","-1"],
                 ["2","/controls/flight/rudder","1"],
-                ["4","/controls/engines/engine/throttle","1"]
+                ["4","/controls/engines/engine/throttle","1"] 
                 ]
 }
 ```

@@ -21,15 +21,15 @@ To start multiple instances (on separate ports):
    ```
 1. 启动第一个实例: `./Tools/jmavsim_run.sh`
    ```
-   ./Tools/jmavsim_run.sh -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -l
    ```
 1. 启动后续实例，并为该实例指定 *仿真* UDP 端口（所有命令应在同一行输入，以空格键隔开，完成输入后直接回车运行，此时由于所有实例的启动位置都相同所以无法分辨启动的实例个数，可通过查看端口号进行查询）： `./Tools/jmavsim_run.sh -p 14561` 端口号应设置为 `14560+i` for `i` in `[0, N-1]`。
    ```
-   ./Tools/jmavsim_run.sh -p 4561 -l
+   ./Tools/simulation/jmavsim/jmavsim_run.sh -p 4560 -l
    ```
    端口号应该被设置为 `4560+i` ， `i` 的范围为 `[0, N-1]` 。
 
-*QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances). The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instnaces (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.
+*QGroundControl* should automatically connect to all the new vehicle instances (all GCS traffic is sent to PX4's remote UDP port: `14550` from all instances). The vehicle that is currently being controlled is displayed in the application to bar; you can select this vehicle text to display a selection list of all of the (simulated) connected vehicle instances (`Vehicle 1`, `Vehicle 2`, etc.) and choose a new vehicle to control.
 
 Developer APIs such as *MAVSDK* or *MAVROS* can connect to individual instances by listening on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`. Additional instances *all* connect to port `14549`.
 

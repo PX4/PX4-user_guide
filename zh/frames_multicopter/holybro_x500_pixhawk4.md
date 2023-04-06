@@ -1,11 +1,14 @@
 # Holybro X500 + Pixhawk4 Build
 
+:::note
+Holybro initially supplied this kit with a [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md). This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
 ## Key information
 
-- **Full Kit:** [Holybro X500 Kit](https://shop.holybro.com/x500-kit_p1180.html)
-- **Frame:** [Holybro X500](https://shop.holybro.com/x500-frame-kit_p1178.html)
+- **Full Kit:** [Holybro X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 - **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
 - **Assembly time (approx.):** 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
@@ -13,14 +16,14 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ## Bill of materials
 
-The Holybro [X500 Kit](https://shop.holybro.com/x500-kit_p1180.html) includes almost all the required components:
+The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2) includes almost all the required components:
 
 * [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
-* [Pixhawk 4 GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)
-* [Power Management - PM07](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
-* [Holybro Motors - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
-* [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
-* [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
+* [Holybro M8N GPS](https://holybro.com/collections/gps/products/m8n-gps)
+* [Power Management - PM07](../power_module/holybro_pm07_pixhawk4_power_module.md)
+* Holybro Motors - 2216 KV880 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * Battery Strap
 * Power and Radio Cables
 * Wheelbase - 500 mm
@@ -36,15 +39,15 @@ This section lists all hardware for the frame and the autopilot installation.
 | Item                         | 描述                                               | Quantity |
 | ---------------------------- | ------------------------------------------------ | -------- |
 | Bottom plate                 | Carbon fiber (2mm thick)                         | 16       |
-| Top plate                    | Carbon fiber (1.5mm thick)                       | 4        |
+| Top plate                    | Carbon fiber (1.5mm thick)                       | 16       |
 | Arm                          | Carbon fiber tube (Diameter: 16mm length: 200mm) | 4        |
 | Landing gear - Vertical pole | Carbon fiber tube + engineering plastic          | 2        |
-| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam   | 1        |
-| Motor base                   | Consists of 6 parts and 4 screws 4 nuts          | 1        |
+| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam   | 2        |
+| Motor base                   | Consists of 6 parts and 4 screws 4 nuts          | 4        |
 | Slide bar                    | Diameter: 10mm length: 250mm                     | 2        |
-| Battery mounting board       | Thickness: 2mm                                   | 12       |
-| Battery pad                  | 3mm Silicone sheet black                         | 1        |
-| Platform board               | Thickness: 2mm                                   | 8        |
+| Battery mounting board       | Thickness: 2mm                                   | 16       |
+| Battery pad                  | 3mm Silicone sheet black                         | 16       |
+| Platform board               | Thickness: 2mm                                   | 16       |
 | Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                  | 8        |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/whats_inside_x500_labeled.jpg)
@@ -53,7 +56,7 @@ This section lists all hardware for the frame and the autopilot installation.
 
 | Items                                                      | Quantity |
 | ---------------------------------------------------------- | -------- |
-| Pixhawk 4                                                  | 1        |
+| Pixhawk 4                                                  | 16       |
 | Pixhawk4 GPS Module                                        | 1        |
 | Power Management PM07 (with pre-soldered ESC power cables) | 2        |
 | Motors 2216 KV880（V2 Update)                               | 3        |
@@ -105,7 +108,7 @@ Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for a
 
    _Figure 5_: Connect motors
 
-1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out". Make sure you connect the motor ESC PWM wires in the correct order. Refer to Figure 7 for airframe motor number and connect to the corrsponding number on the PM07 board.
+1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out". Make sure you connect the motor ESC PWM wires in the correct order. Refer to Figure 7 for airframe motor number and connect to the corresponding number on the PM07 board.
 
    ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _Figure 7_: ESC power module and signal wiring
 
@@ -191,9 +194,8 @@ That's it. The fully assembled kit is shown below:
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
-<a id="configure"></a>
 
-## 组装
+## PX4 Configuration
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
@@ -201,27 +203,41 @@ Full instructions for installing and configuring PX4 can be found in [Basic Conf
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-First update the firmware and airframe:
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md) - You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**) ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
+First update the firmware, airframe, and actuator mappings:
+
+- [Firmware](../config/firmware.md)
+- [Airframe](../config/airframe.md)
+
+  You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+
+  ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/qgc_airframe_holybro_s500.png)
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
-* [固件](../config/flight_controller_orientation.md)
-* [机架](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+
+- [固件](../config/flight_controller_orientation.md)
+- [机架](../config/compass.md)
+- [Accelerometer](../config/accelerometer.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md)
+- [Radio Setup](../config/radio.md)
+- [Flight Modes](../config/flight_mode.md)
 
 Ideally you should also do:
-* [传感器方向](../advanced_config/esc_calibration.md)
-* [罗盘](../config/battery.md)
-* [加速度计 Accelerometer](../config/safety.md)
+
+- [传感器方向](../advanced_config/esc_calibration.md)
+- [罗盘](../config/battery.md)
+- [加速度计 Accelerometer](../config/safety.md)
 
 
 ## Tuning
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build. For instructions on how, see: [Multicopter Basic PID Tuning](../config_mc/pid_tuning_guide_multicopter_basic.md).
+Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## 调试
 

@@ -19,14 +19,14 @@ dir_name='.'
 
 include_dirs = set(['en','zh','ko']) #update for new language builds.
 
-my_parser = argparse.ArgumentParser(description='Generate sitemap for all markdown files in directory (default to master for output)')
+my_parser = argparse.ArgumentParser(description='Generate sitemap for all markdown files in directory (default to main for output)')
 # Add the arguments                      
 my_parser.add_argument('-v',
                        '--version',
                        action='store',
                        type=str,
                        #nargs=1,
-                       default='master')
+                       default='main')
 my_parser.add_argument('-d',
                        '--date',
                        action='store_true',

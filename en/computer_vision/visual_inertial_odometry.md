@@ -33,7 +33,7 @@ Attach the camera to the companion computer and mount it to the frame:
 
 - Connect the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) using the supplied cable.
 - Mount the camera with lenses pointing down if at all possible (default).
-- The camera is very senstive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+- The camera is very sensitive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
 
 
 ### ROS/VIO Setup
@@ -77,7 +77,7 @@ To setup the Bridge, ROS and PX4:
 - Verify the connection to the flight controller.
 
   :::tip
-  You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+  You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
   :::
 - [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
 
@@ -90,8 +90,8 @@ The following parameters must be set to use external position information with E
 
 Parameter | Setting for External Position Estimation
 --- | ---
-[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* accoring to your desired fusion model.
-[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | Set to *Vision* to use the vision a primary source for altitude estimation.
+[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* according to your desired fusion model.
+[EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) | Set to *Vision* to use the vision as the reference sensor for altitude estimation.
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY).
 [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor with respect to the vehicles body frame.
 
@@ -108,7 +108,7 @@ For more detailed/additional information, see: [ECL/EKF Overview & Tuning > Exte
 In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
 
 Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers.
-In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific.
+In reality, this may need some empirical tuning because delays in the communication chain are very setup-specific.
 It is rare that a system is setup with an entirely synchronised chain!
 
 A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates:
@@ -129,7 +129,7 @@ Perform the following checks to verify that VIO is working properly *before* you
 
 * Set the PX4 parameter `MAV_ODOM_LP` to 1.
   PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages.
-  You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)
+  You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)
 * Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
   * At this point the body frame is aligned with the reference frame of the external pose system.
   * If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still has a pitch or roll offset.
@@ -167,7 +167,7 @@ If it is connecting properly common problems/solutions are:
 
 - **Problem:** I get toilet-bowling when VIO is enabled.
   - Make sure the orientation of the camera matches the transform in the launch file.
-    Use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
+    Use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
 
 - **Problem:** I want to use vision position to do loop closing, and also want to run GPS.
   - This is really difficult, because when they disagree it will confuse the EKF.

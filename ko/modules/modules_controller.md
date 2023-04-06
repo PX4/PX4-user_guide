@@ -31,6 +31,7 @@ ODULE_NAM <command> [arguments...]
 ### 구현
 제어 대기 시간을 줄이기 위하여, 모듈은 IMU 드라이버에서 게시한 자이로 주제를 직접 폴링합니다.
 
+
 <a id="airship_att_control_usage"></a>
 
 ### 사용법
@@ -49,6 +50,7 @@ airship_att_control <command> [arguments...]
 
 ### 설명
 이것은 모든 모드에 대한 설정값 생성을 구현합니다. 차량의 현재 모드 상태를 컨트롤러에 대한 입력 및 출력 설정값으로 사용합니다.
+
 
 <a id="flight_mode_manager_usage"></a>
 
@@ -69,6 +71,7 @@ flight_mode_manager <command> [arguments...]
 ### 설명
 fw_att_control은 고정익 자세 컨트롤러입니다.
 
+
 <a id="fw_att_control_usage"></a>
 
 ### 사용법
@@ -82,18 +85,40 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## fw_pos_control_l1
-소스: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/fw_pos_control_l1)
+## fw_path_navigation
+Source: [modules/fw_path_navigation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_path_navigation)
 
 
 ### 설명
-fw_pos_control_l1은 고정익 위치 컨트롤러입니다.
+fw_path_navigation is the fixed wing path navigation.
 
-<a id="fw_pos_control_l1_usage"></a>
+
+<a id="fw_path_navigation_usage"></a>
 
 ### 사용법
 ```
-fw_pos_control_l1 <command> [arguments...]
+fw_path_navigation <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
+## fw_rate_control
+Source: [modules/fw_rate_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_rate_control)
+
+
+### 설명
+fw_rate_control is the fixed-wing rate controller.
+
+
+<a id="fw_rate_control_usage"></a>
+
+### 사용법
+```
+fw_rate_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode
@@ -114,6 +139,7 @@ fw_pos_control_l1 <command> [arguments...]
 간행물: 구현된 쿼터니언 태도 제어를 문서화, 제목: 비선형 쿼드로콥터 자세 제어(2013), 저자: Dario Brescianini, Markus Hehn and Raffaello D'Andrea 동적 시스템 및 제어 연구소(IDSC), ETH 취리히
 
 https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
+
 
 <a id="mc_att_control_usage"></a>
 
@@ -159,6 +185,7 @@ mc_pos_control <command> [arguments...]
 
 컨트롤러에는 각속도 오류에 대한 PID 루프가 있습니다.
 
+
 <a id="mc_rate_control_usage"></a>
 
 ### 사용법
@@ -184,6 +211,7 @@ mc_rate_control <command> [arguments...]
 
 Navigator는 위치 설정점 트리플렛(`position_setpoint_triplet_s`)을 게시한 다음, 위치 컨트롤러에서 사용합니다.
 
+
 <a id="navigator_usage"></a>
 
 ### 사용법
@@ -207,7 +235,7 @@ navigator <command> [arguments...]
 ### 설명
 L1 컨트롤러를 사용하여 그라운드 로버의 위치를 제어합니다.
 
-IMU_GYRO_RATEMAX에서 `actuator_controls_0` 메시지를 게시합니다.
+Publishes `vehicle_thrust_setpoint (only in x) and vehicle_torque_setpoint (only yaw)` messages at IMU_GYRO_RATEMAX.
 
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
@@ -223,6 +251,7 @@ rover_pos_control start
 rover_pos_control status
 rover_pos_control stop
 ```
+
 
 <a id="rover_pos_control_usage"></a>
 
@@ -243,7 +272,7 @@ rover_pos_control <command> [arguments...]
 ### 설명
 무인수중선(UUV)의 자세를 제어합니다.
 
-일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
+Publishes `vehicle_thrust_setpont` and `vehicle_torque_setpoint` messages at a constant 250Hz.
 
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
@@ -258,6 +287,7 @@ uuv_att_control start
 uuv_att_control status
 uuv_att_control stop
 ```
+
 
 <a id="uuv_att_control_usage"></a>
 
@@ -276,7 +306,7 @@ uuv_att_control <command> [arguments...]
 
 
 ### 설명
-무인수중선(UUV)의 자세를 제어합니다. 일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
+무인수중선(UUV)의 자세를 제어합니다. Publishes `attitude_setpoint` messages.
 ### 구현
 현재 이 구현은 일부 모드만 지원합니다.
  * 완전 수동: 롤, 피치, 요 및 스로틀 컨트롤이 액추에이터에 직접 전달됩니다.

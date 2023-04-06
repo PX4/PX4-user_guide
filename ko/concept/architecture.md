@@ -8,6 +8,7 @@ PX4는 두 가지 주요 레이어로 구성됩니다. [비행 스택](#flight-s
 - 통신은 비동기 메시지 전달에 의해 수행됩니다.
 - 시스템은 다양한 작업 부하를 처리할 수 있습니다.
 
+
 <a id="architecture"></a>
 
 ## 고급 소프트웨어 아키텍처
@@ -61,7 +62,8 @@ again. -->
 
 **콘트롤러**는 설정값과 측정값 또는 추정된 상태(프로세스 변수)를 입력으로 사용합니다. 설정값과 일치하도록 프로세스 변수 값을 조정하는 것이 목표입니다. 출력은 해당 설정점에 도달하기 위한 수정입니다. 예를 들어, 위치 콘트롤러는 위치 설정값을 입력으로 사용하고, 프로세스 변수는 현재 추정된 위치이며, 출력은 차량을 목표 위치로 이동시키는 자세와 추력 설정값입니다.
 
-**믹서**는 강제 명령(예: 우회전)을 받아 개별 모터 명령으로 변환하는 동시에, 일부 제한을 초과하지 않도록 합니다. 이 변환은 차량 유형에 따라 차이가 나며, 무게 중심에 대한 모터 배열 또는 차량의 회전 관성과 같은 다양한 요인에 의해 결정됩니다.
+A **mixer** takes force commands (such as "turn right") and translates them into individual motor commands, while ensuring that some limits are not exceeded. 이 변환은 차량 유형에 따라 차이가 나며, 무게 중심에 대한 모터 배열 또는 차량의 회전 관성과 같은 다양한 요인에 의해 결정됩니다.
+
 
 <a id="middleware"></a>
 
@@ -100,7 +102,7 @@ PX4는 POSIX-API(Linux, macOS, NuttX 또는 QuRT 등)를 제공하는 다양한 
   작업 대기열에서 모듈을 실행할 때의 이점은 RAM을 덜 사용하고 잠재적으로 작업 전환이 더 적은 것입니다. 단점은 *작업 대기열 작업*이 메시지를 잠자기 또는 폴링하거나 차단 IO(예: 파일 읽기)를 수행할 수 없는 것입니다. 장기 실행 작업(과중한 계산 수행)은 잠재적으로 별도의 작업 또는 최소한 별도의 작업 대기열에서 실행되어야 합니다.
 
 :::note
-작업 대기열에서 실행 중인 작업은 [`uorb top`](../modules/modules_communication.md#uorb)에 표시되지 않습니다(작업 대기열 자체만 볼 수 있음 - 예: `wq:lp_default`). 모든 활성 작업 대기열 항목을 표시하려면, [`work_queue status`](../modules/modules_system.md#work-queue)를 사용하십시오.
+Tasks running on a work queue do not show up in [`top`](../modules/modules_command.md#top) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). 모든 활성 작업 대기열 항목을 표시하려면, [`work_queue status`](../modules/modules_system.md#work-queue)를 사용하십시오.
 :::
 
 ### 백그라운드 작업

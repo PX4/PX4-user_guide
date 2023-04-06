@@ -13,24 +13,21 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 
 ## 요약
 
-* 메인 FMU 프로세서: STM32F765 
+* 메인 FMU 프로세서: STM32F765
   * 32 비트 Arm® Cortex®-M7, 216MHz, 2MB 메모리, 512KB RAM
-* IO 프로세서: STM32F100 
+* IO 프로세서: STM32F100
   * 32 비트 Arm® Cortex®-M3, 24MHz, 8KB SRAM
-
 * 내장 센서 :
-  
   * 가속도계/자이로스코프 : ICM-20689
   * 가속도계/자이로스코프 : BMI055
   * 자력계 : IST8310
   * 기압계: MS5611
 
 * 인터페이스:
-  
   * PWM 출력 8-14개(IO 6개, FMU 8개)
   * FMU의 전용 PWM/캡처 입력 3 개
   * CPPM 전용 RC 입력
-  * PPM 및 S.Bus 전용 RC 입력 
+  * PPM 및 S.Bus 전용 RC 입력
   * 아날로그/PWM RSSI 입력
   * PWM Servo 출력
   * 범용 시리얼 포트 5개
@@ -38,26 +35,27 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
   * SPI 버스 4개
   * 직렬 ESC가 있는 CANBus 2 개
   * 배터리 2 개의 전압 및 전류에 대한 아날로그 입력
-* 전원 시스템 : 
+* 전원 시스템 :
   * 전원: 4.3~5.4V
   * USB 입력: 4.75~5.25V
   * 서보 전원 입력: 0~36V
-* 중량 및 크기: 
+* 중량 및 크기:
   * 중량: 90g
-  * 크기: 44x84x12mm 
-* 기타 특징: 
+  * 크기: 44x84x12mm
+* 기타 특징:
   * 작동 온도: -20 ~ 80°c (측정치)
 
-## 구매처
+
+## Where to Buy
 
 [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz)에서 주문하십시오.
 
-## 연결 
+## 연결
 
 ![CUAV V5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
-:::warning RCIN
-포트는 RC 수신기의 전원 공급으로 제한되며, 전원에 연결할 수 없습니다.
+:::warning
+RCIN 포트는 RC 수신기의 전원 공급으로 제한되며, 전원에 연결할 수 없습니다.
 :::
 
 ## 정격 전압
@@ -71,9 +69,8 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 **정상 작동 최대 정격 전압**
 
 이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야 합니다.
-
 1. **POWER1**과 **POWER2** 입력 (4.3V ~ 5.4V)
-2. **USB** 입력 (4.75V ~ 5.25V)
+1. **USB** 입력 (4.75V ~ 5.25V)
 
 ## 펌웨어 빌드
 
@@ -81,9 +78,9 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 :::
 
 이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
-
-    make px4_fmu-v5_default
-    
+```
+make px4_fmu-v5_default
+```
 
 ## 디버그 포트
 
@@ -93,6 +90,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 
 ![CUAV v5 디버그](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
+
 | 핀 | CUAV v5 디버그 |
 | - | ----------- |
 | 1 | GND         |
@@ -101,6 +99,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 | 4 | UART7_RX    |
 | 5 | UART7_TX    |
 | 6 | VCC         |
+
 
 ## 시리얼 포트 매핑
 
@@ -114,7 +113,7 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 | UART7  | /dev/ttyS5 | 디버깅 콘솔                     |
 | UART8  | /dev/ttyS6 | PX4IO                      |
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## 주변 장치
 
@@ -122,12 +121,13 @@ This flight controller has been [discontinued](../flight_controller/autopilot_ex
 * [텔레메트리 라디오 모듈](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
 * [거리계/거리 센서](../sensor/rangefinders.md)
 
+
 ## 지원 플랫폼 및 기체
 
 일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. 지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
 
-## 추가 정보
 
-* [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-* [CUAV V5 문서](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html) 
-* [CUAV Github](https://github.com/cuav)
+## 추가 정보
+- [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+- [CUAV V5 문서](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html)
+- [CUAV Github](https://github.com/cuav) 

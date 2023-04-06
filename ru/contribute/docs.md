@@ -4,8 +4,8 @@ Contributions to the PX4 User Guide are very welcome; from simple fixes to spell
 
 This topic explains how to make and test changes. Towards the end there is a basic style guide.
 
-::: tip
-Note You will need a (free) [Github](http://github.com) account to contribute to the guides.
+:::tip
+Note You will need a (free) [Github](https://github.com/) account to contribute to the guides.
 :::
 
 <a id="github_changes" ></a>
@@ -23,6 +23,7 @@ To edit an existing page:
 1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a *pull request*.
 
 The documentation team will review the request and either merge it or work with you to update it.
+
 
 <a id="big_changes" ></a>
 
@@ -43,7 +44,7 @@ To get the library(s) sources onto your local computer you will need to use the 
 
 1. Download git for your computer from [https://git-scm.com/downloads](https://git-scm.com/downloads)
 1. [Sign up](https://github.com/join) for Github if you haven't already
-1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/px4_user_guide) on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
+1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/PX4-user_guide) on Github ([instructions here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
 1. Clone (copy) your forked repository to your local computer:
    ```sh
    cd ~/wherever/
@@ -117,7 +118,7 @@ Build the library locally to test that any changes you have made have rendered p
    yarn docs:buildwin
    ```
 
-::: tip
+:::tip
 Use `yarn docs:dev` to preview changes *as you make them* (documents are updated and served very quickly). Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`.
 :::
 
@@ -136,7 +137,7 @@ In overview:
 * All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
   - This makes linking easier because other pages and images are always as the same relative levels
 * The _structure_ of the book is defined in **SUMMARY.md**
-  - If you add a new page to the guide you must also add an entry to this file! :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js)).
+  - If you add a new page to the guide you must also add an entry to this file! :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/main/.vuepress/get_sidebar.js)).
 :::
 * Images must be stored in a sub folder of **/assets**. This is two folders down from content folders, so if you add an image you will reference it like:
   ```
@@ -184,7 +185,7 @@ Some of the main categories are:
   - "Experimental" work that requires developer expertise to reproduce.
 - Flying: content related to flying a standard vehicle (flight modes, arming, taking off, landing)
 - Basic configuration: Configuration that every vehicle will need to do
-- Advanced configuration: Configration that is specific to a vehicle type, or some segment of users.
+- Advanced configuration: Configuration that is specific to a vehicle type, or some segment of users.
 - Peripherals: Documentation on different hardware that can be used.
   - This also includes setup and configuration information for hardware that isn't covered in Basic configuration.
 - Basic Assembly: Assembly of an autopilot and its main peripherals

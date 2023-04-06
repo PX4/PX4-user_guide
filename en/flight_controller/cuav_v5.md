@@ -51,7 +51,7 @@ It is intended primarily for academic and commercial developers.
   * Operating temperature: -20 ~ 80°C （Measured value）
 
 
-## Purchase
+## Where to Buy
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
@@ -124,7 +124,7 @@ USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
 UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 ## Peripherals
 

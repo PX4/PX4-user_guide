@@ -173,7 +173,7 @@ Fixed-wing aircraft use a [mission landing return type](#mission_landing_return)
 - If a mission landing is defined, fly direct to the mission landing start point and then land.
 - Otherwise fly directly to the home position and circle above it at radius [NAV_LOITER_RAD](#NAV_LOITER_RAD).
 
-If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
+If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Land Mode > Fixed-wing landing](../flight_modes/land.md#fixed-wing-fw).
 
 The fixed wing [safe return altitude](#return_altitude) depends only on [RTL_RETURN_ALT](#RTL_RETURN_ALT) (the cone defined by [RTL_CONE_ANG](#RTL_CONE_ANG) is not used)
 

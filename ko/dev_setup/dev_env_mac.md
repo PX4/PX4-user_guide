@@ -3,16 +3,17 @@
 아래에서 macOS용 PX4 개발 환경 설정 방법을 설명합니다. PX4 빌드에 사용되어 집니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
-* [가제보 시뮬레이션](../simulation/gazebo.md)
+* [Gazebo Classic Simulation](../sim_gazebo_classic/README.md)
 
 :::details
 애플 M1 맥북 사용자 Apple M1 Macbook이 있는 경우 x86 터미널을 설정하여 터미널을 x86으로 실행해야 합니다.
+
 1. 유틸리티 폴더(**Finder > 이동 메뉴 > 유틸리티**)에서 터미널 애플리케이션을 찾습니다.
 2. *Terminal.app*을 선택하고 마우스 오른쪽 버튼으로 클릭한 다음 **복제**를 선택합니다.
 3. 복제된 터미널 앱의 이름을 변경합니다(예: *x86 터미널*으로)
 4. 이름이 변경된 *x86 Terminal* 앱을 선택하고 마우스 오른쪽 버튼을 클릭하고 **정보 입수*를 선택합니다.
 5. **Rosetta를 사용하여 열기** 확인란을 선택하고, 창을 닫습니다.
-6. 현재 PX4 도구 모음을 지원하는 *x86 터미널*을 실행합니다.
+6. Run the *x86 Terminal* as usual, which will fully support the current PX4 toolchain
 :::
 
 :::tip
@@ -55,12 +56,12 @@ brew install px4-dev
 
 ```sh
 # install required packages using pip3
-python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 # if this fails with a permissions error, your Python install is in a system path - use this command instead:
-sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+sudo -H python3 -m pip install --user pyserial empty toml numpy pandas jinja2 pyyaml pyros-genmsg packaging kconfiglib future jsonschema
 ```
 
-## 가제보 시뮬레이션
+## Gazebo Classic Simulation
 
 Gazebo로 SITL 시뮬레이션을 설치하려면:
 
@@ -71,7 +72,7 @@ brew install px4-sim-gazebo
 jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java(예: Java 15)를 설치합니다. They can be removed once it is fixed (along with this note).
 :::
 
-:::warning PX4 v1.11 이상용 jMAVSim에는 JDK 15 이상의 버전이 필요합니다.
+To install SITL simulation with Gazebo Classic:
 
 ```sh
 brew install --cask temurin
@@ -79,15 +80,17 @@ brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
-Navigate into the **PX4-Autopilot/Tools/setup** directory (using the `cd` command) and enter:
+Run this macOS setup script: `PX4-Autopilot/Tools/setup/macos.sh` The easiest way to do this is to clone the PX4 source, and then run the script from the directory, as shown:
 
 ```sh
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+cd PX4-Autopilot/Tools/setup
 sh macos.sh
 ```
 
 ## jMAVSim 시뮬레이션
 
-To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use [Eclipse Temurin](https://adoptium.net):
+To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
 
 ```sh
 brew install --cask temurin
@@ -108,6 +111,6 @@ For earlier versions, macOS users might see the error `Exception in thread "main
 
 Once you have finished setting up the command-line toolchain:
 - [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
-- [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) 설치 :::tip *일일 빌드*에는 릴리스 빌드에 숨겨진 개발 도구가 포함됩니다. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that are hidden in release builds. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
 :::
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.

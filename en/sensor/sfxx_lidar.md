@@ -13,7 +13,7 @@ The following models are supported by PX4, and can be connected to either the I2
 
 Model | Range (m) | Bus | Description
 --- | --- | --- | ---
-[SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120 | Serial or I2C bus | 
+[SF11/C](https://lightwarelidar.com/products/sf11-c-100-m) | 100 | Serial or I2C bus | 
 [LW20/C](https://lightware.co.za/products/lw20-c-100-m) | 100 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
 
 

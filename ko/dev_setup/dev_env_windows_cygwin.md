@@ -1,18 +1,15 @@
-# Windows 개발 환경
+# Windows Development Environment (Cygwin-based)
 
 다음 지침은 Windows 10에서 (Cygwin 기반) PX4 개발 환경 설정 방법을 설명합니다. 이 환경은 다음을 위한 PX4를 구축하는 데 사용합니다.
 * Pixhawk와 기타 NuttX 기반 하드웨어
 * [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
 
-
 :::warning
-The current version of this toolchain does not work with the master codeline (though it does with stable versions). The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) is a highly recommended Windows 11 (only) alternative, and is likely to become the supported Windows solution in the near future.
+This setup is an [unsupported windows development environment](../advanced/dev_env_unsupported.md).
+
+The toolchain was previously recommended, but does not work with PX4 v1.12 and later due to packaging issues. The [Windows WSL2-Based Development Environment](../dev_setup/dev_env_windows_wsl.md) should be used by preference.
 :::
 
-
-:::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
-:::
 
 <a id="installation"></a>
 
@@ -42,7 +39,7 @@ To add these yourself:
 
 The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
-1. Browse to the toolchain installation directory (default **C:\\PX4\\**)
+1. 도구 모음 설치 디렉터리로 이동합니다(기본값 **C:\\PX4\\**).
 1. Run **run-console.bat** (double click) to start the linux-like Cygwin bash console (you must use this console to build PX4).
 1. Clone the PX4 PX4-Autopilot repository from within the console:
 
@@ -66,15 +63,16 @@ Skip this step if you ticked the installer option to *clone the PX4 repository, 
    ```
    The console will then display:
 
-   ![jMAVSimOnWindows](../../assets/simulation/jmavsim_windows_cygwin.png)
+   ![jMAVSimOnWindows](../../assets/simulation/jmavsim/jmavsim_windows_cygwin.png)
 
 
 ## 다음 단계
 
 Once you have finished setting up the command-line toolchain:
 
-- [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)를 설치합니다.
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)
 - [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
+
 
 <a id="usage_instructions"></a>
 

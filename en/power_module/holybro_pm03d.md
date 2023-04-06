@@ -53,12 +53,12 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 <img src="../../assets/hardware/power_module/holybro_pm03d/pm03d_contents.jpg" width="650px" title="Pixhawk5x Upright Image" />
 
-## Purchase
+## Where to Buy
 
-[Order from Holybro Store](https://shop.holybro.com/pm03d-power-module_p1315.html)
+[Order from Holybro Store](https://holybro.com/products/pm03d-power-module)
 
 ## Wiring/Connections
 
 ![pinout](../../assets/hardware/power_module/holybro_pm02d/pm02d_pinout.png)
 
-Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.html).
+Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.md).

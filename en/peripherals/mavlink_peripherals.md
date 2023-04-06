@@ -29,7 +29,7 @@ The parameters for each instance are:
   - *Iridium*: Messages for an [Iridium satellite communication system](../advanced_features/satcom_roadblock.md).
   
   :::note
-  If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_main.cpp).
+  If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_main.cpp).
   :::
 
   :::tip

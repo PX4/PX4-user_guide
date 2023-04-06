@@ -1,6 +1,6 @@
 # Level Horizon Calibration
 
-You can use *Level Horizon Calibration* to compensate for small miss-alignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom). 
+You can use *Level Horizon Calibration* to compensate for small misalignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom). 
 
 :::tip
 Leveling the horizon is highly recommended, and will result in the best flight performance.
@@ -33,5 +33,5 @@ After the orientation is set and level-horizon calibration is complete, check in
 ## Further Information
 
 * [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/master/en/SetupView/sensors_px4.html#level-horizon)
 * [PX4 Setup Video "Gyroscope" - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)

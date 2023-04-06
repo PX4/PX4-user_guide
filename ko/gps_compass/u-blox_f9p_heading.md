@@ -9,13 +9,14 @@ This feature works on F9P devices that support CAN or expose the GPS UART2 port.
 The following devices are supported:
 * [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) (arkelectron.com)
 * [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
-* [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
+* [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-sirius-rtk-gnss-rover-f9p.html) (store-drotek.com)
 * [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm) (store.mrobotics.io)
-* [Holybro H-RTK F9P Helical or Base](https://shop.holybro.com/h-rtk-f9p-gnss-series_p1226.html) (Holybro Store)
+* [Holybro H-RTK F9P Helical or Base](https://holybro.com/products/h-rtk-f9p-gnss-series) (Holybro Store)
+* [CUAV C-RTK 9Ps](https://store.cuav.net/shop/c-rtk-9ps/) (CUAV Store)
 
 :::note
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the CAN or UART2 port.
-- 지원되는 장치는 [지원되는 GPS 및 나침반](../gps_compass/README.md#supported-gps-and-or-compass)을 참고하십시오.
+- Supported devices are also listed in [GPS/Compass > Supported GPS and/or Compass](../gps_compass/README.md#supported-gnss-and-or-compass).
 :::
 
 ## 설정
@@ -24,16 +25,6 @@ The following devices are supported:
 - 애플리케이션 노트에는 모듈 사이에 필요한 최소 간격이 명시되어 있지 않습니다 (PX4를 실행하는 테스트 차량에 50cm가 사용되었습니다).
 - The antennas can be positioned as needed, but the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) must be configured: [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source).
 
-### CAN Setup
-
-- The CAN port of the GPS devices need to be connected together and one connected to the autopilot.
-- Choose one GPS module to be the *Rover* and the other to be the *Moving Base*.
-  - On the *Rover*, set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `1`.
-  - On the *Moving Base*, set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `2`.
-- [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter bit 7 must be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
-- [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) may need to be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
-- Reboot and wait until both devices have GPS reception. `gps status` should then show the *Rover* GPS going into RTK mode, which means the heading angle is available.
-
 ### UART Setup
 
 - The UART2 of the GPS devices need to be connected together (TXD2 of the "Moving Base" to RXD2 of the "Rover")
@@ -41,10 +32,13 @@ The following devices are supported:
   - Main GPS = Rover
   - Secondary GPS = Moving Base
 - Set [GPS_UBX_MODE](../advanced_config/parameter_reference.md#GPS_UBX_MODE) to `Heading` (1)
-- [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter bit 7 must be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
+- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) parameter bit 3 must be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
 - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) may need to be set (see [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)).
 - Reboot and wait until both devices have GPS reception. `gps status` should then show the Main GPS going into RTK mode, which means the heading angle is available.
 
+### CAN Setup
+
+Refer to the specific CAN RTK GPS documentation for the setup instructions.
 
 :::note
 If using RTK with a fixed base station the secondary GPS will show the RTK state w.r.t. the base station.
@@ -52,7 +46,7 @@ If using RTK with a fixed base station the secondary GPS will show the RTK state
 
 
 
-## 추가 정보
+## Further Information
 
 - [ZED-F9P Moving base applications (Application note)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf) - General setup/instructions.
 - [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)

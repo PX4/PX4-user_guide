@@ -20,13 +20,13 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Support USB_HS, download logs faster (PX4 not yet supported)
 * Support more dshot output
 * Support IMU heating, make the sensor work better
-* Dedicated uavcan battery port
+* Dedicated CAN battery port
 * 3 sets of IMU sensors
 * Car-grade RM3100 compass
 * High performance processor
 
 :::tip
-The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
+The manufacturer [CUAV Docs](https://doc.cuav.net/flight-controller/x7/en/) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
 :::
 
 
@@ -47,8 +47,8 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
    * 2 GPS ports(GPS and UART4 ports)
    * 4 i2c buses(Two i2c dedicated ports)
    * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
-   * 2  ADC intput
+   * 2 Power ports(Power A is common adc interface, Power C is DroneCAN battery interface)
+   * 2  ADC input
    * 1 USB ports
 * 电源系统
   * 输入电压：4.3~5.4V
@@ -66,7 +66,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
 When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
 :::
 
-## 采购
+## Where to Buy
 
 [CUAV Store](https://store.cuav.net)
 

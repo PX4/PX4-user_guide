@@ -3,30 +3,29 @@
 Caipiroshka VTOL은 조금 수정된 *TBS Caipirinha*입니다.
 
 :::note
-*TBS Caipirinha*는 더 이상 사용할 수 없습니다. 이 지침은 업데이트된 차량 [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)에서 *작동하여야 합니다*. 부품 목록에서 다른 여러 구성 요소도 업데이트 되었습니다.
+The *TBS Caipirinha* has been superseded and is no longer available. 이 지침은 업데이트된 차량 [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)에서 *작동하여야 합니다*. 부품 목록에서 다른 여러 구성 요소도 업데이트 되었습니다.
 :::
 
 @[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
 ## 부품 목록
 
-* TBS Caipirinha Wing (더 이상 사용할 수 없음 - [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)을 사용하세요.) 
+* TBS Caipirinha Wing (더 이상 사용할 수 없음 - [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)을 사용하세요.)
 * 좌우 3D 프린팅 모터 마운트 (<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">디자인 파일</a>)
 * 시계방향 8045 프로펠러 ([Eflight Store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 반시계방향 8045 프로펠러 ([Eflight Store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 2x 1800 kV 120-180W 모터
-  
   * [ePower 2208](https://www.galaxus.ch/en/s5/product/epower-22081400-fuer-2-3-lipo-imax-rc-electric-motors-8355913)
-  * [Armattan 2208 1800kV 멀티로터 모터](https://www.amazon.com/Armattan-2208-1800kV-Multirotor-Motor/dp/B00UWLW0C8) <!-- equivalent replacement must match: kV (1800), motor size (2208) and number of LiPo cells (3S). -->
-
+  * [Armattan 2208 1800kV 멀티로터 모터](https://www.amazon.com/Armattan-2208-1800kV-Multirotor-Motor/dp/B00UWLW0C8)
+    <!-- equivalent replacement must match: kV (1800), motor size (2208) and number of LiPo cells (3S). -->
 * 2x 20-30S ESC
-  
   * [GetFPV](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html)
 * BEC (3A, 5-5.3V) (출력 레일 용 5V 전원 공급 장치로 작동 할 수없는 ESC를 사용하는 경우에만 필요)
-* 3S 2200 mA 리포 배터리 
+* 3S 2200 mA 리포 배터리
   * Team Orion 3S 11.1V 50 C ([Hobbyshop store](https://www.hobbyshop.ch/modellbau-elektronik/akku/team-orion-lipo-2200-3s-11-1v-50c-xt60-ori60163.html))
 * [Pixracer 자동조종장치 보드 + 전원 모듈](../flight_controller/pixracer.md)
 * [디지털 풍속 센서](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
+
 
 ## 조립
 
@@ -36,7 +35,7 @@ Caipiroshka VTOL은 조금 수정된 *TBS Caipirinha*입니다.
 
 다음에서는 기체 조립에 관련된 몇 가지 팁을 제공합니다.
 
-### 자동조종장치
+### 오토파일럿
 
 기체의 무게 중심에 가까운 곳에 자동조종장치를 장착합니다.
 
@@ -73,6 +72,7 @@ Elevon은 투명 테이프를 사용하여 날개의 뒷면에 부착할 수 있
 [QGroundControl](../config/airframe.md)의 구성 섹션으로 전환하고 기체 탭을 선택합니다. 목록을 아래로 스크롤하여 *VTOL Duo Tailsitter* 아이콘을 찾습니다. 드롭 다운 목록에서 *Caipiroshka Duo Tailsitter*를 선택합니다.
 
 ![caipiroshka](../../assets/airframes/vtol/caipiroshka/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
+
 
 ## 서보 연결
 

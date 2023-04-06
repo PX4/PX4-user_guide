@@ -27,3 +27,4 @@ features:
 
 footer: BSD 3-clause license
 ---
+<Redirect to="/en/" />

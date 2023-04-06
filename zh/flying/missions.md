@@ -3,32 +3,39 @@
 ## 规划任务
 
 手动规划任务非常简单:
-
 - 切换到任务视图
-- 在左上选择**添加航点**("加号") 图标。 
+- Select the **Add Waypoint** ("plus") icon in the top left.
 - 点击地图添加航点。
 - 使用右侧的航点列表修改航点参数和类型。底部的高度指示器提供每个航点的相对高度。
-- 完成后, 单击(右上角的)**上传**按钮 , 将任务发送到飞行器。
+- Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
 
-您也可以使用*图案*工具自动创建测绘网络。
+You can also use the *Pattern* tool to automate creation of survey grids.
 
 :::tip
-有关更多信息，请参阅[QGroundControl 用户指南](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)。
-:::
+For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![规划任务](../../assets/flying/planning_mission.jpg)
 
+### Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible. For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
+
+The checks are run when the mission is uploaded and immediately before it is run. If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+
+For more detail on the checks and possible actions, see: [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
+
 ### 设置机体航向
 
-设置后，多旋翼机体航向将会朝向配置的**航向**值（对应[MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)）。
+If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
 
-如果目标航点 ( )明确设置**航向**(`param4=NaN`)，机体的偏航将朝向参数[MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE)中指定的方向。 默认情况下，是指向下一个航点。
+If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`) then the vehicle will yaw towards a location specified in the parameter [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE). 默认情况下，是指向下一个航点。
 
 不能独立控制偏航和行驶方向的机体类型将忽略偏航设置（例如固定翼）。
 
 ### 设置航点/转弯半径
 
-*航点半径*定义了一个以航点为圆心的圆，无人机到达半径内便认为到达航点，并且会立即前往（并开始转向）下一个航点。
+The *acceptance radius* defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
 
 对于多旋翼无人机，使用参数[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)调整航点半径。 默认情况下，半径设置的很小以确保多旋翼无人机通过航路点上方，但可以增加半径以创建更平滑的路径，这时无人机在到达航路点之前便开始转弯。
 
@@ -39,11 +46,11 @@
 转弯速度是根据航点半径（=转弯半径）和最大允许速度和加加速度自动计算的。
 
 :::tip
-关于航点半径的更多信息，见： [任务模式 > 航点间轨迹](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory)。
-:::
+For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory). :::
 
 ## 飞行任务
 
 任务上传后，切换到飞行视图。 任务将显示为一条航线，这样可以方便跟踪（在此视图中无法修改）。
 
 ![飞行任务](../../assets/flying/flying_mission.jpg)
+

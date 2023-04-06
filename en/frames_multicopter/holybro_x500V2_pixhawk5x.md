@@ -1,6 +1,11 @@
 # Holybro X500 V2 (Pixhawk 5X Build)
 
-This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) and configuring PX4 using *QGroundControl*.
+:::note
+Holybro initially supplied this kit with a [Pixhawk 5X](../flight_controller/pixhawk5x.md), but at time of writing this has been upgraded to a [Holybro Pixhawk 6C](../flight_controller/pixhawk6c.md).
+This build log is still relevant as the kit assembly is virtually the same, and likely to remain so as the flight controller is upgraded.
+:::
+
+This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits) and configuring PX4 using *QGroundControl*.
 
 The ARF ("Almost Ready to Fly") kit provides the shortest and straightforward assembly experience for those who want to jump into drone development and not spend that much time on setting up the hardware.
 It includes the frame, motors, ESCs, propellers and power distribution board.
@@ -10,7 +15,7 @@ The ARF kit can be used with most flight controllers supported by PX4.
 
 ## Key information
 
-- **Kit:** [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html)
+- **Kit:** [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits)
 - **Flight controller:** [Pixhawk 5X](../flight_controller/pixhawk5x.md)
 - **Assembly time (approx.):** 55 min (25 minutes for frame, 30 minutes for autopilot installation/configuration)
 
@@ -18,7 +23,7 @@ The ARF kit can be used with most flight controllers supported by PX4.
 
 ## Bill of materials
 
-The Holybro [X500 V2 Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) includes almost all the required components:
+The Holybro [X500 V2 Kit](https://holybro.com/collections/x500-kits) includes almost all the required components:
 
 * X500V2 Frame Kit
   * Body - Full Carbon Fiber Top & Bottom plate (144 x 144mm, 2mm thick)
@@ -28,19 +33,19 @@ The Holybro [X500 V2 Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) includ
   * Dual 10mm Ø rod x 250 mm long rail mounting system
   * Battery mount with two Battery Straps
   * Hand tools for installation
-* [Holybro Motors - 2216 KV880 x6](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
-* [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
-* [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
+* Holybro Motors - 2216 KV880 x6 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Holybro BLHeli S ESC 20A x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
+* Propellers - 1045 x4 (superseded - check [spare parts list](https://holybro.com/products/spare-parts-x500-v2-kit) for current version).
 * Power Distribution Board – XT60 plug for battery & XT30 plug for ESCs & peripherals
 * Camera mount (optional and the 3D file can be downloaded from [here](http://www.holybro.com/3D_Print/Holybro_X500_V2_3D%20Print.rar))
 
 Other parts in this build(**Not included in the ARF kit**):
 * [Pixhawk 5X autopilot](../flight_controller/pixhawk5x.md)
-* [M8N GPS](http://shop.holybro.com/holybro-m8n-gps_p1094.html)
-* [Power Module - PM02D](http://shop.holybro.com/pm02d-power-module_p1285.html)
-* [433/915 MHz Telemetry Radio](http://shop.holybro.com/sik-telemetry-radio-v3_p1103.html)
+* [M8N GPS](https://holybro.com/products/m8n-gps)
+* [Power Module - PM02D](../power_module/holybro_pm02d.md)
+* [433/915 MHz Telemetry Radio](../telemetry/holybro_sik_radio.md)
 
-Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
+Additionally you will need a battery (Holybro recommends a 4S 5000mAh) and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
 ## Kit Hardware
 
@@ -187,41 +192,51 @@ The fully assembled kit is shown below (Depth camera not included in the kit):
 ![Assembled Kit](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/finalized_x500v2_kit.png)
 
 
-<a id="configure"></a>
-## Install/Configure PX4
+## PX4 Configuration
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame.
-[Download and install](http://qgroundcontrol.com/downloads/)
-*QGroundControl* for your platform.
+[Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-First update the firmware and airframe:
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md) - You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro X500 V2**)
-  ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
+First update the firmware, airframe, and actuator mappings:
+
+- [Firmware](../config/firmware.md)
+- [Airframe](../config/airframe.md)
+
+  You will need to select the *Holybro X500 V2* airframe (**Quadrotor x > Holybro 500 V2**)
+
+  ![QGroundControl - Select HolyBro 500 airframe](../../assets/airframes/multicopter/x500_v2_holybro_pixhawk5x/x500v2_airframe_qgc.png)
+
+- [Actuators](../config/actuators.md)
+  - You should not need to update the vehicle geometry (as this is a preconfigured airframe).
+  - Assign actuator functions to outputs to match your wiring.
+  - Test the configuration using the sliders.
 
 Then perform the mandatory setup/calibration:
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+
+- [Sensor Orientation](../config/flight_controller_orientation.md)
+- [Compass](../config/compass.md)
+- [Accelerometer](../config/accelerometer.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md)
+- [Radio Setup](../config/radio.md)
+- [Flight Modes](../config/flight_mode.md)
 
 Ideally you should also do:
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [Battery](../config/battery.md)
+- [Safety](../config/safety.md)
 
 
 ## Tuning
 
 Airframe selection sets *default* autopilot parameters for the frame.
 These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
-For instructions on how, see: [Multicopter Basic PID Tuning](../config_mc/pid_tuning_guide_multicopter_basic.md).
+
+For instructions on how, start from [Autotune](../config/autotune.md).
 
 ## Acknowledgements
 

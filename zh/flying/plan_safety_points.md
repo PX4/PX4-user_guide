@@ -9,7 +9,7 @@
 在QGroundControl中创建安全点（也称为“集结点”）。
 
 总结：
-1. 打开**QGroundControl > 规划视图**。
+1. Open **QGroundControl > Plan View**
 1. 在 *规划编辑器* (屏幕右侧) 选择 **集结** 标签/按钮。
 1. 选择工具栏(屏幕左侧)上的 **Rally Point** 按钮 。
 1. 在地图上点击任意位置来添加集结/安全点。
@@ -18,7 +18,7 @@
 1. 选择**需要上传**按钮将集结点（连同任务和地理围栏）上传到机体。
 
 :::tip
-更完整的文档可以在*QGroundControl 用户指南*中找到：[Plan View - Rally Points](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html)。
+More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/master/en/PlanView/PlanRallyPoints.html).
 :::
 
 ## 使用安全点

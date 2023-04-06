@@ -14,11 +14,12 @@ FrSky telemetry requires:
 * An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
 * A cable to connect the FrSky receiver Smart Port (SPort) to a flight controller UART.
 
-First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the reciever and the flight controller.
+First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the receiver and the flight controller.
 
 Then set up FrSky telemetry by separately connecting the SPort on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
 
 This is done slightly differently, depending on whether the SPort receiver has a pin for an uninverted output, and/or the Pixhawk version.
+
 
 ### Pixhawk FMUv4 (and prior)
 
@@ -32,8 +33,9 @@ Generally SPort receivers have an *inverted* S.Port signal and you have to use a
 When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
 :::
 
-If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins. <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
-Discussion of that here: https://github.com/PX4/px4_user_guide/pull/755#pullrequestreview-464046128 -->
+If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins.
+<!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
+Discussion of that here: https://github.com/PX4/PX4-user_guide/pull/755#pullrequestreview-464046128 -->
 
 Then [configure PX4](#configure).
 
@@ -48,7 +50,6 @@ More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal]
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type). Then [configure PX4](#configure).
 
 <span id="configure"></span>
-
 ## PX4 Configuration
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
@@ -59,22 +60,20 @@ You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (
 
 :::tip
 If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
-
-    drivers/telemetry/frsky_telemetry
-    
-
+```
+drivers/telemetry/frsky_telemetry
+```
 :::
 
 No further configuration is required; FrSky telemetry auto-starts when connected and detects D or S mode.
 
-<span id="transmitters"></span>
 
+<span id="transmitters"></span>
 ## Compatible RC Transmitters
 
 You will need an RC transmitter that can receive the telemetry stream (and that is bound to the FrSky receiver).
 
 Popular alternatives include:
-
 * FrSky Taranis X9D Plus (recommended)
 * FrSky Taranis X9D
 * FrSky Taranis X9E
@@ -92,34 +91,32 @@ Compatible Taranis receivers (e.g. X9D Plus) running OpenTX 2.1.6 or newer can u
 Instructions for installing the script can be found here: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
 
 If you open the `LuaPil.lua` script with a text editor, you can edit the configuration. Suggested modifications include:
-
 * `local BattLevelmAh = -1` - Use the battery level calculation from the vehicle
 * `local SayFlightMode = 0` - There are no WAV files for the PX4 flight modes
 
-<span id="messages"></span>
 
+<span id="messages"></span>
 ## Telemetry Messages
 
 FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed in the following sections.
 
 <span id="s_port"></span>
-
 ### S-Port
 
 S-Port receivers transmit the following messages from PX4 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
 
-* **AccX, AccY, AccZ:** Accelerometer values.
-* **Alt:** Barometer based altitude, relative to home location.
-* **Curr:** Actual current consumption (Amps).
-* **Fuel:** Remaining battery percentage if `battery_capacity` variable set and variable `smartport_fuel_percent = ON`, mAh drawn otherwise.
-* **GAlt:** GPS altitude, sea level is zero.
-* **GPS:** GPS coordinates.
-* **GSpd:** Current horizontal ground speed, calculated by GPS.
-* **Hdg:** Heading (degrees - North is 0°).
-* **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
-* **VSpd:** Vertical speed (cm/s).
-* **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
-* **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
+- **AccX, AccY, AccZ:** Accelerometer values.
+- **Alt:** Barometer based altitude, relative to home location.
+- **Curr:** Actual current consumption (Amps).
+- **Fuel:** Remaining battery percentage if `battery_capacity` variable set and variable `smartport_fuel_percent = ON`, mAh drawn otherwise.
+- **GAlt:** GPS altitude, sea level is zero.
+- **GPS:** GPS coordinates.
+- **GSpd:** Current horizontal ground speed, calculated by GPS.
+- **Hdg:** Heading (degrees - North is 0°).
+- **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
+- **VSpd:** Vertical speed (cm/s).
+- **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
+- **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
 
 :::note
 The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**.
@@ -127,9 +124,8 @@ The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A
 
 <!-- FYI: 
 Values of FRSKY_ID_TEMP1 and FRSKY_ID_TEMP1 set: 
-
-- https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
-- https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237 
+- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
+- https://github.com/PX4/PX4-Autopilot/blob/main/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237 
 Lua map of flight modes:
 - https://github.com/ilihack/LuaPilot_Taranis_Telemetry/blob/master/SCRIPTS/TELEMETRY/LuaPil.lua#L790
 -->
@@ -138,24 +134,24 @@ Lua map of flight modes:
 
 D-Port receivers transmit the following messages (from [here](https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md)):
 
-* **AccX, AccY, AccZ:** Accelerometer values.
-* **Alt:** Barometer based altitude, init level is zero.
-* **Cels:** Average cell voltage value (battery voltage divided by cell number).
-* **Curr:** Actual current consumption (Amps).
-* **Fuel:** Remaining battery percentage if capacity is set, mAh drawn otherwise.
-* **Date:** Time since powered.
-* **GAlt:** GPS altitude, sea level is zero.
-* **GPS:** GPS coordinates.
-* **GSpd:** Current speed, calculated by GPS.
-* **Hdg:** Heading (degrees - North is 0°).
-* **RPM:** Throttle value if armed, otherwise battery capacity. Note that blade number needs to be set to 12 in Taranis.
-* **Tmp1:** Flight mode (as for S-Port).
-* **Tmp2:** GPS information (as for S-Port).
-* **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
-* **Vspd:** Vertical speed (cm/s).
+- **AccX, AccY, AccZ:** Accelerometer values.
+- **Alt:** Barometer based altitude, init level is zero.
+- **Cels:** Average cell voltage value (battery voltage divided by cell number).
+- **Curr:** Actual current consumption (Amps).
+- **Fuel:** Remaining battery percentage if capacity is set, mAh drawn otherwise.
+- **Date:** Time since powered.
+- **GAlt:** GPS altitude, sea level is zero.
+- **GPS:** GPS coordinates.
+- **GSpd:** Current speed, calculated by GPS.
+- **Hdg:** Heading (degrees - North is 0°).
+- **RPM:** Throttle value if armed, otherwise battery capacity. Note that blade number needs to be set to 12 in Taranis.
+- **Tmp1:** Flight mode (as for S-Port).
+- **Tmp2:** GPS information (as for S-Port).
+- **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
+- **Vspd:** Vertical speed (cm/s).
+
 
 <span id="receivers"></span>
-
 ## FrSky Telemetry Receivers
 
 Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. The table belows all FrSky receivers that support telemetry via a D/S.PORT (in theory all of these should work).
@@ -186,27 +182,25 @@ The above table originates from http://www.redsilico.com/frsky-receiver-chart an
 :::
 
 <span id="ready_made_cable"></span>
-
 ## Ready-Made Cables
 
 Ready-made cables for use with Pixhawk FMUv4 and earlier (except for Pixracer) are available from:
-
 * [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). Versions are available with DF-13 compatible *PicoBlade connectors* (for FMUv2/3DR Pixhawk, FMUv2/HKPilot32) and *JST-GH connectors* (for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1).
-    
-    [![Purchase cable here from Craft and Theory](../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg)](http://www.craftandtheoryllc.com/telemetry-cable)
+
+  <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="Purchase cable here from Craft and Theory"></a>
+
 
 <span id="diy_cables"></span>
-
 ## DIY Cables
 
 It is possible to create your own adapter cables. You will need connectors that are appropriate for your autopilot (e.g. *JST-GH connectors* for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible *PicoBlade connectors* for older autopilots).
 
 The Pixracer includes electronics for converting between S.PORT and UART signals, but for other boards you will need a UART to S.PORT adapter. These can be sourced from:
-
 * [FrSky FUL-1](https://www.frsky-rc.com/product/ful-1/): [unmannedtech.co.uk](https://www.unmannedtechshop.co.uk/frsky-transmitter-receiver-upgrade-adapter-ful-1/)
-* SPC: [getfpv.com](http://www.getfpv.com/frsky-smart-port-converter-cable.html), [unmannedtechshop.co.uk](https://www.unmannedtechshop.co.uk/frsky-smart-port-converter-spc/) 
+* SPC: [getfpv.com](http://www.getfpv.com/frsky-smart-port-converter-cable.html), [unmannedtechshop.co.uk](https://www.unmannedtechshop.co.uk/frsky-smart-port-converter-spc/)
 
 More information about the connections for different boards is given below.
+
 
 ### Pixracer to S-port Receivers
 
@@ -228,6 +222,7 @@ Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line. Connect t
 
 <!-- Image would be nice -->
 
+
 ### Pixhawk Pro
 
 [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) can be connected to TELEM4 (no additional software configuration is needed). You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
@@ -236,8 +231,8 @@ Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line. Connect t
 
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type).
 
-<span id="pixhawk_v2"></span>
 
+<span id="pixhawk_v2"></span>
 ### Other Boards
 
 Most other boards connect to the receiver for FrSky telemetry via the TELEM2 UART. This includes, for example: [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2.
@@ -246,10 +241,10 @@ You will need to connect via a UART to S.PORT adapter board, or a [ready-made ca
 
 <!-- ideally add diagram here -->
 
+
 ## Additional Information
 
 For additional information, see the following links:
-
 * [FrSky Taranis Telemetry](https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry)
 * [Taranis X9D: Setting Up Telemetry](https://www.youtube.com/watch?v=x14DyvOU0Vc) (Video Tutorial)
 * [Px4 FrSky Telemetry Setup with Pixhawk2 and X8R Receiver](https://discuss.px4.io//t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362) (DIY Cables)

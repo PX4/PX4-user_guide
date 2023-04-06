@@ -28,7 +28,7 @@ Almost everything you need is provided in the RTF kit (the links next to compone
   * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
   * Power Sensor  
   * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-* [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
+* Quad power set  [Tiger Motor MT-2216-11 900kv V2](https://www.getfpv.com/tiger-motor-mt-2216-11-900kv-v2.html) (discontinued)
 * 4 x propeller 10”x 5” (quad motors)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
 * 1 x propeller 10” x 5” (pusher motor)
@@ -39,10 +39,11 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 * 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
 * [Power distribution board and cable](https://store-drotek.com/453-apm-power-source-xt60.html)
 
-The kit does not come with a radio receiver or (optional) telemetry modules. For this build we used the following components:
+The kit does not come with a radio receiver or (optional) telemetry modules.
+For this build we used the following components:
 
-* [Receiver FR-SKY d4rII](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* [Telemetry 915 MHz modules](http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html)
+- Receiver: [FrSSKY D4R-II](https://www.frsky-rc.com/product/d4r-ii/)
+- Telemetry: [Holybro 100mW 915MHz modules](https://www.getfpv.com/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html) (Discontinued)
 
 
 ## Tools needed 

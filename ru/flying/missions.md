@@ -3,9 +3,8 @@
 ## Planning Missions
 
 Manually planning missions is straightforward:
-
 - Switch to the mission view
-- Select the **Add Waypoint** ("plus") icon in the top left. 
+- Select the **Add Waypoint** ("plus") icon in the top left.
 - Click on the map to add waypoints.
 - Use the waypoint list on the right to modify the waypoint parameters/type The altitude indicator on the bottom provides a sense of the relative altitude of each waypoint.
 - Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
@@ -13,10 +12,18 @@ Manually planning missions is straightforward:
 You can also use the *Pattern* tool to automate creation of survey grids.
 
 :::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
-:::
+For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/master/en/PlanView/PlanView.html). :::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
+
+### Mission Feasibility Checks
+
+PX4 runs some basic sanity checks to determine if a mission is feasible. For example, whether the mission is close enough to the vehicle, if the mission will conflict with a geofence, or if a mission landing pattern is required but is not present.
+
+The checks are run when the mission is uploaded and immediately before it is run. If any of the checks fail, the user is notified and it is not possible to start the mission.
+
+
+For more detail on the checks and possible actions, see: [Mission Mode > Mission Feasibility Checks](../flight_modes/mission.md#mission-feasibility-checks).
 
 ### Setting Vehicle Yaw
 
@@ -39,11 +46,11 @@ The image below shows the same mission flown with different acceptance radius pa
 The speed in the turn is automatically computed based on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
 
 :::tip
-For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory).
-:::
+For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory). :::
 
 ## Flying Missions
 
 Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
 ![flying-mission](../../assets/flying/flying_mission.jpg)
+

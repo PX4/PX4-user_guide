@@ -1,24 +1,34 @@
-# Companion Computer for Pixhawk Series
+# Using a Companion Computer with Pixhawk Controllers
 
-PX4 can connect to companion computers (Raspberry Pi, Odroid, Tegra K1, etc.) using any configurable serial port, including the Ethernet port (if supported).
-Message are sent over the link using the [MAVLink](https://mavlink.io/en/) protocol.
+PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).
 
-## Pixhawk Setup
+See [Companion Computers](../companion_computer/README.md) for information about supported hardware and general setup.
 
-PX4 is configured by default to connect to a companion computer connected to the `TELEM 2` serial port.
-No additional PX4-side configuration should be required if you use this port
 
-To enable MAVLink to connect on another port see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
+## Companion Computer Software
 
-## Companion Computer Setup
+The companion computer needs to run software that communicates with the flight controller, and which routes traffic to ground stations and the cloud.
 
-In order to receive MAVLink, the companion computer needs to run some software talking to the serial port. 
-The most common options are:
+Common options are listed in [Companion Computers > Companion Computer Setup](../companion_computer/README.md#companion-computer-software).
 
-  * [MAVROS](../ros/mavros_installation.md) to communicate to ROS nodes
-  * [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) to connect custom code
-  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](https://ardupilot.org/mavproxy/) to route MAVLink between serial and UDP
+## Ethernet Setup
 
+Ethernet is the recommended connection, if supported by your flight controller.
+See [Ethernet Setup](../advanced_config/ethernet_setup.md) for instructions.
+
+## Serial Port Setup
+
+These instructions explain how to setup the connection if you're not using Ethernet.
+
+### Pixhawk Configuration
+
+PX4 expects companion computers to connect via `TELEM2` for offboard control.
+The port is configured by default to interface using MAVLink.
+
+If using MAVLink, no other PX4-side configuration should be required.
+To use MAVLink on another port, and/or disable it on `TELEM2`, see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md) and [Serial Port Configuration](../peripherals/serial_configuration.md).
+
+To use [ROS 2/XRCE-DDS](../ros/ros2_comm.md) instead of MAVLink on `TELEM2`, disable MAVLink on the port and then enable the XRCE-DDS client on `TELEM2`(see [XRCE-DDS > Starting the client](/middleware/xrce_dds.md#starting-the-client)).
 
 ### Serial Port Hardware Setup
 
@@ -26,12 +36,13 @@ If you're connecting using a serial port, wire the port according to the instruc
 All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
 
 :::warning
-Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels.
+Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. 
 Use a level shifter.
 In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
 :::
 
-The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
+A safe and easy to set up option is to use an FTDI Chip USB-to-serial adapter board to connect from `TELEM2` on the Pixhawk to the USB port on the companion computer.
+The `TELEM2` to FTDI wiring map is shown below.
 
 TELEM2 | | FTDI | &nbsp;
 --- | --- | --- | ---
@@ -42,9 +53,14 @@ TELEM2 | | FTDI | &nbsp;
 5 | RTS (out)| 2 | FTDI CTS (brown) (in)
 6 | GND     | 1 | FTDI GND (black)
 
-### Serial Port Software setup on Linux
+You may also be able to directly connect `TELEM2` directly to a companion computer serial port.
+This is demonstrated for the Raspberry Pi in [Raspberry Pi Companion with Pixhawk](../companion_computer/pixhawk_rpi.md).
 
-On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`. If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device. 
+### USB Serial Port Software setup on Linux
+
+On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`.
+If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`.
+To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device. 
 
 Using `lsusb` we can get the vendor and product IDs.
 

@@ -1,23 +1,24 @@
 # PX4 Vision Autonomy Development Kit
 
-The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-vision/) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/multicopter-kit/PX4-Vision) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
 
-![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
+![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_front.png)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
+The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (on V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
 :::note
 This vehicle comes with no pre-installed software.
-A pre-imaged USB stick that contains a reference implementation of the [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*.
+A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*.
 This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit.
-Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
 :::
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
-## Purchase
+## Where to Buy
 
-- [Holybro Website](https://shop.holybro.com/px4-vision_p1225.html?)
+- [PX4 Vision Dev Kit v1.5](https://holybro.com/collections/multicopter-kit/products/px4-vision-dev-kit-v1-5)
+- [PX4 Vision Dev Kit v1 (Discontinued)](https://holybro.com/collections/multicopter-kit/products/px4-vision)
 
 ## Px4 Vision Guide Content
 - [Warnings & Notifications](#warnings-and-notifications)
@@ -26,7 +27,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 - [First-time Setup](#first-time-setup)
 - [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
 - [Development using the Kit](#development-using-the-kit)
-- [Px4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
+- [PX4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
 - [Other Development Resources](#other-development-resources)
 - [How to get Technical Support](#how-to-get-technical-support)
 
@@ -34,29 +35,34 @@ The guide explains the minimal additional setup required to get the vehicle read
 
 1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras).
    Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
-1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates).
+1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS coordinates).
    Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
 1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions).
    This is why the boot image is supplied on a *USB2.0* memory stick.
-1. PX4 Vision with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery.
-   ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+1. PX4 Vision v1 with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery.
+   
+   ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/serial_number_update.jpg)
+1. All PX4 Vision v1.5 *UP Core* can be powered by either the DC plug or with battery.   
 
 :::warning
-For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should only be powered using the battery (do not remove the *UP Core power* socket safety cover).
+For PX4 Vision v1 with ECN below 010/carrier board below RC04, the *UP Core* should only be powered using the battery (do not remove the *UP Core power* socket safety cover). This does not apply to PX4 Vision v1.5
 
 ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port_update.png)
 :::
 
 ## What is Inside
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
+:::note
+Difference between the PX4 Vision V1 and V1.5 can be found [here](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/v1-and-v1.5-difference)
+:::
 
-<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
+![PV4 Vision v1.5](../../assets/hardware/px4_vision_devkit/px4_vision_v1.5_whats_inside.jpg)
+
+What's inside the PX4 Vision V1 can be found here in the [PX4 v1.13 Docs here](https://docs.px4.io/v1.13/en/complete_vehicles/px4_vision_kit.html#what-is-inside).
 
 The PX4 Vision DevKit contains following components:
 - Core Components:
-  - 1x Pixhawk 4 flight controller (with custom PX4 firmware)
+  - 1x Pixhawk 4 or Pixhawk 6C (for v1.5) flight controller 
   - 1x PMW3901 optical flow sensor
   - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
   - 1x Structure Core depth camera
@@ -78,10 +84,9 @@ The PX4 Vision DevKit contains following components:
 
 - Mechanical Specification:
   - Frame: Full 5mm 3k carbon fiber twill
-  - Motors: T-MOTOR F60 PROⅢ KV1750
+  - Motors: T-MOTOR KV1750
   - ESC: BEHEli-S 20A ESC
-  - Propellers: T6045
-  - GPS: Pixhawk4 GPS module
+  - GPS: M8N GPS module
   - Power module: Holybro PM07
   - Wheelbase: 286mm
   - Weight: 854 grams without battery or props
@@ -93,7 +98,7 @@ The PX4 Vision DevKit contains following components:
   - ROS Melodic
   - Occipital Structure Core ROS driver
   - MAVROS
-  - [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
+  - [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance)
 
 
 - Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
@@ -110,11 +115,11 @@ The kit contains all the essential drone hardware except a battery and a radio c
 - An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
 
 In addition, users will need ground station hardware/software:
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (QGC).
+- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html) (QGC).
 
 ## First-time Setup
 
-1. Attach a [compatible RC reciever](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
+1. Attach a [compatible RC receiver](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
    - Remove/unscrew the top plate (where the battery goes) using an H2.0 hex key tool.
    - [Connect the receiver to the flight controller](../assembly/quick_start_pixhawk4.md#radio-control).
    - Re-attach the top plate.
@@ -123,7 +128,7 @@ In addition, users will need ground station hardware/software:
 
 1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) the RC ground and air units (if not already done).
    The binding procedure depends on the specific radio system used (read the receiver manual).
-1. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate.
+1. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate. (Not required for v1.5)
 
    ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
@@ -177,7 +182,7 @@ In addition, users will need ground station hardware/software:
 
    - Screw down firmly using the provided propellor nuts:
 
-     ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
+     ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.png)
 
 
 ## Fly the Drone with Avoidance
@@ -218,7 +223,7 @@ The following sections explain how to use the kit as an environment for developi
 
 The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance).
+Documentation about the companion computer vision/planning software can be found on github here: [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance).
 The project provides a number of different planner implementations (packaged as ROS nodes):
 - The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
 - The *globalplanner* has not been tested with this kit.
@@ -246,7 +251,7 @@ To flash the USB image to the *UP Core*:
 1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
    The terminal will prompt for a number of responses during the flashing process.
    ```sh
-   cd ~/catkin_ws/src/px4vision_ros
+   cd ~/catkin_ws/src/px4vision_ros/tools
    sudo ./flash_emmc.sh
    ```
 
@@ -297,7 +302,7 @@ To login to the companion computer:
 ### Developing/Extending PX4 Avoidance
 
 The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS 2).
-You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
+You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance) repo.
 
 The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner.
 The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
@@ -323,7 +328,7 @@ To integrate a different planner, this needs to be disabled.
    systemctl enable avoidance.service  
    ```
 
-1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/avoidance which is located in `~/catkin_ws/src/avoidance`.
+1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/PX4-Avoidance which is located in `~/catkin_ws/src/avoidance`.
 
 1. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
    ```sh
@@ -344,33 +349,33 @@ For reference on developing in ROS and using the catkin workspace, see the [ROS 
 The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
 
 You can also modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
-- You will need to connect *QGroundControl* to the kit's *Pixhawk 4* **via USB** in order to update firmware.
+- You will need to connect *QGroundControl* to the kit's *Pixhawk* **via USB** in order to update firmware.
 - Select the *PX4 Vision DevKit* airframe after loading new firmware:
   ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
 Modification of PX4 code is not *needed* to meet most computer vision use cases.
-To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+To discuss the interfaces or how to integrate other features join the [PX4 support channels](../contribute/support.md).
 :::
 
-## Px4 Vision Carrier Board Pinouts
+## PX4 Vision Carrier Board Pinouts
 
-The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
+Information for the PX4 Vision 1.15 can be found at [https://docs.holybro.com](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5).
+The carrier board pinouts and other information are in the [downloads section](https://docs.holybro.com/drone-development-kit/px4-vision-dev-kit-v1.5/downloads).
 
 ## Other Development Resources
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* companion computer technical information
+- [*UP Core* Wiki](https://github.com/up-board/up-community/wiki/Ubuntu) - *Up Core* companion computer technical information
 - [Occipital Developer Forum](https://structure.io/developers) - *Structure Core* camera information
 - [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
-- [PX4 Avoidance software/documentation](https://github.com/PX4/avoidance)
+- [Pixhawk 6C Overview](../flight_controller/pixhawk6c.md)
+- [PX4 Avoidance software/documentation](https://github.com/PX4/PX4-Avoidance)
 - [Path Planning Interface](../computer_vision/path_planning_interface.md)
-- [Px4 Vision Carrier Board Pinouts](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
 ## How to get Technical Support
 
 For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following community support channels:
-- [PX4 discuss: Computer Vision category.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
-- [PX4 slack](https://slack.px4.io/) channel: #avoidance
 - [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
+- [PX4 Support channels](../contribute/support.md)

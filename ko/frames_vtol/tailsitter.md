@@ -8,7 +8,7 @@ Tailsitters는 일반적으로 [다른 유형의 VTOL](../frames_vtol/README.md)
 
 <div class="grid_wrapper two_column">
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-duo-tailsitter">VTOL 듀오 테일시터</a></big></div>
+    <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL 듀오 테일시터</a></big></div>
     <div class="grid_text">
     호버에서 고정익 비행으로 뒤집기 위해 엘레본을 사용하는 2개의 로터 VTOL.<br><br>
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="Wingtra: WingtraOne VTOL 듀오 테일시터" alt="윙트라온" /> 
@@ -21,8 +21,8 @@ Tailsitters는 일반적으로 [다른 유형의 VTOL](../frames_vtol/README.md)
     </div>
   </div>
 <div class="grid_item">
-  <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-quad-tailsitter">VTOL 쿼드 테일시터</a></big></div>
-  엘레본 옵션이 있는 4개의 로터 VTOL. 로터를 사용하여 모드 간 전환(있는 경우 엘레본과 함께).
+  <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-tailsitter">VTOL Tailsitter</a></big></div>
+  VTOL with optional elevons. 로터를 사용하여 모드 간 전환(있는 경우 엘레본과 함께).
   <div class="grid_text">
   <img title="Skypull SP-1 VTOL 쿼드 테일시터" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
   <ul>
@@ -34,14 +34,15 @@ Tailsitters는 일반적으로 [다른 유형의 VTOL](../frames_vtol/README.md)
 </div>
 </div>
 
-Duo Tailsitters는 일반적으로 순항 비행에서 더 효율적이며(4개의 작은 프로펠러가 2개의 큰 프로펠러보다 덜 효율적임) 물리적으로 더 작습니다. 그러나, 호버 모드에서 공기 역학적으로 훨씬 더 복잡하기 때문에 호버와 전환 모두를 조정하기가 훨씬 더 어렵습니다. 쿼드 테일시터는 호버 모드에서 비행하기 쉽고 바람이 많이 부는 조건에서 더 안정적입니다.
+Duo Tailsitters는 일반적으로 순항 비행에서 더 효율적이며(4개의 작은 프로펠러가 2개의 큰 프로펠러보다 덜 효율적임) 물리적으로 더 작습니다. 그러나, 호버 모드에서 공기 역학적으로 훨씬 더 복잡하기 때문에 호버와 전환 모두를 조정하기가 훨씬 더 어렵습니다. 쿼드 테일시터는 호버 모드에서 비행하기 쉽고 바람이 많이 부는 조건에서 더 안정적입니다. Both are supported using the same aiframe type in PX4.
 
 ## 설정/비행
 
 VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 다룹니다.
 
 :::note
-지침은 기본적으로 모든 VTOL에 대해 동일합니다. 주요 프레임별 차이점은 모터 배선([VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) 및 [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter) 참조)과 구성 조정의 일부 측면입니다.
+지침은 기본적으로 모든 VTOL에 대해 동일합니다.
+The main frame-specific differences are the motor wiring, and some aspects of tuning the configuration.
 :::
 
 ## 조립 방법
@@ -68,9 +69,9 @@ VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 �
 
 ---
 
-*PX4 Tailsitter prototype*  - Tailsitter takeoff, transition, landing. 
-<!-- provided by slack user xdwgood. Not yet got detail -->
-@[youtube](c3myer2n80M)
+[ax1800](http://www.uav-cas.ac.cn/) *PX4 Tailsitter prototype* - Tailsitter takeoff, transition, landing. 
+<!-- provided by slack user xdwgood: https://github.com/PX4/PX4-user_guide/issues/2328#issuecomment-1467234118 -->
+@[youtube](gjHj6YsxcZk)
 
 ### Quad
 
@@ -78,7 +79,7 @@ VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 �
 
 ---
 
-[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/) - Tailsitter takeoff, transition, landing.
+[UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/valaq_patrol_technical_data/) - Tailsitter takeoff, transition, landing.
 
 @[Skypull](https://www.skypull.technology/) Tethered 쿼드 테일시터 (홍보용 비디오) @[유투브](https://youtu.be/6s-Izqb_GVs)
 
@@ -105,13 +106,13 @@ VTOL 설정 및 비행은 [VTOL](../frames_vtol/README.md) 상위 주제에서 �
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big>ax1800</big></div>
+    <div class="grid_item_heading"><big><a href="http://www.uav-cas.ac.cn/">ax1800</a></big></div>
     <div class="grid_text">
       <img title="ax1800" src="../../assets/airframes/vtol/xdwgood_ax1800/hero.jpg" />
     </div>
   </div>
   <div class="grid_item">
-    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/tech-data/">UAV Works VALAQ 순찰 테일 시터</a></big></div>
+    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/valaq_patrol_technical_data/">UAV Works VALAQ 순찰 테일 시터</a></big></div>
     <div class="grid_text">
       <img title="UAV Works VALAQ 순찰 테일 시터" src="../../assets/airframes/vtol/uav_works_valaq_patrol/hero.jpg" />
     </div>

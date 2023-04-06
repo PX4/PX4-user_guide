@@ -1,6 +1,6 @@
 # Holybro Durandal
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.
 :::
 
 *Durandal*<sup>&reg;</sup>는 성공적인 Holybro 비행 컨트롤러 제품군에 대한 최신 업데이트입니다. Holybro가 설계하고 개발하였습니다.
@@ -24,6 +24,7 @@
 ## 요약
 
 #### 기술 사양
+
 - 메인 FMU 프로세서: STM32H743
   - 32 비트 Arm® Cortex® -M7, 480MHz, 2MB 메모리, 1MB RAM
 - IO 프로세서: STM32F100
@@ -37,6 +38,7 @@
 
 
 #### 인터페이스
+
 - PWM 출력 8-13개(IO에서 8개, FMU에서 5개)
 - FMU의 전용 PWM/캡처 입력 6 개
 - Spektrum/DSM 전용 R/C 입력
@@ -76,12 +78,13 @@
 - FCC
 - RoHS 준수(무연)
 
-자세한 내용은 [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)를 참조하십시오.
+For more information see: [Durandal Technical Data Sheet](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf).
 
 <span id="purchase"></span>
-## 구매처
+## Where to Buy
 
-[Holybro](https://shop.holybro.com/durandalbeta_p1189.html)에서 주문 가능 합니다.
+Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/durandal).
+
 
 <span id="connections"></span>
 ## 연결
@@ -166,7 +169,7 @@ make holybro_durandal-v1_default
 | UART8  | /dev/ttyS6 | PX4IO       |
 
 
-<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- Note: Got ports using https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
 ## 디버그 포트
@@ -196,7 +199,7 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ## 핀배열
 
-*Durandal* 핀배열은 다음과 같습니다. [여기](http://www.holybro.com/manual/Durandal-Pinouts.pdf)에서 다운로드 하십시오.
+*Durandal* 핀배열은 다음과 같습니다. These can also be downloaded from [here](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts).
 
 ### 상단 핀배열
 
@@ -258,7 +261,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 9 (흑)  | BUZZER              | +5V   |
 | 10 (흑) | GND                 | GND   |
 
-
 <span id="telem4_i2cb"></span>
 #### TELEM4 I2CB 포트
 
@@ -271,7 +273,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 5 (흑) | SDA2     | +3.3V |
 | 6 (흑) | GND      | GND   |
 
-
 <span id="telem1_2_3"></span>
 #### TELEM3, TELEM2, TELEM1 포트
 
@@ -283,7 +284,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 4 (흑) | CTS (입력) | +3.3V |
 | 5 (흑) | RTS (출력) | +3.3V |
 | 6 (흑) | GND      | GND   |
-
 
 <span id="power"></span>
 #### POWER 포트
@@ -364,7 +364,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 | 9 (흑)  | ADC1_SPARE_2 | +6.6V[++](#warn_sensor)  |
 | 10 (흑) | GND            | GND                      |
 
-
 <span id="warn_sensor"></span>
 
 :::warning
@@ -413,6 +412,6 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ## 추가 정보
 
-- [Durandal 배선 개요](../assembly/quick_start_durandal.md)
-- [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
-- [Durandal 핀배열](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal 배선 퀵 스타트](../assembly/quick_start_durandal.md)
+- [Durandal 기술 데이터 시트](https://cdn.shopify.com/s/files/1/0604/5905/7341/files/Durandal_technical_data_sheet_90f8875d-8035-4632-a936-a0d178062077.pdf)
+- [Durandal Pinouts](https://holybro.com/collections/autopilot-flight-controllers/products/Durandal-Pinouts) (Holybro)

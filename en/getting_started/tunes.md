@@ -5,7 +5,7 @@
 The set of standard sounds are listed below.
 
 :::note
-**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module.
+**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/tunes/tune_definition.desc) and can be tested using the [tune-control](../modules/modules_system.md#tune-control) module.
 You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACHUTE_RELEASE)
 :::
 
@@ -13,7 +13,7 @@ You can search for tune use using the string `TUNE_ID_name`(e.g. `TUNE_ID_PARACH
 ## Boot/Startup
 
 These tunes are played during the boot sequence.
-<!-- https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS --> 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/rcS --> 
 
 
 #### Startup Tone

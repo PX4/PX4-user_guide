@@ -4,7 +4,9 @@
 
 ## 기본 장비
 
-:::tip PX4는 여기에 설명한 것보다 더 다양한 장비를 사용할 수 있지만, 새로운 개발자는 표준 설정중 하나를 사용하는 것이 좋습니다. Taranis RC와 Note 4 태블릿은 매우 저렴한 현장 키트를 구성합니다.
+:::tip
+PX4는 여기에 설명한 것보다 더 다양한 장비를 사용할 수 있지만, 새로운 개발자는 표준 설정중 하나를 사용하는 것이 좋습니다.
+Taranis RC와 Note 4 태블릿은 매우 저렴한 현장 키트를 구성합니다.
 :::
 
 아래 장비를 적극 권장합니다.
@@ -26,7 +28,7 @@
 
 ## 기체 설정
 
-**데스크톱 OS**용 [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)를 설치합니다.
+Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) for a **desktop OS**.
 
 기체를 설정하려면:
 1. [PX4 펌웨어를 설치](../config/firmware.md#installing-px4-master-beta-or-custom-firmware)합니다(자신이 변경한 "맞춤형" 펌웨어 포함).

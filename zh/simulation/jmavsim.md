@@ -59,7 +59,7 @@ pxh>
 
 It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
-![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d View](../../assets/simulation/jmavsim/jmavsim.jpg)
 
 
 ## 使用/配置选项
@@ -127,20 +127,8 @@ make broadcast jmavsim
 JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
 
 ```
-[init] shell id: 140735313310464
-[init] task name: px4
-
-______  __   __    ___ 
-| ___ \ \ \ / /   /   |
-| |_/ /  \ V /   / /| |
-|  __/   /   \  / /_| |
-| |     / /^\ \ \___  |
-\_|     \/   \/     |_/
-
-Ready to fly.
-
-
-pxh>
+./Tools/simulation/jmavsim/jmavsim_run.sh -l
+make px4_sitl none
 ```
 
 This allows a faster testing cycle (restarting jMAVSim takes significantly more time).
@@ -201,7 +189,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 并注释下面所指示的一行：
 
 
-### java.awt.AWTError: Assistive Technology not found: org.GNOME.Accessibility.AtkWrapper
+### An illegal reflective access operation has occurred
 
 This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
 

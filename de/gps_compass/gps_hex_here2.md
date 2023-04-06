@@ -3,19 +3,20 @@
 The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is an update to the Here GPS module from HEX.
 
 Main features include:
-
-- Concurrent reception of upto 3 GNSS (GPS, Galileo, GLOSNASS, BeiDou)
+- Concurrent reception of up to 3 GNSS (GPS, Galileo, GLOSNASS, BeiDou)
 - Industry Leading -167 dBm navigation sensitivity
 - Security and integrity protection
 - Supports all satellite augmentation systems
 - Advanced jamming and spoofing detection
 
-![](../../assets/hardware/gps/here2_gps_module.jpg)
 
-## Purchase
+<img src="../../assets/hardware/gps/here2_gps_module.jpg" />
 
-- [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (Australia)
-- [Other resellers](http://www.proficnc.com/stores)
+
+## Where to Buy
+
+* [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (Australia)
+* [Other resellers](http://www.proficnc.com/stores)
 
 ## Configuration
 
@@ -53,21 +54,21 @@ The Here2 GPS pinout is provided below. This can be used to help modify the conn
 ## Specification
 
 - **Processor:** STM32F302
-- **Sensor** 
+- **Sensor**
   - **Compass, Gyro, Accelerometer:** ICM20948
   - **Barometer:** MS5611
 - **Receiver Type:** 72-channel u-blox M8N engine, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
 - **Navigation Update Rate:** Max: 10 Hz
 - **Positionaing Accuracy:** 3D Fix
-- **Time to first fix:** 
+- **Time to first fix:**
   - **Cold start:** 26s
   - **Aided start:** 2s
   - **Reacquisition:** 1s
-- **Sensitivity:** 
+- **Sensitivity:**
   - **Tracking & Navigation:** -167 dBm
   - **Hot start:** -148 dBm
   - **Cold start:** -157 dBm
-- **Assisted GNSS** 
+- **Assisted GNSS**
   - AssistNow GNSS Online
   - AssistNow GNSS Offline (up to 35 days)
   - AssistNow Autonomous (up to 6 days)
@@ -77,6 +78,6 @@ The Here2 GPS pinout is provided below. This can be used to help modify the conn
 - **ROM:** Flash (NEO-8MN)
 - **Available Antennas:** Active Antenna & Passive Antenna
 - **Signal Integrity:** Signature feature with SHA 256
-- **Protocols & Interfaces:** 
+- **Protocols & Interfaces:**
   - **UART/I2C/CAN:** JST_GH Main interface, Switch internally.
   - **STM32 Main Programming Interface:** JST_SUR

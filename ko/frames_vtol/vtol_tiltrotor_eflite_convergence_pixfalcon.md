@@ -3,42 +3,37 @@
 [E-Flite 컨버전스](https://youtu.be/HNedXQ_jhYo) PX4의 자율 비행이 가능한 VTOL로 변환할 수 있습니다. 공간은 충분하지 않지만, GPS, 텔레메트리를 장착하기에는 [Pixfalcon](../flight_controller/pixfalcon.md) 비행 콘트롤러의 공간은 충분합니다.
 
 :::note
-오리지널 [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) 프레임과 [Pixfalcon](../flight_controller/pixfalcon.md)은 단종되었습니다. 대안은 [구매](#purchase) 섹션을 참고하십시오.
-:::
+오리지널 [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) 프레임과 [Pixfalcon](../flight_controller/pixfalcon.md)은 단종되었습니다. 대안은 [구매](#purchase) 섹션을 참고하십시오. :::
 
 @[유투브](https://youtu.be/E61P2f2WPNU)
 
-## 구매
+
+## Where to Buy
 
 차량 프레임 옵션:
-
 - **WL Tech XK X450** - [뱅굿](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [알리익스프레스](https://www.aliexpress.com/item/1005001946025611.html)
 - **JJRC M02** - [뱅굿(AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [알리익스프레스](https://www.aliexpress.com/item/4001031497018.html)
 
 비행 컨트롤러 옵션():
-
 - [픽스호크 4 미니](../flight_controller/pixhawk4_mini.md)
 - [홀리브로 픽스호크 미니](../flight_controller/pixhawk_mini.md).
 - 충분히 작은 폼 팩터를 가진 다른 호환 가능한 비행 콘트롤러.
 
 ## 하드웨어 설정
 
-차량에는 [기체 정의서 &gt; VTOL 틸트로터 &gt; E-flite Convergence](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_e-flite_convergence)에 지정된 대로 비행 콘트롤러 출력에 연결되어야 하는 7개의 PWM 신호가 필요합니다. 출력 매핑은 아래와 같습니다.
+The vehicle needs 7 PWM signals for the motors and control surfaces:
+- Motor (left/right/back)
+- Tilt servos (right/left)
+- Elevons (left/right)
 
-| 포트     | 연결       |
-| ------ | -------- |
-| MAIN 1 | 우측 모터    |
-| MAIN 2 | 좌측 모터    |
-| MAIN 3 | 후면 모터    |
-| MAIN 4 | 없음       |
-| MAIN 5 | 우측 틸트 서보 |
-| MAIN 6 | 좌측 틸트 서보 |
-| MAIN 7 | 우측 엘레본   |
-| MAIN 8 | 좌측 엘레본   |
+These can be wired to flight controller outputs more-or-less in any way you want (though outputs for motors should be grouped together, and so on).
 
-참조에서 왼쪽과 오른쪽은 실제 비행기 내부의 인간 조종사의 관점에서 정의됩니다(또는 아래 표시된 것처럼 위에서 볼 때).
+The outputs are configured in the [Actuators Configuration](../config/actuators.md) by following the instructions for VTOL tiltrotor geometry and output configuration. Note that you will need to start from the [Generic Tiltrotor VTOL](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_generic_tiltrotor_vtol) frame.
+
+Note that left and right in the configuration screen and frame reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
 
 <img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
+
 
 ### 비행 콘트롤러
 
@@ -58,17 +53,13 @@ GPS 장착을 위하여 "조종실" 내부의 발포 재질 부분을 잘라냈�
 
 ![GPS 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
+
 ## PX4 설정
 
-*QGroundControl*의 [표준 설정](config/README.md)(무선, 센서, 비행 모드 등)을 따릅니다.
+Follow the [Standard Configuration](../config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
 
 이 기체와 관련된 특정 설정은 다음과 같습니다.
-
-- [기체](../config/airframe.md) 
+- [기체](../config/airframe.md)
   - **VTOL Tiltrotor**에서 기체 구성 **E-flite Convergence**를 선택하고 *QGroundControl*을 다시 시작합니다. ![QGroundControl 차량 설정 - 기체 선택 E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
-- [비행 모드/스위치](../config/flight_mode.md) 
+- [비행 모드/스위치](../config/flight_mode.md)
   - VTOL은 멀티콥터와 고정익을 전환하려면 [RC 컨트롤러 스위치를 할당](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set)하여야 합니다.
-
-:::note
-기본적으로 영구 안정화가 활성화되어 있습니다. 고정익 모드에서 "완전 수동" 비행을 하려면 [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)를 `0`으로 설정하십시오.
-:::

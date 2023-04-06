@@ -6,9 +6,9 @@ This development environment is [not supported](../advanced/dev_env_unsupported.
 
 The PX4-Autopilot repository provides a convenient script to set your Arch installation up for PX4 development: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/arch.sh). <!-- NEED px4_version -->
 
-The script installs (by default) all tools to build PX4 (without RTPS) for NuttX targets and run simulation with *jMAVsim*. You can additionally install the *Gazebo* simulator by specifying the command line argument: `--gazebo`.
+The script installs (by default) all tools to build PX4 for NuttX targets and run simulation with *jMAVsim*. You can additionally install the *Gazebo-Classic* simulator by specifying the command line argument: `--gazebo`.
 
-![Gazebo on Arch](../../assets/simulation/gazebo/arch-gazebo.png)
+![Gazebo on Arch](../../assets/simulation/gazebo_classic/arch-gazebo.png)
 
 :::note
 The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
