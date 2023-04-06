@@ -30,13 +30,12 @@ For PWM servos 50Hz is usually sufficient, and many don't support higher rates.
 ![duty cycle for PWM](../../assets/peripherals/esc_pwm_duty_cycle.png)
 
 In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary significantly.
-Unlike [dshot](#dshot) and [DroneCAN ESC](#DroneCAN) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
+Unlike [dshot](#dshot) and [DroneCAN ESC](#dronecan) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
 
 Setup:
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md)
 - [PX4 Configuration](../peripherals/pwm_escs_and_servo.md#px4-configuration)
 - [ESC Calibration](../advanced_config/esc_calibration.md)
-
 
 
 ### Oneshot 125
@@ -60,7 +59,7 @@ Setup:
 
 [DShot](../peripherals/dshot.md) is a digital ESC protocol that is highly recommended for vehicles that can benefit from reduce latency, in particular racing multicopters, VTOL vehicles, and so on.
 
-It has reduced latency and is more robust than both [PWM](#pwm) and [OneShot](#oneshot).
+It has reduced latency and is more robust than both [PWM](#pwm) and [OneShot](#oneshot-125).
 In addition it does not require ESC calibration, telemetry is available from some ESCs, and you can revers motor spin directions
 
 PX4 configuration is done in the [Actuator Configuration](../config/actuators.md).

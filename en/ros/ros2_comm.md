@@ -92,7 +92,7 @@ For ROS 2 to communicate with PX4, a XRCE-DDS client must be running on PX4, con
 
 #### Setup the Agent
 
-The agent can be installed onto the companion computer in a [number of ways](../middleware/xrce_dds.md#xrce-dds-agent-installation-usage).
+The agent can be installed onto the companion computer in a [number of ways](../middleware/xrce_dds.md#xrce-dds-agent-installation).
 Below we show how to build the agent "standalone" from source and connect to a client running on the PX4 simulator.
 
 To setup and start the agent:
@@ -341,7 +341,7 @@ public:
 :::note
 The subscription sets a QoS profile based on `rmw_qos_profile_sensor_data`.
 This is needed because the default ROS 2 QoS profile for subscribers is incompatible with the PX4 profile for publishers.
-For more information see: [ROS 2 Subscriber QoS Settings](#ros2-subscriber-qos-settings),
+For more information see: [ROS 2 Subscriber QoS Settings](#ros-2-subscriber-qos-settings),
 :::
 
 The lines below create a publisher to the `SensorCombined` uORB topic, which can be matched with one or more compatible ROS 2 subscribers to the `fmu/sensor_combined/out` ROS 2 topic.
