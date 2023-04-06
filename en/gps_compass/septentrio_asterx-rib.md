@@ -1,13 +1,12 @@
 # AsteRx OEM with Robotics Interface Board
 
 Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers.
-Septentrio OEM receivers deliver accurate and reliable positions to demanding industrial applications in a small, light-weight form factor. 
-We also offer several dual antenna receivers which allows for GPS information to be fused into the heading (other attitude information can also be determined, but is not fused by PX4).
+Septentrio OEM receivers deliver accurate and reliable positions to demanding industrial applications in a small, light-weight form factor.
+There are several dual antenna receiver options that allows for GPS information to be fused into the heading (other attitude information can also be determined, but is not fused by PX4).
 
 Inertial sensor integration of the AsteRx-i family offers a full attitude solution (heading, pitch and roll) synchronized with accurate positioning.
 
 The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet, on board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
-
 
 ![Septentrio Robotics Interface Board](../../assets/hardware/gps/septentrio_sbf/asterx_m3_and_rib_board.png)
 
@@ -22,10 +21,8 @@ The Robotics Interface Board coupled with Septentrio GNSS receiver boards provid
 - 44 pins I/O connector for autopilots such as Pixhawk
 - On-board logging
 - Micro USB connector
-
-Size: 71.53 x 47.5 x 18.15 mm
-
-Weight = 50g
+- Size: 71.53 x 47.5 x 18.15 mm
+- Weight = 50g
 
 ## Purchase
 
@@ -50,7 +47,7 @@ The micro USB type B connector can be attached to a PC to power the receiver and
 _Connector type: SAMTEC TMM-122-03-S-D, 2-mm pitch._
 
 The 44-pin header can be used to connect multiple GPIO devices.
-Please refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) for the pinout.
+Refer to the [hardware manual](https://web.septentrio.com/l/858493/2022-04-19/xgrsw) for the pinout.
 
 ### LED's
 
