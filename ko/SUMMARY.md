@@ -325,6 +325,7 @@
       * [ARK CANnode](dronecan/ark_cannode.md)
   * [보조 컴퓨터](companion_computer/README.md)
     * [Pixhawk + Companion Setup](companion_computer/pixhawk_companion.md)
+      * [RasPi Pixhawk Companion](companion_computer/pixhawk_rpi.md)
     * [보조 컴퓨터 주변 기기](companion_computer/companion_computer_peripherals.md)
     * [Holybro Pixhawk RPI CM4 Baseboard](companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 * [개발](development/development.md)
