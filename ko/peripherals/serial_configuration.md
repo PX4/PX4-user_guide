@@ -36,7 +36,7 @@ The port mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_co
 :::note
 Configuration parameter names follow the pattern `*_CONFIG` or `*_CFG` (*QGroundControl* only displays the parameters for services/drivers that are present in firmware).
 
-   At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG), [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG), [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [XRCE_DDS_0_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_0_CFG), [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG), [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG), [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG), [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG), [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
+   At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG), [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG), [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [XRCE_DDS_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_CFG), [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG), [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG), [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG), [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG), [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
 :::
 1. 추가 설정 매개변수를 표시하기 위하여 기체를 재부팅합니다.
 1. 선택한 포트의 전송속도 매개변수를 설정합니다.
@@ -53,10 +53,10 @@ Port conflicts are handled by system startup, which ensures that at most one ser
 이 글을 쓰는 시점에는 충돌하는 포트에 관련된 사용자 피드백은 없습니다.
 :::
 
-
 ## 문제 해결
 
-<span id="parameter_not_in_firmware"></span>
+<a id="parameter_not_in_firmware"></a>
+
 ### *QGroundControl*에서 누락된 설정 매개변수
 
 *QGroundControl*은 펌웨어의 서비스와 드라이버의 매개변수들만 표시합니다. 펌웨어에 누락된 매개변수를 추가할 수 있습니다.
@@ -72,7 +72,6 @@ CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
 An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules. To launch boardconfig type `make <vendor>_<board>_<label> boardconfig`
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
-
 
 ## 추가 정보
 

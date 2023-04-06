@@ -18,7 +18,7 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ## 주요 특징
 
-- 32 비트 STM32H743ZI(32 비트 [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
+- 32bit STM32H753VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
 - 32 비트 STM32F103 failsafe 코 프로세서
 - 14 개 PWM/서보 출력(페일세이프 및 수동 오버라이드 포함 8 개, 보조, 고전력 호환 6 개)
 - 추가 주변 장치(UART, I2C, CAN) 다양한 연결 옵션
@@ -44,7 +44,7 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 ## 사양
 
 - **프로세서:**
-  - STM32H743ZI (32 비트 [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  - STM32H753VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   - 400 MHz
   - 1 MB RAM
   - 2MB 플래시 \(완전 액세스 가능\)
@@ -113,10 +113,6 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/default.px4board -->
 <!-- https://github.com/PX4/PX4-Autopilot/blob/main/boards/cubepilot/cubeorange/nuttx-config/nsh/defconfig#L188-L197 -->
 
-
-### 디버그 포트
-
-![큐브 디버그 포트](../../assets/flight_controller/cube/cube_ports_debug.jpg)
 
 ### USB/SDCard 포트
 
