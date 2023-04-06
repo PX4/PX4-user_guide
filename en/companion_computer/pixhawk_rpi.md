@@ -67,12 +67,12 @@ If you have any issues, check the radio documentation.
 
 ### Power Supply
 
-Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../en/power_module/README.md) to a port labeled `POWER` (or similar).
+Pixhawk boards usually require a reliable 5V DC supply, which is commonly supplied from LiPO batteries via a [Power Module and/or Power Distribution board](../power_module/README.md) to a port labeled `POWER` (or similar).
 
 The instructions for your flight controller will normally explain the recommended setup.
 For example:
 - [Holybro Pixhawk 6C > Voltage Ratings](../flight_controller/pixhawk6c.md#voltage-ratings)
-- [Holybro Pixhawk 6C Wiring Quick Start > Power](../en/assembly/quick_start_pixhawk6c.md#power)
+- [Holybro Pixhawk 6C Wiring Quick Start > Power](../assembly/quick_start_pixhawk6c.md#power)
 
 Pixhawk controllers can supply power to a _small_ number of low-power peripherals, such as GPS modules and low-range telemetry radios.
 The RPi companion computer, servos, high power radios, and other peripherals require a separate power supply, which is usually from a battery elimination circuit (BEC) wired to the same or another battery. 
