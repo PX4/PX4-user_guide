@@ -396,17 +396,13 @@ VTOL의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](#mc
 이 모드는 임무 모드 미설정시에 활성화됩니다.
 :::
 
-*Manual mode*<!-- \[Manual\](../flight_modes/manual_ugv.md) -->*수동 모드*에서는 RC 조종 스틱이 중앙에 있으면, 모터를 중지합니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
+*Manual mode* stops motors when RC control sticks are centered. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
 
 <!--
 When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 -->
 
 조종기의 스틱을 놓으면 센터 데드 존으로 되돌아갑니다. 그러면 모터가 꺼지고, 바퀴와 방향타가 중앙에 위치합니다. 활성 제동이 없으므로 차량은 운동량 소실시까지 계속 움직입니다 (그리고 보트의 경우에는 계속 표류함).
-
-<!--
-![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
--->
 
 
 ### 임무 모드 (UGV)
