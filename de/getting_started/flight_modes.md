@@ -396,17 +396,13 @@ Ground vehicles and boats only support [manual mode](#manual-mode-ugv) and [miss
 This mode is enabled unless mission mode is set.
 :::
 
-*Manual mode*<!-- \[Manual\](../flight_modes/manual_ugv.md) -->stops motors when RC control sticks are centered. To move the vehicle you move the sticks outside of the center.
+*Manual mode* stops motors when RC control sticks are centered. To move the vehicle you move the sticks outside of the center.
 
 <!--
 When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 -->
 
 As soon as you release the control sticks they will return to the center deadzone. This will turn off the motors and center the wheels/rudder. There is no active braking, so the vehicle may continue to move until its momentum dissipates (and for a boat, continue to drift).
-
-<!--
-![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
--->
 
 
 ### Mission Mode (UGV)
