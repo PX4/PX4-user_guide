@@ -2,7 +2,8 @@
 
 Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers.
 Septentrio OEM receivers deliver accurate and reliable positions to demanding industrial applications in a small, light-weight form factor. 
-We also offer several dual antenna receivers providing heading & pitch or heading & roll angles ideal for autonomous navigation or machine control.
+We also offer several dual antenna receivers which allows for GPS information to be fused into the heading (other attitude information can also be determined, but is not fused by PX4).
+
 Inertial sensor integration of the AsteRx-i family offers a full attitude solution (heading, pitch and roll) synchronized with accurate positioning.
 
 The Robotics Interface Board coupled with Septentrio GNSS receiver boards provides common interfaces like USB, ethernet, on board logging and other functionalities designed for rapid prototyping, product evaluation or efficient integration.
