@@ -130,8 +130,45 @@ You can also start your simulation, and _then_ attach `gdb`:
     ```
 2. Open another terminal and type:
 
+    ```bash
+    ps -a
+    ```
+    You will want to note the PID of the process named "PX4"
+    
+    (In this example it is 14149)
+    ```bash
+    atlas:~/px4/main/PX4-Autopilot$ ps -a
+        PID TTY          TIME CMD
+    1796 tty2     00:01:59 Xorg
+    1836 tty2     00:00:00 gnome-session-b
+    14027 pts/1    00:00:00 make
+    14077 pts/1    00:00:00 sh
+    14078 pts/1    00:00:00 cmake
+    14079 pts/1    00:00:00 ninja
+    14090 pts/1    00:00:00 sh
+    14091 pts/1    00:00:00 bash
+    14095 pts/1    00:01:23 gzserver
+    14149 pts/1    00:02:48 px4
+    14808 pts/2    00:00:00 ps
+    ```
+3. Then type in the same window
+
    ```bash
    sudo gdb [px4 bin file path (from step 1) here]
+   ```
+   For example,
+   
+   ```bash
+   sudo gdb /home/atlas/px4/base/PX4-Autopilot/build/px4_sitl_default/bin/px4
+   ```
+
+   Now, you can attach to the PX4 instance by entering the PID noted in step 2.
+   ```bash
+   attach [PID on px4]
+   ```
+   
+   You should now have a GDB interface to debug with
+
 ## Compiler optimization
 
 It is possible to suppress compiler optimization for given executables and/or
