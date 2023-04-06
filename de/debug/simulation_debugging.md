@@ -31,16 +31,12 @@ make px4_sitl_default jmavsim___valgrind
 
 ## Start combinations
 
-SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend. This results in the start options below:
+SITL can be launched with and without debugger attached with Gazebo Classic as simulation backend. This results in the start options below:
 
 ```sh
-make px4_sitl_default jmavsim
-make px4_sitl_default jmavsim___gdb
-make px4_sitl_default jmavsim___lldb
-
 make px4_sitl_default gazebo-classic
-make px4_sitl_default gazebo-classic___gdb
-make px4_sitl_default gazebo-classic___lldb
+make px4_sitl_default gazebo-classic_iris_gdb
+make px4_sitl_default gazebo-classic_iris_lldb
 ```
 
 where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
@@ -70,31 +66,6 @@ Or in the case of GDB:
 ```
 
 After that the lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.
-
-The last parameter, the &lt;viewer\_model\_debugger&gt; triplet, is actually passed to make in the build directory, so
-
-```sh
-make px4_sitl_default jmavsim___gdb
-```
-
-is equivalent with
-
-```sh
-make px4_sitl_default   # Configure with cmake
-make -C build/px4_sitl_default jmavsim___gdb
-```
-
-A full list of the available make targets in the build directory can be obtained with:
-
-```sh
-make help
-```
-
-but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets is printed with the command
-
-```sh
-make list_vmd_make_targets
-```
 
 ## Compiler optimization
 
