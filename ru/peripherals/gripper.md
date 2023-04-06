@@ -19,10 +19,6 @@ PX4 supports grippers that have simple triggers to hold and release, and that us
 - [PWM Servo Gripper](gripper_servo.md) - Grippers connected to autopilot PWM outputs
 - **MAVLink Gripper** (Untested) - Grippers that support the [MAV_CMD_DO_GRIPPER](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_GRIPPER) MAVLink command.
 
-:::note
-[Roboclaw](../modules/modules_driver.md#roboclaw) isn't supported as a gripper (but may be in future).
-:::
-
 ## Using a Gripper
 
 For information on using a gripper in missions see [Payload Delivery Missions](../flying/package_delivery_mission.md).
