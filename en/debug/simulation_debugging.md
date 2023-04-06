@@ -128,13 +128,10 @@ You can also start your simulation, and _then_ attach `gdb`:
     INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
     INFO  [init] found model autostart file as SYS_AUTOSTART=10015
     ```
-2. 
-    Open another terminal and type
+2. Open another terminal and type:
 
-    `sudo gdb [px4 bin file path (from step 1) here]`
-
-    ex: `sudo gdb /home/atlas/px4/base/PX4-Autopilot/build/px4_sitl_default/bin/px4`
-
+   ```bash
+   sudo gdb [px4 bin file path (from step 1) here]
 ## Compiler optimization
 
 It is possible to suppress compiler optimization for given executables and/or
