@@ -2,7 +2,7 @@
 
 PX4 can be configured to trigger a parachute during [flight termination](../advanced_config/flight_termination.md).
 
-The parachute can be connected to a free PWM output or via [MAVLink](#mavlink-parachutes).
+The parachute can be connected to a free PWM output or via MAVLink.
 
 :::note
 During flight termination PX4 turns off all controllers and sets all PWM outputs to their failsafe values (including those connected to PWM outputs) and triggers any connected MAVLink parachutes.
