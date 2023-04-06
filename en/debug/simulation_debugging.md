@@ -102,16 +102,18 @@ make list_vmd_make_targets
 
 ## Attaching GDB to running SITL
 
-You can also start your simulation, and THEN attach gdb to it. 
+You can also start your simulation, and _then_ attach `gdb`:
 
-1. 
-    In one terminal screen enter the command to start your simulation 
-    `make px4_sitl_default gazebo`
+1. In one terminal screen enter the command to start your simulation:
+
+    ```bash
+    make px4_sitl_default gazebo
+    ```
 
     As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text.
-    It will list the location of your px4 bin file to use later. 
+    It will list the location of your px4 bin file for later use. 
 
-    ```
+    ```bash
     SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
 
     ______  __   __    ___ 
@@ -125,9 +127,7 @@ You can also start your simulation, and THEN attach gdb to it.
 
     INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
     INFO  [init] found model autostart file as SYS_AUTOSTART=10015
-
     ```
-
 2. 
     Open another terminal and type
 
