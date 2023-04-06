@@ -31,15 +31,22 @@ make px4_sitl_default jmavsim___valgrind
 
 ## Start combinations
 
-SITL can be launched with and without debugger attached with Gazebo Classic as simulation backend. This results in the start options below:
+SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend.
+This results in the start options below:
 
 ```sh
+make px4_sitl_default jmavsim
+make px4_sitl_default jmavsim___gdb
+make px4_sitl_default jmavsim___lldb
+
 make px4_sitl_default gazebo-classic
-make px4_sitl_default gazebo-classic_iris_gdb
-make px4_sitl_default gazebo-classic_iris_lldb
+make px4_sitl_default gazebo-classic___gdb
+make px4_sitl_default gazebo-classic___lldb
 ```
 
-where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
+where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default &#39;iris&#39; model).
+This will start the debugger and launch the SITL application.
+In order to break into the debugger shell and halt the execution, hit ```CTRL-C```:
 
 ```sh
 Process 16529 stopped
@@ -53,7 +60,7 @@ libsystem_kernel.dylib`__read_nocancel:
 (lldb) 
 ```
 
-In order to not have the DriverFrameworks scheduling interfere with the debugging session `SIGCONT` should be masked in LLDB and GDB:
+In order to not have the DriverFrameworks scheduling interfere with the debugging session ```SIGCONT``` should be masked in LLDB and GDB:
 
 ```bash
 (lldb) process handle SIGCONT -n false -p false -s false
@@ -67,11 +74,41 @@ Or in the case of GDB:
 
 After that the lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.
 
+The last parameter, the &lt;viewer\_model\_debugger&gt; triplet, is actually passed to make in the build directory, so
+
+```sh
+make px4_sitl_default jmavsim___gdb
+```
+
+is equivalent with
+
+```sh
+make px4_sitl_default	# Configure with cmake
+make -C build/px4_sitl_default jmavsim___gdb
+```
+
+A full list of the available make targets in the build directory can be obtained with:
+
+```sh
+make help
+```
+
+but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets
+is printed with the command
+
+```sh
+make list_vmd_make_targets
+```
+
 ## Compiler optimization
 
-It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring for `posix_sitl_*`. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
+It is possible to suppress compiler optimization for given executables and/or
+modules (as added by cmake with `add_executable` or `add_library`) when configuring
+for `posix_sitl_*`. This can be handy when it is necessary to step through code
+with a debugger or print variables that would otherwise be optimized out.
 
-To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
+To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization.
+This environment variable is ignored when the configuration isn&#39;t `posix_sitl_*`.
 
 For example,
 
@@ -81,7 +118,8 @@ export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 
 would suppress optimization of the targets: platforms\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, examples\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB\_tests and px4.
 
-The targets that can be matched with these regular expressions can be printed with the command:
+The targets that can be matched with these regular expressions can be
+printed with the command:
 
 ```sh
 make -C build/posix_sitl_* list_cmake_targets
