@@ -16497,6 +16497,20 @@ table {
  <td>deg</td>
 </tr>
 <tr>
+ <td><strong id="FW_THR_ASPD_MAX">FW_THR_ASPD_MAX</strong> (FLOAT)</td>
+ <td>Throttle at max airspeed <p><strong>Comment:</strong> Required throttle for level flight at maximum airspeed FW_AIRSPD_MAX (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_THR_ASPD_MIN">FW_THR_ASPD_MIN</strong> (FLOAT)</td>
+ <td>Throttle at min airspeed <p><strong>Comment:</strong> Required throttle for level flight at minimum airspeed FW_AIRSPD_MIN (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle below FW_AIRSPD_TRIM.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_THR_IDLE">FW_THR_IDLE</strong> (FLOAT)</td>
  <td>Idle throttle <p><strong>Comment:</strong> This is the minimum throttle while on the ground For aircraft with internal combustion engines, this parameter should be set above the desired idle rpm. For electric motors, idle should typically be set to zero. Note that in automatic modes, "landed" conditions will engage idle throttle.</p>   </td>
  <td>[0.0, 0.4] (0.01)</td>
