@@ -7,7 +7,9 @@ Tip
 PX4 개발 팀은 이 버전의 ROS를 마이그레이션할 것을 적극 권장합니다!
 :::
 
-Communication between ROS 2 and PX4 uses middleware that implements the [XRCE-DDS protocol](../middleware/xrce_dds.md). This middleware exposes PX4 [uORB messages](../msg_docs/README.md) as ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes. The middleware uses UORB message definitions to generate code to serialise and deserialise the messages heading in and out of PX4. These same message definitions are used in ROS 2 applications to allow the messages to be interpretted.
+Communication between ROS 2 and PX4 uses middleware that implements the [XRCE-DDS protocol](../middleware/xrce_dds.md). This middleware exposes PX4 [uORB messages](../msg_docs/README.md) as ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes. The middleware uses uORB message definitions to generate code to serialise and deserialise the messages heading in and out of PX4. These same message definitions are used in ROS 2 applications to allow the messages to be interpretted.
+
+To use the [ROS 2](../ros/ros2_comm.md) over XRCE-DDS effectively, you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions, which differ from those used by ROS. In the near term future we plan to provide ROS 2 APIs to abstract PX4 conventions, along with examples demonstrating their use.
 
 이 섹션의 주요 주제는 다음과 같습니다.
 - [ROS 2 User Guide](../ros/ros2_comm.md): A PX4-centric overview of ROS 2, covering installation, setup, and how to build ROS 2 applications that communicate with PX4.
@@ -18,12 +20,9 @@ ROS 2는 공식적으로 Linux 플랫폼만 지원합니다.
 Ubuntu 20.04 LTS는 공식적으로 지원되는 배포판입니다.
 :::
 
-:::note
-To use the [ROS 2](../ros/ros2_comm.md) effectively you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions.
 
-This contrasts with ROS 1, which communicates with PX4 via MAVROS/MAVLink, hiding PX4's internal architecture and many of its conventions (e.g. frame and unit conversions).
-
-ROS 2(및 브리지)는 개발 팀이 PX4 규칙을 추상화하는 ROS 2 API와 사용을 보여주는 예제를 제공함에 따라 사용하기가 더 쉬워질 것입니다. 단기 PX4 로드맵에서 이것을 계획하고 있습니다.
+:::note ROS
+2 can also connect with PX4 using [MAVROS](https://github.com/mavlink/mavros/tree/ros2/mavros) (instead of XRCE-DDS). This option is supported by the MAVROS project.
 :::
 
 
@@ -31,5 +30,4 @@ ROS 2(및 브리지)는 개발 팀이 PX4 규칙을 추상화하는 ROS 2 API와
 
 - [ROS 2 User Guide](../ros/ros2_comm.md)
 - [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md): PX4 middleware for connecting to ROS 2.
-- **ROS 2를 브리지로 사용하는 ROS 1:** 공식 ROS 1 브리지 패키지([ros1_bridge](https://github.com/ros2/ros1_bridge))를 사용하면 단일 설정에서 ROS 1 및 ROS 2 애플리케이션을 사용할 수 있습니다.
 
