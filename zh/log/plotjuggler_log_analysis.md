@@ -56,8 +56,8 @@ Here the **Play** button is used to play the recorded data in real time (speed f
 
 :::note
 Try out the boat testing log analysis yourself by downloading the ULog and Layout file used above!
-- [Boat testing ULog](../../assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_2022-7-28-13-31-16.ulg)
-- [Boat testing Analysis Layout](../../assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_layout.xml)
+- [Boat testing ULog](https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_2022-7-28-13-31-16.ulg)
+- [Boat testing Analysis Layout](https://raw.githubusercontent.com/PX4/PX4-user_guide/main/assets/flight_log_analysis/plot_juggler/sample_log_boat_testing_layout.xml)
 :::
 
 ### Layout Templates

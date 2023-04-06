@@ -46,14 +46,16 @@ In [Mission mode](../flight_modes/mission.md) the operator defines the takeoff c
 
 Parameters that apply to both catapult/hand-launch as well as runway takeoffs:
 
-| 매개 변수                                                                                                               | 설명                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="MIS_TAKEOFF_ALT"></span>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)    | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.                                                |
-| <span id="FW_TKO_AIRSPD"></span>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)          | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator) |
-| <span id="FW_TKO_PITCH_MIN"></span>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | This is the minimum pitch angle setpoint during the climbout phase                                                                 |
+| 매개 변수                                                                                                     | 설명                                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT)   | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.                                                |
+| <a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD)       | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator) |
+| <a id="FW_TKO_PITCH_MIN"></a>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | This is the minimum pitch angle setpoint during the climbout phase                                                                 |
+| <a id="FW_T_CLMB_MAX"></a>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)       | Maximum climb rate.                                                                                                                |
 
 
-<span id="hand_launch"></span>
+<a id="hand_launch"></a>
+
 ### 투석기/수동 발사 모드
 
 In *catapult/hand-launch mode* the vehicle waits to detect launch (based on acceleration trigger). On launch it enables the motor and climbs with the maximum climb rate [FW_T_CLMB_MAX](#FW_T_CLMB_MAX) while keeping the pitch setpoint above [FW_TKO_PITCH_MIN](#FW_TKO_PITCH_MIN). Once it reaches [MIS_TAKEOFF_ALT](#MIS_TAKEOFF_ALT) it will automatically switch to [Hold mode](../flight_modes/hold.md) and loiter.

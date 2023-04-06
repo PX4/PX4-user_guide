@@ -24,13 +24,12 @@ PWM ESCs communicate using a periodic pulse, where the *width* of the pulse indi
 
 ![duty cycle for PWM](../../assets/peripherals/esc_pwm_duty_cycle.png)
 
-In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary significantly. Unlike [dshot](#dshot) and [DroneCAN ESC](#DroneCAN) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
+In addition to being a relatively slow protocol PWM ESCs require [calibration](../advanced_config/esc_calibration.md) because the range values representing low and high values can vary significantly. Unlike [dshot](#dshot) and [DroneCAN ESC](#dronecan) they do not have the ability to provide telemetry and feedback on ESC (or servo) state.
 
 Setup:
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md)
 - [PX4 Configuration](../peripherals/pwm_escs_and_servo.md#px4-configuration)
 - [ESC Calibration](../advanced_config/esc_calibration.md)
-
 
 
 ### Oneshot 125
@@ -48,13 +47,12 @@ Setup:
 
 [DShot](../peripherals/dshot.md) is a digital ESC protocol that is highly recommended for vehicles that can benefit from reduce latency, in particular racing multicopters, VTOL vehicles, and so on.
 
-It has reduced latency annd is more robust than both [PWM](#pwm) and [OneShot](#oneshot). In addition it does not require ESC calibration, telemetry is available from some ESCs, and you can revers motor spin directions
+It has reduced latency and is more robust than both [PWM](#pwm) and [OneShot](#oneshot-125). In addition it does not require ESC calibration, telemetry is available from some ESCs, and you can revers motor spin directions
 
-PX4 configuration is done by setting the desired rate using [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG). The parameter value indicates the data rate in kbaud - e.g. DShot150 has a rate of 150kbaud. Higher rates result in lower latency, but lower rates are more robust (and hence more suitable for large aircraft with longer leads); some ESCs only support lower rates (see datasheets for information).
+PX4 configuration is done in the [Actuator Configuration](../config/actuators.md). Selecting a higher rate DShot ESC in the UI result in lower latency, but lower rates are more robust (and hence more suitable for large aircraft with longer leads); some ESCs only support lower rates (see datasheets for information).
 
 Setup:
 - [ESC Wiring](../peripherals/pwm_escs_and_servo.md) (same as for PWM ESCs)
-- [PX4 Configuration](../peripherals/dshot.md#configuration) (using [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG))
 - [DShot](../peripherals/dshot.md) also contains information about how to send commands etc.
 
 ### DroneCAN
