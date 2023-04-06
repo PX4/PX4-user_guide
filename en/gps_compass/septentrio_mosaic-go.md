@@ -28,7 +28,7 @@ The mosaic-go kit is available on the [official shop](https://web.septentrio.com
 
 Other PX4 supported devices from Septentrio:
 
-- [AsteRx OEM with Robotics Interface Board](../../en/gps_compass/septentrio_asterx-rib.md)
+- [AsteRx OEM with Robotics Interface Board](../gps_compass/septentrio_asterx-rib.md)
 
 ## The mosaic-go Heading Evaluation Kit Contains:
 

@@ -32,7 +32,7 @@ All AsteRx receivers and Robotic Interface Boards can be purchased from the Sept
 - [AsteRx-m3 Pro+](https://web.septentrio.com/l/858493/2022-04-19/xgrs3)
 
 Other PX4 supported devices from Septentrio:
-- [mosaic-go evaluation kit](../../en/gps_compass/septentrio_mosaic-go.md)
+- [mosaic-go evaluation kit](../gps_compass/septentrio_mosaic-go.md)
 
 ## Interfaces
 
