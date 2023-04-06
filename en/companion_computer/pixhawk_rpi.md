@@ -7,23 +7,14 @@ These instructions should be readily extensible to other RPi and flight controll
 :::note
 Other common ways to connect RaPi and Pixhawk are:
 
-- Ethernet.
-  Pixhawk controllers based on FMUv5x, 6x and later may have an inbuilt Ethernet port.
+- Ethernet connection between RPi and Pixhawk.
+  Pixhawk controllers based on FMUv5x, FMUv6x and later may have an inbuilt Ethernet port.
   See [PX4 Ethernet > Supported Controllers](../advanced_config/ethernet_setup.md#supported-flight-controllers).
-- Serial connection to the RPI USB port.
+- Serial connection to the RPi USB port.
   This is simple and reliable, but requires an additional FTDI Chip USB-to-serial adapter board.
   This option is covered in [Pixhawk Companion > Serial Port Setup](../companion_computer/pixhawk_companion.md#serial-port-setup).
 :::
 
-<!-- 
-## Serial Connection
-
-
-The first step is the identification of the `TELEM 2` and the `USB` ports in the Pixhawk.
-The image illustrates the ports in the Pixhawk-6C Model.
-
-<img src="../../assets/companion_computer/pixhawk_rpi/pixhawk_6c.png" width="402" height="452" />
--->
 
 ## Wiring
 
@@ -315,7 +306,7 @@ The steps to setup ROS 2 and the XRCE-DDS Agent on the RPi are:
    See [XRCE-DDS > XRCE-DDS Agent Installation](../middleware/xrce_dds.md#xrce-dds-agent-installation) for alternative ways of installing the agent.
 4. Start the agent in the RPi terminal:
 
-   ```
+   ```bash
    sudo MicroXRCEAgent serial --dev /dev/serial0 -b 921600
    ```
    
