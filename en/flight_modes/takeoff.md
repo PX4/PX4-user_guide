@@ -54,12 +54,13 @@ Parameters that apply to both catapult/hand-launch as well as runway takeoffs:
 
 Parameter | Description
 --- | ---
-<span id="MIS_TAKEOFF_ALT"></span>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.
-<span id="FW_TKO_AIRSPD"></span>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD) | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator)
-<span id="FW_TKO_PITCH_MIN"></span>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | This is the minimum pitch angle setpoint during the climbout phase
+<a id="MIS_TAKEOFF_ALT"></a>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Minimum altitude setpoint above Home that the vehicle will climb to during takeoff.
+<a id="FW_TKO_AIRSPD"></a>[FW_TKO_AIRSPD](../advanced_config/parameter_reference.md#FW_TKO_AIRSPD) | Takeoff airspeed (is set to [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) if not defined by operator)
+<a id="FW_TKO_PITCH_MIN"></a>[FW_TKO_PITCH_MIN](../advanced_config/parameter_reference.md#FW_TKO_PITCH_MIN) | This is the minimum pitch angle setpoint during the climbout phase
+<a id="FW_T_CLMB_MAX"></a>[FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) | Maximum climb rate.
 
 
-<span id="hand_launch"></span>
+<a id="hand_launch"></a>
 ### Catapult/Hand Launch
 
 In *catapult/hand-launch mode* the vehicle waits to detect launch (based on acceleration trigger).
