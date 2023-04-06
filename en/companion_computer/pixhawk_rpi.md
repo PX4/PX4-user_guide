@@ -238,7 +238,7 @@ In the next section we'll set up the both Pixhawk and RPi to use XRCE-DDS and RO
 
 ## ROS 2 and XRCE-DDS
 
-The [ROS 2 Guide](../ros/ros2_comm.html) and [XRCE-DDS](../middleware/xrce_dds.md) pages cover the options for setting up the XRCE-DDS and ROS, focussing on ROS 2 "Foxy".
+The [ROS 2 Guide](../ros/ros2_comm.md) and [XRCE-DDS](../middleware/xrce_dds.md) pages cover the options for setting up the XRCE-DDS and ROS, focussing on ROS 2 "Foxy".
 This tutorial uses ROS 2 "Humble" and covers the specific setup for working with RPi.
 It is worth reading both!
 
@@ -320,4 +320,4 @@ source /opt/ros/humble/setup.bash
 ros2 topic list
 ```
 
-That's it. Once you have the connection working, see the [ROS 2 Guide](../ros/ros2_comm.html) for more information about working with PX4 and ROS 2.
+That's it. Once you have the connection working, see the [ROS 2 Guide](../ros/ros2_comm.md) for more information about working with PX4 and ROS 2.
