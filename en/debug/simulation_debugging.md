@@ -163,6 +163,7 @@ You can also start your simulation, and _then_ attach `gdb`:
    ```
 
    Now, you can attach to the PX4 instance by entering the PID noted in step 2.
+   
    ```bash
    attach [PID on px4]
    ```
