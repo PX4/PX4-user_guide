@@ -35,7 +35,7 @@ jobs:
       # Get the files that changed. Now we print them.
       # Later we'll pass them into link checker or linter or somethigng
       - id: files
-        uses: jitterbug/get-changed-files@v1
+        uses: jitterbit/get-changed-files@v1
       - run: |
          for changed_file in ${{ steps.files.outputs.all }}; do
           echo "Do something with this ${changed_file}."
