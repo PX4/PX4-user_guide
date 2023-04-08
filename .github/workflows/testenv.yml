@@ -4,22 +4,17 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+    branches: [ main, v1.test_vtol ]
+
   workflow_dispatch:
-    
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
   
+jobs:
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v3
+      
       # Get branch name for pull or merge via env file (https://stackoverflow.com/a/64210623/894359)
     
       - name: Get branch name (merge)
@@ -33,14 +28,15 @@ jobs:
         
       - name: Debug
         run: echo DEBUG env.BRANCH_NAME is ${{ env.BRANCH_NAME }} 
-
-   # Get the files that changed. Now we print them.
-   # Later we'll pass them into link checker or linter or somethigng
-    - id: files
-  uses: jitterbit/get-changed-files@v1
-    - run: |
-      for changed_file in ${{ steps.files.outputs.all }}; do
-        echo "Do something with this ${changed_file}."
-      done
-        
-
+  test:  
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Get the files that changed. Now we print them.
+      # Later we'll pass them into link checker or linter or somethigng
+      - id: files
+        uses: jitterbug/get-changed-files@v1
+      - run: |
+         for changed_file in ${{ steps.files.outputs.all }}; do
+          echo "Do something with this ${changed_file}."
+          done
