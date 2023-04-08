@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Get changed files
         id: get_changed_files
@@ -22,10 +22,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            ${{ steps.get_changed_files.outputs.files == '' }}Did you mean to modify these translations? Translations should be modified on crowdin
+            Did you mean to modify these translations? Translations should be modified on crowdin
             ${{ steps.get_changed_files.outputs.files }}
-            ${{ steps.get_changed_files.outputs.files == '' }}no known flaws
-          reactions: "+1"
-          allow-reactions: true
           delete-detected: true
           repo-token: ${{ secrets.GITHUB_TOKEN }}
