@@ -15,7 +15,7 @@ jobs:
         id: get_changed_files
         uses: tj-actions/changed-files@v1
         with:
-          files_ignore: 'en/**'
+          files_ignore: 'en'
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v3
