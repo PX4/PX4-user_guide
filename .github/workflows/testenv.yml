@@ -5,7 +5,8 @@ name: CI
 # Controls when the workflow will run
 on:
   pull_request:
-    branches: [ main, v1.test_vtol ]
+    branches:
+      - main
 
   workflow_dispatch:
   
