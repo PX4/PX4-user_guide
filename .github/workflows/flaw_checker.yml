@@ -1,68 +1,39 @@
-name: Check PR for non-English changes
+name: Check for modified translations
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
-  check-files:
+  check_translations:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
+
       - name: Get changed files
-        id: files
         uses: tj-actions/changed-files@v1
         with:
-          files_ignore: en/**
-      - name: Check for non-English changes
-        id: non-english-changes
+          files_ignore: 'en/**'
+        id: changed-files
+
+      - name: Check for modified translations
         run: |
-          changed_files=$(echo "${{ steps.files.outputs.all }}" | tr '\n' ' ')
-          non_en_files=$(grep -v '^en/' <<< "$changed_files")
-          if [[ -n "$non_en_files" ]]; then
-            echo "::set-output name=files::${non_en_files}"
-            echo "::set-output name=update::true"
+          files=$(echo "${{ steps.changed-files.outputs.files }}" | grep -v '^en/')
+          if [ -z "$files" ]; then
+            echo "No modified translations found."
+            comment_body="No known flaws."
+          else
+            echo "Modified translations found:"
+            echo "$files"
+            comment_body="Did you mean to modify these translations? Translations should be modified on crowdin.\n\n$files"
           fi
-      - name: Create comment on PR
-        if: steps.non-english-changes.outputs.files != '' && steps.non-english-changes.outputs.update != 'true'
-        uses: peter-evans/create-issue-comment@v1
+
+          echo "::set-output name=comment-body::$comment_body"
+
+      - name: Add or update PR comment
+        uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            Did you mean to edit these translations? Translations should be updated in www.fred.jim:
-            ```
-            ${{ steps.non-english-changes.outputs.files }}
-            ```
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update comment on PR
-        if: steps.non-english-changes.outputs.files != '' && steps.non-english-changes.outputs.update == 'true'
-        uses: peter-evans/update-issue-comment@v1
-        with:
-          comment-id: ${{ github.event.pull_request.body | jq -r '.comments[] | select(.body | contains("Did you mean to edit these translations? Translations should be updated in www.fred.jim:")) | .id' }}
-          body: |
-            Did you mean to edit these translations? Translations should be updated in www.fred.jim:
-            ```
-            ${{ steps.non-english-changes.outputs.files }}
-            ```
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create comment on PR
-        if: steps.non-english-changes.outputs.files == '' && steps.non-english-changes.outputs.update != 'true'
-        uses: peter-evans/create-issue-comment@v1
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            No known flaws in PR.
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update comment on PR
-        if: steps.non-english-changes.outputs.files == '' && steps.non-english-changes.outputs.update == 'true'
-        uses: peter-evans/update-issue-comment@v1
-        with:
-          comment-id: ${{ github.event.pull_request.body | jq -r '.comments[] | select(.body | contains("No known flaws in PR.")) | .id' }}
-          body: |
-            No known flaws in PR.
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          body: ${{ steps.check_translations.outputs.comment-body }}
+          token: ${{ secrets.GITHUB_TOKEN }}
