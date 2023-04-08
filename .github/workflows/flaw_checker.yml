@@ -1,4 +1,5 @@
-name: Check PR for translations
+
+name: Check PR for non-English changes
 
 on:
   pull_request:
@@ -14,28 +15,34 @@ jobs:
         id: files
         uses: tj-actions/changed-files@v1
         with:
-          number: ${{ github.event.number }}
-      - name: Check for translations
-        if: steps.files.outputs.added != ''
-        id: translations
+          files_ignore: en/**
+      - name: Check for non-English changes
+        id: non-english-changes
         run: |
-          echo "${{ steps.files.outputs.added }}" | while read filename
-          do
-            if [[ ! $filename =~ ^en/ ]]; then
-              echo "::$env(GITHUB_WORKSPACE)::${filename} is a translation and should not be edited." >> comment.txt
-              touch .update
-            fi
-          done
-      - name: Check for updates
-        if: steps.files.outputs.modified != ''
-        id: updates
-        run: touch .update
+          changed_files=$(echo "${{ steps.files.outputs.all }}" | tr '\n' ' ')
+          non_en_files=$(grep -v '^en/' <<< "$changed_files")
+          if [[ -n "$non_en_files" ]]; then
+            echo "::set-output name=files::${non_en_files}"
+            echo "::set-output name=update::true"
+          fi
       - name: Comment on PR
-        if: steps.files.outputs.added != '' || steps.files.outputs.modified != ''
+        if: steps.non-english-changes.outputs.files != ''
         uses: peter-evans/create-or-update-comment@v1
         with:
           body: |
-            ${{ steps.translations.outputs.comment }}${{ steps.updates.outputs.comment }}
+            Did you mean to edit these translations? Translations should be updated in www.fred.jim:
+            ```
+            ${{ steps.non-english-changes.outputs.files }}
+            ```
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          UPDATE: ${{ fileExists('.update') }}
+          UPDATE: ${{ steps.non-english-changes.outputs.update || false }}
+      - name: Comment on PR
+        if: steps.non-english-changes.outputs.files == ''
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          body: |
+            No known flaws in PR.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPDATE: ${{ steps.non-english-changes.outputs.update || false }}
