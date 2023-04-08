@@ -1,39 +1,31 @@
-name: Check for modified translations
+name: Check for translation modifications
 
 on:
   pull_request:
-    types: [opened, edited, reopened, synchronize]
+    types: [opened, edited, synchronize]
 
 jobs:
   check_translations:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Get changed files
+        id: get_changed_files
         uses: tj-actions/changed-files@v1
         with:
           files_ignore: 'en/**'
-        id: changed-files
 
-      - name: Check for modified translations
-        run: |
-          files=$(echo "${{ steps.changed-files.outputs.files }}" | grep -v '^en/')
-          if [ -z "$files" ]; then
-            echo "No modified translations found."
-            comment_body="No known flaws."
-          else
-            echo "Modified translations found:"
-            echo "$files"
-            comment_body="Did you mean to modify these translations? Translations should be modified on crowdin.\n\n$files"
-          fi
-
-          echo "::set-output name=comment-body::$comment_body"
-
-      - name: Add or update PR comment
-        uses: peter-evans/create-or-update-comment@v3
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v1.2.3
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body: ${{ steps.check_translations.outputs.comment-body }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            ${{ steps.get_changed_files.outputs.files == '' }}Did you mean to modify these translations? Translations should be modified on crowdin
+            ${{ steps.get_changed_files.outputs.files }}
+            ${{ steps.get_changed_files.outputs.files == '' }}no known flaws
+          reactions: "+1"
+          allow-reactions: true
+          delete-detected: true
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
