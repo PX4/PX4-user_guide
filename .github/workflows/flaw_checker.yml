@@ -36,13 +36,13 @@ jobs:
           
       
       - name: Get result
-        run: echo ${{steps.bullet_list.outputs.result }}
+        run: echo "${{steps.bullet_list.outputs.result }}"
         
       - name: Get result2
-        run: echo ${{steps.bullet_list.outputs.result.bullet_list }}
+        run: echo "${{steps.bullet_list.outputs.result.bullet_list }}"
 
       - name: Get result3
-        run: echo ${{steps.bullet_list.outputs.result['bullet_list'] }}       
+        run: echo "${{ steps.bullet_list.outputs.result['bullet_list'] }}"
 
       - name: Convert files list to bullet list2
         id: bullet_list_ex
@@ -59,13 +59,13 @@ jobs:
             }
        
       - name: Get result4
-        run: echo ${{steps.bullet_list_ex.outputs.result.bullet_list }}
+        run: echo "${{steps.bullet_list_ex.outputs.result.bullet_list }}"
 
       - name: Get result5
-        run: echo ${{steps.bullet_list_ex.outputs.result.bullet_list }}
+        run: echo "${{steps.bullet_list_ex.outputs.result.bullet_list }}"
         
       - name: Get result6
-        run: echo ${{steps.bullet_list_ex.outputs.result }}       
+        run: echo "${{steps.bullet_list_ex.outputs.result }}"
         
         
       - name: Find Comment
