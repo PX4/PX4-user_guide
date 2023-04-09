@@ -29,7 +29,8 @@ jobs:
           script: |
             const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
             console.log(files);           
-            const bulletList = files.join('\n - ');
+            let bulletList = '\n- ' + files.join(': Translation file should go through crowdin \n - ');
+            bulletList+='Translation file should go through crowdin'
             console.log(bulletList);
             return bulletList;
           result-encoding: string
