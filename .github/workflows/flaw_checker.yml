@@ -55,7 +55,7 @@ jobs:
             const bulletList = files.join('\n - ');
             console.log(bulletList);
             return {
-              "bullet_list": `"${bulletList)"`
+              "bullet_list": bulletList
             }
        
       - name: Get result4
