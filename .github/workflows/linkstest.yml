@@ -16,11 +16,11 @@ jobs:
       with:
         node-version: '16.x'
     - name: Install global NPM package
-      run: npm install -g markdown_link_checker_sc@0.0.1
+      run: npm install markdown_link_checker_sc@0.0.1
       
     - name: Run link checker
       run: |
-        markdown_link_checker_sc -d ${{ github.workspace }}/en
+        npx markdown_link_checker_sc -d ${{ github.workspace }}/en
     - name: Save output
       id: output
       run: echo "::set-output name=check_output::$(cat output.txt)"
