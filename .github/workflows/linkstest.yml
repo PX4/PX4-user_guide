@@ -11,8 +11,13 @@ jobs:
     - name: Checkout PR
       uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: npm install markdown_link_checker_sc@0.0.1
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+    - name: Install global NPM package
+      run: npm install -g markdown_link_checker_sc@0.0.1
+      
     - name: Run link checker
       run: |
         markdown-link-checker -d ${{ github.workspace }}/en
