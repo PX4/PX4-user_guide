@@ -25,6 +25,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: string
           script: |
             const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
             console.log(files);           
@@ -33,6 +34,7 @@ jobs:
             return {
               bullet_list: bulletList
             }
+
             
       - name: Get result
         run: echo "${{steps.bullet_list.outputs.bullet_list }}"
