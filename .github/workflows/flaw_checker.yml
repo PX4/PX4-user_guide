@@ -35,6 +35,6 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Found flaws
-            Translations should be modified on crowdin
-            ${{ steps.get_changed_files.outputs.files }}
+            Translations should only be modified on crowdin:
+              ${{ steps.get_changed_files.outputs.all_changed_files }}
           edit-mode: replace
