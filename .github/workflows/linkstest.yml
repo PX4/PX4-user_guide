@@ -20,7 +20,7 @@ jobs:
       
     - name: Run link checker
       run: |
-        markdown-link-checker -d ${{ github.workspace }}/en
+        markdown_link_checker_sc -d ${{ github.workspace }}/en
     - name: Save output
       id: output
       run: echo "::set-output name=check_output::$(cat output.txt)"
