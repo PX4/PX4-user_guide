@@ -1,0 +1,31 @@
+# This is a basic workflow that is manually triggered
+
+name: Check PR links
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+        required: true
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout PR
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+    - name: Run link checker
+      run: |
+        node index.js -d ${{ github.workspace }}/en
+      working-directory: ./markdown_link_checker_sc
+      env:
+        NODE_PATH: ./node_modules
+    - name: Save output
+      id: output
+      run: echo "::set-output name=check_output::$(cat output.txt)"
+      shell: bash
+    - name: Show output
+      run: echo "${{ steps.output.outputs.check_output }}"
