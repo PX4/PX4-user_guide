@@ -35,6 +35,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Found flaws
-            Translations should only be modified on crowdin:
-              ${{ steps.get_changed_files.outputs.all_changed_files }}
+            {% for file in {{  steps.get_changed_files.outputs.all_changed_files }} %}
+            - {{ file }} - ERROR: Only modify transations in crowdin
+            {% endfor %}
           edit-mode: replace
