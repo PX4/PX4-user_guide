@@ -20,6 +20,13 @@ jobs:
             **/*.md
           files_ignore: 'en'
 
+      - name: Split changed files
+        id: split_files
+        run: |
+          CHANGED_FILES=(${{ steps.assign_files.outputs.changed_files }})  # Convert output to array
+          echo "::set-output name=split_files::${CHANGED_FILES[*]}"  # Join array with spaces
+        shell: bash
+
       - name: Find Comment
         uses: peter-evans/find-comment@v2
         id: fc
@@ -35,7 +42,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Found flaws
-            {% for file in {{  steps.get_changed_files.outputs.all_changed_files }} %}
+            {% for file in {{ steps.split_files.outputs.split_files }} %}
             - {{ file }} - ERROR: Only modify transations in crowdin
             {% endfor %}
           edit-mode: replace
