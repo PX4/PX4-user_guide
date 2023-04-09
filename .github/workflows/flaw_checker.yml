@@ -31,7 +31,10 @@ jobs:
             return {
               bullet_list: bulletList
             }
-
+            
+      - name: Get result
+        run: echo "${{steps.bullet_list.outputs.bullet_list }}"
+  
       - name: Find Comment
         uses: peter-evans/find-comment@v2
         id: fc
