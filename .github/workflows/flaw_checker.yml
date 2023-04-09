@@ -33,32 +33,41 @@ jobs:
             return {
               bullet_list: bulletList
             }
+          
+      
+      - name: Get result
+        run: echo ${{steps.bullet_list.outputs.result }}
+        
+      - name: Get result2
+        run: echo ${{steps.bullet_list.outputs.result.bullet_list }}
 
-      - name: Convert files list to bullet list 2
+      - name: Get result3
+        run: echo ${{steps.bullet_list.outputs.result['bullet_list'] }}       
+
+      - name: Convert files list to bullet list2
         id: bullet_list_ex
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          result-encoding: string
           script: |
             const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
             console.log(files);           
             const bulletList = files.join('\n - ');
             console.log(bulletList);
-            return bulletList;
-            
-      - name: Get result
-        run: echo "${{steps.bullet_list.outputs.bullet_list }}"
-  
-      - name: Get result2
-        run: echo ${{steps.bullet_list.outputs.result.bullet_list }}
-
-      - name: Get result3
-        run: echo ${{steps.bullet_list.outputs.result }}
-        
+            return {
+              "bullet_list": `"${bulletList)"`
+            }
+       
       - name: Get result4
-        run: echo ${{steps.bullet_list_ex.outputs.result }}
+        run: echo ${{steps.bullet_list_ex.outputs.result.bullet_list }}
 
+      - name: Get result5
+        run: echo ${{steps.bullet_list_ex.outputs.result.bullet_list }}
+        
+      - name: Get result6
+        run: echo ${{steps.bullet_list_ex.outputs.result }}       
+        
+        
       - name: Find Comment
         uses: peter-evans/find-comment@v2
         id: fc
