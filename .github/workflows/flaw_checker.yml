@@ -27,7 +27,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
+            console.log(files);
+            console.log(${{ steps.get_changed_files.outputs.all_changed_files }});
+            
             const bulletList = files.join('\n - ');
+            console.log(bulletList);
             return {
               bullet_list: bulletList
             }
@@ -35,6 +39,9 @@ jobs:
       - name: Get result
         run: echo "${{steps.bullet_list.outputs.bullet_list }}"
   
+      - name: Get result2
+        run: echo "{{ steps.bullet_list.outputs.bullet_list }}"
+        
       - name: Find Comment
         uses: peter-evans/find-comment@v2
         id: fc
