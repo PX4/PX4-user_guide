@@ -10,14 +10,12 @@ jobs:
     steps:
     - name: Checkout PR
       uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
+
+    - name: Install dependencies
+      run: npm install markdown_link_checker_sc@0.0.1
     - name: Run link checker
       run: |
-        node index.js -d ${{ github.workspace }}/en
-      working-directory: ./markdown_link_checker_sc
-      env:
-        NODE_PATH: ./node_modules
+        markdown-link-checker -d ${{ github.workspace }}/en
     - name: Save output
       id: output
       run: echo "::set-output name=check_output::$(cat output.txt)"
