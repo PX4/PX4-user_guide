@@ -40,7 +40,7 @@ jobs:
         run: echo "${{steps.bullet_list.outputs.bullet_list }}"
   
       - name: Get result2
-        run: echo "{{ steps.bullet_list.outputs.bullet_list }}"
+        run: echo ${{steps.bullet_list.outputs.result.bullet_list }}
         
       - name: Find Comment
         uses: peter-evans/find-comment@v2
@@ -57,5 +57,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Found flaws
-            ${{ steps.bullet_list.outputs.bullet_list }}
+            ${{ steps.bullet_list.outputs.result.bullet_list }}
           edit-mode: replace
