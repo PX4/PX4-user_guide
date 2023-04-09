@@ -20,6 +20,18 @@ jobs:
             **/*.md
           files_ignore: 'en'
 
+      - name: Convert files list to bullet list
+        id: bullet_list
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
+            const bulletList = files.map(file => `- ${file}`).join('\n');
+            return {
+              bullet_list: bulletList
+            }
+
       - name: Find Comment
         uses: peter-evans/find-comment@v2
         id: fc
@@ -35,5 +47,5 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Found flaws
-            ${{ steps.get_changed_files.outputs.all_changed_files }}
+            ${{ steps.bullet_list.outputs.bullet_list }}
           edit-mode: replace
