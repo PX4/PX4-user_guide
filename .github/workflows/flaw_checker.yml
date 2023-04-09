@@ -27,7 +27,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
-            const bulletList = files.map(file => `- ${file}`).join('\n');
+            const bulletList = files.join('\n - ');
             return {
               bullet_list: bulletList
             }
