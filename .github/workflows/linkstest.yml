@@ -18,8 +18,8 @@ jobs:
     - name: Install markdown_link_checker_sc globally
       run: npm install -g markdown_link_checker_sc
       
-    - name: Add global npm modules path to PATH
-      run: echo "::add-path::/usr/local/lib/node_modules"
+    - name: Set NODE_PATH environment variable
+      run: echo "::set-env name=NODE_PATH::$NODE_PATH:/usr/local/lib/node_modules"
 
     - name: Run markdown_link_checker_sc
       run: markdown_link_checker_sc
