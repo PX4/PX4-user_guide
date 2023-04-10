@@ -1,8 +1,7 @@
-name: Check for flawss\
+name: Check for flaws
 # So far:
   # Modifications of translations files
   # Broken internal links
-
 
 on:
   pull_request:
@@ -47,13 +46,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-        node-version: '16'
+          node-version: '16'
 
       - name: Get changed english files
         # Get changed markdown that are in /en
         id: get_changed_markdown_english
         uses: tj-actions/changed-files@v35
-          with:
+        with:
           files: |
             en/**/*.md
             #files_ignore: 'en'
