@@ -15,11 +15,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - run: npm ci
-    - run: npm test
       
     - name: Run link checker
       run: |
+        npm -g install markdown_link_checker_sc
         markdown_link_checker_sc -d ${{ github.workspace }}/en
     - name: Save output
       id: output
