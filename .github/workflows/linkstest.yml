@@ -14,17 +14,9 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16.x'
-    - name: Install markdown_link_checker_sc globally
-      run: npm install -g markdown_link_checker_sc
-      
-    - name: Set NODE_PATH environment variable
-      env:
-        NODE_PATH: $NODE_PATH:/usr/local/lib/node_modules
-      run: echo "NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules" >> $GITHUB_ENV
-
-    - name: Run markdown_link_checker_sc
-      run: markdown_link_checker_sc
+        node-version: '16'
+    - run: npm ci
+    - run: npm test
       
     - name: Run link checker
       run: |
