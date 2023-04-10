@@ -19,10 +19,10 @@ jobs:
     - name: Run link checker
       run: |
         npm -g install markdown_link_checker_sc
-        markdown_link_checker_sc -d ${{ github.workspace }}/en
-    - name: Save output
-      id: output
-      run: echo "::set-output name=check_output::$(cat output.txt)"
-      shell: bash
+        output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en)
+        echo "::set-output name=output::$output"
+        # markdown_link_checker_sc -d ${{ github.workspace }}/en
     - name: Show output
-      run: echo "${{ steps.output.outputs.check_output }}"
+      run: |
+        echo "Output: ${{ steps.my-app.outputs.output }}"
+
