@@ -16,30 +16,21 @@ jobs:
       with:
         node-version: '16'
 
-
-    - name: Run testenv
-      id: xxxx
-      run: |
-        echo "cabage=thingy" >> $GITHUB_ENV
-
-    - name: Use output 1
-      run: |
-        echo "Output1: ${{ env.cabage }}"
-
     - name: Run link checker
       id: link-check
       run: |
         npm -g install markdown_link_checker_sc
         output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en)
-        
+        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
+        # How to do multi-line input from standard out.
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
         echo "OUTPUT<<$EOF" >> $GITHUB_ENV
         echo "${output}" >> $GITHUB_ENV
         echo "$EOF" >> $GITHUB_ENV        
         
-        #echo "linkcheck=${output}" >> $GITHUB_ENV
         # markdown_link_checker_sc -d ${{ github.workspace }}/en
            
     - name: Use output
       run: |
         echo "Output2: ${{ env.OUTPUT }}"
+        
