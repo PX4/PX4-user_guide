@@ -1,4 +1,8 @@
-name: Check for translation modifications
+name: Check for flawss\
+# So far:
+  # Modifications of translations files
+  # Broken internal links
+
 
 on:
   pull_request:
