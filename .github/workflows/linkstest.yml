@@ -31,7 +31,13 @@ jobs:
       run: |
         npm -g install markdown_link_checker_sc
         output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en)
-        echo "linkcheck=${output}" >> $GITHUB_ENV
+        
+        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        echo "OUTPUT<<$EOF" >> $GITHUB_ENV
+        echo "${output}" >> $GITHUB_ENV
+        echo "$EOF" >> $GITHUB_ENV        
+        
+        #echo "linkcheck=${output}" >> $GITHUB_ENV
         # markdown_link_checker_sc -d ${{ github.workspace }}/en
            
     - name: Use output
