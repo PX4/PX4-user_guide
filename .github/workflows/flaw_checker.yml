@@ -1,0 +1,58 @@
+name: Check for translation modifications
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check_translations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get changed files
+        # Get changed files that are not in /en
+        id: get_changed_files
+        uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            **/*.md
+          files_ignore: 'en'
+
+      - name: Convert files list to bullet list
+        id: bullet_list
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          script: |
+            const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
+            console.log(files);           
+            let bulletList = '\n- ' + files.join(': Translation file should go through crowdin \n - ');
+            bulletList+='Translation file should go through crowdin'
+            console.log(bulletList);
+            return bulletList;
+          result-encoding: string
+               
+      - name: Get result6
+        run: echo "${{steps.bullet_list.outputs.result }}"
+        
+        
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Found flaws
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Found flaws
+            ${{steps.bullet_list.outputs.result }}
+          edit-mode: replace
