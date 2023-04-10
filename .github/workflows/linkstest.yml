@@ -20,13 +20,13 @@ jobs:
       id: link-check
       run: |
         npm -g install markdown_link_checker_sc
-        output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en)
-        echo "linkcheck=${output}" >> $GITHUB_ENV
+        run: echo $(markdown_link_checker_sc -d ${{ github.workspace }}/en) > output.txt && env OUTPUT=$(cat output.txt) >> $GITHUB_ENV
+        
+        #output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en)
+        #echo "linkcheck=${output}" >> $GITHUB_ENV
         # markdown_link_checker_sc -d ${{ github.workspace }}/en
            
     - name: Use output
       run: |
         echo "Output1: ${{ steps.link-check.outputs.output }}"
-        echo "Output2: ${{ env.linkcheck }}"
-
-
+        echo "Output2: ${{ env.OUTPUT }}"
