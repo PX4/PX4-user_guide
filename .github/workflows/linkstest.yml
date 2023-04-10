@@ -19,7 +19,9 @@ jobs:
       run: npm install -g markdown_link_checker_sc
       
     - name: Set NODE_PATH environment variable
-      run: echo "::set-env name=NODE_PATH::$NODE_PATH:/usr/local/lib/node_modules"
+      env:
+        NODE_PATH: $NODE_PATH:/usr/local/lib/node_modules
+      run: echo "NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules" >> $GITHUB_ENV
 
     - name: Run markdown_link_checker_sc
       run: markdown_link_checker_sc
