@@ -16,7 +16,7 @@
     "docs:sitemap": "python3 ./scripts/gen_sitemap.py",
     "docs:build": "yarn docs:buildfast_ubuntu",
     "start": "yarn docs:dev",
-    "linkcheck": "vuepress check-md . > linkinfo_check-md.log 2>&1"
+    "linkcheck": "vuepress check-md . > linkinfo_check-md.log 2>&1",
     "test": "markdown_link_checker_sc -d en/"
   },
   "dependencies": {
