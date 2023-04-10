@@ -32,6 +32,6 @@
   },
   "devDependencies": {
     "vuepress-plugin-check-md": "^0.0.2",
-    "markdown_link_checker_sc": "^0.0.1",
+    "markdown_link_checker_sc": "^0.0.1"
   }
 }
