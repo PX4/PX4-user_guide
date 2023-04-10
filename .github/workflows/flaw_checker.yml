@@ -11,23 +11,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Get changed files
+      - name: Get changed translation files
         # Get changed files that are not in /en
-        id: get_changed_files
+        id: get_changed_markdown_translations
         uses: tj-actions/changed-files@v35
         with:
           files: |
             **/*.md
           files_ignore: 'en'
 
-      - name: Convert files list to bullet list
+      - name: Convert file list of translations to bullet list
         id: bullet_list
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # github-token: ${{ secrets.GITHUB_TOKEN }}
 
+          # Split up files let to bullet list
           script: |
-            const files = '${{ steps.get_changed_files.outputs.all_changed_files }}'.split(' ');
+            const files = '${{ steps.get_changed_markdown_translations.outputs.all_changed_files }}'.split(' ');
             console.log(files);           
             let bulletList = '\n- ' + files.join(': Translation file should go through crowdin \n - ');
             bulletList+='Translation file should go through crowdin'
@@ -36,8 +37,39 @@ jobs:
           result-encoding: string
                
       - name: Get result6
-        run: echo "${{steps.bullet_list.outputs.result }}"
+        run: echo "${{ steps.bullet_list.outputs.result }}"
         
+      # Check links
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+        node-version: '16'
+
+      - name: Get changed english files
+        # Get changed markdown that are in /en
+        id: get_changed_markdown_english
+        uses: tj-actions/changed-files@v35
+          with:
+          files: |
+            en/**/*.md
+            #files_ignore: 'en'
+
+      - name: Run link checker
+        id: link-check
+        run: |
+          npm -g install markdown_link_checker_sc
+          output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }})
+          # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
+          # How to do multi-line input from standard out.
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "LINKERROR<<$EOF" >> $GITHUB_ENV
+          echo "${output}" >> $GITHUB_ENV
+          echo "$EOF" >> $GITHUB_ENV        
+          # markdown_link_checker_sc -d ${{ github.workspace }}/en
+           
+      - name: Use output
+        run: |
+          echo "Output2: ${{ env.LINKERROR }}"  
         
       - name: Find Comment
         uses: peter-evans/find-comment@v2
@@ -54,5 +86,6 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Found flaws
-            ${{steps.bullet_list.outputs.result }}
+            ${{ steps.bullet_list.outputs.result }}
+             ${{ env.LINKERROR }}
           edit-mode: replace
