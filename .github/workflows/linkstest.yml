@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '16.x'
     - name: Install markdown_link_checker_sc globally
-      run: npm install -g markdown_link_checker_sc
+      run: sudo npm install -g markdown_link_checker_sc
 
     - name: Run markdown_link_checker_sc
       run: markdown_link_checker_sc
