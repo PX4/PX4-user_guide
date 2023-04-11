@@ -68,11 +68,11 @@ The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 m
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-为了能够在其他模型或者仿真器件下测试挂载驱动，请使用 `vmount start` 去确保驱动正在运行。 然后再配置它的参数。
+To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
 
 ## 测试
 
-The driver provides a simple test command — it needs to be stopped first with `vmount stop`. 接下来描述了在SITL中的测试方式，但是这些指令也可以在真实的设备中使用。
+The driver provides a simple test command. 接下来描述了在SITL中的测试方式，但是这些指令也可以在真实的设备中使用。
 
 使用下面这条指令开始仿真（不需要修改任何参数）：
 
@@ -83,7 +83,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 确保无人机是上锁状态，例如使用`命令行 takeoff`， 然后用下面的命令来控制云台（例如）：
 
 ```
-vmount test yaw 30
+gimbal test yaw 30
 ```
 
 注意模拟的云台自身稳定，因此如果发送 MAVLink 命令，设置`stabilize`标志为`false`。
