@@ -37,7 +37,7 @@ jobs:
 
     - name: Get english changed files and write the outputs to a json file
       id: changed-files-write-output-files-json
-      uses: tj-actions/changed-files@v35
+      uses: ./
       with:
         json: true
         write_output_files: true
