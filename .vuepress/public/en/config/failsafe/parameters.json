@@ -25375,6 +25375,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_BARO0_OFF",
@@ -25431,6 +25432,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_BARO1_OFF",
@@ -25487,6 +25489,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_BARO2_OFF",
@@ -25543,6 +25546,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_BARO3_OFF",
@@ -25818,6 +25822,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO0_XOFF",
@@ -25828,6 +25833,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO0_YOFF",
@@ -25838,6 +25844,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO0_ZOFF",
@@ -26076,6 +26083,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO1_XOFF",
@@ -26086,6 +26094,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO1_YOFF",
@@ -26096,6 +26105,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO1_ZOFF",
@@ -26334,6 +26344,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO2_XOFF",
@@ -26344,6 +26355,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO2_YOFF",
@@ -26354,6 +26366,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO2_ZOFF",
@@ -26592,6 +26605,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO3_XOFF",
@@ -26602,6 +26616,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO3_YOFF",
@@ -26612,6 +26627,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_GYRO3_ZOFF",
@@ -26850,6 +26866,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -26860,6 +26877,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG0_XODIAG",
@@ -26869,6 +26887,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG0_XOFF",
@@ -26879,6 +26898,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -26890,6 +26910,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -26900,6 +26921,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG0_YODIAG",
@@ -26909,6 +26931,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG0_YOFF",
@@ -26919,6 +26942,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -26930,6 +26954,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -26949,6 +26974,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG0_ZOFF",
@@ -26959,6 +26985,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27198,6 +27225,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27208,6 +27236,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG1_XODIAG",
@@ -27217,6 +27246,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG1_XOFF",
@@ -27227,6 +27257,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27238,6 +27269,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27248,6 +27280,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG1_YODIAG",
@@ -27257,6 +27290,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG1_YOFF",
@@ -27267,6 +27301,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27278,6 +27313,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27297,6 +27333,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG1_ZOFF",
@@ -27307,6 +27344,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27546,6 +27584,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27556,6 +27595,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG2_XODIAG",
@@ -27565,6 +27605,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG2_XOFF",
@@ -27575,6 +27616,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27586,6 +27628,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27596,6 +27639,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG2_YODIAG",
@@ -27605,6 +27649,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG2_YOFF",
@@ -27615,6 +27660,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27626,6 +27672,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27645,6 +27692,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG2_ZOFF",
@@ -27655,6 +27703,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27894,6 +27943,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27904,6 +27954,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG3_XODIAG",
@@ -27913,6 +27964,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG3_XOFF",
@@ -27923,6 +27975,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27934,6 +27987,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27944,6 +27998,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG3_YODIAG",
@@ -27953,6 +28008,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG3_YOFF",
@@ -27963,6 +28019,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
@@ -27974,6 +28031,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "longDesc": "Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]",
@@ -27993,6 +28051,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "Sensor Calibration",
       "name": "CAL_MAG3_ZOFF",
@@ -28003,6 +28062,7 @@
     },
     {
       "category": "System",
+      "decimalPlaces": 3,
       "default": 1.0,
       "group": "Sensor Calibration",
       "max": 3.0,
