@@ -29,13 +29,21 @@ jobs:
       id: link-check
       run: |
         npm -g install markdown_link_checker_sc
-        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} >log.md
+        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} >logs/log.md
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-without-markdown
+        path: |
+          logs
 
     - name: Read log.md
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./log.md
+        path: ./logs/log.md
         
     - name: Echo package.json
       run: echo "${{ steps.package.outputs.content }}"
+      
