@@ -42,7 +42,7 @@ jobs:
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./logs/log.md
+        path: logs/log.md
         
     - name: Echo package.json
       run: echo "${{ steps.package.outputs.content }}"
