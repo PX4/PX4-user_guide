@@ -68,11 +68,11 @@ To run it, use:
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-To just test the mount driver on other models or simulators, make sure the driver runs (using `vmount start`), then configure its parameters.
+To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
 
 ## Testing
 
-The driver provides a simple test command — it needs to be stopped first with `vmount stop`. The following describes testing in SITL, but the commands also work on a real device.
+The driver provides a simple test command. The following describes testing in SITL, but the commands also work on a real device.
 
 Start the simulation with (no parameter needs to be changed for that):
 
@@ -83,7 +83,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 Make sure it's armed, eg. with `commander takeoff`, then use the following command to control the gimbal (for example):
 
 ```
-vmount test yaw 30
+gimbal test yaw 30
 ```
 
 Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
