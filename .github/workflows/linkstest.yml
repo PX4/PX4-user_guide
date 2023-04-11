@@ -35,6 +35,22 @@ jobs:
           en/**/*.md
           # files_ignore: 'en'
 
+    - name: Get english changed files and write the outputs to a json file
+      id: changed-files-write-output-files-json
+      uses: tj-actions/changed-files@v35
+      with:
+        json: true
+        write_output_files: true
+
+    - name: Verify the contents of the .github/outputs/added_files.json file
+      run: |
+        cat .github/outputs/added_files.json
+
+    - name: Try copy.github/outputs/added_files.json file
+      run: |
+        cat .github/outputs/added_files.json
+        cp .github/outputs/added_files.json ./logs/added_files.log
+        
     - name: Run link checker
       id: link-check
       run: |
