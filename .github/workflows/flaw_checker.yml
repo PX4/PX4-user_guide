@@ -61,7 +61,7 @@ jobs:
         id: link-check
         run: |
           npm -g install markdown_link_checker_sc
-          output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }})
+          output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} )
           # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
           # How to do multi-line input from standard out.
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
