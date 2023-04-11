@@ -31,11 +31,12 @@ jobs:
         npm -g install markdown_link_checker_sc
         mkdir logs
         markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- | tee ./logs/log1.md
-        markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log2.md
-        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- > ./logs/log3.md
-        markdown_link_checker_sc -d ${{ github.workspace }}/en > ./logs/log4.md
-        markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log5.md
-        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- &> ./logs/log6.md        
+        markdown_link_checker_sc -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -d ${{ github.workspace }}/en -- | tee ./logs/log2.md
+        #markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log2.md
+        #markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- > ./logs/log3.md
+        #markdown_link_checker_sc -d ${{ github.workspace }}/en > ./logs/log4.md
+        #markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log5.md
+        #markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- &> ./logs/log6.md        
         
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
