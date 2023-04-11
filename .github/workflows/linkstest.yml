@@ -48,6 +48,7 @@ jobs:
 
     - name: Try copy.github/outputs/added_files.json file
       run: |
+        mkdir logs
         cat .github/outputs/added_files.json
         cp .github/outputs/added_files.json ./logs/added_files.log
         
@@ -55,7 +56,7 @@ jobs:
       id: link-check
       run: |
         npm -g install markdown_link_checker_sc
-        mkdir logs
+        Emkdir logs
         markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- | tee ./logs/log1.md
         markdown_link_checker_sc -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -d ${{ github.workspace }}/en -- | tee ./logs/log2.md
         markdown_link_checker_sc -d /home/runner/work/PX4-user_guide/PX4-user_guide/en -f en/advanced/computer_vision.md en/frames_rover/README.md en/test_cards/mc_04_failsafe_testing.md -- | tee ./logs/log3.md
