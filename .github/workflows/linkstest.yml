@@ -25,6 +25,16 @@ jobs:
           en/**/*.md
           # files_ignore: 'en'
 
+    - name: Get changed english files comma separator
+      # Get changed markdown that are in /en
+      id: get_changed_markdown_english_two
+      uses: tj-actions/changed-files@v35
+      with:
+        separator: ","
+        files: |
+          en/**/*.md
+          # files_ignore: 'en'
+
     - name: Run link checker
       id: link-check
       run: |
@@ -32,6 +42,8 @@ jobs:
         mkdir logs
         markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- | tee ./logs/log1.md
         markdown_link_checker_sc -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -d ${{ github.workspace }}/en -- | tee ./logs/log2.md
+        markdown_link_checker_sc -d /home/runner/work/PX4-user_guide/PX4-user_guide/en -f en/advanced/computer_vision.md en/frames_rover/README.md en/test_cards/mc_04_failsafe_testing.md -- | tee ./logs/log3.md
+        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }} -- | tee ./logs/log4.md
         #markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log2.md
         #markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- > ./logs/log3.md
         #markdown_link_checker_sc -d ${{ github.workspace }}/en > ./logs/log4.md
