@@ -16,11 +16,20 @@ jobs:
       with:
         node-version: '16'
 
+    - name: Get changed english files
+      # Get changed markdown that are in /en
+      id: get_changed_markdown_english
+      uses: tj-actions/changed-files@v35
+      with:
+        files: |
+          en/**/*.md
+          # files_ignore: 'en'
+
     - name: Run link checker
       id: link-check
       run: |
         npm -g install markdown_link_checker_sc
-        output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en)
+        output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en ${{ steps.get_changed_markdown_english.outputs.all_changed_files }})
         # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
         # How to do multi-line input from standard out.
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
