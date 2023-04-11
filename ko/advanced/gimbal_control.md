@@ -68,11 +68,11 @@ The [Gazebo Classic](../sim_gazebo_classic/README.md) simulation [Typhoon H480 m
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-다른 모델이나 시뮬레이터에서 마운트 드라이버를 테스트하려면 `vmount start`를 사용하여 드라이버가 실행되는 지 확인한 다음, 해당 매개변수를 설정하십시오.
+To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
 
 ## 시험
 
-The driver provides a simple test command — it needs to be stopped first with `vmount stop`. 다음은 SITL에서의 테스트 방법을 설명합니다. 이 명령은 실제 장치에서도 작동합니다.
+The driver provides a simple test command. 다음은 SITL에서의 테스트 방법을 설명합니다. 이 명령은 실제 장치에서도 작동합니다.
 
 다음을 사용하여 시뮬레이션을 시작합니다(이를 위해 매개변수를 변경할 필요는 없음).
 
@@ -83,7 +83,7 @@ make px4_sitl gazebo-classic_typhoon_h480
 예를 들어 시동 여부를 확인하십시오. `commander takeoff` 명령어를 실행한 다음, 다음 명령을 사용하여 짐벌(예)을 제어합니다:
 
 ```
-vmount test yaw 30
+gimbal test yaw 30
 ```
 
 시뮬레이션된 짐벌은 자체적으로 안정적이므로, MAVLink 명령을 보내는 경우 `stabilize` 플래그를 `false`로 설정합니다.
