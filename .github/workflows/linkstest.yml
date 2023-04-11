@@ -29,17 +29,13 @@ jobs:
       id: link-check
       run: |
         npm -g install markdown_link_checker_sc
-        output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} --)
-        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
-        # How to do multi-line input from standard out.
-        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-        echo "OUTPUT<<$EOF" >> $GITHUB_ENV
-        echo "${output}" >> $GITHUB_ENV
-        echo "$EOF" >> $GITHUB_ENV        
+        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} >log.md
+
+    - name: Read log.md
+      id: package
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./log.md
         
-        # markdown_link_checker_sc -d ${{ github.workspace }}/en
-           
-    - name: Use output
-      run: |
-        echo "Output2: ${{ env.OUTPUT }}"
-        
+    - name: Echo package.json
+      run: echo "${{ steps.package.outputs.content }}"
