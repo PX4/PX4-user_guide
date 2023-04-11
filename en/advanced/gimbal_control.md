@@ -85,7 +85,7 @@ To run it, use:
 make px4_sitl gazebo-classic_typhoon_h480
 ```
 
-To just test the mount driver on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
+To just test the [gimbal driver](../modules/modules_driver.md#gimbal) on other models or simulators, make sure the driver runs (using `gimbal start`), then configure its parameters.
 
 ## Testing
 
