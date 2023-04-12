@@ -8,11 +8,16 @@ on:
     types: [opened, edited, synchronize]
 
 jobs:
-  check_translations:
+  check_flaws:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
       - name: Get changed translation files
         # Get changed files that are not in /en
@@ -39,41 +44,51 @@ jobs:
             return bulletList;
           result-encoding: string
                
-      - name: Get result6
+      - name: Echo Translation result file
         run: echo "${{ steps.bullet_list.outputs.result }}"
         
-      # Check links
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      - name: Create logs directory
+        run: |
+          mkdir logs
 
       - name: Get changed english files
-        # Get changed markdown that are in /en
         id: get_changed_markdown_english
         uses: tj-actions/changed-files@v35
         with:
+          json: true
+          # Below are used to output files to a directory. May use in flaw checker.
+          #write_output_files: true
+          #output_dir: "./logs"
           files: |
             en/**/*.md
-            #files_ignore: 'en'
+          
+      - name: Save JSON file containg files to link check 
+        run: |
+          echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}"
+          echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" > ./logs/prFiles.json
 
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            logs
+          
       - name: Run link checker
         id: link-check
         run: |
           npm -g install markdown_link_checker_sc
-          output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} )
-          # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
-          # How to do multi-line input from standard out.
-          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-          echo "LINKERROR<<$EOF" >> $GITHUB_ENV
-          echo "${output}" >> $GITHUB_ENV
-          echo "$EOF" >> $GITHUB_ENV        
-          # markdown_link_checker_sc -d ${{ github.workspace }}/en
-           
-      - name: Use output
-        run: |
-          echo "Output2: ${{ env.LINKERROR }}"  
-        
+          markdown_link_checker_sc -d ${{ github.workspace }}/en -f ./logs/prFiles.json -r ${{ github.workspace }} > ./logs/errorsFilteredByPrPages.md
+
+      - name: Read errorsFilteredByPrPages.md file
+        id: read-errors-by-page
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./logs/errorsFilteredByPrPages.md
+
+      - name: Echo Errors by Page
+        run: echo "${{ steps.read-errors-by-page.outputs.content }}"
+ 
       - name: Find Comment
         uses: peter-evans/find-comment@v2
         id: fc
@@ -90,5 +105,6 @@ jobs:
           body: |
             Found flaws
             ${{ steps.bullet_list.outputs.result }}
-             ${{ env.LINKERROR }}
+            ${{ steps.read-errors-by-page.outputs.content }}
           edit-mode: replace
+          
