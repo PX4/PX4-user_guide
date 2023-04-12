@@ -39,7 +39,7 @@ jobs:
             const files = '${{ steps.get_changed_markdown_translations.outputs.all_changed_files }}'.split(' ');
             console.log(files);           
             let bulletList = '\n- `ERROR` ' + files.join(': Use crowdin for [translation file changes](http://docs.px4.io/main/en/contribute/translation.html) \n - ');
-            bulletList+='Translation file should go through crowdin'
+            bulletList+='Use crowdin for [translation file changes](http://docs.px4.io/main/en/contribute/translation.html) \n'
             console.log(bulletList);
             return bulletList;
           result-encoding: string
