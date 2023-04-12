@@ -21,7 +21,7 @@ jobs:
       id: get_changed_markdown_english
       uses: tj-actions/changed-files@v35
       with:
-        json: true
+        json_raw_format: true
         write_output_files: true
         files: |
           en/**/*.md
@@ -37,7 +37,9 @@ jobs:
         cp .github/outputs/added_files.json ./logs/added_files.log
                
     - name: Echo changed files to file from json output
-      run: echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" 
+      run: |
+        echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" 
+        echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }} > ./logs/log2.md"
         
     - name: Run link checker
       id: link-check
@@ -65,7 +67,7 @@ jobs:
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./logs/log.md
+        path: ./logs/log2.md
         
     - name: Echo package.json
       run: echo "${{ steps.package.outputs.content }}"
