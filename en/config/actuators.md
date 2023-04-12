@@ -140,47 +140,59 @@ Note that you will need to also ensure that the ESC associated with bidirectiona
 The control surfaces section of the geometry panel lets you set the number and types of control surfaces that are present on the vehicle.
 You may also need to set trim and slew rate values in some cases.
 More advanced users can also configure the roll scale, yaw scale, and pitch scale (generally the defaults are acceptable, and this is not needed).
-For some fields to be become visible, the **Advanced** checkbox in the top right corner has to be selected.
 An "example" control surface section for a vehicle with two ailerons is shown below.
 Note that ailerons only affect roll, so the pitch and yaw fields are disabled.
 
 ![Control Surface Setup Example](../../assets/config/actuators/control_surfaces_geometry.png)
 
+:::note
+Only the most common settings are displayed by default.
+Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+:::
+
 The fields are:
 
 - `Control Surfaces`: The number of control surfaces (set this first!)
 - `Type`: The type of each control surface: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder`, `Left Elevon`, `Right Elevon`, `Left V-Tail`, `Right V-Tail`, `Left Flap`, `Right Flap`, `Airbrakes`, `Custom`.
-- `Roll scale`: Effectiveness of actuator around roll axis (normalised: -1 to 1).
+- `Roll Torque`: Effectiveness of actuator around roll axis (normalised: -1 to 1).
   [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Pitch scale`: Effectiveness of actuator around pitch axis (normalised: -1 to 1).
+- `Pitch Torque`: Effectiveness of actuator around pitch axis (normalised: -1 to 1).
   [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
-- `Yaw scale`: Effectiveness of actuator around yaw axis (normalised: -1 to 1).
+- `Yaw Torque`: Effectiveness of actuator around yaw axis (normalised: -1 to 1).
   [Generally you should use the default actuator value](#actuator-roll-pitch-and-yaw-scaling).
 - `Trim`: An offset added to the actuator so that it is centered without input.
   This might be determined by trial and error.
-- (Advanced)`Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
+- (Advanced) `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
   - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied).
      It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
   - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
-- (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration". Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
-- (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration". Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
+- (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" [0, 1] (see [Flaps and Spoilers Configuration](#flaps-and-spoilers-configuration) below).
+  Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
+- (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" [0, 1] (see [Flaps and Spoilers Configuration](#flaps-and-spoilers-configuration) below).
+  Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
 - `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
   - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
 
 #### Flaps and Spoilers Configuration
 
-`Flap-control` and `spoiler-control` are aerodynamic configurations that can either be commanded manually by the pilot through a switch on the RC, or are being set automatically by the controller, e.g. to reduce the airspeed before landing. 
-The flap and spoiler configuration controls are and the range of [0, 1] and can then be arbitrarily allocated to the control surfaces. It's thus important to understand the difference: with `flap/spoiler-control` we refer to an abstract metric of "how much flap/spoiler configuration" the controller currently demands, while the actual flaps or spoiler actuator setpoint can vary from that value.
+`Flap-control` and `spoiler-control` are aerodynamic configurations that can either be commanded manually by the pilot through a switch on the RC, or are set automatically by the controller, e.g. to reduce the airspeed before landing. 
+The flap and spoiler configuration controls are of the range of [0, 1] and can then be arbitrarily allocated to the control surfaces.
+It's important to understand the difference: with `flap/spoiler-control` we refer to an abstract metric of "how much flap/spoiler configuration" the controller currently demands, while the actual flaps or spoiler actuator setpoint can vary from that value.
 
-In the following example, the vehicle has two ailerons, one elevator, one rudder and two flaps as control surfaces. 
-- The flaps have both the flap scale at 1, meaning that they will be fully deflected with the flap-control at 1. They also have a slew rate of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
-- The ailerons are setup to allocate the commanded roll torque, but additionally also to get deflected upwards by 0.5 (50%) if the controller demands full spoiler configuration.
-The aileron deflection is thus the sum of the (asymmetrical) deflection for the roll torque, plus the (symmetrical) deflection for the spoiler setpoint.
-- The elevator is primarily tasked to allocated pitch torque. Beside that it though also has non-zero entries in the `flap scale` and `spoiler scale` fields. These are the elevator deflections added to compensate for the generated pitching moments by the flap respectively by the spoiler actuators. In the case here the elevator would be deflected 0.3 up when the flaps are fully deployed to counteract the pitching down moment caused by the flaps. 
+In the following example, the vehicle has two ailerons, one elevator, one rudder and two flaps as control surfaces:
 
 ![Flaps and spoiler actuator configuration example](../../assets/config/actuators/qgc_actuators_tab_flaps_spoiler_setup.png)
 
+- The flaps have both `Flap Scale` set to 1, meaning that they will be fully deflected with the flap-control at 1.
+  They also have a slew rate of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
+- The ailerons are primarily tasked to provide the commanded roll torque.
+  They also have `Spoiler Scale` set to 0.5, and will additionally be deflected upwards 50% if the controller demands full spoiler configuration.
+  The aileron deflection is thus the sum of the (asymmetrical) deflection for the roll torque, plus the (symmetrical) deflection for the spoiler setpoint.
+- The elevator is primarily tasked to provide pitch torque.
+  It also has non-zero entries in the `Flap Scale` and `Spoiler Scale` fields.
+  These are the elevator deflections added to compensate for the pitching moments generated by the flaps and spoiler actuators.
+  In the case here the elevator would be deflected 0.3 up when the flaps are fully deployed to counteract the pitching down moment caused by the flaps. 
 
 #### Actuator Roll, Pitch, and Yaw Scaling
 
