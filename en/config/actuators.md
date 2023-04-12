@@ -178,6 +178,7 @@ The fields are:
 
 `Flap-control` and `spoiler-control` are aerodynamic configurations that can either be commanded manually by the pilot through a switch on the RC, or are set automatically by the controller, e.g. to reduce the airspeed before landing. 
 The flap and spoiler configuration controls are of the range of [0, 1] and can then be arbitrarily allocated to the control surfaces.
+
 It's important to understand the difference: with `flap/spoiler-control` we refer to an abstract metric of "how much flap/spoiler configuration" the controller currently demands, while the actual flaps or spoiler actuator setpoint can vary from that value.
 
 In the following example, the vehicle has two ailerons, one elevator, one rudder and two flaps as control surfaces:
