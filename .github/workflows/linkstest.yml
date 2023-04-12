@@ -24,31 +24,11 @@ jobs:
       id: get_changed_markdown_english
       uses: tj-actions/changed-files@v35
       with:
-        json_raw_format: true
-        files: |
-          en/**/*.md
-
-    - name: Get changed english files 2
-      # Get changed markdown that are in /en
-      id: get_changed_markdown_english_two
-      uses: tj-actions/changed-files@v35
-      with:
         json: true
-        json_raw_format: true
+        #write_output_files: true
+        #output_dir: "./logs"
         files: |
           en/**/*.md
-          
-    - name: Get changed english files 3
-      # Get changed markdown that are in /en
-      id: get_changed_markdown_english_three
-      uses: tj-actions/changed-files@v35
-      with:
-        json: true
-        write_output_files: true
-        output_dir: "./logs"
-        files: |
-          en/**/*.md
-          
           
     #- name: Verify the contents of the .github/outputs/added_files.json file
     #  run: |
@@ -63,11 +43,11 @@ jobs:
     - name: Echo changed files to file from json output
       run: |
         echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}"
-        echo "${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }}"
-        echo "${{ steps.get_changed_markdown_english_three.outputs.all_changed_files }}" 
+        #echo "${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }}"
+        #echo "${{ steps.get_changed_markdown_english_three.outputs.all_changed_files }}" 
         echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" > ./logs/log.md
-        echo "${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }}"> ./logs/log2.md
-        echo "${{ steps.get_changed_markdown_english_three.outputs.all_changed_files }}" > ./logs/log3.md
+        #echo "${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }}"> ./logs/log2.md
+        #echo "${{ steps.get_changed_markdown_english_three.outputs.all_changed_files }}" > ./logs/log3.md
         
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
@@ -80,7 +60,7 @@ jobs:
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./logs/log2.md
+        path: ./logs/log.md
         
     - name: Echo package.json
       run: echo "${{ steps.package.outputs.content }}"
