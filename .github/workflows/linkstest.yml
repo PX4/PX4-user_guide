@@ -21,36 +21,10 @@ jobs:
       id: get_changed_markdown_english
       uses: tj-actions/changed-files@v35
       with:
-        files: |
-          **/*.md 
-          #en/**/*.md
-          # files_ignore: 'en'
-
-    - name: Get changed english files comma separator
-      # Get changed markdown that are in /en
-      id: get_changed_markdown_english_two
-      uses: tj-actions/changed-files@v35
-      with:
-        separator: ","
-        files: |
-          en/**/*.md
-          # files_ignore: 'en'
-
-    - name: Get english changed files and write the outputs to a json file
-      id: changed-files-write-output-files-json-one
-      uses: tj-actions/changed-files@v35
-      with:
-        json: true
-        files: |
-          en/**/*.md
-
-        
-    - name: Get english changed files and write the outputs to a json file
-      id: changed-files-write-output-files-json
-      uses: tj-actions/changed-files@v35
-      with:
         json: true
         write_output_files: true
+        files: |
+          en/**/*.md
 
     - name: Verify the contents of the .github/outputs/added_files.json file
       run: |
@@ -61,23 +35,9 @@ jobs:
         mkdir logs
         cat .github/outputs/added_files.json
         cp .github/outputs/added_files.json ./logs/added_files.log
-        
-        
-    - name: Changed Files Exporter
-      id: changed-files-exporter
-      uses: umani/changed-files@v4.0.0
-      with:
-        pattern: '^en/.*?\.(md)$'
-        
-    - name: Write changed files exporter file from json output
-      run:  |
-        echo "${{ steps.changed-files-exporter.outputs.files_updated }}" > ./logs/exporer_changed-files.txt
-        echo "${{ steps.changed-files-exporter.outputs.files_updated }}"
-        echo "${{ steps.changed-files-exporter.outputs.files_created }}"
-        #https://github.com/umani/changed-files
-       
-    - name: Write changed files to file from json output
-      run: echo "${{ steps.changed-files-write-output-files-json-one.outputs.files }}" > ./logs/changed-files.txt
+               
+    - name: Echo changed files to file from json output
+      run: echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" 
         
     - name: Run link checker
       id: link-check
@@ -85,10 +45,10 @@ jobs:
         npm -g install markdown_link_checker_sc
         #mkdir logs
         markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- | tee ./logs/log1.md
-        markdown_link_checker_sc -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -d ${{ github.workspace }}/en -- | tee ./logs/log2.md
-        markdown_link_checker_sc -d /home/runner/work/PX4-user_guide/PX4-user_guide/en -f en/advanced/computer_vision.md en/frames_rover/README.md en/test_cards/mc_04_failsafe_testing.md -- | tee ./logs/log3.md
-        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }} -- | tee ./logs/log4.md
-        #markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log2.md
+        #markdown_link_checker_sc -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -d ${{ github.workspace }}/en -- | tee ./logs/log2.md
+        #markdown_link_checker_sc -d /home/runner/work/PX4-user_guide/PX4-user_guide/en -f en/advanced/computer_vision.md en/frames_rover/README.md en/test_cards/mc_04_failsafe_testing.md -- | tee ./logs/log3.md
+        #markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }} -- | tee ./logs/log4.md
+        ##markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log2.md
         #markdown_link_checker_sc -d ${{ github.workspace }}/en -f ${{ steps.get_changed_markdown_english.outputs.all_changed_files }} -- > ./logs/log3.md
         #markdown_link_checker_sc -d ${{ github.workspace }}/en > ./logs/log4.md
         #markdown_link_checker_sc -d ${{ github.workspace }}/en | tee ./logs/log5.md
