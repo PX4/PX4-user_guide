@@ -26,15 +26,15 @@ jobs:
         files: |
           en/**/*.md
 
-    - name: Verify the contents of the .github/outputs/added_files.json file
-      run: |
-        cat .github/outputs/added_files.json
+    #- name: Verify the contents of the .github/outputs/added_files.json file
+    #  run: |
+    #    cat .github/outputs/added_files.json
 
-    - name: Try copy.github/outputs/added_files.json file
-      run: |
-        mkdir logs
-        cat .github/outputs/added_files.json
-        cp .github/outputs/added_files.json ./logs/added_files.log
+    #- name: Try copy.github/outputs/added_files.json file
+    #  run: |
+    #    mkdir logs
+    #    cat .github/outputs/added_files.json
+    #    cp .github/outputs/added_files.json ./logs/added_files.log
                
     - name: Echo changed files to file from json output
       run: |
