@@ -49,33 +49,35 @@ jobs:
         #echo "${{ steps.get_changed_markdown_english_two.outputs.all_changed_files }}"> ./logs/log2.md
         #echo "${{ steps.get_changed_markdown_english_three.outputs.all_changed_files }}" > ./logs/log3.md
         
+       
+    - name: Run link checker
+      id: link-check
+      run: |
+        npm -g install markdown_link_checker_sc
+        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ./logs/log.md -r ${{ github.workspace }} > ./logs/filteredLinks.md
+        #output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ./logs/log.md -r ${{ github.workspace }} )
+        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
+        # How to do multi-line input from standard out.
+        #EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        #echo "LINKERROR<<$EOF" >> $GITHUB_ENV
+        #echo "${output}" >> $GITHUB_ENV
+        #echo "$EOF" >> $GITHUB_ENV        
+  
+    #- name: Echo env
+    #  run: echo "${{ env.LINKERROR }}"
+
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
         name: dist-without-markdown
         path: |
           logs
-
+          
     - name: Read log.md
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./logs/log.md
-        
-    - name: Run link checker
-      id: link-check
-      run: |
-        npm -g install markdown_link_checker_sc
-        output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ./logs/log.md -r ${{ github.workspace }} )
-        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
-        # How to do multi-line input from standard out.
-        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-        echo "LINKERROR<<$EOF" >> $GITHUB_ENV
-        echo "${output}" >> $GITHUB_ENV
-        echo "$EOF" >> $GITHUB_ENV        
-  
-    - name: Echo env
-      run: echo "${{ env.LINKERROR }}"
+        path: ./logs/filteredLinks.md
 
     - name: Echo package.json
       run: echo "${{ steps.package.outputs.content }}"
