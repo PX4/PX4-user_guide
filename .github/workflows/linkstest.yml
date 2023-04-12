@@ -36,8 +36,17 @@ jobs:
           # files_ignore: 'en'
 
     - name: Get english changed files and write the outputs to a json file
+      id: changed-files-write-output-files-json-one
+      uses: tj-actions/changed-files@v35
+      with:
+        json: true
+        files: |
+          en/**/*.md
+
+        
+    - name: Get english changed files and write the outputs to a json file
       id: changed-files-write-output-files-json
-      uses: ./
+      uses: tj-actions/changed-files@v35
       with:
         json: true
         write_output_files: true
@@ -51,6 +60,9 @@ jobs:
         mkdir logs
         cat .github/outputs/added_files.json
         cp .github/outputs/added_files.json ./logs/added_files.log
+        
+    - name: Write changed files to file from json output
+      run: echo "${{ steps.changed-files-write-output-files-json-one.outputs.files }}" > ./logs/changed-files.txt
         
     - name: Run link checker
       id: link-check
