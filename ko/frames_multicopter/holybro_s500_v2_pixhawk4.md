@@ -26,7 +26,7 @@ The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-
 * 프로펠러 1045 (V2 업데이트)
 * Pixhawk 4 GPS
 * 조립된 ESC 전원 관리 보드
-* 433MHz 텔레메트리/ 915MHz 텔레메트리
+* 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 * 전원 및 무선 조종기 케이블
 * 배터리 혁지
 * 크기: 383*385*240mm
