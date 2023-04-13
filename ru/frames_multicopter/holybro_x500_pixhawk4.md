@@ -28,7 +28,7 @@ The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 * Power and Radio Cables
 * Wheelbase - 500 mm
 * Dimensions - 410x410x300 mm
-* 433 MHz Telemetry Radio/915 MHz Telemetry Radio
+* 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 
 Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
@@ -54,14 +54,14 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| Item Description                                           | Quantity |
-| ---------------------------------------------------------- | -------- |
-| Pixhawk4 & Assorted Cables                                 | 1        |
-| Pixhawk4 GPS Module                                        | 1        |
-| Power Management PM07 (with pre-soldered ESC power cables) | 1        |
-| Motors 2216 KV880（V2 Update)                               | 4        |
-| Holybro BLHeli S ESC 20A x4                                | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio            | 1        |
+| Item Description                                                               | Quantity |
+| ------------------------------------------------------------------------------ | -------- |
+| Pixhawk4 & Assorted Cables                                                     | 1        |
+| Pixhawk4 GPS Module                                                            | 1        |
+| Power Management PM07 (with pre-soldered ESC power cables)                     | 1        |
+| Motors 2216 KV880（V2 Update)                                                   | 4        |
+| Holybro BLHeli S ESC 20A x4                                                    | 1        |
+| 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1        |
 
 ### Tools needed
 
