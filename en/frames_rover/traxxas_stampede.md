@@ -11,7 +11,7 @@ The idea was to develop a platform that allows for easy control of wheeled UGVs 
 * [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
 * [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
   * 3DR 10S Power Module
-  * [3DR 433MHz Telemetry Module (EU)
+  * 3DR 433MHz Telemetry Module (EU)
 * [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) or other PX4-compatible remotes
 * [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 * [PX4Flow](../sensor/px4flow.md)

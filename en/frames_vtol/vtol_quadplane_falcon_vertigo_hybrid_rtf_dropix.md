@@ -203,7 +203,7 @@ It should be used if access to the USB port is difficult once the flight control
 
 The pitot tube is installed on the front of the plane and connected to the airspeed sensor via a tube. 
 
-:::caution
+:::warning
 It is important that nothing obstructs airflow to the Pitot tube. This is critical for fixed-wing flight and for transitioning from quad to plane.
 :::
 
