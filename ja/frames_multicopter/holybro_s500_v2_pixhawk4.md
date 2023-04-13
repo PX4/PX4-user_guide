@@ -26,7 +26,7 @@ The Holybro [S500 V2 Kit](https://holybro.com/collections/s500/products/s500-v2-
 * Propeller 1045（ V2 Update）
 * Pixhawk4 GPS
 * Fully assembled Power Management Board with ESCs
-* 433MHz Telemetry Radio / 915MHz Telemetry Radio
+* 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 * Power and Radio Cables
 * Battery Straps
 * Dimensions:383*385*240mm
