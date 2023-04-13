@@ -262,7 +262,7 @@ The controller has an integrated safety switch that you can use for motor activa
 
 QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
 
-:::caution
+:::warning
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
 Make sure to use the correct mapping for your vehicle.
 :::
