@@ -33,5 +33,5 @@ For more information see: [Companion Computer Peripherals > Data Telephony](../c
 Radio bands allowed for use with drones differ between continents, regions, countries, and even states.
 You should select a telemetry radio that uses a frequency range that is allowed in the areas where you plan on using the drone.
 
-Low power [SiK radios](../telemetry/sik_radio.md) such as the [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) commonly provide 915 MHz and 433 MHz variants.
+Low power [SiK radios](../telemetry/sik_radio.md), such as the [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md), are often available in 915 MHz and 433 MHz variants.
 While you should check applicable laws in your country/state, broadly speaking 915 MHz can be used in the US, while 433 MHz can be used in EU, Africa, Oceania, and most of Asia.
