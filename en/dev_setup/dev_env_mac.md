@@ -33,7 +33,7 @@ The installation of Homebrew is quick and easy: [installation instructions](http
 
 Create the `~/.zshenv` file and add insert the line `ulimit -S -n 2048` into it:
 ```sh
-echo ulimit -S -n 2048 > ~/.zshenv
+echo ulimit -S -n 2048 >> ~/.zshenv
 ```
 
 ## Enforce Python Version
