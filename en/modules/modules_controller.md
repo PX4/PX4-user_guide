@@ -1,24 +1,5 @@
 # Modules Reference: Controller
 
-## ODULE_NAM
-Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
-
-
-### Description
-This implements control allocation. It takes torque and thrust setpoints
-as inputs and outputs actuator setpoint messages.
-
-<a id="ODULE_NAM_usage"></a>
-### Usage
-```
-ODULE_NAM <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
 ## airship_att_control
 Source: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/airship_att_control)
 
@@ -38,6 +19,25 @@ To reduce control latency, the module directly polls on the gyro topic published
 ### Usage
 ```
 airship_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## control_allocator
+Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/control_allocator)
+
+
+### Description
+This implements control allocation. It takes torque and thrust setpoints
+as inputs and outputs actuator setpoint messages.
+
+<a id="control_allocator_usage"></a>
+### Usage
+```
+control_allocator <command> [arguments...]
  Commands:
    start
 
@@ -85,18 +85,18 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## fw_path_navigation
-Source: [modules/fw_path_navigation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_path_navigation)
+## fw_pos_control
+Source: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
 
 
 ### Description
-fw_path_navigation is the fixed wing path navigation.
+fw_pos_control is the fixed-wing position controller.
 
 
-<a id="fw_path_navigation_usage"></a>
+<a id="fw_pos_control_usage"></a>
 ### Usage
 ```
-fw_path_navigation <command> [arguments...]
+fw_pos_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode

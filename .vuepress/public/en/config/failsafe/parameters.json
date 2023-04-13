@@ -10582,7 +10582,7 @@
       "default": 1,
       "group": "GPS",
       "longDesc": "Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.",
-      "max": 6,
+      "max": 7,
       "min": 0,
       "name": "GPS_1_PROTOCOL",
       "rebootRequired": true,
@@ -10616,6 +10616,10 @@
         {
           "description": "NMEA (generic)",
           "value": 6
+        },
+        {
+          "description": "Septentrio (SBF)",
+          "value": 7
         }
       ]
     },
@@ -10719,6 +10723,20 @@
           "value": 2
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "decimalPlaces": 3,
+      "default": 0.0,
+      "group": "GPS",
+      "longDesc": "Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Note that this can be interpreted as the \"roll\" angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.",
+      "max": 90.0,
+      "min": -90.0,
+      "name": "GPS_PITCH_OFFSET",
+      "rebootRequired": true,
+      "shortDesc": "Pitch offset for dual antenna GPS",
+      "type": "Float",
+      "units": "deg"
     },
     {
       "category": "Standard",
@@ -10863,7 +10881,7 @@
     },
     {
       "category": "Standard",
-      "decimalPlaces": 0,
+      "decimalPlaces": 3,
       "default": 0.0,
       "group": "GPS",
       "longDesc": "Heading offset angle for dual antenna GPS setups that support heading estimation. Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the rover (or Unicore primary) antenna is in front. The offset angle increases clockwise. Set this to 90 if the rover (or Unicore primary) antenna is placed on the right side of the vehicle and the moving base antenna is on the left side. (Note: the Unicore primary antenna is the one connected on the right as seen from the top).",
