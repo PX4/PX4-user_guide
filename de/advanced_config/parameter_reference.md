@@ -16943,11 +16943,13 @@ table {
 
 <li><strong>5:</strong> Femtomes</li>
 
-<li><strong>6:</strong> NMEA (generic)</li> 
+<li><strong>6:</strong> NMEA (generic)</li>
+
+<li><strong>7:</strong> Septentrio (SBF)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 6] </td>
+ <td>[0, 7] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -17034,6 +17036,14 @@ table {
  <td>[0, 2] </td>
  <td>0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="GPS_PITCH_OFFSET">GPS_PITCH_OFFSET</strong> (FLOAT)</td>
+ <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Note that this can be interpreted as the "roll" angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[-90, 90] </td>
+ <td>0.</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>
