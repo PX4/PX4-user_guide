@@ -176,7 +176,7 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 
-:::caution
+:::warning
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 :::
 

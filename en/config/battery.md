@@ -199,7 +199,7 @@ To enable this feature:
 
 This load compensation method estimates the load based on the total thrust that gets commanded to the motors. 
 
-:::caution
+:::warning
 This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current.
 Use [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
 :::
