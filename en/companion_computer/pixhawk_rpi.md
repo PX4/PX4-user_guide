@@ -1,6 +1,6 @@
 # Raspberry Pi Companion with Pixhawk
 
-This topic describes how to setup a Raspberry Pi ("RPi") companion companion running ROS2 on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.html) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
+This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros/ros2_comm.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.html) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
 
 These instructions should be readily extensible to other RPi and flight controller configurations.
 
@@ -88,7 +88,7 @@ During PX4 setup and configuration the USB connection with your ground station l
 
 ## PX4 Setup
 
-These instructions rely on PX4 code to support ROS2 that isn't yet in a release build (arrives in PX4 v1.14).
+These instructions rely on PX4 code to support ROS 2 that isn't yet in a release build (arrives in PX4 v1.14).
 You will therefore need to install a build off the current PX4-Autopilot `main` branch.
 
 Connect the Pixhawk to your laptop/desktop via the `USB` port and use QGroundControl to update the firmware to the "Master" version as described in [Firmware > Installing PX4 Master, Beta or Custom Firmware](../config/firmware.md#installing-px4-master-beta-or-custom-firmware).
@@ -259,9 +259,13 @@ The configuration steps are:
    ```
 
    [MAV_1_CONFIG=0](../advanced_config/parameter_reference.md#MAV_1_CONFIG) and [XRCE_DDS_CFG=102](../advanced_config/parameter_reference.md#MAV_1_CONFIG) disable MAVLink on TELEM2 and enable the XRCE-DDS client on TELEM2, respectively.
-   The `SER_TEL2_BAUD` rate sets the comms link data rate.
+   The `SER_TEL2_BAUD` rate sets the comms link data rate.   
+   You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFIG` or `MAV_0_CONFIG`.
    
-   Note that you could similarly configure a connection to `TELEM1`.
+   :::note
+   You will need to reboot the flight controller to apply any changes to these parameters.
+   :::
+   
 1. Check that the [microdds_client](../modules/modules_system.md#microdds-client) module is now running.
    YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html): 
 
@@ -290,7 +294,7 @@ The steps to setup ROS 2 and the XRCE-DDS Agent on the RPi are:
    ```bash
    sudo apt install git
    ```
-3. Install the XRCE_DDS client:
+3. Install the XRCE_DDS agent:
 
    ```bash
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
