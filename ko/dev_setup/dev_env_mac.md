@@ -30,9 +30,9 @@ Homebrew 설치는 빠르고 쉽습니다: [설치 방법](https://brew.sh).
 
 ## 더 많은 열린 파일 활성화("LD: 너무 많은 열린 파일" 오류 처리)
 
-`~/.zshenv` 파일을 생성하거나 추가하고(터미널에서 `open ~/.zshenv` 실행) 다음 줄을 추가합니다.
+Append the line `ulimit -S -n 2048` to the end of the `~/.zshenv` file (creating it if necessary):
 ```sh
-ulimit -S -n 2048
+echo ulimit -S -n 2048 >> ~/.zshenv
 ```
 
 ## Python 버전 시행
