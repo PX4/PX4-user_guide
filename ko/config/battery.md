@@ -187,8 +187,8 @@ PX4는 아래 두개의 매개변수 중 하나를 [설정](../advanced_config/p
 
 이 부하 보상 방법은 모터에 할당된 총 추력을 기준으로 부하를 추정합니다.
 
-:::caution
-이 방법은 추력 명령과 전류 사이에 지연이 있고 추력이 전류에 선형 적으로 비례하지 않기 때문에 정확하지 않습니다. 차량에 전류 센서가있는 경우에는 [전류 기반 부하 보상](#current_based_load_compensation) 방법을 사용하십시오.
+:::warning
+This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. 차량에 전류 센서가있는 경우에는 [전류 기반 부하 보상](#current_based_load_compensation) 방법을 사용하십시오.
 :::
 
 이 기능을 활성화하려면:
