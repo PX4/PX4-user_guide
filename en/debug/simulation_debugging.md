@@ -29,24 +29,26 @@ To use valgrind during the SITL simulation:
 make px4_sitl_default jmavsim___valgrind
 ```
 
-## Start combinations
+## Launch Gazebo Classic SITL Without Debugger
 
-SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend.
-This results in the start options below:
+By default SITL is launched without a debugger attached when using any simulator backend:
 
 ```sh
-make px4_sitl_default jmavsim
-make px4_sitl_default jmavsim___gdb
-make px4_sitl_default jmavsim___lldb
-
+make px4_sitl_default gz
 make px4_sitl_default gazebo-classic
-make px4_sitl_default gazebo-classic___gdb
-make px4_sitl_default gazebo-classic___lldb
+make px4_sitl_default jmavsim
 ```
 
-where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default &#39;iris&#39; model).
-This will start the debugger and launch the SITL application.
-In order to break into the debugger shell and halt the execution, hit ```CTRL-C```:
+For Gazebo Classic (only) you can also start the simulator with a debugger attached.
+Note however, that you must provide the vehicle type in the simulator target, as shown below:
+
+```bash
+make px4_sitl_default gazebo-classic_iris_gdb
+make px4_sitl_default gazebo-classic_iris_lldb
+``` 
+
+This will start the debugger and launch the SITL application with Gazebo and the Iris simulator.
+In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
 
 ```sh
 Process 16529 stopped
@@ -60,7 +62,7 @@ libsystem_kernel.dylib`__read_nocancel:
 (lldb) 
 ```
 
-In order to not have the DriverFrameworks scheduling interfere with the debugging session ```SIGCONT``` should be masked in LLDB and GDB:
+In order to not have the DriverFrameworks scheduling interfere with the debugging session `SIGCONT` should be masked in LLDB and GDB:
 
 ```bash
 (lldb) process handle SIGCONT -n false -p false -s false
@@ -77,27 +79,20 @@ After that the lldb or gdb shells behave like normal sessions, please refer to t
 The last parameter, the &lt;viewer\_model\_debugger&gt; triplet, is actually passed to make in the build directory, so
 
 ```sh
-make px4_sitl_default jmavsim___gdb
+make px4_sitl_default gazebo-classic_iris_gdb
 ```
 
 is equivalent with
 
 ```sh
 make px4_sitl_default	# Configure with cmake
-make -C build/px4_sitl_default jmavsim___gdb
+make -C build/px4_sitl_default classic_iris_gdb
 ```
 
 A full list of the available make targets in the build directory can be obtained with:
 
 ```sh
 make help
-```
-
-but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets
-is printed with the command
-
-```sh
-make list_vmd_make_targets
 ```
 
 ## Attaching GDB to running SITL
@@ -107,7 +102,7 @@ You can also start your simulation, and _then_ attach `gdb`:
 1. In one terminal screen enter the command to start your simulation:
 
     ```bash
-    make px4_sitl_default gazebo
+    make px4_sitl_default gazebo-classic
     ```
 
     As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text.
@@ -133,9 +128,11 @@ You can also start your simulation, and _then_ attach `gdb`:
     ```bash
     ps -a
     ```
+    
     You will want to note the PID of the process named "PX4"
     
     (In this example it is 14149)
+    
     ```bash
     atlas:~/px4/main/PX4-Autopilot$ ps -a
         PID TTY          TIME CMD
@@ -156,6 +153,7 @@ You can also start your simulation, and _then_ attach `gdb`:
    ```bash
    sudo gdb [px4 bin file path (from step 1) here]
    ```
+   
    For example,
    
    ```bash
@@ -172,10 +170,9 @@ You can also start your simulation, and _then_ attach `gdb`:
 
 ## Compiler optimization
 
-It is possible to suppress compiler optimization for given executables and/or
-modules (as added by cmake with `add_executable` or `add_library`) when configuring
-for `posix_sitl_*`. This can be handy when it is necessary to step through code
-with a debugger or print variables that would otherwise be optimized out.
+It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring
+for `posix_sitl_*`.
+This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
 
 To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization.
 This environment variable is ignored when the configuration isn&#39;t `posix_sitl_*`.
@@ -188,8 +185,7 @@ export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 
 would suppress optimization of the targets: platforms\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, examples\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB\_tests and px4.
 
-The targets that can be matched with these regular expressions can be
-printed with the command:
+The targets that can be matched with these regular expressions can be printed with the command:
 
 ```sh
 make -C build/posix_sitl_* list_cmake_targets
