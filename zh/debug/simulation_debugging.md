@@ -30,21 +30,24 @@ make px4_sitl_default   # 通过 cmake 配置
 make -C build/px4_sitl_default jmavsim___gdb
 ```
 
-## 开始组合
+## Launch Gazebo Classic SITL Without Debugger
 
-SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend. 这将生成以下开始选项：
+By default SITL is launched without a debugger attached when using any simulator backend:
 
 ```sh
-make px4_sitl_default jmavsim
-make px4_sitl_default jmavsim___gdb
-make px4_sitl_default jmavsim___lldb
-
+make px4_sitl_default gz
 make px4_sitl_default gazebo-classic
-make px4_sitl_default gazebo-classic___gdb
-make px4_sitl_default gazebo-classic___lldb
+make px4_sitl_default jmavsim
 ```
 
-where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`: 这将启动调试器并启动 SITL 应用程序。 In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
+For Gazebo Classic (only) you can also start the simulator with a debugger attached. Note however, that you must provide the vehicle type in the simulator target, as shown below:
+
+```bash
+make px4_sitl_default gazebo-classic_iris_gdb
+make px4_sitl_default gazebo-classic_iris_lldb
+```
+
+This will start the debugger and launch the SITL application with Gazebo and the Iris simulator. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
 
 ```sh
 Process 16529 stopped
@@ -75,26 +78,20 @@ In order to not have the DriverFrameworks scheduling interfere with the debuggin
 最后一个参数, <viewer\_model\_debugger> 三元组，实际上是传递到生成目录中，因此
 
 ```sh
-make px4_sitl_default jmavsim___gdb
+make px4_sitl_default gazebo-classic_iris_gdb
 ```
 
 等价于
 
 ```sh
-make px4_sitl_default   # 通过 cmake 配置
-make -C build/px4_sitl_default jmavsim___gdb
+make px4_sitl_default   # Configure with cmake
+make -C build/px4_sitl_default classic_iris_gdb
 ```
 
 A full list of the available make targets in the build directory can be obtained with:
 
 ```sh
 make help
-```
-
-It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring for `posix_sitl_*`. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
-
-```sh
-make list_vmd_make_targets
 ```
 
 ## Attaching GDB to running SITL
@@ -104,7 +101,7 @@ You can also start your simulation, and _then_ attach `gdb`:
 1. In one terminal screen enter the command to start your simulation:
 
     ```bash
-    make px4_sitl_default gazebo
+    make px4_sitl_default gazebo-classic
     ```
 
     As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text. It will list the location of your px4 bin file for later use.
@@ -129,9 +126,11 @@ You can also start your simulation, and _then_ attach `gdb`:
     ```bash
     ps -a
     ```
+
     You will want to note the PID of the process named "PX4"
 
     (In this example it is 14149)
+
     ```bash
     atlas:~/px4/main/PX4-Autopilot$ ps -a
         PID TTY          TIME CMD
@@ -152,6 +151,7 @@ You can also start your simulation, and _then_ attach `gdb`:
    ```bash
    sudo gdb [px4 bin file path (from step 1) here]
    ```
+
    would suppress optimization of the targets: platforms*\_posix**px4\_layer, modules**systemlib, modules**uORB, examples**px4\_simple\_app, modules**uORB*\_uORB\_tests and px4.
 
    ```bash
@@ -168,7 +168,7 @@ You can also start your simulation, and _then_ attach `gdb`:
 
 ## 编译器优化
 
-配置 `posix_sitl_*`时，对可执行文件和/或模块进行优化编译器选项（比如用 cmake 添加`add_executable` 或 `add_library` ），是种可以采取的手段。 当需要使用调试器或打印变量逐步执行代码时，这将非常方便，否则这些变量将被优化。
+It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring for `posix_sitl_*`. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
 
 To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
 
@@ -180,7 +180,7 @@ export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 
 The targets that can be matched with these regular expressions can be printed with the command:
 
-可以与这些正则表达式匹配的目标可以用命令打印想出来：
+The targets that can be matched with these regular expressions can be printed with the command:
 
 ```sh
 make -C build/posix_sitl_* list_cmake_targets

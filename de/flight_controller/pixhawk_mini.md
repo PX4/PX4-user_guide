@@ -262,7 +262,7 @@ The controller has an integrated safety switch that you can use for motor activa
 
 The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
-:::caution
+:::warning
 The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
 Make sure to use the correct mapping for your vehicle.
 :::

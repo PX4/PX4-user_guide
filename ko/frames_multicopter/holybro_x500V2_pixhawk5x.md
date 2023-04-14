@@ -67,14 +67,15 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### 전자부품
 
-| 품목 설명                             | 수량 |
-| --------------------------------- | -- |
-| Pixhawk5x & 다양한 케이블               | 1  |
-| M8N GPS 모듈                        | 1  |
-| 전원 모듈 PM02D(사전 납땜된 ESC 전원 케이블 포함) | 1  |
-| 모터스 2216 KV880(V2 업데이트)           | 4  |
-| Holybro BLHeli S ESC 20A x4       | 1  |
-| 433MHz 텔레메트리 / 915MHz 텔레메트리       | 1  |
+| 품목 설명                                                                          | 수량 |
+| ------------------------------------------------------------------------------ | -- |
+| Pixhawk5x & 다양한 케이블                                                            | 1  |
+| M8N GPS 모듈                                                                     | 1  |
+| 전원 모듈 PM02D(사전 납땜된 ESC 전원 케이블 포함)                                              | 1  |
+| 모터스 2216 KV880(V2 업데이트)                                                        | 4  |
+| Holybro BLHeli S ESC 20A x4                                                    | 1  |
+| Holybro BLHeli S ESC 20A x4                                                    | 1  |
+| 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1  |
 
 ### 필요 공구
 

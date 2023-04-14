@@ -23,3 +23,9 @@ WiFi 원격 측정은 단거리에서 데이터 속도가 빠르며, FPV/비디�
 
 ::::note PX4에서는 비행 제어 장치에 LTE USB 모듈 연결(과 인터넷으로의 MAVLink 데이터 전송)을 지원하지 않습니다. 보조 컴퓨터로 LTE 모듈을 연결하여 보조 컴퓨터에서 비행 제어 장치로 들어가는 MAVLink 데이터 흐름을 통제 가능합니다. For more information see: [Companion Computer Peripherals > Data Telephony](../companion_computer/companion_computer_peripherals.md#data_telephony).
 :::
+
+## Allowed Frequency Bands
+
+Radio bands allowed for use with drones differ between continents, regions, countries, and even states. You should select a telemetry radio that uses a frequency range that is allowed in the areas where you plan on using the drone.
+
+Low power [SiK radios](../telemetry/sik_radio.md), such as the [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md), are often available in 915 MHz and 433 MHz variants. While you should check applicable laws in your country/state, broadly speaking 915 MHz can be used in the US, while 433 MHz can be used in EU, Africa, Oceania, and most of Asia.

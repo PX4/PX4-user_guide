@@ -9,7 +9,7 @@
 * [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm)의 부품들은 상단 플라스틱 덮개를 제외하고 모두 사용됩니다.
 * [Pixhawk Mini (단종)](../flight_controller/pixhawk_mini.md)
   * 3DR 10S 전원 모듈
-  * [3DR 433MHz 텔레메트리 모듈 (EU)
+  * 3DR 433MHz Telemetry Module (EU)
 * [Spektrum Dxe 컨트롤러](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) 또는 기타 PX4 호환 리모컨
 * [Spektrum 쿼드 레이스 직렬 수신기 w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 * [PX4Flow](../sensor/px4flow.md)

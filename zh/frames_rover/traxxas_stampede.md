@@ -9,7 +9,7 @@
 * [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) 除了顶部塑料封面外，其余部分都被使用。
 * [Pixhawk Mini （停产）](../flight_controller/pixhawk_mini.md)
   * 3DR 10S 电源模块
-  * [3DR 433MHz 数传模块 (EU)
+  * 3DR 433MHz Telemetry Module (EU)
 * [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) 或其他 PX4 兼容的遥控器
 * [Spektrum Quad Race 系列接收机 w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 * [PX4光流](../sensor/px4flow.md)
