@@ -15,9 +15,23 @@ The orientation follows the same frame convention as when [orienting the flight 
 If you're using the normal [Compass Calibration](../config/compass.md) process (with parameter [SENS_MAG_AUTOROT](../advanced_config/parameter_reference.md#SENS_MAG_AUTOROT) enabled), the orientation should be detected automatically.
 Otherwise you can directly select the appropriate value in [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) for up to three compasses.
 
-:::warning
-You must mount the compass in a supported orientation!
+If your compass can't be oriented in any of the standard orientations, you can use a [custom rotation](#custom_orientation) as documented below.
 
-If you mount the compass at an orientation that isn't supported, for example `Yaw 30`, PX4 will detect the closest supported value.
-This will result in errors/warnings, even if the calibration appeared to succeed.
+:::warning
+PX4 will automatically (by default) detect the closest _standard_ orientation if you perform a normal calibration.
+If the orientation is not one of the standard values (for example `Yaw 30`) the calibration will be inaccurate even if it appears to succeed.
+This can result in errors, warnings, and poor flight performance.
 :::
+
+### Custom Orientation
+
+You can use a custom orientation by first selecting `Custom Euler Angle` in `CAL_MAGn_ROT` for your magnetometer.  
+You can then set any rotation using the [CAL_MAGn_ROLL](../advanced_config/parameter_reference.md#CAL_MAG1_ROLL), [CAL_MAGn_PITCH](../advanced_config/parameter_reference.md#CAL_MAG1_PITCH) and [CAL_MAGn_YAW](../advanced_config/parameter_reference.md#CAL_MAG1_YAW) parameters.
+
+The roll/pitch/yaw are defined as documented [here](../config/flight_controller_orientation.md#orientation-definition).
+
+To configure a custom orientation and calibrate the compass:
+
+1. Set the [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG1_ROT) parameter to `Custom Euler Angle`
+2. Set the magnetometer's correct custom roll/pitch/yaw
+3. Follow the [compass calibration procedure](../config/compass.md#performing-the-calibration)
