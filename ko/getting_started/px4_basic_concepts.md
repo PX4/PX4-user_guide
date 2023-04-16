@@ -15,7 +15,7 @@
 드론을 가르키는 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 :::
 
-자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. 이 장치는 *기체 컨트롤러* ( "비행 컨트롤러") 하드웨어에서 실행되는 *펌웨어*로 이루어져 있습니다.
 
 
 ## PX4 자동비행장치
@@ -58,7 +58,7 @@ PX4는 기체의 상태 측정하기 위하여 센서를 사용합니다. 이는
 
 PX4는 모터 속도(예 : [ ESC](#escs-motors)를 통하여), 에일러론과 플랩 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 적재 장비 등을 *출력*을 통하여 제어합니다.
 
-The outputs may be PWM ports or be mapped to DroneCAN nodes (e.g. DroneCAN [motor controllers](../dronecan/escs.md)). 노드에 대한 동일한 출력 기체 매핑이 두 경우 모두에서 사용됩니다.
+출력 포트는 PWM 포트를 이거나, DroneCAN 노드에 연결할 수 있습니다(예: DroneCAN [모터 제어 장치](../dronecan/escs.md)). 노드에 대한 동일한 출력 기체 매핑이 두 경우 모두에서 사용됩니다.
 
 아래 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 설명합니다.
 
@@ -71,12 +71,12 @@ The outputs may be PWM ports or be mapped to DroneCAN nodes (e.g. DroneCAN [moto
 :::
 
 :::warning
-어떤 비행 콘트롤러에는 `MAIN` PWM 출력 장치만 있거나(예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치만 있을 수 있습니다. 비행 콘트롤러에는 선택한 [기체](../airframes/airframe_reference.md)에 필요할 출력 포트가 있는 지 확인하십시오.
+어떤 비행 컨트롤러에는 `MAIN` PWM 출력 장치만 있거나(예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치만 있을 수 있습니다. 비행 콘트롤러에는 선택한 [기체](../airframes/airframe_reference.md)에 필요할 출력 포트가 있는 지 확인하십시오.
 :::
 
 보틍,  `MAIN` 포트는 비행 제어용이며, `AUX` 포트는 액츄에이터나 적재 장비들을 제어합니다. 때로는, 수직 이착륙기처럼 `MAIN` 포트가 부족할 경우에는 `AUX` 포트를 비행 제어용으로 사용하기도 합니다. 예를 들어, [일반 쿼드콥터](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1 ~ 4을 모터 제어용으로 사용하며, 나머지  `MAIN` 포트와 `AUX` 포트를 RC 제어용으로 사용합니다.
 
-The actual ports/bus used for the outputs on the [flight controller](#vehicle-flight-controller-board) depends on the hardware and PX4 configuration. *일반적으로* PWM 출력 포트는 위에서 설명한 대로 사용되며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있습니다.
+[비행 콘트롤러](#vehicle-flight-controller-board)의 실제 출력용 포트와 버스는 하드웨어와 PX4 설정에 따라 달라집니다. *일반적으로* PWM 출력 포트는 위에서 설명한 대로 사용되며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있습니다.
 
 `FMU PWM OUT`, `IO PWM Out` 방식이나 이와 유사한 방식으로 표시합니다. 픽스호크 콘트롤러에는 주 FMU 보드가 있고, 별도의 입출력용 보드를 연결할 수도 있습니다. 별도의 입출력 보드가 있을 경우에는, `AUX` 포트는 FMU 보드에 연결하고, `MAIN` 포트는 입출력 보드에 연결합니다. 다른 경우로는 `MAIN` 포트를 FMU 보드에 연결하고, `AUX` 포트가 없을 수도 있습니다. FMU 출력 포트는 PWM 처럼 짧은 지연 시간이 요구되는 [D-shot](../peripherals/dshot.md), *One-shot* 프로토콜에 사용됩니다. FMU 출력 포트는 레이싱 드론처럼  높은 성능이 요구되는 기체에 사용됩니다.
 
@@ -119,7 +119,7 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 
 ## 지상제어 S/W와 조이스틱
 
-*QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있습니다. QGroundControl은 조이스틱 신호를 MAVLink 메시지로 변환하여 텔레메트리에 전송합니다. This approach is used by ground control units that have an integrated ground control station, like the *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/). 조이스틱은 기체 시뮬레이션에서 자주 사용됩니다.
+*QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있습니다. QGroundControl은 조이스틱 신호를 MAVLink 메시지로 변환하여 텔레메트리에 전송합니다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/), *UAVComponents*와 [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/)에서 사용합니다. 조이스틱은 기체 시뮬레이션에서 자주 사용됩니다.
 
 ![MicroNav와 지상제어S/W에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
 
