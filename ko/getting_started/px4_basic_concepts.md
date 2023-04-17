@@ -15,12 +15,12 @@
 드론을 가르키는 공식 용어에는 UAV(Unmanned Aerial Vehicles), UAS(Unmanned Aerial Systems, UGV(Unmanned Ground Vehicles), USV(Unmanned Surface Vehicles)와 UUV(Unmanned Underwater Vehicles) 등이 있습니다.
 :::
 
-자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. 이 장치는 *기체 컨트롤러* ( "비행 컨트롤러") 하드웨어에서 실행되는 *펌웨어*로 이루어져 있습니다.
+자율비행장치(오토파일럿)는 드론의 두뇌에 해당하는 장치입니다. 이 장치는 *차량 컨트롤러* ( "비행 컨트롤러") 하드웨어 상에서 실행되는 *펌웨어*입니다.
 
 
 ## PX4 자동비행장치
 
-[PX4](https://px4.io/)는 오픈 소스 기반의 강력한 *자동조종장치*입니다.
+[PX4](https://px4.io/)는 오픈 소스 기반의 강력한 *자율비행장치*입니다.
 
 PX4의 주요 특징들은 아래와 같습니다.
 - 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체, 잠수정 등 [다양한 차량들](../airframes/airframe_reference.md)을 제어합니다.
@@ -32,7 +32,7 @@ PX4는 [QGroundControl](#qgroundcontrol) 지상국, [픽스호크 하드웨어](
 
 ## QGroundControl
 
-드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 여러가지 매개변수 설정, 실시간 비행 정보 조회 및 완전 자동 임무 비행 등의 작업이 가능합니다.
+드론코드에서 지원하는 지상제어 S/W는 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 컨트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 매개변수 설정, 실시간 비행 정보 조회 및 자동 임무 비행 등의 작업이 가능합니다.
 
 *QGroundControl*은 윈도우, 안드로이드, MacOS 및 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 필요한 프로그램을 다운로드하여 설치할 수 있습니다.
 
@@ -76,9 +76,9 @@ PX4는 모터 속도(예 : [ ESC](#escs-motors)를 통하여), 에일러론과 �
 
 보틍,  `MAIN` 포트는 비행 제어용이며, `AUX` 포트는 액츄에이터나 적재 장비들을 제어합니다. 때로는, 수직 이착륙기처럼 `MAIN` 포트가 부족할 경우에는 `AUX` 포트를 비행 제어용으로 사용하기도 합니다. 예를 들어, [일반 쿼드콥터](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1 ~ 4을 모터 제어용으로 사용하며, 나머지  `MAIN` 포트와 `AUX` 포트를 RC 제어용으로 사용합니다.
 
-[비행 콘트롤러](#vehicle-flight-controller-board)의 실제 출력용 포트와 버스는 하드웨어와 PX4 설정에 따라 달라집니다. *일반적으로* PWM 출력 포트는 위에서 설명한 대로 사용되며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있습니다.
+[비행 컨트롤러](#vehicle-flight-controller-board)의 실제 출력용 포트와 버스는 하드웨어와 PX4 설정에 따라 달라집니다. *일반적으로* PWM 출력 포트는 위에서 설명한 대로 사용되며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있습니다.
 
-`FMU PWM OUT`, `IO PWM Out` 방식이나 이와 유사한 방식으로 표시합니다. 픽스호크 콘트롤러에는 주 FMU 보드가 있고, 별도의 입출력용 보드를 연결할 수도 있습니다. 별도의 입출력 보드가 있을 경우에는, `AUX` 포트는 FMU 보드에 연결하고, `MAIN` 포트는 입출력 보드에 연결합니다. 다른 경우로는 `MAIN` 포트를 FMU 보드에 연결하고, `AUX` 포트가 없을 수도 있습니다. FMU 출력 포트는 PWM 처럼 짧은 지연 시간이 요구되는 [D-shot](../peripherals/dshot.md), *One-shot* 프로토콜에 사용됩니다. FMU 출력 포트는 레이싱 드론처럼  높은 성능이 요구되는 기체에 사용됩니다.
+`FMU PWM OUT`, `IO PWM Out` 방식이나 이와 유사한 방식으로 표시합니다. 픽스호크 컨트롤러에는 주 FMU 보드가 있고, 별도의 입출력용 보드를 연결할 수도 있습니다. 별도의 입출력 보드가 있을 경우에는, `AUX` 포트는 FMU 보드에 연결하고, `MAIN` 포트는 입출력 보드에 연결합니다. 다른 경우로는 `MAIN` 포트를 FMU 보드에 연결하고, `AUX` 포트가 없을 수도 있습니다. FMU 출력 포트는 PWM 처럼 짧은 지연 시간이 요구되는 [D-shot](../peripherals/dshot.md), *One-shot* 프로토콜에 사용됩니다. FMU 출력 포트는 레이싱 드론처럼  높은 성능이 요구되는 기체에 사용됩니다.
 
 **참고:**
 - `MAIN` 포트와 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트를 가지고 있습니다. 이론적으로는,  보드 버스에서 더 많은 출력 포트를 제공할 수 있습니다. UAVCAN 버스에는 이러한 제한이 없습니다.
@@ -96,14 +96,14 @@ PX4가 지원하는 전기변속기와 모터 정보는 여기를 참고하십�
 
 ## 배터리와 전원
 
-PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. 일반적으로, 배터리는 비행 콘트롤러와 전기변속기(모터용)에 전원을 제공하는 *전원 모듈*이나 *전원 관리 보드*를 통하여 시스템에 연결됩니다.
+PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. 일반적으로, 배터리는 비행 컨트롤러와 전기변속기(모터용)에 전원을 제공하는 *전원 모듈*이나 *전원 관리 보드*를 통하여 시스템에 연결됩니다.
 
 배터리와 배터리 설정 정보는 [배터리 설정](../config/battery.md)과 [ 기본 조립](../assembly/README.md)(예: [픽스호크 4 배선 빠른 시작 &gt; 전원](../assembly/quick_start_pixhawk4.md#power))를 참고하십시오.
 
 
 ## 무선 조종(RC)
 
-[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)를 사용하여 기체를 *수동* 제어할 수 있습니다. 송신기(무선 조종기에 장착)와 수신기(기체에 장착)로 구성됩니다. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
+[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)를 사용하여 기체를 *수동*으로 조종합니다. 송신기(무선 조종기에 장착)와 수신기(기체에 장착)로 구성됩니다. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
 
 :::note
 PX4는 자율비행 모드에서 RC가 필수 사항은 아닙니다.
@@ -119,14 +119,14 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 
 ## 지상제어 S/W와 조이스틱
 
-*QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있습니다. QGroundControl은 조이스틱 신호를 MAVLink 메시지로 변환하여 텔레메트리에 전송합니다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/), *UAVComponents*와 [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/)에서 사용합니다. 조이스틱은 기체 시뮬레이션에서 자주 사용됩니다.
+*QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종합니다. QGroundControl은 조이스틱 신호를 MAVLink 메시지로 변환하여 텔레메트리에 전송합니다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/), *UAVComponents*와 [MicroNav](https://uxvtechnologies.com/ground-control-stations/micronav/)에서 사용합니다. 조이스틱은 기체 시뮬레이션에서 자주 사용됩니다.
 
 ![MicroNav와 지상제어S/W에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
 
 
 ## 안전 스위치
 
-기체의 *안전 스위치*를 킨 다음에 기체에 [시동](#arming-and-disarming)을 걸 수 있습니다. 기체에 시동이 걸리면 모터와 프로펠러가 동작합니다. 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도의 부품으로 제공되기도 합니다.
+기체의 *안전 스위치*를 킨 다음에 기체에 [시동](#arming-and-disarming)을 걸 수 있습니다. 기체에 시동이 걸리면, 모터와 프로펠러가 동작합니다. 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도의 부품으로 제공되기도 합니다.
 
 :::warning
 시동이 걸린 기체는 안전 사고의 위험성이 항상 존재합니다.
@@ -135,14 +135,14 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 
 ## 텔레메트리 무선 통신
 
-[텔레메트리 무선 통신](../telemetry/README.md)은 *QGroundControl*과 같은 지상제어S/W와 PX4 실행 차량을 MAVLink 프로토콜로 연결합니다. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
+[텔레메트리 무선 통신](../telemetry/README.md)은 *QGroundControl*과 같은 지상제어 S/W와 PX4 실행 차량을 MAVLink 프로토콜로 연결합니다. 비행중인 기체의 매개변수 변경, 실시간 텔레메트로 통신, 임무 변경 등의 작업을 수행할 수 있습니다.
 
 
 ## 외부 보조 컴퓨터
 
 차량에 장착된 보조 컴퓨터는 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로, 보조 컴퓨터는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
 
-Relevant topics include:
+관련 주제는 다음과 같습니다:
 * [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드
 * [로보틱스 API](../robotics/README.md)
 
@@ -154,9 +154,7 @@ PX4는 [비행 로그](../getting_started/flight_reporting.md)를 SD 카드에 �
 기본적으로, PX4는 부팅 과정에 SD 카드가 없으면, [포맷 실패](../getting_started/tunes.md#format-failed) 경고음을 두 번 울립니다. 그리고, 위에서 설명한 다수의 기능들이 작동하지 않습니다.
 
 :::tip
-픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다.
-:::tip
-픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다.
+픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
 SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 다음의 작업들을 수행하여야 합니다.
@@ -173,9 +171,9 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 
 사고를 줄이기 위해 PX4는 세 가지의 전원 상태를 정의합니다:
 - **비시동:** 모든 모터와 액추에이터에 전원이 공급되지 않습니다.
 - **사전 시동:** 모터에 전원이 공급되지 않지만 작동기는 작동하지 않습니다(위험하지 않은 작동기를 벤치 테스트할 수 있음).
-- **시동:** 모터 및 기타 액추에이터에 전원이 공급되고 프로펠러가 회전할 수 있습니다.
+- **시동:** 모터 및 기타 액추에이터에 전원이 공급되고, 프로펠러가 회전할 수 있습니다.
 
-차량은 필요시에만 *시동*이 걸립니다. 일부 기체에는 시동전에 조작하는 [안전 스위치](#safety-switch)(보통 GPS 수신기의 일부임)가 장착되어 있습니다.
+차량은 필요시에만 _시동_이 걸립니다. 일부 기체에는 시동전에 조작하는 [안전 스위치](#safety-switch)(보통 GPS 수신기의 일부임)가 장착되어 있습니다.
 
 기본적으로:
 - 비행중이 아닐 때는 차량의 *시동을 해제*하거나 전원을 차단하고, 이륙 전에만 *시동*을 켜는 것이 바람직합니다.
