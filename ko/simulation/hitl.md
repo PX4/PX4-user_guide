@@ -13,7 +13,6 @@ PX4 supports HITL for multicopters (using jMAVSim or Gazebo Classic) and VTOL (u
 
 | 기체                                                                                                         | `SYS_AUTOSTART` | Gazebo Classic | jMAVSim |
 | ---------------------------------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
-| [HIL 고정익](../airframes/airframe_reference.md#simulation-2)                                                 | 1000            | 예              |         |
 | [HIL 쿼드콥터  X](../airframes/airframe_reference.md#copter_simulation_hil_quadcopter_x)                       | 1001            | 예              | 예       |
 | [HIL 표준 VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | 예              |         |
 | [일반 쿼드콥터 x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) 콥터                   | 4001            | 예              | 예       |

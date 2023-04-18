@@ -5,20 +5,22 @@ PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전�
 ## ESC 연결 개요
 
 각 PWM ESC에는 최소한 다음과 같은 전선들을 가지고 있습니다.
+
 - Power VBAT (일반적으로 두껍고 빨간색)
 - Power GND (보통 두껍고 검정색)
 
 그리고 서보 플러그에서:
+
 - PWM 신호 (일반적으로 흰색 또는 노란색)
 - GND (일반적으로 검정색 또는 갈색)
 
 서보 플러그에는 +5V 와이어 (일반적으로 빨간색 또는 주황색)도 *있을 수 있습니다*. 이 와이어의 목적과 연결 방법은 ESC와 기체 유형에 따라 달라집니다.
 
 :::tip
-일부 경우 (아래 참조) +5V 라인이 필요하지 않습니다. 
-+5V 라인을 절단하는 대신 해당 핀용 서보 커넥터 플라스틱 하우징의 잠금 탭을 부드럽게 들어 올린 다음 (예 : 커터 블레이드 또는 소형 스크루 드라이버 사용) 핀을 빼낼 수 있습니다. 
-전기 절연 테이프로 분리하고 서보 케이블에 테이프로 붙입니다. 
-이렇게하면 나중에 필요한 경우 와이어를 쉽게 취소할 수 있습니다.
+일부 경우 (아래 참조) +5V 라인이 필요하지 않습니다.
++5V 라인을 절단하는 대신 해당 핀용 서보 커넥터 플라스틱 하우징의 잠금 탭을 부드럽게 들어 올린 다음 (예 : 커터 블레이드 또는 소형 스크루 드라이버 사용) 핀을 빼낼 수 있습니다.
+전기 절연 테이프로 분리하고 서보 케이블에 테이프로 붙입니다.
+This allows you to easily undo the wire later if needed
 :::
 
 ## 전원 연결
@@ -34,7 +36,8 @@ PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전�
 
 ### 고정익 / VTOL
 
-고정익(또는 VTOL) ESC에서 +5V 라인은 일반적으로 배터리제거회로(BEC)의 출력을 제공합니다.
+On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).:
+
 - 이것은 Pixhawk 서보 레일에 연결되어 플랩, 에일러론 등의 서보에 전원을 공급에 사용할 수 있습니다.
 
   :::note
@@ -58,14 +61,11 @@ BEC가 **없는** 광절연 ESC에서 +5V 라인을 연결하고 전원을 공�
 
 ## PX4 Configuration
 
-Configure the outputs using the following parameters:
-- [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) (IO) and/or [PWM_AUX_RATE](../advanced_config/parameter_reference.md#PWM_AUX_RATE) (FMU): Set to the highest frame rate supported by the connected ESC, in Hz.
-- [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MIN](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAX](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAX](../advanced_config/parameter_reference.md#PWM_AUX_MAX): Set to the normal PWM range, nominally `1000` to `2000`.
-- [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG): Set to `0` in order to disable DShot.
+PWM motors and servos are configured using the [Actuator Configuration](../config/actuators.md) screen in QGroundControl.
 
-Then perform [ESC Calibration](../advanced_config/esc_calibration.md).
+After assigning outputs and basic calibration, you may then wish to peform an [ESC Calibration](../advanced_config/esc_calibration.md).
 
-Additional  PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
+Additional PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
 
 
 ## 문제 해결
@@ -94,15 +94,14 @@ See the first section of this page explains for other power connection considera
 
 Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
 
-PX4 sends a value of [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly.
-
-This value should be set correctly for the ESC (correct values vary between roughly 1200 and 900 us).
+PX4 sends a pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
 
 ### 시간 초과
 
 Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on.
 
-PX4 flight stack sends the [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse idle/disarmed pulse right after power on. Provided this is configured correctly, ESCs will not time out.
+PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out. Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
+
 
 ### 유효한 펄스 모양, 전압 및 업데이트 속도
 

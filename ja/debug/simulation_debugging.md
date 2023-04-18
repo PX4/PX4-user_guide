@@ -29,21 +29,24 @@ To use valgrind during the SITL simulation:
 make px4_sitl_default jmavsim___valgrind
 ```
 
-## Start combinations
+## Launch Gazebo Classic SITL Without Debugger
 
-SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo Classic as simulation backend. This results in the start options below:
+By default SITL is launched without a debugger attached when using any simulator backend:
 
 ```sh
-make px4_sitl_default jmavsim
-make px4_sitl_default jmavsim___gdb
-make px4_sitl_default jmavsim___lldb
-
+make px4_sitl_default gz
 make px4_sitl_default gazebo-classic
-make px4_sitl_default gazebo-classic___gdb
-make px4_sitl_default gazebo-classic___lldb
+make px4_sitl_default jmavsim
 ```
 
-where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
+For Gazebo Classic (only) you can also start the simulator with a debugger attached. Note however, that you must provide the vehicle type in the simulator target, as shown below:
+
+```bash
+make px4_sitl_default gazebo-classic_iris_gdb
+make px4_sitl_default gazebo-classic_iris_lldb
+```
+
+This will start the debugger and launch the SITL application with Gazebo and the Iris simulator. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
 
 ```sh
 Process 16529 stopped
@@ -74,14 +77,14 @@ After that the lldb or gdb shells behave like normal sessions, please refer to t
 The last parameter, the &lt;viewer\_model\_debugger&gt; triplet, is actually passed to make in the build directory, so
 
 ```sh
-make px4_sitl_default jmavsim___gdb
+make px4_sitl_default gazebo-classic_iris_gdb
 ```
 
 is equivalent with
 
 ```sh
 make px4_sitl_default   # Configure with cmake
-make -C build/px4_sitl_default jmavsim___gdb
+make -C build/px4_sitl_default classic_iris_gdb
 ```
 
 A full list of the available make targets in the build directory can be obtained with:
@@ -90,11 +93,77 @@ A full list of the available make targets in the build directory can be obtained
 make help
 ```
 
-but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets is printed with the command
+## Attaching GDB to running SITL
 
-```sh
-make list_vmd_make_targets
-```
+You can also start your simulation, and _then_ attach `gdb`:
+
+1. In one terminal screen enter the command to start your simulation:
+
+    ```bash
+    make px4_sitl_default gazebo-classic
+    ```
+
+    As the script runs, note the **SITL COMMAND:** output text located right above the large "PX4" text. It will list the location of your px4 bin file for later use.
+
+    ```bash
+    SITL COMMAND: "<px4 bin file>" "<build dir>"/etc
+
+    ______  __   __    ___ 
+    | ___ \ \ \ / /   /   |
+    | |_/ /  \ V /   / /| |
+    |  __/   /   \  / /_| |
+    | |     / /^\ \ \___  |
+    \_|     \/   \/     |_/
+
+    px4 starting.
+
+    INFO  [px4] startup script: /bin/sh etc/init.d-posix/rcS 0
+    INFO  [init] found model autostart file as SYS_AUTOSTART=10015
+    ```
+2. Open another terminal and type:
+
+    ```bash
+    ps -a
+    ```
+
+    You will want to note the PID of the process named "PX4"
+
+    (In this example it is 14149)
+
+    ```bash
+    atlas:~/px4/main/PX4-Autopilot$ ps -a
+        PID TTY          TIME CMD
+    1796 tty2     00:01:59 Xorg
+    1836 tty2     00:00:00 gnome-session-b
+    14027 pts/1    00:00:00 make
+    14077 pts/1    00:00:00 sh
+    14078 pts/1    00:00:00 cmake
+    14079 pts/1    00:00:00 ninja
+    14090 pts/1    00:00:00 sh
+    14091 pts/1    00:00:00 bash
+    14095 pts/1    00:01:23 gzserver
+    14149 pts/1    00:02:48 px4
+    14808 pts/2    00:00:00 ps
+    ```
+3. Then type in the same window
+
+   ```bash
+   sudo gdb [px4 bin file path (from step 1) here]
+   ```
+
+   For example,
+
+   ```bash
+   sudo gdb /home/atlas/px4/base/PX4-Autopilot/build/px4_sitl_default/bin/px4
+   ```
+
+   Now, you can attach to the PX4 instance by entering the PID noted in step 2.
+
+   ```bash
+   attach [PID on px4]
+   ```
+
+   You should now have a GDB interface to debug with.
 
 ## Compiler optimization
 

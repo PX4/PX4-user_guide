@@ -67,14 +67,15 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| Item Description                                        | Quantity |
-| ------------------------------------------------------- | -------- |
-| Pixhawk5x & Assorted Cables                             | 1        |
-| M8N GPS Module                                          | 1        |
-| Power Module PM02D (with pre-soldered ESC power cables) | 1        |
-| Motors 2216 KV880（V2 Update)                            | 4        |
-| Holybro BLHeli S ESC 20A x4                             | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio         | 1        |
+| Item Description                                                               | Quantity |
+| ------------------------------------------------------------------------------ | -------- |
+| Pixhawk5x & Assorted Cables                                                    | 1        |
+| M8N GPS Module                                                                 | 1        |
+| Power Module PM02D (with pre-soldered ESC power cables)                        | 1        |
+| Motors 2216 KV880（V2 Update)                                                   | 4        |
+| Holybro BLHeli S ESC 20A x4                                                    | 1        |
+| Holybro BLHeli S ESC 20A x4                                                    | 1        |
+| 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1        |
 
 ### Tools needed
 

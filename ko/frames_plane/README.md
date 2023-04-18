@@ -4,9 +4,9 @@ PX4는 일반 고정익,  반전 V- 테일 고정익 등의 모든 고정익을 
 
 다양한 기체의 조립 방법과 설정 방법에 대하여 설명합니다.
 
-- [Reptile Dragon 2 (ARK6X)](frames_plane/reptile_dragon_2.md)
-- [Turbo Timber Evolution (Pixhawk 4 Mini)](frames_plane/turbo_timber_evolution.md)
-- [Wing Wing Z84 (Pixracer)](frames_plane/wing_wing_z84.md)
+- [Reptile Dragon 2 (ARK6X)](../frames_plane/reptile_dragon_2.md)
+- [Turbo Timber Evolution (Pixhawk 4 Mini)](../frames_plane/turbo_timber_evolution.md)
+- [Wing Wing Z84 (Pixracer)](../frames_plane/wing_wing_z84.md)
 
 ## 비디오
 

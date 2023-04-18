@@ -137,7 +137,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](hhttps://holybro.com/products/digital-air-speed-sensor)
+* [Digital Airspeed Sensor](https://holybro.com/products/digital-air-speed-sensor)
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 

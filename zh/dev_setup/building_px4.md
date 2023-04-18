@@ -13,9 +13,7 @@ The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://githu
 To get the *very latest* ("main") version onto your computer, enter the following command into a terminal:
 
 ```sh
-git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
-      && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
-      && rm -rf /tmp/*
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note

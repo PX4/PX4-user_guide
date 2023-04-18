@@ -1,24 +1,5 @@
 # 모듈 참조: 콘트롤러
 
-## ODULE_NAM
-소스: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
-
-
-### 설명
-이것은 제어 할당을 구현합니다. 토크 및 추력 설정값을 입력으로 사용하고, 액추에이터 설정값 메시지를 출력합니다.
-
-<a id="ODULE_NAM_usage"></a>
-
-### 사용법
-```
-ODULE_NAM <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
 ## airship_att_control
 소스: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/airship_att_control)
 
@@ -37,6 +18,25 @@ ODULE_NAM <command> [arguments...]
 ### 사용법
 ```
 airship_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## control_allocator
+소스: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
+
+
+### 설명
+이것은 제어 할당을 구현합니다. 토크 및 추력 설정값을 입력으로 사용하고, 액추에이터 설정값 메시지를 출력합니다.
+
+<a id="control_allocator_usage"></a>
+
+### 사용법
+```
+control_allocator <command> [arguments...]
  Commands:
    start
 
@@ -85,19 +85,19 @@ fw_att_control <command> [arguments...]
 
    status        print status info
 ```
-## fw_path_navigation
-Source: [modules/fw_path_navigation](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_path_navigation)
+## fw_pos_control
+Source: [modules/fw_pos_control](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/fw_pos_control)
 
 
 ### 설명
-fw_path_navigation is the fixed wing path navigation.
+fw_pos_control is the fixed-wing position controller.
 
 
-<a id="fw_path_navigation_usage"></a>
+<a id="fw_pos_control_usage"></a>
 
 ### 사용법
 ```
-fw_path_navigation <command> [arguments...]
+fw_pos_control <command> [arguments...]
  Commands:
    start
      [vtol]      VTOL mode

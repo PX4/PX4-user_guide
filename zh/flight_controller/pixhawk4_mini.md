@@ -127,7 +127,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 ## 外部设备
 
-* [数字空速传感器](hhttps://holybro.com/products/digital-air-speed-sensor)
+* [数字空速传感器](https://holybro.com/products/digital-air-speed-sensor)
 * [数传电台模块](../telemetry/README.md)
 * [测距仪/距离传感器](../sensor/rangefinders.md)
 

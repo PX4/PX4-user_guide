@@ -25,7 +25,7 @@ The following boards are known to provide a good integration with PX4:
 - [Holybro Pixhawk RPI CM4 Baseboard](../companion_computer/holybro_pixhawk_rpi_cm4_baseboard.md)
 
 
-## Supported Companion Computers
+## Companion Computer Options
 
 PX4 can be used with computers that can be configured to communicate via MAVLink or microROS/microDDS over over a serial port (or Ethernet port, if present).
 
@@ -49,7 +49,7 @@ Drone APIs and SDKs allow you to write software that can control PX4.
 Popular alternatives include:
 
 - [MAVSDK](https://mavsdk.mavlink.io/main/en/index.html) - libraries in various programming languages to interface with MAVLink systems such as drones, cameras or ground systems.
-- [ROS 2](../ros/ros2.md) to communicate to ROS 2 nodes ( may also be used).
+- [ROS 2](../ros/ros2.md) to communicate to ROS 2 nodes (may also be used).
 - [ROS 1 and MAVROS](../ros/mavros_installation.md)
 
 MAVSDK is generally easier to learn and use, while ROS provides more pre-written software for advanced cases like computer vision. 
@@ -65,7 +65,6 @@ You can also write your own custom MAVLink libraries from scratch:
 You will need a router if you need to bridge MAVLink from the vehicle to a ground station or IP network, or if you need multiple connections:
 - [MAVLink Router](https://github.com/intel/mavlink-router) (recommended)
 - [MAVProxy](https://ardupilot.org/mavproxy/)
-
 
 ## Ethernet Setup
 

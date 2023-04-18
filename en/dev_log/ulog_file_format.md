@@ -482,7 +482,6 @@ A valid ULog parser must fulfill the following requirements:
   - [hardfault_log module](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/hardfault_log): append hardfault crash data.
 - [pyulog](https://github.com/PX4/pyulog): python, ULog parser library with CLI scripts.
 - [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.
-- [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis): Python, log plotter and 3D visualization tool based on pyulog.
 - [MAVLink](https://github.com/mavlink/mavlink): Messages for ULog streaming via MAVLink (note that appending data is not supported, at least not for cut off messages).
 - [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, ULog streaming via MAVLink and minimal parsing for GeoTagging.
 - [mavlink-router](https://github.com/01org/mavlink-router): C++, ULog streaming via MAVLink.

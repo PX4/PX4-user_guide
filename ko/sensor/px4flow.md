@@ -1,5 +1,9 @@
 # PX4FLOW 스마트 카메라
 
+:::warning
+The PX4 Team does not recomend the PX4FLOW for new designs.
+:::
+
 PX4FLOW는 [광류](../sensor/optical_flow.md) 스마트 카메라입니다. 기본 해상도는 752x480 픽셀이며, 400Hz에서 4x 구간 영역에서 광학 흐름을 계산하여 매우 높은 감광도를 제공합니다.
 
 ![PX4Flow v1.0](../../assets/hardware/sensors/px4flow/px4flow_v1.0_top_generated.png)

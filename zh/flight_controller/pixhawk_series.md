@@ -13,15 +13,13 @@ For computationally intensive tasks (e.g. computer vision) you will need a separ
 ## Key Benefits
 
 Key benefits of using a *Pixhawk series* controller include:
-* Software support - as PX4 reference hardware these are our best-maintained boards.
-* Flexibility in terms of hardware peripherals that can be attached.
-* High quality.
-* Highly customizable in terms of form factor.
-* Widely-used and thus well-tested/stable.
-* Automated update of latest firmware via *QGroundControl* (end-user friendly).
+- Software support - as PX4 reference hardware these are our best-maintained boards.
+- Flexibility in terms of hardware peripherals that can be attached.
+- High quality.
+- Highly customizable in terms of form factor.
+- Widely-used and thus well-tested/stable.
+- Automated update of latest firmware via *QGroundControl* (end-user friendly).
 
-
-<span id="recommended"></span>
 ## 支持的飞控板
 
 The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
@@ -29,19 +27,6 @@ The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilo
 :::note
 The PX4 maintenance and test teams maintain and support these standard boards.
 :::
-
-The list of boards supported by the PX4 project is reproduced below:
-* [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md) (FMUv5X)
-* [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
-* [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
-* [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
-* [mRo Pixracer](../flight_controller/pixracer.md)  (FMUv4)
-* [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
-* [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
-* [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
-* [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
-* [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv2)
 
 Pixhawk-like boards that are not fully compliant with the specification may be [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md), [experimental/discontinued](../flight_controller/autopilot_experimental.md), or unsupported.
 

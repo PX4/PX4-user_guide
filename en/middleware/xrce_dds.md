@@ -316,7 +316,7 @@ will generate topics under the namespaces:
 
 PX4 QoS settings for publishers are incompatible with the default QoS settings for ROS 2 subscribers.
 So if ROS 2 code needs to subscribe to a uORB topic, it will need to use compatible QoS settings.
-One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros2-subscriber-qos-settings).
+One example of which is shown in [ROS 2 User Guide > ROS 2 Subscriber QoS Settings](../ros/ros2_comm.md#ros-2-subscriber-qos-settings).
 
 PX4 uses the following QoS settings for publishers:
 

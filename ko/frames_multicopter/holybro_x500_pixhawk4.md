@@ -28,7 +28,7 @@ The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 * 전원 및 무선 조종기 케이블
 * 휠베이스 - 500 mm
 * 433 MHz 텔레메트리 /915 MHz 텔레메트리
-* 433 MHz 텔레메트리/915 MHz 텔레메트리
+* 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 
 드론 수동 제어시에는 배터리와 수신기([호환 무선 시스템](../getting_started/rc_transmitter_receiver.md))가 필요합니다.
 
@@ -54,14 +54,14 @@ The Holybro [X500 Kit](https://holybro.com/products/px4-development-kit-x500-v2)
 
 ### 전자부품
 
-| 항목                          | 패키지 |
-| --------------------------- | --- |
-| Pixhawk 4                   | 16  |
-| Pixhawk4 GPS 모듈             | 1   |
-| I2C 스플리터 보드                 | 2   |
-| 6 ~ 6 핀 케이블 (전원)            | 3   |
-| Holybro BLHeli S ESC 20A x4 | 2   |
-| 6 ~ 4 핀 케이블 (데이터)           | 1   |
+| 항목                                                                             | 패키지 |
+| ------------------------------------------------------------------------------ | --- |
+| Pixhawk 4                                                                      | 16  |
+| Pixhawk4 GPS 모듈                                                                | 1   |
+| I2C 스플리터 보드                                                                    | 2   |
+| 6 ~ 6 핀 케이블 (전원)                                                               | 3   |
+| Holybro BLHeli S ESC 20A x4                                                    | 2   |
+| 433 MHz / 915 MHz [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md) | 1   |
 
 ### 필요 공구
 

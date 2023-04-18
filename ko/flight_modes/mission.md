@@ -62,7 +62,6 @@ PX4 runs some basic sanity checks to determine if a mission is feasible when it 
 A subset of the most important checks are listed below:
 
 - First mission item too far away from vehicle ([MIS_DIST_1WP](#MIS_DIST_1WP))
-- Distance between two subsequent items is too large ([MIS_DIST_WPS](#MIS_DIST_WPS))
 - Any mission item conflicts with a plan or safety geofence
 - More than one land start mission item defined ([MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START))
 - A fixed-wing landing has an infeasible slope angle ([FW_LND_ANG](#FW_LND_ANG))
@@ -97,7 +96,6 @@ Parameters related to [mission feasibility checks](#mission-feasibility-checks):
 | 매개변수                                                                                                      | 설명                                                                                                                                                      |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <a id="MIS_DIST_1WP"></a>[MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP)         | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.         |
-| <a id="MIS_DIST_WPS"></a>[MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS)         | The mission will not be started if any distance between two subsequent waypoints is greater than this value. Disabled if value is 0 or less.            |
 | <a id="FW_LND_ANG"></a>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)             | Maximum landing slope angle.                                                                                                                            |
 | <a id="MIS_TKO_LAND_REQ"></a>[MIS_TKO_LAND_REQ](../advanced_config/parameter_reference.md#MIS_TKO_LAND_REQ) | Mission takeoff/landing requirement configuration. FW and VTOL both have it set to 2 by default, which means that the mission has to contain a landing. |
 
@@ -262,7 +260,7 @@ The parameters that affect flaring are listed below.
 
 | 매개변수                                                                                                   | 설명                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="FW_LND_FL_TIME"></a>[FW_LND_FL_TIME](../advanced_config/parameter_reference.md#FW_LND_FL_TIME) | Time before impact (at current descent rate) at which the vehicle should flare.                                                                                     |
+| <a id="FW_LND_FL_TIME"></a>[FW_LND_FL_TIME](../advanced_config/parameter_reference.md#FW_LND_FL_TIME)  | Time before impact (at current descent rate) at which the vehicle should flare.                                                                                     |
 | <a id="FW_LND_FL_SINK"></a>[FW_LND_FL_SINK](../advanced_config/parameter_reference.md#FW_LND_FL_SINK) | A shallow sink rate the aircraft will track during the flare.                                                                                                       |
 | <a id="FW_LND_FLALT"></a>[FW_LND_FLALT](../advanced_config/parameter_reference.md#FW_LND_FLALT)     | Minimum altitude above ground the aircraft must flare. This is only used when the time-based flare altitude is too low.                                             |
 | <a id="FW_LND_FL_PMAX"></a>[FW_LND_FL_PMAX](../advanced_config/parameter_reference.md#FW_LND_FL_PMAX) | Maximum allowed pitch during the flare.                                                                                                                             |

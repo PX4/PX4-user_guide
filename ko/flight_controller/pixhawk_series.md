@@ -13,15 +13,13 @@ Pixhawk는 PX4용 기준 하드웨어 플랫폼이며 [NuttX](https://nuttx.apac
 ## 주요 장점
 
 *Pixhawk 시리즈* 컨트롤러의 주요 장점은 다음과 같습니다.
-* 소프트웨어 지원 - PX4 기준 하드웨어로서 가장 잘 관리되는 보드입니다.
-* 장착 가능한 하드웨어 주변 장치의 유연성.
-* 고품질
-* 폼 팩터 측면에서 정밀하게 수정할 수 있습니다.
-* 널리 사용되어 잘 테스트되고 안정적입니다.
-* *QGroundControl* (최종 사용자 친화적)을 통한 최신 펌웨어 자동 업데이트.
+- 소프트웨어 지원 - PX4 기준 하드웨어로서 가장 잘 관리되는 보드입니다.
+- 장착 가능한 하드웨어 주변 장치의 유연성.
+- 고품질
+- 폼 팩터 측면에서 정밀하게 수정할 수 있습니다.
+- 널리 사용되어 잘 테스트되고 안정적입니다.
+- *QGroundControl* (최종 사용자 친화적)을 통한 최신 펌웨어 자동 업데이트.
 
-
-<span id="recommended"></span>
 ## 지원 보드
 
 PX4 프로젝트는 [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md)를 기준 하드웨어로 사용합니다. Pixhawk 표준(상표 사용 포함)과 호환는 컨트롤러입니다.
@@ -29,19 +27,6 @@ PX4 프로젝트는 [Pixhawk Standard Autopilots](../flight_controller/autopilot
 :::note
 PX4 유지관리 테스트팀은 표준 보드를 유지 관리하고 지원합니다.
 :::
-
-PX4 프로젝트에서 지원하는 보드 목록은 다음과 같습니다.
-* [Holybro Pixhawk 5X](../flight_controller/pixhawk5x.md) (FMUv5X)
-* [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
-* [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
-* [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
-* [mRo Pixracer](../flight_controller/pixracer.md)  (FMUv4)
-* [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
-* [CUAV Pixhawk V6X](../flight_controller/cuav_pixhawk_v6x.md) (FMUv6X)
-* [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
-* [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
-* [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv2)
 
 사양을 준수하지 않는 Pixhawk 유사 보드는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md), [실험/중단](../flight_controller/autopilot_experimental.md)하거나 지원되지 않을 수 있습니다.
 

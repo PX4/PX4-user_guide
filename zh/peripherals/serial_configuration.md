@@ -36,7 +36,7 @@ All the serial drivers/ports are configured in the same way:
 :::note
 Configuration parameter names follow the pattern `*_CONFIG` or `*_CFG` (*QGroundControl* only displays the parameters for services/drivers that are present in firmware).
 
-   At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG), [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG), [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [XRCE_DDS_0_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_0_CFG), [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG), [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG), [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG), [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG), [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
+   At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [MODAL_IO_CONFIG](../advanced_config/parameter_reference.md#MODAL_IO_CONFIG), [MSP_OSD_CONFIG](../advanced_config/parameter_reference.md#MSP_OSD_CONFIG), [RC_PORT_CONFIG](../advanced_config/parameter_reference.md#RC_PORT_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [XRCE_DDS_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_CFG), [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFLOW_CFG](../advanced_config/parameter_reference.md#SENS_TFLOW_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG), [SENS_VN_CFG](../advanced_config/parameter_reference.md#SENS_VN_CFG), [RC_CRSF_PRT_CFG](../advanced_config/parameter_reference.md#RC_CRSF_PRT_CFG), [MXS_SER_CFG](../advanced_config/parameter_reference.md#MXS_SER_CFG), [UWB_PORT_CFG](../advanced_config/parameter_reference.md#UWB_PORT_CFG), [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG)
 :::
 1. Reboot the vehicle in order to make the additional configuration parameters visible.
 1. 将所选端口的波特率设置为所需值。
@@ -53,10 +53,10 @@ Port conflicts are handled by system startup, which ensures that at most one ser
 At time of writing there is no user feedback about conflicting ports.
 :::
 
-
 ## 故障处理
 
-<span id="parameter_not_in_firmware"></span>
+<a id="parameter_not_in_firmware"></a>
+
 ### Configuration Parameter Missing from *QGroundControl*
 
 *QGroundControl* only displays the parameters for services/drivers that are present in firmware. If a parameter is missing, then you may need to add it in firmware.
@@ -72,7 +72,6 @@ CONFIG_DRIVERS_DISTANCE_SENSOR_SRF02=y
 An easier method would be using boardconfig which launches a GUI where you can easily search, disable and enable modules. To launch boardconfig type `make <vendor>_<board>_<label> boardconfig`
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
-
 
 ## 更多信息
 

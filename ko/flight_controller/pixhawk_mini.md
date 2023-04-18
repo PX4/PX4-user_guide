@@ -262,8 +262,8 @@ Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 
 지원되는 모든 기체의 MAIN/AUX 출력 포트와 모터/서보 간의 매핑은 [기체 정의서](../airframes/airframe_reference.md)에 기술되어 있습니다.
 
-:::caution
-매핑이 프레임간에 일관되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음).
+:::warning
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames).
 가지고 있는 기체의 프레임에 대해 올바르게 모터를 제대로 연결하였는지 다시 한 번 확인하십시오.
 :::
 

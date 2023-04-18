@@ -16497,6 +16497,20 @@ table {
  <td>deg</td>
 </tr>
 <tr>
+ <td><strong id="FW_THR_ASPD_MAX">FW_THR_ASPD_MAX</strong> (FLOAT)</td>
+ <td>Throttle at max airspeed <p><strong>Comment:</strong> Required throttle for level flight at maximum airspeed FW_AIRSPD_MAX (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_THR_ASPD_MIN">FW_THR_ASPD_MIN</strong> (FLOAT)</td>
+ <td>Throttle at min airspeed <p><strong>Comment:</strong> Required throttle for level flight at minimum airspeed FW_AIRSPD_MIN (sea level, standard atmosphere) Set to 0 to disable mapping of airspeed to trim throttle below FW_AIRSPD_TRIM.</p>   </td>
+ <td>[0, 1] (0.01)</td>
+ <td>0.</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_THR_IDLE">FW_THR_IDLE</strong> (FLOAT)</td>
  <td>Idle throttle <p><strong>Comment:</strong> This is the minimum throttle while on the ground For aircraft with internal combustion engines, this parameter should be set above the desired idle rpm. For electric motors, idle should typically be set to zero. Note that in automatic modes, "landed" conditions will engage idle throttle.</p>   </td>
  <td>[0.0, 0.4] (0.01)</td>
@@ -16930,10 +16944,12 @@ table {
 <li><strong>5:</strong> Femtomes</li> 
 
 <li><strong>6:</strong> NMEA (generic)</li> 
+
+<li><strong>7:</strong> Septentrio (SBF)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>[0, 6] </td>
+ <td>[0, 7] </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -17020,6 +17036,14 @@ table {
  <td>[0, 2] </td>
  <td>0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="GPS_PITCH_OFFSET">GPS_PITCH_OFFSET</strong> (FLOAT)</td>
+ <td>Pitch offset for dual antenna GPS <p><strong>Comment:</strong> Vertical offsets can be compensated for by adjusting the Pitch offset (Septentrio). Note that this can be interpreted as the "roll" angle in case the antennas are aligned along the perpendicular axis. This occurs in situations where the two antenna ARPs may not be exactly at the same height in the vehicle reference frame. Since pitch is defined as the right-handed rotation about the vehicle Y axis, a situation where the main antenna is mounted lower than the aux antenna (assuming the default antenna setup) will result in a positive pitch.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>[-90, 90] </td>
+ <td>0.</td>
+ <td>deg</td>
 </tr>
 <tr>
  <td><strong id="GPS_SAT_INFO">GPS_SAT_INFO</strong> (INT32)</td>

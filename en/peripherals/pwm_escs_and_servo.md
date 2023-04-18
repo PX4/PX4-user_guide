@@ -5,10 +5,12 @@ This section describes how to connect and power PWM-based brushless motor contro
 ## ESC Connection Overview
 
 Each PWM Electronic Speed Controller (ESC) minimally has the following wires:
+
 - Power VBAT (usually thick and red)
 - Power GND (usually thick and black)
 
 And on the servo plug:
+
 - PWM signal (usually white or yellow)
 - GND (usually black or brown)
 
@@ -16,10 +18,10 @@ The servo plug *may* also have a +5V wire (usually red or orange).
 The purpose of this wire and how it is connected depends on particular ESC and vehicle type.
 
 :::tip
-In some cases (see below)the +5V line is not needed. 
-Instead of cutting the +5V line you can gently lift of the locking tab of the plastic housing of the servo connector for that pin (e.g. using a cutter blade or small screw driver) and pull the pin out. 
-Isolate it with electrical isolation tape and tape it to the servo cable. 
-This allows you to easily undo the wire later if needed.
+In some cases (see below)the +5V line is not needed.
+Instead of cutting the +5V line you can gently lift of the locking tab of the plastic housing of the servo connector for that pin (e.g. using a cutter blade or small screw driver) and pull the pin out.
+Isolate it with electrical isolation tape and tape it to the servo cable.
+This allows you to easily undo the wire later if needed
 :::
 
 ## Power Connections
@@ -35,7 +37,8 @@ The connection to the +5V wire (if present) depends on the ESC/Vehicle.
 
 ### Fixed Wing / VTOL
 
-On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC). 
+On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).:
+
 - This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
   
   :::note
@@ -54,20 +57,17 @@ On a multicopter, the +5V line might not be present or (if present) may not be c
 
 ### Opto-isolated ESC
 
-On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller). 
-In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC. 
+On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller).
+In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC.
 
 
 ## PX4 Configuration
 
-Configure the outputs using the following parameters:
-- [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) (IO) and/or [PWM_AUX_RATE](../advanced_config/parameter_reference.md#PWM_AUX_RATE) (FMU): Set to the highest frame rate supported by the connected ESC, in Hz.
-- [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MIN](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAX](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAX](../advanced_config/parameter_reference.md#PWM_AUX_MAX): Set to the normal PWM range, nominally `1000` to `2000`.
-- [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG): Set to `0` in order to disable DShot.
+PWM motors and servos are configured using the [Actuator Configuration](../config/actuators.md) screen in QGroundControl.
 
-Then perform [ESC Calibration](../advanced_config/esc_calibration.md).
+After assigning outputs and basic calibration, you may then wish to peform an [ESC Calibration](../advanced_config/esc_calibration.md).
 
-Additional  PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
+Additional PX4 PWM configuration parameters can be found here: [PWM Outputs](../advanced_config/parameter_reference.md#pwm-outputs).
 
 
 ## Troubleshooting
@@ -98,16 +98,16 @@ See the first section of this page explains for other power connection considera
 
 Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
 
-PX4 sends a value of [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. 
-
-This value should be set correctly for the ESC (correct values vary between roughly 1200 and 900 us). 
+PX4 sends a pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly.
+Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
 
 ### Timeout
 
-Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on. 
+Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on.
 
-PX4 flight stack sends the [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse idle/disarmed pulse right after power on.
-Provided this is configured correctly, ESCs will not time out.
+PX4 sends an idle/disarmed pulse right after power on to stop ESCs timing out.
+Appropriate values are determined and set as part of the [actuator configuration/testing](../config/actuators.md#actuator-testing) process (internally these set the per-output parameters [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) and [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1)).
+
 
 ### Valid Pulse Shape, Voltage and Update Rate
 
