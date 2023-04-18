@@ -41,7 +41,7 @@ If you are using another port you will have to use its parameters to configure t
 The Unicore module comes with two antennas, a primary (right connector) and a secondary (left connector) antenna, which can be used to get yaw from GPS.
 You will need to set the following parameters:
 
-- [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK): Set bit 7 (128) to enable GPS yaw fusion into the yaw estimation.
+- [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL): Set bit 3 (8) to enable dual antenna heading into the yaw estimation.
 - [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET): Set heading offset to 0 if the primary antenna is in the front.
   The angle increases clock-wise, so set the offset to 90 degrees if the primary antenna is on the right side of the vehicle (and the secondary on the left side).
 
