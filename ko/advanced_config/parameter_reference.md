@@ -20625,14 +20625,14 @@ table {
  <td>UART ESC RPM Max <p><strong>Comment:</strong> Maximum RPM for ESC</p>   </td>
  <td></td>
  <td>15000</td>
- <td></td>
+ <td>rpm</td>
 </tr>
 <tr>
  <td><strong id="MODAL_IO_RPM_MIN">MODAL_IO_RPM_MIN</strong> (INT32)</td>
  <td>UART ESC RPM Min <p><strong>Comment:</strong> Minimum RPM for ESC</p>   </td>
  <td></td>
  <td>5500</td>
- <td></td>
+ <td>rpm</td>
 </tr>
 <tr>
  <td><strong id="MODAL_IO_SDIR1">MODAL_IO_SDIR1</strong> (INT32)</td>
