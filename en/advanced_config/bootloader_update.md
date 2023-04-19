@@ -1,6 +1,6 @@
 # Bootloader Update
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO) and [PX4FLOW](../sensor/px4flow.md).
+The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO).
 
 This topic explains several methods for updating the Pixhawk bootloader.
 
@@ -9,7 +9,7 @@ Hardware usually comes with an appropriate bootloader version pre-installed.
 A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
-## Building the new PX4 bootloader yourself
+## Building the new PX4 Bootloader Yourself
 
 Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader. Older boards use the bootloader from the legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository. Please refer to the instructions in the README to learn how to use it.
 
@@ -30,7 +30,7 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloade
 <span id="qgc_bootloader_update"></span>
 ## QGroundControl Bootloader Update
 
-The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. 
+The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader.
 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
 :::note

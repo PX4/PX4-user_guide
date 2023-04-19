@@ -14,7 +14,7 @@ The idea was to develop a platform that allows for easy control of wheeled UGVs 
   * 3DR 433MHz Telemetry Module (EU)
 * [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) or other PX4-compatible remotes
 * [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
-* [PX4Flow](../sensor/px4flow.md)
+* [PX4Flow](../sensor/px4flow.md) (Deprecated)
 
 
 ## Assembly

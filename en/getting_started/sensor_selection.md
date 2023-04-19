@@ -58,15 +58,11 @@ For more information see: [Distance Sensors](../sensor/rangefinders.md).
 
 ## Optical Flow
 
-[Optical Flow](../sensor/optical_flow.md) sensors use a downward facing camera and a downward facing distance sensor for velocity estimation.
+[Optical Flow sensors](../sensor/optical_flow.md) use a downward facing camera and a downward facing distance sensor for velocity estimation.
 PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. 
 This sensor can be used indoors, when no GPS signal is available.
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg) 
-
-Some options include:
-- [PX4Flow](../sensor/px4flow.md) based flow sensors, which have an integrated sonar sensor.
-- [PMW3901](../sensor/pmw3901.md)  based flow sensors, which have a sensor much like in an optical mouse trackpad.
 
 
 <span id="wiring"></span>
@@ -75,6 +71,8 @@ Some options include:
 Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
 
 In addition, see:
-* [Basic Assembly](../assembly/README.md) contains flight controller quick start guides. These cover wiring of the core sensors to specific flight controller hardware.
-* [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
-* [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.
+
+- [Basic Assembly](../assembly/README.md) contains flight controller quick start guides.
+  These cover wiring of the core sensors to specific flight controller hardware.
+- [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
+- [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.
