@@ -17,8 +17,8 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 | 시뮬레이터                                                                   | 설명                                                                                                   |
 | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [Gazebo](../sim_gazebo_gz/README.md)                                    | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다. </p><p><strong>지원 차량:</strong> 쿼드</p> |
-| [Gazebo Classic](../sim_gazebo_classic/README.md)                       | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다.</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>                          |
+| [Gazebo](../sim_gazebo_gz/README.md)                                    | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다. </p><p><strong>Supported Vehicles:</strong> Quad, Standard VTOL, Plane</p> |
+| [Gazebo Classic](../sim_gazebo_classic/README.md)                       | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다.</p><p><strong>지원 차량:</strong> 쿼드([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) 및 [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex48(T0) [일반 쿼드 델타 VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), 테일시터, 비행기, 로버, 잠수함 </p>                          |
 | [FlightGear](../simulation/flightgear.md)                               | <p>물리적, 시각적으로 사실적인 시뮬레이션을 제공합니다. 특히 뇌우, 눈, 비과 우박을 포함한 다양한 기상 조건을 시뮬레이션할 수 있으며, 열과 다양한 유형의 대기 흐름을 시뮬레이션할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_flightgear.md)도 지원됩니다.</p> <p><strong>지원 차량:</strong> 비행기, 오토자이로, 로버</p>                                                   |
 | [JSBSim](../simulation/jsbsim.md)                                       | <p>고급 비행 역학 모델 시뮬레이션을 제공합니다. 이것은 풍동 데이터를 기반으로 현실적인 비행 역학을 모델링할 수 있습니다.</p> <p><strong>지원 차량:</strong> 평면, 쿼드, 육각</p>                                                  |
 | [jMAVSim](../simulation/jmavsim.md)                                     | *콥터* 유형의 차량을 비행할 수 있는 간단한 멀티콥터 시뮬레이터입니다. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md)에도 사용할 수 있습니다.</p><p><strong>지원 차량:</strong> 쿼드</p>         |
@@ -33,7 +33,7 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 ## Simulator MAVLink API
 
-모든 시뮬레이터는 Simulator MAVLink API를 사용하여 PX4와 통신합니다. 이 API는 시뮬레이션된 세계에서 PX4로 센서 데이터를 제공하고, 시뮬레이션된 차량에 적용될 비행 코드에서 모터 및 액추에이터 값을 반환하는 MAVLink 메시지 세트를 정의합니다. 아래 이미지는 메시지 흐름을 나타냅니다.
+All simulators except for Gazebo communicate with PX4 using the Simulator MAVLink API. 이 API는 시뮬레이션된 세계에서 PX4로 센서 데이터를 제공하고, 시뮬레이션된 차량에 적용될 비행 코드에서 모터 및 액추에이터 값을 반환하는 MAVLink 메시지 세트를 정의합니다. 아래 이미지는 메시지 흐름을 나타냅니다.
 
 ![시뮬레이터 MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
@@ -53,6 +53,7 @@ A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autop
 | [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION)                      | Sim &rarr; PX4 | 실제 "시뮬레이션된" 차량 위치, 자세, 속도 등이 포함됩니다. 이것은 분석 및 디버깅에 대한 PX4의 추정치와 비교 기록될 수 있습니다(예: 노이즈가 있는(시뮬레이션된) 센서 입력에 대해 추정기가 얼마나 잘 작동하는 지 확인). |
 | [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW)                            | Sim &rarr; PX4 | 수신된 RC 채널의 RAW 값입니다.                                                                                                             |
 
+PX4 directly uses the  [Gazebo API](https://gazebosim.org/docs) to interface with [Gazebo](../sim_gazebo_gz/README.md) and MAVlink is not required.
 
 ## 기본 PX4 MAVLink UDP 포트
 
@@ -72,13 +73,13 @@ A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autop
 
 ## SITL 시뮬레이션 환경
 
-아래 다이어그램은 지원되는 시뮬레이터에 대한 일반적인 SITL 시뮬레이션 환경을 나타냅니다.
+The diagram below shows a typical SITL simulation environment for any of the supported simulators that use MAVLink (i.e. all of them except Gazebo).
 
 ![PX4 SITL 개요](../../assets/simulation/px4_sitl_overview.svg)
 
 시스템의 차이점은 UDP를 통해 연결되며, 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서도 실행됩니다.
 
-* PX4는 시뮬레이션 전용 모듈을 사용하여, 시뮬레이터의 로컬 TCP 포트 4560에 연결합니다. 그런 다음 시뮬레이터는 위에서 설명한 [시뮬레이터 MAVLink API](#simulator-mavlink-api)를 사용하여 PX4와 정보를 교환합니다. SITL 및 시뮬레이터의 PX4는 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서 실행할 수 있습니다. :::note 시뮬레이터는 또한 *microRTPS 브리지*([PX4-FastRTPS 브리지](../middleware/micrortps.md))를 사용하여 PX4와 직접 상호작용할 수 있습니다(즉, MAVLink가 아닌 [UORB 주제](../middleware/uorb.md)를 통하여).<!-- need to fix up to \[XRCE-DDS\](../middleware/xrce_dds.md) but only if the multi vehicle doc below gets updated -->This approach *may* used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
+* PX4는 시뮬레이션 전용 모듈을 사용하여, 시뮬레이터의 로컬 TCP 포트 4560에 연결합니다. 그런 다음 시뮬레이터는 위에서 설명한 [시뮬레이터 MAVLink API](#simulator-mavlink-api)를 사용하여 PX4와 정보를 교환합니다. SITL 및 시뮬레이터의 PX4는 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서 실행할 수 있습니다. :::note Simulators can also use the *microdds bridge* ([XRCE-DDS](../middleware/xrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach *may* used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
 :::
 * PX4는 일반 MAVLink 모듈을 사용하여, MAVSDK 또는 ROS와 같은 외부 개발자 API와 지상국에 연결합니다.
   - 지상국은 PX4의 원격 UDP 포트를 수신합니다: `14550`
