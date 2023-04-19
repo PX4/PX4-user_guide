@@ -436,21 +436,21 @@ Position, velocity or orientation measurements from an external vision system, e
 * External vision system horizontal position data will be used if bit position 0 in the [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) parameter is true.
 * External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3.
   For more details about the configuration of height sources, [click here](#height).
-* External vision system velocity data will be used if bit position 8 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* External vision system orientation data will be used for yaw estimation if bit position 4 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* External vision reference frame offset will be estimated and used to rotate the external vision system data if bit position 6 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
+* External vision system velocity data will be used if bit position 2 in the [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) parameter is true.
+* External vision system orientation data will be used for yaw estimation if bit position 3 in the [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) parameter is true.
+* External vision reference frame offset will be estimated and used to rotate the external vision system data if bit position 3 in the [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) parameter is true.
 
-Either bit 4 (`EV_YAW`) or bit 6 (`EV_ROTATE`) should be set to true, but not both together.
-Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
+Either bit 4 (`EV_YAW`) or bit 6 (`EV_ROTATE`) should be set to true, but not both together. 
+Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system. 
 
 EKF_AID_MASK value | Set bits | Description
 --- | --- | ---
-320 | EV_VEL + ROTATE_EV | Heading w.r.t. North
-24 | EV_POS + EV_YAW | Heading w.r.t. external vision frame
-72 | EV_POS + ROTATE_EV | Heading w.r.t. North
-272 | EV_VEL + EV_YAW | Heading w.r.t. external vision frame
-280 | EV_POS + EV_VEL + EV_YAW | Heading w.r.t. external vision frame
-328 | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North
+320 | EV_VEL + ROTATE_EV | Heading w.r.t. North 
+24 | EV_POS + EV_YAW | Heading w.r.t. external vision frame 
+72 | EV_POS + ROTATE_EV | Heading w.r.t. North 
+272 | EV_VEL + EV_YAW | Heading w.r.t. external vision frame 
+280 | EV_POS + EV_VEL + EV_YAW | Heading w.r.t. external vision frame 
+328 | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North 
 
 :::tip
 When using external vision in combination with [GNSS fusion](#gps), it is recommended to use `EV_VEL` and not `EV_POS` in order to prevent the two position-fixing sources from fighting against each other.
