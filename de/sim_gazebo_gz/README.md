@@ -39,11 +39,13 @@ This will run both the PX4 SITL instance and the Gazebo client. Note that all ga
 
 The supported vehicles and `make` commands are listed below.
 
-| Vehicle         | Command                          |
-| --------------- | -------------------------------- |
-| quadrotor(x500) | `make px4_sitl gz_x500`          |
-| VTOL            | `make px4_sitl gz_standard_vtol` |
-| plane           | `make px4_sitl gz_rc_cessna`     |
+| Vehicle                                                                                          | Command                          | `PX4_SYS_AUTOSTART` |
+| ------------------------------------------------------------------------------------------------ | -------------------------------- | ------------------- |
+| [Quadrotor(x500)](./gazebo_vehicles.md#x500-quadrotor)                                           | `make px4_sitl gz_x500`          | 4001                |
+| [Quadrotor(x500) with Depth Camera](./gazebo_vehicles.md#x500-quadrotor-with-depth-camera)       | `make px4_sitl gz_x500_depth`    | 4002                |
+| [Quadrotor(x500) with Vision Odometry](./gazebo_vehicles.md#x500-quadrotor-with-visual-odometry) | `make px4_sitl gz_x500_vision`   | 4005                |
+| [VTOL](./gazebo_vehicles.md#standard-vtol)                                                       | `make px4_sitl gz_standard_vtol` | 4003                |
+| [Plane](./gazebo_vehicles.md#rc-cessna)                                                          | `make px4_sitl gz_rc_cessna`     | 4004                |
 
 The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
@@ -73,7 +75,6 @@ ARGS ./build/px4_sitl_default/bin/px4
 where `ARGS` is a list of environment variables including:
 
 - `PX4_SYS_AUTOSTART` (**Mandatory**): Sets the [airframe autostart id](../dev_airframes/adding_a_new_frame.md) of the PX4 airframe to start.
-  - Only `4001` (x500 quadcopter) is currently supported.
 
 - `PX4_GZ_MODEL_NAME`: Sets the name of an _existing_ model in the gazebo simulation. If provided, the startup script tries to bind a new PX4 instance to the Gazebo resource matching exactly that name.
   - The setting is mutually exclusive with `PX4_GZ_MODEL`.
