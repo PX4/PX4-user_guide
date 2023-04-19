@@ -65,4 +65,4 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [Holybro Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md)
   - [mRo AUAV-X2](../flight_controller/auav_x2.md)
   - [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md)
-  - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md)
+  - Intel® Aero RTF Drone
