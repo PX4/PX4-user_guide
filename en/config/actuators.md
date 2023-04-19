@@ -170,7 +170,7 @@ The fields are:
   Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
 - (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" [0, 1] (see [Flaps and Spoilers Configuration](#flaps-and-spoilers-configuration) below).
   Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
-- `Lock control surfaces in hover`:
+- (VTOL only) `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
   - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
 
