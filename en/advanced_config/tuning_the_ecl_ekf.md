@@ -433,7 +433,7 @@ A good tuning is obtained as follows:
 
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
-* External vision system horizontal position data will be used if bit position 3 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
+* External vision system horizontal position data will be used if bit position 0 in the [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) parameter is true.
 * External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3.
   For more details about the configuration of height sources, [click here](#height).
 * External vision system velocity data will be used if bit position 8 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
