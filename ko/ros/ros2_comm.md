@@ -21,7 +21,7 @@ The XRCE-DDS middleware consists of a client running on PX4 and an agent running
 
 The PX4 [microdds-client](../modules/modules_system.md#microdds-client) is generated at build time and included in PX4 firmare by default. It includes both the "generic" XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/microdds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml). The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
 
-ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. You can include these by cloning the [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
+ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
 
 Note that the XRCE-DDS _agent_ itself has no dependency on client-side code. It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
@@ -259,6 +259,46 @@ This is needed because the ROS 2 default [Quality of Service (QoS) settings](htt
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
 
+### ROS 2 & PX4 Frame Conventions
+
+The local/world and body frames used by ROS and PX4 are different.
+
+| Frame | PX4                                              | ROS                                            |
+| ----- | ------------------------------------------------ | ---------------------------------------------- |
+| Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU (X **F**orward, Y **L**eft, Z **U**p)      |
+| World | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU or ENU (X **E**ast, Y **N**orth, Z **U**p) |
+
+:::tip
+See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+:::
+
+Both frames are shown in the image below (FRD on the left/FLU on the right).
+
+![Reference frames](../../assets/lpe/ref_frames.png)
+
+The FRD (NED) conventions are adopted on **all** PX4 topics unless explicitly specified in the associated message definition. Therefore, ROS 2 nodes that want to interface with PX4 must take care of the frames conventions.
+
+- To rotate a vector from ENU to NED two basic rotations must be performed:
+
+  - first a pi/2 rotation around the `Z`-axis (up),
+  - then a pi rotation around the `X`-axis (old East/new North).
+- To rotate a vector from NED to ENU two basic rotations must be performed:
+-
+  - first a pi/2 rotation around the `Z`-axis (down),
+  - then a pi rotation around the `X`-axis (old North/new East). Note that the two resulting operations are mathematically equivalent.
+- To rotate a vector from FLU to FRD a pi rotation around the `X`-axis (front) is sufficient.
+- To rotate a vector from FRD to FLU a pi rotation around the `X`-axis (front) is sufficient.
+
+Examples of vectors that require rotation are:
+
+- all fields in [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) message; ENU to NED conversion is required before sending them.
+- all fields in [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) message; FLU to FRD conversion is required before sending them.
+
+Similarly to vectors, also quanternions representing the attitude of the vehicle (body frame) w.r.t. the world frame require conversion.
+
+[PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) provides the shared library [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/include/px4_ros_com/frame_transforms.h) to easily perform such conversions.
+
+
 ## ROS 2 예제 애플리케이션
 
 ### ROS 2 Listener
@@ -419,20 +459,47 @@ For more information see [Starting XRCE-DDS](../middleware/xrce_dds.md#starting-
 
 ## Custom uORB Topics
 
-ROS 2 needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. These are automatically exported to [PX4/px4_msgs](https://github.com/PX4/px4_msgs) for main and release builds, and you can just clone them into your workspace.
+ROS 2 needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware in order to interpret the messages. The definition are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) and they are automatically synchronized by CI on the `main` and release branches. Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics. Therefore,
 
-If working on a custom build that has other messages, you would:
-- Update the [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) to add needed topics to the XRCE-DDS client in your PX4 firmware.
-- Copy the msg definitions out of the PX4 source tree into any ROS 2 workspace that needs them. The messages must be in a folder named `px4_msgs/msg/`.
+- If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
+- If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree. Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders. Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
 
-:::note
-Technically the messages must be in a folder defined by the type prefix in the yaml file: As you can see below, this is `px4_msgs::msg::`:
-
-  ```yaml
-  - topic: /fmu/out/vehicle_odometry
-    type: px4_msgs::msg::VehicleOdometry
+  ```sh
+  rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
+  cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
   ```
 
+:::note
+Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages. For more information see [XRCE-DDS > DDS Topics YAML](../middleware/xrce_dds.md#dds-topics-yaml).
+:::
+
+## Customizing the Topic Namespace
+
+Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
+
+ - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line. This technique can be used both in simulation and real vehicles.
+ - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
+
+
+:::note
+Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml). Therefore, commands like:
+
+```sh
+microdds_client start -n uav_1
+```
+
+or
+
+```sh
+PX4_MICRODDS_NS=uav_1 make px4_sitl gz_x500
+```
+
+will generate topics under the namespaces:
+
+```sh
+/uav_1/fmu/in/  # for subscribers
+/uav_1/fmu/out/ # for publishers
+```
 :::
 
 ## ros2 CLI
