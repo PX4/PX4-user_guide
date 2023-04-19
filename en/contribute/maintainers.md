@@ -23,7 +23,7 @@ You can find the relevant information below:
 If you would like to join the PX4 maintainers team:
 
 1. Read the [role description](#dronecode-maintainer-role-description), and make sure you understand the responsibilities of the role.
-2. Contact the relevant maintainer listed in the [PX4-Autopilot README](https://github.com/PX4/PX4-Autopilot#maintenance-team) on [Discord server](support.md#forums-and-chat), or any of the preferred method.
+2. To nominate yourself, reach out to one of the maintainers (See the complete list in the [PX4-Autopilot README](https://github.com/PX4/PX4-Autopilot#maintenance-team)), and seek their sponsorship.
 3. Express your interest in becoming a maintainer, and specify which area you would like to maintain.
 4. Bring this up in the [weekly maintainers call](#maintainers-call).
    If there's a general consensus you will be approved as maintainer!
