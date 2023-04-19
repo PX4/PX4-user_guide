@@ -32781,9 +32781,9 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
- <td>Duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition</p>   </td>
+ <td>Maximum duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition maximally. Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.</p>   </td>
  <td>[0.1, 20.00] (1)</td>
- <td>4.0</td>
+ <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
@@ -32792,13 +32792,6 @@ table {
  <td>[0.0, 20.0] </td>
  <td>3.0</td>
  <td>s</td>
-</tr>
-<tr>
- <td><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to hover flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
- <td>[-1, 1] (0.01)</td>
- <td>0.0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="VT_ELEV_MC_LOCK">VT_ELEV_MC_LOCK</strong> (INT32)</td>

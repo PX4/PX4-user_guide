@@ -31611,14 +31611,14 @@
     {
       "category": "Standard",
       "decimalPlaces": 2,
-      "default": 4.0,
+      "default": 10.0,
       "group": "VTOL Attitude Control",
       "increment": 1.0,
-      "longDesc": "Time in seconds used for a back transition",
+      "longDesc": "Time in seconds used for a back transition maximally. Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.",
       "max": 20.0,
       "min": 0.1,
       "name": "VT_B_TRANS_DUR",
-      "shortDesc": "Duration of a back transition",
+      "shortDesc": "Maximum duration of a back transition",
       "type": "Float",
       "units": "s"
     },
@@ -31633,19 +31633,6 @@
       "shortDesc": "Back transition MC motor ramp up time",
       "type": "Float",
       "units": "s"
-    },
-    {
-      "category": "Standard",
-      "decimalPlaces": 2,
-      "default": 0.0,
-      "group": "VTOL Attitude Control",
-      "increment": 0.01,
-      "longDesc": "standard vtol: pusher tailsitter, tiltrotor: main throttle",
-      "max": 1.0,
-      "min": -1.0,
-      "name": "VT_B_TRANS_THR",
-      "shortDesc": "Target throttle value for the transition to hover flight",
-      "type": "Float"
     },
     {
       "category": "Standard",
