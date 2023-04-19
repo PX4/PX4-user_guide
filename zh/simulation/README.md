@@ -17,8 +17,8 @@ Information about available simulators and how to set them up are provided in th
 
 | 仿真器                                                                     | 描述                                                                                                                                                        |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Gazebo](../sim_gazebo_gz/README.md)                                    | <p><strong>强烈建议使用此仿真器。</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>它具有功能强大的 3D 仿真环境, 特别适用于测试对象避障和计算机视觉。 它还可用于 [多工具仿真](../simulation/multi-vehicle-simulation.md)，通常用于 [ROS](../simulation/ros_interface.md)，这是一种用于自动控制的工具集。 </p><p><strong>支持机型： </strong>四旋翼</p>                                                      |
-| [Gazebo Classic](../sim_gazebo_classic/README.md)                       | <p><strong>强烈建议使用此仿真器。</strong></p><p>它具有功能强大的 3D 仿真环境, 特别适用于测试对象避障和计算机视觉。 它还可用于 [多工具仿真](../simulation/multi-vehicle-simulation.md)，通常用于 [ROS](../simulation/ros_interface.md)，这是一种用于自动控制的工具集。</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>                                                                               |
+| [Gazebo](../sim_gazebo_gz/README.md)                                    | <p><strong>强烈建议使用此仿真器。</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/README.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>它具有功能强大的 3D 仿真环境, 特别适用于测试对象避障和计算机视觉。 它还可用于 [多工具仿真](../simulation/multi-vehicle-simulation.md)，通常用于 [ROS](../simulation/ros_interface.md)，这是一种用于自动控制的工具集。 </p><p><strong>Supported Vehicles:</strong> Quad, Standard VTOL, Plane</p>                                                      |
+| [Gazebo Classic](../sim_gazebo_classic/README.md)                       | <p><strong>强烈建议使用此仿真器。</strong></p><p>它具有功能强大的 3D 仿真环境, 特别适用于测试对象避障和计算机视觉。 它还可用于 [多工具仿真](../simulation/multi-vehicle-simulation.md)，通常用于 [ROS](../simulation/ros_interface.md)，这是一种用于自动控制的工具集。</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>                                                                               |
 | [FlightGear](../simulation/flightgear.md)                               | <p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. [Multi-vehicle simulation](../simulation/multi_vehicle_flightgear.md) is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p>                                                                                                        |
 | [JSBSim](../simulation/jsbsim.md)                                       | <p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p>                                                                                                       |
 | [jMAVSim](../simulation/jmavsim.md)                                     | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>它易设置，可以用来测试您的工具是否可以起飞、飞行、降落、并对各种故障条件 (例如 gps 故障) 做出适当的反应。 它也可用于 [多机仿真 ](../simulation/multi_vehicle_jmavsim.md)。</p><p><strong>支持机型： </strong>四旋翼</p> |
@@ -33,7 +33,7 @@ Instructions for how to setup and use the simulators are in the topics linked ab
 
 ## 仿真器 MAVLink API
 
-All simulators communicate with PX4 using the Simulator MAVLink API. This API defines a set of MAVLink messages that supply sensor data from the simulated world to PX4 and return motor and actuator values from the flight code that will be applied to the simulated vehicle. The image below shows the message flow.
+All simulators except for Gazebo communicate with PX4 using the Simulator MAVLink API. This API defines a set of MAVLink messages that supply sensor data from the simulated world to PX4 and return motor and actuator values from the flight code that will be applied to the simulated vehicle. The image below shows the message flow.
 
 ![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
@@ -53,6 +53,7 @@ The messages are described below (see links for specific detail).
 | [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION)                      | Sim 至 PX4 | 包含实际的“仿真”无人机位置、姿态、速度等。 这可以记录并与 px4 的分析和调试估计进行比较 （例如，检查估计器在噪声 （仿真） 传感器输入中的工作情况）。 |
 | [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW)                            | Sim 至 PX4 | 收到 RC 通道的 RAW 值。                                                                |
 
+PX4 directly uses the  [Gazebo API](https://gazebosim.org/docs) to interface with [Gazebo](../sim_gazebo_gz/README.md) and MAVlink is not required.
 
 ## 默认 PX4 MAVLink UDP 端口
 
@@ -71,13 +72,13 @@ By default, PX4 uses commonly established UDP ports for MAVLink communication wi
 
 ## SITL 仿真环境
 
-The diagram below shows a typical SITL simulation environment for any of the supported simulators.
+The diagram below shows a typical SITL simulation environment for any of the supported simulators that use MAVLink (i.e. all of them except Gazebo).
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 
 The different parts of the system connect via UDP, and can be run on either the same computer or another computer on the same network.
 
-* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. SITL 和模拟器上的 PX4 可以在同一台计算机上运行，也可以在同一网络上运行不同的计算机。 :::note Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink).<!-- need to fix up to \[XRCE-DDS\](../middleware/xrce_dds.md) but only if the multi vehicle doc below gets updated -->This approach *may* used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
+* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. SITL 和模拟器上的 PX4 可以在同一台计算机上运行，也可以在同一网络上运行不同的计算机。 :::note Simulators can also use the *microdds bridge* ([XRCE-DDS](../middleware/xrce_dds.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach *may* used by Gazebo Classic for [multi-vehicle simulation](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
 :::
 * PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
   - Ground stations listen to PX4's remote UDP port: `14550`
