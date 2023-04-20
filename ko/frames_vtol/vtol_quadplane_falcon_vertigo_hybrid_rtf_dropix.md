@@ -60,7 +60,7 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고, 시스템에 �
 ![조립 도구](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_build_tools.jpg)
 
 
-## -- 조립 단계
+## 조립 단계
 
 RTF 키트는 아래와 같이 조립하여야 합니다.
 
@@ -78,7 +78,7 @@ RTF 키트는 아래와 같이 조립하여야 합니다.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/carbon_tube_in_brackets.jpg" title="브래킷의 탄소 튜브" width="300px" />
 
-1. 다음 이미지는 다른 관점에서 로드의 정렬을 보여줍니다.
+1. 다음 이미지는 다른 관점에서 막대들의 정렬을 보여줍니다.
 
    ![하단에서 쿼드 모터 프레임로드 정렬](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_9_bottom_view_rod_alignment.jpg) ![쿼드 모터 프레임로드 정렬 회로도](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_11_rod_alignment_schamatic.jpg)
 
@@ -90,17 +90,17 @@ RTF 키트는 아래와 같이 조립하여야 합니다.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_15_fuselage_tubes.jpg" width="500px" title="동체 탄소 튜브" />
 
-1. 각 튜브에있는 두 개의 흰색 표시 사이에 고릴라 접착제를 바릅니다 (빨간색 화살표로 표시됨). 중앙의 흰색 표시 (파란색 화살표)는 동체 중앙에 배치되고 다른 표시는 측면에 배치됩니다.
+1. 각 튜브에있는 두 개의 흰색 표시 사이에 고릴라 접착제를 바릅니다 (빨간색 화살표로 표시됨). 중앙의 흰색 표시 (파란색 화살표)는 동체 중앙에 배치되고, 다른 표시는 측면에 배치됩니다.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_13_rod_apply_glue.jpg" width="500px" title="막대에 접착제 도포" />
 
-1. 탄소 튜브가 동체 내부에 있으면 튜브의 나머지 부분에 고릴라 접착제를 바르고 날개를 부착하십시오.
+1. 탄소 튜브가 동체 내부에 있으면, 튜브의 나머지 부분에 고릴라 접착제를 바르고 날개를 부착하십시오.
 
-1. 동체에는 모터와 서보 케이블을 위한 두 개의 구멍이 있습니다. 구멍을 통해 케이블을 통과시킨 다음 날개를 동체에 연결합니다.
+1. 동체에는 모터와 서보 케이블을 위한 두 개의 구멍이 있습니다. 구멍으로 케이블을 통과시킨 다음 날개를 동체에 연결합니다.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_17_fuselage_holes_cables.jpg" width="500px" title="케이블용 동체 구멍" />
 
-1. 동체 내에서 제공된 커넥터를 사용하여 방금 날개에서 ESC로 통과한 신호 케이블을 연결합니다. ESC는 이미 모터에 연결되어 있으며 올바른 순서로 회전하도록 설정되어 있습니다 (나중 단계에서 ESC PDB를 전원 모듈에 연결해야 함).
+1. 동체 내에 제공된 커넥터를 사용하여 방금 날개에서 ESC로 통과한 신호 케이블을 연결합니다. ESC는 이미 모터에 연결되어 있으며, 올바른 순서로 회전하도록 설정되어 있습니다 (나중 단계에서 ESC PDB를 전원 모듈에 연결해야 함).
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_19_connect_esc_power_and_signal_cables.jpg" width="500px" title="ESC 전원 및 신호 케이블 연결" />
 
@@ -119,15 +119,15 @@ RTF 키트는 아래와 같이 조립하여야 합니다.
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_23_dropix_and_other_electronics.jpg" width="500px" title="Falcon Vertigo Electronics" />
 
 :::note
-Dropix 연결에 대한 일반 정보는 [Dropix 비행 컨트롤러](../flight_controller/dropix.md)에서 찾을 수 있습니다. :::
+Dropix 연결에 대한 일반 정보는 [Dropix 비행 컨트롤러](../flight_controller/dropix.md)을 참고하십시오. :::
 
-#### ESC 전원 커넥터를 연결하고 신호 케이블을 비행 컨트롤러에 전달합니다.
+#### ESC 전원 커넥터를 연결하고, 신호 케이블을 비행 컨트롤러에 연결합니다.
 
 1. XT60 커넥터를 사용하여 ESC를 전원 모듈에 연결합니다.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_25_aileron_esc_connections.jpg" width="500px" title="" />
 
-1. 신호 케이블을 비행 컨트롤러로 전달합니다.
+1. 신호 케이블을 비행 컨트롤러로 연결합니다.
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_27_gps_esc_servo_connections.jpg" width="500px" title="GPS, ESC, 서보 연결" />
 
@@ -135,7 +135,7 @@ Dropix 연결에 대한 일반 정보는 [Dropix 비행 컨트롤러](../flight_
 
 #### 모터 배선
 
-Dropix의 출력은 표준 QuadPlane 구성 ( "평면에 앉아 있는" 방향)을 사용하여 연결하여야합니다.
+Dropix의 출력은 표준 QuadPlane 구성 ( "평면에 앉아 있는" 방향)을 사용하여 연결합니다.
 
 | 포트     | 연결               |
 | ------ | ---------------- |
@@ -155,7 +155,7 @@ Dropix의 출력은 표준 QuadPlane 구성 ( "평면에 앉아 있는" 방향)�
 
 #### 비행 컨트롤러 연결 : 모터, 서보, RC 수신기, 전류 센서
 
-아래 이미지는 dropix 비행 컨트롤러의 뒷면을 보여 주며 쿼드 모터 케이블, 에일러론 신호 케이블, 스로틀 모터, 전류 센서 및 수신기 (RC IN) 입력 핀을 연결하기위한 출력 핀을 강조 표시합니다.
+아래 이미지는 dropix 비행 컨트롤러의 뒷면을 보여, 주며 쿼드 모터 케이블, 에일러론 신호 케이블, 스로틀 모터, 전류 센서 및 수신기 (RC IN) 입력 핀을 연결하기위한 출력 핀을 강조하여 표시합니다.
 
 <img id="dropix_outputs" src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_33_dropix_outputs.jpg" width="500px" title="Dropix 모터 / 서보 출력" />
 
@@ -174,7 +174,7 @@ Dropix의 출력은 표준 QuadPlane 구성 ( "평면에 앉아 있는" 방향)�
 
 #### 비행 컨트롤러 연결 : 원격 측정, 대기 속도 센서, GPS, 부저 및 안전 스위치
 
-센서 입력, 원격 측정, 부저 및 안전 스위치는 아래 연결 다이어그램과 같이 비행 컨트롤러의 전면에 있습니다.
+센서 입력, 원격 측정, 부저 및 안전 스위치는 아래 연결 다이어그램과 같이 비행 컨트롤러의 전면에 위치합니다.
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" alt="Dropix 커넥터 전면" title="Dropix 커넥터 전면" />
 
@@ -193,10 +193,10 @@ USB 포트, 전원 모듈 및 외부 USB에 대한 입력은 비행 컨트롤러
 
 :::tip
 외부 USB는 선택 사항입니다.
-비행 컨트롤러를 장착 후 USB 포트에 액세스하기 어려운 경우에 사용하여야 합니다.
+비행 컨트롤러를 장착 후, USB 포트에 액세스하기 어려운 경우에 사용하여야 합니다.
 :::
 
-#### 피토 튜브 (대기 속도 센서) 설치
+#### -- 피토 튜브 (대기 속도 센서) 설치
 
 피토 튜브는 비행기 전면에 설치되며 튜브를 통해 대기 속도 센서에 연결됩니다.
 

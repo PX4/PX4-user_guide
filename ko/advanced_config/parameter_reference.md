@@ -14707,7 +14707,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
+ <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
   <li><strong>1:</strong> use optical flow</li> 
   <li><strong>2:</strong> unused</li> 
   <li><strong>3:</strong> unused</li> 
@@ -32749,9 +32749,9 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
- <td>Duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition</p>   </td>
+ <td>Maximum duration of a back transition <p><strong>Comment:</strong> Time in seconds used for a back transition maximally. Transition is also declared over if the groundspeed drops below MPC_XY_CRUISE.</p>   </td>
  <td>[0.1, 20.00] (1)</td>
- <td>4.0</td>
+ <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
@@ -32760,13 +32760,6 @@ table {
  <td>[0.0, 20.0] </td>
  <td>3.0</td>
  <td>s</td>
-</tr>
-<tr>
- <td><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to hover flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
- <td>[-1, 1] (0.01)</td>
- <td>0.0</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="VT_ELEV_MC_LOCK">VT_ELEV_MC_LOCK</strong> (INT32)</td>
