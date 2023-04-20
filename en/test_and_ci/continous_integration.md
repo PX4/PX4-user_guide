@@ -1,6 +1,6 @@
 # PX4 Continuous Integration
 
-PX4 uses continuous integration (CI) to build and run tests against every pull request (PR) and release, and to generate build artifacts such as firmware, documentation updates, and various metadata files needed by QGroundControl.
+PX4 uses continuous integration (CI) to build and run tests against every pull request (PR) and release, and to generate build artifacts such as firmware, documentation updates, and various metadata files needed by other components, like QGroundControl.
 
 The integration system uses GitHub actions and a Jenkins server.
 The configuration files for these systems can be found in the [PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repo main branch:
