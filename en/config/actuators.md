@@ -174,7 +174,12 @@ The fields are:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
   - `Disabled`: Set this for vehicles that use control surfaces in hover, such as the duo tailsitter (which uses elevons for pitch and yaw control). It should also be set for vehicles that use control surfaces to provide additional stabilization in hover mode when moving at speed or in high winds.
 
-#### Flaps and Spoilers Configuration
+#### Flap Scale and Spoiler Scale Configuration
+
+Control surfaces such as ailerons (which primarily affect roll) and elevators (which primarily affect pitch), may also have an effect on lift or vehicle speed, in the same way as dedicated flaps and spoiler controls.
+The flap scale and spoiler scale allow you to specify how much each control should be deflected when the controller is demanding "full flaps" or "full spoiler".
+With this information the control allocator can use all the available control surfaces it wants for flap and spoiler control (usually flaps, ailerons, elevator).
+
 
 `Flap-control` and `spoiler-control` are aerodynamic configurations that can either be commanded manually by the pilot through a switch on the RC, or are set automatically by the controller, e.g. to reduce the airspeed before landing. 
 The flap and spoiler configuration controls are of the range of [0, 1] and can then be arbitrarily allocated to the control surfaces.
