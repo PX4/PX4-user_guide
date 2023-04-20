@@ -14707,7 +14707,7 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
+ <td>Integer bitmask controlling data fusion and aiding methods <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Deprecated, use EKF2_GPS_CTRL instead 1 : Set to true to use optical flow data if available 2 : Deprecated, use EKF2_IMU_CTRL instead 3 : Deprecated, use EKF2_EV_CTRL instead 4 : Deprecated, use EKF2_EV_CTRL instead 5 : Set to true to enable multi-rotor drag specific force fusion 6 : Deprecated, use EKF2_EV_CTRL instead 7 : Deprecated, use EKF2_GPS_CTRL instead 8 : Deprecated, use EKF2_EV_CTRL instead</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> unused</li> 
   <li><strong>1:</strong> use optical flow</li> 
   <li><strong>2:</strong> unused</li> 
   <li><strong>3:</strong> unused</li> 
