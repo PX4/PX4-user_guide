@@ -166,9 +166,9 @@ The fields are:
   - The setting limits the rate of change of an actuator (if not specified then no rate limit is applied).
      It is intended for actuators that may be damaged if they move too fast — such as the tilting actuators on a tiltrotor VTOL vehicle.
   - For example, a setting of 2.0 means that the motor/servo will not be commanded to move from 0 to 1 at a rate that completes the operation in less than 2 seconds (in case of reversible motors, the range is -1 to 1).
-- (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" [0, 1] (see [Flaps and Spoilers Configuration](#flaps-and-spoilers-configuration) below).
+- (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" [0, 1] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below).
   Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
-- (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" [0, 1] (see [Flaps and Spoilers Configuration](#flaps-and-spoilers-configuration) below).
+- (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" [0, 1] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below).
   Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
 - (VTOL only) `Lock control surfaces in hover`:
   - `Enabled`: Most vehicles do not use control surfaces in hover. Use this setting to lock them so that they don't affect vehicle dynamics.
@@ -176,15 +176,14 @@ The fields are:
 
 #### Flap Scale and Spoiler Scale Configuration
 
-Control surfaces such as ailerons (which primarily affect roll) and elevators (which primarily affect pitch), may also have an effect on lift or vehicle speed, in the same way as dedicated flaps and spoiler controls.
-The flap scale and spoiler scale allow you to specify how much each control should be deflected when the controller is demanding "full flaps" or "full spoiler".
-With this information the control allocator can use all the available control surfaces it wants for flap and spoiler control (usually flaps, ailerons, elevator).
+"Flap-control" and "Spoiler-control" are aerodynamic configurations that can either be commanded manually by the pilot (using RC, say), or are set automatically by the controller.
+For example, a  pilot or the landing system might engage "Spoiler-control" in order to reduce the airspeed before landing.
 
+The configurations are an _abstract_ way for the controller to tell the allocator how much it should adjust the aerodynamic properties of the wings relative to the "full flaps" or "full spoiler" configuration (between `[0,1]`, where "1" indicates the full range).
+The allocator then uses any of the available control surfaces it wants in order to achieve the requested configuration: usually flaps, ailerons, and elevator.
 
-`Flap-control` and `spoiler-control` are aerodynamic configurations that can either be commanded manually by the pilot through a switch on the RC, or are set automatically by the controller, e.g. to reduce the airspeed before landing. 
-The flap and spoiler configuration controls are of the range of [0, 1] and can then be arbitrarily allocated to the control surfaces.
-
-It's important to understand the difference: with `flap/spoiler-control` we refer to an abstract metric of "how much flap/spoiler configuration" the controller currently demands, while the actual flaps or spoiler actuator setpoint can vary from that value.
+The `flap scale` and `spoiler scale` settings in the actuator UI inform the allocator how much ailerons, elevators, flaps, spoilers, and other control surfaces, contribute to a requested "Flap-control" and/or "Spoiler-control" value.
+Specifically, they indicate how much each control surface should be deflected when the controller is demanding "full flaps" or "full spoiler".
 
 In the following example, the vehicle has two ailerons, one elevator, one rudder and two flaps as control surfaces:
 
