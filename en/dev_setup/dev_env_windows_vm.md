@@ -44,3 +44,22 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
     * Clipboard sharing to host system
     * File sharing to host system
 1. Continue with [PX4 environment setup for Linux](../dev_setup/dev_env_linux.md)
+
+## VirtualBox 7 USB passthrough for QGroundControl / Firmware Flashing
+In order to flash newly-built firmware onto autopilot hardware, there's a need to configure USB passthrough settings.
+
+:::tip
+This guide is for VirtualBox 7 users hosting Ubuntu 20.04 LTS on a Windows 10 machine.
+:::
+
+0. Ensure that the user has been added to the dialout group using `sudo usermod -a -G dialout $USER` and restart
+1. Enable serial port(s) in VM: **VirtualBox > Settings > Serial Ports 1/2/3/etc...**
+2. Enable USB controller in VM: **VirtualBox > Settings > USB**
+3. Add USB filters for the bootloader and autopilot in VM: **VirtualBox > Settings > USB > Add new USB filter**
+... Autopilot: This shows up at a device after the bootloader finishes the booting process
+... Bootloader: This shows up as a device for a few seconds after plugging in the USB cable, you only have a few seconds to add to filter before it disappears as a device.
+4. Select the device in the VM instance's dropdown menu **VirtualBox > Devices > your_device**
+
+If successful, your device will show up with `lsusb` and QGroundControl will connect to the device automatically. Repeat step 4 if your connected device does not show up.
+
+
