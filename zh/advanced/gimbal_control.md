@@ -1,4 +1,4 @@
-# Gimbal Configuration
+# 云台控制
 
 This page explains how to configure and control a gimbal that has an attached camera (or any other payload).
 
