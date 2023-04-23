@@ -8,20 +8,20 @@ PX4 使用 XRCE-DDS中间件使 [uORB 消息](../middleware/uorb.md) 可以像 [
 
 PX4 使用 [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html) 来实现XRCE-DDS。
 
-本指南描述了系统架构以及建立客户和代理所需要的操作。 In particular it covers the options that are most important to PX4 users.
+本指南描述了软件架构以及建立客户和代理所需要的操作。 尤其是，它涵盖了对于PX4用户最重要的选项。
 
 
-## Architecture
+## 软件架构
 
-The XRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link. The agent acts as a proxy for the client, enabling it to publish and subscribe to topics in the global DDS data space.
+XRCE-DDS中间件由运行在PX4上的客户端(Client)和运行在机载计算机上的代理端(Agent)组成， 通过串口或UDP进行双向数据通讯。 代理端(Agent)充当客户端的代理，使其能够在DDS全局数据空间中发布和订阅话题。
 
 ![Architecture XRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
-In order for PX4 uORB topics to be shared on the DDS network you will need _XRCE-DDS client_ running on PX4, connected to the _XRCE-DDS agent_ running on the companion.
+为了在 DDS网络上传输 PX4 uORB 话题，需要 _XRCE-DDS客户端_ 在 PX4 上运行，并与运行在机载计算机上的_XRCE-DDS代理_ 连接。
 
-The PX4 [microdds-client](../modules/modules_system.md#microdds-client) publishes to/from a defined set of uORB topics to the global DDS data space.
+PX4 [microdds-client](../modules/modules_system.md#microdds-client) 发布自定义的 uORB 话题到 DDS的全局数据空间。
 
-The [eProsima XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
+[eProsima XRCE-DDS _代理(Agent)_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) 运行在机载计算机上，并充当DDS/ROS2 网络中客户端的代理服务。
 
 The agent itself has no dependency on client-side code and can be built and/or installed independent of PX4 or ROS.
 
