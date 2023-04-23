@@ -1,14 +1,14 @@
-# XRCE-DDS (PX4-FastDDS Bridge)
+# XRCE-DDS(PX4-FastDDS桥)
 
 :::note
-XRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
+在 PX4 v1.13 中使用XRCE-DDS替换 [Fast-RTPS 桥](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) 。
 :::
 
-PX4 uses XRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
+PX4 使用 XRCE-DDS中间件使 [uORB 消息](../middleware/uorb.md) 可以像 [ROS 2](../ros/ros2_comm.md) 内部话题一样在机载计算机上被订阅和发布。 该特性可支持PX4和ROS2之间的快速、可靠的集成， 并且使ROS2应用程序更容易获得飞行器信息并向其发送命令。
 
-PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
+PX4 使用 [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html) 来实现XRCE-DDS。
 
-The following guide describes the architecture and various options for setting up the client and agent. In particular it covers the options that are most important to PX4 users.
+本指南描述了系统架构以及建立客户和代理所需要的操作。 In particular it covers the options that are most important to PX4 users.
 
 
 ## Architecture
