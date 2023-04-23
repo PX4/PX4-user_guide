@@ -25,12 +25,12 @@ PX4 [microdds-client](../modules/modules_system.md#microdds-client) 发布自定
 
 代理(Agent)本身不依赖客户端测代码，可以独立于PX4或ROS编译或安装。
 
-Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 XRCE-DDS client so that it can interpret the messages.
+想要订阅/发布到 PX4 的代码依赖客户端侧(client-side)代码； 它需要 uORB 消息定义(这些定义应与创建 PX4 XRCE-DDS客户端的消息定义一致)以便能够正确解释消息。
 
 
-## Code Generation
+## 代码生成
 
-The PX4 [microdds-client](../modules/modules_system.md#microdds-client) is generated at build time and included in PX4 firmare by default. The agent has no dependency on client code. It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
+PX4 [microdds-client](../modules/modules_system.md#microdds-client) 是在构建时生成的，并且默认包含在 PX4 固件中。 代理不依赖客户端代码。 它可以单独构建或在ROS2工作区中构建，也可以在Ubuntu上采用snap包安装。
 
 When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/microdds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) into [microdds-client](../modules/modules_system.md#microdds-client).
 
