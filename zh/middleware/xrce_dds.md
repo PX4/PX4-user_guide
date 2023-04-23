@@ -23,7 +23,7 @@ PX4 [microdds-client](../modules/modules_system.md#microdds-client) 发布自定
 
 [eProsima XRCE-DDS _代理(Agent)_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) 运行在机载计算机上，并充当DDS/ROS2 网络中客户端的代理服务。
 
-The agent itself has no dependency on client-side code and can be built and/or installed independent of PX4 or ROS.
+代理(Agent)本身不依赖客户端测代码，可以独立于PX4或ROS编译或安装。
 
 Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 XRCE-DDS client so that it can interpret the messages.
 
