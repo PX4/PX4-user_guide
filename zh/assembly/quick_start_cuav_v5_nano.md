@@ -12,7 +12,7 @@
 
 下图展示了如何连接最重要的传感器和外围设备（电机和伺服舵机输出除外）。 我们将在下面各节中介绍它们的细节。
 
-![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
+![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
 
 | 主要接口           | 功能                                                                                  |
 |:-------------- |:----------------------------------------------------------------------------------- |
@@ -115,7 +115,7 @@ An [SD card](../getting_started/px4_basic_concepts.md#sd-cards-removable-memory)
 
 Motors/servos are connected to the MAIN ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
 
-![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+![快速入门](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
 
 ## 针脚定义
