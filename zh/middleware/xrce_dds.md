@@ -87,7 +87,7 @@ micro-xrce-dds-agent udp4 -p 8888
 ```
 
 :::note
-At time of writing the stable of version installed from snap connects to PX4 but reports errors creating topics. The development version, fetched using `--edge` above, does work.
+在编写该文档时，从snap仓库安装的稳定版本在与PX4连接时会报创建话题错误。 开发版本(使用 `--edge` 控制字段获取安装)可以正常工作。
 :::
 
 ### Build/Run within ROS 2 Workspace
