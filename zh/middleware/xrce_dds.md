@@ -63,24 +63,24 @@ sudo ldconfig /usr/local/lib/
 ```
 
 :::note
-There are various build configuration options linked from the corresponding topic in the [official guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), but these have not been tested.
+在 [官方指南](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone)中有从相应主题链接的各种构建配置选项， 但尚未对其进行测试。
 :::
 
-To start the agent with settings for connecting to the XRCE-DDS client running on the simulator:
+若要启动代理并连接至运行在模拟器上的 XRCE-DDS客户端：
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
 ```
 
-### Install from Snap Package
+### 从 Snap 软件包安装
 
-Install from a snap package on Ubuntu using the following command:
+使用以下命令从 Ubuntu 的 snap 软件包安装：
 
 ```sh
-sudo snap install micro-xrce-dds-agent --edge
+sudo snap install microxrce-ds-agent --edge
 ```
 
-To start the agent with settings for connecting to the XRCE-DDS client running on the simulator (note that the command name is different than if you build the agent locally):
+若要启动代理并连接至运行在模拟器上的 XRCE-DDS客户端(注意命令名称与本地构建不同)：
 
 ```sh
 micro-xrce-dds-agent udp4 -p 8888
