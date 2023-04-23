@@ -32,33 +32,33 @@ PX4 [microdds-client](../modules/modules_system.md#microdds-client) 发布自定
 
 PX4 [microdds-client](../modules/modules_system.md#microdds-client) 是在构建时生成的，并且默认包含在 PX4 固件中。 代理不依赖客户端代码。 它可以单独构建或在ROS2工作区中构建，也可以在Ubuntu上采用snap包安装。
 
-When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/microdds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) into [microdds-client](../modules/modules_system.md#microdds-client).
+在 PX4 构建时，代码生成器将基于代码树中的 uORB 消息定义([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg))将在 [PX4-Autopilot/src/modules/microdds_client/dds_subjects. aml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) 声明的 uORB 话题的子集编译至 [microdds-client](../modules/modules_system.md#microdds-client) 中。
 
-PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
+PX4 main分支或release版本构建将自动从当前分支的 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 中导出 uORB 消息子集。
 
-ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware. These can be included into a workspace by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace and switching to the appropriate branch. Note that all code generation associated with the messages is handled by ROS 2.
+ROS 2 应用程序需要在一个包含了与 PX4 Firmware中 XRCE-DDS客户端模块 _相同_ 消息定义的worksapce中进行构建。 可以通过将接口包 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 克隆到你的 ROS 2 工作空间并切换到正确的分支来实现。 请注意，所有与消息相关联的代码生成都是由 ROS 2 处理的。
 
 
-## XRCE-DDS Agent Installation
+## XRCE-DDS代理安装
 
-The XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace. All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
+XRCE-DDS代理可以使用二进制包安装在机载计算机上或者从源代码构建安装，也可以在ROS2工作空间进行构建和运行。 所有这些方法都需要获取 _全部_ 与客户端通信所需的依赖项 (例如FastCDR)。
 
 :::note
-The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html) This section summarises the options that have been tested with PX4 during creation of these docs.
+官方(更完整的)安装指南可以参考 Eprosima: [microXRCE-DDS安装指南](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html) 本部分描述了文档创建时与 PX4 集成测试相关的选项。
 :::
 
-### Install Standalone from Source
+### 源码安装
 
-On Ubuntu you can build from source and install the Agent standalone using the following commands:
+在 Ubuntu 上，您可以使用以下命令从源代码构建并单独安装代理：
 
 ```sh
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
 cd Micro-XRCE-DDS-Agent
 mkdir build
 cd build
-cmake ..
+cmake ...
 make
-sudo make install
+sudo make installing
 sudo ldconfig /usr/local/lib/
 ```
 
