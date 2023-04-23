@@ -32,7 +32,7 @@ To configure single-channel flight mode selection:
 1. 打开您的 RC 遥控器发射机。
 1. Select **QGroundControl icon > Vehicle Setup**, and then **Flight Modes** in the sidebar.
 
-   ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
+   ![飞行模式单通道控制](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
 
 1. Specify *Flight Mode Settings*:
    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration).
