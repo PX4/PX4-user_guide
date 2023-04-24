@@ -17,9 +17,9 @@ PX4要求外部控制器提供2Hz连续的“有效存在”信号，该信号�
 
 Offboard模式通过设置位置、速度、加速、姿态、姿态角速率或力/扭矩设置点来控制飞行器的移动和姿态。
 
-PX4 必须能够以2Hz的速率连续收到 MAVLink 设置点消息或 ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息以确保外部控制器是正常运行的。 该消息必须已经持续发送1秒钟以上PX4才能在Offboard模式下解锁或在飞行中切换至Offboard模式。 If the rate falls below 2Hz while under external control PX4 will switch out of offboard mode after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)), and attempt to land or perform some other failsafe action. The action depends on whether or not RC control is available, and is defined in the parameter [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+PX4 必须能够以2Hz的速率连续收到 MAVLink 设置点消息或 ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息以确保外部控制器是正常运行的。 该消息必须已经持续发送1秒钟以上PX4才能在Offboard模式下解锁或在飞行中切换至Offboard模式。 如果在外部控制器给出的指令速率低于2Hz，PX4将在超时([COM_OF_LOSS_T](#COM_OF_LOSS_T))后退出Offboard模式，并尝试降落或执行其他一些失败保护行为。 失效保护行为取决于RC遥控器是否可用，依据参数 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 的设定。
 
-When using MAVLink the setpoint messages convey both the signal to indicate that the external source is "alive", and the setpoint value itself. In order to hold position in this case the vehicle must receive a stream of setpoints for the current position.
+当使用 MAVLink 时，设定值消息既传达了指示外部控制器"正常运行"的信号也传达了设定值本身。 In order to hold position in this case the vehicle must receive a stream of setpoints for the current position.
 
 When using ROS 2 the proof that the external source is alive is provided by a stream of [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages, while the actual setpoint is provided by publishing to one of the setpoint uORB topics, such as [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md). In order to hold position in this case the vehicle must receive a stream of `OffboardControlMode` but would only need the `TrajectorySetpoint` once.
 
