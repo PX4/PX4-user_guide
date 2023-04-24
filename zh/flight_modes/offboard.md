@@ -51,45 +51,45 @@ bool actuator
 消息中的字段按优先级排序， `位置` 优于 `速度` 及以后的字段。 `速度` 优于 `加速度`，等等。 第一个非零字段(从上到下)定义了Offboard模式所需的有效估计以及可以使用的 设定值消息。 例如，如果 `加速` 字段是第一个非零字段，PX4 就需要一个有效的 `速度估计`, 并且设定值必须使用 `TrajectorySetpoint` 消息指定。
 
 
-| 期望控制对象                  |   位置    |   速度    |   加速度   |   姿态    |  体轴角速率  |  执行器字段  |  所需状态估计  | 所需消息                                                                                                                          |
-| ----------------------- |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:| ----------------------------------------------------------------------------------------------------------------------------- |
-| position (NED)          | &check; |    -    |    -    |    -    |    -    |    -    | position | `TrajectorySetpoint`                                                                                                          |
-| velocity (NED)          | &cross; | &check; |    -    |    -    |    -    |    -    | velocity | `TrajectorySetpoint`                                                                                                          |
-| acceleration (NED)      | &cross; | &cross; | &check; |    -    |    -    |    -    | velocity | `TrajectorySetpoint`                                                                                                          |
-| attitude (FRD)          | &cross; | &cross; | &cross; | &check; |    -    |    -    |    无     | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
-| body_rate (FRD)         | &cross; | &cross; | &cross; | &cross; | &check; |    -    |    无     | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
-| thrust and torque (FRD) | &cross; | &cross; | &cross; | &cross; | &cross; | &check; |    无     | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| 期望控制对象      |   位置    |   速度    |   加速度   |   姿态    |  体轴角速率  |  执行器字段  | 所需状态估计 | 所需消息                                                                                                                          |
+| ----------- |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:------:| ----------------------------------------------------------------------------------------------------------------------------- |
+| 位置 (NED)    | &check; |    -    |    -    |    -    |    -    |    -    |   位置   | `TrajectorySetpoint`                                                                                                          |
+| 速度 (NED)    | &cross; | &check; |    -    |    -    |    -    |    -    |   速度   | `TrajectorySetpoint`                                                                                                          |
+| 加速度（NED）    | &cross; | &cross; | &check; |    -    |    -    |    -    |   速度   | `TrajectorySetpoint`                                                                                                          |
+| 姿态(FRD)     | &cross; | &cross; | &cross; | &check; |    -    |    -    |   无    | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
+| 体轴角速率 (FRD) | &cross; | &cross; | &cross; | &cross; | &check; |    -    |   无    | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
+| 推力和力矩(FRD)  | &cross; | &cross; | &cross; | &cross; | &cross; | &check; |   无    | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
 
-where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
+&check; 代表该位设置为有效， &cross; 代表该位未设置， `-` 表示该位状态无关紧要。
 
 :::note
-Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros/ros2_comm.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use. :::
+在使用 ROS 2 的Offboard模式之前, 请花几分钟时间了解PX4和ROS2使用的不同 [坐标系](../ros/ros2_comm.md#ros-2-px4-frame-conventions)。 :::
 
-### Copter
+### 旋翼机
 
 * [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
   * 支持以下输入组合：
-    * Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
-    * Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
-    * Acceleration setpoint (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
+    * 位置设定值(`position` 不为 `NaN`)。 非-`NaN` 速度和加速度被用作内环控制律的前馈项。
+    * 速度设定值(`velocity` 不为 `NaN` 同时 `position` 为 `NaN`). 非-`NaN` 加速度被用作内环控制律的前馈项。
+    * 加速度设定值(`acceleration` 不为 `NaN` 同时 `position` 和  `velocity` 为 `NaN`)。
 
-  - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
+  - 所有值都是基于NED(北, 东, 地)坐标系，位置、速度和加速的单位分别为\[m\], \[m/s\] 和\[m/s^2\] 。
 
 * [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
-  * The following input combination is supported:
-    * quaterion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
-  - The quaterion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The trust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
+  * 支持以下输入组合：
+    * 姿态四元数 `q_d` + 推力设定值 `thrust_body`。 非-`NaN` 值的 `yaw_sp_move_rate` 被用作大地坐标系下的偏航角前馈使用，单位为\[rad/s\]。
+  - 姿态四元数表示无人机体轴FRD(前、右、下)坐标系与NED坐标系之间的旋转。 推力表示在无人机体轴FRD坐标系下的推力，并归一化为 \[-1, 1\] 。
 
 * [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
-  * The following input combination is supported:
+  * 支持以下输入组合：
     * `roll`, `pitch`, `yaw` and `thrust_body`.
-  - All the value are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
+  - 所有值都在无人机体轴FRD坐标系下表示。 角速率(roll, pitch, yaw)单位为\[rad/s\] ，thrust_body归一化为 \[-1, 1\]。
 
 * [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
-  * The following input combination is supported:
-    * `xyz` for thrust and `xyz` for torque.
-  - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
-  - In order to save resources, this mode is disabled by default. If you want to use it you need to manually add  `vehicle_thrust_setpoint` and `vehicle_torque_setpoint` to the list of [subscribed topics](../middleware/xrce_dds.md#dds-topics-yaml), and manually recompile the firmware.
+  * 支持以下输入组合：
+    * `xyz` 用于推力和 `xyz` 用于力矩。
+  - 所有值都在无人机体轴 FRD 坐标系中表示，并且归一化为\[-1, 1\]。
+  - 为了节省资源，此模式默认被禁用。 如果你想使用它，需要手动添加  `vehicle_thrust_setpoint` and `vicle_torque_setpoint` 到 [订阅主题](../middleware/xrce_dds.md#dds-topics-yaml)中并手动重新编译固件。
 
 
 
