@@ -27,7 +27,7 @@ PX4 必须能够以2Hz的速率连续收到 MAVLink 设置点消息或 ROS 2 [Of
 
 ## ROS 2 消息
 
-The following ROS 2 messages and their particular fields and field values are allowed for the specified frames. In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
+下面的 ROS 2 消息及其特定字段和字段值在特定的帧下是允许的。 除了提供心跳功能外， `OffboardControlMode` 还有另外两个主要目的：
 
 1. Controls the level of the [PX4 control architecture](../flight_stack/controller_diagrams.md) at which offboard setpoints must be injected, and disables the bypassed controllers.
 1. Determines which valid estimates (position or velocity) are required, and also which setpoint messages should be used.
