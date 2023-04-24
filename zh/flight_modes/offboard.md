@@ -19,13 +19,13 @@ Offboard模式通过设置位置、速度、加速、姿态、姿态角速率或
 
 PX4 必须能够以2Hz的速率连续收到 MAVLink 设置点消息或 ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息以确保外部控制器是正常运行的。 该消息必须已经持续发送1秒钟以上PX4才能在Offboard模式下解锁或在飞行中切换至Offboard模式。 如果在外部控制器给出的指令速率低于2Hz，PX4将在超时([COM_OF_LOSS_T](#COM_OF_LOSS_T))后退出Offboard模式，并尝试降落或执行其他一些失败保护行为。 失效保护行为取决于RC遥控器是否可用，依据参数 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 的设定。
 
-当使用 MAVLink 时，设定值消息既传达了指示外部控制器"正常运行"的信号也传达了设定值本身。 In order to hold position in this case the vehicle must receive a stream of setpoints for the current position.
+当使用 MAVLink 时，设定值消息既传达了指示外部控制器"正常运行"的信号也传达了设定值本身。 Offboard模式下要保持位置，飞行器必须接收到一个包含当前位置设定值的消息指令。
 
-When using ROS 2 the proof that the external source is alive is provided by a stream of [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages, while the actual setpoint is provided by publishing to one of the setpoint uORB topics, such as [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md). In order to hold position in this case the vehicle must receive a stream of `OffboardControlMode` but would only need the `TrajectorySetpoint` once.
+当使用 ROS 2 时，外部控制器运行正常通过监测 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息流确保，真实设定点由发布任一包含设定值的uORB消息提供，例如 [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)。 在这种情况下保持当前位置，飞行器必须收到连续的 `OffboardControlMode` 消息，但只需要收到 `TrajectorySetpoint` 消息一次。
 
-Note that offboard mode only supports a very limited set of MAVLink commands and messages. Operations, like taking off, landing, return to launch, may be best handled using the appropriate modes. 像上传、下载任务这样的操作可以在任何模式下执行。
+请注意，Offboard模式只支持非常有限的 MAVLink 命令和消息。 其他操作如起飞、降落、返航，最好使用适当的模式来处理。 像上传、下载任务这样的操作可以在任何模式下执行。
 
-## ROS 2 Messages
+## ROS 2 消息
 
 The following ROS 2 messages and their particular fields and field values are allowed for the specified frames. In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
 
