@@ -29,11 +29,11 @@ PX4 必须能够以2Hz的速率连续收到 MAVLink 设置点消息或 ROS 2 [Of
 
 下面的 ROS 2 消息及其特定字段和字段值在特定的帧下是允许的。 除了提供心跳功能外， `OffboardControlMode` 还有另外两个主要目的：
 
-1. Controls the level of the [PX4 control architecture](../flight_stack/controller_diagrams.md) at which offboard setpoints must be injected, and disables the bypassed controllers.
-1. Determines which valid estimates (position or velocity) are required, and also which setpoint messages should be used.
+1. 控制Offboard设定值在 [PX4 控制架构](../flight_stack/controller_diagrams.md) 中的哪个等级上被注入执行，并禁止绕过控制器。
+1. 确定需要哪种有效地估计(位置或速度)，以及应该使用哪种设定值消息。
 
 
-The `OffboardControlMode` message is defined as shown.
+`OffboardControlmode` 消息定义如下所示。
 
 ```
 # Off-board control mode
@@ -48,17 +48,17 @@ bool body_rate
 bool actuator
 ```
 
-The fields are ordered in terms of priority such that `position` takes precedence over `velocity` and later fields, `velocity` takes precedence over `acceleration`, and so on. The first field that has a non-zero value (from top to bottom) defines what valid estimate is required in order to use offboard mode, and the setpoint message(s) that can be used. For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
+消息中的字段按优先级排序， `位置` 优于 `速度` 及以后的字段。 `速度` 优于 `加速度`，等等。 第一个非零字段(从上到下)定义了Offboard模式所需的有效估计以及可以使用的 设定值消息。 例如，如果 `加速` 字段是第一个非零字段，PX4 就需要一个有效的 `速度估计`, 并且设定值必须使用 `TrajectorySetpoint` 消息指定。
 
 
-| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | actuator field | required estimate | required message                                                                                                                |
-| ------------------------ |:--------------:|:--------------:|:------------------:|:--------------:|:---------------:|:--------------:|:-----------------:| ------------------------------------------------------------------------------------------------------------------------------- |
-| position (NED)           |    &check;     |       -        |         -          |       -        |        -        |       -        |     position      | `TrajectorySetpoint`                                                                                                            |
-| velocity (NED)           |    &cross;     |    &check;     |         -          |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
-| acceleration (NED)       |    &cross;     |    &cross;     |      &check;       |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
-| attitude (FRD)           |    &cross;     |    &cross;     |      &cross;       |    &check;     |        -        |       -        |       none        | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
-| body_rate (FRD)          |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &check;     |       -        |       none        | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
-| thrust and torque (FRD)  |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &cross;     |    &check;     |       none        | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| 期望控制对象                  |   位置    |   速度    |   加速度   |   姿态    |  体轴角速率  |  执行器字段  |  所需状态估计  | 所需消息                                                                                                                          |
+| ----------------------- |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:| ----------------------------------------------------------------------------------------------------------------------------- |
+| position (NED)          | &check; |    -    |    -    |    -    |    -    |    -    | position | `TrajectorySetpoint`                                                                                                          |
+| velocity (NED)          | &cross; | &check; |    -    |    -    |    -    |    -    | velocity | `TrajectorySetpoint`                                                                                                          |
+| acceleration (NED)      | &cross; | &cross; | &check; |    -    |    -    |    -    | velocity | `TrajectorySetpoint`                                                                                                          |
+| attitude (FRD)          | &cross; | &cross; | &cross; | &check; |    -    |    -    |    无     | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
+| body_rate (FRD)         | &cross; | &cross; | &cross; | &cross; | &check; |    -    |    无     | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
+| thrust and torque (FRD) | &cross; | &cross; | &cross; | &cross; | &cross; | &check; |    无     | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
 
 where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
 
