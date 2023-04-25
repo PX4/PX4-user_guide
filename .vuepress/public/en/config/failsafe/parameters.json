@@ -18844,6 +18844,17 @@
     },
     {
       "category": "Standard",
+      "default": 0,
+      "group": "OSD",
+      "longDesc": "Controls the vertical position of the crosshair display. Resolution is limited by OSD to 15 discrete values. Negative values will display the crosshairs below the horizon",
+      "max": 8,
+      "min": -8,
+      "name": "OSD_CH_HEIGHT",
+      "shortDesc": "OSD Crosshairs Height",
+      "type": "Int32"
+    },
+    {
+      "category": "Standard",
       "default": 500,
       "group": "OSD",
       "longDesc": "Amount of time in milliseconds to dwell at the beginning of the display, when scrolling.",
@@ -18948,7 +18959,7 @@
           "index": 17
         },
         {
-          "description": "(unused) CROSSHAIRS",
+          "description": "CROSSHAIRS",
           "index": 18
         },
         {
