@@ -93,16 +93,16 @@ bool actuator
 
 
 
-## MAVLink Messages
+## MAVLink 消息
 
-The following MAVLink messages and their particular fields and field values are allowed for the specified frames.
+下面的 MAVLink 消息及其特定字段和字段值在特定的帧下是允许的。
 
 ### 直升机/垂直起降
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设置值 （仅 `x`，`y`，`z`）
-    * Velocity setpoint (only `vx`, `vy`, `vz`)
+    * 速度设定值（仅`vx`，`yy`，`vz`）
     * 加速度设定值（仅 `afx`，`afy`，`afz`）
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
     * Position setpoint **and** velocity setpoint **and** acceleration (the velocity and the acceleration setpoints are used as feedforwards; the velocity setpoint is added to the output of the position controller and the result is used as the input to the velocity controller; the acceleration setpoint is added to the output of the velocity controller and the result used to compute the thrust vector).
