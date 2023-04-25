@@ -22124,6 +22124,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="OSD_CH_HEIGHT">OSD_CH_HEIGHT</strong> (INT32)</td>
+ <td>OSD Crosshairs Height <p><strong>Comment:</strong> Controls the vertical position of the crosshair display. Resolution is limited by OSD to 15 discrete values. Negative values will display the crosshairs below the horizon</p>   </td>
+ <td>[-8, 8] </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="OSD_DWELL_TIME">OSD_DWELL_TIME</strong> (INT32)</td>
  <td>OSD Dwell Time (ms) <p><strong>Comment:</strong> Amount of time in milliseconds to dwell at the beginning of the display, when scrolling.</p>   </td>
  <td>[100, 10000] </td>
@@ -22164,7 +22171,7 @@ table {
   <li><strong>15:</strong> (unused) ESC_TMP</li> 
   <li><strong>16:</strong> (unused) PITCH_ANGLE</li> 
   <li><strong>17:</strong> (unused) ROLL_ANGLE</li> 
-  <li><strong>18:</strong> (unused) CROSSHAIRS</li> 
+  <li><strong>18:</strong> CROSSHAIRS</li> 
   <li><strong>19:</strong> AVG_CELL_VOLTAGE</li> 
   <li><strong>20:</strong> (unused) HORIZON_SIDEBARS</li> 
   <li><strong>21:</strong> POWER</li> 
