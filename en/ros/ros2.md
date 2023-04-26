@@ -7,7 +7,7 @@ It captures most of the learnings and features of [ROS 1](../ros/ros1.md), impro
 The PX4 development team highly recommend that you use/migrate to this version of ROS!
 :::
 
-Communication between ROS 2 and PX4 uses middleware that implements the [XRCE-DDS protocol](../middleware/xrce_dds.md).
+Communication between ROS 2 and PX4 uses middleware that implements the [XRCE-DDS protocol](../middleware/uxrce_dds.md).
 This middleware exposes PX4 [uORB messages](../msg_docs/README.md) as ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes.
 The middleware uses uORB message definitions to generate code to serialise and deserialise the messages heading in and out of PX4.
 These same message definitions are used in ROS 2 applications to allow the messages to be interpretted.
@@ -34,5 +34,5 @@ This option is supported by the MAVROS project.
 ## Further Reading/Information
 
 - [ROS 2 User Guide](../ros/ros2_comm.md)
-- [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md): PX4 middleware for connecting to ROS 2.
+- [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md): PX4 middleware for connecting to ROS 2.
 

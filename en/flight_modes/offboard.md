@@ -105,7 +105,7 @@ Before using offboard mode with ROS 2, please spend a few minutes understanding 
     * `xyz` for thrust and `xyz` for torque.
   - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
   - In order to save resources, this mode is disabled by default.
-    If you want to use it you need to manually add  `vehicle_thrust_setpoint` and `vehicle_torque_setpoint` to the list of [subscribed topics](../middleware/xrce_dds.md#dds-topics-yaml), and manually recompile the firmware.
+    If you want to use it you need to manually add  `vehicle_thrust_setpoint` and `vehicle_torque_setpoint` to the list of [subscribed topics](../middleware/uxrce_dds.md#dds-topics-yaml), and manually recompile the firmware.
 
 
 

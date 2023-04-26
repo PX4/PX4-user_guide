@@ -1,6 +1,6 @@
 # Multi-Vehicle Simulation with ROS 2
 
-[XRCE-DDS](../middleware/xrce_dds.md) allows for multiple clients to be connected to the same agent over UDP.
+[XRCE-DDS](../middleware/uxrce_dds.md) allows for multiple clients to be connected to the same agent over UDP.
 This is particular useful in simulation as only one agent needs to be started.
 
 ## Setup and Requirements
@@ -23,7 +23,7 @@ param set XRCE_DDS_KEY $((px4_instance+1))
 By doing so, `XRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
 :::
 
-Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/xrce_dds.md#customizing-the-topic-namespace) in the form `px4_$px4_instance` is added:
+Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/uxrce_dds.md#customizing-the-topic-namespace) in the form `px4_$px4_instance` is added:
 
 ```sh
 microdds_ns="-n px4_$px4_instance"
