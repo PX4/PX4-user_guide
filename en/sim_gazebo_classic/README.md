@@ -36,11 +36,10 @@ If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../
 Gazebo Classic 9 or 11 setup is included in our standard build instructions:
 
 - **macOS:** [Development Environment on Mac](../dev_setup/dev_env_mac.md)
-- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Gazebo, JMAVSim and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#gazebo-jmavsim-and-nuttx-pixhawk-targets)
+- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Simulation and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#simulation-and-nuttx-pixhawk-targets)
 - **Windows:** Not supported.
 
 Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
-
 
 ## Running the Simulation
 

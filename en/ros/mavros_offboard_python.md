@@ -15,7 +15,8 @@ This example uses Python.
 Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
-<video width="100%" autoplay="true" controls="true" id = "offb_video">
+<a id="offb_video"></a>
+<video width="100%" autoplay="true" controls="true">
  <source src="../../assets/simulation/gazebo_classic/gazebo_offboard.webm" type="video/webm">
 </video>
 
