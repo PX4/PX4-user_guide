@@ -55,8 +55,8 @@ This guide is for VirtualBox 7 users hosting Ubuntu 20.04 LTS on a Windows 10 ma
 
 1. Ensure that the user has been added to the dialout group using `sudo usermod -a -G dialout $USER` and restart
 1. Enable serial port(s) in VM: **VirtualBox > Settings > Serial Ports 1/2/3/etc...**
-2. Enable USB controller in VM: **VirtualBox > Settings > USB**
-3. Add USB filters for the bootloader and autopilot in VM: **VirtualBox > Settings > USB > Add new USB filter**
+1. Enable USB controller in VM: **VirtualBox > Settings > USB**
+1. Add USB filters for the bootloader and autopilot in VM: **VirtualBox > Settings > USB > Add new USB filter**
    ... Autopilot: This shows up at a device after the bootloader finishes the booting process
    ... Bootloader: This shows up as a device for a few seconds after plugging in the USB cable, you only have a few seconds to add to filter before it disappears as a device.
 1. Select the device in the VM instance's dropdown menu **VirtualBox > Devices > your_device**
