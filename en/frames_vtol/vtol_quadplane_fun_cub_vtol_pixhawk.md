@@ -10,13 +10,16 @@ Key information:
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
 Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly.
-After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
+After the conversion the plane is significantly heavier and less aerodynamic.
+It still flies quite well but needs around 75% throttle in forward flight.
 
 
 ## Bill of Materials
 
 The actual plane looks roughly like as shown in the image above (other similar models will work
-just fine - this is a Multiplex Fun Cub). The minimal equipment required is:
+just fine - this is a Multiplex Fun Cub).
+
+The minimal equipment required is:
 
 - Multiplex FunCub (or similar)
 - Pixhawk or compatible
@@ -39,12 +42,12 @@ The structure is made out of aluminum booms as shown below.
 
 ## Wiring
 
-The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
+Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference.
+The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
 
-:::tip
-The servo direction can be reversed using the [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu).
-:::
- 
+For example, you might wire it up like this example (orientation as if "sitting in the plane"):
+
+
 Port | Connection
 --- | --- 
 MAIN 1 | Front right motor (CCW)
@@ -62,9 +65,15 @@ For further instructions on wiring and configurations please see:
 
 ## Airframe Configuration
 
-Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below (do not forget to click **Apply and Restart** in the top).
 
-![QCG - Select Fun Cub Quad firmware](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
+   ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
+
+1. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
+1. The default parameters are often sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
+
+After you finish calibration the VTOL is ready to fly. 
+
 
 ## Video
 
