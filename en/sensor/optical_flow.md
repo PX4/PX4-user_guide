@@ -77,9 +77,7 @@ Optical Flow based navigation is enabled by both the availableestimators: EKF2 a
 <a id="ekf2"></a>
 ### Extended Kalman Filter (EKF2)
 
-For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
-
-![QGroundControl - Calibrate Sensors](../../assets/ekf2/qgc_ekf2_enable_flow.png)
+For optical flow fusion using EKF2, set [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
 
 If your optical flow sensor is offset from the vehicle centre, you can set this using the following parameters.
 
