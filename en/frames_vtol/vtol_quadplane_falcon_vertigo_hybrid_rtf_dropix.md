@@ -112,8 +112,6 @@ The RTF kit requires the following assembly.
    
 1. Repeat these steps for the other wing.
 
-
-
 ### Step 3: Connect the electronics 
 
 This kit includes Dropix flight controller with most of the required electronics pre-connected (if you use another Pixhawk-compatible flight controller the connections are similar).
@@ -135,10 +133,12 @@ General information about connecting Dropix can be found in [Dropix Flight Contr
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_27_gps_esc_servo_connections.jpg" width="500px" title="GPS, ESC, Servo connections" />
 
 
+#### Motor Wiring
 
-#### Motor Wiring 
+Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference.
+The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
 
-The outputs of Dropix should be wired using the standard QuadPlane configuration (orientation as if "sitting in the plane").
+For example, you might wire it up like this example (orientation as if "sitting in the plane"):
 
 Port | Connection
 --- | ---
@@ -151,7 +151,6 @@ AUX  2   | Right aileron
 AUX  3   | Elevator
 AUX  4   | Rudder
 AUX  5   | Throttle
-
 
 
 <span id="dropix_back"></span>
@@ -225,22 +224,22 @@ It is important that nothing obstructs airflow to the Pitot tube. This is critic
 1. Paste the receiver and telemetry module to the outside of the vehicle frame.
    
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_49_receiver_mounting.jpg" width="500px" title="Paste receiver" />
-   
+
 1. Connect the receiver to the RC IN port on the *back* of the dropix, as shown above (also see the [flight controller instructions](#dropix_back)).
  
 1. Connect the telemetry module to the *front* of the flight controller as shown below (see the [flight controller instructions](#dropix_front) for more detail on the pins).
-   
+
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_51_telemetry_module_mounting.jpg" width="500px" title="Paste telemetry module" />
 
 
 <span id="compass_gps"></span>
-#### GPS/Compass module   
+#### GPS/Compass module
 
 The GPS/Compass module is already mounted on the wing, in the default orientation. You don't need to have to do anything extra for this!
 
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_gps_compass.jpg" width="500px" title="GPS/Compass" />
 
-   
+
 <span id="flight_controller_orientation"></span>
 #### Mount and orient the flight controller
 
@@ -260,7 +259,7 @@ The final assembly step is to check the vehicle is stable and that the motors ha
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="Quad motor order/directions" />
 
    :::note
-   If necessary the servo direction can be reversed using the [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
+   If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter).
    :::
  
 1. Check the vehicle is balanced around the expected centre of gravity
@@ -280,15 +279,15 @@ Perform the normal [Basic Configuration](../config/README.md).
 
 Notes:
 
-1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as *Generic quad delta VTOL* as shown below.
-   
-   ![QGroundControl Select Frame](../../assets/airframes/vtol/falcon_vertigo/airframe_px4_vtol_generic_quad_delta_vtol.jpg)
- 
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below.
+
+   ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
+
 1. Set the [Autopilot Orientation](../config/flight_controller_orientation.md) to `ROTATION_YAW_270` as the autopilot is mounted [sideways](#flight_controller_orientation) with respect to the front of the vehicle. The compass is oriented forward, so you can leave that at the default (`ROTATION_NONE`).
-1. The default parameters are sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
+1. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
+1. The default parameters are often sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
 
 After you finish calibration the VTOL is ready to fly. 
-
 
 ## Video
 

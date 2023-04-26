@@ -34,8 +34,8 @@ Tests showed that a better vibration insulation should be used, especially for t
 
 ![Wodden panel fixture](../../assets/airframes/rover/traxxas_stampede_vxl/mounting_detail.jpg)
 
-For this particular mounting we chose to use the clip supplied with the rover to attach the upper plate. 
-For this, two supports were 3D printed. 
+For this particular mounting we chose to use the clip supplied with the rover to attach the upper plate.
+For this, two supports were 3D printed.
 The CAD files are provided [here](https://github.com/PX4/PX4-user_guide/raw/main/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
 :::warning
@@ -50,7 +50,7 @@ MAIN2 | Steering servo
 MAIN4 | Throttle (ESC input)
 
 :::note
-As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle).
+As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann)).
 :::
 
 ## Configuration

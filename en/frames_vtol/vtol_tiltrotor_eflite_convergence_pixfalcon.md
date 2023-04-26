@@ -5,7 +5,7 @@ There is not much space but it's enough for a [Pixfalcon](../flight_controller/p
 
 :::note
 The original [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued.
-Alternatives are provided in the [Purchase](#purchase) section.
+Alternatives are provided in the [Purchase](#where-to-buy) section.
 :::
 
 @[youtube](https://youtu.be/E61P2f2WPNU)

@@ -110,7 +110,7 @@ Text format for event message description:
   - Profiles: `<profile name="[!]NAME">CONTENT</profile>`
 
     `CONTENT` will only be shown if the name matches the configured profile.
-	This can be used for example to hide developer information from end-users.
+    This can be used for example to hide developer information from end-users.
   - URLs: `<a [href="URL"]>CONTENT</a>`.
     If `href` is not set, use `CONTENT` as `URL` (i.e.`<a>https://docs.px4.io</a>` is interpreted as `<a href="https://docs.px4.io">https://docs.px4.io</a>`)
   - Parameters: `<param>PARAM_NAME</param>`

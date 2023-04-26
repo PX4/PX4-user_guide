@@ -4,7 +4,7 @@ Cables are a common source of [electromagnetic interference (EMI)](https://en.wi
 These problems can be avoided by using appropriate cabling in the UAV.
 
 The following basic concepts should be kept in mind when designing drone cabling:
-* High-Power and signal cables should be separated as much as is practical    
+* High-Power and signal cables should be separated as much as is practical.
 * Cable lengths should be the minimum needed to enable easy handling of wired components.
   The wire tension should be adequate to survive possible airframe deformations even in a crash landing
   (wires must not be the first thing to break).
@@ -19,7 +19,7 @@ Signalling protocols have different characteristics, and therefore the cables us
 This topic provides specific guidance of cabling for different signalling protocols, along with the [colour coding](#cable-colour-coding) used by a number different drone hardware vendors.
 
 
-### I²C cables
+### I2C cables
 
 The [I2C bus](https://en.wikipedia.org/wiki/I%C2%B2C) is widely used for connecting sensors.
 Cable colors from several vendors are specified in following table.

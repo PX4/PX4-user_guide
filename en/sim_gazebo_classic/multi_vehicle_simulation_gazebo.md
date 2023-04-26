@@ -7,6 +7,7 @@ A different approach is used for simulation with and without ROS.
 ## Multiple Vehicle with Gazebo Classic
 
 To simulate multiple iris or plane vehicles in Gazebo Classic use the following commands in the terminal (from the root of the *Firmware* tree):
+
 ```
 Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
@@ -57,7 +58,7 @@ The `MAV_SYS_ID` is allocated in the SITL rcS: [init.d-posix/rcS](https://github
 <a id="with_dds"></a>
 ### Build and Test (XRCE-DDS)
 
-`Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles based on xrce-dds in Gazebo Classic.
+`Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles connected via XRCE-DDS in Gazebo Classic.
 
 :::note
 You will need to have installed the XRCE-DDS dependencies.
@@ -220,6 +221,7 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
   :::
 
 To add a third iris to this simulation there are two main components to consider:
+
 * add `UAV3` to **multi_uav_mavros_sitl.launch**
   * duplicate the group of either existing vehicle (`UAV1` or `UAV2`)
   * increment the `ID` arg to `3`
@@ -233,8 +235,8 @@ To add a third iris to this simulation there are two main components to consider
   * the second `mavlink start` ports need to match those used in the launch file `fcu_url` arg
 
     :::note
-	Be aware of which port is `src` and `dst` for the different endpoints.
-	:::
+    Be aware of which port is `src` and `dst` for the different endpoints.
+    :::
 
 
 ## Multiple Vehicles using SDF Models

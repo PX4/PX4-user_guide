@@ -42,8 +42,8 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 - You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle.
   This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
-- If using PWM output: [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN) is set correctly.
-  It needs to be set low, but such that the **motors never stop** when the vehicle is armed.
+- If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md#actuator-configuration-and-testing).
+  These need to be set low, but such that the **motors never stop** when the vehicle is armed.
 
   This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
   - Remove propellers

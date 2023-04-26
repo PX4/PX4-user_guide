@@ -4,7 +4,7 @@ Flight modes define how the autopilot responds to remote control input, and how 
 
 The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
 
-This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter-helicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
 
 :::tip
 More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
@@ -77,7 +77,6 @@ Icon | Description
 
 <a id="mc_flight_modes"></a>
 ## Multicopter / Helicopter
-
 
 ### Position Mode (MC)
 
@@ -375,7 +374,7 @@ The specific launch behaviour depends on the configured takeoff mode (catapult/h
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
 [Land mode](../flight_modes/land.md) causes the vehicle to turn and land at the location at which the mode was engaged.
-Fixed wing landing logic and parameters are explained in the topic: [Missin > Fixed Wing Mission Landing](../flight_modes/mission.md#fixed-wing-mission-landing).
+Fixed wing landing logic and parameters are explained in the topic: [Mission > Fixed Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
 
 <a id="offboard_fw"></a>
 ### Offboard Mode (FW)

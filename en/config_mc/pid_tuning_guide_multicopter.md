@@ -203,7 +203,7 @@ The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN comm
 The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s).
 In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
 
-[![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
+![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)] <!-- removed link to THR_MDL_FAC_Calculation as causes problems for link checker -->
 
 :::note
 The mapping between PWM and static thrust depends highly on the battery voltage.
@@ -226,7 +226,7 @@ over a linear range of normalized motor command values between 0 and 1.
 Note that this is the equation that is used in the firmware to map thrust and motor command, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference.
 Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized motor command signal value between 0 and 1.
 
-In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7. 
+In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7.
 
 [THR_MDL_FAC_Calculation]: https://github.com/PX4/PX4-user_guide/blob/main/assets/config/mc/ThrustCurve.ipynb
 
