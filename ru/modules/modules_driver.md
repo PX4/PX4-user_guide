@@ -370,6 +370,11 @@ gimbal <command> [arguments...]
  Commands:
    start
 
+   status
+
+   primary-control Set who is in control of gimbal
+     <sysid> <compid> MAVLink system ID and MAVLink component ID
+
    test          Test the output: set a fixed angle for one or multiple axes
                  (gimbal must be running)
      roll|pitch|yaw <angle> Specify an axis and an angle in degrees
