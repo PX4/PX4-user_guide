@@ -2,38 +2,38 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The vehicle obeys position, velocity, acceleration, attitude, attitude rates or thrust/torque setpoints provided by some source that is external to the flight stack, such as a companion computer. The setpoints may be provided using MAVLink (or a MAVLink API such as [MAVSDK](https://mavsdk.mavlink.io/)) or by [ROS 2](../ros/ros2.md).
+飞行器根据飞行控制栈外部（如机载计算机）提供的设定值控制位置、速度、加速度、姿态以及推力/力矩。 设置值可以经由 MAVLink 提供(也可以是一个类似 [MAVSDK](https://mavsdk.mavlink.io/)的MAVLink API)或者经由 [ROS 2](../ros/ros2.md) 提供。
 
-PX4 requires that the external controller provides a continuous 2Hz "proof of life" signal, by streaming any of the supported MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) message. PX4 enables offboard control only after receiving the signal for more than a second, and will regain control if the signal stops.
+PX4要求外部控制器提供2Hz连续的“有效存在”信号，该信号可由任意支持的 MAVLink 设置点消息或ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息提供。 PX4只有在收到该种信号超过1秒后才有效，如果该种信号停止飞行控制栈将重新获得控制权（脱离Offboard模式）。
 
 :::note
 - 此模式需要位置或位/姿信息 - 例如 GPS、光流、视觉惯性里程计、mocap 等。
 - 除了更改模式外， 禁止遥控器控制。
-- The vehicle must be already be receiving a stream of MAVLink setpoint messages or ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages before arming in offboard mode or switching to offboard mode when flying.
-- The vehicle will exit offboard mode if MAVLink setpoint messages or `OffboardControlMode` are not received at a rate of > 2Hz.
-- Not all coordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. :::
+- 飞行器必须已经收到一条 MAVLink 设置点消息或 ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息，才允许在Offboard模式下解锁或者在飞行中切换至Offboard模式。
+- 如果没有以 > 2Hz 的速度收到MAVLink 设置点消息或 `OffboardControlMode` ，飞行器将退出Offboard模式。
+- 并非所有 MAVLink 支持的坐标系和字段值都被设定值消息和飞行器支持。 请*仔细*阅读以下章节，确保仅使用支持的值。 :::
 
 ## 描述
 
-Offboard mode is used for controlling vehicle movement and attitude, by setting position, velocity, acceleration, attitude, attitude rates or thrust/torque setpoints.
+Offboard模式通过设置位置、速度、加速、姿态、姿态角速率或力/扭矩设置点来控制飞行器的移动和姿态。
 
-PX4 must receive a stream of MAVLink setpoint messages or the ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) at 2 Hz as proof that the external controller is healthy. The stream must be sent for at least a second before PX4 will arm in offboard mode, or switch to offboard mode when flying. If the rate falls below 2Hz while under external control PX4 will switch out of offboard mode after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)), and attempt to land or perform some other failsafe action. The action depends on whether or not RC control is available, and is defined in the parameter [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+PX4 必须能够以2Hz的速率连续收到 MAVLink 设置点消息或 ROS 2 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息以确保外部控制器是正常运行的。 该消息必须已经持续发送1秒钟以上PX4才能在Offboard模式下解锁或在飞行中切换至Offboard模式。 如果在外部控制器给出的指令速率低于2Hz，PX4将在超时([COM_OF_LOSS_T](#COM_OF_LOSS_T))后退出Offboard模式，并尝试降落或执行其他一些失败保护行为。 失效保护行为取决于RC遥控器是否可用，依据参数 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 的设定。
 
-When using MAVLink the setpoint messages convey both the signal to indicate that the external source is "alive", and the setpoint value itself. In order to hold position in this case the vehicle must receive a stream of setpoints for the current position.
+当使用 MAVLink 时，设定值消息既传达了指示外部控制器"正常运行"的信号也传达了设定值本身。 Offboard模式下要保持位置，飞行器必须接收到一个包含当前位置设定值的消息指令。
 
-When using ROS 2 the proof that the external source is alive is provided by a stream of [OffboardControlMode](../msg_docs/OffboardControlMode.md) messages, while the actual setpoint is provided by publishing to one of the setpoint uORB topics, such as [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md). In order to hold position in this case the vehicle must receive a stream of `OffboardControlMode` but would only need the `TrajectorySetpoint` once.
+当使用 ROS 2 时，外部控制器运行正常通过监测 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 消息流确保，真实设定点由发布任一包含设定值的uORB消息提供，例如 [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md)。 在这种情况下保持当前位置，飞行器必须收到连续的 `OffboardControlMode` 消息，但只需要收到 `TrajectorySetpoint` 消息一次。
 
-Note that offboard mode only supports a very limited set of MAVLink commands and messages. Operations, like taking off, landing, return to launch, may be best handled using the appropriate modes. 像上传、下载任务这样的操作可以在任何模式下执行。
+请注意，Offboard模式只支持非常有限的 MAVLink 命令和消息。 其他操作如起飞、降落、返航，最好使用适当的模式来处理。 像上传、下载任务这样的操作可以在任何模式下执行。
 
-## ROS 2 Messages
+## ROS 2 消息
 
-The following ROS 2 messages and their particular fields and field values are allowed for the specified frames. In addition to providing heartbeat functionality, `OffboardControlMode` has two other main purposes:
+下面的 ROS 2 消息及其特定字段和字段值在特定的帧下是允许的。 除了提供心跳功能外， `OffboardControlMode` 还有另外两个主要目的：
 
-1. Controls the level of the [PX4 control architecture](../flight_stack/controller_diagrams.md) at which offboard setpoints must be injected, and disables the bypassed controllers.
-1. Determines which valid estimates (position or velocity) are required, and also which setpoint messages should be used.
+1. 控制Offboard设定值在 [PX4 控制架构](../flight_stack/controller_diagrams.md) 中的哪个等级上被注入执行，并禁止绕过控制器。
+1. 确定需要哪种有效地估计(位置或速度)，以及应该使用哪种设定值消息。
 
 
-The `OffboardControlMode` message is defined as shown.
+`OffboardControlmode` 消息定义如下所示。
 
 ```
 # Off-board control mode
@@ -48,61 +48,63 @@ bool body_rate
 bool actuator
 ```
 
-The fields are ordered in terms of priority such that `position` takes precedence over `velocity` and later fields, `velocity` takes precedence over `acceleration`, and so on. The first field that has a non-zero value (from top to bottom) defines what valid estimate is required in order to use offboard mode, and the setpoint message(s) that can be used. For example, if the `acceleration` field is the first non-zero value, then PX4 requires a valid `velocity estimate`, and the setpoint must be specified using the `TrajectorySetpoint` message.
+消息中的字段按优先级排序， `位置` 优于 `速度` 及以后的字段。 `速度` 优于 `加速度`，等等。 第一个非零字段(从上到下)定义了Offboard模式所需的有效估计以及可以使用的 设定值消息。 例如，如果 `加速` 字段是第一个非零字段，PX4 就需要一个有效的 `速度估计`, 并且设定值必须使用 `TrajectorySetpoint` 消息指定。
 
 
-| desired control quantity | position field | velocity field | acceleration field | attitude field | body_rate field | actuator field | required estimate | required message                                                                                                                |
-| ------------------------ |:--------------:|:--------------:|:------------------:|:--------------:|:---------------:|:--------------:|:-----------------:| ------------------------------------------------------------------------------------------------------------------------------- |
-| position (NED)           |    &check;     |       -        |         -          |       -        |        -        |       -        |     position      | `TrajectorySetpoint`                                                                                                            |
-| velocity (NED)           |    &cross;     |    &check;     |         -          |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
-| acceleration (NED)       |    &cross;     |    &cross;     |      &check;       |       -        |        -        |       -        |     velocity      | `TrajectorySetpoint`                                                                                                            |
-| attitude (FRD)           |    &cross;     |    &cross;     |      &cross;       |    &check;     |        -        |       -        |       none        | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                               |
-| body_rate (FRD)          |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &check;     |       -        |       none        | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                     |
-| thrust and torque (FRD)  |    &cross;     |    &cross;     |      &cross;       |    &cross;     |     &cross;     |    &check;     |       none        | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) and [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
+| 期望控制对象      |   位置    |   速度    |   加速度   |   姿态    |  体轴角速率  |  执行器字段  | 所需状态估计 | 所需消息                                                                                                                          |
+| ----------- |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:------:| ----------------------------------------------------------------------------------------------------------------------------- |
+| 位置 (NED)    | &check; |    -    |    -    |    -    |    -    |    -    |   位置   | `TrajectorySetpoint`                                                                                                          |
+| 速度 (NED)    | &cross; | &check; |    -    |    -    |    -    |    -    |   速度   | `TrajectorySetpoint`                                                                                                          |
+| 加速度（NED）    | &cross; | &cross; | &check; |    -    |    -    |    -    |   速度   | `TrajectorySetpoint`                                                                                                          |
+| 姿态(FRD)     | &cross; | &cross; | &cross; | &check; |    -    |    -    |   无    | [VehicleAttitudeSetpoint](../msg_docs/VehicleAttitudeSetpoint.md)                                                             |
+| 体轴角速率 (FRD) | &cross; | &cross; | &cross; | &cross; | &check; |    -    |   无    | [VehicleRatesSetpoint](../msg_docs/VehicleRatesSetpoint.md)                                                                   |
+| 推力和力矩(FRD)  | &cross; | &cross; | &cross; | &cross; | &cross; | &check; |   无    | [VehicleThrustSetpoint](../msg_docs/VehicleThrustSetpoint.md) 和 [VehicleTorqueSetpoint](../msg_docs/VehicleTorqueSetpoint.md) |
 
-where &check; means that the bit is set, &cross; means that the bit is not set and `-` means that the bit is value is irrelevant.
+&check; 代表该位设置为有效， &cross; 代表该位未设置， `-` 表示该位状态无关紧要。
 
 :::note
-Before using offboard mode with ROS 2, please spend a few minutes understanding the different [frame conventions](../ros/ros2_comm.md#ros-2-px4-frame-conventions) that PX4 and ROS 2 use. :::
+在使用 ROS 2 的Offboard模式之前, 请花几分钟时间了解PX4和ROS2使用的不同 [坐标系](../ros/ros2_comm.md#ros-2-px4-frame-conventions)。 :::
 
-### Copter
+### 旋翼机
 
 * [px4_msgs::msg::TrajectorySetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/TrajectorySetpoint.msg)
   * 支持以下输入组合：
-    * Position setpoint (`position` different from `NaN`). Non-`NaN` values of velocity and acceleration are used as feedforward terms for the inner loop controllers.
-    * Velocity setpoint (`velocity` different from `NaN` and `position` set to `NaN`). Non-`NaN` values acceleration are used as feedforward terms for the inner loop controllers.
-    * Acceleration setpoint (`acceleration` different from `NaN` and `position` and `velocity` set to `NaN`)
+    * 位置设定值(`position` 不为 `NaN`)。 非-`NaN` 速度和加速度被用作内环控制律的前馈项。
+    * 速度设定值(`velocity` 不为 `NaN` 同时 `position` 为 `NaN`). 非-`NaN` 加速度被用作内环控制律的前馈项。
+    * 加速度设定值(`acceleration` 不为 `NaN` 同时 `position` 和  `velocity` 为 `NaN`)。
 
-  - All values are interpreted in NED (Nord, East, Down) coordinate system and the units are \[m\], \[m/s\] and \[m/s^2\] for position, velocity and acceleration, respectively.
+  - 所有值都是基于NED(北, 东, 地)坐标系，位置、速度和加速的单位分别为\[m\], \[m/s\] 和\[m/s^2\] 。
 
 * [px4_msgs::msg::VehicleAttitudeSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleAttitudeSetpoint.msg)
-  * The following input combination is supported:
-    * quaterion `q_d` + thrust setpoint `thrust_body`. Non-`NaN` values of `yaw_sp_move_rate` are used as feedforward terms expressed in Earth frame and in \[rad/s\].
-  - The quaterion represents the rotation between the drone body FRD (front, right, down) frame and the NED frame. The trust is in the drone body FRD frame and expressed in normalized \[-1, 1\] values.
+  * 支持以下输入组合：
+    * 姿态四元数 `q_d` + 推力设定值 `thrust_body`。 非-`NaN` 值的 `yaw_sp_move_rate` 被用作大地坐标系下的偏航角前馈使用，单位为\[rad/s\]。
+  - 姿态四元数表示无人机体轴FRD(前、右、下)坐标系与NED坐标系之间的旋转。 推力表示在无人机体轴FRD坐标系下的推力，并归一化为 \[-1, 1\] 。
 
 * [px4_msgs::msg::VehicleRatesSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleRatesSetpoint.msg)
-  * The following input combination is supported:
+  * 支持以下输入组合：
     * `roll`, `pitch`, `yaw` and `thrust_body`.
-  - All the value are in the drone body FRD frame. The rates are in \[rad/s\] while thrust_body is normalized in \[-1, 1\].
+  - 所有值都在无人机体轴FRD坐标系下表示。 角速率(roll, pitch, yaw)单位为\[rad/s\] ，thrust_body归一化为 \[-1, 1\]。
 
 * [px4_msgs::msg::VehicleThrustSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleThrustSetpoint.msg) + [px4_msgs::msg::VehicleTorqueSetpoint](https://github.com/PX4/PX4-Autopilot/blob/main/msg/VehicleTorqueSetpoint.msg)
-  * The following input combination is supported:
-    * `xyz` for thrust and `xyz` for torque.
-  - All the value are in the drone body FRD frame and normalized in \[-1, 1\].
+  * 支持以下输入组合：
+    * `xyz` 用于推力和 `xyz` 用于力矩。
+  - 所有值都在无人机体轴 FRD 坐标系中表示，并且归一化为\[-1, 1\]。
+  - 为了节省资源，此模式默认被禁用。 如果你想使用它，需要手动添加  `vehicle_thrust_setpoint` and `vicle_torque_setpoint` 到 [订阅主题](../middleware/xrce_dds.md#dds-topics-yaml)中并手动重新编译固件。
 
 
-## MAVLink Messages
 
-The following MAVLink messages and their particular fields and field values are allowed for the specified frames.
+## MAVLink 消息
+
+下面的 MAVLink 消息及其特定字段和字段值在特定的帧下是允许的。
 
 ### 直升机/垂直起降
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * 位置设置值 （仅 `x`，`y`，`z`）
-    * Velocity setpoint (only `vx`, `vy`, `vz`)
+    * 速度设定值（仅`vx`，`yy`，`vz`）
     * 加速度设定值（仅 `afx`，`afy`，`afz`）
-    * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
+    * 位置设定值**和**速度设定值（速度设定值和加速度设定值被作为前馈使用；被叠加到位置控制器的输出上，结果作为速度控制器的输入使用）。
     * Position setpoint **and** velocity setpoint **and** acceleration (the velocity and the acceleration setpoints are used as feedforwards; the velocity setpoint is added to the output of the position controller and the result is used as the input to the velocity controller; the acceleration setpoint is added to the output of the velocity controller and the result used to compute the thrust vector).
   - - PX4 supports the following  `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 

@@ -110,8 +110,6 @@ RTF 키트는 아래와 같이 조립하여야 합니다.
 
 1. 다른 날개에 이 단계를 반복합니다.
 
-
-
 ### 3 단계 : 전자 장치 연결
 
 이 키트에는 필요한 전자 장치가 대부분 미리 연결된 Dropix 비행 컨트롤러가 포함되어 있습니다 (다른 Pixhawk 호환 비행 컨트롤러를 사용하는 경우 연결이 유사함).
@@ -132,10 +130,11 @@ Dropix 연결에 대한 일반 정보는 [Dropix 비행 컨트롤러](../flight_
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_27_gps_esc_servo_connections.jpg" width="500px" title="GPS, ESC, 서보 연결" />
 
 
-
 #### 모터 배선
 
-Dropix의 출력은 표준 QuadPlane 구성 ( "평면에 앉아 있는" 방향)을 사용하여 연결합니다.
+Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference. The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
+
+For example, you might wire it up like this example (orientation as if "sitting in the plane"):
 
 | 포트     | 연결               |
 | ------ | ---------------- |
@@ -148,7 +147,6 @@ Dropix의 출력은 표준 QuadPlane 구성 ( "평면에 앉아 있는" 방향)�
 | AUX 3  | 승강타              |
 | AUX 4  | 방향타              |
 | AUX 5  | 스로틀              |
-
 
 
 <span id="dropix_back"></span>
@@ -257,7 +255,7 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="쿼드 모터 순서 / 방향" />
 
 :::note
-필요한 경우 QGroundControl의 `PWM_OUTPUT` 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 서보 방향을 바꿀 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목). :::
+If necessary the servo direction can be reversed using the `Rev Range (for servos)` checkbox associated with each servo output in the QGroundControl [Actuator Output](../config/actuators.md#actuator-outputs) configuration (for servos only) (this sets the [PWM_AUX_REV](../advanced_config/parameter_reference.md#PWM_AUX_REV) or [PWM_AUX_MAIN](../advanced_config/parameter_reference.md#PWM_MAIN_REV) parameter). :::
 
 1. 차량이 예상 무게 중심 주변에서 균형을 이루는 지 확인하십시오.
 
@@ -276,15 +274,15 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
 
 참고:
 
-1. [Airframe](../config/airframe.md)의 경우 차량 그룹/유형을 *Standard VTOL*로 선택하고 특정 차량을 *Generic quad delta VTOL*로 선택합니다.
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below.
 
-   ![QGroundControl 프레임 선택](../../assets/airframes/vtol/falcon_vertigo/airframe_px4_vtol_generic_quad_delta_vtol.jpg)
+   ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
 
 1. 자동 조종 장치가 차량 앞쪽을 기준으로 [옆으로](#flight_controller_orientation) 장착되므로 [자동조종장치 방향 ](../config/flight_controller_orientation.md)을 `ROTATION_YAW_270`으로 설정합니다. 나침반은 앞쪽을 향하므로 기본값 (`ROTATION_NONE`)을 사용합니다.
-1. 매개 변수 기본값들은 안정적인 비행에 충분합니다. 자세한 튜닝 정보는 [표준 VTOL 배선 및 구성](../config_vtol/vtol_quad_configuration.md)을 참조하십시오.
+1. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
+1. The default parameters are often sufficient for stable flight. 자세한 튜닝 정보는 [표준 VTOL 배선 및 구성](../config_vtol/vtol_quad_configuration.md)을 참조하십시오.
 
 보정을 마치면 VTOL이 비행할 준비가 됩니다.
-
 
 ## 비디오
 

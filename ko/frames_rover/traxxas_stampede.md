@@ -45,7 +45,7 @@
 | MAIN4  | Throttle (ESC input) |
 
 :::note
-[여기에있는 Airframe 참조](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle)에 설명되어 있습니다.
+As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann)).
 :::
 
 ## 설정

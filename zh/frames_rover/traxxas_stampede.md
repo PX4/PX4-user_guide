@@ -45,7 +45,7 @@ It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampe
 | MAIN4  | 油门 (ESC输入) |
 
 :::note
-正如机架文档所述 [Airframe ](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle) 。
+As documented in the Airframe Reference: [Generic ground vehicle (Ackermann)](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle_(ackermann)).
 :::
 
 ## 配置

@@ -1,6 +1,6 @@
 # Raspberry Pi Companion with Pixhawk
 
-This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros/ros2_comm.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.html) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
+This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros/ros2_comm.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.
 
 These instructions should be readily extensible to other RPi and flight controller configurations.
 
@@ -252,7 +252,7 @@ If the client module is not running you can start it manually in the MAVLink con
 microdds_client start -t serial -d /dev/ttyS3 -b 921600
 ```
 
-Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.html#serial-port-mapping). For other flight controllers check the serial port mapping section in their overview page.
+Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping). For other flight controllers check the serial port mapping section in their overview page.
 :::
 
 ### ROS Setup on RPi

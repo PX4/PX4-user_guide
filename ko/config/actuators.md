@@ -119,27 +119,46 @@ The motor geometry for a [Generic Standard Quadplane VTOL](../airframes/airframe
 
 ### 조종면 지오메트리
 
-지오메트리 패널의 조종면 섹션에서는 기체 조종면의 갯수와 유형을 설정할 수 있습니다. 경우에 따라 트림 및 슬루율 값을 설정할 수도 있습니다. 고급 사용자는 롤 스케일, 요 스케일 및 피치 스케일을 구성할 수 있습니다(일반적으로 기본값이 허용되며 필요하지 않음).
-
-2개의 에일러론이 있는 차량의 "예시" 제어 표면 섹션이 아래에 나와 있습니다. 에일러론은 롤에만 영향을 미치므로 피치 및 요 필드는 비활성화됩니다.
+지오메트리 패널의 조종면 섹션에서는 기체 조종면의 갯수와 유형을 설정할 수 있습니다. 경우에 따라 트림 및 슬루율 값을 설정할 수도 있습니다. 고급 사용자는 롤 스케일, 요 스케일 및 피치 스케일을 구성할 수 있습니다(일반적으로 기본값이 허용되며 필요하지 않음). 2개의 에일러론이 있는 차량의 "예시" 제어 표면 섹션이 아래에 나와 있습니다. 에일러론은 롤에만 영향을 미치므로 피치 및 요 필드는 비활성화됩니다.
 
 ![조종면 설정 예제](../../assets/config/actuators/control_surfaces_geometry.png)
+
+:::note
+기본적으로 가장 일반적인 설정만 표시됩니다. Select the **Advanced** checkbox in the top right corner of the view to display all settings.
+:::
 
 항목들은 다음과 같습니다.
 
 - `조종면`: 조종면의 갯수(먼저 설정하십시오!)
 - `유형`: 각 조종면의 유형: `LeftAileron`, `RightAileron`, `Elevator`, `Rudder</0 >, <code>왼쪽 엘레본`, `오른쪽 엘레본`, `왼쪽 V-Tail`, `오른쪽 V-Tail`, `왼쪽 플랩`, `오른쪽 플랩`, `에어브레이크`, `맞춤형`.
-- `롤 스케일`: 롤 축을 중심으로 한 액추에이터의 효율성(정규화: -1 ~ 1). [일반적으로 기본 액추에이터 값을 사용하여야 합니다](#actuator-roll-pitch-and-yaw-scaling).
-- `피치 스케일`: 피치 축 주위의 액츄에이터의 효율성(정규화: -1에서 1). [일반적으로 기본 액추에이터 값을 사용하여야 합니다](#actuator-roll-pitch-and-yaw-scaling).
-- `요 스케일`: 요 축을 중심으로 한 액추에이터의 효율성(정규화: -1 ~ 1). [일반적으로 기본 액추에이터 값을 사용합니다](#actuator-roll-pitch-and-yaw-scaling).
+- `Roll Torque`: Effectiveness of actuator around roll axis (normalised: -1 to 1). [일반적으로 기본 액추에이터 값을 사용하여야 합니다](#actuator-roll-pitch-and-yaw-scaling).
+- `Pitch Torque`: Effectiveness of actuator around pitch axis (normalised: -1 to 1). [일반적으로 기본 액추에이터 값을 사용하여야 합니다](#actuator-roll-pitch-and-yaw-scaling).
+- `Yaw Torque`: Effectiveness of actuator around yaw axis (normalised: -1 to 1). [일반적으로 기본 액추에이터 값을 사용합니다](#actuator-roll-pitch-and-yaw-scaling).
 - `트림`: 입력 없이 중앙에 오도록 액추에이터에 추가된 오프셋입니다. 이것은 시행착오를 거쳐 결정될 수 있습니다.
-- `슬루율`: 모터 및 서보 신호가 전체 출력 범위를 통과하는 데 허용되는 최소 시간(초).
+- (Advanced) `Slew Rate`: Minimum time allowed for the motor/servo signal to pass through the full output range, in seconds.
   - 설정은 액츄에이터의 변화율을 제한합니다(지정하지 않으면 비율 제한이 적용되지 않음). 틸트로터 VTOL 차량의 틸팅 액추에이터와 같이 너무 빨리 움직일 경우 손상될 수 있는 액추에이터를 위한 것입니다.
   - 예를 들어, 2.0으로 설정하면 모터 및 서보가 2초 이내에 작동을 완료하는 속도로 0에서 1로 이동하도록 명령되지 않음을 의미합니다(가역 모터의 경우 범위는 -1에서 1).
-- `마우스 오버시 조종면 잠금`:
+- (Advanced) `Flap Scale`: How much this actuator is deflected at the "full flaps configuration" \[0, 1\] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below). Can be used to configure aerodynamic surface as flap or to compensate for generated torque through main flaps.
+- (Advanced) `Spoiler Scale`: How much this actuator is deflected at the "full spoiler configuration" \[0, 1\] (see [Flap Scale and Spoiler Scale Configuration](#flap-scale-and-spoiler-scale-configuration) below). Can be used to configure aerodynamic surface as spoiler or to compensate for generated torque through main spoiler.
+- (VTOL only) `Lock control surfaces in hover`:
   - `사용`: 대부분의 차량은 호버링 시 조종면을 사용하지 않습니다. 이 설정을 사용하여 기체 역학에 영향을 미치지 않도록 잠그십시오.
   - `비활성화`: 듀오 테일시터(피치 및 요 제어에 엘레본 사용)와 같이 호버링에서 조종면을 사용하는 기체를 설정합니다. 또한 조종면을 사용하여 고속으로 이동할 때 호버 모드에서 추가 안정화를 제공하거나 강한 바람이 부는 기체에 대하여 설정합니다.
 
+#### Flap Scale and Spoiler Scale Configuration
+
+"Flap-control" and "Spoiler-control" are aerodynamic configurations that can either be commanded manually by the pilot (using RC, say), or are set automatically by the controller. For example, a  pilot or the landing system might engage "Spoiler-control" in order to reduce the airspeed before landing.
+
+The configurations are an _abstract_ way for the controller to tell the allocator how much it should adjust the aerodynamic properties of the wings relative to the "full flaps" or "full spoiler" configuration (between `[0,1]`, where "1" indicates the full range). The allocator then uses any of the available control surfaces it wants in order to achieve the requested configuration: usually flaps, ailerons, and elevator.
+
+The `flap scale` and `spoiler scale` settings in the actuator UI inform the allocator how much ailerons, elevators, flaps, spoilers, and other control surfaces, contribute to a requested "Flap-control" and/or "Spoiler-control" value. Specifically, they indicate how much each control surface should be deflected when the controller is demanding "full flaps" or "full spoiler".
+
+In the following example, the vehicle has two ailerons, one elevator, one rudder and two flaps as control surfaces:
+
+![Flaps and spoiler actuator configuration example](../../assets/config/actuators/qgc_actuators_tab_flaps_spoiler_setup.png)
+
+- The flaps have both `Flap Scale` set to 1, meaning that they will be fully deflected with the flap-control at 1. They also have a slew rate of 0.5/s, meaning that it will take 2s to fully deflect them (a slew rate on the flaps is generally recommended to reduce the disturbances their movement creates).
+- The ailerons are primarily tasked to provide the commanded roll torque. They also have `Spoiler Scale` set to 0.5, and will additionally be deflected upwards 50% if the controller demands full spoiler configuration. The aileron deflection is thus the sum of the (asymmetrical) deflection for the roll torque, plus the (symmetrical) deflection for the spoiler setpoint.
+- The elevator is primarily tasked to provide pitch torque. It also has non-zero entries in the `Flap Scale` and `Spoiler Scale` fields. These are the elevator deflections added to compensate for the pitching moments generated by the flaps and spoiler actuators. In the case here the elevator would be deflected 0.3 up when the flaps are fully deployed to counteract the pitching down moment caused by the flaps.
 
 #### 액추에이터 롤, 피치 및 요 스케일링
 
