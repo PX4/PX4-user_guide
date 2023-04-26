@@ -22,7 +22,7 @@ The agent acts as a proxy for the client, enabling it to publish and subscribe t
 
 In order for PX4 uORB topics to be shared on the DDS network you will need _XRCE-DDS client_ running on PX4, connected to the _XRCE-DDS agent_ running on the companion.
 
-The PX4 [microdds-client](../modules/modules_system.md#microdds-client) publishes to/from a defined set of uORB topics to the global DDS data space.
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) publishes to/from a defined set of uORB topics to the global DDS data space.
 
 The [eProsima XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
 
@@ -33,11 +33,11 @@ Code that wants to subscribe/publish to PX4 does have a dependency on client-sid
 
 ## Code Generation
 
-The PX4 [microdds-client](../modules/modules_system.md#microdds-client) is generated at build time and included in PX4 firmare by default.
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) is generated at build time and included in PX4 firmare by default.
 The agent has no dependency on client code.
 It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
 
-When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/microdds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) into [microdds-client](../modules/modules_system.md#microdds-client).
+When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client).
 
 PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
@@ -177,11 +177,11 @@ For more information about setting up communications channels see [Pixhawk + Com
 
 ### Starting the Client
 
-The XRCE-DDS client module ([microdds-client](../modules/modules_system.md#microdds-client)) is included by default in all firmware and the simulator.
+The XRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client)) is included by default in all firmware and the simulator.
 This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
 :::note
-The simulator automatically starts the client on localhost UDP port `8888` using the default microdds namespace.
+The simulator automatically starts the client on localhost UDP port `8888` using the default uxrce-dds namespace.
 :::
 
 The configuration can be done using the [Micro XRCE-DDS parameters](../advanced_config/parameter_reference.md#micro-xrce-dds):
@@ -239,13 +239,13 @@ To use these ports you must first disable the existing configuration:
 Once set, you may need to reboot PX4 for the parameters to take effect.
 They will then persist through subsequent reboots.
 
-You can also start the [microdds-client](../modules/modules_system.md#microdds-client) using a command line.
+You can also start the [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) using a command line.
 This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console).
 This method is useful when you need to set a custom client namespace, as no parameter is provided for this purpose.
 For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888` and to set the client namespace to `/drone/`.
 
 ```sh
-microdds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
+uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
 Options `-p` or `-h` are used to bypass `XRCE_DDS_PRT` and `XRCE_DDS_AG_IP`.
 
@@ -253,9 +253,9 @@ The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](
 
 ## Supported uORB Messages
 
-The set of [PX4 uORB topics](../msg_docs/README.md) that are exposed through the client are set in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml).
+The set of [PX4 uORB topics](../msg_docs/README.md) that are exposed through the client are set in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 
-The topics are release specific (support is compiled into [microdds-client](../modules/modules_system.md#microdds-client) at build time).
+The topics are release specific (support is compiled into [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) at build time).
 While most releases should support a very similar set of messages, to be certain you would need to check the yaml file for your particular release.
 <!-- Jublish the set we use?: https://github.com/PX4/px4_msgs/issues/22 -->
 
@@ -266,7 +266,7 @@ Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
 - If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree.
-  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
+  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
   Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
 
   ```sh
@@ -275,32 +275,32 @@ Therefore,
   ```
   
   :::note
-  Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
+  Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
   For more information see [DDS Topics YAML](#dds-topics-yaml) below.
   :::
 
 
 ## Customizing the Topic Namespace
 
-Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
+Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [microdds-client](../modules/modules_system.md#microdds-client) from command line.
+ - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) from command line.
    This technique can be used both in simulation and real vehicles.
- - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_MICRODDS_NS` before starting the simulation.
+ - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 
 :::note
-Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml).
+Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 Therefore, commands like:
 
 ```sh
-microdds_client start -n uav_1
+uxrce_dds_client start -n uav_1
 ```
 
 or
 
 ```sh
-PX4_MICRODDS_NS=uav_1 make px4_sitl gz_x500
+PX4_UXRCE_DDS_NS=uav_1 make px4_sitl gz_x500
 ```
 
 will generate topics under the namespaces:
@@ -346,7 +346,7 @@ Deadline, lifespan, and lease durations are also all set to "default".
 
 ## DDS Topics YAML
 
-The PX4 yaml file [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/microdds_client/dds_topics.yaml) defines the set of PX4 uORB topics that are built into firmware and published.
+The PX4 yaml file [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) defines the set of PX4 uORB topics that are built into firmware and published.
 More precisely, it completely defines the relationship/pairing between PX4 uORB and ROS 2 messages.
   
 The file is structured as follows:

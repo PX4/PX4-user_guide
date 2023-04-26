@@ -266,18 +266,18 @@ The configuration steps are:
    You will need to reboot the flight controller to apply any changes to these parameters.
    :::
    
-1. Check that the [microdds_client](../modules/modules_system.md#microdds-client) module is now running.
+1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) module is now running.
    YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html): 
 
    ```
-   microdds_client status
+   uxrce_dds_client status
    ```
    
 :::note
 If the client module is not running you can start it manually in the MAVLink console: 
 
 ```
-microdds_client start -t serial -d /dev/ttyS3 -b 921600
+uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
 ```
 
 Note that `/dev/ttyS3` is the PX4 port for `TELEM2` on the [Holybro Pixhawk 6c](../flight_controller/pixhawk6c.md#serial-port-mapping).
