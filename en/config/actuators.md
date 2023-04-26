@@ -95,7 +95,7 @@ The motor geometry for a [Generic Quadplane VTOL Tiltrotor](../airframes/airfram
 
 #### Motor Geometry: Standard VTOL
 
-The motor geometry for a [Generic Standard Quadplane VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
+The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
 
 ![Geometry motor: standard vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 

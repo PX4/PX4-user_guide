@@ -1,13 +1,15 @@
-# QuadPlane VTOL Configuration & Tuning
+# Generic Standard VTOL (QuadPlane) Configuration & Tuning
 
-This is the configuration documentation for a QuadPlane VTOL setup (Plane combined with Quadcopter).
+This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed wing vehicle with the addition of quadcopter motors.
+
 For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
 
 ## Firmware & Basic Settings
 
 1. Run *QGroundControl*
-2. Flash the master firmware
-3. In the Setup tab select the appropriate VTOL airframe, if your airframe is not listed select the Fun Cub VTOL airframe.
+2. Flash the firmware for your current release or master (PX4 `main` branch build).
+3. In the [Airframe](config/airframe.md) section select the appropriate VTOL airframe.
+   If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
 
 
 ### Flight / Transition Mode Switch
@@ -149,4 +151,4 @@ If it’s still travelling fast this should happen quickly.
 
 ### Support
 
-If you have any questions regarding your VTOL conversion or configuration please see [https://discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
+If you have any questions regarding your VTOL conversion or configuration please see [discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
