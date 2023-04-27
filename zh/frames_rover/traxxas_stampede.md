@@ -12,7 +12,7 @@
   * 3DR 433MHz Telemetry Module (EU)
 * [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) 或其他 PX4 兼容的遥控器
 * [Spektrum Quad Race 系列接收机 w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
-* [PX4光流](../sensor/px4flow.md)
+* [PX4Flow](../sensor/px4flow.md) (Deprecated)
 
 
 ## 组装
