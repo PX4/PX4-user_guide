@@ -6,6 +6,7 @@ This topic explains how to simulate multiple UAV vehicles using [Gazebo Classic]
 ## Multiple Vehicle with Gazebo Classic
 
 To simulate multiple iris or plane vehicles in Gazebo Classic use the following commands in the terminal (from the root of the *Firmware* tree):
+
 ```
 Tools/simulation/gazebo-classic/sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
@@ -54,7 +55,7 @@ The 254-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 
 ### Build and Test (XRCE-DDS)
 
-`Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles based on xrce-dds in Gazebo Classic.
+`Tools/simulation/gazebo-classic/sitl_multiple_run.sh` can be used to simulate multiple vehicles connected via XRCE-DDS in Gazebo Classic.
 
 :::note
 You will need to have installed the XRCE-DDS dependencies. For more information see: [ROS 2 User Guide (PX4-ROS 2 Bridge)](../ros/ros2_comm.md), for interfacing with ROS 2 nodes.
@@ -201,6 +202,7 @@ The complete block for each vehicle is enclosed in a set of `<group>` tags to se
 :::
 
 To add a third iris to this simulation there are two main components to consider:
+
 * add `UAV3` to **multi_uav_mavros_sitl.launch**
   * duplicate the group of either existing vehicle (`UAV1` or `UAV2`)
   * increment the `ID` arg to `3`
