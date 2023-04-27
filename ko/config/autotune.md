@@ -2,7 +2,7 @@
 
 자동 튜닝은 안정적이고 반응성은 높은 비행에 탁월한 컨트롤러인 PX4의 속도와 자세를 자동으로 튜닝합니다(다른 튜닝은 "선택 사항"에 가깝습니다). 현재 멀티콥터, 고정익 및 하이브리드 VTOL에 적용할 수 있습니다.
 
-한 번의 튜닝으로 충분하며, 제조업체에서 이미 튜닝한(그 이후로 수정하지 않은) 기체가 아닌 경우에는 튜팅을 권장합니다.
+Tuning only needs to be done once, and is recommended unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
 
 :::warning
 비행 중에 자동 튜닝이 수행됩니다. 기체는 중간 정도의 교란을 처리할 수 있을 만큼 원할하게 비행가능 하여야 하며, 다음 사항에 주의를 기울여야 합니다.

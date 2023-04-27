@@ -104,7 +104,7 @@ DCD-LZ 브레이크아웃 어댑터를 사용하면 표준 10핀 JTAG/SWD 인터
 
 일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. 지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
 
-![HoverGames 드론 키트](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_001.jpg)
+![HoverGames 드론 키트](../../assets/flight_controller/nxp_rddrone_fmuk66/hovergames_drone_14042019_xl001.jpg)
 
 :::tip NXP
 [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (위 그림 참조)는 쿼드콥터 제작에 필요한 것들이 포함된 드론 개발 키트입니다. 3S/4S LiPo 배터리만 추가로 구매하시면 됩니다.
@@ -116,5 +116,5 @@ DCD-LZ 브레이크아웃 어댑터를 사용하면 표준 10핀 JTAG/SWD 인터
 
 - HoverGames 및 RDDRONE-FMUK66을 지원하는 3D 모델은 *Thingiverse*의 검색 링크 [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant)을 참고하십시오.
 
-!\[HoverGamesDronelogo\](../../assets/flight_controller/nxp_rddrone_fmuk66/The HoverGames_Colored-small.png)
+![HoverGamesDronelogo](../../assets/flight_controller/nxp_rddrone_fmuk66/hovergames_colored_small.png)
 
