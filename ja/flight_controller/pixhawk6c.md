@@ -94,14 +94,6 @@ Order from [Holybro](https://holybro.com/products/pixhawk-6c).
 
 The [Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
 
-
-<!---
-## Connections
-
-Sample Wiring Diagram
-![Pixhawk 6C Wiring Overview](../../assets/flight_controller/pixhawk6c/pixhawk6c_wiring_diagram.png)
---->
-
 ## Pinouts
 
 * [Holybro Pixhawk 6C Pinout](https://docs.holybro.com/autopilot/pixhawk-6c/pixhawk-6c-pinout)
@@ -143,7 +135,8 @@ Under these conditions the system will not draw any power (will not be operation
 
 Pixhawk 6C uses analog power modules.
 
-Holybro makes various analog [power modules](../power_module) for different need.
+Holybro makes various analog [power modules](../power_module/README.md) for different needs:
+
 - [PM02 Power Module](../power_module/holybro_pm02.md)
 - [PM06 Power Module](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 - [PM07 Power Module](../power_module/holybro_pm07_pixhawk4_power_module.md)
