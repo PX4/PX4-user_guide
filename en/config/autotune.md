@@ -3,7 +3,7 @@
 Auto-tuning automates the process of tuning the PX4 rate and attitude controllers, which are the most important controllers for stable and responsive flight (other tuning is more "optional").
 It is currently enabled for multicopter, fixed wing, and hybrid VTOL fixed wing vehicles.
 
-Tuning only needs to be done once, and is recommended unless unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
+Tuning only needs to be done once, and is recommended unless you're using vehicle that has already been tuned by the manufacturer (and not modified since).
 
 :::warning
 Auto-tuning is performed while flying.
