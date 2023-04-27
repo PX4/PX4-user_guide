@@ -47,8 +47,8 @@ For information about configuring VIO on PX4 see:
 [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
 
 For information about optical flow see:
+
 - [Optical Flow](../sensor/optical_flow.md)
-  - [PX4Flow Smart Camera](../sensor/px4flow.md)
 - [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
 ## External Resources
