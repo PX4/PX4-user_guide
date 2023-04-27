@@ -14,7 +14,9 @@ Fun Cub QuadPlane VTOL은 쿼드콥터로 개조된 표준 테일 플레인 항�
 
 ## 부품 명세서
 
-실제 평면도는 위의 이미지와 비슷합니다 (다른 유사한 모델도 잘 작동합니다. 이것은 Multiplex Fun Cub입니다). 필요한 최소 장비는 다음과 같습니다.
+실제 평면도는 위의 이미지와 비슷합니다 (다른 유사한 모델도 잘 작동합니다. 이것은 Multiplex Fun Cub입니다).
+
+필요한 최소 장비는 다음과 같습니다.
 
 - Multiplex FunCub (또는 유사 제품)
 - Pixhawk 또는 호환 제품
@@ -36,10 +38,10 @@ Fun Cub QuadPlane VTOL은 쿼드콥터로 개조된 표준 테일 플레인 항�
 
 ## 배선
 
-Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면 배치된" 방향과 같음).
+Motor and servo wiring is nearly entirely up to you, but should match the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) configuration, as shown in the airframe reference. The geometry and output assignment can be configured in the [Actuators Configuration](../config/actuators.md#actuator-outputs)
 
-:::tip
-서보 방향은 *QGroundControl*의 PWM_OUTPUT 그룹에 있는 [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) 매개변수를 사용하여 반전될 수 있습니다(톱니바퀴 탭, 왼쪽 메뉴의 마지막 항목). :::
+For example, you might wire it up like this example (orientation as if "sitting in the plane"):
+
 
 | 포트     | 연결               |
 | ------ | ---------------- |
@@ -57,9 +59,15 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면 배치�
 
 ## 기체 설정
 
-아래 QGroundControl에 표시된대로 기체를 설정합니다 (맨 위의 **적용 및 다시 시작**을 클릭하는 것을 잊지 마십시오).
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) as shown below (do not forget to click **Apply and Restart** in the top).
 
-![QCG - Fun Cub Quad 펌웨어 선택](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
+   ![QCG - Select Generic Standard VTOL](../../assets/qgc/setup/airframe/px4_frame_generic_standard_vtol.png)
+
+1. Configure the outputs and geometry following the instructions in [Actuators Configuration](../config/actuators.md)
+1. The default parameters are often sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md).
+
+After you finish calibration the VTOL is ready to fly.
+
 
 ## 비디오
 
