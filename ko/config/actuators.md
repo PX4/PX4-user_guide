@@ -81,7 +81,7 @@ The motor geometry for a [VTOL Quad Tailsitter](../airframes/airframe_reference.
 
 #### 모터 형상: 표준 VTOL
 
-The motor geometry for a [Generic Standard Quadplane VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quadplane_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
+The motor geometry for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) is shown below (the approach for configuring other "Standard VTOL" will be similar).
 
 ![기하학 모터: 표준 vtol](../../assets/config/actuators/qgc_geometry_standard_vtol_motors.png)
 
