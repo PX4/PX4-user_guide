@@ -77,11 +77,11 @@ These specify the height rates at which the vehicle will climb or descend in ord
 Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_fw.md) and [Position mode](../flight_modes/position_fw.md).
 
 
-### L1 Controller Tuning (Position)
+### FW Path Control Tuning (Position)
 
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control). 
+All path control parameters are described [here](../advanced_config/parameter_reference.md#fw-path-control). 
 
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking point ahead of the aircraft it's following. 
-  A value of 25 meters works for most aircraft.
-  A value of 16-18 will still work, and provide a sharper response.
+- [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD) - This is the previously called L1 distance and defines the tracking point ahead of the aircraft it's following. 
+  A value of 10-20 meters works for most aircraft.
   Shorten slowly during tuning until response is sharp without oscillation.
+  Vehicles with a slow roll dynamic should have this value increased.
