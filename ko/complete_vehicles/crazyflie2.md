@@ -208,7 +208,7 @@ Crazyflie 2.0 높이가 *고도 모드* 또는 *위치 모드*의 중간 스로�
 
 ## 위치 제어
 
-[플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)을 사용하면 *위치 모드*에서 Crazyflie 2.0을 비행할 수 있습니다. PX4flow와 달리 플로우 데크에는 자이로가 없으므로 온보드 자이로가 유동 융합에 사용되어 로컬 위치 추정치를 찾습니다. PX4flow와 달리 플로우 데크에는 자이로가 없으므로 온보드 자이로가 유동 융합에 사용되어 로컬 위치 추정치를 찾습니다.
+[플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)을 사용하면 *위치 모드*에서 Crazyflie 2.0을 비행할 수 있습니다. Unlike [PX4FLOW](../sensor/px4flow.md), the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. PX4flow와 달리 플로우 데크에는 자이로가 없으므로 온보드 자이로가 유동 융합에 사용되어 로컬 위치 추정치를 찾습니다.
 
 :::note
 *위치* 모드의 비행에 대한 ulog는 [여기](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45)에서 사용할 수 있습니다. 이것은 비행 성능을 비교하기 위하여 참고용으로 사용할 수 있습니다.
