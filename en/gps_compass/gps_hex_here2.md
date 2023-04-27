@@ -26,6 +26,10 @@ Setup and use on PX4 is largely plug and play.
 If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
 :::
 
+:::note
+If the GPS is detected but not works,  then try to [allocating node uavcan ID method](https://docs.cubepilot.org/user-guides/here-2/here-2-can-mode-instruction).
+:::
+
 ## Wiring and Connections
 
 The Here2 GPS comes with an 8 pin connector that can be inserted directly into the [Pixhawk 2](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf) GPS UART port.
