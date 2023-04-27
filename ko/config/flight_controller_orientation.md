@@ -27,7 +27,9 @@ Tailsitter 기체의 경우 모든 센서 보정에 대한 멀티콥터 설정(�
 
 1. *QGroundControl *을 시작하고 기체를 연결합니다.
 1. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
-1. **방향 설정** 버튼을 클릭합니다. <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+1. **방향 설정** 버튼을 클릭합니다.
+
+   <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
 1. **비행 콘트롤러 방향**을 선택합니다([위에서 계산한 방법](#calculating-orientation)대로 선택하십시오).
 
    <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />
