@@ -8,7 +8,8 @@ For airframe specific documentation and build instructions see [VTOL Framebuilds
 
 1. Run *QGroundControl*
 2. Flash the firmware for your current release or master (PX4 `main` branch build).
-3. In the [frame configuration](../airframes/airframe_reference.md) section select the appropriate VTOL airframe.
+3. In the [Frame setup](../config/airframe.md) section select the appropriate VTOL airframe.
+
    If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
 
 
