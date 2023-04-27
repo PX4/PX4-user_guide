@@ -38,9 +38,12 @@ Connect the ESCs to the Pixhawk CAN bus. Power up the entire vehicle using a bat
 
 Assign motors to outputs using the [Acutator](../config/actuators.md#actuator-testing) configuration screen.
 
+<!-- removed as there is no info for it in linked doc -->
+<!--
 ## Troubleshooting
 
-See [DroneCAN Troubleshooting](README.md#troubleshooting).
+See DroneCAN Troubleshooting - (README.md#troubleshooting).
+-->
 
 ## Further Information
 
