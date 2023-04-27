@@ -95,7 +95,7 @@ However, if you have a dual antenna setup, you will need to set the layout as ac
 
 The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS antennas.
 
-![Multi-antenna attitude determination setup.]( ../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png)
+![Multi-antenna attitude determination setup](../../assets/hardware/gps/septentrio_sbf/multi-antenna_attitude_setup.png)
 
 To enable multi-antenna attitude determination, follow the following procedure:
 
