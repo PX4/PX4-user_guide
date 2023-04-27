@@ -53,13 +53,9 @@ GPS와 나침반의 일반적인 옵션은 [GPS 및 나침반](../gps_compass/RE
 
 ## 광류 센서
 
-[광류 센서](../sensor/optical_flow.md)는 속도 추정을 위하여 하향 카메라와 하향 거리 센서를 사용합니다. PX4는 센서 데이터와 다른 위치 정보(예 : GPS)를 연계하여 정확한 위치를 측정합니다. 광류 센서는 GPS 신호가 잡히지 않는 실내에서도 사용할 수 있습니다.
+[Optical Flow sensors](../sensor/optical_flow.md) use a downward facing camera and a downward facing distance sensor for velocity estimation. PX4는 센서 데이터와 다른 위치 정보(예 : GPS)를 연계하여 정확한 위치를 측정합니다. 광류 센서는 GPS 신호가 잡히지 않는 실내에서도 사용할 수 있습니다.
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
-
-다른 옵션들은 다음과 같습니다:
-- 통합 소나 센서가있는 [ PX4Flow ](../sensor/px4flow.md) 기반 유량 센서.
-- 광학 마우스 트랙 패드와 유사한 센서가있는 [ PMW3901 ](../sensor/pmw3901.md) 기반 유량 센서
 
 
 <span id="wiring"></span>
@@ -68,6 +64,7 @@ GPS와 나침반의 일반적인 옵션은 [GPS 및 나침반](../gps_compass/RE
 센서들의 배선 방법는 일반적으로 비행 콘트롤러나 센서 제조사에서 매뉴얼로 제공합니다.
 
 추가:
-* [기초 초립법](../assembly/README.md)에는 비행 콘틀롤러에 관한 시작 가이드가 포함되어 있습니다. 특정 비행 콘트롤러의 주요 센서들의 배선 방법을 설명합니다.
-* [비행 콘트롤러](../flight_controller/README.md) 항목에서는 배선 정보를 설명합니다.
-* [ 주변 하드웨어 ](../peripherals/README.md)에는 주요 센서들에 대하여 설명합니다.
+
+- [기초 초립법](../assembly/README.md)에는 비행 콘틀롤러에 관한 시작 가이드가 포함되어 있습니다. 특정 비행 콘트롤러의 주요 센서들의 배선 방법을 설명합니다.
+- [비행 콘트롤러](../flight_controller/README.md) 항목에서는 배선 정보를 설명합니다.
+- [ 주변 하드웨어 ](../peripherals/README.md)에는 주요 센서들에 대하여 설명합니다.
