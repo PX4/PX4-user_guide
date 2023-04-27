@@ -62,6 +62,10 @@ Set the following parameters in the *QGroundControl* [parameter list](../advance
 
   ![qgc set](../../assets/hardware/power_module/cuav_can/qgc_set_en.png)
 
+* `UAVCAN_SUB_BAT`: set to: *Raw data*
+
+  ![qgc set2](../../assets/hardware/power_module/cuav_can/qgc_set_en2.png)
+
 
 ## Further Information
 
