@@ -1,12 +1,14 @@
-# QuadPlane VTOL 配置 & 调参
+# Generic Standard VTOL (QuadPlane) Configuration & Tuning
 
-这是一份垂直起降固定翼飞行器的的配置文档（固定翼+四旋翼）。 对于具体的机型和构建指南请看[VTOL Framebuilds](../frames_vtol/README.md)。
+This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed wing vehicle with the addition of quadcopter motors.
+
+对于具体的机型和构建指南请看[VTOL Framebuilds](../frames_vtol/README.md)。
 
 ## 固件 & 基础设置
 
 1. Run *QGroundControl*
-2. 刷固件
-3. 再启动界面选择合适的VTOL机型，如果你的机型没有列出的话，请选择Fun Cub VTOL机型。
+2. Flash the firmware for your current release or master (PX4 `main` branch build).
+3. In the [Airframe](config/airframe.md) section select the appropriate VTOL airframe. If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
 
 
 ### 飞行模式/模式转换
@@ -122,4 +124,4 @@ When transitioning from **fixed wing to multirotor** for this type of VTOL the
 
 ### 技术支持
 
-If you have any questions regarding your VTOL conversion or configuration please see [https://discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
+If you have any questions regarding your VTOL conversion or configuration please see [discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
