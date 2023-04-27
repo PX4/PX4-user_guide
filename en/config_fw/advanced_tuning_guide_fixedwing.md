@@ -81,7 +81,6 @@ Furthermore, these two values define the height rate limits commanded by the use
 
 All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-path-control). 
 
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking point ahead of the aircraft it's following. 
-  A value of 25 meters works for most aircraft.
-  A value of 16-18 will still work, and provide a sharper response.
-  Shorten slowly during tuning until response is sharp without oscillation.
+- [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD) - This is the previously called L1 distance and defines the tracking point ahead of the aircraft it's following. 
+  A value of 10-20 meters works for most aircraft.
+  Shorten slowly during tuning until response is sharp without oscillation. Vehicles with a slow roll dynamic should have this value increased.
