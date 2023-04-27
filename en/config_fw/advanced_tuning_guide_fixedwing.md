@@ -79,7 +79,7 @@ Furthermore, these two values define the height rate limits commanded by the use
 
 ### L1 Controller Tuning (Position)
 
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control). 
+All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-path-control). 
 
 - [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking point ahead of the aircraft it's following. 
   A value of 25 meters works for most aircraft.
