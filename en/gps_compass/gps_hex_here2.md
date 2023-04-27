@@ -23,11 +23,8 @@ Main features include:
 Setup and use on PX4 is largely plug and play.
 
 :::note
-If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
-:::
-
-:::note
-If the GPS is detected but not works,  then try to [allocating node uavcan ID method](https://docs.cubepilot.org/user-guides/here-2/here-2-can-mode-instruction).
+- If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
+- If the GPS is detected but does not work, attempt the process outlined in [allocating node uavcan ID](https://docs.cubepilot.org/user-guides/here-2/here-2-can-mode-instruction).
 :::
 
 ## Wiring and Connections
