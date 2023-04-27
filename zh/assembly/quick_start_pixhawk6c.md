@@ -11,13 +11,6 @@ Pixhawk 6C + PM02 + M8N GPS.
 
 ![Pixhawk6c standard set](../../assets/flight_controller/pixhawk6c/pixhawk6c_standard_set.jpg)
 
-<!--
-## Wiring Chart Overview
-
-The image below is sample wiring diagram that shows how to connect the most important sensors and peripherals.
-
-![Pixhawk 6C Wiring Overview](../../assets/flight_controller/pixhawk6c/pixhawk6c_wiring_diagram.png)
--->
 
 ## Mount and Orient Controller
 
