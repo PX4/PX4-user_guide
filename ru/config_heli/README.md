@@ -30,8 +30,7 @@ To setup and configure a helicopter:
 Actuator setup and testing is covered for most frames in [Actuators](../config/actuators.md). While that is referenced below, this is the main topic for helicopter setup information.
 :::
 
-
-   The geometry for a [Generic Helicopter (with Tail ESC)](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_(tail_esc)) is shown below.
+   The geometry for a [Generic Helicopter - with Tail ESC](../airframes/airframe_reference.md#copter_helicopter_generic_helicopter_%28tail_esc%29) is shown below.
 
    ![Geometry: helicopter](../../assets/config/actuators/qgc_geometry_helicopter.png)
 
