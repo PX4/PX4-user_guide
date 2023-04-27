@@ -31,15 +31,15 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 
 - You have selected the closest matching [default frame configuration](../config/airframe.md) for your vehicle. 이것은 이미 비행한 기체를 제공할 것입니다.
 - [ESC 보정](../advanced_config/esc_calibration.md)을 완료하여야 합니다.
-- PWM 출력을 사용하는 경우: [PWM_MAIN_MIN](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)이 올바르게 설정되었습니다. 차량을 낮게 설정해야 하지만, 차량이 무장을 했을 때 ** 모터들은 절대 멈추지 않습니다</p>
+- If using PWM outputs their minimum values should be set correctly in the [Actuator Configuration](../config/actuators.md#actuator-configuration-and-testing). These need to be set low, but such that the **motors never stop** when the vehicle is armed.
 
   [곡예 모드](../flight_modes/acro_mc.md) 또는 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md)에서 테스트할 수 있습니다.
   - 프로펠러 제거
   - 기체에 시동을 걸고 스로틀을 최소로 내립니다.
   - 차량을 모든 방향으로 60도 정도 기울입니다.
-  - 모터가 꺼져 있는 지 확인합니다.</li>
+  - 모터가 꺼져 있는 지 확인합니다.
 - PWM 출력을 사용하는 경우 : [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)이 올바르게 설정되었습니다. 낮게 설정해야하지만 기체 시동시에는 **모터가 절대 멈추지 않도록**합니다.
-- 기체 튜닝전에 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)를 비활성화하십시오 (PID 튜닝 화면에 이에 대한 옵션이 있습니다).</ul>
+- 기체 튜닝전에 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)를 비활성화하십시오 (PID 튜닝 화면에 이에 대한 옵션이 있습니다).
 
 :::warning
 잘못 튜닝된 기체는 불안정하고 충돌 가능성이 높아집니다. [킬 스위치](../config/safety.md#emergency-switches)를 지정했는 지 확인하십시오.
