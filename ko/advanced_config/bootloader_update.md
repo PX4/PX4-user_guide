@@ -1,6 +1,6 @@
 # 부트로더 업데이트
 
-[PX4 부트로더](https://github.com/PX4/Bootloader)는 픽스호크 보드(PX4FMU, PX4IO)와 PX4FLOW에 펌웨어를 불러오는 데 사용됩니다.
+The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO).
 
 이 섹션은 픽스호크 부트로더를 업데이트 방법을 설명합니다.
 
@@ -8,7 +8,7 @@
 하드웨어는 일반적으로 미리 설치된 부트로더를 제공합니다. 적절한 부트로더를 포함하는 이미지를 사용하여 [펌웨어를 업데이트](../config/firmware.md#custom)합니다.
 :::
 
-## PX4 부트로더 직접 빌드
+## Building the new PX4 Bootloader Yourself
 
 FMUv6X STM32H7)로 시작하는 보드는 인트리 PX4 부트로더를 사용합니다. 이전 보드는 레거시 [PX4 부트로더](https://github.com/PX4/Bootloader) 저장소의 부트로더를 사용합니다. 사용 방법은 README의 지침을 참조하십시오.
 
