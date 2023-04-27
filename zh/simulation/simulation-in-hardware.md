@@ -35,7 +35,7 @@ To run the SIH, you will need a [flight controller](../flight_controller/README.
 
 ## 配置硬件仿真（SIH）
 
-Running the SIH is as easy as selecting an airframe. Plug the autopilot to the desktop computer with a USB cable, let it boot, then using a ground control station select [SIH Quadcopter X](../airframes/airframe_reference.md#simulation-copter), `SIH plane AERT`, or 'SIH Tailsitter Duo'. The autopilot will then reboot.
+Running the SIH is as easy as selecting an airframe. Plug the autopilot to the desktop computer with a USB cable, let it boot, then using a ground control station select [SIH Quadcopter X](../airframes/airframe_reference.md#copter_simulation_sih_quadcopter_x), `SIH plane AERT`, or 'SIH Tailsitter Duo'. The autopilot will then reboot.
 
 When the SIH airframe is selected, the module `sih` starts by itself, the vehicle should be displayed on the ground control station map.
 
