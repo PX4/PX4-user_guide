@@ -71,7 +71,7 @@ The FPV pod was mounted on top of the battery hatch using M3 nylon hardware. Mou
 
 ## Pitot Pod
 
-An [airspeed sensor](http://docs.px4.io/main/en/sensor/airspeed.html) is highly recommended for use on fixed wing vehicles. This build uses a MS4525DO differential pressure module and pitot tube housed in a 3D printed pod that has a hardpoint hanger for connecting it to the wing.
+An [airspeed sensor](../sensor/airspeed.md) is highly recommended for use on fixed wing vehicles. This build uses a MS4525DO differential pressure module and pitot tube housed in a 3D printed pod that has a hardpoint hanger for connecting it to the wing.
 
 ![Pitot pod/tube sitting on a desk](../../assets/airframes/fw/turbo_timber_evolution/pitotpod1.jpg)
 
