@@ -1,12 +1,14 @@
-# QuadPlane VTOL 설정 및 튜닝
+# Generic Standard VTOL (QuadPlane) Configuration & Tuning
 
-이것은 QuadPlane VTOL(Quadcopter와 결합된 비행기)에 대한 설정 문서입니다. 기체별 문서와 조립 방법은 [VTOL 프레임 조립](../frames_vtol/README.md)를 참고하십시오.
+This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed wing vehicle with the addition of quadcopter motors.
+
+기체별 문서와 조립 방법은 [VTOL 프레임 조립](../frames_vtol/README.md)를 참고하십시오.
 
 ## 펌웨어 및 기본 설정
 
 1. *QGroundControl*을 실행합니다
-2. 마스터 펌웨어 플래시
-3. 설정 탭에서 적절한 VTOL 기체를 선택하고, 기체가 목록에 없으면 Fun Cub VTOL 기체를 선택합니다.
+2. Flash the firmware for your current release or master (PX4 `main` branch build).
+3. In the [Airframe](config/airframe.md) section select the appropriate VTOL airframe. If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
 
 
 ### 비행 / 전환 모드 스위치
@@ -122,4 +124,4 @@ When transitioning from **fixed wing to multirotor** for this type of VTOL the
 
 ### 지원
 
-If you have any questions regarding your VTOL conversion or configuration please see [https://discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
+If you have any questions regarding your VTOL conversion or configuration please see [discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
