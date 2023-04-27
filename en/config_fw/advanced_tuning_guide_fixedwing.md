@@ -83,4 +83,5 @@ All L1 parameters are described [here](../advanced_config/parameter_reference.md
 
 - [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD) - This is the previously called L1 distance and defines the tracking point ahead of the aircraft it's following. 
   A value of 10-20 meters works for most aircraft.
-  Shorten slowly during tuning until response is sharp without oscillation. Vehicles with a slow roll dynamic should have this value increased.
+  Shorten slowly during tuning until response is sharp without oscillation.
+  Vehicles with a slow roll dynamic should have this value increased.
