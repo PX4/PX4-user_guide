@@ -91,7 +91,7 @@ Make sure the motors do not overheat with the changed settings.
 ### PX4
 
 - Select a generic multicopter airframe
-- Use an [arming switch](../advanced_config/prearm_arm_disarm#arming-button-switch), do not use stick arming
+- Use an [arming switch](../advanced_config/prearm_arm_disarm.md#arming-button-switch), do not use stick arming
 - [Select DShot](../config/actuators.md) as output protocol on all eight outputs
 - Configure the motors according to this: ![Motor Config](../../assets/airframes/multicopter/omnicopter/motors_configuration.png) We used the following convention: the motors are facing the direction of where the axis points to. The spinning direction matches the direction of positive thrust (moving the motor slider up). Make sure to use the right props, as there is a CCW and a CW version.
 - Parameters:

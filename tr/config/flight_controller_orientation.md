@@ -27,7 +27,9 @@ To set the orientations:
 
 1. Start *QGroundControl* and connect the vehicle.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-1. Select the **Set Orientations** button. <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+1. Select the **Set Orientations** button.
+
+   <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
 1. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
 
    <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />

@@ -46,8 +46,8 @@ PX4의 VIO 설정 방법을 더 알아보려면 다음을 참고하십시오:
 [광류 센서(Optical Flow)](../sensor/optical_flow.md) 기술로 2차원 평면상의 속도를 추정합니다(아래 방향으로 향한 카메라와 아래 방향으로 향한 거리 센서 활용).
 
 광류 센서 기술을 더 알아보려면 다음을 참고하십시오.
+
 - [광류](../sensor/optical_flow.md)
-  - [PX4Flow 스마트 카메라](../sensor/px4flow.md)
 - [EKF > 광류](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
 ## 외부 참고 자료

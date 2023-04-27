@@ -53,7 +53,7 @@ Follow-me mode is supported by *QGroundControl* on Android devices with a GPS mo
 
 The following flight precautions should be observed:
 - The following flight precautions should be observed: - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc. - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions.
-  - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres above the home (arming) position.
+  - Set the [follow-me height](#FLW_TGT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres above the home (arming) position.
 - `1` = Follow from behind or trail the user (Default).
 - - Give your vehicle sufficient room to stop, especially when it is moving fast.
 - Be ready to switch back to Position mode if something goes wrong, in particular when using follow-me mode for the first time.

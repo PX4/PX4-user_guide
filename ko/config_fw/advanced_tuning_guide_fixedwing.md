@@ -67,8 +67,8 @@ Do not use [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_M
 Specify the target climb and sink rate for autonomous missions by adjusting [FW_T_CLMB_R_SP](../advanced_config/parameter_reference.md#FW_T_CLMB_R_SP) and [FW_T_SINK_R_SP](../advanced_config/parameter_reference.md#FW_T_SINK_R_SP). These specify the height rates at which the vehicle will climb or descend in order to change altitude. Furthermore, these two values define the height rate limits commanded by the user in [Altitude mode](../flight_modes/altitude_fw.md) and [Position mode](../flight_modes/position_fw.md).
 
 
-### L1 컨트롤러 조정(위치)
+### FW Path Control Tuning (Position)
 
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
+All path control parameters are described [here](../advanced_config/parameter_reference.md#fw-path-control).
 
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - L1 거리이며 추종하는 항공기 전방의 추적 지점을 정의합니다. 25 미터 값은 대부분의 항공기에서 작동합니다. 16-18의 값은 여전히 작동하며 더 선명한 응답을 제공합니다. 진동없이 반응이 날카로울 때까지 튜닝하는 동안 천천히 줄입니다.
+- [NPFG_PERIOD](../advanced_config/parameter_reference.md#NPFG_PERIOD) - This is the previously called L1 distance and defines the tracking point ahead of the aircraft it's following. A value of 10-20 meters works for most aircraft. 진동없이 반응이 날카로울 때까지 튜닝하는 동안 천천히 줄입니다. Vehicles with a slow roll dynamic should have this value increased.

@@ -1,12 +1,16 @@
-# QuadPlane VTOL Configuration & Tuning
+# Generic Standard VTOL (QuadPlane) Configuration & Tuning
 
-This is the configuration documentation for a QuadPlane VTOL setup (Plane combined with Quadcopter). For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
+This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed wing vehicle with the addition of quadcopter motors.
+
+For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
 
 ## Firmware & Basic Settings
 
 1. Run *QGroundControl*
-2. Flash the master firmware
-3. In the Setup tab select the appropriate VTOL airframe, if your airframe is not listed select the Fun Cub VTOL airframe.
+2. Flash the firmware for your current release or master (PX4 `main` branch build).
+3. In the [Frame setup](../config/airframe.md) section select the appropriate VTOL airframe.
+
+   If your airframe is not listed select the [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol) frame.
 
 
 ### Flight / Transition Mode Switch
@@ -44,10 +48,6 @@ Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS
 Front transition throttle defines the target throttle for the pusher/puller motor during the front transition.
 
 This must be set high enough to ensure that the transition airspeed is reached. If your vehicle is equipped with an airspeed sensor then you can increase this parameter to make the front transition complete faster. For your first transition you are better off setting the value higher than lower.
-
-Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
-
-Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable. If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
 
 #### Forward Transition Pusher/Puller Slew Rate
 
@@ -122,4 +122,4 @@ When transitioning from **fixed wing to multirotor** for this type of VTOL the
 
 ### Support
 
-If you have any questions regarding your VTOL conversion or configuration please see [https://discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).
+If you have any questions regarding your VTOL conversion or configuration please see [discuss.px4.io/c/px4/vtol](https://discuss.px4.io/c/px4/vtol).

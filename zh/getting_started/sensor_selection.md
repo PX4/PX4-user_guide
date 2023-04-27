@@ -53,13 +53,9 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 
 ## 光流
 
-[光流](../sensor/optical_flow.md) 传感器使用下视相机和向下的距离传感器进行速度估计。 PX4 将光流传感器输出与来自其他定位源（例如 GPS）的信息融合，以提供更准确的位置锁定。 该传感器可以用于没有 GPS 信号的室内。
+[Optical Flow sensors](../sensor/optical_flow.md) use a downward facing camera and a downward facing distance sensor for velocity estimation. PX4 将光流传感器输出与来自其他定位源（例如 GPS）的信息融合，以提供更准确的位置锁定。 该传感器可以用于没有 GPS 信号的室内。
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
-
-一些选项包括：
-- [PX4Flow](../sensor/px4flow.md)内置声纳测距传感器。
-- [PMW3901](../sensor/pmw3901.md)  有着与光学鼠标非常相似的感应器.
 
 
 <span id="wiring"></span>
@@ -68,6 +64,7 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 传感器接线信息通常在飞控和传感器本身的制造商文档中提供。
 
 另外，请参阅：
-* [基本组件](../assembly/README.md)包含飞控快速入门指南。 其包括核心传感器到特定飞控硬件的接线。
-* [飞控](../flight_controller/README.md) 主题通常包含接线信息。
-* [外设硬件](../peripherals/README.md)包含其他传感器的文档。
+
+- [基本组件](../assembly/README.md)包含飞控快速入门指南。 其包括核心传感器到特定飞控硬件的接线。
+- [飞控](../flight_controller/README.md) 主题通常包含接线信息。
+- [外设硬件](../peripherals/README.md)包含其他传感器的文档。

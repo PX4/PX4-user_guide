@@ -53,7 +53,7 @@ Follow-me mode is supported by *QGroundControl* on Android devices with a GPS mo
 
 The following flight precautions should be observed:
 - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.
-  - -[추적 높이](#NAV_MIN_FT_HT)를 주위 장애물보다 훨씬 높은 값으로 설정합니다. By *default* this is 8 metres above the home (arming) position.
+  - Set the [follow-me height](#FLW_TGT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres above the home (arming) position.
 - - 모드가 자동 이륙을 구현하더라도 착륙시 추적 모드로 전환하는 것보다 추적 모드를 시작하기 전에 수동으로 안전한 높이로 비행하는 것이 *안전*합니다.
 - Give your vehicle sufficient room to stop, especially when it is moving fast.
 - Be ready to switch back to Position mode if something goes wrong, in particular when using follow-me mode for the first time.

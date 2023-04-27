@@ -91,17 +91,6 @@ This flight controller is perfect for people that is looking for a affordable an
 Order from [Holybro](https://holybro.com/collections/autopilot-flight-controllers/products/pix32-v6).
 
 
-<!---
-## Assembly/Setup
-
-[Pixhawk 6C Wiring Quick Start](../assembly/quick_start_pixhawk6c.md) provides instructions on how to assemble required/important peripherals including GPS, Power Module etc.
-
-## Connections
-
-Sample Wiring Diagram
-![Pixhawk 6C Wiring Overview](../../assets/flight_controller/pixhawk6c/pixhawk6c_wiring_diagram.png)
---->
-
 ## Pinouts
 
 * [Holybro Pix32 v6 Baseboard Ports Pinout](https://docs.holybro.com/autopilot/pix32-v6/pix32-v6-baseboard-ports)

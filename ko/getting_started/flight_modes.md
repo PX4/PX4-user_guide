@@ -4,7 +4,7 @@
 
 비행 모드는 이륙 및 착륙과 같은 일반적인 작업의 자동화뿐만 아니라, 수평 비행을 용이하게하기 위하여 고정된 경로나 위치에 기체를 유지하는 메커니즘에 이르기까지 조종사에게 다양한 유형의 자율비행 방법을 제공합니다.
 
-This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
+This topic provides an overview of the available the flight modes for different frame types: [multicopter/helicopter](#multicopter-helicopter) (MC), [fixed-wing](#fixed-wing) (FW), [VTOL](#vertical-take-off-and-landing-vtol), [rovers/boats](#rover-boat).
 
 :::tip
 비행 모드에 대한 자세한 정보는 [비행 &gt; 비행 모드](../flight_modes/README.md)를 참고하십시오.
@@ -72,7 +72,6 @@ Multicopter/Helicopter:
 <a id="mc_flight_modes"></a>
 
 ## Multicopter / Helicopter
-
 
 ### 위치 모드 (멀티콥터)
 
@@ -357,7 +356,7 @@ The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/master/en
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
-[착륙 모드](../flight_modes/land.md)는 이륙 위치에 기체가 착륙합니다. Fixed wing landing logic and parameters are explained in the topic: [Missin > Fixed Wing Mission Landing](../flight_modes/mission.md#fixed-wing-mission-landing).
+[착륙 모드](../flight_modes/land.md)는 이륙 위치에 기체가 착륙합니다. Fixed wing landing logic and parameters are explained in the topic: [Mission > Fixed Wing Mission Landing](../flight_modes/mission.md#fw-mission-landing).
 
 <a id="offboard_fw"></a>
 

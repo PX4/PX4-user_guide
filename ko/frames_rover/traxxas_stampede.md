@@ -12,7 +12,7 @@
   * 3DR 433MHz Telemetry Module (EU)
 * [Spektrum Dxe 컨트롤러](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) 또는 기타 PX4 호환 리모컨
 * [Spektrum 쿼드 레이스 직렬 수신기 w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
-* [PX4Flow](../sensor/px4flow.md)
+* [PX4Flow](../sensor/px4flow.md) (Deprecated)
 
 
 ## 조립

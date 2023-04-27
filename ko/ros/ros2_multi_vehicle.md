@@ -2,14 +2,14 @@
 
 [XRCE-DDS](../middleware/xrce_dds.md) allows for multiple clients to be connected to the same agent over UDP. This is particular useful in simulation as only one agent needs to be started.
 
-## Setup and requirements
+## Setup and Requirements
 
 The only requirements are
 
-- To be able to run [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) without ROS 2 with the desired simulator ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#multiple-vehicle-with-gazebo-classic-no-ros), [FlightGear](../simulation/multi_vehicle_flightgear.md) and [JMAVSim](../simulation/multi_vehicle_jmavsim.md)).
+- To be able to run [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) without ROS 2 with the desired simulator ([Gazebo](../sim_gazebo_gz/multi_vehicle_simulation.md), [Gazebo Classic](../sim_gazebo_classic/multi_vehicle_simulation_gazebo.md#multiple-vehicle-with-gazebo-classic), [FlightGear](../simulation/multi_vehicle_flightgear.md) and [JMAVSim](../simulation/multi_vehicle_jmavsim.md)).
 - To be able to use [ROS 2](./ros2_comm.md) in a single vehicle simulation.
 
-## Principle of operation
+## Principle of Operation
 
 In simulation each PX4 instance receives a unique `px4_instance` number starting from `0`. This value is used to assign a unique value to [XRCE_DDS_KEY](../advanced_config/parameter_reference.md#XRCE_DDS_KEY):
 

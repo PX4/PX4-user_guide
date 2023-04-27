@@ -82,4 +82,5 @@ LIDAR는 사용하지 않는 *직렬 포트* (UART) (예 : TELEM2, TELEM3, GPS2 
 
 ## 추가 정보
 
-- [모듈 참고: 거리 센서 (드라이버) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx) 
+- [Modules Reference: Distance Sensor (Driver) : lightware_laser_i2c](../modules/modules_driver_distance_sensor.md#lightware-laser-i2c)
+- [Modules Reference: Distance Sensor (Driver) : lightware_laser_serial](../modules/modules_driver_distance_sensor.md#lightware-laser-serial)

@@ -1,6 +1,6 @@
 # Bootloader 更新
 
-[PX4 bootloader](https://github.com/PX4/Bootloader)用于为 Pixhawk 板（PX4FMU, PX4IO）和[PX4FLOW](../sensor/px4flow.md)加载固件。
+The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO).
 
 此篇介绍了更新 Pixhawk bootloader 的几种常见方法。
 
@@ -8,7 +8,7 @@
 硬件通常预先安装了合适的引导程序版本。 A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
-## 构建新的 PX4 bootloader
+## Building the new PX4 Bootloader Yourself
 
 以 FMUv6X （STM32H7）开始的板子使用树内的 PX4 bootloader。 旧板子使用遗留的 [PX4 bootloader](https://github.com/PX4/Bootloader) 仓库中的 bootloader。 请参考README中的说明来学习如何使用它。
 
