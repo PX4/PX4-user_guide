@@ -35,13 +35,7 @@ The vehicle will land at the location at which the mode was engaged. 无人机�
 :::warning
 Fixed-wing _Land mode_ is currently broken: [PX4-Autopilot/pull/21036](https://github.com/PX4/PX4-Autopilot/pull/21036). (Specifically, switching to Land mode causes a fly-away.)
 
-Automated landing in missions is supported: [Mission mode > Fixed wing mission landing](../flight_modes/mission.md#fixed-wing-mission-landing). :::
-
-
-<!-- 
-After getting land command it will circle down at the current location.
-The flaring part is the same as for the mission lading.
--->
+Automated landing in missions is supported: [Mission mode > Fixed wing mission landing](../flight_modes/mission.md#fw-mission-landing). :::
 
 
 ## 垂直起降（VTOL）
