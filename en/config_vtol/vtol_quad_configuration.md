@@ -55,11 +55,6 @@ This must be set high enough to ensure that the transition airspeed is reached.
 If your vehicle is equipped with an airspeed sensor then you can increase this parameter to make the front transition complete faster.
 For your first transition you are better off setting the value higher than lower.
 
-Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
-
-Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable.
-If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
-
 #### Forward Transition Pusher/Puller Slew Rate
 
 Parameter: [VT_PSHER_SLEW](../advanced_config/parameter_reference.md#VT_PSHER_SLEW)
