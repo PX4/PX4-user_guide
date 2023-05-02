@@ -12,4 +12,5 @@ Compatible WiFi Telemetry modules include:
 * [3DR Telemetry Wifi](../telemetry/3dr_telemetry_wifi.md) (Discontinued)
 
 # WiFi Telemetry settings for virtual machines
+
 NAT, the default network adapter for VirtualBox 7 prohibits outbound UDP packets which also happens to be what QGC and PX4 use for communications. Changing this to "Bridged Adapter" mode fixes this issue, as it allows the instance direct access to the host's network hardware.
