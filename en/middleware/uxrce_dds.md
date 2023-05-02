@@ -1,10 +1,10 @@
-# XRCE-DDS (PX4-FastDDS Bridge)
+# uXRCE-DDS (PX4-ROS 2/DDS Bridge)
 
 :::note
-XRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
+uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
 :::
 
-PX4 uses XRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics.
+PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics.
 This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands. 
 
 PX4 uses an XRCE-DDS implementation that leverages [eProsima Micro XRCE-DDS](https://micro-xrce-dds.docs.eprosima.com/en/stable/introduction.html).
@@ -15,20 +15,20 @@ In particular it covers the options that are most important to PX4 users.
 
 ## Architecture
 
-The XRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link.
+The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial or UDP link.
 The agent acts as a proxy for the client, enabling it to publish and subscribe to topics in the global DDS data space.
 
-![Architecture XRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
+![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
-In order for PX4 uORB topics to be shared on the DDS network you will need _XRCE-DDS client_ running on PX4, connected to the _XRCE-DDS agent_ running on the companion.
+In order for PX4 uORB topics to be shared on the DDS network you will need _uXRCE-DDS client_ running on PX4, connected to the _micro XRCE-DDS agent_ running on the companion.
 
 The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) publishes to/from a defined set of uORB topics to the global DDS data space.
 
-The [eProsima XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
+The [eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
 
 The agent itself has no dependency on client-side code and can be built and/or installed independent of PX4 or ROS.
 
-Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 XRCE-DDS client so that it can interpret the messages.
+Code that wants to subscribe/publish to PX4 does have a dependency on client-side code; it requires uORB message definitions that match those used to create the PX4 uXRCE-DDS client so that it can interpret the messages.
 
 
 ## Code Generation
@@ -41,18 +41,18 @@ When PX4 is built, a code generator uses the uORB message definitions in the sou
 
 PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
-ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware.
+ROS 2 applications need to be built in a workspace that includes the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware.
 These can be included into a workspace by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace and switching to the appropriate branch.
 Note that all code generation associated with the messages is handled by ROS 2.
 
 
-## XRCE-DDS Agent Installation
+## Micro XRCE-DDS Agent Installation
 
-The XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace.
+The Micro XRCE-DDS Agent can be installed on the companion computer using a binary package, built and installed from source, or built and run from within a ROS 2 workspace.
 All of these methods fetch _all_ the dependencies needed to communicate with the client (such as FastCDR)
 
 :::note
-The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html)
+The official (and more complete) installation guide is the Eprosima: [micro XRCE-DDS Installation Guide](https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html).
 This section summarises the options that have been tested with PX4 during creation of these docs.
 :::
 
@@ -75,7 +75,7 @@ sudo ldconfig /usr/local/lib/
 There are various build configuration options linked from the corresponding topic in the [official guide]( https://micro-xrce-dds.docs.eprosima.com/en/latest/installation.html#installing-the-agent-standalone), but these have not been tested.
 :::
 
-To start the agent with settings for connecting to the XRCE-DDS client running on the simulator:
+To start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
@@ -89,7 +89,7 @@ Install from a snap package on Ubuntu using the following command:
 sudo snap install micro-xrce-dds-agent --edge
 ```
 
-To start the agent with settings for connecting to the XRCE-DDS client running on the simulator (note that the command name is different than if you build the agent locally):
+To start the agent with settings for connecting to the uXRCE-DDS client running on the simulator (note that the command name is different than if you build the agent locally):
 
 ```sh
 micro-xrce-dds-agent udp4 -p 8888
@@ -110,13 +110,13 @@ To build the agent within ROS:
 1. Create a workspace directory for the agent:
 
    ```sh
-   mkdir -p ~/ws_xrce_dds_agent/src
+   mkdir -p ~/px4_ros_uxrce_dds_ws/src
    ```
 
 1. Clone the source code for the eProsima [Micro-XRCE-DDS-Agent](https://github.com/eProsima/Micro-XRCE-DDS-Agent) to the `/src` directory (the `main` branch is cloned by default):
 
    ```sh
-   cd ~/px4_ros_xrce_dds_ws/src
+   cd ~/px4_ros_uxrce_dds_ws/src
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
 1. Source the ROS 2 development environment, in this case "ROS 2 Foxy", and compile the workspace using `colcon`:
@@ -129,7 +129,7 @@ To build the agent within ROS:
    This builds all the folders under `/src` using the sourced toolchain.
 
 
-To run the XRCE-DDS agent in the workspace:
+To run the micro XRCE-DDS agent in the workspace:
 
 1. Source the `local_setup.bash` to make the executables available in the terminal (also `setup.bash` if using a new terminal).
 
@@ -137,13 +137,13 @@ To run the XRCE-DDS agent in the workspace:
    source /opt/ros/foxy/setup.bash
    source install/local_setup.bash
    ```
-1. Start the agent with settings for connecting to the XRCE-DDS client running on the simulator: 
+1. Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator: 
 
    ```sh
    MicroXRCEAgent udp4 -p 8888
    ```
 
-## Starting XRCE-DDS
+## Starting Agent and Client
 
 ### Starting the Agent
 
@@ -157,7 +157,7 @@ Note that the agent supports many channel options, but PX4 only supports UDP and
 You should create a single instance of the agent for each channel over which you need to connect.
 :::
 
-For example, the PX4 simulator runs the XRCE-DDS client over UDP on port 8888, so to connect to the simulator you would start the agent with the command:
+For example, the PX4 simulator runs the uXRCE-DDS client over UDP on port 8888, so to connect to the simulator you would start the agent with the command:
 
 ```sh
 MicroXRCEAgent udp4 -p 8888
@@ -177,26 +177,26 @@ For more information about setting up communications channels see [Pixhawk + Com
 
 ### Starting the Client
 
-The XRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client)) is included by default in all firmware and the simulator.
+The uXRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client)) is included by default in all firmware and the simulator.
 This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
 :::note
 The simulator automatically starts the client on localhost UDP port `8888` using the default uxrce-dds namespace.
 :::
 
-The configuration can be done using the [Micro XRCE-DDS parameters](../advanced_config/parameter_reference.md#micro-xrce-dds):
+The configuration can be done using the [UXRCE-DDS parameters](../advanced_config/parameter_reference.md#uxrce-dds-client):
 
-- [XRCE_DDS_CFG](../advanced_config/parameter_reference.md#XRCE_DDS_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
+- [UXRCE_DDS_CFG](../advanced_config/parameter_reference.md#UXRCE_DDS_CFG): Set the port to connect on, such as `TELEM2`, `Ethernet`, or `Wifi`.
 - If using an Ethernet connection:
-  - [XRCE_DDS_PRT](../advanced_config/parameter_reference.md#XRCE_DDS_PRT):
+  - [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT):
     Use this to specify the agent UDP listening port.
     The default value is `8888`.
-  - [XRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#XRCE_DDS_AG_IP):
+  - [UXRCE_DDS_AG_IP](../advanced_config/parameter_reference.md#UXRCE_DDS_AG_IP):
     Use this to specify the IP address of the agent.
     The IP address must be provided in `int32` format as PX4 does not support string parameters.
     The default value is `2130706433` which corresponds to the _localhost_ `127.0.0.1`.
     
-    You can use [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/pr-micro-XRCE-DDS-allow-IP-parameter/Tools/convert_ip.py) to convert between the formats:
+    You can use [Tools/convert_ip.py](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/convert_ip.py) to convert between the formats:
     
     - To obtain the `int32` version of an IP in decimal dot notation the command is:
     
@@ -217,11 +217,11 @@ The configuration can be done using the [Micro XRCE-DDS parameters](../advanced_
 
 - Some setups might also need these parameters to be set:
 
-  - [XRCE_DDS_KEY](../advanced_config/parameter_reference.md#XRCE_DDS_KEY): The XRCE-DDS key.
+  - [UXRCE_DDS_KEY](../advanced_config/parameter_reference.md#UXRCE_DDS_KEY): The uXRCE-DDS key.
     If you're working in a multi-client, single agent configuration, each client should have a unique non-zero key.
     This is primarily important for multi-vehicle simulations, where all clients are connected in UDP to the same agent.
     (See the [official eprosima documentation](https://micro-xrce-dds.docs.eprosima.com/en/stable/client_api.html#session) , `uxr_init_session`.)
-  - [XRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#XRCE_DDS_DOM_ID): The DDS domain ID.
+  - [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID): The DDS domain ID.
     This provides a logical separation between DDS networks, and can be used to separate clients on different networks.
     By default, ROS 2 operates on ID 0.
 
@@ -247,7 +247,7 @@ For example, the following command can be used to connect via Ethernet to a remo
 ```sh
 uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
-Options `-p` or `-h` are used to bypass `XRCE_DDS_PRT` and `XRCE_DDS_AG_IP`.
+Options `-p` or `-h` are used to bypass `UXRCE_DDS_PRT` and `UXRCE_DDS_AG_IP`.
 
 The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros/ros2_multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces.
 
@@ -259,7 +259,7 @@ The topics are release specific (support is compiled into [uxrce_dds_client](../
 While most releases should support a very similar set of messages, to be certain you would need to check the yaml file for your particular release.
 <!-- Jublish the set we use?: https://github.com/PX4/px4_msgs/issues/22 -->
 
-Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware in order to interpret the messages.
+Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware in order to interpret the messages.
 The message definitions are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs), and they are automatically synchronized by CI on the `main` and release branches.
 Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics.
 Therefore,

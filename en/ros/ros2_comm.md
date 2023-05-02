@@ -5,35 +5,35 @@ The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, al
 This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
 
 :::note
-The [XRCE-DDS](../middleware/uxrce_dds.md) middleware middleware is supported in releases from **PX4 v1.14** 
-**PX4 v1.13** does not support ROS 2 via [XRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
+The [uXRCE-DDS](../middleware/uxrce_dds.md) middleware is supported in releases from **PX4 v1.14**.
+**PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
 <!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
 ## Overview
 
-The application pipeline for ROS 2 is very straightforward, thanks to the use of the [XRCE-DDS](../middleware/uxrce_dds.md) communications middleware.
+The application pipeline for ROS 2 is very straightforward, thanks to the use of the [uXRCE-DDS](../middleware/uxrce_dds.md) communications middleware.
 
-![Architecture XRCE-DDS with ROS 2](../../assets/middleware/uxrce_dds/architecture_xrce-dds_ros2.svg)
+![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
 <!-- doc source: https://docs.google.com/drawings/d/1WcJOU-EcVOZRPQwNzMEKJecShii2G4U3yhA3U6C4EhE/edit?usp=sharing -->
 
-The XRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial, UDP, TCP or custom link.
+The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial, UDP, TCP or custom link.
 The agent acts as a proxy for the client to publish and subscribe to topics in the global DDS data space.
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) is generated at build time and included in PX4 firmare by default.
-It includes both the "generic" XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics.
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) is generated at build time and included in PX4 firmware by default.
+It includes both the "generic" micro XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics.
 The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
 
-ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware.
+ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware.
 You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
 
-Note that the XRCE-DDS _agent_ itself has no dependency on client-side code.
+Note that the micro XRCE-DDS _agent_ itself has no dependency on client-side code.
 It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
 You will normally need to start both the client and agent when using ROS 2.
-Note that the XRCE-DDS client is built into firmware by default but not started automatically except for simulator builds.
+Note that the uXRCE-DDS client is built into firmware by default but not started automatically except for simulator builds.
 
 :::note
 In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com).
@@ -53,7 +53,7 @@ To setup ROS 2 for use with PX4 you will need to:
 
 - [Install PX4](#install-px4) (to use the PX4 simulator)
 - [Install ROS 2](#install-ros-2)
-- [Setup XRCE-DDS Agent & Client](#setup-xrce-dds-agent-client)
+- [Setup Micro XRCE-DDS Agent & Client](#setup-micro-xrce-dds-agent-client)
 - [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
 
 Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
@@ -86,9 +86,9 @@ To install ROS 2 and its dependencies:
    pip3 install --user -U empy pyros-genmsg setuptools
    ```
 
-### Setup XRCE-DDS Agent & Client
+### Setup Micro XRCE-DDS Agent & Client
 
-For ROS 2 to communicate with PX4, a XRCE-DDS client must be running on PX4, connected to an XRCE-DDS agent running on the companion computer.
+For ROS 2 to communicate with PX4, [uXRCE-DDS client](../modules/modules_system.md#uxrce_dds_client) must be running on PX4, connected to a micro XRCE-DDS agent running on the companion computer.
 
 #### Setup the Agent
 
@@ -111,7 +111,7 @@ To setup and start the agent:
    sudo ldconfig /usr/local/lib/
    ```
 
-1. Start the agent with settings for connecting to the XRCE-DDS client running on the simulator: 
+1. Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator: 
 
    ```sh
    MicroXRCEAgent udp4 -p 8888
@@ -126,7 +126,7 @@ Note that only one agent is allowed per connection channel.
 
 #### Start the Client
 
-The PX4 simulator starts the XRCE-DDS client automatically, connecting to UDP port 8888 on the local host.
+The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP port 8888 on the local host.
 
 To start the simulator (and client):
 
@@ -151,7 +151,7 @@ INFO  [uxrce_dds_client] successfully created rt/fmu/out/timesync_status data wr
 ...
 ```
 
-The XRCE-DDS agent terminal should also start to show output, as equivalent topics are created in the DDS network:
+The micro XRCE-DDS agent terminal should also start to show output, as equivalent topics are created in the DDS network:
 
 ```
 ...
@@ -351,7 +351,7 @@ class SensorCombinedListener : public rclcpp::Node
 {
 ```
 
-This creates a callback function for when the `SensorCombined` uORB messages are received (now as XRCE-DDS messages), and outputs the content of the message fields each time the message is received.
+This creates a callback function for when the `SensorCombined` uORB messages are received (now as micro XRCE-DDS messages), and outputs the content of the message fields each time the message is received.
 
 ```cpp
 public:
@@ -485,11 +485,11 @@ For a complete reference example on how to use Offboard control with PX4, see: [
 ROS 2 with PX4 running on a flight controller is almost the same as working with PX4 on the simulator.
 The only difference is that you need to start both the agent _and the client_, with settings appropriate for the communication channel.
 
-For more information see [Starting XRCE-DDS](../middleware/uxrce_dds.md#starting-xrce-dds).
+For more information see [Starting uXRCE-DDS](../middleware/uxrce_dds.md#starting-agent-and-client).
 
 ## Custom uORB Topics
 
-ROS 2 needs to have the _same_ message definitions that were used to create the XRCE-DDS client module in the PX4 Firmware in order to interpret the messages.
+ROS 2 needs to have the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware in order to interpret the messages.
 The definition are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) and they are automatically synchronized by CI on the `main` and release branches.
 Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics.
 Therefore,
@@ -506,7 +506,7 @@ Therefore,
   
   :::note
   Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
-  For more information see [XRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
+  For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
   :::
 
 ## Customizing the Topic Namespace
