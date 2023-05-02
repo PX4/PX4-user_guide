@@ -1111,6 +1111,33 @@ rgbled <command> [arguments...]
 
    status        print status info
 ```
+## rgbled_is31fl3195
+Source: [drivers/lights/rgbled_is31fl3195](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_is31fl3195)
+
+<a id="rgbled_is31fl3195_usage"></a>
+
+### Usage
+```
+rgbled_is31fl3195 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 84
+     [-o <val>]  RGB PWM Assignment
+                 default: 123
+     [-i <val>]  Current Band
+                 default: 0.5
+
+   stop
+
+   status        print status info
+```
 ## safety_button
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
