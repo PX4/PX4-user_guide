@@ -92,7 +92,7 @@ For ROS 2 to communicate with PX4, [uXRCE-DDS client](../modules/modules_system.
 
 #### Setup the Agent
 
-The agent can be installed onto the companion computer in a [number of ways](../middleware/uxrce_dds.md#xrce-dds-agent-installation).
+The agent can be installed onto the companion computer in a [number of ways](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation).
 Below we show how to build the agent "standalone" from source and connect to a client running on the PX4 simulator.
 
 To setup and start the agent:
