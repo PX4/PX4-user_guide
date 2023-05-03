@@ -20820,83 +20820,6 @@ table {
 </tr>
 </tbody></table>
 
-## Micro XRCE-DDS
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="XRCE_DDS_AG_IP">XRCE_DDS_AG_IP</strong> (INT32)</td>
- <td>Micro DDS Agent IP address <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for micro DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>2130706433</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="XRCE_DDS_CFG">XRCE_DDS_CFG</strong> (INT32)</td>
- <td>Serial Configuration for Micro XRCE-DDS <p><strong>Comment:</strong> Configure on which serial port to run Micro XRCE-DDS.</p> <strong>参数对照:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>6:</strong> UART 6</li>
-
-<li><strong>101:</strong> TELEM 1</li>
-
-<li><strong>102:</strong> TELEM 2</li>
-
-<li><strong>103:</strong> TELEM 3</li>
-
-<li><strong>104:</strong> TELEM/SERIAL 4</li>
-
-<li><strong>201:</strong> GPS 1</li>
-
-<li><strong>202:</strong> GPS 2</li>
-
-<li><strong>203:</strong> GPS 3</li>
-
-<li><strong>300:</strong> Radio Controller</li>
-
-<li><strong>301:</strong> Wifi Port</li>
-
-<li><strong>401:</strong> EXT2</li>
-
-<li><strong>1000:</strong> Ethernet</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="XRCE_DDS_DOM_ID">XRCE_DDS_DOM_ID</strong> (INT32)</td>
- <td>XRCE DDS domain ID <p><strong>Comment:</strong> XRCE DDS domain ID</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="XRCE_DDS_KEY">XRCE_DDS_KEY</strong> (INT32)</td>
- <td>XRCE DDS Session key <p><strong>Comment:</strong> XRCE DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td></td>
- <td>1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="XRCE_DDS_PRT">XRCE_DDS_PRT</strong> (INT32)</td>
- <td>Micro DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for micro DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
-</td>
- <td>[0, 65535] </td>
- <td>8888</td>
- <td></td>
-</tr>
-</tbody></table>
-
 ## Mission
 
 <table>
@@ -32753,6 +32676,83 @@ table {
 </td>
  <td></td>
  <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## UXRCE-DDS Client
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>名称</th><th>参数描述</th><th>[Min, Max] (Incr.)</th><th>默认值</th><th>单位</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UXRCE_DDS_AG_IP">UXRCE_DDS_AG_IP</strong> (INT32)</td>
+ <td>uXRCE-DDS Agent IP address <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>2130706433</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_CFG">UXRCE_DDS_CFG</strong> (INT32)</td>
+ <td>Serial Configuration for UXRCE-DDS Client <p><strong>Comment:</strong> Configure on which serial port to run UXRCE-DDS Client.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>6:</strong> UART 6</li>
+
+<li><strong>101:</strong> TELEM 1</li>
+
+<li><strong>102:</strong> TELEM 2</li>
+
+<li><strong>103:</strong> TELEM 3</li>
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li>
+
+<li><strong>201:</strong> GPS 1</li>
+
+<li><strong>202:</strong> GPS 2</li>
+
+<li><strong>203:</strong> GPS 3</li>
+
+<li><strong>300:</strong> Radio Controller</li>
+
+<li><strong>301:</strong> Wifi Port</li>
+
+<li><strong>401:</strong> EXT2</li>
+
+<li><strong>1000:</strong> Ethernet</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_DOM_ID">UXRCE_DDS_DOM_ID</strong> (INT32)</td>
+ <td>uXRCE-DDS domain ID <p><strong>Comment:</strong> uXRCE-DDS domain ID</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_KEY">UXRCE_DDS_KEY</strong> (INT32)</td>
+ <td>uXRCE-DDS Session key <p><strong>Comment:</strong> uXRCE-DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UXRCE_DDS_PRT">UXRCE_DDS_PRT</strong> (INT32)</td>
+ <td>uXRCE-DDS UDP Port <p><strong>Comment:</strong> If ethernet enabled and selected as configuration for uXRCE-DDS, selected udp port will be set and used.</p>   <p><b>Reboot required:</b> True</p>
+</td>
+ <td>[0, 65535] </td>
+ <td>8888</td>
  <td></td>
 </tr>
 </tbody></table>

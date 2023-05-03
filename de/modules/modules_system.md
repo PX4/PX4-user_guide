@@ -418,44 +418,6 @@ manual_control <command> [arguments...]
 
    status        print status info
 ```
-## microdds_client
-Source: [modules/microdds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/microdds_client)
-
-
-### Description
-MicroDDS Client used to communicate uORB topics with an Agent over serial or UDP.
-
-### Examples
-```
-microdds_client start -t serial -d /dev/ttyS3 -b 921600
-microdds_client start -t udp -h 127.0.0.1 -p 15555
-```
-
-<a id="microdds_client_usage"></a>
-
-### Usage
-```
-microdds_client <command> [arguments...]
- Commands:
-   start
-     [-t <val>]  Transport protocol
-                 values: serial|udp, default: udp
-     [-d <val>]  serial device
-                 values: <file:dev>
-     [-b <val>]  Baudrate (can also be p:<param_name>)
-                 default: 0
-     [-h <val>]  Agent IP. If not provided, defaults to XRCE_DDS_AG_IP
-                 values: <IP>
-     [-p <val>]  Agent listening port. If not provided, defaults to XRCE_DDS_PRT
-     [-l]        Restrict to localhost (use in combination with
-                 ROS_LOCALHOST_ONLY=1)
-     [-c]        Use custom participant config (profile_name="px4_participant")
-     [-n <val>]  Client DDS namespace
-
-   stop
-
-   status        print status info
-```
 ## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman)
 
@@ -771,6 +733,45 @@ tune_control <command> [arguments...]
    libtest       Test library
 
    stop          Stop playback (use for repeated tunes)
+```
+## uxrce_dds_client
+Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
+
+
+### Description
+UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
+
+### Examples
+```
+uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
+uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
+```
+
+<a id="uxrce_dds_client_usage"></a>
+
+### Usage
+```
+uxrce_dds_client <command> [arguments...]
+ Commands:
+   start
+     [-t <val>]  Transport protocol
+                 values: serial|udp, default: udp
+     [-d <val>]  serial device
+                 values: <file:dev>
+     [-b <val>]  Baudrate (can also be p:<param_name>)
+                 default: 0
+     [-h <val>]  Agent IP. If not provided, defaults to UXRCE_DDS_AG_IP
+                 values: <IP>
+     [-p <val>]  Agent listening port. If not provided, defaults to
+                 UXRCE_DDS_PRT
+     [-l]        Restrict to localhost (use in combination with
+                 ROS_LOCALHOST_ONLY=1)
+     [-c]        Use custom participant config (profile_name="px4_participant")
+     [-n <val>]  Client DDS namespace
+
+   stop
+
+   status        print status info
 ```
 ## work_queue
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)

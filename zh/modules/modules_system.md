@@ -443,44 +443,6 @@ manual_control <command> [arguments...]
 
    status        print status info
 ```
-## microdds_client
-Source: [modules/microdds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/microdds_client)
-
-
-### Description
-MicroDDS Client used to communicate uORB topics with an Agent over serial or UDP.
-
-### Examples
-```
-microdds_client start -t serial -d /dev/ttyS3 -b 921600
-microdds_client start -t udp -h 127.0.0.1 -p 15555
-```
-
-<a id="microdds_client_usage"></a>
-
-### 用法
-```
-microdds_client <command> [arguments...]
- Commands:
-   start
-     [-t <val>]  Transport protocol
-                 values: serial|udp, default: udp
-     [-d <val>]  serial device
-                 values: <file:dev>
-     [-b <val>]  Baudrate (can also be p:<param_name>)
-                 default: 0
-     [-h <val>]  Agent IP. If not provided, defaults to XRCE_DDS_AG_IP
-                 values: <IP>
-     [-p <val>]  Agent listening port. If not provided, defaults to XRCE_DDS_PRT
-     [-l]        Restrict to localhost (use in combination with
-                 ROS_LOCALHOST_ONLY=1)
-     [-c]        Use custom participant config (profile_name="px4_participant")
-     [-n <val>]  Client DDS namespace
-
-   stop
-
-   status        print status info
-```
 ## netman
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman)
 
@@ -493,7 +455,7 @@ Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/s
 
 <a id="netman_usage"></a>
 
-### Usage
+### 用法
 ```
 netman <command> [arguments...]
  Commands:
@@ -516,7 +478,7 @@ Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes 
 
 <a id="pwm_input_usage"></a>
 
-### 用法
+### Usage
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -530,7 +492,7 @@ pwm_input <command> [arguments...]
 Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/rc_update)
 
 
-### 参数描述
+### Description
 The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_input`.
 
 ### Implementation
@@ -539,7 +501,7 @@ To reduce control latency, the module is scheduled on input_rc publications.
 
 <a id="rc_update_usage"></a>
 
-### Usage
+### 用法
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -553,7 +515,7 @@ rc_update <command> [arguments...]
 Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/replay)
 
 
-### Description
+### 参数描述
 This module is used to replay ULog files.
 
 There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
@@ -796,6 +758,45 @@ tune_control <command> [arguments...]
    libtest       Test library
 
    stop          Stop playback (use for repeated tunes)
+```
+## uxrce_dds_client
+Source: [modules/uxrce_dds_client](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/uxrce_dds_client)
+
+
+### Description
+UXRCE-DDS Client used to communicate uORB topics with an Agent over serial or UDP.
+
+### Examples
+```
+uxrce_dds_client start -t serial -d /dev/ttyS3 -b 921600
+uxrce_dds_client start -t udp -h 127.0.0.1 -p 15555
+```
+
+<a id="uxrce_dds_client_usage"></a>
+
+### Usage
+```
+uxrce_dds_client <command> [arguments...]
+ Commands:
+   start
+     [-t <val>]  Transport protocol
+                 values: serial|udp, default: udp
+     [-d <val>]  serial device
+                 values: <file:dev>
+     [-b <val>]  Baudrate (can also be p:<param_name>)
+                 default: 0
+     [-h <val>]  Agent IP. If not provided, defaults to UXRCE_DDS_AG_IP
+                 values: <IP>
+     [-p <val>]  Agent listening port. If not provided, defaults to
+                 UXRCE_DDS_PRT
+     [-l]        Restrict to localhost (use in combination with
+                 ROS_LOCALHOST_ONLY=1)
+     [-c]        Use custom participant config (profile_name="px4_participant")
+     [-n <val>]  Client DDS namespace
+
+   stop
+
+   status        print status info
 ```
 ## work_queue
 Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/work_queue)
