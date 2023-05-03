@@ -16743,48 +16743,6 @@
     },
     {
       "category": "Standard",
-      "default": 2130706433,
-      "group": "Micro XRCE-DDS",
-      "longDesc": "If ethernet enabled and selected as configuration for micro DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.",
-      "name": "XRCE_DDS_AG_IP",
-      "rebootRequired": true,
-      "shortDesc": "Micro DDS Agent IP address",
-      "type": "Int32"
-    },
-    {
-      "category": "System",
-      "default": 0,
-      "group": "Micro XRCE-DDS",
-      "longDesc": "XRCE DDS domain ID",
-      "name": "XRCE_DDS_DOM_ID",
-      "rebootRequired": true,
-      "shortDesc": "XRCE DDS domain ID",
-      "type": "Int32"
-    },
-    {
-      "category": "System",
-      "default": 1,
-      "group": "Micro XRCE-DDS",
-      "longDesc": "XRCE DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.",
-      "name": "XRCE_DDS_KEY",
-      "rebootRequired": true,
-      "shortDesc": "XRCE DDS Session key",
-      "type": "Int32"
-    },
-    {
-      "category": "Standard",
-      "default": 8888,
-      "group": "Micro XRCE-DDS",
-      "longDesc": "If ethernet enabled and selected as configuration for micro DDS, selected udp port will be set and used.",
-      "max": 65535,
-      "min": 0,
-      "name": "XRCE_DDS_PRT",
-      "rebootRequired": true,
-      "shortDesc": "Micro DDS UDP Port",
-      "type": "Int32"
-    },
-    {
-      "category": "Standard",
       "default": 30,
       "group": "Mission",
       "longDesc": "The time in seconds the system should do open loop loiter and wait for GPS recovery before it starts descending. Set to 0 to disable. Roll angle is set to FW_GPSF_R. Does only apply for fixed-wing vehicles or VTOLs with NAV_FORCE_VT set to 0.",
@@ -31588,6 +31546,48 @@
           "value": 1
         }
       ]
+    },
+    {
+      "category": "Standard",
+      "default": 2130706433,
+      "group": "UXRCE-DDS Client",
+      "longDesc": "If ethernet enabled and selected as configuration for uXRCE-DDS, selected Agent IP address will be set and used. Decimal dot notation is not supported. IP address must be provided in int32 format. For example, 192.168.1.2 is mapped to -1062731518; 127.0.0.1 is mapped to 2130706433.",
+      "name": "UXRCE_DDS_AG_IP",
+      "rebootRequired": true,
+      "shortDesc": "uXRCE-DDS Agent IP address",
+      "type": "Int32"
+    },
+    {
+      "category": "System",
+      "default": 0,
+      "group": "UXRCE-DDS Client",
+      "longDesc": "uXRCE-DDS domain ID",
+      "name": "UXRCE_DDS_DOM_ID",
+      "rebootRequired": true,
+      "shortDesc": "uXRCE-DDS domain ID",
+      "type": "Int32"
+    },
+    {
+      "category": "System",
+      "default": 1,
+      "group": "UXRCE-DDS Client",
+      "longDesc": "uXRCE-DDS key, must be different from zero. In a single agent - multi client configuration, each client must have a unique session key.",
+      "name": "UXRCE_DDS_KEY",
+      "rebootRequired": true,
+      "shortDesc": "uXRCE-DDS Session key",
+      "type": "Int32"
+    },
+    {
+      "category": "Standard",
+      "default": 8888,
+      "group": "UXRCE-DDS Client",
+      "longDesc": "If ethernet enabled and selected as configuration for uXRCE-DDS, selected udp port will be set and used.",
+      "max": 65535,
+      "min": 0,
+      "name": "UXRCE_DDS_PRT",
+      "rebootRequired": true,
+      "shortDesc": "uXRCE-DDS UDP Port",
+      "type": "Int32"
     },
     {
       "category": "Standard",
