@@ -79,7 +79,7 @@ The following parameters must be set to use external position information with E
 
 Parameter | Setting for External Position Estimation
 --- | ---
-[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* according to your desired fusion model.
+[EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) | Set *horizontal position fusion*, *vertical vision fusion*, *velocity fusion*, and *yaw fusion*, according to your desired fusion model.
 [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) | Set to *Vision* to use the vision as the reference source for altitude estimation.
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY).
 [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor (or MoCap markers) with respect to the robot's body frame.
