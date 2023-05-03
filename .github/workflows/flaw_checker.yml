@@ -78,7 +78,7 @@ jobs:
         id: link-check
         run: |
           npm -g install markdown_link_checker_sc
-          markdown_link_checker_sc -d en -f ./logs/prFiles.json -i assets > ./logs/errorsFilteredByPrPages.md
+          markdown_link_checker_sc -r ${{ github.workspace }} -d en -f ./logs/prFiles.json -i assets > ./logs/errorsFilteredByPrPages.md
 
       - name: Read errorsFilteredByPrPages.md file
         id: read-errors-by-page
