@@ -18,34 +18,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-
-      - name: Get changed translation files
-        # Get changed files that are not in /en
-        id: get_changed_markdown_translations
-        uses: tj-actions/changed-files@v35
-        with:
-          files: |
-            **/*.md
-          files_ignore: 'en'
-
-      - name: Convert file list of translations to bullet list
-        id: bullet_list
-        uses: actions/github-script@v6
-        with:
-          # github-token: ${{ secrets.GITHUB_TOKEN }}
-
-          # Split up files let to bullet list
-          script: |
-            const files = '${{ steps.get_changed_markdown_translations.outputs.all_changed_files }}'.split(' ');
-            console.log(files);           
-            let bulletList = '\n- `ERROR` ' + files.join(': Use crowdin for [translation file changes](http://docs.px4.io/main/en/contribute/translation.html) \n - ');
-            bulletList+='Use crowdin for [translation file changes](http://docs.px4.io/main/en/contribute/translation.html) \n'
-            console.log(bulletList);
-            return bulletList;
-          result-encoding: string
-               
-      - name: Echo Translation result file
-        run: echo "${{ steps.bullet_list.outputs.result }}"
         
       - name: Create logs directory
         run: |
@@ -104,7 +76,6 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Found flaws
-            ${{ steps.bullet_list.outputs.result }}
             ${{ steps.read-errors-by-page.outputs.content }}
           edit-mode: replace
           
