@@ -3,6 +3,7 @@
 A package delivery mission allows users to plan and execute cargo delivery using a [gripper](../peripherals/gripper.md).
 
 :::note
+This feature was added in PX4 v1.14 with support for Gripper (only).
 Package delivery missions will be extended to support other cargo release hardware in future, including winches.
 :::
 
