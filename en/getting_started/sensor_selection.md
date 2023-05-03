@@ -62,7 +62,7 @@ For more information see: [Distance Sensors](../sensor/rangefinders.md).
 PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. 
 This sensor can be used indoors, when no GPS signal is available.
 
-![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg) 
+![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
 <span id="wiring"></span>
