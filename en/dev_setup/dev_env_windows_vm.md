@@ -95,3 +95,7 @@ You should also be able to build and upload firmware using a command like:
 ```
 make px4_fmu-v5_default upload
 ```
+
+### Telemetry over WiFi for QGroundControl
+
+If you cannot receive telemetry from your vehicle while QGroundControl in your virtual machine, it may be due to your host machine's networking setup. For instance, VirtualBox 7 running Ubuntu 20.04 LTS will default to Network Address Translation (NAT), which blocks outbound UDP packets that QGroundControl uses to communicate with the vehicle. Changing this network setting to "Bridged Adapter" mode resolves this issue by giving the guest OS direct access to networking hardware on the host.
