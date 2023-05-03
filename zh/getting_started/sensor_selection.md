@@ -55,7 +55,7 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 
 [Optical Flow sensors](../sensor/optical_flow.md) use a downward facing camera and a downward facing distance sensor for velocity estimation. PX4 将光流传感器输出与来自其他定位源（例如 GPS）的信息融合，以提供更准确的位置锁定。 该传感器可以用于没有 GPS 信号的室内。
 
-![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
+![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
 <span id="wiring"></span>
