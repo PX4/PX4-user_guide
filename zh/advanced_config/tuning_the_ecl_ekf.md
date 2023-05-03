@@ -323,7 +323,7 @@ For effective obstruction detection, the range finder noise parameter needs to b
 
 ### 基于阻力比力的多旋翼风场估计
 
-多旋翼平台可以利用沿 X 和 Y 机体轴的空速和阻力之间的关系来估计风速的北/东分量。 通过将 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第5位设置为 `true` 来启用此功能。
+多旋翼平台可以利用沿 X 和 Y 机体轴的空速和阻力之间的关系来估计风速的北/东分量。 This can be enabled using [EKF2_DRAG_CTRL](../advanced_config/parameter_reference.md#EKF2_DRAG_CTRL).
 
 沿 X 和 Y 轴的空速和比力（IMU加速度）之间的关系由 [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) ， [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) 和 [EKF2_MCOEF](../advanced_config/parameter_reference.md#EKF2_MCOEF) 参数控制，这些参数分别设置了 X 和 Y 方向飞行的弹道系数，以及螺旋桨产生的动量阻力。 比力观测噪声量由 [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) 参数设置。
 
@@ -339,33 +339,21 @@ For effective obstruction detection, the range finder noise parameter needs to b
 如果满足以下条件，将使用[Optical flow](../sensor/optical_flow.md)数据：
 
 * 有效的测距仪数据可用。
-* 在 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 1 位为真。
+* [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL) is set.
 * 光流传感器返回的质量度量值大于 [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) 参数设置的最低要求。
 
 ### 外部视觉系统
 
-来自外部视觉系统，例如 Vicon，提供位置、速度和姿态测量，在以下条件下可以被使用：
+Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used.
 
-* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 3 位为真，则将使用外部视觉系统的水平位置数据。
-* External vision system vertical position data will be used if the [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) parameter is set to 3. For more details about the configuration of height sources, [click here](#height).
-* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 8 位设置为真，将使用外部视觉系统速度数据。
-* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 4 位为真，则外部视觉系统姿态数据将用于偏航估计。
-* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 6 位为真，则外部视觉参考帧偏移将被估计并用于旋转外部视觉系统数据。
+The measurements that are fused are configured by setting the appropriate bits of [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL) to `true`:
 
-要么将第 4 位(`EV_YAW`)或将第 6 位(`EV_ROTATE`)设置为 true，但不能同时设置为 true。 当与外部视觉系统一起使用时，支持以下 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)  值。
+- `0`: Horizontal position data
+- `1`: Vertical position data. Height sources may additionally be configured using [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF) (see section [Height](#height)).
+- `2`: Velocity data
+- `3`: Yaw data
 
-| EKF_AID_MASK 值 | 设置位                           | 描述                                   |
-| ---------------- | ----------------------------- | ------------------------------------ |
-| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                 |
-| 24               | EV_POS + EV_YAW             | Heading w.r.t. external vision frame |
-| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                 |
-| 272              | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame |
-| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame |
-| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                 |
-
-:::tip
-When using external vision in combination with [GNSS fusion](#gps), it is recommended to use `EV_VEL` and not `EV_POS` in order to prevent the two position-fixing sources from fighting against each other.
-:::
+Note that if yaw data is used (bit 3) the heading is with respect to the external vision frame; otherwise the heading is relative to North.
 
 EKF 要考虑视觉姿态估计的不确定性。 此不确定性信息可以通过 MAVLink，在 [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 消息中的协方差字段发送，也可以通过 [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE) ，[EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) 和 [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE) 参数设置。 你可以通过 [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD) 选择不确定性数据源。
 
