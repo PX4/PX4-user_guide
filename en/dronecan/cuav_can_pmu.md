@@ -56,7 +56,7 @@ The connection steps are:
 
 ## Flight Controller Setup
 
-Set the following parameters in the *QGroundControl* [parameter list](../advanced_config/parameters.md) and then restart:
+Set the following parameters in *QGroundControl* [Vehicle Setup > Parameters](../advanced_config/parameters.md) and then restart:
 
 * `UAVCAN_ENABLE`: set to: *Sensors Automatic Config*
 
@@ -64,7 +64,7 @@ Set the following parameters in the *QGroundControl* [parameter list](../advance
 
 * `UAVCAN_SUB_BAT`: set to: *Raw data*
 
-  ![qgc set2](../../assets/hardware/power_module/cuav_can/qgc_set_en2.png)
+  ![QGC - Set UAVCAN_SUB_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
 
 
 ## Further Information
