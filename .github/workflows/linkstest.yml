@@ -54,7 +54,11 @@ jobs:
       id: link-check
       run: |
         npm -g install markdown_link_checker_sc
-        markdown_link_checker_sc -d ${{ github.workspace }}/en -f ./logs/log.md -r ${{ github.workspace }} > ./logs/filteredLinks.md
+        #markdown_link_checker_sc -d ${{ github.workspace }}/en -f ./logs/log.md -r ${{ github.workspace }} > ./logs/filteredLinks.md
+        #markdown_link_checker_sc -r ${{ github.workspace }} -d en -f ./logs/prFiles.json -i assets > ./logs/errorsFilteredByPrPages.md
+        markdown_link_checker_sc -r ${{ github.workspace }} -d en -f ./logs/log.md -i assets > ./logs/errorsFilteredByPrPages.md
+        
+        
         #output=$(markdown_link_checker_sc -d ${{ github.workspace }}/en -f ./logs/log.md -r ${{ github.workspace }} )
         # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-a-multiline-string
         # How to do multi-line input from standard out.
