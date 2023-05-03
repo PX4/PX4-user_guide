@@ -55,7 +55,7 @@ GPS와 나침반의 일반적인 옵션은 [GPS 및 나침반](../gps_compass/RE
 
 [Optical Flow sensors](../sensor/optical_flow.md) use a downward facing camera and a downward facing distance sensor for velocity estimation. PX4는 센서 데이터와 다른 위치 정보(예 : GPS)를 연계하여 정확한 위치를 측정합니다. 광류 센서는 GPS 신호가 잡히지 않는 실내에서도 사용할 수 있습니다.
 
-![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
+![Image of ARK Flow optical flow sensor](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 
 <span id="wiring"></span>
