@@ -1,0 +1,110 @@
+name: Check for flaws
+# So far:
+  # Modifications of translations files
+  # Broken internal links
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check_flaws:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Get changed translation files
+        # Get changed files that are not in /en
+        id: get_changed_markdown_translations
+        uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            **/*.md
+          files_ignore: 'en'
+
+      - name: Convert file list of translations to bullet list
+        id: bullet_list
+        uses: actions/github-script@v6
+        with:
+          # github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          # Split up files let to bullet list
+          script: |
+            const files = '${{ steps.get_changed_markdown_translations.outputs.all_changed_files }}'.split(' ');
+            console.log(files);           
+            let bulletList = '\n- `ERROR` ' + files.join(': Use crowdin for [translation file changes](http://docs.px4.io/main/en/contribute/translation.html) \n - ');
+            bulletList+='Use crowdin for [translation file changes](http://docs.px4.io/main/en/contribute/translation.html) \n'
+            console.log(bulletList);
+            return bulletList;
+          result-encoding: string
+               
+      - name: Echo Translation result file
+        run: echo "${{ steps.bullet_list.outputs.result }}"
+        
+      - name: Create logs directory
+        run: |
+          mkdir logs
+
+      - name: Get changed english files
+        id: get_changed_markdown_english
+        uses: tj-actions/changed-files@v35
+        with:
+          json: true
+          # Below are used to output files to a directory. May use in flaw checker.
+          #write_output_files: true
+          #output_dir: "./logs"
+          files: |
+            en/**/*.md
+          
+      - name: Save JSON file containg files to link check 
+        run: |
+          echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}"
+          echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" > ./logs/prFiles.json
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            logs
+          
+      - name: Run link checker
+        id: link-check
+        run: |
+          npm -g install markdown_link_checker_sc@0.0.117
+          markdown_link_checker_sc -r ${{ github.workspace }} -d en -f ./logs/prFiles.json -i assets > ./logs/errorsFilteredByPrPages.md
+          
+      - name: Read errorsFilteredByPrPages.md file
+        id: read-errors-by-page
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./logs/errorsFilteredByPrPages.md
+
+      - name: Echo Errors by Page
+        run: echo "${{ steps.read-errors-by-page.outputs.content }}"
+ 
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Found flaws
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Found flaws
+            ${{ steps.bullet_list.outputs.result }}
+            ${{ steps.read-errors-by-page.outputs.content }}
+          edit-mode: replace
+          
