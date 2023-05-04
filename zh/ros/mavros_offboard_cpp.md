@@ -211,6 +211,6 @@ while(ros::ok()){
 该代码的其余部分完全是自解释性的。 我们尝试切换到 *Offboard* 模式，然后解锁四旋翼飞行器以允许其飞行。 我们每隔五秒去调用一次该服务，避免飞控被大量的请求阻塞。 在同一个循环中，我们按照指定的频率持续发送期望点设定值信息给飞控。
 
 :::tip
-This code has been simplified to the bare minimum for illustration purposes.
-In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
+该示例代码非常简单仅为了说明使用方法。
+在一个复杂的系统中，通常需要创建新的进程来负责周期性的发送位置期望值给飞控。
 :::
