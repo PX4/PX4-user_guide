@@ -581,7 +581,7 @@
       * [Wind](msg_docs/Wind.md)
       * [YawEstimatorStatus](msg_docs/YawEstimatorStatus.md)
     * [MAVLink Messaging](middleware/mavlink.md)
-    * [XRCE-DDS (PX4-ROS 2/DDS Bridge)](middleware/xrce_dds.md)
+    * [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](middleware/uxrce_dds.md)
   * [모듈과 명령어](modules/modules_main.md)
     * [자동 튜닝](modules/modules_autotune.md)
     * [명령어](modules/modules_command.md)
