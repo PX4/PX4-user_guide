@@ -17,7 +17,7 @@ Although this step isn't mandatory since you can activate offboard mode using a 
 
 ### 2. 启用配套的计算机接口
 
-Enable MAVLink on the serial port that you connect to the companion computer (see [Companion Computers](../companion_computer/README.md)).
+在连接任务计算机的串口上启动MAVLink （参见 [任务计算机](../companion_computer/README.md)）。
 
 ## 硬件安装
 
