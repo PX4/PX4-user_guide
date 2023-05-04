@@ -1,22 +1,22 @@
-# MAVROS *Offboard* control example (C++)
+# MAVROS *Offboard* 控制示例 (C++)
 
-This tutorial shows the basics of *Offboard* control with MAVROS, using an Iris quadcopter simulated in Gazebo Classic/SITL. At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
+本教程介绍了基于MAVROS的*Offboard* 控制相关的基础知识，控制对象为 Gazbo/SITL 中的Iris模拟四轴飞行器 。 在教程结束时，你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。
 
 :::warning
-*Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*Offboard* 控制模式是危险的。 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
 :::
 
 :::tip
-This example uses C++. A very similar example for Python can be found in [ROS/MAVROS Offboard Example (Python)](../ros/mavros_offboard_python.md) (also see the examples in [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
+该例程使用C++。 相似的使用 Python 的例子参见 [ROS/MAVROS Offboard示例(Python)](../ros/mavros_offboard_python.md) (也可参见 [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros))。
 :::
 
 <video width="100%" autoplay="true" controls="true">
   <source src="../../assets/simulation/gazebo_classic/gazebo_offboard.webm" type="video/webm">
 </video>
 
-## Code
+## 代码
 
-Create the `offb_node.cpp` file in your ROS package (by also adding it to your `CMakeList.txt` so it is compiled), and paste the following inside it:
+在 ROS 包中创建 `offb_node.cpp` 文件（并且将其添加到 `CMakeList.txt` 以便对其进行编译），并在其中粘贴以下内容：
 
 ```cpp
 /**
@@ -109,7 +109,7 @@ int main(int argc, char **argv)
 
 ```
 
-## Code explanation
+## 代码解释
 
 ```cpp
 #include <ros/ros.h>
