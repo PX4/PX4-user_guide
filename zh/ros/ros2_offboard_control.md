@@ -100,11 +100,11 @@ timer_ = this->create_wall_timer(100ms, timer_callback);
 
 循环运行在一个100毫秒计时器。 在前10个周期中，它调用 `publish_offboard_control_mode()` 和 `publish_trajectory_setpoint()` 发送 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 和 [TracjectorySetpoint](../msg_docs/TrajectorySetpoint.md) 消息到 PX4。 `OffboardControlMode` 消息已经被接到，所以PX4将允许被解锁一旦切换至offboard模式后， `TrajectorySetpoint` 将被忽略(直到飞行器处于offboard模式)。
 
-在 10 个周期后调用 `publish_vehicle_command()` 切换至offboard模式，并调用 `arm()` 来解锁飞行器。 在飞行器解锁并和切换模式后，它将开始跟踪位置设定值。 The setpoints are still sent in every cycle so that the vehicle does not fall out of offboard mode.
+在 10 个周期后调用 `publish_vehicle_command()` 切换至offboard模式，并调用 `arm()` 来解锁飞行器。 在飞行器解锁并和切换模式后，它将开始跟踪位置设定值。 在每个周期内仍然发送设定值，确保飞行器不会切换出offboard模式。
 
-The implementations of the `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` methods are shown below. These publish the [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4 (respectively).
+`publish_offboard_control_mode()` 和 `publish_trajectory_setpoint()` 方法的实现如下。 发布 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 和 [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) 消息到 PX4 (依次)。
 
-The `OffboardControlMode` is required in order to inform PX4 of the _type_ of offboard control behing used. Here we're only using _position control_, so the `position` field is set to `true` and all the other fields are set to `false`.
+`OffboardControlMode` 是必须的以通知PX4 offboard模式所需使用的控制 _类型_ 。 这里我们只使用 _位置控制_， 所以 `position` 字段设置为 `true` 所有其他字段设置为 `false`。
 
 ```cpp
 /**
@@ -124,7 +124,7 @@ void OffboardControl::publish_offboard_control_mode()
 }
 ```
 
-`TrajectorySetpoint` provides the position setpoint. In this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
+`TrajectorySetpoint` 提供了位置设置值。 在这种情况下， `x`, `y`, `z` 和 `yaw` 字段被赋值为某些值，但它们可以根据算法动态更新，甚至也可以通过另一个订阅的回调函数来生成。
 
 ```cpp
 /**
@@ -142,7 +142,7 @@ void OffboardControl::publish_trajectory_setpoint()
 }
 ```
 
-The `publish_vehicle_command()` sends [VehicleCommand](../msg_docs/VehicleCommand.md) messages with commands to the flight controller. We use it above to change the mode to offboard mode, and also in `arm()` to arm the vehicle. While we don't call `disarm()` in this example, it is also used in the implementation of that function.
+`publish_vehicle_command()` 方法发送 [VehicleCommand](../msg_docs/VehicleCommand.md) 带命令的消息到飞行控制器。 我们使用上面的方式来切换至offboard模式，也使用 `arm()` 来解锁飞行器。 此示例中我们没有 `disarm()` ，但它也用于执行该函数。
 
 ```cpp
 /**
@@ -168,7 +168,7 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1, fl
 ```
 
 :::note
-[VehicleCommand](../msg_docs/VehicleCommand.md) is one of the simplest and most powerful ways to command PX4, and by subscribing to [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) you can also confirm that setting a particular command was successful. The param and command fields map to [MAVLink commands](https://mavlink.io/en/messages/common.html#mav_commands) and their parameter values.
+[VehicleCommand](../msg_docs/VehicleCommand.md) 是可用来指令PX4的最简单和最强大的方式之一。 可以通过订阅 [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) 消息来确认特定命令是否成功。 参数和命令字段与 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands) 及其参数值一致。
 :::
 
 
