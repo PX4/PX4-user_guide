@@ -89,7 +89,7 @@ bool actuator
   * 支持以下输入组合：
     * `xyz` 用于推力和 `xyz` 用于力矩。
   - 所有值都在无人机体轴 FRD 坐标系中表示，并且归一化为\[-1, 1\]。
-  - 为了节省资源，此模式默认被禁用。 If you want to use it you need to manually add  `vehicle_thrust_setpoint` and `vehicle_torque_setpoint` to the list of [subscribed topics](../middleware/uxrce_dds.md#dds-topics-yaml), and manually recompile the firmware.
+  - 为了节省资源，此模式默认被禁用。 如果你想使用它，需要手动添加  `vehicle_thrust_setpoint` 和 `vicle_torque_setpoint` 到 [订阅主题](../middleware/uxrce_dds.md#dds-topics-yaml)中并手动重新编译固件。
 
 
 
