@@ -4,12 +4,10 @@ This section contains information about companion computer peripherals. These in
 
 ## Companion/Pixhawk Communication
 
-Typical companion computer work with Pixhawk requires a companion link to transmit/receive the data between the companion computer and Pixhawk hardware (e.g. Intel NUC and Pixhawk 4).
-
-There are a few devices that allow this communication bridge such as FTDI USB breakouts and level shifters (see below).
+This section lists devices that may be used for the physical serial/data connection between a companion computer and a flight controller.
 
 :::note
-PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md).
+PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink (OSD / Telemetry)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computers](../companion_computer/README.md), [Robotics](../robotics/README.md) and [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md).
 :::
 
 ### FTDI Devices
