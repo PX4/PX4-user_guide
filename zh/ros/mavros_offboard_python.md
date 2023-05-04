@@ -1,15 +1,15 @@
-# MAVROS *Offboard* control example (Python)
+# MAVROS *Offboard* 控制示例 (Python)
 
-This tutorial shows the basics of *OFFBOARD* control with MAVROS Python, using an Iris quadcopter simulated in [Gazebo Classic](../sim_gazebo_classic/README.md). It provides step-by-step instructions demonstrating how to start developing programs to control a vehicle and running the code in simulation.
+本教程使用 [Gazebo Classic](../sim_gazebo_classic/README.md) 模拟的Iris四旋翼无人机，用MAVROS Python来展示 *OFFBOARD* 控制的基础知识。 该教程提供分步指示，说明如何开始开发控制无人机以及在仿真环境中运行代码。
 
-At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
+在教程结束时, 你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。
 
 :::warning
-*OFFBOARD* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*OFFBOARD* 控制模式是危险的。 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
 :::
 
 :::tip
-This example uses Python. Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
+该例程使用Python。 Other examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/main/integrationtests/python_src/px4_it/mavros).
 :::
 
 <a id="offb_video"></a>
