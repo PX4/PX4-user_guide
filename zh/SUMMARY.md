@@ -581,7 +581,7 @@
       * [Wind](msg_docs/Wind.md)
       * [YawEstimatorStatus](msg_docs/YawEstimatorStatus.md)
     * [MAVLink通讯](middleware/mavlink.md)
-    * [XRCE-DDS (PX4-ROS 2/DDS Bridge)](middleware/xrce_dds.md)
+    * [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](middleware/uxrce_dds.md)
   * [模块 & 命令](modules/modules_main.md)
     * [自动调参](modules/modules_autotune.md)
     * [命令](modules/modules_command.md)
