@@ -1,8 +1,8 @@
-# OffboardControlMode (UORB message)
+# OffboardControlMode (UORB消息)
 
-Off-board control mode
+Offboard控制模式
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OffboardControlMode.msg)
+[源文件](https://github.com/PX4/PX4-Autopilot/blob/main/msg/OffboardControlMode.msg)
 
 ```c
 # Off-board control mode
