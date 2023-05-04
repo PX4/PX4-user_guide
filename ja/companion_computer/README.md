@@ -8,7 +8,7 @@ The diagram below shows a possible architecture for an unmanned vehicle architec
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1ZDSyj5djKCEbabgx8K4ESdTeEUizgEt8spUWrMGbHUE/edit?usp=sharing -->
 
-The flight controller runs PX4 on NuttX, and provides core flight and safety code. The companion computer usually runs Linux, as this is a much better platform for "general" software development. They are connected using a fast serial or Ethernet link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/) or microDDS.
+The flight controller runs PX4 on NuttX, and provides core flight and safety code. The companion computer usually runs Linux, as this is a much better platform for "general" software development. They are connected using a fast serial or Ethernet link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/) or uXRCE-DDS.
 
 Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router)).
 
@@ -24,7 +24,7 @@ The following boards are known to provide a good integration with PX4:
 
 ## Companion Computer Options
 
-PX4 can be used with computers that can be configured to communicate via MAVLink or microROS/microDDS over over a serial port (or Ethernet port, if present).
+PX4 can be used with computers that can be configured to communicate via MAVLink or microROS/uXRCE-DDS over over a serial port (or Ethernet port, if present).
 
 A small subset of possible alternatives are listed below:
 
