@@ -7,7 +7,7 @@ Tip
 The PX4 development team highly recommend that you use/migrate to this version of ROS!
 :::
 
-Communication between ROS 2 and PX4 uses middleware that implements the [XRCE-DDS protocol](../middleware/xrce_dds.md). This middleware exposes PX4 [uORB messages](../msg_docs/README.md) as ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes. The middleware uses uORB message definitions to generate code to serialise and deserialise the messages heading in and out of PX4. These same message definitions are used in ROS 2 applications to allow the messages to be interpretted.
+Communication between ROS 2 and PX4 uses middleware that implements the [XRCE-DDS protocol](../middleware/uxrce_dds.md). This middleware exposes PX4 [uORB messages](../msg_docs/README.md) as ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes. The middleware uses uORB message definitions to generate code to serialise and deserialise the messages heading in and out of PX4. These same message definitions are used in ROS 2 applications to allow the messages to be interpretted.
 
 To use the [ROS 2](../ros/ros2_comm.md) over XRCE-DDS effectively, you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions, which differ from those used by ROS. In the near term future we plan to provide ROS 2 APIs to abstract PX4 conventions, along with examples demonstrating their use.
 
@@ -29,5 +29,5 @@ Ubuntu 20.04 LTS is the official supported distribution.
 ## Further Reading/Information
 
 - [ROS 2 User Guide](../ros/ros2_comm.md)
-- [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/xrce_dds.md): PX4 middleware for connecting to ROS 2.
+- [XRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md): PX4 middleware for connecting to ROS 2.
 
