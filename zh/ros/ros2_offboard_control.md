@@ -1,51 +1,51 @@
 # ROS 2 Offboard Control Example
 
-The following C++ example shows how to do position control in [offboard mode](../flight_modes/offboard.md) from a ROS 2 node.
+下面的 C++ 示例显示如何在ROS 2 节点中进行 [offboard模式](../flight_modes/offboard.md) 下的位置控制。
 
-The example starts sending setpoints, enters offboard mode, arms, ascends to 5 metres, and waits. While simple, it shows the main principles of how to use offboard control and how to send vehicle commands.
+示例将首先发送设置点、进入offboard模式、解锁、起飞至5米，并悬停等待。 虽然简单，但它显示了如何使用offboard控制以及如何向无人机发送指令。
 
-It has been tested on Ubuntu 20.04 with ROS 2 Foxy and PX4 `main` after PX4 v1.13.
+它已在 Ubuntu 20.04 ROS 2 Foxy环境及不低于 PX4 v1.13 的 `main` 分支进行了测试。
 
 :::warning
 *Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 
 :::note ROS
-and PX4 make a number of different assumptions, in particular with respect to [frame conventions](../ros/external_position_estimation.md#reference-frames-and-ros). There is no implicit conversion between frame types when topics are published or subscribed!
+和 PX4 有一些不同的定义，特别是在 [坐标系定义](../ros/external_position_estimation.md#reference-frames-and-ros) 中。 当主题发布或订阅时，坐标系类型之间没有隐含转换！
 
-This example publishes positions in the NED frame, as expected by PX4. To subscribe to data coming from nodes that publish in a different frame (for example the ENU, which is the standard frame of reference in ROS/ROS 2), use the helper functions in the [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) library.
+这个例子按照PX4的定义在NED坐标系下发布位置。 订阅来自在不同坐标系发布的节点数据(例如ENU, ROS/ROS 2中的标准坐标系)，使用 [frame_transforms](https://github.com/PX4/px4_ros_com/blob/main/src/lib/frame_transforms.cpp) 库中的辅助函数来进行转换。
 :::
 
-## Trying it out
+## 尝试一下
 
-Follow the instructions in [ROS 2 User Guide](../ros/ros2_comm.md) to install PX and run the simulator, install ROS 2, and start the XRCE-DDS Agent.
+按照 [ROS 2 用户向导](../ros/ros2_comm.md) 中的说明来安装PX 并运行模拟器，安装ROS 2, 并启动XRCE-DDS代理。
 
-After that we can follow a similar set of steps to those in [ROS 2 User Guide > Build ROS 2 Workspace](../ros/ros2_comm.md#build-ros-2-workspace) to run the example.
+然后，我们可以采用 [ROS 2 用户向导 > 构建 ROS 2 工作空间](../ros/ros2_comm.md#build-ros-2-workspace) 中相似的步骤来运行这个例子。
 
-To build and run the example:
+构建并运行示例：
 
-1. Open a new terminal.
-1. Create and navigate into a new colcon workspace directory using:
+1. 打开一个新的终端。
+1. 使用以下方法创建并切换至新的 colcon工作目录：
 
    ```sh
    mkdir -p ~/ws_offboard_control/src/
    cd ~/ws_offboard_control/src/
    ```
 
-1. Clone the [px4_msgs](https://github.com/PX4/px4_msgs) repo to the `/src` directory (this repo is needed in every ROS 2 PX4 workspace!):
+1. 克隆 [px4_msgs](https://github.com/PX4/px4_msgs) 仓库到 `/src` 目录(每一个 ROS 2 PX4 工作区都需要这个仓库!):
 
    ```sh
    git clone https://github.com/PX4/px4_msgs.git
    # checkout the matching release branch if not using PX4 main.
    ```
 
-1. Clone the example repository [px4_ros_com](https://github.com/PX4/px4_ros_com) to the `/src` directory:
+1. 克隆示例仓库 [px4_ros_com](https://github.com/PX4/px4_ros_com) 到 `/src` 目录：
 
    ```sh
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+1. 配置 ROS 2 开发环境 ("foxy") 到当前终端，并使用 `colcon` 编译工作区：
 
    ```sh
    cd ..
@@ -53,27 +53,27 @@ To build and run the example:
    colcon build
    ```
 
-1. Source the `local_setup.bash`:
+1. 执行工作空间环境配置脚本 `local_setup.bash`:
 
    ```sh
    source install/local_setup.bash
    ```
-1. Launch the example.
+1. 启动例程。
 
    ```
    ros2 run px4_ros_com offboard_control
    ```
 
-The vehicle should arm, ascend 5 metres, and then wait (perpetually).
+飞行器将解锁、起飞至5米并悬停等待（永久）。
 
 ## Implementation
 
-The source code of the offboard control example can be found in [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) in the directory [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp).
+Offboard控制示例的源代码见 [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) 目录的 [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp) 。
 
-:::note PX4 publishes all the messages used in this example as ROS topics by default (see [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)).
+:::note PX4 默认情况下将此示例中使用的所有消息作为ROS主题发布(见 [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml))。
 :::
 
-PX4 requires that the vehicle is already receiving `OffboardControlMode` messages before it will arm in offboard mode, or before it will switch to offboard mode when flying. In addition, PX4 will switch out of offboard mode if the stream rate of `OffboardControlMode` messages drops below approximately 2Hz. The required behaviour is implemented by the main loop spinning in the ROS 2 node, as shown below:
+PX4 在offboard模式下解锁或者在飞行过程中切换至offboard模式都需要飞行器已经收到 `OffboardControlMode` 消息。 此外，如果 `OffboardControlMode` 消息的频率低于2Hz，PX4 将会切换出offboard模式。 该行为在ROS 2 节点的主循环中实现的，如下所示：
 
 ```cpp
 auto timer_callback = [this]() -> void {
@@ -98,9 +98,9 @@ auto timer_callback = [this]() -> void {
 timer_ = this->create_wall_timer(100ms, timer_callback);
 ```
 
-The loop runs on a 100ms timer. For the first 10 cycles it calls `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` to send [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4. The `OffboardControlMode` messages are streamed so that PX4 will allow arming once it switches to offboard mode, while the `TrajectorySetpoint` messages are ignored (until the vehicle is in offboard mode).
+循环运行在一个100毫秒计时器。 在前10个周期中，它调用 `publish_offboard_control_mode()` 和 `publish_trajectory_setpoint()` 发送 [OffboardControlMode](../msg_docs/OffboardControlMode.md) 和 [TracjectorySetpoint](../msg_docs/TrajectorySetpoint.md) 消息到 PX4。 `OffboardControlMode` 消息已经被接到，所以PX4将允许被解锁一旦切换至offboard模式后， `TrajectorySetpoint` 将被忽略(直到飞行器处于offboard模式)。
 
-After 10 cycles `publish_vehicle_command()` is called to change to offboard mode, and `arm()` is called to arm the vehicle. After the vehicle arms and changes mode it starts tracking the position setpoints. The setpoints are still sent in every cycle so that the vehicle does not fall out of offboard mode.
+在 10 个周期后调用 `publish_vehicle_command()` 切换至offboard模式，并调用 `arm()` 来解锁飞行器。 在飞行器解锁并和切换模式后，它将开始跟踪位置设定值。 The setpoints are still sent in every cycle so that the vehicle does not fall out of offboard mode.
 
 The implementations of the `publish_offboard_control_mode()` and `publish_trajectory_setpoint()` methods are shown below. These publish the [OffboardControlMode](../msg_docs/OffboardControlMode.md) and [TrajectorySetpoint](../msg_docs/TrajectorySetpoint.md) messages to PX4 (respectively).
 
