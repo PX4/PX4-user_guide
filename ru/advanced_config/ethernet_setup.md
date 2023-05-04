@@ -191,7 +191,7 @@ can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port
 
 :::note
 Prerequisites:
-- You have a supported autopilot hardware running PX4 firmware that includes [XRCE-DDS](../middleware/xrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [microdds-client](../modules/modules_system.md#microdds-client) module by default.
+- You have a supported autopilot hardware running PX4 firmware that includes [uXRCE-DDS](../middleware/uxrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) module by default.
 - [ROS 2](../ros/ros2_comm.md) has been set up correctly on the companion computer.
 - You have followed the Ethernet network and port setup as discussed at the top of this page.
 :::
@@ -199,8 +199,8 @@ Prerequisites:
 To set up ROS 2:
 
 1. Connect your flight controller and companion computer via Ethernet.
-2. [Start the micro XRCE-DDS client on PX4](../middleware/xrce_dds.md#starting-the-client), either manually or by customizing the system startup script. Note that you must use the IP address of the companion computer and the UDP port on which the agent is listening (the example configuration above sets the companion IP address to `192.168.0.1`, and the agent UDP port is set to `8888` in the next step).
-3. [Start the XRCE-DDS agent on the companion computer](../middleware/xrce_dds.md#starting-the-agent). For example, enter the following command in a terminal to start the agent listening on UDP port `8888`.
+2. [Start the uXRCE-DDS client on PX4](../middleware/uxrce_dds.md#starting-the-client), either manually or by customizing the system startup script. Note that you must use the IP address of the companion computer and the UDP port on which the agent is listening (the example configuration above sets the companion IP address to `192.168.0.1`, and the agent UDP port is set to `8888` in the next step).
+3. [Start the micro XRCE-DDS agent on the companion computer](../middleware/uxrce_dds.md#starting-the-agent). For example, enter the following command in a terminal to start the agent listening on UDP port `8888`.
 
    ```
    MicroXRCEAgent udp4 -p 8888
