@@ -26,7 +26,7 @@ Other examples in Python can be found here: [integrationtests/python_src/px4_it/
 
     ```sh
     roscd  # Should cd into ~/catkin_ws/devel
-    cd .. 
+    cd ..
     cd src
     ```
 
@@ -95,13 +95,13 @@ if __name__ == "__main__":
     state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
 
     local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
-    
+
     rospy.wait_for_service("/mavros/cmd/arming")
-    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
     rospy.wait_for_service("/mavros/set_mode")
     set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
-    
+
 
     # Setpoint publishing MUST be faster than 2Hz
     rate = rospy.Rate(20)
@@ -117,7 +117,7 @@ if __name__ == "__main__":
     pose.pose.position.z = 2
 
     # Send a few setpoints before starting
-    for i in range(100):   
+    for i in range(100):
         if(rospy.is_shutdown()):
             break
 
@@ -136,13 +136,13 @@ if __name__ == "__main__":
         if(current_state.mode != "OFFBOARD" and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
             if(set_mode_client.call(offb_set_mode).mode_sent == True):
                 rospy.loginfo("OFFBOARD enabled")
-            
+
             last_req = rospy.Time.now()
         else:
             if(not current_state.armed and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
                 if(arming_client.call(arm_cmd).success == True):
                     rospy.loginfo("Vehicle armed")
-            
+
                 last_req = rospy.Time.now()
 
         local_pos_pub.publish(pose)
@@ -183,7 +183,7 @@ state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
 local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
 
 rospy.wait_for_service("/mavros/cmd/arming")
-arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
 rospy.wait_for_service("/mavros/set_mode")
 set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
@@ -227,7 +227,7 @@ Below, `100` was chosen as an arbitrary amount.
 
 ```py
 # Send a few setpoints before starting
-for i in range(100):   
+for i in range(100):
     if(rospy.is_shutdown()):
         break
 
@@ -258,13 +258,13 @@ while(not rospy.is_shutdown()):
     if(current_state.mode != "OFFBOARD" and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
         if(set_mode_client.call(offb_set_mode).mode_sent == True):
             rospy.loginfo("OFFBOARD enabled")
-        
+
         last_req = rospy.Time.now()
     else:
         if(not current_state.armed and (rospy.Time.now() - last_req) > rospy.Duration(5.0)):
             if(arming_client.call(arm_cmd).success == True):
                 rospy.loginfo("Vehicle armed")
-        
+
             last_req = rospy.Time.now()
 
     local_pos_pub.publish(pose)
@@ -286,7 +286,7 @@ After that, create your first launch file, in this case we will call it `start_o
 ```sh
 roscd offboard_py
 mkdir launch
-cd launch 
+cd launch
 touch start_offb.launch
 ```
 
@@ -347,17 +347,17 @@ To solve this add these lines at the end of the `.bashrc` file:
 ```sh
 source ~/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
 ```
 
 Now in the terminal, go to the home directory and run the following command to apply the changes above to the current terminal:
 
-```sh 
+```sh
 source .bashrc
 ```
 
 After this step, every time you open a new terminal window you should not have to worry about this error anymore.
 If it appears again, a simple `source .bashrc` should fix it.
-This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem. 
+This solution was obtained from this [issue](https://github.com/mzahana/px4_fast_planner/issues/4) thread, where you can get more information about the problem.
 :::
