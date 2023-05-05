@@ -287,7 +287,7 @@ touch start_offb.launch
 如你所见， `mavros_posix_sitl.launch` 文件已被包含。 此文件负责启动 MAVROS、PX4 SITL、 Gazebo Classic 环境并在给定的世界中放置一架无人机(更多信息见文件 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch))。
 
 :::tip
-`mavros_posix_sitl. launch` 文件拥有几个可以配置参数，如生成或Gazebo Classic 世界的无人机(参见 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)以获取完整的列表)。
+`mavros_posix_sitl.launch` 文件拥有几个可以配置参数，如生成或Gazebo Classic 世界的无人机(参见 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/launch/mavros_posix_sitl.launch)以获取完整的列表)。
 
 你可以通过在 *include*标签中声明这些参数以覆盖在 `mavros_posix_sitl.launch`定义的默认值。 例如，如果你想要在 `warehouse.world`放置无人机，你可以按如下方式声明：
 
