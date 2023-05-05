@@ -5,7 +5,7 @@ px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功�
 本主题详细介绍了 [测试环境](#test_setup) 和 [校准过程](#calibration_procedures)。 最后是 [实施过程](#implementation) 的描述。
 
 :::note
-After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+经过热校准后，热校准参数(`TC_*`)用于各传感器 *所有* 的校准/补偿。 Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
 :::
 
 :::note
