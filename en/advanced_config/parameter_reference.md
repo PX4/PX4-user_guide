@@ -27946,6 +27946,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_ADIS165X">SENS_EN_ADIS165X</strong> (INT32)</td>
+ <td>Analog Devices ADIS16507 IMU (external SPI)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_ARSPDSIM">SENS_EN_ARSPDSIM</strong> (INT32)</td>
  <td>Enable simulated airspeed sensor instance  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
