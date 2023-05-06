@@ -25,7 +25,7 @@ jobs:
 
       - name: Get changed english files
         id: get_changed_markdown_english
-        uses: tj-actions/changed-files@v35
+        uses: tj-actions/changed-files@v35.9.2
         with:
           json: true
           # Below are used to output files to a directory. May use in flaw checker.
