@@ -99,35 +99,35 @@ ROS2 要与 PX4 通讯，必须在 PX4 上运行 [uXRCE-DDS客户端(Client)](..
    sudo ldconfig /usr/local/lib/
    ```
 
-1. Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+1. 启动代理并设置以连接运行在模拟器上的 uXRCE-DDS客户端(Client)：
 
    ```sh
    MicroXRCEAgent udp4 -p 8888
    ```
 
-The agent is now running, but you won't see much until we start PX4 (in the next step).
+代理正在运行，但在我们启动PX4 (下一步)之前，您不会看到太多。
 
 :::note
-You can leave the agent running in this terminal!
-Note that only one agent is allowed per connection channel.
+您可以让代理(Agent)在这个终端中运行！
+请注意，每个连接端口只允许一个代理(Agent)。
 :::
 
-#### Start the Client
+#### 启动客户端(Client)
 
-The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP port 8888 on the local host.
+PX4 模拟器自动启动 uXRCE-DDS客户端，连接到本地主机上的 UDP 8888 端口。
 
-To start the simulator (and client):
+启动模拟器(和客户端Client)：
 
-1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
-1. Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+1. 在新的终端中切换至 **PX4 Autopilot** 仓库根目录。
+1. 通过下面的命令启动 PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) 仿真：
 
    ```sh
    make px4_sitl gazebo-classic
    ```
 
-The agent and client are now running they should connect.
+代理(Agent)和客户端(Client)现在将运行并建立连接。
 
-The PX4 terminal displays the [NuttShell/PX4 System Console](../debug/system_console.md) output as PX4 boots and runs. As soon as the agent connects the output should include `INFO` messages showing creation of data writers:
+PX4 终端显示 [NuttShell/PX4 系统控制台](../debug/system_console.md)  PX4 启动和运行。 代理(Agent)连接后输出应该包含 `INFO` 显示创建数据写入的消息：
 
 ```
 ...
@@ -138,7 +138,7 @@ INFO  [uxrce_dds_client] successfully created rt/fmu/out/timesync_status data wr
 ...
 ```
 
-The micro XRCE-DDS agent terminal should also start to show output, as equivalent topics are created in the DDS network:
+Micro XRCE-DDS代理(Agent)终端也应开始显示输出，因为DDS网络中创建了相同的主题：
 
 ```
 ...
@@ -150,9 +150,9 @@ The micro XRCE-DDS agent terminal should also start to show output, as equivalen
 
 ### Build ROS 2 Workspace
 
-This section shows how create a ROS 2 workspace hosted in your home directory (modify the commands as needed to put the source code elsewhere).
+本节将展示如何在您的主目录中创建一个 ROS 2 工作空间(将源代码放在别处需要修改相关指令)。
 
-The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace. The example is run using `ros2 launch`.
+[px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) 软件包克隆到一个工作区文件夹，然后使用 `colcon` 工具来构建工作区。 The example is run using `ros2 launch`.
 
 :::note
 The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
