@@ -2,9 +2,9 @@ name: Check for flaws
 # So far:
   # Modifications of translations files
   # Broken internal links
-
+    
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, edited, synchronize]
 
 jobs:
