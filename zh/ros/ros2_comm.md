@@ -1,93 +1,92 @@
-# ROS 2 User Guide
+# ROS 2 用户指南
 
-The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
+ROS 2-PX4 架构在ROS 2和PX4之间进行了深度整合。 允许 ROS 2 订阅或发布节点直接使用 PX4 uORB 话题。
 
-This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
+本指南介绍了系统架构和应用程序流程，并解释了如何与PX4一起安装和使用ROS2。
 
 :::note
-The [uXRCE-DDS](../middleware/uxrce_dds.md) middleware is supported in releases from **PX4 v1.14**. **PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
+[uXRCE-DDS](../middleware/uxrce_dds.md) 中间件自 **PX4 v1.14** 开始支持。 **PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
 <!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
-## Overview
+## 概述
 
-The application pipeline for ROS 2 is very straightforward, thanks to the use of the [uXRCE-DDS](../middleware/uxrce_dds.md) communications middleware.
+由于使用 [uXRCE-DDS](../middleware/uxrce_dds.md) 通信中间件，因此ROS 2的应用程序流程非常简单。
 
 ![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
 <!-- doc source: https://docs.google.com/drawings/d/1WcJOU-EcVOZRPQwNzMEKJecShii2G4U3yhA3U6C4EhE/edit?usp=sharing -->
 
-The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial, UDP, TCP or custom link. The agent acts as a proxy for the client to publish and subscribe to topics in the global DDS data space.
+uXRCE-DDS的中间件由运行在PX4上的客户端(Client)和运行在机载计算机上的代理端(Agent)组成， 通过串口、UDP、TCP或其他链路实现双向数据互联。 代理端(Agent)充当客户端(Client)的代理在DDS全局数据空间中发布和订阅话题。
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) is generated at build time and included in PX4 firmware by default. It includes both the "generic" micro XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
+PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) 是在构建时生成的，并且默认包含在 PX4 固件中。 它包含“通用”XRCE-DDS客户端(Client)代码和PX4 特定翻译代码以支持用来发布或获取来自uORB的话题 。 为客户端(Client)生成的 uORB 消息的子集在 [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) 中定义。 生成器使用代码树： [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) 中的 uORB 消息定义来创建 ROS 2 消息代码。
 
-ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
+ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建，即在 PX4 Firmware 中创建 uXRCE-DDS客户端(Client)模块时使用的消息。 你可以通过克隆接口包 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 到你的 ROS 2 工作空间中(仓库中的分支对应于不同版本 PX4 消息)。
 
-Note that the micro XRCE-DDS _agent_ itself has no dependency on client-side code. It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
+请注意，micro XRCE-DDS _代理(Agent)_ 本身并不依赖客户端代码。 可以通过 [源码](https://github.com/eProsima/Micro-XRCE-DDS-Agent)单独或作为ROS的一部分通过编译生成，也可以通过snap安装。
 
-You will normally need to start both the client and agent when using ROS 2. Note that the uXRCE-DDS client is built into firmware by default but not started automatically except for simulator builds.
-
-:::note
-In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](https://github.com/PX4/px4_ros_com). This repo is no longer needed, but does contain useful examples.
-:::
-
-
-## Installation & Setup
-
-The supported platform for PX4 development is Ubuntu 20.04 (at time of writing), which means that you should use ROS 2 "Foxy".
-
-:::warning
-Other platforms, such as Ubuntu 22.04 and ROS 2 "Humble", may work, but are not fully tested and officially supported by the PX4 dev team. <!-- Windows/Mac? -->
-:::
-
-To setup ROS 2 for use with PX4 you will need to:
-
-- [Install PX4](#install-px4) (to use the PX4 simulator)
-- [Install ROS 2](#install-ros-2)
-- [Setup Micro XRCE-DDS Agent & Client](#setup-micro-xrce-dds-agent-client)
-- [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
-
-Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
-
-### Install PX4
-
-You need to install the PX4 development toolchain in order to use the simulator.
+您通常需要在使用 ROS 2 时同时启动客户端(Client)和代理人(Agent)。 请注意，uXRCE-DDS客户端默认是编译进固件中的，但除模拟器构建外，不会自动启动。
 
 :::note
-The only dependency ROS 2 has on PX4 is the set of message definitions, which it gets from [px4_msgs](https://github.com/PX4/px4_msgs). You only need to install PX4 if you need the simulator (as we do in this guide), or if you are creating a build that publishes custom uORB topics.
+在 PX4v1.13 及之前版本，ROS 2依赖于 [px4_ros_com](https://github.com/PX4/px4_ros_com) 中的定义。 该仓库不再需要了，但的确包含了有用的例子。
 :::
 
-Set up a PX4 development environment on Ubuntu in the normal way:
 
-1. [Setup the development environment for Ubuntu](../dev_setup/dev_env_linux_ubuntu.md)
-1. [Download PX4 source](../dev_setup/building_px4.md)
+## 安装设置
+
+支持的 PX4 开发平台是 Ubuntu 20.04 (撰写时)，这意味着您应该使用ROS2 "Foxy"。
+
+::warning 其他平台，如Ubuntu 22.04 ROS 2 “Humble” 也许可以工作，但没有得到PX4 开发团队的充分测试和正式支持。 <!-- Windows/Mac? -->
+:::
+
+设置 ROS 2以使用 PX4，您将需要做如下操作：
+
+- [安装 PX4](#install-px4) (使用 PX4 模拟器)
+- [安装 ROS 2](#install-ros-2)
+- [安装Micro XRCE-DDS 代理(Agent)& 客户端(Client)](#setup-micro-xrce-dds-agent-client)
+- [构建 & 运行 ROS 2 工作空间](#build-ros-2-workspace)
+
+框架的其他依赖关系将自动安装，如 _Fast DDS_。
+
+### 安装PX4
+
+您需要安装 PX4 开发工具链才能使用模拟器。
+
+:::note ROS
+2 唯一依赖的是 PX4 上定义的消息集，它从 [px4_msgs](https://github.com/PX4/px4_msgs) 获取。 您只需要安装 PX4 当您需要模拟器时(如我们在本指南中所做的那样)， 或者如果您正在创建一个发布自定义uORB话题。
+:::
+
+通过以下方式在 Ubuntu 上配置一个 PX4 开发环境：
+
+1. [设置基于 Ubuntu 的开发环境](../dev_setup/dev_env_linux_ubuntu.md)
+1. [下载 PX4 源代码](../dev_setup/building_px4.md)
 
 
-### Install ROS 2
+### 安装 ROS 2
 
-To install ROS 2 and its dependencies:
+安装 ROS 2 及其依赖：
 
-1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
-   - You can install _either_ the desktop (`ros-foxy-desktop`) or bare-bones (`ros-foxy-ros-base`) version
-   - You should additionally install the development tools (`ros-dev-tools`)
-1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
+1. [安装 ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
+   - 您可以安装 桌面(`ros-foxy-desktop`) 或bare-bones (`ros-foxy-robase`) 版本中的_任何一个_。
+   - 您应该额外安装开发工具 (`ros-dev-tools`)
+1. 一些Python 依赖关系也必须安装 (使用 **`pip`** 或 **`apt`**):
 
    ```sh
    pip3 install --user -U empy pyros-genmsg setuptools
    ```
 
-### Setup Micro XRCE-DDS Agent & Client
+### 安装Micro XRCE-DDS 代理(Agent)& 客户端(Client)
 
-For ROS 2 to communicate with PX4, [uXRCE-DDS client](../modules/modules_system.md#uxrce_dds_client) must be running on PX4, connected to a micro XRCE-DDS agent running on the companion computer.
+ROS2 要与 PX4 通讯，必须在 PX4 上运行 [uXRCE-DDS客户端(Client)](../modules/modules_system.md#uxrce_dds_client)  并与运行在任务计算机上的micro XRCE-DDS 代理(Agent)连接。
 
-#### Setup the Agent
+#### 设置代理(Agent)
 
-The agent can be installed onto the companion computer in a [number of ways](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation). Below we show how to build the agent "standalone" from source and connect to a client running on the PX4 simulator.
+代理(Agent)可以通过 [数种方式](../middleware/uxrce_dds.md#micro-xrce-dds-agent-installation) 安装到任务计算机上。 下面我们将演示如何从源代码构建“独立”代理(Agent)，并连接到在 PX4 模拟器上运行的客户端(Client)。
 
-To setup and start the agent:
+设置并启动代理：
 
-1. Open a terminal.
-1. Enter the following commands to fetch and build the agent from source:
+1. 打开一个终端。
+1. 输入以下命令从仓库获取源代码并构建代理(Agent)：
 
    ```sh
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -100,35 +99,35 @@ To setup and start the agent:
    sudo ldconfig /usr/local/lib/
    ```
 
-1. Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator:
+1. 启动代理并设置以连接运行在模拟器上的 uXRCE-DDS客户端(Client)：
 
    ```sh
    MicroXRCEAgent udp4 -p 8888
    ```
 
-The agent is now running, but you won't see much until we start PX4 (in the next step).
+代理正在运行，但在我们启动PX4 (下一步)之前，您不会看到太多。
 
 :::note
-You can leave the agent running in this terminal!
-Note that only one agent is allowed per connection channel.
+您可以让代理(Agent)在这个终端中运行！
+请注意，每个连接端口只允许一个代理(Agent)。
 :::
 
-#### Start the Client
+#### 启动客户端(Client)
 
-The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP port 8888 on the local host.
+PX4 模拟器自动启动 uXRCE-DDS客户端，连接到本地主机上的 UDP 8888 端口。
 
-To start the simulator (and client):
+启动模拟器(和客户端Client)：
 
-1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
-1. Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+1. 在新的终端中切换至 **PX4 Autopilot** 仓库根目录。
+1. 通过下面的命令启动 PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) 仿真：
 
    ```sh
    make px4_sitl gazebo-classic
    ```
 
-The agent and client are now running they should connect.
+代理(Agent)和客户端(Client)现在将运行并建立连接。
 
-The PX4 terminal displays the [NuttShell/PX4 System Console](../debug/system_console.md) output as PX4 boots and runs. As soon as the agent connects the output should include `INFO` messages showing creation of data writers:
+PX4 终端显示 [NuttShell/PX4 系统控制台](../debug/system_console.md)  PX4 启动和运行。 代理(Agent)连接后输出应该包含 `INFO` 显示创建数据写入的消息：
 
 ```
 ...
@@ -139,7 +138,7 @@ INFO  [uxrce_dds_client] successfully created rt/fmu/out/timesync_status data wr
 ...
 ```
 
-The micro XRCE-DDS agent terminal should also start to show output, as equivalent topics are created in the DDS network:
+Micro XRCE-DDS代理(Agent)终端也应开始显示输出，因为DDS网络中创建了相同的主题：
 
 ```
 ...
@@ -151,9 +150,9 @@ The micro XRCE-DDS agent terminal should also start to show output, as equivalen
 
 ### Build ROS 2 Workspace
 
-This section shows how create a ROS 2 workspace hosted in your home directory (modify the commands as needed to put the source code elsewhere).
+本节将展示如何在您的主目录中创建一个 ROS 2 工作空间(将源代码放在别处需要修改相关指令)。
 
-The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace. The example is run using `ros2 launch`.
+[px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) 软件包克隆到一个工作区文件夹，然后使用 `colcon` 工具来构建工作区。 The example is run using `ros2 launch`.
 
 :::note
 The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
