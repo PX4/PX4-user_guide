@@ -1,29 +1,29 @@
-# ROS 2 User Guide
+# ROS 2 用户指南
 
-The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.
+ROS 2-PX4 架构在ROS 2和PX4之间进行了深度整合。 允许 ROS 2 订阅或发布节点直接使用 PX4 uORB 话题。
 
-This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
+本指南介绍了系统架构和应用程序流程，并解释了如何与PX4一起安装和使用ROS2。
 
 :::note
-The [uXRCE-DDS](../middleware/uxrce_dds.md) middleware is supported in releases from **PX4 v1.14**. **PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
+[uXRCE-DDS](../middleware/uxrce_dds.md) 中间件自 **PX4 v1.14** 开始支持。 **PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
 <!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
-## Overview
+## 概述
 
-The application pipeline for ROS 2 is very straightforward, thanks to the use of the [uXRCE-DDS](../middleware/uxrce_dds.md) communications middleware.
+由于使用 [uXRCE-DDS](../middleware/uxrce_dds.md) 通信中间件，因此ROS 2的应用程序流程非常简单。
 
 ![Architecture uXRCE-DDS with ROS 2](../../assets/middleware/xrce_dds/architecture_xrce-dds_ros2.svg)
 
 <!-- doc source: https://docs.google.com/drawings/d/1WcJOU-EcVOZRPQwNzMEKJecShii2G4U3yhA3U6C4EhE/edit?usp=sharing -->
 
-The uXRCE-DDS middleware consists of a client running on PX4 and an agent running on the companion computer, with bi-directional data exchange between them over a serial, UDP, TCP or custom link. The agent acts as a proxy for the client to publish and subscribe to topics in the global DDS data space.
+uXRCE-DDS的中间件由运行在PX4上的客户端(Client)和运行在机载计算机上的代理端(Agent)组成， 通过串口、UDP、TCP或其他链路实现双向数据互联。 代理端(Agent)充当客户端(Client)的代理在DDS全局数据空间中发布和订阅话题。
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) is generated at build time and included in PX4 firmware by default. It includes both the "generic" micro XRCE-DDS client code, and PX4-specific translation code that it uses to publish to/from uORB topics. The subset of uORB messages that are generated into the client are listed in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml). The generator uses the uORB message definitions in the source tree: [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to create the code for sending ROS 2 messages.
+PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) 是在构建时生成的，并且默认包含在 PX4 固件中。 它包含“通用”XRCE-DDS客户端(Client)代码和PX4 特定翻译代码以支持用来发布或获取来自uORB的话题 。 为客户端(Client)生成的 uORB 消息的子集在 [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) 中定义。 生成器使用代码树： [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) 中的 uORB 消息定义来创建 ROS 2 消息代码。
 
-ROS 2 applications need to be built in a workspace that has the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware. You can include these by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your ROS 2 workspace (branches in the repo correspond to the messages for different PX4 releases).
+ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建，即在 PX4 Firmware 中创建 uXRCE-DDS客户端(Client)模块时使用的消息。 你可以通过克隆接口包 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 到你的 ROS 2 工作空间中(仓库中的分支对应于不同版本 PX4 消息)。
 
-Note that the micro XRCE-DDS _agent_ itself has no dependency on client-side code. It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
+请注意，micro XRCE-DDS _代理(Agent)_ 本身并不依赖客户端代码。 It can be built from [source](https://github.com/eProsima/Micro-XRCE-DDS-Agent) either standalone or as part of a ROS build, or installed as a snap.
 
 You will normally need to start both the client and agent when using ROS 2. Note that the uXRCE-DDS client is built into firmware by default but not started automatically except for simulator builds.
 
