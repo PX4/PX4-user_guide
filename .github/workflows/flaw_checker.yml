@@ -23,6 +23,10 @@ jobs:
         run: |
           mkdir logs
 
+      - name: Base SHA test
+        id: deleteme
+        run: echo "sha=$(git rev-parse origin/main)"
+        
       - name: Base SHA
         id: base-sha
         run: echo "sha=$(git rev-parse origin/main)" >> $GITHUB_OUTPUT
