@@ -1,0 +1,45 @@
+name: Comment Workflow
+on:
+  workflow_run:
+    workflows: ["Check for flaws"]
+    types:
+      - completed
+  pull_request_target:
+    types: [opened, edited, synchronize]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get artifacts from flaw checker workflow
+        uses: actions/download-artifact@v3
+        with:
+          name: logs_and_errors
+          #path: ./logs
+          
+      - name: Read errorsFilteredByPrPages.md file
+        id: read-errors-by-page
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./logs/errorsFilteredByPrPages.md
+
+      - name: Echo Errors by Page
+        run: echo "${{ steps.read-errors-by-page.outputs.content }}"
+        
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Found flaws
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Found flaws
+            ${{ steps.read-errors-by-page.outputs.content }}
+          edit-mode: replace
+          
