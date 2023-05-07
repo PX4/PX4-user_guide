@@ -6,8 +6,6 @@ name: Check for flaws
 on:
   pull_request:
     types: [opened, edited, synchronize]
-    branches:
-      - main
 
 jobs:
   check_flaws:
