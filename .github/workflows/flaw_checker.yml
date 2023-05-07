@@ -34,7 +34,8 @@ jobs:
            
       - name: Base SHA
         id: base-sha
-        run: echo "sha=$(git rev-parse origin/main)" >> $GITHUB_OUTPUT
+        run: |
+          #echo "sha=$(git rev-parse origin/main)" >> $GITHUB_OUTPUT
   
       - name: Get changed english files
         id: get_changed_markdown_english
