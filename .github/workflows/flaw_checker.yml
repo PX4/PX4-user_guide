@@ -43,12 +43,15 @@ jobs:
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_REF	: ${{ env.GITHUB_REF }}"
           echo "GITHUB_SHA	: ${{ env.GITHUB_SHA }}"
-          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"    
+          echo "github.event.number	: ${{ github.event.number }}"    
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"           
-          	
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"    	
            
       - name: Base SHA
         id: base-sha
