@@ -30,6 +30,7 @@ jobs:
           echo "GITHUB_REF	: ${{ env.GITHUB_REF }}"
           echo "GITHUB_SHA	: ${{ env.GITHUB_SHA }}"
           echo "github.event.number	: ${{ github.event.number }}"    
+          echo "github.event.pull_request.number	: ${{ github.event.pull_request.number }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
@@ -42,7 +43,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref:  "refs/pull/${{ github.event.number }}/merge"
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Merge base branch
+        run: git merge ${{ github.event.pull_request.base.ref }}
 
       - name: Install Node.js
         uses: actions/setup-node@v3
