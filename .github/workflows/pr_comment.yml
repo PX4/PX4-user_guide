@@ -6,14 +6,18 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for artifacts upload to succeed
-        uses: lewagon/wait-on-check-action@v1.3.1
-        with:
-          ref: ${{ github.ref }}
-          check-name: 'Archive production artifacts'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 80
-          
+      #- name: Wait for artifacts upload to succeed
+      #  uses: lewagon/wait-on-check-action@v1.3.1
+      #  with:
+      #    ref: ${{ github.ref }}
+      #    check-name: 'Archive production artifacts'
+      #    repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #    wait-interval: 80
+
+      - name: Sleep for 30 seconds
+        run: sleep 80s
+        shell: bash
+  
       - name: Get artifacts from flaw checker workflow
         uses: actions/download-artifact@v3
         with:
