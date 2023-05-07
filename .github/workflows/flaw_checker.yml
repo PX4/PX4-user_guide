@@ -34,7 +34,9 @@ jobs:
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
           echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
-          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"           
+          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"       
+          echo "github.event.pull_request.base.ref	: ${{ github.event.pull_request.base.ref }}"
+
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
@@ -56,8 +58,6 @@ jobs:
       - name: Create logs directory
         run: |
           mkdir logs
-
-
            
       - name: Base SHA
         id: base-sha
