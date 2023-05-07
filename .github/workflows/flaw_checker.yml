@@ -5,7 +5,7 @@ name: Check for flaws
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened, edited, synchronize]d
 
 jobs:
   check_flaws:
