@@ -13,20 +13,6 @@ jobs:
   check_flaws:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref:  "refs/pull/${{ github.event.number }}/merge"
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-        
-      - name: Create logs directory
-        run: |
-          mkdir logs
-
       - name: Base SHA test
         id: deleteme
         run: |
@@ -51,7 +37,23 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"    	
+        run: echo "$GITHUB_CONTEXT"    	  
+    
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref:  "refs/pull/${{ github.event.number }}/merge"
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+        
+      - name: Create logs directory
+        run: |
+          mkdir logs
+
+
            
       - name: Base SHA
         id: base-sha
