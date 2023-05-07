@@ -1,15 +1,19 @@
 name: Comment Workflow
 on:
-  workflow_run:
-    workflows: ["Check for flaws"]
-    types:
-      - completed
   pull_request_target:
     types: [opened, edited, synchronize]
 jobs:
-  build:
+  comment:
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for artifacts upload to succeed
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'Archive production artifacts'
+          #repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 80
+          
       - name: Get artifacts from flaw checker workflow
         uses: actions/download-artifact@v3
         with:
