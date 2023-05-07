@@ -84,7 +84,7 @@ jobs:
         id: read-errors-by-page
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./logs/errorsFilteredByPrPages.md
+          path: ./logs/errorsFilteredByPrPages.md 
 
       - name: Echo Errors by Page
         run: echo "${{ steps.read-errors-by-page.outputs.content }}"
