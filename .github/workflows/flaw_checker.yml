@@ -30,17 +30,8 @@ jobs:
           echo "GITHUB_REF	: ${{ env.GITHUB_REF }}"
           echo "GITHUB_SHA	: ${{ env.GITHUB_SHA }}"
           echo "github.event.number	: ${{ github.event.number }}"    
-          echo "github.event.pull_request.number	: ${{ github.event.pull_request.number }}"
-          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
-          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
-          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
-          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"       
-          echo "github.event.pull_request.base.ref	: ${{ github.event.pull_request.base.ref }}"
-
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"    	  
+          echo "github.event.pull_request.number	: ${{ github.event.pull_request.number }}"     
+          echo "github.event.pull_request.base.ref	: ${{ github.event.pull_request.base.ref }}"  	  
     
       - name: Checkout
         uses: actions/checkout@v3
