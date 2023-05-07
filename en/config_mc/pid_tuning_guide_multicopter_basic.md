@@ -9,7 +9,7 @@ Manual tuning is recommended for frames where autotuning does not work, or where
 
 ff dsafdsa
 Generally if you're using an apprasdfafdasopriate [supported frame configuration](../airframes/airframe_reference.md#copter), the default tuning should allow you to fly the vehicle safely.
-Tuning is recommended for all new vehicle setups to get the _very best_ performance, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight.
+Tuning is recommended for all new vesdfgsdghicle setups to get the _very best_ performance, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight.
 For example, different ESCs or motors change the optimal tuning gains.
 
 
