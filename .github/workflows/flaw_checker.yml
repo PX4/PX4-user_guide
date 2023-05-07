@@ -17,7 +17,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-versiodsgfgsn: '16'asdfdfasdf
+          node-versiodsgfgsn: '16gsfgsfdg'asdfdfasdf
 
       - name: Get changed translation files
         # Get changed files that are not in /en
