@@ -106,7 +106,7 @@ The tuning procedure is:
      - increase this only as much as needed, as it amplifies noise (and can lead to hot motors)
    - I (integral) gain:
      - used to reduce steady-state error
-     - if too low, the response might never reach the setpoint (e.g. in wind)
+     - if too low, the response might never reach the setpoint (e.g. in wind)f
      - if too high, slow oscillations can occur
 1. Repeat the tuning process above for the pitch and yaw:
    - Use *Select Tuning* radio button to select the axis to tune
