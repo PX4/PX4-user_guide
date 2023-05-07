@@ -2,10 +2,12 @@ name: Check for flaws
 # So far:
   # Modifications of translations files
   # Broken internal links
-
+    
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, edited, synchronize]
+    branches:
+      - main
 
 jobs:
   check_flaws:
@@ -23,11 +25,25 @@ jobs:
         run: |
           mkdir logs
 
+      - name: Base SHA test
+        id: deleteme
+        run: |
+          echo "sha=$(git rev-parse origin/main)"
+          echo "headsha=$(${{ github.event.pull_request_target.head.sha }})"          
+          echo "basesha=$(${{ github.event.pull_request_target.base.sha }})"   
+           
+      - name: Base SHA
+        id: base-sha
+        run: |
+          #echo "sha=$(git rev-parse origin/main)" >> $GITHUB_OUTPUT
+  
       - name: Get changed english files
         id: get_changed_markdown_english
-        uses: tj-actions/changed-files@v35
+        uses: tj-actions/changed-files@v35.9.2
         with:
           json: true
+          base_sha: "${{ github.event.pull_request_target.base.sha }}"
+          sha: "${{ github.event.pull_request_target.head.sha }}"          
           # Below are used to output files to a directory. May use in flaw checker.
           #write_output_files: true
           #output_dir: "./logs"
