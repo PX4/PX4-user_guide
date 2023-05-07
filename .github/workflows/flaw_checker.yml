@@ -29,8 +29,24 @@ jobs:
         id: deleteme
         run: |
           echo "sha=$(git rev-parse origin/main)"
-          echo "headsha=$(${{ github.event.pull_request.head.sha }})"          
-          echo "basesha=$(${{ github.event.pull_request.base.sha }})"   
+          echo "headsha={{ github.event.pull_request.head.sha }}"          
+          echo "basesha=${{ github.event.pull_request.base.sha }}"
+          echo "Workflow: ${{ env.GITHUB_WORKFLOW }}"
+          echo "Action: ${{ env.GITHUB_ACTION }}"
+          echo "Actor: ${{ env.GITHUB_ACTOR }}"
+          echo "Repository: ${{ env.GITHUB_REPOSITORY }}"
+          echo "Event Name: ${{ env.GITHUB_EVENT_NAME }}"
+          echo "Event Path: ${{ env.GITHUB_EVENT_PATH }}"
+          echo "GITHUB_BASE_REF: ${{ env.GITHUB_BASE_REF }}"
+          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
+          echo "GITHUB_REF	: ${{ env.GITHUB_REF }}"
+          echo "GITHUB_SHA	: ${{ env.GITHUB_SHA }}"
+          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"    
+          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
+          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
+          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
+          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"           
+          	
            
       - name: Base SHA
         id: base-sha
