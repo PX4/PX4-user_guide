@@ -16,7 +16,7 @@ The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md
 It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
 :::
 
-## Motion Capture
+## Motion Capturedgsgf
 
 Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle.
 MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
