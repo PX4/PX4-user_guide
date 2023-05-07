@@ -48,7 +48,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Merge base branch
-        run: git merge ${{ github.event.pull_request.base.ref }}
+        run: git merge --no-ff  ${{ github.event.pull_request.base.sha }}
 
       - name: Install Node.js
         uses: actions/setup-node@v3
