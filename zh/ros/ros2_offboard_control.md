@@ -1,4 +1,4 @@
-# ROS 2 Offboard Control Example
+# ROS 2 Offboard 控制示例
 
 下面的 C++ 示例显示如何在ROS 2 节点中进行 [offboard模式](../flight_modes/offboard.md) 下的位置控制。
 
@@ -7,7 +7,7 @@
 它已在 Ubuntu 20.04 ROS 2 Foxy环境及不低于 PX4 v1.13 的 `main` 分支进行了测试。
 
 :::warning
-*Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*Offboard* 控制模式是危险的。 如果你是在一个真正的无人机平台上进行试验，请保证你已经设置了切换回手动的开关来防止紧急情况的发生。
 :::
 
 :::note ROS
@@ -66,7 +66,7 @@
 
 飞行器将解锁、起飞至5米并悬停等待（永久）。
 
-## Implementation
+## 实现
 
 Offboard控制示例的源代码见 [PX4/px4_ros_com](https://github.com/PX4/px4_ros_com) 目录的 [/src/examples/offboard/offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp) 。
 
