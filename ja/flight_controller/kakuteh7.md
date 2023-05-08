@@ -23,7 +23,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 - OSD: AT7456E
 - Onboard Bluetooth chip: Disabled with PX4
 - 2x JST-SH1.0_8pin port (For Single or 4in1 ESCs, x8/Octocopter plug & play compatible)
-- 1x JST-GH1.5_6pin port (For HD System like Caddx Vista & Air Unit)
+- 1x JST-GH1.25_6pin port (For HD System like Caddx Vista & Air Unit)
 - Battery input voltage: 2S - 8S
 - BEC 5V 2A Cont.
 - BEC 9V 1.5A Cont.
