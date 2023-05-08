@@ -124,4 +124,11 @@ jobs:
       - name: Try build merge checkout code
         uses: actions/checkout@v3
         with:
-          ref: "refs/pull/${github.event.pull_request.number}/merge"
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Fetch base branch
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }}
+          git merge --no-edit FETCH_HEAD
+          git checkout HEAD
+          
