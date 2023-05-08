@@ -15969,6 +15969,7 @@
       "group": "MAVLink",
       "longDesc": "This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.",
       "name": "MAV_0_FLOW_CTRL",
+      "rebootRequired": true,
       "shortDesc": "Enable serial flow control for instance 0",
       "type": "Int32",
       "values": [
@@ -16143,6 +16144,7 @@
       "group": "MAVLink",
       "longDesc": "This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.",
       "name": "MAV_1_FLOW_CTRL",
+      "rebootRequired": true,
       "shortDesc": "Enable serial flow control for instance 1",
       "type": "Int32",
       "values": [
@@ -16317,6 +16319,7 @@
       "group": "MAVLink",
       "longDesc": "This is used to force flow control on or off for the the mavlink instance. By default it is auto detected. Use when auto detection fails.",
       "name": "MAV_2_FLOW_CTRL",
+      "rebootRequired": true,
       "shortDesc": "Enable serial flow control for instance 2",
       "type": "Int32",
       "values": [
