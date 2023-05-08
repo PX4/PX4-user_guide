@@ -68,12 +68,12 @@ jobs:
           echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}"
           echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" > ./logs/prFiles.json
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-without-markdown
-          path: |
-            logs
+      #- name: Archive production artifacts
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: dist-without-markdown
+      #    path: |
+      #      logs
           
       - name: Run link checker
         id: link-check
