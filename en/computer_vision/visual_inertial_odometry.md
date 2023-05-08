@@ -7,13 +7,6 @@ VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to est
 
 This topic shows how to set up PX4 and a companion computer to use the *supported* VIO setup.
 
-<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<!-- https://youtu.be/gWtrka2mK7U -->
-
-:::tip
-The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
-:::
-
 :::note
 This (supported) solution uses ROS for routing VIO information to PX4.
 PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
