@@ -20159,7 +20159,8 @@ table {
 
 <li><strong>2:</strong> Auto-detected</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>2</td>
  <td></td>
@@ -20293,7 +20294,8 @@ table {
 
 <li><strong>2:</strong> Auto-detected</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>2</td>
  <td></td>
@@ -20427,7 +20429,8 @@ table {
 
 <li><strong>2:</strong> Auto-detected</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> True</p>
+</td>
  <td></td>
  <td>2</td>
  <td></td>
