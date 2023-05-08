@@ -1,21 +1,21 @@
-# 离板控制
+# Offboard控制
 
-离板控制背后的想法是能够使用在自动驾驶仪外运行的软件来控制 PX4 飞控。 这是通过 Mavlink 协议完成的, 特别是 [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) 和 [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) 消息。
+Offboard控制背后的想法是能够使用在自动驾驶仪外运行的软件来控制 PX4 飞控。 这是通过 Mavlink 协议完成的, 特别是 [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) 和 [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) 消息。
 :::
 
-The idea behind off-board control is to be able to control the PX4 flight stack using software running outside of the autopilot. This is done through the MAVLink protocol, specifically the [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) and the [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) messages.
+Offboard控制背后的想法是能够使用在自动驾驶仪外运行的软件来控制 PX4 飞控。 这是通过 Mavlink 协议完成的, 特别是 [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) 和 [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) 消息。
 
-## 离板控制固件设置
+## Offboard控制固件设置
 
-There are two things you want to setup on the firmware side before starting offboard development.
+在进行Offboard开发前，您需要在固件端做两个设置。
 
 ### 1. 将遥控开关映射到离板模式激活
 
-虽然此步骤不是强制性的，因为您可以使用 Mavlink 消息激活非板载模式。 我们认为这种方法安全多了。
+要做到这一点， 在 *QGroundControl* 中加载参数，将RC_MAP_OFFB_SW 参数设置为您用来激活Offboard模式的RC 通道 。 该方法会在脱离Offboard模式后进入位置控制模式。
 
-Although this step isn't mandatory since you can activate offboard mode using a MAVLink message. We consider this method much safer.
+虽然此步骤不是强制性的，因为您可以使用 Mavlink 消息激活Offboard模式。 我们认为这种方法安全多了。
 
-### 2. 启用配套的计算机接口
+### 2. 启用机载计算机接口
 
 在连接任务计算机的串口上启动MAVLink （参见 [任务计算机](../companion_computer/README.md)）。
 
