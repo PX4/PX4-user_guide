@@ -8,7 +8,7 @@ on:
     types: [opened, edited, synchronize]d
 
 jobs:
-  check_flaws:
+  check_flaws:sdafdf
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
