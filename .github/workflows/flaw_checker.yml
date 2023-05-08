@@ -11,26 +11,6 @@ jobs:
   check_flaws:
     runs-on: ubuntu-latest
     steps:
-      - name: Base SHA test
-        id: deleteme
-        run: |
-          echo "sha=$(git rev-parse origin/main)"
-          echo "headsha=${{ github.event.pull_request.head.sha }}"          
-          echo "basesha=${{ github.event.pull_request.base.sha }}"
-          echo "Workflow: ${{ env.GITHUB_WORKFLOW }}"
-          echo "Action: ${{ env.GITHUB_ACTION }}"
-          echo "Actor: ${{ env.GITHUB_ACTOR }}"
-          echo "Repository: ${{ env.GITHUB_REPOSITORY }}"
-          echo "Event Name: ${{ env.GITHUB_EVENT_NAME }}"
-          echo "Event Path: ${{ env.GITHUB_EVENT_PATH }}"
-          echo "GITHUB_BASE_REF: ${{ env.GITHUB_BASE_REF }}"
-          echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
-          echo "GITHUB_REF	: ${{ env.GITHUB_REF }}"
-          echo "GITHUB_SHA	: ${{ env.GITHUB_SHA }}"
-          echo "github.event.number	: ${{ github.event.number }}"    
-          echo "github.event.pull_request.number	: ${{ github.event.pull_request.number }}"     
-          echo "github.event.pull_request.base.ref	: ${{ github.event.pull_request.base.ref }}"  	  
-    
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -44,11 +24,6 @@ jobs:
       - name: Create logs directory
         run: |
           mkdir logs
-           
-      - name: Base SHA
-        id: base-sha
-        run: |
-          #echo "sha=$(git rev-parse origin/main)" >> $GITHUB_OUTPUT
   
       - name: Get changed english files
         id: get_changed_markdown_english
@@ -58,8 +33,8 @@ jobs:
           base_sha: "${{ github.event.pull_request.base.sha }}"
           sha: "${{ github.event.pull_request.head.sha }}"          
           # Below are used to output files to a directory. May use in flaw checker.
-          #write_output_files: true
-          #output_dir: "./logs"
+          # write_output_files: true
+          # output_dir: "./logs"
           files: |
             en/**/*.md
           
@@ -67,13 +42,6 @@ jobs:
         run: |
           echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}"
           echo "${{ steps.get_changed_markdown_english.outputs.all_changed_files }}" > ./logs/prFiles.json
-
-      #- name: Archive production artifacts
-      #  uses: actions/upload-artifact@v3
-      #  with:
-      #    name: dist-without-markdown
-      #    path: |
-      #      logs
           
       - name: Run link checker
         id: link-check
@@ -121,14 +89,34 @@ jobs:
           name: pr_number
           path: pr/
           
-      - name: Try build merge checkout code
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
+      #- name: Try build merge checkout code
+      #  uses: actions/checkout@v3
+      #  with:
+      #    ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Fetch base branch
-        run: |
-          git fetch origin ${{ github.event.pull_request.base.ref }}
-          git merge --no-edit FETCH_HEAD
-          git checkout HEAD
-          
+      #- name: Base SHA test
+      #  id: deleteme
+      #  run: |
+      #    echo "sha=$(git rev-parse origin/main)"
+      #    echo "headsha=${{ github.event.pull_request.head.sha }}"          
+      #    echo "basesha=${{ github.event.pull_request.base.sha }}"
+      #    echo "Workflow: ${{ env.GITHUB_WORKFLOW }}"
+      #    echo "Action: ${{ env.GITHUB_ACTION }}"
+      #    echo "Actor: ${{ env.GITHUB_ACTOR }}"
+      #    echo "Repository: ${{ env.GITHUB_REPOSITORY }}"
+      #    echo "Event Name: ${{ env.GITHUB_EVENT_NAME }}"
+      #    echo "Event Path: ${{ env.GITHUB_EVENT_PATH }}"
+      #    echo "GITHUB_BASE_REF: ${{ env.GITHUB_BASE_REF }}"
+      #    echo "GITHUB_HEAD_REF	: ${{ env.GITHUB_HEAD_REF }}"
+      #    echo "GITHUB_REF	: ${{ env.GITHUB_REF }}"
+      #    echo "GITHUB_SHA	: ${{ env.GITHUB_SHA }}"
+      #    echo "github.event.number	: ${{ github.event.number }}"    
+      #    echo "github.event.pull_request.number	: ${{ github.event.pull_request.number }}"     
+      #    echo "github.event.pull_request.base.ref	: ${{ github.event.pull_request.base.ref }}"  	  
+    
+      #- name: Archive production artifacts
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: dist-without-markdown
+      #    path: |
+      #      logs
