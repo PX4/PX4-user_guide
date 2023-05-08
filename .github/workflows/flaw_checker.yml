@@ -120,3 +120,8 @@ jobs:
         with:
           name: pr_number
           path: pr/
+          
+      - name: Try build merge checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: "refs/pull/${github.event.pull_request.number}/merge"
