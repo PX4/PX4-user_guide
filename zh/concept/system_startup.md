@@ -69,33 +69,37 @@ dyn ./test.px4mod
 
 文件具体信息在后面介绍。
 
-主要有三类钩子。 主要有三类钩子（hook）， 需要注意的是 microsd 的根目录是挂载在操作系统中的 `/fs/microsd` 目录下的。
+:::warning
+系统启动文件是 UNIX 文件，该文件要求以UNIX规范的LF作为行结束符。
+如果在Windows上编辑，需要使用合适的编辑器。
 :::
 
 :::note
-These files are referenced in PX4 code as `/fs/microsd/etc/config.txt` and `/fs/microsd/etc/extras.txt`, where the root folder of the microsd card is identified by the path `/fs/microsd`.
+这些文件在 PX4 代码中被引用为 `/fs/microsd/etc/config.txt` 和 `/fs/microsd/etc/extras.xt`, microsd卡的根文件夹路径为 `/fs/microsd`。
 :::
 
 #### 自定义配置（config.txt）
 
-The `config.txt` file can be used to modify parameters. 通常这些额外应用程序可以载荷控制器或类似的可选自定义组件。
+`config.txt` 文件可以用来修改参数。 该文件在主系统配置后但在其启动*前* 进行加载。
 
-For example, you could create a file on the SD card, `etc/config.txt` with that sets parameter values as shown:
+例如，您可以在 SD 卡上创建一个文件， `etc/config.txt` 该文件设置的参数值如下所示：
 
 ```
 param set-default PWM_MAIN_DIS3 1000
 param set-default PWM_MAIN_MIN3 1120
 ```
 
-#### Starting Additional Applications (extras.txt)
+#### 启动附加应用程序 (extras.txt)
 
-The `extras.txt` can be used to start additional applications after the main system boot. Typically these would be payload controllers or similar optional custom components.
+`extras.txt` 可用于在主系统启动后启动额外的应用程序。 通常，额外启动的将是有效载荷控制器或类似的可选自定义组件。
 
-默认情况下系统将从 `/etc/mixers` 文件夹下载入混控器。 如果在 `/fs/microsd/etc/mixers` 文件夹下存在一个同名文件，则后者将会替代默认的混控器被系统载入。
+:::warning
+在系统启动文件中调用未知命令可能导致启动失败。
+通常情况下系统在启动失败后不会发送 mavlink 消息，在这种情况下请检查系统控制台上输出的的错误消息。
 :::
 
-下面的示例演示了如何添加一个辅助（AUX）混控器：
-- 在 SD 卡上创建一个文件 `etc/extras.txt` ，该文件应包含如下内容： `custom_app start`
+下面的示例演示了如何启动自定义应用程序:
+- 在 SD 卡上创建一个文件 `etc/extras.txt` ，包含如下内容：
   ```
   custom_app start
   ```
