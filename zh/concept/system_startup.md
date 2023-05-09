@@ -54,20 +54,20 @@ dyn ./test.px4mod
 
 ### 自定义系统的启动文件
 
-The whole boot can be replaced by creating a file `/etc/rc.txt` on the microSD card with a new configuration (nothing in the old configuration will be auto-started, and if the file is empty, nothing at all will be started).
+可以通过在microSD卡中创建新的配置文件 `/etc/rc.xt`来替换整个启动过程(旧配置中的任何内容都不会自动启动，如果该文件为空，则不会启动任何内容)。
 
-Customizing the default boot is almost always a better approach. This is documented below.
+根据默认启动程序来进行定制化是一个比较好地开始。 文档如下。
 
 ### 自定义系统的启动文件
 
-The best way to customize the system startup is to introduce a [new frame configuration](../dev_airframes/adding_a_new_frame.md). The frame configuration file can be included in the firmware or on an SD Card.
+自定义系统启动的最佳方式是引入一个 [新机架配置](../dev_airframes/adding_a_new_frame.md)。 机架配置文件可以在固件中，也可以在SD卡上。
 
-If you only need to "tweak" the existing configuration, such as starting one more application or setting the value of a few parameters, you can specify these by creating two files in the `/etc/` directory of the SD Card:
+如果您只需要“调整”现有的配置，如启动另一个应用程序或设置几个参数的值， 您可以在 `/etc/` 目录中创建两个文件来处理：
 
-- [/etc/config.txt](#customizing-the-configuration-config-txt): modify parameter values
-- [/etc/extras.txt](#starting-additional-applications-extras-txt): start applications
+- [/etc/config.txt](#customizing-the-configuration-config-txt): 修改参数值
+- [/etc/extras.txt](#starting-additional-applications-extras-txt): 启动应用程序
 
-The files are described below.
+文件具体信息在后面介绍。
 
 主要有三类钩子。 主要有三类钩子（hook）， 需要注意的是 microsd 的根目录是挂载在操作系统中的 `/fs/microsd` 目录下的。
 :::
