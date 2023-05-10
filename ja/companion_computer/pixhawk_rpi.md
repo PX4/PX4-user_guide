@@ -239,7 +239,7 @@ You could similarly configure a connection to `TELEM1` using either `MAV_1_CONFI
 You will need to reboot the flight controller to apply any changes to these parameters.
 :::
 
-1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) module is now running. YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
+1. Check that the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module is now running. YOu can do this by running the following command in the QGroundControl [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html):
 
    ```
    uxrce_dds_client status
