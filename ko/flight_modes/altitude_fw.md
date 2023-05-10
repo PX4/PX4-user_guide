@@ -33,34 +33,23 @@ RC 수동 모드는 안정화 모드와 같지만 고도 안정화를 사용합�
 
 ## 매개 변수
 
-이 모드는 아래의 매개 변수의 영향을받습니다.<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
+이 모드는 아래의 매개 변수의 영향을받습니다.
 
-<td>
-  자세 안정화 모드에서 수동 제어를위한 최대 피치. 기본값: 45도.
-</td></tr> 
+| 매개 변수                                                                                                 | 설명                                                        |
+| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | 최소 대기 속도/추진력. 기본값: 10 m/s.                                |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | 최대 대기 속도/추진력. 기본값: 20 m/s.                                |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | 순항 속도 기본값: 15 m/s.                                        |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | 자세 안정화 모드에서 수동 제어를위한 최대 피치. 기본값: 45도.                     |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | 자세 안정화 모드에서 수동 제어를 위한 최대 롤. 기본값: 45도.                     |
+| <a id="FW_L1_CONTROL"></a>[FW L1 Control](../advanced_config/parameter_reference.md#fw-l1-control)     | 명령된 고도 및 대기 속도를 유지하는 데 필요한 롤/요는 FW L1 제어 매개 변수의 영향을 받습니다. |
 
-<tr>
-  <td>
-    <span id="FW_MAN_R_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_R_MAX">FW_MAN_R_MAX</a></td> 
-    
-    <td>
-      자세 안정화 모드에서 수동 제어를 위한 최대 롤. 기본값: 45도.
-    </td></tr> 
-    
-    <tr>
-      <td>
-        <span id="FW_L1_CONTROL"><a href="../advanced_config/parameter_reference.md#fw-l1-control">FW L1 Control</a></td> 
-        
-        <td>
-          명령된 고도 및 대기 속도를 유지하는 데 필요한 롤/요는 FW L1 제어 매개 변수의 영향을 받습니다.
-        </td></tr> </tbody> </table> 
-        
-        <p spaces-before="0">
-          <!-- 
+
+
+<!-- 
 FW notes: 
 FW position controller is basically 2 independent pieces
 * L1 is for navigation - determines the roll and yaw needed to achieve the desired waypoint (or loiter)
 * TECS is for speed and height control - determines throttle and elevator position needed to achieve the commanded altitude and airspeed
 Overall that gives you an attitude setpoint (roll, pitch, yaw) and throttle which is sent off to the attitude controller
 -->
-        </p>
