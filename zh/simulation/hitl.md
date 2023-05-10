@@ -35,7 +35,7 @@ The diagram below shows the simulation environment:
 * *Gazebo Classic* and *jMAVSim* can also connect to an offboard API and bridge MAVLink messages to PX4.
 * (可选 - 仅适用于Gazebo) Gazebo 还可以连接到一个 offboard API ，并将 MAVLink 数据桥接到 PX4 。
 
-![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
+![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.svg)
 
 
 ## HITL 相比于 SITL
