@@ -23,18 +23,18 @@ px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功�
 防静电袋和硅胶干燥剂是为了防止水蒸气在电路板上冷凝。
 :::
 
-它可以在没有商业级环境房间的情况下进行校准。 A simple environment container can be created using a styrofoam box with a very small internal volume of air. This allows the autopilot to self-heat the air relatively quickly (be sure that the box has a small hole to equalize to ambient room pressure, but still be able to heat up inside).
+它可以在没有商业级环境房间的情况下进行校准。 可以使用内部空间很小的泡沫塑料盒来创造一个简单的环境容器。 这允许自驾仪将空气相对快速地自加热（确保盒子有一个小孔以平衡容器内外压力，但仍然能够在容器内加热）。
 
-Using this sort of setup it is possible to heat a board to ~70C. Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. If in doubt, check the safe operating range with your manufacturer.
+使用这种设置可以将电路板加热到约 70C 。 经验表明，许多普通电路板可以加热到这个温度不会产生不良副作用。 如有疑问，请与制造商核实安全操作的温度范围。
 
 :::tip
-To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
+要检查板上的热校准状态，请使用 MAVlink 控制台(或NuttX 控制台) 检查来自传感器的报告的内部温度。 
 :::
 
 <span id="calibration_procedures"></span>
 ## 校准过程
 
-PX4 supports two calibration procedures:
+PX4 支持两种校准过程：
 * [板载校准](#onboard_calibration) - 校准在电路板上运行。 该方法需要知道测试设置中可实现的温升量。
 * [板外校准](#offboard_calibration) - 基于在校准过程期间收集的日志信息在计算机上计算补偿参数。 该方法允许用户可视地检查数据和曲线拟合的质量。
 
