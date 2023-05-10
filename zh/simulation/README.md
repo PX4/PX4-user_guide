@@ -35,7 +35,7 @@ Instructions for how to setup and use the simulators are in the topics linked ab
 
 All simulators except for Gazebo communicate with PX4 using the Simulator MAVLink API. This API defines a set of MAVLink messages that supply sensor data from the simulated world to PX4 and return motor and actuator values from the flight code that will be applied to the simulated vehicle. The image below shows the message flow.
 
-![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
+![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.svg)
 
 :::note
 A SITL build of PX4 uses [SimulatorMavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/simulation/simulator_mavlink/SimulatorMavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/mavlink/mavlink_receiver.cpp). 这些端口是： All motors / actuators are blocked, but internal software is fully operational.
