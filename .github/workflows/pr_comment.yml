@@ -86,7 +86,7 @@ jobs:
         with:
           issue-number: ${{ steps.read-error-pr-number.outputs.content }}
           comment-author: 'github-actions[bot]'
-          body-includes: Flaws (may be none):
+          body-includes: Flaws (may be none)
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v3
