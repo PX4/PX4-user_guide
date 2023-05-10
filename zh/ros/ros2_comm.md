@@ -19,7 +19,7 @@ ROS 2-PX4 架构在ROS 2和PX4之间进行了深度整合。 允许 ROS 2 订阅
 
 uXRCE-DDS的中间件由运行在PX4上的客户端(Client)和运行在机载计算机上的代理端(Agent)组成， 通过串口、UDP、TCP或其他链路实现双向数据互联。 代理端(Agent)充当客户端(Client)的代理在DDS全局数据空间中发布和订阅话题。
 
-PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) 是在构建时生成的，并且默认包含在 PX4 固件中。 它包含“通用”XRCE-DDS客户端(Client)代码和PX4 特定翻译代码以支持用来发布或获取来自uORB的话题 。 为客户端(Client)生成的 uORB 消息的子集在 [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) 中定义。 生成器使用代码树： [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) 中的 uORB 消息定义来创建 ROS 2 消息代码。
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmware by default. 它包含“通用”XRCE-DDS客户端(Client)代码和PX4 特定翻译代码以支持用来发布或获取来自uORB的话题 。 为客户端(Client)生成的 uORB 消息的子集在 [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) 中定义。 生成器使用代码树： [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) 中的 uORB 消息定义来创建 ROS 2 消息代码。
 
 ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建，即在 PX4 Firmware 中创建 uXRCE-DDS客户端(Client)模块时使用的消息。 你可以通过克隆接口包 [PX4/px4_msgs](https://github.com/PX4/px4_msgs) 到你的 ROS 2 工作空间中(仓库中的分支对应于不同版本 PX4 消息)。
 
@@ -77,7 +77,7 @@ ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建�
 
 ### 安装Micro XRCE-DDS 代理(Agent)& 客户端(Client)
 
-ROS2 要与 PX4 通讯，必须在 PX4 上运行 [uXRCE-DDS客户端(Client)](../modules/modules_system.md#uxrce_dds_client)  并与运行在任务计算机上的micro XRCE-DDS 代理(Agent)连接。
+For ROS 2 to communicate with PX4, [uXRCE-DDS client](../modules/modules_system.md#uxrce-dds-client) must be running on PX4, connected to a micro XRCE-DDS agent running on the companion computer.
 
 #### 设置代理(Agent)
 
@@ -479,7 +479,7 @@ Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/sr
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) from command line. This technique can be used both in simulation and real vehicles.
+ - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
  - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 
