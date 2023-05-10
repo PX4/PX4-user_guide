@@ -249,7 +249,24 @@ uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
 ```
 Options `-p` or `-h` are used to bypass `UXRCE_DDS_PRT` and `UXRCE_DDS_AG_IP`.
 
+#### Starting the Client in Simulation
+
 The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d-posix/rcS)) uses the client startup commands for single and [multi vehicle simulations](../ros/ros2_multi_vehicle.md), enabling the setting of appropriate instance ids and DDS namespaces.
+By default the client is started on localhost UDP port `8888` with no additional namespace.
+
+Environment variables are provided that override some [UXRCE-DDS parameters](../advanced_config/parameter_reference.md#uxrce-dds-client).
+These allow users to create custom startup files for their simulations:
+
+- `PX4_UXRCE_DDS_NS`: Use this to specify the topic [namespace](#customizing-the-topic-namespace).
+- `ROS_DOMAIN_ID`: Use this to replace [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID).
+- `PX4_UXRCE_DDS_PORT`: Use this to replace [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT).
+
+For example, the following command can be used to start a Gazebo simulation with che client operating on the DDS domain `3`, port `9999` and topic namespace `drone`.
+
+```sh
+ROS_DOMAIN_ID=3 PX4_UXRCE_DDS_PORT=9999 PX4_UXRCE_DDS_NS=drone make px4_sitl gz_x500
+```
+
 
 ## Supported uORB Messages
 
