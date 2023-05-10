@@ -109,7 +109,7 @@ This can confuse the target position and velocity estimator.
 
 ### Altitude Control Mode
 
-![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.png)
+![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.svg)
 
 The altitude control mode determine whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target. 
 

@@ -17,7 +17,6 @@ We'll go through each of these in detail in the following sections.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-
 Main interface | Function
 :--- | :---
 Power1 | Connect power module. Power input with *analog* voltage and current detection. Do not use a Digital PM on this connector!

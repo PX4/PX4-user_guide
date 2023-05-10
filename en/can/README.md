@@ -33,7 +33,7 @@ Otherwise, you can use a termination resistor such as [this one from Zubax Robot
 
 The following diagram shows an example of a CAN bus connecting a flight controller to 4 CAN ESCs and a GNSS.
 
-![CAN Wiring](../../assets/can/uavcan_wiring.png)
+![CAN Wiring](../../assets/can/uavcan_wiring.svg)
 
 The diagram does not show any power wiring.
 Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
