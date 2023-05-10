@@ -6,6 +6,9 @@ on:
       - completed
 jobs:
   comment:
+    permissions:
+      pull-requests: write # for marocchino/sticky-pull-request-comment
+    name: Comments
     runs-on: ubuntu-latest
     steps:
       # Would like to do this, but it doesn't work (for me).
@@ -95,3 +98,12 @@ jobs:
             ${{ steps.read-errors-by-page.outputs.content }}
           edit-mode: replace
           
+      - name: Create or update comment v2
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          recreate: true
+          number: ${{ steps.read-error-pr-number.outputs.content }}
+          header: flaws
+          message: ${{ steps.read-errors-by-page.outputs.content }}
