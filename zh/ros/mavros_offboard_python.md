@@ -23,7 +23,7 @@
 
     ```sh
     roscd  # Should cd into ~/catkin_ws/devel
-    cd .. 
+    cd ..
     cd src
     ```
 
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
 
     rospy.wait_for_service("/mavros/cmd/arming")
-    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+    arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
     rospy.wait_for_service("/mavros/set_mode")
     set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     pose.pose.position.z = 2
 
     # Send a few setpoints before starting
-    for i in range(100):   
+    for i in range(100):
         if(rospy.is_shutdown()):
             break
 
@@ -176,7 +176,7 @@ state_sub = rospy.Subscriber("mavros/state", State, callback = state_cb)
 local_pos_pub = rospy.Publisher("mavros/setpoint_position/local", PoseStamped, queue_size=10)
 
 rospy.wait_for_service("/mavros/cmd/arming")
-arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)    
+arming_client = rospy.ServiceProxy("mavros/cmd/arming", CommandBool)
 
 rospy.wait_for_service("/mavros/set_mode")
 set_mode_client = rospy.ServiceProxy("mavros/set_mode", SetMode)
@@ -213,7 +213,7 @@ pose.pose.position.z = 2
 
 ```py
 # Send a few setpoints before starting
-for i in range(100):   
+for i in range(100):
     if(rospy.is_shutdown()):
         break
 
@@ -266,7 +266,7 @@ while(not rospy.is_shutdown()):
 ```sh
 roscd offboard_py
 mkdir launch
-cd launch 
+cd launch
 touch start_offb.launch
 ```
 
@@ -321,13 +321,13 @@ roslaunched offboard_py start_offb.launch
 ```sh
 source ~/PX4-Autopilot/Tools/simulation/gazebo/setup_gazebo.bash ~/PX4-Autopilot ~/PX4-Autopilot/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo/sitl_gazebo
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/PX4-Autopilot/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/usr/lib/x86_64-linux-gnu/gazebo-9/plugins
 ```
 
 在终端中切换至home目录，运行下面的命令将上面的更改应用到当前终端：
 
-```sh 
+```sh
 source .bashrc
 ```
 
