@@ -10,22 +10,7 @@ jobs:
       pull-requests: write # for marocchino/sticky-pull-request-comment
     name: Comments
     runs-on: ubuntu-latest
-    steps:
-      # Would like to do this, but it doesn't work (for me).
-      # Moving to time-based, or triggering on workflow 
-      #- name: Wait for artifacts upload to succeed
-      #  uses: lewagon/wait-on-check-action@v1.3.1
-      #  with:
-      #    ref: ${{ github.ref }}
-      #    check-name: 'Archive production artifacts'
-      #    repo-token: ${{ secrets.GITHUB_TOKEN }}
-      #    wait-interval: 80
-
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"  
-     
+    steps:    
       - name: 'Download PR artifact'
         uses: actions/github-script@v6
         with:
@@ -49,12 +34,6 @@ jobs:
 
       - name: 'Unzip artifact'
         run: unzip pr_number.zip
-   
-
-      # Not needed for now - trying to trigger off the workflow
-      #- name: Sleep for 80 seconds
-      #  run: sleep 80s
-      #  shell: bash
   
       # Doesn't work across workflows
       #- name: Get artifacts from flaw checker workflow
@@ -62,7 +41,7 @@ jobs:
       #  with:
       #    name: logs_and_errors
       #    #path: ./logs
-          
+
       - name: Read errorsFilteredByPrPages.md file
         id: read-errors-by-page
         uses: juliangruber/read-file-action@v1
@@ -90,6 +69,25 @@ jobs:
           header: flaws
           message: ${{ steps.read-errors-by-page.outputs.content || 'No flaws found' }}
   
+      #- name: Dump GitHub context
+      #  env:
+      #    GITHUB_CONTEXT: ${{ toJSON(github) }}
+      #  run: echo "$GITHUB_CONTEXT"  
+  
+      # Would like to do this, but it doesn't work (for me).
+      # Moving to time-based, or triggering on workflow 
+      #- name: Wait for artifacts upload to succeed
+      #  uses: lewagon/wait-on-check-action@v1.3.1
+      #  with:
+      #    ref: ${{ github.ref }}
+      #    check-name: 'Archive production artifacts'
+      #    repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #    wait-interval: 80
+  
+      # Not needed for now - trying to trigger off the workflow
+      #- name: Sleep for 80 seconds
+      #  run: sleep 80s
+      #  shell: bash
       #- name: Find Comment
       #  uses: peter-evans/find-comment@v2
       #  id: fc
