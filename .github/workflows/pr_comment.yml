@@ -106,4 +106,4 @@ jobs:
           recreate: true
           number: ${{ steps.read-error-pr-number.outputs.content }}
           header: flaws
-          message: ${{ steps.read-errors-by-page.outputs.content }}
+          message: ${{ steps.read-errors-by-page.outputs.content || 'No flaws found' }}
