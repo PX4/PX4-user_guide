@@ -33,34 +33,23 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
 
 ## Parameters
 
-The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
+The mode is affected by the following parameters:
 
-<td>
-  Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.
-</td></tr> 
+| Parameter                                                                                             | Description                                                                                                            |
+| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | Min airspeed/throttle. Default: 10 m/s.                                                                                |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | Max airspeed/throttle. Default: 20 m/s.                                                                                |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | Cruise speed. Default: 15 m/s.                                                                                         |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.                                         |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.                                          |
+| <a id="FW_L1_CONTROL"></a>[FW L1 Control](../advanced_config/parameter_reference.md#fw-l1-control)     | The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW L1 Control parameters. |
 
-<tr>
-  <td>
-    <span id="FW_MAN_R_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_R_MAX">FW_MAN_R_MAX</a></td> 
-    
-    <td>
-      Max roll for manual control in attitude stabilized mode. Default: 45 degrees.
-    </td></tr> 
-    
-    <tr>
-      <td>
-        <span id="FW_L1_CONTROL"><a href="../advanced_config/parameter_reference.md#fw-l1-control">FW L1 Control</a></td> 
-        
-        <td>
-          The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW L1 Control parameters.
-        </td></tr> </tbody> </table> 
-        
-        <p spaces-before="0">
-          <!-- 
+
+
+<!-- 
 FW notes: 
 FW position controller is basically 2 independent pieces
 * L1 is for navigation - determines the roll and yaw needed to achieve the desired waypoint (or loiter)
 * TECS is for speed and height control - determines throttle and elevator position needed to achieve the commanded altitude and airspeed
 Overall that gives you an attitude setpoint (roll, pitch, yaw) and throttle which is sent off to the attitude controller
 -->
-        </p>

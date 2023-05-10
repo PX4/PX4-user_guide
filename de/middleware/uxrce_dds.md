@@ -19,7 +19,7 @@ The uXRCE-DDS middleware consists of a client running on PX4 and an agent runnin
 
 In order for PX4 uORB topics to be shared on the DDS network you will need _uXRCE-DDS client_ running on PX4, connected to the _micro XRCE-DDS agent_ running on the companion.
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) publishes to/from a defined set of uORB topics to the global DDS data space.
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) publishes to/from a defined set of uORB topics to the global DDS data space.
 
 The [eProsima micro XRCE-DDS _agent_](https://github.com/eProsima/Micro-XRCE-DDS-Agent) runs on the companion computer and acts as a proxy for the client in the DDS/ROS 2 network.
 
@@ -30,9 +30,9 @@ Code that wants to subscribe/publish to PX4 does have a dependency on client-sid
 
 ## Code Generation
 
-The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) is generated at build time and included in PX4 firmare by default. The agent has no dependency on client code. It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
+The PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) is generated at build time and included in PX4 firmare by default. The agent has no dependency on client code. It can be built standalone or in a ROS 2 workspace, or installed as a snap package on Ubuntu.
 
-When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client).
+When PX4 is built, a code generator uses the uORB message definitions in the source tree ([PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg)) to compile support for the subset of uORB topics in [PX4-Autopilot/src/modules/uxrce_dds_client/dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client).
 
 PX4 main or release builds automatically export the set of uORB messages definitions in the build to an associated branch in [PX4/px4_msgs](https://github.com/PX4/px4_msgs).
 
@@ -162,7 +162,7 @@ For more information about setting up communications channels see [Pixhawk + Com
 
 ### Starting the Client
 
-The uXRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client)) is included by default in all firmware and the simulator. This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
+The uXRCE-DDS client module ([uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client)) is included by default in all firmware and the simulator. This must be started with appropriate settings for the communication channel that you wish to use to communicate with the agent.
 
 :::note
 The simulator automatically starts the client on localhost UDP port `8888` using the default uxrce-dds namespace.
@@ -205,7 +205,7 @@ Many ports are already have a default configuration. To use these ports you must
 
 Once set, you may need to reboot PX4 for the parameters to take effect. They will then persist through subsequent reboots.
 
-You can also start the [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) using a command line. This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console). This method is useful when you need to set a custom client namespace, as no parameter is provided for this purpose. For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888` and to set the client namespace to `/drone/`.
+You can also start the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) using a command line. This can be called as part of [System Startup](../concept/system_startup.md) or through the [MAVLink Shell](../debug/mavlink_shell.md) (or a system console). This method is useful when you need to set a custom client namespace, as no parameter is provided for this purpose. For example, the following command can be used to connect via Ethernet to a remote host at `192.168.0.100:8888` and to set the client namespace to `/drone/`.
 
 ```sh
 uxrce_dds_client start -t udp -p 8888 -h 192.168.0.100 -n drone
@@ -218,7 +218,7 @@ The simulator [startup logic](../concept/system_startup.md) ([init.d-posix/rcS](
 
 The set of [PX4 uORB topics](../msg_docs/README.md) that are exposed through the client are set in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
 
-The topics are release specific (support is compiled into [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) at build time). While most releases should support a very similar set of messages, to be certain you would need to check the yaml file for your particular release.
+The topics are release specific (support is compiled into [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) at build time). While most releases should support a very similar set of messages, to be certain you would need to check the yaml file for your particular release.
 <!-- Jublish the set we use?: https://github.com/PX4/px4_msgs/issues/22 -->
 
 Note that ROS 2/DDS needs to have the _same_ message definitions that were used to create the uXRCE-DDS client module in the PX4 Firmware in order to interpret the messages. The message definitions are stored in the ROS 2 interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs), and they are automatically synchronized by CI on the `main` and release branches. Note that all the messages from PX4 source code are present in the repository, but only those listed in `dds_topics.yaml` will be available as ROS 2 topics. Therefore,
@@ -240,7 +240,7 @@ Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/sr
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) from command line. This technique can be used both in simulation and real vehicles.
+ - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
  - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 

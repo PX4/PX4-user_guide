@@ -14,7 +14,6 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-
 | 主要接口          | 功能                                                                                               |
 |:------------- |:------------------------------------------------------------------------------------------------ |
 | Power1        | 连接到电源模块（电流计）。 Power input with *analog* voltage and current detection. 请不要连接数字电源模块（比如UAVCAN电流计）！ |

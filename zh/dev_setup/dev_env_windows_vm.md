@@ -75,3 +75,7 @@ If successful, your device will show up with `lsusb` and QGroundControl will con
 ```
 make px4_fmu-v5_default upload
 ```
+
+### Telemetry over WiFi for QGroundControl
+
+If using _QGroundControl_ within a virtual machine you should set the VM networking settings to  "Bridged Adapter" mode. This gives the guest OS direct access to networking hardware on the host. If you use the Network Address Translation (NAT), which is set by default for VirtualBox 7 running Ubuntu 20.04 LTS, this will block the outbound UDP packets that QGroundControl uses to communicate with the vehicle.

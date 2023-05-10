@@ -35,7 +35,7 @@ The diagram below shows the simulation environment:
 * *Gazebo Classic* and *jMAVSim* can also connect to an offboard API and bridge MAVLink messages to PX4.
 * (Optional) A serial connection can be used to connect Joystick/Gamepad hardware via *QGroundControl*.
 
-![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
+![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.svg)
 
 
 ## HITL vs SITL

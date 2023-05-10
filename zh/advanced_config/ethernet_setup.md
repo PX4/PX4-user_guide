@@ -191,7 +191,7 @@ can connect to the PX4 on port `14550` if you don't modify the PX4 Ethernet port
 
 :::note
 Prerequisites:
-- You have a supported autopilot hardware running PX4 firmware that includes [uXRCE-DDS](../middleware/uxrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [uxrce_dds_client](../modules/modules_system.md#uxrce_dds_client) module by default.
+- You have a supported autopilot hardware running PX4 firmware that includes [uXRCE-DDS](../middleware/uxrce_dds.md) middleware. Note that PX4 v1.14 and later include the required [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module by default.
 - [ROS 2](../ros/ros2_comm.md) has been set up correctly on the companion computer.
 - You have followed the Ethernet network and port setup as discussed at the top of this page.
 :::
