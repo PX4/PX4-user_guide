@@ -69,7 +69,7 @@ jobs:
         with:
           path: ./errorsFilteredByPrPages.md
 
-      - name: Read pr number
+      - name: Read PR number
         id: read-error-pr-number
         uses: juliangruber/read-file-action@v1
         with:
@@ -79,26 +79,8 @@ jobs:
         run: |
           echo "${{ steps.read-errors-by-page.outputs.content }}"
           echo "${{ steps.read-error-pr-number.outputs.content }}"
-        
-      - name: Find Comment
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ steps.read-error-pr-number.outputs.content }}
-          comment-author: 'github-actions[bot]'
-          body-includes: Flaws (may be none)
 
       - name: Create or update comment
-        uses: peter-evans/create-or-update-comment@v3
-        with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ steps.read-error-pr-number.outputs.content }}
-          body: |
-            Flaws (may be none)
-            ${{ steps.read-errors-by-page.outputs.content }}
-          edit-mode: replace
-          
-      - name: Create or update comment v2
         id: comment_to_pr
         uses: marocchino/sticky-pull-request-comment@v2
         with:
@@ -107,3 +89,21 @@ jobs:
           number: ${{ steps.read-error-pr-number.outputs.content }}
           header: flaws
           message: ${{ steps.read-errors-by-page.outputs.content || 'No flaws found' }}
+  
+      #- name: Find Comment
+      #  uses: peter-evans/find-comment@v2
+      #  id: fc
+      #  with:
+      #    issue-number: ${{ steps.read-error-pr-number.outputs.content }}
+      #    comment-author: 'github-actions[bot]'
+      #    body-includes: Flaws (may be none)
+
+      #- name: Create or update comment
+      #  uses: peter-evans/create-or-update-comment@v3
+      #  with:
+      #    comment-id: ${{ steps.fc.outputs.comment-id }}
+      #    issue-number: ${{ steps.read-error-pr-number.outputs.content }}
+      #    body: |
+      #      Flaws (may be none)
+      #      ${{ steps.read-errors-by-page.outputs.content }}
+      #    edit-mode: replace
