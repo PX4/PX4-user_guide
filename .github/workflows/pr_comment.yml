@@ -83,7 +83,7 @@ jobs:
         with:
           issue-number: ${{ steps.read-error-pr-number.outputs.content }}
           comment-author: 'github-actions[bot]'
-          body-includes: FlawsTest2
+          body-includes: Flaws (may be none):
 
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v3
@@ -91,7 +91,7 @@ jobs:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ steps.read-error-pr-number.outputs.content }}
           body: |
-            FlawsTest2
+            Flaws (may be none)
             ${{ steps.read-errors-by-page.outputs.content }}
           edit-mode: replace
           
