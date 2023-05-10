@@ -4,6 +4,12 @@
 Because it is designed to be democratic and uses differential signaling, it is very robust even over longer cable lengths (on large vehicles), and avoids a single point of failure.
 CAN also allows status feedback from peripherals and convenient firmware upgrades over the bus.
 
+[A link that does not exist test](goawayd.md)
+
+[A link to an anchor that does not exist](#nheadingofthisnamehere)
+
+![A link to an image that does not exist](nheadingofthisnamehere.png)
+
 PX4 supports two software protocols for communicating with CAN devices:
 
 - [DroneCAN](../dronecan/README.md): PX4 recommends this for most common setups.
