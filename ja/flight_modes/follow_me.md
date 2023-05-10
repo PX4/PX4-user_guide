@@ -97,7 +97,7 @@ is not currently recommended, due to a bug ([MAVSDK#1756](https://github.com/mav
 
 ### Altitude Control Mode
 
-![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.png)
+![Follow Me Altitude Modes](../../assets/flight_modes/followme_altitude_modes.svg)
 
 The altitude control mode determine whether the vehicle altitude is relative to the home position, terrain height, or the altitude reported by the follow target.
 
