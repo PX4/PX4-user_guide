@@ -35,7 +35,7 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 * *Gazebo Classic* and *jMAVSim* can also connect to an offboard API and bridge MAVLink messages to PX4.
 * (선택 사항) 직렬 연결로 *QGroundControl*에서 조이스틱/게임패드 하드웨어를 연결할 수 있습니다.
 
-![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
+![HITL Setup - jMAVSim and Gazebo Classic](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.svg)
 
 
 ## HITL 대 SITL
