@@ -33,34 +33,23 @@ The *Altitude* flight mode makes it easier for users to control vehicle altitude
 
 ## 参数
 
-该模式受以下参数影响：<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
+该模式受以下参数影响：
 
-<td>
-  在高度稳定模式下手动控制的最大俯仰角。 默认：45 度。
-</td></tr> 
+| 参数                                                                                                    | 描述                                  |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | 最小空速/油门。 默认：10 m/s。                 |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | 最大空速/油门。 默认：20 m/s。                 |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | 巡航速度。 默认：15 m/s。                    |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | 在高度稳定模式下手动控制的最大俯仰角。 默认：45 度。        |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | 在高度稳定模式下手动控制的最大滚转角。 默认：45 度。        |
+| <a id="FW_L1_CONTROL"></a>[FW L1 Control](../advanced_config/parameter_reference.md#fw-l1-control)     | 维持指令高度和空速所需的滚转/偏航角也受固定翼 L1 控制参数的影响。 |
 
-<tr>
-  <td>
-    <span id="FW_MAN_R_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_R_MAX">FW_MAN_R_MAX</a></td> 
-    
-    <td>
-      在高度稳定模式下手动控制的最大滚转角。 默认：45 度。
-    </td></tr> 
-    
-    <tr>
-      <td>
-        <span id="FW_L1_CONTROL"><a href="../advanced_config/parameter_reference.md#fw-l1-control">FW L1 Control</a></td> 
-        
-        <td>
-          维持指令高度和空速所需的滚转/偏航角也受固定翼 L1 控制参数的影响。
-        </td></tr> </tbody> </table> 
-        
-        <p spaces-before="0">
-          <!-- 
+
+
+<!-- 
 FW notes: 
 FW position controller is basically 2 independent pieces
 * L1 is for navigation - determines the roll and yaw needed to achieve the desired waypoint (or loiter)
 * TECS is for speed and height control - determines throttle and elevator position needed to achieve the commanded altitude and airspeed
 Overall that gives you an attitude setpoint (roll, pitch, yaw) and throttle which is sent off to the attitude controller
 -->
-        </p>
