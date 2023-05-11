@@ -35,14 +35,14 @@ The *Altitude* flight mode makes it easier for users to control vehicle altitude
 
 该模式受以下参数影响：
 
-| 参数                                                                                                    | 描述                                  |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | 最小空速/油门。 默认：10 m/s。                 |
-| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | 最大空速/油门。 默认：20 m/s。                 |
-| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | 巡航速度。 默认：15 m/s。                    |
-| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | 在高度稳定模式下手动控制的最大俯仰角。 默认：45 度。        |
-| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | 在高度稳定模式下手动控制的最大滚转角。 默认：45 度。        |
-| <a id="FW_L1_CONTROL"></a>[FW L1 Control](../advanced_config/parameter_reference.md#fw-l1-control)     | 维持指令高度和空速所需的滚转/偏航角也受固定翼 L1 控制参数的影响。 |
+| 参数                                                                                                    | 描述                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | 最小空速/油门。 默认：10 m/s。                                                                                                      |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | 最大空速/油门。 默认：20 m/s。                                                                                                      |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | 巡航速度。 默认：15 m/s。                                                                                                         |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | 在高度稳定模式下手动控制的最大俯仰角。 默认：45 度。                                                                                             |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | 在高度稳定模式下手动控制的最大滚转角。 默认：45 度。                                                                                             |
+| <a id="FW_NPFG_CONTROL"></a>[FW NPFG Control](../advanced_config/parameter_reference.md#fw-npfg-control) | The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW NPFG Control parameters. |
 
 
 
