@@ -265,7 +265,7 @@ The steps to setup ROS 2 and the Micro XRCE-DDS Agent on the RPi are:
    ```bash
    sudo apt install git
    ```
-3. Install the micro XRCE_DDS agent:
+3. Install the uXRCE_DDS agent:
 
    ```bash
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
