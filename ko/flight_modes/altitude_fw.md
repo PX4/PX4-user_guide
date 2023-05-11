@@ -35,14 +35,14 @@ RC 수동 모드는 안정화 모드와 같지만 고도 안정화를 사용합�
 
 이 모드는 아래의 매개 변수의 영향을받습니다.
 
-| 매개 변수                                                                                                 | 설명                                                        |
-| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | 최소 대기 속도/추진력. 기본값: 10 m/s.                                |
-| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | 최대 대기 속도/추진력. 기본값: 20 m/s.                                |
-| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | 순항 속도 기본값: 15 m/s.                                        |
-| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | 자세 안정화 모드에서 수동 제어를위한 최대 피치. 기본값: 45도.                     |
-| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | 자세 안정화 모드에서 수동 제어를 위한 최대 롤. 기본값: 45도.                     |
-| <a id="FW_L1_CONTROL"></a>[FW L1 Control](../advanced_config/parameter_reference.md#fw-l1-control)     | 명령된 고도 및 대기 속도를 유지하는 데 필요한 롤/요는 FW L1 제어 매개 변수의 영향을 받습니다. |
+| 매개 변수                                                                                                 | 설명                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| <a id="FW_AIRSPD_MIN"></a>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)   | 최소 대기 속도/추진력. 기본값: 10 m/s.                                                                                               |
+| <a id="FW_AIRSPD_MAX"></a>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)   | 최대 대기 속도/추진력. 기본값: 20 m/s.                                                                                               |
+| <a id="FW_AIRSPD_TRIM"></a>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | 순항 속도 기본값: 15 m/s.                                                                                                       |
+| <a id="FW_MAN_P_MAX"></a>[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX)     | 자세 안정화 모드에서 수동 제어를위한 최대 피치. 기본값: 45도.                                                                                    |
+| <a id="FW_MAN_R_MAX"></a>[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX)     | 자세 안정화 모드에서 수동 제어를 위한 최대 롤. 기본값: 45도.                                                                                    |
+| <a id="FW_NPFG_CONTROL"></a>[FW NPFG Control](../advanced_config/parameter_reference.md#fw-npfg-control) | The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW NPFG Control parameters. |
 
 
 
