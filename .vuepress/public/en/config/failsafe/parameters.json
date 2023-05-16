@@ -10213,7 +10213,7 @@
     {
       "category": "Standard",
       "decimalPlaces": 2,
-      "default": 0.05,
+      "default": 0.2,
       "group": "FW TECS",
       "increment": 0.1,
       "longDesc": "This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.",
