@@ -16629,7 +16629,7 @@ table {
  <td><strong id="FW_T_SPD_DEV_STD">FW_T_SPD_DEV_STD</strong> (FLOAT)</td>
  <td>Airspeed rate measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.</p>   </td>
  <td>[0.01, 10.0] (0.1)</td>
- <td>0.05</td>
+ <td>0.2</td>
  <td>m/s^2</td>
 </tr>
 <tr>
