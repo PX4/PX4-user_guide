@@ -8,15 +8,13 @@
 
 本文将阐述怎样在这两种模式中设置自主避障功能。
 
-@[youtube](https://youtu.be/PrGt7pKj3tI)
-
 
 ## 局限 / 能力
 
 - 自主避障的最大速度当前约为 3m/s（由于计算避障路径的开销）。
 
 :::note
-自主避障 可以使用 *本地规划器* 以约 30Hz 的频率发出消息，并且飞机会以约 3m/s的速度运动）或使用全局规划器（以约 10Hz 的频率发出消息，自主避障运动速度约为 1-1.5 m/s）。
+Obstacle avoidance can use the *local planner* (emits messages at ~30Hz and can move at around 3 m/s) or *global planner* (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 :::
 
 
@@ -44,10 +42,10 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 激活避障之后的不同之处有：
 - 飞机距离目标航点小于阈值半径，即判定为抵达，不考虑航向。
   - 在普通任务模式下，飞机必须沿某一航向抵达目标航点（比如从上一航点沿直线靠近）。 开启自主避障后该约束失效，因为避障算法完全控制了飞机的航向，并且飞机始终在当前视野中移动。
-- 一旦判定为到达某航点（即距离航点小于阈值半径），PX4 就开始切换新的当前航点与下一个航点。
-- 如果一个航点在某个障碍物*之内*，飞机有可能无法抵达（这个任务将被阻塞）。
+- PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as the vehicle enters its acceptance radius).
+- If a waypoint is *inside* an obstacle it may be unreachable (and the mission will be stuck).
   - 如果飞机在上一航点与当前航点连线上的投影经过了当前航点，阈值半径将被放大，当前航点将被标记为抵达。
-  - 如果载具只能进入x-y方向的阈值半径，高度方向的可接受阈值将被修改，然后任务将继续（即使无法进入高度的可接受半径）。
+  - If the vehicle is within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
 - The original mission speed (as set in *QGroundControl*/PX4) is ignored. 速度将由避障软件决定：
   - *local planner* mission speed is around 3 m/s.
   - *global planner* mission speed is around 1-1.5 m/s.
@@ -80,7 +78,4 @@ The interface (messages sent) between PX4 and the companion are *exactly* the sa
 ## 支持的硬件
 
 Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
-
-<!-- ## Further Information -->
-<!-- @mrivi is expert! -->
 
