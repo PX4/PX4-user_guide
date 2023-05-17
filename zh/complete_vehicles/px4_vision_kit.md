@@ -7,7 +7,7 @@ The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/mult
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (on V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
 :::note
-该无人机发货时没有预先安装软件。 A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+该无人机发货时没有预先安装软件。 A USB stick is included in the kit with an example of an [obstacle avoidance](../computer_vision/obstacle_avoidance.md) feature implementation, based on the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project. This example is intended as a reference only and serves to demonstrate the capabilities of the platform. The software is not compatible with the latest version of PX4, nor is it actively maintained or supported.
 :::
 
 该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
@@ -87,7 +87,7 @@ What's inside the PX4 Vision V1 can be found here in the [PX4 v1.13 Docs here](h
   - 数传：连接飞行控制器的ESP8266（连接外部2号天线）。 实现与地面站的无线连接。
 
 
-- 带有 Auterion 提供的预刷新软件的 USB2.0 盘，其附带：
+- A USB2.0 stick with pre-flashed software that bundles:
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core 相机 ROS 驱动
