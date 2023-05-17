@@ -6,7 +6,6 @@ The *Safe Landing* feature ensures that vehicles only land on flat terrain.
 
 如果降落，无人机首先降落到距离表面可以测量的高度（机载计算机`loiter_height`参数）。 如果降落的区域不够平坦，无人机会以正方形螺旋状向外移动，并定期检查地形，以寻找相对平坦的降落点。
 
-@{% youtube %}https://youtu.be/9SuJYcT0Mgc{% endyoutube %}
 
 ## 局限/能力
 
