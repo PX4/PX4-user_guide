@@ -13,7 +13,7 @@ PX4 uses computer vision systems (primarily running on [Companion Computers](../
   - [안전 착륙](../computer_vision/safe_landing.md)은 고정 장애물이 없는 평평한 지형을 찾거나 착륙하도록 기체를 안내합니다.
 
 :::tip
-[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro)는 PX4에서 컴퓨터 비전으로 작업하는 개발자를위한 강력하고 저렴한 키트입니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro)는 PX4에서 컴퓨터 비전으로 작업하는 개발자를위한 강력하고 저렴한 키트입니다. It comes with no pre-installed software, but does include an example implementation of obstacle avoidance to demonstrate the capabilities of the platform.
 :::
 
 ## 외부 참고 자료
