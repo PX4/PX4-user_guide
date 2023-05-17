@@ -7,7 +7,7 @@ The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/mult
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* or *Pixhawk 6C* (on V1.5) flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
 :::note
-This vehicle comes with no pre-installed software. A pre-imaged USB stick that contains a reference implementation of the [PX4/PX4-Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+This vehicle comes with no pre-installed software. A USB stick is included in the kit with an example of an [obstacle avoidance](../computer_vision/obstacle_avoidance.md) feature implementation, based on the [PX4 Avoidance](https://github.com/PX4/PX4-Avoidance) project. This example is intended as a reference only and serves to demonstrate the capabilities of the platform. The software is not compatible with the latest version of PX4, nor is it actively maintained or supported.
 :::
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
@@ -87,7 +87,7 @@ The PX4 Vision DevKit contains following components:
   - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.
 
 
-- A USB2.0 stick with pre-flashed software provided by Auterion that bundles:
+- A USB2.0 stick with pre-flashed software that bundles:
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core ROS driver

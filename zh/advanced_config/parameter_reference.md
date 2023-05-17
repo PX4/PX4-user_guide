@@ -16661,7 +16661,7 @@ table {
  <td><strong id="FW_T_SPD_DEV_STD">FW_T_SPD_DEV_STD</strong> (FLOAT)</td>
  <td>Airspeed rate measurement standard deviation for airspeed filter <p><strong>Comment:</strong> This is the measurement standard deviation for the airspeed rate used in the airspeed filter in TECS.</p>   </td>
  <td>[0.01, 10.0] (0.1)</td>
- <td>0.05</td>
+ <td>0.2</td>
  <td>m/s^2</td>
 </tr>
 <tr>
@@ -32972,7 +32972,7 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_QC_T_ALT_LOSS">VT_QC_T_ALT_LOSS</strong> (FLOAT)</td>
- <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
+ <td>Quad-chute transition altitude loss threshold <p><strong>Comment:</strong> Altitude loss threshold for quad-chute triggering during VTOL transition to fixed-wing flight. Active until 5s after completing transition to fixed-wing. Only active if altitude estimate is valid and in altitude-controlled mode. If the current altitude is more than this value below the altitude at the beginning of the transition, it will instantly switch back to MC mode and execute behavior defined in COM_QC_ACT. Set to 0 do disable this threshold.</p>   </td>
  <td>[0, 50] (1)</td>
  <td>20.0</td>
  <td>m</td>

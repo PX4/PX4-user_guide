@@ -8,15 +8,13 @@
 
 두 가지 모드에서 기능을 설정하고 활성화하는 방법에 대하여 설명합니다.
 
-@[유투브](https://youtu.be/PrGt7pKj3tI)
-
 
 ## 제약 사항과 성능
 
 - 장애물 회피를 위한 최대 속도는 현재 약 3m/s입니다 (회피 경로 계산 비용으로 인해).
 
 :::note
-`COM_OBS_AVOID`는 [안전 착륙](../computer_vision/safe_landing.md) 및 PX4 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md) (추적 인터페이스)를 사용하는 기타 기능을 활성화하여 외부 경로 계획 서비스를 PX4와 통합합니다.
+Obstacle avoidance can use the *local planner* (emits messages at ~30Hz and can move at around 3 m/s) or *global planner* (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 :::
 
 
@@ -44,10 +42,10 @@ PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드
 회피가 활성화된 경우 차이점은 다음과 같습니다.
 - 웨이포인트는 기체의 방향과 관계없이 허용 반경내에 있을 때 "도달"한 것으로 간주됩니다.
   - 이것은 기체의 특정 방향 (즉, 이전 웨이포인트에서 "가까운"직선)으로 웨이포인트에 도달해야하는 일반 임무와의 차이점입니다. 장애물 회피 알고리즘이 기체 방향을 완전히 제어하고, 기체는 항상 현재 시야에서 움직이기 때문에 장애물 회피가 활성화된 경우이 제약 조건을 충족할 수 없습니다.
-- PX4는 이전 웨이포인트에 도달하면 (즉, 차량이 허용 반경에 진입하자마자) 새로운 현재/다음 웨이포인트를 방출하기 시작합니다.
-- 웨이포인트가 장애물 *안쪽*에 있으면 도달할 수 없을 수 있습니다 (미션이 중단됨).
+- PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as the vehicle enters its acceptance radius).
+- If a waypoint is *inside* an obstacle it may be unreachable (and the mission will be stuck).
   - 이전-현재 웨이포인트 라인의 기체 투영이 현재 웨이포인트를 통과하면 수락 반경이 확대되어 현재 웨이포인트에 도달한 것으로 설정됩니다.
-  - 차량이 x-y 수용 반경내에 있는 경우 임무가 진행되도록 고도 수용이 수정됩니다 (고도 수용 반경에 있지 않더라도).
+  - If the vehicle is within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
 - 원래의 미션 속도 (*QGroundControl*/PX4에 설정 됨)는 무시됩니다. 속도는 회피 소프트웨어에 의해 결정됩니다.
   - *로컬 플래너* 임무 속도는 약 3m/s입니다.
   - *글로벌 플래너* 임무 속도는 약 1~1.5m/s입니다.
@@ -80,7 +78,4 @@ PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mis
 ## 지원 하드웨어
 
 Tested companion computers and cameras are listed in [PX4/PX4-Avoidance](https://github.com/PX4/PX4-Avoidance#run-on-hardware).
-
-<!-- ## Further Information -->
-<!-- @mrivi is expert! -->
 

@@ -10,7 +10,7 @@ PX4 uses computer vision systems (primarily running on [Companion Computers](../
 - [충돌 방지](../computer_vision/collision_prevention.md)는 장애물에 충돌하기 전에 차량을 멈추는 데 사용됩니다(주로 수동 모드에서 비행할 때).
 
 :::tip
-[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)(Holybro)는 PX4에서 컴퓨터 비전으로 작업하는 개발자를 위한 강력하고 저렴한 키트입니다. It comes with [PX4 avoidance](https://github.com/PX4/PX4-Avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)(Holybro)는 PX4에서 컴퓨터 비전으로 작업하는 개발자를 위한 강력하고 저렴한 키트입니다. It comes with no pre-installed software, but does include an example implementation of obstacle avoidance to demonstrate the capabilities of the platform.
 :::
 
 ## 모션 캡쳐
