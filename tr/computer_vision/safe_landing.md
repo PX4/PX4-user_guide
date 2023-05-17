@@ -6,7 +6,6 @@ The feature can be enabled in both [Land mode](../flight_modes/land.md) and [Mis
 
 If commanded to land, the vehicle first descends to a height where it can measure the surface (companion computer `loiter_height` parameter). If the landing area is not sufficiently flat, the vehicle moves outwards in a square-spiral pattern, periodically stopping to re-check the terrain for a landing spot that isn't too rough.
 
-@[youtube](https://youtu.be/9SuJYcT0Mgc)
 
 ## Limitations/Capabilities
 
