@@ -4,24 +4,21 @@
 
 VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체의 *자세*를 추정하기 위하여 [시각적 Odometry](https://en.wikipedia.org/wiki/Visual_odometry)를 사용합니다 (이미지 캡처 불량을 초래하는 빠른 기체 이동과 관련된 오류를 수정함).
 
-*지원 가능한*  VIO 설정을 사용하도록 PX4와 보조 컴퓨터 설정 방법을 설명합니다.
-
-<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<!-- https://youtu.be/gWtrka2mK7U -->
-
-:::tip
-위의 [Auterion 제품 동영상](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/)은 [지원 가능한 설정](#supported_setup)을 사용하여 비행중인기체를 보여줍니다.
-:::
+This topic gives guidance on configuring PX4 and a companion computer for a VIO setup.
 
 :::note
-이 (지원되는) 솔루션은 ROS를 사용하여 VIO 정보를 PX4로 라우팅합니다. PX4 자체는 적절한 [MAVLink 인터페이스](../ros/external_position_estimation.md#px4-mavlink-integration)를 통하여 제공되는 메시지 소스는 신경 쓰지 않습니다.
+The suggested setup uses ROS for routing VIO information to PX4. However, PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 :::
 
-<a id="supported_setup"></a>
 
-## 지원 가능한 설정
 
-지원 가능한 설정은 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md) 및 ROS (보조 컴퓨터에서 실행)를 사용하여 PX4에 주행 거리 측정 정보를 제공합니다. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
+<a id="suggested_setup"></a>
+
+## Suggested Setup
+
+A hardware and software setup for VIO is suggested in the sections below as an illustration of how to interface a VIO system with PX4. It makes use of an off-the-shelf tracking camera and a companion computer running ROS. ROS is used to read odometry information from the camera and supply it to PX4.
+
+An example of a suitable tracking camera is the [Intel® RealSense™ Tracking Camera T265](../peripherals/camera_t265_vio.md).
 
 
 
@@ -29,53 +26,45 @@ VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체
 
 카메라를 보조 컴퓨터에 연결하고 프레임에 장착합니다.
 
-- 제공된 케이블을 사용하여 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md)를 연결합니다.
 - 가능하면 렌즈가 아래쪽을 향하도록 카메라를 장착하십시오 (기본값).
-- The camera is very sensitive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+- Cameras are typically very sensitive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
 
 
-### ROS/VIO 설정
 
-Bridge, ROS 및 PX4를 설정 :
+### Companion Setup
+
+To setup ROS and PX4:
 - 보조 컴퓨터에서 [MAVROS](../ros/mavros_installation.md)를 설치하고 설정합니다.
-- Auterion [VIO 브리지 ROS 노드](https://github.com/Auterion/VIO_bridge)를 가져옵니다.
-  - catkin 작업 공간에서이 저장소를 복제하십시오.
-    ```
-    cd ~/catkin_ws/src
-git clone https://github.com/Auterion/VIO.git
-    ```
-  - 패키지 빌드:
-    ```
-    cd ~/catkin_ws/src
-catkin build px4_realsense_bridge
-    ```
-- 필요한 경우 카메라 방향을 설정합니다.
-  - 카메라가 렌즈가 아래를 향하도록 장착 된 경우 VIO 브리지는 구성이 필요하지 않습니다 (기본값).
-  - 다른 방향의 경우 아래 섹션에서 [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch)를 수정합니다.
-    ```xml
-    <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
-        args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>
-    ```
-   카메라 ROS 프레임 `camera_pose_frame`을 mavros 드론 프레임 `base_link`에 연결하는 정적 변환입니다.
-   - 처음 세 개의 `인수`는 비행 컨트롤러의 중심에서 카메라까지의 미터 단위로 *변환* x, y, z를 지정합니다. 예를 들어 카메라가 컨트롤러 앞 10cm, 위쪽 4cm 인 경우 처음 세 숫자는 [0.1, 0, 0.04, ...]입니다.
-   - 다음 세 개의 `인수`는 라디안 (요, 피치, 롤)으로 회전을 지정합니다. 따라서 `[... 0, 1.5708, 0]`은 90도 내림(지면을 향함)을 의미합니다. 정면을 바라보는 것은 [... 0 0 0]입니다.
-
+- Implement and run a ROS node to read data from the camera and publish the VIO odometry using MAVROS.
+  - See the [VIO ROS node](#vio_ros_node) section below for details of the requirements for this node.
 - PX4 EKF2 추정기를 조정하려면 [아래](#ekf2_tuning) 지침을 따르십시오.
-- 적절한 시작 파일과 함께 `roslaunch`를 호출하여 VIO를 실행합니다.
-  ```
-  cd ~/catkin_ws/src
-  roslaunch px4_realsense_bridge bridge_mavros.launch
-  ```
-  실행 파일 옵션은 다음과 같습니다.
-  - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) : 대부분의 경우 기체에 사용합니다 (브리지 및 MAVROS 시작).
-  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch) : 다른 구성 요소가 MAVROS 시작을 담당하는 경우 사용 (브리지 시작만)
-  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch) : 다른 구성 요소가 MAVROS 시작을 담당하는 경우 사용 (브리지 시작만)
 - 비행 컨트롤러 연결을 확인하십시오.
 
 :::tip
 You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
 :::
-- 첫 비행전에 [VIO가 올바르게 설정되었는지 확인하십시오](#verify_estimate).
+- [Verify that VIO is set up correctly](#verify_estimate) before your first flight!
+
+
+
+<a id="vio_ros_node"></a>
+
+### ROS VIO node
+
+In this suggested setup, a ROS node is required to
+1. interface with the chosen camera or sensor hardware,
+2. produce odometry messages containing the position estimate, which will be sent to PX4 using MAVROS, and
+3. publish messages to indicate the VIO system status.
+
+The implementation of the ROS node will be specific to the camera used and will need to be developed to use the interface and drivers appropriate for the camera.
+
+The odometry messages should be of the type [`nav_msgs/Odometry`](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html) and published to the topic `/mavros/odometry/out`.
+
+System status messages of the type [`mavros_msgs/CompanionProcessStatus`](https://github.com/mavlink/mavros/blob/master/mavros_msgs/msg/CompanionProcessStatus.msg) should be published to the topic `/mavros/companion_process/status`. These should identify the component as `MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY` (197) and indicate the `state` of the system. Recommended status values are:
+
+- `MAV_STATE_ACTIVE` when the VIO system is functioning as expected,
+- `MAV_STATE_CRITICAL` when the VIO system is functioning, but with low confidence, and
+- `MAV_STATE_FLIGHT_TERMINATION` when the system has failed or the estimate confidence is unacceptably low.
 
 
 
@@ -90,7 +79,7 @@ EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설�
 | [EKF2_EV_CTRL](../advanced_config/parameter_reference.md#EKF2_EV_CTRL)                                                                                                                                                           | Set *horizontal position fusion*, *vertical vision fusion*, *velocity fusion*, and *yaw fusion* according to your desired fusion model. |
 | [EKF2_HGT_REF](../advanced_config/parameter_reference.md#EKF2_HGT_REF)                                                                                                                                                           | Set to *Vision* to use the vision as the reference sensor for altitude estimation.                                                      |
 | [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | 측정 타임 스탬프와 "실제" 캡처 시간의 차이로 설정합니다. 자세한 정보는 [아래](#tuning-EKF2_EV_DELAY)를 참고하십시오.                                                          |
-| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | 차체 프레임에 대한 비전 센서의 위치를 설정합니다.                                                                                                            |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor with respect to the vehicle's body frame.                                                         |
 
 *QGroundControl* > **기체 설정 > 매개변수 > EKF2**에서 설정할 수 있습니다.  (매개변수 변경 사항을 적용하려면 비행 컨트롤러를 재부팅하여야 합니다).
 
@@ -104,7 +93,7 @@ EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설�
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)는 *IMU 측정에 대한 비전 위치 추정기 지연*입니다. 즉, 비전 시스템 타임스탬프와 IMU 클록 (EKF2의 "기본 클록")에 의해 기록된 "실제" 캡처 시간 간의 차이입니다.
 
-기술적으로 이것은 MoCap과 (예를 들어) ROS 컴퓨터 사이에 정확한 타임스탬프 (도착 시간이 아님)와 시간 동기화 (예 : NTP)가있는 경우 0으로 설정할 수 있습니다. In reality, this may need some empirical tuning because delays in the communication chain are very setup-specific. 시스템이 완전히 동기화된 체인으로 설정되는 경우는 드뭅니다!
+Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g. NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning because delays in the communication chain are very setup-specific. It is rare that a system is set up with an entirely synchronised chain!
 
 IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략적인 지연 추정치를 얻을 수 있습니다.
 
@@ -125,10 +114,10 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 
 * PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 자세를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 재전송합니다. You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)
 * `ODOMETRY` 메시지의 쿼터니언이 단위 쿼터니언 (w = 1, x = y = z = 0)에 매우 가까워 질 때까지 차량을 요잉합니다.
-  * 이 시점에서 바디 프레임은 외부 포즈 시스템의 참조 프레임과 정렬됩니다.
+  * At this point, the body frame is aligned with the reference frame of the external pose system.
   * 기체를 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 여전히 프레임에 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고 좌표 프레임을 다시 확인하십시오.
-* 정렬이 완료되면 지상에서 기체를 들어 올릴 수 있으며 위치의 z 좌표가 감소하는 것을 볼 수 있습니다. 기체를 앞쪽으로 움직이면 x 좌표가 증가합니다. 차량을 오른쪽으로 이동하면 y 좌표는 증가합니다.
-* 메시지의 선형 속도가 *FRD* 본문 프레임 참조 프레임에 표현되어 있는지 확인합니다.
+* Once aligned, you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in the forward direction should increase the position's x coordinate. Moving the vehicle to the right should increase the y coordinate.
+* Check that linear velocities in the message are expressed in the *FRD* body frame reference frame.
 * PX4 매개변수 `MAV_ODOM_LP`를 0로 재설정합니다. PX4는 `ODOMETRY` 메시지 재전송을 중지합니다.
 
 이러한 단계가 유지되면, 첫 번째 비행을 시도할 수 있습니다.
@@ -136,19 +125,19 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 
    이 시점에서 왼쪽 스틱을 가장 낮은 위치에두고 위치 제어로 전환합니다. 초록불이 켜져야 합니다. 녹색 표시등은 위치 피드백을 사용할 수 있으며 위치 제어가 활성화되었음을 알려줍니다.
 
-1. 기체가 고도를 유지하도록 스로틀 스틱을 중간(데드 존)에 놓습니다. 스틱을 올리면 기준 고도가 증가하고 값을 낮추면 감소합니다. 마찬가지로 다른 스틱은 지상에서 위치를 변경합니다.
-1. 스로틀 스틱의 값을 높이면 차량이 이륙하면 즉시 중앙에 다시 놓습니다.
+1. 기체가 고도를 유지하도록 스로틀 스틱을 중간(데드 존)에 놓습니다. 스틱을 올리면 기준 고도가 증가하고 값을 낮추면 감소합니다. Similarly, the other stick will change the position over the ground.
+1. Increase the value of the throttle stick and the vehicle will take off. Move it back to the middle immediately afterwards.
 1. 기체가 제자리를 유지하는 지 확인하십시오.
 
 
 ## 문제 해결
 
-먼저 MAVROS가 비행 컨트롤러에 성공적으로 연결할 수 있는지 확인하십시오.
+First, make sure MAVROS is able to connect successfully to the flight controller.
 
 제대로 연결되는 경우 일반적인 문제 해결 방법은 다음과 같습니다.
 
 - **문제 :** 드론 비행시 드리프트/플라이 어웨이를 얻습니다.
-  - [T265](../peripherals/camera_t265_vio.md)를 사용하는 경우 소프트 마운트를 시도하십시오. 이 카메라는 고주파 진동에 매우 민감합니다.
+  - If using the [T265](../peripherals/camera_t265_vio.md) try soft-mounting it (this camera is very sensitive to high-frequency vibrations).
 
 - **문제 :** VIO가 활성화되면 변기 볼링이 발생합니다.
   - 카메라의 방향이 시작 파일의 변환과 일치하는 지 확인합니다. Use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
