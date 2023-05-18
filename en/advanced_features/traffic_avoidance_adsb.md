@@ -73,12 +73,13 @@ You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/para
 
 Configure the action when there is a potential collision using the parameter below:
 
-| Parameter                                                                                                           | Description                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)    | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
-| <span id="NAV_TRAFF_A_HOR"></span>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR) | Set NAV TRAFFIC AVOID horizontal distance                                                              |
-| <span id="NAV_TRAFF_A_VER"></span>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER) | Set NAV TRAFFIC AVOID vertical distance                                                            |
-| <span id="NAV_TRAFF_COLL_T"></span>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Estimated time until collision based on relative speed of traffic and UAV      |
+Parameter | Description
+--- | ---
+<a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)  | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.
+<a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)  | Set NAV TRAFFIC AVOID horizontal distance
+<a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)  | Set NAV TRAFFIC AVOID vertical distance
+<a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Estimated time until collision based on relative speed of traffic and UAV
+
 ## Implementation
 
 PX4 listens for valid transponder reports during missions.
@@ -95,5 +96,5 @@ The last 10 Digits of the GUID is displayed as Drone identification.
 
 ## Further Information
 
-* [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-* [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
+- [Serial Port Configuration](../peripherals/serial_configuration.md)
