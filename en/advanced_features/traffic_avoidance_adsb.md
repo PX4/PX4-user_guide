@@ -75,27 +75,28 @@ Configure the action when there is a potential collision using the parameter bel
 
 Parameter | Description
 --- | ---
-<span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.
-<span id="NAV_TRAFF_A_RADM"></span>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance distance for *manned* aviation
-<span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance distance for *unmanned* aviation
-
+<a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)  | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.
+<a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)  | Horizonal radius of cylinder around the vehicle that defines its airspace (i.e. the airspace in the ground plane).
+<a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)  | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).
+<a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Collision time threshold. Avoidance will trigger if the estimated time until collision drops below this value (the estimated time is based on relative speed of traffic and UAV).
 
 ## Implementation
 
 PX4 listens for valid transponder reports during missions.
 
-If a valid transponder report is received, PX4 first uses the transponder position and heading information to estimate whether the vehicles will share a similar altitude before they pass each other.
-If they may then PX4 it estimates how the closest distance between the path to the next waypoint and the other vehicles predicted path.
-If the crossing point is less than the configured distance for altitude and path, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return.
-The detection distance can be configured separately for manned and unmanned aviation.
-
+If a valid transponder report is received, PX4 first uses the traffic transponder information to estimate whether the traffic heading and height indicates there will be an intersection with the airspace of the UAV.
+The UAV airspace consists of a surrounding cylinder defined by the radius [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR) and height [NAV_TRAFF_A_VER](#NAV_TRAFF_A_VER), with the UAV at it's center.
+The traffic detector then checks if the time until intersection with the UAV airspace is below the [NAV_TRAFF_COLL_T](#NAV_TRAFF_COLL_T) threshold based on the relative speed.
+If the both checks are true, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return.
 
 The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/navigator/navigator_main.cpp)).
 
 PX4 will also forward the transponder data to a GCS if this has been configured for the MAVLink instance (this is recommended).
 The last 10 Digits of the GUID is displayed as Drone identification.
 
+<!-- See also implementation PR: https://github.com/PX4/PX4-Autopilot/pull/21283 -->
+
 ## Further Information
 
-* [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-* [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
+- [Serial Port Configuration](../peripherals/serial_configuration.md)
