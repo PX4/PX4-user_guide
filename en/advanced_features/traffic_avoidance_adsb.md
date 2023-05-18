@@ -85,7 +85,7 @@ Parameter | Description
 PX4 listens for valid transponder reports during missions.
 
 If a valid transponder report is received, PX4 first uses the traffic transponder information to estimate whether the traffic heading and height indicates there will be an intersection with the airspace of the UAV.
-The UAV airspace consists of a surrounding cylinder defined by [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR) and [NAV_TRAFF_A_VER](#NAV_TRAFF_A_VER) with the UAV at it's center.
+The UAV airspace consists of a surrounding cylinder defined by the radius [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR) and height [NAV_TRAFF_A_VER](#NAV_TRAFF_A_VER), with the UAV at it's center.
 The traffic detector then checks if the time until intersection with the UAV airspace is below the [NAV_TRAFF_COLL_T](#NAV_TRAFF_COLL_T) threshold based on the relative speed.
 If the both checks are true, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return.
 
