@@ -70,25 +70,26 @@ Flarm/PingRX는 다른 [MAVLink 주변기기](../peripherals/mavlink_peripherals
 
 아래의 매개변수를 사용하여 잠재적 충돌시의 동작을 설정합니다.
 
-| 매개변수                                                                                                                | 설명                                                                    |
-| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| <span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)    | 교통 회피 모드 활성화는 회피 대응을 지정합니다. 0 : 비활성화, 1 : 경고 만, 2 : 귀환 모드, 3 : 착륙 모드. |
-| <span id="NAV_TRAFF_A_RADM"></span>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | *유인* 항공기에 대한 교통 회피 거리 설정                                              |
-| <span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | *무인* 항공기에 대한 교통 회피 거리 설정                                              |
-
+| 매개변수                                                                                                      | 설명                                                                                                                                                                                |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | 교통 회피 모드 활성화는 회피 대응을 지정합니다. 0 : 비활성화, 1 : 경고 만, 2 : 귀환 모드, 3 : 착륙 모드.                                                                                                             |
+| <a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)   | Horizonal radius of cylinder around the vehicle that defines its airspace (i.e. the airspace in the ground plane).                                                                |
+| <a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)   | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).                                               |
+| <a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Collision time threshold. Avoidance will trigger if the estimated time until collision drops below this value (the estimated time is based on relative speed of traffic and UAV). |
 
 ## 구현
 
 아래의 매개변수를 사용하여 잠재적 충돌 발생시 기체의 동작을 설정합니다.
 
-유효한 트랜스폰더 보고서가 수신되면, PX4는 먼저 트랜스폰더 위치 및 방향 정보를 사용하여 기체가 서로 통과하기 전에 유사한 고도를 공유할지 여부를 추정합니다. PX4는 할 수 있다면 그것은 다음 웨이포인트까지의 경로와 다른 차량 사이의 가장 가까운 거리가 경로를 예측한 방법을 추정합니다. 교차점이 고도 및 경로에 대해 구성된 거리보다 작 으면 [교통 회피 페일 세이프](../config/safety.md#traffic-avoidance-failsafe) 작업이 시작되고 차량이 경고, 착륙 또는 귀환합니다. 탐지 거리는 유인 및 무인 항공기에 대해 별도로 설정할 수 있습니다.
-
+If a valid transponder report is received, PX4 first uses the traffic transponder information to estimate whether the traffic heading and height indicates there will be an intersection with the airspace of the UAV. The UAV airspace consists of a surrounding cylinder defined by the radius [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR) and height [NAV_TRAFF_A_VER](#NAV_TRAFF_A_VER), with the UAV at it's center. The traffic detector then checks if the time until intersection with the UAV airspace is below the [NAV_TRAFF_COLL_T](#NAV_TRAFF_COLL_T) threshold based on the relative speed. If the both checks are true, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return.
 
 코드는 `Navigator :: check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/navigator_main.cpp))을 참고하십시오.
 
 MAVLink 인스턴스에 대해 구성된 경우 PX4는 트랜스폰더 데이터도 GCS로 전달합니다 (권장됨). GUID의 마지막 10 자리로 드론을 식별합니다.
 
+<!-- See also implementation PR: https://github.com/PX4/PX4-Autopilot/pull/21283 -->
+
 ## 추가 정보
 
-* [MAVLink 주변장치](../peripherals/mavlink_peripherals.md)
-* [직렬 포트 설정](../peripherals/serial_configuration.md)
+- [MAVLink 주변장치](../peripherals/mavlink_peripherals.md)
+- [직렬 포트 설정](../peripherals/serial_configuration.md)
