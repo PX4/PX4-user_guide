@@ -32,21 +32,21 @@
 
 ## 滚转调参
 
-先调节滚转通道，然后俯仰通道。 The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
+先调节滚转通道，然后俯仰通道。 滚转更安全，因为不准确只会导致运动，而不会导致掉高。
 
-### Tuning the Feedforward Gain
+### 调整前馈增益
 
-To tune this gain, first set the other gains to their minimum values (nominally 0.005, but check the parameter documentation).
+调整这个增益前，首先将其他增益设定为最低值 (名义上为0.005, 但请检查参数文档)。
 
-#### Gains to set to minimum values
+#### 设为最小增益
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
 - [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
 
 
-#### Gains to tune
+#### 待调整增益
 
-- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - start with a value of 0.4. Increase this value (doubling each time) until the plane rolls satisfactorily and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - 以0.4作为开始调节值。 增加该参数值 (每次双倍增加) 直到飞机滚转响应特性良好并到达设置值。 Back down the gain 20% at the end of the process.
 
 ### Tuning the Rate Gain
 
@@ -64,12 +64,12 @@ The pitch axis might need more integrator gain and a correctly set pitch offset.
 
 To tune this gain, set the other gains to their minimum values.
 
-#### Gains to set to minimum values
+#### 设为最小增益
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I)
 - [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P)
 
-#### Gains to tune
+#### 待调整增益
 
 - [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - start with a value of 0.4. Increase this value (doubling each  time) until the plane pitches satisfactory and reaches the setpoint. Back down the gain 20% at the end of the process.
 
