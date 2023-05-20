@@ -11,11 +11,12 @@ PX4에서는 MAVLink [`UTM_GLOBAL_POSITION`](https://mavlink.io/en/messages/comm
 
 아래의 매개변수들을 사용하여 잠재적 충돌이 있을 때 트리거 거리와 동작을 구성합니다.
 
-| 매개변수                                                                                                      | 설명                                                                   |
-| --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | 교통 회피 모드 활성화는 회피 대응을 지정합니다. 0 : 비활성화, 1 : 경고만, 2 : 귀환 모드, 3 : 착륙 모드. |
-| <a id="NAV_TRAFF_A_RADM"></a>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | *유인* 항공기에 대한 교통 회피 트리거 거리 설정.                                        |
-| <a id="NAV_TRAFF_A_RADU"></a>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | *무인* 항공기에 대한 교통 회피 트리거 거리 설정.                                        |
+| 매개변수                                                                                                      | 설명                                                                                                                                                                                |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="NAV_TRAFF_AVOID"></a>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | 교통 회피 모드 활성화는 회피 대응을 지정합니다. 0 : 비활성화, 1 : 경고만, 2 : 귀환 모드, 3 : 착륙 모드.                                                                                                              |
+| <a id="NAV_TRAFF_A_HOR"></a>[NAV_TRAFF_A_HOR](../advanced_config/parameter_reference.md#NAV_TRAFF_A_HOR)   | Horizonal radius of cylinder around the vehicle that defines its airspace (i.e. the airspace in the ground plane).                                                                |
+| <a id="NAV_TRAFF_A_VER"></a>[NAV_TRAFF_A_VER](../advanced_config/parameter_reference.md#NAV_TRAFF_A_VER)   | Vertical height above and below vehicle of the cylinder that defines its airspace (also see [NAV_TRAFF_A_HOR](#NAV_TRAFF_A_HOR)).                                               |
+| <a id="NAV_TRAFF_COLL_T"></a>[NAV_TRAFF_COLL_T](../advanced_config/parameter_reference.md#NAV_TRAFF_COLL_T) | Collision time threshold. Avoidance will trigger if the estimated time until collision drops below this value (the estimated time is based on relative speed of traffic and UAV). |
 
 
 ## 구현
@@ -30,4 +31,4 @@ PX4는 임무중에 `UTM_GLOBAL_POSITION` MAVLink 메시지를 수신합니다. 
 
 ## 추가 정보
 
-* [ADS-B 교통 회피](../advanced_features/traffic_avoidance_adsb.md)
+- [ADS-B 교통 회피](../advanced_features/traffic_avoidance_adsb.md)
