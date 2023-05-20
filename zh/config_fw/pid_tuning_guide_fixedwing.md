@@ -10,29 +10,29 @@
 
 - “微调”必须首先配置（在开始PID调校之前）。 见[固定翼微调指南](../config_fw/trimming_guide_fixedwing.md)。
 - 调节过程中错误的设置增益可能会使姿态控制不稳定。 因此，在调整增益时需要有飞手以确保可以在 [手动](../flight_modes/manual_fw.md) (超控)模式下控制飞机飞行和降落。
-- Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
-- Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
+- 过高地增益(和快速的舵面响应)可能会超过你的机体结构允许最大过载――增加增益时需谨慎。
+- 滚转和俯仰参数调整都遵循相同的顺序。 唯一的不同是俯仰对微调更敏感， 因此 [微调](../config_fw/trimming_guide_fixedwing.md)必须被谨慎的调整 ，积分增益需要更多的控制输出来密闭微调影响。
 
-## Establishing the Airframe Baseline
+## 建立机型基准线
 
-If a pilot capable of manual flight is available, its best to establish a few core system properties on a manual trial. To do this, fly these maneuvers. Even if you can't note all the quantities immediately on paper, the log file will be very useful for later tuning.
+如果有条件飞手可以手动飞行，最好是通过手动飞行试验确定几个系统核心特性。 为了做到这一点，飞这些科目。 在飞行过程中即使你无法及时在纸上记录全部参数，日志文件在供以后调整也将非常有用。
 
 :::note
-All these quantities will be automatically logged. You only need to take notes if you want to directly move on to tuning without looking at the log files.
+所有这些参数都将被自动记录。 如果你想在不查看日志的情况下直接调整时才需要使用笔进行记录。
 
-- Fly level with a convenient airspeed. Note throttle stick position and airspeed (example: 70% → 0.7 throttle, 15 m/s airspeed).
-- Climb with maximum throttle and sufficient airspeed for 10-30 seconds (example: 12 m/s airspeed, climbed 100 m in 30 seconds).
-- Descend with zero throttle and reasonable airspeed for 10-30 seconds (example: 18 m/s airspeed, descended 80 m in 30 seconds).
-- Bank hard right with full roll stick until 60 degrees roll, then bank hard left with full roll stick until 60 degrees in the opposite side.
-- Pitch up hard 45 degrees, pitch down hard 45 degrees.
+- 在合适的空速下平飞。 注意油门杆位置和空速（例如：70%-> 0.7 油门，15米/秒空速）。
+- 以最大油门和足够的空速爬升10-30秒（例如：12米/秒的空速，在30秒内攀升100米）。
+- 以零油门和合理的空速来下滑10-30秒（例如：18米/秒的空速，30秒内下降80米）。
+- 滚转杆右侧最大，直到滚转角为60度， 然后滚转杆左侧最大，直到滚转角为负60度为止。
+- 俯仰最大45度抬头，俯仰最小负45度低头。
 :::
 
-This guide will use these quantities to set some of the controller gains later on.
+本指南将使用这些参数来设置控制器的部分增益。
 
 
-## Tune Roll
+## 滚转调参
 
-Tune first the roll axis, then pitch. The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
+先调节滚转通道，然后俯仰通道。 The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
 
 ### Tuning the Feedforward Gain
 
