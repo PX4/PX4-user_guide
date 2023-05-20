@@ -46,17 +46,17 @@
 
 #### 待调整增益
 
-- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - 以0.4作为开始调节值。 增加该参数值 (每次双倍增加) 直到飞机滚转响应特性良好并到达设置值。 Back down the gain 20% at the end of the process.
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - 以0.4作为初始值。 增加该参数值 (每次双倍增加) 直到飞机滚转响应特性良好并到达设置值。 最后将增益降低20%。
 
-### Tuning the Rate Gain
+### 调整角速率增益
 
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - start with a value of 0.06. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce gain by 50%.
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_P) - 以0.06作为初始值。 增加这个值 (每次翻倍) 直到系统开始抖动。 然后将增益降低50%。
 
-### Tuning the Trim Offsets with the Integrator Gain
+### 通过积分器增益调整微调偏置
 
-- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual roll value (this will most likely require looking at a log file).
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - 以0.01作为初始值。 增加这个值(每次翻倍)，直到命令和实际滚转角之间没有偏差(这很可能需要查看日志文件)。
 
-## Tune Pitch
+## 俯仰通道调整
 
 The pitch axis might need more integrator gain and a correctly set pitch offset.
 
@@ -73,13 +73,13 @@ To tune this gain, set the other gains to their minimum values.
 
 - [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - start with a value of 0.4. Increase this value (doubling each  time) until the plane pitches satisfactory and reaches the setpoint. Back down the gain 20% at the end of the process.
 
-### Tuning the Rate Gain
+### 调整角速率增益
 
-- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce value by 50%.
+- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04. 增加这个值 (每次翻倍) 直到系统开始抖动。 Then reduce value by 50%.
 
-### Tuning the Trim Offsets with the Integrator Gain
+### 通过积分器增益调整微调偏置
 
-- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual pitch value (this will most likely require looking at a log file).
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_PR_I) - 以0.01作为初始值。 增加这个值(每次翻倍)，直到命令和实际俯仰角之间没有偏差(这很可能需要查看日志文件)。
 
 
 ## Adjusting the Time Constant of the Outer Loop
