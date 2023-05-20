@@ -1,15 +1,15 @@
-# Fixed-wing PID Tuning Guide
+# 固定翼 PID 调参指南
 
-This guide explains how to manually tune the fixed wing PID loop. It is intended for advanced users / experts, as incorrect PID tuning may crash your aircraft.
+本指南介绍如何手动调整固定翼PID控制器。 它是为高级用户/专家设计的，因为错误的 PID 调节可能会使您的飞机坠毁。
 
 :::note
-[Autotune](../config/autotune.md) is recommended for most users, as it is far faster, easier and provides good tuning for most frames. Manual tuning is recommended for frames where autotuning does not work, or where fine-tuning is essential.
+[Autotune](../config/autotune.md) 是推荐给大多数用户的, 因为它更快, 更容易, 并且为大多数机型提供了很好的调校。 建议对自动调整不起作用或必须进行更加的调校的机型进行手工调整。
 :::
 
-## Preconditions
+## 前置条件
 
-- Trims must be configured first (before PID turning). The [Fixed-Wing Trimming Guide](../config_fw/trimming_guide_fixedwing.md) explains how.
-- Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes/manual_fw.md) (override) control.
+- “微调”必须首先配置（在开始PID调校之前）。 见[固定翼微调指南](../config_fw/trimming_guide_fixedwing.md)。
+- 调节过程中错误的设置增益可能会使姿态控制不稳定。 因此，在调整增益时需要有飞手以确保可以在 [手动](../flight_modes/manual_fw.md) (超控)模式下控制飞机飞行和降落。
 - Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
 - Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
 
