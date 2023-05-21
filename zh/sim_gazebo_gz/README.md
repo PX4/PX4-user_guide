@@ -1,12 +1,12 @@
-# Gazebo Simulation
+# Gazebo 仿真
 
 :::warning
-Gazebo was previously known as "Gazebo Ignition" (while _Gazebo Classic_ was previously known as Gazebo). See the [official blog post](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) for more information.
+Gazebo 先前被称为“Gazebo Ignition”( _Gazebo Classic_ 先前被称为Gazebo)。 查看 [官方博客文章](https://www.openrobotics.org/blog/2022/4/6/a-new-era-for-gazebo) 获取更多信息。
 :::
 
-[Gazebo](https://gazebosim.org/home) is an open source robotics simulator. It supersedes the older [Gazebo Classic](../sim_gazebo_classic/README.md) simulator, and is the only supported version of Gazebo for Ubuntu 22.04 and onwards.
+[Gazebo](https://gazebosim.org/home) 是一个开源机器人模拟器。 它取代了旧的 [Gazebo Classic](../sim_gazebo_classic/README.md) 模拟器，是Ubuntu 22.04 及以后唯一支持的 Gazebo 版本。
 
-**Supported Vehicles:** Quadrotor, Plane, VTOL
+**支持的载具：** Quadrotor、Plane、VTOL
 
 @[youtube](https://youtu.be/eRzdGD2vgkU)
 
