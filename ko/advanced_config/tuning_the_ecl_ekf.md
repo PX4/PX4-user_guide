@@ -402,7 +402,7 @@ Multiple log files in a directory can be analysed using the [batch\_process\_log
 
 ### 상태
 
-Refer to states\[32\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg). The index map for states\[32\] is as follows:
+Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for states\[24\] is as follows:
 
 * \[0 ...
 * \[4 ... 6\] 속도 NED \(m/s\)
@@ -412,11 +412,10 @@ Refer to states\[32\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/
 * \[16 ... 18\] 지구 자기장 NED \(gauss\)
 * \[19 ... 21\] 본체 자기장 XYZ \(gauss\)
 * \[22 ... 23\] 풍속 NE \(m/s\)
-* \[24 ... 32\] 사용되지 않음.
 
 ### 상태 분산
 
-Refer to covariances\[28\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg). The index map for covariances\[28\] is as follows:
+Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for covariances\[24\] is as follows:
 
 * \[0 ...
 * \[4 ... 6\] 속도 NED \(m/s\)^2
@@ -426,7 +425,6 @@ Refer to covariances\[28\] in [EstimatorStatus](https://github.com/PX4/PX4-Autop
 * \[16 ... 18\] 지구 자기장 NED \(gauss^2\)
 * \[19 ... 21\] 본체 자기장 XYZ \(gauss^2\)
 * \[22 ... 23\] 풍속 NE \(m/s\)^2
-* \[24 ... 28\] 사용되지 않음.
 
 ### 관찰 혁신 & 혁신 분산
 

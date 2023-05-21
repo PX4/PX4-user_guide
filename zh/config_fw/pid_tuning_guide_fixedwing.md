@@ -56,13 +56,13 @@
 
 - [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - 以0.01作为初始值。 增加这个值(每次翻倍)，直到命令和实际滚转角之间没有偏差(这很可能需要查看日志文件)。
 
-## 俯仰通道调整
+## 俯仰调参
 
-The pitch axis might need more integrator gain and a correctly set pitch offset.
+俯仰轴可能需要更多的积分增益和正确的俯仰偏置。
 
-### Tuning the Feedforward Gain
+### 调整前馈增益
 
-To tune this gain, set the other gains to their minimum values.
+在调整该增益前，将其他增益项设为最小值。
 
 #### 设为最小增益
 
@@ -71,11 +71,11 @@ To tune this gain, set the other gains to their minimum values.
 
 #### 待调整增益
 
-- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - start with a value of 0.4. Increase this value (doubling each  time) until the plane pitches satisfactory and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - 以0.4作为初始值。 增加该参数值 (每次翻倍) 直到飞机俯仰响应特性良好并到达设置值。 最后将增益降低20%。
 
 ### 调整角速率增益
 
-- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04. 增加这个值 (每次翻倍) 直到系统开始抖动。 Then reduce value by 50%.
+- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04. 增加这个值 (每次翻倍) 直到系统开始抖动。 然后将增益降低50%。
 
 ### 通过积分器增益调整微调偏置
 

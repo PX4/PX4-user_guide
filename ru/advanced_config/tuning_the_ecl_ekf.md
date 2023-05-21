@@ -402,7 +402,7 @@ Multiple log files in a directory can be analysed using the [batch\_process\_log
 
 ### States
 
-Refer to states\[32\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg). The index map for states\[32\] is as follows:
+Refer to states\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for states\[24\] is as follows:
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)
@@ -412,11 +412,10 @@ Refer to states\[32\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/
 * \[16 ... 18\] Earth magnetic field NED \(gauss\)
 * \[19 ... 21\] Body magnetic field XYZ \(gauss\)
 * \[22 ... 23\] Wind velocity NE \(m/s\)
-* \[24 ... 32\] Not Used
 
 ### State Variances
 
-Refer to covariances\[28\] in [EstimatorStatus](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStatus.msg). The index map for covariances\[28\] is as follows:
+Refer to covariances\[24\] in [EstimatorStates](https://github.com/PX4/PX4-Autopilot/blob/main/msg/EstimatorStates.msg). The index map for covariances\[24\] is as follows:
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)^2
@@ -426,7 +425,6 @@ Refer to covariances\[28\] in [EstimatorStatus](https://github.com/PX4/PX4-Autop
 * \[16 ... 18\] Earth magnetic field NED \(gauss^2\)
 * \[19 ... 21\] Body magnetic field XYZ \(gauss^2\)
 * \[22 ... 23\] Wind velocity NE \(m/s\)^2
-* \[24 ... 28\] Not Used
 
 ### Observation Innovations & Innovation Variances
 
