@@ -7,6 +7,10 @@ There are two options for flashing the bootloader: via *Betaflight Configurator*
 <a id="betaflight_configurator"></a>
 ### Bootloader Update using Betaflight Configurator
 
+   :::Note
+Newer betaflight configurators does not allow non-betaflight bootloader update. If you have issue with installing bootloader with betaflight configurator, please use other methods. 
+   :::
+   
 To install the PX4 bootloader using the *Betaflight Configurator*:
 1. You should have downloaded already the pre-built bootloader binary (this depends on the board you want to flash).
 1. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
@@ -36,6 +40,8 @@ cuav_x7pro_bootloader
 cubepilot_cubeorange_bootloader
 holybro_durandal-v1_bootloader
 holybro_kakuteh7_bootloader
+holybro_kakuteh7v2_bootloader
+holybro_kakuteh7mini_bootloader
 matek_h743-mini_bootloader
 matek_h743-slim_bootloader
 modalai_fc-v2_bootloader
