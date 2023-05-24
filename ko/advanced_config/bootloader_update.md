@@ -1,11 +1,11 @@
 # 부트로더 업데이트
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO).
+The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
 이 섹션은 픽스호크 부트로더를 업데이트 방법을 설명합니다.
 
 :::note
-하드웨어는 일반적으로 미리 설치된 부트로더를 제공합니다. 적절한 부트로더를 포함하는 이미지를 사용하여 [펌웨어를 업데이트](../config/firmware.md#custom)합니다.
+Pixhawk hardware usually comes with an appropriate bootloader version pre-installed. 적절한 부트로더를 포함하는 이미지를 사용하여 [펌웨어를 업데이트](../config/firmware.md#custom)합니다.
 :::
 
 ## Building the new PX4 Bootloader Yourself
@@ -26,8 +26,7 @@ ELF 파일 대신 HEX 파일이 필요한 경우에는 objcopy를 사용하십�
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
-<span id="qgc_bootloader_update"></span>
-## QGroundControl 부트로더 업데이트
+## QGC Bootloader Update
 
 가장 쉬운 방법은 먼저 *QGroundControl*을 사용하여 원하는 최신 부트로더를 이용하여 펌웨어를 설치하는 것입니다. 그런 다음, 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)를 설정하여 재시작시 부트로더 업데이트를 실행합니다.
 
@@ -49,8 +48,6 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloade
 
 일반적으로이 시점에서 새로 설치된 부트로더를 사용하여 다시 [펌웨어를 업데이트](../config/firmware.md) 할 수 있습니다.
 
-
-<span id="dronecode_probe"></span>
 ### Dronecode Probe 부트로더 업데이트
 
 아래에서 dronecode probe를 사용하여 수동 부트로더 업데이트 방법을 설명합니다:
@@ -58,11 +55,13 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloade
 1. 부트로더를 포함한 바이너리를 만드십시오 (개발자 팀에서 다운받거나, 직접 소스를 빌드하십시오).
 1. USB로 컴퓨터와 Dronecode probe를 연결하십시오.
 1. 바이너리가 들어 있는 디렉토리에서 아래 커맨드를 터미널에 입력하십시오.
+
    ```bash
    bash
      arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
 1. *gdb terminal*이 나타나고, 아래와 같은 결과를 출력합니다.
+
    ```bash
    bash
      GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
@@ -82,6 +81,7 @@ arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloade
    ```
 1. **/dev/serial/by-id** 디렉토리에서 ls 커맨드를 입력해 `<dronecode-probe-id>`를 찾으십시오.
 1. 아래 커맨드로 Dronecode probe에 연결하십시오:
+
    ```
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
@@ -92,11 +92,13 @@ Dronecode 프로브를 FMU-DEBUG 포트에 연결하려면 케이스를 제거�
 :::
 
 1. 아래 커맨드로 Pixhawk의 swd를 스캔하고 연결하십시오:
+
    ```
    (gdb) mon swdp_scan
  (gdb) attach 1
    ```
 1. 이제 바이너리를 픽스호크에 로드하십시오:
+
    ```
    (gdb) load
    ```

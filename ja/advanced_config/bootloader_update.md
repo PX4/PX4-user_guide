@@ -1,11 +1,11 @@
 # Bootloader Update
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO).
+The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
 This topic explains several methods for updating the Pixhawk bootloader.
 
 :::note
-Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+Pixhawk hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
 ## Building the new PX4 Bootloader Yourself
@@ -26,8 +26,7 @@ If you need a HEX file instead of an ELF file, use objcopy:
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
-<span id="qgc_bootloader_update"></span>
-## QGroundControl Bootloader Update
+## QGC Bootloader Update
 
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
@@ -49,8 +48,6 @@ The updated bootloader might be supplied in custom firmware (i.e. from the dev t
 
 Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
 
-
-<span id="dronecode_probe"></span>
 ### Dronecode Probe Bootloader Update
 
 The following steps explain how you can "manually" update the bootloader using the dronecode probe:
@@ -58,10 +55,12 @@ The following steps explain how you can "manually" update the bootloader using t
 1. Get a binary containing the bootloader (either from dev team or build it yourself).
 1. Connect the Dronecode probe to your PC via USB.
 1. Go into the directory containing the binary and run the following command in the terminal:
+
    ```bash
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
 1. The *gdb terminal* appears and it should display the following output: bash GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git Copyright (C) 2017 Free Software Foundation, Inc.
+
    ```bash
    GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
    Copyright (C) 2017 Free Software Foundation, Inc.
@@ -81,6 +80,7 @@ The following steps explain how you can "manually" update the bootloader using t
    ```
 1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
 1. Now connect to the Dronecode probe with the following command:
+
    ```
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
@@ -91,11 +91,13 @@ To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to
 :::
 
 1. Use the following command to scan for the Pixhawk’s swd and connect to it:
+
    ```
    (gdb) mon swdp_scan
  (gdb) attach 1
    ```
 1. Load the binary into the Pixhawk:
+
    ```
    (gdb) load
    ```

@@ -30,7 +30,7 @@ FPV 지원은 PX4와 비행 컨트롤러와는 관련이 없습니다.
 PX4 펌웨어를 업로드전에 PX4 부트 로더를 먼저 설치하여야 합니다. 부트 로더 설치 방법은 [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) 항목(*Beta75X*의 비행 컨트롤러 보드)를 참고하십시오.
 
 :::tip
-필요하면 언제든지 [Betaflight를 다시 설치](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight)할 수 있습니다!
+You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall-betaflight) later if you want!
 :::
 
 ## 설치 및 설정

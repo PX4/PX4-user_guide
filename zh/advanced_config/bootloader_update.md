@@ -1,11 +1,11 @@
 # Bootloader 更新
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO).
+The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for [Pixhawk boards](../flight_controller/pixhawk_series.md) (PX4FMU, PX4IO).
 
 此篇介绍了更新 Pixhawk bootloader 的几种常见方法。
 
 :::note
-硬件通常预先安装了合适的引导程序版本。 A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+Pixhawk hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
 ## Building the new PX4 Bootloader Yourself
@@ -26,8 +26,7 @@ make px4_fmu-v6x_bootloader
 arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
 ```
 
-<span id="qgc_bootloader_update"></span>
-## 使用 QGroundControl 地面站更新 Bootloader
+## QGC Bootloader Update
 
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. 然后，可以通过设置参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)来在下次重启时启动 bootloader 更新。
 
@@ -49,8 +48,6 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
 
 通常，此时您可能想要使用 正确/新安装 的 bootloader 再次[更新固件](../config/firmware.md)。
 
-
-<span id="dronecode_probe"></span>
 ### Dronecode Probe Bootloader 更新
 
 以下步骤说明了如何使用 dronecode probe “手动” 更新 bootloader ：
@@ -58,10 +55,12 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
 1. 获取包含 bootloader 的二进制文件（从开发团队或自行编译获得）。
 1. 通过 USB 将 Dronecode Probe 连接到PC。
 1. 进入包含二进制文件的目录，然后在终端中运行以下命令 ：
+
    ```bash
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
 1. The *gdb terminal* appears and it should display the following output:
+
    ```bash
    GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
    Copyright (C) 2017 Free Software Foundation, Inc.
@@ -81,6 +80,7 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
    ```
 1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
 1. 现在，使用以下命令连接到 Dronecode probe：
+
    ```
    tar ext /dev/serial/by-id/<dronecode-probe-id>
    ```
@@ -90,11 +90,13 @@ The easiest approach is to first use *QGroundControl* to install firmware with t
 :::
 
 1. 使用以下命令扫描 Pixhawk 的 swd 调试端口并连接到它 ：
+
    ```
    (gdb) mon swdp_scan
    (gdb) attach 1
    ```
 1. 将二进制文件加载到 Pixhawk 中 ：
+
    ```
    (gdb) load
    ```
