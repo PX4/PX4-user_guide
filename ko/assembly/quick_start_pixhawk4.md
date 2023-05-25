@@ -70,7 +70,7 @@ The GPS/Compass should be [mounted on the frame](../assembly/mount_gps_compass.m
 | 2~12S       | 전원 입력, 12S LiPo 배터리에 연결                                                 |
 
 :::note
-[기체 정의서](../airframes/airframe_reference.md)를 기체 유형을 참고하여 *Pixhawk 4*의 **I/O PWM OUT** 및 ** FMU PWM OUT** 포트를 전원관리보드에 연결하십시오. PX4 펌웨어의 **MAIN** 출력은 *Pixhawk 4*의 **I/O PWM OUT** 포트에 매핑되는 반면 **AUX 출력**은 *Pixhawk 4*의 **FMU PWM OUT**에 매핑됩니다. 예를 들어 **MAIN1**은 **I/O PWM OUT**의 IO_CH1 핀에 매핑되고, **AUX1**은 **FMU PWM OUT**의 FMU_CH1 핀에 매핑됩니다. PM 보드의 **FMU PWM-IN**은 내부적으로 서보를 구동하는 데 사용되는 **FMU PWM-OUT**에 연결합니다 (예 : 에일러론, 엘리베이터, 방향타, 엘레 본, 기어, 플랩, 짐벌, 스티어링). 전원관리보드의 **I/O PWM-IN**은 모터 구동에 사용되는 **M1-8**에 내부적으로 연결합니다 (예 : 평면, VTOL 및 로버의 스로틀). :::
+[기체 정의서](../airframes/airframe_reference.md)를 기체 유형을 참고하여 *Pixhawk 4*의 **I/O PWM OUT** 및 ** FMU PWM OUT** 포트를 전원관리보드에 연결하십시오. PX4 펌웨어의 **MAIN** 출력은 *Pixhawk 4*의 **I/O PWM OUT** 포트에 매핑되는 반면 **AUX 출력**은 *Pixhawk 4*의 **FMU PWM OUT**에 매핑됩니다. 예를 들어 **MAIN1**은 **I/O PWM OUT**의 IO_CH1 핀에 매핑되고, **AUX1**은 **FMU PWM OUT**의 FMU_CH1 핀에 매핑됩니다. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**. **I/O PWM-IN** of PM board is internally connected to **M1-8**. :::
 
 아래의 표는 기체 기준에 따라 *Pixhawk 4*의 PWM OUT 포트를 PM 보드의 PWM-IN 포트에 연결하는 방법을 요약한 것입니다.
 
@@ -128,7 +128,8 @@ Using the Power Module that comes with the kit you will need to configure the *N
 ![Pixhawk 4 -- 무선 텔레메트리](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
 
-<span id="sd_card"></span>
+<a id="sd_card"></a>
+
 ## SD 카드(선택 사항)
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 사용하는 것이 좋습니다. 아래 그림과 같이 SD 카드(Pixhawk 4 키트에 포함됨)를 *Pixhawk 4*에 삽입합니다.
