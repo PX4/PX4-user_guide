@@ -28,7 +28,9 @@ GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) 
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P) | | | |
 [CubePilot Here3](https://www.cubepilot.org/#/here/here3) | | | &check; |
 [Holybro H-RTK F9P Helical or Base](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | |&check; | |
+[Holybro DroneCAN H-RTK F9P Helical](https://holybro.com/products/dronecan-h-rtk-f9p-helical) | |&check; | |
 [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
+[Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover) | | | |
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | | |
 [Holybro Unicore GPS](../gps_compass/gps_holybro_unicore.md) | &check; | | |
 [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | | | |
