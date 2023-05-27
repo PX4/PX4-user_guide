@@ -46,6 +46,8 @@ Supported hardware includes (this is not an exhaustive list):
 - Power monitors
   - [Pomegranate Systems Power Module](../dronecan/pomegranate_systems_pm.md)
   - [CUAV CAN PMU Power Module](../dronecan/cuav_can_pmu.md)
+- Compass
+  - [Holybro RM3100 Professional Grade Compass](https://holybro.com/products/dronecan-rm3100-compass)
 - Distance sensors
   - [ARK Flow](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../dronecan/avanon_laser_interface.md)
