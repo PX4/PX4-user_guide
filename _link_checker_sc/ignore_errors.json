@@ -1,0 +1,290 @@
+[
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/position_fw.html",
+      "text": "Position"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/altitude_fw.html",
+      "text": "Altitude"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/stabilized_fw.html",
+      "text": "Stabilized"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/acro_fw.html",
+      "text": "Acro"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/manual_fw.html",
+      "text": "Manual"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/takeoff.html",
+      "text": "Takeoff"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/land.html",
+      "text": "Land"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/hold.html",
+      "text": "Hold"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/return.html",
+      "text": "Return"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/mission.html",
+      "text": "Mission"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flying/missions.html",
+      "text": "predefined mission/flight plan"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/offboard.html",
+      "text": "Offboard"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/position_mc.html",
+      "text": "Position"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/altitude_mc.html",
+      "text": "Altitude"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/manual_stabilized_mc.html",
+      "text": "Manual/ Stabilized"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/acro_mc.html",
+      "text": "Acro"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/orbit.html",
+      "text": "Orbit"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/takeoff.html",
+      "text": "Takeoff"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/land.html",
+      "text": "Land"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/hold.html",
+      "text": "Hold"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/return.html",
+      "text": "Return"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/mission.html",
+      "text": "Mission"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flying/missions.html",
+      "text": "predefined mission/flight plan"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/follow_me.html",
+      "text": "Follow Me"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flight_modes/offboard.html",
+      "text": "Offboard"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "LinkedInternalPageMissing",
+    "fileRelativeToRoot": "en\\flight_modes\\README.md",
+    "link": {
+      "url": "../flying/fixed_wing_landing.html",
+      "text": "fixed-wing landing"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\README.md",
+    "link": {
+      "url": "tailsitter.html",
+      "text": "<big>Tailsitter</big>"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\README.md",
+    "link": {
+      "url": "tiltrotor.html",
+      "text": "<big>Tiltrotor</big>"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\README.md",
+    "link": {
+      "url": "standardvtol.html",
+      "text": "<big>Standard VTOL</big>"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\tailsitter.md",
+    "link": {
+      "url": "../airframes/airframe_reference.html#vtol-tailsitter",
+      "text": "VTOL Duo Tailsitter"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\tailsitter.md",
+    "link": {
+      "url": "../airframes/airframe_reference.html#vtol-tailsitter",
+      "text": "VTOL Tailsitter"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "InternalLinkToHTML",
+    "fileRelativeToRoot": "en\\frames_vtol\\tailsitter.md",
+    "link": {
+      "url": "../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.html",
+      "text": "TBS Caipiroshka"
+    },
+    "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  }
+]
