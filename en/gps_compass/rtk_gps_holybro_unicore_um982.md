@@ -1,14 +1,20 @@
 # Holybro H-RTK Unicore UM982 GPS
 
-<img src="../../assets/hardware/gps/holybro-unicore-um982-1.jpg" width="650px" title="HB-pmw3901-1" />
-
 The [Holybro H-RTK Unicore UM982 GPS](https://holybro.com/products/h-rtk-um982) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) launched by Holybro.
 
-This module is based on the [Unicore UM982 Chip](https://en.unicorecomm.com/products/detail/24) which supports RTK positioning as well as dual-antenna heading calculation, capable of generating non-magnetometer moving baseline headline/yaw determinations for autopilots with one single GPS module with the dual antennas. With the U-blox F9P, one will need [two U-blox F9P module to compute a heading angle](../gps_compass/u-blox_f9p_heading.md), but with this Unicore UM982 GPS, you just one GPS module.
+![HB-pmw3901-1](../../assets/hardware/gps/holybro-unicore-um982/holybro-unicore-um982-1.jpg)
 
-Using this GPS as a yaw source prevents magnetic interference from the vehicle motors and electrical systems and any environmental interference sources, such as metallic structures or equipment, that can cause incorrect yaw reports to the autopilot. This works even if the GPSs are not receiving RTCM data from a fixed RTK station or NTRIP server. It supports RTK positioning adjustment for centimeter-level accuracy, GPS/GLONASS,Beidou, Galileo, and QZSS global positioning systems.
+This module is based on the [Unicore UM982 Chip](https://en.unicorecomm.com/products/detail/24), which supports RTK positioning and dual-antenna heading calculation.
 
-It also includes a magnetometer, LED, and safety switch button. It also serves as an RTK-corrected vehicle GPS, with or without moving baseline yaw determination, and as a base station GPS for sending RTCM data to a ground control station to provide an RTK source for the vehicle via telemetry.
+This means that it can generate a moving baseline headline/yaw determinations for autopilots with just one GPS module and dual antennas - a magnetometer is not needed.
+Unlike when using a module such as the U-blox F9P, where you would need [two U-blox F9P modules to compute a heading angle](../gps_compass/u-blox_f9p_heading.md), with the Unicore UM982 GPS, you only need one GPS module!
+
+Using this GPS as a yaw source, instead of a compass, prevents magnetic interference from causing incorrect yaw reports to the autopilot (compasses are commonly affected by the vehicle motors and electrical systems, and other environmental interference sources such as metallic structures or equipment).
+This works even if the GPSs are not receiving RTCM data from a fixed RTK station or NTRIP server.
+It supports RTK positioning adjustment for centimeter-level accuracy, GPS/GLONASS,Beidou, Galileo, and QZSS global positioning systems.
+
+The module also includes a magnetometer, LED, and safety switch button.
+It also serves as an RTK-corrected vehicle GPS, with or without moving baseline yaw determination, and as a base station GPS for sending RTCM data to a ground control station to provide an RTK source for the vehicle via telemetry.
 
 Additional technical information can be found at [Holybro Technical Documentation page](https://docs.holybro.com/gps-and-rtk-system/h-rtk-unicore-um982)
 
@@ -21,9 +27,11 @@ Additional technical information can be found at [Holybro Technical Documentatio
 
 The module comes with both GH 10-pin & 6-pin cables that are compatible with the GPS1 & GPS2 ports on flight controllers that use the [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf), such as [Pixhawk 6x](../flight_controller/pixhawk6x.md) and [Pixhawk 6c](../flight_controller/pixhawk6c.md).
 
-It can also be used with Cubepilot Flight Controller. The 10Pin - 6Pin cable allows users to connect the UM982 to GPS2 port on Cubepilot and Holybro Autopilots.
+It can also be used with Cubepilot Flight Controller.
+The 10Pin - 6Pin cable allows users to connect the UM982 to `GPS2` port on Cubepilot and Holybro Autopilots.
 
-The module can be used with one antenna or both antennas. If it is used with one antenna only, the right/primary antenna connector needs to be connected.
+The module can be used with one antenna or both antennas.
+If it is used with only one antenna, the right/primary antenna connector must be connected.
 
 ## PX4 Configuration
 
