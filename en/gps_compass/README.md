@@ -82,14 +82,15 @@ Notes:
 
 This list contains compasses (magnetometers) without GNSS.
 
-Device | Compass
-:--- | :---: 
-[Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | ?
-[Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass) | ?
+Device | Compass | DroneCan
+:--- | :---: | :---: 
+[Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | ? | 
+[Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass) | ? |  &check;
 
 Note:
 
-- "?" indicates "unknown" compass part
+- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
+  "?" indicates "unknown".
   
 ## Hardware Setup
 
