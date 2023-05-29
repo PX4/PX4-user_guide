@@ -32,7 +32,7 @@ GPS | Yaw Output | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) 
 [Holybro H-RTK F9P Rover Lite](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) | | | |
 [Holybro DroneCAN H-RTK F9P Rover](https://holybro.com/products/dronecan-h-rtk-f9p-rover) | | | |
 [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) | | | |
-[Holybro Unicore GPS](../gps_compass/gps_holybro_unicore.md) | &check; | | |
+[Holybro H-RTK UM982 GPS](../gps_compass/rtk_gps_holybro_unicore_um982.md) | &check; | | |
 [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md) | | | |
 [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md) | &check; | | |
 [Septentrio AsteRx-RIB](../gps_compass/septentrio_asterx-rib.md) |  &check;   |Septentrio dual antenna heading | |&check;
