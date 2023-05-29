@@ -21,14 +21,17 @@ On small vehicles an external compass is almost always required.
 ## Supported GNSS and/or Compass
 
 PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
-This list contains GNSS/Compass units that have been tested by the PX4 dev team, or which are popular within the PX4 community.
+
+### GNSS & Compass
+
+This list contains GNSS units (most of which also have a compass).
+These have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
 Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual F9P GPS Heading](../gps_compass/u-blox_f9p_heading.md) | PPK
 :--- | :---: | :---:  | :---:  | :---:  | :---: | :---:
 [ARK GPS](https://arkelectron.com/product/ark-gps/) | M9N  | ICM42688p | | | |
 [ARK RTK GPS](https://arkelectron.com/product/ark-rtk-gps/) | F9P  | ICM42688p | &check; | | &check; |
 [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) | SAM-M8Q | MMC5983MA | | | |
-[Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | &cross; | &check; | | | |
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | &check; | | |
 [CUAV C-RTK 9Ps GPS](../gps_compass/rtk_gps_cuav_c-rtk-9ps.md) | F9P | RM3100 | &check; | | &check; |
 [CUAV C-RTK2 PPK/RTK GNSS](../gps_compass/rtk_gps_cuav_c-rtk.md) | F9P | RM3100 | &check; | | | &check;
@@ -66,18 +69,32 @@ Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#co
 [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md) | F9P | &cross; | &check; | &check; | | |
 [Zubax GNSS 2](https://zubax.com/products/gnss_2) | MAX-M8Q | LIS3MDL | | | |
 
-:::note
+Notes:
+
 - &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
   "?" indicates "unknown".
 - Where possible and relevant the part name is used (i.e. &check; in the GPS column indicates that a GPS module is present but the part is not known).
-- [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) is a compass (not a GPS).
+- [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) and [Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/collections/gps-rtk-systems/products/dronecan-rm3100-compass) is a compass (not a GPS).
 - Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 - The list may omit some discontinued hardware that is still supported.
   For example [CubePilot Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md) is discontinued and may be removed from the list in a future release.
   The original *Here* has already been removed.
   Check earlier versions if a discontinued module is not mentioned here.
-:::
 
+### Compass/Magnetometer (Only)
+
+This list contains compasses (magnetometers) without GNSS.
+
+Device | Compass | DroneCan
+:--- | :---: | :---: 
+[Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | ? | 
+[Holybro DroneCAN RM3100 Compass/Magnetometer](https://holybro.com/products/dronecan-rm3100-compass) | ? |  &check;
+
+Note:
+
+- &check; or a specific part number indicate that a features is supported, while &cross; or empty show that the feature is not supported.
+  "?" indicates "unknown".
+  
 ## Hardware Setup
 
 Instructions for connecting the GPS (and compass, if present) are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
