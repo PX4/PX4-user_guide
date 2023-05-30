@@ -16231,6 +16231,13 @@ table {
  <td>deg</td>
 </tr>
 <tr>
+ <td><strong id="FW_ACRO_YAW_EN">FW_ACRO_YAW_EN</strong> (INT32)</td>
+ <td>Enable yaw rate controller in Acro <p><strong>Comment:</strong> If this parameter is set to 1, the yaw rate controller is enabled in Fixed-wing Acro mode. Otherwise the pilot commands directly the yaw actuator. It is disabled by default because an active yaw rate controller will fight against the natural turn coordination of the plane.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td>Acro body pitch max rate setpoint    </td>
  <td>[45, 720] </td>
