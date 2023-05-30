@@ -1,12 +1,12 @@
-# Control Allocation (Mixing)
+# 控制分配 (混控)
 
 :::note
-Control allocation replaces the legacy mixing approach used in PX4 v1.13 and earlier. For PX4 v1.13 documentation see: [Mixing & Actuators](https://docs.px4.io/v1.13/en/concept/mixing.html), [Geometry Files](https://docs.px4.io/v1.13/en/concept/geometry_files.html) and [Adding a New Airframe Configuration](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html).
+控制分配取代了在 PX4 v1.13 中使用的旧的混控方法。 PX4 v1.13 文档见： [混控& 驱动器](https://docs.px4.io/v1.13/en/concept/mixing.html), [构型文件](https://docs.px4.io/v1.13/en/concept/geometry_files.html) 和 [添加一个新的机型配置](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html)。
 :::
 
-PX4 takes desired torque and thrust commands from the core controllers and translates them to actuator commands which control motors or servos.
+PX4从核心控制器获取所需的扭矩和推力指令，并将它们转换为控制电机或作动器的驱动指令。
 
-The translation depends on the physical geometry of the airframe. For example, given a torque command to "turn right" (say):
+指令间的转换取决于飞行器的物理构型。 例如，给“向右转”需要给出一个扭矩指令：
 
 - A plane with one servo per aileron will command one of servo high and the other low.
 - A multicopter will yaw right by changing the speed of all motors.
