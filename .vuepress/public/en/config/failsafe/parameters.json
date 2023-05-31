@@ -31976,10 +31976,10 @@
       "default": 0.0,
       "group": "VTOL Attitude Control",
       "increment": 1.0,
-      "longDesc": "Threshold for integrated height rate error to trigger a uncommanded-descent quad-chute. Only checked in altitude-controlled fixed-wing flight. Additional conditions that have to be met for uncommanded descent detection are a positive (climbing) height rate setpoint and a negative (sinking) current height rate estimate. Set to 0 do disable this threshold.",
+      "longDesc": "Altitude error threshold for quad-chute triggering during fixed-wing flight. The check is only active if altitude is controlled and the vehicle is below the current altitude reference. The altitude error is relative to the highest altitude the vehicle has achieved since it has flown below the current altitude reference. Set to 0 do disable.",
       "max": 200.0,
       "min": 0.0,
-      "name": "VT_QC_HR_ERROR_I",
+      "name": "VT_QC_ALT_LOSS",
       "shortDesc": "Quad-chute uncommanded descent threshold",
       "type": "Float",
       "units": "m"
