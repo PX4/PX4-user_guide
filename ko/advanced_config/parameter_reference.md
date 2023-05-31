@@ -32939,8 +32939,8 @@ table {
  <td>1/s</td>
 </tr>
 <tr>
- <td><strong id="VT_QC_HR_ERROR_I">VT_QC_HR_ERROR_I</strong> (FLOAT)</td>
- <td>Quad-chute uncommanded descent threshold <p><strong>Comment:</strong> Threshold for integrated height rate error to trigger a uncommanded-descent quad-chute. Only checked in altitude-controlled fixed-wing flight. Additional conditions that have to be met for uncommanded descent detection are a positive (climbing) height rate setpoint and a negative (sinking) current height rate estimate. Set to 0 do disable this threshold.</p>   </td>
+ <td><strong id="VT_QC_ALT_LOSS">VT_QC_ALT_LOSS</strong> (FLOAT)</td>
+ <td>Quad-chute uncommanded descent threshold <p><strong>Comment:</strong> Altitude error threshold for quad-chute triggering during fixed-wing flight. The check is only active if altitude is controlled and the vehicle is below the current altitude reference. The altitude error is relative to the highest altitude the vehicle has achieved since it has flown below the current altitude reference. Set to 0 do disable.</p>   </td>
  <td>[0.0, 200.0] (1)</td>
  <td>0.0</td>
  <td>m</td>
