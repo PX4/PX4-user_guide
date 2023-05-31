@@ -1,56 +1,56 @@
-# Control Allocation (Mixing)
+# 控制分配 (混控)
 
 :::note
-Control allocation replaces the legacy mixing approach used in PX4 v1.13 and earlier. For PX4 v1.13 documentation see: [Mixing & Actuators](https://docs.px4.io/v1.13/en/concept/mixing.html), [Geometry Files](https://docs.px4.io/v1.13/en/concept/geometry_files.html) and [Adding a New Airframe Configuration](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html).
+控制分配取代了在 PX4 v1.13 中使用的旧的混控方法。 PX4 v1.13 文档见： [混控& 驱动器](https://docs.px4.io/v1.13/en/concept/mixing.html), [构型文件](https://docs.px4.io/v1.13/en/concept/geometry_files.html) 和 [添加一个新的机型配置](https://docs.px4.io/v1.13/en/dev_airframes/adding_a_new_frame.html)。
 :::
 
-PX4 takes desired torque and thrust commands from the core controllers and translates them to actuator commands which control motors or servos.
+PX4从核心控制器获取所需的扭矩和推力指令，并将它们转换为控制电机或作动器的驱动指令。
 
-The translation depends on the physical geometry of the airframe. For example, given a torque command to "turn right" (say):
+指令间的转换取决于飞行器的物理构型。 例如，给“向右转”需要给出一个扭矩指令：
 
-- A plane with one servo per aileron will command one of servo high and the other low.
-- A multicopter will yaw right by changing the speed of all motors.
+- 对于每个副翼都有一个舵机的飞机来说，该指令将会控制一个舵机向高处偏转，另一个向低处偏转。
+- 多旋翼将会通过改变所有电机的转速来向右偏航。
 
-PX4 separates this translation logic, which is referred to as "mixing" from the attitude/rate controller. This ensures that the core controllers do not require special handling for each airframe geometry, and greatly improves reusability.
+PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控制器输出的“混控”。 这样可以确保核心控制器不需要对每个机型构型进行特殊处理，可以大大提高复用性。
 
-In addition, PX4 abstracts the mapping of output functions to specific hardware outputs. This means that any motor or servo can be assigned to almost any physical output. 
+此外，PX4还将输出函数映射至指定的硬件输出。 这也意味着任何电机或舵机可以分配给几乎任何物理输出。 
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
-![Mixing Overview](../../assets/diagrams/mixing_overview.png)
+![混控概览](../../assets/diagrams/mixing_overview.png)
 
-## Actuator Control Pipeline
+## 作动器控制流程
 
-Overview of the mixing pipeline in terms of modules and uORB topics (press to show full-screen):
+模块和uORB话题混控流程概览（点击全屏查看）：
 <!-- https://drive.google.com/file/d/1L2IoxsyB4GAWE-s82R_x42mVXW_IDlHP/view?usp=sharing -->
 ![Pipeline Overview](../../assets/concepts/control_allocation_pipeline.png)
 
-Notes:
-- The rate controller outputs torque and thrust setpoints
-- the `control_allocator` module:
-  - handles different geometries based on configuration parameters
-  - does the mixing
-  - handles motor failures
-  - publishes the motor and servo control signals
-  - publishes the servo trims separately so they can be added as an offset when [testing actuators](../config/actuators.md#actuator-testing) (using the test sliders).
-- the output drivers:
-  - handle the hardware initialization and update
-  - use a shared library [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/). The driver defines a parameter prefix, e.g. `PWM_MAIN` that the library then uses for configuration. Its main task is to select from the input topics and assign the right data to the outputs based on the user set `<param_prefix>_FUNCx` parameter values. For example if `PWM_MAIN_FUNC3` is set to **Motor 2**, the 3rd output is set to the 2nd motor from `actuator_motors`.
-  - output functions are defined under [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml).
-- if you want to control an output from MAVLink, set the relevant output function to **Offboard Actuator Set x**, and then send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command.
+备注：
+- 角速率控制器输出力矩和推力设定值
+- `control_allocator` 模块：
+  - 根据配置参数处理不同飞行器构型
+  - 进行混控计算
+  - 处理电机失效
+  - 发布电机和作动器控制信号
+  - 单独发布舵机配平，以便在 [测试驱动器](../config/actuators.md#actuator-testing) (使用测试滑块)时将它们添加为偏移。
+- 输出驱动：
+  - 处理硬件初始化和更新
+  - 使用共享库 [src/libs/mixer_module](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/)。 驱动程序定义了参数前缀，例如 `PWM_MAIN` 被库用于配置。 其主要任务是从输入话题中选择，并根据用户设置的 `<param_prefix>_FUNCx` 参数值将正确的数据分配给输出。 例如， `PWM_MAIN_FUNC3` 已设置为 **Motor 2**，第三个输出设置为来自 `actuator_motors`的第二个电机。
+  - 输出函数定义于 [src/lib/mixer_module/output_functions.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/lib/mixer_module/output_functions.yaml)。
+- 如果想要通过MAVLink控制其输出，请将相关的输出函数设置为 **Offboard Actor Set x**，然后发送 [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink指令。
 
-## Adding a new Geometry or Output Function
+## 添加新构型或输出函数
 
-See [this commit](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) for how to add a new geometry. The QGC UI will then automatically show the right configuration UI when [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) is set to the new geometry.
+请参阅该[提交](https://github.com/PX4/PX4-Autopilot/commit/5cdb6fbd8e1352dcb94bd58918da405f8ff930d7) 以了解如何添加新构型。 当 [CA_AIRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) 设置为新构型时，QGC 界面将自动显示正确的配置界面。
 
-[This commit](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) shows how to add a new output function. Any uORB topic can be subscribed and assigned to a function.
+该[提交](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) 显示了如何添加新的输出函数。 任何uORB话题都可以被订阅并分配到一个函数。
 
-Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml) The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
+请注意，控制分配的参数是在 [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml)中定义的。 此文件的架构参见 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) （典型的，搜索关键字 `mixer:`）
 
-## Setting the Default Frame Geometry
+## 设置默认机型构型
 
-When [adding a new frame configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and other default mixer values for the geometry.
+当 [添加一个新的机型配置](../dev_airframes/adding_a_new_frame.md)，需要设置合适的 [CA_AIRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) 和其他默认的构型混控参数。
 
-You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
+例如，可以参见机型配置文件 [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter) 。
 ```
 ...
 param set-default CA_AIRFRAME 4
@@ -60,8 +60,8 @@ param set-default CA_ROTOR0_PY 0.2
 ...
 ```
 
-## Setting up Geometry and Outputs
+## 设置构型和输出
 
-The broad geometry and default parameters for a vehicle are set (from the frame configuration file) when selecting the airframe in QGroundControl: [Basic Configuration > Airframe](../config/airframe.md).
+当通过 QGroundControl 中的 [Basic Configuration > Airframe](../config/airframe.md) 选择机型时，飞行器的几何构型和默认参数将为默认参数（来自frame configuration文件）。
 
-The geometry parameters and output mapping for the specific frame and flight controller hardware are then configured using the QGroundControl **Actuators** setup screen: [Basic Configuration > Actuator Configuration and Testing](../config/actuators.md).
+特定机型的几何构型参数和飞控硬件输出映射可通过 QGroundControl 中的 **Actuators** 设置页面： [Basic Configuration > 精Actuator Configuration and Testing](../config/actuators.md) 来设置。
