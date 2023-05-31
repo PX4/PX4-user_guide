@@ -8,8 +8,8 @@ PX4从核心控制器获取所需的扭矩和推力指令，并将它们转换�
 
 指令间的转换取决于飞行器的物理构型。 例如，给“向右转”需要给出一个扭矩指令：
 
-- A plane with one servo per aileron will command one of servo high and the other low.
-- A multicopter will yaw right by changing the speed of all motors.
+- 对于每个副翼都有一个舵机的飞机来说，该指令将会控制一个舵机向高处偏转，另一个向低处偏转。
+- 多旋翼将会通过改变所有电机的转速来向右偏航。
 
 PX4 separates this translation logic, which is referred to as "mixing" from the attitude/rate controller. This ensures that the core controllers do not require special handling for each airframe geometry, and greatly improves reusability.
 
