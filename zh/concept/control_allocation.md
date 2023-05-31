@@ -16,7 +16,7 @@ PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控�
 此外，PX4还将输出函数映射至指定的硬件输出。 这也意味着任何电机或舵机可以分配给几乎任何物理输出。 
 
 <!-- https://docs.google.com/drawings/d/1Li9YhTLc3yX6mGX0iSOfItHXvaUhevO2DRZwuxPQ1PI/edit -->
-![Mixing Overview](../../assets/diagrams/mixing_overview.png)
+![混控概览](../../assets/diagrams/mixing_overview.png)
 
 ## 作动器控制流程
 
@@ -44,13 +44,13 @@ PX4将这个转换逻辑区分开，这个逻辑被称为从姿态/角速率控�
 
 该[提交](https://github.com/PX4/PX4-Autopilot/commit/a65533b46986e32254b64b7c92469afb8178e370) 显示了如何添加新的输出函数。 任何uORB话题都可以被订阅并分配到一个函数。
 
-Note that parameters for control allocation are defined in [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml) The schema for this file is [here](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) (in particular, search for the key `mixer:`
+请注意，控制分配的参数是在 [src/modules/control_allocator/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/control_allocator/module.yaml)中定义的。 此文件的架构参见 [这里](https://github.com/PX4/PX4-Autopilot/blob/main/validation/module_schema.yaml#L440=) （典型的，搜索关键字 `mixer:`）
 
-## Setting the Default Frame Geometry
+## 设置默认机型构型
 
-When [adding a new frame configuration](../dev_airframes/adding_a_new_frame.md), set the appropriate [CA_AIRFRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) and other default mixer values for the geometry.
+当 [添加一个新的机型配置](../dev_airframes/adding_a_new_frame.md)，需要设置合适的 [CA_AIRAME](../advanced_config/parameter_reference.md#CA_AIRFRAME) 和其他默认的构型混控参数。
 
-You can see this, for example, in the airframe configuration file [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter)
+例如，可以参见机型配置文件 [13200_generic_vtol_tailsitter](https://github.com/PX4/PX4-Autopilot/blob/main/ROMFS/px4fmu_common/init.d/airframes/13200_generic_vtol_tailsitter) 。
 ```
 ...
 param set-default CA_AIRFRAME 4
@@ -60,8 +60,8 @@ param set-default CA_ROTOR0_PY 0.2
 ...
 ```
 
-## Setting up Geometry and Outputs
+## 设置构型和输出
 
-The broad geometry and default parameters for a vehicle are set (from the frame configuration file) when selecting the airframe in QGroundControl: [Basic Configuration > Airframe](../config/airframe.md).
+当通过 QGroundControl 中的 [Basic Configuration > Airframe](../config/airframe.md) 选择机型时，飞行器的几何构型和默认参数将为默认参数（来自frame configuration文件）。
 
-The geometry parameters and output mapping for the specific frame and flight controller hardware are then configured using the QGroundControl **Actuators** setup screen: [Basic Configuration > Actuator Configuration and Testing](../config/actuators.md).
+特定机型的几何构型参数和飞控硬件输出映射可通过 QGroundControl 中的 **Actuators** 设置页面： [Basic Configuration > 精Actuator Configuration and Testing](../config/actuators.md) 来设置。
