@@ -43,20 +43,20 @@ The available containers are on [Github here](https://github.com/PX4/PX4-contain
 
 These allow testing of various build targets and configurations (the included tools can be inferred from their names).
 The containers are hierarchial, such that containers have the functionality of their parents.
-For example, below you can see that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
+For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
+```
 - px4io/px4-dev-base-focal
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
       - px4io/px4-dev-ros2-foxy
   - px4io/px4-dev-ros2-rolling
-  - px4io/px4-dev-ros2-galactic
+```
 
-
-The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-bionic:latest`
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest`
 (available tags are listed for each container on *hub.docker.com*.
-For example, the `px4io/px4-dev-nuttx-bionic` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-bionic/tags?page=1&ordering=last_updated)).
+For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
 
 :::tip
 Typically you should use a recent container, but not necessarily the `latest` (as this changes too often).
