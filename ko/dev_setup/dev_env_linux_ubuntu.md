@@ -1,6 +1,6 @@
 # 우분투 개발 환경
 
-The following instructions set up a PX4 development environment on the [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) versions supported by PX4. This includes 18.04 (Bionic Beaver), 20.04 (Focal Fossa). The instructions also work for Ubuntu 22.04 (Jammy Jellyfish), although PX4 does not yet fully support this version.
+The following instructions set up a PX4 development environment on the [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) versions supported by PX4. This includes: 18.04 (Bionic Beaver), 20.04 (Focal Fossa), and Ubuntu 22.04 (Jammy Jellyfish).
 
 Bash scripts are provided to simplify the process. They are intended to be run on *clean* Ubuntu LTS installations, and may not work if run "on top" of an existing system, or on a different Ubuntu release.
 
