@@ -5530,6 +5530,29 @@
     },
     {
       "category": "Standard",
+      "default": 0,
+      "group": "Commander",
+      "longDesc": "This check detects if the Open Drone ID system is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.",
+      "name": "COM_ARM_ODID",
+      "shortDesc": "Enable Drone ID system detection and health check",
+      "type": "Int32",
+      "values": [
+        {
+          "description": "Disabled",
+          "value": 0
+        },
+        {
+          "description": "Warning only",
+          "value": 1
+        },
+        {
+          "description": "Enforce Open Drone ID system presence",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "category": "Standard",
       "default": 1,
       "group": "Commander",
       "longDesc": "This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.",
