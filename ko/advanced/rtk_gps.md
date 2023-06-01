@@ -27,7 +27,7 @@ PX4로 RTK를 설정에는 2개의 RTK GPS 모듈과 데이터 링크가 필요�
 
 PX4 GPS 스택은 모듈이 연결된 위치(*QGroundControl* 또는 자동조종장치)에 따라서 UART 또는 USB를 통하여 메시지 송수신을 위하여, GPS 모듈을 자동으로 설정합니다.
 
-자동조종장치는 `GPS_RTCM_DATA` MAVLink 메시지를 수신하는 즉시 RTCM 데이터를 연결된 GPS 모듈에 자동으로 전달합니다.
+As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module over existing data channels (a dedicated channel for correction data is not required).
 
 :::note
 u-blox U-Center RTK 설정 도구는 필요하지 않으며, 사용되지도 않습니다!
