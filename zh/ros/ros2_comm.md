@@ -34,10 +34,7 @@ ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建�
 
 ## 安装设置
 
-支持的 PX4 开发平台是 Ubuntu 20.04 (撰写时)，这意味着您应该使用ROS2 "Foxy"。
-
-::warning 其他平台，如Ubuntu 22.04 ROS 2 “Humble” 也许可以工作，但没有得到PX4 开发团队的充分测试和正式支持。 <!-- Windows/Mac? -->
-:::
+The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22.04 (at time of writing), which means that you should use ROS 2 "Foxy" or ROS 2 "Humble".
 
 设置 ROS 2以使用 PX4，您将需要做如下操作：
 

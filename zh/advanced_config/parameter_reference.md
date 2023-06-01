@@ -13814,6 +13814,20 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_ARM_ODID">COM_ARM_ODID</strong> (INT32)</td>
+ <td>Enable Drone ID system detection and health check <p><strong>Comment:</strong> This check detects if the Open Drone ID system is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Warning only</li>
+
+<li><strong>2:</strong> Enforce Open Drone ID system presence</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_ARM_SDCARD">COM_ARM_SDCARD</strong> (INT32)</td>
  <td>Enable FMU SD card detection check <p><strong>Comment:</strong> This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disabled</li>

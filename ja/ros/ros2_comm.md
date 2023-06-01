@@ -34,11 +34,7 @@ In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](htt
 
 ## Installation & Setup
 
-The supported platform for PX4 development is Ubuntu 20.04 (at time of writing), which means that you should use ROS 2 "Foxy".
-
-:::warning
-Other platforms, such as Ubuntu 22.04 and ROS 2 "Humble", may work, but are not fully tested and officially supported by the PX4 dev team. <!-- Windows/Mac? -->
-:::
+The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22.04 (at time of writing), which means that you should use ROS 2 "Foxy" or ROS 2 "Humble".
 
 To setup ROS 2 for use with PX4 you will need to:
 

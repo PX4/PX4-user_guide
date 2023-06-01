@@ -34,11 +34,7 @@ In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](htt
 
 ## 설치 및 설정
 
-The supported platform for PX4 development is Ubuntu 20.04 (at time of writing), which means that you should use ROS 2 "Foxy".
-
-:::warning
-Other platforms, such as Ubuntu 22.04 and ROS 2 "Humble", may work, but are not fully tested and officially supported by the PX4 dev team. <!-- Windows/Mac? -->
-:::
+The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22.04 (at time of writing), which means that you should use ROS 2 "Foxy" or ROS 2 "Humble".
 
 To setup ROS 2 for use with PX4 you will need to:
 
@@ -156,7 +152,8 @@ This section shows how create a ROS 2 workspace hosted in your home directory (m
 The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace. The example is run using `ros2 launch`.
 
 :::note
-The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
+The example builds the [ROS 2 Listener](#ros-2-listener) example application, located in [px4_ros_com](https://github.com/PX4/px4_ros_com). [px4_msgs](https://github.com/PX4/px4_msgs) is needed too so that the example can interpret PX4 ROS 2 topics.
+:::
 
 
 #### Building the Workspace
@@ -171,9 +168,8 @@ To create and build the workspace:
    cd ~/ws_sensor_combined/src/
    ```
 
-   :::note
-A naming convention for workspace folders can make it easier to manage workspaces.
-:::
+:::note
+A naming convention for workspace folders can make it easier to manage workspaces. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
 
 1. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the the version of PX4 we are running):
 

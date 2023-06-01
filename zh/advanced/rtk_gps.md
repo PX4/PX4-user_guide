@@ -25,7 +25,7 @@ PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面端�
 
 PX4 GPS 栈自动设置GPS 模块，通过UART或USB发送和接收正确的消息，取决于模块的连接位置 (到 *QGroundControl* 或自驾仪)。
 
-一旦自动驾驶仪接收到` GPS_RTCM_DATA ` MAVLink 消息，它就会自动将 RTCM 数据转发到连接的 GPS模块。
+As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module over existing data channels (a dedicated channel for correction data is not required).
 
 :::note
 u-blox U-Center RTK 模块配置工具不需要/使用！

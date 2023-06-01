@@ -39,19 +39,18 @@ sudo usermod -aG docker $USER
 
 The available containers are on [Github here](https://github.com/PX4/PX4-containers/blob/master/README.md#container-hierarchy).
 
-이를 통하여 다양한 빌드 대상 및 구성을 테스트할 수 있습니다(포함된 도구는 이름에서 유추할 수 있음). 컨테이너는 상위 컨테이너의 기능을 갖도록 계층적입니다. 예를 들어, 아래에서 nuttx 빌드 도구(`px4-dev-nuttx-focal`)가 있는 도커 컨테이너에는 ROS 2가 포함되어 있지 않지만, 시뮬레이션 컨테이너에는 포함되어 있습니다.
+이를 통하여 다양한 빌드 대상 및 구성을 테스트할 수 있습니다(포함된 도구는 이름에서 유추할 수 있음). 컨테이너는 상위 컨테이너의 기능을 갖도록 계층적입니다. For example, the partial hierarchy below shows that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
+```
 - px4io/px4-dev-base-focal
   - px4io/px4-dev-nuttx-focal
   - px4io/px4-dev-simulation-focal
     - px4io/px4-dev-ros-noetic
       - px4io/px4-dev-ros2-foxy
   - px4io/px4-dev-ros2-rolling
-  - px4io/px4-dev-ros2-galactic
+```
 
-
-가장 최신 버전은 `latest` 태그를 사용하여 액세스할 수 있습니다. `px4io/px4-dev-nuttx-bionic:latest` (사용 가능한 태그는 *hub.docker.com*의 각 컨테이너에 나열되어 있습니다.)
-:::
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-focal:latest` (available tags are listed for each container on *hub.docker.com*. For example, the `px4io/px4-dev-nuttx-focal` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-focal/tags?page=1&ordering=last_updated)).
 
 :::tip
 일반적으로 최근 컨테이너를 사용하여야 하지만 반드시 `최신 버전`일 필요는 없습니다(너무 자주 변경됨). PX4 소스 코드를 다음과 같이 **src/PX4-Autopilot**에 이미 다운로드했음을 가정합니다:
