@@ -15765,30 +15765,11 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>参数对照:</strong><ul>
-<li><strong>0:</strong> Use airspeed in controller</li>
-
-<li><strong>1:</strong> Do not use airspeed in controller</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
  <td>Maximum manual pitch angle <p><strong>Comment:</strong> Maximum manual pitch angle setpoint (positive & negative) in manual attitude-only stabilized mode</p>   </td>
  <td>[0.0, 90.0] (0.5)</td>
  <td>30.0</td>
  <td>deg</td>
-</tr>
-<tr>
- <td><strong id="FW_MAN_P_SC">FW_MAN_P_SC</strong> (FLOAT)</td>
- <td>Manual pitch scale <p><strong>Comment:</strong> Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_MAN_R_MAX">FW_MAN_R_MAX</strong> (FLOAT)</td>
@@ -15798,25 +15779,11 @@ table {
  <td>deg</td>
 </tr>
 <tr>
- <td><strong id="FW_MAN_R_SC">FW_MAN_R_SC</strong> (FLOAT)</td>
- <td>Manual roll scale <p><strong>Comment:</strong> Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>[0.0, 1.0] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="FW_MAN_YR_MAX">FW_MAN_YR_MAX</strong> (FLOAT)</td>
  <td>Maximum manually added yaw rate <p><strong>Comment:</strong> This is the maximally added yaw rate setpoint from the yaw stick in any attitude controlled flight mode. The controller already generates a yaw rate setpoint to coordinate a turn, and this value is added to it. This is an absolute value, which is applied symmetrically to the negative and positive side.</p>   </td>
  <td>[0, ?] (0.5)</td>
  <td>30.</td>
  <td>deg/s</td>
-</tr>
-<tr>
- <td><strong id="FW_MAN_Y_SC">FW_MAN_Y_SC</strong> (FLOAT)</td>
- <td>Manual yaw scale <p><strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>1.0</td>
- <td>norm</td>
 </tr>
 <tr>
  <td><strong id="FW_PSP_OFF">FW_PSP_OFF</strong> (FLOAT)</td>
@@ -15828,14 +15795,14 @@ table {
 <tr>
  <td><strong id="FW_P_RMAX_NEG">FW_P_RMAX_NEG</strong> (FLOAT)</td>
  <td>Maximum negative / down pitch rate setpoint    </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>[0.0, 180] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="FW_P_RMAX_POS">FW_P_RMAX_POS</strong> (FLOAT)</td>
  <td>Maximum positive / up pitch rate setpoint    </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>[0.0, 180] (0.5)</td>
  <td>60.0</td>
  <td>deg/s</td>
 </tr>
@@ -15847,16 +15814,9 @@ table {
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="FW_RLL_TO_YAW_FF">FW_RLL_TO_YAW_FF</strong> (FLOAT)</td>
- <td>Roll control to yaw control feedforward gain <p><strong>Comment:</strong> This gain can be used to counteract the "adverse yaw" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator to counteract this effect.</p>   </td>
- <td>[0.0, ?] (0.01)</td>
- <td>0.0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
  <td>Maximum roll rate setpoint    </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>[0.0, 180] (0.5)</td>
  <td>70.0</td>
  <td>deg/s</td>
 </tr>
@@ -15882,30 +15842,16 @@ table {
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="FW_SPOILERS_MAN">FW_SPOILERS_MAN</strong> (INT32)</td>
- <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>参数对照:</strong><ul>
-<li><strong>0:</strong> Disabled</li>
-
-<li><strong>1:</strong> Flaps channel</li>
-
-<li><strong>2:</strong> Aux1</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
  <td>Wheel steering rate feed forward <p><strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output</p>   </td>
- <td>[0.0, 1.0] (0.05)</td>
+ <td>[0.0, 10] (0.05)</td>
  <td>0.2</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
  <td><strong id="FW_WR_I">FW_WR_I</strong> (FLOAT)</td>
  <td>Wheel steering rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.5] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -15919,7 +15865,7 @@ table {
 <tr>
  <td><strong id="FW_WR_P">FW_WR_P</strong> (FLOAT)</td>
  <td>Wheel steering rate proportional gain <p><strong>Comment:</strong> This defines how much the wheel steering input will be commanded depending on the current body angular rate error.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.5</td>
  <td>%/rad/s</td>
 </tr>
@@ -15940,7 +15886,7 @@ table {
 <tr>
  <td><strong id="FW_Y_RMAX">FW_Y_RMAX</strong> (FLOAT)</td>
  <td>Maximum yaw rate setpoint    </td>
- <td>[0.0, 90.0] (0.5)</td>
+ <td>[0.0, 180] (0.5)</td>
  <td>50.0</td>
  <td>deg/s</td>
 </tr>
@@ -16272,7 +16218,7 @@ table {
 <tr>
  <td><strong id="FW_ACRO_X_MAX">FW_ACRO_X_MAX</strong> (FLOAT)</td>
  <td>Acro body x max rate <p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
- <td>[45, 720] </td>
+ <td>[10, 720] </td>
  <td>90</td>
  <td>deg</td>
 </tr>
@@ -16286,16 +16232,28 @@ table {
 <tr>
  <td><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td>Acro body pitch max rate setpoint    </td>
- <td>[45, 720] </td>
+ <td>[10, 720] </td>
  <td>90</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
  <td>Acro body yaw max rate setpoint    </td>
- <td>[10, 180] </td>
+ <td>[10, 720] </td>
  <td>45</td>
  <td>deg</td>
+</tr>
+<tr>
+ <td><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
+ <td>Airspeed mode <p><strong>Comment:</strong> On vehicles without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Use airspeed in controller</li>
+
+<li><strong>1:</strong> Do not use airspeed in controller</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="FW_ARSP_SCALE_EN">FW_ARSP_SCALE_EN</strong> (INT32)</td>
@@ -16314,42 +16272,42 @@ table {
 <tr>
  <td><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
  <td>Pitch trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
  <td>Pitch trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
  <td>Roll trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_R_VMIN">FW_DTRIM_R_VMIN</strong> (FLOAT)</td>
  <td>Roll trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
  <td>Yaw trim increment at maximum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MAX.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="FW_DTRIM_Y_VMIN">FW_DTRIM_Y_VMIN</strong> (FLOAT)</td>
  <td>Yaw trim increment at minimum airspeed <p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MIN.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -16368,9 +16326,30 @@ table {
  <td>norm</td>
 </tr>
 <tr>
+ <td><strong id="FW_MAN_P_SC">FW_MAN_P_SC</strong> (FLOAT)</td>
+ <td>Manual pitch scale <p><strong>Comment:</strong> Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td>[0.0, ?] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_MAN_R_SC">FW_MAN_R_SC</strong> (FLOAT)</td>
+ <td>Manual roll scale <p><strong>Comment:</strong> Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td>[0.0, 1.0] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="FW_MAN_Y_SC">FW_MAN_Y_SC</strong> (FLOAT)</td>
+ <td>Manual yaw scale <p><strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td>[0.0, ?] (0.01)</td>
+ <td>1.0</td>
+ <td>norm</td>
+</tr>
+<tr>
  <td><strong id="FW_PR_D">FW_PR_D</strong> (FLOAT)</td>
  <td>Pitch rate derivative gain <p><strong>Comment:</strong> Pitch rate differential gain.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.</td>
  <td>%/rad/s</td>
 </tr>
@@ -16384,7 +16363,7 @@ table {
 <tr>
  <td><strong id="FW_PR_I">FW_PR_I</strong> (FLOAT)</td>
  <td>Pitch rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.5] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -16398,14 +16377,21 @@ table {
 <tr>
  <td><strong id="FW_PR_P">FW_PR_P</strong> (FLOAT)</td>
  <td>Pitch rate proportional gain    </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.08</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
+ <td><strong id="FW_RLL_TO_YAW_FF">FW_RLL_TO_YAW_FF</strong> (FLOAT)</td>
+ <td>Roll control to yaw control feedforward gain <p><strong>Comment:</strong> This gain can be used to counteract the "adverse yaw" effect for fixed wings. When the plane enters a roll it will tend to yaw the nose out of the turn. This gain enables the use of a yaw actuator to counteract this effect.</p>   </td>
+ <td>[0.0, ?] (0.01)</td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_RR_D">FW_RR_D</strong> (FLOAT)</td>
  <td>Roll rate derivative Gain <p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.00</td>
  <td>%/rad/s</td>
 </tr>
@@ -16419,7 +16405,7 @@ table {
 <tr>
  <td><strong id="FW_RR_I">FW_RR_I</strong> (FLOAT)</td>
  <td>Roll rate integrator Gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 0.2] (0.005)</td>
+ <td>[0.0, 10] (0.01)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -16433,14 +16419,28 @@ table {
 <tr>
  <td><strong id="FW_RR_P">FW_RR_P</strong> (FLOAT)</td>
  <td>Roll rate proportional Gain    </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
 <tr>
+ <td><strong id="FW_SPOILERS_MAN">FW_SPOILERS_MAN</strong> (INT32)</td>
+ <td>Spoiler input in manual flight <p><strong>Comment:</strong> Chose source for manual setting of spoilers in manual flight modes.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> Disabled</li>
+
+<li><strong>1:</strong> Flaps channel</li>
+
+<li><strong>2:</strong> Aux1</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="FW_YR_D">FW_YR_D</strong> (FLOAT)</td>
  <td>Yaw rate derivative gain <p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.0</td>
  <td>%/rad/s</td>
 </tr>
@@ -16454,7 +16454,7 @@ table {
 <tr>
  <td><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
  <td>Yaw rate integrator gain <p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>   </td>
- <td>[0.0, 50.0] (0.5)</td>
+ <td>[0.0, 10] (0.5)</td>
  <td>0.1</td>
  <td>%/rad</td>
 </tr>
@@ -16468,7 +16468,7 @@ table {
 <tr>
  <td><strong id="FW_YR_P">FW_YR_P</strong> (FLOAT)</td>
  <td>Yaw rate proportional gain    </td>
- <td>[0.0, 1.0] (0.005)</td>
+ <td>[0.0, 10] (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
 </tr>
@@ -16485,28 +16485,28 @@ table {
 <tr>
  <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
  <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> The maximal airspeed (calibrated airspeed) the user is able to command.</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>20.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
  <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively. Has to be set according to the vehicle's stall speed (which should be set in FW_AIRSPD_STALL), with some margin between the stall speed and minimum airspeed. This value corresponds to the desired minimum speed with the default load factor (level flight, default weight), and is automatically adpated to the current load factor (calculated from roll setpoint and WEIGHT_GROSS/WEIGHT_BASE).</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
  <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>7.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
  <td>Trim (Cruise) Airspeed <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve.</p>   </td>
- <td>[0.5, 40] (0.5)</td>
+ <td>[0.5, ?] (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
@@ -16626,7 +16626,7 @@ table {
  <td><strong id="FW_T_I_GAIN_THR">FW_T_I_GAIN_THR</strong> (FLOAT)</td>
  <td>Integrator gain throttle <p><strong>Comment:</strong> This is the integrator gain on the throttle part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
  <td>[0.0, 2.0] (0.05)</td>
- <td>0.1</td>
+ <td>0.05</td>
  <td></td>
 </tr>
 <tr>
@@ -23844,21 +23844,21 @@ table {
 <tr>
  <td><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
  <td>Pitch trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
  <td>Roll trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
  <td>Yaw trim <p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>   </td>
- <td>[-0.25, 0.25] (0.01)</td>
+ <td>[-0.5, 0.5] (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
@@ -32842,7 +32842,7 @@ table {
 <tr>
  <td><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
  <td>Back transition MC motor ramp up time <p><strong>Comment:</strong> This sets the duration during which the MC motors ramp up to the commanded thrust during the back transition stage.</p>   </td>
- <td>[0.0, 20.0] </td>
+ <td>[0.0, 20.0] (0.1)</td>
  <td>3.0</td>
  <td>s</td>
 </tr>
@@ -32878,7 +32878,7 @@ table {
 <tr>
  <td><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
  <td>Fixed-wing actuation thrust scale for hover forward flight <p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Enabled via VT_FWD_THRUST_EN.</p>   </td>
- <td>[0.0, 2.0] </td>
+ <td>[0.0, 2.0] (0.01)</td>
  <td>0.7</td>
  <td></td>
 </tr>
@@ -33007,14 +33007,14 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
- <td>Position of tilt servo in fw mode    </td>
+ <td>Normalized tilt in FW    </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
- <td>Position of tilt servo in mc mode    </td>
+ <td>Normalized tilt in Hover    </td>
  <td>[0.0, 1.0] (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -33028,9 +33028,9 @@ table {
 </tr>
 <tr>
  <td><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
- <td>Position of tilt servo in transition mode    </td>
+ <td>Normalized tilt in transition to FW    </td>
  <td>[0.0, 1.0] (0.01)</td>
- <td>0.3</td>
+ <td>0.4</td>
  <td></td>
 </tr>
 <tr>
