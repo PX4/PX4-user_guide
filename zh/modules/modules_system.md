@@ -447,9 +447,19 @@ manual_control <command> [arguments...]
 Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/main/src/systemcmds/netman)
 
 
-  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
+  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted.
 
-  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
+  #### update
+
+  `netman update` is run automatically by [a startup script](../concept/system_startup.md#system-startup). When run, the `update` option will check for the existence of `net.cfg` in the root of the SD Card. It then saves the network settings from `net.cfg` in non-volatile memory, deletes the file and reboots the system.
+
+  #### save
+
+  The `save` option will save settings from non-volatile memory to a file named `net.cfg` on the SD Card filesystem for editing. Use this to edit the settings. Save does not immediately apply the network settings; the user must reboot the flight stack. By contrast, the `update` command is run by the start-up script, commits the settings to non-volatile memory, and reboots the flight controller (which will then use the new settings).
+
+  #### show
+
+  The `show` option will display the network settings in `net.cfg` to the console.
 
   ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
 
@@ -633,7 +643,7 @@ Source: [modules/simulation/sensor_mag_sim](https://github.com/PX4/PX4-Autopilot
 
 <a id="sensor_mag_sim_usage"></a>
 
-### Usage
+### 实现
 ```
 sensor_mag_sim <command> [arguments...]
  Commands:
@@ -647,7 +657,7 @@ sensor_mag_sim <command> [arguments...]
 Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/sensors)
 
 
-### Description
+### 描述
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
