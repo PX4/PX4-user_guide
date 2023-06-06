@@ -1138,6 +1138,39 @@ rgbled_is31fl3195 <command> [arguments...]
 
    status        print status info
 ```
+## rgbled_lp5562
+Source: [drivers/lights/rgbled_lp5562](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/lights/rgbled_lp5562)
+
+
+### Description
+Driver for [LP5562](https://www.ti.com/product/LP5562) LED driver connected via I2C.
+
+This used in some GPS modules by Holybro for [PX4 status notification](../getting_started/led_meanings.md)
+
+The driver is included by default in firmware (KConfig key DRIVERS_LIGHTS_RGBLED_LP5562) and is always enabled.
+
+<a id="rgbled_lp5562_usage"></a>
+
+### Usage
+```
+rgbled_lp5562 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 48
+     [-u <val>]  Current in mA
+                 default: 17.5
+
+   stop
+
+   status        print status info
+```
 ## safety_button
 Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/safety_button)
 
