@@ -68,18 +68,26 @@ make px4_sitl gazebo-classic
 To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
 
 For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
+
 ```sh
 cd PX4-Autopilot
 make px4_fmu-v5_default
 ```
 
 A successful run will end with similar output to:
+
 ```sh
 -- Build files have been written to: /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The first part of the build target `px4_fmu-v4` indicates the firmware for a particular flight controller hardware. The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
+The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware. The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
+
+:::note
+The `_default` suffix is optional. For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware.
+:::
+
+The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
 
 - [Holybro Pixhawk 6X (FMUv6X)](../flight_controller/pixhawk6x.md): `make px4_fmu-v6x_default`
 - [Holybro Pixhawk 6C (FMUv6C)](../flight_controller/pixhawk6c.md): `make px4_fmu-v6c_default`
@@ -97,15 +105,15 @@ The first part of the build target `px4_fmu-v4` indicates the firmware for a par
 - [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
 - [Pixfalcon (FMUv2)](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 - [Dropix (FMUv2)](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-- [Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+- [Pixhawk 1 (FMUv2)](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
+
+:::warning
+You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 :::
 - Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
 Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
 
-:::note
-The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
-:::
 
 ### Uploading Firmware (Flashing the board)
 
