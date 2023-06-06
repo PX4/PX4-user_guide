@@ -89,12 +89,12 @@ A successful run will end with similar output to:
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware
+The first part of the build target `px4_fmu-v4` indicates the target flight controller hardware for the firmware.
 The suffix, in this case `_default`, indicates a firmware _configuration_, such as supporting or omitting particular features.
 
 :::note
 The `_default` suffix is optional.
-For example, `make px4_fmu-v5` and `px4_fmu-v5_default` are equivalent.
+For example, `make px4_fmu-v5` and `px4_fmu-v5_default` result in the same firmware.
 :::
 
 The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
