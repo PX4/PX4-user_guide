@@ -221,6 +221,12 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make px4_fmu-v4_default
 ```
 
+## Configuration
+
+[Compass calibration](../config/compass.md) should be done with USB disconnected.
+This is always recommended, but is necessary on Pixracer because the USB connection produces particularly large levels of magnetic interference.
+
+Configuration is otherwise the same as for other boards.
 
 ## Credits
 
