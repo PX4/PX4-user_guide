@@ -1,13 +1,13 @@
-# Actuator Configuration and Testing
+# 作动器配置和测试
 
-The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.
+_作动器设置_ 界面用于自定义飞行器的特定几何构型，将作动器和电机绑定至飞行控制器输出，并测试作动器和电机响应。
 
-## Overview
+## 概述
 
-Open the view in *QGroundControl* here: **"Q" (app menu) > Vehicle Setup > Actuators** (tab). The displayed elements depend on the [selected frame](../config/airframe.md), with outputs mapped by default as shown in the [Airframe Reference](../airframes/airframe_reference.md).
+在 *QGroundControl* 打开下列视图： **"Q" (应用菜单) > 飞行器设置 > 作动器** (页面)。 界面中显示的元素依赖于 [选定的飞行器构型](../config/airframe.md)，默认的输出绑定参见 [飞行器构型参考](../airframes/airframe_reference.md) 。
 
-The view has three sections:
-- [Geometry](#geometry): Configure the geometry for the [selected airframe](../config/airframe.md). This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
+该界面有三个部分：
+- [几何构型](#geometry): 配置 [选定机型](../config/airframe.md)的几何构型。 This includes number, position and properties of [motors](#motor-geometry) and also the number and properties of [control surfaces](#control-surfaces-geometry) and [motor tilt servos](#motor-tilt-servo-geometry).
 - [Actuator Outputs](#actuator-outputs): Assign motors, control surfaces, and other actuators to specific output.
 - [Actuator Testing](#actuator-testing): Test that motors and actuators move in the direction / speed as expected.
 
