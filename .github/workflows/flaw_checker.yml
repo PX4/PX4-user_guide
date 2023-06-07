@@ -46,7 +46,7 @@ jobs:
       - name: Run link checker
         id: link-check
         run: |
-          npm -g install markdown_link_checker_sc@0.0.124
+          npm -g install markdown_link_checker_sc@0.0.125
           markdown_link_checker_sc -r ${{ github.workspace }} -d en -f ./logs/prFiles.json -i assets > ./logs/errorsFilteredByPrPages.md
           mkdir -p ./pr
           cp ./logs/errorsFilteredByPrPages.md ./pr/errorsFilteredByPrPages.md
