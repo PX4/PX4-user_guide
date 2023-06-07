@@ -689,8 +689,9 @@ temperature_compensation <command> [arguments...]
                  sensor_correction topic
 
    calibrate     Run temperature calibration process
-     [-g]        calibrate the gyro
      [-a]        calibrate the accel
+     [-g]        calibrate the gyro
+     [-m]        calibrate the mag
      [-b]        calibrate the baro (if none of these is given, all will be
                  calibrated)
 
