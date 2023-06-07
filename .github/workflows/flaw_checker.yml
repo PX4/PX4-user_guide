@@ -114,9 +114,9 @@ jobs:
       #    echo "github.event.pull_request.number	: ${{ github.event.pull_request.number }}"     
       #    echo "github.event.pull_request.base.ref	: ${{ github.event.pull_request.base.ref }}"  	  
     
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-without-markdown
-          path: |
-            logs
+      #- name: Archive production artifacts
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: dist-without-markdown
+      #    path: |
+      #      logs
