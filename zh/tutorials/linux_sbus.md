@@ -39,9 +39,9 @@ This section shows how to create an appropriate circuit.
 
 ### Required components
 
-* 1x NPN 晶体管（例如 NPN S9014 TO92）
-* 1x 10K 电阻
-* 1x 1K 电阻
+- 1x NPN 晶体管（例如 NPN S9014 TO92）
+- 1x 10K 电阻
+- 1x 1K 电阻
 
 :::note
 Any type/model of transistor can be used because the current drain is very low.
@@ -51,11 +51,11 @@ Any type/model of transistor can be used because the current drain is very low.
 
 Connect the components as described below (and shown in the circuit diagram):
 
-* S.Bus 信号&rarr;1K 电阻&rarr;NPN 晶体管
-* NPN晶体管发射&rarr;GND
-* 3.3VCC＆&rarr; 10K电阻&rarr; NPN晶体管集合&rarr; USB-to-TTY rxd
-* 5.0VCC&rarr;S.Bus VCC
-* GND &rarr; S.Bus GND
+- S.Bus 信号&rarr;1K 电阻&rarr;NPN 晶体管
+- NPN晶体管发射&rarr;GND
+- 3.3VCC＆&rarr; 10K电阻&rarr; NPN晶体管集合&rarr; USB-to-TTY rxd
+- 5.0VCC&rarr;S.Bus VCC
+- GND &rarr; S.Bus GND
 
 ![Signal inverter circuit diagram](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
 

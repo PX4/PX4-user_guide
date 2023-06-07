@@ -39,9 +39,9 @@ S.Bus는 *반전된* UART 통신 신호입니다.
 
 ### 필수 부품
 
-* 1x NPN 트랜지스터 (예: NPN S9014 TO92)
-* 1x 10K 저항
-* 1x 1K 저항
+- 1x NPN 트랜지스터 (예: NPN S9014 TO92)
+- 1x 10K 저항
+- 1x 1K 저항
 
 :::note
 전류 드레인이 매우 낮으므로, 모든 유형/모델의 트랜지스터를 사용할 수 있습니다.
@@ -51,11 +51,11 @@ S.Bus는 *반전된* UART 통신 신호입니다.
 
 아래에 설명(그리고 회로 구성도)하는 바와 같이 회로 소자를 연결하십시오:
 
-* S.Bus 신호선 &rarr; 1K 저항 &rarr; NPN 트랜지스터 베이스
-* NPN 트랜지스터 방출 &rarr; GND
-* 3.3VCC &rarr; 10K 저항 &rarr; NPN 트랜지스터 컬렉션 &rarr; USB-to-TTY rxd
-* 5.0VCC &rarr; S.Bus VCC
-* GND &rarr; S.Bus GND
+- S.Bus 신호선 &rarr; 1K 저항 &rarr; NPN 트랜지스터 베이스
+- NPN 트랜지스터 방출 &rarr; GND
+- 3.3VCC &rarr; 10K 저항 &rarr; NPN 트랜지스터 컬렉션 &rarr; USB-to-TTY rxd
+- 5.0VCC &rarr; S.Bus VCC
+- GND &rarr; S.Bus GND
 
 ![신호 인버터 회로도](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
 
