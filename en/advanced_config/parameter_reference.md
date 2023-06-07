@@ -32095,6 +32095,462 @@ table {
  <td>Disabled (0)</td>
  <td></td>
 </tr>
+<tr>
+ <td><strong id="TC_M0_ID">TC_M0_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_TMAX">TC_M0_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_TMIN">TC_M0_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_TREF">TC_M0_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X0_0">TC_M0_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X0_1">TC_M0_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X0_2">TC_M0_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X1_0">TC_M0_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X1_1">TC_M0_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X1_2">TC_M0_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X2_0">TC_M0_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X2_1">TC_M0_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X2_2">TC_M0_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X3_0">TC_M0_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X3_1">TC_M0_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M0_X3_2">TC_M0_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_ID">TC_M1_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_TMAX">TC_M1_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_TMIN">TC_M1_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_TREF">TC_M1_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X0_0">TC_M1_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X0_1">TC_M1_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X0_2">TC_M1_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X1_0">TC_M1_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X1_1">TC_M1_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X1_2">TC_M1_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X2_0">TC_M1_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X2_1">TC_M1_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X2_2">TC_M1_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X3_0">TC_M1_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X3_1">TC_M1_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M1_X3_2">TC_M1_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_ID">TC_M2_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_TMAX">TC_M2_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_TMIN">TC_M2_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_TREF">TC_M2_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X0_0">TC_M2_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X0_1">TC_M2_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X0_2">TC_M2_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X1_0">TC_M2_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X1_1">TC_M2_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X1_2">TC_M2_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X2_0">TC_M2_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X2_1">TC_M2_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X2_2">TC_M2_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X3_0">TC_M2_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X3_1">TC_M2_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M2_X3_2">TC_M2_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_ID">TC_M3_ID</strong> (INT32)</td>
+ <td>ID of Magnetometer that the calibration is for    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_TMAX">TC_M3_TMAX</strong> (FLOAT)</td>
+ <td>Magnetometer calibration maximum temperature    </td>
+ <td></td>
+ <td>100.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_TMIN">TC_M3_TMIN</strong> (FLOAT)</td>
+ <td>Magnetometer calibration minimum temperature    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_TREF">TC_M3_TREF</strong> (FLOAT)</td>
+ <td>Magnetometer calibration reference temperature    </td>
+ <td></td>
+ <td>25.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X0_0">TC_M3_X0_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X0_1">TC_M3_X0_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X0_2">TC_M3_X0_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^0 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X1_0">TC_M3_X1_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X1_1">TC_M3_X1_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X1_2">TC_M3_X1_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^1 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X2_0">TC_M3_X2_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X2_1">TC_M3_X2_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X2_2">TC_M3_X2_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^2 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X3_0">TC_M3_X3_0</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - X axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X3_1">TC_M3_X3_1</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Y axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M3_X3_2">TC_M3_X3_2</strong> (FLOAT)</td>
+ <td>Magnetometer offset temperature ^3 polynomial coefficient - Z axis    </td>
+ <td></td>
+ <td>0.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="TC_M_ENABLE">TC_M_ENABLE</strong> (INT32)</td>
+ <td>Thermal compensation for magnetometer sensors    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
 </tbody></table>
 
 ## Transponder

@@ -31419,6 +31419,537 @@
       ]
     },
     {
+      "category": "System",
+      "default": 0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_ID",
+      "shortDesc": "ID of Magnetometer that the calibration is for",
+      "type": "Int32"
+    },
+    {
+      "category": "System",
+      "default": 100.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_TMAX",
+      "shortDesc": "Magnetometer calibration maximum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_TMIN",
+      "shortDesc": "Magnetometer calibration minimum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 25.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_TREF",
+      "shortDesc": "Magnetometer calibration reference temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X0_0",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X0_1",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X0_2",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X1_0",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X1_1",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X1_2",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X2_0",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X2_1",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X2_2",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X3_0",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X3_1",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M0_X3_2",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_ID",
+      "shortDesc": "ID of Magnetometer that the calibration is for",
+      "type": "Int32"
+    },
+    {
+      "category": "System",
+      "default": 100.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_TMAX",
+      "shortDesc": "Magnetometer calibration maximum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_TMIN",
+      "shortDesc": "Magnetometer calibration minimum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 25.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_TREF",
+      "shortDesc": "Magnetometer calibration reference temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X0_0",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X0_1",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X0_2",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X1_0",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X1_1",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X1_2",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X2_0",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X2_1",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X2_2",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X3_0",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X3_1",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M1_X3_2",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_ID",
+      "shortDesc": "ID of Magnetometer that the calibration is for",
+      "type": "Int32"
+    },
+    {
+      "category": "System",
+      "default": 100.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_TMAX",
+      "shortDesc": "Magnetometer calibration maximum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_TMIN",
+      "shortDesc": "Magnetometer calibration minimum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 25.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_TREF",
+      "shortDesc": "Magnetometer calibration reference temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X0_0",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X0_1",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X0_2",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X1_0",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X1_1",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X1_2",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X2_0",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X2_1",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X2_2",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X3_0",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X3_1",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M2_X3_2",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_ID",
+      "shortDesc": "ID of Magnetometer that the calibration is for",
+      "type": "Int32"
+    },
+    {
+      "category": "System",
+      "default": 100.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_TMAX",
+      "shortDesc": "Magnetometer calibration maximum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_TMIN",
+      "shortDesc": "Magnetometer calibration minimum temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 25.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_TREF",
+      "shortDesc": "Magnetometer calibration reference temperature",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X0_0",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X0_1",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X0_2",
+      "shortDesc": "Magnetometer offset temperature ^0 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X1_0",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X1_1",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X1_2",
+      "shortDesc": "Magnetometer offset temperature ^1 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X2_0",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X2_1",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X2_2",
+      "shortDesc": "Magnetometer offset temperature ^2 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X3_0",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - X axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X3_1",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Y axis",
+      "type": "Float"
+    },
+    {
+      "category": "System",
+      "default": 0.0,
+      "group": "Thermal Compensation",
+      "name": "TC_M3_X3_2",
+      "shortDesc": "Magnetometer offset temperature ^3 polynomial coefficient - Z axis",
+      "type": "Float"
+    },
+    {
+      "category": "Standard",
+      "default": 0,
+      "group": "Thermal Compensation",
+      "name": "TC_M_ENABLE",
+      "rebootRequired": true,
+      "shortDesc": "Thermal compensation for magnetometer sensors",
+      "type": "Int32",
+      "values": [
+        {
+          "description": "Disabled",
+          "value": 0
+        },
+        {
+          "description": "Enabled",
+          "value": 1
+        }
+      ]
+    },
+    {
       "category": "Standard",
       "default": 0.0,
       "group": "UUV Attitude Control",
