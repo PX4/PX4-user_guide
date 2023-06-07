@@ -46,7 +46,7 @@ jobs:
       - name: Run link checker
         id: link-check
         run: |
-          npm -g install markdown_link_checker_sc@0.0.125
+          npm -g install markdown_link_checker_sc@0.0.126
           markdown_link_checker_sc -r ${{ github.workspace }} -d en -f ./logs/prFiles.json -i assets > ./logs/errorsFilteredByPrPages.md
           mkdir -p ./pr
           cp ./logs/errorsFilteredByPrPages.md ./pr/errorsFilteredByPrPages.md
@@ -114,9 +114,9 @@ jobs:
       #    echo "github.event.pull_request.number	: ${{ github.event.pull_request.number }}"     
       #    echo "github.event.pull_request.base.ref	: ${{ github.event.pull_request.base.ref }}"  	  
     
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-without-markdown
-          path: |
-            logs
+      #- name: Archive production artifacts
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: dist-without-markdown
+      #    path: |
+      #      logs
