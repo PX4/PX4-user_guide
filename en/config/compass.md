@@ -99,7 +99,7 @@ To disable an internal compass:
 ## Debugging
 
 Raw comparison data for magnetometers (in fact, for all sensors) can be logged by setting [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
-See [Logging](/dev_log/logging.md) for more information.
+See [Logging](../dev_log/logging.md) for more information.
 
 ## Further Information
 
