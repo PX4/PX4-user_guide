@@ -192,9 +192,19 @@ A naming convention for workspace folders can make it easier to manage workspace
 
 To run the executables that you just built, you need to source `local_setup.bash`. This provides access to the "environment hooks" for the current workspace. In other words, it makes the executables that were just built available in the current terminal.
 
-In the same terminal:
+:::note
+The [ROS2 beginner tutorials](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
+:::
 
-1. Source the `local_setup.bash` (you should also source `setup.bash` if in a new terminal).
+In a new terminal:
+
+1. Navigate into the top level of your workspace directory and source the ROS 2 environment:
+
+   ```sh
+   cd ~/ws_sensor_combined/
+   source /opt/ros/foxy/setup.bash
+   ```
+1. Source the `local_setup.bash`.
 
    ```sh
    source install/local_setup.bash
