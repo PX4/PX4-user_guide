@@ -5,18 +5,19 @@ The [system logger](../modules/modules_system.md#logger) is able to log any ORB 
 The output log format is [ULog](../dev_log/ulog_file_format.md).
 
 ## Usage
+
 By default, logging is automatically started when arming, and stopped when disarming. A new log file is created for each arming session on the SD card. To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `logger off` undoes this.
 
-Use
+For a list of all supported logger commands and parameters, use:
+
 ```
 logger help
 ```
-for a list of all supported logger commands and parameters.
 
 
 ## Configuration
 
-The logging system is configured by default to collect sensible logs for use with [Flight Review](http://logs.px4.io).
+The logging system is configured by default to collect sensible logs for [flight reporting](../getting_started/flight_reporting.md) with [Flight Review](http://logs.px4.io).
 
 Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
 
@@ -26,9 +27,14 @@ Logging may further be configured using the [SD Logging](../advanced_config/para
 | [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                                       |
 | [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance.                     |
 
-:::note
-*Developers* can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](../dev_log/logging.md).
-:::
+Useful settings for specific cases:
+
+- Raw sensor data for comparison: [SDLOG_MODE=1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE=64](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
+
+### Logger module
+
+_Developers_ can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module. This allows, for example, logging of your own uORB topics.
+
 
 ### SD Card Configuration
 
@@ -43,22 +49,24 @@ The `<instance>` is optional, and if specified, defines the instance to log. If 
 The topics in this file replace all of the default logged topics.
 
 Example :
+
 ```
 sensor_accel 0 0
 sensor_accel 100 1
 sensor_gyro 200
 sensor_mag 200 1
 ```
+
 This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz, all sensor_gyro instances at 5Hz and sensor_mag 1 at 5Hz.
 
-
-
 ## Scripts
+
 There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
 
-
 ## Dropouts
+
 Logging dropouts are undesired and there are a few factors that influence the amount of dropouts:
+
 - Most SD cards we tested exhibit multiple pauses per minute. This shows itself as a several 100 ms delay during a write command. It causes a dropout if the write buffer fills up during this time. This effect depends on the SD card (see below).
 - Formatting an SD card can help to prevent dropouts.
 - Increasing the log buffer helps.
@@ -101,9 +109,11 @@ There are different clients that support ulog streaming:
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
 
 ### Diagnostics
+
 - If log streaming does not start, make sure the `logger` is running (see above), and inspect the console output while starting.
 - If it still does not work, make sure that MAVLink 2 is used. Enforce it by setting `MAV_PROTO_VER` to 2.
 - Log streaming uses a maximum of 70% of the configured MAVLink rate (`-r` parameter). If more is needed, messages are dropped. The currently used percentage can be inspected with `mavlink status` (1.8% is used in this example):
+
   ```
   instance #0:
           GCS heartbeat:  160955 us ago
@@ -120,4 +130,5 @@ There are different clients that support ulog streaming:
           MAVLink version: 2
           transport protocol: UDP (14556)
   ```
+
   Also make sure `txerr` stays at 0. If this goes up, either the NuttX sending buffer is too small, the physical link is saturated or the hardware is too slow to handle the data.
