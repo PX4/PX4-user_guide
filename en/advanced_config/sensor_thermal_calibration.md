@@ -22,13 +22,11 @@ Before starting the calibration, the board is first *cold soaked* (cooled to the
 
 :::note
 Active electric heating elements will affect the magnetometer calibration values.
-Care should be taken to ensure heating elements are either inactive or sufficiently
-far from the sensor to avoid injecting noice into the magnetometer calibration.
+Ensure that heating elements are either inactive or sufficiently far from the sensor to avoid injecting noise into the magnetometer calibration.
 :::
 
 For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. 
-The board should be placed in a ziplock/anti-static bag containing a silica packet, 
-with a power lead coming out through a sealed hole. 
+The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. 
 After the cold soak the bag can be moved to the test environment and the test continued in the same bag. 
 
 :::note
@@ -168,11 +166,13 @@ The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibrati
 
 Onboard temperature calibration is controlled by the events module and the corrections are applied within the sensors module before the sensor combined uORB topic is published. This means that if thermal compensation is being used, all of the corresponding legacy offset and scale factor parameters must be set to defaults of zero and unity before a thermal calibration is performed. If an on-board temperature calibration is performed, this will be done automatically, however if an offboard calibration is being performed it is important that the legacy `CAL*OFF` and `CAL*SCALE` parameters be reset before calibration data is logged.
 
-If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed, however instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed.
+However, instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
 
 If gyro thermal compensation has been enabled by setting the `TC_G_ENABLE` parameter to 1, then the commander controlled gyro calibration can still be performed, however it will be used to shift the compensation curve up or down by the amount required to zero the angular rate offset. It achieves this by adjusting the X0 coefficients.
 
-If mag thermal compensation has been enabled by setting the `TC_M_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed, however instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+If magnetometer thermal compensation has been enabled by setting the `TC_M_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed.
+However, instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
 
 ### Limitations
 
