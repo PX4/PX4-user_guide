@@ -16,3 +16,7 @@ _book
 
 #backup files
 *.bak
+
+#Sublime Projects
+*.sublime-project
+*.sublime-workspace

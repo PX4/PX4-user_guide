@@ -1,28 +1,32 @@
 # Thermal Calibration and Compensation
 
-PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
+PX4 contains functionality to calibrate and compensate accelerometer, gyro, magnetometer, and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
 
 This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures).
 At the end there is a description of the [implementation](#implementation).
 
 :::note
-After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
+After thermal calibration, the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
 Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
 :::
  
 :::note
-At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not yet supported.
+Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer.
 :::
 
 <span id="test_setup"></span>
 ## Test Setup/Best Practice
 
-The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature.
+The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environmental chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature.
 Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
 
+:::note
+Active electric heating elements will affect the magnetometer calibration values.
+Ensure that heating elements are either inactive or sufficiently far from the sensor to avoid injecting noise into the magnetometer calibration.
+:::
+
 For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. 
-The board should be placed in a ziplock/anti-static bag containing a silica packet, 
-with a power lead coming out through a sealed hole. 
+The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. 
 After the cold soak the bag can be moved to the test environment and the test continued in the same bag. 
 
 :::note
@@ -77,8 +81,8 @@ Offboard calibration is run on a development computer using data collected durin
 To perform an offboard calibration:
 
 1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
-1. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) parameters to defaults.
+1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), and [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) parameters to `1`.
+1. Set all [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) parameters to defaults.
 1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
 1. Cold soak the board to the minimum temperature it will be required to operate in.
@@ -99,11 +103,13 @@ To perform an offboard calibration:
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
 
-The inertial rate gyro and accelerometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
+The accelerometer, gyro, and magnetometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
+
+![Thermal calibration accel](../../assets/calibration/thermal_calibration_accel.png)
 
 ![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
 
-![Thermal calibration accel](../../assets/calibration/thermal_calibration_accel.png)
+![Thermal calibration mag](../../assets/calibration/thermal_calibration_mag.png)
 
 ![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
 
@@ -115,7 +121,7 @@ TC_[type][instance]_[cal_name]_[axis]
 ```
 
 Where:
-* `type`: is a single character indicating the type of sensor where `G` = rate gyroscope, `A` = accelerometer and `B` = barometer.
+* `type`: is a single character indicating the type of sensor where `A` = accelerometer, `G` = rate gyroscope, `M` = magnetometer, and `B` = barometer.
 * `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
 * `cal_name`: is a string identifying the calibration value. It has the following possible values:
 
@@ -129,8 +135,8 @@ Where:
 
 Examples:
 
-* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) is the `^3` coefficient for the first gyro x-axis.
 * [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) is the reference temperature for the second accelerometer.
+* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) is the `^3` coefficient for the first gyro x-axis.
 
 ### Calibration Parameter Usage
 
@@ -152,7 +158,7 @@ corrected_measurement = (raw_measurement - offset) * scale_factor
 
 If the temperature is above the test range set by the `*_TMIN` and `*_TMAX` parameters, then the measured temperature will be clipped to remain within the limits.
 
-Correction of the accelerometer, barometers or rate gyroscope data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) or [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to 1 respectively.
+Correction of the accelerometer, gyroscope, magnetometer, or barometer data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE), or [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) parameters to 1 respectively.
 
 ### Compatibility with legacy `CAL_*` parameters and commander controlled calibration
 
@@ -160,9 +166,13 @@ The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibrati
 
 Onboard temperature calibration is controlled by the events module and the corrections are applied within the sensors module before the sensor combined uORB topic is published. This means that if thermal compensation is being used, all of the corresponding legacy offset and scale factor parameters must be set to defaults of zero and unity before a thermal calibration is performed. If an on-board temperature calibration is performed, this will be done automatically, however if an offboard calibration is being performed it is important that the legacy `CAL*OFF` and `CAL*SCALE` parameters be reset before calibration data is logged.
 
+If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed.
+However, instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+
 If gyro thermal compensation has been enabled by setting the `TC_G_ENABLE` parameter to 1, then the commander controlled gyro calibration can still be performed, however it will be used to shift the compensation curve up or down by the amount required to zero the angular rate offset. It achieves this by adjusting the X0 coefficients.
 
-If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed, however instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+If magnetometer thermal compensation has been enabled by setting the `TC_M_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed.
+However, instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
 
 ### Limitations
 
