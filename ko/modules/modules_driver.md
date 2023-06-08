@@ -36,6 +36,16 @@ adc <command> [arguments...]
 ## ads1115
 소스: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
 
+
+### 설명
+
+Driver to enable an external [ADS1115](https://www.adafruit.com/product/1085) ADC connected via I2C.
+
+The driver is included by default in firmware for boards that do not have an internal analog to digital converter, such as [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) or [CUAV Nora](../flight_controller/cuav_nora.md) (search for `CONFIG_DRIVERS_ADC_ADS1115` in board configuration files).
+
+It is enabled/disabled using the [ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN) parameter, and is disabled by default. If enabled, internal ADCs are not used.
+
+
 <a id="ads1115_usage"></a>
 
 ### 사용법
@@ -423,7 +433,7 @@ gimbal <command> [arguments...]
 Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
 
-### 설명
+### Description
 GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
 The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
@@ -500,7 +510,7 @@ gz_bridge <command> [arguments...]
 Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
 
 
-### Description
+### 예
 Driver for the INA220 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -539,7 +549,7 @@ ina220 <command> [arguments...]
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
 
 
-### 예
+### 설명
 Driver for the INA226 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -613,7 +623,7 @@ ina228 <command> [arguments...]
 Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina238)
 
 
-### 설명
+### Description
 Driver for the INA238 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -650,14 +660,14 @@ ina238 <command> [arguments...]
 Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
 
 
-### Description
+### 설명
 IridiumSBD driver.
 
 Creates a virtual serial port that another module can use for communication (e.g. mavlink).
 
 <a id="iridiumsbd_usage"></a>
 
-### 사용법
+### Usage
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -678,7 +688,7 @@ Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/dr
 
 <a id="irlock_usage"></a>
 
-### Usage
+### 사용법
 ```
 irlock <command> [arguments...]
  Commands:
@@ -700,7 +710,7 @@ irlock <command> [arguments...]
 Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
-### 설명
+### Description
 Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
@@ -744,7 +754,7 @@ lsm303agr <command> [arguments...]
 Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
 
 
-### Description
+### 설명
 This module is responsible for...
 
 ### Implementation
@@ -843,7 +853,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### 사용법
+### Usage
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -881,7 +891,7 @@ Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paw3902_usage"></a>
 
-### Usage
+### 사용법
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -923,7 +933,7 @@ The number X can be acquired by executing `pca9685_pwm_out status` when this dri
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### 사용법
+### Usage
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -944,7 +954,7 @@ Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="pmw3901_usage"></a>
 
-### Usage
+### 사용법
 ```
 pmw3901 <command> [arguments...]
  Commands:
