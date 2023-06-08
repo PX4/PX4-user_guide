@@ -36,6 +36,16 @@ adc <command> [arguments...]
 ## ads1115
 Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/ads1115)
 
+
+### 描述
+
+Driver to enable an external [ADS1115](https://www.adafruit.com/product/1085) ADC connected via I2C.
+
+The driver is included by default in firmware for boards that do not have an internal analog to digital converter, such as [PilotPi](../flight_controller/raspberry_pi_pilotpi.md) or [CUAV Nora](../flight_controller/cuav_nora.md) (search for `CONFIG_DRIVERS_ADC_ADS1115` in board configuration files).
+
+It is enabled/disabled using the [ADC_ADS1115_EN](../advanced_config/parameter_reference.md#ADC_ADS1115_EN) parameter, and is disabled by default. If enabled, internal ADCs are not used.
+
+
 <a id="ads1115_usage"></a>
 
 ### 用法
@@ -89,7 +99,7 @@ atxxxx <command> [arguments...]
 Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/smart_battery/batmon)
 
 
-### 描述
+### 用法
 用于智能电池的BQ40Z50电量统计芯片
 ### 示例
 To start at address 0x0B, on bus 4
@@ -200,7 +210,7 @@ bst <command> [arguments...]
 Source: [drivers/rc/crsf_rc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/rc/crsf_rc)
 
 
-### 用法
+### 描述
 This module parses the CRSF RC uplink protocol and generates CRSF downlink telemetry data
 
 
@@ -257,7 +267,7 @@ dshot <command> [arguments...]
 Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_gps)
 
 
-### 描述
+### 示例
 
 
 <a id="fake_gps_usage"></a>
@@ -276,7 +286,7 @@ fake_gps <command> [arguments...]
 Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/examples/fake_imu)
 
 
-### 示例
+### 描述
 
 
 <a id="fake_imu_usage"></a>
@@ -351,7 +361,7 @@ gimbal <command> [arguments...]
 Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gps)
 
 
-### 描述
+### Description
 GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
 The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
@@ -428,7 +438,7 @@ gz_bridge <command> [arguments...]
 Source: [drivers/power_monitor/ina220](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina220)
 
 
-### Description
+### 实现
 Driver for the INA220 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -467,7 +477,7 @@ ina220 <command> [arguments...]
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina226)
 
 
-### 实现
+### 描述
 Driver for the INA226 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -541,7 +551,7 @@ ina228 <command> [arguments...]
 Source: [drivers/power_monitor/ina238](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/power_monitor/ina238)
 
 
-### 描述
+### Description
 Driver for the INA238 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
@@ -578,14 +588,14 @@ ina238 <command> [arguments...]
 Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/telemetry/iridiumsbd)
 
 
-### Description
+### 描述
 IridiumSBD driver.
 
 Creates a virtual serial port that another module can use for communication (e.g. mavlink).
 
 <a id="iridiumsbd_usage"></a>
 
-### 描述
+### Usage
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -606,7 +616,7 @@ Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/main/src/driv
 
 <a id="irlock_usage"></a>
 
-### Usage
+### 描述
 ```
 irlock <command> [arguments...]
  Commands:
@@ -628,7 +638,7 @@ irlock <command> [arguments...]
 Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/linux_pwm_out)
 
 
-### 描述
+### Description
 Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
@@ -672,7 +682,7 @@ lsm303agr <command> [arguments...]
 Source: [drivers/actuators/modal_io](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/actuators/modal_io)
 
 
-### Description
+### 描述
 This module is responsible for...
 
 ### Implementation
@@ -771,7 +781,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### 描述
+### Usage
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -809,7 +819,7 @@ Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paw3902_usage"></a>
 
-### Usage
+### 描述
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -851,7 +861,7 @@ The number X can be acquired by executing `pca9685_pwm_out status` when this dri
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### 描述
+### Usage
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -872,7 +882,7 @@ Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="pmw3901_usage"></a>
 
-### Usage
+### 描述
 ```
 pmw3901 <command> [arguments...]
  Commands:
