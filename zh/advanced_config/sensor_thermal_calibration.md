@@ -1,23 +1,28 @@
 # 热校准和补偿
 
-px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功能, 以纠正传感器温度对传感器偏差的影响。
+PX4 contains functionality to calibrate and compensate accelerometer, gyro, magnetometer, and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
 
 本主题详细介绍了 [测试环境](#test_setup) 和 [校准过程](#calibration_procedures)。 最后是 [实施过程](#implementation) 的描述。
 
 :::note
-经过热校准后，热校准参数(`TC_*`)用于各传感器 *所有* 的校准/补偿。 因此，随后的任何标准校准都会更新 `TC_*` 参数，而不是"普通"的  `SYS_CAL_*` 校准参数(在某些情况下这些参数可能会被重置)。
+After thermal calibration, the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors. 因此，随后的任何标准校准都会更新 `TC_*` 参数，而不是"普通"的  `SYS_CAL_*` 校准参数(在某些情况下这些参数可能会被重置)。
 :::
 
 :::note
-在编写该指南时(PX4 v1.11)，磁力计的热校准尚未被支持。
+Releases up to PX4 v1.14, do not support thermal calibration of the magnetometer.
 :::
 
 <span id="test_setup"></span>
 ## 测试设置/最佳实践
 
-下面描述的 [校准程序](#calibration_procedures) 是在理想的 *环境房间*（温度和湿度受控的环境）中进行的，电路板被从最低温度加热到最高的运行/校准温度。 在开始校准之前，首先将电路板 *冷却*（冷却至最低温度并使其达到平衡）。
+The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environmental chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. 在开始校准之前，首先将电路板 *冷却*（冷却至最低温度并使其达到平衡）。
 
-对于冷却，您可以使用普通的家用冰箱达到 -20C，商用冰箱可以达到 -40C 的量级。 电路板应放在带有硅胶干燥剂包的拉链/防静电袋中，电源线通过密封孔引出。 冷却后，可将袋子移至测试环境，并在同一袋中继续测试。
+:::note
+Active electric heating elements will affect the magnetometer calibration values.
+Ensure that heating elements are either inactive or sufficiently far from the sensor to avoid injecting noise into the magnetometer calibration.
+:::
+
+对于冷却，您可以使用普通的家用冰箱达到 -20C，商用冰箱可以达到 -40C 的量级。 The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. 冷却后，可将袋子移至测试环境，并在同一袋中继续测试。
 
 :::note
 防静电袋和硅胶干燥剂是为了防止水蒸气在电路板上冷凝。
@@ -67,8 +72,8 @@ Offboard calibration is run on a development computer using data collected durin
 To perform an offboard calibration:
 
 1. 确保在校准前设置机架类型，否则在设置飞控板时校准参数将丢失。
-1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
-1. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) parameters to defaults.
+1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), and [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE) parameters to `1`.
+1. Set all [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID), [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID), [CAL_MAG*](../advanced_config/parameter_reference.md#CAL_MAG0_ID), and [CAL_BARO*](../advanced_config/parameter_reference.md#CAL_BARO0_ID) parameters to defaults.
 1. 将 [ SDLOG_MODE ](../advanced_config/parameter_reference.md#SDLOG_MODE) 参数设置为 2 以从系统启动时就开始记录日志。
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
 1. 将电路板冷却到操作所需的最低温度。
@@ -89,11 +94,13 @@ To perform an offboard calibration:
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
 
-The inertial rate gyro and accelerometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
+The accelerometer, gyro, and magnetometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
+
+![Thermal calibration accel](../../assets/calibration/thermal_calibration_accel.png)
 
 ![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
 
-![Thermal calibration accel](../../assets/calibration/thermal_calibration_accel.png)
+![Thermal calibration mag](../../assets/calibration/thermal_calibration_mag.png)
 
 ![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
 
@@ -105,7 +112,7 @@ TC_[type][instance]_[cal_name]_[axis]
 ```
 
 Where:
-* `type`：表示 `G`=速率陀螺仪、`A`=加速度计和 `B`=气压计的传感器类型。
+* `type`: is a single character indicating the type of sensor where `A` = accelerometer, `G` = rate gyroscope, `M` = magnetometer, and `B` = barometer.
 * `instance`：是一个整数 0、1或2 ，允许至多校准三个相同 `type` 的传感器。
 * `cal_name`：是标识校准值的字符串。 它具有可能的值如下：
 
@@ -119,8 +126,8 @@ Where:
 
 Examples:
 
-* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) 是第一个陀螺 x 轴的 `^3` 系数。
 * [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) 是第二个加速度计的参考温度。
+* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) 是第一个陀螺 x 轴的 `^3` 系数。
 
 ### 校准参数使用
 
@@ -141,7 +148,7 @@ corrected_measurement = (raw_measurement - offset) * scale_factor
 
 If the temperature is above the test range set by the `*_TMIN` and `*_TMAX` parameters, then the measured temperature will be clipped to remain within the limits.
 
-Correction of the accelerometer, barometers or rate gyroscope data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) or [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to 1 respectively.
+Correction of the accelerometer, gyroscope, magnetometer, or barometer data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE), [TC_M_ENABLE](../advanced_config/parameter_reference.md#TC_M_ENABLE), or [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) parameters to 1 respectively.
 
 ### 与遗留 `CAL*` 参数和 commander 控制校准的兼容性
 
@@ -149,9 +156,11 @@ The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibrati
 
 Onboard temperature calibration is controlled by the events module and the corrections are applied within the sensors module before the sensor combined uORB topic is published. This means that if thermal compensation is being used, all of the corresponding legacy offset and scale factor parameters must be set to defaults of zero and unity before a thermal calibration is performed. If an on-board temperature calibration is performed, this will be done automatically, however if an offboard calibration is being performed it is important that the legacy `CAL*OFF` and `CAL*SCALE` parameters be reset before calibration data is logged.
 
+If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed. However, instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+
 If gyro thermal compensation has been enabled by setting the `TC_G_ENABLE` parameter to 1, then the commander controlled gyro calibration can still be performed, however it will be used to shift the compensation curve up or down by the amount required to zero the angular rate offset. It achieves this by adjusting the X0 coefficients.
 
-If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed, however instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+If magnetometer thermal compensation has been enabled by setting the `TC_M_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed. However, instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
 
 ### 局限
 
