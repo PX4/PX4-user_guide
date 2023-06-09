@@ -7617,7 +7617,7 @@
       "longDesc": "Sets the number of standard deviations used by the innovation consistency test.",
       "min": 1.0,
       "name": "EKF2_HDG_GATE",
-      "shortDesc": "Gate size for magnetic heading fusion",
+      "shortDesc": "Gate size for heading fusion",
       "type": "Float",
       "units": "SD"
     },
