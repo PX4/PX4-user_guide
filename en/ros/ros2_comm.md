@@ -165,7 +165,7 @@ To start the simulator (and client):
    ```
    
 4. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
-5. Start a PX4 [Gazebo](../sim_gazebo_gz/Readme.md) simulation using:
+5. Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
 
    ```sh
    make px4_sitl gz_x500
