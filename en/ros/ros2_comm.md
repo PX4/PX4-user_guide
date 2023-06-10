@@ -45,10 +45,10 @@ This repo is no longer needed, but does contain useful examples.
 
 The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22.04 (at time of writing), which means that you should use ROS 2 "Foxy" or ROS 2 "Humble".
 
-To setup ROS 2 for use with PX4 you will need to:
+To setup ROS 2 Humble for use with PX4 you will need to:
 
 - [Install PX4](#install-px4) (to use the PX4 simulator)
-- [Install ROS 2](#install-ros-2)
+- [Install ROS 2 Humble](#install-ros-2-humble)
 - [Setup Micro XRCE-DDS Agent & Client](#setup-micro-xrce-dds-agent-client)
 - [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
 
@@ -65,21 +65,52 @@ You only need to install PX4 if you need the simulator (as we do in this guide),
 
 Set up a PX4 development environment on Ubuntu in the normal way:
 
-1. [Setup the development environment for Ubuntu](../dev_setup/dev_env_linux_ubuntu.md)
-1. [Download PX4 source](../dev_setup/building_px4.md)
+```sh
+cd
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+cd PX4-Autopilot/
+make px4_sitl gz_x500
+```
 
+### [Install QGroundControl (optional but recommended)](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html)
+```sh
+cd
+sudo usermod -a -G dialout $USER
+sudo apt-get remove modemmanager -y
+sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
+sudo apt install libqt5gui5 -y
+sudo apt install libfuse2 -y
+sudo apt install wget -y
+wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage -P ~/QGroundControl.AppImage
+chmod +x ./QGroundControl.AppImage
+```
 
-### Install ROS 2
+### Install ROS 2 Humble
 
-To install ROS 2 and its dependencies:
+To install ROS 2 Humble and its dependencies:
 
-1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
-   - You can install _either_ the desktop (`ros-foxy-desktop`) or bare-bones (`ros-foxy-ros-base`) version
-   - You should additionally install the development tools (`ros-dev-tools`)
+1. Install ROS 2 Humble
+   ```sh
+   cd
+   sudo apt update && sudo apt install locales
+   sudo locale-gen en_US en_US.UTF-8
+   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+   export LANG=en_US.UTF-8
+   sudo apt install software-properties-common
+   sudo add-apt-repository universe
+   sudo apt update && sudo apt install curl -y
+   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+   sudo apt update && sudo apt upgrade -y
+   sudo apt install ros-humble-desktop
+   sudo apt install ros-dev-tools
+   source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
+   ```
 1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
 
    ```sh
-   pip3 install --user -U empy pyros-genmsg setuptools
+   pip install --user -U empy pyros-genmsg setuptools
    ```
 
 ### Setup Micro XRCE-DDS Agent & Client
@@ -126,11 +157,18 @@ The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP p
 
 To start the simulator (and client):
 
-1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
-1. Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+1. Open a new terminal in the folder where QGC is downloded (only if you are using QGC).
+2. Start the QGroundControl
 
    ```sh
-   make px4_sitl gazebo-classic
+   ./QGroundControl.AppImage 
+   ```
+   
+4. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
+5. Start a PX4 [Gazebo](../sim_gazebo_gz/Readme.md) simulation using:
+
+   ```sh
+   make px4_sitl gz_x500
    ```
    
 The agent and client are now running they should connect.
