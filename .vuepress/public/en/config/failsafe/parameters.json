@@ -29707,8 +29707,12 @@
           "value": 0
         },
         {
-          "description": "Enabled",
+          "description": "All sensors",
           "value": 1
+        },
+        {
+          "description": "All sensors except mag",
+          "value": 2
         }
       ]
     },
