@@ -245,3 +245,10 @@ To set up ROS 2:
    accelerometer_m_s2[2]: -9.77914
    accelerometer_integral_dt: 4997
    ```
+
+## See Also
+
+- [Get The Pixhawk Raspberry Pi CM4 Baseboard By Holybro Talking With PX4](https://px4.io/get-the-pixhawk-raspberry-pi-cm4-baseboard-by-holybro-talking-with-px4/) (px4.io blog):  
+  - Tutorial showing how to connect Pixhawk 6X + Raspberry Pi on CM4 baseboard via wired Ethernet.
+  - Blog dupliciates a lot of material from this topic.
+  
