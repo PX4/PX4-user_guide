@@ -81,6 +81,8 @@ cd PX4-Autopilot/
 make px4_sitl
 ```
 
+For more information and troubleshooting see: [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) and [Download PX4 source](../dev_setup/building_px4.md).
+
 ### Install ROS 2
 
 To install ROS 2 and its dependencies:
