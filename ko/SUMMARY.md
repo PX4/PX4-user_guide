@@ -681,5 +681,6 @@
   * [용어/표기법](contribute/notation.md)
   * [라이센스](contribute/licenses.md)
 * [출시](releases/README.md)
+  * [1.14](releases/1.14.md)
   * [1.13](releases/1.13.md)
   * [1.12](releases/1.12.md)
