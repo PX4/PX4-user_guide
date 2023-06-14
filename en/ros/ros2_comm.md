@@ -89,10 +89,12 @@ To install ROS 2 and its dependencies:
 
 1. Install ROS 2.
 
+   :::: tabs
+
+   ::: tab humble
    To install ROS 2 "Humble" on Ubuntu 22.04:
 
    ```sh
-   cd
    sudo apt update && sudo apt install locales
    sudo locale-gen en_US en_US.UTF-8
    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
@@ -107,22 +109,29 @@ To install ROS 2 and its dependencies:
    sudo apt install ros-dev-tools
    source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
    ```
-   
-   :::note
-   The instructions above are reproduced from [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
+
+   The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
    You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), *and* the development tools (`ros-dev-tools`).
    :::
-   
+ 
+ 
+   ::: tab foxy
    To install ROS 2 "Foxy" on Ubuntu 20.04:
    
-   -  See [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/).
-     The process is vertually the same as for Humble, but with different file names.
+   -  Follow the official installation guide: [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/).
+
+   You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), *and* the development tools (`ros-dev-tools`).
+   :::
+ 
+   ::::
 
 1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
 
    ```sh
    pip install --user -U empy pyros-genmsg setuptools
    ```
+
+
 
 ### Setup Micro XRCE-DDS Agent & Client
 
@@ -237,17 +246,28 @@ To create and build the workspace:
 
 1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
 
+   :::: tabs
+
+   ::: tab humble
    ```sh
    cd ..
    source /opt/ros/humble/setup.bash
    colcon build
    ```
-
-   This builds all the folders under `/src` using the "humble" toolchain.
-   
-   note:::
-   If you are using ROS 2 "Foxy", you would instead call: `source /opt/ros/foxy/setup.bash`.
    :::
+   
+   ::: tab foxy
+   ```sh
+   cd ..
+   source /opt/ros/foxy/setup.bash
+   colcon build
+   ```
+   :::
+   
+   ::::
+
+   This builds all the folders under `/src` using the sourced toolchain.
+
 
 #### Running the Example
 
@@ -263,10 +283,24 @@ In a new terminal:
 
 1. Navigate into the top level of your workspace directory and source the ROS 2 environment (in this case "Humble"):
 
+   :::: tabs
+
+   ::: tab humble
    ```sh
    cd ~/ws_sensor_combined/
    source /opt/ros/humble/setup.bash
    ```
+   :::
+   
+   ::: tab foxy
+   ```sh
+   cd ~/ws_sensor_combined/
+   source /opt/ros/foxy/setup.bash
+   ```
+   :::
+   
+   ::::
+
 1. Source the `local_setup.bash`.
 
    ```sh
@@ -697,18 +731,24 @@ If any are missing, they can be added separately:
   sudo apt install python3-colcon-common-extensions
   ```
 - The Eigen3 library used by the transforms library should be in the both the desktop and base packages.
+  It should be installed as shown:
 
-  For "Humble" it can be installed using:
-  
-  ```sh
-  sudo apt install ros-humble-eigen3-cmake-module
-  ```
-  
-  For "Foxy" it can be installed using:
-  
-  ```sh
-  sudo apt install ros-foxy-eigen3-cmake-module
-  ```
+   :::: tabs
+
+   ::: tab humble
+   ```sh
+   sudo apt install ros-humble-eigen3-cmake-module
+   ```
+   :::
+   
+   ::: tab foxy
+   ```sh
+   sudo apt install ros-foxy-eigen3-cmake-module
+   ```
+   :::
+   
+   ::::
+
 
 ## Additional information
 

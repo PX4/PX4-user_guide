@@ -65,7 +65,8 @@ module.exports = {
         {
         'ga': 'UA-33658859-3'
         }
-      ]
+      ],
+      'tabs'
   ],
   locales: {
     // The key is the path for the locale to be nested under.
