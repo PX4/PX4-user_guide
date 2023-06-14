@@ -119,13 +119,26 @@ To build the agent within ROS:
    cd ~/px4_ros_uxrce_dds_ws/src
    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
    ```
-1. Source the ROS 2 development environment, in this case "ROS 2 Foxy", and compile the workspace using `colcon`:
+1. Source the ROS 2 development environment, and compile the workspace using `colcon`:
 
+   :::: tabs
+
+   ::: tab humble
    ```sh
-   cd ..
+   source /opt/ros/humble/setup.bash
+   colcon build
+   ```
+   :::
+   
+   ::: tab foxy
+   ```sh
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
+   :::
+   
+   ::::
+
    This builds all the folders under `/src` using the sourced toolchain.
 
 
@@ -133,10 +146,25 @@ To run the micro XRCE-DDS agent in the workspace:
 
 1. Source the `local_setup.bash` to make the executables available in the terminal (also `setup.bash` if using a new terminal).
 
+   :::: tabs
+
+   ::: tab humble
+   ```sh
+   source /opt/ros/humble/setup.bash
+   source install/local_setup.bash
+   ```
+   :::
+   
+   ::: tab foxy
    ```sh
    source /opt/ros/foxy/setup.bash
    source install/local_setup.bash
    ```
+   :::
+   
+   ::::
+
+
 1. Start the agent with settings for connecting to the uXRCE-DDS client running on the simulator: 
 
    ```sh
