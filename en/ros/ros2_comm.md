@@ -43,16 +43,24 @@ This repo is no longer needed, but does contain useful examples.
 
 ## Installation & Setup
 
-The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22.04 (at time of writing), which means that you should use ROS 2 "Foxy" or ROS 2 "Humble".
+The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
 
-To setup ROS 2 Humble for use with PX4 you will need to:
+ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution.
+ROS 2 "Roxy" reached end-of-life in May 2023, but is still stable and works with PX4.
+
+:::note
+PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/README.md).
+:::
+
+To setup ROS 2 for use with PX4:
 
 - [Install PX4](#install-px4) (to use the PX4 simulator)
-- [Install ROS 2 Humble](#install-ros-2-humble)
+- [Install ROS 2](#install-ros-2)
 - [Setup Micro XRCE-DDS Agent & Client](#setup-micro-xrce-dds-agent-client)
 - [Build & Run ROS 2 Workspace](#build-ros-2-workspace)
 
 Other dependencies of the architecture that are installed automatically, such as _Fast DDS_, are not covered.
+
 
 ### Install PX4
 
@@ -73,14 +81,14 @@ cd PX4-Autopilot/
 make px4_sitl
 ```
 
-### [Install QGroundControl (optional but recommended)](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html)
-- click on above link to install QGC for your OS
+### Install ROS 2
 
-### Install ROS 2 Humble
+To install ROS 2 and its dependencies:
 
-To install ROS 2 Humble and its dependencies:
+1. Install ROS 2.
 
-1. Install ROS 2 Humble
+   To install ROS 2 "Humble" on Ubuntu 22.04:
+
    ```sh
    cd
    sudo apt update && sudo apt install locales
@@ -97,6 +105,17 @@ To install ROS 2 Humble and its dependencies:
    sudo apt install ros-dev-tools
    source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
    ```
+   
+   :::note
+   The instructions above are reproduced from [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
+   You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), *and* the development tools (`ros-dev-tools`).
+   :::
+   
+   To install ROS 2 "Foxy" on Ubuntu 20.04:
+   
+   -  See [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/).
+     The process is vertually the same as for Humble, but with different file names.
+
 1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
 
    ```sh
@@ -147,15 +166,8 @@ The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP p
 
 To start the simulator (and client):
 
-1. Open a new terminal in the folder where QGC is downloded (only if you are using QGC).
-2. Start the QGroundControl
-
-   ```sh
-   ./QGroundControl.AppImage 
-   ```
-   
-4. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
-5. Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
+1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
+1. Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
 
    ```sh
    make px4_sitl gz_x500
@@ -221,15 +233,19 @@ To create and build the workspace:
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
 
    ```sh
    cd ..
-   source /opt/ros/foxy/setup.bash
+   source /opt/ros/humble/setup.bash
    colcon build
    ```
 
-   This builds all the folders under `/src` using the "foxy" toolchain.
+   This builds all the folders under `/src` using the "humble" toolchain.
+   
+   note:::
+   If you are using ROS 2 "Foxy", you would instead call: `source /opt/ros/foxy/setup.bash`.
+   :::
 
 #### Running the Example
 
@@ -238,16 +254,16 @@ This provides access to the "environment hooks" for the current workspace.
 In other words, it makes the executables that were just built available in the current terminal.
 
 :::note
-The [ROS2 beginner tutorials](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
+The [ROS2 beginner tutorials](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
 :::
 
 In a new terminal:
 
-1. Navigate into the top level of your workspace directory and source the ROS 2 environment:
+1. Navigate into the top level of your workspace directory and source the ROS 2 environment (in this case "Humble"):
 
    ```sh
    cd ~/ws_sensor_combined/
-   source /opt/ros/foxy/setup.bash
+   source /opt/ros/humble/setup.bash
    ```
 1. Source the `local_setup.bash`.
 
@@ -308,8 +324,8 @@ subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/o
 ...
 ```
 
-This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4.
-Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not!
+This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4.
+Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not!
 Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case).
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
@@ -547,9 +563,9 @@ Therefore,
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line.
-   This technique can be used both in simulation and real vehicles.
- - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
+- One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line.
+  This technique can be used both in simulation and real vehicles.
+- A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 
 :::note
@@ -576,8 +592,9 @@ will generate topics under the namespaces:
   
 ## ros2 CLI
 
-The [ros2 CLI](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools.html) is a useful tool for working with ROS.
-You can use it, for example, to quickly check whether topics are being published, and also inspect them in detail if you have `px4_msg` in the workspace. The command also lets you launch more complex ROS systems via a launch file.
+The [ros2 CLI](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html) is a useful tool for working with ROS.
+You can use it, for example, to quickly check whether topics are being published, and also inspect them in detail if you have `px4_msg` in the workspace.
+The command also lets you launch more complex ROS systems via a launch file.
 A few possibilities are demonstrated below.
 
 ### ros2 topic list
@@ -661,7 +678,7 @@ For example, above we used `ros2 launch px4_ros_com sensor_combined_listener.lau
 
 You don't need to have a launch file, but they are very useful if you have a complex ROS 2 system that needs to start several components. 
 
-For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
 
 
@@ -678,7 +695,15 @@ If any are missing, they can be added separately:
   sudo apt install python3-colcon-common-extensions
   ```
 - The Eigen3 library used by the transforms library should be in the both the desktop and base packages.
-  It can be installed using:
+
+  For "Humble" it can be installed using:
+  
+  ```sh
+  sudo apt install ros-humble-eigen3-cmake-module
+  ```
+  
+  For "Foxy" it can be installed using:
+  
   ```sh
   sudo apt install ros-foxy-eigen3-cmake-module
   ```
