@@ -34,9 +34,14 @@ ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建�
 
 ## 安装设置
 
-The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22.04 (at time of writing), which means that you should use ROS 2 "Foxy" or ROS 2 "Humble".
+The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
 
-设置 ROS 2以使用 PX4，您将需要做如下操作：
+ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Roxy" reached end-of-life in May 2023, but is still stable and works with PX4.
+
+:::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/README.md).
+:::
+
+To setup ROS 2 for use with PX4:
 
 - [安装 PX4](#install-px4) (使用 PX4 模拟器)
 - [安装 ROS 2](#install-ros-2)
@@ -44,6 +49,7 @@ The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22
 - [构建 & 运行 ROS 2 工作空间](#build-ros-2-workspace)
 
 框架的其他依赖关系将自动安装，如 _Fast DDS_。
+
 
 ### 安装PX4
 
@@ -55,22 +61,62 @@ The supported Linux platforms for PX4 development are Ubuntu 20.04 and Ubuntu 22
 
 通过以下方式在 Ubuntu 上配置一个 PX4 开发环境：
 
-1. [设置基于 Ubuntu 的开发环境](../dev_setup/dev_env_linux_ubuntu.md)
-1. [下载 PX4 源代码](../dev_setup/building_px4.md)
+```sh
+cd
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
+cd PX4-Autopilot/
+make px4_sitl
+```
 
+For more information and troubleshooting see: [Ubuntu Development Environment](../dev_setup/dev_env_linux_ubuntu.md) and [Download PX4 source](../dev_setup/building_px4.md).
 
 ### 安装 ROS 2
 
 安装 ROS 2 及其依赖：
 
-1. [安装 ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
-   - 您可以安装 桌面(`ros-foxy-desktop`) 或bare-bones (`ros-foxy-robase`) 版本中的_任何一个_。
-   - 您应该额外安装开发工具 (`ros-dev-tools`)
+1. Install ROS 2.
+
+   :::: tabs
+
+   ::: tab humble To install ROS 2 "Humble" on Ubuntu 22.04:
+
+   ```sh
+   sudo apt update && sudo apt install locales
+   sudo locale-gen en_US en_US.UTF-8
+   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+   export LANG=en_US.UTF-8
+   sudo apt install software-properties-common
+   sudo add-apt-repository universe
+   sudo apt update && sudo apt install curl -y
+   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+   sudo apt update && sudo apt upgrade -y
+   sudo apt install ros-humble-desktop
+   sudo apt install ros-dev-tools
+   source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
+   ```
+
+   The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), *and* the development tools (`ros-dev-tools`).
+:::
+
+
+   ::: tab foxy To install ROS 2 "Foxy" on Ubuntu 20.04:
+
+   -  Follow the official installation guide: [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/).
+
+   You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), *and* the development tools (`ros-dev-tools`).
+:::
+
+   ::::
+
 1. 一些Python 依赖关系也必须安装 (使用 **`pip`** 或 **`apt`**):
 
    ```sh
-   pip3 install --user -U empy pyros-genmsg setuptools
+   pip install --user -U empy pyros-genmsg setuptools
    ```
+
+
 
 ### 安装Micro XRCE-DDS 代理(Agent)& 客户端(Client)
 
@@ -116,10 +162,10 @@ PX4 模拟器自动启动 uXRCE-DDS客户端，连接到本地主机上的 UDP 8
 启动模拟器(和客户端Client)：
 
 1. 在新的终端中切换至 **PX4 Autopilot** 仓库根目录。
-1. 通过下面的命令启动 PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) 仿真：
+1. Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
 
    ```sh
-   make px4_sitl gazebo-classic
+   make px4_sitl gz_x500
    ```
 
 代理(Agent)和客户端(Client)现在将运行并建立连接。
@@ -179,32 +225,65 @@ A naming convention for workspace folders can make it easier to manage workspace
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
 
+   :::: tabs
+
+   ::: tab humble
+   ```sh
+   cd ..
+   source /opt/ros/humble/setup.bash
+   colcon build
+   ```
+
+:::
+
+   ::: tab foxy
    ```sh
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
 
-   This builds all the folders under `/src` using the "foxy" toolchain.
+:::
+
+   ::::
+
+   This builds all the folders under `/src` using the sourced toolchain.
+
 
 #### Running the Example
 
 To run the executables that you just built, you need to source `local_setup.bash`. This provides access to the "environment hooks" for the current workspace. In other words, it makes the executables that were just built available in the current terminal.
 
 :::note
-The [ROS2 beginner tutorials](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
+The [ROS2 beginner tutorials](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html#source-the-overlay) recommend that you _open a new terminal_ for running your executables.
 :::
 
 In a new terminal:
 
-1. Navigate into the top level of your workspace directory and source the ROS 2 environment:
+1. Navigate into the top level of your workspace directory and source the ROS 2 environment (in this case "Humble"):
 
+   :::: tabs
+
+   ::: tab humble
+   ```sh
+   cd ~/ws_sensor_combined/
+   source /opt/ros/humble/setup.bash
+   ```
+
+:::
+
+   ::: tab foxy
    ```sh
    cd ~/ws_sensor_combined/
    source /opt/ros/foxy/setup.bash
    ```
+
+:::
+
+   ::::
+
 1. Source the `local_setup.bash`.
 
    ```sh
@@ -261,7 +340,7 @@ subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>("/fmu/o
 ...
 ```
 
-This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4. Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not! Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case).
+This is needed because the ROS 2 default [Quality of Service (QoS) settings](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-profiles) are different from the settings used by PX4. Not all combinations of publisher-subscriber [Qos settings are possible](https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html#qos-compatibilities), and it turns out that the default ROS 2 settings for subscribing are not! Note that ROS code does not have to set QoS settings when publishing (the PX4 settings are compatible with ROS defaults in this case).
 
 <!-- From https://github.com/PX4/PX4-user_guide/pull/2259#discussion_r1099788316 -->
 
@@ -486,8 +565,8 @@ Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/sr
 
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
 
- - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
- - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
+- One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line. This technique can be used both in simulation and real vehicles.
+- A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 
 :::note
@@ -513,7 +592,7 @@ will generate topics under the namespaces:
 
 ## ros2 CLI
 
-The [ros2 CLI](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools.html) is a useful tool for working with ROS. You can use it, for example, to quickly check whether topics are being published, and also inspect them in detail if you have `px4_msg` in the workspace. The command also lets you launch more complex ROS systems via a launch file. A few possibilities are demonstrated below.
+The [ros2 CLI](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html) is a useful tool for working with ROS. You can use it, for example, to quickly check whether topics are being published, and also inspect them in detail if you have `px4_msg` in the workspace. The command also lets you launch more complex ROS systems via a launch file. A few possibilities are demonstrated below.
 
 ### ros2 topic list
 
@@ -594,7 +673,7 @@ The `ros2 launch` command is used to start a ROS 2 launch file. For example, abo
 
 You don't need to have a launch file, but they are very useful if you have a complex ROS 2 system that needs to start several components.
 
-For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+For information about launch files see [ROS 2 Tutorials > Creating launch files](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 
 
 
@@ -609,10 +688,26 @@ If any are missing, they can be added separately:
   ```sh
   sudo apt install python3-colcon-common-extensions
   ```
-- The Eigen3 library used by the transforms library should be in the both the desktop and base packages. It can be installed using:
-  ```sh
-  sudo apt install ros-foxy-eigen3-cmake-module
-  ```
+- The Eigen3 library used by the transforms library should be in the both the desktop and base packages. It should be installed as shown:
+
+   :::: tabs
+
+   ::: tab humble
+   ```sh
+   sudo apt install ros-humble-eigen3-cmake-module
+   ```
+
+:::
+
+   ::: tab foxy
+   ```sh
+   sudo apt install ros-foxy-eigen3-cmake-module
+   ```
+
+:::
+
+   ::::
+
 
 ## Additional information
 
