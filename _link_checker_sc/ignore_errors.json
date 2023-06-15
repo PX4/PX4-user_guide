@@ -286,5 +286,96 @@
       "text": "TBS Caipiroshka"
     },
     "hideReason": "Needs to be .html on Vuepress to render inside HTML"
+  },
+  {
+    "type": "LocalImageNotFound",
+    "fileRelativeToRoot": "en\\contribute\\docs.md",
+    "link": {
+      "url": "../../assets/path_to_file/filename.jpg",
+      "text": "Image Description"
+    },
+    "hideReason": "Filename is demonstration inside code block"
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\airframes\\airframe_reference.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html",
+      "text": "HolyBro QAV250"
+    },
+    "hideReason": "Absolute link in docs generated from code."
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\contribute\\dev_call.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/contribute/dev_call.html",
+      "text": "can be found here"
+    },
+    "hideReason": "This is only displayed in old build versions, and so can be ignored."
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\contribute\\README.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/contribute/",
+      "text": "can be found here"
+    },
+    "hideReason": "This is only displayed in old build versions, and so can be ignored."
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\contribute\\support.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/contribute/support.html",
+      "text": "can be found here"
+    },
+    "hideReason": "This is only displayed in old build versions, and so can be ignored."
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\modules\\modules_driver.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/advanced/gimbal_control.html",
+      "text": "gimbal_control"
+    },
+    "hideReason": "Absolute link in docs generated from code."
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\modules\\modules_estimator.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf.html",
+      "text": "ECL/EKF Overview & Tuning"
+    },
+    "hideReason": "Absolute link in docs generated from code."
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\modules\\modules_system.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/debug/system_wide_replay.html",
+      "text": "System-wide Replay"
+    },
+    "hideReason": "Absolute link in docs generated from code."
+  },
+  {
+    "type": "UrlToLocalSite",
+    "fileRelativeToRoot": "en\\test_and_ci\\test_flights.md",
+    "link": {
+      "url": "https://docs.px4.io/main/en/test_and_ci/test_flights.html",
+      "text": "can be found here"
+    },
+    "hideReason": "This is only displayed in old build versions, and so can be ignored."
+  },
+  {
+    "type": "PageNotInTOC",
+    "fileRelativeToRoot": "en\\middleware\\micrortps.md",
+    "hideReason": "This is deliberately omitted"
+  },
+  {
+    "type": "PageNotLinkedInternally",
+    "fileRelativeToRoot": "en\\middleware\\micrortps.md",
+    "hideReason": "This is deliberately omitted"
   }
 ]
