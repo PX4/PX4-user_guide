@@ -45,13 +45,29 @@ To build and run the example:
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. Source the ROS 2 development environment ("foxy") into the current terminal and compile the workspace using `colcon`:
+1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
 
+   :::: tabs
+
+   ::: tab humble
+   ```sh
+   cd ..
+   source /opt/ros/humble/setup.bash
+   colcon build
+   ```
+
+:::
+
+   ::: tab foxy
    ```sh
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
+
+:::
+
+   ::::
 
 1. Source the `local_setup.bash`:
 

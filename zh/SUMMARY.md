@@ -681,5 +681,6 @@
   * [术语/符号](contribute/notation.md)
   * [许可证](contribute/licenses.md)
 * [版本发布](releases/README.md)
+  * [1.14](releases/1.14.md)
   * [1.13](releases/1.13.md)
   * [1.12](releases/1.12.md)

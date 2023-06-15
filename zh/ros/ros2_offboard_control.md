@@ -45,13 +45,29 @@
    git clone https://github.com/PX4/px4_ros_com.git
    ```
 
-1. 配置 ROS 2 开发环境 ("foxy") 到当前终端，并使用 `colcon` 编译工作区：
+1. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
 
+   :::: tabs
+
+   ::: tab humble
+   ```sh
+   cd ..
+   source /opt/ros/humble/setup.bash
+   colcon build
+   ```
+
+:::
+
+   ::: tab foxy
    ```sh
    cd ..
    source /opt/ros/foxy/setup.bash
    colcon build
    ```
+
+:::
+
+   ::::
 
 1. 执行工作空间环境配置脚本 `local_setup.bash`:
 
