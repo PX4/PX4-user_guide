@@ -2,7 +2,7 @@
 
 :::note
 uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
-If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-migration-guidelines)
+If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-to-uxrce-dds-migration-guidelines)
 :::
 
 PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics.
@@ -453,7 +453,7 @@ You can perfectly keep everything if you want.
 No more `_rtps` targets.
 With the new bridge the client side is included by default in most of the board configurations; to check if your board has it, look for `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` in the `.px4board` file of your board.
 Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
-If it is not present, or if it is set to `n`, then you have to clone the PX4 repo, modify the board configuration and manually [compile](../dev_setup/building_px4.html) the firmware.
+If it is not present, or if it is set to `n`, then you have to clone the PX4 repo, modify the board configuration and manually [compile](../dev_setup/building_px4.md) the firmware.
 As the client is implemented by a new PX4 module, you now have new parameters to start it.
 Take a look at the [client startup section](#starting-the-client) to learn how this is done.
 
