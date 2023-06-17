@@ -2,6 +2,7 @@
 
 :::note
 uXRCE-DDS replaces the [Fast-RTPS Bridge](https://docs.px4.io/v1.13/en/middleware/micrortps.html#rtps-dds-interface-px4-fast-rtps-dds-bridge) used in PX4 v1.13.
+If you were using the Fast-RTPS Bridge, please follow the [migration guidelines](#fast-rtps-migration-guidelines)
 :::
 
 PX4 uses uXRCE-DDS middleware to allow [uORB messages](../middleware/uorb.md) to be published and subscribed on a companion computer as though they were [ROS 2](../ros/ros2_comm.md) topics.
@@ -438,8 +439,57 @@ Each (`topic`,`type`) pairs defines:
 4. The message type (`VehicleOdometry`, `VehicleStatus`, `OffboardControlMode`, etc.) and the ROS 2 package (`px4_msgs`) that is expected to provide the message definition.
 
 You can arbitrarily change the configuration.
-For example, you could use different default namespaces or use a custom package to store the message definitions. 
+For example, you could use different default namespaces or use a custom package to store the message definitions.
 
+## Fast-RTPS to uXRCE-DDS Migration Guidelines
+
+If you where using [Fast-RTPS](./micrortps.md) to interface your applications to PX4, either [directly](https://docs.px4.io/v1.13/en/middleware/micrortps.html#agent-in-an-offboard-fast-dds-interface-ros-independent) or through [ROS 2](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) and you now want to move to `uXRCE-DDS`, this section will guide through it.
+Use it as an overview of the changes, you are encouraged to read the rest of the page too.
+
+First of all, you don't need anymore those dependencies that where required for Fast-RTPS.
+Therefore, you can remove everything that you installed following the [Fast DDS Installation](https://docs.px4.io/v1.13/en/dev_setup/fast-dds-installation.html) page. However, note that some of those dependencies, like Java, may be used by other applications so be careful.
+You can perfectly keep everything if you want.
+
+No more `_rtps` targets.
+With the new bridge the client side is included by default in most of the board configurations; to check if your board has it, look for `CONFIG_MODULES_UXRCE_DDS_CLIENT=y` in the `.px4board` file of your board.
+Those files are nested in [PX4-Autopilot/boards](https://github.com/PX4/PX4-Autopilot/tree/main/boards).
+If it is not present, or if it is set to `n`, then you have to clone the PX4 repo, modify the board configuration and manually [compile](../dev_setup/building_px4.html) the firmware.
+As the client is implemented by a new PX4 module, you now have new parameters to start it.
+Take a look at the [client startup section](#starting-the-client) to learn how this is done.
+
+The bridge configuration, namely the list of topics that are bridged is now managed by the [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) configuration file.
+Edit that file to have the right topics published and subscribed.
+Please refer to the [Supported uORB Messages](#supported-uorb-messages) and [DDS Topics YAML](#dds-topics-yaml) sections for further details.
+On this subject, you have two major differences from Fast-RTPS:
+- You don't have to keep the list of bridged topics synced between agent and client.
+Say goodbye to `update_px4_ros2_bridge.sh`.
+- The default topic naming convention is changed.
+With Fast-RTPS a published topic from PX4 was named `/fmu/topic-name/out`, now the default is naming is `/fmu/out/topic-name`.
+At the same time, subscribed topics were named `/fmu/topic-name/in`, now you will find them under `/fmu/in/topic-name`.
+Here you have two possibilities, either you edit [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) to revert to the old convention, or you update your applications.
+
+On the agent side, the bridge is based on [micro-xrce-dds-agent](https://micro-xrce-dds.docs.eprosima.com/en/latest/agent.html).
+You have many ways to install it on you PC / companion computer, please refer to the [dedicated section](#micro-xrce-dds-agent-installation).
+
+This covers the new agent and client configuration.
+Let's now focus on the application side.
+
+If you where not using ROS 2 alongside the agent, then you need to migrate to [eProsima Fast DDS](https://fast-dds.docs.eprosima.com/en/latest/index.html).
+
+If you where using ROS 2 between the agent and your applications you still have to compile the PX4 messages adding the [px4_msgs](https://github.com/PX4/px4_msgs) package to your workspace.
+At the same time, you can remove the [px4_ros_com](https://github.com/PX4/px4_ros_com) package as it is not needed anymore.
+Finally, in your ROS 2 nodes, you will need to:
+- Update the [QoS](#px4-ros-2-qos-settings) of your publishers and subscribers as PX4 does not use the ROS 2 default settings.
+- Change the names of your topics, unless you edited [dds_topic.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
+- Remove everything related to time synchronization! Yes, the new bridge takes care internally of agent/client time synchronization. Therefore, when setting the `timestamp` field of your messages, you can just use
+  ```cpp
+  msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
+  ```
+  in your C++ applications and
+  ```python
+  msg.timestamp = int(self.get_clock().now().nanoseconds / 1000)
+  ```
+  in your Python applications.
 
 ## Helpful Resources
 

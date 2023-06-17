@@ -7,6 +7,7 @@ This topic provides an overview of the architecture and application pipeline, an
 :::note
 The [uXRCE-DDS](../middleware/uxrce_dds.md) middleware is supported in releases from **PX4 v1.14**.
 **PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
+If you were using Fast-RTPS and you now want to move to uXRCE-DDS, follow the [migration guide](../middleware/uxrce_dds.md#fast-rtps-to-uxrce-dds-migration-guidelines).
 <!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
