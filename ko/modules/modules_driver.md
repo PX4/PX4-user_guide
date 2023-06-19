@@ -10,6 +10,37 @@
 - [Optical Flow](modules_driver_optical_flow.md)
 - [Magnetometer](modules_driver_magnetometer.md)
 
+## MCP23009
+Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+
+<a id="MCP23009_usage"></a>
+
+### 사용법
+```
+MCP23009 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 37
+     [-D <val>]  Direction
+                 default: 0
+     [-O <val>]  Output
+                 default: 0
+     [-P <val>]  Pullups
+                 default: 0
+     [-U <val>]  Update Interval [ms]
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## adc
 소스: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
@@ -410,7 +441,7 @@ gimbal test pitch -45 yaw 30
 
 <a id="gimbal_usage"></a>
 
-### 사용법
+### Usage
 ```
 gimbal <command> [arguments...]
  Commands:
@@ -491,7 +522,7 @@ Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="gz_bridge_usage"></a>
 
-### Usage
+### 설명
 ```
 gz_bridge <command> [arguments...]
  Commands:
@@ -522,7 +553,7 @@ If the INA220 module is not powered, then by default, initialization of the driv
 
 <a id="ina220_usage"></a>
 
-### 설명
+### 사용법
 ```
 ina220 <command> [arguments...]
  Commands:
@@ -598,7 +629,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 
 <a id="ina228_usage"></a>
 
-### 사용법
+### 구현
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -635,7 +666,7 @@ If the INA238 module is not powered, then by default, initialization of the driv
 
 <a id="ina238_usage"></a>
 
-### 구현
+### Usage
 ```
 ina238 <command> [arguments...]
  Commands:
@@ -667,7 +698,7 @@ Creates a virtual serial port that another module can use for communication (e.g
 
 <a id="iridiumsbd_usage"></a>
 
-### Usage
+### 사용법
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -688,7 +719,7 @@ Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/dr
 
 <a id="irlock_usage"></a>
 
-### 사용법
+### Usage
 ```
 irlock <command> [arguments...]
  Commands:
@@ -769,7 +800,7 @@ todo
 
 <a id="modal_io_usage"></a>
 
-### Usage
+### 사용법
 ```
 modal_io <command> [arguments...]
  Commands:
@@ -829,7 +860,7 @@ msp_osd
 
 <a id="msp_osd_usage"></a>
 
-### 사용법
+### Usage
 ```
 msp_osd <command> [arguments...]
  Commands:
@@ -866,7 +897,7 @@ Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paa3905_usage"></a>
 
-### Usage
+### 사용법
 ```
 paa3905 <command> [arguments...]
  Commands:
@@ -891,7 +922,7 @@ Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paw3902_usage"></a>
 
-### 사용법
+### Usage
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -933,7 +964,7 @@ The number X can be acquired by executing `pca9685_pwm_out status` when this dri
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### Usage
+### 사용법
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
