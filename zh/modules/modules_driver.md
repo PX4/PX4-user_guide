@@ -10,6 +10,37 @@
 - [Optical Flow](modules_driver_optical_flow.md)
 - [Magnetometer](modules_driver_magnetometer.md)
 
+## MCP23009
+Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+
+<a id="MCP23009_usage"></a>
+
+### 用法
+```
+MCP23009 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 37
+     [-D <val>]  Direction
+                 default: 0
+     [-O <val>]  Output
+                 default: 0
+     [-P <val>]  Pullups
+                 default: 0
+     [-U <val>]  Update Interval [ms]
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## adc
 Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
 
@@ -77,7 +108,7 @@ Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/main/src/
 
 <a id="atxxxx_usage"></a>
 
-### 用法
+### 描述
 ```
 atxxxx <command> [arguments...]
  Commands:
@@ -148,7 +179,7 @@ batt_smbus -X write_flash 19069 2 27 0
 
 <a id="batt_smbus_usage"></a>
 
-### 描述
+### 示例
 ```
 batt_smbus <command> [arguments...]
  Commands:
@@ -188,7 +219,7 @@ Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/main/s
 
 <a id="bst_usage"></a>
 
-### 示例
+### 描述
 ```
 bst <command> [arguments...]
  Commands:
@@ -252,7 +283,7 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 
 <a id="dshot_usage"></a>
 
-### 描述
+### 实现
 ```
 dshot <command> [arguments...]
  mc_att_control <command> [arguments...]
@@ -272,7 +303,7 @@ Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/main/src/e
 
 <a id="fake_gps_usage"></a>
 
-### 实现
+### 用法
 ```
 fake_gps <command> [arguments...]
  Commands:
@@ -291,7 +322,7 @@ Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/main/src/e
 
 <a id="fake_imu_usage"></a>
 
-### 用法
+### 描述
 ```
 fake_imu <command> [arguments...]
  Commands:
@@ -338,7 +369,7 @@ gimbal test pitch -45 yaw 30
 
 <a id="gimbal_usage"></a>
 
-### 描述
+### Usage
 ```
 gimbal <command> [arguments...]
  Commands:
@@ -419,7 +450,7 @@ Source: [modules/simulation/gz_bridge](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="gz_bridge_usage"></a>
 
-### Usage
+### 描述
 ```
 gz_bridge <command> [arguments...]
  Commands:
@@ -450,7 +481,7 @@ If the INA220 module is not powered, then by default, initialization of the driv
 
 <a id="ina220_usage"></a>
 
-### 描述
+### 示例
 ```
 ina220 <command> [arguments...]
  Commands:
@@ -489,7 +520,7 @@ If the INA226 module is not powered, then by default, initialization of the driv
 
 <a id="ina226_usage"></a>
 
-### 示例
+### 描述
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -526,7 +557,7 @@ If the INA228 module is not powered, then by default, initialization of the driv
 
 <a id="ina228_usage"></a>
 
-### 描述
+### 使用
 ```
 ina228 <command> [arguments...]
  Commands:
@@ -563,7 +594,7 @@ If the INA238 module is not powered, then by default, initialization of the driv
 
 <a id="ina238_usage"></a>
 
-### 使用
+### Usage
 ```
 ina238 <command> [arguments...]
  Commands:
@@ -595,7 +626,7 @@ Creates a virtual serial port that another module can use for communication (e.g
 
 <a id="iridiumsbd_usage"></a>
 
-### Usage
+### 描述
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -616,7 +647,7 @@ Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/main/src/driv
 
 <a id="irlock_usage"></a>
 
-### 描述
+### Usage
 ```
 irlock <command> [arguments...]
  Commands:
@@ -697,7 +728,7 @@ todo
 
 <a id="modal_io_usage"></a>
 
-### Usage
+### 描述
 ```
 modal_io <command> [arguments...]
  Commands:
@@ -757,7 +788,7 @@ msp_osd
 
 <a id="msp_osd_usage"></a>
 
-### 描述
+### Usage
 ```
 msp_osd <command> [arguments...]
  Commands:
@@ -794,7 +825,7 @@ Source: [drivers/optical_flow/paa3905](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paa3905_usage"></a>
 
-### Usage
+### 描述
 ```
 paa3905 <command> [arguments...]
  Commands:
@@ -819,7 +850,7 @@ Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paw3902_usage"></a>
 
-### 描述
+### Usage
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -861,7 +892,7 @@ The number X can be acquired by executing `pca9685_pwm_out status` when this dri
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### Usage
+### 描述
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:

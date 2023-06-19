@@ -135,9 +135,9 @@ gpio read H4 PULLUP
 gpio write E7 1 --force
 ```
 
-设置 device /dev/gpin1 的输出值为高
+Set the output value on device /dev/gpio1 to high
 ```
-gpio write /dev/gpin1 1
+gpio write /dev/gpio1 1
 ```
 
 
