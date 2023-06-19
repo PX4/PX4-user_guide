@@ -71,6 +71,10 @@ scale errors, in-run bias and thermal drift (if thermal compensation is enabled 
 - [GimbalManagerSetAttitude](GimbalManagerSetAttitude.md)
 - [GimbalManagerSetManualControl](GimbalManagerSetManualControl.md)
 - [GimbalManagerStatus](GimbalManagerStatus.md)
+- [GpioConfig](GpioConfig.md) — GPIO configuration
+- [GpioIn](GpioIn.md) — GPIO mask and state
+- [GpioOut](GpioOut.md) — GPIO mask and state
+- [GpioRequest](GpioRequest.md) — Request GPIO mask to be read
 - [GpsDump](GpsDump.md) — This message is used to dump the raw gps communication to the log.
 Set the parameter GPS_DUMP_COMM to 1 to use this.
 - [GpsInjectData](GpsInjectData.md)

@@ -130,9 +130,9 @@ Set the output value on Port E pin 7 to high
 gpio write E7 1 --force
 ```
 
-Set the output value on device /dev/gpin1 to high
+Set the output value on device /dev/gpio1 to high
 ```
-gpio write /dev/gpin1 1
+gpio write /dev/gpio1 1
 ```
 
 
