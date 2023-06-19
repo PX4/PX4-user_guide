@@ -10,6 +10,37 @@ Subcategories:
 - [Optical Flow](modules_driver_optical_flow.md)
 - [Magnetometer](modules_driver_magnetometer.md)
 
+## MCP23009
+Source: [drivers/gpio/mcp23009](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/gpio/mcp23009)
+
+<a id="MCP23009_usage"></a>
+
+### Usage
+```
+MCP23009 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 37
+     [-D <val>]  Direction
+                 default: 0
+     [-O <val>]  Output
+                 default: 0
+     [-P <val>]  Pullups
+                 default: 0
+     [-U <val>]  Update Interval [ms]
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## adc
 Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/adc/board_adc)
 
