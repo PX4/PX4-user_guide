@@ -90,6 +90,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 ## Pinouts and Schematics
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
+ADSB-in carrier board pinouts: [Doc](https://ardupilot.org/copter/docs/common-thecubeorange-overview.html#the-cube-connector-pin-assignments)
 
 
 ## Ports
