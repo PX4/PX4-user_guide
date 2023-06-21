@@ -36,7 +36,7 @@ In PX4v1.13 and earlier, ROS 2 was dependent on definitions in [px4_ros_com](htt
 
 The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
 
-ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Roxy" reached end-of-life in May 2023, but is still stable and works with PX4.
+ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
 
 :::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/README.md).
 :::
@@ -161,11 +161,28 @@ The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP p
 To start the simulator (and client):
 
 1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
-1. Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
 
-   ```sh
-   make px4_sitl gz_x500
-   ```
+   :::: tabs
+
+   ::: tab humble
+   - Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
+
+     ```sh
+     make px4_sitl gz_x500
+     ```
+
+:::
+
+   ::: tab foxy
+   - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+
+     ```sh
+     make px4_sitl gazebo-classic
+     ```
+
+:::
+
+   ::::
 
 The agent and client are now running they should connect.
 
