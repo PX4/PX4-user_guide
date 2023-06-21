@@ -36,7 +36,7 @@ ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建�
 
 The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
 
-ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Roxy" reached end-of-life in May 2023, but is still stable and works with PX4.
+ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
 
 :::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/README.md).
 :::
@@ -161,12 +161,29 @@ PX4 模拟器自动启动 uXRCE-DDS客户端，连接到本地主机上的 UDP 8
 
 启动模拟器(和客户端Client)：
 
-1. 在新的终端中切换至 **PX4 Autopilot** 仓库根目录。
-1. Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
+1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
 
-   ```sh
-   make px4_sitl gz_x500
-   ```
+   :::: tabs
+
+   ::: tab humble
+   - Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
+
+     ```sh
+     make px4_sitl gz_x500
+     ```
+
+:::
+
+   ::: tab foxy
+   - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+
+     ```sh
+     make px4_sitl gazebo-classic
+     ```
+
+:::
+
+   ::::
 
 代理(Agent)和客户端(Client)现在将运行并建立连接。
 
