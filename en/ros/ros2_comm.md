@@ -177,27 +177,27 @@ The PX4 simulator starts the uXRCE-DDS client automatically, connecting to UDP p
 
 To start the simulator (and client):
 
-- Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
+1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
 
-:::: tabs
+   :::: tabs
 
-::: tab humble
-- Start a PX4 [gazebo-gz](../sim_gazebo_gz/README.md) simulation using:
+   ::: tab humble
+   - Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
 
-   ```sh
-   make px4_sitl gz_x500
-   ```
-:::
+     ```sh
+     make px4_sitl gz_x500
+     ```
+   :::
 
-::: tab foxy
-- Start a PX4 [gazebo-classic](../sim_gazebo_classic/README.md) simulation using:
+   ::: tab foxy
+   - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
 
-   ```sh
-   make px4_sitl gazebo-classic
-   ```
-:::
+     ```sh
+     make px4_sitl gazebo-classic
+     ```
+   :::
 
-::::
+   ::::
 
 The agent and client are now running they should connect.
 
