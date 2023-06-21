@@ -508,9 +508,8 @@ There are many ways to install it on your PC / companion computer - for more inf
 
 If you where not using ROS 2 alongside the agent, then you need to migrate to [eProsima Fast DDS](https://fast-dds.docs.eprosima.com/en/latest/index.html).
 
-If you where using ROS 2 between the agent and your applications you still have to compile the PX4 messages adding the [px4_msgs](https://github.com/PX4/px4_msgs) package to your workspace.
-
-You can remove the [px4_ros_com](https://github.com/PX4/px4_ros_com) package as it is not needed, other than for example code.
+ROS 2 applications still need to compile alongside the PX4 messages, which you do by adding the [px4_msgs](https://github.com/PX4/px4_msgs) package to your workspace.
+You can remove the [px4_ros_com](https://github.com/PX4/px4_ros_com) package as it is no longer needed, other than for example code.
 
 In your ROS 2 nodes, you will need to:
 
