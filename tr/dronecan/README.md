@@ -88,11 +88,95 @@ To enable the DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/parame
 - `2`: DroneCAN driver enabled for sensors, DNA server enabled
 - `3`: DroneCAN driver enabled for sensors and ESCs, DNA server enabled
 
+`2` or `3` are recommended, if DNA is supported.
+
+
+### DroneCAN Sensor Subscriptions
+
+DroneCAN sensors are not enabled by default. To use a sensor you must subscribe to it using the associated sensor-specific [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan). These can be recognised from the prefix `UAVCAN_SUB_`
+
+The set of subscriptions (sensors) that you can enable is (in PX4 v1.14):
+
+- [UAVCAN_SUB_ASPD](../advanced_config/parameter_reference.md#UAVCAN_SUB_ASPD): Airspeed
+- [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO): Barometer
+- [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): Battery monitor/Power module
+- [UAVCAN_SUB_BTN](../advanced_config/parameter_reference.md#UAVCAN_SUB_BTN): Button
+- [UAVCAN_SUB_DPRES](../advanced_config/parameter_reference.md#UAVCAN_SUB_DPRES): Differential pressure
+- [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW): Optical flow
+- [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS): GPS
+- [UAVCAN_SUB_HYGRO](../advanced_config/parameter_reference.md#UAVCAN_SUB_HYGRO): Hygrometer
+- [UAVCAN_SUB_ICE](../advanced_config/parameter_reference.md#UAVCAN_SUB_ICE): Internal combustion engine (ICE).
+- [UAVCAN_SUB_IMU](../advanced_config/parameter_reference.md#UAVCAN_SUB_IMU): IMU
+- [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG): Magnetometer (compass)
+- [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG): Range finder (distance sensor).
+
+
+#### GPS
+
+DroneCAN parameters:
+
+- Enable [UAVCAN_SUB_GPS](../advanced_config/parameter_reference.md#UAVCAN_SUB_GPS) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+- Enable [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG) if the GPS module has an inbuilt compass.
+- Set [CANNODE_TERM](../advanced_config/parameter_reference.md#CANNODE_TERM) to `1` if this is that last node on the CAN bus.
+
+Other Parameters:
+
+- If the GPS is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_GPS_POS_X](../advanced_config/parameter_reference.md#EKF2_GPS_POS_X), [EKF2_GPS_POS_Y](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Y) and [EKF2_GPS_POS_Z](../advanced_config/parameter_reference.md#EKF2_GPS_POS_Z).
+- If the GPS module provides yaw information, you can enable GPS yaw fusion by setting bit 3 of [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to true.
+
+
+#### Barometer
+
+DroneCAN parameters:
+
+- Enable [UAVCAN_SUB_BARO](../advanced_config/parameter_reference.md#UAVCAN_SUB_BARO) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+
+#### Compass
+
+DroneCAN parameters:
+
+- Enable [UAVCAN_SUB_MAG](../advanced_config/parameter_reference.md#UAVCAN_SUB_MAG) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+
+#### Distance Sensor/Range Finder
+
+DroneCAN parameters:
+
+- Enable [UAVCAN_SUB_RNG](../advanced_config/parameter_reference.md#UAVCAN_SUB_RNG) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX), the minimum and maximum range of the distance sensors.
+
+Other parameters:
+
+- If the rangefinder is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y) and [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z).
+- Other `EKF2_RNG_*` parameters may be relevant, in which case they should be documented with the specific rangefinder.
+
+
+#### Optical Flow Sensor
+
+DroneCAN parameters:
+
+- Enable [UAVCAN_SUB_FLOW](../advanced_config/parameter_reference.md#UAVCAN_SUB_FLOW) (along with [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)).
+
+
+Other parameters:
+
+- Set [SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) and [SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT), the minimum and maximum height of the flow sensor.
+- Set [SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) the maximum angular flow rate of the sensor.
+- Enable optical flow fusion by setting [EKF2_OF_CTRL](../advanced_config/parameter_reference.md#EKF2_OF_CTRL).
+- To disable GPS aiding (optional), set [EKF2_GPS_CTRL](../advanced_config/parameter_reference.md#EKF2_GPS_CTRL) to `0`.
+- If the optical flow unit is not positioned at the vehicle centre of gravity you can account for the offset using [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) and [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z).
+
+
+Optical flow sensors require rangefinder data. However the rangefinder need not be part of the same module, and if not, may not be connected via DroneCAN. If the rangefinder is connected via DroneCAN (whether inbuilt or separate), you will also need to enable it as described in the [rangefinder section](#distance-sensor-range-finder) (above).
+
+
+
+### ESC & Servos
+
+[DroneCAN ESCs and servos](../dronecan/escs.md) require the [motor order and servo outputs](../config/actuators.md) to be configured.
+
 ### Further Setup
 
-Most DroneCAN sensors require no further setup, unless specifically noted in their documentation.
-
-[DroneCAN ESCs and servos](../dronecan/escs.md) require the [motor order and servo outputs](../config/actuators.md) to be configured. If any other parameters must be set, these will be covered in device-specific documentation.
+Most DroneCAN sensors require no further setup, unless specifically noted in their device-specific documentation.
 
 ## Firmware Update
 
