@@ -57,11 +57,11 @@ The connection steps are:
 
 Set the following parameters in *QGroundControl* [Vehicle Setup > Parameters](../advanced_config/parameters.md) and then restart:
 
-* `UAVCAN_ENABLE`: set to: *Sensors Automatic Config*
+* [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE): set to: *Sensors Automatic Config*
 
   ![qgc set](../../assets/hardware/power_module/cuav_can/qgc_set_en.png)
 
-* `UAVCAN_SUB_BAT`: set to: *Raw data*
+* [UAVCAN_SUB_BAT](../advanced_config/parameter_reference.md#UAVCAN_SUB_BAT): set to: *Raw data*
 
   ![QGC - Set UAVCAN_SUB_BAT parameter to raw data](../../assets/hardware/power_module/cuav_can/qgc_set_usavcan_sub_bat.png)
 
