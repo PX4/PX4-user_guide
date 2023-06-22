@@ -302,7 +302,7 @@ The _Actuator Outputs_ section is used to assign motors, control surface servos,
 
 ![Actuator Outputs - Multicopter diagram](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-Separate tabs are displayed for each output bus supported by the connected flight controller: PWM AUX (IO Board output), PWM MAIN (FMU Board output), UAVCAN.
+Separate tabs are displayed for each output bus supported by the connected flight controller: PWM MAIN (I/O Board output), PWM AUX (FMU Board output), UAVCAN.
 
 Motors and actuators (which are referred to as "[functions](#output-functions)") can be assigned to any physical output on any of the available buses.
 
