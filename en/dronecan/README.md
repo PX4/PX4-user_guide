@@ -104,7 +104,7 @@ To enable the DroneCAN driver, set the [UAVCAN_ENABLE](../advanced_config/parame
 ### DroneCAN Sensor Subscriptions
 
 DroneCAN sensors are not enabled by default.
-To use a sensor you must subscribe to it using the associated sensor-specific [UAVCAN parameter](../advanced_config/parameter_reference.html#uavcan).
+To use a sensor you must subscribe to it using the associated sensor-specific [UAVCAN parameter](../advanced_config/parameter_reference.md#uavcan).
 These can be recognised from the prefix `UAVCAN_SUB_`
 
 The set of subscriptions (sensors) that you can enable is (in PX4 v1.14):
