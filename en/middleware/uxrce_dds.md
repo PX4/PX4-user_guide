@@ -483,7 +483,7 @@ See [Supported uORB Messages](#supported-uorb-messages) and [DDS Topics YAML](#d
 
 #### Topics no longer need to be synced between client and agent.
 
-The list of bridged topics between agent and client no longer needs to be synced, so the `update_px4_ros2_bridge.sh` script is no longer needed.
+The list of bridged topics between agent and client no longer needs to be synced for ROS 2, so the `update_px4_ros2_bridge.sh` script is no longer needed.
 
 #### Default topic naming convention has changed
 
