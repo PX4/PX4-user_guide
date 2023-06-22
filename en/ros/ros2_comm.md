@@ -5,9 +5,11 @@ The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, al
 This topic provides an overview of the architecture and application pipeline, and explains how to setup and use ROS 2 with PX4.
 
 :::note
-The [uXRCE-DDS](../middleware/uxrce_dds.md) middleware is supported in releases from **PX4 v1.14**.
-**PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
-If you were using Fast-RTPS and you now want to move to uXRCE-DDS, follow the [migration guide](../middleware/uxrce_dds.md#fast-rtps-to-uxrce-dds-migration-guidelines).
+From PX4 v1.14, ROS 2 uses [uXRCE-DDS](../middleware/uxrce_dds.md) middleware, replacing the _FastRTPS_ middleware that was used in version 1.13 (v1.13 does not support uXRCE-DDS).
+
+The [migration guide](../middleware/uxrce_dds.md#fast-rtps-to-uxrce-dds-migration-guidelines) explains what you need to do in order to migrate ROS 2 apps from PX4 v1.13 to PX4 v1.14. 
+
+If you're still working on PX4 v1.13, please follow the instructions in the [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html).
 <!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
