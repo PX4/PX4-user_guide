@@ -251,7 +251,7 @@ _액추에이터 출력_ 섹션은 모터, 제어 표면 서보 및 특정 프�
 
 ![액추에이터 출력 - 멀티콥터 다이어그램](../../assets/config/actuators/qgc_actuators_mc_outputs.png)
 
-연결된 비행 컨트롤러에서 지원하는 각 출력 버스에 대해 별도의 탭이 표시됩니다. PWM AUX(IO 보드 출력), PWM MAIN(FMU 보드 출력), UAVCAN.
+Separate tabs are displayed for each output bus supported by the connected flight controller: PWM MAIN (I/O Board output), PWM AUX (FMU Board output), UAVCAN.
 
 Motors and actuators (which are referred to as "[functions](#output-functions)") can be assigned to any physical output on any of the available buses.
 
