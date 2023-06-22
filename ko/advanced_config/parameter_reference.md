@@ -13653,6 +13653,18 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_ARMABLE">COM_ARMABLE</strong> (INT32)</td>
+ <td>Flag to allow arming <p><strong>Comment:</strong> Set 0 to prevent accidental use of the vehicle e.g. for safety or maintenance reasons.</p> <strong>값:</strong><ul>
+<li><strong>0:</strong> Disallow arming</li>
+
+<li><strong>1:</strong> Allow arming</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_ARM_ARSP_EN">COM_ARM_ARSP_EN</strong> (INT32)</td>
  <td>Enable preflight check for maximal allowed airspeed when arming <p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the cruise airspeed (FW_AIRSPD_TRIM). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>값:</strong><ul>
 <li><strong>0:</strong> Disabled</li>
