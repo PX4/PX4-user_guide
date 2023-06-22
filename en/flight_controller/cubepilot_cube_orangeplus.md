@@ -6,11 +6,16 @@ Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or
 :::
 
 The [Cube Orange+](https://www.cubepilot.com/#/cube/features) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
+Cube Orange+ is similar to Cube Orange, but has a more powerful dual-core processor (STM32H757, and some different sensors parts.
 
 ![Cube Orange](../../assets/flight_controller/cube/orangeplus/cubepilot_cube_orangeplus_standard_set.jpg)
 
 The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
 For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs for the frame of the vehicle.
+
+The ADS-B carrier board includes a customized 1090MHz ADSB-In receiver from uAvionix.
+This provides attitude and location of commercial manned aircraft within the range of Cube.
+This is automatically configured and enabled in the default PX4 firmware.
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / backup.
 
