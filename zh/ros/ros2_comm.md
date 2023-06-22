@@ -5,7 +5,11 @@ ROS 2-PX4 架构在ROS 2和PX4之间进行了深度整合。 允许 ROS 2 订阅
 本指南介绍了系统架构和应用程序流程，并解释了如何与PX4一起安装和使用ROS2。
 
 :::note
-[uXRCE-DDS](../middleware/uxrce_dds.md) 中间件自 **PX4 v1.14** 开始支持。 **PX4 v1.13** does not support ROS 2 via [uXRCE-DDS](../middleware/uxrce_dds.md) middleware (see [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html) for information).
+From PX4 v1.14, ROS 2 uses [uXRCE-DDS](../middleware/uxrce_dds.md) middleware, replacing the _FastRTPS_ middleware that was used in version 1.13 (v1.13 does not support uXRCE-DDS).
+
+The [migration guide](../middleware/uxrce_dds.md#fast-rtps-to-uxrce-dds-migration-guidelines) explains what you need to do in order to migrate ROS 2 apps from PX4 v1.13 to PX4 v1.14.
+
+If you're still working on PX4 v1.13, please follow the instructions in the [PX4 v1.13 Docs](https://docs.px4.io/v1.13/en/ros/ros2_comm.html).
 <!-- remove this when there are PX4 v1.14 docs for some months -->
 :::
 
@@ -36,7 +40,7 @@ ROS 2 应用程序应该在具有 _相同的_ 消息定义的工作区中构建�
 
 The supported ROS 2 platforms for PX4 development are ROS 2 "Humble" on Ubuntu 22.04, and ROS 2 "Foxy" on Ubuntu 20.04.
 
-ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Roxy" reached end-of-life in May 2023, but is still stable and works with PX4.
+ROS 2 "Humble" is recommended because it is the current ROS 2 LTS distribution. ROS 2 "Foxy" reached end-of-life in May 2023, but is still stable and works with PX4.
 
 :::note PX4 is not as well tested on Ubuntu 22.04 as it is on Ubuntu 20.04 (at time of writing), and Ubuntu 20.04 is needed if you want to use [Gazebo Classic](../sim_gazebo_classic/README.md).
 :::
@@ -161,12 +165,29 @@ PX4 模拟器自动启动 uXRCE-DDS客户端，连接到本地主机上的 UDP 8
 
 启动模拟器(和客户端Client)：
 
-1. 在新的终端中切换至 **PX4 Autopilot** 仓库根目录。
-1. Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
+1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
 
-   ```sh
-   make px4_sitl gz_x500
-   ```
+   :::: tabs
+
+   ::: tab humble
+   - Start a PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation using:
+
+     ```sh
+     make px4_sitl gz_x500
+     ```
+
+:::
+
+   ::: tab foxy
+   - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/README.md) simulation using:
+
+     ```sh
+     make px4_sitl gazebo-classic
+     ```
+
+:::
+
+   ::::
 
 代理(Agent)和客户端(Client)现在将运行并建立连接。
 
