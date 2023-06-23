@@ -176,6 +176,14 @@ As long as the world file and the model file are in the Gazebo search path `IGN_
 However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
 
+## PX4-Gazebo time synchronization
+
+Differently from Gazebo Classic and jMAVSim simulators, PX4 and Gazebo do not implement a lockstep mechanism.
+During Gazebo simulations PX4 subscribes to the Gazebo `\clock` topic and uses it as clock source.
+This guarantees that PX4 will always wait for Gazebo before moving forward in time even if Gazebo is running with real time factors different from 1.
+Note, however, that as the lockstep is missing, Gazebo will never wait for PX4 to finish its computations.
+In the worst case scenario, PX4 can completely go offline and Gazebo will keep running, with obvious crashes of the simulated drone.
+
 ## Multi-Vehicle Simulation
 
 Multi-Vehicle simulation is supported on Linux hosts.
