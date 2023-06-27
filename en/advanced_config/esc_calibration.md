@@ -15,7 +15,8 @@ Calibration is recommended for all PWM/OneShot ESCs that support it, and in part
 
 :::note
 High-quality controllers come with a factory calibration and should all respond the same way.
-In practice the input range may differ even on high quality controllers because you cannot be sure if they were manually recalibrated before and if that was done correctly. Also once calibrated they might not respond the same way as from the factory anymore.
+In practice the input range may differ even on high quality controllers because they may be have been manually recalibrated after leaving the factory, and that might not have been done correctly. Following manual calibration they might not respond in the same way as they did after factory calibration.
+
 Using this calibration tool is recommended, as it ensures that all ESCs behave exactly the same way.
 :::
 
